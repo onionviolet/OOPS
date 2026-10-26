@@ -1,7 +1,7 @@
 # Agent instructions
 
-Read the PROJECT.md summary and the relevant source before changing this
-project.
+Read [GROUND_RULES](docs/GROUND_RULES.md) (one page, 2026-10-26), then the
+PROJECT.md summary and the relevant source before changing this project.
 
 ## Standing direction and consistency gates
 
@@ -29,7 +29,7 @@ affected active instructions, and preserve superseded wording as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
 Start every task at the [rules index](docs/RULES_INDEX.md) (2026-10-16): its
-router names the rule codes that apply to the task, and AD1–AD42 restate the
+router names the rule codes that apply to the task, and AD1–AD43 restate the
 accepted direction for aspects without their own rulebook. Cite codes in task
 records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
@@ -114,6 +114,7 @@ not an additional universal gate. Docs-only changes use relevant document/link
 checks; changes to the rules index or registered codes run `check:rules`.
 
 Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-verification-ad36).
+A runtime slice is done only at [the six-line floor](docs/RULES_INDEX.md#definition-of-done-the-floor-ad43) (AD43, 2026-10-26); otherwise record it as "implemented, below floor".
 Lean tests (2026-10-22): lanes and subagents run only their focused test file; the
 committer runs the full `npm test` once as the pre-commit gate. Organize tests by
 system, not delivery wave, and delete or merge tests that only pinned a reworked

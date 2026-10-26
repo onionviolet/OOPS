@@ -1,0 +1,18 @@
+{
+  "status": "source/focused released; below AD43, no host/UI/native proof",
+  "paths": {
+    "src/craft_experiment_log.js": "9b2641b0e3ac5c7cde75e5f2f32669b7cf7d44e7920773312c58f87ce3388b48",
+    "src/craft_reference.js": "7bf241f52c5e1d2aa104d0c6e8612b6b1a61d3ff85305fb5c49b48a8dc325ef8",
+    "tests/craft_depth_rules.test.js": "68dd31005b87d1132cc44e37321b561a71eb80dfe84c403e7fe928aeeda49a65",
+    "tests/craft_reference.test.js": "7002df24303f2eed7df4d1a235273c90470fc2e843d776f904152d5c7a0f04ea"
+  },
+  "frozenSource": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-g1-i2-source-jamaeeew",
+  "focusedCommand": "node --test tests/craft_depth_rules.test.js tests/craft_reference.test.js",
+  "focusedResult": "19/19 PASS",
+  "gaps": [
+    "host adapters",
+    "build/arch/rules at integration stages",
+    "rebuilt desktop",
+    "native Save/reload/Export/literal Import"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "slot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/slot-1",
+  "before": {
+    "lane": "G1-I2",
+    "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "phase": "reserved demonstrated-method source/focused turn",
+    "handoffFrom": "G2-I2",
+    "handoffFromThread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "at": "2026-10-26T18:18:46.877726+00:00",
+    "nextRequested": {
+      "lane": "G2-I3",
+      "thread": "01a1794c-f835-7710-a2b6-5d8fce58e7d1",
+      "reason": "I5 acknowledged queue after G1 bounded method helpers; following G2 I4 then I5"
+    },
+    "queueAfter": [
+      "G2-I4",
+      "G2-I5"
+    ]
+  },
+  "after": {
+    "lane": "G1-I2",
+    "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "phase": "acknowledged log/reference helper source-only slice",
+    "handoffFrom": "G2-I2",
+    "handoffFromThread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "at": "2026-10-26T18:18:46.877726+00:00",
+    "nextRequested": {
+      "lane": "G2-I3",
+      "thread": "01a1794c-f835-7710-a2b6-5d8fce58e7d1",
+      "reason": "I5 acknowledged queue after G1 bounded method helpers; following G2 I4 then I5"
+    },
+    "queueAfter": [
+      "G2-I4",
+      "G2-I5"
+    ],
+    "paths": [
+      "src/craft_experiment_log.js",
+      "src/craft_reference.js",
+      "tests/craft_depth_rules.test.js",
+      "tests/craft_reference.test.js"
+    ],
+    "acquiredByPid": 70905
+  }
+}

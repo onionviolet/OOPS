@@ -1,0 +1,69 @@
+{
+  "session_id": "session-c0c345eb-38ec-4ce0-b581-be9960a1f24e",
+  "steps": [
+    {
+      "type": "status",
+      "phase": "step_end",
+      "turn": 1,
+      "step": 1,
+      "usage": {
+        "inputTokens": 3543,
+        "outputTokens": 175,
+        "totalTokens": 3718
+      }
+    },
+    {
+      "type": "status",
+      "phase": "step_end",
+      "turn": 1,
+      "step": 2,
+      "usage": {
+        "inputTokens": 495,
+        "outputTokens": 106,
+        "totalTokens": 4319,
+        "cacheReadTokens": 3718
+      }
+    },
+    {
+      "type": "status",
+      "phase": "step_end",
+      "turn": 1,
+      "step": 3,
+      "usage": {
+        "inputTokens": 8473,
+        "outputTokens": 4096,
+        "totalTokens": 16888,
+        "cacheReadTokens": 4319
+      }
+    }
+  ],
+  "tools": [
+    {
+      "tool": "skill",
+      "input": {
+        "name": "local-scripts"
+      }
+    },
+    {
+      "tool": "bash",
+      "input": {
+        "description": "List files in working directory",
+        "command": "ls -la"
+      }
+    },
+    {
+      "tool": "read",
+      "input": {
+        "file_path": "/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-local-registry-pot0prjk/registry.json"
+      }
+    }
+  ],
+  "final": {
+    "type": "final",
+    "sessionId": "session-c0c345eb-38ec-4ce0-b581-be9960a1f24e",
+    "reason": {
+      "kind": "max-tokens"
+    },
+    "text": "Let me inspect the registry.json to understand its actual schema."
+  }
+}

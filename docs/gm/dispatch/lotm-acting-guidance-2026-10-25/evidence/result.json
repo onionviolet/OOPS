@@ -1,0 +1,132 @@
+{
+  "bundleSha256": "4db87189c6adf78b92c577270f3fc4dadebc23aecc74a40aea8f4c6057206205",
+  "indexSha256": "01031bd185b8f0f2febfafa3c00a51a433c2f796cb966ee859e58ef908375176",
+  "origin": "http://127.0.0.1:49601/",
+  "sourceDigest": "ab7a84a039c0c664e2967c7efcac545161c659090059a649894fe024d1d64599",
+  "persistence": [
+    {
+      "state": "pending",
+      "exportChars": 241944,
+      "exportSha256": "d1af94ecc328bdd6fbd310b765f0f38e3471140a005292a369aa7c4aa1805ec8",
+      "projectSha256": "eb8974f279945875666e8729156fd9daaa1c4dbb6c501c3154191a824ffd5b5f"
+    },
+    {
+      "state": "completed reading",
+      "exportChars": 243012,
+      "exportSha256": "56c5bbd0df89f98dc59974f8f1ac28d10a1fa89aab6c47502d5ded1496eed3f1",
+      "projectSha256": "82573cc729f21f4ed59446fbaaaf91568c96b4bc0c17dc604fd74af33dd15251"
+    }
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "pageWidth": 1920,
+      "pageHeight": 1080,
+      "panelWidth": 699,
+      "panelContentWidth": 699,
+      "font": "14px",
+      "rowFont": "14px",
+      "report": true,
+      "back": [
+        "\u2190 Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1920x1080-14px.png",
+      "sha256": "82d504e68bf3af827f2dd8f4b868886e2f17ba62a6ca14680af4307c02b08186"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "pageWidth": 1920,
+      "pageHeight": 1080,
+      "panelWidth": 693,
+      "panelContentWidth": 693,
+      "font": "21px",
+      "rowFont": "21px",
+      "report": true,
+      "back": [
+        "\u2190 Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1920x1080-21px.png",
+      "sha256": "7b6926a47549943b5742845e2e1127902f48b9a4fd0984192c447a68748c8fc0"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "pageWidth": 1536,
+      "pageHeight": 864,
+      "panelWidth": 477,
+      "panelContentWidth": 477,
+      "font": "14px",
+      "rowFont": "14px",
+      "report": true,
+      "back": [
+        "\u2190 Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1536x864-14px.png",
+      "sha256": "37e1826fd70b7ea511b04ad179caab0e089a4448043741ee0c5e3d522f2ac83b"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "pageWidth": 1536,
+      "pageHeight": 864,
+      "panelWidth": 473,
+      "panelContentWidth": 473,
+      "font": "21px",
+      "rowFont": "21px",
+      "report": true,
+      "back": [
+        "\u2190 Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1536x864-21px.png",
+      "sha256": "6a6638e43845006596daaddc0939385d1e9575e69860ca82583d154c6f36bdb4"
+    }
+  ],
+  "seer": {
+    "earned": true,
+    "inspectionNoSpend": true,
+    "focus": true,
+    "pendingCancelledCompleted": true,
+    "rememberedReturn": true,
+    "ineligible": true,
+    "settledAssessment": true,
+    "errors": []
+  },
+  "savant": {
+    "earned": true,
+    "isolated": true,
+    "completed": 1,
+    "errors": []
+  },
+  "navigation": {
+    "keyboardFind": true,
+    "escape": true,
+    "bottomBack": true,
+    "noGameplayDelta": true,
+    "errors": []
+  },
+  "inputs": {
+    "src/book_world_lotm_host.js": "61be37e77755db7162740dad6b5771575b665a84235dd678016597d4c65527b1",
+    "src/book_world_lotm_ui.js": "1d5c1eb754769818668701a6f721480fc4942884b50e0d14b0a5710be83f0d67",
+    "tests/lotm_seer_digestion.test.js": "22182f3eba58d4ce6866db660ac6cc47c13226613fabd68e957add5ce5244c82",
+    "src/book_world_lotm_path.js": "bd6765d5efe0e0e34d80e8c81a166a9b741c26459348243a9e0340c477cf0e0d",
+    "src/book_world_lotm_actions.js": "2ad796aa2de7365c1f5ae22baa5babd70743db7907ee11ce033e4ec1b774800b",
+    "src/book_world_lotm_rows.js": "9bdfb219800fdd5e3eb9dfb9061fdec630179a21b94d1d1ada8acf1e9c5378a3",
+    "src/simulation.js": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+    "tests/lotm_helpers.js": "b172ab9185a811350ae881c1b045cd6dab98edc84f6b10c41b1f9a656ca6859f"
+  },
+  "harnessSha256": "99f63e8565342a2be136dbf5b59bdaa99c4b1ae9a28f4a1e61e94047b81c554c",
+  "screenshotsInspected": [
+    "guidance-1920x1080-14px.png",
+    "guidance-1920x1080-21px.png",
+    "guidance-1536x864-14px.png",
+    "guidance-1536x864-21px.png",
+    "savant-known.png"
+  ],
+  "cleanup": "Both completed harness commands exited 0 after browser.close() and server.close(); no process inventory or unrelated process control used."
+}

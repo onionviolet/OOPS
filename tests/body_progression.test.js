@@ -140,3 +140,15 @@ test("weathered skin changes a storm gust only on the body that earned it; knowl
     assert.equal(bodyFacultyActive(p.state,COLD_HARDENED,own),true,"returning to the earning body restores it");
     assert.equal(bodyFacultyActive(begin().state,COLD_HARDENED,own),false,"untrained bodies are unaffected");
 });
+
+test('trait prose distinguishes unknown, known dormant and suppressed effects without granting a bonus',()=>{
+    const p=begin(),faculty=p.state.simulation.faculties.player[NATURAL_BALANCE];
+    assert.ok(!bio(p).heritage.some(row=>row.id===NATURAL_BALANCE),'unawakened quality stays undiscovered');
+    faculty.awakened=true;faculty.active=false;
+    let row=bio(p).heritage.find(row=>row.id===NATURAL_BALANCE);
+    assert.match(row.description,/footing/);assert.match(row.note,/dormant/);assert.equal(row.detail,'');
+    faculty.active=true;faculty.suppressed=true;
+    row=bio(p).heritage.find(row=>row.id===NATURAL_BALANCE);assert.match(row.note,/suppressed/);assert.equal(row.detail,'');
+    faculty.suppressed=false;
+    row=bio(p).heritage.find(row=>row.id===NATURAL_BALANCE);assert.equal(row.note,'');assert.match(row.detail,/Route preparation \+1/);
+});

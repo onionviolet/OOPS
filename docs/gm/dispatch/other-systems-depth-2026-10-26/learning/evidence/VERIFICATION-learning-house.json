@@ -1,0 +1,8 @@
+{
+  "input": "TEST-FIXTURE-R15-G4-control-pending.txt",
+  "hero": "TEST FIXTURE R15 G4 learning-house",
+  "warnings": [],
+  "money": 1000,
+  "clock": 718,
+  "method": "real importSaveFile + load; native character name, money, addToInventory; create_save + encodeSaveFile; fresh importSaveFile + load"
+}

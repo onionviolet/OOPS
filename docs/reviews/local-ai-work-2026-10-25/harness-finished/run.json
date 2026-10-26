@@ -1,0 +1,30 @@
+{
+  "scratch": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-harness-finished-gzhq_iqq",
+  "pid": 80234,
+  "process_group": 80234,
+  "input_sha256": "e4d217d7b20a7fae6c325b2c5d6753bdb4c584fe31fcf38a1740ca6d6f69a9a1",
+  "prompt_sha256": "a6b6f8666cce3aec13233a649435cac48b27fcb41d799cdf0f2fea9d794c7d4d",
+  "command": [
+    "/Users/weiwei/.local/bin/dsh-work",
+    "--patch",
+    "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-harness-finished-gzhq_iqq/observe-overlay.json",
+    "--json",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "-"
+  ],
+  "wall_limit_seconds": 480,
+  "max_model_steps": 6,
+  "diagnostic_control_requests": 0,
+  "relay_url": "http://127.0.0.1:53010/v1",
+  "exit_code": 0,
+  "elapsed_seconds": 111.255,
+  "steps_started": 6,
+  "stopped": null,
+  "input_unchanged": true,
+  "acceptance_checker_unchanged": true,
+  "wire_task_requests": 7,
+  "verified_off": true
+}

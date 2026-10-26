@@ -1,0 +1,23 @@
+{
+  "source_ready": true,
+  "native_floor_complete": false,
+  "hashes": {
+    "src/planar_drying_field.js": "f09430047de8ef8f1541fb5d43df894800717606f4661bb66f95b750e6615863",
+    "src/book_world_paradise_field.js": "c7bfeba75d3ccb8022f8edc39767d305be848fb4d559fabdaae9f6098cbaa879",
+    "src/drying_exposure.js": "25a36feddcf35e80ed3de7d681ce3054be0b2a9d0095d93be6f55a8888e5da19",
+    "src/book_world_paradise_drying.js": "2315ef69743c429909e981a70ae06909dc9d713dec54addeb30c3df79b02b455",
+    "src/book_world_paradise_campaign_content.js": "34ff5dfa3f3d01ff68640f085bfe6dc431a6274a2ddfb2aee3a5778ee1c94c19",
+    "src/book_world_paradise_campaign_host.js": "ff9f85f9d138f5484425eca009841d063d456eada51dcb926d56e4a7d03269f5",
+    "src/book_world_paradise_campaign_facts.js": "e8cc3878a5cdb88221c8bc4da5e69982318ace6adf0c696ee844f22bf6ac3a08",
+    "src/book_world_paradise_content.js": "51008a14d94c7b60f8f6fa4d3eb9849c74e4ddbdf99f1330e5be9d38facb837e",
+    "tests/paradise_field.test.js": "d45d0cccf16dafd5885db6596d71d99a9058e3fa336d10b0418682ef1e85eac3"
+  },
+  "contract": "SOURCE_CONTRACT.md",
+  "snapshot": "/Users/weiwei/.codex/research/weather-w6-2026-10-26/snapshot",
+  "snapshotInputs": 17696,
+  "focused": "initial22/22; final field+drying9/9, unchanged other subsets reused",
+  "golden": "48 prior commands exact,3 additive",
+  "architecture": "PASS6 grandfathered imports/205cyclic edges unchanged;main/display/save0newlines",
+  "scope": "ORIGINAL contained planar pulse\u2192retained charge\u2192paid grounding\u2192existing kit/order, attributable stale/refresh/comparison forecast",
+  "remaining": "native AD43, combined full suite/build/arch/rules, exact other PC/source-reader gaps in ledger"
+}

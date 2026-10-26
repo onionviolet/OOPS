@@ -1,0 +1,16 @@
+{
+  "original_methods_unchanged": true,
+  "added_regressions": [
+    "test_probe_non_utf8_output_stays_serializable"
+  ],
+  "applied_exact_harness_files": [
+    "scripts/toolsets.py",
+    "scripts/toolsets/tests/test_launcher.py"
+  ],
+  "input_source_hashes": {
+    "scripts/toolsets.py": "39e6eb899c1f7a59f7fd719d257d5ee43293e5e6a7c5ec594b8cd2379a4babae",
+    "scripts/toolsets/tests/test_launcher.py": "f25133163aecf9300714657eacffabc314e0b3d5d9572fd22843d0bd1cf452c3",
+    "scripts/toolsets/registry.json": "e4d217d7b20a7fae6c325b2c5d6753bdb4c584fe31fcf38a1740ca6d6f69a9a1"
+  },
+  "code_corrections_by_primary": 0
+}

@@ -1,0 +1,11 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "files": {
+    "src/crafting_frontier_runtime.js": "63384a5ef6e894cff8e7ad97febdb573e7cfaa90667d08f489fe9052e891b2d6",
+    "src/craft_failure_ledger.js": "1853f692672f6bbcf0a26c5f83a1690c748fcc8d1753c779aa4b49858d08b4bb",
+    "src/craft_ledger_domain.js": "7e3fab8c03264ec5cf46c1b26482e3b2b926faa08e23e9c25c21302988bbab22",
+    "src/crafting_home.js": "83f77fd819710edb5203cf734a7e57ecd6dfae6285882ed4ca2f6ba0751f98b6",
+    "tests/crafting_runtime.test.js": "bafc5363ccfead39fc8f4317a9398cfd218017123c4852616e656a06aad60856",
+    "tests/craft_failure_ledger.test.js": "115eff968ad83a85d14889210533af250c38e0e0a153c0fdf8b9dd1fdcd87f12"
+  }
+}

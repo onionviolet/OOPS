@@ -1,0 +1,28 @@
+{
+  "logoCommit": "d2ef02bdcc00b047919cf49ccba635bb16bea5b5",
+  "localIntegrationCommit": "a204bfa13d337a22b27fe7810a9e65b547d5243f",
+  "publishedPaths": [
+    "desktop/main.cjs",
+    "desktop/README.md",
+    "resources/img/oops-icon.png",
+    "index.html"
+  ],
+  "backupFiles": 333,
+  "backupVerified": true,
+  "normalVerified": {
+    "build": "v0.6-f7324af35659",
+    "closedBackupSaveBytesUnchanged": true,
+    "allPersistedKeysMatchBackup": true,
+    "reloadVerified": true,
+    "playVisible": true,
+    "iconFontLocal": true,
+    "bundle": "app://yairpg/dist/bundle.js?version=v0.6-31ec61169638",
+    "bundleHash": "31ec61169638fb11be00716fe742de4279d13211d2ab9780b9cac68b0f81ee96",
+    "mainSaveBytesUnchangedAfterFullInitialization": true,
+    "statMeaningPresent": true
+  },
+  "snapshotId": "v0.6-f7324af35659",
+  "frozenFilesMatch": 86,
+  "nativeFixtureProof": "evidence/electron/result.json",
+  "newChatId": "01a1766c-7081-7ee2-9aec-2e0921791dc6"
+}

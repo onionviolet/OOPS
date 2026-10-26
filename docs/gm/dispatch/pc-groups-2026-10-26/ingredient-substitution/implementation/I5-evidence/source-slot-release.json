@@ -1,0 +1,30 @@
+{
+  "lane": "G6-W1",
+  "thread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+  "phase": "acknowledged immutable build/native proof",
+  "handoff": {
+    "from_lane": "G2-I4",
+    "from_thread": "01a1794c-fe95-72d1-9119-95175159f5b8",
+    "receiver_ready": true,
+    "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/I4.md"
+  },
+  "next_queue": [
+    "G6-W2 frozen proof",
+    "G1-I4 bounded HP consumer applying slice requested",
+    "G2-I5 final combined proof requested"
+  ],
+  "preserved_unallocated_requests": [
+    {
+      "lane": "L8",
+      "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+      "status": "ready unpromised S3 request; earlier commitments take precedence"
+    },
+    {
+      "lane": "G6-W3",
+      "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+      "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+    }
+  ],
+  "handoffFrom": "G2-I5",
+  "at": "2026-10-26T18:34:36.326079+00:00"
+}

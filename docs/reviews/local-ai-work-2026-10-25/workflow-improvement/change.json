@@ -1,0 +1,8 @@
+{
+  "installed_skill": "/Users/weiwei/.dsh/skills/local-scripts/SKILL.md",
+  "source_skill": "/Users/weiwei/code/deepseek-harness/apps/cli/config/examples/local-work/skills/local-scripts/SKILL.md",
+  "private_backup": "/Users/weiwei/.dsh/backups/local-scripts-before-check-runner-1792979078.md",
+  "before_sha256": "15390ef1e94c3ed598eb670f6e87ec4608e1737b6642d46b919aaba3194e0bb8",
+  "after_sha256": "72aa65d34f942ed32a600877e7653ca1e8dd68204cc64752dd50532ec947e0e6",
+  "helper_sha256": "73d5bcb1e21c5ba5660f35faff4f2400639e2634831b897272804507345705bd"
+}

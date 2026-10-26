@@ -1,0 +1,49 @@
+{
+  "route": "named supplied-stock G7-L2 pre-assembly fixture; assessment/study/document/ink trial earned by fixture-builder commands; actual native UI methods, guided assembly and household use thereafter",
+  "buildRoot": "/Users/weiwei/.codex/research/g7-lore-2026-10-26/L2-build",
+  "initialNativeImport": true,
+  "cancellation": true,
+  "pending-guideSaveReloadExportLiteralImport": true,
+  "repeatConsumesFreshMaterialsWithoutNewMastery": true,
+  "jigRoute": "explicit synthetic restored-jig fixture; actual restoration belongs to L3",
+  "guideInkChargedOnce": true,
+  "usefulHouseholdConsumer": true,
+  "completedSaveReloadExportLiteralImport": true,
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedFont": 14,
+      "font": "14px",
+      "custom": "14px",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedFont": 21,
+      "font": "21px",
+      "custom": "21px",
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "requestedFont": 14,
+      "font": "14px",
+      "custom": "14px",
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "requestedFont": 21,
+      "font": "21px",
+      "custom": "21px",
+      "overflow": false
+    }
+  ],
+  "bundleHash": "71bb4d706f590bfc9fad60f65dbf6af713752ebb0ae2c308eeb41174c1c7c4b0",
+  "fixtureHash": "2cf438b86d06726f6cbb0f94bcd5be071d03fb19f3708530393a2dd726a728b0",
+  "errors": []
+}

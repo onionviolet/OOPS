@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: a crossing is ready only when every typed requirement is met
+ok 1 - a crossing is ready only when every typed requirement is met
+  ---
+  duration_ms: 1.574334
+  type: 'test'
+  ...
+# Subtest: unknown stages stay ??? and an owner ceiling blocks a ready crossing
+ok 2 - unknown stages stay ??? and an owner ceiling blocks a ready crossing
+  ---
+  duration_ms: 0.382542
+  type: 'test'
+  ...
+# Subtest: descriptors are validated and frozen
+ok 3 - descriptors are validated and frozen
+  ---
+  duration_ms: 0.439209
+  type: 'test'
+  ...
+# Subtest: Mistglass tracks agree with the P12 method view at every practice minute
+ok 4 - Mistglass tracks agree with the P12 method view at every practice minute
+  ---
+  duration_ms: 1.515916
+  type: 'test'
+  ...
+# Subtest: descriptors refuse gates without reason, costed route, known kind or known dial (GTR1, GTR4)
+ok 5 - descriptors refuse gates without reason, costed route, known kind or known dial (GTR1, GTR4)
+  ---
+  duration_ms: 1.507625
+  type: 'test'
+  ...
+# Subtest: evaluation is a pure read and dials move the threshold (GTR14, GTR17)
+ok 6 - evaluation is a pure read and dials move the threshold (GTR14, GTR17)
+  ---
+  duration_ms: 0.700958
+  type: 'test'
+  ...
+# Subtest: player view names only conditions the character knows; author reasons stay separate (GTR10)
+ok 7 - player view names only conditions the character knows; author reasons stay separate (GTR10)
+  ---
+  duration_ms: 0.498375
+  type: 'test'
+  ...
+# Subtest: unknown facts stay unknown, and negated conditions report correctly
+ok 8 - unknown facts stay unknown, and negated conditions report correctly
+  ---
+  duration_ms: 0.19675
+  type: 'test'
+  ...
+# Subtest: herb lesson descriptor keeps its count and learned behaviour
+ok 9 - herb lesson descriptor keeps its count and learned behaviour
+  ---
+  duration_ms: 0.17975
+  type: 'test'
+  ...
+# Subtest: herb lesson uses currently held stacks and an explicit learned fact
+ok 10 - herb lesson uses currently held stacks and an explicit learned fact
+  ---
+  duration_ms: 1.307833
+  type: 'test'
+  ...
+# Subtest: literacy speeds original work units without changing completion thresholds
+ok 11 - literacy speeds original work units without changing completion thresholds
+  ---
+  duration_ms: 0.199375
+  type: 'test'
+  ...
+# Subtest: practice names require a real native level, not incidental XP
+ok 12 - practice names require a real native level, not incidental XP
+  ---
+  duration_ms: 0.546834
+  type: 'test'
+  ...
+# Subtest: opening defaults to full access and preserves recovery at every stage
+ok 13 - opening defaults to full access and preserves recovery at every stage
+  ---
+  duration_ms: 0.097708
+  type: 'test'
+  ...
+# Subtest: transaction stages recipe and wallet before publication without mutating prior stock
+ok 14 - transaction stages recipe and wallet before publication without mutating prior stock
+  ---
+  duration_ms: 0.20825
+  type: 'test'
+  ...
+# Subtest: practice clues need earned XP or actually held leaves and do not reveal unknown recipe or action
+ok 15 - practice clues need earned XP or actually held leaves and do not reveal unknown recipe or action
+  ---
+  duration_ms: 0.220833
+  type: 'test'
+  ...
+# Subtest: frontier banks excess past the single-gain cap and drains it into later gains
+ok 16 - frontier banks excess past the single-gain cap and drains it into later gains
+  ---
+  duration_ms: 0.687875
+  type: 'test'
+  ...
+# Subtest: the bank holds at most the world dial (one level of XP on the frontier)
+ok 17 - the bank holds at most the world dial (one level of XP on the frontier)
+  ---
+  duration_ms: 0.652583
+  type: 'test'
+  ...
+# Subtest: unlisted worlds keep the stated loss, and a frontier bank does not drain elsewhere
+ok 18 - unlisted worlds keep the stated loss, and a frontier bank does not drain elsewhere
+  ---
+  duration_ms: 0.137125
+  type: 'test'
+  ...
+# Subtest: the bank survives a save envelope round trip, old saves start empty, bad slices are refused
+ok 19 - the bank survives a save envelope round trip, old saves start empty, bad slices are refused
+  ---
+  duration_ms: 0.883584
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 63.250875

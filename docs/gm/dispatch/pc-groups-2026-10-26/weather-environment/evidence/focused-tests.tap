@@ -1,0 +1,418 @@
+TAP version 13
+# Subtest: old saves remain absent; defaults have no new weather cost
+ok 1 - old saves remain absent; defaults have no new weather cost
+  ---
+  duration_ms: 1.06875
+  type: 'test'
+  ...
+# Subtest: idle underfed played time earns fractional native Famine XP without activity
+ok 2 - idle underfed played time earns fractional native Famine XP without activity
+  ---
+  duration_ms: 0.154709
+  type: 'test'
+  ...
+# Subtest: tiny ticks retain positive progress rather than rounding it away
+ok 3 - tiny ticks retain positive progress rather than rounding it away
+  ---
+  duration_ms: 0.270208
+  type: 'test'
+  ...
+# Subtest: fed, nonfeeding, absent body, offline, outside home and hunger-off controls award none
+ok 4 - fed, nonfeeding, absent body, offline, outside home and hunger-off controls award none
+  ---
+  duration_ms: 0.100583
+  type: 'test'
+  ...
+# Subtest: threshold crossing integrates only actual underfed suffix and matches split E1 clock
+ok 5 - threshold crossing integrates only actual underfed suffix and matches split E1 clock
+  ---
+  duration_ms: 0.135792
+  type: 'test'
+  ...
+# Subtest: event replay after reload is idempotent; later real events keep awarding
+ok 6 - event replay after reload is idempotent; later real events keep awarding
+  ---
+  duration_ms: 0.119208
+  type: 'test'
+  ...
+# Subtest: overlaps and gaps reject before any source mutation
+ok 7 - overlaps and gaps reject before any source mutation
+  ---
+  duration_ms: 0.18025
+  type: 'test'
+  ...
+# Subtest: gust and rest have distinct visible temperature and native-resource costs
+ok 8 - gust and rest have distinct visible temperature and native-resource costs
+  ---
+  duration_ms: 0.053666
+  type: 'test'
+  ...
+# Subtest: shelter blocks exposure, still advances the same weather phase; resistance reduces cost
+ok 9 - shelter blocks exposure, still advances the same weather phase; resistance reduces cost
+  ---
+  duration_ms: 0.217125
+  type: 'test'
+  ...
+# Subtest: mode off and unavailable weather/body/world freeze phase without added penalties
+ok 10 - mode off and unavailable weather/body/world freeze phase without added penalties
+  ---
+  duration_ms: 0.285959
+  type: 'test'
+  ...
+# Subtest: long common-clock step matches segmented gust costs and saved remainder
+ok 11 - long common-clock step matches segmented gust costs and saved remainder
+  ---
+  duration_ms: 19.388875
+  type: 'test'
+  ...
+# Subtest: pending phase and XP remainder survive JSON literal payload preflight and resume
+ok 12 - pending phase and XP remainder survive JSON literal payload preflight and resume
+  ---
+  duration_ms: 0.147417
+  type: 'test'
+  ...
+# Subtest: unsupported/malformed save states reject without mutation
+ok 13 - unsupported/malformed save states reject without mutation
+  ---
+  duration_ms: 0.160333
+  type: 'test'
+  ...
+# Subtest: Famine projects a bounded benefit over existing optional penalty only
+ok 14 - Famine projects a bounded benefit over existing optional penalty only
+  ---
+  duration_ms: 0.055791
+  type: 'test'
+  ...
+# Subtest: status reveals only known skill names and explains risk without effects
+ok 15 - status reveals only known skill names and explains risk without effects
+  ---
+  duration_ms: 0.162333
+  type: 'test'
+  ...
+# Subtest: panel rollback respects failed native commit and does not alter source state
+ok 16 - panel rollback respects failed native commit and does not alter source state
+  ---
+  duration_ms: 0.153
+  type: 'test'
+  ...
+# Subtest: old optional absence is retained; clock-cursor and unsupported schema preflight reject
+ok 17 - old optional absence is retained; clock-cursor and unsupported schema preflight reject
+  ---
+  duration_ms: 0.135666
+  type: 'test'
+  ...
+# Subtest: passive native XP stages as exact hundredths with matching saved clock and no input mutation
+ok 18 - passive native XP stages as exact hundredths with matching saved clock and no input mutation
+  ---
+  duration_ms: 0.130375
+  type: 'test'
+  ...
+# Subtest: inert old native clock advances do not initialize an optional exposure family
+ok 19 - inert old native clock advances do not initialize an optional exposure family
+  ---
+  duration_ms: 0.029667
+  type: 'test'
+  ...
+# Subtest: storm costs clamp native stamina and do not stage HP damage or action XP multipliers
+ok 20 - storm costs clamp native stamina and do not stage HP damage or action XP multipliers
+  ---
+  duration_ms: 0.049
+  type: 'test'
+  ...
+# Subtest: road freight holds cargo and two endpoint reservations; arrival does not silently give it to the player
+ok 21 - road freight holds cargo and two endpoint reservations; arrival does not silently give it to the player
+  ---
+  duration_ms: 214.786791
+  type: 'test'
+  ...
+# Subtest: a delayed or paused parcel cannot duplicate funding or overflow a full destination; empty return takes real time
+ok 22 - a delayed or paused parcel cannot duplicate funding or overflow a full destination; empty return takes real time
+  ---
+  duration_ms: 224.148
+  type: 'test'
+  ...
+# Subtest: native rain resets exposed progress even when paused; a real cover protects a retained batch
+ok 23 - native rain resets exposed progress even when paused; a real cover protects a retained batch
+  ---
+  duration_ms: 128.024375
+  type: 'test'
+  ...
+# Subtest: adding a wet piece resets the retained batch; long and split weather advances agree exactly
+ok 24 - adding a wet piece resets the retained batch; long and split weather advances agree exactly
+  ---
+  duration_ms: 247.131625
+  type: 'test'
+  ...
+# Subtest: worker rooms share actual home occupancy with lodgers, preserve rights and serialize without a second ledger
+ok 25 - worker rooms share actual home occupancy with lodgers, preserve rights and serialize without a second ledger
+  ---
+  duration_ms: 350.716625
+  type: 'test'
+  ...
+# Subtest: human shifts stop new batches but retain accepted work; live room loss refunds reserved stock and wages
+ok 26 - human shifts stop new batches but retain accepted work; live room loss refunds reserved stock and wages
+  ---
+  duration_ms: 252.919833
+  type: 'test'
+  ...
+# Subtest: exact missing-component top ups recover partial deliveries without overfilling a held batch
+ok 27 - exact missing-component top ups recover partial deliveries without overfilling a held batch
+  ---
+  duration_ms: 55.6495
+  type: 'test'
+  ...
+# Subtest: shipping retained unknown stock preserves material identity and does not grant an observation
+ok 28 - shipping retained unknown stock preserves material identity and does not grant an observation
+  ---
+  duration_ms: 74.417584
+  type: 'test'
+  ...
+# Subtest: weather day_count stays distinct from the absolute service calendar and unavailable history earns no drying
+ok 29 - weather day_count stays distinct from the absolute service calendar and unavailable history earns no drying
+  ---
+  duration_ms: 57.614584
+  type: 'test'
+  ...
+# Subtest: site and creature are actually paid, unique and bound to suitable player ownership
+ok 30 - site and creature are actually paid, unique and bound to suitable player ownership
+  ---
+  duration_ms: 1.07275
+  type: 'test'
+  ...
+# Subtest: no inherited care, instant harm or stock; feeding spends real inventory once
+ok 31 - no inherited care, instant harm or stock; feeding spends real inventory once
+  ---
+  duration_ms: 0.585417
+  type: 'test'
+  ...
+# Subtest: attention alone produces nothing; both care orders support the same finite batch
+ok 32 - attention alone produces nothing; both care orders support the same finite batch
+  ---
+  duration_ms: 1.5405
+  type: 'test'
+  ...
+# Subtest: partial supported time pauses, survives persistence and resumes with new paid care
+ok 33 - partial supported time pauses, survives persistence and resumes with new paid care
+  ---
+  duration_ms: 0.252458
+  type: 'test'
+  ...
+# Subtest: save/reload/export-style roundtrip retains pending and collected states without rewards
+ok 34 - save/reload/export-style roundtrip retains pending and collected states without rewards
+  ---
+  duration_ms: 0.398958
+  type: 'test'
+  ...
+# Subtest: malformed ownership, future receipts, unsupported revisions and impossible harvest reject
+ok 35 - malformed ownership, future receipts, unsupported revisions and impossible harvest reject
+  ---
+  duration_ms: 0.2325
+  type: 'test'
+  ...
+# Subtest: failed durable publication restores the exact native inventory, purse and care owner
+ok 36 - failed durable publication restores the exact native inventory, purse and care owner
+  ---
+  duration_ms: 0.427042
+  type: 'test'
+  ...
+# Subtest: real native save encoding accepts optional care and leaves old envelopes without it unchanged
+ok 37 - real native save encoding accepts optional care and leaves old envelopes without it unchanged
+  ---
+  duration_ms: 4.323125
+  type: 'test'
+  ...
+# Subtest: commissioned household receipt uses reserved public terms, preserves observer attention and never reads the pending outcome
+ok 38 - commissioned household receipt uses reserved public terms, preserves observer attention and never reads the pending outcome
+  ---
+  duration_ms: 36.889208
+  type: 'test'
+  ...
+# Subtest: staff rest uses native occupied intervals, survives reload and leave is an actual refusal
+ok 39 - staff rest uses native occupied intervals, survives reload and leave is an actual refusal
+  ---
+  duration_ms: 26.983041
+  type: 'test'
+  ...
+# Subtest: coarse and partitioned idle rest agree without recovering during accepted work
+ok 40 - coarse and partitioned idle rest agree without recovering during accepted work
+  ---
+  duration_ms: 6.238083
+  type: 'test'
+  ...
+# Subtest: tutor reserves both people, actual fee and real Literacy; cancellation and lost contact refund
+ok 41 - tutor reserves both people, actual fee and real Literacy; cancellation and lost contact refund
+  ---
+  duration_ms: 12.529583
+  type: 'test'
+  ...
+# Subtest: family request can be declined, accepted, cancelled and actually kept once
+ok 42 - family request can be declined, accepted, cancelled and actually kept once
+  ---
+  duration_ms: 12.304916
+  type: 'test'
+  ...
+# Subtest: pantry orders reserve finite supplier stock, refund cancellation and deliver from actual funds
+ok 43 - pantry orders reserve finite supplier stock, refund cancellation and deliver from actual funds
+  ---
+  duration_ms: 32.961542
+  type: 'test'
+  ...
+# Subtest: estate conveys owned home condition and goods, never household title, employees or rank
+ok 44 - estate conveys owned home condition and goods, never household title, employees or rank
+  ---
+  duration_ms: 1.731625
+  type: 'test'
+  ...
+# Subtest: unearned shared labor pay rejoins the estate before debt settlement and is not paid twice
+ok 45 - unearned shared labor pay rejoins the estate before debt settlement and is not paid twice
+  ---
+  duration_ms: 4.030917
+  type: 'test'
+  ...
+# Subtest: E2: a gathering errand reserves Toma by person ID, settles exactly its quoted terms once and survives reload
+ok 46 - E2: a gathering errand reserves Toma by person ID, settles exactly its quoted terms once and survives reload
+  ---
+  duration_ms: 9.86375
+  type: 'test'
+  ...
+# Subtest: E5b: the pantry office orders under its disclosed policy, pauses with a reason and passes its fund to a successor
+ok 47 - E5b: the pantry office orders under its disclosed policy, pauses with a reason and passes its fund to a successor
+  ---
+  duration_ms: 13.659583
+  type: 'test'
+  ...
+# Subtest: a stilled hearth ages stored food at its own ratio and charges upkeep
+ok 48 - a stilled hearth ages stored food at its own ratio and charges upkeep
+  ---
+  duration_ms: 0.925666
+  type: 'test'
+  ...
+# Subtest: lapsed upkeep closes the place, rushes the owed hours onto the shelf and refuses until reopened
+ok 49 - lapsed upkeep closes the place, rushes the owed hours onto the shelf and refuses until reopened
+  ---
+  duration_ms: 0.40375
+  type: 'test'
+  ...
+# Subtest: orderly release pays the owed days instead of a rush
+ok 50 - orderly release pays the owed days instead of a rush
+  ---
+  duration_ms: 0.114125
+  type: 'test'
+  ...
+# Subtest: only owned eligible places; money and storage failures change nothing
+ok 51 - only owned eligible places; money and storage failures change nothing
+  ---
+  duration_ms: 0.766042
+  type: 'test'
+  ...
+# Subtest: observer routes: nothing away from the place, qualitative present, numeric only with the timekeeping means
+ok 52 - observer routes: nothing away from the place, qualitative present, numeric only with the timekeeping means
+  ---
+  duration_ms: 0.316959
+  type: 'test'
+  ...
+# Subtest: save, reload and legacy save: slice round-trips and an envelope without it loads empty
+ok 53 - save, reload and legacy save: slice round-trips and an envelope without it loads empty
+  ---
+  duration_ms: 0.309666
+  type: 'test'
+  ...
+# Subtest: host settle stages the next slice into the same durable write and a failed commit leaves slice, money and items unchanged
+ok 54 - host settle stages the next slice into the same durable write and a failed commit leaves slice, money and items unchanged
+  ---
+  duration_ms: 0.3115
+  type: 'test'
+  ...
+# Subtest: W33.T1 pure legacy projection matches native calendars and weekdays at all boundaries
+ok 55 - W33.T1 pure legacy projection matches native calendars and weekdays at all boundaries
+  ---
+  duration_ms: 1.579416
+  type: 'test'
+  ...
+# Subtest: W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate from labels
+ok 56 - W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate from labels
+  ---
+  duration_ms: 0.15775
+  type: 'test'
+  ...
+# Subtest: W33.T3 hub unknown civil date and public projection omit undeclared hidden fields
+ok 57 - W33.T3 hub unknown civil date and public projection omit undeclared hidden fields
+  ---
+  duration_ms: 0.144958
+  type: 'test'
+  ...
+# Subtest: W33.T5 legacy bindings resolve without mutating any saved owner, absent and unsupported worlds stay unavailable
+ok 58 - W33.T5 legacy bindings resolve without mutating any saved owner, absent and unsupported worlds stay unavailable
+  ---
+  duration_ms: 0.259209
+  type: 'test'
+  ...
+# Subtest: W33.T6 transient entry/midnight/reentry headers deduplicate and bound jumps
+ok 59 - W33.T6 transient entry/midnight/reentry headers deduplicate and bound jumps
+  ---
+  duration_ms: 0.19725
+  type: 'test'
+  ...
+# Subtest: W33.T6 actual host publication seam emits only after storage success and before new-day messages
+ok 60 - W33.T6 actual host publication seam emits only after storage success and before new-day messages
+  ---
+  duration_ms: 2.450458
+  type: 'test'
+  ...
+# Subtest: W28/W33 display-only climate uses frozen local frame, unknown hub and untouched home
+ok 61 - W28/W33 display-only climate uses frozen local frame, unknown hub and untouched home
+  ---
+  duration_ms: 0.639792
+  type: 'test'
+  ...
+# Subtest: base temperature, rain and light match weather.js across seasons, cycles and peaks
+ok 62 - base temperature, rain and light match weather.js across seasons, cycles and peaks
+  ---
+  duration_ms: 879.891958
+  type: 'test'
+  ...
+# Subtest: pure seeded derive is stable across revisit, skipped-day order and frozen inputs
+ok 63 - pure seeded derive is stable across revisit, skipped-day order and frozen inputs
+  ---
+  duration_ms: 0.549542
+  type: 'test'
+  ...
+# Subtest: no-season world ignores external season and retains explicit daylight
+ok 64 - no-season world ignores external season and retains explicit daylight
+  ---
+  duration_ms: 0.076
+  type: 'test'
+  ...
+# Subtest: custom 7-day temperature and 3-day rain cycles wrap, including negative anchored days
+ok 65 - custom 7-day temperature and 3-day rain cycles wrap, including negative anchored days
+  ---
+  duration_ms: 0.073958
+  type: 'test'
+  ...
+# Subtest: indoor and sealed places suppress weather exposure and use controlled climate
+ok 66 - indoor and sealed places suppress weather exposure and use controlled climate
+  ---
+  duration_ms: 0.055375
+  type: 'test'
+  ...
+# Subtest: unknown explicit season and invalid coordinates reject instead of inheriting Frontier
+ok 67 - unknown explicit season and invalid coordinates reject instead of inheriting Frontier
+  ---
+  duration_ms: 0.213542
+  type: 'test'
+  ...
+# Subtest: calendar-owned custom season cycle and non-24-hour day are consumed unchanged
+ok 68 - calendar-owned custom season cycle and non-24-hour day are consumed unchanged
+  ---
+  duration_ms: 0.06725
+  type: 'test'
+  ...
+1..68
+# tests 68
+# suites 0
+# pass 68
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1942.482833

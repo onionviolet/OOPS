@@ -1,4 +1,4 @@
-import {renderHouseholdLife} from './home_household_panel.js';
+import {renderHouseholdLife,renderHouseholdWorkReceipt} from './home_household_panel.js';
 import {HOME_PLACES as P,HOME_SITE,HOME_CAMPS,PACKED_TENT,homeKey as k} from './home_content.js';
 import {conditionOf,projectProgress,projectLocation} from './home_building_model.js';
 import {BUILDER,STEWARD,COOK,KEEPER,staffQuote} from './home_work_content.js';
@@ -35,7 +35,7 @@ export function renderHomeWork({view,body,detail,h,el,section,action}) {
         staff.append(el('p',`${rank}: private room and household hospitality. The family retains the estate title, pantry and staff employment. Rowan authorizes these finite requests from retained funds; you may offer your own supplies.`));
         staff.append(el('p',`Household treasury: ${c.staffResources[STEWARD]?.['home.estateFunds']||0} coins. Unclaimed agreed allowance: ${c.staffResources[STEWARD]?.['home.allowanceRemaining']||0}.`));
         action(staff,'allowance','Ask Rowan for the agreed allowance',{type:'allowance'});
-        for(const person of HOME_STAFF){const jobs=c.jobs.filter(j=>j.actorId===person.id);staff.append(el('p',`${person.name}, ${person.role}: ${c.people[person.id]?.life==='alive'?'present':'unavailable'} · ${jobs.length?jobs.map(j=>`${j.label}, ${Math.max(0,j.due-c.clock)} min remaining`).join('; '):'no accepted order'} · earned wages ${c.staffResources[person.id]?.['home.wages']||0}.`));for(const j of jobs)action(staff,'cancel_staff:'+j.id,'Discuss cancelling this accepted order',{type:'cancel_staff',job:j.id});}
+        for(const person of HOME_STAFF){const jobs=c.jobs.filter(j=>j.actorId===person.id);staff.append(el('p',`${person.name}, ${person.role}: ${c.people[person.id]?.life==='alive'?'present':'unavailable'} · ${jobs.length?'accepted work below':'no accepted order'} · earned wages ${c.staffResources[person.id]?.['home.wages']||0}.`));for(const j of jobs.filter(j=>j.commandId.startsWith('home.staff.'))){if(!renderHouseholdWorkReceipt({host:staff,job:j,c,el}))staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} min remaining.`));action(staff,'cancel_staff:'+j.id,'Discuss cancelling this accepted order',{type:'cancel_staff',job:j.id});}}
         action(staff,'staff:cook','Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min',{type:'staff_order',service:'cook'});
         action(staff,'staff:repair','Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min',{type:'staff_order',service:'repair'});
         action(staff,'staff:dry','Ask Toma to dry the room · 2 household coins + 1 log · 10 min',{type:'staff_order',service:'dry'});

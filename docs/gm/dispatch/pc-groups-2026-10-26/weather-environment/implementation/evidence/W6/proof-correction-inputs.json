@@ -1,0 +1,25 @@
+{
+  "slot": {
+    "lane": "G6-W6",
+    "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+    "phase": "acknowledged combined field/final build/full test/arch/rules/native proof",
+    "handoffFrom": "G6-W5",
+    "handoffFromThread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "at": "2026-10-26T19:55:29.728736+00:00",
+    "preserve": "Existing acknowledged earlier fair requests remain; no new source takeover inferred."
+  },
+  "paths": [
+    "src/book_world_paradise_field.js",
+    "src/book_world_paradise_drying.js",
+    "src/book_world_paradise_campaign_host.js",
+    "tests/paradise_field.test.js"
+  ],
+  "beforeHashes": {
+    "src/book_world_paradise_field.js": "c7bfeba75d3ccb8022f8edc39767d305be848fb4d559fabdaae9f6098cbaa879",
+    "src/book_world_paradise_drying.js": "2315ef69743c429909e981a70ae06909dc9d713dec54addeb30c3df79b02b455",
+    "src/book_world_paradise_campaign_host.js": "a2235f3392a1a08be77e6705f93393dec76ffdd04edf3f4585f1cc9c3ec6a753",
+    "tests/paradise_field.test.js": "d45d0cccf16dafd5885db6596d71d99a9058e3fa336d10b0418682ef1e85eac3"
+  },
+  "scope": "W6 exact custom field cost disclosure and charged-take caption; preserve W5 host callback hunk.",
+  "failure": "Standard field action cards must expose actual credits/charcoal/stamina with matching action identity, no misleading sound label on charged lot."
+}

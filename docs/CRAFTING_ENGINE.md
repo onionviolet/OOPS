@@ -1126,3 +1126,386 @@ Weibao selected fitting missing mechanics across all saved references and clarif
 | TSW12 | A native material may meet a process's physical/functional query while contributing less of its relevant property. `craft_material_fit.js` grades weighted authored targets without a draw; unknown relevant axes return uncertainty. | Tags constrain this particular process; this adds no universal permission list or symbolic law. |
 | TSW13 | The known Animal fat method offers deliberate known meat-source recipes. Existing Boar meat remains three units; proposed native oil contributions produce four Goat meat or ten Crab/Frog meat per attempt. Whole units round upward; excess contribution leaves with discarded cooking remains. | Native cooking owns success, actual stock, XP, transactions and output. No automatic fallback to another source. Values are original game proposals, not biological measurements. |
 | TSW14 | New source choices share the actual learned method and require encountered source knowledge. Their ordinary Animal fat output feeds existing recipes. | No extra learning engine, stock cache or new item/save schema. Whole-formula matching, symbolic substitutions, separate potency/risk grades, foreign-world laws and arbitrary supplied catalogue materials remain distinct work. |
+
+## Round 14 (2026-10-26): current inventory, mechanism depth and connected making
+
+Weibao requested “inventory our procedural crafting and brewing and more, and audit?”
+with sharpen and more-to-consider. The [inventory and audit](audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md)
+owns I1–I14, findings F1–F7, considerations PC1–PC6 and ranked proposals A1–A4.
+It checks the current source rather than promoting earlier palette rows to implementation.
+MR1–MR36, GR1–GR17, AD32/33/36/38/42/43 and WPR19/21–25/27 apply.
+
+**ACT NOW (done):** reconciled the systems map and register's stale missing-reference,
+matcher and LOTM brew claims; saved a frozen input identity, focused test evidence
+and minimal reproductions. F1/F2 are runtime defects recorded for repair, not repaired
+by this inventory/audit request.
+
+**ACCOUNT FOR NOW:** PC1 tracks each product transition and reader; PC2 records
+reproducible method conditions; PC3 preserves cohort/container distinctions; PC4
+separates useful invention from an “original” grade; PC5 makes controlled comparisons
+legible; PC6 retains committed stage facts and revisions. The report keeps existing
+world priorities, per-world mechanisms and historical compatibility overrides.
+
+**LATER / DELEGATE (not dispatched):** A1 quote parity repair (Sol, small), A2 one
+connected book-world making/use/persistence route (Sol, medium), A3 a material-to-use
+loop over existing consumers (Sol, medium), A4 bounded cohort/container probes
+(Luna inspection, Sol for selected implementation). Done checks are in the report.
+No new gameplay, architecture mandate, commit, push or app adoption is claimed.
+
+## Round 15 (2026-10-26): interchangeable ingredients, causal process and world differences
+
+Weibao: “Also expansions, world specific differences and more? Interchangable
+ingredients, also other stuff like stirring and more?” More-to-consider extension
+of round 14, not a new implementation dispatch. MR1–MR36, especially MR6–8,
+MR11–21 and MR29–32; AD5/6–8/32/33/36/38; WPR21–25/27 apply. Earlier ST/PR/DP,
+PD/XD and TSW rows remain the foundation. PC numbering continues rather than
+restarting. New mechanics below are **PROPOSED**, not accepted or implemented.
+
+### Source boundaries that change the expansion
+
+Checked current source on 2026-10-26, without running another runtime suite:
+
+- `craft_recipes.js/selectorMatches` supports identity, tags, numeric bounds and
+  compound queries. `matchRecipe` assigns one input lot to each slot and prevents
+  reusing a lot. A combined contribution from two different ingredients to one
+  role is not established by that matcher.
+- `craft_material_fit.js/gradeMaterialFit` computes a weighted average of capped
+  contribution ratios. It is useful for the existing single-axis oil-rendering
+  pilot, but a higher average does not prove every essential requirement is met.
+- `craft_resolver.js/resolveBatch` pools the consumed inputs before its operations;
+  the layered law applies adjacent ingredient-order conversions, then operations.
+  Steps contain `op` and `level`. There is no general staged-addition timeline,
+  stirring speed/direction/duration state, or vessel-fluid model in that schema.
+- `craft_content_frontier.js` defines steep/boil/grind and layered heat laws.
+  `hp_brewing_panel.js` selects prepared lots and starts a timed simmer. These are
+  meaningful existing mechanisms, not proof of interactive stirring. HP and LOTM
+  process descriptors retain the separate product logic described in round 14.
+
+### ACCOUNT FOR NOW: substitutions are equivalence for a purpose
+
+| Code | Expansion | Default, dial and reason |
+|---|---|---|
+| PC7 | **Keep identity, function and result equivalence separate.** | A substitute can perform a solvent role without making the exact named product. A world may recognize the alternative as the same formula, a local variant or a different original, according to its actual law. Formula recognition follows resolved requirements, not the selected button. |
+| PC8 | **Roles need essential conditions before contribution scores.** | Check necessary physical conditions, supported identity/provenance and incompatibilities separately; grade potency, stability, yield and handling afterward. A high oil contribution does not compensate for an absent required catalyst. A catalyst alternative can work by another supported mechanism, with its own process and cost. |
+| PC9 | **Quantity compensates for contribution where the mechanism permits it.** | Fictional example: four units at 60% extractable active contribution equal six at 40%, before process losses. More input also brings more bulk and side constituents. The solvent, vessel capacity, waste and usable dose may change. Symbolic identity, unique provenance and structural geometry need their own equivalence mechanisms rather than this arithmetic. |
+| PC10 | **Several ingredients may jointly fill a role; one may fill several.** | A blended solvent or two complementary reagents can supply one function. An oily herb might supply both active material and carrier. Allocate physical amounts and account for shared functions explicitly so a slot solver does not duplicate consumed matter. The present one-lot-per-slot matcher is a limited shortcut, not a world prohibition. |
+| PC11 | **Preparation can make an unsuitable input useful.** | Drying, crushing, washing, fermentation, distillation, purification or attunement changes the properties available to this process. Include labor, fuel, losses, contamination and intermediates. A fresh herb, its extract and its ash are related inputs with different behavior. |
+| PC12 | **Substitution changes the procedure as well as the shopping list.** | A tougher plant may need longer extraction; a more volatile solvent may need lower heat or a sealed apparatus. A replacement can be workable with a revised method even when it fails the old method's conditions. Preserve the demonstrated revision rather than silently editing a learned recipe. |
+| PC13 | **Physical interchangeability, recommendation and procurement are separate.** | The world resolves true properties. The maker recommends known fits, marks uncertain trials and obtains actual accessible stock. Do not auto-consume a valuable specimen as a substitute. An unknown fit is uncertainty, not proof of physical impossibility. |
+| PC14 | **Provenance and foreign-world fit are contextual.** | Read origin, contact, consecration, prior owner or local power compatibility when relevant to the mechanism. Being foreign does not itself prove success or failure. Directional world laws and actual activation/conversion conditions decide; familiarity changes knowledge, not truth. |
+
+### ACCOUNT FOR NOW: stirring and the rest of the process must change something
+
+The following are fictional game mechanisms to choose per activity. They are not
+new factual claims about a franchise or instructions for real chemistry.
+
+| Code | Action or process question | State read/written and meaningful choice |
+|---|---|---|
+| PC15 | **Stir, whisk, knead, circulate or agitate** | A simple model can read viscosity, vessel geometry, settled material and an agitation budget, then change homogeneity, suspension or interface contact. Gentle stirring may preserve fragile constituents; vigorous work may disperse them faster but introduce air, foam, heat or damage where the law models those effects. Time, tool wear, stamina or power pays for the work. |
+| PC16 | **Direction, count and rhythm** | Clockwise/counterclockwise or an exact rhythm matters for a source-qualified rite, oriented flow or another declared directional mechanism. In an ordinary symmetric vessel it can be equivalent. Represent a pattern or accumulated work by default; individual clicks add depth when intermediate decisions matter. More stirring can plateau or become harmful, rather than grant a repeated free multiplier. |
+| PC17 | **Temperature is a trajectory, not just a heat total** | Compare a gentle hold with a short hot pulse; vessel inertia, time above a threshold and cooling can produce different extraction or degradation. Start with the few states a selected reaction reads. The existing summed heat/control law remains a bounded model, not a full temperature simulation. |
+| PC18 | **When and where an ingredient enters** | Stage additions into the current batch, or prepare separately before combining. Resting between additions can allow binding, extraction or sedimentation first. A later ingredient cannot retroactively change a completed stage. Record spent inputs and recoverable intermediate stock at interruption boundaries. |
+| PC19 | **Strain, decant, skim, distill and divide** | Split conserved constituents into product, residue, vapor/capture or waste. Filtering particles need not remove dissolved poison. Doses drawn from an uneven vessel can differ; mixing or controlled decanting makes that a decision rather than an arbitrary reroll. |
+| PC20 | **Vessel, closure, cleanliness and shared equipment** | Material compatibility, retained residue, evaporation, condensation, air contact, headspace and cleaning can matter where read by a reaction. Carryover can seed fermentation, spoil a brew or supply a trace reagent. Apparatus upgrades improve an actual capability rather than universally increasing potion strength. |
+| PC21 | **Read cues and rescue a drifting batch** | Smell, color, bubbling, texture, pressure or power-flow readings reveal supported observations. A cue may have several causes. Cooling, dilution, settling, neutralizing or splitting can salvage a batch into a different useful product, with accounted losses and incomplete certainty. The maker's diagnosis and the actual intervention remain distinct. |
+| PC22 | **Scale changes control** | A tenfold batch does not automatically use the same vessel, heating time or agitation. Model the limiting geometry, heat transfer, workload or magical containment only to the degree it affects the selected process. Quick/guided/deep and helpers execute the same stage rules using their actual tools, competence and stock. |
+
+Illustrative contrast: two makers use the same fictional ingredients. One heats
+everything together, then stirs. The other extracts the tough ingredient first,
+cools it, adds the volatile fraction and mixes gently. Distinct outcomes follow
+from the declared stage mechanisms. If no rule reads that difference, the outcomes
+should be equivalent; extra controls should not pretend otherwise.
+
+### World differences: select mechanisms, not themed copies
+
+This table proposes emphases, not universal laws or fresh canon findings. Local
+source-qualified rules win over genre associations. The [maker-arts world map](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md)
+retains source/era/entrant limits; world packs and their briefs own exact behavior.
+
+| World or activity | Useful distinct process emphasis | Ingredient freedom and exception mechanism | Runtime boundary |
+|---|---|---|---|
+| Mundane Village, kitchen and field medicine | Extraction, concentration, texture, preservation, handling and actual body response | Functional substitutes and adjusted quantities/preparation; traditional dishes or trusted medicines are learned targets, not a ban on trials | Composition, cooking and rendering pilots exist; general multi-stage food/medicine chemistry does not follow from those pilots |
+| Harry Potter brewing | Prepared state, addition sequence, apparatus, timed work and source-qualified motions; teaching and annotated methods can offer different successful procedures | Exact formula requirements recognize the named potion; supported alternatives may produce variants or useful originals. New stirring mechanics need a source locator or an ORIGINAL label | Current HP slice grades prepared lots and simmers; the ORIGINAL abrasive-suspension law now has paid preparation, retained settling, observed comparison and actual cauldron/potion readers. [Verified connected scope and remaining G1 joins](gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COVERAGE.md); general stirring/novel-effect grammar remains proposed |
+| LOTM potion, ritual and item making | Keep brewing a dose, ingesting it, acting/digestion, making a charm and containing a characteristic as distinct processes with their own readers | Symbolic resemblance or contact can matter where sourced, but does not establish that a symbolic substitute replaces a main ingredient or characteristic. Separate physical carrier, spiritual function and identity-bearing input | Narrow exact-input brew exists; general symbolic substitution and all-pathway manufacturing are unproven |
+| Cultivation pill/furnace activities | Extraction order, fire control, condensation, retained medicinal residue and bodily compatibility; energy is a paid input | A replacement herb can contribute a needed function while changing impurity, potency or required refinement. Attainment or a distinct faculty can enable exceptions with its actual source and cost | Frontier layered/tablet/body pilots exist; they are original examples, not proof of every novel's furnace law |
+| Rune, talisman, ward and formation activities | Stroke/connection order, medium, anchors, geometry, power supply and activation | Conductive ink may be replaceable by function; a symbol or identity-bearing component needs semantic equivalence under that world's law. Spatial layout is not a weighted potion mixture | Ordered rune pairs and talisman readers exist; general spatial formations remain proposed |
+| Smithing, tailoring, devices and constructs | Interfaces, tolerances, treatment history, fit, heat cycles, maintenance and power/control | Substitution preserves the required mechanical/electrical/magical function, possibly after redesign. A different alloy or fiber can fit the joint yet change weight, flexibility or durability | Gear, authored assembly, paid jobs and temporary construct infrastructure exist; arbitrary engineering synthesis is not established |
+| Living cultivation, fermentation and biological making | A living producer's growth, feed, environment, lineage and care, with outputs over time | A living replacement has its own metabolism and traits. A new strain may serve a role, but recipe knowledge alone does not create the organism or its source faculty | Reuse actual living-stock/body/genetics owners; this row is a proposed making connection, not a claim of a general bioprocess engine |
+
+### Adjacent opportunities that change the loop
+
+| Code | Expansion | Observable use and boundary |
+|---|---|---|
+| PC23 | **Process outputs feed other crafts.** | Herbal extract becomes a topical preparation, coating or ink when its retained properties support that route; fiber residue becomes packing; separated oil feeds a quench. Each needs its own consumer and dose/charge/quantity semantics. A potion's oral effect is not copied automatically onto a blade. |
+| PC24 | **Methods travel as teachable, fallible knowledge.** | Books, apprentice demonstrations, copied annotations and ingredient aliases can preserve alternatives, conditions and confidence. A taught method remains useful without the teacher; a borrowed apparatus/power does not become permanent competence. Compare methods by demonstrated results, not recipe rarity alone. |
+| PC25 | **Demand is for function and delivery condition.** | A commission can request a stable warming preparation, a flexible joint or a quiet ward rather than one exact catalog ID. Quote known evidence, custody, expiry and verification cost. Certification and price express someone's knowledge; they do not alter the product's hidden truth. |
+| PC26 | **Failure creates a branch when the mechanism supports it.** | Over-extracted dye, weak tonic, cracked carrier or off-spec alloy can have a cheaper use, repair path or salvage value. Hazard containment, cleanup and recovery consume real means. Avoid making every failed batch equally recoverable or adding a universal punishment table. |
+
+### Disposition and possible bounded follow-ups
+
+**ACT NOW (done):** saved the expansion and clarified current matcher/process
+boundaries. Correct the overly broad reading of TSW2/TSW3: functional-role proposals
+do not erase exact identity rules, and a failed formula fit does not prohibit free
+experimentation. No historical rule was silently promoted or rewritten.
+
+**ACCOUNT FOR NOW:** PC7–PC26 above, when the selected world/activity needs them.
+These are design options under standing making rules, not a checklist every world
+must implement. Quick repeats a demonstrated stage program; guided/deep exposes
+its consequential choices. Depth is a comfort choice, without a mode penalty.
+Proposed UI proof target is 1920×1080 desktop: known alternatives, a readable
+process plan, real costs, uncertain cues and a useful result. Mobile remains deferred.
+
+**LATER / DELEGATE (not dispatched):** follows round 14's A1 correctness repair;
+the existing book-world/menu priorities and active lane reservations still govern.
+
+| Code | Small connected expansion | Level / effort | Done check |
+|---|---|---|---|
+| A5 | One role with a blended substitute and one necessary non-compensable condition | Sol / medium | Reference, alternative and blended inputs conserve amounts; an essential missing condition is not hidden by an average; unknown fits remain trials; actual product feeds a reader |
+| A6 | One world-specific process with staged addition and causal stirring | Sol / medium | A controlled comparison changes one stage choice and produces an explained difference; a cosmetic-equivalent motion leaves results equal; preview spends nothing; interruption/reload preserves committed facts |
+| A7 | One process output reused across two crafts | Sol / medium | Both consumers read retained properties with appropriate route semantics; separation and partial transfer conserve contents; no oral-effect copying or duplicated stock |
+| A8 | A bounded source pass for the selected world's process exceptions | Luna / bounded extraction, Sol for synthesis | Exact edition/chapter/game locators for the few implemented rules; unsupported detail labelled ORIGINAL; world brief records the actual exception, source and cost |
+
+Completion for a selected runtime slice uses AD36/AD43 and relevant MR34–MR36,
+not a new universal simulator requirement. This round is documentation-only;
+targeted Markdown links and whitespace were checked. Round 14's automated results
+remain dated evidence for its frozen inputs, not tests of these new proposals.
+
+## Round 16 (2026-10-26): material foundations, tagging and laws that consume them
+
+Weibao: “what about foundational level stuff like tagging materials and more to
+help build those systems? more to consider?” This extends rounds 14–15 beneath
+the feature level. MR1–8/11–14/16–17/21/25–34, AR3/7/10–11, GR1–17,
+AD5/6–8/32/36/38 and WPR21–25/27 apply. Proposals below do not authorize a
+runtime rewrite or a bulk tagging campaign. Reuse `tag_store.js`, material
+catalogues, lineage, product registry and the actual inventory owners.
+
+Implementation checkpoint, 2026-10-26: later user selection authorizes the
+applicable round-16 details. The [G5 coverage ledger](gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COVERAGE.md)
+owns current source and verification dispositions. Native `base.native@2` separates
+current char identity from derived-from wood and validates query units/omissions.
+Exact native and HP lots retain causal inputs; HP assessment reads observer
+projection, and paid preparation feeds brewing, treatment and later potion grade.
+The G2 native-Bonemeal-to-HP abrasion reader is a directional ORIGINAL host law;
+reverse structural repair remains unsupported and preserves cargo. Shared names
+do not confer LOTM characteristic identity or supernatural power. Native rendering
+registers a complete 32-fit scan; diagnostic budgets report incomplete coverage.
+No additional cache or receipt representation migration is justified by the
+measured current consumers. Shared imported-quantity, rollback, downstream potion use and native file-import proof now pass on that same bundle; see the [integration receipt](gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/RECEIPT.md).
+
+### What exists, and what that does not establish
+
+Source-inspected on 2026-10-26:
+
+| Foundation | Existing implementation | Boundary |
+|---|---|---|
+| Tag vocabulary and implication | `tag_store.js/TagRegistry` has IDs, kind, parents, revision, open/hidden visibility; checks duplicate definitions, missing parents and cycles. `expand` includes a tag's ancestors | A parent means implication, not a generic association. `kind` does not itself execute physical, functional or symbolic behavior |
+| Truth and queries | `craft_materials.js` validates tags and fraction/scalar axes; selectors support tags and numeric bounds. `TagStore` has observer-aware queries; catalogue `matchesQuery` evaluates a true tag set | Passing a raw truth query is not a player-safe explanation. Numeric and relational semantics need the consumer's law |
+| Native mapping | `native_material_catalogue.js` maps native item IDs into physical/functional/symbolic-proposal tags and six authored numeric axes | Coverage is selected, static data; symbolic associations are explicitly proposals. A tag appearing in that table does not prove any world reads it |
+| Current lot/history | `material_lineage.js` carries selected born/origin/quality/completeness/evidence/treatment facts; `material_treatment.js` supplies particular transformations | Not a general component/container/contact-history model; inventory stack count remains the quantity authority |
+| Normalization | `normalizeMaterial` fills omitted numeric axes with their minimum and derives the remaining matrix | Convenient for complete game profiles, but missing author data is not thereby verified zero. Distinguish that from the character not knowing a value that truth already contains |
+
+**ACT NOW (done): clarify earlier shorthand.** TQ7's “a parent tag makes children
+match” describes query matching in reverse: an instance carrying a child also
+matches its ancestors; an instance tagged with the parent does not acquire every
+child. TQ7's “learner must understand” constrains safe recommendations, not free
+trials, under MR1/MR6 and TSW6. TQ10's measured/unmeasured distinction belongs to
+knowledge; physical truth may exist before measurement. Neither wording creates
+a ban on experiments. Earlier dated palette text remains historical.
+
+### ACCOUNT FOR NOW: keep the kinds of fact distinct
+
+| Code | Foundation | Default, dial and reason |
+|---|---|---|
+| PC27 | **Identity and classification** | Stable definition ID/revision says which material this is; categorical tags support reusable queries such as plant, metal or fiber. Display names, regional aliases and appearance do not establish identity. Preserve multiple legitimate classifications without inventing a universal rarity/power ladder. |
+| PC28 | **Implication versus relationship** | Use tag parents for reliable implications within the vocabulary's scope. `Made from`, `contains`, `grew at`, `owned by`, `touched` and `used in` are typed relationships with their own facts. Charcoal's wood origin can survive without every fresh-wood behavior surviving the transformation. Do not propagate traits through arbitrary relationship chains. |
+| PC29 | **Properties need dimensions and combination laws** | Keep quantities, composition fractions, intensive properties and response parameters distinct. Oil fraction, mass, viscosity and a reaction threshold are not interchangeable scores. Declare units/basis, range, resolution and how each relevant property combines. Weighted averaging is a chosen approximation, not a generic answer for hardness, phase transitions or magic. |
+| PC30 | **Functional roles are contextual** | A binder, fuel, solvent or conductor label can help find candidates. Actual usefulness depends on substrate, temperature, route, apparatus and local law. A lamp fuel need not be an edible fat, and a conductor for one power source need not conduct another. Read the mechanism behind the tag rather than making the label a universal permission list. |
+| PC31 | **World semantics and symbolic meaning** | Reuse shared vocabulary where meanings agree; qualify local meanings and translations where they differ. Symbolic association, actual affinity and active supernatural power are distinct facts. A proposed “deathly” association in the native catalogue does not make a bone a valid LOTM main ingredient or grant an effect. A host law reads preserved traits and relevant origin/contact, with directional compatibility where needed. |
+| PC32 | **Definition, lot, instance and container** | Definition holds stable material behavior; a lot holds this cohort's composition, preparation, contamination and age; an instance holds unique object history; a container holds carried contents, capacity, residue and closure. Derive what can be derived. Link existing owners rather than copying inventory counts or adding a second stock store. |
+| PC33 | **Prepared form and process state** | Fresh, dried, crushed, dissolved, tempered or attuned describes a state caused by an actual process, not arbitrary extra tags on the unchanged definition. Specify which properties are retained, exposed, converted or lost. Geometry and particle size can matter independently of composition when an operation reads them. |
+| PC34 | **Unknown-to-author differs from unknown-to-maker** | Content may be authored, generated/frozen, intentionally unspecified or unsupported by a model. Maker knowledge may separately be observed, inferred, believed or absent. Validate the fields a selected consumer needs; show uncertainty or use an explicit local fallback rather than silently treating unavailable input data as measured absence. No requirement to simulate every unmodeled property. |
+| PC35 | **Appearance, observation and belief** | Descriptive cues and claims are evidence with observer, source and time. A red liquid is not automatically restorative. Store observations and what they support, keeping false labels or mistaken identification possible. Names, substitutions, prices, sorting and refusal text use observer projections rather than hidden tags. |
+| PC36 | **Amounts and shared-role accounting** | Count/pieces, mass, volume, dose and available charge need explicit conversion where a process compares them. Retain actual inventory count as owner; derive material contribution from the selected lot and declared conversion. Density, droplet size or extract strength can depend on state. Shared/blended role allocation must not spend or produce the same conserved amount twice. |
+| PC37 | **Process and apparatus contracts** | An operation declares inputs and relevant state, tool/station capabilities, cost, clock and state changes. “Stir” can consume a mixing-work budget and change homogeneity; it need not introduce a complete fluid simulator. A tag like `hearth` is a discovery cue; actual temperature/control/size capability decides whether the chosen process works. |
+| PC38 | **Interactions belong to laws** | Materials supply properties and relevant histories; reaction/process/use laws decide what happens together. Avoid a hand-maintained tag for each possible recipe or a permanent “healing” flag copied into every derivative. Resolve by composition, parts, pattern or conserved identity as appropriate under MR29. Derived capability summaries stay traceable to the law and inputs. |
+| PC39 | **Versioned transformations and causal receipts** | Preserve the input references, relevant state, rule revision, committed steps and declared losses needed to reproduce a product. Save enough truth to retain its meaning; derive display summaries. Content changes must have an explicit compatibility disposition, under the current override, rather than quietly changing products by reinterpreting old tags. |
+| PC40 | **Tag/axis vocabulary governance** | Give each used term one meaning, scope, owner and reader. Aliases translate source or display language into IDs rather than duplicate synonyms. Review implications and cross-catalogue mappings at their consumers. Deprecated or renamed terms get an explicit disposition when referenced by current content or retained state. Do not tag the entire library in advance of a consumer. |
+| PC41 | **Authoring support and evidence** | A material row can carry an authoring-side source status/locator and a list of deliberate unknowns; generated traits name their family/law revision. Provide focused validation for consumed fields, dimensions, conservation, vocabulary references and working examples. Keep bulk reference data separate from player observations and distinguish proposed symbolism from sourced rules. |
+| PC42 | **Inspectors explain the whole chain** | A developer view can show direct tags versus inherited tags, raw versus transformed properties, selected lot, failed role conditions, operation trace and actual consumer. Player views expose what that observer can know. Test inspectors with synthetic fixtures; using an inspector does not automatically grant in-game knowledge or alter stock. |
+| PC43 | **Bound costs at the actual query** | Index candidates by relevant positive tags/families and evaluate the selected profile rather than every material pair on each tick. Cache derived results by relevant revision/state and invalidate when inputs change. Measure actual catalogue/lot scale before adding caches, and prevent an incomplete bounded search from being reported as physical impossibility. |
+
+### A minimal example through the layers
+
+This is a proposed fictional example, not a new record schema or a claim of
+implemented chemistry:
+
+| Layer | Example | What it enables |
+|---|---|---|
+| Material definition | Reedherb with plant/herb classification and an authored active fraction | Another herb can supply a similar function without being the same species |
+| Owned lot | A dried cohort with actual mass, extraction behavior and recorded contamination | The same definition can yield different available contributions after preparation |
+| Apparatus/process | A mortar changes particle size; a warm extraction reads that size and time; stirring changes suspension | Each action changes the state a later operation consumes |
+| World law | This local tonic reads extractable contribution and irritant residue; a separately sourced ritual may read identity or provenance | Shared material facts support distinct making systems without universal chemistry or magic |
+| Product and use | Retained contents plus a preparation revision; oral/body law reads the actual delivered dose | A computed result has an effect, rather than just a generated name or tag list |
+| Knowledge | The maker observed improved extraction but has not identified the contaminant | The unknown contaminant still acts; the preview and explanation remain uncertain |
+
+The useful foundation is that connected chain. A large tag list without property
+semantics, transformations and a consumer would leave most of the requested
+systems unbuilt. Conversely, a world-specific identity-bearing ingredient does
+not need its special behavior flattened into generic material fractions.
+
+### LATER / DELEGATE: practical foundation build order, not dispatched
+
+Continue after the existing A1 correctness repair and respect active ownership.
+The order is a proposal within current book-world/menu priorities, not a new gate
+requiring all foundation work before another selected feature can proceed.
+
+| Code | Bounded step | Level / effort | Done check |
+|---|---|---|---|
+| A9 | Specify the vocabulary and property semantics for one existing process and its actual alternatives | Sol / small | Each consumed tag/axis has a scope, meaning, reader and example; implication versus relationship and missing-versus-zero are explicit; reuse current catalogue structures where they fit |
+| A10 | Join those definitions to real owned lots and one preparation transformation | Sol / medium | Selected inventory keys resolve the correct state without duplicate stock; one changed preparation changes the actual product/use; quantity and waste accounted; relevant save boundaries exercised |
+| A11 | Give a second world a deliberately different reading of one shared material concept | Sol / medium | The second consumer needs less new mechanism code, preserves source-qualified identity/symbolic exceptions and demonstrates a real use; shared names do not silently equate unlike meanings |
+| A12 | Add a small authoring validator and synthetic material/process inspector around demonstrated needs | Luna / bounded inventory and validation drafting, Sol for runtime/UI judgment | Detect a misspelled tag, bad implication, missing consumed property and invalid unit mapping; show the cause of one successful and one failed process without leaking truth into player projections |
+
+No new gameplay is implemented in this round. Source inspection supports the
+current-boundary table; proposed model changes need their own focused regressions
+and the existing AD36/AD43 delivery evidence when selected. Documentation links,
+round codes and whitespace were checked. Earlier test counts remain tied to their
+recorded source snapshot, not this design expansion.
+
+## Round 17 (2026-10-26): weather, environment, lore and where to find ideas
+
+Weibao: “also consider weather and other stuff as well? more lore stuff? where can
+we pull more ideas? more to consider?” He also requested another chat for audits
+of other systems needing comparable depth. This round owns making/environment
+connections and idea-source scouting. MR1–5/11–14/16–17/25–34, SR1/15/19/22,
+AD6–8/15–17/32–34/36/38 and WPR19/21–25/27 apply. World/environment and book/menu
+priorities remain; generated layouts and broad NPC-heavy work are not new gates.
+New mechanics below are **PROPOSED**. No runtime changes or bulk acquisition.
+
+Dated implementation follow-through, 2026-10-26: Weibao later selected applicable PC44–PC53 details. The [combined coverage ledger](gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/COMBINED_COVERAGE.md) and [source contract](gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/SOURCE_CONTRACT.md) record the bounded implemented/native-proven source→water→drying/ORIGINAL field→grounding→kit/paid-order chain and exact wider gaps. The proposal statement above describes this original audit round; it does not describe the later runtime state or turn the remaining palette into accepted product law.
+
+### Existing foundation, source-inspected 2026-10-26
+
+`weather.js` supplies native deterministic temperature behavior; `weather_calendar.js`
+owns the shared native rain cycle and interval-readable calendar helpers.
+`world_climate.js` can derive temperature, rain, light and indoor/sealed context from
+calendar environments. Its additional profiles and `world_weather_display.js`'s
+visitor curves are explicitly proposals/display context, not sourced climates or
+proof that every production process consumes them. `absorb_p23/exposure` contains
+conditional exposure mechanisms. `feature_expansion_objects.js` has real wet/sound
+stave transformations and sheltered/braced/sealed drying jobs; the reward tracker
+reads actual completion receipts. `lore_practice_*` contains a bounded witnessed
+rain/drain-warning route, and `lore_history_state.js` retains typed outcomes.
+These are incumbents to reuse, not evidence of one joined environmental simulator.
+
+### ACCOUNT FOR NOW: environmental foundations and useful consequences
+
+| Code | Expansion | Default, dial and reason |
+|---|---|---|
+| PC44 | **Separate climate, weather, microclimate and exposure.** | Climate describes distributions; weather is the current local event; a cave, workshop or canopy modifies conditions; the material/body receives exposure through shelter, clothing or container. Rain outdoors need not wet a sealed vial. “Indoors” need not imply dry, ventilated or temperature-controlled. |
+| PC45 | **Use the actual exposure history.** | Wetness, drying, weathering, curing, germination and corrosion can depend on duration and thresholds, not just weather when work finishes. A newly moved item retains its prior state. Use meaningful clock boundaries or interval accumulation so one long advance and equivalent short advances agree. |
+| PC46 | **Weather changes opportunities as well as costs.** | Rain can supply water, soften a working material or reveal a spring; dry wind can help a supported drying process; fog can conceal travel while obscuring a landmark. Benefits and hazards follow mechanisms, not a universal bad-weather penalty. Which effects exist is a per-world/activity dial. |
+| PC47 | **Humidity, airflow, light and pressure have different readers.** | Moisture/airflow can affect drying and exposed surfaces; sunlight can affect growth or a photosensitive input; pressure may matter for a selected high-altitude/closed-vessel process. Model the variables a real consumer needs. A weather word does not substitute for a value, and a detailed atmosphere is not a prerequisite for a sheltered rack. |
+| PC48 | **Water and soil are material inputs.** | Fresh/salt water, sediment, mineral content, soil condition and local contamination can affect preparation, crops, dyes or corrosion. Location is a source of those conditions, not a universal quality bonus. Preserve relevant source facts when the lot leaves the place. |
+| PC49 | **Ecology connects supply to the calendar.** | Flowering, ripening, molt, migration, regrowth and resource depletion can change what is obtainable and its prepared properties. Seed correlated regional families inside existing places; do not generate canon landmarks or assume every world has Earth seasons. Cultivation, stores and trade offer alternative supply where available. |
+| PC50 | **Shelter and apparatus are player interventions.** | A roof, drainage repair, windbreak, cellar, ventilated hood or ward changes a specific path of exposure. Show what it protects and what it does not. Repair, fuel and maintenance give a concrete use to making, homes and local installations. Reuse existing place and custody owners. |
+| PC51 | **Forecasts are knowledge, weather is truth.** | Local observation, a skilled forecast, an instrument or a supernatural sense has a horizon and uncertainty. A warning can become stale after a location/window change. Predictions do not set the event, and inspecting them consumes no draw. An unseen future event can already have causal commitments. |
+| PC52 | **Absence follows the world's existing clock policy.** | Environmental work advances when its owning world/activity advances; a paused/frozen realm does not age stock merely because wall time passed. Travelling between clocks needs an explicit retained-state and exposure decision. No new offline destruction policy is inferred here. |
+| PC53 | **Supernatural environments need mechanisms too.** | A spiritually charged rain, ash storm, lunar alignment, planar tide or anomalous season can carry a material, field, effect or timing condition. State source, scope, means of detection, affected carriers and countermeasures. A realm may have a costly exception without making every rain magical or every moon phase a brew requirement. |
+
+### ACCOUNT FOR NOW: lore that creates play
+
+| Code | Expansion | Concrete consequence |
+|---|---|---|
+| PC54 | **Local names and conflicting classifications** | A trader's “winter salt” and a school's technical name can refer to the same material; two look-alikes can share a common name. Translation/identification is learned evidence. Shared labels do not prove equivalent truth. |
+| PC55 | **Tradition, explanation and effective practice are separate.** | A custom may preserve a useful drying sequence while explaining it through a mistaken story. A ritual can also work through an actual local supernatural law. Tests distinguish supported explanations without automatically treating tradition as either false or physically universal. |
+| PC56 | **Regional methods and schools emerge from constraints.** | Local fuel, water, vessels, climate, supply and teaching can produce several effective methods for the same function. A traveling maker adapts preparation rather than merely buying a higher-tier herb. Methods can have recognisable history without granting automatic competence. |
+| PC57 | **Lore has provenance, revisions and omissions.** | Annotated books, damaged records, copied diagrams, recipes with lost preparation steps and conflicting witnesses are discoverable knowledge objects. Record who claims what, when and on what evidence. A newer edition may change an interpretation without rewriting already committed world truth. |
+| PC58 | **Place history leaves usable traces.** | An abandoned kiln, repaired sluice, mineral deposit, unusual stain or weathered inscription can reveal a method, material source or environmental change. Follow archaeology through acquisition, experiment and actual use; prose alone is not a completed exploration/making loop. |
+| PC59 | **Customs and institutions read the same object differently.** | A local taboo, guild certification, festival demand or restricted harvest can change access, trust, prices and legal consequences through actual people/institutions. It does not change chemistry by itself. Add social detail only where it supports the selected loop and respects broader NPC deferrals. |
+| PC60 | **Exceptions are specific and discoverable.** | Preserve canon's ordinary case plus source-qualified exceptional means, cost and availability. Separate source fact, local belief and our ORIGINAL fill. Secret-dependent explanations remain sealed outside their discovery route, including audit/source summaries. |
+
+Illustrative ORIGINAL journey: a maker harvests a local fiber before seasonal
+rain, learns from an annotated method that damp preparation helps one stage,
+then moves it to a ventilated shelter for drying. A failed roof repair changes
+actual wetness; a misleading proverb does not. A later traveler can reproduce
+the method with another fiber if its properties support it, adjusting for local
+conditions. This is a proposed connected loop, not new gameplay or a real recipe.
+
+### Source scout: concrete gaps and places to pull ideas
+
+Bounded web spot-check on 2026-10-26. Existing local research is the incumbent;
+source availability is not full reading, gameplay proof or adaptation authority.
+
+| Route / disposition | Where and what was checked | Gap it can answer / cost |
+|---|---|---|
+| **Reuse first: saved world and game research** | [Maker arts by world](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md), [procedural crafting research](research/procedural-crafting-ui-2026-10-15/REFERENCE_INDEX.md), [harvest/reuse owner](research/SOURCE_HARVEST_2026-10-25.md), existing Minecraft/MF reports | Recover already sourced apparatus, material uses, styles and exceptions before another broad search. Small targeted locator check; historical evidence stays dated |
+| **Read selectively: original fiction and official supplements** | Exact editions/chapters and current pack source ledgers, using [existing acquisition routes](research/SOURCE_ACQUISITION_TOOLS.md) when a needed source is missing | Answers what a particular world's stirring, identity, calendar, power and exception actually require. No whole-library read or download selected; wiki comparisons guide locators rather than silently override the source |
+| **Adapt candidate: survival/crafting simulation** | [Vintage Story preservation](https://wiki.vintagestory.at/Food_preservation) documents climate/storage/process effects, freshness carried into cooking and a particular stack-aging rule. [CDDA weather interface](https://github.com/CleverRaven/Cataclysm-DDA/blob/master/src/weather.h) exposes local humidity/wind cover, condition sums and interval rain collection | Useful mechanisms for environment → shelter/container → product, and interval semantics. Vintage Story's averaging/sea-level-climate simplifications are choices to compare, not realism or YAIR requirements. CDDA header inspection establishes interfaces, not correctness of their implementations. Medium fit/prototype effort; no dependency or code copying selected |
+| **Scout: material culture and historical practice** | [Science History Institute Digital Collections](https://digital.sciencehistory.org/) provides artifacts, letters, rare books and oral histories, with food/color/medicine topics | Candidate sources for apparatus, trade language, notebook conventions, craft teaching and rival explanations. This pass checked the collection entry point, not a manuscript's truth. OPenn's related collection page timed out; switched to the owning institution's accessible route instead of retrying |
+| **Scout: ecology and field observation** | [Biodiversity Heritage Library](https://about.biodiversitylibrary.org/) provides biodiversity literature/archives and links field-book projects | Candidate source for habitat, seasonal observation, naming and field-journal detail. Select one relevant taxon/place/text and distinguish historical belief from current evidence. Historical illustrations/text are references, not automatic game biology |
+
+**Proposed extraction unit:** one source locator → actual mechanism and limits →
+material/environment/process facts → what a maker can observe → existing engine
+seam → one useful result and acceptance check. Include a contradictory example
+when the source has one. Keep source-world law separate from inspiration and
+original fill; avoid collecting another large ingredient list without readers.
+
+### Disposition and bounded next opportunities
+
+**ACT NOW (done):** saved weather/lore considerations, existing-source boundaries,
+scouted source routes and a separate audit-chat dispatch. No new gameplay claim.
+
+**ACCOUNT FOR NOW:** PC44–PC60 for selected consumers, plus the source extraction
+unit above. These do not require every world to model all environmental variables.
+
+**LATER / DELEGATE (not dispatched as implementation):**
+
+| Code | Candidate | Level / effort | Done check |
+|---|---|---|---|
+| A13 | Extend one existing exposed/sheltered material process | Sol / medium | Same inputs under one changed exposure produce a lawful difference; shelter changes the relevant path; long/short clock advances agree; actual product/use and required save/UI proof |
+| A14 | One source-qualified regional or world method exception | Luna / bounded source extraction, Sol / synthesis | Exact locator, ordinary method and exception with means/cost; ORIGINAL gaps labelled; proposal linked to its real world owner |
+| A15 | One learned forecast/document clue feeding an existing making choice | Sol / medium | Observer-safe evidence, uncertain/stale prediction, real decision and outcome; reading does not change truth or consume stock; scope fits the existing knowledge UI |
+
+### Requested independent chat
+
+Created local project chat `01a17937-1f5a-7e82-bf79-b7e47a1f4ae4` on 2026-10-26
+to inventory other systems and deeply audit its three strongest candidates.
+It owns `docs/audits/OTHER_SYSTEMS_DEPTH_CORE_AUDIT.md` and its separate evidence
+directory, checks prior owners first, and does not edit this crafting palette or
+the procedural-making audit. Body/ecology, exploration, abilities/progression,
+knowledge, economy/logistics, time and people/institutions are candidates, not
+an instruction to rebuild them all. First status check confirmed active work.
+No gameplay edits, extra agents, commits or pushes were requested from that chat.
+
+This round is source-inspected/scouted, documentation-only. Local links, codes
+and whitespace were checked. Runtime/browser evidence remains with its dated
+owner; the other chat's findings are pending its own saved result.
+
+### PC group audit chats requested, 2026-10-26
+
+**Later direction:** Weibao subsequently instructed each group to dispatch
+implementation chats for every detail and asked this parent to carry subtle and
+necessary considerations into them. [Current direction](USER_VISION.md#pc-implementation-subtlety-follow-through-2026-10-26)
+and [shared implementation guidance](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md)
+supersede the audit-only scope of the original dispatch described below. Group
+owners continue their existing implementation children and own their evidence.
+
+Weibao: “Send a chat for Each groups of PCs accordingly”. Seven separate local
+project chats were created for PC1–6, PC7–14, PC15–22, PC23–26, PC27–43,
+PC44–53 and PC54–60. The [dispatch and ownership](gm/dispatch/pc-groups-2026-10-26/README.md)
+links their separate reports; [thread ledger](gm/dispatch/pc-groups-2026-10-26/THREADS.json)
+retains IDs and exact prompts. Each continues source-backed audit and expansion
+with its own document area. This request authorizes those chats, not the proposed
+runtime slices, shared source writes, commits or publication. Initial status
+checks are dispatch evidence; each report owns its later findings and checks.
+
+
+### G2 implementation selection, 2026-10-26
+
+Later user direction selects the applicable PC7–PC14 and G2 audit details for implementation; the earlier audit-only disposition is historical. [Direction](USER_VISION.md#g2-ingredient-substitution-details-selected-for-implementation-2026-10-26), [five-chat dispatch](gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/README.md), and [integration receipt](gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md) own current state. G2 owns allocation/fit; G3 process semantics and G5 material/lot facts remain their owners. The [final connected delivery](gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md#final-connected-delivery-2026-10-26) records ORIGINAL HP reference/alternative/blend treatment, quantity-dependent actual reader, native joint rollback and persistence on bundle `28bbfe910094`. Its world-specific law does not establish arbitrary chemistry or canon formula substitution.
+
+
+### G7 connected lore implementation evidence, 2026-10-26
+
+Weibao selected PC54–PC60 and their applicable details after the source audit. [Direction](USER_VISION.md#lore-and-idea-source-details-selected-for-implementation-2026-10-26), [shared brief](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/COMMON.md) and [joined receipt](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/REPORT.md) own that selected implementation and its exact evidence. L1's copied/contradictory accounts feed actual strip trials; L2's ink-and-paper guides feed the existing lamp; L3's historical stop trace and actual repair restore one method, while scoped academy review changes a finite paper allocation without altering the device or granting competence. Historical audit conclusions remain history, not a competing implementation receipt. This bounded ORIGINAL Cyoria branch preserves book/menu priority and does not define a universal certification or preparation rule.

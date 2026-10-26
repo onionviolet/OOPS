@@ -1,0 +1,10 @@
+{
+  "fixture": "B2 retained-body lifecycle",
+  "fixtureSha256": "e73892df351864f55085dbfec1a3e752e452e6e745e53f783177fea57af3e6b8",
+  "observations": [
+    "B2a: real hurried-work producer; strain active at expiry-1, absent at exact expiry; HP remains separately spent; batched and stepped/reloaded states agree",
+    "B2b: actual-body identity mismatch during supplied recovery stops completion, refunds ration/fee, keeps strain/HP history, and suppresses projection; restoring matching support re-expresses unexpired strain",
+    "B2c: brace expiry equals precise-job due; no kit/completion awarded, reserved log/rope/fee/stamina returned once; batched and stepped/reloaded states agree"
+  ],
+  "additionalRuntimeCorrection": false
+}

@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m unittest discover -s scripts/toolsets/tests -p 'test_*.py' -v",
+  "result": "9 tests passed",
+  "recorded_seconds": 0.079,
+  "source_sha256": "8b5e0fcaff2b4bb6daac41476d92255648e5da09a4f9ad44c3f8ef79e5f76ba6",
+  "test_sha256": "a03bda99029f11fd5e0ab48bdf58fd454cc4e55d8a2b6f10ed350b0c5bcb5f7a"
+}

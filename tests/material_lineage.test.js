@@ -90,3 +90,25 @@ test('heirloom lines append dated holders and deeds, grow value, stay capped and
     assert.equal(heirloomLines(k).at(-1).text, 'deed 19');
     assert.throws(() => planHeirloomLine({stock: stock([key, 1]), item_key: key, count: 1, at: 1, kind: 'deed', text: 'x'}), /processed material/);
 });
+// Independent fixture work; installed into the focused test after slot acquisition.
+test('support receipts retain exact consumed and retained inputs without inflating yield or rejuvenating stock', () => {
+    const base = {stock: {'hide': 3, 'oil-lot-A': 1, 'kit-lot-A': 1},
+        inputs: [{item_key: 'hide', count: 3}],
+        supportInputs: [{item_key: 'oil-lot-A', count: 1, disposition: 'consumed'}, {item_key: 'kit-lot-A', count: 1, disposition: 'retained'}],
+        output: {id: 'Rat pelt', family: 'animal-hide', count: 3}, process,
+        sourceFacts: {hide: {born: 12}, 'oil-lot-A': {born: 1}}};
+    const before = structuredClone(base);
+    const plan = planProcessedMaterial(base);
+    assert.deepEqual(base, before, 'planning cannot mutate inventory, evidence or caller selections');
+    assert.deepEqual(plan.inputs, [{item_key: 'hide', count: 3}, {item_key: 'oil-lot-A', count: 1}]);
+    const history = readMaterialLineage(plan.item_key).history[0];
+    assert.deepEqual(history.inputs.slice(1).map(({item_key,count,role,disposition})=>({item_key,count,role,disposition})), [
+        {item_key:'oil-lot-A',count:1,role:'support',disposition:'consumed'},
+        {item_key:'kit-lot-A',count:1,role:'support',disposition:'retained'}]);
+    assert.equal(plan.lineage.facts.born, 12, 'support provenance is retained without asserting it is hide birth');
+    assert.throws(()=>planProcessedMaterial({...base,stock:{...base.stock,'oil-lot-A':0}}),/stale or insufficient/);
+    assert.throws(()=>planProcessedMaterial({...base,stock:{...base.stock,'kit-lot-A':0}}),/stale or insufficient/);
+    assert.throws(()=>planProcessedMaterial({...base,output:{...base.output,count:4}}),/exceeds consumed/,'consumed oil and retained kit cannot inflate count yield');
+    assert.throws(()=>planProcessedMaterial({...base,supportInputs:[{item_key:'hide',count:1,disposition:'retained'}]}),/overlap/);
+    assert.throws(()=>planProcessedMaterial({...base,supportInputs:[{item_key:'oil-lot-A',count:1,disposition:'invented'}]}),/disposition/);
+});

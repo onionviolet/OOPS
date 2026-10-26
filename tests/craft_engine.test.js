@@ -4,7 +4,7 @@ import {frontierCatalogue as cat, frontierBrewLaw as law, frontierSources as sou
 import {defineCatalogue, generateMaterial, materialPool, pickMaterial, validateMaterial} from '../src/craft_materials.js';
 import {defineCraftLaw, resolveBatch, validateBatchProduct} from '../src/craft_resolver.js';
 import {defineRecipe, generateRecipe, matchRecipe} from '../src/craft_recipes.js';
-import {forecastHarvest, gatherIdle, harvest, localVariants, nodeAt, sourcesAt, MAX_IDLE_HARVESTS} from '../src/craft_sources.js';
+import {defineSourceTable, validateSourceState, forecastHarvest, gatherIdle, harvest, localVariants, nodeAt, sourcesAt, MAX_IDLE_HARVESTS} from '../src/craft_sources.js';
 import {createCraftState, freezeMaterials, freezeRecipe, knowsAxis, observe, projectMaterial, projectProduct, recordProduct,
     setSourceNode, validateCraftState} from '../src/craft_state.js';
 import {classifyProductKey, keyForProduct, resolveProductKey} from '../src/craft_product_registry.js';
@@ -289,4 +289,41 @@ test('binder grammar (second case on the same law): many seeds, no degenerate or
     assert.ok(vals[499] <= 45, `dose stays under the ash ceiling 300*150/1000 (max ${vals[499]})`);
     assert.ok(vals[475] <= vals[250] * 3, `tail is not runaway (p95 ${vals[475]}, median ${vals[250]})`);
     assert.equal(generateRecipe(law, binderGrammar, {root: 1, scope: 'base.frontier', index: 0, extra: []}).receipt.fallbackUsed, true, 'no salt: named authored fallback');
+});
+
+
+test('source-local calendar gates ignore foreign actor seasons and root day boundaries', () => {
+    const calendar = {worldId:'book.fixture',profileId:'local.cycle',profileRevision:1,minutesPerHour:10,hoursPerDay:30,seasonTags:{Bloom:'spring'}};
+    const table = defineSourceTable(cat,{id:'fixture.ecology',revision:1,sources:[{id:'flowers',kind:'gather',capacity:1000,regenPerDay:7,calendar,
+        variants:{reedherb:2},yields:[{family:'reedherb',season:'spring',hours:[1,2]}]}]});
+    const coordinate = (at,over={}) => ({...calendar,seasonTags:undefined,instanceId:'local.one',at,minuteWithinDay:(at+15)%300,seasonId:'Bloom',...over});
+    const c = at => {const {seasonTags,...v}=coordinate(at);return v;};
+    const args={root:7,world:'book.fixture',location:'existing.place',source:'flowers',at:0,calendar:c(0)};
+    const before=JSON.stringify(args),out=harvest(table,args);
+    assert.equal(out.result.items.length,1);assert.equal(JSON.stringify(args),before);
+    assert.equal(forecastHarvest(table,'flowers',{at:5,calendar:c(5)}).yields[0].permille,0,'local hour closing boundary, not root hour');
+    assert.equal(forecastHarvest(table,'flowers',{at:0,calendar:{...c(0),seasonId:null},actor:{season:'spring'}}).yields[0].permille,0,'unknown local season does not inherit actor season');
+    for(const patch of [{worldId:'foreign'},{profileRevision:2},{at:1},{minutesPerHour:60},{minuteWithinDay:300}])assert.throws(()=>harvest(table,{...args,calendar:{...c(0),...patch}}),/calendar/);
+    assert.throws(()=>harvest(table,{...args,world:'foreign'}),/different world/);
+    assert.throws(()=>harvest(table,{...args,node:out.node,calendar:{...c(0),instanceId:'local.two'}}),/instance/);
+    const elsewhere=harvest(table,{...args,calendar:{...c(0),instanceId:'local.two'}});
+    assert.notEqual(out.receipt.address,elsewhere.receipt.address);
+    assert.notEqual(out.result.items[0].material.id,elsewhere.result.items[0].material.id,'regional families include actual instance');
+    assert.deepEqual(localVariants(table,'flowers',{root:7,world:args.world,location:args.location,instanceId:'local.one'}),localVariants(table,'flowers',{root:7,world:args.world,location:args.location,instanceId:'local.one'}));
+    assert.throws(()=>gatherIdle(table,{...args,from:0,to:1,every:1}),/every step/);
+});
+
+test('bound sources preserve local-day fractional growth, depletion deadlines, freeze and reload', () => {
+    const calendar={worldId:'book.fixture',profileId:'local.cycle',profileRevision:1,minutesPerHour:100,hoursPerDay:30,seasonTags:{}};
+    const table=defineSourceTable(cat,{id:'fixture.growth',revision:1,sources:[{id:'roots',kind:'gather',capacity:1000,regenPerDay:7,calendar,yields:[{material:'Spring water'}]}]});
+    const c=at=>({worldId:calendar.worldId,profileId:calendar.profileId,profileRevision:1,minutesPerHour:100,hoursPerDay:30,instanceId:'kept',at,minuteWithinDay:(at+5)%3000,seasonId:null});
+    const source=table.sources.roots,start={...nodeAt(source,null,0,c(0)),stock:0};
+    const once=nodeAt(source,start,10000,c(10000));let parts=start;
+    for(const at of [1,37,1000,1999,5000,10000]){parts=nodeAt(source,roundTrip(parts),at,c(at));validateSourceState({schema:1,nodes:{roots:parts}},table);}
+    assert.deepEqual(parts,once);assert.deepEqual(nodeAt(source,parts,10000,c(10000)),parts,'frozen elapsed grants no regrowth');
+    const empty=harvest(table,{root:1,world:'book.fixture',location:'kept.place',source:'roots',at:1,calendar:c(1),node:start});
+    assert.equal(empty.result.nextAt,429);assert.equal(nodeAt(source,empty.node,429,c(429)).stock,1);
+    const full=nodeAt(source,{...start,stock:999},10000,c(10000));assert.equal(full.stock,1000);assert.equal(full.carry,0);
+    assert.throws(()=>validateSourceState({schema:1,nodes:{roots:{...parts,calendar:{...parts.calendar,profileRevision:2}}}},table),/calendar/);
+    assert.throws(()=>nodeAt(source,start,1),/coordinate/);
 });

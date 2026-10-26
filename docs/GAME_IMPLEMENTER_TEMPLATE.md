@@ -7,6 +7,7 @@ Use this for one bounded worker assigned by a [world game master](WORLD_GAME_MAS
 Keep only fields that affect this task. The assigning GM verifies live inputs before dispatch; the worker checks that they still match before editing. A commit alone does not identify dirty user work.
 
 ```text
+PRE-FLIGHT: Use the proposed PRF1–PRF8 ([GROUND_RULES](GROUND_RULES.md)) where useful; resolve missing information that affects correctness or scope from the underlying standing rules. An empty template field is not itself a new stop gate.
 OUTCOME: One concrete player interaction or other observable result.
 DETAIL IDS: Local completion requirement IDs, primary section and cross-section cases.
 PARENT: Assigning GM, world brief and relevant prompt/brief revision.
@@ -19,7 +20,7 @@ INTERFACE: Existing owner/functions/data contracts, one representative working c
 INVARIANTS (when changed): Sole writers, actual caller/target, conserved inputs, frozen commitment/clock, observer projection and selected compatibility policy; name only affected boundaries.
 DO NOT TOUCH: Other workers' paths, unrelated user work, private saves, shared gates.
 ROUTE: Model, explicit effort, available tools and task size/time boundary.
-GATE: Expected behavior, relevant negative cases, narrow checks and evidence location.
+GATE: Expected behavior, relevant negative cases, narrow checks and evidence location. The AD43 floor FLR1–FLR6 and the receipt front matter (IPC27: build, route, state, viewport, persistence, tests, review).
 UI TARGET (when relevant): Surface/home, target viewport and concrete visible outcome; known prerequisite/cost/duration, pending/settled/cancelled or error states, keyboard/return path. Cite applicable UI rules rather than copying a universal widget checklist.
 CHECKPOINT: Existing task record/resume block, its named writer and current revision.
 RETURN: Status, changed paths, checks with their inputs/results, gaps and next action.

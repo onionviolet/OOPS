@@ -1,0 +1,408 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Village experiments
+Standing and ledger
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Statistics
+Today
+Where I am
+Around this place
+Polyjuice bench
+Lives & inheritance
+Family qualities
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people •
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 14.8 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+Around you
+
+2 people · 5 services / stations
+
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.
+
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.
+
+People here · 2
+village elder
+Village neighbor
+village trader
+Merchant
+Services & stations · 5
+Waypost supply clerk
+Supply clerk
+Homes
+Residence rights, furnishings, storage and optional home beginnings.
+Village mixing counter
+Mix and observe your own ingredients.
+Village common herb verge
+Gather common herbs and inspect your carried materials and preparations.
+Gear workshop
+Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.
+
+That subject is no longer available here. Choose another known subject.
+
+All
+3
+Gear
+1
+Use
+1
+Other
+1
+★
+0
+Inventory
+nothing
+Name ↑
+▾
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+14.8 °C · comfortable
+
+01/04/999 08:06, Mon · ☼ Day
+Actions
+Options · 7 (5 ready)
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+Optional pacing
+Open to review
+
+Home-world pacing. Hunger off (native pacing). Weather off (native weather). Base pacing XP ×1.000. Temperature +0°C over native temperature. Native rain is retained. Native XP ×1.00000. Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death.
+
+Equipment condition and repair
+Open to review
+
+Durability is off. Existing condition is frozen and native gear power applies. Activate in Settings; untouched old stacks keep their keys.
+
+Iona’s work ledger · systems and workshop
+1 ready / 51 actions
+
+Original local prototype. Earn authority-backed points through real work, keep permanent learning, or lease guidance. Optional workshop chance and a represented irrigation experiment share your actual inventory. Only played time advances work.
+
+Meet Iona to hear exact grant and work terms.
+
+Progress saved.
+
+Commission and next actions
+Meet Iona and her work ledger Ready.
+Refuse the first commission without penalty
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Accept: make a survey kit, earn 10 grant points
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Sort Iona’s deliveries · earn 4 coins · 2 min
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Buy a log from Iona · 1 coin
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Make the commissioned kit · 1 log · 2 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Claim earned reward · 10 points + workshop cache
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Learning, assistance, irrigation and optional actions
+0 ready / 44 actions
+Buy courier provisions · 1 coin
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Buy a phial from Iona · 2 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Learn permanent seam reading · 3 points
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Lease ledger assistance · 2 points
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Use leased preparation · 1 log → 2 kits · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Upgrade ledger module: parcel guidance · 5 points
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Use new parcel guidance · 1 kit → 2 parcels · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Disconnect ledger assistance; keep learning
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Reconnect to Iona
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Renew ended assistance · 2 coins
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Use learned ordinary method · 1 log → kit · 2 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Craft inspection lens · phial + fitting pin · 2 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Inspect a carried survey kit with your lens
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Refit inspected kit · kit + pin → aligned kit · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Supply precision dispatch · aligned kit → 4 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Acquire Stillglass preservation · 3 coins
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Preserve journey provisions · phial + meat → sealed ration · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Preserve measured sample · kit → sealed parcel · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Prepare unsealed comparison · phial + meat · expires after 4 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Prepare unsealed sample · kit · drifts after 4 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Deliver stable provisions · ration → 3 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Deliver stable measurement · parcel → 4 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Deliver ordinary provisions before expiry · 2 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Deliver ordinary sample before drift · 2 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Buy unopened workshop cache · 2 coins
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Appraise unopened cache pool
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Open carried cache · equal glass/pin chance
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Sell spare phial · 1 coin
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Sell spare pin · 1 coin
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Buy fitting pin · 1 coin
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Optional sealed draw · stake 2 coins; Iona matches 2
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Fold sealed draw · return each stake
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Rehearse straight irrigation, inlet 1 · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Rehearse straight irrigation, inlet 2 · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Rehearse straight irrigation, inlet 3 · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Rehearse branched irrigation, inlet 1 · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Rehearse branched irrigation, inlet 2 · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Rehearse branched irrigation, inlet 3 · 1 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Install actual irrigation fittings · earn 5 coins
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Use repaired irrigation + your seal · meat + phial → 2 preserved rations · 2 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Teach Ren permanent seam reading
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Ask Ren to make a kit from his own log
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Buy Ren’s own finished kit · 1 coin
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+The required knowledge, means or circumstances are missing. That participant is unavailable.
+Apply tested routing · log → real fittings · 2 min
+The required knowledge, means or circumstances are missing.
+The required knowledge, means or circumstances are missing.
+Terms and observed workshop records
+Open to review
+Market courtyard · trade, property and projects
+1 ready / 1 actions
+
+Original local proposals. Work advances only during play. No browser-closed rent, upkeep or debt collection.
+
+Courtyard charter
+1 ready / 1 actions
+Visit the market courtyard · optional, free
+
+Meet four local residents and inspect finite offers. This gives access, not coins, goods, a deed or a debt. Work uses played time only; leaving pauses accepted work and browser closure creates no liabilities.
+
+No stock, money, deed or debt is granted by meeting the residents.
+
+Local life
+3 ready / 5 actions
+
+1 find remains. 10% find chance, capped at 40%. Visual search: five played minutes per attempt. Each miss adds 5 percentage points. Perception helps up to 10 points.
+
+Ready. Visual search: five played minutes per attempt. Completed search work stays when the method changes.
+
+Raw Potato causes twenty minutes of native food poisoning; Roasted rat meat causes forty-five. Food poisoning retains its native health loss and resistance scaling. Actual exposure adds 0.25 Poison resistance XP per played minute (0 minutes recorded). Cooking or safe food avoids this risk.
+
+A runner may stop by after fifteen quiet played minutes. Contact chance starts at 20%, rises on misses and caps at 50%; at most one contact per game day.
+
+Look around (1 find remains)Ask the village elder what to do nextAccept Village watch (until 20:00; 12 coins)Weekly market: next opening in 54 minutes (day 1, 09:00–17:00)Midday bread: opens in 234 minutes (12:00–14:00)
+
+Village practice and familiar ground
+2 ready / 2 actions
+
+Ask the village elder about the public moonlit herb bed through Talk to someone.
+
+Open optional target-dice practiceSpeak with the Village cup maker
+
+Furniture and home comforts
+1 ready / 1 actions
+Open Homes · rights, furnishings and belongings
+Here
+Crafting
+Mixing
+?
+Journal
+All quests
+▾
+Lost memory
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Journal & received accounts is now available in navigation.
+Journal ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›
+Saved the game manually

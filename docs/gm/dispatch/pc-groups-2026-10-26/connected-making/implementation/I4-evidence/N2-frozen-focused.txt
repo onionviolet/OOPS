@@ -1,0 +1,304 @@
+TAP version 13
+# Subtest: defineProcess validates, freezes and rejects malformed rows
+ok 1 - defineProcess validates, freezes and rejects malformed rows
+  ---
+  duration_ms: 0.745583
+  type: 'test'
+  ...
+# Subtest: processGaps explains every miss; an unmet ritual is a risk, not a lock
+ok 2 - processGaps explains every miss; an unmet ritual is a risk, not a lock
+  ---
+  duration_ms: 0.562709
+  type: 'test'
+  ...
+# Subtest: processReady is elapsed minutes and nothing else
+ok 3 - processReady is elapsed minutes and nothing else
+  ---
+  duration_ms: 0.070083
+  type: 'test'
+  ...
+# Subtest: ledger groups by world and pathway, highest Sequence first, with status and gaps
+ok 4 - ledger groups by world and pathway, highest Sequence first, with status and gaps
+  ---
+  duration_ms: 0.509459
+  type: 'test'
+  ...
+# Subtest: LOTM rows: 43 known, 23 brewable, one item per distinct ingredient, canon price kept beside the scaled pence
+ok 5 - LOTM rows: 43 known, 23 brewable, one item per distinct ingredient, canon price kept beside the scaled pence
+  ---
+  duration_ms: 0.222375
+  type: 'test'
+  ...
+# Subtest: CC and HP are shared-envelope rows
+ok 6 - CC and HP are shared-envelope rows
+  ---
+  duration_ms: 0.052
+  type: 'test'
+  ...
+# Subtest: retained CC fixtures finish on the ported code: brew in progress and ready
+ok 7 - retained CC fixtures finish on the ported code: brew in progress and ready
+  ---
+  duration_ms: 263.348
+  type: 'test'
+  ...
+# Subtest: history-less legacy HP pending work refuses without changing paid custody
+ok 8 - history-less legacy HP pending work refuses without changing paid custody
+  ---
+  duration_ms: 0.707625
+  type: 'test'
+  ...
+# Subtest: supported HP paid history keeps its exact canon inputs and settles at its retained deadline
+ok 9 - supported HP paid history keeps its exact canon inputs and settles at its retained deadline
+  ---
+  duration_ms: 1.622042
+  type: 'test'
+  ...
+# Subtest: a Sequence 9 formula brews, bottles, holds and sells; counters balance
+ok 10 - a Sequence 9 formula brews, bottles, holds and sells; counters balance
+  ---
+  duration_ms: 236.04575
+  type: 'test'
+  ...
+# Subtest: special-order tier costs more and has little stock; Seq 4 and above have no Tingen route
+ok 11 - special-order tier costs more and has little stock; Seq 4 and above have no Tingen route
+  ---
+  duration_ms: 4144.005959
+  type: 'test'
+  ...
+# Subtest: stock reaches a save enrolled before the bench (DWF127) and the frog invariant still holds
+ok 12 - stock reaches a save enrolled before the bench (DWF127) and the frog invariant still holds
+  ---
+  duration_ms: 169.64825
+  type: 'test'
+  ...
+# Subtest: the bench view lists every row, shows one formula, and drinking is honestly unwritten
+ok 13 - the bench view lists every row, shows one formula, and drinking is honestly unwritten
+  ---
+  duration_ms: 813.972333
+  type: 'test'
+  ...
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 14 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 2.112375
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 15 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 1.41775
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 16 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 1.316292
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+ok 17 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 0.587542
+  type: 'test'
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 18 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 0.877958
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+ok 19 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.377875
+  type: 'test'
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 20 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 0.569667
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 21 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.200125
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 22 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 3.317
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 23 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 0.965625
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 24 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.285917
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 25 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 1.190791
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 26 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.1275
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 27 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.1175
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 28 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 1.302375
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 29 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 7.970167
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 30 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.378167
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 31 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 0.928333
+  type: 'test'
+  ...
+# Subtest: paid HP history retains exact lots and terms; settlement uses the committed deadline
+ok 32 - paid HP history retains exact lots and terms; settlement uses the committed deadline
+  ---
+  duration_ms: 0.954292
+  type: 'test'
+  ...
+# Subtest: same-cohort split, partial actual use, custody and recombination conserve spent and remaining doses
+ok 33 - same-cohort split, partial actual use, custody and recombination conserve spent and remaining doses
+  ---
+  duration_ms: 1.589667
+  type: 'test'
+  ...
+# Subtest: different brewing ages stay distinct even with equal grade; previews and failed merges keep custody
+ok 34 - different brewing ages stay distinct even with equal grade; previews and failed merges keep custody
+  ---
+  duration_ms: 0.370208
+  type: 'test'
+  ...
+# Subtest: unsupported or malformed paid terms refuse before settlement without refunding or erasing custody
+ok 35 - unsupported or malformed paid terms refuse before settlement without refunding or erasing custody
+  ---
+  duration_ms: 0.400584
+  type: 'test'
+  ...
+# Subtest: ORIGINAL suspension retains paid preparation and real process; fine/coarse composition reaches the cauldron reader
+ok 36 - ORIGINAL suspension retains paid preparation and real process; fine/coarse composition reaches the cauldron reader
+  ---
+  duration_ms: 3.33725
+  type: 'test'
+  ...
+# Subtest: unknown treatment preview is pure and neutral; inert trial spends a dose and empty/stored/occupied targets refuse
+ok 37 - unknown treatment preview is pure and neutral; inert trial spends a dose and empty/stored/occupied targets refuse
+  ---
+  duration_ms: 1.864042
+  type: 'test'
+  ...
+# Subtest: demonstrated HP quick replay binds new current lots; changed preparation needs guided/deep review through the same resolver
+ok 38 - demonstrated HP quick replay binds new current lots; changed preparation needs guided/deep review through the same resolver
+  ---
+  duration_ms: 3.586167
+  type: 'test'
+  ...
+# Subtest: suspension history validation preserves custody and rejects changed paid plan or unsupported revision without settlement
+ok 39 - suspension history validation preserves custody and rejects changed paid plan or unsupported revision without settlement
+  ---
+  duration_ms: 0.641958
+  type: 'test'
+  ...
+# Subtest: actual non-ingestion trials compare one preparation change with explicit target conditions and observed responses
+ok 40 - actual non-ingestion trials compare one preparation change with explicit target conditions and observed responses
+  ---
+  duration_ms: 1.330167
+  type: 'test'
+  ...
+# Subtest: HP native boundary refuses unavailable or read-only saving before any payment or setup
+ok 41 - HP native boundary refuses unavailable or read-only saving before any payment or setup
+  ---
+  duration_ms: 0.759708
+  type: 'test'
+  ...
+# Subtest: HP native boundary serializes tentative state and rolls back begin and paid acquisition on writer failure
+ok 42 - HP native boundary serializes tentative state and rolls back begin and paid acquisition on writer failure
+  ---
+  duration_ms: 1.746167
+  type: 'test'
+  ...
+# Subtest: HP durable publication is retained when a later native callback fails
+ok 43 - HP durable publication is retained when a later native callback fails
+  ---
+  duration_ms: 0.428
+  type: 'test'
+  ...
+# Subtest: native suspension input is exact current custody, not a menu-arrival or canonical-name substitute
+ok 44 - native suspension input is exact current custody, not a menu-arrival or canonical-name substitute
+  ---
+  duration_ms: 1.328959
+  type: 'test'
+  ...
+# Subtest: paid preparation and native-only suspension roll back together on actual writer failure, then spend exactly once
+ok 45 - paid preparation and native-only suspension roll back together on actual writer failure, then spend exactly once
+  ---
+  duration_ms: 5.307459
+  type: 'test'
+  ...
+# Subtest: HP selected-lot assessment is observer-safe, pure, and distinguishes unsupported from uncertain
+ok 46 - HP selected-lot assessment is observer-safe, pure, and distinguishes unsupported from uncertain
+  ---
+  duration_ms: 2.995875
+  type: 'test'
+  ...
+# Subtest: one preparation difference reaches the actual dose consumer and its cost
+ok 47 - one preparation difference reaches the actual dose consumer and its cost
+  ---
+  duration_ms: 2.9925
+  type: 'test'
+  ...
+# Subtest: stale and duplicate lot selections refuse without spending; changed apparatus invalidates a clean-pot comparison
+ok 48 - stale and duplicate lot selections refuse without spending; changed apparatus invalidates a clean-pot comparison
+  ---
+  duration_ms: 0.922208
+  type: 'test'
+  ...
+# Subtest: HP causal inspector consumes projected evidence without inventing historical receipts or changing knowledge
+ok 49 - HP causal inspector consumes projected evidence without inventing historical receipts or changing knowledge
+  ---
+  duration_ms: 1.220458
+  type: 'test'
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 49
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5996.425584

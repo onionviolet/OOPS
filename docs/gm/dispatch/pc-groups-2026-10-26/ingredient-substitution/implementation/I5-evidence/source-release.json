@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-26T18:33:47.054075+00:00",
+  "paths": {
+    "src/hp_ingredient_substitution.js": "f09393813666388d2142ecdf67cd716cb025ce842fcb9d94661ad161ffe609fb",
+    "tests/hp_ingredient_substitution.test.js": "ef63ddbfbab88d4857a8f6a88753925ba713e124bd33b7b68366277cfb954c59",
+    "src/hp_brewing_domain.js": "b9ee71301ab38a94a37011450ad3e7c1445b3547c982bf9db7dc61beaf330af3",
+    "src/native_tool_domains.js": "0720bf786c202e02ef681ebb1fdee7a80217d59c34b4f71f4d9ef74fa0582768",
+    "tests/hp_brewing_domain.test.js": "689fed40d398f704f3166f7eef389fc527a99ba075776b3452a410731d244f83"
+  },
+  "focusedCommand": "node --test tests/hp_ingredient_substitution.test.js tests/hp_brewing_domain.test.js",
+  "pass": 8,
+  "fail": 0,
+  "state": "source/focused, below floor until G1 state acknowledgement and actual native consumer journey",
+  "handshake": {
+    "requestMethod": "book.hp.abrasive-suspension@1",
+    "context": [
+      "externalMaterials",
+      "abrasivePlan"
+    ],
+    "history": [
+      "externalMaterials",
+      "abrasivePlan"
+    ],
+    "admissionProcess": "book.hp.abrasive-suspension",
+    "minutes": 20
+  }
+}

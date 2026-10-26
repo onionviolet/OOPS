@@ -1,0 +1,45 @@
+--- a/src/world_packs/book_mol_pack.js
++++ b/src/world_packs/book_mol_pack.js
+@@ -11423,7 +11423,7 @@
+        "actor": "player",
+        "key": "book.mol.lore.trace.r1",
+        "stage": "seen",
+-       "value": "{\"schema\":1,\"id\":\"book.mol.lore.trace.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.circular\",\"copyOf\":\"book.mol.lore.print.r1\",\"supersedes\":null,\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Earlier workshop setup, before the worn stop (ORIGINAL history)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The surviving stop marks follow an earlier workshop sketch for a single-cube ruling jig. The copied sketch describes its earlier aligned stop, not present usability. Its circular and copied diagram share one source, so they are not independent witnesses. No ink, tool, skill or stock was acquired.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"earlier alignment-stop arrangement\",\"status\":\"observed\"},{\"scope\":\"present apparatus suitability\",\"status\":\"unread\"}]}",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.trace.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.workshop.print\",\"copyOf\":\"book.mol.lore.print.r1\",\"supersedes\":null,\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Earlier workshop setup, before the worn stop (ORIGINAL history)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The surviving stop marks follow an earlier workshop sketch for a single-cube ruling jig. The copied sketch describes its earlier aligned stop, not present usability. Its circular and copied diagram share one source, so they are not independent witnesses. No ink, tool, skill or stock was acquired.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"earlier alignment-stop arrangement\",\"status\":\"observed\"},{\"scope\":\"present apparatus suitability\",\"status\":\"unread\"}]}",
+        "basis": {
+         "kind": "instruction",
+         "attributedTo": "book.mol.nora",
+--- a/tests/mol_lore_traces.test.js
++++ b/tests/mol_lore_traces.test.js
+@@ -19,7 +19,7 @@
+  const before=JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/commands-after-L2.json',import.meta.url)));
+  for(const c of before)assert.deepEqual(molCommands.find(x=>x.id===c.id),c);
+  let p=fixture(),inert=JSON.stringify(p);q(p,'trace');molPresentation(p.state,registry,context(p));readMolLore(p.state);assert.deepEqual(molLoreEvidence(p.state,I.nora).accounts,[]);assert.equal(JSON.stringify(p),inert);
+- const inventory=structuredClone(stock(p));p=perform(p,P+'trace');const trace=structuredClone(records(p)[P+'trace.r1']);assert.deepEqual(stock(p),inventory);assert.equal(q(p,'prepare_guide_jig').eligible,false);
++ const inventory=structuredClone(stock(p));p=perform(p,P+'trace');const trace=structuredClone(records(p)[P+'trace.r1']);assert.equal(JSON.parse(trace.value).origin,JSON.parse(records(p)[P+'print.r1'].value).origin);assert.equal(molLoreEvidence(p.state).documentRoots.length,2);assert.deepEqual(stock(p),inventory);assert.equal(q(p,'prepare_guide_jig').eligible,false);
+  p=perform(p,P+'inspect_worn_jig');p=perform(p,P+'repair_jig');assert.equal(stock(p)[K.paper],inventory[K.paper]-1);assert.equal(q(p,'prepare_guide_jig').eligible,true);
+  p=perform(p,P+'inspect_restored_jig');assert.deepEqual(records(p)[P+'trace.r1'],trace);assert.ok(records(p)[P+'jig.worn']);assert.ok(records(p)[P+'jig.restored']);
+  const current=structuredClone(stock(p));p=move(p,'station');p=act(p,'book.mol.return');p=act(p,'book.mol.enter');p=move(p,'workshop');assert.equal(q(p,'prepare_guide_jig').eligible,true);assert.equal(q(p,'repair_jig').eligible,false);assert.deepEqual(stock(p),current);assert.deepEqual(records(p)[P+'trace.r1'],trace);envelope(p);
+--- a/tests/world_pack_registry.test.js
++++ b/tests/world_pack_registry.test.js
+@@ -26,9 +26,18 @@
+     assert.throws(() => installedWorldPack('book.mol', bad), /did not load/);
+ });
+ 
+-test('Cyoria installs from the pack: exports match the pre-conversion hash and the pack matches its ID owners', () => {
++test('Cyoria installs from the pack: original exports retain the conversion hash beside additive lore and ID owners', () => {
++    // Keep conversion parity for the original content while permitting the
++    // separately tested additive lore family. Do not replace the baseline hash.
++    const loreItems = new Set(['Cyorian borrowed workshop packet', 'Cyorian single-cube tracing guide']);
++    const loreKeys = new Set([...loreItems].map(id => JSON.stringify({id})));
++    const original = value => Array.isArray(value)
++        ? value.filter(row => !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.')).map(original)
++        : value && typeof value === 'object'
++            ? Object.fromEntries(Object.entries(value).filter(([key]) => !loreKeys.has(key)).map(([key, child]) => [key, original(child)]))
++            : value;
+     const out = {};
+-    for (const k of Object.keys(content).sort()) if (typeof content[k] !== 'function') out[k] = content[k];
++    for (const k of Object.keys(content).sort()) if (typeof content[k] !== 'function') out[k] = original(content[k]);
+     const sha = createHash('sha256').update(JSON.stringify(out, null, 1) + '\n').digest('hex');
+     assert.equal(sha, '5196c95ca7a7849e684f19d71035edb2d6e8aa7f2ca04d3890deb8156892ebe4', 'book_world_mol_content exports changed from the hand-coded baseline (WA17)');
+     const loaded = installedWorldPack('book.mol');

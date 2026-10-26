@@ -1,0 +1,23 @@
+{
+  "route": "Actual native stamina debit for grounding and nursery care, reimported agent-earned exports; no grants",
+  "origin": "http://127.0.0.1:49208",
+  "errors": [],
+  "roundtrips": [
+    "vital-ground",
+    "vital-care"
+  ],
+  "bundleHash": "bedda8b209685c62585cccf8cb25c52f9bc30911dd8938d866b439bb6c5f5c48",
+  "debits": [
+    {
+      "name": "ground",
+      "before": 0,
+      "after": 1
+    },
+    {
+      "name": "care",
+      "before": 0,
+      "after": 1
+    }
+  ],
+  "status": "agent-verified, not human-reviewed"
+}

@@ -1,0 +1,21 @@
+{
+  "route": "fresh browser launch, no save fixture",
+  "viewport": "1920x1080",
+  "lanes": [
+    {
+      "origin": "http://127.0.0.1:62835",
+      "bundleHash": "31ec61169638fb11be00716fe742de4279d13211d2ab9780b9cac68b0f81ee96",
+      "versionedBundle": "http://127.0.0.1:62835/dist/bundle.js?version=v0.6-31ec61169638",
+      "errors": [],
+      "failed": []
+    },
+    {
+      "origin": "http://127.0.0.1:62891",
+      "bundleHash": "31ec61169638fb11be00716fe742de4279d13211d2ab9780b9cac68b0f81ee96",
+      "versionedBundle": "http://127.0.0.1:62891/dist/bundle.js?version=v0.6-31ec61169638",
+      "errors": [],
+      "failed": []
+    }
+  ],
+  "sourceOutputsUnchanged": true
+}

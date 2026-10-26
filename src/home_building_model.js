@@ -1,4 +1,4 @@
-import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_SITE,HOME_CAMPS,PACKED_TENT,homeKey as k} from './home_content.js';
+import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_WORLD,HOME_SITE,HOME_CAMPS,PACKED_TENT,homeKey as k} from './home_content.js';
 import {progressKey,permitKey,BUILDER} from './home_work_content.js';
 const check=(v,m)=>{if(!v)throw Error('Home: '+m);};
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
@@ -24,9 +24,12 @@ export function advanceHomeCondition(h,c) {
     h.condition ||= newHomeCondition(c.clock);
     const q=h.condition,start=q.lastClock;
     if(c.clock<=start)return;
+    // Inactive worlds freeze. Move the root cursor so returning cannot apply
+    // the other world's elapsed time as a native weather catch-up interval.
+    if(c.world&&c.world!==(P[h.id].world||HOME_WORLD)){q.lastClock=c.clock;return;}
     // Native played-calendar intervals supply rain. Roof exposure is local data.
     const exposure={nest:4,burrow:8,shelter:1,tent:2}[h.id]||0;
-    for(let at=start;at<c.clock;){const n=Math.min(c.clock-at,60-(at%60)),rain=c.weatherAt?.(at)?.raining===true;
+    for(let at=start;at<c.clock;){const weather=c.weatherAt?.(at),n=Math.min(c.clock-at,weather?.until>at?weather.until-at:1),rain=weather?.raining===true;
         if(rain&&(exposure||q.integrity<80)){
             q.wetness=Math.min(1000,q.wetness+n*(h.weatherproof?1:2));
             if(exposure){const threshold=120*exposure*(h.weatherproof?2:1);q.rainMinutes+=n;const wear=Math.floor(q.rainMinutes/threshold);q.integrity=Math.max(0,q.integrity-wear);q.rainMinutes%=threshold;}

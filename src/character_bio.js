@@ -24,10 +24,12 @@ export function characterBioView({state, registry, context, training = [], revea
         const cause = source.bioCause || ({inherited:"Inherited body trait · ancestry uncertain",trained:"Acquired through training",acquired:"Acquired through experience"})[origin] ||
             (source.kind === "knowledge" ? "Learned knowledge" : source.kind === "bloodline" ? "Awakened bloodline · origin unknown" : "Discovered trait");
         const label=id === PALM_MARK ? activeCondition(SCRAPED_HANDS) ? "Palm scrape" : "Faint palm scar" : source.label;
-        const row={id, label, detail:grants.join(" · ") || source.bioDetail || "Currently inactive", cause, origin};
+        const description=source.bioDetail || source.description || source.look?.text || 'A lasting quality you have discovered.';
+        const note=faculty?.suppressed ? "Its effects are currently suppressed." : faculty && !faculty.active ? "Its effects are currently dormant." : "";
+        const row={id, label, description, note, detail:grants.join(" · ") || "", cause, origin};
         // A trait replaced by a held successor fades: kept as a record with its reason, no longer shaping the description.
         const successor=source.supersededBy && actor.sources[source.supersededBy] ? registry.sources.get(source.supersededBy) : null;
-        return [successor ? {...row, detail:source.fadedDetail || "No longer shapes you.", cause:`Faded: replaced by ${successor.label}`, origin:"faded"} : row];
+        return [successor ? {...row, description:source.fadedDetail || "No longer shapes you.", note:"", detail:"", cause:`Faded: replaced by ${successor.label}`, origin:"faded"} : row];
     });
     const faded=sources.filter(row=>row.origin === "faded");
     const live=sources.filter(row=>row.origin !== "faded"), heritage=live.filter(row=>row.origin === "inherited"), learned=live.filter(row=>row.origin !== "inherited");

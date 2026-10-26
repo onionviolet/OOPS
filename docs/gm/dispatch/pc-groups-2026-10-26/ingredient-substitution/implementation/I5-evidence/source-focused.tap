@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: HP native boundary refuses unavailable or read-only saving before any payment or setup
+ok 1 - HP native boundary refuses unavailable or read-only saving before any payment or setup
+  ---
+  duration_ms: 0.54525
+  type: 'test'
+  ...
+# Subtest: HP native boundary serializes tentative state and rolls back begin and paid acquisition on writer failure
+ok 2 - HP native boundary serializes tentative state and rolls back begin and paid acquisition on writer failure
+  ---
+  duration_ms: 1.260916
+  type: 'test'
+  ...
+# Subtest: HP durable publication is retained when a later native callback fails
+ok 3 - HP durable publication is retained when a later native callback fails
+  ---
+  duration_ms: 0.3185
+  type: 'test'
+  ...
+# Subtest: native suspension input is exact current custody, not a menu-arrival or canonical-name substitute
+ok 4 - native suspension input is exact current custody, not a menu-arrival or canonical-name substitute
+  ---
+  duration_ms: 0.796333
+  type: 'test'
+  ...
+# Subtest: actual reference, alternative and blend conserve physical portions and reach the useful same work
+ok 5 - actual reference, alternative and blend conserve physical portions and reach the useful same work
+  ---
+  duration_ms: 1.892458
+  type: 'test'
+  ...
+# Subtest: preparation, concentration and essential absence reach actual resolved strength without erasing side solids
+ok 6 - preparation, concentration and essential absence reach actual resolved strength without erasing side solids
+  ---
+  duration_ms: 1.486167
+  type: 'test'
+  ...
+# Subtest: native import reads actual exact stock/current HP presence, preserves unknown origin and spends nothing
+ok 7 - native import reads actual exact stock/current HP presence, preserves unknown origin and spends nothing
+  ---
+  duration_ms: 0.277125
+  type: 'test'
+  ...
+# Subtest: projected exact choices carry uncertainty and stale stock without publishing strength or choosing another lot
+ok 8 - projected exact choices carry uncertainty and stale stock without publishing strength or choosing another lot
+  ---
+  duration_ms: 0.687416
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 82.11575

@@ -1,0 +1,16 @@
+clicked enroll_machinery
+clicked book.lotm.report_in_machinery
+clicked book.lotm.accept_allocation_sv
+clicked book.lotm.ingest_sv
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked lotm.move.docks
+clicked book.lotm.request_prescreen_sv
+clicked book.lotm.request_exam_sv_role
+PASS settled digestion roundtrip and existing examination

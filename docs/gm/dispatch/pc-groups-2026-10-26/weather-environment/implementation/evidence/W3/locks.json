@@ -1,0 +1,17 @@
+{
+  "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+  "slot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/slot-1",
+  "paths": [
+    "src/drying_exposure.js",
+    "src/book_world_paradise_drying.js",
+    "tests/drying_exposure.test.js",
+    "tests/paradise_drying.test.js",
+    "src/book_world_paradise_campaign_content.js",
+    "src/book_world_paradise_campaign_facts.js",
+    "src/book_world_paradise_campaign_host.js",
+    "src/book_world_paradise_campaign_runtime.js",
+    "src/simulation_content.js",
+    "src/field_works_extension_facts.js"
+  ],
+  "at": "2026-10-26T18:28:50.807328+00:00"
+}

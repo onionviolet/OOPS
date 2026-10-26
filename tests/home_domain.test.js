@@ -37,3 +37,16 @@ test('restored projects validate their held native material keys before publicat
  const homes={schema:1,revision:1,start:null,primary:null,properties:{},lodger:null,beginning:false,ledger:[],projects:{shelter:{home:'shelter',kind:'build',at:0,required:40,materials:{'{"id":"Unregistered project material"}':1}}}};
  assert.throws(()=>domainRegistry.validate({homes,expansion:{clock:0,sequence:0}}),/Unknown native item/);assert.deepEqual(seen,['{"id":"Unregistered project material"}']);
 });
+
+test('native home clock honors offset rain boundary and derives the damaged/protected roof',()=>{
+ const r=setup();executeHome(quoteHome({type:'acquire',home:'cottage'}));
+ const h=residenceState().properties.cottage;h.condition.integrity=39;h.condition.wetness=10;
+ r.c.calendar={day_count:3,hour:23,minute:30};r.c.calendarClock=r.c.clock;
+ domainRegistry.refresh();assert.equal(r.locations['Hearthside cottage'].is_under_roof,false);assert.equal(r.locations['Hearthside cottage'].temperature_range_modifier,1);
+ const clock=r.c.clock+60,plan={state:{clock,sequence:r.c.sequence,actors:{player:{worldId:r.c.world}}},calendar:{day_count:4,hour:0,minute:30}};
+ stageResidenceClock(plan);plan.absorbPublish();r.c.clock=clock;r.c.calendar=plan.calendar;r.c.calendarClock=clock;
+ assert.equal(residenceState().properties.cottage.condition.wetness,60);
+ const current=residenceState().properties.cottage;current.condition.integrity=40;domainRegistry.refresh();assert.equal(r.locations['Hearthside cottage'].is_under_roof,true);assert.equal(r.locations['Hearthside cottage'].temperature_range_modifier,0.4);
+ current.weatherproof=true;domainRegistry.refresh();assert.equal(r.locations['Hearthside cottage'].temperature_range_modifier,0.25);
+ assert.doesNotThrow(()=>structuredClone(projectHomes()));
+});

@@ -1,0 +1,64 @@
+{
+  "route": "Reimport agent-earned W3 native exports into final refusal-corrected bundle; no new fixture grants",
+  "origin": "http://127.0.0.1:59387",
+  "errors": [],
+  "roundtrips": [
+    "refusal-final",
+    "binding-final",
+    "commission-final"
+  ],
+  "bundleHash": "0440250a3cf149bc8d3cff4e9c936ba55380e4d7bb47553be150a05ba2e5f5d5",
+  "reimportProof": true,
+  "actualConsumer": true,
+  "frozenTravel": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ]
+}

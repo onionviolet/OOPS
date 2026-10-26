@@ -1,0 +1,62 @@
+[
+  {
+    "index": 1,
+    "path": "/v1/chat/completions",
+    "body_sha256": "c81481c255fe3c788e09f0d36dd94168a1811d73b692b8dcff61a95c50a2aeb5",
+    "forwarded_without_body_changes": true,
+    "model": "qwen3.8:27b",
+    "reasoning_effort": "low",
+    "enable_thinking": null,
+    "max_tokens": 96,
+    "stream": false,
+    "message_count": 1,
+    "tool_count": 0,
+    "request_bytes": 200,
+    "reasoning_chars": 43,
+    "content_chars": 3,
+    "think_tags": false,
+    "finish_reasons": [
+      "stop"
+    ],
+    "status": 200,
+    "usage": {
+      "prompt_tokens": 56,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens": 41,
+      "total_tokens": 97
+    },
+    "elapsed_seconds": 9.614
+  },
+  {
+    "index": 2,
+    "path": "/v1/chat/completions",
+    "body_sha256": "6197b5edac4a2eb87797eb2d5380bde110e5ce1074f68c3808f3b017602420d0",
+    "forwarded_without_body_changes": true,
+    "model": "qwen3.8:27b",
+    "reasoning_effort": "none",
+    "enable_thinking": null,
+    "max_tokens": 96,
+    "stream": false,
+    "message_count": 1,
+    "tool_count": 0,
+    "request_bytes": 201,
+    "reasoning_chars": 0,
+    "content_chars": 3,
+    "think_tags": false,
+    "finish_reasons": [
+      "stop"
+    ],
+    "status": 200,
+    "usage": {
+      "prompt_tokens": 28,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens": 3,
+      "total_tokens": 31
+    },
+    "elapsed_seconds": 0.356
+  }
+]

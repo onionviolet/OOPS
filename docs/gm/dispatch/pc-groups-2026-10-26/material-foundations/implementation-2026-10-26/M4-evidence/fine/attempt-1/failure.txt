@@ -1,0 +1,13 @@
+locator.click: Error: strict mode violation: locator('[data-hp-assessment]').locator('summary') resolved to 7 elements:
+    1) <summary>Preparation comparison: Evidence still uncertain</summary> aka getByText('Preparation comparison:')
+    2) <summary>Lacewing flies: Stewing duration is unverified. A…</summary> aka getByText('Lacewing flies: Stewing')
+    3) <summary>Leeches: Observed identity and preparation meet t…</summary> aka getByText('Leeches: Observed identity')
+    4) <summary>Fluxweed: Observed identity and preparation meet …</summary> aka getByText('Fluxweed: Observed identity')
+    5) <summary>Knotgrass: Observed identity and preparation meet…</summary> aka getByText('Knotgrass: Observed identity')
+    6) <summary>Horn of a bicorn: Observed identity and preparati…</summary> aka getByText('Horn of a bicorn: Observed')
+    7) <summary>Skin of a boomslang: Observed identity and prepar…</summary> aka getByText('Skin of a boomslang: Observed')
+
+Call log:
+[2m  - waiting for locator('[data-hp-assessment]').locator('summary')[22m
+
+    at /private/tmp/yairpg-g5-m4-candidate/scripts/playtest/hp-m4.mjs:90:41

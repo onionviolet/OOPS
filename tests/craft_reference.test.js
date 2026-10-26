@@ -5,7 +5,8 @@ import {generateMaterial} from '../src/craft_materials.js';
 import {generateRecipe} from '../src/craft_recipes.js';
 import {resolveBatch} from '../src/craft_resolver.js';
 import {createCraftState, freezeMaterials, freezeRecipe, knows, recordProduct, validateCraftState} from '../src/craft_state.js';
-import {canUseRecipe, examine, examineQuote, learnFromReference, readTraining, recipeAccess, registerReference, validateReferences} from '../src/craft_reference.js';
+import {canUseRecipe, examine, examineQuote, learnFromReference, readTraining, recipeAccess, registerReference, validateReferences,
+    createDemonstratedMethod, validateDemonstratedMethod, planDemonstratedRepeat, recordDemonstratedMethod, demonstratedMethods} from '../src/craft_reference.js';
 
 const roundTrip = value => JSON.parse(JSON.stringify(value));
 const owners = {catalogues: {[cat.ref]: cat}, laws: {[law.ref]: law}, sourceTables: {[sources.ref]: sources}};
@@ -114,4 +115,44 @@ test('runtime: shelf, method gate, loss keeps learned recipe, once-only read, co
     assert.doesNotThrow(() => rt.validateOwner(roundTrip(learn.owner)));
     const forged = roundTrip(owner); forged.references.defs['village.primer'].grant.points = 99;
     assert.throws(() => rt.validateOwner(forged), /Unknown Village reference/);
+});
+
+function demonstrated(recipe) {
+    return createDemonstratedMethod({id: 'observed-1', success: true, at: 60,
+        setup: {revision: 1, law: law.ref, inputs: [{key: 'held-herb', material: 'herb', qty: 1}], process: [['steep', 1]],
+            conditions: {apparatus: 'village-bench', control: 1}},
+        request: {type: 'craft', inputs: [{key: 'held-herb', qty: 1}], process: [{op: 'steep', level: 1}], recipe}});
+}
+test('demonstrated success stays separate from instruction access and observer knowledge', () => {
+    const {state, recipe} = setup(), method = demonstrated(recipe), before = roundTrip(state);
+    const recorded = recordDemonstratedMethod(state, 'p', method);
+    assert.deepEqual(state, before);
+    assert.equal(canUseRecipe(recorded, 'p', recipe, []), false, 'no permanent authored recipe access granted');
+    assert.deepEqual(demonstratedMethods(recorded, 'other'), [], 'another observer was not taught');
+    assert.deepEqual(recorded.knowledge, state.knowledge, 'no material or product truth revealed');
+    assert.deepEqual(recorded.recipes, state.recipes, 'generated selector witness stays unchanged');
+    assert.equal(recordDemonstratedMethod(recorded, 'p', method), recorded, 'same evidence is idempotent');
+    const view = demonstratedMethods(recorded, 'p'); view[0].setup.inputs[0].qty = 99;
+    assert.equal(demonstratedMethods(recorded, 'p')[0].setup.inputs[0].qty, 1);
+    assert.deepEqual(validateReferences(roundTrip(recorded)), recorded);
+    assert.throws(() => createDemonstratedMethod({...method, success: false}), /demonstrated/);
+});
+
+test('quick/guided/deep prepare the same paid request and known changes require a modified attempt', () => {
+    const method = demonstrated('known-book-method'), before = roundTrip(method);
+    const plans = ['quick', 'guided', 'deep'].map(mode => planDemonstratedRepeat(method, {mode, setup: method.setup}));
+    assert.ok(plans.every(p => p.ok && !p.modified));
+    assert.deepEqual(plans.map(p => p.request), [method.request, method.request, method.request]);
+    assert.equal(plans[0].request.recipe, 'known-book-method', 'current host must still recheck access');
+    assert.equal(planDemonstratedRepeat(method).ok, false, 'past setup is not current means');
+    const changed = roundTrip(method.setup); changed.conditions.apparatus = 'different-bench';
+    assert.equal(planDemonstratedRepeat(method, {setup: changed}).ok, false);
+    const modified = planDemonstratedRepeat(method, {mode: 'guided', setup: changed, request: method.request});
+    assert.equal(modified.ok, true); assert.equal(modified.modified, true);
+    assert.ok(modified.comparison.changed.some(c => c.field === 'conditions.apparatus'));
+    const larger = roundTrip(method.request); larger.inputs[0].qty = 2;
+    assert.equal(planDemonstratedRepeat(method, {setup: method.setup, request: larger}).ok, false);
+    assert.deepEqual(method, before, 'planning does not mutate demonstrated evidence');
+    const bad = roundTrip(method); bad.setup.revision = 2;
+    assert.throws(() => validateDemonstratedMethod(bad), /setup/);
 });

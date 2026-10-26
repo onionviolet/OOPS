@@ -23,3 +23,9 @@ retain source context, typography roles, meter meaning, subject-bound reactions,
 visible work intent and meaningful summaries. The UI_RULES reference-routing
 table keeps the detailed examples; source mechanics and unresolved claims do
 not become universal rules.
+
+For descriptions, apply UR70–UR75: explain the subject and practical effect first,
+use concise narrative for traits and world flavor, then support it with real
+current effects and useful calculations. Trace claims to actual consumers and
+known state. Keep implementation notes in developer docs and reuse the owning
+subject's meaning across surfaces.

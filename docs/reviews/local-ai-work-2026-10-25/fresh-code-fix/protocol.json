@@ -1,0 +1,10 @@
+{
+  "fresh_session": true,
+  "human_followups_permitted": 0,
+  "max_model_steps": 10,
+  "wall_limit_seconds": 480,
+  "one_trial": true,
+  "stop_on_failure_without_resuming": true,
+  "task": "new lane PID validation defect",
+  "existing_baseline_tests": 6
+}

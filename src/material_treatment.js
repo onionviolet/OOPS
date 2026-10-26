@@ -26,10 +26,11 @@ export function quoteHideTreatment({treatmentId, inventory, skillLevel, clock, w
     const supply = Object.entries(inventory).find(([key, n]) => idOf(key) === t.supply && n >= 1)?.[0];
     if (!supply) return {eligible: false, treatmentId, reason: `Needs one ${t.supply}.`};
     const facts = readMaterialLineage(pelt)?.facts, quality = facts?.quality ?? (pelt.startsWith('{') ? JSON.parse(pelt).quality : undefined);
-    const planned = planProcessedMaterial({stock: {[pelt]: inventory[pelt]}, inputs: [{item_key: pelt, count: HIDE_BATCH}],
+    const planned = planProcessedMaterial({stock: {[pelt]: inventory[pelt], [supply]: inventory[supply]}, inputs: [{item_key: pelt, count: HIDE_BATCH}],
+        supportInputs: [{item_key: supply, count: 1, disposition: 'consumed'}],
         output: {id: 'Rat pelt', family: 'animal-hide', count: HIDE_BATCH, ...(quality != null ? {quality} : {}), treatment: treatmentId},
-        process: {id: `hide.${treatmentId}`, revision: 1, at: clock, world_id: world, parameters: {supply: t.supply}}});
-    return {eligible: true, treatmentId, reason: '', spend: [{key: pelt, count: HIDE_BATCH}, {key: supply, count: 1}],
+        process: {id: `hide.${treatmentId}`, revision: 2, at: clock, world_id: world, parameters: {supply: t.supply}}});
+    return {eligible: true, treatmentId, reason: '', spend: planned.inputs.map(({item_key, count}) => ({key: item_key, count})),
         receive: [{key: planned.item_key, count: HIDE_BATCH}], summary: `${t.label}. ${t.note}`};
 }
 

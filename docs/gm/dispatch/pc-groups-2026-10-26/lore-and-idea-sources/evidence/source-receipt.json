@@ -1,0 +1,14 @@
+[
+  {
+    "source": "docs/research/procedural-crafting-ui-2026-10-15/private/hp-book-06.txt",
+    "sha256": "d9e202cb736311f6a675fa063b06d734daf27cfa3116c215926208199b5cc349",
+    "read_boundary": "B6 ch9 prepared6472\u20136500/6510\u20136565, retained excerpts",
+    "status": "existing derivative; edition not authenticated; no whole-book read"
+  },
+  {
+    "source": "docs/research/procedural-crafting-ui-2026-10-15/private/round2/mol-text.json",
+    "sha256": "140bce97922956aa47ee747a7c02c3d92b8df8b9b5f0232a4374631880e816b4",
+    "read_boundary": "0074_74_The_Return.xhtml body206\u2013222; exactly 17 body lines spot-checked",
+    "status": "existing derivative; edition not authenticated; no whole-book read"
+  }
+]

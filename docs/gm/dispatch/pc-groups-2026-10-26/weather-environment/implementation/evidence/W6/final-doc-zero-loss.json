@@ -1,0 +1,11 @@
+{
+  "PROJECT.md": {
+    "inverseHunkEqualsBefore": true
+  },
+  "docs/SYSTEMS_REGISTER.md": {
+    "inverseHunkEqualsBefore": true
+  },
+  "docs/CRAFTING_ENGINE.md": {
+    "inverseHunkEqualsBefore": true
+  }
+}

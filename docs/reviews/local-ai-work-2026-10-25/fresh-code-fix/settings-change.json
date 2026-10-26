@@ -1,0 +1,12 @@
+{
+  "source_profile": "/Users/weiwei/code/deepseek-harness/apps/cli/config/examples/local-work/headless.patch.yml",
+  "private_backup": "/Users/weiwei/.dsh/backups/headless-local-work-before-finish-policy-1792979924.yml",
+  "skill_sha256": "8644485141c5c8adf34d52a1cb779912a5fad13c43b81da26512b4d48c988acf",
+  "verification_helper_sha256": "e54d14ff646cf35984ecf9e838a012d62ecafc3f4247caa02946c26f80a7f594",
+  "fixture_builder_sha256": "66b50e695c1329ff16ed5140387368beba36382e8de060a51b69d03ecdcf63e1",
+  "changes": [
+    "tested fixture source builder",
+    "verification finish packet",
+    "system-priority post-pass finish instruction"
+  ]
+}

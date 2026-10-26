@@ -1,0 +1,35 @@
+TAP version 13
+# {"finding":"R3-F1","shownRequirement":"19 / 20","atThreshold":{"role":"observation","ref":"frontier.herb_lesson now","detail":"open. Inputs: {\\"held.Golmoon leaf\\":20,\\"reveal.herbLesson\\":false}","why":""},"afterGrant":{"role":"observation","ref":"frontier.herb_lesson now","detail":"waiting. Inputs: {\\"held.Golmoon leaf\\":20,\\"reveal.herbLesson\\":true}","why":"Author: Not yet learned. Player sees: Something is still missing."},"recipe":[{"category":"alchemy","subcategory":"items","recipe_id":"Weak healing powder"}],"remainingLeaves":25}
+# Subtest: R3-F1: native acquisition grants a persistent lesson, inspector still calls it waiting
+ok 1 - R3-F1: native acquisition grants a persistent lesson, inspector still calls it waiting
+  ---
+  duration_ms: 3.498416
+  type: 'test'
+  ...
+# Subtest: R3 journey: staged acquisition also grants the recipe once and serializes its availability
+ok 2 - R3 journey: staged acquisition also grants the recipe once and serializes its availability
+  ---
+  duration_ms: 0.34575
+  type: 'test'
+  ...
+# Subtest: R3 bounded overflow control: frontier gain keeps awarded plus held XP; later practice drains once
+ok 3 - R3 bounded overflow control: frontier gain keeps awarded plus held XP; later practice drains once
+  ---
+  duration_ms: 0.250666
+  type: 'test'
+  ...
+# Subtest: R3 ascension control: existing Mistglass path thresholds agree with actual practice settlement
+ok 4 - R3 ascension control: existing Mistglass path thresholds agree with actual practice settlement
+  ---
+  duration_ms: 0.53
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 93.662417

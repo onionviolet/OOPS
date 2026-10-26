@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-26T18:43:51.758256+00:00",
+  "slot": {
+    "lane": "G6-W6",
+    "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+    "phase": "granted bounded calendar adapter source/focused turn",
+    "handoffFrom": "G7-L3-correction",
+    "handoffFromThread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "nextRequested": {
+      "lane": "G6-W3",
+      "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+      "phase": "requested frozen native proof after W6 source turn; validate readiness/earlier commitments"
+    },
+    "at": "2026-10-26T18:42:14.276899+00:00"
+  },
+  "paths": [
+    "src/world_calendar.js",
+    "tests/world_source_calendar.test.js"
+  ],
+  "sha256": {
+    "src/world_calendar.js": "27e774778f22add7a1ec924f6e2826ea5781cf015509eb7d40f16653e36cb357",
+    "tests/world_source_calendar.test.js": null
+  },
+  "compatibility": "No saved fields or command definitions change; visitor binding reuse preserves existing display selection.",
+  "failure": "different/root-clock date and future local coordinate cannot authorize source sampling; freeze remains inert."
+}

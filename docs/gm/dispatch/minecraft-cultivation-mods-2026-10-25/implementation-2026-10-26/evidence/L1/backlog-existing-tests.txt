@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: replacing both actual body owners cannot activate an old bodily faculty on an untrained body
+ok 1 - replacing both actual body owners cannot activate an old bodily faculty on an untrained body
+  ---
+  duration_ms: 100.437333
+  type: 'test'
+  ...
+# Subtest: unmarked provisional hardening never invents a physical body change
+ok 2 - unmarked provisional hardening never invents a physical body change
+  ---
+  duration_ms: 49.290125
+  type: 'test'
+  ...
+# Subtest: birth-seeded inherited affinity stays latent until tested and disclosure does not change actual matched practice
+ok 3 - birth-seeded inherited affinity stays latent until tested and disclosure does not change actual matched practice
+  ---
+  duration_ms: 2.196042
+  type: 'test'
+  ...
+# Subtest: affinity accrual stays partition independent across real practice stages and an absent root preserves old saves
+ok 4 - affinity accrual stays partition independent across real practice stages and an absent root preserves old saves
+  ---
+  duration_ms: 1.832875
+  type: 'test'
+  ...
+# Subtest: calibrated retuning redistributes tested body expression without rerolling genes or creating free potential
+ok 5 - calibrated retuning redistributes tested body expression without rerolling genes or creating free potential
+  ---
+  duration_ms: 0.232042
+  type: 'test'
+  ...
+# Subtest: paid clutch has no grown creature; field-gated incubation and ordinary maturation agree across clock partitions
+ok 6 - paid clutch has no grown creature; field-gated incubation and ordinary maturation agree across clock partitions
+  ---
+  duration_ms: 6.533042
+  type: 'test'
+  ...
+# Subtest: opted breeding spends finite allocated food and actual parental energy/rest and retains both parents and mutated genes
+ok 7 - opted breeding spends finite allocated food and actual parental energy/rest and retains both parents and mutated genes
+  ---
+  duration_ms: 11.574083
+  type: 'test'
+  ...
+# Subtest: eggs disclose no inherited phenotype before hatching and room/food stops are observable
+ok 8 - eggs disclose no inherited phenotype before hatching and room/food stops are observable
+  ---
+  duration_ms: 0.448625
+  type: 'test'
+  ...
+# Subtest: before reporting in, nothing is offered; decline leaves everything unspent
+ok 9 - before reporting in, nothing is offered; decline leaves everything unspent
+  ---
+  duration_ms: 32.649667
+  type: 'test'
+  ...
+# Subtest: a held dose grants nothing; ingestion consumes it once and grants a source but not the method
+ok 10 - a held dose grants nothing; ingestion consumes it once and grants a source but not the method
+  ---
+  duration_ms: 15.677125
+  type: 'test'
+  ...
+# Subtest: lesson cancel forfeits the spent unit and keeps the source; completion teaches the method once
+ok 11 - lesson cancel forfeits the spent unit and keeps the source; completion teaches the method once
+  ---
+  duration_ms: 52.048
+  type: 'test'
+  ...
+# Subtest: the same method observes two supported samples; findings are limited and samples return
+ok 12 - the same method observes two supported samples; findings are limited and samples return
+  ---
+  duration_ms: 55.411375
+  type: 'test'
+  ...
+# Subtest: an empty reserve refuses without spending; sleep unlocks the refused use, once
+ok 13 - an empty reserve refuses without spending; sleep unlocks the refused use, once
+  ---
+  duration_ms: 40155.232209
+  type: 'test'
+  ...
+# Subtest: cancelling a lesson forfeits its unit; an observation cannot be cancelled and never loses its sample
+ok 14 - cancelling a lesson forfeits its unit; an observation cannot be cancelled and never loses its sample
+  ---
+  duration_ms: 36.069
+  type: 'test'
+  ...
+# Subtest: observation needs the learned method and a held sample, and cannot be repeated on a returned sample
+ok 15 - observation needs the learned method and a held sample, and cannot be repeated on a returned sample
+  ---
+  duration_ms: 43.435584
+  type: 'test'
+  ...
+# Subtest: the optional owner admits every honest phase and rejects presence, means or tampering without it
+ok 16 - the optional owner admits every honest phase and rejects presence, means or tampering without it
+  ---
+  duration_ms: 24.989417
+  type: 'test'
+  ...
+# Subtest: the native envelope keeps one holder per sample, counts a reserved sample and refuses the wrong place
+ok 17 - the native envelope keeps one holder per sample, counts a reserved sample and refuses the wrong place
+  ---
+  duration_ms: 30.296167
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 40837.602667

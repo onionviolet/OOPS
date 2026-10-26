@@ -1,0 +1,17 @@
+{
+  "build.js": "d00680670936fdc024280b1c1dfcdef1df64d8b5b44a5d37a7a1e92adf261088",
+  "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+  "scripts/check_receipts.mjs": "dc1b73c22360ec5dd0dbb02031a571412c80e389d07f34a07811165c784a8500",
+  "scripts/receipt_legacy_paths.json": "3570ea17143b24ef6ffd0f987b25cfd26e70849fa7da2f907569617f7c222355",
+  "scripts/check_doc_slips.mjs": "9593e2f6070bcaa7b2258b467fc4df1441707afb2cd0dcd4d8d7b9174bc22f06",
+  "scripts/check_descriptions.mjs": "4119231cd53364c4cd9039e46ba7b89a1670321c05eddf20be1f69245f971664",
+  "scripts/check_generators.mjs": "74e6d7982add57261b24f590587b77ea81dbc6075362f660a59a6e5a2396c763",
+  "scripts/cycle_ledger.mjs": "0073eed5e3119a74b6a1ba8e79da5c616df6169e038f8d536d2da3083efa1d05",
+  "scripts/playtest/lane-build-output.mjs": "3f5c61c33b733f7e007bb781d7ecebcfc1244335fa29925595b26c14a4a4fdf8",
+  "tests/build_output.test.js": "3a0da6fa9c65b265c03820ee40dd2d9f4ab768af3ef4a4650cea42a4930f2a29",
+  "tests/check_receipts.test.js": "c923f28a28ea5e5cd7504be50184624b56d0d6303fb248e8700a88986a918c49",
+  "tests/check_doc_slips.test.js": "a224dfaecf7fd8ccb6190fcd996ec14f8b17b8a42b0a772fdfafe4556fa4a830",
+  "tests/check_descriptions.test.js": "5bca7616e7495d46f29767e2253750220bc8d4550607de5ea0781854e601bef1",
+  "tests/check_generators.test.js": "0dbbe1f0e41186a6ea0288596a4d073230a426864a3dc49fd0dcc8fcd524db89",
+  "tests/cycle_ledger.test.js": "0b1a84cfd02d89a7acc6550e1466e89c9b45704b8c005f6f5295930bb9050928"
+}

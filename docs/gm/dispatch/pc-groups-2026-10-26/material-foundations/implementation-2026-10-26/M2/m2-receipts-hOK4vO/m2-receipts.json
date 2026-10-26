@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "lane": "m2-receipts",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "a830035ce10fb7f7186e6647c94cb1e4b8105177ccad4a5a74cc2a93b2280691",
+  "gates": [
+    "m2-prepared-exact-support-lots: native Save/reload/Export/literal-file Import",
+    "m2-support-through-tool-and-lining: native Save/reload/Export/literal-file Import",
+    "Native lesson, local repair shift, two treatments, two usable kit grades, preparation-consuming advancement and changed precise work"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

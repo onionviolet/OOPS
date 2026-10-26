@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourceThreadId": "01a17940-ccd4-7d02-a705-f65f8e5ad2af",
+  "projectId": "1c8082fc-3ad6-4a59-9755-006a14e48481",
+  "dispatch_complete": true,
+  "guidance": "IMPLEMENTATION_FOLLOW_THROUGH.md incorporated before creation in every assignment and prompt",
+  "chats": [
+    {
+      "lane": "I1",
+      "title": "Implement making quote and forecast fixes",
+      "focus": "F1/F2 quote/commit method parity and CMF1 quantity-aware failure forecasting. Deliver real fixes and relevant native/UI evidence, then explicitly release shared runtime/ledger paths to I2.",
+      "prompt": "Weibao asked in the G1 PC1–PC6 audit chat: “send chats to implement each little detail”, invoking sharpen and more-to-consider. This is implementation authorization. You are I1, Implement making quote and forecast fixes. Start implementation now and continue through all assigned details and bounded playable slices; do not stop at a plan or another audit.\n\nRead /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COMMON.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I1.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/JOINS.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md first. The parent confirmed “Make them consider subtle and necissary stuff accordingly”; SF1–SF8 and named cross-group joins are required inputs in this actual brief, not optional suggestions. Then read repository ground rules/router/PROJECT/relevant owners and source. The old audit-only/no-extra-chats prompt is historical, superseded by Weibao’s later request.\n\nFocus: F1/F2 quote/commit method parity and CMF1 quantity-aware failure forecasting. Deliver real fixes and relevant native/UI evidence, then explicitly release shared runtime/ledger paths to I2.\n\nUse the live primary project checkout, retain dirty work, inspect incumbent records, reserve exact paths and use the common brief’s shared two-slot/per-path lock protocol. Each assigned detail needs owner/dependency/observable-check coverage. One writer per seam, no independent lot/stage/vessel/clock/knowledge authorities. Source fit and synthetic fixtures can advance before dependencies release. Preserve book-world/menu priority, world-law/source labels and sealed discovery. Use existing consumers and actual inventory, time, knowledge and persistence owners. Human review is optional.\n\nOwn /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I1.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I1-evidence/, plus only explicitly reserved authorized source/test hunks. Record initial reservations and live status promptly. Required runtime completion is AD36/AD43 with lane-local immutable inputs/build, rebuilt desktop 1920×1080, meaningful failures and native Save/reload/Export/literal Import when persistence changes. Focused checks per lane; I4 owns settled combined full-suite/integration stages. Preserve all selected details beyond the first pilot. No commit/push, publication, spending, normal-app adoption, private-save access, bulk acquisition or further chats/subagents. Use shared checkpoint records for dependency progress. Give Weibao concise linked results with verification states and explicit releases.",
+      "creationResult": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"threadId\":\"01a1794e-38da-7351-94b8-b86a6f5d307b\",\"hostId\":\"local\"}"
+          }
+        ],
+        "isError": false
+      },
+      "threadId": "01a1794e-38da-7351-94b8-b86a6f5d307b",
+      "hostId": "local"
+    },
+    {
+      "lane": "I2",
+      "title": "Implement demonstrated making methods and experiment notes",
+      "focus": "PC2/PC5, CMF2 and CMX1/3/4: recorded demonstrated conditions, honest replay, controlled comparisons and non-ingestion observations. Consume G2 preparation/G3 stage receipts and expose the seam to I4, rather than duplicate their owners.",
+      "prompt": "Weibao asked in the G1 PC1–PC6 audit chat: “send chats to implement each little detail”, invoking sharpen and more-to-consider. This is implementation authorization. You are I2, Implement demonstrated making methods and experiment notes. Start implementation now and continue through all assigned details and bounded playable slices; do not stop at a plan or another audit.\n\nRead /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COMMON.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I2.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/JOINS.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md first. The parent confirmed “Make them consider subtle and necissary stuff accordingly”; SF1–SF8 and named cross-group joins are required inputs in this actual brief, not optional suggestions. Then read repository ground rules/router/PROJECT/relevant owners and source. The old audit-only/no-extra-chats prompt is historical, superseded by Weibao’s later request.\n\nFocus: PC2/PC5, CMF2 and CMX1/3/4: recorded demonstrated conditions, honest replay, controlled comparisons and non-ingestion observations. Consume G2 preparation/G3 stage receipts and expose the seam to I4, rather than duplicate their owners.\n\nUse the live primary project checkout, retain dirty work, inspect incumbent records, reserve exact paths and use the common brief’s shared two-slot/per-path lock protocol. Each assigned detail needs owner/dependency/observable-check coverage. One writer per seam, no independent lot/stage/vessel/clock/knowledge authorities. Source fit and synthetic fixtures can advance before dependencies release. Preserve book-world/menu priority, world-law/source labels and sealed discovery. Use existing consumers and actual inventory, time, knowledge and persistence owners. Human review is optional.\n\nOwn /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I2.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I2-evidence/, plus only explicitly reserved authorized source/test hunks. Record initial reservations and live status promptly. Required runtime completion is AD36/AD43 with lane-local immutable inputs/build, rebuilt desktop 1920×1080, meaningful failures and native Save/reload/Export/literal Import when persistence changes. Focused checks per lane; I4 owns settled combined full-suite/integration stages. Preserve all selected details beyond the first pilot. No commit/push, publication, spending, normal-app adoption, private-save access, bulk acquisition or further chats/subagents. Use shared checkpoint records for dependency progress. Give Weibao concise linked results with verification states and explicit releases.",
+      "creationResult": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"threadId\":\"01a1794e-8fc7-7c20-b0d0-710380c25b67\",\"hostId\":\"local\"}"
+          }
+        ],
+        "isError": false
+      },
+      "threadId": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+      "hostId": "local"
+    },
+    {
+      "lane": "I3",
+      "title": "Implement making cohorts and durable interrupted processes",
+      "focus": "PC3/PC6, CMF3/4 and CMX2/5: conserved cohort/container custody and durable interrupted process terms, consuming G5 lot facts and G3 operations. Respect active LOTM/Minecraft ownership; release HP state to I4.",
+      "prompt": "Weibao asked in the G1 PC1–PC6 audit chat: “send chats to implement each little detail”, invoking sharpen and more-to-consider. This is implementation authorization. You are I3, Implement making cohorts and durable interrupted processes. Start implementation now and continue through all assigned details and bounded playable slices; do not stop at a plan or another audit.\n\nRead /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COMMON.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I3.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/JOINS.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md first. The parent confirmed “Make them consider subtle and necissary stuff accordingly”; SF1–SF8 and named cross-group joins are required inputs in this actual brief, not optional suggestions. Then read repository ground rules/router/PROJECT/relevant owners and source. The old audit-only/no-extra-chats prompt is historical, superseded by Weibao’s later request.\n\nFocus: PC3/PC6, CMF3/4 and CMX2/5: conserved cohort/container custody and durable interrupted process terms, consuming G5 lot facts and G3 operations. Respect active LOTM/Minecraft ownership; release HP state to I4.\n\nUse the live primary project checkout, retain dirty work, inspect incumbent records, reserve exact paths and use the common brief’s shared two-slot/per-path lock protocol. Each assigned detail needs owner/dependency/observable-check coverage. One writer per seam, no independent lot/stage/vessel/clock/knowledge authorities. Source fit and synthetic fixtures can advance before dependencies release. Preserve book-world/menu priority, world-law/source labels and sealed discovery. Use existing consumers and actual inventory, time, knowledge and persistence owners. Human review is optional.\n\nOwn /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I3.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I3-evidence/, plus only explicitly reserved authorized source/test hunks. Record initial reservations and live status promptly. Required runtime completion is AD36/AD43 with lane-local immutable inputs/build, rebuilt desktop 1920×1080, meaningful failures and native Save/reload/Export/literal Import when persistence changes. Focused checks per lane; I4 owns settled combined full-suite/integration stages. Preserve all selected details beyond the first pilot. No commit/push, publication, spending, normal-app adoption, private-save access, bulk acquisition or further chats/subagents. Use shared checkpoint records for dependency progress. Give Weibao concise linked results with verification states and explicit releases.",
+      "creationResult": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"threadId\":\"01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc\",\"hostId\":\"local\"}"
+          }
+        ],
+        "isError": false
+      },
+      "threadId": "01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc",
+      "hostId": "local"
+    },
+    {
+      "lane": "I4",
+      "title": "Implement useful HP inventions and connected making journey",
+      "focus": "PC1/PC4, CMX6 and A2/A3: one useful source-qualified or explicitly ORIGINAL off-formula HP outcome with a real reader, connected acquisition/comparison/repeat/interruption/persistence. Integrate I1-I3 only after releases, retain all-detail coverage and own final settled G1 checks.",
+      "prompt": "Weibao asked in the G1 PC1–PC6 audit chat: “send chats to implement each little detail”, invoking sharpen and more-to-consider. This is implementation authorization. You are I4, Implement useful HP inventions and connected making journey. Start implementation now and continue through all assigned details and bounded playable slices; do not stop at a plan or another audit.\n\nRead /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COMMON.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4.md, /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/JOINS.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md first. The parent confirmed “Make them consider subtle and necissary stuff accordingly”; SF1–SF8 and named cross-group joins are required inputs in this actual brief, not optional suggestions. Then read repository ground rules/router/PROJECT/relevant owners and source. The old audit-only/no-extra-chats prompt is historical, superseded by Weibao’s later request.\n\nFocus: PC1/PC4, CMX6 and A2/A3: one useful source-qualified or explicitly ORIGINAL off-formula HP outcome with a real reader, connected acquisition/comparison/repeat/interruption/persistence. Integrate I1-I3 only after releases, retain all-detail coverage and own final settled G1 checks.\n\nUse the live primary project checkout, retain dirty work, inspect incumbent records, reserve exact paths and use the common brief’s shared two-slot/per-path lock protocol. Each assigned detail needs owner/dependency/observable-check coverage. One writer per seam, no independent lot/stage/vessel/clock/knowledge authorities. Source fit and synthetic fixtures can advance before dependencies release. Preserve book-world/menu priority, world-law/source labels and sealed discovery. Use existing consumers and actual inventory, time, knowledge and persistence owners. Human review is optional.\n\nOwn /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4.md and /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/, plus only explicitly reserved authorized source/test hunks. Record initial reservations and live status promptly. Required runtime completion is AD36/AD43 with lane-local immutable inputs/build, rebuilt desktop 1920×1080, meaningful failures and native Save/reload/Export/literal Import when persistence changes. Focused checks per lane; I4 owns settled combined full-suite/integration stages. Preserve all selected details beyond the first pilot. No commit/push, publication, spending, normal-app adoption, private-save access, bulk acquisition or further chats/subagents. Use shared checkpoint records for dependency progress. Give Weibao concise linked results with verification states and explicit releases.",
+      "creationResult": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"threadId\":\"01a1794e-a7cd-7672-929c-bf94c02d19f0\",\"hostId\":\"local\"}"
+          }
+        ],
+        "isError": false
+      },
+      "threadId": "01a1794e-a7cd-7672-929c-bf94c02d19f0",
+      "hostId": "local"
+    }
+  ]
+}

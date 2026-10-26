@@ -19,22 +19,23 @@ const active=()=>document.getElementById('main_content')?.dataset.presentation==
 const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
 function attributeExplanation(row){
     const fragment=document.createDocumentFragment(),numeric=value=>value==null?'Unavailable':typeof value==='number'?String(Number(value.toFixed(value!==0&&Math.abs(value)<.01?6:3))):String(value);
-        const heading=node('h3',row.label),description=node('p',row.description||'Native player attribute.','attribute-description'),facts=node('dl',null,'attribute-facts');
-        const fact=(label,value)=>{const pair=node('div');pair.append(node('dt',label),node('dd',value));facts.append(pair);};
-        fact('Current',row.formatted??numeric(row.value));
-        if(row.unit)fact('Unit',row.unit);
-        if(row.base!=null||row.baseFormatted!=null)fact('Base',row.baseFormatted??numeric(row.base));
-        if(row.preMultiplier!=null)fact('Before multipliers',numeric(row.preMultiplier));
-        if(row.totalMultiplier!=null)fact('Total multiplier','×'+numeric(row.totalMultiplier));
-        fragment.append(heading,description,facts);
-        if(row.availability?.note)fragment.append(node('p',row.availability.note,'attribute-note'));
-        const contributors=(row.sources||[]).filter(source=>source.flat!=null&&source.flat!==0||source.multiplier!=null&&source.multiplier!==1);
-        if(contributors.length){
-            fragment.append(node('h4','Native modifier sources'));
-            const table=node('table',null,'attribute-sources'),head=node('thead'),header=node('tr');for(const label of ['Source category','Flat','Multiplier'])header.append(node('th',label));head.append(header);table.append(head);
-            const body=node('tbody');for(const source of contributors){const tr=node('tr');tr.append(node('th',source.label),node('td',source.flat!=null&&source.flat!==0?(source.flat>0?'+':'')+numeric(source.flat):'None'),node('td',source.multiplier!=null&&source.multiplier!==1?'×'+numeric(source.multiplier):'None'));body.append(tr);}table.append(body);fragment.append(table,node('p','Native categories may combine several contributors. Individual item or effect attribution is shown only when supplied.','attribute-note'));
-        }else fragment.append(node('p','No non-neutral modifiers reported.','attribute-note'));
-    return fragment;
+    const heading=node('h3',row.label),description=node('p',row.description,'attribute-description'),facts=node('dl',null,'attribute-facts');
+    const fact=(host,label,value)=>{const pair=node('div');pair.append(node('dt',label),node('dd',value));host.append(pair);};
+    fact(facts,'Current',row.formatted??numeric(row.value));fragment.append(heading,description,facts);
+    if(row.availability?.note)fragment.append(node('p',row.availability.note,'attribute-note'));
+    const details=node('details',null,'attribute-calculations'),breakdown=node('dl',null,'attribute-facts');details.dataset.attributeCalculations=row.id;
+    details.append(node('summary','Calculation and sources'));
+    if(row.calculation)details.append(node('p',row.calculation));
+    if(row.base!=null)fact(breakdown,'Base',row.baseFormatted??numeric(row.base));
+    if(row.preMultiplier!=null&&row.preMultiplier!==row.base)fact(breakdown,'Before multipliers',numeric(row.preMultiplier));
+    if(row.totalMultiplier!=null&&row.totalMultiplier!==1)fact(breakdown,'Total multiplier','×'+numeric(row.totalMultiplier));
+    details.append(breakdown);
+    const contributors=(row.sources||[]).filter(source=>source.flat!=null&&source.flat!==0||source.multiplier!=null&&source.multiplier!==1);
+    if(contributors.length){
+        const table=node('table',null,'attribute-sources'),head=node('thead'),header=node('tr');for(const label of ['Source','Added','Multiplier'])header.append(node('th',label));head.append(header);table.append(head);
+        const body=node('tbody');for(const source of contributors){const tr=node('tr');tr.append(node('th',source.label),node('td',source.flat!=null&&source.flat!==0?(source.flat>0?'+':'')+numeric(source.flat):'None'),node('td',source.multiplier!=null&&source.multiplier!==1?'×'+numeric(source.multiplier):'None'));body.append(tr);}table.append(body);details.append(table);
+    }
+    fragment.append(details);return fragment;
 }
 // Own section within the existing character Stats home. This is a reader,
 // never an attribute engine: formats, bases and contributor categories are native.
@@ -45,7 +46,7 @@ function mountAttributeInspector(){
     for(const[id,label]of [['all','All attributes'],['primary','Primary'],['offense','Offense'],['defense','Defense'],['health','Health'],['stamina','Stamina'],['mana','Mana'],['environment','Environment'],['learning','Learning']]){const option=node('option',label);option.value=id;group.append(option);}
     const modifiedLabel=node('label'),modified=node('input');modified.type='checkbox';modifiedLabel.append(modified,document.createTextNode(' With modifiers'));tools.append(group,modifiedLabel);
     const count=node('p',null,'attribute-inspector-count'),layout=node('div',null,'attribute-inspector-layout'),list=node('div',null,'attribute-inspector-list'),reading=node('section',null,'attribute-inspector-detail');
-    list.setAttribute('aria-label','Native attributes');reading.tabIndex=0;reading.setAttribute('aria-label','Selected attribute explanation');
+    list.setAttribute('aria-label','Player attributes');reading.tabIndex=0;reading.setAttribute('aria-label','Selected attribute explanation');
     const empty=node('p','No attributes match these filters.','attribute-empty');empty.hidden=true;layout.append(list,reading);section.append(tools,count,empty,layout);home?.append(section);
     const records=new Map();let rows=[],selectedId=null,detailSignature='',shown=false;
     const setText=(target,value)=>{const text=String(value??'');if(target.textContent!==text)target.textContent=text;};
@@ -53,9 +54,11 @@ function mountAttributeInspector(){
     function select(id){selectedId=id;paint();}
     function paintDetail(row){
         const signature=JSON.stringify([row||null,row&&getDisplaySetting(pinKey(row.id))]);if(signature===detailSignature)return;detailSignature=signature;
-        const top=reading.scrollTop;reading.replaceChildren();reading.dataset.attributeId=row?.id||'';
+        const top=reading.scrollTop,expanded=reading.dataset.attributeId===row?.id&&!!reading.querySelector('[data-attribute-calculations]')?.open,focused=reading.contains(document.activeElement);reading.replaceChildren();reading.dataset.attributeId=row?.id||'';
         if(!row){reading.append(node('p','Choose an attribute to inspect.','attribute-empty'));return;}
         reading.append(attributeExplanation(row));
+        reading.querySelector('[data-attribute-calculations]').open=expanded;
+        if(focused)reading.querySelector('summary').focus({preventScroll:true});
         if(pinnable.has(row.id)){
             const pinned=getDisplaySetting(pinKey(row.id))==='on';
             const pin=action(pinned?'Unpin row':'Pin row',()=>{setDisplaySettings({[pinKey(row.id)]:pinned?'off':'on'});paint();});
@@ -112,7 +115,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
     detail.append(title,meta,body,controls);
-    let selected=null,signature='',playerSignature='';
+    let selected=null,signature='',playerSignature='',detailIdentity='';
     const originalLogLabels=new Map(),originalNoticeLabels=new Map();
     function syncNoticeLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const link of document.querySelectorAll('#message_box_div .notice-panel-link')){if(parity){if(!originalNoticeLabels.has(link))originalNoticeLabels.set(link,{text:link.textContent,title:link.title});const label=({'skills':'Skills','belongings':'Inventory','crafting':'Crafting','local-actions':'Here','records':'Journal','condition':'Condition'})[link.dataset.noticePanel]||'Related panel';const text=label+' ›';if(link.textContent!==text)link.textContent=text;const description='Open '+label+' · current panel';if(link.title!==description)link.title=description;if(link.getAttribute('aria-label')!==description)link.setAttribute('aria-label',description);}else if(originalNoticeLabels.has(link)){const old=originalNoticeLabels.get(link);link.textContent=old.text;link.title=old.title;link.removeAttribute('aria-label');originalNoticeLabels.delete(link);}}for(const link of originalNoticeLabels.keys())if(!link.isConnected)originalNoticeLabels.delete(link);}
     function syncLogLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const[id,label]of [['message_show_unlocks','Growth'],['message_show_events','Events'],['message_show_crafting','Crafting'],['message_show_combat','Combat'],['message_show_loot','Loot'],['message_show_background','World']]){const control=document.getElementById(id);if(!control)continue;if(parity){if(!originalLogLabels.has(control))originalLogLabels.set(control,control.textContent);if(control.textContent!==label)control.textContent=label;}else if(originalLogLabels.has(control)){control.textContent=originalLogLabels.get(control);originalLogLabels.delete(control);}}}
@@ -120,17 +123,18 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
     // Context previews reuse public native descriptions. No hidden actor lookup,
     // simulation mutation, or reconstruction of an old event from current state.
     const contextPreview=node('aside',null,'shell-context-preview');contextPreview.id='shell_context_preview';contextPreview.setAttribute('popover','manual');contextPreview.setAttribute('role','tooltip');player.append(contextPreview);
-    let contextSource=null,contextTimer=null,contextSignature='',contextPinned=false;
+    let contextSource=null,contextTimer=null,contextSignature='',contextPinned=false,returningContextFocus=false;
     function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';contextPinned=false;}
     function showContext(source,interactive=false){
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
         if(document.getElementById('main_content').dataset.shellResizing==='true'){hideContext();return;}
         if(contextPinned&&contextSource!==source&&!interactive)return;
         contextPinned=interactive||contextSource===source&&contextPinned;
+        const expanded=contextSource===source&&!!contextPreview.querySelector('[data-attribute-calculations]')?.open,focused=contextPreview.contains(document.activeElement);
         const anchor=source.getBoundingClientRect();
-        contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const contentSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;const nextSignature=JSON.stringify([contentSignature,anchor.x,anchor.y,anchor.width,anchor.height]);if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+        contextPreview.setAttribute('role',contextPinned?'dialog':'tooltip');contextPreview.setAttribute('aria-label','Inspection details');contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const contentSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;const nextSignature=JSON.stringify([contentSignature,anchor.x,anchor.y,anchor.width,anchor.height]);if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
         contextPreview.replaceChildren();
-        if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
+        if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));contextPreview.querySelector('details').open=expanded;if(!contextPinned)contextPreview.append(node('small','Click this stat or press Enter to inspect its details.'));if(focused)contextPreview.querySelector('summary').focus({preventScroll:true});
         }else if(source.dataset.contextPreview==='temperature'){
             contextPreview.append(node('strong','Temperature'),node('p',source.title));
             const native=document.getElementById('temperature_tooltip');if(native)contextPreview.append(descriptionCopy(native,{omitTitle:false}));
@@ -168,29 +172,29 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         source.setAttribute('aria-describedby',contextPreview.id);
     }
     const contextSelector='[data-context-preview=temperature],[data-context-preview=effect],.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,.character_bar_parent_div:has([id$="_tooltip"])';
-    const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
+    const contextEnter=event=>{if(returningContextFocus)return;const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
     const contextLeave=event=>{if(contextPinned)return;const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
     for(const type of ['mouseout','focusout'])document.addEventListener(type,contextLeave);
     contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{if(contextPinned)return;contextTimer=setTimeout(hideContext,180);});
-    const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){hideContext();event.preventDefault();event.stopImmediatePropagation();}};
+    const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){const returnTo=contextSource;hideContext();returningContextFocus=true;returnTo?.focus({preventScroll:true});returningContextFocus=false;event.preventDefault();event.stopImmediatePropagation();}};
     document.addEventListener('keydown',contextDismiss,true);
     const resizeDismiss=event=>{if(event.target.closest('[data-shell-resize]')){hideContext();hidePreview();}};
     document.addEventListener('pointerdown',resizeDismiss);
-    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect]');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target))hideContext();});
+    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect],[data-attribute-preview]');if(subject){showContext(subject,true);if(subject.dataset.attributePreview)contextPreview.querySelector('summary')?.focus({preventScroll:true});return;}if(!contextPreview.contains(event.target))hideContext();});
 
     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
     preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');
     const previewBody=node('div',null,'shell-preview-body'),previewFooter=node('div',null,'shell-preview-footer');
     const full=action('Full item ›',()=>{if(hovered?.isConnected){const row=hovered;row.focus({preventScroll:true});choose(row);expandWorkspaceModule('shell-detail');}});
     previewFooter.append(full,node('span','Inspection is free · Esc closes'));preview.append(previewBody,previewFooter);player.append(preview);
-    let hovered=null,previewSignature='',hideTimer=null;
+    let hovered=null,previewSignature='',hideTimer=null,returningPreviewFocus=false;
     function hidePreview(){clearTimeout(hideTimer);if(preview.matches(':popover-open'))preview.hidePopover();hovered?.removeAttribute('aria-describedby');hovered=null;previewSignature='';}
     function deferHide(){clearTimeout(hideTimer);hideTimer=setTimeout(hidePreview,180);}
     function showPreview(row){
-        // A visible stable inspector owns this reading space; hover must not cover its commands.
+        // Keep a command being edited intact; another carried row can still be previewed.
         const itemDetail=document.getElementById('proto23_item_detail');
-        if(selected&&itemDetail&&rendered(itemDetail)){hidePreview();return;}
+        if(itemDetail?.contains(document.activeElement)){hidePreview();return;}
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
         const tooltip=row.querySelector('.item_tooltip');if(!tooltip)return;hideContext();
         clearTimeout(hideTimer);if(hovered!==row||previewSignature!==tooltip.innerHTML){hovered?.removeAttribute('aria-describedby');hovered=row;previewSignature=tooltip.innerHTML;previewBody.replaceChildren(descriptionCopy(tooltip));}
@@ -210,7 +214,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
     document.addEventListener('mouseover',hover);document.addEventListener('mouseout',leave);
     preview.addEventListener('mouseenter',()=>clearTimeout(hideTimer));preview.addEventListener('mouseleave',deferHide);
     preview.addEventListener('focusout',event=>{if(!preview.contains(event.relatedTarget))deferHide();});
-    const dismiss=event=>{if(event.key==='Escape'&&preview.matches(':popover-open')){hidePreview();event.preventDefault();event.stopImmediatePropagation();}};
+    const dismiss=event=>{if(event.key==='Escape'&&preview.matches(':popover-open')){const source=hovered,restore=preview.contains(document.activeElement);hidePreview();if(restore&&source?.isConnected){returningPreviewFocus=true;try{source.focus({preventScroll:true});}finally{returningPreviewFocus=false;}}event.preventDefault();event.stopImmediatePropagation();}};
     document.addEventListener('keydown',dismiss,true);
     window.addEventListener('blur',hidePreview);
     const dismissClick=event=>{if(!preview.contains(event.target))hidePreview();};
@@ -278,7 +282,9 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         if(!row||event.target.closest('.item_controls,.item_use_button,.item_auto_use_button,.item_fav_div,.known-item-binding'))return;
         choose(row);
     };
-    document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);
+    document.addEventListener('click',inspect);
+    const previewFocus=event=>{if(returningPreviewFocus)return;const row=event.target.closest('#inventory_content_div > [data-character_item]');if(row)showPreview(row);};
+    document.addEventListener('focusin',previewFocus);
     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
     function fitSecondary(){
         const root=document.getElementById('main_content');
@@ -387,24 +393,31 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         const row=rowForSelection();
         const comparison=selected.key?compareWorn?.(selected.key):null;
         const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded,comparison]);if(next===signature)return;signature=next;
-        const tooltip=row?.querySelector('.item_tooltip');
+        const slot=selected.slot&&frame.equipment.find(s=>s.id===selected.slot);
+        const occupied=!selected.slot||!!slot?.name&&!row?.classList.contains('equipment_slot_empty');
+        const tooltip=occupied?row?.querySelector('.item_tooltip'):null;
         detail.dataset.itemKind=row?.dataset.item_slot||row?.querySelector('.item_category')?.textContent.replace(/[\[\]]/g,'').trim()||(selected.slot?'Equipped item':'Item');
         title.className='shell-item-title';
-        title.textContent=row?.querySelector('.item_name')?.textContent|| (selected.slot?frame.equipment.find(s=>s.id===selected.slot)?.name:'Item no longer held')||'Empty slot';
-        meta.textContent=selected.slot?`Equipped · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
+        title.textContent=selected.slot&&!occupied?`${slot?.label||selected.slot} slot · empty`:row?.querySelector('.item_name')?.textContent|| (selected.slot?slot?.name:'Item no longer held')||'Empty slot';
+        meta.textContent=selected.slot?`${occupied?'Equipped':'Empty'} · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
         meta.title=selected.slot?'Follows the current item in this equipment slot.':'Follows this exact carried stack.';
         body.replaceChildren();
         if(tooltip)body.append(descriptionCopy(tooltip));
-        else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
+        else if(selected.slot&&!occupied){
+            const fitting=[...document.querySelectorAll('#inventory_content_div > [data-character_item]')].filter(n=>n.dataset.item_slot===selected.slot);
+            body.append(node('p',fitting.length?'Choose carried equipment for this slot:':'No carried equipment fits this slot. Find or buy fitting gear, then inspect it here.'));
+            for(const candidate of fitting)body.append(action(candidate.querySelector('.item_name')?.textContent||'Inspect held gear',()=>choose(candidate)));
+        }else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
         if(comparison){
             const section=node('section',null,'worn-comparison');section.append(node('strong',`If worn · compared with ${comparison.baselineName}`),node('p',comparison.note));
             const format=n=>String(Math.round(n*1000)/1000);
             for(const r of comparison.rows)section.append(node('p',`${r.label}: ${format(r.current)} → ${format(r.worn)} (Δ ${r.delta>0?'+':''}${format(r.delta)})`));
             body.append(section);
         }
-        const moreWasOpen=!!detail.closest('#center_mode_content')&&controls.querySelector('.shell-item-more')?.open;
-        controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));more.addEventListener('toggle',()=>{if(more.open&&root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))expandWorkspaceModule('shell-detail');});
-        if(selected.slot&&tooltip){const takeoff=action('Take off',()=>{const source=rowForSelection();if(source&&!source.classList.contains('equipment_slot_empty'))source.click();signature='';render();});takeoff.disabled=!!frame.reason;takeoff.title=frame.reason;controls.append(takeoff);}
+        const identity=JSON.stringify(selected);
+        const moreWasOpen=identity===detailIdentity&&controls.querySelector('.shell-item-more')?.open;detailIdentity=identity;
+        controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));
+        if(selected.slot&&occupied&&tooltip){const takeoff=action('Take off',()=>{const source=rowForSelection();if(source&&!source.classList.contains('equipment_slot_empty'))source.click();signature='';render();});takeoff.disabled=!!frame.reason;takeoff.title=frame.reason;controls.append(takeoff);}
         if(!selected.slot&&row){
             const favorite=row.querySelector('.item_fav_div');
             if(favorite&&root.dataset.parity==='r3'){const favored=row.querySelector('.item_fav_icon')?.textContent==='star';const b=action(favored?'Unfavorite':'Favorite',()=>{rowForSelection()?.querySelector('.item_fav_div')?.click();signature='';render();});b.dataset.shellFavorite='';b.setAttribute('aria-pressed',String(favored));more.append(b);}
@@ -422,5 +435,5 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         inventoryComposition.render(rowForSelection());
     }
     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
-    const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};
+    const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',previewFocus);}};
 }

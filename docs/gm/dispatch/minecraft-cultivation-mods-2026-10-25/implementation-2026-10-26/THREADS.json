@@ -1,0 +1,120 @@
+{
+  "dispatch_complete": true,
+  "coordinator_thread": "01a178ab-2766-7af0-8a5b-103b442467d2",
+  "base_head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "branch": "master",
+  "project_id": "1c8082fc-3ad6-4a59-9755-006a14e48481",
+  "lanes": [
+    {
+      "id": "L1",
+      "title": "Implement Xiaoxiang-inspired progression and person views",
+      "report": "M1_XIAOXIANG.md",
+      "first": "Known-route breakthrough planner and a person cultivation view, using actual existing book-world gates, people and services.",
+      "scope": "Cover M1 A1–A5 and O1–O3 where mechanisms fit: planner; observer-qualified person book; aptitude/current-body transitions; bonded growing implement; supplied formation/home interaction; source-qualified continuation, sensing and creature-art extensions. Preserve admitted-versus-disabled reference trial distinctions. A future source-qualified book-world consumer drives shared work; do not invent Xiao racial or afterlife laws inside LOTM canon.",
+      "seam": "Progression/gate projections, body/lineage and observer-safe People projections. Coordinate technique algorithms with L3, item lifecycle with L7 and home/site energy with L6. L1 owns the breakthrough-planner behavior; L8 may improve its clarity after release."
+    },
+    {
+      "id": "L2",
+      "title": "Implement ChangShengJue-inspired mastery and obligations",
+      "report": "M2_CHANGSHENGJUE.md",
+      "first": "Activity-specific mastery with one useful existing action changing an actual cost, yield or option.",
+      "scope": "Cover M2 P1–P5: relevant-use mastery, local conflicting commitments and aftermath, drink-to-technique interactions, functional material/workshop/residence content and accounted physical minting. Include useful injury distinctions and information-item discovery when source/world fit supports them. Do not create an immortal ladder merely because the reference is called cultivation. Keep authoring scoped to source-qualified book-world behavior or shared facilities they need.",
+      "seam": "Shared learning/event attribution, local commitments/standing and world-qualified currency policy. L3 owns method grants/caps and foundation; L4 owns LOTM event-to-acting credit; L5 owns recipe/body-dose mechanics. Different features may touch one file sequentially, never concurrently."
+    },
+    {
+      "id": "L3",
+      "title": "Implement Ascension-inspired foundations and method systems",
+      "report": "M3_ASCENSION.md",
+      "first": "Method-granted execution/mastery ceiling or foundation-versus-progress choice with a real downstream consumer, selected from current book-world readiness.",
+      "scope": "Cover M3 O1–O5: grants and training ceilings, thermal process contribution, foundation investment, place-dependent qi, consequential method resonance/fusion. Released 0.1.8.4 and 0.2 rewrite stay distinct. Trace any trial admission before adapting it. Extend existing energy/vessel/method/gate owners; no parallel reserve engine and no giant unused definition catalogue.",
+      "seam": "Method/skill activation, mastery caps, vessel/foundation state and supported composition. L5 owns thermal alchemy implementation: give it the Ascension reference requirements in this lane record rather than duplicate it. L6 owns site qi implementation; verify its consumer through your methods. Coordinate L2 mastery and L1 planner via file locks."
+    },
+    {
+      "id": "L4",
+      "title": "Implement LOTM mod-derived brewing acting artifacts and rituals",
+      "report": "M4_LOTM_MODS.md",
+      "first": "One source-qualified LOTM power/artifact outcome or characteristic-aware brew, chosen after checking the live Q6, potion and entrance owners.",
+      "scope": "Cover M4 A1–A5: characteristic-aware lawful brewing, ordinary role outcomes crediting acting, real artifact benefit/handling drawback, powers consumed by actual situations, staged sourced rites/contact. Also reconcile characteristic identity, honored recipient and aftermath gaps as they become needed. Preserve fan/canon distinction. Contextual acting guidance already has a delivered receipt; do not reimplement it. High-rank repertoire grows by proven useful slices rather than names.",
+      "seam": "LOTM law/data/host/actions, brewing/characteristic custody, event-to-acting and source-qualified ritual consumers. This is the sole LOTM mechanics writer in this wave. Other lanes request/release narrow joins in their records. Read unmerged LOTM entrance/tooltip owners; do not erase or casually reimplement their work."
+    },
+    {
+      "id": "L5",
+      "title": "Implement cultivation alchemy roots and trial mechanisms",
+      "report": "M5_XIANXIA_OTHERS.md",
+      "first": "One material-maturity/additive-sensitive recipe or recipient/repetition-sensitive medicine through existing making/body owners.",
+      "scope": "Cover M5-01/03/05/06/08 and applicable other P rows: elemental aptitude tradeoffs; causal trial phases; mature herbs/core/additive eligibility; contextual integration stress/toxicity; multiple real artifact carriers. Include funded retreat and functional stage consequences when fitting. Reuse L3 thermal reference and implement its crafting portion once. U rows require a bounded executor trace, not speculative parity.",
+      "seam": "Making resolver/material provenance/station process and body dose/treatment owners. L1/L3 own aptitude/planner/method interfaces; L7 owns bond/Memory/companion instances. L5 owns general thermal/additive/recipient process; L4 owns LOTM-specific formula/characteristic law. L5 coordinates the multi-carrier command with L7 before touching item custody."
+    },
+    {
+      "id": "L6",
+      "title": "Implement wider mod discoveries and private-realm mechanisms",
+      "report": "M6_SCOUT.md",
+      "first": "Read the already acquired ImmortalStorage artifact for a named mechanism gap, then implement one useful private-space or supplied-site interaction using existing owners.",
+      "scope": "Convert the scout into implementation: first inspect the existing official ImmortalStorage artifact, then select its applicable private-realm/cultivation/production mechanism against current pocket-realm/home/site support. Account for the other M6 leads and implement distinct useful ideas supported by adequate source evidence; credit M1–M5/M7 overlap instead of reacquiring it. Broader listings are leads, not a command to clone every mod or create every franchise. Reuse local artifacts and ordinary authorized official routes; no purchases/login bypass. Resolve named gaps only as needed.",
+      "seam": "Pocket-realm/private-space entry/return, environmental supply/qi sites, formation power routing and supported local production. L1 owns formation/player-facing planner requirements; L3 owns method consumers. L7 owns Shadow Slave Memory/companions; leave the M6 wider webnovel duplicates with L7. No autonomous settlement rewrite."
+    },
+    {
+      "id": "L7",
+      "title": "Implement webnovel Gu Memory companion and trial loops",
+      "report": "M7_WEBNOVEL_MODS.md",
+      "first": "Memory research-to-fitting or companion recovery/evolution as one connected, owned-instance gameplay loop.",
+      "scope": "Cover M7-P1–P5 and useful CultCraft palette: living Gu care versus essence activation; item-property research/fitting; companion recovery/evolution; contextual role guidance reconciliation; staged party trial and return. Gu and Shadow Slave consumer/world entry must be genuine source-qualified playable branches when needed, not generic stock renamed Gu or a false claim that an existing inactive profile is a world. Acquire/trace only named missing mechanisms using available lawful/public routes. CultCraft crown/sacrifice fan laws remain separate from LOTM. Contextual acting guide is already delivered: credit/extend through L4 rather than duplicate. Preserve source/observer/sealed truth boundaries.",
+      "seam": "Exact-item research/bond/fitting and companion/capture/evolution/custody, source-qualified Gu and Shadow Slave loops plus party expedition consumer. L7 implements bonded-carrier lifecycle requested by L1 once, and multi-carrier support requested by L5 once. L4 retains all LOTM mechanics. L6 retains generic private-space/site support."
+    },
+    {
+      "id": "L8",
+      "title": "Implement player feedback fixes and integrate Minecraft lanes",
+      "report": "M8_REDDIT_VOICE.md",
+      "first": "Implement truthful practice/automation state and custody/return receipts on existing menus where live inspection reproduces a gap.",
+      "scope": "Cover M8 P1–P10: practice blockers, chosen routines and recap, breakthrough consequences, bounded real-person institution jobs, relationships producing opportunities, demonstrated crafting replay, life-boundary comparisons, powers changing ordinary actions, storage receipts and living-world aftermath. Credit delivered behavior and other lanes rather than duplicate their domains. This lane is also the wave integrator: reconcile L1–L7 release receipts, perform combined required gates on settled inputs and report full requested coverage plus remaining playable gates. Do not call the wave complete when one first slice passes.",
+      "seam": "Shared menu/control/inspection/recap joins and the wave integration record. Domain state and rules stay with their listed L1–L7 owners. L8 owns shared README/PROJECT/USER_VISION/register updates after dispatch is marked complete, and sole final primary generated-output publication. Per-lane BUILD_OUT builds are allowed. No commit/push/install authority."
+    }
+  ],
+  "threads": [
+    {
+      "lane": "L1",
+      "threadId": "01a178b9-4576-7433-a36b-38525ffd6bc9",
+      "hostId": "local"
+    },
+    {
+      "lane": "L2",
+      "threadId": "01a178b9-b717-7a73-b5a0-9137e6686f9f",
+      "hostId": "local"
+    },
+    {
+      "lane": "L3",
+      "threadId": "01a178b9-bd33-7120-9e88-770363fd156f",
+      "hostId": "local"
+    },
+    {
+      "lane": "L4",
+      "threadId": "01a178b9-c5da-7831-8d68-f87f8b3da153",
+      "hostId": "local"
+    },
+    {
+      "lane": "L5",
+      "threadId": "01a178b9-cd1a-7480-b692-fe031e180516",
+      "hostId": "local"
+    },
+    {
+      "lane": "L6",
+      "threadId": "01a178b9-d6d3-7951-a9a8-37693bfb20a9",
+      "hostId": "local"
+    },
+    {
+      "lane": "L7",
+      "threadId": "01a178b9-de0d-7bb1-a16f-cd25ed38730d",
+      "hostId": "local"
+    },
+    {
+      "lane": "L8",
+      "threadId": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+      "hostId": "local"
+    }
+  ],
+  "execution": "primary checkout; two mutation/check slots; per-path ownership; isolated BUILD_OUT; L8 integration",
+  "model_effort": "configured app defaults; no override requested",
+  "max_created_chats": 8,
+  "additional_agents": 0,
+  "dispatch_state": "All eight create_thread calls succeeded; implementation evidence pending per lane."
+}

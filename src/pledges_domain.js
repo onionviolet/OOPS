@@ -29,6 +29,7 @@ function apply() {
 }
 const skills = () => ({intent:intentEffects(ports?.root?.()),fieldLearning:ports?.root?.()?.actors.player.resources['cultivation.fieldFailures']||0,channels:domainRegistry.command('crafting','bodyChannels')?.()||0,weapon:ports?.actor?.()?.getEquipment?.()?.weapon?.weapon_type,combat: ports?.skillLevel?.('Combat') ?? 0, equilibrium: ports?.skillLevel?.('Equilibrium') ?? 0, persistence: ports?.skillLevel?.('Persistence') ?? 0});
 const need = () => { if(!ports) throw Error('Pledges are not ready yet.'); const reason=ports.blocked?.();if(reason)throw Error(reason);if(!ports.idle()) throw Error('Finish what you are doing first.'); };
+const routineContext = () => ({world:ports?.world?.(),location:ports?.location?.(),blocked:!ports?'Pledges are not ready yet.':ports.blocked?.()||(ports.idle?.()===false?'Finish the current work or decision, then resume the routine.':'')});
 // One native rollback boundary: the slice and any item debit publish together or not at all.
 function transact(next, itemId = null, count = 0) {
     if(count) { if(ports.count(itemId) < count) throw Error(`You need ${count} ${itemId.toLowerCase()}.`); ports.assertSpend(itemId); }
@@ -48,6 +49,7 @@ export const commands = {
     resolvedSiphon(args){if(state.charged?.mode==='siphon'&&args.fighter?.tags?.main_character)return commands.resolvedCharge(args);},
     carveCharged(runes,mode){need();transact(P.carveCharged(state,runes,mode,clock(),chargeBinding()),CARVING_WOOD,runes.length*runeGrammar.perRuneCost);},
     routine(options){if(options.enabled)need();else if(ports?.writable?.()===false)throw Error('Use the writable game tab.');transact(configureTrialRoutine(state,options));},
+    previewRoutine(options){const draft=configureTrialRoutine(state,{...options,enabled:true}),trial=P.trialView(draft,skills()),stock=ports?.count?.(RATION)??0;return {...quoteTrialRoutine(draft,trial,stock,routineContext()),stock,next:trial.next};},
     guarded(){need();transact(P.guardedTempering(state,skills(),clock()),RATION,5);},
     actionReason: action => P.actionReason(state, action),
     beginOrdeal(kind, units=0,load=0) { need(); transact(P.beginOrdeal(state,{kind,units,load,skills:skills(),at:clock()}),RATION,units); },
@@ -81,7 +83,7 @@ const view = () => {
     const t = clock(), known = new Set(state.runes.pairs.map(p => `${p.a}>${p.b}`));
     return {state, now: t, rations: ports?.count?.(RATION) ?? 0, wood: ports?.count?.(CARVING_WOOD) ?? 0, ready: !!ports,
         vows: Object.values(vowRules.vows).map(v => ({...v, kept: !!state.vows.kept[v.id], broken: state.vows.broken[v.id] ?? null})),
-        trial: P.trialView(state, skills()),sharedLearning:(state.trial.learning||0)+(skills().fieldLearning||0), ordeal:P.ordealView(state,skills()),ordealKinds:P.ordealKinds(skills()),routine:state.routine?quoteTrialRoutine(state,P.trialView(state,skills()),ports?.count?.(RATION)||0,{world:ports?.world?.(),location:ports?.location?.(),blocked:ports?.blocked?.()}):null, maxKept: vowRules.maxKept, keptCount: Object.keys(state.vows.kept).length,
+        trial: P.trialView(state, skills()),sharedLearning:(state.trial.learning||0)+(skills().fieldLearning||0), ordeal:P.ordealView(state,skills()),ordealKinds:P.ordealKinds(skills()),routineContext:routineContext(),routine:state.routine?quoteTrialRoutine(state,P.trialView(state,skills()),ports?.count?.(RATION)||0,routineContext()):null, maxKept: vowRules.maxKept, keptCount: Object.keys(state.vows.kept).length,
         runes: {...P.runeView(state), total: totalPairs(runeGrammar), minutesLeft: state.talisman ? Math.max(0, state.talisman.until - t) : 0,
             effectText: EFFECT_TEXT, knownPair: (a, b) => known.has(`${a}>${b}`) || known.has(`${b}>${a}`) ? readPair(runeGrammar, a, b).effect : null}};
 };
@@ -97,7 +99,7 @@ registerDomain({id: 'pledges', deps: [], initialState: () => null,
             ports.logMessage('You slept through the dawn watch. The long-watch vow breaks and leaves its disclosed scar.','notification');
         }
         if(state.routine?.enabled){
-            const q=quoteTrialRoutine(state,P.trialView(state,skills()),ports.count(RATION),{world:ports.world?.(),location:ports.location?.(),blocked:ports.blocked?.()||(!ports.idle()?'Finish the current work or decision, then resume the routine.':'')});
+            const q=quoteTrialRoutine(state,P.trialView(state,skills()),ports.count(RATION),routineContext());
             if(!q.eligible)transact({...state,routine:{...state.routine,enabled:false,last:{at:clock(),reason:q.reason}}});
             else {const result=q.guarded?{state:P.guardedTempering(state,skills(),clock()),passed:true}:P.attempt(state,{roll:Math.min(999,Math.floor(ports.random(`pledges:routine:${state.trial.attempts}:${clock()}`)*1000)),units:q.units,skills:skills(),at:clock()});
                 const reason=result.passed?'The quoted stage holds; review readiness before another attempt.':'Attempt failed. Fear and failure learning are recorded. Calm fear or revise the limits before resuming.';

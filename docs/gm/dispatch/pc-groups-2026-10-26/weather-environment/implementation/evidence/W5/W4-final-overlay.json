@@ -1,0 +1,7 @@
+{
+  "overlay": {
+    "src/book_world_paradise_environment_inputs.js": "4283d78592977e132a2c4950d737d34d57877248965dd377be51ce35b8518b74",
+    "tests/paradise_environment_inputs.test.js": "0a373ba1d65783e211cd6bbc8f4941332f2eb77cec8ba61f97587979a010133d"
+  },
+  "base": "W5 exact S1 immutable snapshot; shared host files not overwritten"
+}

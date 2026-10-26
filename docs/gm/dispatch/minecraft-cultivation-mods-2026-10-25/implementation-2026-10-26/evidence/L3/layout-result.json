@@ -1,0 +1,57 @@
+{
+  "route": "Reimport the agent-earned final inactive-method export for focused desktop evidence",
+  "origin": "http://127.0.0.1:54066",
+  "errors": [],
+  "layoutOnly": true,
+  "resumedWithoutRelearning": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false,
+      "cardBounds": {
+        "left": 680.65625,
+        "right": 1019.03125,
+        "overflow": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false,
+      "cardBounds": {
+        "left": 680.65625,
+        "right": 1019.03125,
+        "overflow": false
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false,
+      "cardBounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false,
+      "cardBounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+TAP version 13
+# Subtest: old saves remain unenrolled with unchanged legacy origins and no body rewards
+ok 1 - old saves remain unenrolled with unchanged legacy origins and no body rewards
+  ---
+  duration_ms: 9.607542
+  type: 'test'
+  ...
+# Subtest: an innate trait stays latent until its saved discovery, without invented ancestry or NPC knowledge
+ok 2 - an innate trait stays latent until its saved discovery, without invented ancestry or NPC knowledge
+  ---
+  duration_ms: 33.278792
+  type: 'test'
+  ...
+# Subtest: drills spend actual stamina and teach native XP; recovery keeps two drills and one trained grip
+ok 3 - drills spend actual stamina and teach native XP; recovery keeps two drills and one trained grip
+  ---
+  duration_ms: 52.946333
+  type: 'test'
+  ...
+# Subtest: rough kit cancellation refunds real inputs; completion leaves a temporary scrape and acquired mark
+ok 4 - rough kit cancellation refunds real inputs; completion leaves a temporary scrape and acquired mark
+  ---
+  duration_ms: 35.763459
+  type: 'test'
+  ...
+# Subtest: condition recovery in batches or reloaded ticks agrees and never erases acquired body evidence
+ok 5 - condition recovery in batches or reloaded ticks agrees and never erases acquired body evidence
+  ---
+  duration_ms: 81.992208
+  type: 'test'
+  ...
+# Subtest: craftsman recognition records only demonstrated visible evidence and cannot farm familiarity
+ok 6 - craftsman recognition records only demonstrated visible evidence and cannot farm familiarity
+  ---
+  duration_ms: 19.946916
+  type: 'test'
+  ...
+# Subtest: tender hands add actual work time while legacy packing reduction and vanilla timing remain intact
+ok 7 - tender hands add actual work time while legacy packing reduction and vanilla timing remain intact
+  ---
+  duration_ms: 12.43075
+  type: 'test'
+  ...
+# Subtest: failed body enrollment publication retains exact old bytes with no partial services or hidden gift
+ok 8 - failed body enrollment publication retains exact old bytes with no partial services or hidden gift
+  ---
+  duration_ms: 2.179875
+  type: 'test'
+  ...
+# Subtest: unsupported trait origins fail definition validation rather than being guessed
+ok 9 - unsupported trait origins fail definition validation rather than being guessed
+  ---
+  duration_ms: 0.2675
+  type: 'test'
+  ...
+# Subtest: weathered skin changes a storm gust only on the body that earned it; knowledge survives a body change
+ok 10 - weathered skin changes a storm gust only on the body that earned it; knowledge survives a body change
+  ---
+  duration_ms: 33.76325
+  type: 'test'
+  ...
+# Subtest: trait prose distinguishes unknown, known dormant and suppressed effects without granting a bonus
+ok 11 - trait prose distinguishes unknown, known dormant and suppressed effects without granting a bonus
+  ---
+  duration_ms: 1.446416
+  type: 'test'
+  ...
+# Subtest: seeded authored-room layouts vary, stay connected and admit a reachable movable-object objective
+ok 12 - seeded authored-room layouts vary, stay connected and admit a reachable movable-object objective
+  ---
+  duration_ms: 2.209834
+  type: 'test'
+  ...
+# Subtest: native-world truth and actual observations remain distinct; support methods conserve material custody and persist
+ok 13 - native-world truth and actual observations remain distinct; support methods conserve material custody and persist
+  ---
+  duration_ms: 21.5845
+  type: 'test'
+  ...
+# Subtest: explicit attended regional time earns a bounded lesson; finite searches keep source/cargo/loss and risk coherent
+ok 14 - explicit attended regional time earns a bounded lesson; finite searches keep source/cargo/loss and risk coherent
+  ---
+  duration_ms: 5.364708
+  type: 'test'
+  ...
+# Subtest: real failed field work feeds the same bounded learning reader used by tempering, independently of fear
+ok 15 - real failed field work feeds the same bounded learning reader used by tempering, independently of fear
+  ---
+  duration_ms: 5.496083
+  type: 'test'
+  ...
+# Subtest: reward caps do not forbid inspection and weak supported bodies pay actual greater handling effort
+ok 16 - reward caps do not forbid inspection and weak supported bodies pay actual greater handling effort
+  ---
+  duration_ms: 1.361834
+  type: 'test'
+  ...
+# Subtest: site and creature are actually paid, unique and bound to suitable player ownership
+ok 17 - site and creature are actually paid, unique and bound to suitable player ownership
+  ---
+  duration_ms: 0.937666
+  type: 'test'
+  ...
+# Subtest: no inherited care, instant harm or stock; feeding spends real inventory once
+ok 18 - no inherited care, instant harm or stock; feeding spends real inventory once
+  ---
+  duration_ms: 0.515667
+  type: 'test'
+  ...
+# Subtest: attention alone produces nothing; both care orders support the same finite batch
+ok 19 - attention alone produces nothing; both care orders support the same finite batch
+  ---
+  duration_ms: 0.362292
+  type: 'test'
+  ...
+# Subtest: partial supported time pauses, survives persistence and resumes with new paid care
+ok 20 - partial supported time pauses, survives persistence and resumes with new paid care
+  ---
+  duration_ms: 0.123792
+  type: 'test'
+  ...
+# Subtest: save/reload/export-style roundtrip retains pending and collected states without rewards
+ok 21 - save/reload/export-style roundtrip retains pending and collected states without rewards
+  ---
+  duration_ms: 0.3045
+  type: 'test'
+  ...
+# Subtest: malformed ownership, future receipts, unsupported revisions and impossible harvest reject
+ok 22 - malformed ownership, future receipts, unsupported revisions and impossible harvest reject
+  ---
+  duration_ms: 0.174125
+  type: 'test'
+  ...
+# Subtest: failed durable publication restores the exact native inventory, purse and care owner
+ok 23 - failed durable publication restores the exact native inventory, purse and care owner
+  ---
+  duration_ms: 0.347875
+  type: 'test'
+  ...
+# Subtest: real native save encoding accepts optional care and leaves old envelopes without it unchanged
+ok 24 - real native save encoding accepts optional care and leaves old envelopes without it unchanged
+  ---
+  duration_ms: 4.383958
+  type: 'test'
+  ...
+# Subtest: SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+ok 25 - SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+  ---
+  duration_ms: 65.889791
+  type: 'test'
+  ...
+# Subtest: SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+ok 26 - SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+  ---
+  duration_ms: 39.352625
+  type: 'test'
+  ...
+# Subtest: SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+ok 27 - SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+  ---
+  duration_ms: 51.501208
+  type: 'test'
+  ...
+# Subtest: SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+ok 28 - SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+  ---
+  duration_ms: 19.49975
+  type: 'test'
+  ...
+# Subtest: SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+ok 29 - SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+  ---
+  duration_ms: 65.874
+  type: 'test'
+  ...
+# Subtest: SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+ok 30 - SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+  ---
+  duration_ms: 95.816416
+  type: 'test'
+  ...
+# Subtest: SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+ok 31 - SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+  ---
+  duration_ms: 94.938667
+  type: 'test'
+  ...
+# Subtest: SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+ok 32 - SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+  ---
+  duration_ms: 86.249667
+  type: 'test'
+  ...
+# Subtest: SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+ok 33 - SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+  ---
+  duration_ms: 53.383625
+  type: 'test'
+  ...
+# Subtest: SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+ok 34 - SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+  ---
+  duration_ms: 34.396292
+  type: 'test'
+  ...
+# Subtest: metadata rejects unearned reward, phase skips and implicit resurrection
+ok 35 - metadata rejects unearned reward, phase skips and implicit resurrection
+  ---
+  duration_ms: 2.012916
+  type: 'test'
+  ...
+# Subtest: prepare, gear obstacle, extraction and treatment use shared durable owners
+ok 36 - prepare, gear obstacle, extraction and treatment use shared durable owners
+  ---
+  duration_ms: 69.456917
+  type: 'test'
+  ...
+# Subtest: retreat earns no reward; lethal choice records true death and prevents more actions
+ok 37 - retreat earns no reward; lethal choice records true death and prevents more actions
+  ---
+  duration_ms: 11.973375
+  type: 'test'
+  ...
+# Subtest: unknown sites and private outcome effects are absent from actor view
+ok 38 - unknown sites and private outcome effects are absent from actor view
+  ---
+  duration_ms: 9.157
+  type: 'test'
+  ...
+# Subtest: failed durable save preserves live supplies and outcome; stored pending job reloads unchanged
+ok 39 - failed durable save preserves live supplies and outcome; stored pending job reloads unchanged
+  ---
+  duration_ms: 5.64725
+  type: 'test'
+  ...
+# Subtest: held active means resolve the obstacle without mundane injury; unconsciousness is not death
+ok 40 - held active means resolve the obstacle without mundane injury; unconsciousness is not death
+  ---
+  duration_ms: 9.163333
+  type: 'test'
+  ...
+# Subtest: compiled discovery gates protect the actual ordinary command list
+ok 41 - compiled discovery gates protect the actual ordinary command list
+  ---
+  duration_ms: 2.588542
+  type: 'test'
+  ...
+# Subtest: treatment and lethal settlement require the acting player beneficiary
+ok 42 - treatment and lethal settlement require the acting player beneficiary
+  ---
+  duration_ms: 0.299792
+  type: 'test'
+  ...
+# Subtest: source loss during a paid method job rechecks support and refunds without settlement
+ok 43 - source loss during a paid method job rechecks support and refunds without settlement
+  ---
+  duration_ms: 6.259417
+  type: 'test'
+  ...
+# Subtest: full registry has held discovery and completion gates; lethal metadata is optional; old absent definition unchanged
+ok 44 - full registry has held discovery and completion gates; lethal metadata is optional; old absent definition unchanged
+  ---
+  duration_ms: 4.448917
+  type: 'test'
+  ...
+# Subtest: loss of held discovery refunds a pending preparation without changing phase
+ok 45 - loss of held discovery refunds a pending preparation without changing phase
+  ---
+  duration_ms: 3.366833
+  type: 'test'
+  ...
+# Subtest: observation, understanding, practice, ownership and execution are separate saved gates
+ok 46 - observation, understanding, practice, ownership and execution are separate saved gates
+  ---
+  duration_ms: 24.888875
+  type: 'test'
+  ...
+# Subtest: active practice freezes RNG, cue identity and reward through partial reload and changed definitions
+ok 47 - active practice freezes RNG, cue identity and reward through partial reload and changed definitions
+  ---
+  duration_ms: 3.413417
+  type: 'test'
+  ...
+# Subtest: mistakes teach, cancellation forfeits one fee without reward and active drills occupy the actor
+ok 48 - mistakes teach, cancellation forfeits one fee without reward and active drills occupy the actor
+  ---
+  duration_ms: 2.430333
+  type: 'test'
+  ...
+# Subtest: native enemy victory records evidence once and does not invent a donor actor or remove an ability
+ok 49 - native enemy victory records evidence once and does not invent a donor actor or remove an ability
+  ---
+  duration_ms: 0.504459
+  type: 'test'
+  ...
+# Subtest: schemas1/2 migrate additively, frozen old jobs remain intact, and bad technique state rejects
+ok 50 - schemas1/2 migrate additively, frozen old jobs remain intact, and bad technique state rejects
+  ---
+  duration_ms: 3.323333
+  type: 'test'
+  ...
+# Subtest: failed persistence publishes no practice answer, proficiency, cost or chosen pattern
+ok 51 - failed persistence publishes no practice answer, proficiency, cost or chosen pattern
+  ---
+  duration_ms: 2.812834
+  type: 'test'
+  ...
+# Subtest: mastery changes the usable route's outcome and practice stops at its saved cap
+ok 52 - mastery changes the usable route's outcome and practice stops at its saved cap
+  ---
+  duration_ms: 5.302042
+  type: 'test'
+  ...
+# Subtest: K3 manual route teaches the same understanding as the guide, without fee or ownership, and keeps its origin
+ok 53 - K3 manual route teaches the same understanding as the guide, without fee or ownership, and keeps its origin
+  ---
+  duration_ms: 4.159417
+  type: 'test'
+  ...
+1..53
+# tests 53
+# suites 0
+# pass 53
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 948.3925

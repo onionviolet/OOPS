@@ -1,0 +1,13 @@
+{
+  "local_links_checked": 48,
+  "broken_links": [],
+  "report_trailing_whitespace_lines": [],
+  "git_diff_check_exit": 0,
+  "git_diff_check_output": "",
+  "input_drift_since_focused_run_at_document_check": [
+    "src/book_care_facts.js",
+    "src/peer_standing_domain.js"
+  ],
+  "note": "New untracked report also checked directly; git diff does not cover untracked file text. Link targets checked for existence, not Markdown heading slugs.",
+  "report_sha256": "44e37e7bc4edd07d9377069fe5bd031608445f8a441ea3b4090db9e1c416e8cc"
+}

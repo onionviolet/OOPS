@@ -381,7 +381,7 @@ import {beginStructuredCampaign,planStructuredSelection,structuredCampaignView,a
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
-import {registerHpBeginnings} from './book_world_hp_content.js';
+import {registerBookBeginnings} from './book_world_beginning_registration.js';
 import {createStructuredBeginningChoices} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
 import {readWornEquipment} from './worn_equipment_comparison.js';
@@ -9443,7 +9443,7 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
-await registerHpBeginnings(registerStructuredNative,beginningChoices);
+await registerBookBeginnings(registerStructuredNative,beginningChoices);
 configureCraftingDomain({actor:()=>character,read:()=>({body:currentNativeBody(),mind:character.getFullStats().intuition,inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Literacy'),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),character.getLevelableComponent(),item_log,favourite_items,favourite_consumables,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),

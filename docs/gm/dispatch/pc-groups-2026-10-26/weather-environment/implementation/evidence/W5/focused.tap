@@ -1,0 +1,226 @@
+TAP version 13
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 1 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 1.724542
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 2 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 4.916583
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 3 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 0.382167
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 4 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 0.528917
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 5 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 0.689
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 6 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 1.208583
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 7 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.127292
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 8 - retained products validate only under their own law revision
+  ---
+  duration_ms: 0.443083
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 9 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 1.600375
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 10 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 5.198
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 11 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 0.760417
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 12 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.340208
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 13 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 0.547791
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 14 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 2.62875
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 15 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 1.136
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 16 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.384792
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 17 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 1.334917
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 18 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.230292
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 19 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 70.154458
+  type: 'test'
+  ...
+# Subtest: source-local calendar gates ignore foreign actor seasons and root day boundaries
+ok 20 - source-local calendar gates ignore foreign actor seasons and root day boundaries
+  ---
+  duration_ms: 0.483042
+  type: 'test'
+  ...
+# Subtest: bound sources preserve local-day fractional growth, depletion deadlines, freeze and reload
+ok 21 - bound sources preserve local-day fractional growth, depletion deadlines, freeze and reload
+  ---
+  duration_ms: 0.370792
+  type: 'test'
+  ...
+# Subtest: counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+ok 22 - counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+  ---
+  duration_ms: 316.546334
+  type: 'test'
+  ...
+# Subtest: sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+ok 23 - sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+  ---
+  duration_ms: 513.638834
+  type: 'test'
+  ...
+# Subtest: partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+ok 24 - partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+  ---
+  duration_ms: 178.726208
+  type: 'test'
+  ...
+# Subtest: leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+ok 25 - leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+  ---
+  duration_ms: 305.04775
+  type: 'test'
+  ...
+# Subtest: unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+ok 26 - unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+  ---
+  duration_ms: 45.096375
+  type: 'test'
+  ...
+# Subtest: paid standing source yields retained ordinary logs used by actual wash/dry/kit/commission
+ok 27 - paid standing source yields retained ordinary logs used by actual wash/dry/kit/commission
+  ---
+  duration_ms: 1150.375333
+  type: 'test'
+  ...
+# Subtest: finite care, exact fractional growth, no unsupported catchup and failed actions conserve actual stock
+ok 28 - finite care, exact fractional growth, no unsupported catchup and failed actions conserve actual stock
+  ---
+  duration_ms: 9367.863542
+  type: 'test'
+  ...
+# Subtest: departing freezes nursery support and return retains the same source rather than refilling it
+ok 29 - departing freezes nursery support and return retains the same source rather than refilling it
+  ---
+  duration_ms: 371.097916
+  type: 'test'
+  ...
+# Subtest: finite paid water source reserves exact price, survives pending reload and cannot duplicate the offer
+ok 30 - finite paid water source reserves exact price, survives pending reload and cannot duplicate the offer
+  ---
+  duration_ms: 116.796583
+  type: 'test'
+  ...
+# Subtest: filtering conserves water and suspended grit, leaves dissolved salt/contamination and spends real cloth/time
+ok 31 - filtering conserves water and suspended grit, leaves dissolved salt/contamination and spends real cloth/time
+  ---
+  duration_ms: 89.93925
+  type: 'test'
+  ...
+# Subtest: useful damp preparation keeps exact wood/water/tool receipt through partial carry, drying, kit and paid commission
+ok 32 - useful damp preparation keeps exact wood/water/tool receipt through partial carry, drying, kit and paid commission
+  ---
+  duration_ms: 183.955917
+  type: 'test'
+  ...
+# Subtest: projection is pure and exact stale water, borrowed support and forged measured facts cannot silently substitute
+ok 33 - projection is pure and exact stale water, borrowed support and forged measured facts cannot silently substitute
+  ---
+  duration_ms: 406.8355
+  type: 'test'
+  ...
+# Subtest: qualified source calendar shares actual visitor binding with display without borrowing home seasons or time
+ok 34 - qualified source calendar shares actual visitor binding with display without borrowing home seasons or time
+  ---
+  duration_ms: 1.2685
+  type: 'test'
+  ...
+# Subtest: local history reprojects at midnight and long versus split reads leave frozen instance unchanged
+ok 35 - local history reprojects at midnight and long versus split reads leave frozen instance unchanged
+  ---
+  duration_ms: 0.210417
+  type: 'test'
+  ...
+# Subtest: unavailable or mismatched visitor coordinates fail closed; future and malformed historical queries refuse
+ok 36 - unavailable or mismatched visitor coordinates fail closed; future and malformed historical queries refuse
+  ---
+  duration_ms: 0.247917
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11191.814959

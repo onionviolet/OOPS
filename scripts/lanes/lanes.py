@@ -57,7 +57,8 @@ def launch(args: argparse.Namespace) -> int:
 
 
 def _alive(pid: int | None) -> bool:
-    if not isinstance(pid, int):
+    # booleans are ints; exclude them and require a positive PID before any signal.
+    if isinstance(pid, bool) or not isinstance(pid, int) or pid <= 0:
         return False
     try:
         os.kill(pid, 0)

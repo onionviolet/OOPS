@@ -1,0 +1,9 @@
+# G2 final receipt review, 2026-10-26
+
+The G2 parent read INTEGRATION.md's final connected-delivery/coverage/AD43 sections, native-browser/result.json, final-adoption.json and the shared M6 gate status. This review adopts their exact scope, including named stock/lab/returned-cargo fixtures and the unsupported reverse repair refusal. It does not expand the delivered ORIGINAL HP treatment into universal symbolic or cross-world substitution.
+
+Independent bounded checks after I5's return: all 16 listed relevant current source/test files match their frozen candidate hashes; the frozen output bundle matches SHA256 `28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5`. The parent visually inspected comparison-1920-14.png: populated desktop shell, explicit chosen stock, preparation/service costs, uncertain trial wording and reachable controls. Other screen/font and persistence observations are adopted from the recorded I5 evidence, not rerun here.
+
+Native result records PASS, 15 connected checks, four native Save/reload/Export/literal-file Import roundtrips, eight desktop/font captures, no page errors or unexpected HTTP failures. Shared build/architecture/rules passed. The original full test run exited 1 with 3452/3456 passing and four missing-capture-file ENOENT failures; the three affected files passed 14/14 after capture recovery. This is not a clean zero-exit original full-suite run. No equivalent full suite or browser journey was rerun by the parent.
+
+Selected G2 delivery is agent-verified, not human-reviewed, at this frozen candidate and relevant matching source. No commit, push, installed-app adoption or private-save changes are implied. The early pending statuses in INTEGRATION.md are historical and superseded by its final receipt; its owner was notified of one stale leading Current line so that the resume surface remains unambiguous.

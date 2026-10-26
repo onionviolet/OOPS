@@ -1,0 +1,27 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "files": {
+    "src/crafting_frontier_runtime.js": {
+      "sha256": "63384a5ef6e894cff8e7ad97febdb573e7cfaa90667d08f489fe9052e891b2d6"
+    },
+    "src/craft_depth_domain.js": {
+      "sha256": "34595e1cf18e6c4899e32a98065a5c6bd6c70538aad7f64fd45e7daa37365a2d"
+    },
+    "src/crafting_domain.js": {
+      "sha256": "bf1d31b71ddb6116c7c3e8104c175aa8526f02eb626cd96f66a9c3174b6f0c93"
+    },
+    "src/crafting_home.js": {
+      "sha256": "83f77fd819710edb5203cf734a7e57ecd6dfae6285882ed4ca2f6ba0751f98b6"
+    },
+    "src/craft_content_frontier.js": {
+      "sha256": "8ee06b8629b3653b1f629ee6d9115c09c418cc7bd95a0f3ded6df763d069ecdc"
+    },
+    "src/craft_resolver.js": {
+      "sha256": "044845f4edf8f6e668411e3f9a43ae83f4f4c72eb8e10b3d67593fa8f8d1636d"
+    },
+    "src/craft_state.js": {
+      "sha256": "cbeaea229e1ae982f33fd2692c62b5f595ddf6e950f8f9adfb7ee0259a25900d"
+    }
+  },
+  "boundary": "read-only snapshot before integration; not a settled combined input"
+}

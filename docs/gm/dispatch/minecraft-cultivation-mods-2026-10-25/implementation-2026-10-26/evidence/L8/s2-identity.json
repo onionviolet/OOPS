@@ -1,0 +1,15 @@
+{
+  "bundleSha256": "24765f43a9fbdc16c9a1405bacd21a3694c208263e839bb1e3aa31fe66adee45",
+  "inputManifestSha256": "1d5ad54abc28f3658ca51c247b73271c4df0711f0d4c28b39c8721e4aaab683e",
+  "inputs": 1314,
+  "owned": {
+    "src/action_legibility.js": "2ec21f7b83cd634523e79099de90535ebb5324b365ea87b9c59034cb3b89ad9f",
+    "src/continuation_baggage.js": "71f850aef4e014b43b9845a64165dd95fb3c405ed2405be715c867d919208ba8",
+    "src/continuation_ui.js": "292cc3966f6e86527bbc76cd8de7e6cafd269bf2c271872a29eeb8c85b98ba92",
+    "src/home_building_panel.js": "43e5297eea7f26aa8abb5dc8bf1cced8b4831198da2acf40764f789c89b20913",
+    "src/home_household_panel.js": "cd80d358c341b868834986dbee3895949df3d44d4025e2c01cf06d58d27a0b38",
+    "src/peer_standing_domain.js": "f18d921b2ed86e31543a8ca7a01d509797a34f6b9ba00d0ecc4c434b28ab1196",
+    "tests/continuation_state.test.js": "ac5f096bc64f469c45071db0b2f88d7784ef274956276354eadcbbab6d6ce5c6",
+    "tests/home_household.test.js": "dbb8643332a7f83af9e7148595311a2d1e3425f91da41106402f130b3c5446e3"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "human_task_messages": 1,
+  "human_followups": 0,
+  "automatic_context_messages": 3,
+  "message_source_kinds": {
+    "user": 1,
+    "agent-instructions": 1,
+    "runtime-context": 1,
+    "skill-catalog": 1
+  },
+  "turns_started": 1,
+  "system_finish_rule_in_durable_message": true
+}

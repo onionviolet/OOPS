@@ -1,0 +1,44 @@
+{
+  "route": "Fresh native route, DEV SEEDED starting owned wood/rope/kits only; both lessons, bench, drills and rehearsals earned by native commands",
+  "origin": "http://127.0.0.1:54066",
+  "errors": [],
+  "production": {
+    "single": true,
+    "batch": true,
+    "masteryUnchanged": true
+  },
+  "cap": true,
+  "inactiveRefusal": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "pendingReloadExportImport": true,
+  "finalReloadExportImport": true
+}

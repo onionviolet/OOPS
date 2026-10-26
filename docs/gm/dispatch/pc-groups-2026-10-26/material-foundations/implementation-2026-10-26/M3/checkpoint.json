@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-26T17:53:20.952735+00:00",
+  "state": "source released, implemented below AD43 floor",
+  "files": {
+    "src/material_inspector.js": "35fd5a2820e751aba662a6f7e431a3045663498bdda0ddabb2a5c28f47bb8169",
+    "tests/material_inspector.test.js": "cd671d575db84054d974647ec2fdeaaa430dc551148483e5eaa8730187bc8824"
+  },
+  "focused": {
+    "command": "node --test tests/material_inspector.test.js tests/craft_engine.test.js",
+    "passed": 24,
+    "failed": 0
+  },
+  "sourceUnchangedSinceFocusedCheck": true,
+  "consumerOwner": "G5-M4",
+  "consumerThread": "01a1794c-4987-7b93-ba46-0a00eb20fe23",
+  "consumerState": "M4 has read release and prepared adapter; source/runtime slot pending in its live checkpoint",
+  "historicalReceiptOwner": "connected-making I3/I4, consumed parent/process/revision receipt release pending",
+  "combinedOwner": "G5-M6",
+  "noSaveChange": true,
+  "build": null,
+  "desktop": null,
+  "normalAppInstalled": false,
+  "committed": false,
+  "reviewState": "source and focused tests agent-verified, not human-reviewed"
+}

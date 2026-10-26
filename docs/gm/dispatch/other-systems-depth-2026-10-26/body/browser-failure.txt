@@ -1,0 +1,311 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels… •
+Homes
+Village experiments
+Standing and ledger
+Family qualities
+Cultivation insights
+Riverside exploration
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Statistics •
+Today
+Where I am
+Around this place
+Polyjuice bench
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+World events •
+Character vitals
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All items
+2
+Equipment
+1
+Usable
+1
+Other
+0
+Favorites
+0
+Inventory
+10C 2W
+Find / filter:
+Name ↑
+▾
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+15.0 °C · comfortable
+
+01/04/999 08:17, Mon · ☼ Day
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+Notes, practice & people
+▾
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Current condition & small preparations
+
+An optional local care record. Read your current condition, dry off, prepare for weather or careful work, and retain the actual results.
+
+Known actions
+Begin an optional record of local care
+
+Start an optional local care record after meeting the Village elder. This is free and grants no item, status, body change, or recurring obligation.
+
+Available
+
+Time quote: Immediate action.
+
+Do this: Begin an optional record of local care
+Field remedies & optional wound consequences
+
+Distinct treatments use real stock and played time. Extra mild wounds apply only to your explicitly accepted next new sluice challenge; existing fights keep their rules.
+
+Known actions
+Learn the optional field-care procedures
+
+Choose this optional care record. No supplies, cure, immunity or recurring obligation is granted.
+
+Available
+
+Time quote: Immediate action.
+
+Do this: Learn the optional field-care procedures
+Household work & apprenticeship
+
+Each accepted job reserves its own funding and willing participants.
+
+Known actions
+Meet the household work circle
+
+Available
+
+Do this: Meet the household work circle
+The terraced harbor chart
+
+Opening the chart creates this optional original destination. It accepts no repair, resets no body and adds no prestige.
+
+Known actions
+Read the terraced harbor chart
+
+Available
+
+Do this: Read the terraced harbor chart
+Read the terraced harbor chart
+
+Available
+
+Do this: Read the terraced harbor chart
+Proto23 · your furnished visitor life
+
+23html / Proto23; attributed village, reading and counted furnishings inspire an original independent native-body branch. Read its actual guest terms before choosing enrollment.
+
+Known actions
+Read the Proto23 independent visitor terms
+
+Original finite visitor work. Current body, right, co-location, owned stock, material, effort and cancellation terms apply.
+
+Available
+
+Do this: Read the Proto23 independent visitor terms
+Paradise · your independent Goa branch
+
+Read and choose the source-qualified independent entry terms. This begins an optional alternate branch, preserving your existing character and opening.
+
+Known actions
+Choose independent Paradise entry
+
+Current actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Choose independent Paradise entry
+This is an original voluntary parallel entry beside the supplied-MTL first-Goa era. You keep your actual living native body, owned cargo and learned history. Ordinary district work and optional contractor travel are separate choices. Entry supplies only the disclosed local language understanding, not Su Xiao’s Hunter role, talent, money, guard office, memories, private task or return protection. Unknown source rights remain unknown. All costs, local played intervals and alternative outcomes are original prototypes; unsupported absence freezes the place.
+Mother of Learning · your Cyoria guest life
+
+Read and choose the original voluntary retained-body Cyoria guest terms. nobody103 / Mother of Learning; qualified supplied WebToEpub source, independent original local branch.
+
+Known actions
+Read Cyoria retained-body guest terms
+
+Actual permission, co-location, source, body, materials and finite charge apply. Numeric terms are reversible original proposals.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Read Cyoria retained-body guest terms
+Service-district side entry
+
+The optional original side-entry branch carries your existing living body and owned cargo. Read and approve its terms explicitly.
+
+Known actions
+Read the service-district entry terms
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Read the service-district entry terms
+Scraped-palm care
+Connect the home-world chapter
+Earned feats
+Village crossroads
+Lantern & floodline work
+Optional lives and local experiments
+At the seal registry
+
+Conversation not started.
+
+Conversation controls
+Known actions
+Discuss the offered work
+
+Unavailable
+
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+Hear the seal-steward’s terms
+Completion terms
+Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.
+Unavailable: Discuss the offered work
+Village notes
+Routes & supplies
+← Village
+Here
+Crafting
+Mixing
+?
+Reports
+Filter:
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]Started a new quest: Lost memoryYour name is set in the You panel header. Click it to rename.Finished a task for a quest: "Lost memory"Journal & received accounts is now available in navigation.
+Journal ›
+Unlocked location "Infested field"
+Here ›
+Unlocked activity "weightlifting" in location "Village"
+Here ›
+Unlocked activity "running" in location "Village"
+Here ›
+Made some progress in quest: "Lost memory"A visiting courier offers a Village route pamphlet. Their name now stays in Local life.Statistics is now available in navigation.
+Related panel ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›
+World events is now available in navigation.
+Related panel ›

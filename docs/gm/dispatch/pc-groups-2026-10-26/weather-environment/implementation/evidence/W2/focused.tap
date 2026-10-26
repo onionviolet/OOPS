@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: native residence publication refreshes cached paths and persists derived access in the same envelope
+ok 1 - native residence publication refreshes cached paths and persists derived access in the same envelope
+  ---
+  duration_ms: 2.899042
+  type: 'test'
+  ...
+# Subtest: stale quotes and storage failures preserve residence, inventory and currency before publication
+ok 2 - stale quotes and storage failures preserve residence, inventory and currency before publication
+  ---
+  duration_ms: 1.094708
+  type: 'test'
+  ...
+# Subtest: rental expiry revokes sleeping and kitchen services but retains physical retrieval access
+ok 3 - rental expiry revokes sleeping and kitchen services but retains physical retrieval access
+  ---
+  duration_ms: 0.507958
+  type: 'test'
+  ...
+# Subtest: home projection remains a serializable public frame rather than exposing weather callbacks
+ok 4 - home projection remains a serializable public frame rather than exposing weather callbacks
+  ---
+  duration_ms: 0.1785
+  type: 'test'
+  ...
+# Subtest: restored projects validate their held native material keys before publication
+ok 5 - restored projects validate their held native material keys before publication
+  ---
+  duration_ms: 0.213791
+  type: 'test'
+  ...
+# Subtest: native home clock honors offset rain boundary and derives the damaged/protected roof
+ok 6 - native home clock honors offset rain boundary and derives the damaged/protected roof
+  ---
+  duration_ms: 1.518584
+  type: 'test'
+  ...
+# Subtest: real jobs retain construction, cancel unfinished contribution, resume after travel and reload
+ok 7 - real jobs retain construction, cancel unfinished contribution, resume after travel and reload
+  ---
+  duration_ms: 65.896791
+  type: 'test'
+  ...
+# Subtest: shared labor occupies the actual helper, refunds unearned pay and pays only completed work
+ok 8 - shared labor occupies the actual helper, refunds unearned pay and pays only completed work
+  ---
+  duration_ms: 7.71875
+  type: 'test'
+  ...
+# Subtest: native rain, time partitioning, damaged roof and repairs affect real rest/condition
+ok 9 - native rain, time partitioning, damaged roof and repairs affect real rest/condition
+  ---
+  duration_ms: 29.018458
+  type: 'test'
+  ...
+# Subtest: wet gathering needs drying; outdoor rain slows accepted construction work
+ok 10 - wet gathering needs drying; outdoor rain slows accepted construction work
+  ---
+  duration_ms: 7.190333
+  type: 'test'
+  ...
+# Subtest: portable structure requires actual carried kit, retains condition and changes camp without moving stored goods
+ok 11 - portable structure requires actual carried kit, retains condition and changes camp without moving stored goods
+  ---
+  duration_ms: 28.750875
+  type: 'test'
+  ...
+# Subtest: noble starts keep household title, finite treasury/allowance, native staff jobs/supplies and hospitality
+ok 12 - noble starts keep household title, finite treasury/allowance, native staff jobs/supplies and hospitality
+  ---
+  duration_ms: 31.401166
+  type: 'test'
+  ...
+# Subtest: loss of actual work means stops a shared contribution and returns its unearned wages
+ok 13 - loss of actual work means stops a shared contribution and returns its unearned wages
+  ---
+  duration_ms: 4.6165
+  type: 'test'
+  ...
+# Subtest: weatherproofing changes rain wear and abandoned frames return only unworked materials
+ok 14 - weatherproofing changes rain wear and abandoned frames return only unworked materials
+  ---
+  duration_ms: 30.769834
+  type: 'test'
+  ...
+# Subtest: native rain uses calendar-coordinate boundaries, source identity and pure absent-calendar fallback
+ok 15 - native rain uses calendar-coordinate boundaries, source identity and pure absent-calendar fallback
+  ---
+  duration_ms: 0.66175
+  type: 'test'
+  ...
+# Subtest: F2 rain start/end offsets preserve condition across long, minute and uneven partitions
+ok 16 - F2 rain start/end offsets preserve condition across long, minute and uneven partitions
+  ---
+  duration_ms: 26.072875
+  type: 'test'
+  ...
+# Subtest: legacy weather callbacks retain minute accuracy without inventing native interval metadata
+ok 17 - legacy weather callbacks retain minute accuracy without inventing native interval metadata
+  ---
+  duration_ms: 0.154167
+  type: 'test'
+  ...
+# Subtest: wear thresholds, protection and wetness caps have observable exact results
+ok 18 - wear thresholds, protection and wetness caps have observable exact results
+  ---
+  duration_ms: 0.078458
+  type: 'test'
+  ...
+# Subtest: other-world time freezes home condition without catch-up, home-world travel retains passive exposure
+ok 19 - other-world time freezes home condition without catch-up, home-world travel retains passive exposure
+  ---
+  duration_ms: 0.210708
+  type: 'test'
+  ...
+# Subtest: missing weather retains safe drying fallback and condition cursor
+ok 20 - missing weather retains safe drying fallback and condition cursor
+  ---
+  duration_ms: 0.114667
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 449.753459

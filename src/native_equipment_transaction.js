@@ -25,7 +25,8 @@ export function prepareNativeEquipment(equipment, {actors, getItem}) {
     return {
         write(envelope) {for(const s of stages) {
             // Match create_save's JSON boundary; live Items contain functions.
-            if(s.id === "player") envelope.character.equipment = JSON.parse(JSON.stringify(s.next));
+            if(s.id === "player") envelope.character.equipment = Object.fromEntries(Object.entries(s.next).map(([slot,item]) =>
+                [slot, {...JSON.parse(JSON.stringify(item)), inventory_key: s.slots[slot]}]));
             else {envelope.npc_equipment ||= {}; envelope.npc_equipment[s.id] = structuredClone(s.slots);}
         }},
         publish() {for(const s of stages) {

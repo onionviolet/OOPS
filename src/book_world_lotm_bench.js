@@ -6,9 +6,16 @@
 import {LOTM_IDS as I,LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {eq,gte,all,af,has,no,item,transfer,know,money,cmd,ready} from './book_world_lotm_kit.js';
 import {processReady} from './dose_process.js';
-import {LOTM_BREWABLE_ROWS,LOTM_INGREDIENTS,LOTM_TIERS,FORMULA_ROWS_REVISION,LOTM_FORMULA_ROWS} from './lotm_formula_rows.js';
+import {LOTM_BREWABLE_ROWS,LOTM_INGREDIENTS,LOTM_TIERS,FORMULA_ROWS_REVISION,LOTM_FORMULA_ROWS,itemKey} from './lotm_formula_rows.js';
 export const BENCH_PREFIX='book.lotm.bf_';
 export const STOCK_REV_KEY='book.lotm.stockRev';
+// One authored, appraisable physical identity. Canon equivalence: local EPUB
+// 0221, a normal characteristic is the corresponding potion minus auxiliaries.
+export const LOTM_CHARACTERISTIC=Object.freeze({serial:'TC01',id:'Tagged characteristic TC01',key:itemKey('Tagged characteristic TC01'),pathway:'Visionary',seq:9,stock:1,pence:1440});
+export const CORE_COMMITTED='bf.core.tc01.committed';
+export function characteristicMatchesFormula(row,core){return !!row&&row.status==='brewable'&&row.pathway===core.pathway&&row.seq===core.seq;}
+export function characteristicBrewId(row){return characteristicMatchesFormula(row,LOTM_CHARACTERISTIC)?`book.lotm.bf_core_${row.id}`:null;}
+
 const U='understood',BROKER_AT=all(eq('lotm.enrolled'),eq('lotm.brokerHere'));
 const flag=(rid,n)=>`bf.${rid}.${n}`,res=(rid,n)=>`book.lotm.bf.${rid}.${n}`;
 const ingredientsBought=LOTM_INGREDIENTS.filter(i=>i.tier!=='none');
@@ -42,8 +49,8 @@ export function benchIngredientCommand(i){
   visibleWhen:BROKER_AT,requires:all(eq('lotm.brokerHere'),gte(`lotm.bf.stock.${i.slug}`,1)),costs:[money(-i.pence),transfer(I.broker,'player',i.key)],
   effects:[know(`brew.ing.${i.slug}`,`${i.name}: bought ${tierWord}. ${LOTM_TIERS[i.tier].reason}`,'player','player','observation',U)]});
 }
-export const benchCommands=[...LOTM_BREWABLE_ROWS.flatMap(benchRowCommands),...ingredientsBought.map(benchIngredientCommand)];
-export const benchFlags=LOTM_BREWABLE_ROWS.flatMap(r=>[flag(r.id,'formula'),flag(r.id,'brewing')]);
+export const benchCommands=[...LOTM_BREWABLE_ROWS.flatMap(benchRowCommands),...LOTM_BREWABLE_ROWS.filter(r=>characteristicMatchesFormula(r,LOTM_CHARACTERISTIC)).map(characteristicBrewCommand),...ingredientsBought.map(benchIngredientCommand)];
+export const benchFlags=[CORE_COMMITTED,...LOTM_BREWABLE_ROWS.flatMap(r=>[flag(r.id,'formula'),flag(r.id,'brewing')])];
 // Opening stock for new enrollments, keyed by the same revision as the lazy seed so a save never gets it twice.
 export const BENCH_STOCK=Object.freeze(Object.fromEntries(ingredientsBought.map(i=>[i.key,i.stock])));
 const countOf=(gameplay,owner,key)=>gameplay?.[owner]?.inventory?.[key]||0;
@@ -57,6 +64,7 @@ export function seedBenchStock(plan){
  return true;
 }
 export function benchFacts(state,f,{inv,brokerInv}){
+ f['lotm.bf.core.tc01.held']=inv[LOTM_CHARACTERISTIC.key]||0;
  const seeded=stockSeeded(state),flagOn=n=>state.actors?.player?.facts?.[`book.lotm.${n}`]===true;
  for(const i of LOTM_INGREDIENTS){f[`lotm.bf.holds.${i.slug}`]=inv[i.key]||0;f[`lotm.bf.stock.${i.slug}`]=i.tier==='none'?0:seeded?brokerInv[i.key]||0:i.stock;}
  let busy=false;
@@ -70,6 +78,9 @@ export function benchFacts(state,f,{inv,brokerInv}){
 // State assertions (validateLotmState): a brew in progress needs its formula copy and its start note; counters are natural and sold never passes made.
 export function benchAssertions(state,{a,has,assert,natural}){
  const known=state.simulation?.knowledge?.player||{};
+ const coreRow=LOTM_BREWABLE_ROWS.find(r=>characteristicMatchesFormula(r,LOTM_CHARACTERISTIC));
+ assert(a.player.facts?.['book.lotm.core.tc01.destination']===undefined||has(CORE_COMMITTED)&&a.player.facts['book.lotm.core.tc01.destination']===coreRow.id,'TC01 must name its matching formula destination.');
+ assert(!has(CORE_COMMITTED)||a.player.facts?.['book.lotm.core.tc01.destination']===coreRow.id&&has(flag(coreRow.id,'formula'))&&!!known['book.lotm.core.tc01.destination']&&(has(flag(coreRow.id,'brewing'))||(a.player.resources?.[res(coreRow.id,'made')]||0)>=1),'TC01 must retain its declared batch or resulting dose destination.');
  for(const r of LOTM_BREWABLE_ROWS){
   assert(!has(flag(r.id,'brewing'))||has(flag(r.id,'formula'))&&!!known[`book.lotm.brew.${r.id}.started`],`A ${r.name} brew needs its formula copy and its start note.`);
   const made=a.player.resources?.[res(r.id,'made')],sold=a.player.resources?.[res(r.id,'sold')];
@@ -80,6 +91,10 @@ export function benchAssertions(state,{a,has,assert,natural}){
 // Envelope assertions (validateLotmEnvelope): held doses plus sold doses equal bottled doses; broker stock never exceeds its seed and is empty before the seed.
 export function benchEnvelope(save,{count,assert,reserved}){
  const state=save.expansion,pr=state.actors?.player?.resources||{};
+ const committed=state.actors?.player?.facts?.[`book.lotm.${CORE_COMMITTED}`]===true;
+ const rawCore=Object.values(save.inventories?.person||{}).reduce((n,inv)=>n+(inv[LOTM_CHARACTERISTIC.key]?.count||0),0);
+ const reservedCore=(state.simulation?.jobs||[]).flatMap(j=>j.costs||[]).filter(c=>c.type==='item'&&c.key===LOTM_CHARACTERISTIC.key&&c.amount<0).reduce((n,c)=>n-c.amount,0);
+ assert(rawCore+reservedCore+(committed?1:0)<=LOTM_CHARACTERISTIC.stock,'TC01 cannot be held twice or remain raw beside its committed batch/dose destination.');
  for(const r of LOTM_BREWABLE_ROWS){
   const held=count(save,'main_character',r.product.key)+reserved(state,r.product.key);
   assert(held+(pr[res(r.id,'sold')]||0)+(pr[res(r.id,'drunk')]||0)===(pr[res(r.id,'made')]||0),`${r.name} doses held, sold and drunk must equal doses bottled.`);
@@ -95,3 +110,17 @@ export function benchRowSummary(state,f,row){
   left:on&&note?Math.max(0,note.at+row.minutes-state.clock):0,doses:f[`lotm.bf.holds.dose_${row.id}`]||0};
 }
 export const benchRowList=(state,f)=>LOTM_FORMULA_ROWS.map(r=>benchRowSummary(state,f,r));
+
+// An alternative over the same process. Main materials are replaced as a group;
+// every listed auxiliary remains physical stock. The original collector is used.
+export function characteristicBrewCommand(row){
+ if(!characteristicMatchesFormula(row,LOTM_CHARACTERISTIC))throw Error('This core does not match the standard formula pathway and rank.');
+ const aux=row.slots.filter(s=>s.role==='aux'),rid=row.id;
+ const c=cmd(`bf_core_${rid}`,`Brew ${row.name} with appraised TC01 instead of main materials · consumes TC01 and one lot of every listed auxiliary · ${row.minutes} min`,row.bench,{targetId:I.supervisor,once:false,
+  visibleWhen:all(ready,trackOnly,has(flag(rid,'formula')),has('lot.tc01.genuine'),no(flag(rid,'brewing'))),
+  requires:all(ready,trackOnly,has(flag(rid,'formula')),has('lot.tc01.genuine'),no(CORE_COMMITTED),no(flag(rid,'brewing')),eq('lotm.bf.busy',false),gte('lotm.bf.core.tc01.held',1),...aux.map(s=>gte(`lotm.bf.holds.${INGREDIENT_BY_NAME[s.select.material].slug}`,s.qty))),
+  costs:[item('player',LOTM_CHARACTERISTIC.key,-1),...aux.map(s=>item('player',s.key,-s.qty))],
+  effects:[af(flag(rid,'brewing')),af(CORE_COMMITTED),af('core.tc01.destination',rid),know(`brew.${rid}.started`,`TC01 replaced the matching main materials. Every listed auxiliary went into the same pot; it needs ${row.minutes} minutes to settle.`,'player','player','observation',U),
+   know('core.tc01.destination',`TC01 is committed to the ${row.name} batch and its resulting Sequence ${row.seq} dose. The raw core is no longer held separately.`,'player','player','observation',U)]});
+ c.requires.reason='Need TC01 and every auxiliary lot.';return c;
+}

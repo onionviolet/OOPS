@@ -1,0 +1,2033 @@
+locator.isEnabled: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: 'Do this: Walk to Cyoria academy practice court', exact: true })[22m
+
+    at act (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L1/browser.mjs:36:116)
+    at async move (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L1/browser.mjs:37:68)
+    at async file:///Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L1/browser.mjs:60:235
+Stats
+Condition
+Inventory
+Journal
+Bestiary
+Data
+Notebook
+People
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels…
+Homes
+Standing and ledger
+Family qualities
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Statistics
+Today
+Companions
+Loadouts
+Around this place
+Polyjuice bench
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Known routes
+Patrol & custody
+Remembered years
+World events
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Skills & practice
+Journal & received accounts
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Combat
+Stance & combatants
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 2
+0 / 26 xp
+53/53 stamina
+81/81 hp
+STR
+14.2
+AGL
+11.2
+DEX
+11.0
+INT
+11.0
+Defense
+1.0
+Magic
+0.0
+Attack
+5.1
+Speed
+0.7 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+37
+EP
+39
+Hero XP
+×1.5
+Skill XP
+×1.591
+Global XP
+×1.5
+weapon
+Cheap iron axe
+Attributes ›
+Gear · 1
+Condition · 1 effect
+Spark of Inspiration
+1787m
+Buff
+Body · Human
+All items
+23
+Equipment
+4
+Usable
+1
+Other
+18
+Favorites
+0
+Inventory
+1000 coins (denominations unfamiliar)
+Find / filter:
+Name ↑
+▾
+[weapon] Cheap iron axe [50%]
+[take off]
+14C 4W
+Cooling salt packet
+1 coins
+Cyorian bread parcel
+1 coins
+Cyorian guest library pass
+1 coins
+Cyorian keyed formula lamp
+1 coins
+Cyorian lamp oil
+1 coins
+Cyorian research paper
+x2
+1 coins
+Cyorian sewer residue sample
+1 coins
+Dulled field fitting knife
+x2
+4 coins
+Empty cooling sleeve
+x2
+1 coins
+Prepared survey kit
+x83
+2 coins
+Reusable measuring jig
+5 coins
+Rough wood log
+x152
+10 coins
+Set repair resin
+x20
+2 coins
+Sound repair stave
+2 coins
+Stale bread
+x5
+20 coins
+Survey rope
+x16
+4 coins
+Tree sap
+x79
+5 coins
+Wax-sealed survey kit
+x4
+3 coins
+Wet repair stave
+1 coins
+[legs]
+Cheap leather pants
+[40%]
+46 coins
+[tool]
+Old pickaxe
+10 coins
+[tool]
+Old shovel
+10 coins
+[tool]
+Old sickle
+10 coins
+
+Cyoria formula workshop
+Dry · 8.0°C · climate proposal
+
+Cyoria visitor · 01/01/1 07:04
+
+No work running.
+
+Saving available.
+
+Notes, practice & people
+▾
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Eda’s fitting agreement
+
+Agree a local assessor appointment after Eda’s demonstration and supervised practice. One paid inspection can approve the kind of stave she needs for one small order.
+
+Bench clearance study
+
+Eda’s manual explains a quicker way to fit survey kits. Settle the edge-clearance comparison, learn the method, then keep a copy beside you at the bench.
+
+Known actions
+Ask Eda about the bench clearance manual
+
+Ask what the manual teaches. This conversation is free; copying and guidance are separate choices.
+
+Unavailable
+
+Known requirements
+Return to the Village, recover above one health and finish any battle or journey first.
+Let your hands recover before bench study or cutting.
+You need access to Eda’s fitting bench.
+Eda must be here, willing to help, healthy enough to work and able to use her fitting method.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Ask Eda about the bench clearance manual
+Eda’s offered-stock reports
+
+Eda rests a hand on the stacked wood. Ask what she has, or order a pair against her latest count.
+
+Known actions
+Ask Eda about her offered-stock reports
+
+Ask how Eda keeps track of the wood on her shelf. There is no charge for hearing her terms.
+
+Unavailable
+
+Known requirements
+Return to the Village bench with healthy, usable hands.
+Eda must be here, willing to help and well enough to work.
+You need access to Eda’s fitting bench.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Ask Eda about her offered-stock reports
+Optional paid cooling refinement
+
+Current quote: ordinary, 55% success from a 50% base plus 5 retry points after 1 completed failures. Costs one actual salt packet, two stamina and three played minutes. The 06:00–08:00 quiet window is closed. Last paid result: success; accepted 75% prepared quote, one roll 0.144435 (success_prepared).
+
+Known actions
+Attempt another paid cooling refinement · 1 salt + 2 stamina + 3 min
+
+A completed success or failure spends one actual salt packet and two stamina. Cancellation or lost support returns both reserved costs and records no result. The quote freezes the current calendar window, preparation, retry count, probability and one roll.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+Stated costs
+3 played minutes · Cancel to return reserved inputs.
+Unavailable: Attempt another paid cooling refinement · 1 salt + 2 stamina + 3 min
+Last paid result: success; accepted 75% prepared quote, one roll 0.144435 (success_prepared).
+A paid three-minute cooling refinement completed as a failure. One actual salt packet and two stamina were spent. The accepted prepared quote was 70%, after 0 completed failed attempts; the one frozen roll was 0.956148. The completed failure adds one retry, capped at +15 percentage points, and five played minutes of soreness. No source, rank, application or quality bank was granted. · minute 51
+A paid three-minute cooling refinement completed successfully. The accepted prepared quote was 75%, after 1 completed failed attempt; the one frozen roll was 0.144435. This earns one attributed steadied-hook application, with no rank, free source, sleeve or quality bank. · minute 59
+You used your one attributed steadied-cooling application and an actual charged sleeve on Oren’s exposed hook grip. This paid field lasts five played minutes. It prevents the special hook pull while his owned pole remains equipped; ordinary jab and guard still work. The same empty sleeve returned to you. · minute 59
+Fitting tools & materials
+
+Use, borrow, maintain and fit actual tools and materials. Drying work (proposal): 2 batches completed. Next reward at 2 batches; 0 Tree sap collected. Each finished drying job counts once, after spending its wet stave, stamina and time. Collect one Tree sap from Eda’s available stock. This records local drying work.
+
+Known actions
+Borrow Eda's sharp fitting knife · refundable 2-coin deposit
+
+Loan permits named cutting and edge repair, not refitting, selling, spending, storage or onward transfer. A loan never creates an owned duplicate.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 coins. You have 1000 available.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Borrow Eda's sharp fitting knife · refundable 2-coin deposit
+Buy one actual sharp fitting knife · 6 coins
+
+Direct payer-to-owner transfer. Availability uses the same actual seller stock and player money as commitment.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+6 coins. You have 1000 available.
+Eda, Village sluice fitter: 1 Field fitting knife.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Buy one actual sharp fitting knife · 6 coins
+Buy Eda's one actual sound stave · 2 coins
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 coins. You have 1000 available.
+Eda, Village sluice fitter: 1 Sound repair stave.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Buy Eda's one actual sound stave · 2 coins
+Restore the knife edge · 1 sap + 1 stamina
+
+Eda permits this atomic loan repair at her bench. Owned repair uses the same physical edge restoration. There is no duration or reward for merely viewing it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Tree sap. You have 79 available.
+1 stamina. You have 52.88399999999999 available.
+1 Dulled field fitting knife. You have 2 available.
+
+Time terms: Immediate action.
+
+Unavailable: Restore the knife edge · 1 sap + 1 stamina
+PROPOSAL · Broad back: cutting yield 2 → 3 · 1 log + 1 sap + 3 min
+
+One material choice at Eda's single fitting slot. Cutting yield increases from two to three wet staves for the same log, effort and time. Grain matching remains unavailable. Rarity: Common; item level: 1 (fixed); learned method: separate. Cancellation restores the exact knife, log, sap and effort. An existing broad or fine knife cannot stack this refit.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Field fitting knife. You have 0 available.
+1 Rough wood log. You have 152 available.
+1 Tree sap. You have 79 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: PROPOSAL · Broad back: cutting yield 2 → 3 · 1 log + 1 sap + 3 min
+PROPOSAL · Fine guide: enable learned Grain matching · 1 log + 1 sap + 3 min
+
+One material choice at Eda's single fitting slot. Cutting yield stays two. This guide supports the existing Grain matching task only after its separate lesson, source and joint inspection. Rarity: Common; item level: 1 (fixed); learned method: separate. Cancellation restores the exact knife, log, sap and effort. An existing broad or fine knife cannot stack this refit.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Field fitting knife. You have 0 available.
+1 Rough wood log. You have 152 available.
+1 Tree sap. You have 79 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: PROPOSAL · Fine guide: enable learned Grain matching · 1 log + 1 sap + 3 min
+Cut one actual log into three wet staves · yield stat 3 · 4 min
+
+The broad back improves the cutting-yield stat by one. It provides no fine guide or learned method. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Rough wood log. You have 152 available.
+2 stamina. You have 52.88399999999999 available.
+1 Broad field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into three wet staves · yield stat 3 · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Rough wood log. You have 152 available.
+2 stamina. You have 52.88399999999999 available.
+1 Field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 Rough wood log. You have 152 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Rough wood log. You have 152 available.
+2 stamina. You have 52.88399999999999 available.
+1 Fine field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 Rough wood log. You have 152 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+2 Sound repair stave. You have 1 available.
+1 Tree sap. You have 79 available.
+2 stamina. You have 52.88399999999999 available.
+1 Field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 Sound repair stave. You have 1 available.
+1 Tree sap. You have 79 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+Return to Village.
+Stated costs
+2 Sound repair stave. You have 1 available.
+1 Tree sap. You have 79 available.
+2 stamina. You have 52.88399999999999 available.
+1 Fine field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 Sound repair stave. You have 1 available.
+1 Tree sap. You have 79 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+PROPOSAL · Bind one lever practice brace · 1 sound stave + 1 sap + 1 stamina · 2 min
+
+Use Eda's one shared fitting slot. Two played minutes bind your owned sound stave and sap into exactly one Lever practice brace, collected automatically on completion. The craftsman consumes it during supervised lever-setting practice. Cancellation or lost support returns inputs and collects nothing. Each fresh batch needs fresh stock; no offline production.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Sound repair stave. You have 1 available.
+1 Tree sap. You have 79 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: PROPOSAL · Bind one lever practice brace · 1 sound stave + 1 sap + 1 stamina · 2 min
+Collect earned drying reward · 1 Tree sap from Eda’s stock
+
+Proposal: every two completed drying batches earn one Tree sap from Eda’s finite stock, useful for edge repair or survey kits. Collection spends those two receipts toward this reward. Further rewards require further work and available stock.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living body.
+Recover your hands before collecting.
+Your health: at least 2. (met)
+Eda must be present and willing.
+Complete two drying batches for each Tree sap reward. Inspection and cancelled work do not count.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+Eda, Village sluice fitter: 1 Tree sap.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Collect earned drying reward · 1 Tree sap from Eda’s stock
+Dry in the ordinary sheltered rack · 6 min
+
+This spends the actual wet variant and returns a sound one after paid work. Grain matching cannot skip moisture; ordinary sheltered preparation remains viable.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Wet repair stave. You have 1 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 6 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Dry in the ordinary sheltered rack · 6 min
+Watch Eda cut her actual grain sample · 2 min
+
+Only a present reserved witness sees this discovery. Eda's real materials, guide, body, active source and stamina support it; merely hearing the offer grants nothing.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+Eda, Village sluice fitter: 1 Sound repair stave.
+Eda, Village sluice fitter: 1 Fine field fitting knife.
+Eda, Village sluice fitter: 1 stamina.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Watch Eda cut her actual grain sample · 2 min
+Brace the leaking joint with ordinary stock · 5 min
+
+The installed part is consumed into this persistent target. Eda consents and witnesses the work; nothing grants an extra loose stave. A purchased matched part can be installed without copying its maker's method.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 Sound repair stave. You have 1 available.
+1 Tree sap. You have 79 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 5 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Brace the leaking joint with ordinary stock · 5 min
+Install your matched sealing insert · 3 min
+
+The installed part is consumed into this persistent target. Eda consents and witnesses the work; nothing grants an extra loose stave. A purchased matched part can be installed without copying its maker's method.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 Matched repair stave. You have 0 available.
+1 Tree sap. You have 79 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Install your matched sealing insert · 3 min
+Deliver two real survey kits to Eda · earn 2 coins
+
+Eda funds two orders. Only this accepted order reserves its kits, two coins and one demand unit. Cancellation returns that exact paired transfer and funding; it does not mint income.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 Prepared survey kit to Eda, Village sluice fitter. You have 83 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Deliver two real survey kits to Eda · earn 2 coins
+PROPOSAL · One log + one sap refits one owned sharp knife. Stat choice: cutting yield 2 → 3. Function choice: yield 2 plus support for learned Grain matching. Rarity: Common for both. Item level: 1, fixed. Learned method: Grain matching not learned. Refitting never teaches it.
+PROPOSAL · Lever practice braces: 0 carried. Bind one from 1 sound stave + 1 sap in this shared slot, 2 played minutes + 1 stamina. Automatically collected on completion; the craftsman's supervised lever-setting practice consumes 1. No offline production.
+Owned materials: 152 logs · 79 sap · 1 wet staves · 1 sound staves · 0 matched staves. Fitting bench: 0/1 slots occupied.
+Dulled field fitting knife: 2 carried · cutting yield 2 · No fine guide. Dulled: restore the edge before cutting.
+Observed: Eda says a swollen joint drips onto her drying shelf. She offers a two-coin refundable knife deposit or a six-coin purchase. Bracing needs ordinary sound wood; an offered demonstration may reveal a more exact fitting method. · Recorded at played minute 0.
+Observed: Firsthand joint inspection: the cross-grain swollen stave leaks onto the one Village drying shelf. An ordinary brace can hold it clear while it still seeps; a matching sound-grain insert can seal this particular joint. · Recorded at played minute 3.
+Observed: Eda handed over one actual Sound repair stave for two coins. Her stock decreased by one; it does not replenish on revisit. · Recorded at played minute 320.
+Observed: You paid Eda six native coins for one actual sharp fitting knife from her finite stock. The tool is yours; the money is now hers. · Recorded at played minute 560.
+Observed: You cut one real Rough wood log into two Wet repair staves. The knife dulled; these pieces still need drying. · Recorded at played minute 436.
+Observed: One Wet repair stave dried into one actual Sound repair stave in 6 played minutes. The covered ordinary rack worked without a repaired joint or method. · Recorded at played minute 455.
+Household work & apprenticeship
+
+Each accepted job reserves its own funding and willing participants.
+
+Known actions
+Decline future household work
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+
+Time terms: Immediate action.
+
+Unavailable: Decline future household work
+Ask Vale for exclusive permanent service
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Vale, prospective apprentice is reserved for this accepted work.
+Unavailable: Ask Vale for exclusive permanent service
+Hear Vale’s refusal and correct the offer
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Vale, prospective apprentice is reserved for this accepted work.
+Unavailable: Hear Vale’s refusal and correct the offer
+Equip Vale’s one shelf · 1 kit + 2 coins
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 Prepared survey kit to Vale, prospective apprentice. You have 83 available.
+2 coins. You have 1000 available.
+
+Time terms: Immediate action.
+
+Reserved
+Vale, prospective apprentice is reserved for this accepted work.
+Unavailable: Equip Vale’s one shelf · 1 kit + 2 coins
+End future teaching and home-work consent
+
+Revokes unaccepted future cooperation. Already funded fees and completed lawful sales stay settled. Any accepted live job fails its next support check, refunds its exact remaining reservation and gives no result.
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+
+Time terms: Immediate action.
+
+Unavailable: End future teaching and home-work consent
+Learn Orr’s ordinary join yourself · 1 coin · 3 min
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 coins. You have 1000 available.
+1 stamina. You have 52.88399999999999 available.
+Orr, local joiner: 1 stamina.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Orr, local joiner is reserved for this accepted work.
+A place at Orr's agreed teaching bench is reserved for this work.
+Unavailable: Learn Orr’s ordinary join yourself · 1 coin · 3 min
+Revisit the household’s retained aftermath
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Hessa, household keeper is reserved for this accepted work.
+Unavailable: Revisit the household’s retained aftermath
+Follow finite itinerary: Supply, funded repair and a personal method · 7 steps
+
+Unavailable
+
+Why this is unavailable
+Hear and accept this itinerary’s known origin first.
+Unavailable: Follow finite itinerary: Supply, funded repair and a personal method · 7 steps
+Follow finite itinerary: Willing lesson, own tools, demonstration and rights · 9 steps
+
+Unavailable
+
+Why this is unavailable
+Hear and accept this itinerary’s known origin first.
+Unavailable: Follow finite itinerary: Willing lesson, own tools, demonstration and rights · 9 steps
+Observed: Hessa keeps a household; Orr repairs locally; Vale is considering bounded teaching. Each has their own means and may refuse. Meeting them accepted no work. · Recorded at played minute 526.
+Observed: Hessa offers two coins for two actual player-owned logs, three coins to Orr for one home repair, and two coins for one later apprentice shelf. Home access is limited to accepted repairs. No exclusive service or affection is bought. · Recorded at played minute 527.
+Observed: Transferred two real logs to Hessa. Her reserved two coins paid the player. No replacement logs or wage were created. · Recorded at played minute 528.
+Observed: Witnessed the agreed limited repair right. No wage or result has been awarded; Orr must perform the funded work. · Recorded at played minute 529.
+Observed: At an actual later meeting, Hessa showed the completed home repair. Two supplied logs became the retained fixture; Orr earned the actual three-coin wage. This report does not expose Orr’s purse or future plans. · Recorded at played minute 537.
+Observed: Offered Vale one lesson, an owned kit, two consumable coins and one separately paid household shelf. Vale has not yet answered. Future management and bench rights are separate offers. · Recorded at played minute 538.
+Observed: At this meeting Vale accepted only the bounded lesson and one funded shelf. Their future autonomy and earned wages remain theirs. · Recorded at played minute 540.
+Observed: Paid Orr one actual coin for the agreed lesson. Orr and Vale will use their own attention/body at a free bench. Payment grants no competence, affection or future labor. · Recorded at played minute 541.
+Observed: At this later meeting Vale reported their completed lesson and zero initial mastery. Teaching is distinct from owned tools, permitted work and wages. · Recorded at played minute 548.
+Owned field apparatus
+
+Ordinary supplies make the same real harness. Lio uses only his own consent, body, trained source and actual equipment.
+
+Known actions
+Build a braced field harness · 2 kits + 2 logs + 6 min
+
+Ordinary apparatus remains viable without a learned method. The counted materials produce one real owned Braced field harness. Equip it on willing Lio before the native encounter.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+Stated costs
+6 played minutes · cancellation refund
+Unavailable: Build a braced field harness · 2 kits + 2 logs + 6 min
+Give Lio one owned braced field harness and fit it · 2 min
+
+Transfer one actual player-owned frame to Lio, then mark his own equipped frame. Native combat reads that conserved item for two defense and a four-strength block. It grants no method or player stats.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+2 played minutes · cancellation refund
+Unavailable: Give Lio one owned braced field harness and fit it · 2 min
+The sluice claim
+
+Known local opponents with separate native bodies and equipment. Your methods change targets, held guards, paid material support, gate progress and retreat. The slower drainage walk remains viable.
+
+Known actions
+Challenge the sluice claim · 1 stamina
+
+Start the fixed native team encounter. Each fighter keeps their own stats and spent fatigue. Raise the gate to three progress, make both opponents yield, or take the escape line. Lio joins only by a separate explicit paid invitation.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+A participating person is unavailable or already working.
+Stated costs
+0 played minutes · cancellation none
+Unavailable: Challenge the sluice claim · 1 stamina
+Challenge: Reserve one actual kit brace pad
+
+Start the fixed native team encounter. Each fighter keeps their own stats and spent fatigue. Raise the gate to three progress, make both opponents yield, or take the escape line. Lio joins only by a separate explicit paid invitation.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+A participating person is unavailable or already working.
+Carry one actual owned, unequipped and unborrowed crafted preparation.
+Stated costs
+0 played minutes · cancellation none
+Unavailable: Challenge: Reserve one actual kit brace pad
+Challenge: Reserve one actual learned brace wrap
+
+Start the fixed native team encounter. Each fighter keeps their own stats and spent fatigue. Raise the gate to three progress, make both opponents yield, or take the escape line. Lio joins only by a separate explicit paid invitation.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+A participating person is unavailable or already working.
+Carry one actual owned, unequipped and unborrowed crafted preparation.
+Stated costs
+0 played minutes · cancellation none
+Unavailable: Challenge: Reserve one actual learned brace wrap
+Challenge: Reserve a traversal lashing and your reusable Survey rope
+
+Start the fixed native team encounter. Each fighter keeps their own stats and spent fatigue. Raise the gate to three progress, make both opponents yield, or take the escape line. Lio joins only by a separate explicit paid invitation.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+A participating person is unavailable or already working.
+Carry one actual owned, unequipped and unborrowed crafted preparation.
+Stated costs
+0 played minutes · cancellation none
+Unavailable: Challenge: Reserve a traversal lashing and your reusable Survey rope
+Take the long drainage walk · 3 stamina + 8 min
+
+An ordinary route without a mature method or fight. Eight played minutes and three stamina secure passage; cancellation keeps spent fatigue and grants no progress.
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Village.
+Stated costs
+8 played minutes · cancellation forfeit
+Unavailable: Take the long drainage walk · 3 stamina + 8 min
+Wait for the tollkeepers’ next supplied watch · 6 min
+
+Both persistent opponents reserve six played minutes and spend one of their own two watch rations to recover. Withdrawn or lost fights retain all prior wounds until this real rest completes. This awards no player XP, coins or loot.
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Village.
+A participating person is unavailable or already working.
+Stated costs
+6 played minutes · cancellation forfeit
+Unavailable: Wait for the tollkeepers’ next supplied watch · 6 min
+Nera holds a braced shield at the sluice; Oren carries a hooked pole and follows exposed frames. Their toll claim blocks the direct gate. A slower drainage walk remains open. They yield at one HP; no player level changes their bodies.
+Sluice result: withdrawn; 5 committed native actions, gate 0/3, escape 0/3, 1 guarded attempts. Spent materials, fatigue and wounds remain. Encounter receipt: simulation:4122.
+Field feats
+
+Recognition for work completed in this character’s own recorded history.
+
+Known actions
+Reconcile earlier basic accomplishments
+
+Only retained basic completed work can be recognized. Earlier rare combinations and past conduct are never inferred.
+
+Available
+
+Do this: Reconcile earlier basic accomplishments
+Make a repair that lasts · Not yet earned. Install a real brace or matched seal at the leaking Village joint.
+Learn a working method · Not yet earned. Complete Eda’s supervised Grain matching lesson.
+Make useful material from a charge · Earned at played minute 327 · recorded from committed work. Use an actual charged cooling sleeve and sap to produce set repair resin.
+Finish funded local work · Not yet earned. Deliver actual survey kits to Eda’s finite paid order.
+Find another way through · Not yet earned. Complete the sluice drainage route without starting combat.
+Mastery and combinations
+
+Distinct trained methods and actual committed approaches accumulate across this character’s career.
+
+Three distinct trained methods · 1/3.
+Master the useful cooling function · Earned at played minute 33 · recorded from committed work. Reach mastery three through Eda’s actual supervised trials.
+Three distinct committed approaches · 1/3.
+Win the sluice encounter · Not yet earned. Complete a native encounter with an actual won or objective result.
+Optional passage challenges
+
+Attempt terms apply only after explicit enrollment. Feats stay with this character through field renewal.
+
+Known actions
+Accept a no-strike passage attempt
+
+Up to three attempts, enrolled before the route. From acceptance through passage, any player or recruited-team strike violates this attempt, including a miss. Automatic actions hold guards; you choose material preparation and gate work. Guarding, tool use, raising the gate and the drainage walk are allowed. Escape, loss or withdrawal ends without completion. Ordinary passage remains available. Recognition only; no repeat payment.
+
+Unavailable
+
+Why this is unavailable
+Inspect the still-held sluice and finish current work in Village first.
+Unavailable: Accept a no-strike passage attempt
+Accept a prepared-team passage attempt
+
+Up to three attempts. Train cooling to its hook function, apply a real charged sleeve to Oren, and admit willing Lio with his owned equipped braced harness and guard effort before that field expires. Win or raise the gate with that actual prepared admission. Bypass and unprepared admission do not complete it. Recognition only; no repeat payment.
+
+Unavailable
+
+Why this is unavailable
+Inspect the still-held sluice and finish current work in Village first.
+Unavailable: Accept a prepared-team passage attempt
+Most recent ordinary sluice outcome: withdrawn. Its actual passage and injuries keep their ordinary consequences.
+Measured cooling with Eda
+
+Measured cooling mastery 3/3. The hook-control function is available.
+
+Known actions
+Buy one actual charged cooling sleeve · 2 coins
+
+Atomic paid stock transfer. No restock, loan appropriation, abstract material balance or new currency.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Eda needs present willingness, her living body and the actual learned cooling source.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 coins. You have 1000 available.
+Eda, Village sluice fitter: 1 Charged cooling sleeve.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Buy one actual charged cooling sleeve · 2 coins
+Buy one actual salt packet · 1 coin
+
+Atomic paid stock transfer. No restock, loan appropriation, abstract material balance or new currency.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Eda needs present willingness, her living body and the actual learned cooling source.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 coins. You have 1000 available.
+Eda, Village sluice fitter: 1 Cooling salt packet.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Buy one actual salt packet · 1 coin
+Set one sap with an ordinary sleeve · 1 stamina + 3 min
+
+The physical charge performs this ordinary operation. Cancellation refunds actual reserved sleeve, sap and effort and creates no output.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Carry an owned, unequipped and unborrowed charged sleeve.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Charged cooling sleeve. You have 0 available.
+1 Tree sap. You have 79 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Set one sap with an ordinary sleeve · 1 stamina + 3 min
+Bind two sound staves with set resin · two survey kits + 3 min
+
+A practical consumer of cooled material. Produces the existing ordinary kit item, with no skill or power required.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Set repair resin. You have 20 available.
+2 Sound repair stave. You have 1 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Bind two sound staves with set resin · two survey kits + 3 min
+Recharge your empty sleeve · 1 salt + 1 stamina + 3 min
+
+Recharge conserves the sleeve and spends finite native salt. The method, Eda's ongoing attention and magical fuel are unnecessary.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Empty cooling sleeve. You have 2 available.
+1 Cooling salt packet. You have 1 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Recharge your empty sleeve · 1 salt + 1 stamina + 3 min
+Practice one supervised cooling trial · 1 coin + 1 salt + 3 min
+
+Practice consumes the separate test packet while the sleeve remains charged. Ends at mastery three. The finite plan reserves no later trial once that useful function is reached.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Eda needs present willingness, her living body and the actual learned cooling source.
+Carry an owned, unequipped and unborrowed charged sleeve.
+Restore your acquired active cooling source.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+1 coins. You have 1000 available.
+1 Cooling salt packet. You have 1 available.
+1 stamina. You have 52.88399999999999 available.
+Eda, Village sluice fitter: 1 stamina.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Practice one supervised cooling trial · 1 coin + 1 salt + 3 min
+Cool Oren's exposed hook grip · charged sleeve + 2 stamina
+
+Use before the sluice encounter. The bounded field needs no continuing teacher consent or source fuel after payment. Its actual condition expires on the local played clock; it grants no strike, damage, passage or permanent weapon change.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Restore your acquired active cooling source.
+Three completed supervised trials unlock hook control.
+Carry an owned, unequipped and unborrowed charged sleeve.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+Stated costs
+1 Charged cooling sleeve. You have 0 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: Immediate action.
+
+Unavailable: Cool Oren's exposed hook grip · charged sleeve + 2 stamina
+Eda’s account: After your firsthand joint inspection, Eda offers her measured-cooling bench: two stocked sleeves at two coins each, eight one-coin salt packets, a one-coin lesson, and up to three one-coin trials. Ordinary resin setting needs no method. Asking accepts no purchase, practice or debt. · minute 4
+Eda’s account: You paid Eda 2 native coins for one actual sleeve. Her finite stock decreased and her purse received the payment. Purchase grants no cooling knowledge. · minute 64
+Eda’s account: You paid Eda 1 native coin for one actual salt. Her finite stock decreased and her purse received the payment. Purchase grants no cooling knowledge. · minute 13
+Eda’s account: Eda taught you Measured cooling using your actual charged sleeve. You acquired the active source and method at mastery zero. Three paid supervised salt trials are needed for hook control; memory alone supplies neither tool nor charge. · minute 24
+Eda’s account: Eda supervised one paid measured-salt trial. Both people spent their own stamina, one salt packet was consumed and one coin entered Eda's purse. Your existing cooling mastery increased by one; no material product was made. · minute 33
+Your observation: You used trained Measured cooling and a charged sleeve on Oren's actual exposed hook grip. The paid field lasts four played minutes. It prevents the special hook pull while his owned pole remains equipped; ordinary jab and guard still work. · minute 65
+Your observation: One actual salt packet and bench effort restored one empty sleeve to its charged variant. You kept the same owned sleeve; salt was consumed. · minute 458
+Your observation: You discharged one actual sleeve to set one Tree sap into one Set repair resin. The empty sleeve remains yours. No learned method or mastery was required. · minute 466
+Your observation: You consumed one actual Set repair resin and two Sound repair staves to bind two native Prepared survey kits. Existing native preparation, trade and Eda's finite orders use these same kits. · minute 481
+Your workshop furnishings
+
+Pay for a local fit-out survey, physically build useful fixtures, dry actual stock and later adapt your own retained research into ordinary home fitting and native survey kits. No upkeep or automatic output.
+
+Known actions
+Complete the first two-offcut rack batch · 1 stamina + 4 min
+
+A useful local fixture consumer: four minutes and one stamina instead of the existing Village offcut route's six minutes and two stamina. The first completed batch retains its own permanent work receipt; later batches cannot replace it. Those old jobs and their weather rules remain unchanged.
+
+Unavailable
+
+Known requirements
+Return to your actually assembled, owned Shack field workshop with your living controlled native human body and usable hands.
+Complete the paid fit-out survey and accept its two specific fixture permissions.
+Finish both physical drying-rack construction phases.
+Why this is unavailable
+Return to Shack.
+Stated costs
+2 Green repair offcut. You have 0 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Field workshop is reserved for this work.
+Unavailable: Complete the first two-offcut rack batch · 1 stamina + 4 min
+Observed: You paid two construction coins and physically surveyed your own completed Shack field workshop using your real kit. Three played minutes and one stamina registered permission for one ventilated drying rack and one fixed-stop drafting bench. Each fixture still needs its supplied physical phases. This opt-in has no automatic upkeep, dismantling, housing, resident, source, casting, fuel or free material. The existing guest room, Neri's occupation/service and old facilities retain their own claims and rules. · Recorded at played minute 660.
+Observed: Two actual Rough wood logs became the drying-rack uprights and rails inside your earned Shack workshop. Your kit was held and returned once; four played minutes and two stamina were spent. A frame cannot dry stock. No room, resident, source or material was granted. · Recorded at played minute 665.
+Observed: One further real log and one Tree sap became the spaced drying rails. The kit returned once after three played minutes and one stamina. This stationary fixture permits only the new four-minute two-offcut drying job in this workshop. It supplies no stock and changes no old rack, weather, room or residence rule. · Recorded at played minute 669.
+Your permitted workshop fixtures: drying rack finished; drafting bench not built. One actual field-workshop capacity remains shared with all its existing jobs.
+The rack already dries your counted green offcuts here. The later drafting route needs your own mature Cyoria design notebook compiled after tested lamp control, received research and an honest service outcome. Build and use it when you return with that real notebook; no casting ability travels home.
+Your two-receiver retort
+
+Prepare three-minute batches with two actual empty trays. Collect resin and clear residue separately before another batch. Fuel stays unburned during preparation; cancellation returns the reserved inputs and trays.
+
+Known actions
+Commission your retort rack and two trays · 2 logs + 2 coins + 1 stamina
+
+Optional once-only funded installation and permission. The actual site and native tray pair persist; returning or rendering never supplies another pair.
+
+Unavailable
+
+Known requirements
+Meet living, willing Eda for this separately funded fixture and placement agreement.
+Carry two owned, unequipped and unborrowed Rough wood logs for the original rack and trays.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+Stated costs
+2 Rough wood log. You have 152 available.
+2 coins. You have 1000 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Commission your retort rack and two trays · 2 logs + 2 coins + 1 stamina
+Eda's bench fieldcraft
+
+Identify a substance through useful external bench work, care for a local dog, and recover the same finite pins by hand or trained help.
+
+Known actions
+Ask Eda about her pale vials and workshop dog
+
+Meet a local actor with finite effort and explicit care. Rill does not join native battles or travel; this meeting replenishes no earlier stock.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living body and local played clock.
+Recover your usable hands for bench work.
+Your health: at least 2. (met)
+Eda needs her present living body and permission.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Ask Eda about her pale vials and workshop dog
+Eda’s clamping frame
+
+Build a retained local fixture, then bind sap and sound staves into kits without a sleeve charge.
+
+Known actions
+Hear Eda's ordinary frame terms · free, optional
+
+Optional free agreement after firsthand joint inspection. The frame stays at this Village bench. Construction is a separate paid choice; ordinary fitting-knife and conserved cooling-sleeve routes remain available.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body, stock and local clock.
+Recover your actual hands before constructing or using the frame.
+Recover above one HP before bench work.
+Use Eda's actual commissioned Village fitting bench.
+Eda must be present and willing, with her own living usable body and free attention.
+Must not apply: Hear and accept Eda's ordinary frame terms first..
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Hear Eda's ordinary frame terms · free, optional
+Finite survey-kit reserve
+
+Opt into a small reserve for the next few outings using Eda’s existing resin route. The routine reconsiders at actual supported played boundaries and expires after three accepted batches.
+
+Known actions
+Keep a finite survey-kit reserve · at most 3 accepted resin batches
+
+Unavailable
+
+Why this is unavailable
+Finish current work and return to Eda’s supported Village bench with your living body and usable hands.
+Stated costs
+Resin route: 1 Set repair resin + 2 Sound repair staves + 1 stamina + 3 played minutes → 2 Prepared survey kits. Hold at 4; restart at 2 or fewer. Cancellation or lost support still uses an accepted batch.
+Unavailable: Keep a finite survey-kit reserve · at most 3 accepted resin batches
+83 available owned Prepared survey kits carried now. Chest stock, other people’s stock, equipment, custody goods and earlier outputs do not count.
+Resin route: 1 Set repair resin + 2 Sound repair staves + 1 stamina + 3 played minutes → 2 Prepared survey kits. Available carried inputs: 20 resin, 1 sound staves. Each commitment requotes and reserves only that batch.
+Hold at 4 kits; resume at 2 or fewer. Between those thresholds retain the prior hold state. Up to 3 accepted batches; holding spends nothing. Departure or failed support pauses the reserve for an explicit resume.
+Finite resident shifts and toolkit allocation
+
+Opening this report creates no new stock, demand, wage or attention. Only an actual accepted independent job occupies its worker; collection uses current native-compatible owned stock.
+
+Known actions
+Hear Orr’s two finite local shifts · free
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Unavailable: Hear Orr’s two finite local shifts · free
+Ask Lio about one packing shift or a contest · free
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Unavailable: Ask Lio about one packing shift or a contest · free
+Collect Orr’s 1 actually completed kit · funded separately
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Unavailable: Collect Orr’s 1 actually completed kit · funded separately
+Sponsor Vale bench drying · 1 log + 1 owned kit + 1 sap + 2 coins
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+This unique claim is already held or settled.
+Unavailable: Sponsor Vale bench drying · 1 log + 1 owned kit + 1 sap + 2 coins
+Keep your actual toolkit for personal field work · no supplies spent
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+This unique claim is already held or settled.
+Unavailable: Keep your actual toolkit for personal field work · no supplies spent
+The present craftsman permits one new finite commission at his actual Village bench. Choose Orr’s ordinary kit production or Vale’s learned bench drying, or keep your kit for your own work. Sponsorship transfers one actual player-owned unencumbered kit, one log and two native coins to the chosen worker’s stock and separate work purse; Vale additionally needs one actual Tree sap. The worker independently reserves their own learned join, counted kit, one attention, two stamina and five played minutes during 08:00–18:00. One funded coin becomes consumable fittings and one becomes their earned wage on completion. Orr’s one new kit stays theirs until separate collection; their original sponsored tool returns exactly once and stays theirs. Vale consumes the log and sap to dry only this current wet Village bench, enabling its existing ordinary harness work until another authored wetting. Both jobs contend for the same one commission claim and actual one-capacity bench. Cancelled/lost-support work refunds exact reservations to its worker; a separate pre-result withdrawal returns all supplied stock and funded coins. No competence, attention, stock or permanent weather immunity is granted.
+Supplied Orr with 1 real log, one actual kit transferred into their ownership. Two native coins moved into their separate work purse and one finite player commission became available. No kit output, earned wage or acquired operation was awarded. The independent worker must reserve and complete the supported local job.
+Withdrew the unfinished sponsorship after any live reservation ended. The worker returned exactly the supplied material stock and two unchanged funded coins. Their original equipment, attention, private funds and prior lawful results stay theirs. This finite commission is now closed and cannot be funded again.
+withdrawn
+Local work window: 7 played minutes remain.
+Permitted home & measuring work
+
+One useful local cover, a paid measured salvage chain, one earned training choice and an actually constructed, funded residence.
+
+Known actions
+Use your covered measuring strip · 1 log + held sharp knife + 2 stamina + 5 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Use the actual permitted Eda bench in Village with your living native body and recovered hands.
+Hear and accept Eda's specific measuring-strip build and work permission.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Rough wood log. You have 152 available.
+1 Field fitting knife. You have 0 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 5 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Use your covered measuring strip · 1 log + held sharp knife + 2 stamina + 5 min
+Dry two counted green offcuts · 2 stamina + 6 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Use the actual permitted Eda bench in Village with your living native body and recovered hands.
+Hear and accept Eda's specific measuring-strip build and work permission.
+Why this is unavailable
+Return to Village.
+Stated costs
+2 Green repair offcut. You have 0 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 6 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Dry two counted green offcuts · 2 stamina + 6 min
+Use ordinary jig salvage · 2 compatible offcuts + held jig + 2 stamina + 4 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Use the actual permitted Eda bench in Village with your living native body and recovered hands.
+Hear and accept Eda's specific measuring-strip build and work permission.
+Why this is unavailable
+Return to Village.
+Stated costs
+2 Compatible repair offcut. You have 0 available.
+1 Reusable measuring jig. You have 1 available.
+2 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Use ordinary jig salvage · 2 compatible offcuts + held jig + 2 stamina + 4 min
+Make an ordinary loaded workshop survey · held log + held kit + 3 stamina + 4 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Why this is unavailable
+Return to Shack.
+Stated costs
+1 Rough wood log. You have 152 available.
+1 Prepared survey kit. You have 83 available.
+3 stamina. You have 52.88399999999999 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Field workshop is reserved for this work.
+Unavailable: Make an ordinary loaded workshop survey · held log + held kit + 3 stamina + 4 min
+Hear Neri's current public residence and work account
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Return to your actually assembled Shack field workshop with usable hands and actual build permission.
+Accept the stated room materials, site and residence limits.
+Neri must be alive, willing and physically present in the Shack with her own usable hands and attention.
+Why this is unavailable
+Return to Shack.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+
+Time terms: Immediate action.
+
+Unavailable: Hear Neri's current public residence and work account
+Reported instruction: Eda permits one timber rain cover over the outer measuring strip of her real Village fitting-bench site. Two supplied logs, two coins, two stamina and five played minutes build it. The cover permits only the newly offered offcut-trimming job during actual rain; the old dry rack, shelf, recipes and regional weather keep their existing rules. Your own completed cutting and drying observations can support paid measuring research. One separate specialization requires actual recovered conditioning and an ordinary loaded-frame trial. · Recorded at played minute 559.
+Observed: Two actual logs became a stationary cover over Eda's permitted outer measuring strip. Two native coins entered her purse. This particular new trimming job can now continue during actual rain; no other job, wet wood or regional weather changed. · Recorded at played minute 566.
+Observed: One real Rough wood log was divided into one Wet repair stave and two Green repair offcuts. Your owned sharp fitting knife became its dulled variant and stayed yours. These three counted green pieces account for the timber; none is sound or dry yet. The reusable measuring jig was not supplied. · Recorded at played minute 572.
+Observed: Two actual Green repair offcuts from the disclosed local trimming stock dried into two Compatible repair offcuts over six played minutes. No piece was duplicated and no jig or fitting knowledge was awarded. · Recorded at played minute 579.
+Reported instruction: Eda reconciled my own committed cutting result and separate committed wet-to-sound drying result. I understood the matching-width measurement used by one local salvage recipe. Two real coins paid her, and both of us spent effort and four played minutes. Reading this report supplies no wood, physical jig, source or salvage output. · Recorded at played minute 584.
+Observed: One actual log and one sap became one owned Reusable measuring jig after three played minutes and one stamina. The paid research gave the recipe; this separate construction supplied the tool. No offcut or stave was granted. · Recorded at played minute 588.
+Observed: Two counted Compatible repair offcuts became one actual Sound repair stave in 4 played minutes. Your owned measuring jig was reserved and returned exactly once. Ordinary measured fitting remains available without either specialization. The sound stave can supply the existing brace, grain matching or kit recipes. · Recorded at played minute 593.
+Observed: I authorize one guest room inside my actually assembled, player-owned field-workshop site at the native Shack. Two staged phases consume two logs, four construction coins, seven played minutes and three stamina; a counted kit is held and returned in finishing. Only the finished room grants one residence claim. A later one-time willing invitation requires a separate real kit, log and two-coin starter purse. No automatic rent, food drain or supply refill is created. · Recorded at played minute 633.
+Observed: One supplied Rough wood log and two paid construction coins became the guest-room frame inside your earned Shack field-workshop site. Four played minutes and one stamina were spent. A frame grants no residence slot or resident. · Recorded at played minute 638.
+Observed: The second real log and two construction coins finished one guest room at your earned Shack field workshop. Your counted kit was returned once. The completed room grants exactly one unoccupied residence claim; it grants no person, wood, kit, wage or service. No dismantling action is offered, and occupancy must end before any later removal design. · Recorded at played minute 642.
+Reported instruction: Neri is an independent willing local kit binder with her own body, learned operation and finite attention. Meeting her supplies no tool, wage, residence or result. Invite supplies one actual kit, one log and two native coins to her own stock/purse. She independently accepts supported terms, occupies the one room and performs at most one material service. One coin pays her fittings expense; one remains hers. One produced kit may be collected after her actual job. Decline is free; departure ends future offers while retaining her identity and earned property. · Recorded at played minute 643.
+Observed: I transferred one actual kit, one log and two native coins to Neri's separate stock and purse under her one-stay terms. This is a supplied invitation, not an immediate occupant or finished service. Her own controller must still accept with the completed vacant room, current willingness and living supported body. The supplies are hers; meeting or rendering cannot refill them. · Recorded at played minute 644.
+Recollection: I met Neri at the real Shack room. Arrival, occupancy, her funded work and collection are separate commitments. Her completed public work is available through its own known collection control; this meeting grants no stock, occupation or wage. · Recorded at played minute 653.
+Observed: Neri transferred the one actual Prepared survey kit produced by her completed paid service. Her returned tool kit, unspent coin, body and previous work remain hers. This kit supports the existing native field preparation, packing, orders and trade; collection cannot repeat. · Recorded at played minute 654.
+Recollection: We ended the one stay after all Neri's reservations had ended. Her occupancy claim returned to me; her stable departed person, actual tool, purse and prior results remain retained. The one invitation cannot respawn her or fund another stay. Any uncollected product remains hers, and no new room removal action is granted. · Recorded at played minute 655.
+Three finite pathfinder offers
+
+Compare one saved roster, choose one actual funded person or decline all. Their work and later paid route uses differ.
+
+Known actions
+Ask for three pathfinder offers · 1 min
+
+One finite solicitation. The three named profiles and their terms freeze now; reopening or cancelling creates no replacement roster.
+
+Unavailable
+
+Known requirements
+This local offer needs supported home-realm played time.
+Why this is unavailable
+Return to Village.
+
+Time terms: 1 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Unavailable: Ask for three pathfinder offers · 1 min
+Ressa’s funded local supply request
+
+One owned need and one declared four-coin purse. Delivery transfers one real kit; unused escrow returns to its payer. A later account requires meeting the actual client.
+
+Known actions
+Hear Ressa’s funded shortage report
+
+Ressa brings the association’s one allocated four-coin purse and owns one kit need. Hearing her creates this finite twenty-local-minute request; it accepts no promise.
+
+Unavailable
+
+Known requirements
+This local offer needs supported home-realm played time.
+Why this is unavailable
+Return to Village.
+
+Time terms: Immediate action.
+
+Unavailable: Hear Ressa’s funded shortage report
+Harness fit and earned body use
+
+Paid ordinary construction and existing innate/trained body sources change specific native choices. Original apparatus, ordinary self-guard/retreat and the drainage walk remain useful.
+
+Known actions
+Review harness fits and earned body maneuvers · optional, free
+
+Accept the disclosed optional original local prototypes. This gives no gear, source, practice, stock, battle admission or reward.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Village.
+Stated costs
+0 played minutes · cancellation none
+Unavailable: Review harness fits and earned body maneuvers · optional, free
+Physical preparation and optional objectives
+
+Craft real one-use preparations, preserve an owned reusable rope, recover Eda’s actual fitting or complete the declared ordinary-craft commission. Existing encounters keep their accepted terms.
+
+Known actions
+Work one kit into a guard pad · 1 kit + 1 stamina + 2 min
+
+Unavailable
+
+Known requirements
+Return to Eda’s Village workshop with supported body and recovered hands.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Prepared survey kit. You have 83 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Work one kit into a guard pad · 1 kit + 1 stamina + 2 min
+Work a traversal lashing · 1 log + 1 stamina + 2 min
+
+Unavailable
+
+Known requirements
+Return to Eda’s Village workshop with supported body and recovered hands.
+Why this is unavailable
+Return to Village.
+Stated costs
+1 Rough wood log. You have 152 available.
+1 stamina. You have 52.88399999999999 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Work a traversal lashing · 1 log + 1 stamina + 2 min
+Hear Eda’s marked-fitting offer
+
+A once-only local ownership/permission record for Eda’s existing loose fitting. It cannot replenish on revisit; hearing terms starts no challenge.
+
+Unavailable
+
+Known requirements
+Return to Eda’s Village workshop with supported body and recovered hands.
+Why this is unavailable
+Return to Village.
+Contact for this action is currently unavailable.
+Meet your agreed participant before taking this action.
+The agreed participants cannot currently take this work together.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Hear Eda’s marked-fitting offer
+Mother of Learning · your Cyoria guest life
+
+Your retained independent visitor has 20 local crowns and 6/6 stored lamp charge. Personal casting remains unqualified. Guest permission, study, manual control, finite charge and actual observed records have distinct uses. Current supported campaign: ordinary Cyoria/academy service life; no loop, festival invasion or protagonist replacement. You currently occupy this same local instance.
+
+Known actions
+Ask Nora for one six-charge calibration 1 · 2 crowns
+
+Actual permission, co-location, source, body, materials and finite charge apply. Numeric terms are reversible original proposals.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Stated costs
+2 local crowns · 1 Cyorian keyed formula lamp · Requires the participant’s agreed attention and available time. · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Ask Nora for one six-charge calibration 1 · 2 crowns
+Ask Nora for one six-charge calibration 2 · 2 crowns
+
+Actual permission, co-location, source, body, materials and finite charge apply. Numeric terms are reversible original proposals.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Stated costs
+2 local crowns · 1 Cyorian keyed formula lamp · Requires the participant’s agreed attention and available time. · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Ask Nora for one six-charge calibration 2 · 2 crowns
+Pay for Nora’s deliberate well-assisted recovery interval · 2 crowns, 6 min
+
+Actual permission, co-location, source, body, materials and finite charge apply. Numeric terms are reversible original proposals.
+
+Available
+
+Stated costs
+2 local crowns · Requires the participant’s agreed attention and available time. · 6 played minutes · Cancel accepted work to return its reserved inputs.
+Do this: Pay for Nora’s deliberate well-assisted recovery interval · 2 crowns, 6 min
+Return to Village in your own body and cargo
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Unavailable
+
+Why this is unavailable
+Return through the actual visitor arrival point.
+Stated costs
+0 played minutes
+Unavailable: Return to Village in your own body and cargo
+Walk to Cyoria visitor arrival
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria visitor arrival
+Walk to Cyoria Imaya household
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria Imaya household
+Walk to Cyoria academy guest desk
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria academy guest desk
+Walk to Cyoria academy guest library
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria academy guest library
+Walk to Cyoria supervised practice court
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria supervised practice court
+Walk to Cyoria sewer service hatch
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria sewer service hatch
+Original voluntary Cyoria visitor branch: keep your living native human body, owned cargo and learned history. Entry supplies disclosed language contact and a return doorway, no mage source, licence, student status, another person’s memories, private mind access or future knowledge. One local academy/household/service arc uses frozen unsupported absence; this place never resets. Personal mana compatibility must be assessed, not assumed; this contract gives no reset ability. Paid specialists and finite device charge offer a useful non-mage route.
+Chose original independent retained-body guest entry. Cyoria’s sourced academy/household/magic distinctions support this finite branch; early Kael access and non-mage manual lamp interface are explicit authored divergences. Your body received no magical talent, private cast knowledge, source-protagonist memories or time powers.
+Cyoria has a station, academy, workshops, library and mana well. Its trains use crystallized-mana engines while passenger-shaping wards inhibit casting. Your original arrival point is a separate doorway: you may walk to the guest desk or Imaya’s household without using any spell. No guest housing or academy admission is yet granted.
+Imaya offers a small paid guest arrangement and one finite original household job. She keeps her rooms and family privacy. Food, damage, chores and consent matter; helping does not make this your property.
+Completed the paired kitchen sorting and received eight Imaya-owned crowns and one actual bread parcel. The shift supplies no magical skill or recurring stipend.
+Kael is a scholarship-supported healer/alchemist caring for Kana. He offers one finite material sorting job and can examine a sealed local residue sample for two crowns. He shares a mild salve procedure, not his daughter’s affairs, full research corpus or a cure for the Weeping.
+Kael paid eight of his existing crowns and supplied one paper for a completed label-sorting agreement. Restricted compounds and private memories were not opened. His remaining purse, supplies, attention and family duty still limit later help.
+Ilsa distinguishes guest reading, mage certification, commercial practice and student mentorship. She offers one original guest pass for two local crowns and clerical work. It opens only the represented public guest reading shelf and supervised workshop, not restricted person-targeting instruction or student privileges.
+Ilsa issued the actual physical guest pass. Your limited permission is reading and supervised reconstruction; it is no first-circle badge, admission to the academy, authority to unlock property, or permission to sell magic.
+The original retained-body assessment demonstrated no compatible personal Cyorian mana source. This limited negative result does not prove permanent incapacity or grant a source. Capacity training, raw ambient channeling, rods requiring personal mana and restricted spell lessons remain unavailable. The manual device route uses Nora’s separately attuned stored charge. Its fixed six-unit capacity is equipment, not your soul magnitude. The non-mage manual interface is an original engineered divergence; sourced formula rods still require personal channeling.
+Ibery checks your physical pass and offers a finite catalog repair funded by her own purse/materials. The academy library holds broad mundane and magical knowledge; limited guest access does not expose every tunnel or restricted spell shelf.
+You repaired the bounded public-shelf catalogue and received twelve existing crowns plus one research paper. No mind-based automated library search or spell knowledge was conferred.
+A structured invocation creates a bounded mana construct; unstructured shaping is slower and difficult. Disrupting levitation can drop its load. Ignition leaves ordinary burning fuel, which dispelling does not extinguish. Reading these distinctions grants knowledge only, no personal fuel, spell or practice.
+Nora’s source lesson requires reconstruction of a keyed stone-cube lamp with command recognition, three brightness levels and occlusion shutoff. Formulas stabilize anchored spells; ink and a design alone do not cast. This original manual-interface variant narrows the task for your non-mage body: Nora anchors the spell, you operate prepared controls. It cannot attack, drain ambient mana automatically, or function outside Cyoria.
+Nora spent six of her own finite attuned mana to calibrate your empty six-unit device. This is transferred bounded equipment charge, not player casting fuel; no timer, mana well or rendering refills it. Each calibration is a finite consenting job.
+Taiven offers a bounded original hatch retrieval based on the source’s paid lost-watch sewer work: one watch, no tunnel clearing, six client-funded crowns on actual handover. An oil-residue smell and unseen occupants make a rush unsafe. The stated window is90local played minutes from this offer, not a source festival conversion. Survey, tether and willing cover are alternatives. You can decline or miss the window.
+From the open hatch you recorded oily residue, movement beyond the grate and one sealed residue sample. Identity, intelligence and full tunnel numbers remain unknown. The limited sightline supports a tethered short reach; it grants no mind reading or knowledge of a future invasion.
+You declined the bounded retrieval. No watch, payout, injury or tunnel clearance was granted. Your guest rights, paid study, household ties and actual notes remain useful.
+Your actual recovery/payment, decline, withdrawal, late account or failed attempt closes the bounded service arc. Imaya’s household remains occupied; the changed hatch hazard, consumed means, injuries, guest rights, permitted research and source cast stay in this retained instance. This is a completed local service account; unobserved city-wide futures remain unknown.
+Your actual cube and ink became one keyed lamp after supervised reconstruction and Nora’s two own attuned mana. Its stored reserve is empty; paid calibration still supplies charge. You learned your own manual control procedure at zero mastery, not Nora’s formula knowledge, talent or personal capacity.
+The printed circular calls both a dark inscription liquid and a household fuel “lamp black”. It says darkness itself anchors the lamp. The word does not identify a bottle; the workshop invoice distinguishes formula ink from lamp oil. [Workshop circular compiler (original branch); r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Coverage: preparation diagram: missing.
+A copied appendix repeats the circular and translates “lamp black” as lamp oil. It inherits the missing preparation diagram; this is the same witness, not independent confirmation. [Workshop circular compiler (original branch); r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Copy of book.mol.lore.print.r1. Coverage: preparation diagram: missing; trade term translation: mistranslated.
+An anonymous previous borrower recommends testing a thin line on scrap before committing a cube. The note claims shade, rather than dark color alone, keeps a line usable. Neither explanation has been tested by you. [Anonymous previous borrower; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Coverage: previous borrower identity: redacted; reverse sheet: unread.
+The reverse sheet labels the thin-line check as a material test, not spell activation. Its diagram is torn away. A qualified workshop demonstration or a real strip trial can recover practical evidence; reading the gap cannot fill it. [Anonymous previous borrower; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Coverage: thin-line check: observed; preparation diagram: missing.
+Nora corrects the circular: a stable inscription and her anchored formula do different jobs. The lamp lesson still requires reconstruction and her actual means. A copied name or dark appearance supplies neither. The circular’s dark-color explanation remains in your notes as an earlier claim. [Nora Boole; r2; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Attributed account; effectiveness untested] Revises book.mol.lore.print.r1; the earlier account is retained. Coverage: dark-color explanation: superseded; anchoring requirement: observed.
+The actual formula-ink unit made a legible thin line on a dry paper strip at Nora’s workshop. The returned ink remains available for the existing keyed-lamp reconstruction. This observed preparation does not establish why a formula anchors or grant casting. [Your strip-trial record; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Observed once on this counted input; no isolated-cause or universal claim] Coverage: dry strip, workshop bench, thin line: observed; other lots and conditions: unread.
+The actual lamp-oil unit spread into a greasy patch on a dry paper strip at Nora’s workshop. This failed inscription trial does not make oil useless as fuel. Your separately held formula ink was not tested or consumed by this comparison. [Your strip-trial record; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Observed once on this counted input; no isolated-cause or universal claim] Coverage: dry strip, workshop bench, thin line: observed; other lots and conditions: unread.
+In these notes, “lamp black” has two alleged referents. The observed ink line supports choosing the separately counted formula ink for Nora’s existing reconstruction; the oil patch challenges the copied translation. The margin’s practical check remains useful without proving its shade explanation. [Your comparison; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Inference from two observed strips; conditions held alike, liquids differ] Revises book.mol.lore.copy.r1; the earlier account is retained. Coverage: local ink versus oil choice: observed; other conditions or bottles: unread.
+Nora spent six of her own finite attuned mana to calibrate your empty six-unit device. This is transferred bounded equipment charge, not player casting fuel; no timer, mana well or rendering refills it. Each calibration is a finite consenting job.
+← Cyoria formula workshop
+Here
+Skills
+Crafting
+Mixing
+?
+Reports
+Filter:
+All reports
+▾
+Latest
+[ Cyoria visitor · 01/01/1 ]Achievement unlocked: Recognised. Hold your first title.Saved the game manuallySaved the game manuallySaved the game manually

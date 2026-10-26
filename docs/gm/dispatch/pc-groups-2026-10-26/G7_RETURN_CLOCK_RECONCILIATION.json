@@ -1,0 +1,32 @@
+{
+  "state": "corrected_fixture_native_return_reentry_pass_no_core_change",
+  "reason": "native setEnvelope return failed: appendLifeMilestone compares incomparable world-local dates",
+  "diagnostic": "lore-and-idea-sources/implementation/L3/return-diagnostic.log:395",
+  "input_sha256": {
+    "src/life_record.js": "ad255232c69d57e931f4d40c1f50bf04c389b3cf5f725674a78b6338c6c40a30",
+    "tests/life_record.test.js": "8d4bb3fe09f561273b71b3916af43df44c4cfbe46a61c74aeccd1132aa866e01"
+  },
+  "candidate_writer": "G7-L3 01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+  "turn_owner_consulted": "G6-W6 01a1794d-bfc2-7523-95a9-f21e107336a3",
+  "slot_or_paths_granted_by_parent": false,
+  "verified_fix": true,
+  "checks_requested": [
+    "same-world chronological refusal",
+    "Cyoria advance then frozen Village return",
+    "IDs/local dates/compaction preserved",
+    "focused life_record and real native return/restoration"
+  ],
+  "superseded_state": "narrow_runtime_correction_routed_pending_W6_turn_consent",
+  "original_diagnosis_status": "premature: guard behavior inspected, but QA fixture root/local calendar corruption can cause the exception",
+  "later_evidence": "L2/fixture.mjs envelope overwrites root current time with molCalendarAt(local elapsed); original native root year999 versus MoL metadata year1. L3 retains root native clock plus actual executed delta and local metadata separately.",
+  "current_instruction": "No life_record source change; no cleared history/date clamp. Rerun return on unchanged bundle after QA envelope correction. Registry test correction remains independent.",
+  "notified_threads": [
+    "01a1794d-bfc2-7523-95a9-f21e107336a3",
+    "01a17940-e302-7333-af77-a5a8f16446f8",
+    "01a1794a-8b76-7ca3-803b-96d8c1e71dca"
+  ],
+  "verification_scope": "Corrected QA native root time and separate MoL metadata; native return/reentry and persistence pass; no life_record source/test edit",
+  "completion_receipt": "lore-and-idea-sources/implementation/L3/REPORT.md",
+  "frozen_bundle_sha256": "def6e6bb93c47cf829fb2f9291be13e8d03ecfa604634a551236940f6790612d",
+  "primary_latest_verified": false
+}

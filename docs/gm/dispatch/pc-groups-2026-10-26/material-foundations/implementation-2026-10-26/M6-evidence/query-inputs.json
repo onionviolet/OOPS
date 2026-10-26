@@ -1,0 +1,8 @@
+{
+  "src/native_rendering_recipes.js": "375eef85d6d87566e291d32744e954b64dd0d61b41ae775a7eeb69556162ef1a",
+  "tests/material_query_cost.test.js": "a4aa2bae177313cb56a09385d6da1bf04646c404b1a98720ef5813ed99edb6bd",
+  "src/craft_material_fit.js": "c6180361216d9f87e91025638392aff8d2731cb738eef8e23d8ec9d9171f2813",
+  "src/native_material_catalogue.js": "7b4ad2c44b3472244da69e95f110544949495c897ae794df18a03b0261b2edfe",
+  "src/craft_materials.js": "bea606cda53ef2bd2e8a2dd76c0b3ea8c9157b73f196aa81e94bffddfb3c2100",
+  "src/tag_store.js": "dfe5c6f2acc09ff72a1f6013efbd421a8f34a290d747209e3276ec9188b1a5af"
+}

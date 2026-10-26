@@ -1,0 +1,20 @@
+{
+  "slot": {
+    "lane": "G2-I2",
+    "thread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "phase": "acknowledged paid HP prep source/focused turn",
+    "handoffFrom": "G6-W1",
+    "handoffFromThread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+    "at": "2026-10-26T18:16:10.614577+00:00",
+    "nextRequested": {
+      "lane": "G1-I2",
+      "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67"
+    },
+    "W1NativeProof": "pending fair later runtime turn"
+  },
+  "paths": [
+    "src/hp_preparation.js",
+    "tests/hp_preparation.test.js"
+  ],
+  "acquiredAt": "2026-10-26T18:16:21.222258+00:00"
+}

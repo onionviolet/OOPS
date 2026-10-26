@@ -1,0 +1,18 @@
+diff --git a/package.json b/package.json
+index 2c23578e8..de7420694 100644
+--- a/package.json
++++ b/package.json
+@@ -10,7 +10,12 @@
+     "ink:compile": "node scripts/compile_feature_ink.mjs",
+     "ink:check": "node scripts/compile_feature_ink.mjs --check",
+     "check:arch": "node scripts/check_architecture.mjs",
+-    "check:rules": "node scripts/check_rules_index.mjs",
++    "check:rules": "node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs",
++    "check:receipts": "node scripts/check_receipts.mjs",
++    "check:docs": "node scripts/check_doc_slips.mjs",
++    "check:descriptions": "node scripts/check_descriptions.mjs",
++    "check:generators": "node scripts/check_generators.mjs",
++    "report:cycles": "node scripts/cycle_ledger.mjs",
+     "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
+     "build:preview": "node scripts/build_ui_preview.mjs",
+     "desktop": "npm run build && npm run desktop:snapshot && electron .",

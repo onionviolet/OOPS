@@ -1,0 +1,96 @@
+import json
+import sys
+import argparse
+from collections import defaultdict
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('input')
+    parser.add_argument('--json')
+    parser.add_argument('--markdown')
+    args = parser.parse_args()
+
+    with open(args.input, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    tools = data.get('tools', [])
+    
+    total = len(tools)
+    counts_by_kind = defaultdict(int)
+    ids_by_kind = defaultdict(list)
+    launch_probe_ids = []
+    launch_without_probe_ids = []
+    missing_owner_ids = []
+    id_counts = defaultdict(int)
+    required_path_references = 0
+    unique_required_paths = set()
+
+    for tool in tools:
+        tid = tool.get('id', '')
+        kind = tool.get('kind', 'unknown')
+        probe = tool.get('probe')
+        owner = tool.get('owner')
+        required = tool.get('required', [])
+        
+        counts_by_kind[kind] += 1
+        ids_by_kind[kind].append(tid)
+        id_counts[tid] += 1
+        
+        if not owner:
+            missing_owner_ids.append(tid)
+            
+        if kind == 'launch':
+            if probe:
+                launch_probe_ids.append(tid)
+            else:
+                launch_without_probe_ids.append(tid)
+                
+            if isinstance(required, list):
+                required_path_references += len(required)
+                for p in required:
+                    unique_required_paths.add(p)
+
+    duplicate_ids = sorted([tid for tid, c in id_counts.items() if c > 1])
+    
+    for k in ids_by_kind:
+        ids_by_kind[k] = sorted(ids_by_kind[k])
+        
+    launch_probe_ids = sorted(launch_probe_ids)
+    launch_without_probe_ids = sorted(launch_without_probe_ids)
+    missing_owner_ids = sorted(missing_owner_ids)
+    
+    result = {
+        "total_tools": total,
+        "counts_by_kind": dict(counts_by_kind),
+        "ids_by_kind": dict(ids_by_kind),
+        "launch_probe_ids": launch_probe_ids,
+        "launch_without_probe_ids": launch_without_probe_ids,
+        "missing_owner_ids": missing_owner_ids,
+        "duplicate_ids": duplicate_ids,
+        "required_path_references": required_path_references,
+        "unique_required_paths": len(unique_required_paths)
+    }
+
+    if args.json:
+        with open(args.json, 'w', encoding='utf-8') as f:
+            json.dump(result, f, indent=2)
+
+    if args.markdown:
+        lines = [
+            "# Registry Summary",
+            f"- Total Tools: {result['total_tools']}",
+            f"- Counts by Kind: {json.dumps(result['counts_by_kind'])}",
+            f"- Launch with Probe: {len(result['launch_probe_ids'])}",
+            f"- Launch without Probe: {len(result['launch_without_probe_ids'])}",
+            f"- Missing Owner: {len(result['missing_owner_ids'])}",
+            f"- Duplicate IDs: {len(result['duplicate_ids'])}",
+            f"- Required Path References: {result['required_path_references']}",
+            f"- Unique Required Paths: {result['unique_required_paths']}",
+            "",
+            "Note: Probe configuration is not installation or successful execution evidence."
+        ]
+        with open(args.markdown, 'w', encoding='utf-8') as f:
+            f.write("\n".join(lines))
+
+if __name__ == '__main__':
+    main()

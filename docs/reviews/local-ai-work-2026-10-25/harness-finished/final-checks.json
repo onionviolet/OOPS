@@ -1,0 +1,14 @@
+{
+  "normal_completion": true,
+  "steps": 6,
+  "elapsed_seconds": 111.255,
+  "worker_acceptance_pass": true,
+  "checker_unchanged": true,
+  "independent_acceptance": "15/15",
+  "model_code_unchanged": true,
+  "verified_thinking_off_requests": 7,
+  "installed_source_skill_identical": true,
+  "updated_skill_loaded": true,
+  "temporary_relays_and_workers_stopped": true,
+  "report_local_links": 26
+}

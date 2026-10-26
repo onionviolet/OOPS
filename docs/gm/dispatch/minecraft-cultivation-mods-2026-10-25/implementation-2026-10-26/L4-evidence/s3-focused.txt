@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: brew from a fresh enrolled state: formula, frog, bench, time, then the same dose
+ok 1 - brew from a fresh enrolled state: formula, frog, bench, time, then the same dose
+  ---
+  duration_ms: 1936.277709
+  type: 'test'
+  ...
+# Subtest: the brewed dose runs the existing acts, assessment and promotion
+ok 2 - the brewed dose runs the existing acts, assessment and promotion
+  ---
+  duration_ms: 2509.676667
+  type: 'test'
+  ...
+# Subtest: refusals: no formula, no frog, no money, no Hale, wrong order
+ok 3 - refusals: no formula, no frog, no money, no Hale, wrong order
+  ---
+  duration_ms: 103.447125
+  type: 'test'
+  ...
+# Subtest: another pathway: allocated or ingested probationers cannot brew, and a brew closes every other dose
+ok 4 - another pathway: allocated or ingested probationers cannot brew, and a brew closes every other dose
+  ---
+  duration_ms: 154.392458
+  type: 'test'
+  ...
+# Subtest: save and validate mid-brew keep the stage, the frog accounting and the clock
+ok 5 - save and validate mid-brew keep the stage, the frog accounting and the clock
+  ---
+  duration_ms: 614.765625
+  type: 'test'
+  ...
+# Subtest: the envelope balances: a held frog beside a started brew, a dose beside a brew in progress, and a double dose are refused
+ok 6 - the envelope balances: a held frog beside a started brew, a dose beside a brew in progress, and a double dose are refused
+  ---
+  duration_ms: 655.877542
+  type: 'test'
+  ...
+# Subtest: the slot shape is selector-compatible and resolves the exact frog key only
+ok 7 - the slot shape is selector-compatible and resolves the exact frog key only
+  ---
+  duration_ms: 1.185375
+  type: 'test'
+  ...
+# Subtest: standard material and appraised characteristic routes produce the same lawful dose and use the same ingestion
+ok 8 - standard material and appraised characteristic routes produce the same lawful dose and use the same ingestion
+  ---
+  duration_ms: 3349.012792
+  type: 'test'
+  ...
+# Subtest: missing auxiliary or a missing/unappraised core refuses without consuming any stock
+ok 9 - missing auxiliary or a missing/unappraised core refuses without consuming any stock
+  ---
+  duration_ms: 238.232875
+  type: 'test'
+  ...
+# Subtest: core equivalence matches pathway and rank, keeping auxiliaries distinct from main materials
+ok 10 - core equivalence matches pathway and rank, keeping auxiliaries distinct from main materials
+  ---
+  duration_ms: 0.306
+  type: 'test'
+  ...
+# Subtest: a pending and completed core brew retain one destination and reject raw-core or dose duplication
+ok 11 - a pending and completed core brew retain one destination and reject raw-core or dose duplication
+  ---
+  duration_ms: 721.502125
+  type: 'test'
+  ...
+# Subtest: an old-shaped save has no core grant on read or validation
+ok 12 - an old-shaped save has no core grant on read or validation
+  ---
+  duration_ms: 11.1735
+  type: 'test'
+  ...
+# Subtest: every pre-brewing LOTM command definition is byte-identical; only additions are allowed
+ok 13 - every pre-brewing LOTM command definition is byte-identical; only additions are allowed
+  ---
+  duration_ms: 5.897875
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6590.300833

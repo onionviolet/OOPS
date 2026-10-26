@@ -1,0 +1,8 @@
+{
+  "src/world_packs/book_shadow_company_life.js": "83c2cc11631655b17dc251a3db592fd7fb918fb2d6d2e206bf780b5249c55c86",
+  "src/book_world_shadow_company_domain.js": "dc8bcfdefb7af8adf6180b2499ea8464a1be156d195a2ebcf3a83080b3b88c2d",
+  "src/book_world_beginning_registration.js": "0efcb7b0e689c4d866ce18efa5485d810f2e18fd50d6fc8370c9b69caf7d68f2",
+  "src/structured_pack_runtime.js": "9da3090c036524e80865e765e3371ae4a2246f182b716ce4d3a82548be5ae20e",
+  "tests/shadow_company_life.test.js": "d57cb358269c0ab336c578b17e12f488e2ab346c47afeffe0156fdbd2c88af29",
+  "scripts/playtest/shadow-company-life.mjs": "90fed05c67e3e1453fd75386c606a5b3045280ef6a18d7e579bbe5a3b572edd3"
+}

@@ -1,0 +1,26 @@
+
+// An institution evaluates its own papers; this does not resolve material law.
+export function evaluateMolCredential(state, account, {ownedLamp = false} = {}) {
+    const c = account?.credential;
+    const standard = state.worlds?.['book.mol.cyoria']?.facts?.[MOL_LORE_PREFIX + 'institutionStandard'] ?? 1;
+    const reasons = [];
+    if (!c) return {eligible: false, reasons: ['Present the academy’s dated device record.']};
+    if (c.issuer !== 'book.mol.ilsa' || account.basis?.attributedTo !== c.issuer) reasons.push('The allocation needs the academy issuer; a witness account remains separate evidence.');
+    if (c.scope !== 'device_batch') reasons.push('This paper covers an operator or method, rather than this device.');
+    if (c.standard !== standard) reasons.push('This earlier standard remains on record; the current allocation requires its announced review.');
+    const expected = MOL_LORE_PREFIX + 'certify_device_r' + standard;
+    if (c.sourceCommand !== expected || state.actors?.player?.completed?.[expected] !== 1 ||
+        account.id !== MOL_LORE_PREFIX + 'credential.academy.r' + standard ||
+        c.subject !== '{"id":"Cyorian keyed formula lamp"}' || state.actors?.player?.facts?.['book.mol.lampBuilt'] !== true ||
+        state.simulation?.claims?.['book.mol.receipt.assemble_lamp']?.status !== 'settled') reasons.push('This device needs its actual original assembly and issued review.');
+    if (!ownedLamp) reasons.push('Present the actual owned device; retaining its paper does not establish current custody.');
+    return {eligible: !reasons.length, reasons};
+}
+export function molLoreInstitutionFacts(state, {ownedLamp = false} = {}) {
+    const world = state.worlds?.['book.mol.cyoria']?.facts || {};
+    const standard = world[MOL_LORE_PREFIX + 'institutionStandard'] ?? 1;
+    const account = molLoreEvidence(state).accounts.find(r => r.id === MOL_LORE_PREFIX + 'credential.academy.r' + standard);
+    return {'mol.lore.jigWorn': world[MOL_LORE_PREFIX + 'jigRestored'] !== true,
+        'mol.lore.institutionStandard': standard,
+        'mol.lore.currentDeviceCertificate': evaluateMolCredential(state, account, {ownedLamp}).eligible};
+}

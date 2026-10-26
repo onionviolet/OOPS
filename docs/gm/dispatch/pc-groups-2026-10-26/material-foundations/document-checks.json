@@ -1,0 +1,12 @@
+{
+  "localLinksChecked": 36,
+  "missingTargets": [],
+  "trailingWhitespaceLines": [],
+  "gitDiffCheckExit": 0,
+  "gitDiffCheckOutput": "",
+  "sourceTestDriftAfterChecks": [
+    "src/book_care_facts.js",
+    "src/peer_standing_domain.js"
+  ],
+  "note": "No browser/build claim; checks were run in shared dirty checkout. Audit-owned new files are also checked directly for trailing whitespace."
+}

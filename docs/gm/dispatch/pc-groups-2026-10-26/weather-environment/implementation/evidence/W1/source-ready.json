@@ -1,0 +1,12 @@
+{
+  "state": "source_ready",
+  "files": {
+    "src/owned_place_clock.js": "02ca46f039a37652a8c1885f4c8949d04801b3a0743a47a2276298f4d97bb836",
+    "src/items.js": "367fd14f2e2feef36353d6cf7aa5c49f48a181ebe8556b4682ed0f8af1d12dc0",
+    "tests/owned_place_clock.test.js": "a568ac957cecd6dce16edf4268e3562c6fcca23cc007752f7f4d224d94761860"
+  },
+  "focused": "node --test tests/owned_place_clock.test.js: PASS 13/13",
+  "native": "PASS frozen candidate; native-receipt.json",
+  "snapshot": "/Users/weiwei/.codex/research/weather-w1-20261026/snapshot",
+  "contract": "settlePlace retains optional local fractional remainder and exact fractional drift; legacy absent remainder=0. Inventory key hearthShelf schema1 spent/at retains prior shelf age; native counts authoritative. getItemFromKey preserves domainRegistry.ownsItemKey exact keys after native resolution."
+}

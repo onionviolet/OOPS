@@ -17,6 +17,31 @@ to plug in. Design rules live elsewhere: [making rules](../MAKING_RULES.md) MR1-
 the end of [CRAFTING_ENGINE.md](../CRAFTING_ENGINE.md) (rounds 8 to 12). Findings
 here are not accepted decisions.
 
+## Current audit reconciliation, 2026-10-26
+
+The [procedural making inventory and audit](../audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md)
+updates this dated map against a frozen dirty-source snapshot. Current corrections:
+Village books/slates/training and tag-slot method matching have runtime callers;
+LOTM has a narrow exact-input Corpse Collector brewing route; HP and LOTM share
+`dose_process.js` descriptors while retaining separate product/state logic; rune
+patterns have a live pledges consumer; systems-workshop preservation adds another
+local freshness mechanism. The detailed historical sections below retain their
+original survey boundaries; the linked audit supersedes missing/wiring claims
+where explicitly identified. F1/F2 record reproduced quote/commit defects.
+No runtime changes were made by this audit.
+
+Later implementation reconciliation, 2026-10-26: [G5 coverage](../gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COVERAGE.md)
+records selected runtime changes after that audit. Material validation now covers
+typed units and omission support; native char no longer inherits raw-wood behavior.
+Exact support receipts and observer-safe HP lot assessment have actual consumers.
+G1/G2 join paid preparation, retained pending history, dose treatment and current-lot
+method replay. A specific ORIGINAL native Bonemeal to HP abrasion law preserves
+physical contribution and directional refusal, without generic cross-world power
+equivalence. Native registration scans 32 candidates once; supported lineage keys
+measure up to 5914 bytes at depth 3. The shared frozen build and native rendering
+persistence route pass; imported-quantity UI, rollback, downstream use and four native file roundtrips also pass on the same frozen bundle. Historical
+gap rows below keep their original survey scope; consult the ledger before reuse.
+
 ## 0. One-page orientation
 
 There is no single "item system". There are **eight layers**, and most work touches two or three.
@@ -208,6 +233,8 @@ Three separate recipe systems exist. Pick by how flexible the swap must be.
 
 ### 5b. References: how a recipe is known (`craft_reference.js`)
 
+**Historical wiring status:** the 2026-10-26 reconciliation above and MIE-G2 supersede the tested-only/no-live-caller claims in this subsection.
+
 **Use it for.** Books, slates and teachers that grant a recipe, a skill, or a one-time lesson.
 
 **Key API.** `defineReference`:25, `registerReference`:37, `recipeAccess`:49, `canUseRecipe`:61, `learnFromReference`:63, `readTraining`:75, `examineQuote`:90, `examine`:94.
@@ -380,6 +407,8 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 
 ### 10b. LOTM doses (`book_world_lotm_*.js`)
 
+**Historical section:** the 2026-10-26 audit above supersedes the no-brewing and unused-frog claims below. The earlier issued-dose description remains relevant to other routes.
+
 **Use it for.** Institutional access to prepared doses, digestion by acting, loss-of-control causes, broker trade.
 
 **Shape.** A **pathway row** (`book_world_lotm_rows.js`) names sources, two dose keys, acts, assessor and market; `book_world_lotm_pathways.js` turns it into commands, facts and validators. "Adding a pathway is adding a row here and its two dose keys in the ids file" (`book_world_lotm_rows.js:3-4`). Causes are rows with pressure (`book_world_lotm_causes.js:11`).
@@ -392,7 +421,7 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 
 **Plug in a pathway.** (1) Add a row to `book_world_lotm_rows.js`; (2) add its two dose keys in `book_world_lotm_ids.js`; (3) register the dose items in `LOTM_ITEM_SPECIFICATIONS` (`book_world_lotm_content.js:~46`); (4) add the market lots (they follow from `row.market`, `book_world_lotm_broker.js:15`); (5) causes follow from `causeCommands(row)`. **Owner docs.** `docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md`; `docs/worlds/progression-gates-2026-10-23/LORD_OF_THE_MYSTERIES.md`.
 
-### 10c. Three potion engines compared
+### 10c. Three potion engines compared (original survey; see 2026-10-26 reconciliation)
 
 | | Craft engine (L3/L4) | HP Polyjuice | LOTM doses |
 |---|---|---|---|
@@ -523,17 +552,17 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 | Code | Gap | Evidence | Related codes |
 |---|---|---|---|
 | MIE-G1 | Partially implemented 2026-10-25: authored trait fit changes actual native rendering input costs through `craft_material_fit.js` and `native_rendering_recipes.js`. Whole-formula matching remains yes/no/unknown; symbolic, potency, risk and residue grading remain open | [Execution and exact proof](../gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md); `craft_recipes.js`, `hp_brewing_state.js` | TSW3, TSW8, PZ34, TSW12–14 |
-| MIE-G2 | Reference items exist but grant nothing in play: `recipeAccess`, `learnFromReference`, `readTraining` have no live caller, and `matchRecipe`/`generateRecipe` are never called live | grep over `src`; `tests/craft_reference.test.js` only | PZ4, MR3, MR10 |
+| MIE-G2 | Partially closed, rechecked 2026-10-26: carried access, learned slate, training and `matchRecipe` are wired through `crafting_frontier_runtime.js` and `crafting_home.js`. Generated discovery recipes remain engine-level here; method quote/commit parity is defective (F1) | [Current audit](../audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md), `craft_reference_content.js` | PZ4, MR3, MR10 |
 | MIE-G3 | The live crafting runtime is single-world: scope must be `base.frontier`, location must be Village, one carrier, one catalogue in `validateOwner` | `crafting_frontier_runtime.js:42-43,110,24-29` | MR11, AR11, TSW11 |
 | MIE-G4 | Lot quality is dropped before resolution; products have no quality axis; yield is mass-derived only | `crafting_frontier_runtime.js:19,111` | MR21 |
 | MIE-G5 | Lineage carriers are a closed list: `FAMILIES` (7 ids) plus `GRADED_IDS` (6 ids); a new world's item cannot carry provenance without engine edits | `processed_materials.js:5-7`, `harvest.js:8`, `items.js:1283-1286` | TSW4, TSW10 |
 | MIE-G6 | No shared escrow or lot primitive; LOTM's is world-specific and its shop, price and cut are authored proposals | `book_world_lotm_broker.js:1-6` | PZ4, PZ9 |
 | MIE-G7 | One purse, one currency, native key `money` for player only | `simulation_effects.js:308-309`, `money.js:9` | Cross-world trade, WR rows |
 | MIE-G8 | No general decay, freshness or container trait. Carcass freshness, three larder foods and lineage `born` do not connect | `harvest.js:28`, `owned_place_clock.js:12` | TSW10, PD5, PD6 |
-| MIE-G9 | No directional cross-world compatibility law. An item from another world is read only by recipes that name it or share a `material_type` string; MR14 and WR10 are proposals | CRAFTING_ENGINE round 12 TSW5 | MR14, WR10, TSW-L4 |
+| MIE-G9 | No directional cross-world compatibility law. An item from another world is read only by recipes that name it or share a `material_type` string; MR14 is standing direction; the detailed compatibility implementation remains proposed | CRAFTING_ENGINE round 12 TSW5 | MR14, WR10, TSW-L4 |
 | MIE-G10 | The native catalogue is on master; native rendering now reads it through real Cooking recipes. This does not yet join it to the separate Village composition runtime or establish foreign-world compatibility | `native_material_catalogue.js`, `native_rendering_recipes.js`; [bounded proof](../gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) | TSW-L1, TSW6, TSW12–14 |
 | MIE-G11 | No units trait: quantities are integers of "units" with no drops-versus-ml conversion | `craft_resolver.js:12`, `craft_materials.js:53` | TSW9 |
-| MIE-G12 | Formula materials sold with no consumer (frog, hairs, ink) | `book_world_lotm_broker.js:19-22`; round 8 | PZ9, PZ-L3 |
+| MIE-G12 | Partially closed, rechecked 2026-10-26: dried frog is spent by the narrow Corpse Collector brew. This does not establish consumers for every broker material or general pathway brewing | `book_world_lotm_brew.js`, [current audit](../audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md) | PZ9, PZ-L3 |
 | MIE-G13 | Gate engine not yet used by any brew; brew requirements are bespoke checks | `progression_gates.js` importers (section 12) | PZ2, PZ8 |
 | MIE-G14 | Item tags are legacy booleans, not catalogue tags; a trait query over `item_templates` is impossible without a catalogue | `items.js:221-224`, `tag_store.js:19` | TSW1 |
 

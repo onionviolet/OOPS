@@ -1,0 +1,12 @@
+{
+  "fixture": "synthetic spineFixture(43), no private save",
+  "same_stage_replaces_previous_value": true,
+  "lower_stage_does_not_replace_understood": true,
+  "reference_metadata_retained": [
+    "id",
+    "kind",
+    "mode",
+    "recipe"
+  ],
+  "interpretation": "Current summary slots and reference access definitions are not a multi-account document provenance ledger. This is a feature boundary, not a reproduced shipped-content failure."
+}

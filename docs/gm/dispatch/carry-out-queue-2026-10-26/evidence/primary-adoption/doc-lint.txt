@@ -1,0 +1,116 @@
+
+> check:docs
+> node scripts/check_doc_slips.mjs
+
+docs/RULES_INDEX.md:83: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/RULES_INDEX.md:331: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md:555: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md:557: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md:634: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/UI_RULES.md:46: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/USER_VISION.md:6278: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/USER_VISION.md:6323: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/USER_VISION.md:6326: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/USER_VISION.md:6348: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:115: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:118: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:120: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:134: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:149: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:185: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:186: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:220: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:234: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:257: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:257: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:268: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:279: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:335: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:340: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md:397: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/SHARED_WORKTREE_PRACTICE.md:251: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/research/SOURCE_HARVEST_2026-10-25.md:40: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/GROUND_RULES.md:5: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/GROUND_RULES.md:11: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/GROUND_RULES.md:13: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/GROUND_RULES.md:27: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/GROUND_RULES.md:36: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/GROUND_RULES.md:52: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/GROUND_RULES.md:53: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/GROUND_RULES.md:55: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/GROUND_RULES.md:57: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:29: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:30: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:33: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:45: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:59: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:70: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:71: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:72: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:73: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:74: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:83: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:84: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:86: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:91: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:92: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:92: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:93: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:94: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:96: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:97: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:98: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:102: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:103: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:104: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:121: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:122: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:145: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:146: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:148: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:169: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:174: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/audits/IDEAS_TRIAGE_2026-10-26.md:210: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md:6: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md:8: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md:10: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/G1_coordinator.md:12: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/Q10_prior_work.md:16: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/carry-out-queue-2026-10-26/Q11_correction_sweep.md:16: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/carry-out-queue-2026-10-26/Q12_checkjs_pilot.md:16: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/carry-out-queue-2026-10-26/Q15_rule_rows.md:16: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md:3: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/carry-out-queue-2026-10-26/WAVE_REPORT.md:57: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/carry-out-queue-2026-10-26/WAVE_REPORT.md:63: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/WAVE_REPORT.md:65: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q6-description-lint.last.md:9: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/runs/m5-xianxia-others.last.md:3: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md:34: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md:36: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md:63: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md:69: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md:85: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/UI_DESCRIPTION_RULES_EXPANSION_2026-10-26.md:60: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/UI_DESCRIPTION_RULES_EXPANSION_2026-10-26.md:72: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/UI_DESCRIPTION_RULES_EXPANSION_2026-10-26.md:82: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/UI_DESCRIPTION_RULES_EXPANSION_2026-10-26.md:84: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/local-ai-work-2026-10-25/code-fix-final/REPORT.md:13: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/code-fix-final/REPORT.md:34: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/code-fix-final/REPORT.md:40: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md:5: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md:21: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md:48: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md:52: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md:57: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/harness-fixed/REPORT.md:57: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/harness-fixed/REPORT.md:79: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md:15: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md:58: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md:86: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/local-ai-work-2026-10-25/workflow-improvement-final/REPORT.md:24: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/reviews/local-ai-work-2026-10-25/workflow-improvement-final/REPORT.md:57: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line
+docs/reviews/ui-descriptions-2026-10-25/REPORT.md:76: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/tools/DSH_CREDIT_PLAN_2026-10-25.md:22: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/tools/DSH_CREDIT_PLAN_2026-10-25.md:61: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/tools/DSH_CREDIT_PLAN_2026-10-25.md:92: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/tools/DSH_CREDIT_PLAN_2026-10-25.md:105: absolute rule word has no default, dial, exception, or reason in this row or paragraph

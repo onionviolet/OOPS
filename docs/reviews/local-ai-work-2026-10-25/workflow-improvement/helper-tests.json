@@ -1,0 +1,15 @@
+{
+  "command": "python3 -m unittest discover -s <source-skill>/scripts/tests -p test_*.py -v",
+  "tests_passed": 7,
+  "recorded_seconds": 0.426,
+  "coverage": [
+    "pass receipt",
+    "fail-fast preserves status",
+    "source mutation rejected",
+    "invalid bytes",
+    "timeout",
+    "literal argv",
+    "post-pass edit makes receipt stale",
+    "failure details printed multiline"
+  ]
+}

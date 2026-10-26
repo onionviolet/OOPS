@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/native-cost.mjs",
+    "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/source",
+    "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/output",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/native-cost"
+  ],
+  "pid": 372,
+  "pgid": 372,
+  "status": "fail",
+  "exitCode": 1,
+  "elapsedSeconds": 6.624668836593628
+}

@@ -1,0 +1,36 @@
+{
+  "route": "named synthetic supplied-stock Cyoria preconstruction fixture; actual native actions thereafter",
+  "buildRoot": "/Users/weiwei/.codex/research/g7-lore-2026-10-26/L1-build",
+  "testedInkActuallyConsumed": true,
+  "resumedFrom": "same-bundle after-assembly.json captured after actual native strip/assembly route",
+  "usefulHouseholdConsumer": true,
+  "completedPersistence": true,
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 14,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 21,
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 14,
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 21,
+      "overflow": false
+    }
+  ],
+  "bundleHash": "d2f0795d739ef8a0ecc1b8e8a520683336355c4d865c24a7db52491b19b6af71",
+  "errors": []
+}

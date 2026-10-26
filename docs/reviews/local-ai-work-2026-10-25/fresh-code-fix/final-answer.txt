@@ -1,0 +1,7 @@
+Both checks passed (exit code 0). The `next_action` is `final_answer`, so I'll give the final answer.
+
+Fixed defect in `scripts/lanes/lanes.py`: `_alive` now rejects booleans, non-integers, and non-positive PIDs (0, negatives) before any `os.kill` call, returning `False` for them. Valid PID behavior preserved including `ProcessLookupError`→False and `PermissionError`→True.
+
+Added four regression tests to `scripts/lanes/tests/test_lanes.py` (all process/signal ops mocked, real agents never launched): invalid-PID rejection, valid-PID outcome preservation, status marking invalid receipts "exited", and launch not blocked by an invalid receipt.
+
+Verification via `verify_task.py`: both the focused lane suite and independent acceptance passed (exit code 0); source hashes recorded in `verification-receipt.json`.

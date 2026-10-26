@@ -1,0 +1,9 @@
+{
+  "included_window_minutes": 10080,
+  "used_percent": 45,
+  "dispatch_start_percent": 36,
+  "dispatch_ceiling_percent": 41,
+  "ordinary_usage_allowed": true,
+  "source_ready": false,
+  "state": "unimplemented; finite dispatch bound reached"
+}

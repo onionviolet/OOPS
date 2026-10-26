@@ -1,0 +1,22 @@
+{
+  "sourceFocused": "4/4 pass",
+  "snapshotQuiet": true,
+  "transferred": {
+    "lane": "G6-W3",
+    "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+    "phase": "granted bounded source/focused/snapshot turn",
+    "handoffFrom": "G7-L3",
+    "handoffFromThread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "nextRequested": {
+      "lane": "G6-W6",
+      "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+      "ready": true
+    }
+  },
+  "releasedPaths": [
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/43b1fafe75fd8afb328b5300945e2d65ba9748810ae2337c1d16ddd8856f98bd",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/ca391c7625a9921e71539cc2a3665ab9a42a9e1ff3ac438671efc898b2464852",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/6c69a6236e5e1abe39f179467947cd1066bec955a6df209c84caef340680cf1d",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/5f7860498ff09a010878c1b148cd2ce51ede2db3bc52f146de7477369942b3b9"
+  ]
+}

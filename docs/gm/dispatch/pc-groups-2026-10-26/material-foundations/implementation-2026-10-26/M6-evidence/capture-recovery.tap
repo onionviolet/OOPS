@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+ok 1 - native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+  ---
+  duration_ms: 48.519625
+  type: 'test'
+  ...
+# Subtest: brace stats derive from the material grade, including its strength tradeoff
+ok 2 - brace stats derive from the material grade, including its strength tradeoff
+  ---
+  duration_ms: 0.189416
+  type: 'test'
+  ...
+# Subtest: equipped fact changes only the drive application; unequip restores its quote
+ok 3 - equipped fact changes only the drive application; unequip restores its quote
+  ---
+  duration_ms: 28.459542
+  type: 'test'
+  ...
+# Subtest: paid drive fuel and output freeze across reload, completion and cancellation
+ok 4 - paid drive fuel and output freeze across reload, completion and cancellation
+  ---
+  duration_ms: 12.503208
+  type: 'test'
+  ...
+# Subtest: equipped native brace with an open road offer keeps ticking, travelling and reloading
+ok 5 - equipped native brace with an open road offer keeps ticking, travelling and reloading
+  ---
+  duration_ms: 1420.341291
+  type: 'test'
+  ...
+# Subtest: every preload channel has a host module on the other end, and the reverse
+ok 6 - every preload channel has a host module on the other end, and the reverse
+  ---
+  duration_ms: 2.263
+  type: 'test'
+  ...
+# Subtest: main.cjs stays a composition root
+ok 7 - main.cjs stays a composition root
+  ---
+  duration_ms: 0.200209
+  type: 'test'
+  ...
+# Subtest: every historical timed LOTM definition remains byte-identical; all new exams use descriptor role data
+ok 8 - every historical timed LOTM definition remains byte-identical; all new exams use descriptor role data
+  ---
+  duration_ms: 2.48
+  type: 'test'
+  ...
+# Subtest: new Nighthawk pre-screen releases nothing; examination releases once, persists and promotes
+ok 9 - new Nighthawk pre-screen releases nothing; examination releases once, persists and promotes
+  ---
+  duration_ms: 554.782875
+  type: 'test'
+  ...
+# Subtest: a stale examiner quote rechecks role, world, life, body and location without consuming anything
+ok 10 - a stale examiner quote rechecks role, world, life, body and location without consuming anything
+  ---
+  duration_ms: 581.40975
+  type: 'test'
+  ...
+# Subtest: role lost during admitted exam stops the result, returns reserved attention and allows a real retry
+ok 11 - role lost during admitted exam stops the result, returns reserved attention and allows a real retry
+  ---
+  duration_ms: 549.072541
+  type: 'test'
+  ...
+# Subtest: explicit Stop returns attention through the existing cancellation owner
+ok 12 - explicit Stop returns attention through the existing cancellation owner
+  ---
+  duration_ms: 276.064834
+  type: 'test'
+  ...
+# Subtest: old C1 save and pre-slice master saves load without backfill; an old admitted exam retains its frozen result
+ok 13 - old C1 save and pre-slice master saves load without backfill; an old admitted exam retains its frozen result
+  ---
+  duration_ms: 116.645833
+  type: 'test'
+  ...
+# Subtest: native clock completion recomputes registered role facts even when expedition facts replace the admission context
+ok 14 - native clock completion recomputes registered role facts even when expedition facts replace the admission context
+  ---
+  duration_ms: 447.631208
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2819.800583

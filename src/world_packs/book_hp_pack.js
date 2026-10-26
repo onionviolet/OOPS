@@ -70,6 +70,8 @@ export default {
    ev('ps_ingredients', 'shown', 'B1:111', 'narrator (via CANON_CRAFT_WORLDS H01; not re-read in this session)', 'Dried nettles and crushed snake fangs are prepared for a different potion in the first book.')
   ],
   "originals": [
+   orig('abrasive_suspension', 'A paid physical suspension can scour actual cauldron residue according to retained material preparation, quantity and the local abrasion law. This is not a potion identity or a canon claim.'),
+   orig('hand_preparation', 'The local hand-preparation service charges authored labor fees and retains its actual lot receipt. Particle-size effects and costs are game tuning.'),
    orig('stew_pot', 'Stewing needs a pot; four lots at a time. Source states the duration, not the vessel.'),
    orig('stew_early', 'Taking lacewings out after 14 days gives an under-stewed lot; source states only the 21-day requirement.'),
    orig('brew_time', 'Simmering the assembled cauldron takes two played days; source gives only the month overall.'),

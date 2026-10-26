@@ -1,0 +1,250 @@
+{
+  "route": "fresh Village → Beginning → original RI novice → refine same living Gu → prepare 12 petals → lesson → actual bamboo cut → first daily meal",
+  "freeze": {
+    "bundleSha256": "1692be58381488db1354e1096b9ea72b6f7bbfb54d644163e6df2fb8749b3d09",
+    "manifestSha256": "88889f47e47e5aba2a4e2290a331631881df0ed190de08f0ac97229bcbb86aa9",
+    "source": "/tmp/yairpg-L7-s2-source"
+  },
+  "rows": [
+    {
+      "view": "compact",
+      "baseline": false,
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 35
+      },
+      "location": "Clan academy annex",
+      "job": "Current work & saving",
+      "started": true,
+      "pageErrors": 0,
+      "addedLines": [
+        "No work running.",
+        "Learned method: You learned the close-target cutting exercise. One actual bamboo piece and one primeval unit produce one cut piece and one Woodcutting XP; daily petals are unaffected.",
+        "Moonlight Gu care: Alive · care condition 4/4 · 16 prepared petals · 0 loose petals. Four fresh petals per day; next care deadline in 1405 played minutes.",
+        "Opening food freshness: This entire opening lot expires in 7165 played minutes. Prepared and loose petals share that deadline.",
+        "The required knowledge, means or circumstances are missing. This action has already been completed.",
+        "This action has already been completed.",
+        "Available.",
+        "Carried stock: 0 / 1 × Keeper’s bamboo practice piece required. Retrieve or acquire the quoted input first. Insufficient, stale or unavailable item quantity. Refresh the trade.",
+        "Insufficient, stale or unavailable item quantity. Refresh the trade.",
+        "Available.",
+        "Insufficient, stale or unavailable item quantity. Refresh the trade.",
+        "Insufficient, stale or unavailable item quantity. Refresh the trade.",
+        "Settled completions: 1.",
+        "Insufficient, stale or unavailable item quantity. Refresh the trade."
+      ],
+      "addedLineCount": 14,
+      "removedLines": [
+        "Learn a close-target Moonblade · 5 min: 5 min remaining",
+        "Open local controls",
+        "Moonlight Gu care: Alive · care condition 4/4 · 16 prepared petals · 0 loose petals. Four fresh petals per day; next care deadline in 1410 played minutes.",
+        "Opening food freshness: This entire opening lot expires in 7170 played minutes. Prepared and loose petals share that deadline.",
+        "Learn a close-target Moonblade · 5 min · Running. 5 played minutes remaining.",
+        "Cancel Learn a close-target Moonblade · 5 min",
+        "The required knowledge, means or circumstances are missing. Finish your current activity first. A participating person is unavailable or already working. A participating person is unavailable or already working. This action has already been completed.",
+        "Running. 5 played minutes remaining.",
+        "Finish your current activity first. A participating person is unavailable or already working. A participating person is unavailable or already working.",
+        "Unavailable.",
+        "Finish your current activity first. A participating person is unavailable or already working.",
+        "Carried stock: 0 / 1 × Keeper’s bamboo practice piece required. Retrieve or acquire the quoted input first. Finish your current activity first. A participating person is unavailable or already working.",
+        "Finish your current activity first."
+      ],
+      "removedLineCount": 13,
+      "newActions": [
+        {
+          "index": 76,
+          "key": "[data-structured-action=\"book.ri.academy.request_bamboo\"]",
+          "text": "Take one practice target from Lin"
+        },
+        {
+          "index": 77,
+          "key": "[data-structured-action=\"book.ri.academy.recover\"]",
+          "text": "Recover primeval essence · 5 min, up to 2 units"
+        },
+        {
+          "index": 78,
+          "key": "button",
+          "text": "Repeat Recover primeval essence · 5 min, up to 2 units 3 tim"
+        }
+      ],
+      "newActionCount": 3,
+      "removedActionCount": 2,
+      "actionCount": 143,
+      "note": "Delta since the last reply for this scope. Action indices are absolute in the full current list as of this reply; any later reply renumbers, so re-read before clicking by index (or click by key/text).",
+      "sessionId": "L7-gu",
+      "build": {
+        "kind": "frozen",
+        "manifestSha256": "88889f47e47e5aba2a4e2290a331631881df0ed190de08f0ac97229bcbb86aa9",
+        "bundleSha256": "1692be58381488db1354e1096b9ea72b6f7bbfb54d644163e6df2fb8749b3d09",
+        "inputCount": 111
+      }
+    },
+    {
+      "view": "compact",
+      "baseline": false,
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 35
+      },
+      "location": "Clan academy annex",
+      "job": "Current work & saving",
+      "started": true,
+      "pageErrors": 0,
+      "addedLines": [
+        "4",
+        "2",
+        "Keeper’s bamboo practice piece",
+        "1 coins",
+        "5",
+        "10",
+        "all",
+        "Settled completions: 1.",
+        "Command saved. Action settled."
+      ],
+      "addedLineCount": 9,
+      "removedLines": [
+        "3",
+        "1",
+        "Unavailable.",
+        "Carried stock: 0 / 1 × Keeper’s bamboo practice piece required. Retrieve or acquire the quoted input first. Insufficient, stale or unavailable item quantity. Refresh the trade.",
+        "Command saved."
+      ],
+      "removedLineCount": 5,
+      "newActions": [
+        {
+          "index": 49,
+          "key": "button",
+          "text": "All itemsAll4"
+        },
+        {
+          "index": 52,
+          "key": "button",
+          "text": "OtherOther2"
+        },
+        {
+          "index": 66,
+          "key": "[data-character_item=\"{\"id\":\"book.ri.academy.bamboo\"}\"][data-item_count=\"1\"][data-item_value=\"1\"]",
+          "text": "star_border Keeper’s bamboo practice pieceKeeper’s bamboo pr"
+        },
+        {
+          "index": 78,
+          "key": "[data-structured-action=\"book.ri.academy.cut\"]",
+          "text": "Cut one bamboo target · 1 essence"
+        }
+      ],
+      "newActionCount": 4,
+      "removedActionCount": 2,
+      "actionCount": 145,
+      "note": "Delta since the last reply for this scope. Action indices are absolute in the full current list as of this reply; any later reply renumbers, so re-read before clicking by index (or click by key/text).",
+      "sessionId": "L7-gu",
+      "build": {
+        "kind": "frozen",
+        "manifestSha256": "88889f47e47e5aba2a4e2290a331631881df0ed190de08f0ac97229bcbb86aa9",
+        "bundleSha256": "1692be58381488db1354e1096b9ea72b6f7bbfb54d644163e6df2fb8749b3d09",
+        "inputCount": 111
+      }
+    },
+    {
+      "view": "compact",
+      "baseline": false,
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 35
+      },
+      "location": "Clan academy annex",
+      "job": "Current work & saving",
+      "started": true,
+      "pageErrors": 0,
+      "addedLines": [
+        "Moonblade-cut bamboo",
+        "Cutting result: Your Moonblade cut an actual bamboo target. The cut piece remains in your bag and native Woodcutting gained one XP.",
+        "Primeval activation budget: 4/6 Rank-one primeval essence · 1 per taught Moonblade · reserve supports 4 activations when the Gu, method and targets are ready. Food is a separate budget.",
+        "Carried stock: 0 / 1 × Keeper’s bamboo practice piece required. Retrieve or acquire the quoted input first. Insufficient, stale or unavailable item quantity. Refresh the trade.",
+        "Settled completions: 1."
+      ],
+      "addedLineCount": 5,
+      "removedLines": [
+        "Keeper’s bamboo practice piece",
+        "Primeval activation budget: 5/6 Rank-one primeval essence · 1 per taught Moonblade · reserve supports 5 activations when the Gu, method and targets are ready. Food is a separate budget.",
+        "Unavailable.",
+        "Insufficient, stale or unavailable item quantity. Refresh the trade."
+      ],
+      "removedLineCount": 4,
+      "newActions": [
+        {
+          "index": 66,
+          "key": "[data-character_item=\"{\"id\":\"book.ri.academy.cut_bamboo\"}\"][data-item_count=\"1\"][data-item_value=\"1\"]",
+          "text": "star_border Moonblade-cut bambooMoonblade-cut bambooThe actu"
+        },
+        {
+          "index": 78,
+          "key": "[data-structured-action=\"book.ri.academy.return_bamboo\"]",
+          "text": "Return one cut piece to Lin"
+        }
+      ],
+      "newActionCount": 2,
+      "removedActionCount": 2,
+      "actionCount": 145,
+      "note": "Delta since the last reply for this scope. Action indices are absolute in the full current list as of this reply; any later reply renumbers, so re-read before clicking by index (or click by key/text).",
+      "sessionId": "L7-gu",
+      "build": {
+        "kind": "frozen",
+        "manifestSha256": "88889f47e47e5aba2a4e2290a331631881df0ed190de08f0ac97229bcbb86aa9",
+        "bundleSha256": "1692be58381488db1354e1096b9ea72b6f7bbfb54d644163e6df2fb8749b3d09",
+        "inputCount": 111
+      }
+    },
+    {
+      "view": "compact",
+      "baseline": false,
+      "time": {
+        "day": 2,
+        "hour": 8,
+        "minute": 0
+      },
+      "location": "Clan academy annex",
+      "job": "Current work & saving",
+      "started": true,
+      "pageErrors": 0,
+      "addedLines": [
+        "Known things (4 new)",
+        "World events •",
+        "4 / 4 stacks · 8 items",
+        "Latest care: The Gu ate four prepared fresh petals. Daily care used no primeval essence; its care condition recovered by up to one point.",
+        "Moonlight Gu care: Alive · care condition 4/4 · 12 prepared petals · 0 loose petals. Four fresh petals per day; next care deadline in 1440 played minutes.",
+        "Opening food freshness: This entire opening lot expires in 5760 played minutes. Prepared and loose petals share that deadline.",
+        "World events is now available in navigation.",
+        "Open"
+      ],
+      "addedLineCount": 8,
+      "removedLines": [
+        "Known things (2 new)",
+        "3 / 3 stacks · 7 items",
+        "Moonlight Gu care: Alive · care condition 4/4 · 16 prepared petals · 0 loose petals. Four fresh petals per day; next care deadline in 1405 played minutes.",
+        "Opening food freshness: This entire opening lot expires in 7165 played minutes. Prepared and loose petals share that deadline."
+      ],
+      "removedLineCount": 4,
+      "newActions": [
+        {
+          "index": 105,
+          "key": "button.notice-panel-link",
+          "text": "Open"
+        }
+      ],
+      "newActionCount": 1,
+      "removedActionCount": 0,
+      "actionCount": 146,
+      "note": "Delta since the last reply for this scope. Action indices are absolute in the full current list as of this reply; any later reply renumbers, so re-read before clicking by index (or click by key/text).",
+      "sessionId": "L7-gu",
+      "build": {
+        "kind": "frozen",
+        "manifestSha256": "88889f47e47e5aba2a4e2290a331631881df0ed190de08f0ac97229bcbb86aa9",
+        "bundleSha256": "1692be58381488db1354e1096b9ea72b6f7bbfb54d644163e6df2fb8749b3d09",
+        "inputCount": 111
+      }
+    }
+  ]
+}

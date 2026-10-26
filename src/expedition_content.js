@@ -73,7 +73,7 @@ export const expeditionRegistry = createContentRegistry({
                 when: {fact: "climbing", op: "gte", value: 5}}]},
     ],
     sources: [...menderSources,...foundationInteractionSources,...worldCompletionSources,...villageSources, ...simulationSources, ...systemsWorkshopSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
-        description: "An earned knack for reading routes. Adds one route preparation source.",
+        description: "You read the shape of a route more readily, helping you prepare for the journey.",
         grants: [{capability: "frontier.preparation", amount: 1}]}],
     rollTables: [{id: "frontier.observation", label: "Inspection discovery", revision: 1,
         outcomes: [{id: "ordinary", label: "Anchor notes recorded", weight: 4, effects: []},

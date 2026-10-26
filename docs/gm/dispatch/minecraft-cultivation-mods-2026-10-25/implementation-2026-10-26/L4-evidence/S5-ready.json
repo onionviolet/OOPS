@@ -1,0 +1,34 @@
+{
+  "status": "READY_ACK",
+  "lane": "L4",
+  "thread": "01a178b9-c5da-7831-8d68-f87f8b3da153",
+  "at": "2026-10-26T20:25:26.380423+00:00",
+  "slice": "S5 / A5",
+  "allocated": false,
+  "predecessor": "L7 original bounded Gu S2 and any earlier acknowledged coordinator commitments",
+  "paths": {
+    "src/book_world_lotm_causes.js": "2a92917aab592cff5c966bfb0bfafc0b753a58b3f98d02e2b57b368934417ff8",
+    "src/book_world_lotm_ritual.js": "17cc4b13503d9b7d377807a767e62149e6ac1534be5a10921e401e6d530ab338",
+    "tests/lotm_self_ritual.test.js": null
+  },
+  "startGate": "New actual explicit/free authorized turn and sorted per-path reservations. Do not take the slot transferred to L7.",
+  "scope": "Authored supervised self-addressed weak rite: discover instruction, prepare ordinary supplies, explicit unlit choice pause, own actual energy and active response, existing early-pressure relief/aftermath. Actual caster recipient; no arbitrary honorific/high-rank bridge.",
+  "dependencies": {
+    "missing": [],
+    "sourceQualification": "source-qualification.json A5-self, Chinese EPUB 0150 paragraphs 32-33; precise effect/costs authored WPR5.",
+    "owners": [
+      "Existing lotm.methodSupported for actual controlled Seer source, energy use/refund, job/knowledge/currency and supervisor attention owners.",
+      "Existing completed walk writes book.lotm.arrived; newer arrival invalidates prepared local setup.",
+      "Existing cause Assertions needs meaningful zero-pressure recovery-receipt regression before correcting. Reproduction unrun until lease."
+    ],
+    "sharedUI": "No shared UI file required. Own labels disclose every reserved cost/refund; generic Stop attention statement remains true because each supervised stage reserves attention."
+  },
+  "verificationPlan": [
+    "Reproduce last-pressure-point old steady validation defect; new focused test protects zero only with actual recovery completion, retaining cause history.",
+    "Test preparation cancellation/conservation, no timed unlit expiry, actual departure expiry, source/support/energy loss, actual relief/no replay and loss-line refusal.",
+    "Compare every pre-S5 command after acquisition. Frozen private build/focused/arch, no full suite or primary output.",
+    "MCP first using named disposable session if supported; fresh browser named early-pressure-only fixture, actual preparation/pause/departure/response; pending/completed literal persistence and four desktop/font cases."
+  ],
+  "runtimeVerification": "Unrun for S5; source fit inspected read-only only. S4 agent-verified and released.",
+  "restrictions": "No additional chat/agent/full suite/normal profile/install/commit/push; L8 sole combined integrator."
+}

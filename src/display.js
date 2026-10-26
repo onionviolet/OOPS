@@ -41,7 +41,7 @@ import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, 
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
 import { enemy_killcount, enemy_templates } from "./enemies.js";
-import { playerAttributeDefinitions, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
+import { playerAttributeDefinitions, ATTRIBUTE_DESCRIPTIONS, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
 import { rankOf } from "./faction_rank.js";
@@ -4261,6 +4261,7 @@ function update_stat_description(stat) {
         return;
     }
 
+    if(ATTRIBUTE_DESCRIPTIONS[stat]) target.previousElementSibling.textContent = ATTRIBUTE_DESCRIPTIONS[stat];
     set_HTML(target, create_stat_breakdown(stat));
     
     return;
@@ -4407,8 +4408,8 @@ export function readPlayerAttributeInspector() {
     const hasShield = character.hasShield();
     const shield = hasShield ? character.getEquipment()['off-hand'] : null;
     const formulaNotes = {
-        attack_power:'Derived from strength / 10 and equipped weapon power, or unarmed base power; then attack-power multipliers and the current stamina condition. Stored additive attack-power entries are not applied by this formula.',
-        attack_speed:'Model attack speed multiplied by the current stamina condition. The current value uses the native effective attack-speed getter.',
+        attack_power:'Strength / 10 × weapon power (or unarmed base power), then attack-power multipliers and the stamina condition.',
+        attack_speed:'Attack rate × the current stamina condition, in attacks per second.',
         attack_points:'Attack rating, not a hit percentage. Native pre-multiplier total derives from dexterity, square root of intuition and Combat skill, plus the native base. Target-specific hit chance belongs to the selected combat matchup.',
         evasion_points:'Evasion rating, not a dodge percentage. Native pre-multiplier total derives from agility, square root of intuition and Evasion skill, plus the native base. The shield route can replace evasion.',
         block_chance:'Native base plus configured block chance and Shield blocking skill, followed by applicable multipliers. Requires an equipped shield; this is not evasion chance.',
@@ -4422,10 +4423,10 @@ export function readPlayerAttributeInspector() {
         cold_tolerance:'Temperature difference added to the cold threshold comparison. This is a Celsius difference, not an absolute temperature.',
     };
     const referenceNotes = {
-        magic:'Native model value; no magic-based ability or combat consumer is established by this inspector.',
+        magic:'No magic-based attack or ability uses this value here.',
         armor_penetration:'Each point bypasses one point of nonnegative flat armor on a landed hit, up to the target’s armor. Shields, guard modifiers, minimum damage and percent resistance still apply.',
-        mana_efficiency:'Native model factor; no mana-spending consumer was traced. This does not establish a working mana-cost reduction.',
-        heat_tolerance:'Native authored temperature-difference value; no active heat-protection consumer was traced.',
+        mana_efficiency:'No active mana-cost reduction is available here.',
+        heat_tolerance:'No active heat protection is available here.',
     };
     const rows = playerAttributeDefinitions.map(([id,label,group,unit]) => {
         const mutable = ['health','stamina','mana'].includes(id);
@@ -4435,10 +4436,10 @@ export function readPlayerAttributeInspector() {
         let preMultiplier = mutable ? null : finite(stats.total_flat?.[id]);
         let totalMultiplier = mutable ? null : finite(stats.total_multiplier?.[id]);
         let sources = mutable ? [] : [...sourcesFor(stats.flat, stats.multiplier, id, !specialFormula), ...affixSourceRows(character.getEquipment(), id)];
-        let description = formulaNotes[id] || 'Native current-player attribute. Additive source categories combine before multiplicative factors.';
+        let calculation = formulaNotes[id] || 'Additive bonuses combine before multiplicative factors.';
         let status = 'active';
         let note = '';
-        if(mutable) description = 'Current resource balance changes through native play. It is not reconstructed from base values and modifier categories.';
+        if(mutable) calculation = 'Current balance, rather than a value reconstructed from base and modifiers.';
         if(id === 'attack_power' || id === 'attack_speed') {
             value = finite(canReadEffectiveAttack
                 ? (id === 'attack_power' ? character.getAttackPower() : character.getAttackSpeed())
@@ -4458,7 +4459,7 @@ export function readPlayerAttributeInspector() {
             value = worn.length ? finite(worn.reduce((sum,item) => sum + item.getWearProfile().toughness,0) / worn.length) : null;
             baseValue = preMultiplier = value;
             totalMultiplier = 1;
-            if(!worn.length) { status = 'unavailable'; note = 'No equipped gear is made from materials with toughness data.'; }
+            if(!worn.length) { status = 'unavailable'; note = 'Material toughness is unavailable for your equipped gear.'; }
             else note = `Wear per landed hit ×${worn.map(item => `${item.getName()} ${item.getWearScale()}`).join(', ')}. Only applies when equipment durability is enabled.`;
         }
         if(id === 'block_strength') {
@@ -4478,27 +4479,27 @@ export function readPlayerAttributeInspector() {
         }
         if(id === 'block_chance' && !hasShield) {
             status = 'conditional';
-            note = 'Model chance only; blocking is unavailable without a shield.';
+            note = 'Equip a shield to use shield blocking.';
         }
         if(id.includes('regeneration')) {
-            description = id.endsWith('_percent')
+            calculation = id.endsWith('_percent')
                 ? 'Percentage of the corresponding maximum resource per native recovery tick, using the native UI /s convention. Separate from flat recovery.'
                 : 'Flat resource change per native recovery tick, using the native UI /s convention. Separate from percentage-of-maximum recovery.';
-            note = 'Actual recovery depends on the active native mode; special sessions can own a separate resource loop.';
+            note = 'Recovery can differ during special activities.';
         }
         if(id === 'health_loss_flat') {
-            description = 'Signed flat health-loss component. Negative values represent health loss in the native tick. This is not a combined net recovery rate.';
+            calculation = 'Signed flat health-loss component. Negative values represent health loss in the native tick. This is not a combined net recovery rate.';
         }
         if(id === 'health_loss_percent') {
             status = 'reference';
-            note = 'The native tooltip/helper and tick use different percentage-loss sign conventions. This raw component is shown without a net-loss claim.';
-            description = 'Raw percentage-of-maximum health-loss component. Its sign must not be inferred from the flat-loss convention.';
+            note = 'This component is shown separately; it cannot reliably be combined into an overall recovery rate here.';
+            calculation = 'Raw percentage-of-maximum health-loss component. Its sign must not be inferred from the flat-loss convention.';
         }
-        if(group === 'mana') note = `${note}${note ? ' ' : ''}Mana recovery is modelled and ticked; this view establishes no useful mana-spending loop.`;
-        if(referenceNotes[id]) { status = 'reference'; note = referenceNotes[id]; }
+        if(group === 'mana') note = `${note}${note ? ' ' : ''}Mana recovery is tracked, but a usable mana-spending ability is not established here.`;
+        if(referenceNotes[id]) { status = id === 'armor_penetration' ? 'active' : 'reference'; note = referenceNotes[id]; }
         return {id,label,group,unit,value,formatted:id === 'block_strength' && !hasShield ? 'No shield' : format(value,unit,id),
             base:baseValue,baseFormatted:baseValue == null ? (mutable ? 'Current balance' : 'Unavailable') : format(baseValue,unit,id),
-            preMultiplier,totalMultiplier,sources,description,availability:{status,note},
+            preMultiplier,totalMultiplier,sources,description:ATTRIBUTE_DESCRIPTIONS[id],calculation,availability:{status,note},
             hasModifiers:sources.some(source => source.flat !== 0 || source.multiplier !== 1)};
     });
     const xp = character.getXPBonuses();
@@ -4510,10 +4511,8 @@ export function readPlayerAttributeInspector() {
         if(key === 'hero' && finite(character.xp_multiplier) != null && character.xp_multiplier !== 1) sources.push({label:'Personal hero XP factor',flat:0,multiplier:character.xp_multiplier});
         rows.push({id:`xp_${key}`,label,group:'learning',unit:'×',value,formatted:format(value,'×'),
             base:1,baseFormatted:'×1',preMultiplier:1,totalMultiplier:value,sources,
-            description:key === 'all' ? 'Personal global XP factor before target-specific factors.' : key === 'hero'
-                ? 'Native effective hero XP factor, including the personal global factor and person-level hero factor.'
-                : 'Native skill-wide XP factor including the personal global factor. Known skills can have additional category, skill-specific, person-level or eligibility factors.',
-            availability:{status:'active',note:'Configured global award scaling and route-specific bonuses can apply later. This is not a guaranteed final XP award.'},
+            description:ATTRIBUTE_DESCRIPTIONS[`xp_${key}`],calculation:'The personal global factor combines with the factors listed below.',
+            availability:{status:'active',note:'The activity and its bonuses can change the experience you actually receive.'},
             hasModifiers:sources.some(source => source.flat !== 0 || source.multiplier !== 1)});
     }
     return {rows};

@@ -1,0 +1,68 @@
+{
+  "releasedAt": "2026-10-26T20:42:56.488925+00:00",
+  "released": [
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/085e4c463f3826318814518882d168583788ea5d6ce15727095ba2ceab71217f",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "path": "src/book_world_paradise_drying.js"
+      }
+    },
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/905d7e60585f65ebfed22ce72c84d437f7446acacd053d68b4910a91be839ca1",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "path": "src/book_world_paradise_ecology.js"
+      }
+    },
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/e572a254606cbdc3da6c4575a709ffea4df4121128c6b1ea0ff31bcf0a02f4db",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "path": "src/book_world_paradise_campaign_host.js"
+      }
+    },
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/e429e902cde7dd532da1d6efde3339d215acf8648317d72d37d2ac731dd0a209",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "path": "tests/paradise_field.test.js"
+      }
+    },
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/87a6742a1701407c561dfc3de4365335d88b76a01506d2b62b700dc9757e253e",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "path": "tests/paradise_ecology.test.js"
+      }
+    },
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/f47656ecb13a2bbcceea7eb3dfb5c4b2b4558e50835785d85f59be2c25bd256d",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "path": "src/book_world_paradise_field.js"
+      }
+    },
+    {
+      "lock": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/slot-1",
+      "owner": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "phase": "acknowledged combined field/final build/full test/arch/rules/native proof",
+        "handoffFrom": "G6-W5",
+        "handoffFromThread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+        "at": "2026-10-26T19:55:29.728736+00:00",
+        "preserve": "Existing acknowledged earlier fair requests remain; no new source takeover inferred."
+      }
+    }
+  ],
+  "state": "agent-verified, not human-reviewed",
+  "bundleHash": "bedda8b209685c62585cccf8cb25c52f9bc30911dd8938d866b439bb6c5f5c48",
+  "next": "slot1 free; preserve existing earlier acknowledged fair requests; no named successor imposed"
+}

@@ -1,0 +1,12 @@
+{
+  "helper_tests": "7/7",
+  "independent_launcher_tests": "9/9",
+  "independent_acceptance": true,
+  "normal_final": true,
+  "final_receipt_current": true,
+  "installed_source_copies_identical": true,
+  "adopted_fix_untouched": true,
+  "reasoning_off_requests": 11,
+  "relays_and_workers_stopped": true,
+  "report_links": 20
+}

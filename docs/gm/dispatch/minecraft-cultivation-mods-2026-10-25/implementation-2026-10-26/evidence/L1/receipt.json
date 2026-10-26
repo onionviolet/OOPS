@@ -1,0 +1,160 @@
+{
+  "identity": {
+    "snapshot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-snapshot",
+    "manifestDigest": "40c6b28b3e42b0cdf3ab0cc11042cc8ad21b4bab24addaf21f31e1aeeeb073cb",
+    "bundleSha256": "88cfab04925806db73d44ae904e837c7c6f26e11f924b312d6d7e6be626dc6d8",
+    "indexSha256": "4dfbfb6acf2ae35949756f90507a718d3dbd65cf6c0a87e6f154a42e633801cf",
+    "taskFiles": {
+      "src/book_world_lotm_ui.js": "93d01ff7f6a9ab73b518a54ef642824204f27813a1acd621e535ffe730778fde",
+      "src/people_knowledge.js": "f4c6aac1637d6ff4043ab168f92163c01837c75a0429ab7be9e81625f85e76cb",
+      "src/people_ui.js": "0f03f6f9d249477ded14563ee16786355100476769ac3abc822d5db82d550eb8",
+      "tests/people_knowledge.test.js": "4da1186fa2fe8c5f554723aa4e07fe0bb780240dacc2c68077ca1d52d3ff2247"
+    }
+  },
+  "snapshotManifestMatches": true,
+  "planner": {
+    "bundleSha256": "88cfab04925806db73d44ae904e837c7c6f26e11f924b312d6d7e6be626dc6d8",
+    "indexSha256": "4dfbfb6acf2ae35949756f90507a718d3dbd65cf6c0a87e6f154a42e633801cf",
+    "origin": "http://127.0.0.1:51891/",
+    "persistence": [
+      {
+        "kind": "earned Seer one act",
+        "exportChars": 244128,
+        "exportSha256": "24b766b471f0f3b196c0292556d1fc6a173eaba40447146edbde93b569826b4c",
+        "projectSha256": "be60336ffe44a3cba0e89efd3358526782c7d806876612e075f6cc96f469929c"
+      }
+    ],
+    "plannerMatrix": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "px": 14,
+        "pageWidth": 1920,
+        "panelWidth": 701,
+        "contentWidth": 701,
+        "font": "14px",
+        "report": true,
+        "screenshot": "planner-1920x1080-14px.png"
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "px": 21,
+        "pageWidth": 1920,
+        "panelWidth": 691,
+        "contentWidth": 691,
+        "font": "21px",
+        "report": true,
+        "screenshot": "planner-1920x1080-21px.png"
+      },
+      {
+        "width": 1536,
+        "height": 864,
+        "px": 14,
+        "pageWidth": 1536,
+        "panelWidth": 479,
+        "contentWidth": 479,
+        "font": "14px",
+        "report": true,
+        "screenshot": "planner-1536x864-14px.png"
+      },
+      {
+        "width": 1536,
+        "height": 864,
+        "px": 21,
+        "pageWidth": 1536,
+        "panelWidth": 469,
+        "contentWidth": 469,
+        "font": "21px",
+        "report": true,
+        "screenshot": "planner-1536x864-21px.png"
+      }
+    ],
+    "planner": {
+      "route": "fresh native probationer test entry; native allocation, ingestion, lesson and completed act",
+      "findNoSpend": true,
+      "heldDoseNotPromotion": true,
+      "changedSupply": true,
+      "errors": []
+    }
+  },
+  "people": {
+    "bundleSha256": "88cfab04925806db73d44ae904e837c7c6f26e11f924b312d6d7e6be626dc6d8",
+    "indexSha256": "4dfbfb6acf2ae35949756f90507a718d3dbd65cf6c0a87e6f154a42e633801cf",
+    "origin": "http://127.0.0.1:63872/",
+    "persistence": [],
+    "peopleBefore": "People you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nNora Boole\n\nKnown from your received Cyoria meeting or attributed report\n\nKnown capabilities and services\n\nThese are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person\u2019s local service for current terms.\n\nNora\u2019s source lesson requires reconstruction of a keyed stone-cube lamp with command recognition, three brightness levels and occlusion shutoff. Formulas stabilize anchored spells; ink and a design alone do not cast. This original manual-interface variant narrows the task for your non-mage body: Nora anchors the spell, you operate prepared controls. It cannot attack, drain ambient mana automatically, or function outside Cyoria.\n\nTold to you \u00b7 played minute 28\n\nYour actual cube and ink became one keyed lamp after supervised reconstruction and Nora\u2019s two own attuned mana. Its stored reserve is empty; paid calibration still supplies charge. You learned your own manual control procedure at zero mastery, not Nora\u2019s formula knowledge, talent or personal capacity.\n\nTold to you \u00b7 played minute 34\n\nNora spent six of her own finite attuned mana to calibrate your empty six-unit device. This is transferred bounded equipment charge, not player casting fuel; no timer, mana well or rendering refills it. Each calibration is a finite consenting job.\n\nObserved \u00b7 played minute 37\nIlsa Zileti\n\nKnown from your received Cyoria meeting or attributed report\n\nKnown capabilities and services\n\nThese are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person\u2019s local service for current terms.\n\nIlsa distinguishes guest reading, mage certification, commercial practice and student mentorship. She offers one original guest pass for two local crowns and clerical work. It opens only the represented public guest reading shelf and supervised workshop, not restricted person-targeting instruction or student privileges.\n\nObserved \u00b7 played minute 10\n\nIlsa issued the actual physical guest pass. Your limited permission is reading and supervised reconstruction; it is no first-circle badge, admission to the academy, authority to unlock property, or permission to sell magic.\n\nTold to you \u00b7 played minute 12\n\nThe original retained-body assessment demonstrated no compatible personal Cyorian mana source. This limited negative result does not prove permanent incapacity or grant a source. Capacity training, raw ambient channeling, rods requiring personal mana and restricted spell lessons remain unavailable. The manual device route uses Nora\u2019s separately attuned stored charge. Its fixed six-unit capacity is equipment, not your soul magnitude. The non-mage manual interface is an original engineered divergence; sourced formula rods still require personal channeling.\n\nTold to you \u00b7 played minute 15\n\nA structured invocation creates a bounded mana construct; unstructured shaping is slower and difficult. Disrupting levitation can drop its load. Ignition leaves ordinary burning fuel, which dispelling does not extinguish. Reading these distinctions grants knowledge only, no personal fuel, spell or practice.\n\nTold to you \u00b7 played minute 24\nIbery Ambercomb\nKael Tverinov\nImaya Kuroshka\nVillage elder",
+    "peopleMatrix": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "px": 14,
+        "pageWidth": 1920,
+        "panelWidth": 701,
+        "contentWidth": 701,
+        "font": "14px",
+        "report": true,
+        "screenshot": "people-1920x1080-14px.png"
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "px": 21,
+        "pageWidth": 1920,
+        "panelWidth": 691,
+        "contentWidth": 691,
+        "font": "21px",
+        "report": true,
+        "screenshot": "people-1920x1080-21px.png"
+      },
+      {
+        "width": 1536,
+        "height": 864,
+        "px": 14,
+        "pageWidth": 1536,
+        "panelWidth": 479,
+        "contentWidth": 479,
+        "font": "14px",
+        "report": true,
+        "screenshot": "people-1536x864-14px.png"
+      },
+      {
+        "width": 1536,
+        "height": 864,
+        "px": 21,
+        "pageWidth": 1536,
+        "panelWidth": 469,
+        "contentWidth": 469,
+        "font": "21px",
+        "report": true,
+        "screenshot": "people-1536x864-21px.png"
+      }
+    ],
+    "appointment": {
+      "paidTwoCrowns": true,
+      "completed": true,
+      "fixture": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/current-mol-fixture.txt"
+    },
+    "peoplePersistence": {
+      "exportChars": 260340,
+      "exportSha256": "3e63e54d029c2ecdb7ed68f9de85a59a6358fb92ac74ecd7d9cbc6d67846db4a",
+      "projectSha256": "1cbd71efa672299f06489ae4269a1bd23b681a530a3a440c9607ef8cd8b81122"
+    },
+    "peopleErrors": []
+  },
+  "screenshots": {
+    "planner-1536x864-14px.png": "ee3a38fb5cc7f433d2bb3888362a0752472125b89c585b098a15ae580665cfeb",
+    "planner-1536x864-21px.png": "5caebd37ee731a729ed17f47858924249ab82e07f9f6cab3951d6caf42fc4654",
+    "planner-1920x1080-14px.png": "d33a83102b48df76ae5c560a78b43b551af17d2140d3a1bd2fc6824f8e6cb517",
+    "planner-1920x1080-21px.png": "b7c3b3a5d409c0f90ea99c65a675da305900b2c078bee49f7a2568e6e1ad1220",
+    "people-1536x864-14px.png": "0ef1d48bbe9e2ce27788bf0764feb48a1a854b9a4ebbd400681f6522866b99b6",
+    "people-1536x864-21px.png": "2301211709d9151d198dc790c4763b578b8a700806f782fa9d4d7bcfda856777",
+    "people-1920x1080-14px.png": "a68f98eaa8dce41773bf0019d81b326118f54b4d3cf0e20351eaa14f9995d1ad",
+    "people-1920x1080-21px.png": "72cba3d8e6f7f2c16bbe56aabc2fe46afc5215f79c396df22df1e20829e58eae"
+  },
+  "review": "agent-verified, not human-reviewed",
+  "scope": "L1 independent planner/person slice; not the full M1/Minecraft wave",
+  "coreOwnerFilesTouched": 0,
+  "newImportCycleEdges": 0,
+  "registrationLines": 0
+}

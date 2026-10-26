@@ -43,8 +43,9 @@ export function executeGift(quote){
 export function projectTrust(){
     const h=homes(),c=h.context||{};
     if(!h.homes?.some(x=>x.id==='manor'))return {visible:false,rows:[],ranking:null,amounts:GIFT_AMOUNTS};
-    const rows=TRUST_STAFF.map(s=>{const points=trustState().trust[s.id]??0,tier=tierOf(TRUST_RULES,points);
-        return {id:s.id,name:s.name,points,tier:tier.id,ceiling:tier.giftCeiling,alive:c.people?.[s.id]?.life==='alive',wages:c.staffResources?.[s.id]?.['home.wages']||0};});
+    const rows=TRUST_STAFF.map(s=>{const points=trustState().trust[s.id]??0,tier=tierOf(TRUST_RULES,points),offer=homeCommand('quote')({type:'gift_staff',actor:s.id,amount:GIFT_AMOUNTS[0]});
+        return {id:s.id,name:s.name,points,tier:tier.id,ceiling:tier.giftCeiling,alive:c.people?.[s.id]?.life==='alive',wages:c.staffResources?.[s.id]?.['home.wages']||0,
+            giftReady:offer.eligible,giftReason:offer.eligible?'':offer.reason};});
     const peers=[...rows.filter(r=>r.alive).map(r=>({id:r.id,score:r.wages})),{id:'player',score:c.money||0}];
     const ranking=rankPeers(peers,'player');
     return {visible:true,rows,amounts:GIFT_AMOUNTS,ranking:{rank:ranking.rank,of:ranking.of,next:ranking.next&&{name:TRUST_STAFF.find(s=>s.id===ranking.next.id)?.name,gap:ranking.next.gap},

@@ -1,0 +1,16 @@
+{
+  "localLinkCount": 23,
+  "missingLocalTargets": [],
+  "anchorsChecked": false,
+  "diffCheckExit": 0,
+  "diffCheckOutput": "",
+  "sourceDriftSinceSnapshot": [
+    "src/continuation_ui.js",
+    "scripts/playtest/method-foundation.mjs"
+  ],
+  "testEvidenceAppliesTo": "copied input identity, not later combined tree",
+  "emDashCount": 0,
+  "privateSavesUsed": false,
+  "trailingWhitespace": [],
+  "diffCheckLimit": "git diff does not inspect untracked additions; explicit owned-text whitespace scan also performed"
+}

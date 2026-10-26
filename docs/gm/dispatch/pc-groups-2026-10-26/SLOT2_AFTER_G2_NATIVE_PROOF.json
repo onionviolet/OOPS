@@ -1,0 +1,14 @@
+{
+  "state": "L8_nominated_pending_explicit_ready_ack_and_I5_transfer",
+  "current_owner": "01a1794d-81a8-7531-85dd-4cbab063a9c5",
+  "next_candidate": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+  "retained_successor": "01a178b9-cd1a-7480-b692-fe031e180516",
+  "completed_frozen_proof_not_rescheduled": [
+    "G6-W1",
+    "G6-W2",
+    "G6-W3"
+  ],
+  "G6-W6_combined_proof": "active slot1",
+  "slot_granted_by_parent": false,
+  "note": "Only incumbent transfers after receiver ACK; no lock metadata edited by parent."
+}

@@ -200,3 +200,21 @@ the edits. Abbreviations as above, plus CHEAT = `CHEAT_COSMOLOGY.md`.
 - Not edited, outside the listed files: `gm/world-implementation/IMPLEMENTATION_PLAN.md:194`
   ("never auto-scaled to player level"); `ENCOUNTERS_AND_PURSUIT.md:19`
   already says "need not".
+
+## Doc slip lint (2026-10-26)
+
+The new `npm run check:docs` check examines added lines in the current
+diff, so existing absolute language and older unsupported acceptance claims
+remain grandfathered. It reports two patterns:
+
+- <!-- slip-ok: describes a lint match pattern --> An added bullet or table row uses `never`, `always` or `only` as a rule
+  word without a default, dial, exception (`unless`) or in-world reason in
+  that row or paragraph. This applies AD5's default, dial and reason framing.
+- <!-- slip-ok: describes a lint match pattern --> An added line uses the acceptance term without a `USER_VISION.md` or `PROJECT.md`
+  link, an AD code, or quoted text on that same line. This keeps agent
+  proposals distinct from Weibao's recorded decisions.
+
+Use `<!-- slip-ok: reason -->` on a line when a specific context makes either
+pattern appropriate. The reason is required so the exception stays reviewable.
+
+Primary adoption note: this is an optional heuristic diagnostic, not an authority validator or an added universal gate. It includes untracked Markdown files. Quoted evidence, procedural absolutes and short wrapped references need interpretation; a clean result does not establish user acceptance.

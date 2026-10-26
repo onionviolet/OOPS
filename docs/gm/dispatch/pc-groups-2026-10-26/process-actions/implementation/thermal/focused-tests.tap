@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: hot pulse and gentle hold have distinct residence, extraction and irreversible loss
+ok 1 - hot pulse and gentle hold have distinct residence, extraction and irreversible loss
+  ---
+  duration_ms: 2.949292
+  type: 'test'
+  ...
+# Subtest: vessel inertia and geometry change actual temperature rather than summed op levels
+ok 2 - vessel inertia and geometry change actual temperature rather than summed op levels
+  ---
+  duration_ms: 0.755958
+  type: 'test'
+  ...
+# Subtest: clock partition preserves facts across finite fuel exhaustion and JSON roundtrip
+ok 3 - clock partition preserves facts across finite fuel exhaustion and JSON roundtrip
+  ---
+  duration_ms: 1.000834
+  type: 'test'
+  ...
+# Subtest: 1x/10x mass uses capacity, heat transfer, actual workload and scalable fuel
+ok 4 - 1x/10x mass uses capacity, heat transfer, actual workload and scalable fuel
+  ---
+  duration_ms: 0.353333
+  type: 'test'
+  ...
+# Subtest: capacity refusal, missing means, stock and unsupported revisions precede custody spending
+ok 5 - capacity refusal, missing means, stock and unsupported revisions precede custody spending
+  ---
+  duration_ms: 2.017291
+  type: 'test'
+  ...
+# Subtest: same maker means resolve equally across comfort modes and helper identity, with no draws
+ok 6 - same maker means resolve equally across comfort modes and helper identity, with no draws
+  ---
+  duration_ms: 0.682167
+  type: 'test'
+  ...
+# Subtest: shared separation vessel view, default geometry and paid reheat preserve history
+ok 7 - shared separation vessel view, default geometry and paid reheat preserve history
+  ---
+  duration_ms: 0.8015
+  type: 'test'
+  ...
+# Subtest: late admitted portions receive only subsequent extraction and degradation
+ok 8 - late admitted portions receive only subsequent extraction and degradation
+  ---
+  duration_ms: 0.637667
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 133.088125

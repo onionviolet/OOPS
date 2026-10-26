@@ -1,0 +1,30 @@
+{
+  "editionSha256": "6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d",
+  "qualification": "Local Chinese EPUB, edition-qualified; targeted read, no acquisition",
+  "claims": [
+    {
+      "id": "A4-breath",
+      "member": "OEBPS/Text/lotm_c_0006.xhtml",
+      "paragraph": 61,
+      "status": "STATED by Alger",
+      "paraphrase": "Sailor can dive without equipment for at least ten minutes. Job, pay and duration are authored."
+    },
+    {
+      "id": "A1-core",
+      "member": "OEBPS/Text/lotm_c_0221.xhtml",
+      "paragraph": 47,
+      "status": "STATED by Klein",
+      "paraphrase": "A normal deceased Beyonder leaves the corresponding potion without auxiliaries; characteristic persists by transfer."
+    },
+    {
+      "id": "A5-self",
+      "member": "OEBPS/Text/lotm_c_0150.xhtml",
+      "paragraphs": [
+        32,
+        33
+      ],
+      "status": "STATED by Daly",
+      "paraphrase": "A self-addressed ritual draws on own spirituality, needs suitable herbs/oils and one self candle; power is usually weak. This does not establish arbitrary effects or recipient resolution."
+    }
+  ]
+}

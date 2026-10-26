@@ -1,0 +1,9 @@
+{
+  "pid": 5921,
+  "pgid": 5921,
+  "url": "http://127.0.0.1:62990/",
+  "output": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/output",
+  "bundle": "28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5",
+  "purpose": "user-playable isolated static preview; fresh localhost origin; no normal app profile",
+  "runtimeProof": "earlier exact-bundle evidence; idle static server holds no source/runtime proof slot"
+}

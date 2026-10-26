@@ -1,0 +1,121 @@
+{
+  "localLinks": [
+    {
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../CRAFTING_ENGINE.md#round-15-2026-10-26-interchangeable-ingredients-causal-process-and-world-differences",
+      "exists": true
+    },
+    {
+      "target": "../../../../audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../GROUND_RULES.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../RULES_INDEX.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../MAKING_RULES.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../../PROJECT.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../USER_VISION.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26",
+      "exists": true
+    },
+    {
+      "target": "evidence/input-identity.json",
+      "exists": true
+    },
+    {
+      "target": "evidence/source-drift.json",
+      "exists": true
+    },
+    {
+      "target": "../../minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/COMMON.md",
+      "exists": true
+    },
+    {
+      "target": "../../minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/L5.md",
+      "exists": true
+    },
+    {
+      "target": "../../minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/L7.md",
+      "exists": true
+    },
+    {
+      "target": "../../minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/L8.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../research/additional-cultivation-2026-10-22/IMPLEMENTATION.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../../src/material_lineage.js",
+      "exists": true
+    },
+    {
+      "target": "../../../../../src/processed_materials.js",
+      "exists": true
+    },
+    {
+      "target": "../../../../../src/craft_resolver.js",
+      "exists": true
+    },
+    {
+      "target": "../../../../../src/crafting_frontier_runtime.js",
+      "exists": true
+    },
+    {
+      "target": "../../../../../src/crafting_native_items.js",
+      "exists": true
+    },
+    {
+      "target": "../../../../../src/gear_workshop_domain.js",
+      "exists": true
+    },
+    {
+      "target": "evidence/commands.txt",
+      "exists": true
+    },
+    {
+      "target": "evidence/focused-tests.tap",
+      "exists": true
+    },
+    {
+      "target": "evidence/systems-workshop-recheck.tap",
+      "exists": true
+    },
+    {
+      "target": "evidence/systems-workshop-final.tap",
+      "exists": true
+    },
+    {
+      "target": "evidence/input-identity.json",
+      "exists": true
+    },
+    {
+      "target": "evidence/source-drift.json",
+      "exists": true
+    },
+    {
+      "target": "evidence/document-checks.json",
+      "exists": true
+    }
+  ],
+  "missing": [],
+  "gitDiffCheckExit": 0,
+  "gitDiffCheckOutput": "",
+  "snapshotRemoved": true,
+  "sourceDriftCount": 2
+}

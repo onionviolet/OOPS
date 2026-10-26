@@ -1,0 +1,33 @@
+{
+  "kind": "named synthetic ordinary supplies only; no produced state or acceptance evidence",
+  "worldRoute": "Fresh native Village \u2192 explicit HP adult-trade Beginning \u2192 rented workshop",
+  "inventory": {
+    "{\"id\":\"Animal fat\"}": {
+      "count": 2
+    },
+    "{\"id\":\"Glass bottle\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Charcoal\"}": {
+      "count": 8
+    },
+    "{\"id\":\"Rat pelt\"}": {
+      "count": 6
+    },
+    "{\"components\":{\"head\":\"Cheap iron short blade\",\"handle\":\"Simple wooden short handle\"},\"quality\":100}": {
+      "count": 2
+    }
+  },
+  "skillXP": {
+    "Crafting": 1000,
+    "Forging": 1000
+  },
+  "proposedJourney": [
+    "strain one fat into two retained portions",
+    "dress three pelts with one portion; retain other portion",
+    "heat and quench actual carried metal with remaining portion",
+    "decant second fat and compare residue-sensitive quench",
+    "consume a real portion for a material observation where stock permits",
+    "Save/reload/Export/literal-file Import produced exact keys and actual gear contributions"
+  ]
+}

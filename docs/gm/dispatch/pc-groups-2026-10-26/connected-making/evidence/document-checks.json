@@ -1,0 +1,14 @@
+{
+  "local_links_checked": 33,
+  "link_errors": [],
+  "report_trailing_whitespace_lines": [],
+  "snapshot_files": 1757,
+  "live_drift_since_snapshot": [
+    "src/book_care_facts.js",
+    "src/book_world_lotm_bench.js",
+    "src/book_world_lotm_host.js",
+    "src/peer_standing_domain.js"
+  ],
+  "critical_source_drift": [],
+  "note": "Frozen-check evidence stays scoped to snapshot; unexamined sibling drift does not invalidate pure fixtures or establish combined integration."
+}

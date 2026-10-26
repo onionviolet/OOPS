@@ -1,0 +1,9 @@
+// Event rows refine a world row for one named gain (GTR29). Proposal, original world:
+// a purification's insight past the sitting cap settles into the drill being practised.
+export const SKILL_EVENT_OVERFLOW = Object.freeze({
+    'p23.mistglass#purification': Object.freeze({policy: 'converted', sink: 'practice-minutes', xpPerMinute: 5,
+        reason: 'A purification teaches more than one sitting holds; the surplus settles into the drill you are practising, one minute per 5 insight. Open-mist absorption has no drill to deepen and an Integrated drill has no further stage, so there the surplus fades.'}),
+});
+export function skillEventOverflowRow(worldId, eventId) {
+    return SKILL_EVENT_OVERFLOW[`${worldId}#${eventId}`] || skillOverflowRow(worldId);
+}

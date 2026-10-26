@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {spineFixture} from '../../../../../../tests/helpers/story_spine.js';
+import {applySimulationEffects} from '../../../../../../src/simulation_effects.js';
+import {defineReference} from '../../../../../../src/craft_reference.js';
+const f=spineFixture();
+const plan={state:structuredClone(f.envelope.expansion),external:structuredClone(f.context.external),gameplay:structuredClone(f.context.gameplay)};
+const put=(value,stage,cause)=>applySimulationEffects(plan,[{type:'knowledge',actor:'player',key:'g7.synthetic_claim',stage,value}],f.context,f.registry,cause);
+put('Account A','seen','g7:first');put('Account B','seen','g7:second');
+const sameStage=structuredClone(plan.state.simulation.knowledge.player['g7.synthetic_claim']);
+assert.equal(sameStage.value,'Account B');
+put('Earlier explanation','understood','g7:third');put('New contradictory sighting','seen','g7:fourth');
+assert.equal(plan.state.simulation.knowledge.player['g7.synthetic_claim'].value,'Earlier explanation');
+const ref=defineReference({id:'g7.reference',mode:'access',recipe:'g7.recipe',author:'synthetic.author',edition:2,omissions:['missing-stage']});
+assert.equal(ref.author,undefined);assert.equal(ref.edition,undefined);assert.equal(ref.omissions,undefined);
+console.log(JSON.stringify({fixture:'synthetic spineFixture(43), no private save',same_stage_replaces_previous_value:sameStage.value==='Account B',lower_stage_does_not_replace_understood:plan.state.simulation.knowledge.player['g7.synthetic_claim'].value==='Earlier explanation',reference_metadata_retained:Object.keys(ref),interpretation:'Current summary slots and reference access definitions are not a multi-account document provenance ledger. This is a feature boundary, not a reproduced shipped-content failure.'},null,2));

@@ -22,3 +22,13 @@ test('direct plan staging excludes only explicit simulation owners and retains u
  assert.deepEqual(input['sim.worker'],{weapon:simKey});
  assert.throws(()=>nativeEquipmentSnapshot(null),/Invalid equipment owner/);
 });
+test('native publication retains exact simple and identified keys before lazy item-key construction',()=>{
+ for(const key of [JSON.stringify({id:'sample.coat'}),JSON.stringify({id:'sample.coat',e2_instance:'e2.7'})]) {
+  const item={id:'sample.coat',quality:100,equip_slot:'torso',getInventoryKey(){this.inventory_key=key;return key;}};
+  const slots={torso:key},envelope={character:{equipment:{}}};
+  const stage=prepareNativeEquipment({player:slots},{actors,getItem:()=>item});stage.write(envelope);
+  assert.equal(envelope.character.equipment.torso.inventory_key,key);
+  assert.equal(Object.hasOwn(item,'inventory_key'),false,'serialization must not mutate the reconstructed live item');
+  assert.deepEqual(slots,{torso:key});
+ }
+});

@@ -1,0 +1,86 @@
+[
+  {
+    "fixture": "extract",
+    "prompt": "Return JSON only with keys cost, minutes, output, source_id, unknown. Source P17: The kiln consumes 3 clay and 2 fuel. After 8 minutes it produces 1 tile. The text does not specify resale price. cost is an object with clay and fuel. output is an object with tile. unknown is a list of unknown field names, using resale_price.",
+    "prompt_sha256": "4edd7c9bd482c421f9cc24cf1cd2bb4bbaf8baa270673978f38abb3baccabcda",
+    "expected": {
+      "cost": {
+        "clay": 3,
+        "fuel": 2
+      },
+      "minutes": 8,
+      "output": {
+        "tile": 1
+      },
+      "source_id": "P17",
+      "unknown": [
+        "resale_price"
+      ]
+    },
+    "request": {
+      "model": "qwen3.8:27b",
+      "stream": false,
+      "think": false,
+      "format": "json",
+      "keep_alive": 0,
+      "options": {
+        "temperature": 0,
+        "seed": 42,
+        "num_ctx": 4096,
+        "num_predict": 256
+      }
+    },
+    "output": "{\"cost\": {\"clay\": 3, \"fuel\": 2}, \"minutes\": 8, \"output\": {\"tile\": 1}, \"source_id\": \"P17\", \"unknown\": [\"resale_price\"]}",
+    "done": true,
+    "done_reason": "stop",
+    "metrics": {
+      "total_duration": 13551890708,
+      "load_duration": 11338061208,
+      "prompt_eval_count": 92,
+      "prompt_eval_duration": 645194834,
+      "eval_count": 48,
+      "eval_duration": 1566110875
+    },
+    "pass": true,
+    "elapsed_seconds": 13.567
+  },
+  {
+    "fixture": "contradiction",
+    "prompt": "Return JSON only with keys conflicts and unknown. Each is a list of strings. Source A paragraph 4 says the gate costs 3 coins. Source B paragraph 9 says the same gate costs 5 coins. Neither source has a date or precedence. Use conflict string gate_cost and unknown string authoritative_cost. Preserve the conflict rather than resolving it.",
+    "prompt_sha256": "7a73846910375dbb3b2ef47d9930d07800114a788854a0de7ea6f714b3bd2e72",
+    "expected": {
+      "conflicts": [
+        "gate_cost"
+      ],
+      "unknown": [
+        "authoritative_cost"
+      ]
+    },
+    "request": {
+      "model": "qwen3.8:27b",
+      "stream": false,
+      "think": false,
+      "format": "json",
+      "keep_alive": 0,
+      "options": {
+        "temperature": 0,
+        "seed": 42,
+        "num_ctx": 4096,
+        "num_predict": 256
+      }
+    },
+    "output": "{\n  \"conflicts\": [\n    \"gate_cost\"\n  ],\n  \"unknown\": [\n    \"authoritative_cost\"\n  ]\n}",
+    "done": true,
+    "done_reason": "stop",
+    "metrics": {
+      "total_duration": 8164801917,
+      "load_duration": 6432184667,
+      "prompt_eval_count": 82,
+      "prompt_eval_duration": 556038125,
+      "eval_count": 35,
+      "eval_duration": 1175193041
+    },
+    "pass": true,
+    "elapsed_seconds": 8.168
+  }
+]

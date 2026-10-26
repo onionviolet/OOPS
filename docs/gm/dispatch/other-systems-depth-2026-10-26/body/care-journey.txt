@@ -1,0 +1,4 @@
+click Do this: Pack hurriedly · log + fee + 3 stamina + strain · 2 min false
+strained 0 51
+click Do this: Rest strained hands without supplies · 4 min false
+{"route":"fixture(supplied-care-stock)","strained":true,"blockedPreciseText":true,"save":true,"reload":true,"export":true,"import":true,"restCleared":true,"errors":[]}

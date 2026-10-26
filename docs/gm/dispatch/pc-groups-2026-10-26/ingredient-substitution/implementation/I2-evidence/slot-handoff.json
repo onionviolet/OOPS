@@ -1,0 +1,32 @@
+{
+  "before": {
+    "lane": "G2-I2",
+    "thread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "phase": "acknowledged paid HP prep source/focused turn",
+    "handoffFrom": "G6-W1",
+    "handoffFromThread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+    "at": "2026-10-26T18:16:10.614577+00:00",
+    "nextRequested": {
+      "lane": "G1-I2",
+      "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67"
+    },
+    "W1NativeProof": "pending fair later runtime turn"
+  },
+  "after": {
+    "lane": "G1-I2",
+    "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "phase": "reserved demonstrated-method source/focused turn",
+    "handoffFrom": "G2-I2",
+    "handoffFromThread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "at": "2026-10-26T18:18:46.877726+00:00",
+    "nextRequested": {
+      "lane": "G2-I3",
+      "thread": "01a1794c-f835-7710-a2b6-5d8fce58e7d1",
+      "reason": "I5 acknowledged queue after G1 bounded method helpers; following G2 I4 then I5"
+    },
+    "queueAfter": [
+      "G2-I4",
+      "G2-I5"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "releasedAt": "2026-10-26T18:13:28.082569+00:00",
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "paths": {
+    "src/craft_recipes.js": "3d5d0c34357448d7567e9ab1a4e1714e72f9f81fbb4524254806169d0a124efb",
+    "src/craft_material_fit.js": "620550a999ce8afef943ef7c946154e5232f10857189b16f5960bdfa820f1caf",
+    "tests/craft_allocation.test.js": "d796b20ade92ed4b1a214033b6fba1b7d6839e5e5c0d0c60eed4260190b2994d"
+  },
+  "command": "node --test tests/craft_allocation.test.js tests/craft_engine.test.js tests/native_rendering.test.js",
+  "passed": 32,
+  "failed": 0,
+  "state": "source/focused-tested, below AD43; I5 integration pending"
+}

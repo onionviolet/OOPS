@@ -1,0 +1,7 @@
+{
+  "installed": "/Users/weiwei/.dsh/skills/local-scripts/SKILL.md",
+  "source": "/Users/weiwei/code/deepseek-harness/apps/cli/config/examples/local-work/skills/local-scripts/SKILL.md",
+  "prior_bounded_sha256": "ff3a0b4075accffbeb5ba8f88909fefa6e520d39c47f5abfcc8fcb5024c352a2",
+  "after_sha256": "15390ef1e94c3ed598eb670f6e87ec4608e1737b6642d46b919aaba3194e0bb8",
+  "change": "reuse fixed acceptance checker; stop after verified outputs instead of rereading"
+}

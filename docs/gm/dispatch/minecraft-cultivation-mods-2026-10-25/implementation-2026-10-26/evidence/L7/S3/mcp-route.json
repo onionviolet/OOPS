@@ -1,0 +1,301 @@
+{
+  "route": "fresh Village → explicit Shadowbound company → commission → independent sleep while player camp work completes → same-body Awakened → brace patrol → both return/one allocated badge → treatment",
+  "bundleSha256": "daf298e9af1def0226c645f5f46ca6bc611c67efed3f4227ada82a2115360d70",
+  "manifestSha256": "b5da90c73be5cd568a96e7f9cba3dca8c6c6f7ec1ce019c39c6ef44e50500d6b",
+  "source": "/tmp/yairpg-L7-s3-source",
+  "rows": [
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 1
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Your same shadow: Dormant · asleep · 11/20 health · strike 5. Identity and captured template are retained.",
+        "Recovery and gem readiness: Dormant → Awakened gem sleep · 30 min: 30 played minutes remaining. The shadow remains unavailable; you can work at camp."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 1
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Record patrol signs · 5 min, 1 stamina: 5 min remaining",
+        "Record patrol signs · 5 min, 1 stamina · Running. 5 played minutes remaining.",
+        "Cancel Record patrol signs · 5 min, 1 stamina",
+        "Running. 5 played minutes remaining."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 6
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Your same shadow: Dormant · asleep · 16/20 health · strike 5. Identity and captured template are retained.",
+        "Recovery and gem readiness: Dormant → Awakened gem sleep · 30 min: 25 played minutes remaining. The shadow remains unavailable; you can work at camp.",
+        "Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 31
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Companion growth: The same shadow woke at Awakened rank, fully restored. Its captured identity remains; actual max health is 29, strike 6.75, and its next patrol consequences read this rank.",
+        "Your same shadow: Awakened · stored · 29/29 health · strike 6.75. Identity and captured template are retained.",
+        "Recovery and gem readiness: Stored recovery is 5% max health per full played minute. Next gem: 60 minutes of independent sleep, then Fallen rank with 42.05 max health and strike 9.113. Recall the shadow before commissioning."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 31
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Your same shadow: Awakened · manifested · 29/29 health · strike 6.75. Identity and captured template are retained."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 31
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Accept and provision a patrol · 5 min, 2 rations: 5 min remaining",
+        "Actual camp supplies: 1 gems · 6 rations · 2 ropes · 2 braces · 2 bandages · 0 owned stipend badges. 1 badge in the current attempt’s shadow-carried escrow.",
+        "Accept and provision a patrol · 5 min, 2 rations · Running. 5 played minutes remaining.",
+        "Cancel Accept and provision a patrol · 5 min, 2 rations",
+        "Running. 5 played minutes remaining."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 36
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Causeway patrol: prepared",
+        "Latest patrol: A patrol is provisioned. The allocated badge remains actual escrow in your shadow’s stock; install rope, bracing, both or accept the disclosed unprepared risk.",
+        "Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 36
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Fit the folding brace · 3 min, 1 brace: 3 min remaining",
+        "Actual camp supplies: 1 gems · 6 rations · 2 ropes · 1 braces · 2 bandages · 0 owned stipend badges. 1 badge in the current attempt’s shadow-carried escrow.",
+        "Fit the folding brace · 3 min, 1 brace · Running. 3 played minutes remaining.",
+        "Running. 3 played minutes remaining."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 39
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 39
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Take your actual party to the causeway · 5 min: 5 min remaining",
+        "Take your actual party to the causeway · 5 min · Running. 5 played minutes remaining.",
+        "Running. 5 played minutes remaining."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 44
+      },
+      "location": "Splintered causeway trial",
+      "pageErrors": 0,
+      "added": [
+        "Splintered causeway trial",
+        "Splintered causeway trial",
+        "Causeway patrol: inside",
+        "Withdraw together · 5 min, return allocated badge",
+        "Bring both actual participants back to camp and return Sera’s still-allocated badge. Completed food/preparations and real injuries stay spent; no report reward is minted. Stop leaves both at the causeway with escrow intact.",
+        "Withdraw together · 5 min, return allocated badge",
+        "Repeat Withdraw together · 5 min, return allocated badge 3 times",
+        "Return both participants and settle the report · 5 min",
+        "Carry the one actually allocated badge from your shadow into your bag, then bring both bodies home and settle one successful report. Stop returns that same badge to escrow and leaves the resolved attempt at the causeway. The phase guard prevents repeated payment.",
+        "Return both participants and settle the report · 5 min",
+        "Repeat Return both participants and settle the report · 5 min 3 times",
+        "The installed brace opens the faster route. Your actual shadow takes less injury at stronger ranks, and your body takes three damage plus embedded splinters. This Awakened shadow loses 4.625 health. One stamina is reserved during the timed attempt and refunded on Stop; completion settles its actual injuries and this attempt’s report.",
+        "[ Entering Splintered causeway trial ]",
+        "Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 44
+      },
+      "location": "Splintered causeway trial",
+      "pageErrors": 0,
+      "added": [
+        "Use the brace for a direct breach · 5 min: 5 min remaining",
+        "Use the brace for a direct breach · 5 min · Running. 5 played minutes remaining.",
+        "Running. 5 played minutes remaining."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 49
+      },
+      "location": "Splintered causeway trial",
+      "pageErrors": 0,
+      "added": [
+        "59/60 hp",
+        "Causeway patrol: resolved · treatment needed",
+        "Latest patrol: The party resolved a usable route. Bring both participants home to settle the one allocated badge.",
+        "Your same shadow: Awakened · manifested · 24.375/29 health · strike 6.75. Identity and captured template are retained."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 49
+      },
+      "location": "Splintered causeway trial",
+      "pageErrors": 0,
+      "added": [
+        "Survey stipend badge",
+        "Return both participants and settle the report · 5 min: 5 min remaining",
+        "Actual camp supplies: 1 gems · 6 rations · 2 ropes · 1 braces · 2 bandages · 1 owned stipend badges. 0 badge in the current attempt’s shadow-carried escrow.",
+        "Return both participants and settle the report · 5 min · Running. 5 played minutes remaining.",
+        "Cancel Return both participants and settle the report · 5 min",
+        "Running. 5 played minutes remaining."
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 54
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "60/60 hp",
+        "Health +1",
+        "Causeway patrol: returned · treatment needed",
+        "Latest patrol: Your actual party returned with one paid report. The existing allocated badge is now yours and native Perception gained one XP. The shadow keeps its injury and identity in storage.",
+        "Your same shadow: Awakened · stored · 24.375/29 health · strike 6.75. Identity and captured template are retained.",
+        "Commit one gem to your stored shadow",
+        "Transfer one actual gem into this owned, stored shadow’s stock. Its independent controller starts the quoted sleep on the next played minute, rechecking control and stock. You can do camp work while it sleeps. Cancel this order before work starts to return that same held gem; committed sleep has no Stop button.",
+        "Inputs: 1 × Forsaken soul gem to recipient.",
+        "Commit one gem to your stored shadow",
+        "Manifest your living shadow",
+        "Bring this owned, living stored shadow into the camp. It joins your actual party with its retained health. Stored recovery stops while manifested; injury is not erased.",
+        "Manifest your living shadow",
+        "Recall your shadow into storage",
+        "Return this same shadow to storage at camp and remove it from the active party. After one full played minute it recovers 5% max health per minute. This does not resurrect a dead shadow.",
+        "Recall your shadow into storage",
+        "Record patrol signs · 5 min, 1 stamina",
+        "Spend five played minutes recording the camp’s taught patrol signs. Your own attention and one stamina are reserved; completion grants one native Perception XP. Your shadow’s independent sleep does not reserve your body.",
+        "Record patrol signs · 5 min, 1 stamina",
+        "Repeat Record patrol signs · 5 min, 1 stamina 3 times",
+        "Exchange one stipend badge for one gem",
+        "Sera exchanges one of her four actual gems for one owned stipend badge. Her stock does not reset on reload.",
+        "Inputs: 1 × Survey stipend badge to recipient.",
+        "Exchange one stipend badge for one gem",
+        "Exchange one badge for a supply bundle",
+        "Sera gives two actual rations and one each of rope, brace and bandage for one badge, while her finite stock lasts.",
+        "Inputs: 1 × Survey stipend badge to recipient.",
+        "Exchange one badge for a supply bundle",
+        "Accept and provision a patrol · 5 min, 2 rations",
+        "Reserve two actual rations and move one of Sera’s finite stipend badges into your shadow’s carried escrow. Completion consumes the rations and accepts one patrol. Stop refunds those exact inputs; later withdrawal returns the allocated badge but does not refund completed provisions.",
+        "Inputs: 2 × Patrol ration.",
+        "Accept and provision a patrol · 5 min, 2 rations",
+        "Repeat Accept and provision a patrol · 5 min, 2 rations 3 times",
+        "Commit one actual rope to this patrol’s preparation. It changes the supported causeway approach; rope and bracing can combine. Completed preparation is spent even if you later withdraw.",
+        "Commit one actual brace to this patrol’s preparation. It changes the supported causeway approach; rope and bracing can combine. Completed preparation is spent even if you later withdraw.",
+        "Travel with your manifested living shadow. Both bodies stay at camp until this paid walk finishes; Stop refunds the two-stamina reservation and keeps both there. Arrival reserves no hidden fight or reward.",
+        "Remove embedded splinters · 5 min, 1 bandage",
+        "Use one actual dressing to remove your embedded causeway splinters. Completion clears that injury and restores up to six native health. Stop refunds the unused dressing. This care uses your body while the shadow may continue sleeping independently.",
+        "Remove embedded splinters · 5 min, 1 bandage",
+        "Repeat Remove embedded splinters · 5 min, 1 bandage 3 times",
+        "← Splintered causeway trial"
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 54
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Remove embedded splinters · 5 min, 1 bandage: 5 min remaining",
+        "Actual camp supplies: 1 gems · 6 rations · 2 ropes · 1 braces · 1 bandages · 1 owned stipend badges. 0 badge in the current attempt’s shadow-carried escrow.",
+        "Remove embedded splinters · 5 min, 1 bandage · Running. 5 played minutes remaining.",
+        "Cancel Remove embedded splinters · 5 min, 1 bandage",
+        "Running. 5 played minutes remaining.",
+        "Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death"
+      ]
+    },
+    {
+      "time": {
+        "day": 1,
+        "hour": 8,
+        "minute": 59
+      },
+      "location": "Survey camp",
+      "pageErrors": 0,
+      "added": [
+        "Causeway patrol: returned",
+        "Splinter treatment: The embedded splinters are removed and your actual body received up to six health of care.",
+        "Your same shadow: Awakened · stored · 29/29 health · strike 6.75. Identity and captured template are retained.",
+        "Underfed played time can develop an adaptation. No activity is required. Hazardous storm/gust profile off. paused. Risk: outdoor gusts cost up to 0.2 stamina/minute and add -3°C; shelter blocks exposure. No gust cost is applying now. No health damage or hunger death."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "at": "2026-10-26T19:58:49.843655+00:00",
+  "bundleSha256": "28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5",
+  "inputDigest": "0386934e93434d9dc4935c970036f81454c8e5d79bcba60259fe8eb44bfdce5b",
+  "frozenInputDrift": [],
+  "relevantCurrentInputs": {
+    "src/craft_recipes.js": {
+      "frozen": "3d5d0c34357448d7567e9ab1a4e1714e72f9f81fbb4524254806169d0a124efb",
+      "current": "3d5d0c34357448d7567e9ab1a4e1714e72f9f81fbb4524254806169d0a124efb",
+      "equal": true
+    },
+    "src/craft_material_fit.js": {
+      "frozen": "620550a999ce8afef943ef7c946154e5232f10857189b16f5960bdfa820f1caf",
+      "current": "620550a999ce8afef943ef7c946154e5232f10857189b16f5960bdfa820f1caf",
+      "equal": true
+    },
+    "src/craft_ingredient_selection.js": {
+      "frozen": "27ad3dbbbd1bc6c3437e88c36ff8f9e6e51d229303f1509611b4e4d59df41d27",
+      "current": "27ad3dbbbd1bc6c3437e88c36ff8f9e6e51d229303f1509611b4e4d59df41d27",
+      "equal": true
+    },
+    "src/ingredient_world_fit.js": {
+      "frozen": "242fa8241849ef7acb57f44e7f87b619141ee77a112a3cf7b73d3fd1af594fbe",
+      "current": "242fa8241849ef7acb57f44e7f87b619141ee77a112a3cf7b73d3fd1af594fbe",
+      "equal": true
+    },
+    "src/hp_preparation.js": {
+      "frozen": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "current": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "equal": true
+    },
+    "src/hp_ingredient_substitution.js": {
+      "frozen": "58453ec249bac688fe175d381cc09420df485a3113a5bdefbe8f215ebc312f8c",
+      "current": "58453ec249bac688fe175d381cc09420df485a3113a5bdefbe8f215ebc312f8c",
+      "equal": true
+    },
+    "src/hp_brewing_state.js": {
+      "frozen": "5059ad0496bd572d38a509d86da36d8ce84976d49e45834d3666a6ea9eab0bef",
+      "current": "5059ad0496bd572d38a509d86da36d8ce84976d49e45834d3666a6ea9eab0bef",
+      "equal": true
+    },
+    "src/hp_brewing_domain.js": {
+      "frozen": "cf3dd649e517f5324a7170f64c4d93c720f1ceeab366c501bd2bbfcf1ef4522e",
+      "current": "cf3dd649e517f5324a7170f64c4d93c720f1ceeab366c501bd2bbfcf1ef4522e",
+      "equal": true
+    },
+    "src/hp_brewing_panel.js": {
+      "frozen": "8ba9b5fdad2907f2fe3dc250a99d895b4713147153da1f07e072da0e2f832850",
+      "current": "8ba9b5fdad2907f2fe3dc250a99d895b4713147153da1f07e072da0e2f832850",
+      "equal": true
+    },
+    "src/native_tool_domains.js": {
+      "frozen": "0720bf786c202e02ef681ebb1fdee7a80217d59c34b4f71f4d9ef74fa0582768",
+      "current": "0720bf786c202e02ef681ebb1fdee7a80217d59c34b4f71f4d9ef74fa0582768",
+      "equal": true
+    },
+    "tests/craft_allocation.test.js": {
+      "frozen": "d796b20ade92ed4b1a214033b6fba1b7d6839e5e5c0d0c60eed4260190b2994d",
+      "current": "d796b20ade92ed4b1a214033b6fba1b7d6839e5e5c0d0c60eed4260190b2994d",
+      "equal": true
+    },
+    "tests/hp_preparation.test.js": {
+      "frozen": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "current": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "equal": true
+    },
+    "tests/craft_ingredient_selection.test.js": {
+      "frozen": "5d04e4a7f481351c4ef80ad774006919be188a26a8731bd935fa5b300a57a64f",
+      "current": "5d04e4a7f481351c4ef80ad774006919be188a26a8731bd935fa5b300a57a64f",
+      "equal": true
+    },
+    "tests/ingredient_world_fit.test.js": {
+      "frozen": "fb8ce50d91842d46854296e6eafb95afc2bb3bf3c5cf195ede04d4c7169ff13a",
+      "current": "fb8ce50d91842d46854296e6eafb95afc2bb3bf3c5cf195ede04d4c7169ff13a",
+      "equal": true
+    },
+    "tests/hp_ingredient_substitution.test.js": {
+      "frozen": "dac13181846d60f72a23cce9477d5dc14b2d8ed882e46c5b8a9ac5dd071dbd5c",
+      "current": "dac13181846d60f72a23cce9477d5dc14b2d8ed882e46c5b8a9ac5dd071dbd5c",
+      "equal": true
+    },
+    "tests/hp_brewing_domain.test.js": {
+      "frozen": "b4a4e8473c8a2a1560175c21170f19948537dbde170036466e231b81028b7229",
+      "current": "b4a4e8473c8a2a1560175c21170f19948537dbde170036466e231b81028b7229",
+      "equal": true
+    }
+  },
+  "primaryOutputDrift": [],
+  "proofProcessAlive": null,
+  "visualInspection": {
+    "files": [
+      "comparison-1920-14.png",
+      "comparison-1536-21.png",
+      "used-1920-14.png",
+      "used-1536-21.png"
+    ],
+    "result": "Costs, uncertainty and stock visible at primary desktop; enlarged font wraps in scrolling panel with no horizontal overflow. Post-use panel retains demonstrated-method controls; deeper batch rows require scrolling. Eight automated matrix cases report no overflow, clipped controls or unlabeled controls.",
+    "mobile": "deferred"
+  },
+  "servedAssetDrift": [],
+  "servedAssetFiles": 95,
+  "processExit": "native journey exit0; recorded process no longer present (ps -p3431 exit1)",
+  "atFinal": "2026-10-26T20:02:04.969814+00:00"
+}

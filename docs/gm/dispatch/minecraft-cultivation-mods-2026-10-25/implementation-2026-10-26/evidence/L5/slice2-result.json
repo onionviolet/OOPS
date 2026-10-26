@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "review": "agent-verified, not human-reviewed",
+  "route": "named ordinary baseline + native gathered-lot stock/fuel controls, all crafts/holds/doses actual commands",
+  "snapshot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L5/slice2-final",
+  "manifestSha256": "6d57245c01f0faf278f35376fecc524f0b8d9a906ead6e4daacae2f23f407831",
+  "bundleSha256": "58b1753fdf322d7d2dd49054351f294a2a622612f5c783e979ca6dc449aa3102",
+  "primaryOwnSourceHashes": {
+    "src/craft_body_treatment.js": "11d8916726d214446e971c2cf9d0e0d2d6352cf043c96bbb31487fbf64ab92cf",
+    "src/craft_depth_domain.js": "34595e1cf18e6c4899e32a98065a5c6bd6c70538aad7f64fd45e7daa37365a2d",
+    "src/crafting_domain.js": "bf1d31b71ddb6116c7c3e8104c175aa8526f02eb626cd96f66a9c3174b6f0c93",
+    "src/crafting_frontier_runtime.js": "63384a5ef6e894cff8e7ad97febdb573e7cfaa90667d08f489fe9052e891b2d6",
+    "src/crafting_home.js": "83f77fd819710edb5203cf734a7e57ecd6dfae6285882ed4ca2f6ba0751f98b6",
+    "tests/cultivation_formulation.test.js": "48a256247392f457974e5e02c96a0c9696ef92d53fd2c78a8a577cdbe7b30606"
+  },
+  "harnessSha256": "14994f09f28ac753dffad9a788a5ba6d330ce7f93269b23b632fc3b454bbd250",
+  "checks": {
+    "focusedInitial": "15/15 formulation/runtime/native-reload PASS",
+    "focusedFinalQuote": "8/8 formulation PASS after pure optional prediction field + rendering added; unchanged existing runtime and native-reload evidence reused",
+    "build": "PASS immutable final snapshot",
+    "arch": "PASS, reused unchanged import graph/root inputs after display-only prediction follow-up",
+    "rules": "PASS two existing warnings, own relative links PASS",
+    "browser": "PASS final four viewport/text-size matrix, exact-time/late quote=collected chemistry, quota rollback, malformed held reference refusal, pending/collected/late/abandoned native Save/reload/Export/literal Import"
+  },
+  "changeSurface": {
+    "coreOwnerFiles": 0,
+    "newImportCycleEdges": 0,
+    "compositionRegistrationLines": 0,
+    "newOptionalSaveField": "craftDepth.firing {product,at,due}; absent remains absent"
+  },
+  "gaps": [
+    "L8 combined suite/primary build pending",
+    "full source flame/fan/pedestal minigame not claimed",
+    "maturity/core producer and multi-carrier consumer remain cross-lane dependencies",
+    "normal profile/install/commit/push/human review not performed"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "stages": [
+    {
+      "stage": "brief error",
+      "elapsed_seconds": 46.147,
+      "steps_started": 5,
+      "supervisor_stop": null,
+      "backend_requests": 6
+    },
+    {
+      "stage": "first functional attempt",
+      "elapsed_seconds": 148.761,
+      "steps_started": 9,
+      "supervisor_stop": "step_limit",
+      "backend_requests": 9
+    },
+    {
+      "stage": "functional repair",
+      "elapsed_seconds": 57.127,
+      "steps_started": 6,
+      "supervisor_stop": "step_limit",
+      "backend_requests": 5
+    },
+    {
+      "stage": "normal close",
+      "elapsed_seconds": 30.669,
+      "steps_started": 2,
+      "supervisor_stop": null,
+      "backend_requests": 2
+    }
+  ],
+  "sum_recorded_runtime_seconds": 282.704,
+  "excluding_brief_error_seconds": 236.557
+}

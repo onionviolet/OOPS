@@ -1,0 +1,9 @@
+{
+  "mcp_session": "weather-w4",
+  "fresh_life": "Village, seed317, zero page errors",
+  "verification_scope": "reconnaissance, not frozen W4 behavior",
+  "limit_reported_once": true,
+  "closed": true,
+  "fallback": "native-proof.mjs isolated frozen candidate",
+  "build_process_session": 88170
+}

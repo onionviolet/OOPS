@@ -1,0 +1,25 @@
+{
+  "file": "/Users/weiwei/.dsh/cordis.patch.yml",
+  "private_backup": "/Users/weiwei/.dsh/backups/cordis-before-thinking-off-1792976591.yml",
+  "before_sha256": "6c6e1bb8838981f3515ec32bf37534ac01b92975d786b9a59e18dc8e3a5e6637",
+  "after_sha256": "40d989942f7af8d190966b417e48ba1cfe38ab77b44d8e4f46e701a8060679eb",
+  "changes": {
+    "thinkingFormat": [
+      "qwen",
+      "openai"
+    ],
+    "reasoningEffort": [
+      "low",
+      "off"
+    ],
+    "reasoningEfforts": {
+      "off": "none",
+      "low": "low",
+      "medium": "medium",
+      "xhigh": "xhigh",
+      "high": "xhigh"
+    }
+  },
+  "unchanged_model_output_cap": 4096,
+  "compatibility_note": "Preserve the previous high selection as an alias for the backend-supported xhigh value; off dispatch is unchanged from captured trial."
+}

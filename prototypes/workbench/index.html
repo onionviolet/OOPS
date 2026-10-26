@@ -4,7 +4,7 @@
 <title>YAIR · Mockup workbench</title><link rel="stylesheet" href="built/ui_tokens.css"><link rel="stylesheet" href="workbench.css"></head>
 <body>
 <header>
-  <div class="heading"><strong>YAIR · Mockup workbench</strong><span>Interactive proposals · synthetic fixtures · no save access</span><button id="details" aria-expanded="false" aria-controls="brief">Task & limits</button></div>
+  <div class="heading"><strong>YAIR · Mockup workbench</strong><span>Interactive proposals · isolated fixtures · personal saves untouched</span><button id="details" aria-expanded="false" aria-controls="brief">Task & limits</button></div>
   <div class="tools">
     <label>Study <select id="experiment" aria-label="Study"></select></label>
     <label>Layout <select id="variant" aria-label="Layout"></select></label>
@@ -19,6 +19,7 @@
     <span id="status" role="status">Loading fixture…</span>
   </div>
 </header>
+<p id="freshness" role="note">Checking study freshness and fidelity…</p>
 <section id="brief" hidden aria-label="Study brief"></section>
 <main id="stage" aria-label="Interactive comparison"><div id="canvases"></div></main>
 <footer><span id="scale-label"></span><span id="revision"></span></footer>

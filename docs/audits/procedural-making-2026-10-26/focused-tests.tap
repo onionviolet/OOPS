@@ -1,0 +1,1055 @@
+TAP version 13
+# Subtest: native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+ok 1 - native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+  ---
+  duration_ms: 239.112125
+  type: 'test'
+  ...
+# Subtest: brace stats derive from the material grade, including its strength tradeoff
+ok 2 - brace stats derive from the material grade, including its strength tradeoff
+  ---
+  duration_ms: 0.458583
+  type: 'test'
+  ...
+# Subtest: equipped fact changes only the drive application; unequip restores its quote
+ok 3 - equipped fact changes only the drive application; unequip restores its quote
+  ---
+  duration_ms: 86.461875
+  type: 'test'
+  ...
+# Subtest: paid drive fuel and output freeze across reload, completion and cancellation
+ok 4 - paid drive fuel and output freeze across reload, completion and cancellation
+  ---
+  duration_ms: 40.541042
+  type: 'test'
+  ...
+# Subtest: equipped native brace with an open road offer keeps ticking, travelling and reloading
+not ok 5 - equipped native brace with an open road offer keeps ticking, travelling and reloading
+  ---
+  duration_ms: 62.335542
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/alloy_equipment.test.js:105:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Command failed: /Users/weiwei/.local/share/node-v22.23.3-darwin-arm64/bin/node docs/gm/d1-alloy-equipment-2026-10-07/fixture/generate.mjs --equipped-clock
+    node:internal/modules/cjs/loader:1433
+      throw err;
+      ^
+    
+    Error: Cannot find module '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/docs/gm/d1-alloy-equipment-2026-10-07/fixture/generate.mjs'
+        at Function._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+        at defaultResolveImpl (node:internal/modules/cjs/loader:1040:19)
+        at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1045:22)
+        at Function._load (node:internal/modules/cjs/loader:1216:25)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+        at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+        at node:internal/main/run_main_module:36:49 {
+      code: 'MODULE_NOT_FOUND',
+      requireStack: []
+    }
+    
+    Node.js v22.23.3
+    
+  code: 1
+  stack: |-
+    Function._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+    defaultResolveImpl (node:internal/modules/cjs/loader:1040:19)
+    resolveForCJSWithHooks (node:internal/modules/cjs/loader:1045:22)
+    Function._load (node:internal/modules/cjs/loader:1216:25)
+    wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    node:internal/main/run_main_module:36:49 {
+    genericNodeError (node:internal/errors:983:15)
+    wrappedFn (node:internal/errors:537:14)
+    ChildProcess.exithandler (node:child_process:417:12)
+    ChildProcess.emit (node:events:519:28)
+    maybeClose (node:internal/child_process:1101:16)
+    ChildProcess._handle.onexit (node:internal/child_process:304:5)
+  ...
+# Subtest: effect cancel: opposite pair cancels by its dial and names follow what remains
+ok 6 - effect cancel: opposite pair cancels by its dial and names follow what remains
+  ---
+  duration_ms: 1.17825
+  type: 'test'
+  ...
+# Subtest: names show only what the observer has seen
+ok 7 - names show only what the observer has seen
+  ---
+  duration_ms: 0.186
+  type: 'test'
+  ...
+# Subtest: tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+ok 8 - tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+  ---
+  duration_ms: 0.3465
+  type: 'test'
+  ...
+# Subtest: experiment log: deduction names likely sources, labels masking, survives reload
+ok 9 - experiment log: deduction names likely sources, labels masking, survives reload
+  ---
+  duration_ms: 0.807625
+  type: 'test'
+  ...
+# Subtest: property view separates unknown from known-none and keeps hidden axes out
+ok 10 - property view separates unknown from known-none and keeps hidden axes out
+  ---
+  duration_ms: 0.235833
+  type: 'test'
+  ...
+# Subtest: cancel table acts on a real resolved batch
+ok 11 - cancel table acts on a real resolved batch
+  ---
+  duration_ms: 1.013125
+  type: 'test'
+  ...
+# Subtest: live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+ok 12 - live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+  ---
+  duration_ms: 34.54125
+  type: 'test'
+  ...
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 13 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 3.697417
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 14 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 11.663583
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 15 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 1.47475
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 16 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 0.774916
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 17 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 1.383708
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 18 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 1.131708
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 19 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.186709
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 20 - retained products validate only under their own law revision
+  ---
+  duration_ms: 0.756917
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 21 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 0.986666
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 22 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 11.915916
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 23 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 1.451167
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 24 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.812458
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 25 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 0.858709
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 26 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 4.44
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 27 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 1.967709
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 28 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.409375
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 29 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 1.106709
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 30 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.366792
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 31 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 170.794166
+  type: 'test'
+  ...
+# Subtest: failure ledger: forecast changes after a recorded failure and survives reload
+ok 32 - failure ledger: forecast changes after a recorded failure and survives reload
+  ---
+  duration_ms: 2.093667
+  type: 'test'
+  ...
+# Subtest: failure ledger: successes are not recorded and corrupt ledgers are rejected
+ok 33 - failure ledger: successes are not recorded and corrupt ledgers are rejected
+  ---
+  duration_ms: 1.004417
+  type: 'test'
+  ...
+# Subtest: item name grammar: a crafted name parses back to its inputs and process
+ok 34 - item name grammar: a crafted name parses back to its inputs and process
+  ---
+  duration_ms: 0.647708
+  type: 'test'
+  ...
+# Subtest: wired ledger domain: failed batch changes the adapter forecast, round-trips its save slice, hides unknown residue
+ok 35 - wired ledger domain: failed batch changes the adapter forecast, round-trips its save slice, hides unknown residue
+  ---
+  duration_ms: 25.428125
+  type: 'test'
+  ...
+# Subtest: live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger
+ok 36 - live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger
+  ---
+  duration_ms: 10.932542
+  type: 'test'
+  ...
+# Subtest: absent owner on old saves: no access, valid, nothing created
+ok 37 - absent owner on old saves: no access, valid, nothing created
+  ---
+  duration_ms: 4.810833
+  type: 'test'
+  ...
+# Subtest: access reference supplies a recipe only while held and never teaches
+ok 38 - access reference supplies a recipe only while held and never teaches
+  ---
+  duration_ms: 4.893042
+  type: 'test'
+  ...
+# Subtest: learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+ok 39 - learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+  ---
+  duration_ms: 1.849042
+  type: 'test'
+  ...
+# Subtest: training book grants once per actor read key, not per item
+ok 40 - training book grants once per actor read key, not per item
+  ---
+  duration_ms: 0.967542
+  type: 'test'
+  ...
+# Subtest: examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+ok 41 - examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+  ---
+  duration_ms: 1.594333
+  type: 'test'
+  ...
+# Subtest: forged learned recipe or read key is rejected
+ok 42 - forged learned recipe or read key is rejected
+  ---
+  duration_ms: 0.589875
+  type: 'test'
+  ...
+# Subtest: runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+ok 43 - runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+  ---
+  duration_ms: 12.058458
+  type: 'test'
+  ...
+# Subtest: known recipe detail retains its native numeric success chance
+ok 44 - known recipe detail retains its native numeric success chance
+  ---
+  duration_ms: 4.014125
+  type: 'test'
+  ...
+# Subtest: experimental steep preview does not promise a viable product for an eligible thin batch
+ok 45 - experimental steep preview does not promise a viable product for an eligible thin batch
+  ---
+  duration_ms: 23.836417
+  type: 'test'
+  ...
+# Subtest: gathered lots and crafted products survive native Save and reload with writable saving
+ok 46 - gathered lots and crafted products survive native Save and reload with writable saving
+  ---
+  duration_ms: 7567.431041
+  type: 'test'
+  ...
+# Subtest: native crafting preserves exact stock and knowledge across source, batch and oral use
+ok 47 - native crafting preserves exact stock and knowledge across source, batch and oral use
+  ---
+  duration_ms: 8.189875
+  type: 'test'
+  ...
+# Subtest: stale quotes, reserved/absent materials and unsupported or dangling references fail without mutation
+ok 48 - stale quotes, reserved/absent materials and unsupported or dangling references fail without mutation
+  ---
+  duration_ms: 1.210125
+  type: 'test'
+  ...
+# Subtest: generated source determinism, capacity and freeze survive JSON roundtrip across three roots
+ok 49 - generated source determinism, capacity and freeze survive JSON roundtrip across three roots
+  ---
+  duration_ms: 17.083291
+  type: 'test'
+  ...
+# Subtest: saved exposures reject altered dose, duration and product even if the product remains owned
+ok 50 - saved exposures reject altered dose, duration and product even if the product remains owned
+  ---
+  duration_ms: 0.903958
+  type: 'test'
+  ...
+# Subtest: binder journey: harvest salt, brew, drink; poison conditions shorten and the saved mark validates
+ok 51 - binder journey: harvest salt, brew, drink; poison conditions shorten and the saved mark validates
+  ---
+  duration_ms: 4.217167
+  type: 'test'
+  ...
+# Subtest: an herbal tonic with no ash binds nothing and keeps its own effect
+ok 52 - an herbal tonic with no ash binds nothing and keeps its own effect
+  ---
+  duration_ms: 0.813541
+  type: 'test'
+  ...
+# Subtest: directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+ok 53 - directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+  ---
+  duration_ms: 3.986042
+  type: 'test'
+  ...
+# Subtest: native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+ok 54 - native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+  ---
+  duration_ms: 5.27625
+  type: 'test'
+  ...
+# Subtest: tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+ok 55 - tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+  ---
+  duration_ms: 0.669833
+  type: 'test'
+  ...
+# Subtest: body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+ok 56 - body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+  ---
+  duration_ms: 0.870708
+  type: 'test'
+  ...
+# Subtest: channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+ok 57 - channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+  ---
+  duration_ms: 0.468208
+  type: 'test'
+  ...
+# Subtest: recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+ok 58 - recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+  ---
+  duration_ms: 0.463333
+  type: 'test'
+  ...
+# Subtest: observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+ok 59 - observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+  ---
+  duration_ms: 4.007709
+  type: 'test'
+  ...
+# Subtest: old enrolled saves gain no energies, specialist, project or invented history
+ok 60 - old enrolled saves gain no energies, specialist, project or invented history
+  ---
+  duration_ms: 70.88875
+  type: 'test'
+  ...
+# Subtest: field and craft admission use different evidence and exact refundable supplies
+ok 61 - field and craft admission use different evidence and exact refundable supplies
+  ---
+  duration_ms: 91.110041
+  type: 'test'
+  ...
+# Subtest: teaching reserves both people; copying retains the donor and actual mastery
+ok 62 - teaching reserves both people; copying retains the donor and actual mastery
+  ---
+  duration_ms: 98.977458
+  type: 'test'
+  ...
+# Subtest: energy enforces output/control, real recovery, strain and saved capacity
+ok 63 - energy enforces output/control, real recovery, strain and saved capacity
+  ---
+  duration_ms: 86.003417
+  type: 'test'
+  ...
+# Subtest: a pending energy acquisition retains its committed policy through a registry revision
+ok 64 - a pending energy acquisition retains its committed policy through a registry revision
+  ---
+  duration_ms: 194.669708
+  type: 'test'
+  ...
+# Subtest: specialists spend owned supplies independently; reports differ from actual completion
+ok 65 - specialists spend owned supplies independently; reports differ from actual completion
+  ---
+  duration_ms: 141.0685
+  type: 'test'
+  ...
+# Subtest: mastery opens a useful application; cancellation refunds energy, strain, materials and money
+ok 66 - mastery opens a useful application; cancellation refunds energy, strain, materials and money
+  ---
+  duration_ms: 190.665583
+  type: 'test'
+  ...
+# Subtest: situations develop independently; help pays once and leaves a useful consequence
+ok 67 - situations develop independently; help pays once and leaves a useful consequence
+  ---
+  duration_ms: 243.549334
+  type: 'test'
+  ...
+# Subtest: new situation responses require idle participants while legacy incidental responses preserve their policy
+ok 68 - new situation responses require idle participants while legacy incidental responses preserve their policy
+  ---
+  duration_ms: 14.388583
+  type: 'test'
+  ...
+# Subtest: abstention creates no reward or debt; a later observed repair remains available
+ok 69 - abstention creates no reward or debt; a later observed repair remains available
+  ---
+  duration_ms: 283.600292
+  type: 'test'
+  ...
+# Subtest: encounter previews preserve state, pause time and release all participants at settlement
+ok 70 - encounter previews preserve state, pause time and release all participants at settlement
+  ---
+  duration_ms: 42.6825
+  type: 'test'
+  ...
+# Subtest: authoring diagnostics and corrupt participant overlap reject
+ok 71 - authoring diagnostics and corrupt participant overlap reject
+  ---
+  duration_ms: 23.553625
+  type: 'test'
+  ...
+# Subtest: failed persistence publishes no partial commission or debit
+ok 72 - failed persistence publishes no partial commission or debit
+  ---
+  duration_ms: 21.177791
+  type: 'test'
+  ...
+# Subtest: fieldcraft accepted work preserves exact terms through partial reload and completion
+ok 73 - fieldcraft accepted work preserves exact terms through partial reload and completion
+  ---
+  duration_ms: 193.469083
+  type: 'test'
+  ...
+# Subtest: fieldcraft importer rejects edited reservation, outputs, duration, participants and support
+ok 74 - fieldcraft importer rejects edited reservation, outputs, duration, participants and support
+  ---
+  duration_ms: 47.002875
+  type: 'test'
+  ...
+# Subtest: legacy fieldcraft work without a start stamp retains exact terms and bounded remaining time
+ok 75 - legacy fieldcraft work without a start stamp retains exact terms and bounded remaining time
+  ---
+  duration_ms: 54.498792
+  type: 'test'
+  ...
+# Subtest: fieldcraft loses native living-body support and refunds its actual reservation
+ok 76 - fieldcraft loses native living-body support and refunds its actual reservation
+  ---
+  duration_ms: 43.081209
+  type: 'test'
+  ...
+# Subtest: workshop native journey: process, source effects, field repair, swap, preserved identity and material custody
+ok 77 - workshop native journey: process, source effects, field repair, swap, preserved identity and material custody
+  ---
+  duration_ms: 335.780666
+  type: 'test'
+  ...
+# Subtest: workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts
+ok 78 - workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts
+  ---
+  duration_ms: 2.954042
+  type: 'test'
+  ...
+# Subtest: process law: real heat, cooling, material families, independent world rules and no repeated free improvement
+ok 79 - process law: real heat, cooling, material families, independent world rules and no repeated free improvement
+  ---
+  duration_ms: 1.9895
+  type: 'test'
+  ...
+# Subtest: same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll
+ok 80 - same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll
+  ---
+  duration_ms: 4.21675
+  type: 'test'
+  ...
+# Subtest: work records reject unsupported revisions and nonfinite physical modifiers
+ok 81 - work records reject unsupported revisions and nonfinite physical modifiers
+  ---
+  duration_ms: 0.310417
+  type: 'test'
+  ...
+# Subtest: rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary
+ok 82 - rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary
+  ---
+  duration_ms: 1.634958
+  type: 'test'
+  ...
+# Subtest: armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save
+ok 83 - armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save
+  ---
+  duration_ms: 1.820542
+  type: 'test'
+  ...
+# Subtest: cold-brittle metal armor: a warm lining resolves the need and lasting wear differs in the saved condition
+ok 84 - cold-brittle metal armor: a warm lining resolves the need and lasting wear differs in the saved condition
+  ---
+  duration_ms: 2.481791
+  type: 'test'
+  ...
+# Subtest: native hide preparation accepts idle elapsed time, stamps current chronology and rejects lost stock without spending
+ok 85 - native hide preparation accepts idle elapsed time, stamps current chronology and rejects lost stock without spending
+  ---
+  duration_ms: 2.296208
+  type: 'test'
+  ...
+# Subtest: learned focus steadies real quench and temper results, spends its own reserve and rolls back with a failed save
+ok 86 - learned focus steadies real quench and temper results, spends its own reserve and rolls back with a failed save
+  ---
+  duration_ms: 5.346208
+  type: 'test'
+  ...
+# Subtest: focus cannot replace heat or oil, transfer to another maker, or spend from a stale reserve
+ok 87 - focus cannot replace heat or oil, transfer to another maker, or spend from a stale reserve
+  ---
+  duration_ms: 1.108583
+  type: 'test'
+  ...
+# Subtest: selected inscription reroll preserves neighboring affixes and copy identity, debits stock and rolls back on quota failure
+ok 88 - selected inscription reroll preserves neighboring affixes and copy identity, debits stock and rolls back on quota failure
+  ---
+  duration_ms: 1.44425
+  type: 'test'
+  ...
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 89 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 1.5825
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 90 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 0.964708
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 91 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 0.626458
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+ok 92 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 0.475833
+  type: 'test'
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 93 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 0.603083
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+ok 94 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.276667
+  type: 'test'
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 95 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 0.580208
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 96 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.209917
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 97 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 15.154959
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 98 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 0.60525
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 99 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.340209
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 100 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 1.168834
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 101 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.1295
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 102 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.117584
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 103 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 0.86025
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 104 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 8.885625
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 105 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.381
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 106 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 0.513084
+  type: 'test'
+  ...
+# Subtest: brew from a fresh enrolled state: formula, frog, bench, time, then the same dose
+ok 107 - brew from a fresh enrolled state: formula, frog, bench, time, then the same dose
+  ---
+  duration_ms: 846.556958
+  type: 'test'
+  ...
+# Subtest: the brewed dose runs the existing acts, assessment and promotion
+ok 108 - the brewed dose runs the existing acts, assessment and promotion
+  ---
+  duration_ms: 1579.04125
+  type: 'test'
+  ...
+# Subtest: refusals: no formula, no frog, no money, no Hale, wrong order
+ok 109 - refusals: no formula, no frog, no money, no Hale, wrong order
+  ---
+  duration_ms: 101.731292
+  type: 'test'
+  ...
+# Subtest: another pathway: allocated or ingested probationers cannot brew, and a brew closes every other dose
+ok 110 - another pathway: allocated or ingested probationers cannot brew, and a brew closes every other dose
+  ---
+  duration_ms: 149.7255
+  type: 'test'
+  ...
+# Subtest: save and validate mid-brew keep the stage, the frog accounting and the clock
+ok 111 - save and validate mid-brew keep the stage, the frog accounting and the clock
+  ---
+  duration_ms: 555.411417
+  type: 'test'
+  ...
+# Subtest: the envelope balances: a held frog beside a started brew, a dose beside a brew in progress, and a double dose are refused
+ok 112 - the envelope balances: a held frog beside a started brew, a dose beside a brew in progress, and a double dose are refused
+  ---
+  duration_ms: 528.321584
+  type: 'test'
+  ...
+# Subtest: the slot shape is selector-compatible and resolves the exact frog key only
+ok 113 - the slot shape is selector-compatible and resolves the exact frog key only
+  ---
+  duration_ms: 1.041917
+  type: 'test'
+  ...
+# Subtest: AR7/MR4: pure mixture quotes reject changed stock, sequence, money or method before mutation
+ok 114 - AR7/MR4: pure mixture quotes reject changed stock, sequence, money or method before mutation
+  ---
+  duration_ms: 38.298084
+  type: 'test'
+  ...
+# Subtest: PC2-T27 failed durable new mix publishes no owners, stock, money, law, receipt or appearances
+ok 115 - PC2-T27 failed durable new mix publishes no owners, stock, money, law, receipt or appearances
+  ---
+  duration_ms: 4.317334
+  type: 'test'
+  ...
+# Subtest: paid mix publishes law/product/receipt with exact appearance product, and native use reads saved payload
+ok 116 - paid mix publishes law/product/receipt with exact appearance product, and native use reads saved payload
+  ---
+  duration_ms: 10.9185
+  type: 'test'
+  ...
+# Subtest: PC2-T30 synthetic restore vector applies resolver payload and retains all mass/trace
+ok 117 - PC2-T30 synthetic restore vector applies resolver payload and retains all mass/trace
+  ---
+  duration_ms: 3.375917
+  type: 'test'
+  ...
+# Subtest: PC2-T21/T22 full law freezes before use, reveal is idempotent and cannot replace truth
+ok 118 - PC2-T21/T22 full law freezes before use, reveal is idempotent and cannot replace truth
+  ---
+  duration_ms: 2.66
+  type: 'test'
+  ...
+# Subtest: repeat re-admits current laws, stale learned products refuse before debit
+ok 119 - repeat re-admits current laws, stale learned products refuse before debit
+  ---
+  duration_ms: 21.554792
+  type: 'test'
+  ...
+# Subtest: held new batch completes under its old law then stops next reservation on revision change
+ok 120 - held new batch completes under its old law then stops next reservation on revision change
+  ---
+  duration_ms: 11.08775
+  type: 'test'
+  ...
+# Subtest: revision-2 learned method, reservation and cancellation restore exact held inputs
+ok 121 - revision-2 learned method, reservation and cancellation restore exact held inputs
+  ---
+  duration_ms: 12.970416
+  type: 'test'
+  ...
+# Subtest: PC2-T31 revision-1 product, method, pending job and exposure retain old interpreter
+ok 122 - PC2-T31 revision-1 product, method, pending job and exposure retain old interpreter
+  ---
+  duration_ms: 10.178583
+  type: 'test'
+  ...
+# Subtest: PC2-T35 ordinary player text omits generated law value, raw trace confined to developer slot
+ok 123 - PC2-T35 ordinary player text omits generated law value, raw trace confined to developer slot
+  ---
+  duration_ms: 10.027708
+  type: 'test'
+  ...
+# Subtest: family generator is deterministic with correlated axes, accounted fractions, pinned golden draw
+ok 124 - family generator is deterministic with correlated axes, accounted fractions, pinned golden draw
+  ---
+  duration_ms: 5.276375
+  type: 'test'
+  ...
+# Subtest: pure preview, input-order invariance, ratios/process distinctions and complete conservation
+ok 125 - pure preview, input-order invariance, ratios/process distinctions and complete conservation
+  ---
+  duration_ms: 0.644875
+  type: 'test'
+  ...
+# Subtest: trace-bearing split retains exact rational portions and recombines every constituent
+ok 126 - trace-bearing split retains exact rational portions and recombines every constituent
+  ---
+  duration_ms: 0.202042
+  type: 'test'
+  ...
+# Subtest: unknown truth operates, unresolved required truth and fractional quantities reject
+ok 127 - unknown truth operates, unresolved required truth and fractional quantities reject
+  ---
+  duration_ms: 0.365166
+  type: 'test'
+  ...
+# Subtest: canonical identity decodes and dangling and noncanonical holder references reject
+ok 128 - canonical identity decodes and dangling and noncanonical holder references reject
+  ---
+  duration_ms: 0.645291
+  type: 'test'
+  ...
+# Subtest: hidden recipe and feasibility witness remain stable through retained save/import
+ok 129 - hidden recipe and feasibility witness remain stable through retained save/import
+  ---
+  duration_ms: 0.14525
+  type: 'test'
+  ...
+# Subtest: consumed exposure restores exact native payload/timing with no generated templates
+ok 130 - consumed exposure restores exact native payload/timing with no generated templates
+  ---
+  duration_ms: 0.4705
+  type: 'test'
+  ...
+# Subtest: rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+ok 131 - rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+  ---
+  duration_ms: 1.291167
+  type: 'test'
+  ...
+# Subtest: AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state
+ok 132 - AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state
+  ---
+  duration_ms: 0.209459
+  type: 'test'
+  ...
+# Subtest: success is retained when post-durable presentation throws
+ok 133 - success is retained when post-durable presentation throws
+  ---
+  duration_ms: 0.171042
+  type: 'test'
+  ...
+# Subtest: later recursive batch rejection preserves prior durable batch and allows retry
+ok 134 - later recursive batch rejection preserves prior durable batch and allows retry
+  ---
+  duration_ms: 2.045208
+  type: 'test'
+  ...
+# Subtest: array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+ok 135 - array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+  ---
+  duration_ms: 0.268625
+  type: 'test'
+  ...
+# Subtest: unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+ok 136 - unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+  ---
+  duration_ms: 0.150125
+  type: 'test'
+  ...
+# Subtest: actual private inventory and availability components restore without inventory/reward replay
+ok 137 - actual private inventory and availability components restore without inventory/reward replay
+  ---
+  duration_ms: 1.901042
+  type: 'test'
+  ...
+# Subtest: catalogue is base.native@1 with 20 to 40 materials and conserved fractions
+ok 138 - catalogue is base.native@1 with 20 to 40 materials and conserved fractions
+  ---
+  duration_ms: 0.570417
+  type: 'test'
+  ...
+# Subtest: every mapped id exists in the game item definitions
+ok 139 - every mapped id exists in the game item definitions
+  ---
+  duration_ms: 146.027542
+  type: 'test'
+  ...
+# Subtest: lookup and reverse queries
+ok 140 - lookup and reverse queries
+  ---
+  duration_ms: 0.701583
+  type: 'test'
+  ...
+# Subtest: property thresholds
+ok 141 - property thresholds
+  ---
+  duration_ms: 0.362291
+  type: 'test'
+  ...
+# Subtest: rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+ok 142 - rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+  ---
+  duration_ms: 3.830792
+  type: 'test'
+  ...
+# Subtest: native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+ok 143 - native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+  ---
+  duration_ms: 126.413458
+  type: 'test'
+  ...
+# Subtest: self-imposed vows have real admission rules; breaking them restores the ordinary route
+ok 144 - self-imposed vows have real admission rules; breaking them restores the ordinary route
+  ---
+  duration_ms: 0.664166
+  type: 'test'
+  ...
+# Subtest: a graded ordeal has staged decisions, risk, an early settlement and durable aftermath
+ok 145 - a graded ordeal has staged decisions, risk, an early settlement and durable aftermath
+  ---
+  duration_ms: 1.69975
+  type: 'test'
+  ...
+# Subtest: vows steady the trial, a failed attempt wakes the heart demon, calm and rations pay it down
+ok 146 - vows steady the trial, a failed attempt wakes the heart demon, calm and rations pay it down
+  ---
+  duration_ms: 0.890292
+  type: 'test'
+  ...
+# Subtest: the rune bench: pair knowledge comes only from two-rune tablets; the worn talisman expires and its price is real
+ok 147 - the rune bench: pair knowledge comes only from two-rune tablets; the worn talisman expires and its price is real
+  ---
+  duration_ms: 0.382208
+  type: 'test'
+  ...
+# Subtest: the slice round-trips, migrates absent to fresh, and rejects tampering
+ok 148 - the slice round-trips, migrates absent to fresh, and rejects tampering
+  ---
+  duration_ms: 0.495792
+  type: 'test'
+  ...
+# Subtest: domain: save omits an untouched slice, commands run through ports and publish stat buckets, rollback on a failed save
+ok 149 - domain: save omits an untouched slice, commands run through ports and publish stat buckets, rollback on a failed save
+  ---
+  duration_ms: 9.037
+  type: 'test'
+  ...
+# Subtest: charged ordered strips have graded capacity and spend only supported resolved uses
+ok 150 - charged ordered strips have graded capacity and spend only supported resolved uses
+  ---
+  duration_ms: 0.51875
+  type: 'test'
+  ...
+# Subtest: weapon trials use distinct scoring and recheck equipment; learning survives fear recovery and guarded route has exact terms
+ok 151 - weapon trials use distinct scoring and recheck equipment; learning survives fear recovery and guarded route has exact terms
+  ---
+  duration_ms: 0.479
+  type: 'test'
+  ...
+# Subtest: pairs: unordered and ordered entries, unnamed pairs discord instead of failing
+ok 152 - pairs: unordered and ordered entries, unnamed pairs discord instead of failing
+  ---
+  duration_ms: 0.915708
+  type: 'test'
+  ...
+# Subtest: talisman order matters, cost is paid regardless, length is a dial
+ok 153 - talisman order matters, cost is paid regardless, length is a dial
+  ---
+  duration_ms: 0.300666
+  type: 'test'
+  ...
+# Subtest: exhaustion coverage and contrast learning from the player record
+ok 154 - exhaustion coverage and contrast learning from the player record
+  ---
+  duration_ms: 0.392791
+  type: 'test'
+  ...
+# Subtest: natural funded commission grants once, rejects stale/repeat and fabricated objective
+ok 155 - natural funded commission grants once, rejects stale/repeat and fabricated objective
+  ---
+  duration_ms: 159.973833
+  type: 'test'
+  ...
+# Subtest: permanent learning, leased useful output and upgraded scope retain exact carriers
+ok 156 - permanent learning, leased useful output and upgraded scope retain exact carriers
+  ---
+  duration_ms: 147.150875
+  type: 'test'
+  ...
+# Subtest: cache seeded opening spends actual custody once and covers two useful outcomes
+ok 157 - cache seeded opening spends actual custody once and covers two useful outcomes
+  ---
+  duration_ms: 776.646542
+  type: 'test'
+  ...
+# Subtest: funded wager commits hidden draw, fold returns custody, win/loss settle once
+ok 158 - funded wager commits hidden draw, fold returns custody, win/loss settle once
+  ---
+  duration_ms: 590.004917
+  type: 'test'
+  ...
+# Subtest: lens requires learned source and actual tool; model exports only knowledge and changes real yield
+ok 159 - lens requires learned source and actual tool; model exports only knowledge and changes real yield
+  ---
+  duration_ms: 158.281
+  type: 'test'
+  ...
+# Subtest: Ren uses own stock after teacher leaves and disconnects; finite work stays finite
+ok 160 - Ren uses own stock after teacher leaves and disconnects; finite work stays finite
+  ---
+  duration_ms: 154.613917
+  type: 'test'
+  ...
+# Subtest: reservation reload/import, refund and failed storage never publish debit or grant
+ok 161 - reservation reload/import, refund and failed storage never publish debit or grant
+  ---
+  duration_ms: 45.0825
+  type: 'test'
+  ...
+# Subtest: old absent edition saves remain untouched; malformed ledger and wrong escrow reject
+ok 162 - old absent edition saves remain untouched; malformed ledger and wrong escrow reject
+  ---
+  duration_ms: 25.306
+  type: 'test'
+  ...
+# Subtest: preservation has a real clock consequence across carried, recipient and chest custody
+ok 163 - preservation has a real clock consequence across carried, recipient and chest custody
+  ---
+  duration_ms: 271.08475
+  type: 'test'
+  ...
+# Subtest: import rejects unfunded points and falsified experiment outputs
+ok 164 - import rejects unfunded points and falsified experiment outputs
+  ---
+  duration_ms: 18.7345
+  type: 'test'
+  ...
+# Subtest: expiry import must bind the receipt and cannot delete or move its deadline
+ok 165 - expiry import must bind the receipt and cannot delete or move its deadline
+  ---
+  duration_ms: 76.668709
+  type: 'test'
+  ...
+# Subtest: irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded
+ok 166 - irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded
+  ---
+  duration_ms: 143.962041
+  type: 'test'
+  ...
+# Subtest: eligibility ignores caller assertions about recommendation, installation and Ren learning
+ok 167 - eligibility ignores caller assertions about recommendation, installation and Ren learning
+  ---
+  duration_ms: 15.778042
+  type: 'test'
+  ...
+# Subtest: engine reconciles manufacture receipts and expiry before validating or returning its plan
+ok 168 - engine reconciles manufacture receipts and expiry before validating or returning its plan
+  ---
+  duration_ms: 107.44675
+  type: 'test'
+  ...
+1..168
+# tests 168
+# suites 0
+# pass 167
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7680.080958

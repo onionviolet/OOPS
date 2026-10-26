@@ -21,16 +21,16 @@ export function mountShellStripBoxes() {
     // Each entry: the box, the native nodes it holds (with a mark at each native home) and where
     // its button sits in the shell.
     const strips = [
-        {box: createControlBox({id: 'skills', title: 'Skills view', placement: 'below'}), nodes: ['skill_sorting_buttons', 'skill_hiding_div'],
+        {box: createControlBox({id: 'skills', title: 'Skills view', triggerLabel: 'Sort / filter', placement: 'below'}), nodes: ['skill_sorting_buttons', 'skill_hiding_div'],
             host: () => document.querySelector('.workspace-module[data-module="skills"] > .workspace-module-header'),
             label() { const sort = pressed(byId('skill_sorting_buttons')).replace(/^Sort by /i, '') || 'name';
                 const text = skillsLabel({sort: sort[0].toUpperCase() + sort.slice(1), hideMax: !!byId('options_hide_max_level_skills')?.checked});
                 return [text, `${text}. Opens skill sorting and Hide max level skills.`]; }},
-        {box: createControlBox({id: 'quests', title: 'Quests view', placement: 'below'}), nodes: ['quest_hiding_div'],
+        {box: createControlBox({id: 'quests', title: 'Quests view', triggerLabel: 'Filter', placement: 'below'}), nodes: ['quest_hiding_div'],
             host: () => document.querySelector('.workspace-module[data-module="records"] > .workspace-module-header'),
             visible: () => byId('journal_show_quests')?.classList.contains('active_selection_button'),
             label() { const text = questsLabel({hideCompleted: !!byId('quest_hiding_button')?.checked}); return [text, `${text}. Opens Hide completed.`]; }},
-        {box: createControlBox({id: 'crafting', title: 'Recipe view', placement: 'below'}), nodes: ['crafting_subpage_buttons', 'crafting_makeable_filter'],
+        {box: createControlBox({id: 'crafting', title: 'Recipe view', triggerLabel: 'Filter', placement: 'below'}), nodes: ['crafting_subpage_buttons', 'crafting_makeable_filter'],
             row: true, host: () => byId('crafting_window'), before: () => byId('crafting_filter_empty'),
             label() { const pages = [...(byId('crafting_subpage_buttons')?.children || [])].filter(shown).length;
                 const text = craftingLabel({page: pressed(byId('crafting_subpage_buttons')), pages, makeable: !!byId('crafting_makeable_filter')?.checked});

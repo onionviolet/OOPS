@@ -1,0 +1,21 @@
+{
+  "PROJECT.md": {
+    "prior_content_preserved": true,
+    "added": true
+  },
+  "docs/USER_VISION.md": {
+    "prior_content_preserved": true,
+    "added": true
+  },
+  "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/REPORT.md": {
+    "prior_content_preserved": true,
+    "added": true
+  },
+  "final_dispatch": {
+    "dispatch_complete": true,
+    "unique_created_chats": 4,
+    "all_prompts_include_shared_guidance": true,
+    "local_links_checked": 25,
+    "link_errors": []
+  }
+}

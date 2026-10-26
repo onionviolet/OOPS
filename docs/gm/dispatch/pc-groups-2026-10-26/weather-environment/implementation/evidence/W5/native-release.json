@@ -1,0 +1,40 @@
+{
+  "source_ready": true,
+  "native_floor_complete": true,
+  "bundleHash": "f8c4220cddcf009dec4076bc0b47f1813715b854b80c32e86b6369e5dde21a25",
+  "nativeCandidate": "/Users/weiwei/.codex/research/weather-w5-2026-10-26/snapshot",
+  "candidateHashes": {
+    "src/craft_sources.js": "1cfa3bed33cc0cdcd1413132e382562b7f440d83bfeaf27a7a1a75f3f7acacdc",
+    "tests/craft_engine.test.js": "c1b15443e36c703afeac58c03abb756914ddb25b75d9175256a5f02d9b7230d4",
+    "src/book_world_paradise_ecology.js": "1273e5c4bed08fb7ed7dd381d0dc98cf114d6923918cb9cdf7a9e49c78928a8f",
+    "tests/paradise_ecology.test.js": "44872b2115671ea21d095c69ebce71c0e5936cdc3d88894601901e654d933dcf",
+    "src/book_world_paradise_campaign_content.js": "c78b745ff0dd900fda4af07c4b45856872ac6484cc83866bf684d92047d6a52f",
+    "src/book_world_paradise_campaign_host.js": "5d686b8667757a0f38008cbdcbaaa01068b3d66c0edda364452cb4f59f324a40",
+    "src/book_world_paradise_campaign_facts.js": "ade4b952137ff9ea9601feec4ea62fbf3093e74500ad8877bee721936d9b4750"
+  },
+  "liveReleaseHashes": {
+    "src/craft_sources.js": "1cfa3bed33cc0cdcd1413132e382562b7f440d83bfeaf27a7a1a75f3f7acacdc",
+    "tests/craft_engine.test.js": "c1b15443e36c703afeac58c03abb756914ddb25b75d9175256a5f02d9b7230d4",
+    "src/book_world_paradise_ecology.js": "1273e5c4bed08fb7ed7dd381d0dc98cf114d6923918cb9cdf7a9e49c78928a8f",
+    "tests/paradise_ecology.test.js": "44872b2115671ea21d095c69ebce71c0e5936cdc3d88894601901e654d933dcf",
+    "src/book_world_paradise_campaign_content.js": "34ff5dfa3f3d01ff68640f085bfe6dc431a6274a2ddfb2aee3a5778ee1c94c19",
+    "src/book_world_paradise_campaign_host.js": "a2235f3392a1a08be77e6705f93393dec76ffdd04edf3f4585f1cc9c3ec6a753",
+    "src/book_world_paradise_campaign_facts.js": "e8cc3878a5cdb88221c8bc4da5e69982318ace6adf0c696ee844f22bf6ac3a08"
+  },
+  "native": "native-result.json:11 full-route native Save/reload/Export/literal Import checkpoints; native-final-result.json:3 reimport/cost/actual care checkpoints, zero page errors, 4desktop combinations",
+  "reviewState": "agent-verified, not human-reviewed",
+  "sharedJoinQualification": "Own immutable S1 nursery candidate with W4 final helper/test and W5 final UI projection. Subsequent W6 field joins in live shared paths are preserved, require W6 combined verification; native_candidate_hashes pin actual proven bytes.",
+  "runtimeProcessesStopped": [
+    1713,
+    3217
+  ],
+  "remaining": "Exact flowering/ripening/molt/migration/soil and native regional-property source/reader gaps remain ledger-qualified, no broad ecology completion or publication.",
+  "costQualification": "Closed by W6 native-vital-result.json: actual care saved stamina offset0->1 at same clock, native persistence exact. Earlier W5 direct-plan debit claim superseded.",
+  "integratedCorrection": {
+    "owner": "W6",
+    "bundleHash": "bedda8b209685c62585cccf8cb25c52f9bc30911dd8938d866b439bb6c5f5c48",
+    "vitalReceipt": "../W6/native-vital-result.json",
+    "joinedReceipt": "../W6/native-settled-result.json",
+    "status": "agent-verified, not human-reviewed"
+  }
+}

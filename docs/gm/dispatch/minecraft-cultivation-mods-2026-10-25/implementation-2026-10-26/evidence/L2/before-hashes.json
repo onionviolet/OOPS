@@ -1,0 +1,8 @@
+{
+  "src/field_workshop.js": "bb87548497f77ec96c65ca5f86f6fdd8f5d959b719c457065277d8919321e673",
+  "tests/field_workshop.test.js": "4a591c610dacc6783544437ba073dafa1e77ae645f22d91eff38e26ff0815bc9",
+  "src/simulation.js": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+  "src/simulation_effects.js": "e33a06c22bdf0483b58aaba67bc3f65a0209e7e227d794da275a315247d714b1",
+  "src/power_models.js": "0869e3b38ecd44e392a01ca3d7d5c2e4abb0e6cada00fb9cd958c595f1f1cc32",
+  "src/expansion_engine.js": "0f3de2dea80b3be44bfca5d54b9e3e2ae5fbeb84705b2d48247017ef93aca008"
+}

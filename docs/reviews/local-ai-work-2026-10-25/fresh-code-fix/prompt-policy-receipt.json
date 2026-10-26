@@ -1,0 +1,32 @@
+[
+  {
+    "event": "agent/inbox/spliced",
+    "path": "root.data.inserted.0.content.0.text",
+    "normalized_finish_phrase": false,
+    "excerpt": "ed suite and independent acceptance and reports their exact statuses. After its next_action final_answer packet, immediately give a normal final answer under 120 words with paths and check results. No post-pass cleanup or rereads. Fix test failures yourself within this single task; no external repai"
+  },
+  {
+    "event": "system/message",
+    "path": "root.data.message.content.0.text",
+    "normalized_finish_phrase": true,
+    "excerpt": "rfaces and use the supplied focused checks. After a verification helper returns next_action final_answer for unchanged sources, your next response is a concise final answer. Do not clean comments, reread verified outputs or make more tool calls after that pass unless you can name a concrete unresolv"
+  },
+  {
+    "event": "user/message",
+    "path": "root.data.content.0.text",
+    "normalized_finish_phrase": false,
+    "excerpt": "ed suite and independent acceptance and reports their exact statuses. After its next_action final_answer packet, immediately give a normal final answer under 120 words with paths and check results. No post-pass cleanup or rereads. Fix test failures yourself within this single task; no external repai"
+  },
+  {
+    "event": "session/title-llm-request",
+    "path": "root.data.messages.0.content.0.text",
+    "normalized_finish_phrase": false,
+    "excerpt": "ed suite and independent acceptance and reports their exact statuses. After its next_action final_answer packet, immediately give a normal final answer under 120 words with paths and check results. No post-pass cleanup or rereads. Fix test failures yourself within this single task; no external repai"
+  },
+  {
+    "event": "tool/result",
+    "path": "root.data.message.content.0.text",
+    "normalized_finish_phrase": false,
+    "excerpt": "the final two responses for verification and reporting. When the helper returns next_action final_answer with a passing receipt, the next response should be the final answer, not another tool call. After required checks pass, return a short final answer with changed paths, commands/results and unres"
+  }
+]

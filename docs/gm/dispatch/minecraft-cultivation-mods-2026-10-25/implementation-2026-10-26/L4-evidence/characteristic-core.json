@@ -1,0 +1,10 @@
+{
+  "serial": "TC01",
+  "id": "Tagged characteristic TC01",
+  "key": "{\"id\":\"Tagged characteristic TC01\"}",
+  "pathway": "Visionary",
+  "seq": 9,
+  "stock": 1,
+  "pence": 1440,
+  "committedFlag": "book.lotm.bf.core.tc01.committed"
+}

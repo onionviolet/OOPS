@@ -22,8 +22,11 @@ export function createPeopleOverview() {
             const signature = JSON.stringify([title(row), row]);
             if(signature !== card.signature) {
                 card.signature = signature; card.heading.textContent = title(row); card.location.textContent = row.location;
-                card.details.replaceChildren(...row.details.map(text => node("p", text)));
-                card.history.replaceChildren(...row.memories.map(m => node("li", m.text))); card.history.hidden = !row.memories.length;
+                if(row.accounts?.length){
+                    card.details.replaceChildren(node('h4','Known capabilities and services'),node('p','These are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person’s local service for current terms.'));
+                    for(const account of row.accounts){const entry=node('div');entry.dataset.personAccount=account.id;entry.append(node('p',account.text),node('small',`${account.basis}${Number.isFinite(account.at)?` · played minute ${account.at}`:''}`));card.details.append(entry);}
+                }else card.details.replaceChildren(...row.details.map(text => node("p", text)));
+                card.history.replaceChildren(...row.memories.map(m => node("li", m.text))); card.history.hidden = !!row.accounts?.length || !row.memories.length;
             }
         }
         for(const [id,card] of cards) if(!rows.some(row => row.id === id)) {card.root.remove(); cards.delete(id);}

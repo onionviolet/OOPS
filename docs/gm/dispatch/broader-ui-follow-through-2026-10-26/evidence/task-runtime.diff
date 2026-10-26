@@ -1,0 +1,308 @@
+diff --git a/docs/gm/dispatch/broader-ui-follow-through-2026-10-26/evidence/list-helper-before.js b/src/ui_components.js
+index 7c37769fb..24cf623ae 100644
+--- a/docs/gm/dispatch/broader-ui-follow-through-2026-10-26/evidence/list-helper-before.js
++++ b/src/ui_components.js
+@@ -54,7 +54,8 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
+         kind=select('Item kind',INVENTORY_KINDS);quality=select('Quality',[['all','Any quality'],['50','50% or higher'],['100','100% or higher'],['125','125% or higher'],['150','150% or higher'],['none','No quality rating']]);
+         list.inventoryFilter={clear(){kind.value='all';quality.value='all';},active:()=>kind.value!=='all'||quality.value!=='all',summary:()=>[kind.value!=='all'?kind.selectedOptions[0].textContent:'',quality.value!=='all'?quality.selectedOptions[0].textContent:''].filter(Boolean).join(' · ')};
+     }
+-    let selected=null;
++    let selected=null;const searchGroups=new Map();
++    const inventory=id==='inventory_content_div',noun=({'skill':'skills','bestiary entry':'entries','read book':'books'})[label]||'entries';
+     const name=row=>row.querySelector(nameSelector)?.textContent||row.firstElementChild?.textContent||row.textContent;
+     const key=row=>row.dataset.character_item||row.id||name(row);
+     function refresh(){
+@@ -63,13 +64,23 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
+             const q=row.dataset.item_quality;
+             const facts={name:name(row),kind:inventoryRowKind([...row.classList]),quality:q!=null&&q!==''&&Number.isFinite(Number(q))?Number(q):null};
+             row.classList.toggle('ui-list-filtered',!matchesInventoryFilter(facts,{query:search.value,kind:kind?.value||'all',quality:quality?.value||'all'}));
+-            if(getComputedStyle(row).display!=='none')visible++;
++            const capped=id==='skill_list'&&row.querySelector('.skill_bar_capped');
++            const admitted=!row.hidden&&row.style.display!=='none'&&!row.classList.contains('ui-list-filtered')&&(!capped||getComputedStyle(capped).display!=='none');
++            if(inventory?getComputedStyle(row).display!=='none':admitted)visible++;
+             row.toggleAttribute('data-ui-selected',!!selected&&key(row)===selected);
+         }
+         const units=rows.filter(row=>getComputedStyle(row).display!=='none').reduce((n,row)=>n+(Number(row.dataset.item_count)||1),0);
+-        const text=`${visible} / ${rows.length} stacks · ${units} items`;count.title='Matching stacks and units after category, name, kind and quality filters.';if(count.textContent!==text)count.textContent=text;
++        const text=inventory?`${visible} / ${rows.length} stacks · ${units} items`:`${visible} / ${rows.length} ${noun}`;count.title=inventory?'Matching stacks and units after category, name, kind and quality filters.':'Matching '+noun+'; collapsed groups keep their entries.';if(count.textContent!==text)count.textContent=text;
++        if(id==='skill_list'){
++            const searching=!!search.value.trim();
++            for(const group of list.querySelectorAll('.skill_category_div')){
++                if(searching){if(!searchGroups.has(group))searchGroups.set(group,group.classList.contains('skill_category_expanded'));group.classList.toggle('skill_category_expanded',[...group.querySelectorAll(rowSelector)].some(row=>!row.classList.contains('ui-list-filtered')));}
++                else if(searchGroups.has(group)){group.classList.toggle('skill_category_expanded',searchGroups.get(group));}
++            }
++            if(!searching)searchGroups.clear();
++        }
+         // A panel may describe its own empty state (R18 inventory tabs: nothing held, empty category, no match).
+-        empty.hidden=visible>0;const hint=(list.inventoryFilter?.active()?'No items match these view choices. Clear filters to see all.':list.emptyHint?.())||(rows.length?'No matches. Clear search or change the category.':emptyText);if(empty.textContent!==hint)empty.textContent=hint;
++        empty.hidden=visible>0;const hint=(list.inventoryFilter?.active()?'No items match these view choices. Clear filters to see all.':list.emptyHint?.())||(rows.length?(id==='skill_list'?'No skills match these view choices. Clear search or show max level skills.':'No matches. Clear search or change the category.'):emptyText);if(empty.textContent!==hint)empty.textContent=hint;
+     }
+     search.addEventListener('input',()=>{refresh();list.scrollTop=0;});
+     list.addEventListener('focusin',event=>{const row=[...list.querySelectorAll(rowSelector)].find(n=>n.contains(event.target));if(row){selected=key(row);refresh();row.scrollIntoView({block:'nearest'});}});
+diff --git a/tmp/oops-broader-ui-before/src/ui/control_box.js b/src/ui/control_box.js
+index 610bf507d..d1741646d 100644
+--- a/tmp/oops-broader-ui-before/src/ui/control_box.js
++++ b/src/ui/control_box.js
+@@ -19,11 +19,13 @@ export function controlBoxLabel(parts, fallback) {
+     return shown.length ? shown.join(' · ') : fallback;
+ }
+ 
+-export function createControlBox({id, title, placement = 'below', keepOpen = null, panelHome = null}) {
++export function createControlBox({id, title, placement = 'below', keepOpen = null, panelHome = null, triggerLabel = ''}) {
+     const root = make('div', 'control-box'); root.dataset.controlBox = id;
+     const button = make('button', 'control-box-button'); button.type = 'button';
+     const text = make('span', 'control-box-label'), caret = make('span', 'control-box-caret', '▾');
+-    caret.setAttribute('aria-hidden', 'true'); button.append(text, caret);
++    caret.setAttribute('aria-hidden', 'true');
++    if (triggerLabel) button.append(make('span', 'control-box-purpose', triggerLabel + ':'));
++    button.append(text, caret);
+     const panel = make('div', 'control-box-panel'); panel.id = `control_box_${id}`; panel.setAttribute('popover', 'manual');
+     panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', title);
+     const heading = make('div', 'control-box-heading'), name = make('strong', '', title), close = make('button', 'control-box-close', '×');
+@@ -70,7 +72,7 @@ export function createControlBox({id, title, placement = 'below', keepOpen = nul
+         panel.showPopover(); position(); openBox = api;
+         button.setAttribute('aria-expanded', 'true');
+         // Native strips moved in (UM5) are focusable divs with role=button; they count as controls too.
+-        if (focus) (body.querySelector('input:not([hidden]),select,button:not(:disabled),[role="button"][tabindex="0"]:not([hidden])') || close).focus({preventScroll: true});
++        if (focus) ([...body.querySelectorAll('input,select,button,[role="button"][tabindex="0"]')].find(n => !n.disabled && n.getClientRects().length && getComputedStyle(n).visibility !== 'hidden') || close).focus({preventScroll: true});
+     }
+     function hide({restore = true} = {}) {
+         if (!isOpen()) return;
+diff --git a/tmp/oops-broader-ui-before/src/center_modes.js b/src/center_modes.js
+index dff928adf..7c74111a7 100644
+--- a/tmp/oops-broader-ui-before/src/center_modes.js
++++ b/src/center_modes.js
+@@ -42,7 +42,7 @@ export function centerModes() {
+         const node = document.getElementById(id); if (node) content.append(node);
+     }
+     host.append(nav);
+-    const views=new Map(),positions=new Map();let activeMode='local',releasedMode=null;
++    const views=new Map(),positions=new Map(),returnFocus=new Map();let activeMode='local',releasedMode=null;
+     const remember=mode=>{const root=views.get(mode)?.node||content;positions.set(mode,{scroll:[content,root,...root.querySelectorAll('*')].filter(n=>n.scrollHeight>n.clientHeight).map(n=>[n,n.scrollTop,n.scrollLeft]),groups:[...root.querySelectorAll('details')].map(n=>[n,n.open]),dropdowns:[...root.querySelectorAll('.location_choice_dropdown')].map(n=>[n.className.split(' ').find(c=>c.startsWith('choice_')),n.classList.contains('location_choice_dropdown_expanded')])});};
+     const surfaces = {crafting: 'crafting_window', trade: 'trade_div', storage: 'storage_div', mixing: 'village_mixing_panel'};
+     const titles={crafting:'Crafting',trade:'Trade',storage:'Storage',mixing:'Village mixing counter'};
+@@ -55,7 +55,10 @@ export function centerModes() {
+         return heading;
+     }
+     owner = createCenterModes((mode, depth, destination,direction) => {
+-        const changed=activeMode!==mode;if(changed&&releasedMode!==activeMode)remember(activeMode);releasedMode=null;
++        const previousMode=activeMode;
++        const changed=activeMode!==mode;
++        if(changed&&direction!=='back')returnFocus.set(mode,document.activeElement);
++        if(changed&&releasedMode!==activeMode)remember(activeMode);releasedMode=null;
+         activeMode=mode;
+         for(const[key,node]of nativeHeadings)node.hidden=key!==mode;
+         const mixing = document.getElementById('village_mixing_panel');
+@@ -82,7 +85,12 @@ export function centerModes() {
+             if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls);n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}
+             else content.scrollTop=0;
+             if(depth)host.closest('.workspace-module')?.scrollIntoView({block:'nearest'});
+-            if(depth)modeHeading(mode)?.focus({preventScroll:true});
++            if(direction==='back'){
++                const origin=returnFocus.get(previousMode);
++                if(origin?.isConnected&&origin.getClientRects().length&&!origin.disabled)origin.focus({preventScroll:true});
++                else {const heading=modeHeading(mode)||actions;heading.tabIndex=-1;heading.focus({preventScroll:true});}
++                returnFocus.delete(previousMode);
++            }else if(depth)modeHeading(mode)?.focus({preventScroll:true});
+         }
+     });
+     owner.registerView=(mode,node,label)=>{views.set(mode,{node,label});content.append(node);};
+diff --git a/tmp/oops-broader-ui-before/src/proto23_shell.js b/src/proto23_shell.js
+index a6b0fb1c9..127ed3d8c 100644
+--- a/tmp/oops-broader-ui-before/src/proto23_shell.js
++++ b/src/proto23_shell.js
+@@ -115,7 +115,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
+     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
+     detail.append(title,meta,body,controls);
+-    let selected=null,signature='',playerSignature='';
++    let selected=null,signature='',playerSignature='',detailIdentity='';
+     const originalLogLabels=new Map(),originalNoticeLabels=new Map();
+     function syncNoticeLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const link of document.querySelectorAll('#message_box_div .notice-panel-link')){if(parity){if(!originalNoticeLabels.has(link))originalNoticeLabels.set(link,{text:link.textContent,title:link.title});const label=({'skills':'Skills','belongings':'Inventory','crafting':'Crafting','local-actions':'Here','records':'Journal','condition':'Condition'})[link.dataset.noticePanel]||'Related panel';const text=label+' ›';if(link.textContent!==text)link.textContent=text;const description='Open '+label+' · current panel';if(link.title!==description)link.title=description;if(link.getAttribute('aria-label')!==description)link.setAttribute('aria-label',description);}else if(originalNoticeLabels.has(link)){const old=originalNoticeLabels.get(link);link.textContent=old.text;link.title=old.title;link.removeAttribute('aria-label');originalNoticeLabels.delete(link);}}for(const link of originalNoticeLabels.keys())if(!link.isConnected)originalNoticeLabels.delete(link);}
+     function syncLogLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const[id,label]of [['message_show_unlocks','Growth'],['message_show_events','Events'],['message_show_crafting','Crafting'],['message_show_combat','Combat'],['message_show_loot','Loot'],['message_show_background','World']]){const control=document.getElementById(id);if(!control)continue;if(parity){if(!originalLogLabels.has(control))originalLogLabels.set(control,control.textContent);if(control.textContent!==label)control.textContent=label;}else if(originalLogLabels.has(control)){control.textContent=originalLogLabels.get(control);originalLogLabels.delete(control);}}}
+@@ -188,13 +188,13 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+     const previewBody=node('div',null,'shell-preview-body'),previewFooter=node('div',null,'shell-preview-footer');
+     const full=action('Full item ›',()=>{if(hovered?.isConnected){const row=hovered;row.focus({preventScroll:true});choose(row);expandWorkspaceModule('shell-detail');}});
+     previewFooter.append(full,node('span','Inspection is free · Esc closes'));preview.append(previewBody,previewFooter);player.append(preview);
+-    let hovered=null,previewSignature='',hideTimer=null;
++    let hovered=null,previewSignature='',hideTimer=null,returningPreviewFocus=false;
+     function hidePreview(){clearTimeout(hideTimer);if(preview.matches(':popover-open'))preview.hidePopover();hovered?.removeAttribute('aria-describedby');hovered=null;previewSignature='';}
+     function deferHide(){clearTimeout(hideTimer);hideTimer=setTimeout(hidePreview,180);}
+     function showPreview(row){
+-        // A visible stable inspector owns this reading space; hover must not cover its commands.
++        // Keep a command being edited intact; another carried row can still be previewed.
+         const itemDetail=document.getElementById('proto23_item_detail');
+-        if(selected&&itemDetail&&rendered(itemDetail)){hidePreview();return;}
++        if(itemDetail?.contains(document.activeElement)){hidePreview();return;}
+         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
+         const tooltip=row.querySelector('.item_tooltip');if(!tooltip)return;hideContext();
+         clearTimeout(hideTimer);if(hovered!==row||previewSignature!==tooltip.innerHTML){hovered?.removeAttribute('aria-describedby');hovered=row;previewSignature=tooltip.innerHTML;previewBody.replaceChildren(descriptionCopy(tooltip));}
+@@ -214,7 +214,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+     document.addEventListener('mouseover',hover);document.addEventListener('mouseout',leave);
+     preview.addEventListener('mouseenter',()=>clearTimeout(hideTimer));preview.addEventListener('mouseleave',deferHide);
+     preview.addEventListener('focusout',event=>{if(!preview.contains(event.relatedTarget))deferHide();});
+-    const dismiss=event=>{if(event.key==='Escape'&&preview.matches(':popover-open')){hidePreview();event.preventDefault();event.stopImmediatePropagation();}};
++    const dismiss=event=>{if(event.key==='Escape'&&preview.matches(':popover-open')){const source=hovered,restore=preview.contains(document.activeElement);hidePreview();if(restore&&source?.isConnected){returningPreviewFocus=true;try{source.focus({preventScroll:true});}finally{returningPreviewFocus=false;}}event.preventDefault();event.stopImmediatePropagation();}};
+     document.addEventListener('keydown',dismiss,true);
+     window.addEventListener('blur',hidePreview);
+     const dismissClick=event=>{if(!preview.contains(event.target))hidePreview();};
+@@ -282,7 +282,9 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+         if(!row||event.target.closest('.item_controls,.item_use_button,.item_auto_use_button,.item_fav_div,.known-item-binding'))return;
+         choose(row);
+     };
+-    document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);
++    document.addEventListener('click',inspect);
++    const previewFocus=event=>{if(returningPreviewFocus)return;const row=event.target.closest('#inventory_content_div > [data-character_item]');if(row)showPreview(row);};
++    document.addEventListener('focusin',previewFocus);
+     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
+     function fitSecondary(){
+         const root=document.getElementById('main_content');
+@@ -391,24 +393,31 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+         const row=rowForSelection();
+         const comparison=selected.key?compareWorn?.(selected.key):null;
+         const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded,comparison]);if(next===signature)return;signature=next;
+-        const tooltip=row?.querySelector('.item_tooltip');
++        const slot=selected.slot&&frame.equipment.find(s=>s.id===selected.slot);
++        const occupied=!selected.slot||!!slot?.name&&!row?.classList.contains('equipment_slot_empty');
++        const tooltip=occupied?row?.querySelector('.item_tooltip'):null;
+         detail.dataset.itemKind=row?.dataset.item_slot||row?.querySelector('.item_category')?.textContent.replace(/[\[\]]/g,'').trim()||(selected.slot?'Equipped item':'Item');
+         title.className='shell-item-title';
+-        title.textContent=row?.querySelector('.item_name')?.textContent|| (selected.slot?frame.equipment.find(s=>s.id===selected.slot)?.name:'Item no longer held')||'Empty slot';
+-        meta.textContent=selected.slot?`Equipped · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
++        title.textContent=selected.slot&&!occupied?`${slot?.label||selected.slot} slot · empty`:row?.querySelector('.item_name')?.textContent|| (selected.slot?slot?.name:'Item no longer held')||'Empty slot';
++        meta.textContent=selected.slot?`${occupied?'Equipped':'Empty'} · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
+         meta.title=selected.slot?'Follows the current item in this equipment slot.':'Follows this exact carried stack.';
+         body.replaceChildren();
+         if(tooltip)body.append(descriptionCopy(tooltip));
+-        else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
++        else if(selected.slot&&!occupied){
++            const fitting=[...document.querySelectorAll('#inventory_content_div > [data-character_item]')].filter(n=>n.dataset.item_slot===selected.slot);
++            body.append(node('p',fitting.length?'Choose carried equipment for this slot:':'No carried equipment fits this slot. Find or buy fitting gear, then inspect it here.'));
++            for(const candidate of fitting)body.append(action(candidate.querySelector('.item_name')?.textContent||'Inspect held gear',()=>choose(candidate)));
++        }else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
+         if(comparison){
+             const section=node('section',null,'worn-comparison');section.append(node('strong',`If worn · compared with ${comparison.baselineName}`),node('p',comparison.note));
+             const format=n=>String(Math.round(n*1000)/1000);
+             for(const r of comparison.rows)section.append(node('p',`${r.label}: ${format(r.current)} → ${format(r.worn)} (Δ ${r.delta>0?'+':''}${format(r.delta)})`));
+             body.append(section);
+         }
+-        const moreWasOpen=!!detail.closest('#center_mode_content')&&controls.querySelector('.shell-item-more')?.open;
+-        controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));more.addEventListener('toggle',()=>{if(more.open&&root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))expandWorkspaceModule('shell-detail');});
+-        if(selected.slot&&tooltip){const takeoff=action('Take off',()=>{const source=rowForSelection();if(source&&!source.classList.contains('equipment_slot_empty'))source.click();signature='';render();});takeoff.disabled=!!frame.reason;takeoff.title=frame.reason;controls.append(takeoff);}
++        const identity=JSON.stringify(selected);
++        const moreWasOpen=identity===detailIdentity&&controls.querySelector('.shell-item-more')?.open;detailIdentity=identity;
++        controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));
++        if(selected.slot&&occupied&&tooltip){const takeoff=action('Take off',()=>{const source=rowForSelection();if(source&&!source.classList.contains('equipment_slot_empty'))source.click();signature='';render();});takeoff.disabled=!!frame.reason;takeoff.title=frame.reason;controls.append(takeoff);}
+         if(!selected.slot&&row){
+             const favorite=row.querySelector('.item_fav_div');
+             if(favorite&&root.dataset.parity==='r3'){const favored=row.querySelector('.item_fav_icon')?.textContent==='star';const b=action(favored?'Unfavorite':'Favorite',()=>{rowForSelection()?.querySelector('.item_fav_div')?.click();signature='';render();});b.dataset.shellFavorite='';b.setAttribute('aria-pressed',String(favored));more.append(b);}
+@@ -426,5 +435,5 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+         inventoryComposition.render(rowForSelection());
+     }
+     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
+-    const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};
++    const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',previewFocus);}};
+ }
+diff --git a/tmp/oops-broader-ui-before/src/shell_control_boxes.js b/src/shell_control_boxes.js
+index ef38205f7..b2ddaa2b5 100644
+--- a/tmp/oops-broader-ui-before/src/shell_control_boxes.js
++++ b/src/shell_control_boxes.js
+@@ -34,12 +34,12 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse,
+     const parity = () => document.getElementById('main_content')?.dataset.parity === 'r3';
+     // Inventory: one row [tabs][box]; the box opens search, count, sort and direction.
+     const row = document.createElement('span'); row.className = 'shell-header-tools shell-control-row';
+-    const inventory = createControlBox({id: 'inventory', title: 'Inventory view', placement: 'below', keepOpen: keepInventory && {...keepInventory, anchor: () => document.querySelector('.workspace-module[data-module="belongings"] > .workspace-module-body')}});
++    const inventory = createControlBox({id: 'inventory', title: 'Inventory view', triggerLabel: 'Find / filter', placement: 'below', keepOpen: keepInventory && {...keepInventory, anchor: () => document.querySelector('.workspace-module[data-module="belongings"] > .workspace-module-body')}});
+     const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'shell-control-clear'; clear.textContent = '×';
+     clear.addEventListener('click', () => tabs.node.querySelector('.inventory-tabs-clear')?.click());
+     row.append(inventory.node, clear);
+     // Reports: [box][Latest] in the Reports header; filters, follow, stop and clear in the box.
+-    const reports = createControlBox({id: 'reports', title: 'Reports view', placement: 'beside'});
++    const reports = createControlBox({id: 'reports', title: 'Reports view', triggerLabel: 'Filter', placement: 'beside'});
+     const reportsRow = document.createElement('span'); reportsRow.className = 'shell-header-tools';
+     reportsRow.append(reports.node);
+     const toggles = document.createElement('div'); toggles.className = 'control-box-toggles'; toggles.setAttribute('role', 'group'); toggles.setAttribute('aria-label', 'Report kinds shown');
+@@ -49,6 +49,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse,
+         b.addEventListener('click', () => { document.getElementById(id)?.click(); render(); });
+         proxies.set(id, b); toggles.append(b);
+     }
++    const hiddenReports = document.createElement('p'); hiddenReports.className = 'shell-reports-empty'; hiddenReports.textContent = 'All report kinds are hidden. Choose kinds below to show existing history.'; hiddenReports.hidden = true;
+     const options = document.createElement('div'); options.className = 'control-box-options';
+     let wasParity = null, folded = null, lastSize = '';
+     // Weibao 2026-10-17: the You header is the place to type your name (Proto23's "You" title).
+@@ -71,7 +72,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse,
+         if (tabs.node.parentNode !== compact) compact.prepend(tabs.node);
+         row.remove();
+         log.tools.append(log.filters, log.follow, log.latest, log.combatLog, log.clearLog);
+-        reportsRow.remove();
++        reportsRow.remove(); hiddenReports.remove();
+         inventory.close({restore: false}); reports.close({restore: false});
+     };
+     const place = () => {
+@@ -90,7 +91,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse,
+         const header = document.querySelector('.workspace-module[data-module="messages"] > .workspace-module-header');
+         if (header && reportsRow.parentNode !== header) header.querySelector('strong')?.after(reportsRow);
+         if (log.latest.parentNode !== reportsRow) reportsRow.append(log.latest);
+-        if (toggles.parentNode !== reports.body) reports.body.append(toggles, options);
++        if (toggles.parentNode !== reports.body) reports.body.append(hiddenReports, toggles, options);
+         for (const n of [log.follow, log.combatLog, log.clearLog]) if (n.parentNode !== options) options.append(n);
+     };
+     function render() {
+@@ -117,6 +118,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse,
+             b.hidden = !native || native.hidden;
+         }
+         const reportText = reportsLabel({enabled, total: proxies.size, follow: log.follow.value, combatStopped: log.combatLog.getAttribute('aria-pressed') === 'true'});
++        hiddenReports.hidden = enabled !== 0;
+         reports.setLabel(reportText, `${reportText}. Opens report kinds, follow, stop combat log and clear.`);
+     }
+     return {render, inventory, reports, folded: () => folded};
+diff --git a/tmp/oops-broader-ui-before/src/shell_strip_boxes.js b/src/shell_strip_boxes.js
+index 550017d0a..4ecccfd70 100644
+--- a/tmp/oops-broader-ui-before/src/shell_strip_boxes.js
++++ b/src/shell_strip_boxes.js
+@@ -21,16 +21,16 @@ export function mountShellStripBoxes() {
+     // Each entry: the box, the native nodes it holds (with a mark at each native home) and where
+     // its button sits in the shell.
+     const strips = [
+-        {box: createControlBox({id: 'skills', title: 'Skills view', placement: 'below'}), nodes: ['skill_sorting_buttons', 'skill_hiding_div'],
++        {box: createControlBox({id: 'skills', title: 'Skills view', triggerLabel: 'Sort / filter', placement: 'below'}), nodes: ['skill_sorting_buttons', 'skill_hiding_div'],
+             host: () => document.querySelector('.workspace-module[data-module="skills"] > .workspace-module-header'),
+             label() { const sort = pressed(byId('skill_sorting_buttons')).replace(/^Sort by /i, '') || 'name';
+                 const text = skillsLabel({sort: sort[0].toUpperCase() + sort.slice(1), hideMax: !!byId('options_hide_max_level_skills')?.checked});
+                 return [text, `${text}. Opens skill sorting and Hide max level skills.`]; }},
+-        {box: createControlBox({id: 'quests', title: 'Quests view', placement: 'below'}), nodes: ['quest_hiding_div'],
++        {box: createControlBox({id: 'quests', title: 'Quests view', triggerLabel: 'Filter', placement: 'below'}), nodes: ['quest_hiding_div'],
+             host: () => document.querySelector('.workspace-module[data-module="records"] > .workspace-module-header'),
+             visible: () => byId('journal_show_quests')?.classList.contains('active_selection_button'),
+             label() { const text = questsLabel({hideCompleted: !!byId('quest_hiding_button')?.checked}); return [text, `${text}. Opens Hide completed.`]; }},
+-        {box: createControlBox({id: 'crafting', title: 'Recipe view', placement: 'below'}), nodes: ['crafting_subpage_buttons', 'crafting_makeable_filter'],
++        {box: createControlBox({id: 'crafting', title: 'Recipe view', triggerLabel: 'Filter', placement: 'below'}), nodes: ['crafting_subpage_buttons', 'crafting_makeable_filter'],
+             row: true, host: () => byId('crafting_window'), before: () => byId('crafting_filter_empty'),
+             label() { const pages = [...(byId('crafting_subpage_buttons')?.children || [])].filter(shown).length;
+                 const text = craftingLabel({page: pressed(byId('crafting_subpage_buttons')), pages, makeable: !!byId('crafting_makeable_filter')?.checked});
+diff --git a/tmp/oops-broader-ui-before/styles/shell_chrome.css b/styles/shell_chrome.css
+index 2fbd4e74a..1eea10034 100644
+--- a/tmp/oops-broader-ui-before/styles/shell_chrome.css
++++ b/styles/shell_chrome.css
+@@ -221,3 +221,21 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
+ #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(1)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*3.3)!important;}
+ #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(2)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*4.8)!important;}
+ #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(3)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*6.3)!important;}
++
++/* Shared view controls keep their purpose visible while the current choice may truncate. */
++.control-box-purpose {flex:0 0 auto;color:var(--p23-text);}
++.control-box-purpose + .control-box-label {color:var(--p23-muted);}
++:is(#main_content,body) .control-box-button {min-height:var(--ui-control-sm);gap:var(--ui-space-2);line-height:var(--ui-line-compact);}
++.control-box-heading > button {min-height:var(--ui-control-sm);}
++#main_content.workspace-active[data-parity="r3"] .shell-item-actions {flex-wrap:wrap;align-items:flex-start;gap:var(--ui-space-1);}
++#main_content.workspace-active[data-parity="r3"] .shell-item-more {max-width:100%;}
++#main_content.workspace-active[data-parity="r3"] .shell-reports-empty {margin:var(--ui-space-2);padding:var(--ui-space-2);color:var(--p23-muted);border:1px solid var(--p23-line);line-height:var(--ui-line-body);}
++#main_content .shell-reports-empty[hidden] {display:none;}
++
++/* The shell's full-width row rule must still obey the native category filters. */
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_events {display:var(--message_events_display);}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_unlocks {display:var(--message_unlocks_display);}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_crafting {display:var(--message_crafting_display);}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_combat {display:var(--message_combat_display);}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_loot {display:var(--message_loot_display);}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_background {display:var(--message_background_display);}

@@ -1,10 +1,62 @@
-## Effect-first UI descriptions, 2026-10-25
+## Weather/environment implementation chats, 2026-10-26
 
-Weibao requested more narrative descriptions that explain what traits, stats and
-other subjects do, retaining calculations as supporting detail. [UR70–UR74](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
-record the standing writing rules; [base-game comparison and examples](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
-identify the current inspector gap. Rules are saved; runtime copy and app adoption
-remain unchanged by this documentation task.
+Weibao selected implementing applicable PC44–PC53 audit details through six chats: place-clock aging, native rain/home timing, exposure/drying/shelter, environmental inputs, seasonal ecology and forecasts/supernatural weather with combined proof. [Direction](docs/USER_VISION.md#weatherenvironment-details-selected-for-implementation-2026-10-26); [dispatch](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/COMMON.md); [chat ledger](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/THREADS.json). Shared subtle/necessary guidance is built into all six briefs. Bounded S1 source and agent browser proof now join finite coppice, measured water, physical drying, an explicitly ORIGINAL pulse forecast/charged carrier, paid grounding and existing kit/paid orders. The [combined coverage ledger](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/COMBINED_COVERAGE.md) preserves the wider selected source gaps. This is agent-verified, not human-reviewed; installed-app adoption, commit and publication are unselected. Book-world/menu priority and shared-writer ownership remain. Later continuation authority removes the artificial usage stop for these existing chats; [resumption](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/RESUMPTION.md) preserves scope and verification.
+
+## PC implementation follow-through, 2026-10-26
+
+Weibao selected implementation chats for every applicable PC-group detail and
+asked that subtle and necessary connections be carried into their briefs.
+[Direction](docs/USER_VISION.md#pc-implementation-subtlety-follow-through-2026-10-26)
+and [shared follow-through](docs/gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md)
+supersede the original audit-only restriction. All seven group owners received
+the guidance; they continue existing child dispatches with explicit ownership,
+dependency and evidence coverage. Dispatch/messages do not establish completed
+gameplay or app adoption. Existing priorities, shared-write reservations and
+AD36/AD43 completion checks remain.
+
+## Quality floor and extension rules, 2026-10-26
+
+Weibao asked for overarching next moves and better implementation, absorption
+and execution rules for a bare minimum of quality and ways to extend it
+([request](docs/USER_VISION.md#quality-floor-and-extension-rules-2026-10-26)).
+[Implementation practice audit round 2](docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-2-2026-10-26-a-quality-floor-for-implementation-absorption-and-execution)
+IPC18-IPC35 finds the floor scattered across proposed rulebooks and unenforced,
+and proposes a one-page floor in the rules index, a receipt front-matter block
+with lint, MCP route walks before browser proof, an orphan-row check for
+absorbed content, a description lint and a quality ladder, in the order IPC35.
+Weibao then accepted the six floor lines: [AD43](docs/RULES_INDEX.md#definition-of-done-the-floor-ad43), a slice is done only at the floor. The other rows stay proposals. Round 3 (IPC36-IPC51) mined the origin of every rulebook and 395 of his chat corrections: all rulebooks came after a noticed mistake, and the mistakes recur where no check followed; it proposes an eight-line design pre-flight on briefs (PRF1-PRF8) and a doc lint, proposals only. Round 4 (IPC52-IPC65) covers the technical foundation: generator conformance, a burn-down owner for the architecture baseline, the standing stack answer and a stop rule for the content DSL; proposals. Round 5 (IPC66-IPC75) created [GROUND_RULES](docs/GROUND_RULES.md), wired it into the coordinator entry points, and opened the carry-out queue Q1-Q18 so every open packet has a state.
+
+Primary adoption, 2026-10-26: Weibao requested putting the tooling in the primary
+checkout and checking his broader general-rules/coordination/optimization request.
+[Adoption record](docs/gm/dispatch/carry-out-queue-2026-10-26/PRIMARY_ADOPTION.md)
+owns Q1/Q2/Q3/Q6/Q7/Q8's local source adoption and verification.
+[Round 7](docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-7-2026-10-26-primary-adoption-and-the-whole-request)
+maps the full request to addressed and remaining work. PRF/FND remain proposed;
+tooling adoption does not complete the ideas backlog or replace gameplay work.
+
+## Non-UI rule follow-through, 2026-10-26
+
+The [selected follow-through](docs/gm/dispatch/rules-consideration-2026-10-26/dispatch/README.md)
+splits broader UI work from non-UI rule/workflow corrections. The
+[non-UI receipt](docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md)
+records local authority/status/routing corrections, event-time knowledge,
+admission versus continuing support, actual means/costs, observer-safe failure
+wording and AD36/AD42 evidence/review clarifications. PRF/FND and detailed
+GTR/ABR recommendations remain proposed. This is documentation/source inspection,
+not gameplay verification or publication; UI delivery stays with its sibling
+receipt and R1 remains the owner of sync, nested triage and correction measures.
+
+## Effect-first UI descriptions, implementation 2026-10-26
+
+Weibao selected implementing the description rules in current tooltips and
+traits. [UR70–UR75](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
+now route practical meaning, supporting calculations and contextual terms.
+The [implementation receipt](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
+records the stat/trait changes, other-game comparison, generated desktop proof
+and verification state. Weibao subsequently selected normal-app adoption and
+logo publication: [the normal app now runs the verified description build](docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md), with the logo/icon fix pushed as `d2ef02bdc`.
+The description source remains local/uncommitted; only the logo/icon paths were
+published. The October 25 documentation-only state is historical.
 
 <a id="current-delivery-routing-checked-2026-10-22"></a>
 
@@ -526,6 +578,8 @@ FA14 resident work is source-assessed and budget-blocked: the earned19:54calenda
 FA13 current source passes ten focused contract checks. Native optional enrollments, one paid inconclusive trial and exact pending/final persistence are verified on the isolated R8 build. Its100-minute play budget exceeded108minutes; the attempt is stopped with no runtime source repair. The separate control/comparison/kit/feat/dog and remaining native gates stay open. [R8 report](docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/REPORT.md) owns the proof and process failure; the [live checkpoint](docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md) owns current writer and the next reviewed fresh-GM unit. No whole-chain or director acceptance is claimed.
 
 ## Standing priorities and document authority
+
+**Ground rules (2026-10-26):** read [GROUND_RULES](docs/GROUND_RULES.md) before any task: the accepted delivery floor FLR1–FLR6 (AD43), the proposed design pre-flight PRF1–PRF8 and foundation defaults FND1–FND5, and the process lines every agent already follows. Open proposals are dispatched from one [carry-out queue](docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-5-2026-10-26-the-fix-ground-rules-carry-out-queue-and-optimization). [Request](docs/USER_VISION.md#ground-rules-and-carrying-out-the-plans-2026-10-26).
 
 **Agent usage limits (2026-10-16):** [AD37 / AU1–AU15](docs/AGENT_USAGE_RULES.md)
 budget an explicit full-book request as one finite source-sized pass, targeting
@@ -2055,3 +2109,66 @@ Gothic Appearance candidate, readable prose fallback and rarity/focus glow have
 rebuilt checks. [Styling receipt and 53-entry checklist](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20)
 - Lives and inheritance wiring (IM8, IM11, IM12, IM21, OG18) landed and browser-checked at 1536/1920: [record](docs/gm/dispatch/itch-wiring-2026-10-23/lives-carry-wiring.md).
 - Weibao, 2026-10-23: build the leftover itch.io items (orphan, grief and came-of-age events, genetics and companion wishes, diplomacy and schism, skill floor, spatial homes) as small per-world dials despite AD33's NPC-heavy deprioritization; AD33 stands for everything not named. [Record](docs/USER_VISION.md#leftover-itchio-items-built-as-small-per-world-dials-2026-10-23), [round 4](docs/research/ITCH_IO_IDLE_SCREEN_2026-10-22.md#more-to-consider-round-4-2026-10-23-leftover-items-and-interactions).
+
+
+## Minecraft-derived research lanes selected for implementation, 2026-10-26
+
+Weibao selected implementing the applicable ideas across all eight research lanes, one user-visible chat per lane. [Direction](docs/USER_VISION.md#minecraft-research-lane-implementation-2026-10-26); [dispatch and ownership](docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/COMMON.md); [thread ledger](docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/THREADS.json). Book worlds and menus retain priority; existing field worlds remain shared-mechanism test beds. Two concurrent implementation/check lanes, file reservations and lane-local build outputs protect the dirty primary checkout. L8 owns combined integration evidence. This is implementation authorization and dispatch, not proof of new gameplay, commits, publication or app adoption.
+
+## Mockup fidelity and freshness, 2026-10-26
+
+Weibao requested updating the workbench so it stays representative and dispatching
+a new chat to repeat the UI character/source audit. [MW8](docs/MOCKUP_SYSTEM.md#standing-rules)
+owns archived/sketch/native labels and live source/output drift checks. The sparse
+character study remains a material sketch; matching source hashes do not make it
+a faithful full interface. [Audit/rerun record](docs/reviews/UI_CHARACTER_DIRECTION_2026-10-26.md)
+owns the fuller populated current-shell comparison and verification state.
+Production visual direction and runtime/app adoption remain unselected.
+
+Rerun delivered, 2026-10-26: the workbench now defaults to the full populated native
+shell with baseline/Signal/Folio treatments, actual task controllers and a matched
+[gallery](prototypes/workbench/evidence/native-character-2026-10-26/gallery.html).
+UIC15–UIC22 in the report record twelve desktop/text/treatment journeys, four
+effects modes and the remaining scope limits. Agent-verified, not human-reviewed;
+visual recommendations remain proposals.
+
+## Material foundations implementation selected, 2026-10-26
+
+Weibao requested chats to implement each detail from the G5 PC27–PC43 audit.
+[Direction](docs/USER_VISION.md#material-foundations-implementation-chats-2026-10-26)
+and [dispatch](docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COMMON.md)
+cover vocabulary/validation, lots/causal receipts, observer-safe inspectors, the
+HP preparation journey, distinct world semantics and measured costs/integration.
+Five builder chats and one integrator retain dependency/file ownership and the
+existing book-world/menu priority. Each applicable audit detail needs an explicit
+implementation/evidence disposition; chat creation does not verify gameplay.
+No commit, push, normal-profile installation or private-save access authorized.
+
+G5 integration checkpoint: the [coverage ledger](docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COVERAGE.md)
+now links released vocabulary/unit validation, exact causal receipts, observer-safe
+HP assessment and paid preparation, and distinct local world readers. The shared
+frozen build passes native rendering stock/refusal and literal file-import proof
+at desktop/laptop 14/21. G2 imported-material quantity, rollback, useful downstream
+potion use and four native file roundtrips also pass on that same frozen bundle. [Gate evidence](docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/shared-gate-status.json)
+preserves the full test command's four snapshot-input errors and the passing
+14-test targeted recovery. This is isolated preview evidence, not app adoption.
+
+## G4 cross-craft implementation selected, 2026-10-26
+
+Weibao selected implementing the applicable PC23–PC26 audit details in four connected chats: retained cross-craft outputs, teachable/fallible methods, functional delivery and off-spec recovery. [Direction](docs/USER_VISION.md#g4-cross-craft-details-selected-for-implementation-2026-10-26); [dispatch and coverage](docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/COMMON.md). Book-world/menu priority and incumbent ownership stand. These chats implement one connected journey with explicit source release and AD43 evidence; creation is not completed gameplay or app adoption. No commit/push selected.
+
+## G1 connected-making implementation selected, 2026-10-26
+
+Weibao selected implementing the PC1–PC6 audit details in four connected chats: quote/forecast correctness, demonstrated methods and observation, cohort/pending-process custody, and useful HP invention with combined integration. [Direction](docs/USER_VISION.md#g1-connected-making-details-selected-for-implementation-2026-10-26); [dispatch, coverage and dependencies](docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COMMON.md). Shared [subtle-detail follow-through](docs/gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md) is incorporated into all four briefs, including G2/G3/G5/G6 joins. Book-world/menu priority, active incumbent ownership and AD36/AD43 stand. Chat creation is dispatch, not verified gameplay. No commit, push, private-save access or normal-app adoption selected.
+
+HP connected slice update, 2026-10-26: paid preparation, useful ORIGINAL suspension, observed fine/coarse comparison, current-stock demonstrated repeat, actual apparatus-to-potion reader and retained partial/pending custody are agent-verified on the shared G2/G5 candidate `28bbfe910094`. [Coverage and remaining whole-G1 gates](docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COVERAGE.md) and [exact integration evidence](docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/INTEGRATION.md#final-shared-hp-consumer-adoption) retain source identity, shared full-run-plus-focused-recovery evidence, earned/fixture boundaries and native file round trips. I1 quote/treatment/quantity-forecast repairs and remaining I2/I3 Frontier/LOTM joins are still open; HP proof does not close them. Agent-verified, not human-reviewed; no installed-app adoption, commit or push.
+
+
+## G2 ingredient-substitution implementation, 2026-10-26
+
+Weibao selected PC7–PC14 and G2 findings/expansions for implementation through five connected chats. [Direction](docs/USER_VISION.md#g2-ingredient-substitution-details-selected-for-implementation-2026-10-26), [dispatch](docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/README.md) and [integration receipt](docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md) retain coverage, SF1–SF8 joins, active ownership and evidence. Later user authority removed the usage stop. G2 now has an agent-verified ORIGINAL HP substitution journey on frozen bundle `28bbfe910094`: fine reference, carried Bonemeal alternative and coarse/native blend, paid preparation, exact joint spending/rollback, quantity-dependent cleanup, demonstrated methods, useful cauldron-to-Polyjuice reader and four native file round trips. The [final coverage and AD43 receipt](docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md#final-connected-delivery-2026-10-26) distinguishes earned routes from named fixtures and records the shared full-run capture errors plus passing affected-file recovery. Agent-verified, not human-reviewed. No commit, push, normal-app adoption or private-save work selected.
+
+
+## Connected lore implementation selected, 2026-10-26
+
+Weibao selected the applicable PC54–PC60 lore details and their necessary connections for implementation, following the completed G7 audit. [Direction](docs/USER_VISION.md#lore-and-idea-source-details-selected-for-implementation-2026-10-26) and [shared brief](docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/COMMON.md) preserve the complete selection. L1/L2 extend Cyoria's attributed documents and supported guide preparations; L3 owns historical apparatus, bounded institutional interpretation and the joined useful lamp journey. [Integration checkpoint](docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3.md) records exact source/browser/persistence states. Current status: selected G7 coverage is agent-verified on the exact frozen QA artifact, including joined J1, persistence, desktop and combined-check repair evidence. The original full-suite diagnostics are retained beside passing affected-file repairs; later other-group primary changes keep their own gates. No normal-app adoption, commit or push is selected.

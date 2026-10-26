@@ -95,7 +95,7 @@ export function locusView(m, l) {
     else if (def.mode === 'recessive') alleles = lv === 2 ? [def.strong, def.strong] : [def.plain, '?'];
     else alleles = lv === 0 ? [def.plain, def.plain] : [def.strong, '?'];
     const known = !alleles.includes('?');
-    return {locus: l, label: def.label, shows, level: lv, alleles, known, effect: lv ? def.effect : ''};
+    return {locus: l, label: def.label, shows, level: lv, alleles, known, description: lv ? {wind:'An enduring constitution helps sustain physical effort.',eye:'A watchful eye picks out details that others miss.',nerve:lv===1?'Your movements show a little inherited steadiness.':'A steady nerve keeps your movements sure.',knack:'Fine control comes unusually naturally.'}[l] : 'This inherited quality does not visibly show.', effect: lv ? l === 'nerve' ? `Agility +${lv*2}%.` : def.effect : ''};
 }
 export const memberView = m => LOCUS_IDS.map(l => locusView(m, l));
 export const hiddenLoci = m => LOCUS_IDS.filter(l => !locusView(m, l).known);

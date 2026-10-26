@@ -1,0 +1,10 @@
+{
+  "owned": {
+    "src/cultivation_guidance.js": "6984a236bee4cd390f36b4a63496d7c04fc02f436dc8c6df26f8442b3c02d9e2",
+    "src/absorb_p23/host_joins/world_adaptation_ui.js": "49b1b57bc91456b402d3370c6c29e2875e7515c0d7d32bf54c3291fcc40e6528",
+    "tests/cultivation_guidance.test.js": "f867ec657f8f8397dd778fde8164d2da7f90f28549d1cad6e313866008236b5a"
+  },
+  "bundleSha256": "b5134ed72ccfaed2963de16dc43b637b95561c78de45b52df6ae5d9c52b54789",
+  "inputManifestSha256": "482b372e83271256c5d467452c763642b7ba935cdca9ea53aeab4e12fdb1b240",
+  "immutableInputs": 1311
+}

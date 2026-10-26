@@ -3,6 +3,10 @@
 // Definitions grant no person, body, stock, source, purse or reward on import.
 import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
 import {eq, gte} from './basics.js';
+import {paradiseFieldDefinitions} from './book_world_paradise_field.js';
+import {paradiseDryingDefinitions} from './book_world_paradise_drying.js';
+import {paradiseEcologyDefinitions} from './book_world_paradise_ecology.js';
+import {paradiseEnvironmentDefinitions} from './book_world_paradise_environment_inputs.js';
 import {itemActorFirst as item, transferOne as transfer} from './content_kit.js';
 
 export const PARADISE_CAMPAIGN_IDS = Object.freeze({prefix:'book.paradise.campaign.', group:'book_paradise_campaign',
@@ -80,6 +84,25 @@ const commands=[
         visibleWhen:all(f('enrolled'),eq(`paradise.local.${P.hub}`),f('methodFaculty')),
         requires:all(local(P.hub),f('methodFaculty')),effects:[{type:'source',actor:'player',sourceId:I.method,operation:'activate',active:false},
             know('paused','I voluntarily stopped using my line procedure. Its source record and learned history remain mine; exact source activation is required again for its consumers. No tool, body or mastery changed.')]}),
+    ...[1,2].map(tier=>command('hub.foundation_'+tier,
+        `Rehearse ${tier===1?'a single loaded line':'a continuous load sequence'} · held kit/rope + 3 stamina · 6 min`,P.hub,L.hub,{
+        visibleWhen:all(f('enrolled'),f('methodOwned'),eq('paradiseCampaign.foundation',tier-1)),
+        description:`Plan and test ${tier===1?'the brace, load and release of one frame':'a shared setup for two successive frames'} at your own bench. Six minutes and three stamina deepen your line procedure without adding mastery. ${tier===1?'Opens measured single-kit work: one log, two stamina, three minutes.':'Opens continuous two-kit work: two logs, three stamina, four minutes.'} Both learned procedures, supported hands and owned tools remain necessary. Original local exercise and values.`,
+        requires:all(bench,method,f('baseMethod','Keep your learned load-bracing procedure active.'),eq('paradiseCampaign.foundation',tier-1,'Complete the preceding load-path rehearsal first.')),
+        ...timed(6,all(bench,f('methodFaculty'),f('baseMethod'),eq('paradiseCampaign.foundation',tier-1)),false,I.bench),
+        costs:[...ownTools,stamina('player',-3)],
+        effects:[...returnTools,{type:'faculty',actor:'player',sourceId:I.method,operation:'develop',amount:1},know('foundation_'+tier,
+            tier===1?'I tested one complete loaded-line plan with my own brace and line procedures. The held kit and rope returned once; six minutes and three stamina stayed spent. This planning foundation opens measured single-kit work without adding mastery or a passive body bonus.':
+                'I tested a continuous plan for two successive loaded frames. The held kit and rope returned once; six minutes and three stamina stayed spent. Shared setup now supports a two-kit batch from two real logs, without adding mastery, copying another body or creating material.','player','player',true)]})),
+    ...[['measured',1,1,2,3],['continuous',2,2,3,4]].map(([slug,tier,count,effort,minutes])=>command('hub.make_'+slug,
+        `Make ${count===1?'one measured kit':'two continuous-load kits'} · ${count} log${count===1?'':'s'} + held kit/rope + ${effort} stamina · ${minutes} min`,P.hub,L.hub,{
+        once:false,visibleWhen:all(f('enrolled'),f('methodOwned'),gte('paradiseCampaign.foundation',tier)),
+        description:`Combine your active load-bracing and line procedures with rehearsed ${tier===1?'single-load planning':'continuous-load planning'}. ${count} real log${count===1?' becomes one existing survey kit':'s become two existing survey kits'}; your held kit and rope return once. Costs ${effort} stamina and ${minutes} minutes. This conserves material and grants no mastery or wages. Original local method combination.`,
+        requires:all(bench,method,f('baseMethod','Keep your learned load-bracing procedure active.'),gte('paradiseCampaign.foundation',tier,'Rehearse this load sequence at your bench first.')),
+        powerId:I.method,...timed(minutes,all(bench,f('methodFaculty'),f('baseMethod'),gte('paradiseCampaign.foundation',tier)),false,I.bench),
+        costs:[item('player',K.log,-count),...ownTools,stamina('player',-effort)],
+        effects:[...returnTools,item('player',K.kit,count),know('production_'+slug,
+            `My own active brace and line procedures used the rehearsed ${slug} sequence. ${count} actual log${count===1?' became one native survey kit':'s became two native survey kits'}; the held kit and rope returned once. ${effort} stamina and ${minutes} minutes stayed spent. No mastery, stock refill or wage followed.`)]})),
     command('hub.resume_method','Resume your own learned line procedure',P.hub,L.training,{once:false,
         visibleWhen:all(f('enrolled'),eq(`paradise.local.${P.hub}`),f('methodOwned'),not(f('methodFaculty'))),
         requires:all(local(P.hub),currentHands,f('methodResumable')),effects:[{type:'source',actor:'player',sourceId:I.method,operation:'activate',active:true},
@@ -179,6 +202,14 @@ commands.push(
             know('gate_loss','No supported rescue or own received-route shelter reached me before this bounded physical danger closed. My actual life ended; this is an authored alternative branch consequence, not an inevitable source restoration.',P.hank)]}),
 );
 
+const dryingDefinitions=paradiseDryingDefinitions({command,timed,bench,item,stamina,know});
+commands.push(...dryingDefinitions.commands);
+commands.push(...paradiseFieldDefinitions({command,timed,bench,item,stamina,know,purse}));
+commands.push(...paradiseEnvironmentDefinitions({command,timed,bench,item,stamina,know,purse,contact}));
+
+const ecologyDefinitions=paradiseEcologyDefinitions({command,timed,bench,stamina,know,purse,contact});
+commands.push(...ecologyDefinitions.commands);
+
 const turns=[
     {cue:'Krieg presses for escape while Hank is caught at the actual gate. Choose how to gain a small working gap; pressure already spent Krieg’s own attention and body.',responses:[
         {id:'rigged_gap',label:'Rig a controlled working gap · held kit/rope + 2 stamina',requires:all(turnReady,method,f('controlled'),f('surveyed')),
@@ -227,7 +258,7 @@ export const paradiseCampaignPostRescueWithdrawalEffects=[af('sceneClosed'),wf('
 
 export const paradiseCampaignSources=[{id:I.method,revision:1,label:'Independently acquired line rigging',kind:'technique',origin:'trained',grants:[],
     bioDetail:'Original paid or personally researched derivative of the learner’s actual bracing procedure. Ordinary hands, owned kit/rope, active source and personally inspected anchors control its bounded lift and craft consumers. No copied talent or mana.'}];
-export const paradiseCampaignDefinitions={commands,conditions:[
+export const paradiseCampaignDefinitions={commands,people:[...dryingDefinitions.people,...ecologyDefinitions.people],conditions:[
     {id:I.smoke,revision:1,label:'Smoke irritation',stacking:'max',bioVisible:true,bioDetail:'Temporary irritation from the disclosed exposed Goa rescue. Player native perception ×0.9 and stamina efficiency ×0.9; Hank’s careful personal duty-kit order waits for recovery. No additional health drain.'},
     {id:I.guard,revision:1,label:'Ordinary smoke wrap',stacking:'max',bioVisible:true,bioDetail:'A spent cloth preparation for the exact sheltered gate-lift consumer; no general immunity or new protection rank.'},
     {id:I.bruise,revision:1,label:'Gate bruising',stacking:'max',bioVisible:true,bioDetail:'Temporary bruising from actual disclosed gate pressure. Player native dexterity ×0.9; Hank’s careful personal duty-kit order waits for recovery. The scene already paid its health cost.'}],

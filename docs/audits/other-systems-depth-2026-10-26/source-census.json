@@ -1,0 +1,164 @@
+{
+  "route": "static source inspection; no runtime acceptance",
+  "locators": {
+    "src/structured_expedition_runtime.js": {
+      "compileStructuredExpeditions": [
+        20
+      ],
+      "validateStructuredExpeditionDefinition": [
+        36,
+        42,
+        81
+      ],
+      "previewStructuredExpeditions": [
+        80
+      ]
+    },
+    "src/site_projects.js": {
+      "compileSiteProject": [
+        4
+      ],
+      "projectView": [
+        27
+      ]
+    },
+    "src/drainage_site.js": {
+      "validateDrainage": [
+        19,
+        99
+      ],
+      "quoteDrainage": [
+        27,
+        67,
+        112
+      ],
+      "drainageView": [
+        101
+      ]
+    },
+    "src/authored_site.js": {
+      "compileDraft": [
+        86,
+        122,
+        150
+      ],
+      "applyAuthoredState": [
+        120
+      ]
+    },
+    "src/body_progression.js": {
+      "bodyFacts": [
+        94,
+        110,
+        111,
+        112
+      ],
+      "bodyFacultyActive": [
+        118
+      ]
+    },
+    "src/status_care_facts.js": {
+      "statusCareSupportedBody": [
+        22,
+        29,
+        35
+      ],
+      "projectStatusCareEffects": [
+        48
+      ]
+    },
+    "src/book_care_facts.js": {
+      "bookCareEffectsSupported": [
+        27,
+        66
+      ],
+      "bookCareCarriedBaseCareSupported": [
+        38,
+        50
+      ]
+    },
+    "src/habitat_care.js": {
+      "validateHabitat": [
+        10,
+        29
+      ],
+      "projectHabitat": [
+        28,
+        40,
+        48
+      ]
+    },
+    "src/world_completion_learning_runtime.js": {
+      "freezeWorldCompletionLearningJob": [
+        12
+      ],
+      "retainWorldCompletionLearningWindow": [
+        24
+      ],
+      "completeWorldCompletionLearningJob": [
+        60
+      ]
+    },
+    "src/steam_boh_facts.js": {
+      "steamBOHFacts": [
+        12
+      ],
+      "validateSteamBOHState": [
+        24
+      ]
+    },
+    "src/known_routes.js": {
+      "projectKnownRoutes": [
+        11
+      ],
+      "routeSpeedGain": [
+        82,
+        84
+      ]
+    }
+  },
+  "packExpeditionSearch": {
+    "searchedFiles": [
+      "src/world_packs/book_hp_life_data.js",
+      "src/world_packs/book_hp_pack.js",
+      "src/world_packs/book_hp_school_extension.js",
+      "src/world_packs/book_mol_pack.js",
+      "src/world_packs/book_shadow_slave_life.js"
+    ],
+    "pattern": "\\bexpeditions\\b",
+    "matches": [],
+    "limit": "Lexical search in this directory, not proof that no expedition-like gameplay exists."
+  },
+  "conditionCarrier": {
+    "file": "src/simulation_effects.js",
+    "actorKeyedAssignmentPresent": true
+  },
+  "routeWear": {
+    "src/runtime_state.js": [
+      {
+        "line": 78,
+        "text": "export const pathWear = {factor: (from, to) => 1};"
+      }
+    ],
+    "src/economy_standing_domain.js": [
+      {
+        "line": 5,
+        "text": "import {current_location, travel_times, pathWear} from './runtime_state.js';"
+      },
+      {
+        "line": 58,
+        "text": "pathWear.factor = worn;"
+      }
+    ],
+    "src/pathfinding.js": [
+      {
+        "line": 5,
+        "text": "import {pathWear} from \"./runtime_state.js\";"
+      },
+      {
+        "line": 137,
+        "text": "const weight = authored * pathWear.factor(loc1, loc2);"
+      }
+    ]
+  }
+}

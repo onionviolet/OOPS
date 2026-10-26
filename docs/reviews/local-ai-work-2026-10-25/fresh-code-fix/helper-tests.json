@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m unittest discover -s <source-skill>/scripts/tests -p test_*.py -v",
+  "passed": 10,
+  "recorded_seconds": 0.644,
+  "fixture_checks": 3,
+  "verification_helper_checks": 7
+}

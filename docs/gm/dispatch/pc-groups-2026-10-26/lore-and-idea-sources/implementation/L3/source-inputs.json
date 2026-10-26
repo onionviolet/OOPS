@@ -1,0 +1,6 @@
+{
+  "src/world_packs/book_mol_pack.js": "043a7f09a825bf4ce59923dd609064918275d8a057ce1d2ccd8413aa305e3b49",
+  "src/book_world_mol_lore.js": "b5ee951151f587a6ef14cd53c62f8b319ed3fb2bfedfbe7400e401bdfd75654c",
+  "src/book_world_mol_actions.js": "cb8b9ee3568dc8e87ed856f90b6ec06dd8713e4c57a12e59fcd28b3d2a81ae86",
+  "tests/mol_lore_traces.test.js": "aeea50869b99c3b89e3578b423cb7a16fff78235414d51b9b533705c104c6d50"
+}

@@ -1,0 +1,10 @@
+{
+  "src/ui/control_box.js": "f1a1f2442d966353f8fa915fa39a06898c53191e0d8427be9c9078312c77f74e",
+  "src/center_modes.js": "72dcc0cc4ded2e4d52216a82f06daa85b168a50ce62584f4c419cbab06696d02",
+  "src/proto23_shell.js": "458dd5f274b6fc8f8742e1a0039a8435f7b3c660349cd7548d7dde704550535d",
+  "src/shell_control_boxes.js": "dd71cf0f61ff5070680a9896e40a9ef51e595b1b778fbfcee34460160919584d",
+  "src/shell_strip_boxes.js": "fc0732dfda256d82c04a7b767a470ee8a944a1440e70b3ac9a0ae973ec3dd872",
+  "styles/shell_chrome.css": "7a7dc4e1f79b3b8b7882849f07cdcef9c1365fec04fc10a36f958f83c8c962e5",
+  "docs/UI_RULES.md": "8b60e4da9672acb63198021e99f4b50c82b249b6b1d5333da953ef366ebd40fb",
+  "docs/audits/UI_DESIGN_CORE_AUDIT.md": "4c807102240ad3e407a3dd59834f44abdd7a19234726f4b00ba66ef37751aa8c"
+}

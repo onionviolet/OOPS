@@ -1,0 +1,5 @@
+{
+  "src/hp_brewing_domain.js": "ea122983b649bb04983435b7b061cd2e666f97ccc7c841106f3af91b6b7c0da7",
+  "src/native_tool_domains.js": "ebcbdeba5c7f7c41fe63e79c3c71cb77f9770f45e8510e7e3be00fb851371131",
+  "tests/hp_brewing_domain.test.js": "9e0d1903a41dfa571d5d4c0a14e170d0db8e5cabb4997dcfcb867ad8fe59fd8c"
+}

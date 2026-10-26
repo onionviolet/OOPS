@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "origin": "app://yairpg/index.html",
+  "snapshotId": "v0.6-f7324af35659",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "fixture": "DEV SEEDED generated traits; no player saves",
+  "checks": [
+    "native stat prose and calculation details",
+    "click/Enter pin and Escape",
+    "native trait prose and numerical capability detail",
+    "cosmetic trait has no false inactive label",
+    "native Save/reload retains trait sources",
+    "local Material Icons loaded",
+    "native PNG icon decodes at 1024×1024"
+  ],
+  "errors": [],
+  "misses": []
+}

@@ -82,7 +82,7 @@ export function enrollSimulation(state, registry, context, expectedSequence = st
         if(d.provision === false) continue;
         s.sites[d.id] = {capacity: d.capacity, reservations: {}};
     }
-    for(const d of registry.simulation.events.values()) if(d.automatic) s.checks[d.id] = {due: state.clock + d.interval, interval: d.interval, rng: hash(s.seed, d.id), count: 0};
+    for(const d of registry.simulation.events.values()) if(d.automatic && s.people[d.actorId || 'player']) s.checks[d.id] = {due: state.clock + d.interval, interval: d.interval, rng: hash(s.seed, d.id), count: 0};
     for(const d of registry.simulation.controllers.values()) if(s.people[d.actorId] && auditRemainderControllerAllowed(out.state,d) && paradiseCampaignControllerAllowed(out.state,d)) s.controllers[d.id] = {actorId: d.actorId, due: state.clock + d.interval, interval: d.interval};
     applySimulationEffects(out, registry.simulation.onEnroll, context, registry, `simulation:${state.sequence + 1}`);
     log(s, state.clock, "Local people and work now share the adventure's calendar. Only played game time advances them.", `simulation:${++out.state.sequence}`);
@@ -563,7 +563,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         const d = registry.simulation.events.get(c.definitionId || id); assert(d, "Unsupported event director.");
         c.due += c.interval; c.count++;
         const actorId = c.actorId || d.actorId || "player", ctx = {...contexts[actorId], actorId, targetId: c.targetId || d.targetId || null, vitals: out.vitals};
-        const facts = {...simulationFacts(state, ctx, registry), "event.misses": c.misses || 0, "event.attempts": c.attempts || 0, "event.occurrences": c.occurrences || 0};
+        const facts = {...simulationFacts(state, ctx, registry, [d.requires]), "event.misses": c.misses || 0, "event.attempts": c.attempts || 0, "event.occurrences": c.occurrences || 0};
         if(s.people[actorId].life === "alive" && (d.maxOccurrences == null || (c.occurrences || 0) < d.maxOccurrences) && meets(d.requires, facts) && !Object.values(s.events).some(e => e.definitionId === d.id && e.actorId === actorId && e.status === "open")) {
             const chance = resolveEffectAmount(d.chance ?? 1, facts);
             assert(chance >= 0 && chance <= 1, "Event chance must be within zero and one.");

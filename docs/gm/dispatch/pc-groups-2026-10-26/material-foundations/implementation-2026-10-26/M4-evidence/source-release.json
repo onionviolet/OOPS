@@ -1,0 +1,19 @@
+{
+  "ownedPaths": [
+    "src/hp_brewing_formula.js",
+    "src/hp_brewing_panel.js",
+    "tests/hp_material_preparation.test.js"
+  ],
+  "hashes": {
+    "src/hp_brewing_formula.js": "c8063f77e745fe951e1eca5b6f782e16e0c021561224b30f9bb6093d622b5734",
+    "src/hp_brewing_panel.js": "f5bcb15cb01a381c55c49520c779fe21dbb606a308b2da4b67e13a240c786261",
+    "tests/hp_material_preparation.test.js": "9007c2e700ebb88c312a59229ea437fc6c24dec3b3087c9e6452ad183981718b",
+    "src/material_inspector.js": "35fd5a2820e751aba662a6f7e431a3045663498bdda0ddabb2a5c28f47bb8169",
+    "src/hp_brewing_state.js": "20a378bda18848e2ec4f21577b16654b2dfb746602cf37fd64e3ebd54d541af4"
+  },
+  "bundleSha256": "cd2243cd00cc8e42e6eb1ff7893acfd3dc8bcf68b5648c2982d369f652202031",
+  "slotReleased": "slot-2",
+  "intendedNext": "W2 01a1794d-9355-7f53-8c4b-12a067d142fb",
+  "reacquire": "none planned; stand back until W2 acquisition confirmed",
+  "dependencyHashNote": "Non-owned dependency hashes are live release-time context; tested frozen inputs are in input-identity.json and release-drift.json. They do not claim combined current-tree verification."
+}

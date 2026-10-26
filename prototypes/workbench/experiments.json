@@ -1,7 +1,42 @@
 [
   {
+    "id": "native-character",
+    "title": "Current populated OOPS \u00b7 native shell",
+    "question": "Which material vocabulary improves character while retaining the actual populated desktop interface?",
+    "task": "Inspect and equip an item; open Cooking, inspect real dependencies, craft and read Reports; visit Homes and meet Moss. Switch baseline and treatments on the same running state.",
+    "surface": "Actual native shell, navigation, task homes, inventory, services, work and Reports. CSS overlays only.",
+    "fixture": "populated-village-cook-2026-10-26: current native fresh envelope, 30 named public stock entries from perf/crowded.json, Cooking unlocked and 12 rat meat chunks. Native recipe costs/RNG/XP, equipment and home commands. Paused clock; Step advances one tick. Home scenario uses an unseeded fresh life and native homeowner/meet commands.",
+    "limits": "Frozen local native build and populated public fixture, isolated loopback origin storage. No personal saves or installed-app proof. Switch Layout on the same running state, including native navigation, selection and transient Reports. Simultaneous command mirroring is unavailable; use the matched screenshot gallery alongside. Reset explicitly reseeds. Optional private packs omitted. Mobile deferred.",
+    "entry": "built/native-character/index.html",
+    "variants": [
+      {
+        "id": "baseline",
+        "label": "0 \u00b7 Current baseline"
+      },
+      {
+        "id": "signal",
+        "label": "A \u00b7 Signal / cool structure"
+      },
+      {
+        "id": "folio",
+        "label": "B \u00b7 Folio / warm material"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "mid",
+        "label": "Populated cook \u00b7 reset"
+      },
+      {
+        "id": "home",
+        "label": "Fresh homeowner \u00b7 native beginning"
+      }
+    ],
+    "fidelity": "native"
+  },
+  {
     "id": "recipes",
-    "title": "Recipe browsing",
+    "title": "Archived recipe prototype \u00b7 pinned",
     "question": "Does compact inspection keep results and actions readable while full reference stays easy to reach?",
     "task": "Find a recipe, inspect its ingredient, return, cook once, then inspect the recorded result.",
     "surface": "Cooking service, local inspection, expanded reference; You, inventory and Reports stay visible.",
@@ -47,7 +82,8 @@
         "id": "long",
         "label": "Long fixture names"
       }
-    ]
+    ],
+    "fidelity": "archived"
   },
   {
     "id": "launch",
@@ -77,6 +113,46 @@
         "id": "long",
         "label": "Long fixture labels"
       }
-    ]
+    ],
+    "fidelity": "archived"
+  },
+  {
+    "id": "character",
+    "title": "Character material sketch \u00b7 reduced shell",
+    "question": "Can a stable Gothic frame give different tasks a recognizable character without covering the text in decoration?",
+    "task": "Inspect carried stock, craft once, read the receipt, visit Moss, return; compare treatments without replaying a command.",
+    "surface": "Current five-region desktop arrangement and familiar Here/Crafting/Homes labels; reduced original shell fixture, native craft/household/atmosphere/effects presenters.",
+    "fixture": "Public synthetic Village cook; 4 meat, 5 bread; scripted single success, manual clock. Current source renderers packaged locally. Mood controls set fixture state, not native pet commands.",
+    "limits": "No native navigation controller, full shell geometry, odds, XP, save/import or living-place simulation. No game startup or storage. Private Gothic font assets remain local. Mobile deferred.",
+    "entry": "built/character/index.html",
+    "variants": [
+      {
+        "id": "signal",
+        "label": "A \u00b7 Signal / cool frame"
+      },
+      {
+        "id": "folio",
+        "label": "B \u00b7 Folio / warm material"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "ready",
+        "label": "Ready"
+      },
+      {
+        "id": "rain",
+        "label": "Rain"
+      },
+      {
+        "id": "short",
+        "label": "Missing stock"
+      },
+      {
+        "id": "crowded",
+        "label": "Crowded Reports"
+      }
+    ],
+    "fidelity": "sketch"
   }
 ]

@@ -1,0 +1,53 @@
+{
+  "bundleSha256": "88cfab04925806db73d44ae904e837c7c6f26e11f924b312d6d7e6be626dc6d8",
+  "indexSha256": "4dfbfb6acf2ae35949756f90507a718d3dbd65cf6c0a87e6f154a42e633801cf",
+  "origin": "http://127.0.0.1:63872/",
+  "persistence": [],
+  "peopleBefore": "People you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nNora Boole\n\nKnown from your received Cyoria meeting or attributed report\n\nKnown capabilities and services\n\nThese are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person’s local service for current terms.\n\nNora’s source lesson requires reconstruction of a keyed stone-cube lamp with command recognition, three brightness levels and occlusion shutoff. Formulas stabilize anchored spells; ink and a design alone do not cast. This original manual-interface variant narrows the task for your non-mage body: Nora anchors the spell, you operate prepared controls. It cannot attack, drain ambient mana automatically, or function outside Cyoria.\n\nTold to you · played minute 28\n\nYour actual cube and ink became one keyed lamp after supervised reconstruction and Nora’s two own attuned mana. Its stored reserve is empty; paid calibration still supplies charge. You learned your own manual control procedure at zero mastery, not Nora’s formula knowledge, talent or personal capacity.\n\nTold to you · played minute 34\n\nNora spent six of her own finite attuned mana to calibrate your empty six-unit device. This is transferred bounded equipment charge, not player casting fuel; no timer, mana well or rendering refills it. Each calibration is a finite consenting job.\n\nObserved · played minute 37\nIlsa Zileti\n\nKnown from your received Cyoria meeting or attributed report\n\nKnown capabilities and services\n\nThese are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person’s local service for current terms.\n\nIlsa distinguishes guest reading, mage certification, commercial practice and student mentorship. She offers one original guest pass for two local crowns and clerical work. It opens only the represented public guest reading shelf and supervised workshop, not restricted person-targeting instruction or student privileges.\n\nObserved · played minute 10\n\nIlsa issued the actual physical guest pass. Your limited permission is reading and supervised reconstruction; it is no first-circle badge, admission to the academy, authority to unlock property, or permission to sell magic.\n\nTold to you · played minute 12\n\nThe original retained-body assessment demonstrated no compatible personal Cyorian mana source. This limited negative result does not prove permanent incapacity or grant a source. Capacity training, raw ambient channeling, rods requiring personal mana and restricted spell lessons remain unavailable. The manual device route uses Nora’s separately attuned stored charge. Its fixed six-unit capacity is equipment, not your soul magnitude. The non-mage manual interface is an original engineered divergence; sourced formula rods still require personal channeling.\n\nTold to you · played minute 15\n\nA structured invocation creates a bounded mana construct; unstructured shaping is slower and difficult. Disrupting levitation can drop its load. Ignition leaves ordinary burning fuel, which dispelling does not extinguish. Reading these distinctions grants knowledge only, no personal fuel, spell or practice.\n\nTold to you · played minute 24\nIbery Ambercomb\nKael Tverinov\nImaya Kuroshka\nVillage elder",
+  "peopleMatrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "pageWidth": 1920,
+      "panelWidth": 701,
+      "contentWidth": 701,
+      "font": "14px",
+      "report": true,
+      "screenshot": "people-1920x1080-14px.png"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "pageWidth": 1920,
+      "panelWidth": 691,
+      "contentWidth": 691,
+      "font": "21px",
+      "report": true,
+      "screenshot": "people-1920x1080-21px.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "pageWidth": 1536,
+      "panelWidth": 479,
+      "contentWidth": 479,
+      "font": "14px",
+      "report": true,
+      "screenshot": "people-1536x864-14px.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "pageWidth": 1536,
+      "panelWidth": 469,
+      "contentWidth": 469,
+      "font": "21px",
+      "report": true,
+      "screenshot": "people-1536x864-21px.png"
+    }
+  ]
+}

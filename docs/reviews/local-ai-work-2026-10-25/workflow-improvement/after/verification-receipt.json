@@ -1,0 +1,33 @@
+{
+  "pass": false,
+  "sources_before": {
+    "scripts/toolsets.py": "0ee869b3ef4e91f3937fa89d909ac9e544ae0e518e548cf6e23c0b563b1022e6",
+    "scripts/toolsets/tests/test_launcher.py": "6a6be441493af1c12a084c8a9c94cbcbb12543f2b316dbf1c409b8ac7168254e"
+  },
+  "checks": [
+    {
+      "name": "focused launcher suite",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/toolsets/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_environment_precedence_and_no_global_mutation (test_launcher.LauncherTests.test_environment_precedence_and_no_global_mutation) ... ok\ntest_missing_runtime_does_not_fallback_or_exec (test_launcher.LauncherTests.test_missing_runtime_does_not_fallback_or_exec) ... ok\ntest_no_probe_does_not_execute_collector (test_launcher.LauncherTests.test_no_probe_does_not_execute_collector) ... ok\ntest_preserves_arguments_cwd_and_child_exit (test_launcher.LauncherTests.test_preserves_arguments_cwd_and_child_exit) ... ok\ntest_probe_decodes_invalid_utf8_gracefully (test_launcher.LauncherTests.test_probe_decodes_invalid_utf8_gracefully)\nInvalid UTF-8 bytes in child output must not raise UnicodeDecodeError. ... FAIL\ntest_probe_failure_and_timeout_are_not_ready (test_launcher.LauncherTests.test_probe_failure_and_timeout_are_not_ready) ... ok\ntest_reference_route_cannot_launch (test_launcher.LauncherTests.test_reference_route_cannot_launch) ... ok\ntest_registry_contract_and_offline_probes (test_launcher.LauncherTests.test_registry_contract_and_offline_probes) ... ok\ntest_unknown_batch_id_causes_no_partial_probes (test_launcher.LauncherTests.test_unknown_batch_id_causes_no_partial_probes) ... ok\n\n======================================================================\nFAIL: test_probe_decodes_invalid_utf8_gracefully (test_launcher.LauncherTests.test_probe_decodes_invalid_utf8_gracefully)\nInvalid UTF-8 bytes in child output must not raise UnicodeDecodeError.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-improved-codefix-gorcaz9w/scripts/toolsets/tests/test_launcher.py\", line 98, in test_probe_decodes_invalid_utf8_gracefully\n    self.assertEqual(result['exit_code'], 7)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 7\n\n----------------------------------------------------------------------\nRan 9 tests in 0.110s\n\nFAILED (failures=1)\n",
+      "pass_check": false,
+      "elapsed_seconds": 0.203
+    }
+  ],
+  "sources_after": {
+    "scripts/toolsets.py": "0ee869b3ef4e91f3937fa89d909ac9e544ae0e518e548cf6e23c0b563b1022e6",
+    "scripts/toolsets/tests/test_launcher.py": "6a6be441493af1c12a084c8a9c94cbcbb12543f2b316dbf1c409b8ac7168254e"
+  },
+  "sources_unchanged": true
+}

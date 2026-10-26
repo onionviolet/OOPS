@@ -1,0 +1,6 @@
+{
+  "fixture": "timing clone of earned Cyoria withdrawal/research, reopened commission in source only",
+  "beforeEquality": "offered/open at 89",
+  "atEquality": "late/closed at 90",
+  "batchVsSteppedReloaded": true
+}

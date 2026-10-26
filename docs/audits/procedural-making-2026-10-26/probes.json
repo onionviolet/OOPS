@@ -1,0 +1,50 @@
+{
+  "missingAccess": {
+    "request": {
+      "type": "craft",
+      "recipe": "village.salt-steep",
+      "inputs": [
+        {
+          "key": "{\"id\":\"Gathered herb\",\"materialRef\":\"gen:reedherb:2eeef092f8c3bb94\",\"quality\":40}",
+          "qty": 1
+        }
+      ]
+    },
+    "quoteEligible": true,
+    "quoteReason": "",
+    "commitError": "You have no access to this method. Carry its book or learn it first.",
+    "inputsUnchanged": true
+  },
+  "badIngredients": {
+    "request": {
+      "type": "craft",
+      "recipe": "village.salt-steep",
+      "inputs": [
+        {
+          "key": "{\"id\":\"Gathered herb\",\"materialRef\":\"gen:reedherb:2eeef092f8c3bb94\",\"quality\":40}",
+          "qty": 1
+        }
+      ]
+    },
+    "quoteEligible": true,
+    "quoteReason": "",
+    "commitError": "The selected materials do not fit Salt-and-herb steep: salt no input fits.",
+    "inputsUnchanged": true
+  },
+  "fundedTreatment": {
+    "request": {
+      "type": "treatment",
+      "action": "apparatus",
+      "recipe": "village.salt-steep"
+    },
+    "quoteEligible": false,
+    "quoteReason": "lots is not defined",
+    "commitError": "lots is not defined",
+    "inputsUnchanged": true
+  },
+  "quality": {
+    "low": 40,
+    "high": 60,
+    "sameProduct": true
+  }
+}

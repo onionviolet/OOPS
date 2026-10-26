@@ -1,0 +1,7 @@
+{
+  "bundle": "/tmp/yairpg-g5-m4-candidate/m4-build/dist/bundle.js",
+  "sha256": "cd2243cd00cc8e42e6eb1ff7893acfd3dc8bcf68b5648c2982d369f652202031",
+  "sourceManifest": "input-identity.json",
+  "runnerSha256": "9a465c12c125d6ba921de9ef4b71a89cf0e9441347d728ddb5c529805eae816c",
+  "coarseRunnerSha256": "dab437bb4f5561281774e5133e40f701fafe9d22cf4855b749e1e2124c880f24"
+}

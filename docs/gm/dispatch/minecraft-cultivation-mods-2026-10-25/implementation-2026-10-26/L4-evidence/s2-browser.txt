@@ -1,0 +1,27 @@
+clicked enroll_storm
+clicked book.lotm.report_in_storm
+clicked book.lotm.accept_allocation_sa
+clicked book.lotm.ingest_sa
+clicked book.lotm.ab.deep_breath
+clicked book.lotm.recover_dock_manifest
+clicked cancel
+clicked lotm.move.workroom
+clicked book.lotm.reflect_work_sa
+clicked lotm.move.workroom
+clicked enroll_machinery
+clicked book.lotm.report_in_machinery
+clicked book.lotm.accept_allocation_sv
+clicked book.lotm.ingest_sv
+clicked book.lotm.errand_machinery
+clicked cancel
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked lotm.move.docks
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked book.lotm.errand_machinery
+clicked book.lotm.reflect_work_sv
+clicked book.lotm.request_prescreen_sv
+PASS power work, pending and completed persistence, desktop matrix

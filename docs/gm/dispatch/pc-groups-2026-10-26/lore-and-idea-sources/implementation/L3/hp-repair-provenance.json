@@ -1,0 +1,10 @@
+{
+  "ownerRequest": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I3-evidence/dose-process-repair-request.json",
+  "sourceHashesVerified": {
+    "src/hp_brewing_state.js": "e4e201576a5cb9e3ae6caca467b4bb6eab4f7de52928117cea11394ab623b73f",
+    "tests/dose_process.test.js": "83453848fd07f1587bcf211dff63dd16008b44bc48bd9a485bee91a2e3f7a00c",
+    "docs/gm/dispatch/dose-mechanism-2026-10-25/fixtures/hp-brewing.json": "367575943aa0b854a5bfe4ec2138ed931e1e66d1f84f4fcacee59fef8329ec19"
+  },
+  "candidateTestSha256": "0d19c4da8da134a7944f68219aee9561741b7f86395ac9daf5537c8a9c7b5631",
+  "primaryAdoption": "pending explicit granted custody"
+}

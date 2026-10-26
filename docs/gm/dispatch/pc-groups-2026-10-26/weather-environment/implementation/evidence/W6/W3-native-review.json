@@ -1,0 +1,31 @@
+{
+  "sourceMatches": {
+    "src/drying_exposure.js": true,
+    "src/book_world_paradise_drying.js": true,
+    "tests/drying_exposure.test.js": true,
+    "tests/paradise_drying.test.js": true,
+    "src/book_world_paradise_campaign_content.js": true,
+    "src/book_world_paradise_campaign_facts.js": true,
+    "src/book_world_paradise_campaign_host.js": true,
+    "src/book_world_paradise_campaign_runtime.js": true,
+    "src/simulation_content.js": true,
+    "src/field_works_extension_facts.js": true
+  },
+  "allSourceMatches": true,
+  "bundlePath": "/Users/weiwei/.codex/research/weather-w3-2026-10-26/snapshot/output/dist/bundle.js",
+  "bundleSha256": "0440250a3cf149bc8d3cff4e9c936ba55380e4d7bb47553be150a05ba2e5f5d5",
+  "bundleMatches": true,
+  "route": "Reimport agent-earned W3 native exports into final refusal-corrected bundle; no new fixture grants",
+  "nativeFinalRoundtrips": [
+    "refusal-final",
+    "binding-final",
+    "commission-final"
+  ],
+  "actualConsumer": true,
+  "frozenTravel": true,
+  "errors": [],
+  "visualInspected": "drying-final-1536-21.png",
+  "highestState": "agent-verified, not human-reviewed",
+  "scope": "S1 physical damp-stave/rack/kit/commission, not remaining joined horizon",
+  "remaining": "W4 water/drainage; W5 supply; W6 emitter/charge/forecast and combined gates; source/consumer qualification for light/pressure"
+}

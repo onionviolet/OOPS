@@ -1,0 +1,26 @@
+{
+  "links": [
+    {
+      "target": "COMMON.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../../../.claude/rules/player-ui.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../../UI_RULES.md",
+      "exists": true
+    },
+    {
+      "target": "M3/source-release.json",
+      "exists": true
+    },
+    {
+      "target": "M3/focused-tests.tap",
+      "exists": true
+    }
+  ],
+  "result": "pass",
+  "scope": "M3 checkpoint Markdown links only"
+}

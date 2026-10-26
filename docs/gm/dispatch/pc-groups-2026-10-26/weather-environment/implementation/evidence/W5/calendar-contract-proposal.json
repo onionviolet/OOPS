@@ -1,0 +1,24 @@
+{
+  "status": "proposal, not source_ready",
+  "sourceCalendar": {
+    "worldId": "explicit world",
+    "profileId": "explicit calendar profile",
+    "profileRevision": "positive integer",
+    "minutesPerHour": "positive integer",
+    "hoursPerDay": "positive integer",
+    "seasonTags": "explicit local season ID -> catalogue tag map, no inferred Earth seasons"
+  },
+  "callCalendar": {
+    "worldId": "source world",
+    "instanceId": "owning instance",
+    "profileId": "matching source profile",
+    "profileRevision": "matching revision",
+    "at": "same local elapsed integer as harvest at",
+    "minuteWithinDay": "projected local minute",
+    "seasonId": "projected local season ID or null"
+  },
+  "nodeCalendar": "bind source nodes to instance/profile; exact validation; carry denominator source local-day length",
+  "absence": "at is owning frozen local elapsed; wall/home clock never substituted",
+  "idle": "calendarAt(at) required to reproject each owning local step for bound sources",
+  "pending": "W6 projected calendar adapter and W4 water/soil; no callable release yet"
+}

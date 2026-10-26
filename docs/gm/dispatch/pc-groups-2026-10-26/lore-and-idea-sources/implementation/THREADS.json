@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-26",
+  "authority": "send chats to implement each little detail",
+  "source_thread_id": "01a17940-e302-7333-af77-a5a8f16446f8",
+  "dispatch_complete": true,
+  "threads": [
+    {
+      "lane": "L1",
+      "threadId": "01a1794a-6892-7891-a6cb-51e0a2d6d435",
+      "hostId": "local"
+    },
+    {
+      "lane": "L2",
+      "threadId": "01a1794a-7592-7503-84a7-7d5ebf306a1e",
+      "hostId": "local"
+    },
+    {
+      "lane": "L3",
+      "threadId": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+      "hostId": "local"
+    }
+  ]
+}

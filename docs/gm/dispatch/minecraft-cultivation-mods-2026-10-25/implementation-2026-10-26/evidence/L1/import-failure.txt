@@ -1,0 +1,165 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels…
+Homes
+Village experiments
+Standing and ledger
+Family qualities
+Cultivation insights
+Riverside exploration
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Today
+Where I am
+Around this place
+Polyjuice bench
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Inventory & combat view
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All items
+2
+Equipment
+1
+Usable
+1
+Other
+0
+Favorites
+0
+Inventory
+10C 2W
+Find / filter
+Name ↑
+▾
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+14.7 °C · comfortable
+
+01/04/999 08:00, Mon · ☼ Day
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+Tingen workroom
+▾
+Tingen · probationer branch
+
+A disposable test start: choose a life in early Tingen. Nothing here is canon; this save is for testing.
+
+Begin as a Nighthawk probationerYou are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. Your own money carries over.
+Begin as a Machinery team probationerYou are a clerk of the Steam and Machinery church's team in the university quarter, on the probationer track under its records officer. The Nighthawks are another church's team and another district. Your own money carries over.
+Begin as a Mandated Punisher probationerYou are a clerk of the Church of the Storm's Mandated Punishers at the docks, on the probationer track under the duty officer. The Nighthawks and the Machinery team hold other districts. Your own money carries over.
+Begin under a new identity as civil staffProposed start: an adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. Your Frontier purse does not travel. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.
+
+← Village
+Here
+Crafting
+Mixing
+?
+Reports
+Filter
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Started a new quest: Lost memory
+Your name is set in the You panel header. Click it to rename.
+Import rejected. Current save kept. This save contains incompatible or malformed game data. Current save kept.

@@ -1,3 +1,4 @@
+import {molLoreInstitutionFacts} from './book_world_mol_lore.js';
 // Cyoria's commands, powers, sources, conditions, encounters, situations and
 // controllers are definitions owned by the book.mol world pack (WAC8, WA17);
 // this module freezes the installed copies and keeps only the fact reader.
@@ -37,6 +38,7 @@ export function molFacts(state,ctx={}){
  f['mol.hatchReturnSupported']=['avoided','deterred','negotiated'].includes(worldFacts['book.mol.hazard'])&&worldFacts['book.mol.forecast']==='residue_and_movement';
  f['mol.outcomeResolved']=['paid','failed','declined','withdrawn'].includes(worldFacts['book.mol.retrieval'])||worldFacts['book.mol.retrieval']==='late'&&state.actors?.player?.facts?.['book.mol.lateAcknowledged']===true;
  for(const [owner,bag]of Object.entries(n.stock||{}))for(const [key,count]of Object.entries(bag))f[`mol.stock.${owner}.${key}`]=count;
+ Object.assign(f,molLoreInstitutionFacts(state,{ownedLamp:held('player',K.lamp)+acceptedTool(K.lamp)>=1}));
  return f;
 }
 export const molContext=(state,ctx={})=>({...ctx,facts:{...ctx.facts,...molFacts(state,ctx)}});

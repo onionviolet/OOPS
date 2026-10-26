@@ -1,14 +1,14 @@
 const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT||'/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const url=process.argv[2];if(!url)throw Error('Usage: node prototypes/workbench/check.cjs http://127.0.0.1:PORT/');
-const out=path.join(__dirname,'evidence');fs.mkdirSync(out,{recursive:true});
+const out=process.env.WORKBENCH_EVIDENCE||path.join(__dirname,'evidence');fs.mkdirSync(out,{recursive:true});
 (async()=>{
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
  const checks=[],errors=[];
  try{
  const context=await browser.newContext({viewport:{width:1366,height:768},reducedMotion:'reduce',acceptDownloads:true});
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
- await page.goto(url);await page.getByRole('status').filter({hasText:'Ready'}).waitFor();
+ await page.goto(url+'?study=recipes');await page.getByRole('status').filter({hasText:'Ready'}).waitFor();
  const frame=()=>page.frames().find(f=>f!==page.mainFrame());
  const capture=async(name,variant,text,scenario='crowded',width=1366,height=768)=>{
    const direct=await context.newPage();await direct.setViewportSize({width,height});

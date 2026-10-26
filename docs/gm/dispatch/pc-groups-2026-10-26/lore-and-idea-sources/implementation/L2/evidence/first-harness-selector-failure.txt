@@ -1,0 +1,331 @@
+locator.isEnabled: Timeout 25000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: 'Do this: Prepare a guide with the ruling jig · ink + paper, 2 min', exact: true })[22m
+
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L2/browser.mjs:28:51
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels…
+Standing and ledger
+Polyjuice bench
+Family qualities
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Statistics
+Today
+Around this place
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Known routes
+Patrol & custody
+Remembered years
+World events
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Journal & received accounts
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+37/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All items
+8
+Equipment
+1
+Usable
+1
+Other
+6
+Favorites
+0
+Inventory
+102 coins (denominations unfamiliar)
+Find / filter:
+Name ↑
+▾
+Cyorian blank stone cube
+1W
+Cyorian bread parcel
+1W
+Cyorian formula ink
+x5
+1W
+Cyorian guest library pass
+1W
+Cyorian lamp oil
+1W
+Cyorian research paper
+x12
+1W
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Cyoria formula workshop
+Dry · 8.0°C · climate proposal
+
+Cyoria visitor · 01/01/1 06:39
+
+No work running.
+
+Saving available.
+
+Notes, practice & people
+▾
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Mother of Learning · your Cyoria guest life
+
+Your retained independent visitor has 55 local crowns and 0/6 stored lamp charge. Personal casting remains unqualified. Guest permission, study, manual control, finite charge and actual observed records have distinct uses. Current supported campaign: ordinary Cyoria/academy service life; no loop, festival invasion or protagonist replacement. You currently occupy this same local instance.
+
+Known actions
+Reconstruct the keyed lamp with Nora · cube + ink + 3 crowns
+
+Actual permission, co-location, source, body, materials and finite charge apply. Numeric terms are reversible original proposals.
+
+Available
+
+Stated costs
+3 local crowns · 1 Cyorian blank stone cube · 1 Cyorian formula ink · 2 stamina · Requires the participant’s agreed attention and available time. · 6 played minutes · Cancel accepted work to return its reserved inputs.
+Do this: Reconstruct the keyed lamp with Nora · cube + ink + 3 crowns
+Ask Nora about the conflicting editions · 1 min
+
+Hear Nora’s correction while she is present. Earlier claims remain; her explanation is distinct from your own trial.
+
+Available
+
+Stated costs
+Requires the participant’s agreed attention and available time. · 1 played minutes · Cancel accepted work to return its reserved inputs.
+Do this: Ask Nora about the conflicting editions · 1 min
+Practice a folded-paper guide with Nora · paper + 1 crown, 3 min
+
+Fold and align a one-cube paper pattern with Nora’s feedback. Costs one paper, one stamina and her attention; actual practice teaches alignment, not casting or lamp control.
+
+Available
+
+Stated costs
+1 Cyorian research paper · 1 stamina · 1 local crowns · Requires the participant’s agreed attention and available time. · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Do this: Practice a folded-paper guide with Nora · paper + 1 crown, 3 min
+Prepare a guide with the ruling jig · ink + paper, 2 min
+
+Prepare one inked guide for a single cube using the currently restored academy ruling jig. One counted formula-ink unit and one paper become the guide; no magic, lamp or mastery is created. The guide can replace loose ink during Nora’s guided reconstruction.
+
+Unavailable
+
+Why this is unavailable
+Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here.
+Stated costs
+1 Cyorian formula ink · 1 Cyorian research paper · 1 stamina · 2 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Prepare a guide with the ruling jig · ink + paper, 2 min
+Compare the two guide preparations
+
+Compare your actual one-cube results without treating several changed conditions as one controlled cause.
+
+Unavailable
+
+Why this is unavailable
+Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here.
+Stated costs
+0 played minutes
+Unavailable: Compare the two guide preparations
+Reconstruct from your prepared guide with Nora · cube + guide + 3 crowns, 4 min
+
+Your prepared paper guide already holds one formula-ink unit. Commit it with a cube, two stamina and three crowns; Nora still supplies her actual attention and two attuned mana. Four-minute reconstruction yields the same empty keyed lamp, with no personal casting or control mastery.
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Stated costs
+3 local crowns · 1 Cyorian blank stone cube · 1 Cyorian single-cube tracing guide · 2 stamina · Requires the participant’s agreed attention and available time. · 4 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Reconstruct from your prepared guide with Nora · cube + guide + 3 crowns, 4 min
+Return to Village in your own body and cargo
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Unavailable
+
+Why this is unavailable
+Return through the actual visitor arrival point.
+Stated costs
+0 played minutes
+Unavailable: Return to Village in your own body and cargo
+Walk to Cyoria visitor arrival
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria visitor arrival
+Walk to Cyoria Imaya household
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria Imaya household
+Walk to Cyoria academy guest desk
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria academy guest desk
+Walk to Cyoria academy guest library
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria academy guest library
+Walk to Cyoria supervised practice court
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria supervised practice court
+Walk to Cyoria sewer service hatch
+
+Same retained body and instance; owned cargo and committed local work are checked before passage.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Walk to Cyoria sewer service hatch
+Original voluntary Cyoria visitor branch: keep your living native human body, owned cargo and learned history. Entry supplies disclosed language contact and a return doorway, no mage source, licence, student status, another person’s memories, private mind access or future knowledge. One local academy/household/service arc uses frozen unsupported absence; this place never resets. Personal mana compatibility must be assessed, not assumed; this contract gives no reset ability. Paid specialists and finite device charge offer a useful non-mage route.
+Chose original independent retained-body guest entry. Cyoria’s sourced academy/household/magic distinctions support this finite branch; early Kael access and non-mage manual lamp interface are explicit authored divergences. Your body received no magical talent, private cast knowledge, source-protagonist memories or time powers.
+Cyoria has a station, academy, workshops, library and mana well. Its trains use crystallized-mana engines while passenger-shaping wards inhibit casting. Your original arrival point is a separate doorway: you may walk to the guest desk or Imaya’s household without using any spell. No guest housing or academy admission is yet granted.
+Imaya offers a small paid guest arrangement and one finite original household job. She keeps her rooms and family privacy. Food, damage, chores and consent matter; helping does not make this your property.
+Completed the paired kitchen sorting and received eight Imaya-owned crowns and one actual bread parcel. The shift supplies no magical skill or recurring stipend.
+Kael is a scholarship-supported healer/alchemist caring for Kana. He offers one finite material sorting job and can examine a sealed local residue sample for two crowns. He shares a mild salve procedure, not his daughter’s affairs, full research corpus or a cure for the Weeping.
+Kael paid eight of his existing crowns and supplied one paper for a completed label-sorting agreement. Restricted compounds and private memories were not opened. His remaining purse, supplies, attention and family duty still limit later help.
+Taiven offers a bounded original hatch retrieval based on the source’s paid lost-watch sewer work: one watch, no tunnel clearing, six client-funded crowns on actual handover. An oil-residue smell and unseen occupants make a rush unsafe. The stated window is90local played minutes from this offer, not a source festival conversion. Survey, tether and willing cover are alternatives. You can decline or miss the window.
+From the open hatch you recorded oily residue, movement beyond the grate and one sealed residue sample. Identity, intelligence and full tunnel numbers remain unknown. The limited sightline supports a tethered short reach; it grants no mind reading or knowledge of a future invasion.
+You actually saw a human scavenger with a short reach hook at this hatch. A hook strike can reach the exposed edge; smoke and oily footing make an unprepared reach costly. Their deeper associates and motives beyond salvage are unknown. Prepared keyed light, a current tether, willing Taiven, an actual food/payment bargain or retreat provide bounded alternatives.
+You withdrew along the actual short entry route before spending response materials or taking a new strike. Your real earlier survey/sample and preparation remain; the watch and blocked hatch remain in place. No payment, victory, restored canon or reset followed.
+Ilsa distinguishes guest reading, mage certification, commercial practice and student mentorship. She offers one original guest pass for two local crowns and clerical work. It opens only the represented public guest reading shelf and supervised workshop, not restricted person-targeting instruction or student privileges.
+Ilsa issued the actual physical guest pass. Your limited permission is reading and supervised reconstruction; it is no first-circle badge, admission to the academy, authority to unlock property, or permission to sell magic.
+The counted academy stock was transferred for local crowns. Stock does not refill from rendering, absence or return.
+Kael’s bounded material examination found the represented oily residue can support ordinary flame and irritates exposed hands/breathing. This original local result supports light choice and the mild treatment; it grants no creature identity, universal poison immunity, soul theory or spell. The actual sample was consumed.
+The original retained-body assessment demonstrated no compatible personal Cyorian mana source. This limited negative result does not prove permanent incapacity or grant a source. Capacity training, raw ambient channeling, rods requiring personal mana and restricted spell lessons remain unavailable. The manual device route uses Nora’s separately attuned stored charge. Its fixed six-unit capacity is equipment, not your soul magnitude. The non-mage manual interface is an original engineered divergence; sourced formula rods still require personal channeling.
+Ibery checks your physical pass and offers a finite catalog repair funded by her own purse/materials. The academy library holds broad mundane and magical knowledge; limited guest access does not expose every tunnel or restricted spell shelf.
+A structured invocation creates a bounded mana construct; unstructured shaping is slower and difficult. Disrupting levitation can drop its load. Ignition leaves ordinary burning fuel, which dispelling does not extinguish. Reading these distinctions grants knowledge only, no personal fuel, spell or practice.
+Nora’s source lesson requires reconstruction of a keyed stone-cube lamp with command recognition, three brightness levels and occlusion shutoff. Formulas stabilize anchored spells; ink and a design alone do not cast. This original manual-interface variant narrows the task for your non-mage body: Nora anchors the spell, you operate prepared controls. It cannot attack, drain ambient mana automatically, or function outside Cyoria.
+The printed circular calls both a dark inscription liquid and a household fuel “lamp black”. It says darkness itself anchors the lamp. The word does not identify a bottle; the workshop invoice distinguishes formula ink from lamp oil. [Workshop circular compiler (original branch); r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Coverage: preparation diagram: missing.
+A copied appendix repeats the circular and translates “lamp black” as lamp oil. It inherits the missing preparation diagram; this is the same witness, not independent confirmation. [Workshop circular compiler (original branch); r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Copy of book.mol.lore.print.r1. Coverage: preparation diagram: missing; trade term translation: mistranslated.
+An anonymous previous borrower recommends testing a thin line on scrap before committing a cube. The note claims shade, rather than dark color alone, keeps a line usable. Neither explanation has been tested by you. [Anonymous previous borrower; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Coverage: previous borrower identity: redacted; reverse sheet: unread.
+The reverse sheet labels the thin-line check as a material test, not spell activation. Its diagram is torn away. A qualified workshop demonstration or a real strip trial can recover practical evidence; reading the gap cannot fill it. [Anonymous previous borrower; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria academy guest library. Attributed account; effectiveness untested] Coverage: thin-line check: observed; preparation diagram: missing.
+The actual formula-ink unit made a legible thin line on a dry paper strip at Nora’s workshop. The returned ink remains available for the existing keyed-lamp reconstruction. This observed preparation does not establish why a formula anchors or grant casting. [Your strip-trial record; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Observed once on this counted input; no isolated-cause or universal claim] Coverage: dry strip, workshop bench, thin line: observed; other lots and conditions: unread.
+The actual lamp-oil unit spread into a greasy patch on a dry paper strip at Nora’s workshop. This failed inscription trial does not make oil useless as fuel. Your separately held formula ink was not tested or consumed by this comparison. [Your strip-trial record; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Observed once on this counted input; no isolated-cause or universal claim] Coverage: dry strip, workshop bench, thin line: observed; other lots and conditions: unread.
+In these notes, “lamp black” has two alleged referents. The observed ink line supports choosing the separately counted formula ink for Nora’s existing reconstruction; the oil patch challenges the copied translation. The margin’s practical check remains useful without proving its shade explanation. [Your comparison; r1; Independent Cyoria guest branch; Cyorian common, translated for this account; Cyoria formula workshop. Inference from two observed strips; conditions held alike, liquids differ] Revises book.mol.lore.copy.r1; the earlier account is retained. Coverage: local ink versus oil choice: observed; other conditions or bottles: unread.
+← Cyoria formula workshop
+Here
+Crafting
+Mixing
+?
+Reports
+Filter:
+All reports
+▾
+Latest
+[ Cyoria visitor · 01/01/1 ]Saved the game manually

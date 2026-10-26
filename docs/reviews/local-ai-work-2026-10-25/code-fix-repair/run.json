@@ -1,0 +1,32 @@
+{
+  "scratch": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-local-code-fix-uzrrzahi",
+  "pid": 84103,
+  "process_group": 84103,
+  "input_sha256": "315be5e4fdf7413325795638dd1815603b7b830a6770de277af156078f08fb55",
+  "prompt_sha256": "fd9d144151b8ece2e89ce2abcf4966713d59a71fe326859b7b27d35a61ac3781",
+  "command": [
+    "/Users/weiwei/.local/bin/dsh-work",
+    "--patch",
+    "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-local-code-fix-uzrrzahi/observe-overlay.json",
+    "--session-id",
+    "session-f3311f5c-682d-4950-9d42-62a2f64b3196",
+    "--json",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "-"
+  ],
+  "wall_limit_seconds": 240,
+  "max_model_steps": 5,
+  "diagnostic_control_requests": 0,
+  "relay_url": "http://127.0.0.1:53926/v1",
+  "exit_code": 0,
+  "elapsed_seconds": 57.127,
+  "steps_started": 6,
+  "stopped": "step_limit",
+  "registry_unchanged": true,
+  "acceptance_checker_unchanged": true,
+  "wire_task_requests": 5,
+  "verified_off": true
+}

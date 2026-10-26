@@ -77,7 +77,7 @@ export function projectKnownActionRequirements(rule, facts = {}, disclosure = {}
 }
 
 function costDescriptor(effect, disclosure, context) {
-    const actorId = actorOf(effect.actor || effect.from, context), own = actorId === context.actorId;
+    const actorId = actorOf(effect.actor || effect.from, context), own = actorId === (context.observerId || context.actorId);
     const person = disclosure.people?.[actorId];
     // An introduced person is not permission to disclose their private means.
     if(!own && !(named(person) && person.termsKnown === true)) return null;
@@ -162,10 +162,14 @@ function evaluatorBlockers(preview, definition, requirements, disclosure, contex
 
 function reservations(definition, disclosure, context) {
     const rows = qualified(disclosure.reservations);
-    if(definition?.duration > 0 || definition?.due != null) rows.push({id: 'attention', text: 'Your attention is reserved while the accepted work runs.'});
+    const observerId=context.observerId||context.actorId,owner=disclosure.people?.[context.actorId];
+    if(definition?.duration > 0 || definition?.due != null) {
+        if(observerId===context.actorId)rows.push({id:'attention',text:'Your attention is reserved while the accepted work runs.'});
+        else if(named(owner)&&owner.termsKnown===true)rows.push({id:'attention',text:`${owner.label} is reserved for this accepted work.`});
+    }
     for(const [i, id] of list(definition?.participants).entries()) {
         const actorId = actorOf(id, context), d = disclosure.people?.[actorId];
-        if(actorId === context.actorId) rows.push({id: `participant-${i}`, text: 'Your attention is reserved while the accepted work runs.'});
+        if(actorId === observerId) rows.push({id: `participant-${i}`, text: 'Your attention is reserved while the accepted work runs.'});
         else if(named(d) && d.termsKnown === true) rows.push({id: `participant-${i}`, text: `${d.label} is reserved for this accepted work.`});
     }
     const site = disclosure.sites?.[definition?.siteId];
@@ -245,16 +249,17 @@ export function playerActionDisclosure({state, context = {}, items = {}, people 
 
 /** Frozen costs and cancellation belong to the accepted commitment. Never
  * inspect job.effects/roll/outcomeId or promise completion from a frozen result.
- * Only the owning actor may use this projection. A known command label must be
+ * Other observers need explicitly disclosed agreement terms. A known command label must be
  * supplied separately; no pending outcome label becomes a player-facing recap. */
-export function projectAcceptedWorkLegibility({job, clock, actorId = 'player', label, disclosure = {}, context = {actorId: 'player'}} = {}) {
+export function projectAcceptedWorkLegibility({job, clock, actorId = 'player', observerId = actorId, label, disclosure = {}, context = {actorId: 'player'}} = {}) {
     if(!job || job.actorId !== actorId || !text(job.id) || !number(clock) || !number(job.due)) return null;
+    if(observerId!==actorId&&!(named(disclosure.people?.[actorId])&&disclosure.people[actorId].termsKnown===true))return null;
     const remainingMinutes = Math.max(0, job.due - clock);
     return {id: job.id, label: text(label) || 'Your accepted work', status: 'accepted', remainingMinutes,
         remainingText: remainingMinutes > 0 ? `${remainingMinutes} played minutes remaining.` : 'Waiting for the accepted work to settle.',
         control: {visible: true, enabled: false}, cancellation: cancellation(job.cancellation),
-        costs: projectActionCosts(job.costs, disclosure, {...context, actorId, targetId: job.targetId || context.targetId}),
-        reservations: reservations(job, disclosure, {...context, actorId, targetId: job.targetId}),
+        costs: projectActionCosts(job.costs, disclosure, {...context, actorId, observerId, targetId: job.targetId || context.targetId}),
+        reservations: reservations(job, disclosure, {...context, actorId, observerId, targetId: job.targetId}),
         completion: qualified(disclosure.completion)};
 }
 

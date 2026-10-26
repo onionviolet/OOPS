@@ -1,0 +1,11 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "verification": "pure focused tests only, below floor",
+  "sha256": {
+    "src/craft_process_thermal.js": "f6a59cfd39d08e0bce5c7f67f713ce38524f0bcd5552c19a3a68e97945cb3418",
+    "tests/craft_process_thermal.test.js": "5f92446c05b8056c6e76c22e931d4cf1bc818addfdb035e1bb373748dac7bd6d",
+    "docs/gm/dispatch/pc-groups-2026-10-26/process-actions/implementation/CONTRACT.md": "8ef6c7fe24c6f9f419b9616667d162b6d20be2cb99d2f58e4a9310978b1ece84",
+    "src/craft_resolver.js": "044845f4edf8f6e668411e3f9a43ae83f4f4c72eb8e10b3d67593fa8f8d1636d",
+    "src/crafting_frontier_runtime.js": "63384a5ef6e894cff8e7ad97febdb573e7cfaa90667d08f489fe9052e891b2d6"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "lane": "G6-W3",
+  "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+  "phase": "acknowledged frozen build/arch/native proof, no shared source writes",
+  "handoffFrom": "G6-W6",
+  "handoffFromThread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+  "at": "2026-10-26T18:45:05.168994+00:00",
+  "nextRequested": {
+    "lane": "G6-W4",
+    "thread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+    "ready": true,
+    "following": {
+      "lane": "G6-W5",
+      "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+      "ready": true,
+      "following": "G6-W6 field/forecast join after released dependencies"
+    }
+  }
+}

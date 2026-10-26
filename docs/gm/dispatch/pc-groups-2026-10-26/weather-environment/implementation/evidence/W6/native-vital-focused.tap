@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+ok 1 - counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+  ---
+  duration_ms: 555.405125
+  type: 'test'
+  ...
+# Subtest: sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+ok 2 - sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+  ---
+  duration_ms: 1031.303792
+  type: 'test'
+  ...
+# Subtest: partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+ok 3 - partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+  ---
+  duration_ms: 173.672625
+  type: 'test'
+  ...
+# Subtest: leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+ok 4 - leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+  ---
+  duration_ms: 336.906875
+  type: 'test'
+  ...
+# Subtest: unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+ok 5 - unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+  ---
+  duration_ms: 54.974042
+  type: 'test'
+  ...
+# Subtest: paid standing source yields retained ordinary logs used by actual wash/dry/kit/commission
+ok 6 - paid standing source yields retained ordinary logs used by actual wash/dry/kit/commission
+  ---
+  duration_ms: 1812.306541
+  type: 'test'
+  ...
+# Subtest: finite care, exact fractional growth, no unsupported catchup and failed actions conserve actual stock
+ok 7 - finite care, exact fractional growth, no unsupported catchup and failed actions conserve actual stock
+  ---
+  duration_ms: 9933.53275
+  type: 'test'
+  ...
+# Subtest: departing freezes nursery support and return retains the same source rather than refilling it
+ok 8 - departing freezes nursery support and return retains the same source rather than refilling it
+  ---
+  duration_ms: 376.115333
+  type: 'test'
+  ...
+# Subtest: finite paid water source reserves exact price, survives pending reload and cannot duplicate the offer
+ok 9 - finite paid water source reserves exact price, survives pending reload and cannot duplicate the offer
+  ---
+  duration_ms: 127.853291
+  type: 'test'
+  ...
+# Subtest: filtering conserves water and suspended grit, leaves dissolved salt/contamination and spends real cloth/time
+ok 10 - filtering conserves water and suspended grit, leaves dissolved salt/contamination and spends real cloth/time
+  ---
+  duration_ms: 99.332208
+  type: 'test'
+  ...
+# Subtest: useful damp preparation keeps exact wood/water/tool receipt through partial carry, drying, kit and paid commission
+ok 11 - useful damp preparation keeps exact wood/water/tool receipt through partial carry, drying, kit and paid commission
+  ---
+  duration_ms: 213.333334
+  type: 'test'
+  ...
+# Subtest: projection is pure and exact stale water, borrowed support and forged measured facts cannot silently substitute
+ok 12 - projection is pure and exact stale water, borrowed support and forged measured facts cannot silently substitute
+  ---
+  duration_ms: 699.681333
+  type: 'test'
+  ...
+# Subtest: committed pulse survives pure previews and forecasts stale by time, place, event and actual means
+ok 13 - committed pulse survives pure previews and forecasts stale by time, place, event and actual means
+  ---
+  duration_ms: 2242.423333
+  type: 'test'
+  ...
+# Subtest: actual pulse has useful drying, retained charged carrier, paid grounding and existing kit/order use
+ok 14 - actual pulse has useful drying, retained charged carrier, paid grounding and existing kit/order use
+  ---
+  duration_ms: 894.485834
+  type: 'test'
+  ...
+# Subtest: sealed/frozen paths and long/split/reload intervals conserve charge, wetness and exact native custody
+ok 15 - sealed/frozen paths and long/split/reload intervals conserve charge, wetness and exact native custody
+  ---
+  duration_ms: 447.232
+  type: 'test'
+  ...
+# Subtest: forged fields, stale stock, unsupported paid actions and inspection cannot create truth or weaken prior commands
+ok 16 - forged fields, stale stock, unsupported paid actions and inspection cannot create truth or weaken prior commands
+  ---
+  duration_ms: 62.276334
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12477.088333

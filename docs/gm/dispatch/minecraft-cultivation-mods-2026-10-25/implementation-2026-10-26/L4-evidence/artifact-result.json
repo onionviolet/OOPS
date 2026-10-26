@@ -1,0 +1,78 @@
+{
+  "bundleSha256": "a21e68dcdce386de8e967faa31c8495e95f8ec43abbd341de7d2ae88fe049e12",
+  "persistence": [
+    {
+      "state": "G3 pending",
+      "exportChars": 246496,
+      "exportSha256": "cc0ae373b9f4bcf254ff76432ed77b42f04b11d75d81781e0ab681223227e9c5",
+      "projectSha256": "f502e1089f0c9f69550d08265be806dcfc6a495e9c3b8c87ff823620273cab0c"
+    },
+    {
+      "state": "G3 complete",
+      "exportChars": 246736,
+      "exportSha256": "527aab86f83743a75f595380de54090fc6381ff7e3cfac2baba538f93d016a33",
+      "projectSha256": "d937eb63e0c800391f3739e58f8e7c52cfa52fbf94a19e43b1c24517c2746b05"
+    }
+  ],
+  "body": {
+    "startDebt": 0,
+    "reservedDebt": 3,
+    "beforeCompletionDebt": 0,
+    "afterCompletionDebt": 0,
+    "chargedStamina": 3,
+    "ordinaryRecoveryAllowed": true
+  },
+  "errors": [],
+  "route": "Fresh probationer report, actual allocation/ingestion, G3 issued, taught handling, actual work, earned merit spent at existing evidence store, return. No gameplay grants.",
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "file": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L4-s4b-output/artifact-proof/g3-1920-14.png",
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 699,
+        "panelContentWidth": 699,
+        "font": "14px"
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "file": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L4-s4b-output/artifact-proof/g3-1920-21.png",
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 693,
+        "panelContentWidth": 693,
+        "font": "21px"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "file": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L4-s4b-output/artifact-proof/g3-1536-14.png",
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 477,
+        "panelContentWidth": 477,
+        "font": "14px"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "file": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L4-s4b-output/artifact-proof/g3-1536-21.png",
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 473,
+        "panelContentWidth": 473,
+        "font": "21px"
+      }
+    }
+  ],
+  "privateResult": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L4-s4b-output/artifact-proof/result.json"
+}

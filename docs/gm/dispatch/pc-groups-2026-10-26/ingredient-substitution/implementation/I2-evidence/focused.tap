@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: paid preparation changes actual formula fit without mutating source or inventing identity
+ok 1 - paid preparation changes actual formula fit without mutating source or inventing identity
+  ---
+  duration_ms: 0.9325
+  type: 'test'
+  ...
+# Subtest: unfunded, unavailable, stale-prepared and incompatible preparation refuse without changing a lot
+ok 2 - unfunded, unavailable, stale-prepared and incompatible preparation refuse without changing a lot
+  ---
+  duration_ms: 0.301041
+  type: 'test'
+  ...
+# Subtest: paid or borrowed source is not permanent apparatus access or broader demonstrated conditions
+ok 3 - paid or borrowed source is not permanent apparatus access or broader demonstrated conditions
+  ---
+  duration_ms: 0.082667
+  type: 'test'
+  ...
+# Subtest: retained receipt roundtrip validates exact variant, cost, source identity and portion accounting
+ok 4 - retained receipt roundtrip validates exact variant, cost, source identity and portion accounting
+  ---
+  duration_ms: 0.207042
+  type: 'test'
+  ...
+# Subtest: public preparation evidence stays equal when concealed provenance differs
+ok 5 - public preparation evidence stays equal when concealed provenance differs
+  ---
+  duration_ms: 0.176333
+  type: 'test'
+  ...
+# Subtest: existing hand-shredding variants use supported forms and declared labor without fuel
+ok 6 - existing hand-shredding variants use supported forms and declared labor without fuel
+  ---
+  duration_ms: 0.076042
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 77.32475

@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-26",
+  "authority": "Weibao explicitly permits unfinished PC implementation chats to continue and disregard artificial usage constraints; recorded in ../../IMPLEMENTATION_FOLLOW_THROUGH.md, later usage-stop override.",
+  "sourceUserChat": "01a17956-d338-7550-80f3-edd330bd7059",
+  "scope": "Existing G1 I1-I4 implementation; no new dispatch or repeated completed work. Actual service limits and all source/verification/privacy/commit/push boundaries remain.",
+  "inspection": "Compact wait_threads snapshot for all four exact IDs plus search of current lane and integration checkpoints. All four active; no usage-budget stop found.",
+  "children": [
+    {
+      "lane": "I1",
+      "threadId": "01a1794e-38da-7351-94b8-b86a6f5d307b",
+      "observedStatus": "active",
+      "action": "No restart or follow-up needed; not stopped on usage."
+    },
+    {
+      "lane": "I2",
+      "threadId": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+      "observedStatus": "active",
+      "action": "No restart or follow-up needed; not stopped on usage."
+    },
+    {
+      "lane": "I3",
+      "threadId": "01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc",
+      "observedStatus": "active",
+      "action": "No restart or follow-up needed; not stopped on usage."
+    },
+    {
+      "lane": "I4",
+      "threadId": "01a1794e-a7cd-7672-929c-bf94c02d19f0",
+      "observedStatus": "active",
+      "action": "No restart or follow-up needed; not stopped on usage."
+    }
+  ],
+  "remainingWaits": "Shared runtime slot contention and explicit source/dependency releases; these remain real coordination constraints.",
+  "permissionMessagesSent": 0,
+  "implementationComplete": false
+}

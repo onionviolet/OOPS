@@ -1,0 +1,185 @@
+diff --git a/src/book_world_paradise_campaign_content.js b/src/book_world_paradise_campaign_content.js
+index 5c33bb383..23e0d0b36 100644
+--- a/src/book_world_paradise_campaign_content.js
++++ b/src/book_world_paradise_campaign_content.js
+@@ -3,6 +3,7 @@
+ // Definitions grant no person, body, stock, source, purse or reward on import.
+ import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
+ import {eq, gte} from './basics.js';
++import {paradiseDryingDefinitions} from './book_world_paradise_drying.js';
+ import {itemActorFirst as item, transferOne as transfer} from './content_kit.js';
+ 
+ export const PARADISE_CAMPAIGN_IDS = Object.freeze({prefix:'book.paradise.campaign.', group:'book_paradise_campaign',
+@@ -80,6 +81,25 @@ const commands=[
+         visibleWhen:all(f('enrolled'),eq(`paradise.local.${P.hub}`),f('methodFaculty')),
+         requires:all(local(P.hub),f('methodFaculty')),effects:[{type:'source',actor:'player',sourceId:I.method,operation:'activate',active:false},
+             know('paused','I voluntarily stopped using my line procedure. Its source record and learned history remain mine; exact source activation is required again for its consumers. No tool, body or mastery changed.')]}),
++    ...[1,2].map(tier=>command('hub.foundation_'+tier,
++        `Rehearse ${tier===1?'a single loaded line':'a continuous load sequence'} · held kit/rope + 3 stamina · 6 min`,P.hub,L.hub,{
++        visibleWhen:all(f('enrolled'),f('methodOwned'),eq('paradiseCampaign.foundation',tier-1)),
++        description:`Plan and test ${tier===1?'the brace, load and release of one frame':'a shared setup for two successive frames'} at your own bench. Six minutes and three stamina deepen your line procedure without adding mastery. ${tier===1?'Opens measured single-kit work: one log, two stamina, three minutes.':'Opens continuous two-kit work: two logs, three stamina, four minutes.'} Both learned procedures, supported hands and owned tools remain necessary. Original local exercise and values.`,
++        requires:all(bench,method,f('baseMethod','Keep your learned load-bracing procedure active.'),eq('paradiseCampaign.foundation',tier-1,'Complete the preceding load-path rehearsal first.')),
++        ...timed(6,all(bench,f('methodFaculty'),f('baseMethod'),eq('paradiseCampaign.foundation',tier-1)),false,I.bench),
++        costs:[...ownTools,stamina('player',-3)],
++        effects:[...returnTools,{type:'faculty',actor:'player',sourceId:I.method,operation:'develop',amount:1},know('foundation_'+tier,
++            tier===1?'I tested one complete loaded-line plan with my own brace and line procedures. The held kit and rope returned once; six minutes and three stamina stayed spent. This planning foundation opens measured single-kit work without adding mastery or a passive body bonus.':
++                'I tested a continuous plan for two successive loaded frames. The held kit and rope returned once; six minutes and three stamina stayed spent. Shared setup now supports a two-kit batch from two real logs, without adding mastery, copying another body or creating material.','player','player',true)]})),
++    ...[['measured',1,1,2,3],['continuous',2,2,3,4]].map(([slug,tier,count,effort,minutes])=>command('hub.make_'+slug,
++        `Make ${count===1?'one measured kit':'two continuous-load kits'} · ${count} log${count===1?'':'s'} + held kit/rope + ${effort} stamina · ${minutes} min`,P.hub,L.hub,{
++        once:false,visibleWhen:all(f('enrolled'),f('methodOwned'),gte('paradiseCampaign.foundation',tier)),
++        description:`Combine your active load-bracing and line procedures with rehearsed ${tier===1?'single-load planning':'continuous-load planning'}. ${count} real log${count===1?' becomes one existing survey kit':'s become two existing survey kits'}; your held kit and rope return once. Costs ${effort} stamina and ${minutes} minutes. This conserves material and grants no mastery or wages. Original local method combination.`,
++        requires:all(bench,method,f('baseMethod','Keep your learned load-bracing procedure active.'),gte('paradiseCampaign.foundation',tier,'Rehearse this load sequence at your bench first.')),
++        powerId:I.method,...timed(minutes,all(bench,f('methodFaculty'),f('baseMethod'),gte('paradiseCampaign.foundation',tier)),false,I.bench),
++        costs:[item('player',K.log,-count),...ownTools,stamina('player',-effort)],
++        effects:[...returnTools,item('player',K.kit,count),know('production_'+slug,
++            `My own active brace and line procedures used the rehearsed ${slug} sequence. ${count} actual log${count===1?' became one native survey kit':'s became two native survey kits'}; the held kit and rope returned once. ${effort} stamina and ${minutes} minutes stayed spent. No mastery, stock refill or wage followed.`)]})),
+     command('hub.resume_method','Resume your own learned line procedure',P.hub,L.training,{once:false,
+         visibleWhen:all(f('enrolled'),eq(`paradise.local.${P.hub}`),f('methodOwned'),not(f('methodFaculty'))),
+         requires:all(local(P.hub),currentHands,f('methodResumable')),effects:[{type:'source',actor:'player',sourceId:I.method,operation:'activate',active:true},
+@@ -179,6 +199,9 @@ commands.push(
+             know('gate_loss','No supported rescue or own received-route shelter reached me before this bounded physical danger closed. My actual life ended; this is an authored alternative branch consequence, not an inevitable source restoration.',P.hank)]}),
+ );
+ 
++const dryingDefinitions=paradiseDryingDefinitions({command,timed,bench,item,stamina,know});
++commands.push(...dryingDefinitions.commands);
++
+ const turns=[
+     {cue:'Krieg presses for escape while Hank is caught at the actual gate. Choose how to gain a small working gap; pressure already spent Krieg’s own attention and body.',responses:[
+         {id:'rigged_gap',label:'Rig a controlled working gap · held kit/rope + 2 stamina',requires:all(turnReady,method,f('controlled'),f('surveyed')),
+@@ -227,7 +250,7 @@ export const paradiseCampaignPostRescueWithdrawalEffects=[af('sceneClosed'),wf('
+ 
+ export const paradiseCampaignSources=[{id:I.method,revision:1,label:'Independently acquired line rigging',kind:'technique',origin:'trained',grants:[],
+     bioDetail:'Original paid or personally researched derivative of the learner’s actual bracing procedure. Ordinary hands, owned kit/rope, active source and personally inspected anchors control its bounded lift and craft consumers. No copied talent or mana.'}];
+-export const paradiseCampaignDefinitions={commands,conditions:[
++export const paradiseCampaignDefinitions={commands,people:dryingDefinitions.people,conditions:[
+     {id:I.smoke,revision:1,label:'Smoke irritation',stacking:'max',bioVisible:true,bioDetail:'Temporary irritation from the disclosed exposed Goa rescue. Player native perception ×0.9 and stamina efficiency ×0.9; Hank’s careful personal duty-kit order waits for recovery. No additional health drain.'},
+     {id:I.guard,revision:1,label:'Ordinary smoke wrap',stacking:'max',bioVisible:true,bioDetail:'A spent cloth preparation for the exact sheltered gate-lift consumer; no general immunity or new protection rank.'},
+     {id:I.bruise,revision:1,label:'Gate bruising',stacking:'max',bioVisible:true,bioDetail:'Temporary bruising from actual disclosed gate pressure. Player native dexterity ×0.9; Hank’s careful personal duty-kit order waits for recovery. The scene already paid its health cost.'}],
+diff --git a/src/book_world_paradise_campaign_facts.js b/src/book_world_paradise_campaign_facts.js
+index ba0b0f8a1..32d922f0e 100644
+--- a/src/book_world_paradise_campaign_facts.js
++++ b/src/book_world_paradise_campaign_facts.js
+@@ -2,6 +2,7 @@
+ // means on read, render, refresh or return; only actual commands grant effects.
+ import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
+ import {paradiseFacts} from './book_world_paradise_actions.js';
++import {PARADISE_DRYING,readDryingKey,validateParadiseDryingState,validDryingBindingCosts} from './book_world_paradise_drying.js';
+ import {PARADISE_CAMPAIGN_IDS as I, PARADISE_CAMPAIGN_WINDOW as W, paradiseCampaignDefinitions as D, paradiseCampaignWithdrawalEffects, paradiseCampaignPostRescueWithdrawalEffects} from './book_world_paradise_campaign_content.js';
+ 
+ const F=I.prefix, natural=n=>Number.isSafeInteger(n)&&n>=0, check=(v,message)=>{if(!v)throw Error(message);};
+@@ -52,6 +53,7 @@ export function paradiseCampaignFacts(state,context={}){
+         'paradiseCampaign.methodActive':supported&&active&&ownTools,
+         'paradiseCampaign.methodResumable':supported&&methodOwned&&faculty?.awakened===true&&!faculty.suppressed,
+         'paradiseCampaign.controlled':methodOwned&&power.mastery>=2,'paradiseCampaign.mastered':methodOwned&&power.mastery>=3,
++        'paradiseCampaign.foundation':faculty?.development??0,
+         'paradiseCampaign.practiceAvailable':methodOwned&&power.mastery<3,
+         'paradiseCampaign.wrapped':!!paradiseCampaignCondition(state,I.guard),
+         'paradiseCampaign.surveyed':facts[F+'gateSurvey']===true&&a?.completed?.[F+'goa.recon']===1&&s.knowledge?.player?.[F+'gate_survey']?.stage==='understood',
+@@ -88,6 +90,8 @@ export function paradiseCampaignFacts(state,context={}){
+     // Actor-specific private facts stay admission-only. A read never reports
+     // the NPC purse, agenda, personal source or received knowledge to UI.
+     result['paradiseCampaign.actorSupported']=oldFacts[`paradise.support.${actor}`]===true;
++    result['paradiseDrying.rack']=!!s.people?.[PARADISE_DRYING.rack];
++    result['paradiseDrying.dryCount']=Object.entries(context.gameplay?.player?.inventory||{}).reduce((n,[key,count])=>n+(key===PARADISE_DRYING.sound||readDryingKey(key)?.moisture===0?count:0),0);
+     return result;
+ }
+ export const paradiseCampaignContext=(state,context={})=>({...context,facts:{...context.facts,...paradiseFacts(state,context),...paradiseCampaignFacts(state,context)}});
+@@ -124,6 +128,7 @@ export function paradiseCampaignExistingCommandGate(state,id){
+ }
+ 
+ export function validateParadiseCampaignDepthState(state,registry){
++    validateParadiseDryingState(state);
+     const s=state.simulation,actors=['player',P.hank,P.krieg,P.mia,P.employee,P.porter],commands=new Map(D.commands.map(d=>[d.id,d]));
+     const present=Object.values(state.actors||{}).some(a=>[a.facts,a.completed,a.resources,a.sources].some(v=>Object.keys(v||{}).some(k=>k.startsWith(F))))||
+         Object.values(state.worlds||{}).some(w=>Object.keys(w.facts||{}).some(k=>k.startsWith(F)))||
+@@ -154,8 +159,13 @@ export function validateParadiseCampaignDepthState(state,registry){
+         key===F+'rescueOutcome'&&['earlier_shelter','earlier_loss'].includes(value),'Unsupported extended-branch world consequence.');
+     const player=state.actors.player,power=s.powers?.player?.[I.method];
+     const learned=(player.completed[F+'hub.learn_paid']||0)+(player.completed[F+'hub.learn_self']||0);
++    const rehearsals=[1,2].map(tier=>player.completed[F+'hub.foundation_'+tier]||0);
++    check(rehearsals.every(n=>natural(n)&&n<=1)&&(!rehearsals[1]||rehearsals[0])&&(!rehearsals.some(Boolean)||learned===1),
++        'Load-path planning needs its own ordered, once-completed rehearsals and learned line procedure.');
+     check(learned<=1&&!!player.sources[I.method]===(learned===1)&&!!power===(learned===1),'Line procedure ownership requires one actual acquisition, without copied or double learning.');
+     if(power){
++        check(s.faculties?.player?.[I.method]?.development===rehearsals[0]+rehearsals[1],
++            'Line-planning development must equal actual completed rehearsals, without duplicated foundation.');
+         const instruction=s.knowledge.player?.[F+'line_instruction'];
+         check(power.owned&&power.mastery>=0&&power.mastery<=4&&player.sources[I.method].receiptId===instruction?.cause,
+             'This finite line mastery or source grant lost its actual paid/self instruction receipt.');
+@@ -167,7 +177,7 @@ export function validateParadiseCampaignDepthState(state,registry){
+         check(choices.reduce((n,id)=>n+(player.completed[id]||0),0)<=1,'An exclusive physical shelter/account cannot be completed twice under alternative IDs.');
+     for(const job of (s.jobs||[]).filter(j=>j.commandId.startsWith(F))){const d=commands.get(job.commandId),participants=[d?.actorId,...(d?.participants||[]).map(id=>id==='$target'?d.targetId:id)];
+         check(d&&d.duration>0&&job.revision===d.revision&&job.actorId===d.actorId&&job.targetId===(d.targetId||null)&&job.reservationReturns===1&&
+-            same(job.costs,d.costs)&&same(job.effects,d.effects)&&same(job.participants,[...new Set(participants)])&&job.cancellation==='refund'&&job.claim===(d.claim||null)&&
++            (d.id===PARADISE_DRYING.prefix+'bind'?validDryingBindingCosts(job.costs,d):same(job.costs,d.costs))&&same(job.effects,d.effects)&&same(job.participants,[...new Set(participants)])&&job.cancellation==='refund'&&job.claim===(d.claim||null)&&
+             job.siteId===(d.siteId||null)&&natural(job.due)&&job.due<=state.clock+d.duration&&same(job.completionSupport,{schema:1,requires:d.completionRequires,
+                 coLocated:!!d.completionCoLocated,location:d.location,failure:'refund'}),'Extended-branch reserved work differs from its exact authored body/inputs/support/refund definition.');
+         if(registry)check(same(registry.simulation.commands.get(d.id),d),'The admitted extended-branch command definition changed.');
+diff --git a/src/book_world_paradise_campaign_host.js b/src/book_world_paradise_campaign_host.js
+index f23befaa5..4b15da3a9 100644
+--- a/src/book_world_paradise_campaign_host.js
++++ b/src/book_world_paradise_campaign_host.js
+@@ -6,14 +6,23 @@ import {commitSimulationCommand,cancelSimulationJob,answerSimulationEncounter,wi
+ import {applySimulationEffects} from './simulation_effects.js';
+ import {projectFeatureCommands,featureWorkControls,featureEncounterControls,featureRecordedKnowledge} from './feature_expansion_host.js';
+ import {artifactEquipmentReasons} from './artifact_collection.js';
++import {PARADISE_DRYING,planParadiseDryingAction,dryingBindingDefinition,paradiseDryingActions} from './book_world_paradise_drying.js';
+ const check=(ok,message)=>{if(!ok)throw Error(message);};
+ const F=I.prefix;
++function dryingRegistry(state,registry,context){
++    const id=PARADISE_DRYING.prefix+'bind',definition=registry.simulation.commands.get(id);
++    if(!definition)return registry;
++    const commands=new Map(registry.simulation.commands);commands.set(id,dryingBindingDefinition(state,definition,context));
++    return {...registry,simulation:{...registry.simulation,commands}};
++}
+ export function commitParadiseCampaignDepthCommand(state,registry,command,context,sequence=state.sequence){
+     check(command.type==='book_paradise_campaign'&&context.actorId==='player'&&sequence===state.sequence&&
+         (command.sequence==null||command.sequence===sequence),'Review the current source branch, body and actual supplies.');
+     check(state.bookWorldCampaign&&state.simulation,'Enter the actual optional source branch first.');
+     const current=paradiseCampaignContext(state,context);let out;
+-    if(command.action==='cancel'){
++    if(command.action==='drying'){
++        out=planParadiseDryingAction(state,command,current);
++    }else if(command.action==='cancel'){
+         const j=state.simulation.jobs.find(j=>j.id===command.id&&j.actorId==='player');
+         check(j&&registry.simulation.commands.get(j.commandId)?.group===I.group&&j.cancellation==='refund','Choose your actual refundable new campaign work.');
+         out=cancelSimulationJob(state,registry,j.id,current,sequence);
+@@ -38,7 +47,7 @@ export function commitParadiseCampaignDepthCommand(state,registry,command,contex
+         check(command.targetId==null||command.targetId===d.targetId,'Meet the actual declared participant.');
+         check(!context.busy,'Finish your current native activity first.');
+         const ctx=paradiseCampaignContext(state,{...context,targetId:d.targetId||null}),reasons=artifactEquipmentReasons(d.costs,state,ctx);
+-        check(!reasons.length,reasons.join(' '));out=commitSimulationCommand(state,registry,{id:d.id},ctx,sequence);
++        check(!reasons.length,reasons.join(' '));out=commitSimulationCommand(state,dryingRegistry(state,registry,ctx),{id:d.id},ctx,sequence);
+     }
+     reconcileParadiseCampaignDepthRuntime(state,out,registry);validateParadiseCampaignDepthState(out.state,registry);
+     validateParadiseCampaignDepthControllers(out.state,registry);return out;
+@@ -46,19 +55,26 @@ export function commitParadiseCampaignDepthCommand(state,registry,command,contex
+ export function paradiseCampaignDepthPresentation(state,registry,context={}){
+     if(!state.bookWorldCampaign||!state.simulation)return {sections:[]};
+     const current=paradiseCampaignContext(state,context),facts=paradiseCampaignFacts(state,current),world=state.actors.player.worldId;
+-    const actions=projectFeatureCommands(state,registry,current,{groups:[I.group],commandType:'book_paradise_campaign'}).map(a=>{
++    const actions=projectFeatureCommands(state,dryingRegistry(state,registry,current),current,{groups:[I.group],commandType:'book_paradise_campaign'}).map(a=>{
+         const d=registry.simulation.commands.get(a.id),reasons=artifactEquipmentReasons(d.costs,state,current);
+-        return {...a,eligible:a.eligible&&!reasons.length,reasons:[...(a.reasons||[]),...reasons],command:{...a.command,sequence:state.sequence}};
++        const capped=[F+'hub.practice',F+'goa.practice'].includes(a.id)&&(state.simulation.powers?.player?.[I.method]?.mastery||0)>=3;
++        const capReason='This control drill is complete at mastery three. Apply the method in construction, rehearse load planning at your bench, or use it in a supported live task.';
++        if(capped)reasons.push(capReason);
++        const legibility=capped&&a.legibility?{...a.legibility,blockers:[...(a.legibility.blockers||[]).filter(row=>row.id!=='contact'),{id:'line-drill-cap',text:capReason}]}:a.legibility;
++        return {...a,legibility,eligible:a.eligible&&!reasons.length,reasons:[...(a.reasons||[]),...reasons],command:{...a.command,sequence:state.sequence}};
+     });
+     const encounter=featureEncounterControls(state,registry,current,[I.group]);
+     const work=featureWorkControls(state,registry,[I.group],current);
+     const controls=encounter?encounter.actions.map(a=>({...a,command:{type:'book_paradise_campaign',action:a.command.type,
+         ...(a.command.responseId?{responseId:a.command.responseId}:{}),sequence:state.sequence}})):
+         work.actions.map(a=>({...a,command:{type:'book_paradise_campaign',action:'cancel',id:a.command.id,sequence:state.sequence}}));
+-    const records=featureRecordedKnowledge(state,[F]);
++    const drying=paradiseDryingActions(state,current);
++    actions.push(...drying.actions);
++    const records=[...featureRecordedKnowledge(state,[F]),...drying.records];
+     if(paradiseCampaignEnrolled(state)){
+         const owned=state.simulation.powers?.player?.[I.method];
+         if(owned?.owned)records.push({id:F+'own_control',text:`Your own line procedure · mastery ${owned.mastery} · ${facts['paradiseCampaign.methodFaculty']?'active':'inactive or currently unsupported'}. Control2 permits its bounded protected lift; mastery3 improves your owned bench and shelter construction. Real hands, kit, rope and local support remain required.`});
++        if(owned?.owned)records.push({id:F+'own_foundation',text:`Load-path planning ${facts['paradiseCampaign.foundation']}/2. Rehearsal spends six minutes and three stamina without adding mastery. A single-load plan opens one kit from one log in three minutes for two stamina; a continuous plan opens two kits from two logs in four minutes for three stamina. Both active learned procedures, your bench and held tools remain necessary; planning grants no passive body bonus.`});
+         if(facts['paradiseCampaign.bench'])records.push({id:F+'own_bench',text:'Your actually built district bench remains yours. Ordinary or mastered work consumes your own timber, effort and played time; district repair orders need the employee’s remaining means.'});
+         if(facts['paradiseCampaign.shelter'])records.push({id:F+'own_shelter',text:'Your retained two-person-scale district shelter supports further real-material kit work in the same changed instance. Return does not refill it or reset people, damage, wages or orders.'});
+         records.push(...Object.values(projectParadiseCampaignEffects(state,registry,current)).map(e=>({id:e.id,text:`${e.name} · ${e.duration} played min · ${e.description}`})));

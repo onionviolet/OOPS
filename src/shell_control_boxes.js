@@ -34,12 +34,12 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
     const parity = () => document.getElementById('main_content')?.dataset.parity === 'r3';
     // Inventory: one row [tabs][box]; the box opens search, count, sort and direction.
     const row = document.createElement('span'); row.className = 'shell-header-tools shell-control-row';
-    const inventory = createControlBox({id: 'inventory', title: 'Inventory view', placement: 'below', keepOpen: keepInventory && {...keepInventory, anchor: () => document.querySelector('.workspace-module[data-module="belongings"] > .workspace-module-body')}});
+    const inventory = createControlBox({id: 'inventory', title: 'Inventory view', triggerLabel: 'Find / filter', placement: 'below', keepOpen: keepInventory && {...keepInventory, anchor: () => document.querySelector('.workspace-module[data-module="belongings"] > .workspace-module-body')}});
     const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'shell-control-clear'; clear.textContent = '×';
     clear.addEventListener('click', () => tabs.node.querySelector('.inventory-tabs-clear')?.click());
     row.append(inventory.node, clear);
     // Reports: [box][Latest] in the Reports header; filters, follow, stop and clear in the box.
-    const reports = createControlBox({id: 'reports', title: 'Reports view', placement: 'beside'});
+    const reports = createControlBox({id: 'reports', title: 'Reports view', triggerLabel: 'Filter', placement: 'beside'});
     const reportsRow = document.createElement('span'); reportsRow.className = 'shell-header-tools';
     reportsRow.append(reports.node);
     const toggles = document.createElement('div'); toggles.className = 'control-box-toggles'; toggles.setAttribute('role', 'group'); toggles.setAttribute('aria-label', 'Report kinds shown');
@@ -49,6 +49,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         b.addEventListener('click', () => { document.getElementById(id)?.click(); render(); });
         proxies.set(id, b); toggles.append(b);
     }
+    const hiddenReports = document.createElement('p'); hiddenReports.className = 'shell-reports-empty'; hiddenReports.textContent = 'All report kinds are hidden. Choose kinds below to show existing history.'; hiddenReports.hidden = true;
     const options = document.createElement('div'); options.className = 'control-box-options';
     let wasParity = null, folded = null, lastSize = '';
     // Weibao 2026-10-17: the You header is the place to type your name (Proto23's "You" title).
@@ -71,7 +72,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         if (tabs.node.parentNode !== compact) compact.prepend(tabs.node);
         row.remove();
         log.tools.append(log.filters, log.follow, log.latest, log.combatLog, log.clearLog);
-        reportsRow.remove();
+        reportsRow.remove(); hiddenReports.remove();
         inventory.close({restore: false}); reports.close({restore: false});
     };
     const place = () => {
@@ -90,7 +91,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         const header = document.querySelector('.workspace-module[data-module="messages"] > .workspace-module-header');
         if (header && reportsRow.parentNode !== header) header.querySelector('strong')?.after(reportsRow);
         if (log.latest.parentNode !== reportsRow) reportsRow.append(log.latest);
-        if (toggles.parentNode !== reports.body) reports.body.append(toggles, options);
+        if (toggles.parentNode !== reports.body) reports.body.append(hiddenReports, toggles, options);
         for (const n of [log.follow, log.combatLog, log.clearLog]) if (n.parentNode !== options) options.append(n);
     };
     function render() {
@@ -117,6 +118,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
             b.hidden = !native || native.hidden;
         }
         const reportText = reportsLabel({enabled, total: proxies.size, follow: log.follow.value, combatStopped: log.combatLog.getAttribute('aria-pressed') === 'true'});
+        hiddenReports.hidden = enabled !== 0;
         reports.setLabel(reportText, `${reportText}. Opens report kinds, follow, stop combat log and clear.`);
     }
     return {render, inventory, reports, folded: () => folded};

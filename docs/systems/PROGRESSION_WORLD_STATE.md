@@ -593,6 +593,7 @@ it is appraised or discovered; observer-safe views.
 | Mechanism | Where | Notes |
 |---|---|---|
 | Per-actor knowledge with stages `seen`, `interpreted`, `understood`, each with `value`, `at`, `cause` | simulation `knowledge` effect (`simulation_contracts.js:61`), saved at `s.knowledge` (`:255`) | The Tingen kit's `know()` builds it with a `basis:{kind, attributedTo, situationId}` (`book_world_lotm_kit.js:15`). |
+| Cyoria attributed accounts and scoped credentials | `src/book_world_mol_lore.js`, installed `book.mol` commands | Distinct immutable JSON accounts retain editions/copy roots, observations and actual issuance time in the existing knowledge owner. Pure issuer/scope/current-standard/custody evaluation affects a bounded stock allocation, not truth or skill. [Joined native evidence](../gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/REPORT.md). |
 | Hint precision of a missing requirement | `evaluateGate` `knows(fact)` (S2) | Per fact, caller decides. |
 | Vague row for unknown rules | `clearanceFor(..., {known:false})` (S6) | |
 | Observation channels with leases and receipts | `src/observation_channels.js:31-43` | 1 importer. |

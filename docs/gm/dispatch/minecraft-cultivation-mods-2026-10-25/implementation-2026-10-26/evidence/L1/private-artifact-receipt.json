@@ -1,0 +1,26 @@
+{
+  "commands-before.json": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/commands-before.json",
+    "sha256": "aa730a665674f34f735426f254a38682524a2350821ebf844d139b8c69414517"
+  },
+  "commands-after.json": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/commands-after.json",
+    "sha256": "aa730a665674f34f735426f254a38682524a2350821ebf844d139b8c69414517"
+  },
+  "current-mol-fixture.txt": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/current-mol-fixture.txt",
+    "sha256": "29cf155da29d63a60f5904e57f83e2ed0320b048c2e8bc8cb314a5cf6461c31a"
+  },
+  "fixture-generation.json": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/fixture-generation.json",
+    "sha256": "28b659ce3f5bf306e85232f3b38a2aef93147aace69e61a997ad83878a0ca118"
+  },
+  "generate-fixture.mjs": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/generate-fixture.mjs",
+    "sha256": "df6481d1940b99e01962e7644dfbc692de22132183fa8efef6992bae4e358891"
+  },
+  "fixture-runner.instrumented.mjs": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-private/fixture-runner.instrumented.mjs",
+    "sha256": "276e9d29bb99ee2bd03f27f4312da0e5bd1eddd7a324c094d20fe7694cdc1d41"
+  }
+}

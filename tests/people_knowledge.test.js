@@ -9,6 +9,21 @@ import {createChronicle} from "../src/chronicle.js";
 const fresh = () => initializeExpedition(createExpansionState(23));
 const enrolled = () => enrollSimulation(fresh(), expeditionRegistry, {actorId:"player",worldId:"base.frontier",facts:{location:"Village"},external:{money:30}}).state;
 
+test('book person accounts retain received basis without appraising private cultivation or stock',()=>{
+    const state=enrolled(),known=state.simulation.knowledge.player||=( {} );
+    known['book.mol.admission']={value:'Ilsa offers bounded guest study.',at:12,stage:'seen',basis:{kind:'observation',attributedTo:'book.mol.ilsa'}};
+    known['book.mol.formula']={value:'Nora teaches the paid lamp brief.',at:18,stage:'understood',basis:{kind:'instruction',attributedTo:'book.mol.nora'}};
+    const before=knownPeopleView(state);
+    assert.deepEqual(before.find(p=>p.id==='book.mol.nora').accounts,[{id:'book.mol.formula',text:'Nora teaches the paid lamp brief.',at:18,basis:'Told to you'}]);
+    assert.equal(before.find(p=>p.id==='book.mol.ilsa').accounts[0].basis,'Observed');
+    state.actors['book.mol.nora']={resources:{mana:999},sources:{secret:true}};
+    state.simulation.people['book.mol.nora']={body:{form:'secret'},location:'Hidden room',life:'dead'};
+    state.simulation.knowledge['book.mol.nora']={secret:{value:'Unshared ability'}};
+    assert.deepEqual(knownPeopleView(state),before);
+    delete known['book.mol.formula'];
+    assert.equal(knownPeopleView(state).some(p=>p.id==='book.mol.nora'),false);
+});
+
 test("registration and enrollment do not reveal unseen people or their private state", () => {
     assert.deepEqual(knownPeopleView(fresh()), []);
     const state = enrolled();

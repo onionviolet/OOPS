@@ -1,0 +1,23 @@
+{
+  "sourceReview": "actual allocation/fit diffs read by I5; helper evidence adopted at unchanged inputs, not rerun",
+  "paths": [
+    {
+      "path": "src/craft_recipes.js",
+      "released": "3d5d0c34357448d7567e9ab1a4e1714e72f9f81fbb4524254806169d0a124efb",
+      "current": "3d5d0c34357448d7567e9ab1a4e1714e72f9f81fbb4524254806169d0a124efb",
+      "matches": true
+    },
+    {
+      "path": "src/craft_material_fit.js",
+      "released": "620550a999ce8afef943ef7c946154e5232f10857189b16f5960bdfa820f1caf",
+      "current": "620550a999ce8afef943ef7c946154e5232f10857189b16f5960bdfa820f1caf",
+      "matches": true
+    },
+    {
+      "path": "tests/craft_allocation.test.js",
+      "released": "d796b20ade92ed4b1a214033b6fba1b7d6839e5e5c0d0c60eed4260190b2994d",
+      "current": "d796b20ade92ed4b1a214033b6fba1b7d6839e5e5c0d0c60eed4260190b2994d",
+      "matches": true
+    }
+  ]
+}

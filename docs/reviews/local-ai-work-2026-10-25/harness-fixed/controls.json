@@ -1,0 +1,16 @@
+[
+  {
+    "effort": "low",
+    "answer": "391",
+    "reasoning_chars": 43,
+    "finish_reason": "stop",
+    "elapsed_seconds": 9.623
+  },
+  {
+    "effort": "none",
+    "answer": "391",
+    "reasoning_chars": 0,
+    "finish_reason": "stop",
+    "elapsed_seconds": 0.357
+  }
+]

@@ -36,13 +36,16 @@ export function createCharacterBio({registry, skillTable = {}, read, readTrainin
             for(const item of view[key]) {
                 let row=rows.get(item.id);
                 if(!row) {
-                    const li=node("li"), label=node(key === "influences" ? "button" : "strong"), text=node("span"), cause=node("span");
-                    li.dataset.bioEntry=item.id; text.className=cause.className="bio_cause"; li.append(label,text,cause);
+                    const li=node("li"), label=node(key === "influences" ? "button" : "strong"), description=node("p"), note=node("p"), text=node("span"), cause=node("span"), effects=node("details"), effectSummary=node("summary","Effects and origin");
+                    li.dataset.bioEntry=item.id; text.className=cause.className="bio_cause"; effects.append(effectSummary,text,cause);li.append(label,description,note,effects);
                     if(key === "influences") {label.type="button"; label.dataset.bioSkill=item.id; label.addEventListener("click",()=>showSkill(item.id));}
-                    list.append(li); row={root:li,label,text,cause}; rows.set(item.id,row);
+                    list.append(li); row={root:li,label,description,note,text,cause,effects}; rows.set(item.id,row);
                 }
                 row.label.textContent=item.label;
-                row.text.textContent=[item.detail,item.effect].filter(Boolean).join(". ");
+                row.description.textContent=item.description || item.effect || item.detail;
+                row.note.textContent=item.note || "";row.note.hidden=!item.note;
+                row.text.textContent=item.description || item.effect ? item.detail : "";
+                row.text.hidden=!row.text.textContent;
                 row.cause.textContent=item.cause;
             }
         }

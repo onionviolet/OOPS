@@ -78,7 +78,12 @@ function createPanel() {
             const box = node('div', null, {class: 'lineage-member'}), hidden = hiddenLoci(m).length;
             box.append(node('h3', m.id === view.line.selfId ? `${m.name} (you)` : m.name));
             const ul = node('ul', null, {'aria-label': `${m.name}, qualities`});
-            for (const v of memberView(m)) ul.append(node('li', `${v.label}: ${v.shows === 'absent' ? 'does not show' : v.shows === 'mild' ? 'shows mildly' : 'shows'} · carries ${v.alleles.join(' ')}${v.known ? '' : ' (hidden)'}${v.effect ? ` · ${v.effect}` : ''}`));
+            for (const v of memberView(m)) {
+                const item=node('li'), details=node('details');
+                item.append(node('strong',v.label),node('p',v.description));
+                details.append(node('summary','Inheritance and effects'),node('p',`Known inheritance: ${v.alleles.join(' ')}${v.known ? '' : ' (unexamined shares marked ?)'}${v.effect ? ` · ${v.effect}` : ''}`));
+                item.append(details);ul.append(item);
+            }
             const b = node('button', hidden ? `Test one hidden quality (${TEST_COST} coins)` : 'All known', {type: 'button'});
             b.dataset.lineageTest = m.id; b.disabled = !hidden || view.coins < TEST_COST;
             b.addEventListener('click', () => {

@@ -1,0 +1,37 @@
+{
+  "status": "I2 assigned connected slice complete, agent-verified not human-reviewed",
+  "bundleSha256": "28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5",
+  "inputDigest": "0386934e93434d9dc4935c970036f81454c8e5d79bcba60259fe8eb44bfdce5b",
+  "connectedPreparationProof": "../../connected-making/implementation/I4-evidence/N2-browser/result.json",
+  "sharedBrowser": "../I5-evidence/native-browser/result.json",
+  "sharedGate": "docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/shared-gate-status.json",
+  "ownInputs": {
+    "src/hp_preparation.js": {
+      "frozen": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "current": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "equal": true
+    },
+    "tests/hp_preparation.test.js": {
+      "frozen": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "current": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "equal": true
+    }
+  },
+  "testingQualification": {
+    "passed": 3452,
+    "failed": 4,
+    "total": 3456,
+    "failures": "capture ENOENT only; no gameplay assertion failure"
+  },
+  "targetedCaptureRecovery": {
+    "passed": 14,
+    "failed": 0,
+    "files": [
+      "alloy_equipment",
+      "desktop_ipc_channels",
+      "lotm_examination"
+    ]
+  },
+  "sourceDrift": [],
+  "remainingRequiredI2Work": []
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "viewportWidth": 1920,
+    "viewportHeight": 1080,
+    "size": 14,
+    "font": 14,
+    "width": 723,
+    "scroll": 723,
+    "page": 1920,
+    "viewport": 1920
+  },
+  {
+    "viewportWidth": 1536,
+    "viewportHeight": 864,
+    "size": 14,
+    "font": 14,
+    "width": 501,
+    "scroll": 501,
+    "page": 1536,
+    "viewport": 1536
+  },
+  {
+    "viewportWidth": 1920,
+    "viewportHeight": 1080,
+    "size": 21,
+    "font": 21,
+    "width": 723,
+    "scroll": 723,
+    "page": 1920,
+    "viewport": 1920
+  },
+  {
+    "viewportWidth": 1536,
+    "viewportHeight": 864,
+    "size": 21,
+    "font": 21,
+    "width": 501,
+    "scroll": 501,
+    "page": 1536,
+    "viewport": 1536
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "status": "bounded S1 combined frozen candidate agent-verified, not human-reviewed",
+  "lanes": {
+    "W1": {
+      "record": "W1.md",
+      "sourceRelease": "source_ready release1; current SHA256 match=True",
+      "focused": "PASS 13/13 recorded, reused not rerun",
+      "native": "13 native/4 viewport checks on fixture, bundle 1fd989dfc7ca902ddaea35de4d059700be9be7ace1eb8675b984744e2011fc0c; exact receipt reviewed, reused",
+      "review": "evidence/W6/W1-release-review.json",
+      "highestState": "agent-verified, not human-reviewed; unchanged local proof reused"
+    },
+    "W2": {
+      "record": "W2.md",
+      "sourceRelease": "source_ready=true; current hashes match=True",
+      "focused": "node --test tests/home_weather.test.js tests/home_extension.test.js tests/home_domain.test.js PASS, reused not rerun",
+      "native": "AD43 earned/native-boundary fixture, bundle c6ef41b7c1f3d6cae3bbd7c50bd97da87c7112d3f02d4b7b3858b32b42806da8; 20 focused, build/arch and 4 viewport checks recorded/reviewed",
+      "review": "evidence/W6/W2-release-review.json",
+      "highestState": "agent-verified, not human-reviewed"
+    },
+    "W3": {
+      "sourceRelease": "final S1 all10 hashesMatch=True",
+      "native": "AD43 final bundle 0440250a3cf149bc8d3cff4e9c936ba55380e4d7bb47553be150a05ba2e5f5d5",
+      "review": "evidence/W6/W3-native-review.json",
+      "highestState": "agent-verified, not human-reviewed",
+      "scope": "S1; remaining W4/W5/W6 source joins and light/pressure qualification open"
+    },
+    "W4": {
+      "sourceRelease": "final6 hashes included in W6 before input; later W6 shared joins intentionally supersede",
+      "native": "S1 AD43 final bundle 330a65e1d16e900774e7d876f0caf1482ebb4c3a8f8ca5e07988b8c0c801483d",
+      "review": "evidence/W6/W4-native-review.json",
+      "scope": "water/filter/soften/dry/kit/order; exterior rain/fog/settling/soil gaps retained"
+    },
+    "W5": {
+      "sourceRelease": "actual source_ready all7 hashesMatch=True",
+      "focused": "36/36 recorded,47 old commands exact",
+      "native": "S1 final bundle f8c4220cddcf009dec4076bc0b47f1813715b854b80c32e86b6369e5dde21a25, reviewed; native care stamina cost corrected/proven later by W6",
+      "review": "evidence/W6/W5-native-review.json",
+      "scope": "local coppice and qualified source API; seasonal/animal/soil/family-reader gaps explicit",
+      "highestState": "agent-verified bounded S1, not human-reviewed"
+    },
+    "W6": {
+      "sourceRelease": "calendar-source-ready + field-source-ready",
+      "focused": "calendar10;fieldinitial22+final9;48oldcommands exact+3additive;arch6/205unchanged",
+      "native": "native-settled-result.json: actual field/kit/paid-order and joined coppice/water consumer, six literal roundtrips, four desktop/font cases, zero errors; native-vital-result.json two additional offset-inclusive native roundtrips",
+      "snapshot": "/Users/weiwei/.codex/research/weather-w6-2026-10-26/snapshot",
+      "state": "bounded S1 AD43 agent-verified, not human-reviewed",
+      "candidateBundle": "bedda8b209685c62585cccf8cb25c52f9bc30911dd8938d866b439bb6c5f5c48"
+    }
+  },
+  "dispatch_complete": true,
+  "dependencyOrder": "W1/W2 source_ready -> W3 -> W4 -> W5; W6 independent forecast/calendar then combined",
+  "W3Eligibility": "Both W1/W2 source releases now inspected and current hashes matched; W3 eligible when actual runtime custody acquired.",
+  "runtimeHandoffHistory": {
+    "authority": "actual thread snapshots and explicit messages; not ownership transfer to W6",
+    "slot-1": "G7-L3 explicit grant reported, focused slice passed and immutable snapshot underway",
+    "slot-1-proposedSuccessors": [
+      "W3 coherent source/focused checkpoint",
+      "G7-L3 bounded tests/world_pack_registry.test.js correction, W6 consensual yield",
+      "W6 READY calendar adapter + dedicated tests"
+    ],
+    "slot-2": "G2-I3 reported direct transfer to I4; earlier I5/W1-proof and other commitments preserved",
+    "W4W5": "notify existing chats on actual W3/W4 usable source releases",
+    "W1W2": "native proof remains separately queued",
+    "W6": "no source locks; no runtime edits/checks yet",
+    "agreedNextAfterW4Source": [
+      "READY W5 source/focused",
+      "W4 bounded frozen AD43 proof, W6 yield agreed",
+      "READY W6 field/forecast source after actual deps",
+      "W5 own native proof request retained"
+    ],
+    "qualification": "Historical queue states; final ownership is recorded in W6 checkpoint/release, not this obsolete snapshot."
+  },
+  "checks": {
+    "npm test": {
+      "result": "PASS3460/3460",
+      "log": "combined-test-vital.log"
+    },
+    "npm run build": {
+      "result": "PASS BUILD_OUT=output",
+      "log": "combined-build-vital.log"
+    },
+    "npm run check:arch": {
+      "result": "PASS6 grandfathered imports/205cyclic edges",
+      "log": "combined-arch-vital.log"
+    },
+    "npm run check:rules": {
+      "result": "PASS139 snapshot tracking warnings,10receipts/317legacy skips/0problems",
+      "log": "combined-rules-vital.log"
+    }
+  },
+  "inputs": "field-snapshot-inputs.json",
+  "currentPrimaryQualification": "Own13 source/test paths match exact frozen candidate; nine concurrently edited other source/test paths differ and are explicitly outside this combined proof. final-current-input-review.json lists them. No live primary or installed-app adoption inferred.",
+  "coverage": "COMBINED_COVERAGE.md",
+  "remaining": "Exact selected wider climate/soil/season/animal/light/pressure/external supernatural emitter-reader gaps in COMBINED_COVERAGE.md. No commit/push/app adoption requested."
+}

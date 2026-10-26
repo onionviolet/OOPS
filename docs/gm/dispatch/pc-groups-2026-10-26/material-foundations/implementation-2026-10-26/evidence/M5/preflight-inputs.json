@@ -1,0 +1,9 @@
+{
+  "src/dose_process.js": "3bbfaa3c3c690909b662fad7ac82233e6e09a124efc5aa141e5b4b7554ac866c",
+  "src/hp_brewing_formula.js": "7564195a21f6135e5251bc311873d43f2b4d037a1b64b9cd0ed45b68ee42a690",
+  "src/hp_brewing_state.js": "20a378bda18848e2ec4f21577b16654b2dfb746602cf37fd64e3ebd54d541af4",
+  "src/world_packs/book_hp_pack.js": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+  "src/book_world_lotm_brew.js": "259d4219f5164c1a4377bab99ebf5adc5b0d7c97ab055cb30d0c5e901ad6cb44",
+  "src/native_material_catalogue.js": "7b4ad2c44b3472244da69e95f110544949495c897ae794df18a03b0261b2edfe",
+  "src/native_rendering_recipes.js": "86a0d3f73ccd347f7bbe2ac91c959e222d29a3867a6d0c77fb058df3f5a5f9b4"
+}

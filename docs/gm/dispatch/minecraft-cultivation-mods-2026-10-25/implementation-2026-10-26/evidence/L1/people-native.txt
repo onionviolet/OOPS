@@ -1,0 +1,9 @@
+page.waitForNavigation: Timeout 12000ms exceeded.
+=========================== logs ===========================
+waiting for navigation until "domcontentloaded"
+============================================================
+    at Object.importLiteral (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L1/native.cjs:24:63)
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L1/native.cjs:55:192 {
+  log: [],
+  name: 'TimeoutError'
+}

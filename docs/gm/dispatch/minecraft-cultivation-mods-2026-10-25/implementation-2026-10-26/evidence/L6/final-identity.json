@@ -1,0 +1,11 @@
+{
+  "bundleSha256": "afa0470f660ffcc3f931e6f19a70b3503a389be553cbc0a2233e2095873973ef",
+  "hostSha256": "e8a8314f835da1589a88002745f20e033478db4add04061257a275246c49f880",
+  "sourceMapHostExact": true,
+  "immutableInputManifestVerified": 1340,
+  "coreOwnerFilesTouched": 0,
+  "newCycleEdges": 0,
+  "registrationLines": 0,
+  "tests": 24,
+  "browser": "matrix and persistence PASS; named synthetic fixture; no page errors"
+}

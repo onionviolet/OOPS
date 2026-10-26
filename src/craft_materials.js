@@ -37,7 +37,9 @@ export function matchesQuery(query, tags) {
     if(ops.length !== 1) fail('Query needs exactly one of all, any or not.');
     if(ops[0] === 'not') return !matchesQuery(query.not, tags);
     if(!Array.isArray(query[ops[0]])) fail('Query children must be an array.');
-    return ops[0] === 'all' ? query.all.every(q => matchesQuery(q, tags)) : query.any.some(q => matchesQuery(q, tags));
+    // Validate every branch, including branches a boolean short circuit would skip.
+    const results = query[ops[0]].map(q => matchesQuery(q, tags));
+    return ops[0] === 'all' ? results.every(Boolean) : results.some(Boolean);
 }
 function queryTags(query, out = new Set()) {
     if(query == null) return out;
@@ -46,10 +48,38 @@ function queryTags(query, out = new Set()) {
     return out;
 }
 
+// Authoring/read boundary: invalid vocabulary is a content error, not evidence
+// that a material is physically unsuitable. Validate before scanning any rows.
+export function validateMaterialQuery(catalogue, query) {
+    matchesQuery(query, new Set());
+    for(const tag of queryTags(query)) if(!catalogue.registry.has(tag)) fail(`Unknown query tag: ${tag}.`);
+    return query;
+}
+
+export function validateMaterialProperty(catalogue, axis, {unit} = {}) {
+    const def = catalogue.axes[axis] ?? fail(`Unknown axis: ${axis}.`);
+    if(unit !== undefined && unit !== def.unit) fail(`Incompatible unit for ${axis}: expected ${def.unit}.`);
+    return def;
+}
+
+// Developer/author truth metadata, never an observer projection. A default is
+// an authored model assumption, not an observed absence. Callers must apply
+// their existing knowledge owner before displaying values to the player.
+export function materialPropertySupport(catalogue, material, axis, options = {}) {
+    const def = validateMaterialProperty(catalogue, axis, options);
+    material = validateMaterial(catalogue, material);
+    const status = axis === MATRIX ? 'derived' : material.origin ? 'generated'
+        : catalogue.propertySources[material.id]?.includes(axis) ? 'authored' : 'defaulted';
+    return {status, value: material.properties[axis], unit: def.unit, resolution: 1,
+        basis: def.kind === 'fraction' ? catalogue.basis : null,
+        combination: def.combination, omission: def.omission,
+        catalogue: catalogue.ref, material: versioned(material.id, material.revision)};
+}
+
 // Catalogue spec: {id, revision, basis?, axes, tags, families?, materials?}.
 // Fraction axes are integer amounts per `basis` mass; the reserved matrix axis
 // holds the inert remainder so composition always sums to basis (conservation).
-// Scalar axes are bounded integers combined by mass-weighted mean.
+// Scalar axes declare a mixture rule; legacy catalogues default to an authored mass-weighted approximation.
 export function defineCatalogue(spec) {
     only(spec, ['id', 'revision', 'basis', 'axes', 'tags', 'families', 'materials'], 'catalogue');
     const id = text(spec.id, 'Catalogue ID');
@@ -59,17 +89,25 @@ export function defineCatalogue(spec) {
     const registry = spec.tags instanceof TagRegistry ? spec.tags : new TagRegistry(spec.tags ?? []);
     const axes = {};
     for(const axis of spec.axes ?? []) {
-        only(axis, ['id', 'kind', 'min', 'max', 'label', 'hidden'], 'axis');
+        only(axis, ['id', 'kind', 'min', 'max', 'label', 'hidden', 'unit', 'combination', 'omission'], 'axis');
         text(axis.id, 'Axis ID');
         if(axis.id === MATRIX || axes[axis.id]) fail(`Reserved or duplicate axis: ${axis.id}.`);
         if(!['fraction', 'scalar'].includes(axis.kind)) fail('Axis kind must be fraction or scalar.');
         const min = axis.kind === 'scalar' ? axis.min ?? 0 : 0, max = axis.kind === 'scalar' ? axis.max ?? 100 : basis;
         if(!nat(min) || !nat(max) || min > max) fail(`Invalid bounds for axis ${axis.id}.`);
-        axes[axis.id] = {id: axis.id, kind: axis.kind, min, max, label: axis.label ?? axis.id, hidden: axis.hidden === true};
+        const combination = axis.combination ?? (axis.kind === 'fraction' ? 'sum' : 'mass-weighted');
+        if(!(axis.kind === 'fraction' ? ['sum'] : ['mass-weighted', 'unmixed']).includes(combination)) fail(`Invalid combination for ${axis.id}.`);
+        const omission = axis.omission ?? 'default';
+        if(!['default', 'required'].includes(omission)) fail(`Invalid omission policy for ${axis.id}.`);
+        const unit = text(axis.unit ?? `${id}:${axis.kind === 'fraction' ? 'mass-parts' : axis.id + '-index'}`, 'Axis unit');
+        if(axis.kind === 'fraction' && unit !== `${id}:mass-parts`) fail(`Incompatible fraction unit for ${axis.id}; expected ${id}:mass-parts.`);
+        axes[axis.id] = {id: axis.id, kind: axis.kind, min, max, label: axis.label ?? axis.id, hidden: axis.hidden === true,
+            unit, combination, omission};
     }
-    axes[MATRIX] = {id: MATRIX, kind: 'fraction', min: 0, max: basis, label: 'inert matrix', hidden: false};
+    axes[MATRIX] = {id: MATRIX, kind: 'fraction', min: 0, max: basis, label: 'inert matrix', hidden: false,
+        unit: `${id}:mass-parts`, combination: 'sum', omission: 'derived'};
     const catalogue = {id, revision: spec.revision, ref: versioned(id, spec.revision), basis, registry,
-        axes: sortKeys(axes), families: {}, materials: {}};
+        axes: sortKeys(axes), families: {}, materials: {}, propertySources: {}};
     for(const family of spec.families ?? []) {
         only(family, ['id', 'revision', 'tags', 'phase', 'ranges', 'correlations', 'names', 'weight'], 'family');
         text(family.id, 'Family ID');
@@ -101,6 +139,7 @@ export function defineCatalogue(spec) {
         const normalized = normalizeMaterial(catalogue, material);
         if(catalogue.materials[normalized.id]) fail(`Duplicate material: ${normalized.id}.`);
         catalogue.materials[normalized.id] = normalized;
+        catalogue.propertySources[normalized.id] = Object.keys(material.properties ?? {}).filter(axis => axis !== MATRIX).sort(compareCodePoints);
     }
     return deepFreeze(catalogue);
 }
@@ -125,7 +164,10 @@ function normalizeMaterial(catalogue, material) {
     if(fractions > catalogue.basis) fail(`Fractions exceed basis on ${id}.`);
     for(const def of Object.values(catalogue.axes)) {
         if(def.id === MATRIX) properties[MATRIX] = catalogue.basis - fractions;
-        else properties[def.id] = material.properties?.[def.id] ?? def.min;
+        else {
+            if(def.omission === 'required' && !Object.hasOwn(material.properties ?? {}, def.id)) fail(`Missing required axis ${def.id} on ${id}; author data is unsupported.`);
+            properties[def.id] = material.properties?.[def.id] ?? def.min;
+        }
     }
     if(material.properties?.[MATRIX] != null && material.properties[MATRIX] !== properties[MATRIX]) fail(`Matrix does not account for ${id}.`);
     const weight = material.weight ?? (material.family ? catalogue.families[material.family].weight : 1);
@@ -197,6 +239,7 @@ export function generateMaterial(catalogue, familyId, {root, scope, index}) {
 // {id, op:'add', materials:[frozen materials]}. Order matters; each row keeps
 // the reasons that shaped it (GR9).
 export function materialPool(catalogue, query, {overlays = [], extra = []} = {}) {
+    validateMaterialQuery(catalogue, query);
     let rows = [...Object.values(catalogue.materials), ...extra.map(m => validateMaterial(catalogue, m))]
         .map(material => ({material, weight: material.weight, reasons: [material.family ? `family:${material.family}` : 'authored']}));
     for(const overlay of overlays) {
@@ -206,6 +249,7 @@ export function materialPool(catalogue, query, {overlays = [], extra = []} = {})
             rows.push(...(overlay.materials ?? []).map(m => ({material: validateMaterial(catalogue, m), weight: m.weight ?? 1, reasons: [`add:${overlay.id}`]})));
             continue;
         }
+        validateMaterialQuery(catalogue, overlay.match);
         const hit = row => matchesQuery(overlay.match, materialTags(catalogue, row.material));
         if(overlay.op === 'ban') rows = rows.filter(row => !hit(row));
         else if(overlay.op === 'reweight') {
@@ -213,7 +257,6 @@ export function materialPool(catalogue, query, {overlays = [], extra = []} = {})
             rows = rows.map(row => hit(row) ? {...row, weight: Math.floor(row.weight * overlay.permille / 1000), reasons: [...row.reasons, `reweight:${overlay.id}`]} : row);
         } else fail(`Unknown overlay op: ${overlay.op}.`);
     }
-    for(const tag of queryTags(query)) if(!catalogue.registry.has(tag)) fail(`Unknown query tag: ${tag}.`);
     const seen = new Set();
     return rows.filter(row => matchesQuery(query, materialTags(catalogue, row.material)))
         .filter(row => !seen.has(row.material.id) && seen.add(row.material.id))

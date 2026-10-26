@@ -1,0 +1,10 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "state": "dirty-primary-pure-lane-below-floor",
+  "sha256": {
+    "src/craft_agitation.js": "142f59068d52eb26a2edf7af94504a6e521d346b97ba19e361130440dff8a30f",
+    "tests/craft_agitation.test.js": "834185b0fc4068e4acaff2cfcee109dea60029ffd148bd88e73575c95c6192cd",
+    "docs/gm/dispatch/pc-groups-2026-10-26/process-actions/implementation/agitation/focused-tests.tap": "c3862a60a9e3cff05e9223ed9045cb563bcc39b17ff1f0fa08a4a5896cd2aab9",
+    "docs/gm/dispatch/pc-groups-2026-10-26/process-actions/implementation/CONTRACT.md": "9ef50aed0c7edd9c7a3195b92450a90d45d05b65152788641710cac4668cffe2"
+  }
+}

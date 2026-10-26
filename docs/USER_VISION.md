@@ -1,5 +1,23 @@
 # User vision and research coverage
 
+## Weather/environment details selected for implementation, 2026-10-26
+
+Weibao in weather/environment audit chat 01a17940-df27-74a2-86f4-30c2dd780810: “send chats to implement each little detail”, with sharpen and more-to-consider. The parent confirmed subtle and necessary details belong in those implementation chats. This selects applicable PC44–PC53, timing repairs, G6E1–G6E7 and J1 through six connected slices. [Dispatch](gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/COMMON.md) owns coverage, dependencies, reservations and evidence; [shared follow-through](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md) owns cross-group joins. Book-world/menu priorities and existing truth, clock, custody and source rules remain. Creation is dispatch, not gameplay completion. Commits, pushes and normal-app adoption remain unselected. Weibao later authorized: “for the chats that are waiting on usage constraits, give them permission to continue and disregard usage constraints”. [Resumption](gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/RESUMPTION.md) applies this to the existing six chats; actual service limits, ownership and completion evidence remain.
+
+## PC implementation subtlety follow-through, 2026-10-26
+
+Weibao confirmed giving each G1–G7 chat “send chats to implement each little
+detail”, invoking sharpen and more-to-consider, then asked the parent to “Make
+them consider subtle and necissary stuff accordingly”. The later implementation
+request supersedes the groups' initial audit-only dispatch. It selects necessary
+detail coverage and cross-group integration through their existing implementation
+chats, not another duplicate chat wave. [Shared follow-through](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md)
+owns applicable lifecycle, knowledge, amount, world-law, timing, save, player
+feedback and shared-file considerations; [message receipts](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_MESSAGES.json)
+record the follow-up sent to all seven group owners. Group implementation owners
+retain exact slice coverage and runtime evidence. Existing priorities and AD36/43
+stand; no commit, push, publication, purchase or private-save change selected.
+
 ## Fitting cultivation reference mechanics selected, 2026-10-24
 
 Weibao: “Implement the fitting missing mechanics from the audit using our existing systems, all of them”. This selects fitting original adaptations across CG01–CG29 in the [absorption audit](research/itch-io-2026-10-22/CULTIVATION_ABSORPTION_CHECK.md), using existing state, command, custody, clock and save owners. It is broader than the audit's five suggested priorities. Unknown source/server behavior (CG30) remains unverified rather than invented. Exact source catalogues, multiplayer economies and forced loss policies are not selected by the word “fitting”. The existing desktop-first, one-realm/one-prestige and playable-slice sequence remain; selected bounded household and cultivation mechanisms are not blocked by the general NPC deferral. [Implementation and proof](gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md) own delivery states. Commit, push and installed-app publication are not selected.
@@ -6237,6 +6255,48 @@ The same request asked for cross-world ability implementation rules; they are
 proposed in [ability rules](ABILITY_RULES.md) (ABR codes) and are not accepted
 decisions until Weibao says so.
 
+## Effect-first UI descriptions, 2026-10-25
+
+Weibao, with screenshots of the Attack power and Intuition inspectors:
+“create rules for ui descriptions, especially for traits and more, it should be
+more narrative? How does the base game do it? we can include calcualtions, but
+we should describe what it does rather than the text right now?”
+
+Direction: descriptions lead with what the subject means and does for the
+character, using concise narrative where useful. Calculations remain supporting
+information. [UI rules UR70–UR74](UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
+apply across traits, stats, skills, items, conditions and actions. The
+[source comparison and examples](reviews/ui-descriptions-2026-10-25/REPORT.md)
+record the inspected base-game snapshot and current implementation gap. This
+request establishes writing rules; it does not claim a runtime tooltip rewrite
+or normal-app adoption.
+
+## Description rules selected for implementation, 2026-10-26
+
+Weibao: “Implement these rules in the current tooltips and descriptions,
+especially stats and traits, keep useful calculations in the details, and check
+it in the game.” The request also invoked sharpen and more-to-consider and
+asked for beneficial additional rules and comparison with other games.
+
+This selects the local description implementation, including the existing stat
+and trait surfaces and supporting calculation access. The bounded comparison
+and consideration round live in the [existing receipt](reviews/ui-descriptions-2026-10-25/REPORT.md),
+with UR75 adding terms/comparison clarity. Earlier documentation-only status is
+superseded for implementation; publication and installed-app adoption remain
+separate. Work began October 25 and continued after local midnight October 26.
+
+## Normal-app description adoption and logo publication, 2026-10-26
+
+Weibao: “Update the normal installed app with these changes and check the stat
+and trait descriptions there too, send new chat to consider rules to enhance
+stuff like that and more, also commit and push the electron app logo”.
+
+This authorizes adopting the verified local description build in the normal
+app, preserving the player profile, and publishing the logo/icon changes. The
+separate consideration chat saves proposals, not new accepted rules or runtime
+work. [Adoption/publication receipt](reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md)
+and [further rules proposals](reviews/UI_DESCRIPTION_RULES_EXPANSION_2026-10-26.md).
+
 ## Book worlds and menus first; Frontier and Mistglass as test beds, 2026-10-26
 
 Weibao: "Frontier and Mistgrass is just placeholders right? what matters is the
@@ -6261,3 +6321,158 @@ reports and the missing item hover; saved as
 [UI audit round 3](audits/UI_DESIGN_CORE_AUDIT.md#round-3-2026-10-26-a-stable-screen-item-inspection-hover-and-reports)
 (UIS1-UIS14). The [master plan](MASTER_PLAYABILITY_PLAN_2026-10-25.md) M3 is
 updated to match.
+
+## Quality floor and extension rules, 2026-10-26
+
+Weibao: "over archigng things we should do and more? better rules?" and, when
+asked what kind: "rules as in the implementation and absorvtion and execution
+rules to achieve bare minumum of quality and extend quality and more?"
+
+Read as a request for a more-to-consider round, not a direction change: which
+project-wide moves come next, and which implementation, source-absorption and
+execution rules would guarantee a bare minimum of quality for every slice and
+then raise it. Saved as
+[implementation practice audit round 2](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-2-2026-10-26-a-quality-floor-for-implementation-absorption-and-execution)
+(IPC18-IPC35): the floor already exists across the rulebooks but is scattered,
+mostly "proposed" and unenforced, so the proposals are a one-page floor in the
+rules index restating existing codes, a receipt block and lint, route walks
+through the compact MCP, an orphan-row check for absorbed content, a description
+lint, and a quality ladder above the floor. IPC33 asks for one acceptance: the
+six floor lines as binding. Nothing in the round is accepted direction until he
+says so.
+
+## Quality floor accepted, 2026-10-26
+
+Weibao, replying to the round-2 question whether the six floor lines (IPC25)
+should bind: "Sure, but what about design rules and considerations so the
+agents dont make mistakes and stuff? more to conisder?"
+
+"Sure" is recorded as acceptance of the six floor lines as binding, now
+[AD43](RULES_INDEX.md#definition-of-done-the-floor-ad43): build identity,
+natural route, shown description and cost, a consumer, persistence proof when
+persistence changes, and a named review state. A runtime slice missing a line
+is "implemented, below floor". The rulebooks those lines draw on keep their
+own status. The rest of the message asks for a further round on design-side
+rules and considerations; saved as
+[implementation practice audit round 3](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-3-2026-10-26-design-practice-the-mistakes-agents-make-before-code).
+
+## Foundation rules: procedural, modular and stack, 2026-10-26
+
+Weibao: "What about rules like procedural stuff. modularization, foundation
+programming language and more?" Read as the technical foundation, including the
+content DSL. Saved as
+[implementation practice audit round 4](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-4-2026-10-26-foundation-rules-procedural-modular-and-stack)
+(IPC52-IPC65): the generation contract (GR) and architecture rules (AR) exist
+and are accepted; what is missing is a count of conformance (which generators
+have their tests and readers), a burn-down owner for the frozen cycle baseline,
+and a standing answer to the recurring stack question (the ranked TS10-TS17
+table, reopened only by new measurement). IPC65 asks whether the five
+foundation lines bind as defaults with dials. Proposals until he says so.
+
+## Ground rules and carrying out the plans, 2026-10-26
+
+Weibao: "how to fix this? creating ground rules? More to consider? optimization?"
+then "project.md? other stuff and more? There might be alot of
+implementation/coordinators you might need to work with" and "make sure all of
+our loose plans is fufiled, and our ideas can be carried out?"
+
+Read as: fix the recurrence of prose rules by making a short binding digest the
+first thing every agent and coordinator reads, reflect it in PROJECT and the
+coordinator entry points, cut the per-session reading cost, and give every open
+plan one place with a state so it can be dispatched. Done this round:
+[GROUND_RULES](GROUND_RULES.md) (floor accepted as AD43; pre-flight PRF1-PRF8
+and foundation FND1-FND5 proposed) linked from AGENTS, the index, PROJECT, the
+GM prompt, the implementer template, the worktree practice and the runtime rule
+file; the [carry-out queue](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-5-2026-10-26-the-fix-ground-rules-carry-out-queue-and-optimization)
+Q1-Q18 with state. Optimization finding: the working agreement is loaded three
+times per session (Q14 asks which copy stays). "Loose plans fulfilled" is
+carried out through the queue, not by this session running every packet.
+
+
+## Carry-out tooling in primary and general-rule coverage, 2026-10-26
+
+Weibao: “put into primary checkout, consider the stuff I was talking and if
+that even considered or addressed? like general rules and more?”
+
+Read as local adoption of the existing carry-out tooling, plus reconciliation
+of the general-rules, coordinator, loose-plan and optimization requests.
+[Adoption record](gm/dispatch/carry-out-queue-2026-10-26/PRIMARY_ADOPTION.md)
+and [request coverage](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-7-2026-10-26-primary-adoption-and-the-whole-request)
+record the outcome. This request does not promote PRF/FND into accepted policy
+or claim that all saved ideas are implemented. Duplicate instruction loading
+and broader nested idea triage remain explicitly incomplete.
+
+
+## Minecraft research-lane implementation, 2026-10-26
+
+Weibao: “implement each idea accordingly? Send out a chat for each research lane accordingly,”
+
+This selects implementation of the applicable ideas from the eight Minecraft/cultivation/webnovel/player-feedback research lanes, with one user-visible chat per lane. Existing source evidence, systems and book-world/menu priority remain the basis; Frontier and Mistglass are test beds. Each lane proceeds through connected playable slices, credits work already present and records genuine source/ownership dependencies. This changes the wave's research-only stopping point; it does not make fan adaptations canon or authorize commits, pushes, purchases or normal-profile adoption. [Implementation dispatch](gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/COMMON.md) and [thread ledger](gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/THREADS.json) own execution and coverage.
+
+
+## Non-UI rule and workflow follow-through selected, 2026-10-26
+
+The [follow-through dispatch](gm/dispatch/rules-consideration-2026-10-26/dispatch/README.md)
+records Weibao's request for a second chat for “the other stuff” alongside the
+broader UI chat, using sharpen and more-to-consider. The resolved scope is the
+non-UI corrections in H1–H6 and H8 of the consideration report: reconcile current
+rule status/routing and clarify existing core direction at its owners. It does
+not accept PRF/FND, implement all gameplay proposals, select a migration or
+change a standing priority. Earlier no-dispatch statements in the consideration
+receipt describe that earlier phase.
+
+[Local correction receipt](gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md)
+records the owner edits, admission/support source trace, per-fold dispositions
+and actual check scope. Later October 18/19 GR/CX acceptance and AD36/AD42 govern
+these clarifications; the earlier status wording remains dated history. The
+UI sibling owns UI changes; R1's existing publication record owns its separate
+sync/triage work. No commit, push, source acquisition, normal-app replacement or
+private-save mutation is selected by this follow-through.
+
+## Mockup fidelity and freshness correction, 2026-10-26
+
+Weibao, after seeing the reduced character study: “feels liek yhe ui being worked
+on doesnt look as fleshed out as the proto 23 one, is the mockup bench oudated?”
+Then: “update accordingly and make sure it doesnt fall behind in the future,
+send new chat to do above again”. This selects updating the workbench and its
+freshness/fidelity workflow, and a separate chat rerunning the supplied UI/source
+audit. Full-interface comparisons should show the current populated shell and
+navigation, rather than treating a sparse material sketch as current-game proof.
+[MW8](MOCKUP_SYSTEM.md#standing-rules) owns the workflow;
+[report and rerun](reviews/UI_CHARACTER_DIRECTION_2026-10-26.md) own execution.
+Signal/Folio remain unaccepted proposals; production runtime changes, app adoption,
+commit/push and publication are outside this audit authorization.
+
+## Material foundations implementation chats, 2026-10-26
+
+Weibao in the G5 material-foundations audit chat: “send chats to implement each
+little detail”, invoking sharpen and more-to-consider. This selects implementing
+the applicable PC27–PC43 details and G5 findings/expansions through coherent
+consumer slices, rather than another audit-only response. The
+[dispatch](gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COMMON.md)
+maps every detail to five builders and one integration chat, with exact file
+custody, dependency order and required runtime evidence. Earlier audit-only
+wording remains historical for the audit itself. Book-world/menu priority stays;
+native systems serve as shared-mechanism examples. This request authorizes
+implementation and chat creation, not commits, pushes, normal-app installation,
+private-save access or publication. Dispatch is not completed gameplay.
+
+## G4 cross-craft details selected for implementation, 2026-10-26
+
+Weibao, in cross-craft audit chat `01a17940-d6ac-7bb1-ac1d-ffa33b021c0e`: “send chats to implement each little detail”, invoking sharpen and more-to-consider. This selects the applicable PC23–PC26 details and G4E1–G4E5/J1/G4L1–4 in that report: retained outputs with real cross-craft consumers, transmitted/fallible methods, function-based delivery/custody and off-spec recovery. Four connected implementation chats own those domains, with explicit releases before overlapping code work. Book-world/menu priority and other incumbent work remain; bounded commission/teaching details are selected without a general NPC economy. [Dispatch](gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/COMMON.md) owns coverage, source boundaries and playable gates. No commit, push, spending, private-save change or normal-app adoption selected.
+
+## G1 connected-making details selected for implementation, 2026-10-26
+
+Weibao, in connected-making audit chat `01a17940-ccd4-7d02-a705-f65f8e5ad2af`: “send chats to implement each little detail”, invoking sharpen and more-to-consider. This selects the actionable PC1–PC6, F1/F2, CMF1–CMF4, CMX1–CMX6 and A1–A4 details in [the G1 report](gm/dispatch/pc-groups-2026-10-26/connected-making/REPORT.md). Four connected implementation chats cover correctness, demonstrated methods/observations, cohorts/interruption/persistence, and useful HP originals with a real consumer and combined journey. The earlier audit-only boundary remains history for that audit. Parent clarification “Make them consider subtle and necissary stuff accordingly” is incorporated through [shared follow-through](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md), not a second child set. [Dispatch](gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COMMON.md) owns coverage, handoffs and cross-group joins. World-specific mechanisms, book-world/menu priority and incumbent reservations remain. No commit/push, spending, publication, private-save access or normal-app adoption selected.
+
+
+## G2 ingredient-substitution details selected for implementation, 2026-10-26
+
+Weibao in G2 chat `01a17940-d066-7e12-8e32-1a7a37d19715`: “send chats to implement each little detail”, invoking sharpen and more-to-consider. Parent clarification: “Make them consider subtle and necissary stuff accordingly”. This selects applicable PC7–PC14, F1–F5 and E1–E10 through connected playable slices, including allocation/essentials, preparation/revision, observer-safe exact-stock choice and contextual provenance/foreign fit. [Dispatch](gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/README.md) owns assignments; [integration receipt](gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md) owns current evidence and dependencies. Earlier audit-only wording remains historical. Existing book-world/menu priority, canonical identity-bearing cores, G3 process/G5 material owners and AD36/AD43 stand. This authorizes local implementation and the five dispatched chats, not commits, pushes, publication, app adoption or private-save access.
+
+
+## Lore and idea-source details selected for implementation, 2026-10-26
+
+Weibao: “send chats to implement each little detail”, followed by “Make them consider subtle and necissary stuff accordingly”. The selected G7 coverage is PC54–PC60, C1–C5, F1–F3, A14/A15, P1–P3 and the connected J1 journey. [Shared implementation brief](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/COMMON.md) owns scope, dependency order and exclusions; [follow-through](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md) owns the necessary cross-group connections. Source chat: `01a17940-e302-7333-af77-a5a8f16446f8`.
+
+The implementation connects contextual names, attributed editions and observations, supported regional preparations, historical apparatus traces and one bounded institutional response through the existing Cyoria lamp/household consumer. Scenes, standards and numerical values remain ORIGINAL proposals. Existing inventory, custody, learning, physical support and source-qualified laws retain authority; a name, book or certificate does not transmute material, grant competence or replace actual means. Book worlds/menus retain priority and mobile remains deferred. [L3 integration checkpoint](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3.md) owns current evidence and remaining technical gates. Selection and source release do not alone prove joined gameplay, installation, publication or human review.

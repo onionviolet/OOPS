@@ -1,0 +1,22 @@
+downstream-reader
+locator.selectOption: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-hp-select="route"]')[22m
+[2m    - locator resolved to <select aria-label="Route" data-hp-select="route">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to be visible and enabled[22m
+[2m      - did not find some options[22m
+[2m    - retrying select option action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible and enabled[22m
+[2m      - did not find some options[22m
+[2m    - retrying select option action[22m
+[2m      - waiting 100ms[22m
+[2m    40 × waiting for element to be visible and enabled[22m
+[2m       - did not find some options[22m
+[2m     - retrying select option action[22m
+[2m       - waiting 500ms[22m
+
+    at select (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/I5-evidence/native-journey.mjs:34:80)
+    at acquire (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/I5-evidence/native-journey.mjs:41:65)
+    at async file:///Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/I5-evidence/native-journey.mjs:113:16

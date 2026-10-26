@@ -1,0 +1,292 @@
+TAP version 13
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 1 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 2.55075
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 2 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 5.648666
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 3 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 0.414458
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 4 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 0.556625
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 5 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 0.825542
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 6 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 0.892417
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 7 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.136417
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 8 - retained products validate only under their own law revision
+  ---
+  duration_ms: 0.382083
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 9 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 0.733333
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 10 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 5.02175
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 11 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 0.754333
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 12 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.517292
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 13 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 1.061708
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 14 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 3.747
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 15 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 1.822333
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 16 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.376416
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 17 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 0.686292
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 18 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.288208
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 19 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 80.426
+  type: 'test'
+  ...
+# Subtest: processed output retains exact parent key, birth, origin, grade and completeness through later processing
+ok 20 - processed output retains exact parent key, birth, origin, grade and completeness through later processing
+  ---
+  duration_ms: 1.854375
+  type: 'test'
+  ...
+# Subtest: splits conserve exact stack identity and quantity; only identical cohorts can merge
+ok 21 - splits conserve exact stack identity and quantity; only identical cohorts can merge
+  ---
+  duration_ms: 0.363875
+  type: 'test'
+  ...
+# Subtest: planning spends exact available input counts and rejects stale, duplicate, excessive-yield and bad revisions
+ok 22 - planning spends exact available input counts and rejects stale, duplicate, excessive-yield and bad revisions
+  ---
+  duration_ms: 0.181292
+  type: 'test'
+  ...
+# Subtest: legacy stock keys remain opaque and unsupported lineage revisions fail closed
+ok 23 - legacy stock keys remain opaque and unsupported lineage revisions fail closed
+  ---
+  duration_ms: 0.131416
+  type: 'test'
+  ...
+# Subtest: heirloom lines append dated holders and deeds, grow value, stay capped and ordered (IM12)
+ok 24 - heirloom lines append dated holders and deeds, grow value, stay capped and ordered (IM12)
+  ---
+  duration_ms: 2.05925
+  type: 'test'
+  ...
+# Subtest: catalogue is base.native@1 with 20 to 40 materials and conserved fractions
+ok 25 - catalogue is base.native@1 with 20 to 40 materials and conserved fractions
+  ---
+  duration_ms: 0.480042
+  type: 'test'
+  ...
+# Subtest: every mapped id exists in the game item definitions
+ok 26 - every mapped id exists in the game item definitions
+  ---
+  duration_ms: 70.802417
+  type: 'test'
+  ...
+# Subtest: lookup and reverse queries
+ok 27 - lookup and reverse queries
+  ---
+  duration_ms: 0.892791
+  type: 'test'
+  ...
+# Subtest: property thresholds
+ok 28 - property thresholds
+  ---
+  duration_ms: 0.64025
+  type: 'test'
+  ...
+# Subtest: rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+ok 29 - rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+  ---
+  duration_ms: 2.158167
+  type: 'test'
+  ...
+# Subtest: native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+ok 30 - native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+  ---
+  duration_ms: 65.675583
+  type: 'test'
+  ...
+# Subtest: transitive and multiple parents imply tags without adding explicit grants
+ok 31 - transitive and multiple parents imply tags without adding explicit grants
+  ---
+  duration_ms: 1.221125
+  type: 'test'
+  ...
+# Subtest: removal changes direct grants, preserving implications and independent grants
+ok 32 - removal changes direct grants, preserving implications and independent grants
+  ---
+  duration_ms: 0.257709
+  type: 'test'
+  ...
+# Subtest: registry accepts forward references and a diamond without duplicate implications
+ok 33 - registry accepts forward references and a diamond without duplicate implications
+  ---
+  duration_ms: 0.11175
+  type: 'test'
+  ...
+# Subtest: self cycles, indirect cycles and unknown parents are rejected
+ok 34 - self cycles, indirect cycles and unknown parents are rejected
+  ---
+  duration_ms: 0.209666
+  type: 'test'
+  ...
+# Subtest: registry validates IDs, kinds, revisions, duplicates and visibility
+ok 35 - registry validates IDs, kinds, revisions, duplicates and visibility
+  ---
+  duration_ms: 0.163375
+  type: 'test'
+  ...
+# Subtest: registry and entity read views cannot mutate live tags
+ok 36 - registry and entity read views cannot mutate live tags
+  ---
+  duration_ms: 0.609625
+  type: 'test'
+  ...
+# Subtest: boolean item tags, arrays and Sets seed detached entity sets
+ok 37 - boolean item tags, arrays and Sets seed detached entity sets
+  ---
+  duration_ms: 0.160292
+  type: 'test'
+  ...
+# Subtest: invalid live writes are atomic and do not silently accept unknown tags
+ok 38 - invalid live writes are atomic and do not silently accept unknown tags
+  ---
+  duration_ms: 0.148167
+  type: 'test'
+  ...
+# Subtest: all, any and nested not queries match implications and return sorted entity IDs
+ok 39 - all, any and nested not queries match implications and return sorted entity IDs
+  ---
+  duration_ms: 1.00675
+  type: 'test'
+  ...
+# Subtest: malformed queries fail even on empty stores
+ok 40 - malformed queries fail even on empty stores
+  ---
+  duration_ms: 0.378042
+  type: 'test'
+  ...
+# Subtest: open tags and sense allow lists filter each implied tag independently
+ok 41 - open tags and sense allow lists filter each implied tag independently
+  ---
+  duration_ms: 0.148334
+  type: 'test'
+  ...
+# Subtest: observed query negation cannot prove absence of a hidden tag
+ok 42 - observed query negation cannot prove absence of a hidden tag
+  ---
+  duration_ms: 0.17275
+  type: 'test'
+  ...
+# Subtest: tagFacts supplies flat rule facts, explicit visible false, and unknown hidden facts
+ok 43 - tagFacts supplies flat rule facts, explicit visible false, and unknown hidden facts
+  ---
+  duration_ms: 0.2945
+  type: 'test'
+  ...
+# Subtest: serialization is canonical across input order and round trips revisions and empty sets
+ok 44 - serialization is canonical across input order and round trips revisions and empty sets
+  ---
+  duration_ms: 0.231875
+  type: 'test'
+  ...
+# Subtest: unknown loaded tags are retained, reported, removable and hidden by default
+ok 45 - unknown loaded tags are retained, reported, removable and hidden by default
+  ---
+  duration_ms: 0.357125
+  type: 'test'
+  ...
+# Subtest: current content changes are reported while saved revisions and semantics remain readable
+ok 46 - current content changes are reported while saved revisions and semantics remain readable
+  ---
+  duration_ms: 0.123792
+  type: 'test'
+  ...
+# Subtest: deserialize rejects unsupported schemas, cycles, duplicates and malformed data
+ok 47 - deserialize rejects unsupported schemas, cycles, duplicates and malformed data
+  ---
+  duration_ms: 0.277542
+  type: 'test'
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 170.593333

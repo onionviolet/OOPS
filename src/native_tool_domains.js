@@ -1,3 +1,4 @@
+import {configureHpBrewingDomain} from './hp_brewing_domain.js';
 import {configureCohort} from './cohort_battle_domain.js';
 import {configureRootRetuning} from './root_retuning_domain.js';
 import {configureVesselThread} from './vessel_thread_domain.js';
@@ -26,6 +27,10 @@ import {configureSkillRecords} from './skill_records_domain.js';
 // Native composition for the two carried-tool owners. Neither domain configures
 // the other. The independent lamp factory receives only its supported operations.
 export function configureNativeToolDomains(operations) {
+    configureHpBrewingDomain({persist: operations.persist, writable: operations.tradeWritable || operations.writable,
+        world: operations.world, inventory: () => operations.actor().getItems(), itemOwners: operations.itemOwners,
+        assertSpend: operations.assertSpend,
+        removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
     configureDrainage(operations);
     configureIntents(operations);

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "lane": "m5-firing-final",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "58b1753fdf322d7d2dd49054351f294a2a622612f5c783e979ca6dc449aa3102",
+  "gates": [
+    "Native choice quota failure preserves prior durable save",
+    "missing-held-product: literal unsupported schema rejected before mutation",
+    "held-batch-pending: native Save/reload/Export/literal-file Import",
+    "on-time-collected: native Save/reload/Export/literal-file Import",
+    "late-collected: native Save/reload/Export/literal-file Import",
+    "abandoned-waste: native Save/reload/Export/literal-file Import",
+    "Named ordinary stock-control route; actual native hold spends one herb/charcoal; no output before collection, early/competing refusal, quota rollback, invalid held reference import rejected; exact-time heat 2/impurity 0 vs late heat 6/impurity 26, same mass 1000; on-time tablet has real body consumer; pending/collected/late/abandoned native imports; four saved-font desktop bounds."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

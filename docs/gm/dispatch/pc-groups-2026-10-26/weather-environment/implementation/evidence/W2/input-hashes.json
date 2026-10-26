@@ -1,0 +1,8 @@
+{
+  "src/home_building_model.js": "0b522a027f28550f86327dd44f64a92e6b3ce9cf1373e5efaafbf47748f9a333",
+  "src/home_domain.js": "b8724511191f437cda895c2627f692db1be13be5cbe3f5571723558e1c3cb80d",
+  "src/weather_calendar.js": "63372df713eae1371f595ab98444c003418a909d79a7bea384b8f1942a391503",
+  "tests/home_domain.test.js": "f4e39ee64342ea592d7325ffe39b934b442060fe9a401ee70dbeff85d86dcf25",
+  "tests/home_extension.test.js": "2c1c4c1ccf7ee39a41496d82818267c5fe4342d236a738b2f4f5dcd61b757817",
+  "src/home_work_content.js": "a2676545755aab1f22123dce2366afb253d531b52188d3c6d7ea9b10a029b9eb"
+}

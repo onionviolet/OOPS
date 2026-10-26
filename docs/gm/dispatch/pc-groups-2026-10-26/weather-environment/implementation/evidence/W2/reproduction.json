@@ -1,0 +1,15 @@
+{
+  "F2": "reproduced before W2 edit",
+  "long": {
+    "integrity": 100,
+    "wetness": 0,
+    "rainMinutes": 0,
+    "lastClock": 60
+  },
+  "split": {
+    "integrity": 100,
+    "wetness": 60,
+    "rainMinutes": 30,
+    "lastClock": 60
+  }
+}

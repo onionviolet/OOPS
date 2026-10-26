@@ -1,0 +1,33 @@
+{
+  "name": "q8-cycle-ledger",
+  "pid": 45754,
+  "pgid": 45754,
+  "started_at": 1792998465.965007,
+  "cwd": "/Users/weiwei/.codex/worktrees/q8-cycle-ledger/yet-another-idle-rpg",
+  "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md",
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "log": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q8-cycle-ledger.log",
+  "last_message": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q8-cycle-ledger.last.md",
+  "command": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "-m",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "--approve-for-me",
+    "--add-dir",
+    "/Users/weiwei/code/yet-another-idle-rpg/.git",
+    "--add-dir",
+    "/Users/weiwei/code/yet-another-idle-rpg",
+    "--add-dir",
+    "/Users/weiwei/.codex",
+    "--add-dir",
+    "/Users/weiwei/.codex/worktrees/q8-cycle-ledger/yet-another-idle-rpg",
+    "-o",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q8-cycle-ledger.last.md",
+    "<prompt text>"
+  ]
+}

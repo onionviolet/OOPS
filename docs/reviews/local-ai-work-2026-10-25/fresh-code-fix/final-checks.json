@@ -1,0 +1,19 @@
+{
+  "fresh_session": true,
+  "normal_completion": true,
+  "elapsed_seconds": 93.925,
+  "steps": 7,
+  "human_followups": 0,
+  "verification_attempts": 1,
+  "no_tools_after_pass": true,
+  "helper_tests_passed": 10,
+  "lane_tests_passed": 10,
+  "independent_acceptance": true,
+  "receipt_matches_integrated_code": true,
+  "primary_code_corrections": 0,
+  "installed_source_helpers_match": true,
+  "backend_thinking_off_requests": 8,
+  "worker_and_relay_stopped": true,
+  "local_report_links": 32,
+  "committed": false
+}

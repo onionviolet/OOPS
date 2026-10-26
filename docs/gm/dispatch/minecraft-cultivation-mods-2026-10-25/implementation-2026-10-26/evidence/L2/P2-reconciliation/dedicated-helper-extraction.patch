@@ -1,0 +1,128 @@
+diff --git a/src/agreed_duty_content.js b/src/agreed_duty_content.js
+index dcd1d54c9..512a21035 100644
+--- a/src/agreed_duty_content.js
++++ b/src/agreed_duty_content.js
+@@ -1,7 +1,9 @@
+ // ACS-P03's one optional schedule preference composes into the existing
+ // feature_society actors, world facts and controller. It creates no new owner.
++import {all} from './basics.js';
+ import {SOCIETY_IDS as S} from './feature_expansion_society.js';
+ import {agreedDutyContinuationDefinitions} from './agreed_duty_continuation.js';
++import {coinsActorFirst as coin, moneyActorKeyNative as money} from './content_kit.js';
+ 
+ const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson, V = S.apprentice;
+ const worldFact = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
+@@ -9,13 +11,10 @@ const knowledge = (key, value, attributedTo) => ({type: 'knowledge', actor: 'pla
+     stage: 'seen', value, basis: {kind: 'observation', attributedTo, situationId: `${P}.home_agreement`}});
+ const assent = (actor,key,value) => ({type:'knowledge',actor:'player',key:`${P}.duty.assent.${key}`,stage:'seen',value,
+     basis:{kind:'observation',attributedTo:actor,situationId:`${P}.home_agreement`}});
+-const coin = (actor, amount) => ({type:'resource',actor,key:'coins',amount});
+-const money = amount => ({type:'resource',actor:'player',key:'money',native:true,amount});
+ const permission = (operation,key,actor,target) => ({type:'claim',operation,key,actor,...(target?{target}:{})});
+ const fact = (key, value) => ({type: 'fact', scope: 'world', key: `${P}.${key}`, value});
+ const actorFact = (key,value,actor='player') => ({type:'fact',scope:'actor',actor,key:`${P}.${key}`,value});
+ const eq = (name, value = true, reason) => ({fact: name, op: 'eq', value, ...(reason ? {reason} : {})});
+-const all = (...rules) => ({all: rules});
+ 
+ export const AGREED_DUTY_IDS = Object.freeze({
+     repair: `${P}.orr_repair`, lesson: `${P}.orr_teach`, controller: `${P}.orr_controller`,
+diff --git a/src/agreed_duty_continuation.js b/src/agreed_duty_continuation.js
+index dcc945f19..bffd39f69 100644
+--- a/src/agreed_duty_continuation.js
++++ b/src/agreed_duty_continuation.js
+@@ -1,21 +1,18 @@
+ // Proposed, finite post-duty continuation. The root integration owns the
+ // valid-receipt facts, truthful cancellation/support-loss accounts and wiring.
++import {all, deepFreezeUnlessFrozen as deepFreeze, eq, sameJson as same} from './basics.js';
+ import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
+ import {assert,natural,record} from './simulation_contracts.js';
++import {coinsActorFirst as coin, moneyActorKeyNative as money, staminaActorFirst as stamina} from './content_kit.js';
+ 
+ const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson;
+ const LOG = SOCIETY_ITEMS.wood, KIT = SOCIETY_ITEMS.kit;
+ 
+-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
+-const all = (...rules) => ({all: rules});
+ const wf = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
+ const knowledge = (key, value) => ({type: 'knowledge', actor: 'player', key: `${P}.duty.continuation.${key}`,
+     stage: 'seen', value, basis: {kind: 'observation', attributedTo: 'player', situationId: `${P}.home_agreement`}});
+ const item = (actor, key, amount, reservationReturn = false) => ({type: 'item', actor, key, amount,
+     ...(reservationReturn ? {reservationReturn: true} : {})});
+-const coin = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
+-const money = amount => ({type: 'resource', actor: 'player', key: 'money', native: true, amount});
+-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
+ const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
+ 
+ const local = eq('society.clockSupported', true, 'The household cannot meet while you are away from the supported local clock.');
+@@ -74,13 +71,6 @@ const decline = {
+         knowledge('declined', 'Declined the optional later survey-kit continuation. No time, resources or earlier lawful result changed.')],
+ };
+ 
+-function deepFreeze(value) {
+-    if(value && typeof value === 'object' && !Object.isFrozen(value)) {
+-        Object.values(value).forEach(deepFreeze);
+-        Object.freeze(value);
+-    }
+-    return value;
+-}
+ 
+ export const agreedDutyContinuationDefinitions = deepFreeze({commands: [sponsored, paid, decline]});
+ 
+@@ -90,7 +80,6 @@ export function stampAgreedDutyContinuationJob(state,job){
+         priorCause:state.simulation.knowledge.player[`${P}.duty.result`].cause};
+ }
+ 
+-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ const sequence=id=>{const match=/^(?:simulation|cancel|unsupported):([1-9][0-9]*)$/.exec(id||'');return match?Number(match[1]):NaN;};
+ export function continuationAccountValue(job,status,priorCause){
+     return JSON.stringify({schema:1,status,commandId:job.commandId,jobId:job.id,priorCause,acceptedAt:job.dutyContinuationTerms.acceptedAt,
+diff --git a/src/agreed_duty_facts.js b/src/agreed_duty_facts.js
+index b05241410..c5dacb4a4 100644
+--- a/src/agreed_duty_facts.js
++++ b/src/agreed_duty_facts.js
+@@ -1,4 +1,5 @@
+ // Read-only facts and exact durable-receipt validation for ACS-P03.
++import {sameJson as same} from './basics.js';
+ import {assert, natural, record, stableId} from './simulation_contracts.js';
+ import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
+ import {AGREED_DUTY_IDS as I, AGREED_DUTY_POLICY as P, agreedDutyDefinitions} from './agreed_duty_content.js';
+@@ -10,7 +11,6 @@ const seq = cause => {
+ };
+ const caused = (state, receipt) => natural(receipt?.at) && receipt.at <= state.clock && Number.isSafeInteger(seq(receipt?.cause)) &&
+     seq(receipt.cause) > 0 && seq(receipt.cause) <= state.sequence;
+-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+ const W = S.world, PFX = S.prefix;
+ const idForPreference = value => value === P.values.repairFirst ? 'repair' : value === P.values.lessonFirst ? 'lesson' : value === P.values.ordinary ? 'ordinary' : null;
+ const choiceFor = route => route === 'repair' ? I.repairFirst : route === 'lesson' ? I.lessonFirst : I.ordinary;
+diff --git a/src/feature_expansion_society.js b/src/feature_expansion_society.js
+index 681774b3a..af5e3b43a 100644
+--- a/src/feature_expansion_society.js
++++ b/src/feature_expansion_society.js
+@@ -1,5 +1,7 @@
+ // Original reversible content. Residents enter once through an explicit meeting.
+ // Their purses, stock, consent, work and knowledge use existing simulation owners.
++import {all, eq, not} from './basics.js';
++import {coinsActorFirst as coin, moneyActorKeyNative as money, itemActorFirst as item, transferCount as transfer, staminaActorFirst as stamina} from './content_kit.js';
+ export const SOCIETY_IDS = Object.freeze({prefix: 'feature_society', world: 'base.frontier',
+     household: 'feature_society.hessa', craftsperson: 'feature_society.orr', apprentice: 'feature_society.vale',
+     home: 'feature_society.home', bench: 'feature_society.bench', method: 'feature_society.ordinary_join',
+@@ -8,19 +10,11 @@ const {prefix: P, world: W, household: H, craftsperson: O, apprentice: V, method
+ export const SOCIETY_ITEMS = Object.freeze({wood: JSON.stringify({id: 'Rough wood log'}),
+     kit: JSON.stringify({id: 'Prepared survey kit'}), rope: JSON.stringify({id: 'Survey rope'})});
+ const {wood: LOG, kit: KIT, rope: ROPE} = SOCIETY_ITEMS;
+-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
+-const all = (...rules) => ({all: rules});
+-const not = rule => ({not: rule});
+ const af = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}.${key}`, value});
+ const wf = (key, value = true) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
+ const a = (key, value = true) => eq(`actor.${P}.${key}`, value);
+ const w = (key, value = true) => eq(`world.${P}.${key}`, value);
+-const coin = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
+-const money = amount => ({type: 'resource', actor: 'player', key: 'money', native: true, amount});
+-const item = (actor, key, amount, returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
+-const transfer = (from, to, key, count = 1) => ({type: 'transfer', from, to, key, count});
+ const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
+-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
+ const knowledge = (key, value, actor = 'player', stage = 'seen', attributedTo = H) => ({type: 'knowledge', actor,
+     key: `${P}.${key}`, stage, value, basis: {kind: stage === 'understood' ? 'instruction' : 'observation', attributedTo, situationId: `${P}.home_agreement`}});
+ const memory = (actor, target, text) => ({type: 'relationship', actor, target, axis: 'respect', amount: 1, text});

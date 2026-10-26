@@ -1,0 +1,6 @@
+clicked enroll
+clicked plan_book.lotm.report_in
+clicked book.lotm.report_in
+clicked book.lotm.accept_allocation
+clicked plan_book.lotm.ingest
+clicked book.lotm.ingest

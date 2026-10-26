@@ -62,3 +62,11 @@ test('native durability identity preserves the same loan and actual worn conditi
  f.wearByKey={[identified]:.575};assert.equal(projectStructuredEquipment(f).effects['structured.equipment'].effects.stats.defense.flat,6.8999999999999995);
  delete f.state.simulation.custody.loan;assert.equal(projectStructuredEquipment(f).effects['structured.equipment'],undefined);
 });
+test('world-owned enhancement affects the exact worn defense without changing coverage or bypassing body/custody',()=>{
+ const f=fixture();f.definitions=[{...item,equipment:{...item.equipment,powerFlag:'ward.active',powerMultiplier:1.25}}];
+ const plain=projectStructuredEquipment(f);assert.equal(plain.defenseByKey[key],12);
+ f.facts['ward.active']=true;const enhanced=projectStructuredEquipment(f);assert.equal(enhanced.defenseByKey[key],15);assert.deepEqual(enhanced.coverage,plain.coverage);assert.equal(enhanced.weight,plain.weight);
+ f.facts['ward.active']=false;assert.equal(projectStructuredEquipment(f).defenseByKey[key],12);
+ f.facts['ward.active']=true;delete f.state.simulation.custody.loan;assert.equal(projectStructuredEquipment(f).defenseByKey[key],0);
+ for(const metadata of [{powerFlag:'ward.active'},{powerMultiplier:1.25},{powerFlag:3,powerMultiplier:1.25},{powerFlag:'ward.active',powerMultiplier:-1}])assert.throws(()=>validateStructuredEquipmentDefinition({...item,equipment:{...item.equipment,...metadata}}),/Invalid structured equipment power/);
+});

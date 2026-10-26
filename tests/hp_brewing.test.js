@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {begin, commit, quote, view, settle, validate, resolveBrew, HP} from '../src/hp_brewing_state.js';
+import {compareTrials} from '../src/craft_experiment_log.js';
 
 const I = id => `book.hp.ing.${id}`, STORE = 'book.hp.route.student_store', TRUST = 'book.hp.route.trusted_supplier', HARVEST = 'book.hp.route.harvest';
 const DAY = 1440, FULL = {moon: 'Full'}, NEW = {moon: 'New'};
@@ -225,4 +226,199 @@ test('MR31: a preview never reports hidden results; assay and drink quotes are n
     assert.equal(r.s.samples[id].known.assayed, false); assert.equal(r.s.purse, purse, 'previews spend nothing');
     // After the paid assay the result is knowledge.
     const out = commit(r.s, ctx, {type: 'assay', sampleId: id}); assert.match(out.summary, /cat hair/);
+});
+
+test('paid HP history retains exact lots and terms; settlement uses the committed deadline', () => {
+    const r = new Run(11, 100), slots = r.slots();
+    assert.equal(r.s.lots[slots.bicorn].preparation.law, 'book.hp.hand-preparation@1');
+    const paid = structuredClone(r.s.lots), condition = r.s.cauldron.condition;
+    r.do({type: 'brew', slots});
+    const b = r.s.cauldron.brew;
+    assert.deepEqual(Object.fromEntries(b.history.inputs.map(x => [x.lot.id, x.lot])), paid);
+    assert.equal(b.history.cauldronCondition, condition);
+    const retained = JSON.parse(JSON.stringify(r.s)); validate(retained);
+    // Synthetic supported retained terms differ from today's content duration.
+    retained.cauldron.brew.history.minutes += 60;
+    retained.cauldron.brew.readyAt += 60; retained.cauldron.brew.history.readyAt += 60;
+    validate(retained); settle(retained, b.readyAt); assert.ok(retained.cauldron.brew);
+    settle(retained, b.readyAt + 60);
+    const batch = Object.values(retained.batches)[0];
+    assert.deepEqual(batch.history.inputs, b.history.inputs); assert.equal(batch.readyAt, b.readyAt + 60);
+    assert.equal(Object.keys(retained.lots).length, 0);
+    settle(retained, b.readyAt + 100); assert.equal(Object.keys(retained.batches).length, 1);
+});
+
+test('same-cohort split, partial actual use, custody and recombination conserve spent and remaining doses', () => {
+    const r = new Run(), b = r.brew(r.slots());
+    r.do({type: 'splitBatch', batchId: b.id, doses: 1});
+    const part = Object.values(r.s.batches).find(x => x.id !== b.id), before = structuredClone(part);
+    r.do({type: 'transferBatch', batchId: part.id, custody: 'bench'});
+    r.do({type: 'sample', donorId: 'd1', route: 'ask'}); const sampleId = Object.keys(r.s.samples)[0];
+    const stored = structuredClone(r.s);
+    assert.throws(() => r.do({type: 'drink', batchId: part.id, sampleId}), /Retrieve/);
+    assert.throws(() => r.do({type: 'transferBatch', batchId: part.id, custody: 'recipient:d1'}), /not connected/);
+    assert.throws(() => r.do({type: 'transferBatch', batchId: part.id, custody: 'native-chest'}), /not connected/);
+    assert.deepEqual(r.s, stored);
+    r.do({type: 'transferBatch', batchId: part.id, custody: 'carried'});
+    assert.equal(r.s.batches[part.id].readyAt, before.readyAt);
+    assert.deepEqual(r.s.batches[part.id].history, before.history);
+    r.do({type: 'drink', batchId: b.id, sampleId});
+    const spent = r.s.batches[b.id].doses - r.s.batches[b.id].dosesLeft;
+    r.do({type: 'mergeBatch', batchId: b.id, sourceId: part.id});
+    assert.equal(r.s.batches[b.id].doses, HP.rules.doses);
+    assert.equal(r.s.batches[b.id].dosesLeft, HP.rules.doses - spent);
+    assert.throws(() => r.do({type: 'mergeBatch', batchId: b.id, sourceId: part.id}), /Choose a batch/);
+    assert.throws(() => r.do({type: 'splitBatch', batchId: b.id, doses: HP.rules.doses}), /remaining doses/);
+    validate(JSON.parse(JSON.stringify(r.s)));
+});
+
+test('different brewing ages stay distinct even with equal grade; previews and failed merges keep custody', () => {
+    const r = new Run(), first = r.brew({leeches: r.get(I('leeches'), STORE)});
+    const second = r.brew({leeches: r.get(I('leeches'), STORE)});
+    assert.equal(first.grade, second.grade); assert.notEqual(first.readyAt, second.readyAt);
+    const before = structuredClone(r.s), request = {type: 'mergeBatch', batchId: first.id, sourceId: second.id};
+    assert.equal(quote(r.s, {now: r.now}, request).eligible, false);
+    assert.throws(() => r.do(request), /different batches/); assert.deepEqual(r.s, before);
+    const projected = view(r.s, {now: r.now}); assert.ok(!JSON.stringify(projected.batches).includes('history.inputs'));
+    assert.equal(projected.batches[0].retainedHistory, true);
+});
+
+test('unsupported or malformed paid terms refuse before settlement without refunding or erasing custody', () => {
+    const r = new Run(), id = r.get(I('leeches'), STORE); r.do({type: 'brew', slots: {leeches: id}});
+    for(const mutate of [x => x.cauldron.brew.history.revision++, x => x.cauldron.brew.history.minutes = -1, x => x.cauldron.brew.history.inputs = []]) {
+        const bad = structuredClone(r.s); mutate(bad); const before = structuredClone(bad);
+        assert.throws(() => validate(bad), /retained|paid|deadline/);
+        assert.throws(() => settle(bad, r.now + HP.rules.brewMinutes), /retained|paid|deadline/);
+        assert.deepEqual(bad, before); assert.equal(bad.lots[id], undefined);
+    }
+    r.wait(HP.rules.brewMinutes); const b = Object.values(r.s.batches)[0];
+    const forged = structuredClone(r.s); forged.batches.forged = {...structuredClone(b), id: 'forged'};
+    assert.throws(() => validate(forged), /conserve/);
+});
+
+const SUSPEND = 'book.hp.abrasive-suspension@1';
+function suspension(variant = 'book.hp.prep.powder_fine') {
+    const r = new Run(), lot = r.get(I('bicorn_horn'), TRUST);
+    if(variant) r.do({type: 'prepare', lotId: lot, variant});
+    r.do({type: 'brew', method: SUSPEND, slots: {bicorn: lot}});
+    const pending = structuredClone(r.s.cauldron.brew);
+    r.wait(20);
+    return {r, lot, pending, batch: Object.values(r.s.batches)[0]};
+}
+
+test('ORIGINAL suspension retains paid preparation and real process; fine/coarse composition reaches the cauldron reader', () => {
+    const results = [];
+    for(const variant of ['book.hp.prep.powder_fine', 'book.hp.prep.powder_coarse']) {
+        const {r, lot, pending, batch} = suspension(variant);
+        assert.equal(pending.readyAt - pending.startedAt, 20);
+        assert.equal(pending.history.process, 'book.hp.abrasive-suspension');
+        assert.equal(batch.grade, 'original'); assert.equal(batch.dosesLeft, 3);
+        assert.equal(batch.history.inputs[0].lot.id, lot);
+        assert.equal(batch.history.inputs[0].lot.preparation.after.variant, variant);
+        assert.equal(r.s.purse, 60 - 14 - (variant.endsWith('_fine') ? 2 : 1) - 1);
+        const samples = structuredClone(r.s.samples);
+        r.do({type: 'treatCauldron', batchId: batch.id});
+        assert.equal(r.s.batches[batch.id].dosesLeft, 2);
+        assert.equal(view(r.s, {now: r.now}).batches.find(b => b.id === batch.id).tested, true);
+        assert.deepEqual(r.s.samples, samples, 'non-ingestion trial takes no donor sample');
+        assert.equal(r.s.methods.length, 1);
+        assert.equal(r.s.experiments.entries[0].observation.route, 'examination');
+        assert.doesNotMatch(JSON.stringify(r.s.experiments), /"truth"|"strength"|"work"/);
+        validate(JSON.parse(JSON.stringify(r.s)));
+        results.push(r.s.cauldron.condition);
+    }
+    assert.deepEqual(results, [1000, 950], 'one observed preparation difference changes actual removed residue');
+});
+
+test('unknown treatment preview is pure and neutral; inert trial spends a dose and empty/stored/occupied targets refuse', () => {
+    const fine = suspension(), inert = suspension(null);
+    const previews = [];
+    for(const {r, batch} of [fine, inert]) {
+        const before = structuredClone(r.s);
+        previews.push(quote(r.s, {now: r.now}, {type: 'treatCauldron', batchId: batch.id}));
+        assert.deepEqual(r.s, before);
+    }
+    assert.deepEqual(previews[0], previews[1], 'preview cannot diagnose unobserved efficacy');
+    assert.deepEqual(view(fine.r.s, {now: 20}).batches[0], view(inert.r.s, {now: 20}).batches[0]);
+    const {r, batch} = inert, condition = r.s.cauldron.condition;
+    r.do({type: 'treatCauldron', batchId: batch.id});
+    assert.equal(r.s.cauldron.condition, condition); assert.equal(r.s.batches[batch.id].dosesLeft, 2);
+    assert.equal(r.s.methods, undefined, 'a failed cleaning trial demonstrates no viable method');
+    r.do({type: 'transferBatch', batchId: batch.id, custody: 'bench'});
+    const stored = structuredClone(r.s);
+    assert.throws(() => r.do({type: 'treatCauldron', batchId: batch.id}), /Retrieve/);
+    assert.deepEqual(r.s, stored);
+    r.do({type: 'transferBatch', batchId: batch.id, custody: 'carried'});
+    r.do({type: 'scour'});
+    const clean = structuredClone(r.s);
+    assert.throws(() => r.do({type: 'treatCauldron', batchId: batch.id}), /no residue/);
+    assert.deepEqual(r.s, clean);
+});
+
+test('demonstrated HP quick replay binds new current lots; changed preparation needs guided/deep review through the same resolver', () => {
+    const {r, batch} = suspension();
+    r.do({type: 'treatCauldron', batchId: batch.id});
+    const method = structuredClone(r.s.methods[0]), lot = r.get(I('bicorn_horn'), TRUST);
+    r.do({type: 'prepare', lotId: lot, variant: 'book.hp.prep.powder_fine'});
+    assert.match(r.do({type: 'brew', method: SUSPEND, slots: {bicorn: lot}, repeatMethodId: method.id, repeatMode: 'quick'}), /Repeats the recorded known setup/);
+    assert.equal(r.s.lots[lot], undefined);
+    assert.equal(r.s.cauldron.brew.history.inputs[0].lot.id, lot);
+    assert.notEqual(lot, method.setup.sources[0].lotId);
+    assert.deepEqual(r.s.methods[0], method, 'immutable demonstrated conditions do not widen');
+
+    for(const mode of ['guided', 'deep']) {
+        const changed = suspension(), run = changed.r;
+        run.do({type: 'treatCauldron', batchId: changed.batch.id});
+        const next = run.get(I('bicorn_horn'), TRUST);
+        run.do({type: 'prepare', lotId: next, variant: 'book.hp.prep.powder_coarse'});
+        const request = {type: 'brew', method: SUSPEND, slots: {bicorn: next}, repeatMethodId: run.s.methods[0].id};
+        const before = structuredClone(run.s);
+        assert.throws(() => run.do({...request, repeatMode: 'quick'}), /changed or is incomplete/);
+        assert.deepEqual(run.s, before);
+        assert.match(run.do({...request, repeatMode: mode}), /Modified attempt/);
+        assert.equal(run.s.cauldron.brew.history.abrasivePlan.strength, 100);
+        assert.equal(run.s.purse, before.purse - 1, 'review mode pays the same actual service without potency bonus');
+    }
+});
+
+test('suspension history validation preserves custody and rejects changed paid plan or unsupported revision without settlement', () => {
+    const {r, pending} = suspension();
+    const source = begin({seed: 3, now: 0});
+    source.now = pending.startedAt; source.cauldron.brew = structuredClone(pending);
+    source.cauldron.condition = 850; source.seq = pending.id;
+    const corrupt = structuredClone(source); corrupt.cauldron.brew.history.abrasivePlan.strength++;
+    const before = structuredClone(corrupt);
+    assert.throws(() => settle(corrupt, pending.readyAt), /inconsistent retained suspension/);
+    assert.deepEqual(corrupt, before);
+    const revised = structuredClone(source); revised.cauldron.brew.history.revision = 99;
+    assert.throws(() => validate(revised), /Unsupported retained/);
+    assert.deepEqual(revised.lots, source.lots);
+    assert.equal(Object.keys(revised.batches).length, 0);
+    validate(JSON.parse(JSON.stringify(r.s)));
+});
+
+
+test('actual non-ingestion trials compare one preparation change with explicit target conditions and observed responses', () => {
+    const fine = suspension(), coarse = suspension('book.hp.prep.powder_coarse');
+    for(const {r, batch} of [fine, coarse]) r.do({type: 'treatCauldron', batchId: batch.id});
+    const a = fine.r.s.experiments.entries[0], b = coarse.r.s.experiments.entries[0];
+    const comparison = compareTrials(a, b);
+    assert.deepEqual(comparison.changed.map(row => row.field), ['preparation.bicorn']);
+    assert.deepEqual(comparison.unknown, []); assert.deepEqual(comparison.confounders, []);
+    assert.match(a.observation.response, /no residue/); assert.match(b.observation.response, /traces/);
+    assert.match(comparison.uncertainty, /do not by themselves identify a cause/);
+});
+
+test('treatment reaches the existing subsequent potion-quality reader across its fouling threshold', () => {
+    const {r, batch} = suspension();
+    // Named synthetic fouling baseline; all potion inputs/preparation below use actual actions.
+    r.s.cauldron.condition = HP.rules.cauldronOkFrom - 100;
+    const slots = r.slots();
+    const selected = Object.fromEntries(Object.entries(slots).map(([slot, id]) => [slot, r.s.lots[id]]));
+    assert.equal(resolveBrew(selected, r.s.cauldron.condition).grade, 'degraded');
+    r.do({type: 'treatCauldron', batchId: batch.id});
+    assert.equal(r.s.batches[batch.id].dosesLeft, 2);
+    r.do({type: 'brew', slots});
+    assert.equal(r.s.cauldron.brew.grade, 'canon', 'restored apparatus changes a real future product, not only a display meter');
+    validate(JSON.parse(JSON.stringify(r.s)));
 });

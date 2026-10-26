@@ -1,0 +1,93 @@
+{
+  "b1RelevantInputHashMatch": {
+    "src/book_care_facts.js": true,
+    "tests/book_care_support.test.js": true,
+    "src/book_care_content.js": true,
+    "src/book_world_paradise_actions.js": true,
+    "src/book_world_paradise_ids.js": true,
+    "docs/audits/BODY_HEALTH_CORE_AUDIT.md": true
+  },
+  "b1BundleSha256": "4a18834fcbce91ea930088a663b50af3ea393267695a43093e3e265cd8811040",
+  "b1BrowserEvidenceReused": true,
+  "unrelatedSourceDriftFromB1Bundle": [
+    {
+      "path": "src/material_lineage.js",
+      "sha256": "e497bebda1e8b3f440e60701c830fb51c684ed8aff224efbfc7b7c34b2b2b361"
+    },
+    {
+      "path": "src/material_treatment.js",
+      "sha256": "884746406cfa342f590b70951f340b9957d2550c14ea0a446129e5c14fbad96c"
+    },
+    {
+      "path": "src/processed_materials.js",
+      "sha256": "b8a1a278e40b1075eb85527011d726d969dc1379c760d030012d2dfe62fc5c63"
+    },
+    {
+      "path": "src/world_packs/book_mol_pack.js",
+      "sha256": "c95eddeb439793a72f453b35d1a9110237f50bbcd712c6943702aa3b88594e63"
+    },
+    {
+      "path": "src/book_world_mol_state.js",
+      "sha256": "8b5f292fe7fe2afe08d5976412f65216c846072410e1c1fd4d15d6fa7050f7c0"
+    },
+    {
+      "path": "src/book_world_lotm_bench.js",
+      "sha256": "a5ff7c1b3da38f8fde31f0eaa2cbc2577414d3c06c27f99000a44cfe65bccd11"
+    },
+    {
+      "path": "src/book_world_mol_host.js",
+      "sha256": "b9672085bbf3ff8ce889f42a59d68173098e130cce649b1b267749d06f18de1f"
+    },
+    {
+      "path": "src/native_rendering_recipes.js",
+      "sha256": "375eef85d6d87566e291d32744e954b64dd0d61b41ae775a7eeb69556162ef1a"
+    },
+    {
+      "path": "src/hp_brewing_formula.js",
+      "sha256": "7564195a21f6135e5251bc311873d43f2b4d037a1b64b9cd0ed45b68ee42a690"
+    },
+    {
+      "path": "src/hp_brewing_panel.js",
+      "sha256": "a51cece97886689a277e19c67137e8156be3cf1062a90df88375b379b912525c"
+    },
+    {
+      "path": "src/book_world_lotm_host.js",
+      "sha256": "65291e569643c3a56b58da3e0b7116b9d1825fe82d7f369fd36255a22469f935"
+    }
+  ],
+  "b2Probe": "check-lifecycle.mjs",
+  "b2Result": "lifecycle.json",
+  "b2ProbeInputs": {
+    "src/book_care_facts.js": "fc9c10983b20cd7ee515f3c5e79c69c6172cb549852afefb23b151d165be68f8",
+    "src/book_care_content.js": "e4282a5c3716d3a11cefd81acde1ef0ea3b7344660b24c3796d7424004714688",
+    "src/book_care_host.js": "12c4d82f3762eabbe96408577a23756bab873ece109cdee27f3be291069cb134",
+    "src/book_care_runtime.js": "687149b5bfafe6977e4a57a9049c47e2f7ba592a3915d07bc1a7467e6f7957cb",
+    "src/book_world_paradise_actions.js": "fc1a1b83409384c32a84f9b4764644fac8a1af1afe876edba8558c3cc3f568d8",
+    "src/book_world_paradise_state.js": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+    "src/simulation.js": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+    "src/simulation_effects.js": "e33a06c22bdf0483b58aaba67bc3f65a0209e7e227d794da275a315247d714b1",
+    "src/expansion_engine.js": "0f3de2dea80b3be44bfca5d54b9e3e2ae5fbeb84705b2d48247017ef93aca008",
+    "src/expedition_content.js": "7b576582b5ef7b531dc38d40f9f1e76f5bb1abb5fadd4b23f0e4c8e0c3c450f7",
+    "tests/book_care_support.test.js": "5ac11f151faae647a7c296cffc5b8af844adaa7a6f8241120c2aed4c4545e9d9"
+  },
+  "b2ArtifactHashes": {
+    "check-lifecycle.mjs": "1b2e103a9c53b07f6a8bcd2c32170c51375786695c48b609961a67003341a683",
+    "lifecycle.json": "4b6d682a501f9ede79dd2c4e394fdc6d83a2d59bda0a71fdd097d0c9bec649c5",
+    "native-route-save.json": "e73892df351864f55085dbfec1a3e752e452e6e745e53f783177fea57af3e6b8"
+  },
+  "additionalRuntimeCorrection": false,
+  "centralGlueRequired": false,
+  "releasedToE": [
+    "src/book_care_facts.js",
+    "tests/book_care_support.test.js"
+  ],
+  "ownedManifest": [
+    "src/book_care_facts.js",
+    "tests/book_care_support.test.js",
+    "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+    "docs/gm/dispatch/other-systems-depth-2026-10-26/body/"
+  ],
+  "sharedRulesGate": "PASS: 9 receipts, zero problems; two pre-existing warnings",
+  "integrationBuildCheck": "integration-build-check.json",
+  "integrationPending": "E frozen build omits B1: rebuild combined inputs before combined inclusion claim; no glue/merge needed"
+}

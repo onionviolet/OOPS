@@ -1,0 +1,73 @@
+{
+  "route": "Fresh native starting-owned-material/linen fixture; actual entry/paid bench/water/filter/soften/drying/kit/commission",
+  "origin": "http://127.0.0.1:60502",
+  "errors": [],
+  "roundtrips": [
+    "supply-pending",
+    "sealed-water-stock",
+    "filter-pending",
+    "filtered-water",
+    "salt-retained",
+    "soften-pending",
+    "softened-native-staves",
+    "prepared-rack",
+    "partial-prepared-cohort",
+    "prepared-dry-native",
+    "prepared-bind-pending",
+    "prepared-commission"
+  ],
+  "bundleHash": "c5545af22610015de03188b244df6387295437405023bed2677cfcbf10bec404",
+  "filterConservation": true,
+  "exactPreparation": true,
+  "actualConsumer": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ]
+}

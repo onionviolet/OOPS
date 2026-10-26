@@ -1,0 +1,273 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels…
+Standing and ledger
+Polyjuice bench
+Family qualities
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Statistics
+Today
+Around this place
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+Patrol & custody
+Remembered years
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+Inventory
+102 coins (denominations unfamiliar)
+Find / filter:
+All 6 · Name ↑
+▾
+Complete set of practice-pane shards
+x3
+1W
+Fitted school wand
+1W
+Practice feather
+x3
+1W
+School parchment
+x6
+1W
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Hogwarts study room
+Local weather unavailable
+
+Hogwarts term · Shift day 1 (local elapsed; civil date unknown) 10:00
+
+No work running.
+
+Saving available.
+
+Polyjuice bench
+▾
+Polyjuice bench · Harry Potter pack slice
+
+One pinned potion from J.K. Rowling's Chamber of Secrets, paraphrased. Steps marked original are this game's proposals, not canon. The bench also supports small original material experiments; a proposed use remains untested until observed.
+
+Purse 14 coins · moon: Full · cauldron clean, traces of residue · Potions master: neutral
+
+1. Obtain ingredients
+Ingredient
+Lacewing flies
+Leeches
+Fluxweed
+Knotgrass
+Horn of a bicorn
+Skin of a boomslang
+Dried nettles (other potion)
+Snake fangs (other potion)
+Route
+Trusted supplier · 14 coins
+Ask the Potions master for a loan from the private stores
+Take from the private stores without leave
+
+Student cupboard left: Lacewing flies 6, Leeches 5, Fluxweed 6, Knotgrass 5, Dried nettles (other potion) 6, Snake fangs (other potion) 6
+
+2. Prepare and stew
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Assay (4)
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Assay (4)
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Assay (4)
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Assay (4)
+3. A bit of the person (added last)
+Bastian Pell · neutral
+Ask for a hair
+Take from a hairbrush
+Wynne Vance · neutral
+Ask for a hair
+Take from a hairbrush
+Orrin Thorne · neutral
+Ask for a hair
+Take from a hairbrush
+4. Make at the cauldron
+Making method
+Pinned Polyjuice method · two days
+Original suspension · 20 min · 1 water-service coin
+
+Any lots may go in any place; the pinned formula determines the pinned potion.
+
+Clear selected inputs
+Lacewing flies slot
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Leeches slot
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Fluxweed slot
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Knotgrass slot
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Horn of a bicorn slot
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Skin of a boomslang slot
+Lacewing flies [L3] · owned · stewed · Sold as stewed twenty-one days. · stewed twenty-one days
+Fluxweed [L4] · owned · raw · Gathered by you under the full moon. · known full-moon pick
+Leeches [L5] · owned · raw · Taken from the student store-cupboard.
+Knotgrass [L6] · owned · raw · Taken from the student store-cupboard.
+Preparation comparison: Selection incomplete
+Simmer (two days)
+Add at least one lot or held native portion.
+Demonstrated methods · 1
+Scour cauldron (3)
+5. Use or measure a batch
+Tested suspension (original) [b1] · 2 doses · carried · Suspended solids in water.
+Assay (4)
+Test one dose on cauldron residue
+
+The dose lifted residue; the cauldron now has traces of residue.
+
+Set aside one dose
+Store portion at bench
+Untested suspension (original) [b3] · 3 doses · carried · Suspended solids in water.
+Assay (4)
+Test one dose on cauldron residue
+
+Cleaning effect untested.
+
+Set aside one dose
+Store portion at bench
+Untested suspension (original) [b5] · 3 doses · carried · Suspended solids in water.
+Assay (4)
+Test one dose on cauldron residue
+
+Cleaning effect untested.
+
+Set aside one dose
+Store portion at bench
+
+Portions retain their batch and preparation history. Private bench storage and pouring are original game conveniences; no bottles are spent. Separately brewed batches stay separate.
+
+Observed trials · 1
+6. What follows
+
+The dose lifted residue; the cauldron now has traces of residue.
+
+The original suspension has finished settling.
+
+The original suspension has finished settling.
+
+The original suspension has finished settling.
+
+Obtained Knotgrass.
+
+← Hogwarts study room
+Here
+Crafting
+Mixing
+?
+Reports
+Filter:
+All reports
+▾
+Latest
+[ Hogwarts term · Shift day 1 (local elapsed; civil date unknown) ]

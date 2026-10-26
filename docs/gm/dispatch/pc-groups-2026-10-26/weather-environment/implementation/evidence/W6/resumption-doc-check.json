@@ -1,0 +1,16 @@
+{
+  "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/COMMON.md": {
+    "before": "fce51e14723cc67f6102ec67e46086755c0ee2435249c402b7adac71c6464f58",
+    "after": "58f0e92cb8eb09d3e2525252567c76426c222eaf18081fa522ce72f9b1bd638c"
+  },
+  "PROJECT.md": {
+    "before": "01c6739e0d0f739eb927f7ad99befb0cc14d894296b60749c73093fb5a91a705",
+    "after": "8ceb559a993b32ec79600e4837b80f5f02509ad64b561d43b14e869ef76183b5",
+    "zeroLoss": "exact inverse of inserted hunk matches live prewrite bytes"
+  },
+  "docs/USER_VISION.md": {
+    "before": "402ba6fee8fb0fb1ee21f4c2ef8a7bc6191b9751e5a84d83cbc30c671d384bdc",
+    "after": "1ed245b181e0c424249796740f3767d567a4fa93678ddf8590b53d7e280a110a",
+    "zeroLoss": "exact inverse of inserted hunk matches live prewrite bytes"
+  }
+}

@@ -100,7 +100,7 @@ arrives, not **how much** depth the game may eventually have.
 | CX1 | **Depth on demand.** A place, person or system gains detail only when a player choice uses it. | Can you name the choice the new detail serves? |
 | CX2 | **Connect, don't add.** A new system plugs into existing verbs, tags and owners before it adds new ones. | Does it reuse at least one existing verb and one existing consumer? |
 | CX3 | **Rules over pairs.** Prefer one rule on tags over many pairwise interactions. | Would adding the tenth content item need new code? |
-| CX4 | **Promote, don't pre-simulate.** Things exist as counts or addresses until observed (GR3, GR4). | Does anything tick that the player cannot affect or learn about? |
+| CX4 | **Promote, don't pre-simulate.** Unconstrained detail can remain counts or addresses until observed (GR3, GR4). Hidden causes already consumed by an event retain their actor/resource/time/custody bindings; see [GW5](../../../../GENERATION_FOUNDATION_RULES_2026-10-14.md#gw5-causal-commitment-before-observation-2026-10-15). | Does anything tick that the player cannot affect or learn about? |
 | CX5 | **Budget declared.** Each generator and simulation states entity, draw and time budgets (GR11). | Is there a number that fails a test when exceeded? |
 | CX6 | **Honest coverage.** Background, inspectable and playable are distinct (P9K4). Unfinished content is not disguised as a fictional lock. | Does every travel button resolve to real play? |
 | CX7 | **One slice at a time.** Finish a playable slice before widening (AGENTS.md). | Can Weibao play the last slice now? |
@@ -206,11 +206,17 @@ it should own no gameplay state of its own (consistent with P9I1).
 
 - **ACT NOW:** none. Planning only.
 - **ACCOUNT FOR NOW:** people ladder P9Z23 as the vocabulary for any people
-  work; CX1–CX8 as proposed pacing; map as a view with no own state (P9Z71);
+  work; CX1–CX8 as accepted pacing under the core rules; map as a view with no own state (P9Z71);
   explore/ask-around as generator doors (P9Z51); catch-up and save-growth
   measurement (P9Z81, P9Z82).
 - **LATER:** deferral register items (P9Z41), generated-world inspector,
   LLM text, authoring templates.
+
+Current-status reconciliation, 2026-10-26: the earlier disposition said
+"CX1–CX8 as proposed pacing". That wording is history; CX was accepted on
+October 16 and confirmed conditional on the core rules on October 19
+([authority](../../../../USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)).
+The people ladder, deferral entries and other P9Z proposals retain their status.
 
 ## Questions for Weibao
 

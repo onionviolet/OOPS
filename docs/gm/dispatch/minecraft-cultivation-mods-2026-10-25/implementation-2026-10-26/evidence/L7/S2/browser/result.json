@@ -1,0 +1,2520 @@
+{
+  "route": "fresh Village → original RI beginning → paid control → food preparation → taught native cutting → daily meal; earned refined-state branch → hunger → late food → spoilage/death",
+  "errors": [],
+  "checks": [
+    "unchanged S1b grown-pair receipt imports on Gu build",
+    "pending-refinement: Save/reload/Export/literal Import equal",
+    "prepared-food-plan: Save/reload/Export/literal Import equal",
+    "first-daily-meal: Save/reload/Export/literal Import equal",
+    "hungry-living-gu: Save/reload/Export/literal Import equal",
+    "one-minute-before-spoilage: Save/reload/Export/literal Import equal",
+    "expired-lot-dead-gu: Save/reload/Export/literal Import equal",
+    "same Gu/body/title after paid refinement; Stop refunds essence",
+    "cut produces actual native skill XP and physical output",
+    "daily meal consumes four petals and no essence",
+    "hungry living Gu works; expired stocked petals fail; dead Gu refuses"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "nativeSkillBefore": {
+    "person": {
+      "main_character": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 4.2,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Unarmed": 0,
+          "Perception": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0,
+          "Literacy": 0,
+          "Gluttony": 0,
+          "Famine": 0,
+          "Persistence": 0,
+          "Forging": 0,
+          "Crafting": 0,
+          "Cooking": 0,
+          "Night vision": 0,
+          "Sleeping": 0,
+          "Pest killer": 0,
+          "Giant slayer": 0,
+          "Stance mastery": 0,
+          "Quick steps": 0,
+          "Heavy strike": 0,
+          "Wide swing": 0,
+          "Defensive measures": 0,
+          "Berserker's stride": 0,
+          "Flowing water": 0,
+          "Spatial awareness": 0,
+          "Tight maneuvers": 0,
+          "Presence sensing": 0,
+          "Strength of mind": 0,
+          "Scrambling": 0,
+          "Heat resistance": 0,
+          "Throwing": 0,
+          "Dazzle resistance": 0,
+          "Weapon mastery": 0,
+          "Swords": 0,
+          "Axes": 0,
+          "Spears": 0,
+          "Hammers": 0,
+          "Daggers": 0,
+          "Wands": 0,
+          "Staffs": 0,
+          "Farming": 0,
+          "Gathering mastery": 0,
+          "Woodcutting": 0,
+          "Mining": 0,
+          "Digging": 0,
+          "Herbalism": 0,
+          "Animal handling": 0,
+          "Fishing": 0,
+          "Crafting mastery": 0,
+          "Smelting": 0,
+          "Alchemy": 0,
+          "Woodworking": 0,
+          "Medicine": 0,
+          "Poison resistance": 0,
+          "Regeneration": 0,
+          "Haggling": 0,
+          "Butchering": 0
+        }
+      },
+      "villageElder": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "villageGuard": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "oldCraftsman": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "villageMillers": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "suspiciousMan": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "oldWomanOfTheSlums": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "gateGuard": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "farmSupervisor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nekomimiProprietress": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandChief": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandCook": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandTailor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandTanner": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandScout": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "villageTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "suspiciousTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nekomimiTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "catCafeTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "tidemark.keeper": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "tidemark.wright": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.hub.issuer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.hub.employee": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.hub.trainer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.saltworks.keeper": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.saltworks.foreman": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.archive.registrar": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.archive.claimant": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.archive.witness": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.employee": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.porter": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.mia": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.hank": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.su_xiao": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.krieg": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.philip_herbert": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.imaya": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.ilsa": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.ibery": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.nora": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.xvim": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.taiven": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.kael": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.zorian": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.hatch_scavenger": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.supervisor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.storm_officer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.member": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.broker": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.evernight_deacon": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.storm_deacon": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.senior_deacon": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.machinery_officer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "proto23.guest_steward": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "proto23.handling_tutor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "p23.study.tonic_counter": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "p23.mistglass.keeper": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "causal.story.tarin": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.asha": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.orin": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.roe": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.nell": {
+        "total_xp": 0,
+        "skill_xp": {}
+      }
+    }
+  },
+  "nativeSkillAfter": {
+    "person": {
+      "main_character": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 4.2,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Unarmed": 0,
+          "Perception": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0,
+          "Literacy": 0,
+          "Gluttony": 0,
+          "Famine": 0,
+          "Persistence": 0,
+          "Forging": 0,
+          "Crafting": 0,
+          "Cooking": 0,
+          "Night vision": 0,
+          "Sleeping": 0,
+          "Pest killer": 0,
+          "Giant slayer": 0,
+          "Stance mastery": 0,
+          "Quick steps": 0,
+          "Heavy strike": 0,
+          "Wide swing": 0,
+          "Defensive measures": 0,
+          "Berserker's stride": 0,
+          "Flowing water": 0,
+          "Spatial awareness": 0,
+          "Tight maneuvers": 0,
+          "Presence sensing": 0,
+          "Strength of mind": 0,
+          "Scrambling": 0,
+          "Heat resistance": 0,
+          "Throwing": 0,
+          "Dazzle resistance": 0,
+          "Weapon mastery": 0,
+          "Swords": 0,
+          "Axes": 0,
+          "Spears": 0,
+          "Hammers": 0,
+          "Daggers": 0,
+          "Wands": 0,
+          "Staffs": 0,
+          "Farming": 0,
+          "Gathering mastery": 1,
+          "Woodcutting": 1,
+          "Mining": 0,
+          "Digging": 0,
+          "Herbalism": 0,
+          "Animal handling": 0,
+          "Fishing": 0,
+          "Crafting mastery": 0,
+          "Smelting": 0,
+          "Alchemy": 0,
+          "Woodworking": 0,
+          "Medicine": 0,
+          "Poison resistance": 0,
+          "Regeneration": 0,
+          "Haggling": 0,
+          "Butchering": 0
+        }
+      },
+      "villageElder": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "villageGuard": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "oldCraftsman": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "villageMillers": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "suspiciousMan": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "oldWomanOfTheSlums": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "gateGuard": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "farmSupervisor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nekomimiProprietress": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandChief": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandCook": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandTailor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandTanner": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandScout": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "villageTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "suspiciousTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "swamplandTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nekomimiTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "catCafeTrader": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "tidemark.keeper": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "tidemark.wright": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.hub.issuer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.hub.employee": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.hub.trainer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.saltworks.keeper": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.saltworks.foreman": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.archive.registrar": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.archive.claimant": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "nested.archive.witness": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.employee": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.porter": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.mia": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.hank": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.su_xiao": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.krieg": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.paradise.philip_herbert": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.imaya": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.ilsa": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.ibery": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.nora": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.xvim": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.taiven": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.kael": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.zorian": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.mol.hatch_scavenger": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.supervisor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.storm_officer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.member": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.broker": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.evernight_deacon": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.storm_deacon": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.senior_deacon": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "book.lotm.machinery_officer": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "proto23.guest_steward": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "proto23.handling_tutor": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "p23.study.tonic_counter": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "p23.mistglass.keeper": {
+        "total_xp": 0,
+        "skill_xp": {
+          "Iron skin": 0,
+          "Running": 0,
+          "Weightlifting": 0,
+          "Climbing": 0,
+          "Breathing": 0,
+          "Shield blocking": 0,
+          "Equilibrium": 0,
+          "Swimming": 0,
+          "Fortitude": 0,
+          "Meditation": 0,
+          "Perception": 0,
+          "Unarmed": 0,
+          "Cold resistance": 0,
+          "Evasion": 0,
+          "Combat": 0
+        }
+      },
+      "causal.story.tarin": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.asha": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.orin": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.roe": {
+        "total_xp": 0,
+        "skill_xp": {}
+      },
+      "causal.story.nell": {
+        "total_xp": 0,
+        "skill_xp": {}
+      }
+    }
+  },
+  "bundleSha256": "b6689c284ff300d9ac0035bf41c04c0474da14e069834e9d5ecaef648048b4fe",
+  "reviewState": "agent-verified, not human-reviewed",
+  "success": true
+}

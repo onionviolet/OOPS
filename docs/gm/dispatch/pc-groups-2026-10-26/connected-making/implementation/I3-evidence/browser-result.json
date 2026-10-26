@@ -1,0 +1,55 @@
+{
+  "checks": [
+    "pending: native Save/reload/Export/file Import keeps exact HP state",
+    "Injected native dose-save failure restores exact batch quantities, serial and history; retry splits once",
+    "stored-partial: native Save/reload/Export/file Import keeps exact HP state",
+    "post-use: native Save/reload/Export/file Import keeps exact HP state",
+    "Earned student-store lot -> paid simmer -> retained history -> one-dose aliquot -> bench custody -> retrieve/recombine -> actual sample and drink; no duplicate dose"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    }
+  ],
+  "errors": [],
+  "bundleHash": "c93ee12d8c1ba84428b0550dd43179115e0c13bc008625f1218e9a956ef46547",
+  "route": "Earned fresh HP slice; incomplete original mixture intentionally uses existing inert drink consumer",
+  "state": "agent-verified, not human-reviewed"
+}

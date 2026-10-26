@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: concurrent BUILD_OUT pages use their own bundles without altering existing source outputs
+ok 1 - concurrent BUILD_OUT pages use their own bundles without altering existing source outputs
+  ---
+  duration_ms: 727.015084
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 777.404542

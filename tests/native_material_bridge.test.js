@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {loadNative} from './helpers/native_loader.mjs';
 import {nativeCatalogue, nativeMaterialFor, nativeItemsMatching, NATIVE_ITEM_IDS, NATIVE_TAGS, SYMBOLIC_PROPOSALS} from '../src/native_material_catalogue.js';
 
-test('catalogue is base.native@1 with 20 to 40 materials and conserved fractions', () => {
-    assert.equal(nativeCatalogue.ref, 'base.native@1');
+test('catalogue is base.native@2 with 20 to 40 materials and conserved fractions', () => {
+    assert.equal(nativeCatalogue.ref, 'base.native@2');
     assert.ok(NATIVE_ITEM_IDS.length >= 20 && NATIVE_ITEM_IDS.length <= 40);
     for(const m of Object.values(nativeCatalogue.materials)) {
         const sum = Object.entries(m.properties).reduce((n, [a, v]) => n + (nativeCatalogue.axes[a].kind === 'fraction' ? v : 0), 0);

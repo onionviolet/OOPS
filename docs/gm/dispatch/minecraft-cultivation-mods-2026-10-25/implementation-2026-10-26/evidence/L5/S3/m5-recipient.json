@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "lane": "m5-recipient",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "83f3bd0ef65daceb17f5999714808c511f57b86a83ad34afe4506d367230ada4",
+  "gates": [
+    "A-raw-dose: native Save/reload/Export/literal-file Import",
+    "A-earned-tempering-same-medicine: native Save/reload/Export/literal-file Import",
+    "A-tempered-dose: native Save/reload/Export/literal-file Import",
+    "A-accumulated-exposure: native Save/reload/Export/literal-file Import",
+    "B-fresh-projection-with-A-bound-exposure: native Save/reload/Export/literal-file Import",
+    "B-actual-dose: native Save/reload/Export/literal-file Import",
+    "Same native-produced power-15 product: stage-0 +2 residue, same A body earns paid precision stage 1 and next dose +1 at unchanged load band; A accumulates exposure 5; named B instance projects zero exposure/stage 0 despite remembered stage 1 and retained A-bound raw budget, then actual dose +2. Eight real crafts minus five doses leaves three exact same products; actual stamina cap consumer and all current binding/medicine/stock/product states pass native literal imports. Four saved text-size/viewport cases fit."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Fresh native opening; native enrollment and gather; declared Combat XP 100 and strong reagent/fuel stock; native manufacture and paid tempering. Replacement instance is a named fixture, not a body-acquisition route."
+}

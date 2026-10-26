@@ -1,0 +1,12 @@
+{
+  "docs/USER_VISION.md": {
+    "beforeSha256": "1ed245b181e0c424249796740f3767d567a4fa93678ddf8590b53d7e280a110a",
+    "afterSha256": "7823feb8c898d947b5135f898c685f2d26cb05c2383fa1b4f9e4602d72cb6f5b",
+    "priorBytesPreserved": true
+  },
+  "PROJECT.md": {
+    "beforeSha256": "8ceb559a993b32ec79600e4837b80f5f02509ad64b561d43b14e869ef76183b5",
+    "afterSha256": "843e9e1d8529c88f18cfa8dff3035b12f75396051c32be3f2241caf69c27fcbc",
+    "priorBytesPreserved": true
+  }
+}

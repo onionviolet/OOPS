@@ -1,0 +1,7 @@
+Lane Q8: cycle burn-down ledger (queue row Q8, proposal IPC62, foundation line FND3). Follow docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md. Worktree branch codex/q8-cycle-ledger-2026-10-26. Port 5208. Model route: gpt-6-luna low. Ledger only; no extraction in this lane.
+
+Why: `scripts/architecture_baseline.json` holds 205 cycle edges and 6 imports of `main.js` that the architecture check lets only shrink; no round owns a burn-down target, so the debt is frozen (finding IPC53). The D2 modularity round (docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md, "D2 modularity and measurement round, 2026-10-25") lists five extraction items.
+
+Task: write `scripts/cycle_ledger.mjs` that reads the baseline's `cycleEdges`, builds the graph, groups edges by strongly connected component, and prints each group with its size, member files and the hub file with most edges. Write the result to `docs/reviews/CYCLE_LEDGER_2026-10-26.md` as a dated table: group id, size, hub, members (abbreviated), suggested owner (the D2 item it matches, if any), and an empty "round / result" column for later extraction rounds. Add a short section to `docs/ARCHITECTURE_RULES.md` (one paragraph under a dated heading) stating that an extraction round names the group it removes and records the new baseline (FND3, proposed). Add a small test that the ledger script reproduces the baseline's edge count.
+
+Done when: the ledger file exists with every edge in exactly one group, the test passes, `npm run check:arch` and `npm run check:rules` pass. Commit on your branch.

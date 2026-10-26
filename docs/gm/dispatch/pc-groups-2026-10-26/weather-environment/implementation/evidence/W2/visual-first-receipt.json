@@ -1,0 +1,85 @@
+{
+  "route": "Additional named visual fixture only; earlier native-receipt proves earned materials/work/persistence",
+  "captures": [
+    {
+      "viewport": "1920x1080",
+      "preset": 14,
+      "computedControlFont": "14px",
+      "text": "Shelter, weather and repairs\n\nStructure 100/100 · dampness 0/100 · weatherproofed. Roof provides local weather shelter.\n\nReserve repair materials and begin repairs\nHome: this work is not currently needed\nFit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow\nHome: this work is not currently needed"
+    },
+    {
+      "viewport": "1920x1080",
+      "preset": 21,
+      "computedControlFont": "21px",
+      "text": "Shelter, weather and repairs\n\nStructure 100/100 · dampness 0/100 · weatherproofed. Roof provides local weather shelter.\n\nReserve repair materials and begin repairs\nHome: this work is not currently needed\nFit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow\nHome: this work is not currently needed"
+    }
+  ],
+  "fetchedBundleSha256": "c6ef41b7c1f3d6cae3bbd7c50bd97da87c7112d3f02d4b7b3858b32b42806da8",
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

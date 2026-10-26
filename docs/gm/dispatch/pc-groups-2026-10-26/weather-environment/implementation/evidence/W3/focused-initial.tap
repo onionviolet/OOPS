@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: covered ventilation dries; sealed humidity stalls without pretending the atmosphere is known
+ok 1 - covered ventilation dries; sealed humidity stalls without pretending the atmosphere is known
+  ---
+  duration_ms: 0.4625
+  type: 'test'
+  ...
+# Subtest: constant received intervals agree across uneven, minute and reload partitions, including fractional boundaries
+ok 2 - constant received intervals agree across uneven, minute and reload partitions, including fractional boundaries
+  ---
+  duration_ms: 2.32025
+  type: 'test'
+  ...
+# Subtest: partial shelter, prior wetness, heat and recovery have separate physical paths
+ok 3 - partial shelter, prior wetness, heat and recovery have separate physical paths
+  ---
+  duration_ms: 0.254958
+  type: 'test'
+  ...
+# Subtest: counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+not ok 4 - counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+  ---
+  duration_ms: 63.931
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:25:1'
+  failureType: 'testCodeFailure'
+  error: 'Extended-branch reserved work differs from its exact authored body/inputs/support/refund definition.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    check (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:8:93)
+    validateParadiseCampaignDepthState (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:178:9)
+    commitParadiseCampaignDepthCommand (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_host.js:52:63)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:13:21)
+    setup (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:22:152)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:26:8)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+not ok 5 - sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+  ---
+  duration_ms: 24.221125
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:35:1'
+  failureType: 'testCodeFailure'
+  error: 'Extended-branch reserved work differs from its exact authored body/inputs/support/refund definition.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    check (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:8:93)
+    validateParadiseCampaignDepthState (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:178:9)
+    commitParadiseCampaignDepthCommand (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_host.js:52:63)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:13:21)
+    setup (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:22:152)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:36:8)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+  ...
+# Subtest: partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+not ok 6 - partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+  ---
+  duration_ms: 22.01925
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:41:1'
+  failureType: 'testCodeFailure'
+  error: 'Extended-branch reserved work differs from its exact authored body/inputs/support/refund definition.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    check (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:8:93)
+    validateParadiseCampaignDepthState (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:178:9)
+    commitParadiseCampaignDepthCommand (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_host.js:52:63)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:13:21)
+    setup (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:22:152)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:42:8)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+  ...
+# Subtest: leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+not ok 7 - leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+  ---
+  duration_ms: 20.683375
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:48:1'
+  failureType: 'testCodeFailure'
+  error: 'Extended-branch reserved work differs from its exact authored body/inputs/support/refund definition.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    check (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:8:93)
+    validateParadiseCampaignDepthState (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_facts.js:178:9)
+    commitParadiseCampaignDepthCommand (file:///Users/weiwei/code/yet-another-idle-rpg/src/book_world_paradise_campaign_host.js:52:63)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:13:21)
+    setup (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:22:152)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/paradise_drying.test.js:49:8)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 3
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 402.049917

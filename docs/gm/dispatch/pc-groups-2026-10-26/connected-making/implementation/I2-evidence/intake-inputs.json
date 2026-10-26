@@ -1,0 +1,8 @@
+{
+  "src/craft_experiment_log.js": "6f3b88beb952987f867069033956697c84897f285e90c1506d900e2ed68bec61",
+  "tests/craft_depth_rules.test.js": "9ff758460696fd483fe44111fcbdfa80bfdf19f670a693122adb70ebd878fb64",
+  "src/craft_reference.js": "8c6a15bb43257352ca9f8bc533c5fec609b9279956060e9728dcbbed3f89829e",
+  "src/crafting_frontier_runtime.js": "63384a5ef6e894cff8e7ad97febdb573e7cfaa90667d08f489fe9052e891b2d6",
+  "src/crafting_home.js": "83f77fd819710edb5203cf734a7e57ecd6dfae6285882ed4ca2f6ba0751f98b6",
+  "src/craft_depth_domain.js": "34595e1cf18e6c4899e32a98065a5c6bd6c70538aad7f64fd45e7daa37365a2d"
+}

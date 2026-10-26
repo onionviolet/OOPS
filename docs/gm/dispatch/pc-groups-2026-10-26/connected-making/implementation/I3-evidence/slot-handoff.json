@@ -1,0 +1,25 @@
+{
+  "before": {
+    "lane": "G1-I3",
+    "thread": "01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc",
+    "pid": 52133,
+    "phase": "HP lifecycle",
+    "at": "2026-10-26T18:03:08.691144+00:00"
+  },
+  "after": {
+    "lane": "G2-I1",
+    "thread": "01a1794c-5180-7871-b4a1-4acc8f908fde",
+    "phase": "acknowledged matcher allocation implementation",
+    "handoffFrom": "G1-I3",
+    "handoffFromThread": "01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc",
+    "at": "2026-10-26T18:08:20.396113+00:00",
+    "nextRequested": {
+      "lane": "G6-W1",
+      "thread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+      "reason": "G6 coordinator and W1 requested direct next safe handoff after earlier G2 commitment"
+    }
+  },
+  "acknowledgement": "ingredient-substitution/implementation/I1.md#reserved-slot-handoff-acknowledgement",
+  "allI3RuntimeChecksStopped": true,
+  "I3SourceLocksReleased": true
+}

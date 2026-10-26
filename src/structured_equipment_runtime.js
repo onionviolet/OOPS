@@ -12,13 +12,14 @@ const present=(facts,key)=>key==null||facts[key]===true||typeof facts[key]==='nu
 export function validateStructuredEquipmentDefinition(item) {
     if(item.equipment==null)return;
     const e=item.equipment;
-    check(object(e)&&Object.keys(e).every(k=>['slot','baseDefense','weight','layer','coverage','forms','titleClaimId','fitFlag','maintainedFlag','dryFlag','paddingFlag','conditionFlag','unfitMultiplier','unmaintainedMultiplier','movementPenalty','heatBurden','coldProtection','rainProtection','riding'].includes(k)),'Invalid structured equipment metadata.');
+    check(object(e)&&Object.keys(e).every(k=>['slot','baseDefense','weight','layer','coverage','forms','titleClaimId','fitFlag','maintainedFlag','dryFlag','paddingFlag','conditionFlag','unfitMultiplier','unmaintainedMultiplier','movementPenalty','heatBurden','coldProtection','rainProtection','riding','powerFlag','powerMultiplier'].includes(k)),'Invalid structured equipment metadata.');
     check(Object.hasOwn(slots,e.slot)&&number(e.baseDefense)&&number(e.weight)&&Number.isSafeInteger(e.layer)&&e.layer>=0,'Invalid structured equipment physical definition.');
     check(object(e.coverage)&&Object.keys(e.coverage).length>0&&Object.entries(e.coverage).every(([r,v])=>regions.has(r)&&fraction(v)),'Invalid structured equipment coverage.');
     check(Array.isArray(e.forms)&&e.forms.length>0&&new Set(e.forms).size===e.forms.length&&e.forms.every(v=>typeof v==='string'&&v.length>0),'Invalid structured equipment body fit.');
     for(const k of ['titleClaimId','fitFlag','maintainedFlag','dryFlag','paddingFlag','conditionFlag'])check(e[k]==null||typeof e[k]==='string'&&e[k].length>0,'Invalid structured equipment binding.');
     for(const k of ['unfitMultiplier','unmaintainedMultiplier','movementPenalty','heatBurden','coldProtection','rainProtection'])check(e[k]==null||fraction(e[k]),'Invalid structured equipment effect.');
     check(e.riding==null||typeof e.riding==='boolean','Invalid structured riding policy.');
+    if(e.powerFlag!=null||e.powerMultiplier!=null)check(typeof e.powerFlag==='string'&&e.powerFlag.length>0&&number(e.powerMultiplier),'Invalid structured equipment power.');
 }
 
 export function nativeStructuredEquipmentTemplate(item) {
@@ -54,7 +55,10 @@ export function projectStructuredEquipment({definitions=[],equipment={},actorId=
         const fit=present(facts,e.fitFlag),maintained=present(facts,e.maintainedFlag),dry=present(facts,e.dryFlag),padded=present(facts,e.paddingFlag);
         const condition=(e.conditionFlag==null?1:fraction(facts[e.conditionFlag])?facts[e.conditionFlag]:0)*(wearByKey[key]==null?1:fraction(wearByKey[key])?wearByKey[key]:0);
         const factor=valid?condition*(fit?1:e.unfitMultiplier??0)*(maintained?1:e.unmaintainedMultiplier??1):0;
-        const defense=e.baseDefense*factor;
+        // The world owns the active enhancement fact and multiplier. The same
+        // custody/body/condition checks still govern this exact worn piece.
+        const power=e.powerFlag!=null&&present(facts,e.powerFlag)?e.powerMultiplier:1;
+        const defense=e.baseDefense*factor*power;
         defenseDelta+=defense;
         out.defenseByKey[key]=defense;
         if(!valid)continue;

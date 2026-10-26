@@ -1,0 +1,36 @@
+{
+  "final_reason": {
+    "kind": "completed"
+  },
+  "session_id": "session-2922a50a-4199-4167-926b-ebdd02f9c9d1",
+  "tool_calls": [
+    {
+      "tool": "skill",
+      "description": null
+    },
+    {
+      "tool": "bash",
+      "description": "List workspace and inspect key files"
+    },
+    {
+      "tool": "read",
+      "description": null
+    },
+    {
+      "tool": "bash",
+      "description": "Inspect record shapes, kinds, fields"
+    },
+    {
+      "tool": "write",
+      "description": null
+    },
+    {
+      "tool": "bash",
+      "description": "Generate inventory then run acceptance checker"
+    }
+  ],
+  "acceptance_tool_result": [
+    "<path>/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-harness-finished-gzhq_iqq/acceptance.py</path>\n<type>file</type>\n<content>\n1: \"\"\"Fixed acceptance checker for a registry inventory CLI; do not modify during trial.\"\"\"\n2: import argparse,collections,hashlib,json,subprocess,sys,tempfile\n3: from pathlib import Path\n4: \n5: def expected(rows):\n6:     groups={}\n7:     for row in rows:groups.setdefault(row['kind'],[]).append(row['id'])\n8:     launches=[row for row in rows if row['kind']=='launch']\n9:     refs=[x for row in launches for x in row.get('required',[])]\n10:     return {'total_tools':len(rows),'counts_by_kind':dict(collections.Counter(row['kind'] for row in rows)),\n11:             'ids_by_kind':{k:sorted(v) for k,v in groups.items()},\n12:             'launch_probe_ids':sorted(row['id'] for row in launches if row.get('probe')),\n13:             'launch_without_probe_ids':sorted(row['id'] for row in launches if not row.get('probe')),\n14:             'missing_owner_ids':sorted(row['id'] for row in rows if not row.get('owner')),\n15:             'duplicate_ids':sorted(k for k,v in collections.Counter(row['id'] for row in rows).items() if v>1),\n16:             'required_path_references':len(refs),'unique_required_paths':len(set(refs))}\n17: \n18: def main():\n19:     p=argparse.ArgumentParser(description=__doc__);p.parse_args()\n20:     before=Path('registry.json').read_bytes();rows=json.loads(before)['tools']\n21:     observed=json.loads(Path('inventory.json').read_text())\n22:     assert observed==expected(rows),'Real registry output differs from independent calculation'\n23:     markdown=Path('inventory.md').read_text().lower()\n24:     assert str(len(rows)) in markdown and 'probe' in markdown and 'not' in markdown and 'install' in markdown and 'execut' in markdown,'Missing markdown summary/evidence caveat'\n25:     cases={'empty':[],'duplicates_and_optional':[{'id':'z','kind':'launch','required':['{x}/a','{x}/a']},{'id':'a','kind':'reference','owner':''},{'id':'z','kind':'launch','required':['{x}/a','{x}/b'],'probe':None,'owner':None},{'id':'b','kind':'launch','probe':[]},{'id':'c','kind':'launch','probe':['--version'],'owner':'docs/X.md'}]}\n26:     results={'real':True,'markdown':True}\n27:     with tempfile.TemporaryDirectory(dir='.',prefix='acceptance-') as td:\n28:         folder=Path(td)\n29:         for name,data in cases.items():\n30:             ip=folder/(name+'.json');jp=folder/(name+'-out.json');mp=folder/(name+'.md')\n31:             ip.write_text(json.dumps({'schema_version':1,'tools':data}));raw=ip.read_bytes()\n32:             r=subprocess.run([sys.executable,'summarize_registry.py',str(ip),'--json',str(jp),'--markdown',str(mp)],capture_output=True,text=True,timeout=10)\n33:             assert r.returncode==0,(name,r.stderr)\n34:             assert json.loads(jp.read_text())==expected(data),(name,'wrong output')\n35:             assert ip.read_bytes()==raw,(name,'input changed')\n36:             results[name]=True\n37:     assert Path('registry.json').read_bytes()==before,'Registry changed during verification'\n38:     results['input_unchanged']=True;results['pass']=True\n39:     Path('acceptance-results.json').write_text(json.dumps(results,indent=2)+'\\n')\n40:     print('ACCEPTANCE PASS: real output, markdown caveat, empty input, duplicate/optional-field input, inputs unchanged')\n41: \n42: if __name__=='__main__':main()\n\n(End of file - total 42 lines)\n</content>",
+    "=== run CLI on real registry ===\n{\n  \"total_tools\": 41,\n  \"counts_by_kind\": {\n    \"launch\": 31,\n    \"reference\": 10\n  },\n  \"launch_probe_ids\": 20,\n  \"launch_without_probe_ids\": 11,\n  \"missing_owner_ids\": 27,\n  \"duplicate_ids\": 0,\n  \"required_path_references\": 40,\n  \"unique_required_paths\": 38\n}\n=== acceptance ===\nACCEPTANCE PASS: real output, markdown caveat, empty input, duplicate/optional-field input, inputs unchanged\n=== acceptance-results.json ===\n{\n  \"real\": true,\n  \"markdown\": true,\n  \"empty\": true,\n  \"duplicates_and_optional\": true,\n  \"input_unchanged\": true,\n  \"pass\": true\n}\n"
+  ]
+}

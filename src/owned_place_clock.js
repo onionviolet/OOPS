@@ -16,34 +16,52 @@ export const OBSERVER_ROUTES=Object.freeze({
 let state=null,ports;
 const fresh=()=>({schema:1,places:{}});
 const cur=()=>state||fresh();
-const isNat=n=>Number.isInteger(n)&&n>=0;
-const newPlace=(id,clock)=>({id,status:'open',ratio:PLACE_DIALS[id].ratio,at:clock,age:0,drift:0,stilledUntil:null,larder:[]});
+const isNat=n=>Number.isSafeInteger(n)&&n>=0;
+const duration=n=>Number.isFinite(n)&&n>=0&&n<=Number.MAX_SAFE_INTEGER;
+const localAge=p=>p.age+(p.remainder??0);
+function addAge(p,minutes){const age=localAge(p)+minutes;p.age=Math.floor(age);p.remainder=age-p.age;}
+const newPlace=(id,clock)=>({id,status:'open',ratio:PLACE_DIALS[id].ratio,at:clock,age:0,remainder:0,drift:0,stilledUntil:null,larder:[]});
+// A flat custody receipt rides the exact native key; native inventory still owns counts.
+// This preserves shelf history on supported transfers, without imposing general food decay.
+export function readShelfHistory(key,now=Number.MAX_SAFE_INTEGER){
+    const item=JSON.parse(key),h=item.hearthShelf;
+    if(h===undefined)return null;
+    if(!h||h.schema!==1||Object.keys(h).some(k=>!['schema','spent','at'].includes(k))||
+        !Object.hasOwn(SHELF_LIFE,item.id)||!duration(h.spent)||!isNat(h.at)||h.at>now)throw Error('Invalid hearth shelf history.');
+    return h;
+}
+const shelfKey=(key,spent,at)=>JSON.stringify({...JSON.parse(key),hearthShelf:{schema:1,spent,at}});
 export function validatePlaceClocks(s){
     if(s==null)return;
     const ok=c=>{if(!c)throw Error('Place clocks: invalid slice');};
     ok(s.schema===1&&s.places&&typeof s.places==='object'&&(s.sandglass===undefined||typeof s.sandglass==='boolean'));
     for(const [id,p] of Object.entries(s.places)){
         ok(PLACE_DIALS[id]&&p.id===id&&['open','stilled','closed'].includes(p.status));
-        ok(isNat(p.at)&&isNat(p.age)&&isNat(p.drift)&&p.ratio>0&&p.ratio<=1&&(p.stilledUntil===null||isNat(p.stilledUntil))&&Array.isArray(p.larder));
+        ok(isNat(p.at)&&isNat(p.age)&&duration(p.drift)&&duration(p.remainder??0)&&(p.remainder??0)<1&&p.ratio>0&&p.ratio<=1&&(p.stilledUntil===null||isNat(p.stilledUntil))&&Array.isArray(p.larder));
         ok((p.status==='stilled')===(p.stilledUntil!==null));
-        for(const r of p.larder)ok(typeof r.key==='string'&&isNat(r.count)&&r.count>0&&isNat(r.born)&&r.born<=p.age);
+        ok(p.status!=='stilled'||p.at<=p.stilledUntil);
+        for(const r of p.larder){
+            ok(typeof r.key==='string'&&isNat(r.count)&&r.count>0&&duration(r.born)&&r.born<=localAge(p)&&duration(r.priorAge??0));
+            readShelfHistory(r.key,p.at);
+        }
     }
 }
 // Settle one place to world time `now`. Pure: returns a new place. The clock never runs backwards.
 export function settlePlace(place,now){
     const p=structuredClone(place);if(now<=p.at)return p;
     if(p.status==='stilled'){
-        const end=Math.min(now,p.stilledUntil),dt=end-p.at,inside=Math.floor(dt*p.ratio);
-        p.age+=inside;p.drift+=dt-inside;p.at=end;
+        const end=Math.min(now,p.stilledUntil),dt=end-p.at,inside=dt*p.ratio;
+        addAge(p,inside);p.drift+=dt-inside;p.at=end;
         if(now>p.stilledUntil){ // upkeep ran out: the place closes and the withheld hours come back at once
-            p.age+=p.drift;p.drift=0;p.status='closed';p.ratio=1;p.stilledUntil=null;p.rushed=true;
-            p.age+=now-p.at;p.at=now;
+            addAge(p,p.drift);p.drift=0;p.status='closed';p.ratio=1;p.stilledUntil=null;p.rushed=true;
+            addAge(p,now-p.at);p.at=now;
         }
-    }else{p.age+=now-p.at;p.at=now;}
+    }else{addAge(p,now-p.at);p.at=now;}
     return p;
 }
 const lifeOf=key=>{let id;try{id=JSON.parse(key).id;}catch{return null;}return SHELF_LIFE[id]??null;};
-const larderRows=p=>p.larder.map(r=>({key:r.key,count:r.count,spent:p.age-r.born,life:lifeOf(r.key)})).map(r=>({...r,spoiled:r.life!==null&&r.spent>r.life}));
+const spentAge=(p,r)=>localAge(p)-r.born+(r.priorAge??0);
+const larderRows=p=>p.larder.map(r=>({key:r.key,count:r.count,spent:spentAge(p,r),life:lifeOf(r.key)})).map(r=>({...r,spoiled:r.life!==null&&r.spent>r.life}));
 function plan(request){
     const c=ports.read(),dial=PLACE_DIALS[request.place],bad=m=>{throw Error(m);};
     if(!dial)bad('That place has no clock of its own.');
@@ -73,14 +91,15 @@ function plan(request){
         if(p.status==='closed')bad('The land-spirit has closed this hearth; the larder refuses new goods.');
         if(lifeOf(request.key)===null)bad('That keeps by no clock here; use ordinary storage.');
         if(!(c.inventory[request.key]>0))bad('You are not carrying that.');
-        const row=p.larder.find(r=>r.key===request.key&&r.born===p.age);
-        if(row)row.count++;else p.larder.push({key:request.key,count:1,born:p.age});
+        const history=readShelfHistory(request.key,c.clock),priorAge=history?history.spent+c.clock-history.at:0;
+        const row=p.larder.find(r=>r.key===request.key&&r.born===localAge(p)&&(r.priorAge??0)===priorAge);
+        if(row)row.count++;else p.larder.push({key:request.key,count:1,born:localAge(p),priorAge});
         out.cost.items.push({key:request.key,delta:-1});out.message='One portion is set on the hearth shelf.';break;}
     case 'take':{
         const i=p.larder.findIndex(r=>r.key===request.key);if(i<0)bad('Nothing like that is on the shelf.');
-        const r=p.larder[i],spent=p.age-r.born,gone=lifeOf(r.key)!==null&&spent>lifeOf(r.key);
+        const r=p.larder[i],spent=spentAge(p,r),gone=lifeOf(r.key)!==null&&spent>lifeOf(r.key);
         if(--r.count===0)p.larder.splice(i,1);
-        if(!gone)out.cost.items.push({key:request.key,delta:1});
+        if(!gone)out.cost.items.push({key:shelfKey(r.key,spent,c.clock),delta:1});
         out.message=gone?'It has spoiled on the shelf and is thrown out.':'You take the portion back, still good.';out.spoiled=gone;break;}
     default:bad('Unknown place-clock action.');
     }
@@ -111,6 +130,11 @@ export const placeClockState=()=>state;
 let panelHook=null,refreshHook=null;
 export function configurePlaceClock(operations){ports=operations;panelHook=operations.mountPanel||null;refreshHook=operations.refresh||null;}
 registerDomain({id:'placeClocks',initialState:fresh,save:()=>state||undefined,
-    validate:slice=>validatePlaceClocks(slice),load:slice=>{state=slice?structuredClone(slice):null;},
+    ownsItemKey:key=>{if(!key.startsWith('{')||JSON.parse(key).hearthShelf===undefined)return false;readShelfHistory(key);return true;},
+    validate:(slice,envelope)=>{
+        validatePlaceClocks(slice);
+        const walk=value=>{if(!value||typeof value!=='object')return;for(const [key,row]of Object.entries(value)){if(key.startsWith('{'))readShelfHistory(key,envelope.expansion?.clock);walk(row);}};
+        walk(envelope.inventories);
+    },load:slice=>{state=slice?structuredClone(slice):null;},
     commands:{quote:quotePlaceClock,execute:executePlaceClock},projection:projectPlaceClock,
     refresh:()=>{refreshHook?.();},panels:[()=>{panelHook?.();}]});

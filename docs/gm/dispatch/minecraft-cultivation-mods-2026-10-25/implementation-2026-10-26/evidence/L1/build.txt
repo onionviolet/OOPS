@@ -1,0 +1,12 @@
+
+> build
+> node build.js
+
+{"mode":"checked","compiler":"inkjs@2.4.0","storyFormat":21,"schemaVersion":1,"storyId":"feature-wave-negotiation","storyRevision":4,"sceneIds":["tidemark.negotiation","relay.office","nested.hub","nested.offer","nested.mission","nested.return"],"compilerPackage":"inkjs","compilerVersion":"2.4.0","sourceSha256":"a4d470baa3ce27e44087bbf213a51cc9d98e8afeefd5a08bdd2bb54281785d8a","compiledSha256":"9f9f8b32940353a39c0862ef00be16c8883055cb7af4d135cda0ea171689bfdd","contentHash":"sha256:d193eb3a33eb66ba8825e6a15819f2920fe2a6b65ed27a24e5613e91015ccb43","outputSha256":"ffb07d934f656be98952aa2e3d181c585b3342090e1d033079dc819df311ac7c","diagnostics":0}
+
+  ...rch/minecraft-implementation-2026-10-26/L1-build/dist/bundle.js   7.0mb ⚠️
+  ...minecraft-implementation-2026-10-26/L1-build/dist/bundle.js.map  18.5mb
+
+⚡ Done in 243ms
+Javascript build complete!
+Bundle and style versions in .html have been updated!

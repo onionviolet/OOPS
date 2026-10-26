@@ -1,0 +1,56 @@
+{
+  "final": {
+    "type": "final",
+    "sessionId": "session-83dc436c-b0d4-4efb-afbe-1f77877d4f29",
+    "reason": {
+      "kind": "aborted",
+      "reason": {
+        "kind": "disposed"
+      }
+    },
+    "text": "All verifications pass. Let me view the final generated outputs to confirm."
+  },
+  "tool_calls": [
+    {
+      "tool": "skill",
+      "description": null
+    },
+    {
+      "tool": "bash",
+      "description": "Inspect workspace files and registry schema"
+    },
+    {
+      "tool": "bash",
+      "description": "Inspect field variations across all rows"
+    },
+    {
+      "tool": "bash",
+      "description": "Clarify probe presence per launch row"
+    },
+    {
+      "tool": "write",
+      "description": null
+    },
+    {
+      "tool": "bash",
+      "description": "Run CLI and verify outputs with assertions"
+    },
+    {
+      "tool": "bash",
+      "description": "Re-verify with corrected disjoint edge assertions"
+    },
+    {
+      "tool": "bash",
+      "description": "Re-verify disjoint edge case with owner assigned"
+    },
+    {
+      "tool": "bash",
+      "description": "Display final inventory outputs"
+    }
+  ],
+  "test_failures": [
+    "==\nbefore=b428f284f4b88bf5656d0c267ba0a21d after=b428f284f4b88bf5656d0c267ba0a21d\nregistry.json UNCHANGED\n=== VERIFICATION ===\nJSON checks PASSED: {'launch': 31, 'reference': 10} probe= 20 noprobe= 11 missing_owner= 27 req= 40 uniq= 38\nMD check PASSED; contains evidence-disclaimer and total tools\nEMPTY input OK: {'total_tools': 0, 'counts_by_kind': {}, 'ids_by_kind': {}, 'launch_probe_ids': [], 'launch_without_probe_ids': [], 'missing_owner_ids': [], 'duplicate_ids': [], 'required_path_references': 0, 'unique_required_paths': 0}\n[stderr]\nTraceback (most recent call last):\n  File \"<string>\", line 51, in <module>\n    assert s['launch_without_probe_ids']==['b','c'], s['launch_without_probe_ids']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['a', 'b', 'c']\n[exit code: 1]",
+    "[stderr]\nTraceback (most recent call last):\n  File \"<string>\", line 16, in <module>\n    assert s['missing_owner_ids']==['b','c'], sorted(s['missing_owner_ids'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['a', 'b', 'c']\n[exit code: 1]"
+  ],
+  "selfcheck_passes": []
+}

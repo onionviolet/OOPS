@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "sources_before": {
+    "scripts/lanes/lanes.py": "78a567f2c08e445479063a7fa0ffec4ab8ae789b2fc243b19e7858fb952c1664",
+    "scripts/lanes/tests/test_lanes.py": "938e4619c773742f01e42af422de46cdfc55978aaaaf5bb3ee314c64cba1544f"
+  },
+  "checks": [
+    {
+      "name": "focused lane suite",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/lanes/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_alive_rejects_invalid_pids_without_os_signal (test_lanes.LaneToolTests.test_alive_rejects_invalid_pids_without_os_signal) ... ok\ntest_alive_valid_pid_preserves_outcomes (test_lanes.LaneToolTests.test_alive_valid_pid_preserves_outcomes) ... ok\ntest_launch_not_blocked_by_invalid_receipt (test_lanes.LaneToolTests.test_launch_not_blocked_by_invalid_receipt) ... ok\ntest_launch_writes_receipt_and_forwards_prompt (test_lanes.LaneToolTests.test_launch_writes_receipt_and_forwards_prompt) ... ok\ntest_merge_report_flags_dirty_tree (test_lanes.LaneToolTests.test_merge_report_flags_dirty_tree) ... ok\ntest_merge_report_flags_merge_conflict (test_lanes.LaneToolTests.test_merge_report_flags_merge_conflict) ... ok\ntest_merge_report_flags_stale_base (test_lanes.LaneToolTests.test_merge_report_flags_stale_base) ... ok\ntest_merge_report_ready_clean_branch (test_lanes.LaneToolTests.test_merge_report_ready_clean_branch) ... ok\ntest_status_marks_invalid_receipt_exited (test_lanes.LaneToolTests.test_status_marks_invalid_receipt_exited) ... ok\ntest_status_reports_receipt_and_artifacts (test_lanes.LaneToolTests.test_status_reports_receipt_and_artifacts) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 1.203s\n\nOK\n",
+      "pass_check": true,
+      "elapsed_seconds": 1.297
+    },
+    {
+      "name": "independent acceptance",
+      "argv": [
+        "python3",
+        "acceptance.py"
+      ],
+      "exit_code": 0,
+      "stdout": "ACCEPTANCE PASS: invalid PIDs never reach OS calls; valid outcomes, status and replacement launch preserved\n",
+      "stderr": "",
+      "pass_check": true,
+      "elapsed_seconds": 0.075
+    }
+  ],
+  "sources_after": {
+    "scripts/lanes/lanes.py": "78a567f2c08e445479063a7fa0ffec4ab8ae789b2fc243b19e7858fb952c1664",
+    "scripts/lanes/tests/test_lanes.py": "938e4619c773742f01e42af422de46cdfc55978aaaaf5bb3ee314c64cba1544f"
+  },
+  "sources_unchanged": true
+}

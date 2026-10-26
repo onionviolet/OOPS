@@ -1,5 +1,15 @@
 # Mother of Learning: retained Cyoria visitor campaign
 
+**Bounded exploration verification, 2026-10-26:** the
+[E receipt](../../gm/dispatch/other-systems-depth-2026-10-26/exploration/CHECKPOINT.md)
+adds current rebuilt desktop evidence for an earned entry → paid household
+work → ordinary hatch survey → encounter observation → withdrawal → paid
+sample-research consumer route. Save/reload/Export/Import preserve its aftermath.
+Time was test-stepped; no supplied prerequisite stock or private save was used
+in the passing route. This verifies that route, not every alternative or the
+whole campaign. Older delivery-wide unverified labels below retain their
+historical scope. No runtime change was needed for this connection.
+
 **Latest recorded integration, reconciled 2026-10-18:** the parent
 [release checkpoint](../../gm/book-world-completion-2026-10-06/CHECKPOINT.md)
 and [delivery](../../gm/book-world-completion-2026-10-06/DELIVERY.md) record this

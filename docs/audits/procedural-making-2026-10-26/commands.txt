@@ -1,0 +1,17 @@
+Working directory: /var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26
+Input identity: a84da462072ec8139611ba15cc7d91b8a2e6293f81e365b67a04ca190f40a638
+
+node --test tests/craft_engine.test.js tests/craft_reference.test.js tests/crafting_runtime.test.js tests/crafting_native_reload.test.js tests/craft_depth_rules.test.js tests/craft_failure_ledger.test.js tests/crafting_experiment_preview.test.js tests/cultivation_formulation.test.js tests/hp_brewing.test.js tests/lotm_brew.test.js tests/rune_grammar.test.js tests/pledges.test.js tests/gear_workshop.test.js tests/alloy_equipment.test.js tests/native_rendering.test.js tests/native_material_bridge.test.js tests/native_craft_transaction.test.js tests/field_workshop.test.js tests/systems_workshop.test.js tests/fieldcraft_saved_jobs.test.js tests/mixture_state.test.js tests/mixture_rule_modules.test.js
+Result: 167 pass; 1 fixture missing. See focused-tests.tap.
+
+node --test --test-name-pattern='equipped native brace' tests/alloy_equipment.test.js
+Result after copying its script and artificial fixture inputs: 1 pass. See alloy-fixture-recheck.tap. Source/tests unchanged between runs.
+
+node /Users/weiwei/code/yet-another-idle-rpg/docs/audits/procedural-making-2026-10-26/probes.mjs /var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26
+Result: F1/F2 and quality boundary reproduced. The first probe helper assumed success, hit a legitimate thin-batch failure, and was corrected to compare the resolved failure product too.
+
+Initial/second harness logs: missing esbuild/inkjs linkage, scripts and external JSON; subsequently supplied. The first alloy-only recheck lacked a fixture text file; supplied the existing artificial fixture directory before its passing recheck. These are snapshot preparation errors, not application regressions.
+
+Targeted local Markdown link check: 15 resolved, zero errors.
+git diff --check -- docs/audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md docs/CRAFTING_ENGINE.md docs/systems/MAKING_ITEMS_ECONOMY.md docs/SYSTEMS_REGISTER.md
+Result: pass.

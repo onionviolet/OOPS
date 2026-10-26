@@ -1,0 +1,340 @@
+TAP version 13
+# Subtest: Woodworking novice observes the same channel at both band edges
+ok 1 - Woodworking novice observes the same channel at both band edges
+  ---
+  duration_ms: 0.508542
+  type: 'test'
+  ...
+# Subtest: Woodworking practiced observes the same channel at both band edges
+ok 2 - Woodworking practiced observes the same channel at both band edges
+  ---
+  duration_ms: 0.119667
+  type: 'test'
+  ...
+# Subtest: Woodworking master observes the same channel at both band edges
+ok 3 - Woodworking master observes the same channel at both band edges
+  ---
+  duration_ms: 0.03975
+  type: 'test'
+  ...
+# Subtest: Forging novice observes the same channel at both band edges
+ok 4 - Forging novice observes the same channel at both band edges
+  ---
+  duration_ms: 0.042708
+  type: 'test'
+  ...
+# Subtest: Forging practiced observes the same channel at both band edges
+ok 5 - Forging practiced observes the same channel at both band edges
+  ---
+  duration_ms: 0.097125
+  type: 'test'
+  ...
+# Subtest: Forging master observes the same channel at both band edges
+ok 6 - Forging master observes the same channel at both band edges
+  ---
+  duration_ms: 0.040584
+  type: 'test'
+  ...
+# Subtest: unsupported skills, missing/invalid levels and empty/failed results have no cue
+ok 7 - unsupported skills, missing/invalid levels and empty/failed results have no cue
+  ---
+  duration_ms: 0.128208
+  type: 'test'
+  ...
+# Subtest: receipt uses its captured level and never describes a failed finished piece
+ok 8 - receipt uses its captured level and never describes a failed finished piece
+  ---
+  duration_ms: 0.530959
+  type: 'test'
+  ...
+# Subtest: Village saved fact absent projects without mutation
+ok 9 - Village saved fact absent projects without mutation
+  ---
+  duration_ms: 0.296708
+  type: 'test'
+  ...
+# Subtest: Village saved fact present projects without mutation
+ok 10 - Village saved fact present projects without mutation
+  ---
+  duration_ms: 0.296
+  type: 'test'
+  ...
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 11 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 3.920833
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 12 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 9.244458
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 13 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 0.4565
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 14 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 0.7165
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 15 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 0.698542
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 16 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 1.1095
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 17 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.143875
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 18 - retained products validate only under their own law revision
+  ---
+  duration_ms: 0.409584
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 19 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 0.847417
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 20 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 5.065166
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 21 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 0.794209
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 22 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.207042
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 23 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 0.90075
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 24 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 3.455084
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 25 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 1.556625
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 26 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.528875
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 27 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 1.007167
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 28 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.3535
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 29 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 70.05525
+  type: 'test'
+  ...
+# Subtest: directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+ok 30 - directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+  ---
+  duration_ms: 2.403917
+  type: 'test'
+  ...
+# Subtest: native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+ok 31 - native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+  ---
+  duration_ms: 2.974167
+  type: 'test'
+  ...
+# Subtest: tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+ok 32 - tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+  ---
+  duration_ms: 0.576417
+  type: 'test'
+  ...
+# Subtest: body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+ok 33 - body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+  ---
+  duration_ms: 0.671084
+  type: 'test'
+  ...
+# Subtest: channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+ok 34 - channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+  ---
+  duration_ms: 0.390084
+  type: 'test'
+  ...
+# Subtest: recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+ok 35 - recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+  ---
+  duration_ms: 0.595917
+  type: 'test'
+  ...
+# Subtest: observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+ok 36 - observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+  ---
+  duration_ms: 1.529875
+  type: 'test'
+  ...
+# Subtest: timed brazier custody consumes exact inputs once, survives serialization and yields distinct late chemistry
+ok 37 - timed brazier custody consumes exact inputs once, survives serialization and yields distinct late chemistry
+  ---
+  duration_ms: 2.231042
+  type: 'test'
+  ...
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 38 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 1.3825
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 39 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 0.761875
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 40 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 0.494125
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+ok 41 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 0.414667
+  type: 'test'
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 42 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 0.488667
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+ok 43 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.232417
+  type: 'test'
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 44 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 0.451333
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 45 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.160292
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 46 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 1.343375
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 47 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 0.475792
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 48 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.236791
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 49 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 1.047416
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 50 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.140417
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 51 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.115333
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 52 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 1.03125
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 53 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 3.890875
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 54 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.43625
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 55 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 0.624875
+  type: 'test'
+  ...
+1..55
+# tests 55
+# suites 0
+# pass 55
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 165.72525

@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-26T17:46:19.888516+00:00",
+  "state": "dependency-blocked; no runtime implementation or release",
+  "sourceWrites": [],
+  "ownedArtifacts": [
+    "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/C1.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/C1-evidence/preflight-inputs.json",
+    "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/C1-evidence/checkpoint.json"
+  ],
+  "runtimeReservationsHeld": [],
+  "slotOwners": {
+    "slot-1": {
+      "lane": "L4",
+      "thread": "01a178b9-c5da-7831-8d68-f87f8b3da153",
+      "at": "2026-10-26T17:24:06.581178+00:00"
+    },
+    "slot-2": {
+      "lane": "G7-L1",
+      "thread": "01a1794a-6892-7891-a6cb-51e0a2d6d435",
+      "phase": "lore documents and trials"
+    }
+  },
+  "checks": {
+    "ownedMarkdownWhitespace": "pass",
+    "ownedMarkdownLocalTargets": "pass: zero missing",
+    "inputManifestJSON": "pass",
+    "runtimeTests": "not run: no slot/custody",
+    "build": "not run",
+    "mcp": "not run",
+    "desktop": "not run",
+    "persistence": "not run"
+  },
+  "release": false,
+  "dependencies": [
+    "G5-M2 lineage/support/treatment source release",
+    "G5-M6 rendering source release",
+    "G3 separation/integration output receipt for staged split routes"
+  ]
+}

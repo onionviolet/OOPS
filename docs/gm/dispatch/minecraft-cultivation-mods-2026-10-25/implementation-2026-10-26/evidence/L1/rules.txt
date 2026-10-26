@@ -1,0 +1,9 @@
+
+> check:rules
+> node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs
+
+Rules index check: 25 register rows, 43 AD codes, 144 relative links
+  warn  linked file exists but is not tracked by git: docs/GROUND_RULES.md
+  warn  linked file exists but is not tracked by git: docs/reviews/ui-descriptions-2026-10-25/REPORT.md
+PASS (2 warnings)
+PASS (6 receipts checked, 317 explicit legacy paths skipped, 0 problems)

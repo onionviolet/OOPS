@@ -1,0 +1,33 @@
+{
+  "name": "q11-correction-sweep",
+  "pid": 3465,
+  "pgid": 3465,
+  "started_at": 1792999275.849898,
+  "cwd": "/Users/weiwei/.codex/worktrees/q11-correction-sweep/yet-another-idle-rpg",
+  "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/Q11_correction_sweep.md",
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "log": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q11-correction-sweep.log",
+  "last_message": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q11-correction-sweep.last.md",
+  "command": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "-m",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "--approve-for-me",
+    "--add-dir",
+    "/Users/weiwei/code/yet-another-idle-rpg/.git",
+    "--add-dir",
+    "/Users/weiwei/code/yet-another-idle-rpg",
+    "--add-dir",
+    "/Users/weiwei/.codex",
+    "--add-dir",
+    "/Users/weiwei/.codex/worktrees/q11-correction-sweep/yet-another-idle-rpg",
+    "-o",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q11-correction-sweep.last.md",
+    "<prompt text>"
+  ]
+}

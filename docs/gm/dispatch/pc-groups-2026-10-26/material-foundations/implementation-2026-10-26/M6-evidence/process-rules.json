@@ -1,0 +1,17 @@
+{
+  "stage": "rules",
+  "command": [
+    "npm",
+    "run",
+    "check:rules"
+  ],
+  "source": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/source",
+  "output": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/output",
+  "inputDigest": "0386934e93434d9dc4935c970036f81454c8e5d79bcba60259fe8eb44bfdce5b",
+  "pid": 97871,
+  "pgid": 97871,
+  "log": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/combined-rules.log",
+  "status": "pass",
+  "exitCode": 0,
+  "elapsedSeconds": 1.2374191284179688
+}

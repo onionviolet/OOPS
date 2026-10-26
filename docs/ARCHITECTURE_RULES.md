@@ -100,3 +100,7 @@ and behavior they were designed to compare.
 reported passing lane evidence in the [checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#m3-resume-2026-10-16-claude-session-lane-worktree).
 That evidence does not verify today's dirty checkout; recover its actual input
 identity before reuse. AR16 remains applicable to new runtime work.
+
+## Cycle burn-down rounds, 2026-10-26
+
+Proposed FND3 recommends naming the strongly connected component group and measured reduction for an extraction round. Standing AR5/AR9/AR13/AR15/AR16 retain their own obligations; this proposal adds no gate or claim of cycle removal. The [cycle ledger](reviews/CYCLE_LEDGER_2026-10-26.md) records the current groups and leaves each round/result cell open for later work.

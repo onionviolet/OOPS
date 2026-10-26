@@ -1,0 +1,13 @@
+PASS fresh game saves discovery_codex slice; law slice absent at default
+PASS records panel opens from the panel picker showing codex count, law default with reason, ledger
+PASS law dial change persists in inheritance_law slice and states its reason
+PASS old-shape save (no codex slice) loads and the life ends
+PASS death dialog shows carry ledger, heirloom line, law reason, codex count
+{ req: [] }
+PASS heir save keeps codex + law slices and the heirloom gains a passed line
+loc Village
+PASS remembers option appears in life 2 and resolves once
+PASS item detail states heirloom line and value in parts: Heirloom history: day 359730: passed to the heir. Heirloom value 1001 (999 from age, 1 per year; 2 from 1 recorded line, 2 each).Material type: processed peltCa
+PASS reload keeps law, codex, remembered greeting
+PASS export then import round-trips law, codex, heirloom lines
+PASS no page errors

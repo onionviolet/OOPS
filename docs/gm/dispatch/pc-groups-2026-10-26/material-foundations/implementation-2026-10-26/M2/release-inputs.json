@@ -1,0 +1,11 @@
+{
+  "paths": {
+    "src/material_lineage.js": "e497bebda1e8b3f440e60701c830fb51c684ed8aff224efbfc7b7c34b2b2b361",
+    "src/processed_materials.js": "b8a1a278e40b1075eb85527011d726d969dc1379c760d030012d2dfe62fc5c63",
+    "src/material_treatment.js": "884746406cfa342f590b70951f340b9957d2550c14ea0a446129e5c14fbad96c",
+    "tests/material_lineage.test.js": "6ef9070a4910af158a9d31df4741a506e6c0bbdde2ea00750dbe0291d2ac921f",
+    "tests/processed_materials.test.js": "243cd032e3094392afb54293230ebecb86208a0940a16fdbe1ad365b0807ea46"
+  },
+  "bundle": "a830035ce10fb7f7186e6647c94cb1e4b8105177ccad4a5a74cc2a93b2280691",
+  "sourceMatchesCandidate": true
+}

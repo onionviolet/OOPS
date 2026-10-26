@@ -1,0 +1,205 @@
+TAP version 13
+# Subtest: failure ledger: forecast changes after a recorded failure and survives reload
+ok 1 - failure ledger: forecast changes after a recorded failure and survives reload
+  ---
+  duration_ms: 1.620875
+  type: 'test'
+  ...
+# Subtest: failure ledger: successes are not recorded and corrupt ledgers are rejected
+ok 2 - failure ledger: successes are not recorded and corrupt ledgers are rejected
+  ---
+  duration_ms: 0.834208
+  type: 'test'
+  ...
+# Subtest: item name grammar: a crafted name parses back to its inputs and process
+ok 3 - item name grammar: a crafted name parses back to its inputs and process
+  ---
+  duration_ms: 0.710875
+  type: 'test'
+  ...
+# Subtest: wired ledger domain: failed batch changes the adapter forecast, round-trips its save slice, hides unknown residue
+ok 4 - wired ledger domain: failed batch changes the adapter forecast, round-trips its save slice, hides unknown residue
+  ---
+  duration_ms: 16.688167
+  type: 'test'
+  ...
+# Subtest: live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger
+ok 5 - live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger
+  ---
+  duration_ms: 9.964792
+  type: 'test'
+  ...
+# Subtest: absent owner on old saves: no access, valid, nothing created
+ok 6 - absent owner on old saves: no access, valid, nothing created
+  ---
+  duration_ms: 0.666417
+  type: 'test'
+  ...
+# Subtest: access reference supplies a recipe only while held and never teaches
+ok 7 - access reference supplies a recipe only while held and never teaches
+  ---
+  duration_ms: 2.156167
+  type: 'test'
+  ...
+# Subtest: learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+ok 8 - learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+  ---
+  duration_ms: 1.208958
+  type: 'test'
+  ...
+# Subtest: training book grants once per actor read key, not per item
+ok 9 - training book grants once per actor read key, not per item
+  ---
+  duration_ms: 0.7815
+  type: 'test'
+  ...
+# Subtest: examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+ok 10 - examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+  ---
+  duration_ms: 1.409875
+  type: 'test'
+  ...
+# Subtest: forged learned recipe or read key is rejected
+ok 11 - forged learned recipe or read key is rejected
+  ---
+  duration_ms: 0.552791
+  type: 'test'
+  ...
+# Subtest: runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+ok 12 - runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+  ---
+  duration_ms: 8.918333
+  type: 'test'
+  ...
+# Subtest: workshop native journey: process, source effects, field repair, swap, preserved identity and material custody
+ok 13 - workshop native journey: process, source effects, field repair, swap, preserved identity and material custody
+  ---
+  duration_ms: 166.388208
+  type: 'test'
+  ...
+# Subtest: workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts
+ok 14 - workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts
+  ---
+  duration_ms: 1.585792
+  type: 'test'
+  ...
+# Subtest: process law: real heat, cooling, material families, independent world rules and no repeated free improvement
+ok 15 - process law: real heat, cooling, material families, independent world rules and no repeated free improvement
+  ---
+  duration_ms: 0.899292
+  type: 'test'
+  ...
+# Subtest: same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll
+ok 16 - same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll
+  ---
+  duration_ms: 2.654083
+  type: 'test'
+  ...
+# Subtest: work records reject unsupported revisions and nonfinite physical modifiers
+ok 17 - work records reject unsupported revisions and nonfinite physical modifiers
+  ---
+  duration_ms: 0.193708
+  type: 'test'
+  ...
+# Subtest: rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary
+ok 18 - rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary
+  ---
+  duration_ms: 0.973458
+  type: 'test'
+  ...
+# Subtest: armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save
+ok 19 - armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save
+  ---
+  duration_ms: 0.975
+  type: 'test'
+  ...
+# Subtest: cold-brittle metal armor: a warm lining resolves the need and lasting wear differs in the saved condition
+ok 20 - cold-brittle metal armor: a warm lining resolves the need and lasting wear differs in the saved condition
+  ---
+  duration_ms: 1.32275
+  type: 'test'
+  ...
+# Subtest: native hide preparation accepts idle elapsed time, stamps current chronology and rejects lost stock without spending
+ok 21 - native hide preparation accepts idle elapsed time, stamps current chronology and rejects lost stock without spending
+  ---
+  duration_ms: 1.488459
+  type: 'test'
+  ...
+# Subtest: learned focus steadies real quench and temper results, spends its own reserve and rolls back with a failed save
+ok 22 - learned focus steadies real quench and temper results, spends its own reserve and rolls back with a failed save
+  ---
+  duration_ms: 1.538208
+  type: 'test'
+  ...
+# Subtest: focus cannot replace heat or oil, transfer to another maker, or spend from a stale reserve
+ok 23 - focus cannot replace heat or oil, transfer to another maker, or spend from a stale reserve
+  ---
+  duration_ms: 0.484833
+  type: 'test'
+  ...
+# Subtest: selected inscription reroll preserves neighboring affixes and copy identity, debits stock and rolls back on quota failure
+ok 24 - selected inscription reroll preserves neighboring affixes and copy identity, debits stock and rolls back on quota failure
+  ---
+  duration_ms: 0.735041
+  type: 'test'
+  ...
+# Subtest: native material factory and actual two-holder split/merge keep independent cohort ages and source observations
+ok 25 - native material factory and actual two-holder split/merge keep independent cohort ages and source observations
+  ---
+  duration_ms: 86.082459
+  type: 'test'
+  ...
+# Subtest: actual recipe allocation partially consumes exact cohorts; new product retains all consumed histories without rewriting remaining stock
+ok 26 - actual recipe allocation partially consumes exact cohorts; new product retains all consumed histories without rewriting remaining stock
+  ---
+  duration_ms: 2.230417
+  type: 'test'
+  ...
+# Subtest: lineage rejects future processes and altered source observations through the saved-envelope validator
+ok 27 - lineage rejects future processes and altered source observations through the saved-envelope validator
+  ---
+  duration_ms: 0.522083
+  type: 'test'
+  ...
+# Subtest: hide treatments split one pelt stock into different routes that two recipes read differently
+ok 28 - hide treatments split one pelt stock into different routes that two recipes read differently
+  ---
+  duration_ms: 1.191416
+  type: 'test'
+  ...
+# node:internal/modules/esm/resolve:275
+#     throw new ERR_MODULE_NOT_FOUND(
+#           ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/evidence/snapshot/stories/feature_wave.json' imported from /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/evidence/snapshot/src/ink_narrative.js
+#     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+#     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND',
+#   url: 'file:///Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/evidence/snapshot/stories/feature_wave.json'
+# }
+# Node.js v22.23.3
+# Subtest: tests/systems_workshop.test.js
+not ok 5 - tests/systems_workshop.test.js
+  ---
+  duration_ms: 159.450084
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/evidence/snapshot/tests/systems_workshop.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 28
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 233.777

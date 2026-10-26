@@ -177,6 +177,9 @@ export function paradiseFacts(state,ctx={}) {
  const here=!!footprint&&player?.worldId===footprint.worldId&&footprint.native.locations.includes(p?.location);
  const playerSupported=bound&&samePlayerBody&&ctx.nativeAlive===true&&usable('player')&&here;
  const f={'paradise.nativeBound':bound,'paradise.playerSupported':playerSupported,'paradise.chartSupported':ctx.nativeAlive===true&&p?.life==='alive'&&p.location==='Village'&&player?.worldId==='base.frontier'};
+ // Own learned-method ownership is exact, including before the first lesson.
+ // An absent record must not become an unknown negated eligibility fact.
+ f[`power.${I.method}.owned`]=s.powers?.[actorId]?.[I.method]?.owned===true;
  const names=[I.employee,I.porter,I.mia,I.hank,I.su,I.krieg,I.king];
  for(const w of [I.hub,I.goa])f[`paradise.local.${w}`]=playerSupported&&footprint.worldId===w&&state.actors?.[actorId]?.worldId===w;
  for(const id of names){const person=s.people?.[id],a=state.actors?.[id],npcBody=person?.body;

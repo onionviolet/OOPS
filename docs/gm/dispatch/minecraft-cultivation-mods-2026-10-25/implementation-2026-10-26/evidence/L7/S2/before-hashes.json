@@ -1,0 +1,9 @@
+{
+  "scripts/playtest/gu-life.mjs": null,
+  "src/book_world_beginning_registration.js": "4eb86cd3ce321b187bffc053e98573e97dfe42887c2a0d1c06aa82dd364879af",
+  "src/book_world_gu_domain.js": null,
+  "src/simulation.js": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+  "src/structured_pack_runtime.js": "1c6d8b68bb10f6e929ab64194f925c5493df7dd8703fe4a974f7151e77c55d86",
+  "src/world_packs/book_gu_life.js": null,
+  "tests/gu_life.test.js": null
+}

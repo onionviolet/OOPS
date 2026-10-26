@@ -1,0 +1,44 @@
+# Local scripts and files. Permission, persistence and guard rows are inherited.
+- id: tool-fs
+  config:
+    readImage: false
+- id: tool-subagent-control
+  disabled: true
+- id: tool-subagent
+  disabled: true
+- id: tool-subagent-fork
+  disabled: true
+- id: tool-workflow
+  disabled: true
+- id: tool-goal
+  disabled: true
+- id: command-goal
+  disabled: true
+- id: tool-web
+  disabled: true
+- id: tool-plugin-manager
+  disabled: true
+- id: tool-skill
+  disabled: false
+- id: tool-todo
+  disabled: false
+- id: plan-mode
+  disabled: true
+# This route's 32K context needs less than the 64K default compaction reserve.
+- id: compaction-basic
+  config:
+    modelPolicies:
+      - provider: ollama-local
+        model: qwen3.8:27b
+        headroomTokens: 4096
+        maxTokens: 4096
+        retainTokens: 4096
+- id: system-prompt
+  config:
+    personaPrefix: >-
+      You are a local assistant for scripts, files and projects.
+      For bounded script tasks, preserve existing interfaces and use the supplied
+      focused checks. After a verification helper returns next_action final_answer
+      for unchanged sources, your next response is a concise final answer.
+      Do not clean comments, reread verified outputs or make more tool calls after
+      that pass unless you can name a concrete unresolved failure or discrepancy.

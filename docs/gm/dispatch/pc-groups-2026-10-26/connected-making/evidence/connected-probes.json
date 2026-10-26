@@ -1,0 +1,37 @@
+{
+  "ratioForecast": {
+    "recordedThin": {
+      "herb": 3,
+      "salt": 1
+    },
+    "usefulDifferentRatio": {
+      "herb": 1,
+      "salt": 1
+    },
+    "forecast": "known-fail",
+    "runtimeForecast": "known-fail",
+    "actual": "useful batch",
+    "note": "Same materials and process, quantities absent from forecast signature."
+  },
+  "cohort": {
+    "clocks": [
+      100,
+      150
+    ],
+    "sameProductIdentity": true,
+    "note": "No made-at cohort enters product identity for this atomic brew; stock uses the same product key."
+  },
+  "trialLog": {
+    "reversedIngredientOrderCollides": true,
+    "retainedFields": [
+      "materials",
+      "process",
+      "seen",
+      "at"
+    ],
+    "note": "Quantities, maker control, product identity and pre-dose tolerance are absent."
+  },
+  "unsupportedRevision": {
+    "error": "Product cb1:[[\"object\",[[\"catalogue\",\"frontier.herbal@1\"],[\"composition\",[\"object\",[[\"ash\",292],[\"matrix\",1609],[\"restore\",75],[\"toxin\",24],[\"vigor\",0]]]],[\"family\",\"craft.batch@1\"],[\"inputs\",[\"array\",[[\"array\",[\"consumed\",\"gen:reedherb:aadca367abcabcb7\",1,1]],[\"array\",[\"consumed\",\"gen:riversalt:0fcd349cf1983517\",1,1]]]]],[\"law\",\"frontier.brew@2\"],[\"mass\",2000],[\"process\",[\"array\",[[\"array\",[\"steep\",1]]]]],[\"recipe\",null],[\"stations\",[\"array\",[]]]]]] needs unsupported law frontier.brew@999."
+  }
+}

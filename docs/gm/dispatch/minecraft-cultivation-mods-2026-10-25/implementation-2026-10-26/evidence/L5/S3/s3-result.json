@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "at": "2026-10-26T20:15:45.037224+00:00",
+  "verification": "agent-verified, not human-reviewed",
+  "scope": "M5-06 actual current-body stage/recipient and dose comparison only",
+  "capture": {
+    "source": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L5/s3-source-94flo48b",
+    "output": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L5/s3-source-94flo48b-build",
+    "manifestSha256": "579f33ccd66b47dd82891a8ffc32ae65b2fdc11cc3fb51d623f6bd5084122203",
+    "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+    "count": 1331
+  },
+  "bundleSha256": "83f3bd0ef65daceb17f5999714808c511f57b86a83ad34afe4506d367230ada4",
+  "route": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L5/S3/recipient.cjs",
+  "routeSha256": "25ab4e6098271e9f5bb3b06c3a9285e7bf27ce4d638860ba67e96a8c7718b073",
+  "helperSha256": "c533a170acb94b39a6241474b2e15ba7b222382be1bbcba0813b006acdaa2e29",
+  "nativeRun": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L5/browser/m5-recipient-nXRHe4",
+  "failedPilot": {
+    "path": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L5/browser/m5-recipient-adCzVo",
+    "reason": "Harness clicked overflow-hidden Settings after viewport shrink. Route now restores 1920 width before opening native Settings; no source change."
+  },
+  "checks": [
+    "Private BUILD_OUT npm run build: PASS",
+    "Fresh native manufacture, actual paid precision/steady/accept, five doses and actual max-stamina consumer: PASS",
+    "Six native Save/reload/Export/literal-file Import states: PASS",
+    "1920x1080 and 1536x864, saved native 14px and 21px: PASS",
+    "Loaded/served/on-disk bundle identity and zero page errors: PASS",
+    "1331 snapshot hashes unchanged: PASS; primary has unrelated book_world_paradise_campaign_host.js drift, recorded separately"
+  ],
+  "limitations": [
+    "Replacement instance is a named fixture, not a body-acquisition route",
+    "Combat XP and reagent/fuel counts are declared fixtures; no initial stage or finished-product grant",
+    "Raw old A exposure stays bound to A until B medicine use; no historical medicinal archive claimed",
+    "No full suite, primary output, normal player saves, source edits, install, commit or push; combined integration remains L8-owned"
+  ],
+  "sourceChanges": [],
+  "privateSaves": "Retained only in nativeRun; not copied into repository evidence."
+}

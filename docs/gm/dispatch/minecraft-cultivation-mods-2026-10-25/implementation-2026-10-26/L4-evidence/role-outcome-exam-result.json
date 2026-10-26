@@ -1,0 +1,10 @@
+{
+  "bundleSha256": "99cd1cb5336239045891f9570b5f41abbbea904564e8493ec6fd9a9599f45027",
+  "persistence": {
+    "exportChars": 244540,
+    "exportSha256": "3b5c2ee5a67884a8dcb4ce4917c89245235160a191562939b45baf64019b2025",
+    "projectSha256": "48ba1bc260eef52289d4f89895399767a930e9d6d42f0d3bd21b5e9d08767b76"
+  },
+  "examined": true,
+  "errors": []
+}

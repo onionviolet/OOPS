@@ -4,7 +4,7 @@ import {frontierCatalogue as cat, frontierBrewLaw as law} from '../src/craft_con
 import {resolveBatch} from '../src/craft_resolver.js';
 import {generateMaterial} from '../src/craft_materials.js';
 import {defineDoseRules, cancelOutputs, deriveProductName, createDoseState, applyDose, validateDoseState} from '../src/craft_dose_rules.js';
-import {createExperimentLog, recordTrial, deduce, propertyView, validateExperimentLog} from '../src/craft_experiment_log.js';
+import {createExperimentLog, recordTrial, deduce, propertyView, validateExperimentLog, compareTrials, compareTrialSetups} from '../src/craft_experiment_log.js';
 
 const rules = defineDoseRules({id: 'frontier.dose', revision: 1,
     pairs: [{a: 'health', b: 'poison', permille: 800, reason: 'Sap soothes what the bitter toxin burns, but not all of it.'}],
@@ -101,3 +101,54 @@ test('live runtime: repeat drink overdoses and is validated, a solo drink teache
     domainRegistry.load({}); assert.equal(domainRegistry.save({}).craftDepth, undefined);
 });
 function craftedLegacy(R, owner, plan) { return R.craftedExposure(owner.products[plan.effect.craftExposure.product], plan.effect.craftExposure.appliedAt, null, 1); }
+
+const knownSetup = () => ({revision: 1, law: law.ref, product: 'observed-product',
+    inputs: [{key: 'herb-lot', material: 'herb', qty: 1}, {key: 'salt-lot', material: 'salt', qty: 1}],
+    process: [['steep', 1]], conditions: {world: 'base.frontier', apparatus: 'bench', control: 10}});
+const oralContext = level => ({route: 'oral', recipient: 'player-body', baseline: {tolerance: {health: level}}, confounders: level ? ['Known recipient tolerance'] : []});
+
+test('retained trials preserve ordered amounts and observed conditions without filling historical gaps', () => {
+    const setup = knownSetup(), observation = oralContext(0);
+    const log = recordTrial(createExperimentLog(), {materials: ['herb', 'salt'], process: setup.process, seen: ['oral.health'], at: 1, setup, observation});
+    setup.inputs[0].qty = 3; observation.baseline.tolerance.health = 100;
+    assert.equal(log.entries[0].setup.inputs[0].qty, 1, 'committed evidence is copied');
+    assert.equal(log.entries[0].observation.baseline.tolerance.health, 0);
+    const reversed = structuredClone(log.entries[0]); reversed.setup.inputs.reverse();
+    assert.ok(compareTrials(log.entries[0], reversed).changed.some(c => c.field === 'inputs'));
+    assert.ok(compareTrialSetups(log.entries[0].setup, setup).changed.some(c => c.field === 'inputs'));
+    const apparatus = knownSetup(); apparatus.conditions.apparatus = 'borrowed-cauldron';
+    assert.ok(compareTrialSetups(knownSetup(), apparatus).changed.some(c => c.field === 'conditions.apparatus'));
+    const legacy = recordTrial(createExperimentLog(), {materials: ['herb'], seen: [], at: 0}).entries[0];
+    const before = structuredClone(legacy), comparison = compareTrials(legacy, log.entries[0]);
+    assert.equal(comparison.sameKnownSetup, false);
+    assert.ok(comparison.unknown.includes('inputs'));
+    assert.deepEqual(legacy, before, 'comparison does not fabricate old quantities');
+    assert.deepEqual(validateExperimentLog(JSON.parse(JSON.stringify(log))), log);
+});
+
+test('comparison preserves recipient and assay confounders instead of diagnosing ingredient absence', () => {
+    let log = createExperimentLog();
+    for(const [at, level, seen] of [[1, 0, ['oral.health']], [2, 100, []]]) log = recordTrial(log, {
+        materials: ['herb', 'salt'], process: [['steep', 1]], seen, at, setup: knownSetup(), observation: oralContext(level)});
+    const c = compareTrials(...log.entries);
+    assert.equal(c.sameKnownSetup, true, 'production setup is unchanged');
+    assert.ok(c.changed.some(row => row.field === 'observation.baseline'));
+    assert.ok(c.confounders.includes('Recipient baseline changed'));
+    assert.deepEqual(c.observed.notSeenAgain, ['oral.health']);
+    assert.equal(deduce(log).find(row => row.material === 'herb').status, 'possible');
+    const assay = recordTrial(log, {materials: ['salt'], seen: [], at: 3, setup: knownSetup(), observation: {route: 'assay', confounders: []}});
+    const measured = compareTrials(log.entries[0], assay.entries[2]);
+    assert.ok(measured.confounders.includes('Different observation routes'));
+    assert.ok(measured.unknown.includes('observation.baseline'));
+    assert.equal(deduce(assay).find(row => row.material === 'herb').status, 'possible', 'assay omission cannot strengthen an oral attribution');
+});
+
+test('new trial setup rejects unsupported revisions, invalid amounts and non-JSON observations', () => {
+    const trial = {materials: ['herb'], seen: [], at: 0, setup: knownSetup()};
+    trial.setup.inputs[0].qty = 0;
+    assert.throws(() => recordTrial(createExperimentLog(), trial), /setup/);
+    trial.setup = knownSetup(); trial.setup.revision = 2;
+    assert.throws(() => recordTrial(createExperimentLog(), trial), /setup/);
+    trial.setup = knownSetup(); trial.observation = {route: 'oral', baseline: {tolerance: NaN}};
+    assert.throws(() => recordTrial(createExperimentLog(), trial), /observation/);
+});

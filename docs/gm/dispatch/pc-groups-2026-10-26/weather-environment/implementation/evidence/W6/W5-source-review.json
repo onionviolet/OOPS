@@ -1,0 +1,18 @@
+{
+  "sourceMatches": {
+    "src/craft_sources.js": true,
+    "tests/craft_engine.test.js": true,
+    "src/book_world_paradise_ecology.js": true,
+    "tests/paradise_ecology.test.js": true,
+    "src/book_world_paradise_campaign_content.js": true,
+    "src/book_world_paradise_campaign_host.js": true,
+    "src/book_world_paradise_campaign_facts.js": true
+  },
+  "all7Match": true,
+  "contract": "../W5/SOURCE_CONTRACT.md read",
+  "focused": "recorded36/36 reused not rerun",
+  "golden": "all47 previous commands exact",
+  "nativeFloor": false,
+  "consumer": "actual coppice K.log\u2192W4 preparation\u2192W3 drying/kit/commission",
+  "remaining": "native proof and explicit flowering/molt/soil/family-property source-reader gaps"
+}

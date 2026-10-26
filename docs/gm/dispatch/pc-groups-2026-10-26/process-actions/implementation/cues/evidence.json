@@ -1,0 +1,27 @@
+{
+  "command": "node --test tests/craft_process_cues.test.js",
+  "exitCode": 0,
+  "before": {
+    "src/craft_process_cues.js": "347cc1eede915e48132c785ed54d378b66ba65397088ae2e39a65a3104a778e0",
+    "tests/craft_process_cues.test.js": "f8c86ca7e1a40cc08130579d1498a15c5ed94ffdbc5455877f120fb5154b89a1",
+    "src/craft_process_thermal.js": "f6a59cfd39d08e0bce5c7f67f713ce38524f0bcd5552c19a3a68e97945cb3418",
+    "src/craft_process_separation.js": "19855eb1d1f46edeabfc169cd4cce69284d0e93847a139b7cab7b4632d1ec82d",
+    "docs/gm/dispatch/pc-groups-2026-10-26/process-actions/implementation/CONTRACT.md": "8ef6c7fe24c6f9f419b9616667d162b6d20be2cb99d2f58e4a9310978b1ece84"
+  },
+  "after": {
+    "src/craft_process_cues.js": "347cc1eede915e48132c785ed54d378b66ba65397088ae2e39a65a3104a778e0",
+    "tests/craft_process_cues.test.js": "f8c86ca7e1a40cc08130579d1498a15c5ed94ffdbc5455877f120fb5154b89a1",
+    "src/craft_process_thermal.js": "f6a59cfd39d08e0bce5c7f67f713ce38524f0bcd5552c19a3a68e97945cb3418",
+    "src/craft_process_separation.js": "19855eb1d1f46edeabfc169cd4cce69284d0e93847a139b7cab7b4632d1ec82d",
+    "docs/gm/dispatch/pc-groups-2026-10-26/process-actions/implementation/CONTRACT.md": "8ef6c7fe24c6f9f419b9616667d162b6d20be2cb99d2f58e4a9310978b1ece84"
+  },
+  "drift": [],
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "state": "pure mechanism verified; implemented below AD43 floor",
+  "gaps": [
+    "integration stage executor and actual costs",
+    "pressure/power physical producers",
+    "native UI/build/consumer journey",
+    "native Save/reload/Export/literal Import"
+  ]
+}

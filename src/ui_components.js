@@ -54,7 +54,8 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
         kind=select('Item kind',INVENTORY_KINDS);quality=select('Quality',[['all','Any quality'],['50','50% or higher'],['100','100% or higher'],['125','125% or higher'],['150','150% or higher'],['none','No quality rating']]);
         list.inventoryFilter={clear(){kind.value='all';quality.value='all';},active:()=>kind.value!=='all'||quality.value!=='all',summary:()=>[kind.value!=='all'?kind.selectedOptions[0].textContent:'',quality.value!=='all'?quality.selectedOptions[0].textContent:''].filter(Boolean).join(' · ')};
     }
-    let selected=null;
+    let selected=null;const searchGroups=new Map();
+    const inventory=id==='inventory_content_div',noun=({'skill':'skills','bestiary entry':'entries','read book':'books'})[label]||'entries';
     const name=row=>row.querySelector(nameSelector)?.textContent||row.firstElementChild?.textContent||row.textContent;
     const key=row=>row.dataset.character_item||row.id||name(row);
     function refresh(){
@@ -63,13 +64,23 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
             const q=row.dataset.item_quality;
             const facts={name:name(row),kind:inventoryRowKind([...row.classList]),quality:q!=null&&q!==''&&Number.isFinite(Number(q))?Number(q):null};
             row.classList.toggle('ui-list-filtered',!matchesInventoryFilter(facts,{query:search.value,kind:kind?.value||'all',quality:quality?.value||'all'}));
-            if(getComputedStyle(row).display!=='none')visible++;
+            const capped=id==='skill_list'&&row.querySelector('.skill_bar_capped');
+            const admitted=!row.hidden&&row.style.display!=='none'&&!row.classList.contains('ui-list-filtered')&&(!capped||getComputedStyle(capped).display!=='none');
+            if(inventory?getComputedStyle(row).display!=='none':admitted)visible++;
             row.toggleAttribute('data-ui-selected',!!selected&&key(row)===selected);
         }
         const units=rows.filter(row=>getComputedStyle(row).display!=='none').reduce((n,row)=>n+(Number(row.dataset.item_count)||1),0);
-        const text=`${visible} / ${rows.length} stacks · ${units} items`;count.title='Matching stacks and units after category, name, kind and quality filters.';if(count.textContent!==text)count.textContent=text;
+        const text=inventory?`${visible} / ${rows.length} stacks · ${units} items`:`${visible} / ${rows.length} ${noun}`;count.title=inventory?'Matching stacks and units after category, name, kind and quality filters.':'Matching '+noun+'; collapsed groups keep their entries.';if(count.textContent!==text)count.textContent=text;
+        if(id==='skill_list'){
+            const searching=!!search.value.trim();
+            for(const group of list.querySelectorAll('.skill_category_div')){
+                if(searching){if(!searchGroups.has(group))searchGroups.set(group,group.classList.contains('skill_category_expanded'));group.classList.toggle('skill_category_expanded',[...group.querySelectorAll(rowSelector)].some(row=>!row.classList.contains('ui-list-filtered')));}
+                else if(searchGroups.has(group)){group.classList.toggle('skill_category_expanded',searchGroups.get(group));}
+            }
+            if(!searching)searchGroups.clear();
+        }
         // A panel may describe its own empty state (R18 inventory tabs: nothing held, empty category, no match).
-        empty.hidden=visible>0;const hint=(list.inventoryFilter?.active()?'No items match these view choices. Clear filters to see all.':list.emptyHint?.())||(rows.length?'No matches. Clear search or change the category.':emptyText);if(empty.textContent!==hint)empty.textContent=hint;
+        empty.hidden=visible>0;const hint=(list.inventoryFilter?.active()?'No items match these view choices. Clear filters to see all.':list.emptyHint?.())||(rows.length?(id==='skill_list'?'No skills match these view choices. Clear search or show max level skills.':'No matches. Clear search or change the category.'):emptyText);if(empty.textContent!==hint)empty.textContent=hint;
     }
     search.addEventListener('input',()=>{refresh();list.scrollTop=0;});
     list.addEventListener('focusin',event=>{const row=[...list.querySelectorAll(rowSelector)].find(n=>n.contains(event.target));if(row){selected=key(row);refresh();row.scrollIntoView({block:'nearest'});}});

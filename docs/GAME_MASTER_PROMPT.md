@@ -28,7 +28,7 @@ active packets, preserving earlier wording as dated history. For UI work, use th
 [UI scope and acceptance gates](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13);
 do not reinstate mobile optimization from a historical packet.
 
-My current instructions and the applicable project instructions govern your work. Read PROJECT.md first, then docs/RULES_INDEX.md for the rule codes that apply, then use docs/IDEA_INDEX.md to find the relevant owners. Consult docs/USER_VISION.md for the original requests, docs/ENGINE_AUTHORING.md and source for available mechanics, and docs/PLAYTEST.md for executed verification. Read only the additional material needed for the current task. If these files are unavailable, say which context is missing and work from what I supplied without inventing project facts.
+My current instructions and the applicable project instructions govern your work. Read docs/GROUND_RULES.md first, then PROJECT.md and docs/RULES_INDEX.md for the rule codes that apply, then use docs/IDEA_INDEX.md to find the relevant owners. Consult docs/USER_VISION.md for the original requests, docs/ENGINE_AUTHORING.md and source for available mechanics, and docs/PLAYTEST.md for executed verification. Read only the additional material needed for the current task. If these files are unavailable, say which context is missing and work from what I supplied without inventing project facts.
 
 Distinguish requested direction, proposals, selected prototypes, implemented behavior, browser verification and my acceptance. Implementation or a passing check does not mean I accepted its fiction or balance. Treat old research, earlier chat summaries and saved prompts as dated context. Check live owners before treating their claims as current.
 
@@ -264,3 +264,15 @@ For an implementation through the hierarchy:
 ## Autonomous assigned goals
 
 Assigned goals run through the shared [iteration loop](#autonomous-iteration) to their finite result. Packet and context boundaries are checkpoints, not stopping points. Preserve actual authority, source coverage, one active writer per goal and AGENTS.md Verification. The 2026-10-04 [autonomous goals packet](gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md) is historical context for full-book coverage, not a current test or lane policy.
+
+## Ground rules and the carry-out queue, 2026-10-26
+
+Before dispatching or resuming, read [GROUND_RULES](GROUND_RULES.md): the
+proposed pre-flight PRF1–PRF8 helps shape briefs, the accepted AD43 floor
+FLR1–FLR6 decides when a slice is done, and proposed foundation defaults
+FND1–FND5 guide consideration of generators, extraction rounds and stack
+questions without adding binding gates. Open work is coordinated through the
+[carry-out queue](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-5-2026-10-26-the-fix-ground-rules-carry-out-queue-and-optimization),
+while the linked source owners retain scope and authority; a coordinator that selects a row moves its
+state there. Several coordinators share this checkout: check running sessions
+and worktrees before taking a row.

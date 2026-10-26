@@ -1,0 +1,19 @@
+{
+  "state": "explicit non-overlapping custody handoff before I1 implementation",
+  "sourceChanged": false,
+  "files": {
+    "src/crafting_frontier_runtime.js": "63384a5ef6e894cff8e7ad97febdb573e7cfaa90667d08f489fe9052e891b2d6",
+    "src/crafting_home.js": "83f77fd819710edb5203cf734a7e57ecd6dfae6285882ed4ca2f6ba0751f98b6"
+  },
+  "g3Areas": [
+    "staged process imports/helpers",
+    "stage command dispatch/admission/settlement",
+    "process-state quote token",
+    "home process subpanel"
+  ],
+  "i1Areas": [
+    "named method quote/commit parity",
+    "unrelated treatment method validation",
+    "quantity-aware failure history/projector/forecast wording"
+  ]
+}

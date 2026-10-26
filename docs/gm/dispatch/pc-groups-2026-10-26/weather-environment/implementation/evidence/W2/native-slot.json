@@ -1,0 +1,24 @@
+{
+  "lane": "G6-W2",
+  "thread": "01a1794d-9355-7f53-8c4b-12a067d142fb",
+  "phase": "acknowledged frozen home-weather build/native proof",
+  "handoffFrom": "G6-W1",
+  "handoffFromThread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+  "at": "2026-10-26T18:38:35.317801+00:00",
+  "next_queue": [
+    "G1-I4 01a1794e-a7cd-7672-929c-bf94c02d19f0 bounded HP consumer source if ready",
+    "G2-I5 final combined proof requested"
+  ],
+  "preserved_unallocated_requests": [
+    {
+      "lane": "L8",
+      "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+      "status": "ready unpromised S3 request; earlier commitments take precedence"
+    },
+    {
+      "lane": "G6-W3",
+      "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+      "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+    }
+  ]
+}

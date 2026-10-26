@@ -1,0 +1,75 @@
+{
+  "zeroResinAccepted": {
+    "status": "accepted",
+    "permille": 500,
+    "reason": ""
+  },
+  "blend": {
+    "ok": false,
+    "assignment": null,
+    "unknown": [],
+    "problems": [
+      {
+        "slot": "oil",
+        "reason": "no input fits"
+      },
+      {
+        "slot": null,
+        "reason": "extra inputs"
+      }
+    ]
+  },
+  "shared": {
+    "ok": false,
+    "assignment": null,
+    "unknown": [],
+    "problems": [
+      {
+        "slot": null,
+        "reason": "inputs cannot fill every slot at once"
+      }
+    ]
+  },
+  "unknownNumeric": "unknown",
+  "unknownTag": "yes",
+  "omittedProcess": {
+    "ok": true,
+    "assignment": {
+      "source": {
+        "material": "Goat meat",
+        "qty": 1
+      }
+    },
+    "unknown": [],
+    "problems": []
+  },
+  "wrongProcess": {
+    "ok": false,
+    "assignment": {
+      "source": {
+        "material": "Goat meat",
+        "qty": 1
+      }
+    },
+    "unknown": [],
+    "problems": [
+      {
+        "slot": null,
+        "reason": "process differs"
+      }
+    ]
+  },
+  "descriptorOnly": {
+    "ok": true,
+    "missing": [],
+    "unmet": [],
+    "known": [],
+    "route": null
+  },
+  "recipeStamp": {
+    "plain": null,
+    "stamped": "audit.unvalidated@1",
+    "identityChanged": true,
+    "physicalResultUnchanged": true
+  }
+}

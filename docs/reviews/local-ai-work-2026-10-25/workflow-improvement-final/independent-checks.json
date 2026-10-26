@@ -1,0 +1,36 @@
+{
+  "original_tests_unchanged": true,
+  "receipt_matches_final_sources": true,
+  "stages": [
+    {
+      "stage": "before",
+      "tests_exit_code": 1,
+      "test_output": "test_environment_precedence_and_no_global_mutation (test_launcher.LauncherTests.test_environment_precedence_and_no_global_mutation) ... ok\ntest_missing_runtime_does_not_fallback_or_exec (test_launcher.LauncherTests.test_missing_runtime_does_not_fallback_or_exec) ... ok\ntest_no_probe_does_not_execute_collector (test_launcher.LauncherTests.test_no_probe_does_not_execute_collector) ... ok\ntest_preserves_arguments_cwd_and_child_exit (test_launcher.LauncherTests.test_preserves_arguments_cwd_and_child_exit) ... ok\ntest_probe_decodes_invalid_utf8_gracefully (test_launcher.LauncherTests.test_probe_decodes_invalid_utf8_gracefully)\nInvalid UTF-8 bytes in child output must not raise UnicodeDecodeError. ... ERROR\ntest_probe_failure_and_timeout_are_not_ready (test_launcher.LauncherTests.test_probe_failure_and_timeout_are_not_ready) ... ok\ntest_reference_route_cannot_launch (test_launcher.LauncherTests.test_reference_route_cannot_launch) ... ok\ntest_registry_contract_and_offline_probes (test_launcher.LauncherTests.test_registry_contract_and_offline_probes) ... ok\ntest_unknown_batch_id_causes_no_partial_probes (test_launcher.LauncherTests.test_unknown_batch_id_causes_no_partial_probes) ... ok\n\n======================================================================\nERROR: test_probe_decodes_invalid_utf8_gracefully (test_launcher.LauncherTests.test_probe_decodes_invalid_utf8_gracefully)\nInvalid UTF-8 bytes in child output must not raise UnicodeDecodeError.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-improved-independent-4yrbn6zh/scripts/toolsets/tests/test_launcher.py\", line 98, in test_probe_decodes_invalid_utf8_gracefully\n    result = toolsets.diagnose(row, dict(os.environ), True)\n  File \"/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-improved-independent-4yrbn6zh/scripts/toolsets.py\", line 81, in diagnose\n    run = subprocess.run(command, env=child_env, capture_output=True,\n                         text=True, timeout=20)\n  File \"/opt/homebrew/Cellar/python@3.15/3.15.0/Frameworks/Python.framework/Versions/3.15/lib/python3.15/subprocess.py\", line 671, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.15/3.15.0/Frameworks/Python.framework/Versions/3.15/lib/python3.15/subprocess.py\", line 1395, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.15/3.15.0/Frameworks/Python.framework/Versions/3.15/lib/python3.15/subprocess.py\", line 2446, in _communicate\n    stdout = self._translate_newlines(stdout,\n                                      self.stdout.encoding,\n                                      self.stdout.errors)\n  File \"/opt/homebrew/Cellar/python@3.15/3.15.0/Frameworks/Python.framework/Versions/3.15/lib/python3.15/subprocess.py\", line 1274, in _translate_newlines\n    return _translate_newlines(data, encoding, errors)\n  File \"/opt/homebrew/Cellar/python@3.15/3.15.0/Frameworks/Python.framework/Versions/3.15/lib/python3.15/subprocess.py\", line 403, in _translate_newlines\n    data = data.decode(encoding, errors)\nUnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 13: invalid start byte\n\n----------------------------------------------------------------------\nRan 9 tests in 0.142s\n\nFAILED (errors=1)\n"
+    },
+    {
+      "stage": "after",
+      "tests_exit_code": 0,
+      "test_output": "test_environment_precedence_and_no_global_mutation (test_launcher.LauncherTests.test_environment_precedence_and_no_global_mutation) ... ok\ntest_missing_runtime_does_not_fallback_or_exec (test_launcher.LauncherTests.test_missing_runtime_does_not_fallback_or_exec) ... ok\ntest_no_probe_does_not_execute_collector (test_launcher.LauncherTests.test_no_probe_does_not_execute_collector) ... ok\ntest_preserves_arguments_cwd_and_child_exit (test_launcher.LauncherTests.test_preserves_arguments_cwd_and_child_exit) ... ok\ntest_probe_decodes_invalid_utf8_gracefully (test_launcher.LauncherTests.test_probe_decodes_invalid_utf8_gracefully)\nInvalid UTF-8 bytes in child output must not raise UnicodeDecodeError. ... ok\ntest_probe_failure_and_timeout_are_not_ready (test_launcher.LauncherTests.test_probe_failure_and_timeout_are_not_ready) ... ok\ntest_reference_route_cannot_launch (test_launcher.LauncherTests.test_reference_route_cannot_launch) ... ok\ntest_registry_contract_and_offline_probes (test_launcher.LauncherTests.test_registry_contract_and_offline_probes) ... ok\ntest_unknown_batch_id_causes_no_partial_probes (test_launcher.LauncherTests.test_unknown_batch_id_causes_no_partial_probes) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.144s\n\nOK\n",
+      "acceptance_exit_code": 0,
+      "acceptance": {
+        "pass": true,
+        "mixed_encoding_exit_cases": [
+          {
+            "exit_code": 0,
+            "state": "probe-passed",
+            "cli_exit_code": 0
+          },
+          {
+            "exit_code": 7,
+            "state": "probe-failed",
+            "cli_exit_code": 1
+          }
+        ],
+        "retained_output_limits": {
+          "stdout": 16000,
+          "stderr": 4000
+        }
+      }
+    }
+  ]
+}

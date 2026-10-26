@@ -1,0 +1,33 @@
+{
+  "before": {
+    "lane": "G2-I1",
+    "thread": "01a1794c-5180-7871-b4a1-4acc8f908fde",
+    "phase": "acknowledged matcher allocation implementation",
+    "handoffFrom": "G1-I3",
+    "handoffFromThread": "01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc",
+    "at": "2026-10-26T18:08:20.396113+00:00",
+    "nextRequested": {
+      "lane": "G6-W1",
+      "thread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+      "reason": "G6 coordinator and W1 requested direct next safe handoff after earlier G2 commitment"
+    }
+  },
+  "after": {
+    "lane": "G6-W1",
+    "thread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+    "phase": "acknowledged W1 source/frozen-input turn",
+    "handoffFrom": "G2-I1",
+    "handoffFromThread": "01a1794c-5180-7871-b4a1-4acc8f908fde",
+    "at": "2026-10-26T18:13:28.098022+00:00",
+    "nextRequested": {
+      "lane": "G2-I2",
+      "thread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+      "reason": "W1 readiness acknowledgment preserves I5 next request"
+    }
+  },
+  "sourceLocksReleased": [
+    "src/craft_recipes.js",
+    "src/craft_material_fit.js",
+    "tests/craft_allocation.test.js"
+  ]
+}

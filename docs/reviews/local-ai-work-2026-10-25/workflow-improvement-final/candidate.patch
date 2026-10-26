@@ -1,0 +1,37 @@
+--- a/scripts/toolsets.py
++++ b/scripts/toolsets.py
+@@ -79,7 +79,7 @@
+         # Registry probes are finite, offline help/version/import/health checks.
+         try:
+             run = subprocess.run(command, env=child_env, capture_output=True,
+-                                 text=True, timeout=20)
++                                 text=True, encoding='utf-8', errors='replace', timeout=20)
+             result.update(state='probe-passed' if run.returncode == 0 else 'probe-failed',
+                           exit_code=run.returncode,
+                           stdout=run.stdout[-16000:], stderr=run.stderr[-4000:])
+--- a/scripts/toolsets/tests/test_launcher.py
++++ b/scripts/toolsets/tests/test_launcher.py
+@@ -88,5 +88,23 @@
+                     self.assertIsNone(row['probe'])
+ 
+ 
++    def test_probe_decodes_invalid_utf8_gracefully(self):
++        """Invalid UTF-8 bytes in child output must not raise UnicodeDecodeError."""
++        program = ('import os,sys; '
++                   'os.write(1,bytes.fromhex("76657273696f6e3a20e29c9320ff0a")); '
++                   'os.write(2,bytes.fromhex("7761726e696e673a20fe0a")); '
++                   'sys.exit(7)')
++        row = self.row(probe=[program])
++        result = toolsets.diagnose(row, dict(os.environ), True)
++        self.assertEqual(result['state'], 'probe-failed')
++        self.assertEqual(result['exit_code'], 7)
++        self.assertIsInstance(result['stdout'], str)
++        self.assertIsInstance(result['stderr'], str)
++        self.assertTrue(result['stdout'].endswith('\n'))
++        self.assertTrue(result['stderr'].endswith('\n'))
++        # Must remain JSON-serializable
++        json.dumps(result, ensure_ascii=False).encode('utf-8')
++
++
+ if __name__ == '__main__':
+     unittest.main()

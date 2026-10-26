@@ -1,0 +1,61 @@
+{
+  "route": "DEV SEEDED S1 stocked repaired Glasshouse, earned meet/repair commands in fixture builder",
+  "origin": "http://127.0.0.1:59890",
+  "freshOldStateNoRealm": true,
+  "pendingReloadAndComplete": true,
+  "cancellation": true,
+  "visibleBenchBlocker": true,
+  "saveReloadExportLiteralImport": true,
+  "bundleHash": "afa0470f660ffcc3f931e6f19a70b3503a389be553cbc0a2233e2095873973ef",
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "actualFont": "14px",
+      "buttonBounds": {
+        "x": 680.65625,
+        "y": 764.09375,
+        "width": 686.765625,
+        "height": 28.1875
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "actualFont": "21px",
+      "buttonBounds": {
+        "x": 680.65625,
+        "y": 655.03125,
+        "width": 686.765625,
+        "height": 68.59375
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "actualFont": "14px",
+      "buttonBounds": {
+        "x": 576.84375,
+        "y": 511.09375,
+        "width": 464.84375,
+        "height": 46.375
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "actualFont": "21px",
+      "buttonBounds": {
+        "x": 576.84375,
+        "y": 412.40625,
+        "width": 464.84375,
+        "height": 68.59375
+      }
+    }
+  ],
+  "pageErrors": []
+}

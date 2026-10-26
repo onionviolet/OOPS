@@ -1,0 +1,12 @@
+{
+  "originalCount": 39,
+  "originalSha256": "f8d74913d4979cffa48f093d76047495888d7d2501dc2346aa90d3c7f6c4b4c1",
+  "unchanged": true,
+  "added": [
+    "book.paradise.campaign.hub.drying_rack",
+    "book.paradise.campaign.hub.drying_cut",
+    "book.paradise.campaign.hub.drying_cover",
+    "book.paradise.campaign.hub.drying_vents",
+    "book.paradise.campaign.hub.drying_bind"
+  ]
+}

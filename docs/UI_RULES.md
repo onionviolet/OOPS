@@ -24,10 +24,44 @@ consumer/example; name the changed player outcome and relevant states. Use:
 Use the current desktop/text targets below with disposable test fixtures, not
 private player saves. Follow AD36 for the changed risk and evidence reuse;
 unchanged content rows do not each require another full UI matrix. Required
-changed native behavior, affected persistence and human visual acceptance stay
-separate. A screenshot, row count or absence of overflow alone establishes none
-of the later gates. A settled UI fix does not need a new prototype; use the
+changed native behavior and affected persistence need agent-side evidence. Human
+visual/feel review is optional feedback under AD42 and stays separate. A screenshot, row count or absence of overflow alone establishes none
+of the later verification states. A settled UI fix does not need a new prototype; use the
 existing mockup workflow only when the design question is actually unsettled.
+
+### Navigation scope in ordinary play, 2026-10-26
+
+Application of UR41/43/52/53, not a new universal layout rule: choose the smallest
+navigation scope that serves the current task. Opening a local disclosure such
+as More actions keeps that task and its context; a larger view is a separate
+deliberate action through the existing controller. Preserve source identity,
+pending choices and a clear return. This applies to services, people, effects,
+list controls, reports and settings as well as items. Full tasks may deliberately
+reflow, and UR69 still permits stable-moment space lending. Check meaningful
+context and controls rather than universal pixel immobility.
+
+## Descriptions explain the experience and effect, 2026-10-25
+
+Weibao requested rules for more narrative UI descriptions, especially traits,
+while retaining calculations. [Direction](USER_VISION.md#effect-first-ui-descriptions-2026-10-25)
+and [source comparison, examples and verification](reviews/ui-descriptions-2026-10-25/REPORT.md).
+These apply to stats, traits, skills, items, conditions, actions and other
+inspectable subjects, alongside UR40/42/43/47 and AD6–AD8.
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| UR70 | **Lead with meaning and practical effect.** Default to one or two short sentences explaining what the subject represents and what it changes for the character. A trait may describe how it manifests in the body, habits or experience; a stat explains what increasing it helps. Use concrete verbs and restrained world-appropriate voice. Longer narrative belongs in a deliberate reading surface. | A tooltip opening with “Native current-player attribute” or atmosphere that never explains what the trait does |
+| UR71 | **Give mechanics a supporting layer.** Follow the description with relevant current effects, conditions, costs, drawbacks or duration, then a labelled calculation/source breakdown when useful. Retain exact useful numbers and formulas through UR42/43 disclosure; short descriptions need not reproduce the entire calculation. Spell out unfamiliar ratings and distinguish power, damage and target-specific chances under UR40. | A formula replacing the explanation, or narrative removing the information needed to choose |
+| UR72 | **Describe actual behavior with its conditions.** Trace effect wording to the owning consumer and observer-permitted state. Distinguish present effects, dormant or conditional effects, uncertain knowledge and unimplemented uses in player terms. Narrative can express the character's known belief, clearly qualified; it cannot establish an effect or reveal a sealed truth. | Copying a source's magic claim into a stat with no working magic consumer, or describing an inactive trait as already helping |
+| UR73 | **Write for the player, with useful detail density.** Default to familiar names and meaningful comparisons. Internal source categories, stored-field caveats, pipeline terminology and tracing notes belong in developer documentation unless they explain a concrete player consequence. Omit repetitive neutral rows and empty-modifier messages by default; retain an explicit value or neutral comparison when it helps the current question. | Repeating Unit/points/Base/Before multipliers/×1 on every hover, or exposing implementation warnings as flavor text |
+| UR74 | **Keep one meaning across surfaces and check the words against play.** Reuse the owning subject's description and public effect projection across hover, pinned inspection, lists and reference views; shorten by disclosure rather than writing conflicting copies. For changed copy, check the active case and a relevant conditional, inactive or unknown case. Runtime delivery follows AD36 with rebuilt desktop evidence; document-only rules do not establish rewritten or playable tooltips. | A trait card, tooltip and effect list disagreeing, or a prose rule being reported as a shipped UI repair |
+| UR75 | **Explain terms and comparisons where they affect a choice.** Default to a short explanation of unfamiliar ratings or specialized terms in the current inspection. Say what higher/lower changes, which target or baseline matters, and distinguish a percent change from percentage points when relevant. Use warnings for the current subject and circumstances; keep deeper definitions available through an existing reference route when one exists. Reuse the owning numbers rather than adding display-side mechanics. | An unexplained AP bonus, “less damage” with no baseline, or a warning about a requirement that does not apply here |
+
+Implementation application, 2026-10-26: live inspection retains expanded details,
+selection and reading position when its numbers update (UR43/74). A cosmetic
+trait with no numerical contribution is not thereby inactive (UR72). The
+[implementation round and other-game comparison](reviews/ui-descriptions-2026-10-25/REPORT.md#implementation-round-user-selected-2026-10-25)
+record evidence and the bounded coverage of these applications.
 
 ## Before you build: decide where it belongs
 
@@ -75,7 +109,7 @@ Weibao: "creating base rules for every little thing to make development easier? 
 | --- | --- | --- |
 | UR14 | **Discoverability check:** at the primary target 1920×1080 on a populated save (1366×768 retired 2026-10-19), can a first-time player name the way back, the current work and the main actions from a screenshot alone? Put the screenshot in the report | Technical proof that a button exists, while the player could not find it |
 | UR15 | **Reproduce a reported problem in the player's terms first.** If it does not reproduce, ask what they saw before designing a fix. A report like "no way back" may mean "could not recognize the way back" | Hunting for a dead-end state when the real issue was an unclear label |
-| UR16 | **Proof and taste are separate gates.** Report rebuilt, fresh-origin technical proof; leave Weibao's visual-feel acceptance open | Calling a layout accepted because tests pass |
+| UR16 | **Proof and taste are separate states.** Report rebuilt, fresh-origin technical proof; human visual/feel review is optional feedback under AD42 | Calling a layout accepted because tests pass |
 | UR17 | **Saves first:** reorganizing UI never deletes gameplay, renames internal ids or breaks saved layouts, pins and collapse states without a written compatibility decision | Presentation work silently breaking long-running saves |
 
 ## Getting anywhere, and seeing it without much scrolling
@@ -139,7 +173,7 @@ Weibao: “things shouldt always open onto the bottom, the can change their spec
 | UR43 | **Separate preview, pinned inspection, commands and full reference.** Hover is a quick optional peek. Long or actionable content needs a stable pinned route with keyboard and focus access (touch gets an explicit equivalent if later supported), and critical facts or actions never depend on hover alone. A fuller view is available when useful, not the automatic default for item interaction. State the anchor, collision placement, dismissal or pin behavior and return destination; avoid nested popover cascades. Preserve combat facts, work, selection and native command guards; dismissal never silently discards pending edits or commits a command | A disappearing tooltip as the only action menu, an overlay blocking its source rows, accidental consumption, or every inspection becoming a page |
 | UR44 | **Treat the log as a readable stream, not dashboard cards.** Use compact rows, consistent reading rhythm and restrained separators; category filters and metadata need not become large repeated headings. Emphasize the meaningful actor, item, number, outcome or discovery, not a solid color block per event. Keep semantic text, links, user palettes, larger-text support, follow and unread behavior and the full-height log. Judge a populated live combat or event stream, not two startup notices | Sparse startup logs looking fine while combat becomes a tall wall of repeated labels and clashing color |
 | UR45 | **Reference evidence names how the state was reached.** Keep apart original source bytes, native-rendered DEV SEEDED scenes, an actual native interaction journey, natural progression and human acceptance. A lab-revealed or default opponent is not a verified fight or fight-menu route: inspect the source and exercise the actual menu or action before claiming parity. Use varied relevant states (populated inventory, equipment and effects, active combat, shop, journal, settings), caption unequal items or progression, and preserve the pinned source. Screenshots guide composition, not hidden mechanics or a universal rank | A synthetic or default scene presented as representative combat, or one sparse opening screen standing in for the whole reference |
-| UR46 | **Clean hierarchy comes from grouping and alignment, not fewer facts or smaller text.** Give You, Focus and log a clear identity, primary status, secondary facts and explicit controls, with consistent label and value gutters, spacing and type roles. Borders frame regions and meaningful groups, not every fragment. Color and VFX reinforce native meaning and have a plain static equivalent. Inspect the same tasks at the desktop target and at actual 125% and 150% text (1366×768 retired 2026-10-19). Row counts and zero overflow support review but never replace visual-feel acceptance | Matching colors while keeping crowded stat cells, oversized log labels, unexplained ornaments or unreadable larger text |
+| UR46 | **Clean hierarchy comes from grouping and alignment, not fewer facts or smaller text.** Give You, Focus and log a clear identity, primary status, secondary facts and explicit controls, with consistent label and value gutters, spacing and type roles. Borders frame regions and meaningful groups, not every fragment. Color and VFX reinforce native meaning and have a plain static equivalent. Inspect the same tasks at the desktop target and at actual 125% and 150% text (1366×768 retired 2026-10-19). Row counts and zero overflow support agent-side review; human visual/feel review remains optional feedback under AD42 | Matching colors while keeping crowded stat cells, oversized log labels, unexplained ornaments or unreadable larger text |
 
 UR41 clarifies UR9: the shared center controller is a requirement for center replacements, not an instruction that every interaction belongs in that center. UR43 does **not** select O1/O2/O3 from the current item-inspection experiment. Hover→pin is an agent recommendation awaiting visual/default-interaction selection.
 

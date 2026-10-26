@@ -1,0 +1,18 @@
+{
+  "state": "budget_checkpoint_before_implementation",
+  "observed_usage_percent": 44,
+  "dispatch_start_percent": 36,
+  "ceiling_percent": 41,
+  "shared_account_attribution": "unknown",
+  "source_ready": false,
+  "runtime_changes": [],
+  "reservation": "No slot/path locks acquired; bounded polling process stopped with Ctrl-C; no worker remains.",
+  "checks": {
+    "F2": "saved earlier audit reproduction read, not rerun; runtime slot unavailable",
+    "focused_tests": "not run",
+    "build": "not run",
+    "native_persistence": "not run",
+    "source_before_diff": "empty for listed owned runtime inputs"
+  },
+  "next": "Renew finite dispatch usage budget, acquire shared slot and exact path locks, reproduce F2; implement native day boundary query and home freeze cursor, focused regressions then source_ready; immutable rebuilt native proof and repair/weatherproof persistence."
+}

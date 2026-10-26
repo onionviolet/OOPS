@@ -1,0 +1,15 @@
+{
+  "route": "Fresh native bird start, earned materials; named saved-calendar/condition boundary fixture. Native costs/work/roof/rest and literal persistence.",
+  "viewport": "1920x1080",
+  "checks": [
+    "Offset-30 native rain start: 30 dry + 30 rainy minutes produces wetness 60 and one retained wear crossing",
+    "repair-pending: native Save/reload/Export/literal Import",
+    "Repair debits actual earned twig/grass, grants no premature repair, retains accepted job, restores actual roof and refuses redundant repair",
+    "Weatherproofing consumes separate earned materials/work, halves subsequent direct wetting and refuses duplicate fitting",
+    "Repaired local structure supports actual native sleep",
+    "repaired-weatherproofed-condition: native Save/reload/Export/literal Import"
+  ],
+  "errors": [],
+  "status": "passed",
+  "bundle_sha256": "c6ef41b7c1f3d6cae3bbd7c50bd97da87c7112d3f02d4b7b3858b32b42806da8"
+}

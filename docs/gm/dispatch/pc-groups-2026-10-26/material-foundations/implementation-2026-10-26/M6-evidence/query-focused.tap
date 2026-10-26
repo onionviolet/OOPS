@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: budgeted rendering diagnostics report incomplete coverage without changing the complete native result
+ok 1 - budgeted rendering diagnostics report incomplete coverage without changing the complete native result
+  ---
+  duration_ms: 2.8645
+  type: 'test'
+  ...
+# Subtest: rendering reads catalogue identity and current contribution on every call
+ok 2 - rendering reads catalogue identity and current contribution on every call
+  ---
+  duration_ms: 0.329334
+  type: 'test'
+  ...
+# Subtest: real recipe registration retains measured coverage and the fixed-batch contribution disposition
+ok 3 - real recipe registration retains measured coverage and the fixed-batch contribution disposition
+  ---
+  duration_ms: 66.8075
+  type: 'test'
+  ...
+# Subtest: rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+ok 4 - rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+  ---
+  duration_ms: 2.188125
+  type: 'test'
+  ...
+# Subtest: native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+ok 5 - native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+  ---
+  duration_ms: 61.775292
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 127.815625

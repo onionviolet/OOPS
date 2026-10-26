@@ -1,0 +1,8 @@
+{
+  "compared": 925,
+  "drift": [
+    "src/book_care_facts.js",
+    "src/book_world_lotm_bench.js",
+    "src/book_world_lotm_host.js"
+  ]
+}

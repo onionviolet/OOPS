@@ -1,0 +1,15 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "tests/alloy_equipment.test.js",
+    "tests/desktop_ipc_channels.test.js",
+    "tests/lotm_examination.test.js"
+  ],
+  "pid": 97648,
+  "pgid": 97648,
+  "source": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/source",
+  "inputDigest": "0386934e93434d9dc4935c970036f81454c8e5d79bcba60259fe8eb44bfdce5b",
+  "exitCode": 0,
+  "elapsedSeconds": 2.846116781234741
+}

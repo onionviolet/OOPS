@@ -1,0 +1,10 @@
+{
+  "checked": [
+    "docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md",
+    "PROJECT.md",
+    "docs/USER_VISION.md",
+    "docs/CRAFTING_ENGINE.md"
+  ],
+  "missingLocalTargets": [],
+  "scope": "local paths only, anchors not checked"
+}

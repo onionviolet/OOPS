@@ -11,13 +11,22 @@ export function validateTreatment(b){
 }
 export const treatmentCapacity=b=>b.capacity+2*(b.channels||0);
 export function treatmentNow(value,c){validateTreatment(value);return value?.binding===bodyKey(c)?structuredClone(value):{...freshTreatment(c),apparatus:value?.apparatus??0};}
-export function consumeTablet(value,product,c){
+// ORIGINAL local medicine dial: unpurged load crowds integration; earned
+// current-body tempering handles more potency. Poison keeps its separate law.
+export function tabletConsequence(value,product,c){
  const b=treatmentNow(value,c),power=product.outputs.permanent?.conditioning||0;
  check(power>0,'This preparation carries no body-conditioning medicine.');
- const residue=1+Math.ceil((product.thermal?.impurity||0)/100);
+ const thermal=1+Math.ceil((product.thermal?.impurity||0)/100),load=Math.floor(b.impurity/5);
+ const stage=natural(c.temperingStage)?c.temperingStage:0;
+ const potency=Math.max(0,Math.ceil(power/10)-1-stage),residue=thermal+load+potency;
+ const gain=Math.min(200-b.conditioning,Math.max(1,Math.floor(power/5)));
+ return {gain,residue,thermal,load,potency,stage,capacity:treatmentCapacity(b),remaining:treatmentCapacity(b)-b.impurity};
+}
+export function consumeTablet(value,product,c){
+ const b=treatmentNow(value,c),effect=tabletConsequence(b,product,c),{gain,residue}=effect;
  check(b.impurity+residue<=treatmentCapacity(b),`Medicinal residue ${b.impurity}+${residue} exceeds this body's capacity ${treatmentCapacity(b)}. Purge residue or expand capacity first.`);
- const gain=Math.min(200-b.conditioning,Math.max(1,Math.floor(power/5)));check(gain>0,'This body has integrated the conditioning this tablet can presently offer.');
- b.impurity+=residue;b.conditioning+=gain;return {body:b,gain,residue};
+ check(gain>0,'This body has integrated the conditioning this tablet can presently offer.');
+ b.impurity+=residue;b.conditioning+=gain;return {body:b,...effect};
 }
 export function startTreatment(value,action,c){
  const b=treatmentNow(value,c);check(!b.job,'Finish the pending medicinal soak first.');

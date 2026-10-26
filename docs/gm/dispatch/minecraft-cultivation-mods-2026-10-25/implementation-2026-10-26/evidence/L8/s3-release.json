@@ -1,0 +1,20 @@
+{
+  "sourcePathsReleased": [
+    "src/pledges_domain.js",
+    "src/pledges_ui.js",
+    "tests/trial_routine.test.js"
+  ],
+  "slotTransferred": {
+    "lane": "L5",
+    "thread": "01a178b9-cd1a-7480-b692-fe031e180516",
+    "phase": "explicit L8 transfer after current L5 READY_ACK; existing verification-only recipient/residue comparison",
+    "at": "2026-10-26T20:10:48Z",
+    "handoffFrom": "L8",
+    "handoffFromThread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+    "receiverReady": true,
+    "readinessReceipt": "docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L5/S3/ready.json",
+    "receipt": "docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L8/s3-identity.json",
+    "restrictions": "One slot only; no source transfer/new worker/chat/full suite/primary generated publication/normal profile/commit/push. Native medicine proof remains unrun until L5 executes."
+  },
+  "readinessSha256": "3957d70793aa671c6d3446cbf887b6b298a087de2ae5bcaffb8d956c00b5056a"
+}

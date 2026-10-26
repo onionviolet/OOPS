@@ -1,0 +1,8 @@
+{
+  "pass": true,
+  "invalid_pid_cases": 10,
+  "valid_liveness_cases": 3,
+  "status_invalid_receipt_cases": 3,
+  "launch_invalid_receipt_case": true,
+  "all_os_signals_and_launches_mocked": true
+}

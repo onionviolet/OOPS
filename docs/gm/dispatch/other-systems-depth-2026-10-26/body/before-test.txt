@@ -1,0 +1,125 @@
+TAP version 13
+# Subtest: native binding loss suppresses existing strain exactly as the care/work support reader does
+not ok 1 - native binding loss suppresses existing strain exactly as the care/work support reader does
+  ---
+  duration_ms: 1.551083
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/book_care_support.test.js:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/book_care_support.test.js:31:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: body identity, world visit, life and actual faculties suppress expression without migrating the condition
+ok 2 - body identity, world visit, life and actual faculties suppress expression without migrating the condition
+  ---
+  duration_ms: 1.062166
+  type: 'test'
+  ...
+# Subtest: full HP retains the functional strain, and authored time-only recovery removes it independently of vitals
+not ok 3 - full HP retains the functional strain, and authored time-only recovery removes it independently of vitals
+  ---
+  duration_ms: 0.368042
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/book_care_support.test.js:50:1'
+  failureType: 'testCodeFailure'
+  error: 'Unknown condition.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    check (file:///Users/weiwei/code/yet-another-idle-rpg/src/basics.js:9:54)
+    applySimulationEffects (file:///Users/weiwei/code/yet-another-idle-rpg/src/simulation_effects.js:379:74)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/book_care_support.test.js:57:5)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: expiry equality and batch versus stepped JSON reload agree, including unsupported elapsed time
+not ok 4 - expiry equality and batch versus stepped JSON reload agree, including unsupported elapsed time
+  ---
+  duration_ms: 0.641709
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/book_care_support.test.js:62:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + {
+    +   affected_by_travel: true,
+    +   description: 'Temporary load strain: native dexterity ×0.9 and stamina efficiency ×0.92. Book-world precise work waits for recovery; health spent on the work is recovered separately.',
+    +   duration: 17,
+    +   effects: {
+    +     bonus_skill_levels: {},
+    +     stats: {
+    +       dexterity: {
+    +         multiplier: 0.9
+    +       },
+    +       stamina_efficiency: {
+    +         multiplier: 0.92
+    +       }
+    +     },
+    +     xp_multipliers: {}
+    +   },
+    +   id: 'simulation:book.care.load_strain',
+    +   name: 'Load strain',
+    +   tags: {
+    +     debuff: true,
+    +     effect: true
+    +   }
+    + }
+    - undefined
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+    id: 'simulation:book.care.load_strain'
+    name: 'Load strain'
+    duration: 17
+    description: 'Temporary load strain: native dexterity ×0.9 and stamina efficiency ×0.92. Book-world precise work waits for recovery; health spent on the work is recovered separately.'
+    effects:
+      stats:
+        dexterity:
+          multiplier: 0.9
+        stamina_efficiency:
+          multiplier: 0.92
+      bonus_skill_levels:
+      xp_multipliers:
+    tags:
+      effect: true
+      debuff: true
+    affected_by_travel: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/book_care_support.test.js:70:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 1
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 176.663333

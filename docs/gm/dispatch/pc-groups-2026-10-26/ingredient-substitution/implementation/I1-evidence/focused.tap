@@ -1,0 +1,202 @@
+TAP version 13
+# Subtest: independent essential is not averaged away; unknown essential is not a measured absence
+ok 1 - independent essential is not averaged away; unknown essential is not a measured absence
+  ---
+  duration_ms: 1.2965
+  type: 'test'
+  ...
+# Subtest: fit/recipe authoring validates full vocabulary even in irrelevant branches
+ok 2 - fit/recipe authoring validates full vocabulary even in irrelevant branches
+  ---
+  duration_ms: 0.622584
+  type: 'test'
+  ...
+# Subtest: reference, alternate and blend allocate all explicitly selected physical portions
+ok 3 - reference, alternate and blend allocate all explicitly selected physical portions
+  ---
+  duration_ms: 1.013542
+  type: 'test'
+  ...
+# Subtest: simultaneous compatible functions share one physical debit only when authored
+ok 4 - simultaneous compatible functions share one physical debit only when authored
+  ---
+  duration_ms: 0.624208
+  type: 'test'
+  ...
+# Subtest: competing uses split available amounts without greedy allocation or double spending
+ok 5 - competing uses split available amounts without greedy allocation or double spending
+  ---
+  duration_ms: 0.307417
+  type: 'test'
+  ...
+# Subtest: retained catalysts reserve real amounts and do not contribute consumed mass
+ok 6 - retained catalysts reserve real amounts and do not contribute consumed mass
+  ---
+  duration_ms: 0.760958
+  type: 'test'
+  ...
+# Subtest: recognition requires actual declared process, law and station, independent of recipe stamp
+ok 7 - recognition requires actual declared process, law and station, independent of recipe stamp
+  ---
+  duration_ms: 0.427833
+  type: 'test'
+  ...
+# Subtest: blend resolution preserves side constituents, reaction products and fractional rounding
+ok 8 - blend resolution preserves side constituents, reaction products and fractional rounding
+  ---
+  duration_ms: 0.366333
+  type: 'test'
+  ...
+# Subtest: unknown matching remains a trial, while malformed or repeated exact stock cannot allocate
+ok 9 - unknown matching remains a trial, while malformed or repeated exact stock cannot allocate
+  ---
+  duration_ms: 0.336125
+  type: 'test'
+  ...
+# Subtest: capacity allocation agrees with exhaustive small physical allocations
+ok 10 - capacity allocation agrees with exhaustive small physical allocations
+  ---
+  duration_ms: 2.620167
+  type: 'test'
+  ...
+# Subtest: shared-function recipe remains valid through the existing frozen recipe owner
+ok 11 - shared-function recipe remains valid through the existing frozen recipe owner
+  ---
+  duration_ms: 0.3535
+  type: 'test'
+  ...
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 12 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 1.950875
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 13 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 5.277625
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 14 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 0.360916
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 15 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 0.542958
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 16 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 0.919291
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 17 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 1.194167
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 18 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.139875
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 19 - retained products validate only under their own law revision
+  ---
+  duration_ms: 0.441916
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 20 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 1.36525
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 21 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 6.921542
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 22 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 1.032542
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 23 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.407334
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 24 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 0.749208
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 25 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 3.208292
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 26 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 1.146041
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 27 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.243792
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 28 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 0.83575
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 29 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.264375
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 30 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 71.857541
+  type: 'test'
+  ...
+# Subtest: rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+ok 31 - rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+  ---
+  duration_ms: 1.65325
+  type: 'test'
+  ...
+# Subtest: native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+ok 32 - native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+  ---
+  duration_ms: 53.640958
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 149.845584

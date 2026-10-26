@@ -1,0 +1,118 @@
+{
+  "q1-lane-build": {
+    "branch": "codex/q1-lane-build-2026-10-26",
+    "head": "4bb8d9aa31dfcbeea0789d063c17fd601f4fe86e",
+    "status": [
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_lane_build.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q3_doc_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q6_description_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md"
+    ]
+  },
+  "q2-receipt-lint": {
+    "branch": "codex/q2-receipt-lint-2026-10-26",
+    "head": "ae9fb41a526a4151c3d5d76991573f82fcec4976",
+    "status": [
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_lane_build.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q3_doc_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q6_description_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md"
+    ]
+  },
+  "q3-doc-lint": {
+    "branch": "codex/q3-doc-lint-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": [
+      "M docs/DESIGN_DEFAULTS_AUDIT.md",
+      " M package.json",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_lane_build.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q3_doc_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q6_description_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md",
+      "?? scripts/check_doc_slips.mjs",
+      "?? tests/check_doc_slips.test.js"
+    ]
+  },
+  "q6-description-lint": {
+    "branch": "codex/q6-description-lint-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": [
+      "M package.json",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_lane_build.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q3_doc_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q6_description_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md",
+      "?? docs/reviews/DESCRIPTION_LINT_2026-10-26.md",
+      "?? scripts/check_descriptions.mjs",
+      "?? tests/check_descriptions.test.js"
+    ]
+  },
+  "q7-generator-census": {
+    "branch": "codex/q7-generator-census-2026-10-26",
+    "head": "3631ecd37fb9201460e79dce896c5e219e8171c5",
+    "status": [
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_lane_build.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q3_doc_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q6_description_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md"
+    ]
+  },
+  "q8-cycle-ledger": {
+    "branch": "codex/q8-cycle-ledger-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": [
+      "M docs/ARCHITECTURE_RULES.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/COMMON.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_lane_build.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q3_doc_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q6_description_lint.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+      "?? docs/gm/dispatch/carry-out-queue-2026-10-26/Q8_cycle_ledger.md",
+      "?? docs/reviews/CYCLE_LEDGER_2026-10-26.md",
+      "?? scripts/cycle_ledger.mjs",
+      "?? tests/cycle_ledger.test.js"
+    ]
+  },
+  "q11-correction-sweep": {
+    "branch": "codex/q11-correction-sweep-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": []
+  },
+  "q10-prior-work": {
+    "branch": "codex/q10-prior-work-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": []
+  },
+  "q12-checkjs-pilot": {
+    "branch": "codex/q12-checkjs-pilot-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": []
+  },
+  "q15-rule-rows": {
+    "branch": "codex/q15-rule-rows-2026-10-26",
+    "head": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+    "status": []
+  }
+}

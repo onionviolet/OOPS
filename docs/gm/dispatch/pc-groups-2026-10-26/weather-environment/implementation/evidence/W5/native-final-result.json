@@ -1,0 +1,64 @@
+{
+  "finalCostProof": true,
+  "route": "Named starting-material/linen fixture; earned wages/entry/lease, finite care, actual nursery log -> measured wash -> retained dry staves -> kit -> finite commission, real frozen travel",
+  "origin": "http://127.0.0.1:62407",
+  "errors": [],
+  "roundtrips": [
+    "final-source-commission",
+    "final-care-quote",
+    "final-care-spent"
+  ],
+  "bundleHash": "f8c4220cddcf009dec4076bc0b47f1813715b854b80c32e86b6369e5dde21a25",
+  "visibleCosts": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 680.65625,
+        "right": 1019.03125,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 680.65625,
+        "right": 1019.03125,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "atomicCare": true
+}

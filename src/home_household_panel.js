@@ -12,6 +12,31 @@ import {homeKey as k} from './home_content.js';
 import {officeDecision,officeHolder,OFFICE_TERMS} from './home_office.js';
 import {panelSection} from './ui/panel_sections.js';
 import {createMeterBar} from './meter_bar.js';
+import {homeWorkDefinitions,staffQuote,COOK} from './home_work_content.js';
+import {projectAcceptedWorkLegibility} from './action_legibility.js';
+
+// These commissioned services disclose their agreed inputs and destination.
+// The pending job owns costs/cancellation; its private outcome is never read.
+export function householdAcceptedWork(job,c){
+ const d=homeWorkDefinitions.commands.find(d=>d.id===job.commandId);
+ if(!d||!(d.id.startsWith('home.staff.')||d.id==='home.household.pantry'||d.id.startsWith('home.office.restock.')))return null;
+ const people=Object.fromEntries([...HOME_STAFF,...HOUSEHOLD_PEOPLE].map(p=>[p.id,{known:true,termsKnown:true,label:p.name}]));
+ const items=Object.fromEntries([...d.costs,...d.effects].filter(e=>e.type==='item').map(e=>[e.key,{known:true,label:JSON.parse(e.key).id}]));
+ const destination=id=>id==='player'?'your carried inventory':id===COOK?'Iven’s kitchen stock':people[id]?`${people[id].label}’s household stock`:null;
+ const output=staffQuote(d.id).yields.filter(y=>destination(y.holder)).map(y=>`${y.count} ${JSON.parse(y.key).id} → ${destination(y.holder)}`);
+ return projectAcceptedWorkLegibility({job,clock:c.clock,actorId:job.actorId,observerId:'player',label:d.label,
+  disclosure:{people,items,resources:{'home.estateFunds':{known:true,label:'household coins'},'home.officeFunds':{known:true,label:'office coins'},'home.energy':{known:true,label:'effort'},money:{known:true,label:'carried coins'}},
+   completion:output.length?[{known:true,text:'On supported completion: '+output.join('; ')+'.'}]:[]}});
+}
+export function renderHouseholdWorkReceipt({host,job,c,el}){
+ const v=householdAcceptedWork(job,c);if(!v)return false;
+ const receipt=el('div');receipt.dataset.householdWorkReceipt=job.id;
+ receipt.append(el('p',`${v.label}: ${v.remainingText}`));
+ if(v.costs.length)receipt.append(el('p','Reserved inputs: '+v.costs.map(r=>r.text).join(' ')));
+ if(v.reservations.length)receipt.append(el('p',v.reservations.map(r=>r.text).join(' ')));
+ for(const r of v.completion)receipt.append(el('p',r.text));
+ receipt.append(el('p',v.cancellation.text));host.append(receipt);return true;
+}
 export function renderHouseholdLife({staff,view,el,action}){
  const c=view.context;
  renderHomeCultivation({staff,view,el,action});
@@ -49,7 +74,7 @@ export function renderHouseholdLife({staff,view,el,action}){
   office.append(el('p',holder?`Pantry office: held by ${who} · fund ${c.staffResources[holder]?.['home.officeFunds']||0} coins · reserve floor ${c.staffFacts[holder]?.['home.officeReserveFloor']||0} coins · ${o.reason}`:`Pantry office: not established. Funding it sets ${OFFICE_TERMS.establish} household coins aside for a standing provision order whenever the kitchen falls below ${OFFICE_TERMS.threshold} meat chunks.`));
   if(!holder)action(office,'office_establish',`Ask Rowan to take the pantry office · ${OFFICE_TERMS.establish} household coins`,{type:'office_establish'});
   else{action(office,'office_succeed','Hand the office to an available successor',{type:'office_succeed'});action(office,'office_close','Close the pantry office and return its fund',{type:'office_close'});}}
- for(const j of c.jobs.filter(j=>j.commandId.startsWith('home.office.'))){staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} played minutes remaining.`));action(staff,'office_cancel:'+j.id,'Cancel this office appointment',{type:'office_cancel',job:j.id});}
- for(const j of c.jobs.filter(j=>j.commandId.startsWith('home.household.'))){staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} played minutes remaining.`));action(staff,'cancel_household:'+j.id,'Cancel this appointment or delivery',{type:'cancel_household',job:j.id});}
+ for(const j of c.jobs.filter(j=>j.commandId.startsWith('home.office.'))){if(!renderHouseholdWorkReceipt({host:staff,job:j,c,el}))staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} played minutes remaining.`));action(staff,'office_cancel:'+j.id,'Cancel this office appointment',{type:'office_cancel',job:j.id});}
+ for(const j of c.jobs.filter(j=>j.commandId.startsWith('home.household.'))){if(!renderHouseholdWorkReceipt({host:staff,job:j,c,el}))staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} played minutes remaining.`));action(staff,'cancel_household:'+j.id,'Cancel this appointment or delivery',{type:'cancel_household',job:j.id});}
  staff.append(el('p','When a life ends, its heir can receive personally owned homes, fittings and belongings. Family rooms, staff service and communal stores need new agreements.'));
 }

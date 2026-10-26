@@ -1,0 +1,5 @@
+**F1** I saved the ranked catalogue and next-lanes proposal in [M6_SCOUT.md](/Users/weiwei/code/yet-another-idle-rpg/docs/research/minecraft/cultivation-mods-2026-10-25/M6_SCOUT.md). The search found separate Reverend Insanity and LOTM projects, and **Dawn of the Spell’s Shadow Slave alpha is already publicly downloadable**. [Gu Craft](https://www.curseforge.com/minecraft/mc-mods/gu-craft), [Project Mystery](https://github.com/Herdeny/Lord-of-Mysteries), [Dawn of the Spell](https://www.curseforge.com/minecraft/mc-mods/dawn-of-the-spell)
+
+**A1** I downloaded ImmortalStorage’s 1.21.1 jar to the private folder and verified its SHA-256 against the author’s GitHub release. I did not open or decompile it. `git diff --check` and the receipt/hash check passed.
+
+**Q1** I stopped at one download because COMMON.md limits acquisition to the Modrinth API or an official source repository; most of the top eight are hosted on CurseForge. May I use CurseForge’s public file downloads for the remaining eligible jars?

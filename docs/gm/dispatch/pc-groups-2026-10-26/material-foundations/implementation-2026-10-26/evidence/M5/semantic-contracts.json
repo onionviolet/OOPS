@@ -1,0 +1,105 @@
+{
+  "status": "source-qualified mapping; four focused boundary tests pass on immutable input; incumbent LOTM native evidence reused",
+  "directionalCompatibility": "No import/translation consumer established. Preserve foreign identity; do not synthesize reverse mapping or infer rejection in every possible local law.",
+  "receiptSufficiency": "HP records final grade but not arbitrary parent contact history; LOTM current brew stores exact-key spending plus named start note, not a general constituent receipt. Neither supports an invented later contact claim.",
+  "contracts": [
+    {
+      "id": "native-animal-contribution",
+      "world": "base.native",
+      "status": "ORIGINAL",
+      "concept": "animal material",
+      "reader": "src/native_rendering_recipes.js:renderingSources",
+      "identity": "nativeCatalogue material id",
+      "conditions": [
+        "meat classification",
+        "oil contribution per piece"
+      ],
+      "output": "Animal fat through native Cooking executor",
+      "source": "src/native_material_catalogue.js / TSW3/8/9",
+      "interpretation": "Authored fraction-per-piece approximation, not conserved extracted volume.",
+      "limits": [
+        "No active power from symbolic_proposal.",
+        "No foreign-world alias/translation reader."
+      ]
+    },
+    {
+      "id": "hp-provenance",
+      "world": "book.hp",
+      "status": "STATED",
+      "concept": "ingredient identity plus lot preparation/provenance",
+      "reader": "src/hp_brewing_state.js:slotGrade -> resolveBrew -> act(drink)",
+      "identity": "source-qualified book.hp.ing.* id and local lot id",
+      "conditions": [
+        "prepared form",
+        "lacewing stewed duration",
+        "fluxweed harvest provenance",
+        "cauldron condition"
+      ],
+      "source": [
+        {
+          "id": "book.hp.ev.recipe_list",
+          "locator": "B2:PDF-p432",
+          "status": "stated"
+        },
+        {
+          "id": "book.hp.ev.fluxweed_moon",
+          "locator": "B2:PDF-p433",
+          "status": "stated"
+        },
+        {
+          "id": "book.hp.ev.lacewing_21",
+          "locator": "B2:PDF-p433",
+          "status": "stated"
+        }
+      ],
+      "output": "canon batch -> transform; divergent input -> local original/degraded logic",
+      "limits": [
+        "Degraded tuning, apparatus thresholds and local costs are ORIGINAL.",
+        "Unknown claims do not grant provenance knowledge.",
+        "Repository-qualified evidence, no fresh source-text reread."
+      ]
+    },
+    {
+      "id": "lotm-conserved-identity",
+      "world": "book.lotm.tingen",
+      "status": "STATED plus ORIGINAL slice",
+      "concept": "animal ingredient identity, not animal similarity",
+      "reader": "src/book_world_lotm_brew.js:lotmBrewCommands -> simulation -> ingest_cc",
+      "identity": "CC_BREW.slots[0].key",
+      "conditions": [
+        "exact dried black-spotted frog",
+        "purchased formula",
+        "Hale bench/attention",
+        "played clock deadline",
+        "pathway allocation custody"
+      ],
+      "source": [
+        {
+          "locator": "T 0128, 0278",
+          "status": "stated",
+          "owner": "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md"
+        },
+        {
+          "locator": "docs/gm/dispatch/potion-pathways-2026-10-24/S1_DECISION.md",
+          "status": "original",
+          "meaning": "scaled price, one-slot route, timing and issue-equivalent product"
+        }
+      ],
+      "output": "same allocated dose -> ingestion source; held dose grants no power",
+      "limits": [
+        "Native bone death symbolism does not establish this exact ingredient.",
+        "Standard-route refusal is not a general physical ban on experiments.",
+        "No fresh source-text reread."
+      ],
+      "supportedException": {
+        "owner": "Minecraft L4 S3",
+        "reader": "src/book_world_lotm_bench.js:characteristicMatchesFormula / characteristicBrewCommand",
+        "law": "Appraised matching-pathway/rank named characteristic replaces all main slots while each auxiliary still spends.",
+        "source": "Chinese EPUB 0221 paragraph 47; table Visionary 9",
+        "status": "source-qualified local equivalence; TC01 identity/stock/cost ORIGINAL",
+        "evidence": "docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/L4.md#s3--a1-result",
+        "bundleSha256": "0f4eaace925547cbfa26373b1ba424c9bf19f8683cf7a888020c991a1553a90e"
+      }
+    }
+  ]
+}

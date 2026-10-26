@@ -1,0 +1,25 @@
+{
+  "repo": "/Users/weiwei/.codex/worktrees/q2-receipt-lint/yet-another-idle-rpg",
+  "branch": "codex/q2-receipt-lint-2026-10-26",
+  "base": "master",
+  "ready": false,
+  "blockers": [
+    "worktree has 8 tracked, staged, or untracked change(s)"
+  ],
+  "checks": {
+    "clean_worktree": false,
+    "base_is_ancestor": true,
+    "branch_is_ancestor": false,
+    "merge_tree_clean": true
+  },
+  "head": "ae9fb41a526a4151c3d5d76991573f82fcec4976",
+  "base_sha": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+  "merge_base": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+  "merged_tree": "a76cbabd3f235cdde9efadcb0169edd6d84d16a7",
+  "changed_paths": [
+    "A\tdocs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md",
+    "M\tpackage.json",
+    "A\tscripts/check_receipts.mjs",
+    "A\ttests/check_receipts.test.js"
+  ]
+}

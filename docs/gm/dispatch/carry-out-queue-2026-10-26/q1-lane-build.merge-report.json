@@ -1,0 +1,24 @@
+{
+  "repo": "/Users/weiwei/.codex/worktrees/q1-lane-build/yet-another-idle-rpg",
+  "branch": "codex/q1-lane-build-2026-10-26",
+  "base": "master",
+  "ready": false,
+  "blockers": [
+    "worktree has 8 tracked, staged, or untracked change(s)"
+  ],
+  "checks": {
+    "clean_worktree": false,
+    "base_is_ancestor": true,
+    "branch_is_ancestor": false,
+    "merge_tree_clean": true
+  },
+  "head": "4bb8d9aa31dfcbeea0789d063c17fd601f4fe86e",
+  "base_sha": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+  "merge_base": "97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc",
+  "merged_tree": "d9c8bb23698f42f0b7fa21d0e357f0c409e4485f",
+  "changed_paths": [
+    "M\tbuild.js",
+    "M\tdocs/gm/SHARED_WORKTREE_PRACTICE.md",
+    "A\ttests/build_output.test.js"
+  ]
+}

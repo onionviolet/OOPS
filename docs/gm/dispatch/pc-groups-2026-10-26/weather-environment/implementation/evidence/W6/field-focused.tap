@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: covered ventilation dries; sealed humidity stalls without pretending the atmosphere is known
+ok 1 - covered ventilation dries; sealed humidity stalls without pretending the atmosphere is known
+  ---
+  duration_ms: 0.527458
+  type: 'test'
+  ...
+# Subtest: constant received intervals agree across uneven, minute and reload partitions, including fractional boundaries
+ok 2 - constant received intervals agree across uneven, minute and reload partitions, including fractional boundaries
+  ---
+  duration_ms: 2.682875
+  type: 'test'
+  ...
+# Subtest: partial shelter, prior wetness, heat and recovery have separate physical paths
+ok 3 - partial shelter, prior wetness, heat and recovery have separate physical paths
+  ---
+  duration_ms: 0.298167
+  type: 'test'
+  ...
+# Subtest: counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+ok 4 - counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+  ---
+  duration_ms: 514.293333
+  type: 'test'
+  ...
+# Subtest: sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+ok 5 - sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+  ---
+  duration_ms: 940.633334
+  type: 'test'
+  ...
+# Subtest: partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+ok 6 - partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+  ---
+  duration_ms: 164.7915
+  type: 'test'
+  ...
+# Subtest: leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+ok 7 - leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+  ---
+  duration_ms: 310.5855
+  type: 'test'
+  ...
+# Subtest: unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+ok 8 - unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+  ---
+  duration_ms: 49.861917
+  type: 'test'
+  ...
+# Subtest: paid standing source yields retained ordinary logs used by actual wash/dry/kit/commission
+ok 9 - paid standing source yields retained ordinary logs used by actual wash/dry/kit/commission
+  ---
+  duration_ms: 1677.62025
+  type: 'test'
+  ...
+# Subtest: finite care, exact fractional growth, no unsupported catchup and failed actions conserve actual stock
+ok 10 - finite care, exact fractional growth, no unsupported catchup and failed actions conserve actual stock
+  ---
+  duration_ms: 9265.1025
+  type: 'test'
+  ...
+# Subtest: departing freezes nursery support and return retains the same source rather than refilling it
+ok 11 - departing freezes nursery support and return retains the same source rather than refilling it
+  ---
+  duration_ms: 386.893167
+  type: 'test'
+  ...
+# Subtest: finite paid water source reserves exact price, survives pending reload and cannot duplicate the offer
+ok 12 - finite paid water source reserves exact price, survives pending reload and cannot duplicate the offer
+  ---
+  duration_ms: 124.140292
+  type: 'test'
+  ...
+# Subtest: filtering conserves water and suspended grit, leaves dissolved salt/contamination and spends real cloth/time
+ok 13 - filtering conserves water and suspended grit, leaves dissolved salt/contamination and spends real cloth/time
+  ---
+  duration_ms: 98.79175
+  type: 'test'
+  ...
+# Subtest: useful damp preparation keeps exact wood/water/tool receipt through partial carry, drying, kit and paid commission
+ok 14 - useful damp preparation keeps exact wood/water/tool receipt through partial carry, drying, kit and paid commission
+  ---
+  duration_ms: 203.146583
+  type: 'test'
+  ...
+# Subtest: projection is pure and exact stale water, borrowed support and forged measured facts cannot silently substitute
+ok 15 - projection is pure and exact stale water, borrowed support and forged measured facts cannot silently substitute
+  ---
+  duration_ms: 636.800125
+  type: 'test'
+  ...
+# Subtest: committed pulse survives pure previews and forecasts stale by time, place, event and actual means
+ok 16 - committed pulse survives pure previews and forecasts stale by time, place, event and actual means
+  ---
+  duration_ms: 1572.014708
+  type: 'test'
+  ...
+# Subtest: actual pulse has useful drying, retained charged carrier, paid grounding and existing kit/order use
+ok 17 - actual pulse has useful drying, retained charged carrier, paid grounding and existing kit/order use
+  ---
+  duration_ms: 122.255083
+  type: 'test'
+  ...
+# Subtest: sealed/frozen paths and long/split/reload intervals conserve charge, wetness and exact native custody
+ok 18 - sealed/frozen paths and long/split/reload intervals conserve charge, wetness and exact native custody
+  ---
+  duration_ms: 459.444708
+  type: 'test'
+  ...
+# Subtest: forged fields, stale stock, unsupported paid actions and inspection cannot create truth or weaken prior commands
+ok 19 - forged fields, stale stock, unsupported paid actions and inspection cannot create truth or weaken prior commands
+  ---
+  duration_ms: 61.645333
+  type: 'test'
+  ...
+# Subtest: qualified source calendar shares actual visitor binding with display without borrowing home seasons or time
+ok 20 - qualified source calendar shares actual visitor binding with display without borrowing home seasons or time
+  ---
+  duration_ms: 1.341083
+  type: 'test'
+  ...
+# Subtest: local history reprojects at midnight and long versus split reads leave frozen instance unchanged
+ok 21 - local history reprojects at midnight and long versus split reads leave frozen instance unchanged
+  ---
+  duration_ms: 0.3355
+  type: 'test'
+  ...
+# Subtest: unavailable or mismatched visitor coordinates fail closed; future and malformed historical queries refuse
+ok 22 - unavailable or mismatched visitor coordinates fail closed; future and malformed historical queries refuse
+  ---
+  duration_ms: 0.335
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11635.083417

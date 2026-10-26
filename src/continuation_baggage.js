@@ -15,8 +15,10 @@ export function validateBaggage(b){
 }
 export function baggageView(save,c){
  const b=c.baggage||freshBaggage();validateBaggage(b);
- const candidates=Object.entries(stock(save)).filter(([key,row])=>portableKey(key)&&count(row)>0).map(([key,row])=>{let reason=equipmentBagReason(save,key);try{assertNativeItemDisposition(save.expansion,key);}catch(e){reason=e.message;}return {key,label:JSON.parse(key).id||'Assembled equipment',count:count(row),selected:b.items.filter(k=>k===key).length,reason};});
- return {...structuredClone(b),used:used(b),nextCost:150*2**b.slots,candidates};
+ const label=key=>{const piece=JSON.parse(key),name=save.naming?.named?.[baggageIdentity(key)]?.name;return `${name?name+' · ':''}${piece.id||'Assembled equipment'}${piece.quality===undefined?'':` · ${piece.quality}% quality`}`;};
+ const candidates=Object.entries(stock(save)).filter(([key,row])=>portableKey(key)&&count(row)>0).map(([key,row])=>{let reason=equipmentBagReason(save,key);try{assertNativeItemDisposition(save.expansion,key);}catch(e){reason=e.message;}return {key,label:label(key),count:count(row),selected:b.items.filter(k=>k===key).length,reason};});
+ const selectedItems=[...new Set(b.items)].map(key=>({key,label:label(key),count:b.items.filter(k=>k===key).length,available:count(stock(save)[key])}));
+ return {...structuredClone(b),used:used(b),nextCost:150*2**b.slots,candidates,selectedItems};
 }
 export function planBaggage(save,c,action){
  check(!c.challenge,'Connected baggage stays inactive in an isolated challenge.');c.baggage ||= freshBaggage();const b=c.baggage;

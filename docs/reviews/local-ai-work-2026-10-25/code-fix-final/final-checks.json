@@ -1,0 +1,12 @@
+{
+  "normal_final": true,
+  "exact_harness_patch_applied": true,
+  "focused_tests": "9/9",
+  "new_regression_rejects_old_source": true,
+  "independent_acceptance_pass": true,
+  "original_tests_preserved": true,
+  "verified_off_requests": 16,
+  "worker_processes_and_relays_stopped": 4,
+  "local_report_links": 25,
+  "committed": false
+}

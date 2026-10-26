@@ -41,3 +41,15 @@ test("observed movement does not masquerade as owned or executable movement in B
     const record=state.actors.player.techniques["frontier.rat_step"];record.understood={};record.owned={};record.proficiency=6;
     bio=view(state);assert.match(bio.techniques[0].detail,/Internalized/);assert.equal(bio.techniques[0].cause,"Ready to use");
 });
+
+test('trait narrative and numerical effects coexist without mislabelling a cosmetic trait as inactive', () => {
+    const state=fresh();
+    for(const id of ['body.conditioned_grip','body.palm_mark']) state.actors.player.sources[id]={receiptId:`test:${id}`,revision:1,acquiredAt:0,expiresAt:null,origin:'trained'};
+    const before=structuredClone(state),bio=view(state),grip=bio.learned.find(row=>row.id==='body.conditioned_grip'),mark=bio.learned.find(row=>row.id==='body.palm_mark');
+    assert.match(grip.description,/grip|palms/);
+    assert.match(grip.detail,/Hand control \+1/);
+    assert.match(mark.description,/mark|timber/);
+    assert.equal(mark.detail,'');
+    assert.doesNotMatch(JSON.stringify(mark),/inactive/i);
+    assert.deepEqual(state,before);
+});

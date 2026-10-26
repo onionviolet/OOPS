@@ -1,0 +1,15 @@
+{
+  "root": "/tmp/oops-broader-ui-final",
+  "bundleSha256": "183b6a747131d6738d5b2fa22266ce404118c0538bab09408c1d8428ee64512d",
+  "checks": [
+    "Report categories actually hide rows and recovery retains identical occurrence history",
+    "Place person inspection stays local; overview restores source focus",
+    "Deliberate native conversation has a named Back/Escape return",
+    "Outside click dismisses local choices first; a deliberate second click enters Crafting",
+    "Running native training remains active through item inspection/disclosure; explicit stop ends it",
+    "Settings draft changes/discard retain saved size; Escape restores the Settings opener and play context"
+  ],
+  "filteredRowsVisible": 0,
+  "errors": [],
+  "status": "PASS"
+}

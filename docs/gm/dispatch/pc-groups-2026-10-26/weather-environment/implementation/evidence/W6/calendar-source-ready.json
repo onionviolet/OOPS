@@ -1,0 +1,13 @@
+{
+  "source_ready": true,
+  "native_floor_complete": false,
+  "files": {
+    "src/world_calendar.js": "8d9ed47c11a0c0b692c86910c4128972f7e90f261208b3a72d761c387f71f3df",
+    "tests/world_source_calendar.test.js": "3c7a082e4e653d20a34e18b1ec447119f5456b1e326e86886b8677874f7717f8"
+  },
+  "focused": "node --test tests/world_source_calendar.test.js tests/world_calendar.test.js PASS10/10",
+  "diffCheck": "git diff --check -- src/world_calendar.js tests/world_source_calendar.test.js PASS",
+  "contract": "sourceCalendarAt(state,at?) -> {worldId,instanceId,profileId,profileRevision,at,minuteWithinDay,seasonId,minutesPerHour,hoursPerDay}; active MoL/Paradise retained frozen played-minute instance only; at defaults to actual elapsed, explicit historical at in [0,elapsed]; unsupported binding null, malformed/future at throws; pure/no schema changes.",
+  "consumer": "W5 must select expected payload fields for strict source validator; physical/supernatural weather not inferred from calendar.",
+  "remaining": "W5 actual adoption; forecast/field loop, combined AD43 gates"
+}

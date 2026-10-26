@@ -1,0 +1,9 @@
+{
+  "src/ui_components.js": "a59af600f3e8f87b5cf136e52ee3490cb2e55a21a9144ad9e596a7a41699ef0a",
+  "src/ui/control_box.js": "18325673c88d4cb920756b5fad77abb1b91568abd16cba26cece1d8dd48cdbf6",
+  "src/center_modes.js": "6e444cad9fc45af423c24f43a51b2b0e2e66e2fb67feca3ac204de542fbe0276",
+  "src/proto23_shell.js": "90c14f8d4221d788e196ddc0fdb494ba2f1dd3c43c5f6c012ed6774130e740c9",
+  "src/shell_control_boxes.js": "ce84014f7c3e2f476668c520534b01aeaefc5a1e5d4f67fa8e2e82a32a0a3719",
+  "src/shell_strip_boxes.js": "b6a77c6a0d3093994fceb70fbad240dbfa70fcc627b07adaa61f10aed1665d90",
+  "styles/shell_chrome.css": "aa695d80a5eb79eae942c3cf080564725b9893c57c7366036327320a2978f724"
+}

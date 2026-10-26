@@ -1,0 +1,871 @@
+TAP version 13
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'esbuild' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/helpers/native_loader.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/alloy_equipment.test.js
+not ok 1 - tests/alloy_equipment.test.js
+  ---
+  duration_ms: 277.92525
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/alloy_equipment.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: effect cancel: opposite pair cancels by its dial and names follow what remains
+ok 2 - effect cancel: opposite pair cancels by its dial and names follow what remains
+  ---
+  duration_ms: 1.038
+  type: 'test'
+  ...
+# Subtest: names show only what the observer has seen
+ok 3 - names show only what the observer has seen
+  ---
+  duration_ms: 0.236209
+  type: 'test'
+  ...
+# Subtest: tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+ok 4 - tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+  ---
+  duration_ms: 0.6525
+  type: 'test'
+  ...
+# Subtest: experiment log: deduction names likely sources, labels masking, survives reload
+ok 5 - experiment log: deduction names likely sources, labels masking, survives reload
+  ---
+  duration_ms: 0.503292
+  type: 'test'
+  ...
+# Subtest: property view separates unknown from known-none and keeps hidden axes out
+ok 6 - property view separates unknown from known-none and keeps hidden axes out
+  ---
+  duration_ms: 0.449209
+  type: 'test'
+  ...
+# Subtest: cancel table acts on a real resolved batch
+ok 7 - cancel table acts on a real resolved batch
+  ---
+  duration_ms: 0.754625
+  type: 'test'
+  ...
+# Subtest: live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+ok 8 - live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+  ---
+  duration_ms: 46.650333
+  type: 'test'
+  ...
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 9 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 3.850333
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 10 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 12.260208
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 11 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 0.554
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 12 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 1.070167
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 13 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 1.517459
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 14 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 1.364
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 15 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.192417
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 16 - retained products validate only under their own law revision
+  ---
+  duration_ms: 1.071333
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 17 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 1.143417
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 18 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 10.329083
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 19 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 1.454166
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 20 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.35825
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 21 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 1.461833
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 22 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 5.444667
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 23 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 2.45475
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 24 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.496125
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 25 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 0.802125
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 26 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.617083
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 27 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 155.918667
+  type: 'test'
+  ...
+# Subtest: failure ledger: forecast changes after a recorded failure and survives reload
+ok 28 - failure ledger: forecast changes after a recorded failure and survives reload
+  ---
+  duration_ms: 2.376417
+  type: 'test'
+  ...
+# Subtest: failure ledger: successes are not recorded and corrupt ledgers are rejected
+ok 29 - failure ledger: successes are not recorded and corrupt ledgers are rejected
+  ---
+  duration_ms: 0.920583
+  type: 'test'
+  ...
+# Subtest: item name grammar: a crafted name parses back to its inputs and process
+ok 30 - item name grammar: a crafted name parses back to its inputs and process
+  ---
+  duration_ms: 0.571417
+  type: 'test'
+  ...
+# Subtest: wired ledger domain: failed batch changes the adapter forecast, round-trips its save slice, hides unknown residue
+ok 31 - wired ledger domain: failed batch changes the adapter forecast, round-trips its save slice, hides unknown residue
+  ---
+  duration_ms: 33.312292
+  type: 'test'
+  ...
+# Subtest: live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger
+ok 32 - live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger
+  ---
+  duration_ms: 20.351917
+  type: 'test'
+  ...
+# Subtest: absent owner on old saves: no access, valid, nothing created
+ok 33 - absent owner on old saves: no access, valid, nothing created
+  ---
+  duration_ms: 1.563916
+  type: 'test'
+  ...
+# Subtest: access reference supplies a recipe only while held and never teaches
+ok 34 - access reference supplies a recipe only while held and never teaches
+  ---
+  duration_ms: 3.635792
+  type: 'test'
+  ...
+# Subtest: learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+ok 35 - learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+  ---
+  duration_ms: 3.377125
+  type: 'test'
+  ...
+# Subtest: training book grants once per actor read key, not per item
+ok 36 - training book grants once per actor read key, not per item
+  ---
+  duration_ms: 1.013667
+  type: 'test'
+  ...
+# Subtest: examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+ok 37 - examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+  ---
+  duration_ms: 1.748334
+  type: 'test'
+  ...
+# Subtest: forged learned recipe or read key is rejected
+ok 38 - forged learned recipe or read key is rejected
+  ---
+  duration_ms: 0.768291
+  type: 'test'
+  ...
+# Subtest: runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+ok 39 - runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+  ---
+  duration_ms: 10.486458
+  type: 'test'
+  ...
+# node:internal/modules/esm/resolve:275
+#     throw new ERR_MODULE_NOT_FOUND(
+#           ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/scripts/headless/dom.mjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/crafting_experiment_preview.test.js
+#     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+#     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND',
+#   url: 'file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/scripts/headless/dom.mjs'
+# }
+# Node.js v22.23.3
+# Subtest: tests/crafting_experiment_preview.test.js
+not ok 6 - tests/crafting_experiment_preview.test.js
+  ---
+  duration_ms: 60.934542
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/crafting_experiment_preview.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/resolve:275
+#     throw new ERR_MODULE_NOT_FOUND(
+#           ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/scripts/headless/runner.mjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/crafting_native_reload.test.js
+#     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+#     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND',
+#   url: 'file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/scripts/headless/runner.mjs'
+# }
+# Node.js v22.23.3
+# Subtest: tests/crafting_native_reload.test.js
+not ok 7 - tests/crafting_native_reload.test.js
+  ---
+  duration_ms: 48.645834
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/crafting_native_reload.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: native crafting preserves exact stock and knowledge across source, batch and oral use
+ok 42 - native crafting preserves exact stock and knowledge across source, batch and oral use
+  ---
+  duration_ms: 9.860708
+  type: 'test'
+  ...
+# Subtest: stale quotes, reserved/absent materials and unsupported or dangling references fail without mutation
+ok 43 - stale quotes, reserved/absent materials and unsupported or dangling references fail without mutation
+  ---
+  duration_ms: 1.585083
+  type: 'test'
+  ...
+# Subtest: generated source determinism, capacity and freeze survive JSON roundtrip across three roots
+ok 44 - generated source determinism, capacity and freeze survive JSON roundtrip across three roots
+  ---
+  duration_ms: 18.968
+  type: 'test'
+  ...
+# Subtest: saved exposures reject altered dose, duration and product even if the product remains owned
+ok 45 - saved exposures reject altered dose, duration and product even if the product remains owned
+  ---
+  duration_ms: 2.55125
+  type: 'test'
+  ...
+# Subtest: binder journey: harvest salt, brew, drink; poison conditions shorten and the saved mark validates
+ok 46 - binder journey: harvest salt, brew, drink; poison conditions shorten and the saved mark validates
+  ---
+  duration_ms: 3.664917
+  type: 'test'
+  ...
+# Subtest: an herbal tonic with no ash binds nothing and keeps its own effect
+ok 47 - an herbal tonic with no ash binds nothing and keeps its own effect
+  ---
+  duration_ms: 2.151958
+  type: 'test'
+  ...
+# Subtest: directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+ok 48 - directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+  ---
+  duration_ms: 5.922208
+  type: 'test'
+  ...
+# Subtest: native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+ok 49 - native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+  ---
+  duration_ms: 4.543917
+  type: 'test'
+  ...
+# Subtest: tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+ok 50 - tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+  ---
+  duration_ms: 0.717584
+  type: 'test'
+  ...
+# Subtest: body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+ok 51 - body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+  ---
+  duration_ms: 0.962917
+  type: 'test'
+  ...
+# Subtest: channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+ok 52 - channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+  ---
+  duration_ms: 0.525792
+  type: 'test'
+  ...
+# Subtest: recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+ok 53 - recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+  ---
+  duration_ms: 0.502084
+  type: 'test'
+  ...
+# Subtest: observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+ok 54 - observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+  ---
+  duration_ms: 2.444375
+  type: 'test'
+  ...
+# node:internal/modules/esm/resolve:275
+#     throw new ERR_MODULE_NOT_FOUND(
+#           ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/scripts/field_fixtures.mjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/field_workshop.test.js
+#     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+#     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND',
+#   url: 'file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/scripts/field_fixtures.mjs'
+# }
+# Node.js v22.23.3
+# Subtest: tests/field_workshop.test.js
+not ok 10 - tests/field_workshop.test.js
+  ---
+  duration_ms: 269.361041
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/field_workshop.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'inkjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/src/ink_narrative.js
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/fieldcraft_saved_jobs.test.js
+not ok 11 - tests/fieldcraft_saved_jobs.test.js
+  ---
+  duration_ms: 286.8335
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/fieldcraft_saved_jobs.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'esbuild' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/helpers/native_loader.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/gear_workshop.test.js
+not ok 12 - tests/gear_workshop.test.js
+  ---
+  duration_ms: 57.013
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/gear_workshop.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 58 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 2.51925
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 59 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 1.577334
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 60 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 1.157416
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+ok 61 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 1.147792
+  type: 'test'
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 62 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 1.100542
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+ok 63 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.464709
+  type: 'test'
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 64 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 0.852875
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 65 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.308375
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 66 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 2.071833
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 67 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 0.9165
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 68 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.461292
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 69 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 1.85375
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 70 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.210916
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 71 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.185541
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 72 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 1.525916
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 73 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 8.421792
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 74 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.684208
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 75 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 1.0095
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'inkjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/src/ink_narrative.js
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/lotm_brew.test.js
+not ok 14 - tests/lotm_brew.test.js
+  ---
+  duration_ms: 282.455708
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/lotm_brew.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'inkjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/src/ink_narrative.js
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/mixture_rule_modules.test.js
+not ok 15 - tests/mixture_rule_modules.test.js
+  ---
+  duration_ms: 264.061875
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/mixture_rule_modules.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: family generator is deterministic with correlated axes, accounted fractions, pinned golden draw
+ok 78 - family generator is deterministic with correlated axes, accounted fractions, pinned golden draw
+  ---
+  duration_ms: 4.644292
+  type: 'test'
+  ...
+# Subtest: pure preview, input-order invariance, ratios/process distinctions and complete conservation
+ok 79 - pure preview, input-order invariance, ratios/process distinctions and complete conservation
+  ---
+  duration_ms: 0.530958
+  type: 'test'
+  ...
+# Subtest: trace-bearing split retains exact rational portions and recombines every constituent
+ok 80 - trace-bearing split retains exact rational portions and recombines every constituent
+  ---
+  duration_ms: 0.207
+  type: 'test'
+  ...
+# Subtest: unknown truth operates, unresolved required truth and fractional quantities reject
+ok 81 - unknown truth operates, unresolved required truth and fractional quantities reject
+  ---
+  duration_ms: 0.418042
+  type: 'test'
+  ...
+# Subtest: canonical identity decodes and dangling and noncanonical holder references reject
+ok 82 - canonical identity decodes and dangling and noncanonical holder references reject
+  ---
+  duration_ms: 0.916458
+  type: 'test'
+  ...
+# Subtest: hidden recipe and feasibility witness remain stable through retained save/import
+ok 83 - hidden recipe and feasibility witness remain stable through retained save/import
+  ---
+  duration_ms: 0.193792
+  type: 'test'
+  ...
+# Subtest: consumed exposure restores exact native payload/timing with no generated templates
+ok 84 - consumed exposure restores exact native payload/timing with no generated templates
+  ---
+  duration_ms: 0.490541
+  type: 'test'
+  ...
+# Subtest: rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+ok 85 - rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+  ---
+  duration_ms: 1.383084
+  type: 'test'
+  ...
+# Subtest: AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state
+ok 86 - AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state
+  ---
+  duration_ms: 0.249084
+  type: 'test'
+  ...
+# Subtest: success is retained when post-durable presentation throws
+ok 87 - success is retained when post-durable presentation throws
+  ---
+  duration_ms: 0.184375
+  type: 'test'
+  ...
+# Subtest: later recursive batch rejection preserves prior durable batch and allows retry
+ok 88 - later recursive batch rejection preserves prior durable batch and allows retry
+  ---
+  duration_ms: 0.276584
+  type: 'test'
+  ...
+# Subtest: array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+ok 89 - array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+  ---
+  duration_ms: 0.16575
+  type: 'test'
+  ...
+# Subtest: unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+ok 90 - unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+  ---
+  duration_ms: 0.119
+  type: 'test'
+  ...
+# Subtest: actual private inventory and availability components restore without inventory/reward replay
+ok 91 - actual private inventory and availability components restore without inventory/reward replay
+  ---
+  duration_ms: 2.951208
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'esbuild' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/helpers/native_loader.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/native_material_bridge.test.js
+not ok 18 - tests/native_material_bridge.test.js
+  ---
+  duration_ms: 59.64025
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/native_material_bridge.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'esbuild' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/helpers/native_loader.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/native_rendering.test.js
+not ok 19 - tests/native_rendering.test.js
+  ---
+  duration_ms: 72.419458
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/native_rendering.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: self-imposed vows have real admission rules; breaking them restores the ordinary route
+ok 94 - self-imposed vows have real admission rules; breaking them restores the ordinary route
+  ---
+  duration_ms: 2.793375
+  type: 'test'
+  ...
+# Subtest: a graded ordeal has staged decisions, risk, an early settlement and durable aftermath
+ok 95 - a graded ordeal has staged decisions, risk, an early settlement and durable aftermath
+  ---
+  duration_ms: 2.213375
+  type: 'test'
+  ...
+# Subtest: vows steady the trial, a failed attempt wakes the heart demon, calm and rations pay it down
+ok 96 - vows steady the trial, a failed attempt wakes the heart demon, calm and rations pay it down
+  ---
+  duration_ms: 1.096041
+  type: 'test'
+  ...
+# Subtest: the rune bench: pair knowledge comes only from two-rune tablets; the worn talisman expires and its price is real
+ok 97 - the rune bench: pair knowledge comes only from two-rune tablets; the worn talisman expires and its price is real
+  ---
+  duration_ms: 0.453667
+  type: 'test'
+  ...
+# Subtest: the slice round-trips, migrates absent to fresh, and rejects tampering
+ok 98 - the slice round-trips, migrates absent to fresh, and rejects tampering
+  ---
+  duration_ms: 0.54825
+  type: 'test'
+  ...
+# Subtest: domain: save omits an untouched slice, commands run through ports and publish stat buckets, rollback on a failed save
+ok 99 - domain: save omits an untouched slice, commands run through ports and publish stat buckets, rollback on a failed save
+  ---
+  duration_ms: 16.79075
+  type: 'test'
+  ...
+# Subtest: charged ordered strips have graded capacity and spend only supported resolved uses
+ok 100 - charged ordered strips have graded capacity and spend only supported resolved uses
+  ---
+  duration_ms: 0.494458
+  type: 'test'
+  ...
+# Subtest: weapon trials use distinct scoring and recheck equipment; learning survives fear recovery and guarded route has exact terms
+ok 101 - weapon trials use distinct scoring and recheck equipment; learning survives fear recovery and guarded route has exact terms
+  ---
+  duration_ms: 0.44875
+  type: 'test'
+  ...
+# Subtest: pairs: unordered and ordered entries, unnamed pairs discord instead of failing
+ok 102 - pairs: unordered and ordered entries, unnamed pairs discord instead of failing
+  ---
+  duration_ms: 1.104417
+  type: 'test'
+  ...
+# Subtest: talisman order matters, cost is paid regardless, length is a dial
+ok 103 - talisman order matters, cost is paid regardless, length is a dial
+  ---
+  duration_ms: 0.307917
+  type: 'test'
+  ...
+# Subtest: exhaustion coverage and contrast learning from the player record
+ok 104 - exhaustion coverage and contrast learning from the player record
+  ---
+  duration_ms: 0.483458
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'inkjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/src/ink_narrative.js
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/systems_workshop.test.js
+not ok 22 - tests/systems_workshop.test.js
+  ---
+  duration_ms: 254.506208
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-making-audit-xkceaw26/tests/systems_workshop.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..105
+# tests 105
+# suites 0
+# pass 94
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 370.044375

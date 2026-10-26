@@ -1,0 +1,26 @@
+{
+  "model": "qwen3.8:27b",
+  "prompt_sha256": "6f47ef7ba5a63a590cf48d17318e8119fb79b4a99beb792cae93eb51bfd0306f",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 4096,
+    "num_predict": 2048
+  },
+  "think": false,
+  "request_limit": 1,
+  "timeout_seconds": 240,
+  "removed_markdown_fence": false,
+  "done": true,
+  "done_reason": "stop",
+  "metrics": {
+    "total_duration": 27327799000,
+    "load_duration": 24391709,
+    "prompt_eval_count": 276,
+    "prompt_eval_duration": 828026875,
+    "eval_count": 782,
+    "eval_duration": 26474203500
+  },
+  "thinking_chars": 0,
+  "elapsed_seconds": 27.346
+}

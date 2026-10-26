@@ -6,8 +6,9 @@ through `window.yairpgHost` (see `src/host.js`), and every call has a browser
 fallback.
 
 The desktop window and macOS Dock use `resources/img/oops-icon.png`, the
-1024-pixel rendering of the existing `oops-icon.svg` logo. The host assigns it
-at startup, including launches through the development Electron binary.
+emerald portal logo selected on 2026-10-26. The host assigns it at startup,
+including launches through the development Electron binary. The previous
+rings logo is preserved in `resources/img/branding/` as the beta identity.
 
 ## Modules
 

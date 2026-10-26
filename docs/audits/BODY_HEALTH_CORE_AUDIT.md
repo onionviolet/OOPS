@@ -59,3 +59,10 @@ not a rerun of source/game-reference lanes or evidence that gameplay works.
 Later execution: strong cross-domain agent, medium only when that seam is
 selected; reuse the affected existing suite and require a useful rebuilt journey
 plus current-state persistence when changed. No lane is dispatched by this entry.
+
+## Selected body follow-through, 2026-10-26
+
+Weibao subsequently selected the other-systems body lane for implementation.
+Its [checkpoint and evidence](../gm/dispatch/other-systems-depth-2026-10-26/body/CHECKPOINT.md)
+own the bounded Paradise care-support correction and its verification state.
+This does not select a general injury engine or change the palette's proposals.

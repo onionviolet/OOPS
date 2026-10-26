@@ -1,0 +1,41 @@
+# E sequential integration review and remaining-site map
+
+2026-10-26. Follow-up authority: Weibao reiterated “send out implementation chats accordingly”; E was specifically asked to review B/L, close B's pending E review, then implement a real missing connection or record precise inspected coverage. No commits, push, adoption, added workers or new accepted product direction.
+
+## Combined dispatch result
+
+| Code | Lane and concrete result | Current evidence and integration disposition |
+| --- | --- | --- |
+| IR1 | B implemented five lines in `src/book_care_facts.js`: when a rich Paradise native binding is supplied, an unbound/stale frame suppresses care-effect projection. | E read the full predicate, `bookCareSupportedBody`, both consumers (`main.js:1044` native stat reader, `book_care_host.js` rich service records), all five focused regressions, browser harness/log and screenshots. No glue required; source is already in primary. |
+| IR2 | L tested the existing Cyoria lesson → actual lamp household application. Four new system regressions and reusable native browser harness/fixtures; zero runtime changes. | Reuse six focused passes and exact frozen-bundle desktop/pending/completed persistence proof. No central patch or runtime dependency. Later MoL lore additions belong to another writer and are not certified by L's earlier bundle. |
+| IR3 | E tested the existing earned Cyoria exploration → withdrawal → consumed sample/research loop, and corrected the audit's undercount. | Existing earned route, 16 focused passes, timing boundary proof and complete-root roundtrip reused. No duplicate gameplay or metadata adoption. |
+
+## B review closure
+
+E finds no actionable defect in B's scoped change. All five listed runtime/test dependency hashes in B's INPUTS.json still match disk: owned facts and tests, care content, Paradise actions and IDs. The change adds no imports, persistence fields, core registrations or cycles. The relevant native stat-reader seam still supplies body/alive without rich binding or recursive vitals; B explicitly tests it. The rich host supplies current campaign context and now respects explicitly invalid binding/revision. Suppression leaves the condition record intact, permitting renewed valid support before the existing expiry without restarting it.
+
+B's browser proof is narrower than the changed branch: fixture work produces native strain/DEX 9.0, Save/reload/Export/Import retains it, rest clears it and DEX returns to 10.0. Invalid binding itself is tested in a synthetic projection frame, not via a forged save. E inspected strain/recovered 1920×1080 screenshots and the harness's actual command, save/import and rest assertions. Their empty center is recorded, not counted as populated menu acceptance; B's separate earned-entry screenshot owns populated entry evidence. This is adequate combined source regression and native-consumer proof for this five-line projection correction, not proof of general carrier transitions.
+
+B's earlier red shared receipt gate was E's then-in-progress missing receipt. It was closed by the prior final E run and L's final run; the integration recheck below checks the current receipts. Full npm test remains unrun under AD36's lane/committer split. No commit is selected, so this review does not invent a full-suite publication gate. Each frozen bundle proves its own inputs; this is not one newly built combined release.
+
+## Inspected exploration coverage and remaining gaps
+
+This is a bounded map of current candidates, not an all-world absence claim. Implemented means inspected executable definitions, not newly shipped or browser-verified here. Proposals and missing world breadth remain distinct from a broken connection inside an existing site.
+
+| Code | Candidate, owning sources | Existing producer → consumer → aftermath | Actual remaining boundary and disposition |
+| --- | --- | --- | --- |
+| EM1 | Cyoria hatch: `book_world_mol_host/actions/state.js`, `world_packs/book_mol_pack.js`; `worlds/mother-of-learning/WORLD_BRIEF.md` | Offer/limited survey → encounter approach → finite watch pickup/client handover or retained sample research → withdrawal/late/injury/local aftermath. | This selected example already covers A1. E proved the ordinary survey/withdrawal/research path, not successful pickup or every approach. New borrowed-packet commands currently dirty in the same pack belong to another writer. No duplicate slice. |
+| EM2 | Goa civilian cache: `book_world_paradise_actions.js`, `book_world_paradise_host.js`, existing Paradise campaign host; Paradise IDs/source owner. | Actual Mia introduction and Hank duty-copy lead → ordinary timber or supported bracing cache (real stock; capacity 2/3) → `warn_civilians` reads cache and spends rope/ration with actual testimony → route report to Hank and existing fire/return aftermath. | A real physical site/function reader already exists; it is not missing because no `expeditions` row exists. Source inspection only in this continuation. The active Paradise campaign owner retains this area. No new cache/extraction/reward law. |
+| EM3 | Hogwarts school: `world_packs/book_hp_life_data.js`, `book_hp_school_extension.js`, HP brief and HP-D7-X4 receipt. | Current single study room → taught/practiced repair → actual pane and optional classroom stock contribution; held wand/ordinary material, tutor, lesson window, refund support. | Genuine breadth gap: no inspected multi-place school exploration/gathering route. This is absent world/site content, not a missing reader on the delivered repair task. A new greenhouse/forest/ruin would require a selected source-qualified target and local access/material/aftermath definitions, not just one connecting command. Do not relabel teaching as exploration or duplicate the existing classroom consumer. No site chosen from current source pins. |
+| EM4 | Primordial credit: `book_world_primordial_domain/host/credit.js`, existing primordial-credit checkpoint. | Opt-in counter → finite shift/contribution points → hall purchase/loan/repayment and carry rules. | No actual site exploration route in this domain; adding one would create a new world slice rather than finish this credit mechanism. Its existing task counter is not field exploration. No source-qualified site/output target selected in this pass. |
+| EM5 | Shadow Slave artisan: current untracked `world_packs/book_shadow_slave_life.js`, making/reference implementation owner. | Declared artisan start → held Memory study → supported pattern fitting to compatible owned carriers. | Workroom/crafting case with explicit supplied starting means, not a field-retrieval site. Active source author retains it. Do not add a second acquisition/world route or assume its source start gives exploration rights. |
+
+F1: Among dependency-ready inspected site loops, Cyoria and Goa already possess the intended consequential connections. HP and Primordial expose genuine broader site-content gaps, but no source-backed one-edge omission was found to repair. This is bounded evidence, not a claim that all book worlds have enough exploration. Under the follow-up's explicit map alternative, no new runtime feature is invented.
+
+## More-to-consider, scoped disposition
+
+ACT NOW: close B's review and stale receipt status, preserve separate frozen-build identities, record actual coverage instead of another false missing-engine claim. ACCOUNT FOR NOW: a distinct source place needs its own access, known extent, physical output and aftermath; an existing room's learning application is not site coverage. LATER: HP or Primordial can host a future source-selected site slice; no universal expedition contract, site editor or bulk world pass is required. These are remaining possibilities, not accepted build order or new dispatch.
+
+## Verification
+
+Reused unchanged evidence: B 5 focused checks/build/native fixture/persistence; L 6 focused checks/build/native fixture/persistence; E prior 16 focused checks/build/earned browser/persistence and exact deadline. E matched B runtime/test dependency hashes before reuse and read raw assertions/logs. No equivalent tests, browser journey or build repeated. Current rules/receipt and whitespace checks recorded in E's CHECKPOINT. No runtime edits in this continuation.

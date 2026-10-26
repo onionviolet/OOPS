@@ -1,6 +1,7 @@
 // Additive appointments and actual completed-disposition reconciliation only.
 // Existing Paradise1/native1 owners, scheduler and publisher remain the owners.
 import {PARADISE_IDS as P} from './book_world_paradise_ids.js';
+import {settleParadiseDrying} from './book_world_paradise_drying.js';
 import {PARADISE_CAMPAIGN_IDS as I, paradiseCampaignDefinitions as D} from './book_world_paradise_campaign_content.js';
 import {paradiseCampaignEnrolled} from './book_world_paradise_campaign_facts.js';
 const check=(ok,message)=>{if(!ok)throw Error(message);},natural=n=>Number.isSafeInteger(n)&&n>=0;
@@ -44,5 +45,5 @@ export function reconcileParadiseCampaignDepthRuntime(before,plan,registry){
         ['book.paradise.npc.hank_shelter_route','book.paradise.npc.hank_shelter_contained'].some(id=>a.completed[id]===1))f[F+'rescueOutcome']='earlier_shelter';
     else if(outcome==null&&f['book.goa.hank']==='dead'&&p.life==='dead'&&a.completed['book.paradise.npc.hank_afterfire_death']===1)
         f[F+'rescueOutcome']='earlier_loss';
-    validateParadiseCampaignDepthControllers(plan.state,registry);return plan;
+    settleParadiseDrying(plan);validateParadiseCampaignDepthControllers(plan.state,registry);return plan;
 }

@@ -1,0 +1,77 @@
+{
+  "checks": [
+    "Actual paid-preparation native write failure restores raw lot, purse and absent receipt; retry charges once",
+    "pending-suspension: native Save/reload/Export/literal file Import retained exact HP state",
+    "observed-partial-custody: native Save/reload/Export/literal file Import retained exact HP state",
+    "Earned supplier horn -> paid fine preparation -> paid water service -> actual 20-minute settling -> assay -> one-dose scouring -> retained stored remainder and method",
+    "repeated-pending: native Save/reload/Export/literal file Import retained exact HP state",
+    "Quick replay rebinds a new actually held lot; fine/coarse controlled tests change actual residue, and notebook names preparation change with uncertainty",
+    "comparison-post-use: native Save/reload/Export/literal file Import retained exact HP state"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    }
+  ],
+  "bundleHash": "5fa65f6b084040bc9055e2544340f6e0072df7b5a6a54b462628a67219ed76ae",
+  "httpUnexpected": [],
+  "pageErrors": [],
+  "route": "Earned fresh standalone HP bench; one named synthetic native storage-failure injection; no native transport or normal profile claimed"
+}

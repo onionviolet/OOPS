@@ -221,3 +221,21 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(1)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*3.3)!important;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(2)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*4.8)!important;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(3)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*6.3)!important;}
+
+/* Shared view controls keep their purpose visible while the current choice may truncate. */
+.control-box-purpose {flex:0 0 auto;color:var(--p23-text);}
+.control-box-purpose + .control-box-label {color:var(--p23-muted);}
+:is(#main_content,body) .control-box-button {min-height:var(--ui-control-sm);gap:var(--ui-space-2);line-height:var(--ui-line-compact);}
+.control-box-heading > button {min-height:var(--ui-control-sm);}
+#main_content.workspace-active[data-parity="r3"] .shell-item-actions {flex-wrap:wrap;align-items:flex-start;gap:var(--ui-space-1);}
+#main_content.workspace-active[data-parity="r3"] .shell-item-more {max-width:100%;}
+#main_content.workspace-active[data-parity="r3"] .shell-reports-empty {margin:var(--ui-space-2);padding:var(--ui-space-2);color:var(--p23-muted);border:1px solid var(--p23-line);line-height:var(--ui-line-body);}
+#main_content .shell-reports-empty[hidden] {display:none;}
+
+/* The shell's full-width row rule must still obey the native category filters. */
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_events {display:var(--message_events_display);}
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_unlocks {display:var(--message_unlocks_display);}
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_crafting {display:var(--message_crafting_display);}
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_combat {display:var(--message_combat_display);}
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_loot {display:var(--message_loot_display);}
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_background {display:var(--message_background_display);}

@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: deterministic projections leave deep-frozen live owners byte-identical
+ok 1 - deterministic projections leave deep-frozen live owners byte-identical
+  ---
+  duration_ms: 6.493667
+  type: 'test'
+  ...
+# Subtest: quotes, stream cells/logs and next draws are identical before/after inspection
+ok 2 - quotes, stream cells/logs and next draws are identical before/after inspection
+  ---
+  duration_ms: 3.216708
+  type: 'test'
+  ...
+# Subtest: non-developer views fail closed without even reading hidden or unknown properties
+ok 3 - non-developer views fail closed without even reading hidden or unknown properties
+  ---
+  duration_ms: 0.111958
+  type: 'test'
+  ...
+# Subtest: legacy absence does not initialize owners or streams
+ok 4 - legacy absence does not initialize owners or streams
+  ---
+  duration_ms: 0.218
+  type: 'test'
+  ...
+# Subtest: actual scheduling, latest-only receipt, held inputs and kit branch are explicit
+ok 5 - actual scheduling, latest-only receipt, held inputs and kit branch are explicit
+  ---
+  duration_ms: 1.102
+  type: 'test'
+  ...
+# Subtest: trace slot copies only a supplied trace and never evaluates it
+ok 6 - trace slot copies only a supplied trace and never evaluates it
+  ---
+  duration_ms: 0.634292
+  type: 'test'
+  ...
+# Subtest: completed harvest still maps consumed source and template without inventing live stock
+ok 7 - completed harvest still maps consumed source and template without inventing live stock
+  ---
+  duration_ms: 0.707084
+  type: 'test'
+  ...
+# Subtest: herb lesson shows eligibility before learning and persistent completion after both commitment paths
+ok 8 - herb lesson shows eligibility before learning and persistent completion after both commitment paths
+  ---
+  duration_ms: 1.742333
+  type: 'test'
+  ...
+# Subtest: descriptors refuse gates without reason, costed route, known kind or known dial (GTR1, GTR4)
+ok 9 - descriptors refuse gates without reason, costed route, known kind or known dial (GTR1, GTR4)
+  ---
+  duration_ms: 2.284709
+  type: 'test'
+  ...
+# Subtest: evaluation is a pure read and dials move the threshold (GTR14, GTR17)
+ok 10 - evaluation is a pure read and dials move the threshold (GTR14, GTR17)
+  ---
+  duration_ms: 1.265084
+  type: 'test'
+  ...
+# Subtest: player view names only conditions the character knows; author reasons stay separate (GTR10)
+ok 11 - player view names only conditions the character knows; author reasons stay separate (GTR10)
+  ---
+  duration_ms: 0.911458
+  type: 'test'
+  ...
+# Subtest: unknown facts stay unknown, and negated conditions report correctly
+ok 12 - unknown facts stay unknown, and negated conditions report correctly
+  ---
+  duration_ms: 0.950334
+  type: 'test'
+  ...
+# Subtest: herb lesson descriptor keeps its count and learned behaviour
+ok 13 - herb lesson descriptor keeps its count and learned behaviour
+  ---
+  duration_ms: 0.253916
+  type: 'test'
+  ...
+# Subtest: herb lesson uses currently held stacks and an explicit learned fact
+ok 14 - herb lesson uses currently held stacks and an explicit learned fact
+  ---
+  duration_ms: 2.38825
+  type: 'test'
+  ...
+# Subtest: literacy speeds original work units without changing completion thresholds
+ok 15 - literacy speeds original work units without changing completion thresholds
+  ---
+  duration_ms: 0.12175
+  type: 'test'
+  ...
+# Subtest: practice names require a real native level, not incidental XP
+ok 16 - practice names require a real native level, not incidental XP
+  ---
+  duration_ms: 0.499584
+  type: 'test'
+  ...
+# Subtest: opening defaults to full access and preserves recovery at every stage
+ok 17 - opening defaults to full access and preserves recovery at every stage
+  ---
+  duration_ms: 0.092708
+  type: 'test'
+  ...
+# Subtest: transaction stages recipe and wallet before publication without mutating prior stock
+ok 18 - transaction stages recipe and wallet before publication without mutating prior stock
+  ---
+  duration_ms: 0.221834
+  type: 'test'
+  ...
+# Subtest: practice clues need earned XP or actually held leaves and do not reveal unknown recipe or action
+ok 19 - practice clues need earned XP or actually held leaves and do not reveal unknown recipe or action
+  ---
+  duration_ms: 0.25625
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 101.552708

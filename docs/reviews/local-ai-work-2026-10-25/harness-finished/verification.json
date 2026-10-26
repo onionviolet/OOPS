@@ -1,0 +1,383 @@
+{
+  "elapsed_seconds": 0.054,
+  "checks": [
+    {
+      "check": "frozen_input_unchanged",
+      "pass": true,
+      "detail": "SHA256 matches pre-dispatch capture"
+    },
+    {
+      "check": "owning_registry_unchanged",
+      "pass": true,
+      "detail": "Current owning source matches captured bytes"
+    },
+    {
+      "check": "real.total_tools",
+      "pass": true,
+      "detail": {
+        "expected": 41,
+        "actual": 41
+      }
+    },
+    {
+      "check": "real.counts_by_kind",
+      "pass": true,
+      "detail": {
+        "expected": {
+          "launch": 31,
+          "reference": 10
+        },
+        "actual": {
+          "launch": 31,
+          "reference": 10
+        }
+      }
+    },
+    {
+      "check": "real.ids_by_kind",
+      "pass": true,
+      "detail": {
+        "expected": {
+          "launch": [
+            "calibre",
+            "cpp2il",
+            "discord",
+            "discord-desktop",
+            "discord-web",
+            "dotnet",
+            "epub-prepare",
+            "ffmpeg",
+            "game-mcp",
+            "ghidra",
+            "headless-bench",
+            "il2cpp-dumper",
+            "ilspy",
+            "lncrawl",
+            "manga-text",
+            "pdf2md",
+            "pdftotext",
+            "perf",
+            "playtest",
+            "rea",
+            "rea-pinned",
+            "replay",
+            "simfuzz",
+            "source-library",
+            "source-library-bootstrap",
+            "source-library-services",
+            "tesseract",
+            "test-queue",
+            "unitypy",
+            "zlibrary",
+            "zlibrary-mcp"
+          ],
+          "reference": [
+            "assets",
+            "browser",
+            "connectors",
+            "discord-exporters",
+            "gearscope",
+            "mockups",
+            "rea-source",
+            "saved-sources",
+            "signal-quarry",
+            "vimeo-transcript"
+          ]
+        },
+        "actual": {
+          "launch": [
+            "calibre",
+            "cpp2il",
+            "discord",
+            "discord-desktop",
+            "discord-web",
+            "dotnet",
+            "epub-prepare",
+            "ffmpeg",
+            "game-mcp",
+            "ghidra",
+            "headless-bench",
+            "il2cpp-dumper",
+            "ilspy",
+            "lncrawl",
+            "manga-text",
+            "pdf2md",
+            "pdftotext",
+            "perf",
+            "playtest",
+            "rea",
+            "rea-pinned",
+            "replay",
+            "simfuzz",
+            "source-library",
+            "source-library-bootstrap",
+            "source-library-services",
+            "tesseract",
+            "test-queue",
+            "unitypy",
+            "zlibrary",
+            "zlibrary-mcp"
+          ],
+          "reference": [
+            "assets",
+            "browser",
+            "connectors",
+            "discord-exporters",
+            "gearscope",
+            "mockups",
+            "rea-source",
+            "saved-sources",
+            "signal-quarry",
+            "vimeo-transcript"
+          ]
+        }
+      }
+    },
+    {
+      "check": "real.launch_probe_ids",
+      "pass": true,
+      "detail": {
+        "expected": [
+          "calibre",
+          "cpp2il",
+          "discord",
+          "dotnet",
+          "epub-prepare",
+          "ffmpeg",
+          "game-mcp",
+          "ilspy",
+          "lncrawl",
+          "manga-text",
+          "pdf2md",
+          "pdftotext",
+          "rea",
+          "rea-pinned",
+          "source-library",
+          "source-library-bootstrap",
+          "source-library-services",
+          "tesseract",
+          "unitypy",
+          "zlibrary"
+        ],
+        "actual": [
+          "calibre",
+          "cpp2il",
+          "discord",
+          "dotnet",
+          "epub-prepare",
+          "ffmpeg",
+          "game-mcp",
+          "ilspy",
+          "lncrawl",
+          "manga-text",
+          "pdf2md",
+          "pdftotext",
+          "rea",
+          "rea-pinned",
+          "source-library",
+          "source-library-bootstrap",
+          "source-library-services",
+          "tesseract",
+          "unitypy",
+          "zlibrary"
+        ]
+      }
+    },
+    {
+      "check": "real.launch_without_probe_ids",
+      "pass": true,
+      "detail": {
+        "expected": [
+          "discord-desktop",
+          "discord-web",
+          "ghidra",
+          "headless-bench",
+          "il2cpp-dumper",
+          "perf",
+          "playtest",
+          "replay",
+          "simfuzz",
+          "test-queue",
+          "zlibrary-mcp"
+        ],
+        "actual": [
+          "discord-desktop",
+          "discord-web",
+          "ghidra",
+          "headless-bench",
+          "il2cpp-dumper",
+          "perf",
+          "playtest",
+          "replay",
+          "simfuzz",
+          "test-queue",
+          "zlibrary-mcp"
+        ]
+      }
+    },
+    {
+      "check": "real.missing_owner_ids",
+      "pass": true,
+      "detail": {
+        "expected": [
+          "calibre",
+          "cpp2il",
+          "discord",
+          "discord-desktop",
+          "discord-web",
+          "dotnet",
+          "epub-prepare",
+          "ffmpeg",
+          "ghidra",
+          "headless-bench",
+          "il2cpp-dumper",
+          "ilspy",
+          "lncrawl",
+          "pdf2md",
+          "pdftotext",
+          "perf",
+          "playtest",
+          "replay",
+          "simfuzz",
+          "source-library",
+          "source-library-bootstrap",
+          "source-library-services",
+          "tesseract",
+          "test-queue",
+          "unitypy",
+          "zlibrary",
+          "zlibrary-mcp"
+        ],
+        "actual": [
+          "calibre",
+          "cpp2il",
+          "discord",
+          "discord-desktop",
+          "discord-web",
+          "dotnet",
+          "epub-prepare",
+          "ffmpeg",
+          "ghidra",
+          "headless-bench",
+          "il2cpp-dumper",
+          "ilspy",
+          "lncrawl",
+          "pdf2md",
+          "pdftotext",
+          "perf",
+          "playtest",
+          "replay",
+          "simfuzz",
+          "source-library",
+          "source-library-bootstrap",
+          "source-library-services",
+          "tesseract",
+          "test-queue",
+          "unitypy",
+          "zlibrary",
+          "zlibrary-mcp"
+        ]
+      }
+    },
+    {
+      "check": "real.duplicate_ids",
+      "pass": true,
+      "detail": {
+        "expected": [],
+        "actual": []
+      }
+    },
+    {
+      "check": "real.required_path_references",
+      "pass": true,
+      "detail": {
+        "expected": 40,
+        "actual": 40
+      }
+    },
+    {
+      "check": "real.unique_required_paths",
+      "pass": true,
+      "detail": {
+        "expected": 38,
+        "actual": 38
+      }
+    },
+    {
+      "check": "exact_schema",
+      "pass": true,
+      "detail": "No missing/extra top-level keys"
+    },
+    {
+      "check": "markdown_evidence_boundary",
+      "pass": true,
+      "detail": "Manual review still needed for exact wording"
+    },
+    {
+      "check": "empty",
+      "pass": true,
+      "detail": {
+        "exit_code": 0,
+        "stderr": "",
+        "output": {
+          "total_tools": 0,
+          "counts_by_kind": {},
+          "ids_by_kind": {},
+          "launch_probe_ids": [],
+          "launch_without_probe_ids": [],
+          "missing_owner_ids": [],
+          "duplicate_ids": [],
+          "required_path_references": 0,
+          "unique_required_paths": 0
+        }
+      }
+    },
+    {
+      "check": "optional_and_duplicate",
+      "pass": true,
+      "detail": {
+        "exit_code": 0,
+        "stderr": "",
+        "output": {
+          "total_tools": 5,
+          "counts_by_kind": {
+            "launch": 4,
+            "reference": 1
+          },
+          "ids_by_kind": {
+            "launch": [
+              "b",
+              "c",
+              "z",
+              "z"
+            ],
+            "reference": [
+              "a"
+            ]
+          },
+          "launch_probe_ids": [
+            "c"
+          ],
+          "launch_without_probe_ids": [
+            "b",
+            "z",
+            "z"
+          ],
+          "missing_owner_ids": [
+            "a",
+            "b",
+            "z",
+            "z"
+          ],
+          "duplicate_ids": [
+            "z"
+          ],
+          "required_path_references": 4,
+          "unique_required_paths": 2
+        }
+      }
+    }
+  ],
+  "passed": 15,
+  "total": 15
+}

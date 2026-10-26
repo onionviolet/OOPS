@@ -1,0 +1,45 @@
+{
+  "native": {
+    "catalogue": "base.native@2",
+    "knownCatalogueRows": 33,
+    "candidateRows": 32,
+    "cost": {
+      "fitEvaluations": 32
+    },
+    "coverage": {
+      "examined": 32,
+      "total": 32,
+      "complete": true,
+      "reason": "catalogue-exhausted"
+    },
+    "medianMs": 0.1531670000000105,
+    "p95Ms": 0.36379200000000367,
+    "samples": 100,
+    "cadence": "one full query at native recipe registration; no per-tick TagStore consumer",
+    "enumeration": "O(catalogue rows), even when fit-evaluation budget truncates",
+    "limited": {
+      "coverage": {
+        "examined": 8,
+        "total": 32,
+        "complete": false,
+        "reason": "candidate-budget"
+      },
+      "cost": {
+        "fitEvaluations": 8
+      }
+    }
+  },
+  "hp": {
+    "route": "named pure current-law producer fixture; six selected prepared lots plus one supplier-claim lot; no pacing/native persistence claim from this timing",
+    "heldLots": 7,
+    "selectedSlots": 6,
+    "inspectorRows": 6,
+    "medianMs": 0.07783299999999826,
+    "p95Ms": 0.16425000000000978,
+    "samples": 100,
+    "ownerUnchanged": true,
+    "cadence": "actual panel has signature skip before assessment; content rebuild calls assessment directly and within inspector; actual browser result verifies20 unchanged-visible ticks skip content and selection changes invalidate"
+  },
+  "cacheDecision": "No new index/cache justified by current registration cadence or selected7-lot inspector cost. Preserve actual observer-projected signature and fresh source reads.",
+  "timingLimit": "One local machine run; descriptive timings, not hard CI budget or universal scale promise."
+}

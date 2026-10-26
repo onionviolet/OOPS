@@ -1,0 +1,18 @@
+{
+  "session": "L2-applied-mastery",
+  "route": "Generated supplied-workshop fixture; native Notebook Here → Field association → Project & production → applied packing → 2 minutes → existing drive packing → 1 minute",
+  "observed": [
+    "Drive initially blocked: Requested output exceeds this power's capacity.",
+    "Applied packing spent two focus units and made the drive action available.",
+    "Existing drive job completed after one minute; no page errors."
+  ],
+  "limit": "Initial fixture path rejected outside tool-designated directory; reported once, then copied only synthetic fixture to designated directory. Plain storage JSON rejected, corrected using encodeSaveFile.",
+  "freezeAfterWalk": {
+    "bundlePath": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-mcp-frozen-thrUtQ/instrumented.mjs",
+    "snapshotManifest": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-mcp-frozen-thrUtQ/snapshot.json",
+    "manifestSha256": "258426b49ca2e65d3016abff520d4ddc667c43e1b222252c28d736eb6072be6d",
+    "bundleSha256": "8a87e855ec28bf33b3986b8a13a3d8bc4fe0d1fe2bde7e62890288eb22daeb1c",
+    "inputCount": 121
+  },
+  "qualification": "MCP route on live instrumented session, separate from frozen production desktop bundle proof."
+}

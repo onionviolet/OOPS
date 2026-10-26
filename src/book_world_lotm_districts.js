@@ -74,7 +74,7 @@ const walkSet=home=>Object.values(L).flatMap(from=>Object.values(L).filter(to=>t
 // Commands (Q2). Walking is a timed job started by the host; the host never lists the walk commands as buttons (the places list does).
 // An endorsement is the visiting clerk's clearance in another church's district (F2: worship first, territory second); an errand is the
 // paid ordinary work each district offers and its rate is the district's own. All fees and rates are authored proposals.
-import {eq,all,any,af,has,no,money,know,cmd} from './book_world_lotm_kit.js';
+import {eq,gte,all,any,af,has,no,money,know,attention,cmd} from './book_world_lotm_kit.js';
 const KEYS=Object.entries(L);
 export const lotmWalkKeys=KEYS.map(([k])=>k);
 const note='observation';
@@ -87,3 +87,45 @@ export const districtCommands=[
   visibleWhen:all(eq('lotm.readyAtOfficer'),eq(`lotm.district.${d.id}`),any(eq(`lotm.home.${d.id}`),has(`endorsed.${d.id}`))),
   requires:any(eq(`lotm.home.${d.id}`),has(`endorsed.${d.id}`)),duration:20,cancellation:'forfeit',
   effects:[money(d.errandPence),know(`errand.${d.id}`,`You finished an errand for ${d.team} and were paid ${d.errandPence} pence. This district pays its own rate; ${d.officerLabel} signed it off.`,'player','player',note,'understood')]}))];
+// M4 A4: a source-qualified Sailor faculty now changes an actual docks outcome.
+// Alger's account (local Chinese EPUB 0006) supports equipment-free diving for at
+// least ten minutes. This single lost manifest, five-minute task and 24-pence fee
+// are authored proposals, not canon. The existing ability owns cost and aftermath.
+const recoverySupport=all(eq('faculty.book.lotm.sailor.active'),gte('condition.book.lotm.long_breath',1),eq('lotm.officerHere'));
+const recovery=cmd('recover_dock_manifest','Recover the submerged harbour manifest · prepare Long breath first (2 stamina, scales linger), 1 duty-officer attention, 5 min, earns 24 pence',L.docks,{
+ officer:true,targetId:I.stormOfficer,
+ visibleWhen:all(eq('lotm.enrolled'),eq('lotm.district.storm'),has('reportedIn')),
+ costs:[attention(-1,I.stormOfficer)],requires:recoverySupport,duration:5,cancellation:'refund',completionRequires:recoverySupport,completionCoLocated:true,completionFailure:'refund',
+ effects:[money(24),know('work.submerged_manifest','You recovered the harbour manifest from beneath the quay and the duty officer paid 24 pence. Your Sailor breath made the submerged work possible; preparing it spent stamina and left the scales behind. This particular manifest is back in the office.','player','player','observation','understood')]});
+recovery.requires.reason='Need Sailor, breath & duty officer.';
+districtCommands.push(recovery);
+
+// M4 A2: ordinary completed work can supply an in-role experience. Reflection
+// consumes the latest notebook outcome once, not a timer or a backlog of jobs.
+// Acting principles come from the existing pathway rows; this cadence is authored.
+export const LOTM_ROLE_OUTCOMES=[
+ {key:'sv',source:I.savant,job:'errand_machinery',note:'errand.machinery',place:L.university,
+  label:'Reflect on applying your studies to the completed gear schedule',text:'You reviewed the gear schedule you copied and understood how its parts work together. Applying your studies in real office work settles the Savant potion a little.'},
+ {key:'sa',source:I.sailor,job:'recover_dock_manifest',note:'work.submerged_manifest',place:L.docks,
+  label:'Reflect on the completed underwater manifest recovery',text:'You recalled moving beneath the quay and returning with the manifest. Using your Sailor faculties for actual underwater work settles the potion a little.'}];
+const reflected=r=>`role.reflected.${r.key}`;
+export const roleOutcomeCommands=LOTM_ROLE_OUTCOMES.map(r=>{
+ const c=cmd(`reflect_work_${r.key}`,r.label+' · one in-role act',r.place,{alone:true,once:false,
+  visibleWhen:all(eq('lotm.enrolled'),eq(`lotm.${r.key}Supported`),gte(`lotm.roleOutcome.${r.key}.completed`,1)),
+  requires:eq(`lotm.roleOutcome.${r.key}.ready`),effects:[{type:'resource',actor:'player',key:`book.lotm.${r.key}.acting`,amount:1},know(reflected(r),r.text,'player','player','observation','understood')]});
+ c.requires.reason='Need fresh work & an unsettled potion.';return c;
+});
+districtCommands.push(...roleOutcomeCommands);
+export function roleOutcomeFacts(state,f){
+ const a=state.actors?.player||{},known=state.simulation?.knowledge?.player||{};
+ for(const r of LOTM_ROLE_OUTCOMES){
+  const done=a.completed?.[`book.lotm.${r.job}`]||0,note=known[`book.lotm.${r.note}`],used=known[`book.lotm.${reflected(r)}`],src=a.sources?.[r.source];
+  f[`lotm.roleOutcome.${r.key}.completed`]=done;
+  f[`lotm.roleOutcome.${r.key}.ready`]=done>0&&!!note&&!!src&&note.at>src.acquiredAt&&(!used||used.at<note.at)&&f[`lotm.${r.key}Supported`]===true&&f[`lotm.${r.key}.digested`]===false&&a.facts?.[`book.lotm.${r.key}.promoted`]!==true;
+ }
+}
+export function roleOutcomeAssertions(state,{assert,natural}){
+ const a=state.actors?.player||{};
+ for(const r of LOTM_ROLE_OUTCOMES){const n=a.completed?.[`book.lotm.reflect_work_${r.key}`]||0;
+  assert(natural(n)&&n<=(a.completed?.[`book.lotm.${r.job}`]||0)&&n<=(a.resources?.[`book.lotm.${r.key}.acting`]||0),'A reflected role outcome needs completed work and its actual acting credit.');}
+}

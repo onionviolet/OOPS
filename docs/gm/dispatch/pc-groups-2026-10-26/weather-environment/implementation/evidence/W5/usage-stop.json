@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-26",
+  "dispatchStartUsedPercent": 36,
+  "ceilingPercentagePoints": 5,
+  "ceilingUsedPercent": 41,
+  "observedUsedPercent": 44,
+  "sharedAccountNotTaskAttributed": true,
+  "runtimeEdits": false,
+  "runtimeLocksHeld": false,
+  "status": "stopped under existing COMMON allowance ceiling; not complete"
+}

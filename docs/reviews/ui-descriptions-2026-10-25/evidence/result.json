@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:18847/?test_hooks=1",
+  "fingerprint": "http://127.0.0.1:18847/dist/bundle.js?version=v0.6-31ec61169638",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "traitFixture": "DEV SEEDED from fresh run, not naturally earned",
+  "findings": [
+    "Fresh native stats: narrative hover, keyboard-opened pinned calculations, full attack formula, shield-unavailable and inactive mana meanings verified at 1920×1080.",
+    "DEV SEEDED earned and cosmetic trait fixtures: narrative, exact capability effects, no false inactive label, no state mutation and native Save/reload verified.",
+    "DEV SEEDED family traits: narrative first, expandable inheritance/effects, untested allele remains ?.",
+    "Stats and trait prose inspected at actual 18px and 21px text (14px default), with no horizontal overflow in the attribute reading pane."
+  ],
+  "errors": []
+}

@@ -1,0 +1,20 @@
+{
+  "state": "READY_ACK",
+  "lane": "L8",
+  "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+  "at": 1793044801.238092,
+  "slotHeld": false,
+  "sourcePaths": [
+    "src/pledges_domain.js",
+    "src/pledges_ui.js",
+    "tests/trial_routine.test.js"
+  ],
+  "scope": "Existing M8 S3: pure trial routine draft quote from actual stock/context, armed/off limits, ordinary guarded-versus-graded native comparison; focused existing tests, immutable build and native/persistence/desktop proof. No L5 medicine claim.",
+  "dependencies": "Pledges source unchanged from captured preflight; no unreleased dependency. Three path reservations reacquired.",
+  "successor": {
+    "lane": "L5",
+    "thread": "01a178b9-cd1a-7480-b692-fe031e180516",
+    "scope": "Remaining unmatched tablet residue/recipient native proof; still unrun"
+  },
+  "restrictions": "One slot only; no full suite, primary generated publication, new worker/chat, normal profile, commit/push. Incumbent transfers its own metadata only."
+}

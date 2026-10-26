@@ -1,0 +1,18 @@
+{
+  "sourceMatches": {
+    "src/book_world_paradise_campaign_content.js": true,
+    "src/book_world_paradise_campaign_facts.js": true,
+    "src/book_world_paradise_campaign_host.js": true,
+    "src/book_world_paradise_content.js": true,
+    "src/book_world_paradise_environment_inputs.js": true,
+    "tests/paradise_environment_inputs.test.js": true
+  },
+  "allSixMatch": true,
+  "focusedRecorded": "15/15 focused-consumers.tap",
+  "review": "Inspected released source interface and current hashes; named SOURCE_CONTRACT.md still absent at inspection, pending owner write. No runtime check rerun.",
+  "native": false,
+  "slot": "W4 retained until actual W5 handoff; W6 proof yield agreed after W5 source",
+  "contract": "../W4/SOURCE_CONTRACT.md read after owner completion",
+  "contractSha256": "2dd614ccc2d5b6ebc6e771b2c2392bbdf58952283d5578c02dc034b489390938",
+  "custody": "Actual slot1 metadata verified W5 exact thread after W4 six-lock release; next READY W4 frozen proof\u2192READY W6 field"
+}

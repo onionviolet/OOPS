@@ -1,0 +1,165 @@
+{
+  "atUTC": "2026-10-26T18:10:07.132603+00:00",
+  "scope": "Read-only P2/M8-P10 evidence reconciliation; no runtime/source implementation or new native run",
+  "currentHEAD": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "currentSources": {
+    "src/agreed_duty_content.js": {
+      "current": "9cd3d75ee48c227a58e89ee01dcdb430e71b059b4f6348a4439bcb8f20e75be1",
+      "R1Recorded": "b301f19de7f9be8bc28dfd8210957eff6163b6a40e8302a5d9e8920e1c538143",
+      "R1ExactMatch": false,
+      "L2S1Frozen": "9cd3d75ee48c227a58e89ee01dcdb430e71b059b4f6348a4439bcb8f20e75be1",
+      "L2S1ExactMatch": true
+    },
+    "src/agreed_duty_facts.js": {
+      "current": "5eb95e5bf491396201293a43758d1192ac3c98b6da7310915f0a5d99fbac9ac5",
+      "R1Recorded": "12f08f438f2484373a8a2eab86588a9af878666a968b92e1a2b37e8fa408fd80",
+      "R1ExactMatch": false,
+      "L2S1Frozen": "5eb95e5bf491396201293a43758d1192ac3c98b6da7310915f0a5d99fbac9ac5",
+      "L2S1ExactMatch": true
+    },
+    "src/agreed_duty_host.js": {
+      "current": "802b8c7b1f31ed4849f304253cfd2d59c541a99a06015b7c1972a0968cfe884e",
+      "R1Recorded": "802b8c7b1f31ed4849f304253cfd2d59c541a99a06015b7c1972a0968cfe884e",
+      "R1ExactMatch": true,
+      "L2S1Frozen": "802b8c7b1f31ed4849f304253cfd2d59c541a99a06015b7c1972a0968cfe884e",
+      "L2S1ExactMatch": true
+    },
+    "src/agreed_duty_continuation.js": {
+      "current": "4b3e0326c09efd23890427e7d5315a8c66aea6667850dd15a65cf0fdfa734d12",
+      "R1Recorded": "682ef12595d0db1572fe4a3f32189e942855c0f7b81c88a419b6fe1af6d188dc",
+      "R1ExactMatch": false,
+      "L2S1Frozen": "4b3e0326c09efd23890427e7d5315a8c66aea6667850dd15a65cf0fdfa734d12",
+      "L2S1ExactMatch": true
+    },
+    "src/feature_expansion_society.js": {
+      "current": "f29f3aadef802aea8a22bb2bc43bc6dcf4be3cbd02285bcfa5281ce1c2ed1d30",
+      "R1Recorded": "61bd64da05682002326a6d7ca50bff4f1675ea0fe9fe06ac340a84121a38cc95",
+      "R1ExactMatch": false,
+      "L2S1Frozen": "f29f3aadef802aea8a22bb2bc43bc6dcf4be3cbd02285bcfa5281ce1c2ed1d30",
+      "L2S1ExactMatch": true
+    },
+    "src/feature_expansion_society_host.js": {
+      "current": "efc7ff6e447fc9ed778329f20d82cab469a12b55fb978cdd3f6aa5885c4a55c5",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "efc7ff6e447fc9ed778329f20d82cab469a12b55fb978cdd3f6aa5885c4a55c5",
+      "L2S1ExactMatch": true
+    },
+    "src/feature_expansion_wave_host.js": {
+      "current": "0b05c35acedbd0ead9949820f8eab49d1105a95aff26a4d5440d4721020088c4",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "0b05c35acedbd0ead9949820f8eab49d1105a95aff26a4d5440d4721020088c4",
+      "L2S1ExactMatch": true
+    },
+    "src/feature_expansion_host.js": {
+      "current": "4e74f6e7bf71ac184aed711df0dd7ad95775153d11b4aaed70b70bab3e7b20f4",
+      "R1Recorded": "4e74f6e7bf71ac184aed711df0dd7ad95775153d11b4aaed70b70bab3e7b20f4",
+      "R1ExactMatch": true,
+      "L2S1Frozen": "4e74f6e7bf71ac184aed711df0dd7ad95775153d11b4aaed70b70bab3e7b20f4",
+      "L2S1ExactMatch": true
+    },
+    "src/simulation.js": {
+      "current": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+      "R1Recorded": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+      "R1ExactMatch": false,
+      "L2S1Frozen": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+      "L2S1ExactMatch": true
+    },
+    "src/simulation_effects.js": {
+      "current": "e33a06c22bdf0483b58aaba67bc3f65a0209e7e227d794da275a315247d714b1",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "e33a06c22bdf0483b58aaba67bc3f65a0209e7e227d794da275a315247d714b1",
+      "L2S1ExactMatch": true
+    },
+    "src/village_career.js": {
+      "current": "6810757b8896f13b8999a25b27f57b0514089ea44111fb67b6a58fbfb5128632",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "6810757b8896f13b8999a25b27f57b0514089ea44111fb67b6a58fbfb5128632",
+      "L2S1ExactMatch": true
+    },
+    "src/village_career_ui.js": {
+      "current": "051a8a9f997b0c6a858ddd2b2634e234107129298eb613153edf1d9c3535f8d2",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "051a8a9f997b0c6a858ddd2b2634e234107129298eb613153edf1d9c3535f8d2",
+      "L2S1ExactMatch": true
+    },
+    "src/story_requests.js": {
+      "current": "60f2ec068b3594cc493d4c0fb93e8940049e7271e4cca45790e1bf1ae455a3a7",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "60f2ec068b3594cc493d4c0fb93e8940049e7271e4cca45790e1bf1ae455a3a7",
+      "L2S1ExactMatch": true
+    },
+    "src/basics.js": {
+      "current": "036437f6e51a18890878f470540630840b3327c2c5a0b74becfe2c0c118e6e1e",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "036437f6e51a18890878f470540630840b3327c2c5a0b74becfe2c0c118e6e1e",
+      "L2S1ExactMatch": true
+    },
+    "src/content_kit.js": {
+      "current": "6f356e9c8b9c969890fe1f7f167ec5afd8c4a9a427b85b17d19019db1026448f",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": "6f356e9c8b9c969890fe1f7f167ec5afd8c4a9a427b85b17d19019db1026448f",
+      "L2S1ExactMatch": true
+    },
+    "tests/agreed_duty_continuation.test.js": {
+      "current": "fcfc30994b1fda0a9233fbcf86bffcc7129272ae5d6415866c10aac0afd69b8b",
+      "R1Recorded": "fcfc30994b1fda0a9233fbcf86bffcc7129272ae5d6415866c10aac0afd69b8b",
+      "R1ExactMatch": true,
+      "L2S1Frozen": null,
+      "L2S1ExactMatch": null
+    },
+    "tests/story_requests.test.js": {
+      "current": "c743756550723872581199bc5a4fbbd78fbd02f3c3b7ca7abd784e1336196bfd",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": null,
+      "L2S1ExactMatch": null
+    },
+    "tests/village_career.test.js": {
+      "current": "0d1decfe172825d7d60748493d1b56a73d149c3b0dbc0903564451ad383767a0",
+      "R1Recorded": null,
+      "R1ExactMatch": null,
+      "L2S1Frozen": null,
+      "L2S1ExactMatch": null
+    }
+  },
+  "R1ProofFiles": {
+    "REPORT.md": {
+      "sha256": "1cf8b71a39b5eb0619947de1092c2bba1768812a56cf4a9daf36805f21068fa7",
+      "recordedMatch": true
+    },
+    "NATIVE_RESULT.json": {
+      "sha256": "aa5f88f89d5ec158ae134541bb934690bbc74a0ad2f95977865c056464fd9b46",
+      "recordedMatch": true
+    },
+    "RESTORATION_MATRIX.json": {
+      "sha256": "3d6d478993b4d865a9ea0b20d69f5a8be9609f02eca05e93613bc41e6bdc9f11",
+      "recordedMatch": true
+    }
+  },
+  "R1RetainedCandidateMatches": {
+    "src/agreed_duty_content.js": true,
+    "src/agreed_duty_facts.js": true,
+    "src/agreed_duty_host.js": true,
+    "src/agreed_duty_continuation.js": true,
+    "src/feature_expansion_society.js": true,
+    "src/simulation.js": true,
+    "src/feature_expansion_host.js": true,
+    "dist/bundle.js": true
+  },
+  "R1Bundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+  "L2S1Bundle": "a58c45767281d74e0b91d702f437261486d09353d4ab514dc1ac1c97e5dd4a6b",
+  "reuseLimits": [
+    "R1 is historical native mechanism proof, not a current whole-bundle claim.",
+    "Relevant duty source definitions differ from the landed R1-R14 commit by equivalent leaf-helper extraction; retained diff is explicit.",
+    "L2 S1 focused continuation/story tests are reused at their recorded immutable proof scope; village career gets source trace only here.",
+    "Shared scheduler, registry, loader, UI and transaction integration remain L8 settled-input gate."
+  ]
+}

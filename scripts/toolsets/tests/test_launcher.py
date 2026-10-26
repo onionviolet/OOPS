@@ -72,6 +72,26 @@ class LauncherTests(unittest.TestCase):
         with patch.object(subprocess, 'run', side_effect=subprocess.TimeoutExpired([], 20)):
             self.assertEqual(toolsets.diagnose(row, dict(os.environ), True)['state'], 'probe-timeout')
 
+    def test_probe_non_utf8_output_stays_serializable(self):
+        # A child emitting raw (non-UTF-8) bytes must not crash decoding and must
+        # keep useful text, the real exit status, and JSON-serializable strings.
+        probe = "import os,sys;" \
+                " os.write(1,b'version: \\xff\\n');" \
+                " os.write(2,b'warning: \\xfe\\n'); sys.exit(3)"
+        row = self.row(probe=[probe])
+        result = toolsets.diagnose(row, dict(os.environ), True)
+        self.assertEqual(result['state'], 'probe-failed')
+        self.assertEqual(result['exit_code'], 3)
+        self.assertIsInstance(result['stdout'], str)
+        self.assertIsInstance(result['stderr'], str)
+        self.assertIn('version:', result['stdout'])
+        self.assertIn('warning:', result['stderr'])
+        # Retained-output limits are preserved even with replacement characters.
+        self.assertLessEqual(len(result['stdout']), 16000)
+        self.assertLessEqual(len(result['stderr']), 4000)
+        # Diagnostics stay JSON-serializable.
+        self.assertTrue(json.loads(json.dumps(result, ensure_ascii=False)))
+
     def test_unknown_batch_id_causes_no_partial_probes(self):
         with patch.object(toolsets, 'diagnose') as diagnose, patch('sys.stderr', new=io.StringIO()):
             self.assertEqual(toolsets.main(['doctor', '--probe', 'rea', 'unknown']), 2)

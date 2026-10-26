@@ -1,0 +1,38 @@
+{
+  "lane": "G5-M6",
+  "thread": "01a1794b-d74b-7ba2-baa4-3d398ad3bf47",
+  "phase": "acknowledged named oil-unit fix and ONE shared frozen gate",
+  "handoffFrom": "G2-I5",
+  "at": "2026-10-26T19:23:02.641622+00:00",
+  "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/N2-source-release.json",
+  "nextRequested": {
+    "lane": "G5-M6",
+    "thread": "01a1794b-d74b-7ba2-baa4-3d398ad3bf47",
+    "phase": "named oil-unit fix then one shared frozen combined gate"
+  },
+  "preserved_unallocated_requests": [
+    {
+      "lane": "L8",
+      "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+      "status": "ready unpromised S3 request; earlier commitments take precedence"
+    },
+    {
+      "lane": "G6-W3",
+      "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+      "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+    },
+    {
+      "lane": "L5",
+      "thread": "01a178b9-cd1a-7480-b692-fe031e180516",
+      "phase": "ready unpromised existing tablet residue verification, after earlier firm commitments"
+    }
+  ],
+  "next_queue": [
+    {
+      "lane": "G2-I5",
+      "thread": "01a1794d-81a8-7531-85dd-4cbab063a9c5",
+      "phase": "actual imported-material/quantity/persistence browser proof on same shared candidate",
+      "ready": true
+    }
+  ]
+}

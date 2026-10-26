@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: comparison preserves explicit reference, alternative and blend amounts, custody and retained tools
+ok 1 - comparison preserves explicit reference, alternative and blend amounts, custody and retained tools
+  ---
+  duration_ms: 0.74975
+  type: 'test'
+  ...
+# Subtest: equal projected evidence yields identical names, order, costs and stock reasons despite concealed truth
+ok 2 - equal projected evidence yields identical names, order, costs and stock reasons despite concealed truth
+  ---
+  duration_ms: 0.454375
+  type: 'test'
+  ...
+# Subtest: comparison retains observed absence, unverified attributed belief and unsupported prediction distinctly
+ok 3 - comparison retains observed absence, unverified attributed belief and unsupported prediction distinctly
+  ---
+  duration_ms: 0.119834
+  type: 'test'
+  ...
+# Subtest: stale, reduced and inaccessible exact holdings stay selected without replacement
+ok 4 - stale, reduced and inaccessible exact holdings stay selected without replacement
+  ---
+  duration_ms: 0.170875
+  type: 'test'
+  ...
+# Subtest: role assignments cannot be charged twice or disguise a consumed catalyst
+ok 5 - role assignments cannot be charged twice or disguise a consumed catalyst
+  ---
+  duration_ms: 0.209125
+  type: 'test'
+  ...
+# Subtest: an observed method difference is evidence, not a stock-access refusal
+ok 6 - an observed method difference is evidence, not a stock-access refusal
+  ---
+  duration_ms: 0.072375
+  type: 'test'
+  ...
+# Subtest: repeated previews preserve stock, clock, RNG and knowledge and return detached evidence
+ok 7 - repeated previews preserve stock, clock, RNG and knowledge and return detached evidence
+  ---
+  duration_ms: 0.080542
+  type: 'test'
+  ...
+# Subtest: inspector preserves zero, uncertainty and attributed belief as different evidence
+ok 8 - inspector preserves zero, uncertainty and attributed belief as different evidence
+  ---
+  duration_ms: 0.8015
+  type: 'test'
+  ...
+# Subtest: inspector is read-only, detaches results, and does not pass through raw truth
+ok 9 - inspector is read-only, detaches results, and does not pass through raw truth
+  ---
+  duration_ms: 0.480167
+  type: 'test'
+  ...
+# Subtest: unknown evidence changes neither numeric display nor refusal when hidden value changes
+ok 10 - unknown evidence changes neither numeric display nor refusal when hidden value changes
+  ---
+  duration_ms: 0.187875
+  type: 'test'
+  ...
+# Subtest: search coverage and receipt sufficiency do not become physical impossibility or invented history
+ok 11 - search coverage and receipt sufficiency do not become physical impossibility or invented history
+  ---
+  duration_ms: 0.22675
+  type: 'test'
+  ...
+# Subtest: method conditions and revision survive changed assumptions without claiming replay
+ok 12 - method conditions and revision survive changed assumptions without claiming replay
+  ---
+  duration_ms: 0.117458
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 35.8155

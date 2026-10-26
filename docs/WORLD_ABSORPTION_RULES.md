@@ -25,8 +25,10 @@ select a world, accept lore, or authorize implementation of any world's slice.
 
 ## The pipeline
 
-Read once, sort, encode, fill gaps, prove. Each stage reads only the one before
-it. Nobody rereads the book to build the game.
+Read, sort, encode, fill gaps, prove. Reuse the source ledger and its locators
+across stages; reopen consequential, conflicting or changed claims at their
+locators under WPR2/WPR19. This avoids redundant whole-book reads without
+turning a saved extraction into unquestionable source authority.
 
 1. **Read.** Deep dive playbook. Output: a private fact ledger with locators.
 2. **Sort.** Every fact lands in a kit part (K1–K24) as a pack record.

@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 1 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 2.067666
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 2 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 0.946209
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 3 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 0.582584
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+ok 4 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 0.4915
+  type: 'test'
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 5 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 0.493042
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+ok 6 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.225708
+  type: 'test'
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 7 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 0.471625
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 8 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.1605
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 9 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 0.713792
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 10 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 0.808791
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 11 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.444084
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 12 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 1.750458
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 13 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.172542
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 14 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.261125
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 15 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 1.057459
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 16 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 3.516541
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 17 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.268584
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 18 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 0.352333
+  type: 'test'
+  ...
+# Subtest: HP selected-lot assessment is observer-safe, pure, and distinguishes unsupported from uncertain
+ok 19 - HP selected-lot assessment is observer-safe, pure, and distinguishes unsupported from uncertain
+  ---
+  duration_ms: 2.679542
+  type: 'test'
+  ...
+# Subtest: one preparation difference reaches the actual dose consumer and its cost
+ok 20 - one preparation difference reaches the actual dose consumer and its cost
+  ---
+  duration_ms: 1.188833
+  type: 'test'
+  ...
+# Subtest: stale and duplicate lot selections refuse without spending; changed apparatus invalidates a clean-pot comparison
+ok 21 - stale and duplicate lot selections refuse without spending; changed apparatus invalidates a clean-pot comparison
+  ---
+  duration_ms: 0.768291
+  type: 'test'
+  ...
+# Subtest: HP causal inspector consumes projected evidence without inventing historical receipts or changing knowledge
+ok 22 - HP causal inspector consumes projected evidence without inventing historical receipts or changing knowledge
+  ---
+  duration_ms: 1.023042
+  type: 'test'
+  ...
+# Subtest: inspector preserves zero, uncertainty and attributed belief as different evidence
+ok 23 - inspector preserves zero, uncertainty and attributed belief as different evidence
+  ---
+  duration_ms: 1.04925
+  type: 'test'
+  ...
+# Subtest: inspector is read-only, detaches results, and does not pass through raw truth
+ok 24 - inspector is read-only, detaches results, and does not pass through raw truth
+  ---
+  duration_ms: 0.74875
+  type: 'test'
+  ...
+# Subtest: unknown evidence changes neither numeric display nor refusal when hidden value changes
+ok 25 - unknown evidence changes neither numeric display nor refusal when hidden value changes
+  ---
+  duration_ms: 0.262792
+  type: 'test'
+  ...
+# Subtest: search coverage and receipt sufficiency do not become physical impossibility or invented history
+ok 26 - search coverage and receipt sufficiency do not become physical impossibility or invented history
+  ---
+  duration_ms: 0.324167
+  type: 'test'
+  ...
+# Subtest: method conditions and revision survive changed assumptions without claiming replay
+ok 27 - method conditions and revision survive changed assumptions without claiming replay
+  ---
+  duration_ms: 0.166333
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 141.508708

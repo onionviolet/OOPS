@@ -1,0 +1,74 @@
+{
+  "consumer": "registerRenderingRecipes -> queryRenderingSources -> gradeMaterialFit",
+  "cadence": "one complete query per recipe registration; no production TagStore instance or recurring UI query found",
+  "result": {
+    "sources": [
+      {
+        "id": "Goat meat",
+        "fit": 800,
+        "count": 4,
+        "contribution": {
+          "model": "fixed-batch",
+          "unit": "oil-permille-pieces",
+          "target": 300,
+          "supplied": 320,
+          "expectedLoss": 20,
+          "disposition": "expected-rendering-loss"
+        }
+      },
+      {
+        "id": "Crab meat",
+        "fit": 300,
+        "count": 10,
+        "contribution": {
+          "model": "fixed-batch",
+          "unit": "oil-permille-pieces",
+          "target": 300,
+          "supplied": 300,
+          "expectedLoss": 0,
+          "disposition": "expected-rendering-loss"
+        }
+      },
+      {
+        "id": "Frog meat",
+        "fit": 300,
+        "count": 10,
+        "contribution": {
+          "model": "fixed-batch",
+          "unit": "oil-permille-pieces",
+          "target": 300,
+          "supplied": 300,
+          "expectedLoss": 0,
+          "disposition": "expected-rendering-loss"
+        }
+      }
+    ],
+    "catalogue": "base.native@1",
+    "coverage": {
+      "examined": 32,
+      "total": 32,
+      "complete": true,
+      "reason": "catalogue-exhausted"
+    },
+    "cost": {
+      "fitEvaluations": 32
+    }
+  },
+  "limited": {
+    "coverage": {
+      "examined": 8,
+      "total": 32,
+      "complete": false,
+      "reason": "candidate-budget"
+    },
+    "cost": {
+      "fitEvaluations": 8
+    }
+  },
+  "timing": {
+    "runs": 100,
+    "medianMs": 0.2102920000000026,
+    "p95Ms": 0.599499999999999
+  },
+  "cache": "none; each call reads supplied catalogue and revision; mutable observer/stock state is not cached"
+}

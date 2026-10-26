@@ -1,0 +1,245 @@
+TAP version 13
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 1 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 2.492125
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 2 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 1.6845
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 3 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 1.722584
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+not ok 4 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 1.187292
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:50:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /at least one lot/. Input:
+    
+    'Error: Add at least one actual held portion.'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+  error: 'Add at least one actual held portion.'
+  stack: |-
+    fail (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:23:33)
+    need (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:107:37)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:281:9)
+    commit (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:414:38)
+    Run.do (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:10:27)
+    file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:57:37
+    getActual (node:assert:609:5)
+    Function.throws (node:assert:757:24)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:57:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:57:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 5 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 1.234959
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+not ok 6 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.6035
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:68:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /already simmering|Choose a lot/. Input:
+    
+    'Error: The cauldron is already occupied.'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+  error: 'The cauldron is already occupied.'
+  stack: |-
+    fail (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:23:33)
+    need (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:107:37)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:268:9)
+    commit (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:414:38)
+    Run.do (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:10:27)
+    file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:72:29
+    getActual (node:assert:609:5)
+    Function.throws (node:assert:757:24)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:72:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:72:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 7 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 0.673042
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 8 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.273209
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 9 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 4.566917
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 10 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 1.00375
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 11 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.335292
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 12 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 2.656875
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 13 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.39675
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 14 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.224583
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 15 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 1.516375
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 16 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 9.414625
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 17 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.464667
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 18 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 1.067208
+  type: 'test'
+  ...
+# Subtest: paid HP history retains exact lots and terms; settlement uses the committed deadline
+not ok 19 - paid HP history retains exact lots and terms; settlement uses the committed deadline
+  ---
+  duration_ms: 0.416
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:230:1'
+  failureType: 'testCodeFailure'
+  error: 'Malformed HP preparation receipt.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    need (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_preparation.js:17:43)
+    validateHpPreparationReceipt (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_preparation.js:31:5)
+    checkHistory (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:123:29)
+    act (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:293:9)
+    commit (file:///Users/weiwei/code/yet-another-idle-rpg/src/hp_brewing_state.js:414:38)
+    Run.do (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:10:27)
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/hp_brewing.test.js:234:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+  ...
+# Subtest: same-cohort split, partial actual use, custody and recombination conserve spent and remaining doses
+ok 20 - same-cohort split, partial actual use, custody and recombination conserve spent and remaining doses
+  ---
+  duration_ms: 2.373959
+  type: 'test'
+  ...
+# Subtest: different brewing ages stay distinct even with equal grade; previews and failed merges keep custody
+ok 21 - different brewing ages stay distinct even with equal grade; previews and failed merges keep custody
+  ---
+  duration_ms: 0.484541
+  type: 'test'
+  ...
+# Subtest: unsupported or malformed paid terms refuse before settlement without refunding or erasing custody
+ok 22 - unsupported or malformed paid terms refuse before settlement without refunding or erasing custody
+  ---
+  duration_ms: 0.504542
+  type: 'test'
+  ...
+# Subtest: HP selected-lot assessment is observer-safe, pure, and distinguishes unsupported from uncertain
+ok 23 - HP selected-lot assessment is observer-safe, pure, and distinguishes unsupported from uncertain
+  ---
+  duration_ms: 3.541875
+  type: 'test'
+  ...
+# Subtest: one preparation difference reaches the actual dose consumer and its cost
+ok 24 - one preparation difference reaches the actual dose consumer and its cost
+  ---
+  duration_ms: 3.214292
+  type: 'test'
+  ...
+# Subtest: stale and duplicate lot selections refuse without spending; changed apparatus invalidates a clean-pot comparison
+ok 25 - stale and duplicate lot selections refuse without spending; changed apparatus invalidates a clean-pot comparison
+  ---
+  duration_ms: 1.141792
+  type: 'test'
+  ...
+# Subtest: HP causal inspector consumes projected evidence without inventing historical receipts or changing knowledge
+ok 26 - HP causal inspector consumes projected evidence without inventing historical receipts or changing knowledge
+  ---
+  duration_ms: 1.529708
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 23
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 159.605167

@@ -1,0 +1,26 @@
+{
+  "status": "READY_ACK",
+  "lane": "L5",
+  "thread": "01a178b9-cd1a-7480-b692-fe031e180516",
+  "at": "2026-10-26T20:08:55.067553+00:00",
+  "scope": "Previously scoped verification-only current frozen rebuild and native same-product current-body tempering/residue/replacement comparison; no source changes.",
+  "predecessor": "L8",
+  "slotRequested": "slot-2",
+  "startGate": "Actual explicit slot metadata transfer to this L5 thread; do not acquire another slot.",
+  "fixtures": "Fresh native save, named Combat XP/reagent controls, eight native-crafted strong tablets, actual paid tempering, one named body.instanceId replacement; no player saves.",
+  "restrictions": [
+    "no gameplay source changes",
+    "no full suite",
+    "no primary generated output",
+    "no commit or push",
+    "no install",
+    "no normal player saves"
+  ],
+  "preparedInputs": {
+    "helper.cjs": "c533a170acb94b39a6241474b2e15ba7b222382be1bbcba0813b006acdaa2e29",
+    "recipient.cjs": "12e5fa5e0ce6a2ad4816d4c58736dcceef668b432b9c9caf46d41c4987838f0a",
+    "capture.py": "426b1b04883ea6356276fcc50171c8d82ca552d416e3ddb8a63e736509e09171",
+    "driver.cjs": "9351977f26e103bbb86f832a2964fcc8449d1bbfd3167409f0cba092f22d352c"
+  },
+  "execution": "UNRUN"
+}

@@ -1,0 +1,9 @@
+# L: make a book-world lesson useful outside its lesson
+
+Execute COMMON.md and audit L/F3/F4, OSD1/3/5/6/9/10 and A3. First inspect existing HP repair/assessment, LOTM acting/digestion, current dojo EL41 and active mastery/learning owners. Credit what is already implemented; do not duplicate their lesson or choose an area with an active writer. Select a dependency-ready source-backed book-world learning route with an actual missing outside application, using current learner/skill/power/knowledge and command owners.
+
+Deliver one connected acquisition/observation/self-study/instruction → supported gain → outside application → feedback loop with the appropriate local stages. Understanding, fluency, source ownership, consulted reference and present executability remain distinct when the mechanism distinguishes them. A teacher supplies only what they hold; self-study or other actual means remain possible. Avoid turning every lesson into a compulsory ceremony, generic book bonus or new learning ledger. Physical reference custody and persistent knowledge can differ.
+
+Own `learning/CHECKPOINT.md`, learning-specific extension/modules/tests and evidence. Leave E's place and B's condition work untouched. Put necessary central shared glue in a narrow patch under your lane directory for E to integrate after ownership release. Record claims, affected paths and source status before edits.
+
+Acceptance: actual gain and useful existing consumer, correct costs and support, interruption/refund/recovery, pending reload and no replay rewards; test exact temporary-support deadline if applicable. Rebuilt desktop 1920×1080 route and applicable AD43 evidence, Save/reload/Export/Import if persistence changes. Source-backed canon and authored numeric/task choices stay separate. No private saves, commit, push, installation or additional workers. Start now.

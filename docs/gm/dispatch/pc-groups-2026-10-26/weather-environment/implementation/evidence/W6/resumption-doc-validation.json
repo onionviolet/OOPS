@@ -1,0 +1,6 @@
+{
+  "check": "bounded changed-doc links and shared USER_VISION HEAD line preservation",
+  "missingLinks": [],
+  "HEADNonblankLinesAbsent": 0,
+  "note": "Preexisting missing links/lines are not rewritten by this check. Exact inverse hunk check is in resumption-doc-check.json; no runtime gate executed."
+}

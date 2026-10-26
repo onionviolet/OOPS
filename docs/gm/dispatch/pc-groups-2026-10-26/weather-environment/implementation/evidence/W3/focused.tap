@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: mol and paradise native bindings keep their save keys, shapes and messages
+ok 1 - mol and paradise native bindings keep their save keys, shapes and messages
+  ---
+  duration_ms: 19.520833
+  type: 'test'
+  ...
+# Subtest: golden trace pins the shared save slice keys of both worlds
+ok 2 - golden trace pins the shared save slice keys of both worlds
+  ---
+  duration_ms: 0.301834
+  type: 'test'
+  ...
+# Subtest: covered ventilation dries; sealed humidity stalls without pretending the atmosphere is known
+ok 3 - covered ventilation dries; sealed humidity stalls without pretending the atmosphere is known
+  ---
+  duration_ms: 0.65775
+  type: 'test'
+  ...
+# Subtest: constant received intervals agree across uneven, minute and reload partitions, including fractional boundaries
+ok 4 - constant received intervals agree across uneven, minute and reload partitions, including fractional boundaries
+  ---
+  duration_ms: 3.596125
+  type: 'test'
+  ...
+# Subtest: partial shelter, prior wetness, heat and recovery have separate physical paths
+ok 5 - partial shelter, prior wetness, heat and recovery have separate physical paths
+  ---
+  duration_ms: 0.355458
+  type: 'test'
+  ...
+# Subtest: road freight holds cargo and two endpoint reservations; arrival does not silently give it to the player
+ok 6 - road freight holds cargo and two endpoint reservations; arrival does not silently give it to the player
+  ---
+  duration_ms: 203.439375
+  type: 'test'
+  ...
+# Subtest: a delayed or paused parcel cannot duplicate funding or overflow a full destination; empty return takes real time
+ok 7 - a delayed or paused parcel cannot duplicate funding or overflow a full destination; empty return takes real time
+  ---
+  duration_ms: 205.846042
+  type: 'test'
+  ...
+# Subtest: native rain resets exposed progress even when paused; a real cover protects a retained batch
+ok 8 - native rain resets exposed progress even when paused; a real cover protects a retained batch
+  ---
+  duration_ms: 133.64425
+  type: 'test'
+  ...
+# Subtest: adding a wet piece resets the retained batch; long and split weather advances agree exactly
+ok 9 - adding a wet piece resets the retained batch; long and split weather advances agree exactly
+  ---
+  duration_ms: 259.344459
+  type: 'test'
+  ...
+# Subtest: worker rooms share actual home occupancy with lodgers, preserve rights and serialize without a second ledger
+ok 10 - worker rooms share actual home occupancy with lodgers, preserve rights and serialize without a second ledger
+  ---
+  duration_ms: 323.143459
+  type: 'test'
+  ...
+# Subtest: human shifts stop new batches but retain accepted work; live room loss refunds reserved stock and wages
+ok 11 - human shifts stop new batches but retain accepted work; live room loss refunds reserved stock and wages
+  ---
+  duration_ms: 223.283458
+  type: 'test'
+  ...
+# Subtest: exact missing-component top ups recover partial deliveries without overfilling a held batch
+ok 12 - exact missing-component top ups recover partial deliveries without overfilling a held batch
+  ---
+  duration_ms: 51.448916
+  type: 'test'
+  ...
+# Subtest: shipping retained unknown stock preserves material identity and does not grant an observation
+ok 13 - shipping retained unknown stock preserves material identity and does not grant an observation
+  ---
+  duration_ms: 70.412083
+  type: 'test'
+  ...
+# Subtest: weather day_count stays distinct from the absolute service calendar and unavailable history earns no drying
+ok 14 - weather day_count stays distinct from the absolute service calendar and unavailable history earns no drying
+  ---
+  duration_ms: 57.059834
+  type: 'test'
+  ...
+# Subtest: rehearsal diverts real time/effort from mastery and opens two conserved, different combinations
+ok 15 - rehearsal diverts real time/effort from mastery and opens two conserved, different combinations
+  ---
+  duration_ms: 194.6965
+  type: 'test'
+  ...
+# Subtest: cancelled and unsupported completion return actual tools, grant no development and cannot replay a tier
+ok 16 - cancelled and unsupported completion return actual tools, grant no development and cannot replay a tier
+  ---
+  duration_ms: 107.649083
+  type: 'test'
+  ...
+# Subtest: missing active constituent, borrowed tools and unsupported body refuse without changing foundation or stock
+ok 17 - missing active constituent, borrowed tools and unsupported body refuse without changing foundation or stock
+  ---
+  duration_ms: 93.477583
+  type: 'test'
+  ...
+# Subtest: two actual lessons grant zero-start methods; capped drill keeps knowledge and names its next application
+ok 18 - two actual lessons grant zero-start methods; capped drill keeps knowledge and names its next application
+  ---
+  duration_ms: 133.845291
+  type: 'test'
+  ...
+# Subtest: counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+ok 19 - counted wet material dries on the paid rack, binds with exact refund custody and supplies existing commission
+  ---
+  duration_ms: 206.510417
+  type: 'test'
+  ...
+# Subtest: sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+ok 20 - sealed storage stalls, paid vents/heat recover, active pause retains passive airflow and previews stay pure
+  ---
+  duration_ms: 306.044583
+  type: 'test'
+  ...
+# Subtest: partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+ok 21 - partial removal preserves prior wetness, unequal cohorts remain distinct, long/reloaded partitions and duplicate settlement agree
+  ---
+  duration_ms: 183.251916
+  type: 'test'
+  ...
+# Subtest: leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+ok 22 - leaving the world freezes stationary material; carried unfinished stock keeps history and does not catch up
+  ---
+  duration_ms: 342.494292
+  type: 'test'
+  ...
+# Subtest: unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+ok 23 - unsupported hands, busy work, stale quantities and forged progress refuse without changing inputs
+  ---
+  duration_ms: 52.950791
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1895.8105

@@ -1,0 +1,30 @@
+{
+  "local_links_checked": 46,
+  "broken_links": [],
+  "PC_coverage": {
+    "PC44": true,
+    "PC45": true,
+    "PC46": true,
+    "PC47": true,
+    "PC48": true,
+    "PC49": true,
+    "PC50": true,
+    "PC51": true,
+    "PC52": true,
+    "PC53": true
+  },
+  "evidence_json_valid": [
+    "input-hashes.json",
+    "input-drift.json",
+    "boundary-probes.json"
+  ],
+  "source_test_drift_at_close": [
+    "src/book_care_facts.js",
+    "src/book_world_lotm_bench.js",
+    "src/book_world_lotm_host.js",
+    "src/peer_standing_domain.js"
+  ],
+  "test_window_drift": "none, see input-drift.json",
+  "later_checkout_retested": false,
+  "report_words": 3280
+}

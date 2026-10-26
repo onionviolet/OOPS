@@ -1,0 +1,16 @@
+{
+  "checkedAtUTC": "2026-10-26T17:32:42.636399+00:00",
+  "changedSinceCapture": [
+    {
+      "path": "src/book_care_facts.js",
+      "copiedSha256": "2b9f51bf50eafa0fb4445059b090c9a23ceb1d4f159c81e2b2a65c244e857419",
+      "liveSha256": "11478f955af2b994b14928dea392f17ef19633aba76e0e452f59186acd578438"
+    },
+    {
+      "path": "src/peer_standing_domain.js",
+      "copiedSha256": "027aa33028b445410957c20d407c0e464702808a6285f6b9ad7b8aea063330b7",
+      "liveSha256": "f18d921b2ed86e31543a8ca7a01d509797a34f6b9ba00d0ecc4c434b28ab1196"
+    }
+  ],
+  "note": "Focused check evidence applies to copied bytes; source inspection was bounded and live."
+}

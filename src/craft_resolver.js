@@ -6,7 +6,7 @@
 // every constituent, including traces, is retained (audit R4, C3).
 import {natural as nat, positive as pos} from './basics.js';
 import {address, compareCodePoints} from './gen_kit.js';
-import {MATRIX, deepFreeze, matchesQuery, materialTags, validateMaterial, versioned} from './craft_materials.js';
+import {MATRIX, deepFreeze, matchesQuery, materialTags, validateMaterial, validateMaterialQuery, versioned} from './craft_materials.js';
 
 export const BATCH_FAMILY = 'craft.batch@1';
 export const MAX_INPUT_QTY = 999;
@@ -54,6 +54,8 @@ export function defineCraftLaw(spec) {
     const reactions = (spec.reactions ?? []).map(r => {
         only(r, ['id', 'priority', 'after', 'catalyst', 'station', 'limit', 'reactants', 'products'], 'reaction');
         text(r.id, 'Reaction ID');
+        if(r.station != null && !catalogue.registry.has(r.station)) fail(`Unknown station tag: ${r.station}.`);
+        validateMaterialQuery(catalogue, r.catalyst);
         if(r.after != null && !ops[r.after]) fail(`Reaction ${r.id} follows unknown op ${r.after}.`);
         const sum = side => Object.entries(side ?? {}).reduce((n, [id, k]) => { axis(id, 'fraction'); if(!pos(k)) fail(`Reaction ${r.id} needs positive integer ratios.`); return n + k; }, 0);
         if(!sum(r.reactants) || sum(r.reactants) !== sum(r.products)) fail(`Reaction ${r.id} must conserve mass.`);
@@ -116,6 +118,11 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
     const consumed = lots.filter(l => l.role === 'consumed'), catalysts = lots.filter(l => l.role === 'catalyst');
     if(!consumed.length) fail('A batch needs at least one consumed input.');
     if(!Array.isArray(stations)) fail('Stations must be a tag list.');
+    for(const tag of stations) if(!catalogue.registry.has(tag)) fail(`Unknown station tag: ${tag}.`);
+    const unsupportedScalars = new Set(Object.values(catalogue.axes)
+        .filter(def => def.combination === 'unmixed' && consumed.length > 1).map(def => def.id));
+    // An unmodeled mixture metric does not ban a process that never reads it.
+    for(const id of unsupportedScalars) if(law.outputs.some(o => o.axis === id) || law.tagLaws.some(t => t.axis === id)) fail(`Axis ${id} has no supported mixture rule.`);
     const stationTags = new Set(catalogue.registry.expand(stations));
     const catalystTags = new Set(catalysts.flatMap(l => [...materialTags(catalogue, l.material)]));
     const mass = safe(consumed.reduce((n, l) => n + l.qty * basis, 0));
@@ -185,7 +192,7 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
     }
 
     if(Object.values(amounts).reduce((n, v) => n + v, 0) !== mass || Object.values(amounts).some(v => v < 0)) fail('Batch does not conserve mass.');
-    const scalars = Object.fromEntries(Object.entries(scalarSums).map(([id, sum]) => [id, Math.floor(sum / mass)]));
+    const scalars = Object.fromEntries(Object.entries(scalarSums).filter(([id]) => !unsupportedScalars.has(id)).map(([id, sum]) => [id, Math.floor(sum / mass)]));
     const outputs = {};
     for(const o of law.outputs) {
         const avail = availability[o.axis];

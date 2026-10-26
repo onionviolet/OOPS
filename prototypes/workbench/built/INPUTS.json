@@ -10,13 +10,14 @@
     "recipe-fixture/built/INPUTS.json": "267e17394f5480036d9ba5f9114f81631633bdb732875bceb512c6d9a3d3cae2",
     "recipe-fixture/built/comparison.js": "410a24399f5e1b6db2d1511fd6bd54d583e1b6f0945c696c6b48bad54e701770",
     "workbench/adapters/recipes.js": "7276c27b067668765bbba28915b27f4d4de8e5c9e18d0d640ca0a109fc5520ed",
-    "workbench/experiments.json": "6f598f89b804b7650ef0775fbd37c483fd5aa3f524a4dacd824e0d8797b62506",
+    "workbench/experiments.json": "4e1575e6f6d959b3cfcd72feb9b3fd4c7ad228104407cc54a1b3b1072cae83ec",
     "workbench/index.html": "c975fac5b634f9552263d54ac010c613d5e1af40ee97870a7041404a37eec638",
-    "workbench/workbench.js": "eba1e56930aa8e09d1918d3f0c2cdb2d1a6947d787fb6397f924eafb6af2029e",
+    "workbench/workbench.js": "47a22220b9e2fecb9b91e74ee1c0b02737d04a39f9e745bcbe0f5445a90f3194",
     "workbench/workbench.css": "cf1d899a9bd9dec3678a4dff1568401745478585a44dfa3cb6b98322108ad69e",
-    "workbench/build.mjs": "9dc80bcb5db0024ddcbef7778acc51d4721afca01d666c956fef998993620318",
+    "workbench/build.mjs": "f0ecb5cc77c81eff0b092af8b21a98afa78928bf4f48492d4e0c9f74d9cd78b5",
     "workbench/serve.mjs": "78fbfebf65e2899d171c595a1b82f650b0358e5709f31be3cff8eb52368a235c",
+    "workbench/built/character/INPUTS.json": "3cfaf2ec1c0627db0eb2b87123db6e7aba45e4db82a9e5af37c5bda1fcf167ff",
     "workbench/built/launch/INPUTS.json": "d616887f3ad92ca6db5a3749846a9fdd5dfa77d4995b632dc6e4e673b9db50ce"
   },
-  "revision": "a4cd98c93a59a19a"
+  "revision": "76792b074a4fcdef"
 }

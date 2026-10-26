@@ -1,0 +1,16 @@
+{
+  "lane": "G7-L1",
+  "status": "source and fixture-based browser/persistence/desktop evidence released; combined integration L3-owned",
+  "paths": {
+    "src/book_world_mol_lore.js": "095090d30af70bed217e3ed78cbeb2475d6f457a7a0ae556c868f4b18afcd8a4",
+    "src/book_world_mol_host.js": "b9672085bbf3ff8ce889f42a59d68173098e130cce649b1b267749d06f18de1f",
+    "src/book_world_mol_state.js": "8b5f292fe7fe2afe08d5976412f65216c846072410e1c1fd4d15d6fa7050f7c0",
+    "src/world_packs/book_mol_pack.js": "c95eddeb439793a72f453b35d1a9110237f50bbcd712c6943702aa3b88594e63"
+  },
+  "test": {
+    "path": "tests/mol_lore_documents.test.js",
+    "sha256": "1992d898c345c12baf3729a2eb739b18a8a9172c3d366cd1e1201009c2bf3d7c"
+  },
+  "bundleSha256": "d2f0795d739ef8a0ecc1b8e8a520683336355c4d865c24a7db52491b19b6af71",
+  "commands": "commands-before.json is unchanged incumbent baseline; later L2/L3 additions do not change frozen L1 inputs"
+}

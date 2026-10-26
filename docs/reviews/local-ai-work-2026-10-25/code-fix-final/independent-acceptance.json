@@ -1,0 +1,25 @@
+{
+  "command": "python3 acceptance.py",
+  "exit_code": 0,
+  "stdout": "ACCEPTANCE PASS: invalid output bytes, valid Unicode, both exit statuses, CLI JSON and retained output limits\n",
+  "result": {
+    "pass": true,
+    "mixed_encoding_exit_cases": [
+      {
+        "exit_code": 0,
+        "state": "probe-passed",
+        "cli_exit_code": 0
+      },
+      {
+        "exit_code": 7,
+        "state": "probe-failed",
+        "cli_exit_code": 1
+      }
+    ],
+    "retained_output_limits": {
+      "stdout": 16000,
+      "stderr": 4000
+    }
+  },
+  "tested_integrated_source_sha256": "8b5e0fcaff2b4bb6daac41476d92255648e5da09a4f9ad44c3f8ef79e5f76ba6"
+}

@@ -110,9 +110,13 @@ can do (scope, cost, new mode, new target) rather than only a number (HTP7, P3).
 
 **ABR11. Every use passes the causal contract.** Eligibility, Preview (known
 costs and range, no draw, no spend, no new knowledge), Commitment, Resolution,
-Observation, Aftermath, Recovery. Commands quote, then revalidate at completion
-(AR7). Cancellation refunds or forfeits as declared; losing support mid-use
-refunds per the descriptor.
+Observation, Aftermath, Recovery. Commands quote, then revalidate at each actual commitment boundary (AR7).
+Admission and quoted entitlement remain fixed for admitted work; completion
+checks apply to support the operation still needs and newly committed stages
+check their own requirements (GTR11). The current structured timed-ability
+adapter requires refunds for cancellation and lost-support reservations. Other
+policies need demonstrated adapter and transaction support, not prose alone.
+[Source trace and limitations](gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md#t1-admission-and-support-source-trace).
 
 **ABR12. Each ability needs a fitting use in the world.** An ability ships with
 at least one situation where it changes an outcome the player cares about: a
@@ -123,15 +127,20 @@ in the same slice as the ability.
 **ABR13. Abilities meet other systems through shared effects.** Damage, healing,
 items made or mended, knowledge, movement, social standing and conditions go to
 their owning systems (body, crafting, inventory, knowledge, presence). Making
-abilities obey MR20: magic input is a step with cost, not a free multiplier.
+abilities obey MR20: magical input uses its actual requirements and costs,
+including no cost where the mechanism supports it (AD5, AD38). Do not invent
+a balancing surcharge.
 
 ### Costs, limits and aftermath
 
-**ABR14. Costs use the world's own resource.** Default: an ability pays what its
-world says it pays (spirituality for LOTM, essence for Gu, stamina and a held
-wand for HP school charms), through the shared energy/vital/item cost entries.
-Today LOTM abilities pay stamina while the Seer method pays spirituality; align
-them when the rows are next touched.
+**ABR14. Costs follow the world's mechanism.** An ability declares its actual
+resource, custody and other requirements, including none, through the shared
+energy/vital/item cost entries. Distinguish a source-qualified requirement from
+an authored runtime default. Current authored examples include LOTM ability
+stamina costs, its Seer method's spirituality cost, and HP school charms' stamina
+and held-wand requirements. These examples do not establish source law. When
+next selected for alignment, verify the consequential requirement at the source
+locator before changing rows; naming a resource here selects no port or migration.
 
 **ABR15. Limits are adjectives, set per world (AGENTS limits).** How often, how
 much, how sure: charges, cooldowns, durations, strain and drawbacks are world
@@ -177,15 +186,21 @@ observe follows ABR19 for what is revealed.
 ### Proof
 
 **ABR22. Proof scales with the change (AD36 item 7, AD42).** A data-only row on an
-existing verb needs its row validation and one focused test that the effect
-reaches its consumer. A new verb, cost resource or crossing needs a rebuilt
-desktop browser run of acquire, use, observe aftermath, and Save/reload/Import
-when state persists. Receipts say "agent-verified, not human-reviewed" when
+unchanged proven mechanism uses its row validation plus one sampled batch
+journey under AD36 item 7. Add a focused regression for a changed meaningful
+invariant or reproduced defect. A new verb, cost resource or crossing needs a rebuilt
+desktop browser run of acquire, use, observe aftermath, and Save/reload/Export/Import
+when persistence changes. Receipts say "agent-verified, not human-reviewed" when
 Weibao has not played it.
 
 ## How this applies per world today
 
-| World | Ability rows now | Default next step under these rules |
+This table is an October 25 source snapshot and proposed work palette, not a
+current runtime census or source-law authority. Resource examples are authored
+runtime defaults until source-qualified; verify current owners when selecting
+a row. Its cost-alignment suggestions do not authorize a migration.
+
+| World | Ability rows at the October 25 inspection | Proposed next step |
 | --- | --- | --- |
 | LOTM | `book_world_lotm_abilities.js` ROWS: about 13 body-faculty rows over four pathways, stamina costs, drawbacks as prices, no digestion gate; Seer method hand-built with spirituality cost | ABR1/ABR12: give existing Spectator/Telepathist rungs a sourced use (acting toward digestion, perception that answers a real question). ABR14: move ability costs to spirituality. ABR7: add digestion facts where the source ties use to them |
 | HP | Two spells (levitation, glass repair) as descriptor rows; lesson/practice hand-written | ABR6: generate lesson/practice/cast from spell rows so the 100-row census (DWF165) can grow as data; ABR12: each new spell arrives with a school or adult use |

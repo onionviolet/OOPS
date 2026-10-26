@@ -230,3 +230,45 @@ subsets of HEAD (0 lines added) and stay recoverable as `06006feac19e`,
 edit in `GENERATION_FOUNDATION_RULES_2026-10-14.md` (+28/−6), and the modular-plan
 session's uncommitted cross-link notes in three of the engine thread's review docs.
 Those notes say "M3 remains stopped", which the later M3 resume (B4) superseded.
+
+## Receipts and the delivery floor, 2026-10-26
+
+Every lane checkpoint or receipt starts with the front-matter block proposed as
+[IPC27](../audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-2-2026-10-26-a-quality-floor-for-implementation-absorption-and-execution)
+so the integrator can read evidence without re-deriving it:
+
+```receipt-example
+build: <bundle sha256 from game_freeze>
+route: natural | fixture(<name>) | n/a (non-gameplay work)
+state: drafted | source-spot-checked | rules-reconciled | built | browser-verified | director-accepted
+viewport: 1920x1080 | n/a
+persistence: checked | unchanged | n/a
+tests: <focused files run>
+review: none | diff-scoped | landing
+surface: <core-owner files touched; new cycle edges; registration lines paid>
+```
+
+A runtime slice is done only at the accepted floor
+[FLR1–FLR6 (AD43)](../GROUND_RULES.md); otherwise the receipt says
+"implemented, below floor". The `surface:` line is FND2, proposed.
+
+Tooling adoption, 2026-10-26: write actual machine-readable blocks with a
+`receipt` fence. `npm run check:rules` includes receipt validation; new
+`CHECKPOINT.md` and `RECEIPT.md` files under `docs/gm/dispatch/` are checked
+regardless of folder date or nesting. The fixed
+`scripts/receipt_legacy_paths.json` inventory preserves pre-adoption receipts;
+do not add new paths to bypass validation. A receipt fence opts an old path in,
+and `npm run check:receipts -- --files <path>` explicitly validates any file.
+This checks recorded fields, not whether the claimed evidence is true.
+
+For concurrent local proof, `BUILD_OUT=/tmp/oops-lane-name npm run build`
+writes its own page, bundle, map and notices. Serve that directory as the HTTP
+root. Static assets are symlinks to the current source assets, so this is a
+local preview, not an immutable deployment; its bundle hash and asset-input
+identity belong in the receipt. Default builds still use tracked outputs.
+
+Other adopted commands: `npm run check:docs` is a heuristic diagnostic of
+changed/new prose; `npm run check:descriptions` writes an author inventory,
+`npm run check:generators` reports static generator signals, and
+`npm run report:cycles` groups the existing cycle baseline. These reports do
+not certify writing quality, generation behavior, or completed refactoring.

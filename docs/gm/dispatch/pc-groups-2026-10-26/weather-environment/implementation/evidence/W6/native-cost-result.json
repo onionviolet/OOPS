@@ -1,0 +1,62 @@
+{
+  "route": "Focused actual heater/cost display on reimported joined field export; no new grants",
+  "origin": "http://127.0.0.1:64871",
+  "errors": [],
+  "roundtrips": [
+    "final-paid-heat"
+  ],
+  "bundleHash": "58111bc7314c13f3308971cbfeae02756089322a88b0c0f277a6c25a521cb5d5",
+  "actualPaidHeat": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 1042.03125,
+        "right": 1354.421875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 1042.03125,
+        "right": 1354.421875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1028.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1028.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "bundleUrl": "http://127.0.0.1:64871/dist/bundle.js?version=v0.6-58111bc7314c",
+  "status": "agent-verified, not human-reviewed"
+}

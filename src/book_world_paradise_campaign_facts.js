@@ -1,7 +1,10 @@
+import {validateParadiseEcology} from './book_world_paradise_ecology.js';
 // Pure admission facts and exact optional-state reader. Nothing initializes
 // means on read, render, refresh or return; only actual commands grant effects.
 import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
 import {paradiseFacts} from './book_world_paradise_actions.js';
+import {PARADISE_DRYING,readDryingKey,isBindableStave,validateParadiseDryingState,validDryingBindingCosts} from './book_world_paradise_drying.js';
+import {PARADISE_ENVIRONMENT,validPreparationJob} from './book_world_paradise_environment_inputs.js';
 import {PARADISE_CAMPAIGN_IDS as I, PARADISE_CAMPAIGN_WINDOW as W, paradiseCampaignDefinitions as D, paradiseCampaignWithdrawalEffects, paradiseCampaignPostRescueWithdrawalEffects} from './book_world_paradise_campaign_content.js';
 
 const F=I.prefix, natural=n=>Number.isSafeInteger(n)&&n>=0, check=(v,message)=>{if(!v)throw Error(message);};
@@ -52,6 +55,7 @@ export function paradiseCampaignFacts(state,context={}){
         'paradiseCampaign.methodActive':supported&&active&&ownTools,
         'paradiseCampaign.methodResumable':supported&&methodOwned&&faculty?.awakened===true&&!faculty.suppressed,
         'paradiseCampaign.controlled':methodOwned&&power.mastery>=2,'paradiseCampaign.mastered':methodOwned&&power.mastery>=3,
+        'paradiseCampaign.foundation':faculty?.development??0,
         'paradiseCampaign.practiceAvailable':methodOwned&&power.mastery<3,
         'paradiseCampaign.wrapped':!!paradiseCampaignCondition(state,I.guard),
         'paradiseCampaign.surveyed':facts[F+'gateSurvey']===true&&a?.completed?.[F+'goa.recon']===1&&s.knowledge?.player?.[F+'gate_survey']?.stage==='understood',
@@ -88,6 +92,8 @@ export function paradiseCampaignFacts(state,context={}){
     // Actor-specific private facts stay admission-only. A read never reports
     // the NPC purse, agenda, personal source or received knowledge to UI.
     result['paradiseCampaign.actorSupported']=oldFacts[`paradise.support.${actor}`]===true;
+    result['paradiseDrying.rack']=!!s.people?.[PARADISE_DRYING.rack];
+    result['paradiseDrying.dryCount']=Object.entries(context.gameplay?.player?.inventory||{}).reduce((n,[key,count])=>n+(isBindableStave(key)?count:0),0);
     return result;
 }
 export const paradiseCampaignContext=(state,context={})=>({...context,facts:{...context.facts,...paradiseFacts(state,context),...paradiseCampaignFacts(state,context)}});
@@ -124,6 +130,7 @@ export function paradiseCampaignExistingCommandGate(state,id){
 }
 
 export function validateParadiseCampaignDepthState(state,registry){
+    validateParadiseDryingState(state);validateParadiseEcology(state);
     const s=state.simulation,actors=['player',P.hank,P.krieg,P.mia,P.employee,P.porter],commands=new Map(D.commands.map(d=>[d.id,d]));
     const present=Object.values(state.actors||{}).some(a=>[a.facts,a.completed,a.resources,a.sources].some(v=>Object.keys(v||{}).some(k=>k.startsWith(F))))||
         Object.values(state.worlds||{}).some(w=>Object.keys(w.facts||{}).some(k=>k.startsWith(F)))||
@@ -154,8 +161,13 @@ export function validateParadiseCampaignDepthState(state,registry){
         key===F+'rescueOutcome'&&['earlier_shelter','earlier_loss'].includes(value),'Unsupported extended-branch world consequence.');
     const player=state.actors.player,power=s.powers?.player?.[I.method];
     const learned=(player.completed[F+'hub.learn_paid']||0)+(player.completed[F+'hub.learn_self']||0);
+    const rehearsals=[1,2].map(tier=>player.completed[F+'hub.foundation_'+tier]||0);
+    check(rehearsals.every(n=>natural(n)&&n<=1)&&(!rehearsals[1]||rehearsals[0])&&(!rehearsals.some(Boolean)||learned===1),
+        'Load-path planning needs its own ordered, once-completed rehearsals and learned line procedure.');
     check(learned<=1&&!!player.sources[I.method]===(learned===1)&&!!power===(learned===1),'Line procedure ownership requires one actual acquisition, without copied or double learning.');
     if(power){
+        check(s.faculties?.player?.[I.method]?.development===rehearsals[0]+rehearsals[1],
+            'Line-planning development must equal actual completed rehearsals, without duplicated foundation.');
         const instruction=s.knowledge.player?.[F+'line_instruction'];
         check(power.owned&&power.mastery>=0&&power.mastery<=4&&player.sources[I.method].receiptId===instruction?.cause,
             'This finite line mastery or source grant lost its actual paid/self instruction receipt.');
@@ -167,7 +179,7 @@ export function validateParadiseCampaignDepthState(state,registry){
         check(choices.reduce((n,id)=>n+(player.completed[id]||0),0)<=1,'An exclusive physical shelter/account cannot be completed twice under alternative IDs.');
     for(const job of (s.jobs||[]).filter(j=>j.commandId.startsWith(F))){const d=commands.get(job.commandId),participants=[d?.actorId,...(d?.participants||[]).map(id=>id==='$target'?d.targetId:id)];
         check(d&&d.duration>0&&job.revision===d.revision&&job.actorId===d.actorId&&job.targetId===(d.targetId||null)&&job.reservationReturns===1&&
-            same(job.costs,d.costs)&&same(job.effects,d.effects)&&same(job.participants,[...new Set(participants)])&&job.cancellation==='refund'&&job.claim===(d.claim||null)&&
+            (d.id.startsWith(PARADISE_ENVIRONMENT.prefix)?validPreparationJob(job,d,state):(d.id===PARADISE_DRYING.prefix+'bind'?validDryingBindingCosts(job.costs,d):same(job.costs,d.costs))&&same(job.effects,d.effects))&&same(job.participants,[...new Set(participants)])&&job.cancellation==='refund'&&job.claim===(d.claim||null)&&
             job.siteId===(d.siteId||null)&&natural(job.due)&&job.due<=state.clock+d.duration&&same(job.completionSupport,{schema:1,requires:d.completionRequires,
                 coLocated:!!d.completionCoLocated,location:d.location,failure:'refund'}),'Extended-branch reserved work differs from its exact authored body/inputs/support/refund definition.');
         if(registry)check(same(registry.simulation.commands.get(d.id),d),'The admitted extended-branch command definition changed.');

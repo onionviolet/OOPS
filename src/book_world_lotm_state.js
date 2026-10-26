@@ -8,6 +8,7 @@ import {causeAssertions,causeHeld} from './book_world_lotm_causes.js';
 import {brewAssertions} from './book_world_lotm_brew.js';
 import {brokerAssertions} from './book_world_lotm_broker.js';
 import {benchAssertions} from './book_world_lotm_bench.js';
+import {roleOutcomeAssertions} from './book_world_lotm_districts.js';
 import {meritAssertions} from './book_world_lotm_merit.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 import {generatedRows} from './book_world_lotm_generated.js';
@@ -74,6 +75,7 @@ export function validateLotmState(state){
  brokerAssertions({a,has,assert});
  benchAssertions(state,{a,has,assert,natural});
  meritAssertions(state,{a,assert,natural});
+ roleOutcomeAssertions(state,{assert,natural});
  causeAssertions({a,has,assert,natural});
  const e=s.energies?.player?.[I.energy];
  assert(!!e===!!src,'The spirituality pool exists exactly when the source does.');

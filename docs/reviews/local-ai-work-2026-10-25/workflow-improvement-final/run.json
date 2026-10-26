@@ -1,0 +1,33 @@
+{
+  "scratch": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-improved-codefix-gorcaz9w",
+  "pid": 90071,
+  "process_group": 90071,
+  "input_sha256": "0ee869b3ef4e91f3937fa89d909ac9e544ae0e518e548cf6e23c0b563b1022e6",
+  "prompt_sha256": "b17bd17caef682af5d594010c46d6203790da5a0d0498309eb486ca9873d6963",
+  "command": [
+    "/Users/weiwei/.local/bin/dsh-work",
+    "--patch",
+    "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-improved-codefix-gorcaz9w/observe-overlay.json",
+    "--session-id",
+    "session-bc43e071-970a-488a-8a4a-b53b921d4d0f",
+    "--json",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "-"
+  ],
+  "wall_limit_seconds": 180,
+  "max_model_steps": 4,
+  "diagnostic_control_requests": 0,
+  "relay_url": "http://127.0.0.1:54763/v1",
+  "exit_code": 0,
+  "elapsed_seconds": 10.226,
+  "steps_started": 2,
+  "stopped": null,
+  "registry_unchanged": true,
+  "acceptance_checker_unchanged": true,
+  "check_config_unchanged": true,
+  "wire_task_requests": 2,
+  "verified_off": true
+}

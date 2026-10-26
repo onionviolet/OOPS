@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: all six channels require real means; projection excludes causes and unmeasured absence
+ok 1 - all six channels require real means; projection excludes causes and unmeasured absence
+  ---
+  duration_ms: 0.849167
+  type: 'test'
+  ...
+# Subtest: one observation supports multiple known diagnoses without determining truth or granting knowledge
+ok 2 - one observation supports multiple known diagnoses without determining truth or granting knowledge
+  ---
+  duration_ms: 0.209833
+  type: 'test'
+  ...
+# Subtest: original pilot observes actual thermal residence and particle phases without exposing identity
+ok 3 - original pilot observes actual thermal residence and particle phases without exposing identity
+  ---
+  duration_ms: 0.119042
+  type: 'test'
+  ...
+# Subtest: rescue revalidates means, costs actual additions and changes remaining concentration without restoring losses
+ok 4 - rescue revalidates means, costs actual additions and changes remaining concentration without restoring losses
+  ---
+  duration_ms: 0.236958
+  type: 'test'
+  ...
+# Subtest: supported verbs dispatch to their own laws; unsupported, costless and malformed results reject
+ok 5 - supported verbs dispatch to their own laws; unsupported, costless and malformed results reject
+  ---
+  duration_ms: 0.28425
+  type: 'test'
+  ...
+# Subtest: even a mutating quote adapter cannot modify current truth or means
+ok 6 - even a mutating quote adapter cannot modify current truth or means
+  ---
+  duration_ms: 0.06275
+  type: 'test'
+  ...
+# Subtest: cooling policy delegates real thermal law and retains irreversible history
+ok 7 - cooling policy delegates real thermal law and retains irreversible history
+  ---
+  duration_ms: 0.382167
+  type: 'test'
+  ...
+# Subtest: split policy delegates separation conservation and accounts every dose exactly once
+ok 8 - split policy delegates separation conservation and accounts every dose exactly once
+  ---
+  duration_ms: 0.626417
+  type: 'test'
+  ...
+# Subtest: demonstrated method records actual order, quantities, apparatus, uncertainty and useful weaker result
+ok 9 - demonstrated method records actual order, quantities, apparatus, uncertainty and useful weaker result
+  ---
+  duration_ms: 0.403084
+  type: 'test'
+  ...
+# Subtest: modes execute identical work; guided/deep expose choices and actual helpers revalidate
+ok 10 - modes execute identical work; guided/deep expose choices and actual helpers revalidate
+  ---
+  duration_ms: 0.938458
+  type: 'test'
+  ...
+# Subtest: bounded receipt does not turn a truncated sequence into universal quick knowledge
+ok 11 - bounded receipt does not turn a truncated sequence into universal quick knowledge
+  ---
+  duration_ms: 0.281208
+  type: 'test'
+  ...
+# Subtest: stop policy uses known cue or absolute clock without draws, hidden causes or chunk count
+ok 12 - stop policy uses known cue or absolute clock without draws, hidden causes or chunk count
+  ---
+  duration_ms: 0.076583
+  type: 'test'
+  ...
+# Subtest: repeat shifts demonstrated steps and deadline to the new game clock without changing durations
+ok 13 - repeat shifts demonstrated steps and deadline to the new game clock without changing durations
+  ---
+  duration_ms: 0.10675
+  type: 'test'
+  ...
+# Subtest: demonstrated apparatus capabilities admit a fitting replacement and refuse inadequate scale
+ok 14 - demonstrated apparatus capabilities admit a fitting replacement and refuse inadequate scale
+  ---
+  duration_ms: 0.098458
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 47.339459

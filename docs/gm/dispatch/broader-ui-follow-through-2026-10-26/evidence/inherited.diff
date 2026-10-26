@@ -1,0 +1,142 @@
+diff --git a/docs/UI_RULES.md b/docs/UI_RULES.md
+index 4e7a285ce..dea88698b 100644
+--- a/docs/UI_RULES.md
++++ b/docs/UI_RULES.md
+@@ -29,6 +29,29 @@ separate. A screenshot, row count or absence of overflow alone establishes none
+ of the later gates. A settled UI fix does not need a new prototype; use the
+ existing mockup workflow only when the design question is actually unsettled.
+ 
++## Descriptions explain the experience and effect, 2026-10-25
++
++Weibao requested rules for more narrative UI descriptions, especially traits,
++while retaining calculations. [Direction](USER_VISION.md#effect-first-ui-descriptions-2026-10-25)
++and [source comparison, examples and verification](reviews/ui-descriptions-2026-10-25/REPORT.md).
++These apply to stats, traits, skills, items, conditions, actions and other
++inspectable subjects, alongside UR40/42/43/47 and AD6–AD8.
++
++| Code | Rule | Mistake it prevents |
++| --- | --- | --- |
++| UR70 | **Lead with meaning and practical effect.** Default to one or two short sentences explaining what the subject represents and what it changes for the character. A trait may describe how it manifests in the body, habits or experience; a stat explains what increasing it helps. Use concrete verbs and restrained world-appropriate voice. Longer narrative belongs in a deliberate reading surface. | A tooltip opening with “Native current-player attribute” or atmosphere that never explains what the trait does |
++| UR71 | **Give mechanics a supporting layer.** Follow the description with relevant current effects, conditions, costs, drawbacks or duration, then a labelled calculation/source breakdown when useful. Retain exact useful numbers and formulas through UR42/43 disclosure; short descriptions need not reproduce the entire calculation. Spell out unfamiliar ratings and distinguish power, damage and target-specific chances under UR40. | A formula replacing the explanation, or narrative removing the information needed to choose |
++| UR72 | **Describe actual behavior with its conditions.** Trace effect wording to the owning consumer and observer-permitted state. Distinguish present effects, dormant or conditional effects, uncertain knowledge and unimplemented uses in player terms. Narrative can express the character's known belief, clearly qualified; it cannot establish an effect or reveal a sealed truth. | Copying a source's magic claim into a stat with no working magic consumer, or describing an inactive trait as already helping |
++| UR73 | **Write for the player, with useful detail density.** Default to familiar names and meaningful comparisons. Internal source categories, stored-field caveats, pipeline terminology and tracing notes belong in developer documentation unless they explain a concrete player consequence. Omit repetitive neutral rows and empty-modifier messages by default; retain an explicit value or neutral comparison when it helps the current question. | Repeating Unit/points/Base/Before multipliers/×1 on every hover, or exposing implementation warnings as flavor text |
++| UR74 | **Keep one meaning across surfaces and check the words against play.** Reuse the owning subject's description and public effect projection across hover, pinned inspection, lists and reference views; shorten by disclosure rather than writing conflicting copies. For changed copy, check the active case and a relevant conditional, inactive or unknown case. Runtime delivery follows AD36 with rebuilt desktop evidence; document-only rules do not establish rewritten or playable tooltips. | A trait card, tooltip and effect list disagreeing, or a prose rule being reported as a shipped UI repair |
++| UR75 | **Explain terms and comparisons where they affect a choice.** Default to a short explanation of unfamiliar ratings or specialized terms in the current inspection. Say what higher/lower changes, which target or baseline matters, and distinguish a percent change from percentage points when relevant. Use warnings for the current subject and circumstances; keep deeper definitions available through an existing reference route when one exists. Reuse the owning numbers rather than adding display-side mechanics. | An unexplained AP bonus, “less damage” with no baseline, or a warning about a requirement that does not apply here |
++
++Implementation application, 2026-10-26: live inspection retains expanded details,
++selection and reading position when its numbers update (UR43/74). A cosmetic
++trait with no numerical contribution is not thereby inactive (UR72). The
++[implementation round and other-game comparison](reviews/ui-descriptions-2026-10-25/REPORT.md#implementation-round-user-selected-2026-10-25)
++record evidence and the bounded coverage of these applications.
++
+ ## Before you build: decide where it belongs
+ 
+ For an unsettled layout or interaction, use the
+diff --git a/src/proto23_shell.js b/src/proto23_shell.js
+index 39e88c2a4..a6b0fb1c9 100644
+--- a/src/proto23_shell.js
++++ b/src/proto23_shell.js
+@@ -19,22 +19,23 @@ const active=()=>document.getElementById('main_content')?.dataset.presentation==
+ const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
+ function attributeExplanation(row){
+     const fragment=document.createDocumentFragment(),numeric=value=>value==null?'Unavailable':typeof value==='number'?String(Number(value.toFixed(value!==0&&Math.abs(value)<.01?6:3))):String(value);
+-        const heading=node('h3',row.label),description=node('p',row.description||'Native player attribute.','attribute-description'),facts=node('dl',null,'attribute-facts');
+-        const fact=(label,value)=>{const pair=node('div');pair.append(node('dt',label),node('dd',value));facts.append(pair);};
+-        fact('Current',row.formatted??numeric(row.value));
+-        if(row.unit)fact('Unit',row.unit);
+-        if(row.base!=null||row.baseFormatted!=null)fact('Base',row.baseFormatted??numeric(row.base));
+-        if(row.preMultiplier!=null)fact('Before multipliers',numeric(row.preMultiplier));
+-        if(row.totalMultiplier!=null)fact('Total multiplier','×'+numeric(row.totalMultiplier));
+-        fragment.append(heading,description,facts);
+-        if(row.availability?.note)fragment.append(node('p',row.availability.note,'attribute-note'));
+-        const contributors=(row.sources||[]).filter(source=>source.flat!=null&&source.flat!==0||source.multiplier!=null&&source.multiplier!==1);
+-        if(contributors.length){
+-            fragment.append(node('h4','Native modifier sources'));
+-            const table=node('table',null,'attribute-sources'),head=node('thead'),header=node('tr');for(const label of ['Source category','Flat','Multiplier'])header.append(node('th',label));head.append(header);table.append(head);
+-            const body=node('tbody');for(const source of contributors){const tr=node('tr');tr.append(node('th',source.label),node('td',source.flat!=null&&source.flat!==0?(source.flat>0?'+':'')+numeric(source.flat):'None'),node('td',source.multiplier!=null&&source.multiplier!==1?'×'+numeric(source.multiplier):'None'));body.append(tr);}table.append(body);fragment.append(table,node('p','Native categories may combine several contributors. Individual item or effect attribution is shown only when supplied.','attribute-note'));
+-        }else fragment.append(node('p','No non-neutral modifiers reported.','attribute-note'));
+-    return fragment;
++    const heading=node('h3',row.label),description=node('p',row.description,'attribute-description'),facts=node('dl',null,'attribute-facts');
++    const fact=(host,label,value)=>{const pair=node('div');pair.append(node('dt',label),node('dd',value));host.append(pair);};
++    fact(facts,'Current',row.formatted??numeric(row.value));fragment.append(heading,description,facts);
++    if(row.availability?.note)fragment.append(node('p',row.availability.note,'attribute-note'));
++    const details=node('details',null,'attribute-calculations'),breakdown=node('dl',null,'attribute-facts');details.dataset.attributeCalculations=row.id;
++    details.append(node('summary','Calculation and sources'));
++    if(row.calculation)details.append(node('p',row.calculation));
++    if(row.base!=null)fact(breakdown,'Base',row.baseFormatted??numeric(row.base));
++    if(row.preMultiplier!=null&&row.preMultiplier!==row.base)fact(breakdown,'Before multipliers',numeric(row.preMultiplier));
++    if(row.totalMultiplier!=null&&row.totalMultiplier!==1)fact(breakdown,'Total multiplier','×'+numeric(row.totalMultiplier));
++    details.append(breakdown);
++    const contributors=(row.sources||[]).filter(source=>source.flat!=null&&source.flat!==0||source.multiplier!=null&&source.multiplier!==1);
++    if(contributors.length){
++        const table=node('table',null,'attribute-sources'),head=node('thead'),header=node('tr');for(const label of ['Source','Added','Multiplier'])header.append(node('th',label));head.append(header);table.append(head);
++        const body=node('tbody');for(const source of contributors){const tr=node('tr');tr.append(node('th',source.label),node('td',source.flat!=null&&source.flat!==0?(source.flat>0?'+':'')+numeric(source.flat):'None'),node('td',source.multiplier!=null&&source.multiplier!==1?'×'+numeric(source.multiplier):'None'));body.append(tr);}table.append(body);details.append(table);
++    }
++    fragment.append(details);return fragment;
+ }
+ // Own section within the existing character Stats home. This is a reader,
+ // never an attribute engine: formats, bases and contributor categories are native.
+@@ -45,7 +46,7 @@ function mountAttributeInspector(){
+     for(const[id,label]of [['all','All attributes'],['primary','Primary'],['offense','Offense'],['defense','Defense'],['health','Health'],['stamina','Stamina'],['mana','Mana'],['environment','Environment'],['learning','Learning']]){const option=node('option',label);option.value=id;group.append(option);}
+     const modifiedLabel=node('label'),modified=node('input');modified.type='checkbox';modifiedLabel.append(modified,document.createTextNode(' With modifiers'));tools.append(group,modifiedLabel);
+     const count=node('p',null,'attribute-inspector-count'),layout=node('div',null,'attribute-inspector-layout'),list=node('div',null,'attribute-inspector-list'),reading=node('section',null,'attribute-inspector-detail');
+-    list.setAttribute('aria-label','Native attributes');reading.tabIndex=0;reading.setAttribute('aria-label','Selected attribute explanation');
++    list.setAttribute('aria-label','Player attributes');reading.tabIndex=0;reading.setAttribute('aria-label','Selected attribute explanation');
+     const empty=node('p','No attributes match these filters.','attribute-empty');empty.hidden=true;layout.append(list,reading);section.append(tools,count,empty,layout);home?.append(section);
+     const records=new Map();let rows=[],selectedId=null,detailSignature='',shown=false;
+     const setText=(target,value)=>{const text=String(value??'');if(target.textContent!==text)target.textContent=text;};
+@@ -53,9 +54,11 @@ function mountAttributeInspector(){
+     function select(id){selectedId=id;paint();}
+     function paintDetail(row){
+         const signature=JSON.stringify([row||null,row&&getDisplaySetting(pinKey(row.id))]);if(signature===detailSignature)return;detailSignature=signature;
+-        const top=reading.scrollTop;reading.replaceChildren();reading.dataset.attributeId=row?.id||'';
++        const top=reading.scrollTop,expanded=reading.dataset.attributeId===row?.id&&!!reading.querySelector('[data-attribute-calculations]')?.open,focused=reading.contains(document.activeElement);reading.replaceChildren();reading.dataset.attributeId=row?.id||'';
+         if(!row){reading.append(node('p','Choose an attribute to inspect.','attribute-empty'));return;}
+         reading.append(attributeExplanation(row));
++        reading.querySelector('[data-attribute-calculations]').open=expanded;
++        if(focused)reading.querySelector('summary').focus({preventScroll:true});
+         if(pinnable.has(row.id)){
+             const pinned=getDisplaySetting(pinKey(row.id))==='on';
+             const pin=action(pinned?'Unpin row':'Pin row',()=>{setDisplaySettings({[pinKey(row.id)]:pinned?'off':'on'});paint();});
+@@ -120,17 +123,18 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+     // Context previews reuse public native descriptions. No hidden actor lookup,
+     // simulation mutation, or reconstruction of an old event from current state.
+     const contextPreview=node('aside',null,'shell-context-preview');contextPreview.id='shell_context_preview';contextPreview.setAttribute('popover','manual');contextPreview.setAttribute('role','tooltip');player.append(contextPreview);
+-    let contextSource=null,contextTimer=null,contextSignature='',contextPinned=false;
++    let contextSource=null,contextTimer=null,contextSignature='',contextPinned=false,returningContextFocus=false;
+     function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';contextPinned=false;}
+     function showContext(source,interactive=false){
+         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
+         if(document.getElementById('main_content').dataset.shellResizing==='true'){hideContext();return;}
+         if(contextPinned&&contextSource!==source&&!interactive)return;
+         contextPinned=interactive||contextSource===source&&contextPinned;
++        const expanded=contextSource===source&&!!contextPreview.querySelector('[data-attribute-calculations]')?.open,focused=contextPreview.contains(document.activeElement);
+         const anchor=source.getBoundingClientRect();
+-        contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const contentSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;const nextSignature=JSON.stringify([contentSignature,anchor.x,anchor.y,anchor.width,anchor.height]);if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
++        contextPreview.setAttribute('role',contextPinned?'dialog':'tooltip');contextPreview.setAttribute('aria-label','Inspection details');contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const contentSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;const nextSignature=JSON.stringify([contentSignature,anchor.x,anchor.y,anchor.width,anchor.height]);if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+         contextPreview.replaceChildren();
+-        if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
++        if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));contextPreview.querySelector('details').open=expanded;if(!contextPinned)contextPreview.append(node('small','Click this stat or press Enter to inspect its details.'));if(focused)contextPreview.querySelector('summary').focus({preventScroll:true});
+         }else if(source.dataset.contextPreview==='temperature'){
+             contextPreview.append(node('strong','Temperature'),node('p',source.title));
+             const native=document.getElementById('temperature_tooltip');if(native)contextPreview.append(descriptionCopy(native,{omitTitle:false}));
+@@ -168,16 +172,16 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
+         source.setAttribute('aria-describedby',contextPreview.id);
+     }
+     const contextSelector='[data-context-preview=temperature],[data-context-preview=effect],.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,.character_bar_parent_div:has([id$="_tooltip"])';
+-    const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
++    const contextEnter=event=>{if(returningContextFocus)return;const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
+     const contextLeave=event=>{if(contextPinned)return;const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
+     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
+     for(const type of ['mouseout','focusout'])document.addEventListener(type,contextLeave);
+     contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{if(contextPinned)return;contextTimer=setTimeout(hideContext,180);});
+-    const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){hideContext();event.preventDefault();event.stopImmediatePropagation();}};
++    const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){const returnTo=contextSource;hideContext();returningContextFocus=true;returnTo?.focus({preventScroll:true});returningContextFocus=false;event.preventDefault();event.stopImmediatePropagation();}};
+     document.addEventListener('keydown',contextDismiss,true);
+     const resizeDismiss=event=>{if(event.target.closest('[data-shell-resize]')){hideContext();hidePreview();}};
+     document.addEventListener('pointerdown',resizeDismiss);
+-    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect]');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target))hideContext();});
++    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect],[data-attribute-preview]');if(subject){showContext(subject,true);if(subject.dataset.attributePreview)contextPreview.querySelector('summary')?.focus({preventScroll:true});return;}if(!contextPreview.contains(event.target))hideContext();});
+ 
+     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
+     preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');

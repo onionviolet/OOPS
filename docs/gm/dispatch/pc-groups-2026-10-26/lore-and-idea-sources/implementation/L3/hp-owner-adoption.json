@@ -1,0 +1,9 @@
+{
+  "release": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/N2-dose-release.json",
+  "adoptedTestSha256": "87ef5cf0c35915cc5982bc3c1a3900896fc93111821d0226351e3a25732e1b44",
+  "retainedFrozenHpStateSha256": "e4e201576a5cb9e3ae6caca467b4bb6eab4f7de52928117cea11394ab623b73f",
+  "primaryTestWrittenBy": "G1-I4",
+  "L3PrimaryWrites": false,
+  "N2RuntimeAdopted": false,
+  "affectedFileResult": "passed; TAP count in hp-owner-final-recovery.log"
+}

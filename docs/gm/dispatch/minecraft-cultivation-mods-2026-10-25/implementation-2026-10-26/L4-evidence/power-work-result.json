@@ -1,0 +1,73 @@
+{
+  "bundleSha256": "fca591cf16ee271c02cad23ef285ce703d1dbadfdc7bb5b70e7380046e58f72a",
+  "persistence": [
+    {
+      "state": "pending",
+      "exportChars": 242736,
+      "exportSha256": "72b8e64e0b49b5e79da2e48820ba760efe5b5856da2449f34507c4ddc762acd8",
+      "projectSha256": "585e18f857392b7e022961c71bf3e56f37bf1dbf21c5c4362706c2cdd4924209"
+    },
+    {
+      "state": "completed",
+      "exportChars": 241680,
+      "exportSha256": "7640777220e2af1bb62254c415fa13d406a43152ddda7f874562680ae7fece71",
+      "projectSha256": "7f860759191b96ff9ea4193b61acf67da50b1ba848eecb1c0eca953017bccdac"
+    }
+  ],
+  "ability": {
+    "beforeStaminaToFull": 0,
+    "afterStaminaToFull": 2
+  },
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 699,
+        "panelContentWidth": 699,
+        "font": "14px"
+      },
+      "file": "power-work-1920-14.png"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 693,
+        "panelContentWidth": 693,
+        "font": "21px"
+      },
+      "file": "power-work-1920-21.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 477,
+        "panelContentWidth": 477,
+        "font": "14px"
+      },
+      "file": "power-work-1536-14.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 473,
+        "panelContentWidth": 473,
+        "font": "21px"
+      },
+      "file": "power-work-1536-21.png"
+    }
+  ],
+  "errors": [],
+  "route": "Fresh Storm life, report, allocated Sailor dose, ingestion, deep breath, paid manifest recovery; no gameplay grants"
+}

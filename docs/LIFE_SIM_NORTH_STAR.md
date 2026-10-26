@@ -7660,3 +7660,102 @@ become a meter, chore, bonus or penalty; model it where it changes a selected
 interaction, and allow descriptive texture too. [Engine gap map](ENGINE_EXPANSION.md#possibility-support-across-domains-2026-10-16)
 distinguishes existing seams from proposed work. No new NPC-heavy work, offline
 policy or implementation slice follows from this palette.
+
+## Everyday places and becoming a regular, round 2026-10-26
+
+Weibao asked about the little parts of daily life, using a dojo from Proto23
+as a reference, clarified that this was pondering content and how it might exist
+in each world, then asked why it had not been considered before and for more
+consideration. This round is **proposal and historical reconciliation**, not
+implementation selection or acceptance of the examples. No fresh Proto23 source
+or franchise canon check was performed; the examples below are original adaptation
+ideas, not claims about those sources' mechanics.
+
+Applies AD5/AD6–AD8/AD15–AD17/AD32–AD34/AD38, PIR1–PIR3/PIR9/PIR20–PIR23,
+and WPR5/WPR21/WPR27/WPR30 as relevant. Existing direction remains authoritative.
+
+### ACT NOW: correct the framing (completed)
+
+**EL1 · Previously considered, incompletely connected.** This owner's opening,
+Progression and Little stuff sections already propose habits, colleagues,
+favorite foods, recurring contacts and accumulating homes. The October 16
+Everyday possibilities section above covers maintenance, cooperation and routines.
+[Village life loops](PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md) records bounded
+watch, market and courier work; inspected `src/absorb_c2/local_life.js` contains
+the corresponding schedule/state mechanisms. The
+[people/institutions/life palette](worlds/world-core-kit-2026-10-14/W3_PEOPLE_INSTITUTIONS_LIFE.md)
+already proposes world-specific casts, routines, institutions and budgets.
+These are different evidence states, not proof that the full experience is live.
+The earlier chat answer made the concept sound newer than it is; corrected here.
+
+**EL2 · Likely experience gap, not a proved development history.** The inspected
+material divides life into systems, tables and bounded tasks. That suggests a
+connection gap: returning to one place, recognizing its people and seeing actual
+past actions change today's experience. This is an inference, not a fresh runtime
+audit. The [October 16 direction](USER_VISION.md#procedural-focus-ruins-and-world-first-2026-10-16)
+explicitly deprioritized NPC-heavy work for that procedural pass. It does not
+erase daily life or prohibit a small authored place. This discussion does not
+lift that priority or select a population simulator.
+
+### ACCOUNT FOR NOW: proposals for this design
+
+| Code | New consideration | Default, dial and reason / observable consequence |
+|---|---|---|
+| EL3 | **Recognition is specific.** | An instructor recalls a demonstrated weak stance; a cook recalls a requested meal. Dial how quickly familiarity forms by person and custom. Record the encounter and witness, not universal friendship from accumulated visits. |
+| EL4 | **The same place supports different lives.** | A dojo can support a pupil, paid cleaner, visiting expert, injured regular or instructor. Dial access through actual agreements, skill and relationships. A noncombatant can belong without completing a combat ladder. |
+| EL5 | **Shared time makes connections.** | Practice overlaps with another student's session, and a meal gives time to talk. Dial attendance and available space by the place's clock. Decide whether talking can accompany work from attention and safety, rather than serializing every small action. |
+| EL6 | **Institutions need ordinary means.** | A damaged floor creates repair work; a lesson needs someone willing and able to teach. Dial funding through fees, patronage, shared labor or existing supplies. Supporting a dojo can improve its actual equipment or availability, without purchasing loyalty or conjuring stock. |
+| EL7 | **Power changes daily life too.** | Heating magic can warm a room, trained perception can help a repair, and a long-lived character may become the teacher. Dial results through the actual method, fuel, control and social response. Ordinary life should evolve with competence rather than repeatedly demand obsolete chores. |
+| EL8 | **Smallness can be the payoff.** | Sitting after practice, a familiar greeting or returning a borrowed cup can offer texture without XP. Dial detail frequency and prose variety. Avoid making every warm exchange an optimal reward to farm. |
+| EL9 | **Absence has a supported history.** | A returning player sees changes the selected world clock actually settled; unsupported offscreen time remains unknown/frozen under that world's policy. Dial missed lessons and return arrangements by agreements. Do not invent a marriage, closure or resentment merely to suggest a living world. |
+| EL10 | **Repairable disagreements add depth.** | A borrowed tool returned damaged leads to explanation, repair or replacement. Dial response by evidence, motive and local custom. One disagreement need not erase a relationship, and a gift need not erase the underlying dispute. |
+| EL11 | **Remember selectively and locally.** | Keep consequential promises, preferences and shared moments; summarize repeated routine attendance. Dial retention by relevance and existing record budgets. A classmate knows what they witnessed or were told, not private events across worlds. |
+| EL12 | **A routine has a clear summary and stopping point.** | Familiar practice can be queued/compressed using supported routines. Show time, materials, learning and notable changes; pause for an important new choice under AD16. Dial automation by the selected world and player policy, without replaying a long log of identical greetings. |
+
+### World differences to preserve
+
+These examples extend the earlier world-life palette rather than replacing its
+casts, source qualifications or selected eras. A shared dojo-shaped progression
+track would miss the point; use the institution and social arrangements that fit.
+
+| Code | Setting | Ordinary anchor and distinctive interaction |
+|---|---|---|
+| EL13 | Frontier | Yard, inn or shared workshop: borrowed tools, weather-dependent practice, meals after paid work, local repair needs. |
+| EL14 | Cultivation | Sect courtyard, kitchen or garden: peers at different stages, practical duties, teacher availability and changing responsibilities as competence grows. A solitary cultivator may instead maintain a retreat and receive occasional visitors. |
+| EL15 | Hogwarts | Common room, classroom or greenhouse: term rhythms, classmates, shared study and letters home. Student, adult guest and supplier routes have different access and obligations. |
+| EL16 | LOTM | Lodgings, workplace, café or club: ordinary income, meals, acquaintances and a public identity; private extraordinary knowledge stays with its actual holders. |
+| EL17 | Mother of Learning | Class, library or neighborhood: study partners and familiar errands. An explicitly supported loop branch can preserve the player's learning while others' memories follow its reset law; the existing independent visitor branch does not thereby acquire looping. |
+| EL18 | Camp, hostile world or nonhuman life | A campfire, nest, roost or sheltered meeting place: shared watch, maintenance, compatible food or care and species-appropriate company. Do not impose human school hours, houses or meals on every body and culture. |
+
+### LATER / DELEGATE: ranked suggestions, not dispatched
+
+| Code | Follow-up | Capability / effort | Done check |
+|---|---|---|---|
+| EL19 | Trace one existing ordinary day before choosing additions. | Luna low for bounded source extraction; Sol medium for synthesis; small. | List reachable actions, people, state owner and visible consequence; mark documented versus exercised evidence. |
+| EL20 | If selected, build one recurring-place loop over existing owners. | Sol medium; medium, depending on the chosen world. | An earned desktop journey returns to the place, shows one remembered interaction and one useful consequence; meets AD43 with persistence proof for changed state. |
+| EL21 | After that slice, compare a mechanically different world's version. | Sol medium; small design comparison before a build. | Show a changed institution, clock or relationship mechanism, rather than renaming the first world's people and rewards. |
+
+Fit before any selected build: start at [systems register](SYSTEMS_REGISTER.md),
+especially its people and world/state maps. The existing local-life owner,
+`world_rhythm.js`, household owners, chronicle and authored world commands are
+candidate seams, not a promise that their contracts already support EL3–EL21.
+Do not create a second clock, parallel NPC registry, universal familiarity meter
+or reward owner merely to make a prototype convenient. Recheck source and save
+compatibility before implementation; preserve existing jobs and old-save defaults.
+
+For a selected UI slice, the proposed visible result is an existing place/Here
+surface showing who is present, an available routine with its cost, and brief
+feedback tied to an actual memory or change. Target desktop 1920×1080; mobile
+optimization stays deferred. No new daily-life dashboard is selected.
+
+Verification for this round: documentation and local-link checks only. No runtime
+edits, build, gameplay journey, current Proto23 source verification or installation
+was performed. Earlier delivery receipts retain their original scope.
+
+### Training as progression, continuation 2026-10-26
+
+Weibao then asked about progression through dojos. The
+[learning palette continuation EL22–EL41](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#dojos-and-everyday-institutions-as-progression-2026-10-26)
+owns curriculum, feedback, transferable competence, rank, idle practice, teaching
+and world differences. These extend everyday life with useful growth; the
+consideration does not select a build or impose a school ladder on every world.

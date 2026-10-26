@@ -1,0 +1,6 @@
+{"type":"session","sessionId":"session-0392bfd0-c712-49ad-bfbb-d6f5fd89c975","cwd":"/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-harness-fixed-5c64l7vg"}
+{"type":"status","phase":"turn_start","turn":1}
+{"type":"status","phase":"step_start","turn":1,"step":1}
+{"type":"status","phase":"step_end","turn":1,"step":1,"usage":{"inputTokens":0,"outputTokens":0,"totalTokens":0}}
+{"type":"status","phase":"turn_end","turn":1,"reason":{"kind":"error","error":{"message":"No API key for provider: ollama-local","code":"PI_AI_ERROR"}}}
+{"type":"final","sessionId":"session-0392bfd0-c712-49ad-bfbb-d6f5fd89c975","reason":{"kind":"error","error":{"message":"No API key for provider: ollama-local","code":"PI_AI_ERROR"}},"text":""}

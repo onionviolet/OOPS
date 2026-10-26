@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: natural funded commission grants once, rejects stale/repeat and fabricated objective
+ok 1 - natural funded commission grants once, rejects stale/repeat and fabricated objective
+  ---
+  duration_ms: 73.658333
+  type: 'test'
+  ...
+# Subtest: permanent learning, leased useful output and upgraded scope retain exact carriers
+ok 2 - permanent learning, leased useful output and upgraded scope retain exact carriers
+  ---
+  duration_ms: 55.889458
+  type: 'test'
+  ...
+# Subtest: cache seeded opening spends actual custody once and covers two useful outcomes
+ok 3 - cache seeded opening spends actual custody once and covers two useful outcomes
+  ---
+  duration_ms: 284.32875
+  type: 'test'
+  ...
+# Subtest: funded wager commits hidden draw, fold returns custody, win/loss settle once
+ok 4 - funded wager commits hidden draw, fold returns custody, win/loss settle once
+  ---
+  duration_ms: 243.135792
+  type: 'test'
+  ...
+# Subtest: lens requires learned source and actual tool; model exports only knowledge and changes real yield
+ok 5 - lens requires learned source and actual tool; model exports only knowledge and changes real yield
+  ---
+  duration_ms: 75.195584
+  type: 'test'
+  ...
+# Subtest: Ren uses own stock after teacher leaves and disconnects; finite work stays finite
+ok 6 - Ren uses own stock after teacher leaves and disconnects; finite work stays finite
+  ---
+  duration_ms: 66.572625
+  type: 'test'
+  ...
+# Subtest: reservation reload/import, refund and failed storage never publish debit or grant
+ok 7 - reservation reload/import, refund and failed storage never publish debit or grant
+  ---
+  duration_ms: 18.906292
+  type: 'test'
+  ...
+# Subtest: old absent edition saves remain untouched; malformed ledger and wrong escrow reject
+ok 8 - old absent edition saves remain untouched; malformed ledger and wrong escrow reject
+  ---
+  duration_ms: 9.773666
+  type: 'test'
+  ...
+# Subtest: preservation has a real clock consequence across carried, recipient and chest custody
+ok 9 - preservation has a real clock consequence across carried, recipient and chest custody
+  ---
+  duration_ms: 153.105125
+  type: 'test'
+  ...
+# Subtest: import rejects unfunded points and falsified experiment outputs
+ok 10 - import rejects unfunded points and falsified experiment outputs
+  ---
+  duration_ms: 8.217042
+  type: 'test'
+  ...
+# Subtest: expiry import must bind the receipt and cannot delete or move its deadline
+ok 11 - expiry import must bind the receipt and cannot delete or move its deadline
+  ---
+  duration_ms: 42.786166
+  type: 'test'
+  ...
+# Subtest: irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded
+ok 12 - irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded
+  ---
+  duration_ms: 64.1265
+  type: 'test'
+  ...
+# Subtest: eligibility ignores caller assertions about recommendation, installation and Ren learning
+ok 13 - eligibility ignores caller assertions about recommendation, installation and Ren learning
+  ---
+  duration_ms: 6.736416
+  type: 'test'
+  ...
+# Subtest: engine reconciles manufacture receipts and expiry before validating or returning its plan
+ok 14 - engine reconciles manufacture receipts and expiry before validating or returning its plan
+  ---
+  duration_ms: 48.760083
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1532.12175

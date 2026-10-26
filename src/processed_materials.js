@@ -38,12 +38,22 @@ export function allocatedRecipeInputs(materials, requirements, attempts) {
 }
 export function lineagePresentation(key,clock) {
     const l=readMaterialLineage(key);if(!l)return null;
-    const process=l.history.at(-1),observations=[];
+    const process=l.history.at(-1),observations=[],visited=new Set([key]),seenObservations=new Set();
     function visit(lineage) {
         for(const e of lineage.history) for(const input of e.inputs) {
             const specimen=input.facts?.evidence?.specimen;
-            for(const o of specimen?.observations||[]) observations.push({at:o.at,min:o.ageEstimate.min,max:o.ageEstimate.max,skill:o.skill,freshness:o.freshness,integrity:o.integrity});
-            const parent=readMaterialLineage(input.item_key);if(parent)visit(parent);
+            for(const o of specimen?.observations||[]) {
+                // Two preparations of one source can meet again in a recipe.
+                // Keep both causal parents, but display each source reading once.
+                const identity=JSON.stringify([specimen.key,o]);
+                if(seenObservations.has(identity))continue;
+                seenObservations.add(identity);
+                observations.push({at:o.at,min:o.ageEstimate.min,max:o.ageEstimate.max,skill:o.skill,freshness:o.freshness,integrity:o.integrity});
+            }
+            if(!visited.has(input.item_key)) {
+                visited.add(input.item_key);
+                const parent=readMaterialLineage(input.item_key);if(parent)visit(parent);
+            }
         }
     }
     visit(l);

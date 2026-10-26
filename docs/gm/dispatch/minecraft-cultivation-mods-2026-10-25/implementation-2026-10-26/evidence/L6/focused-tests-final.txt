@@ -1,0 +1,154 @@
+TAP version 13
+# Subtest: native body/cargo adapter retains one real body, exact stock and learned owner references
+ok 1 - native body/cargo adapter retains one real body, exact stock and learned owner references
+  ---
+  duration_ms: 10.935792
+  type: 'test'
+  ...
+# Subtest: retained methods require actual owned power and a positive safe revision
+ok 2 - retained methods require actual owned power and a positive safe revision
+  ---
+  duration_ms: 1.596416
+  type: 'test'
+  ...
+# Subtest: native adapter preserves an upstream route refusal without reading unrelated owners
+ok 3 - native adapter preserves an upstream route refusal without reading unrelated owners
+  ---
+  duration_ms: 0.098041
+  type: 'test'
+  ...
+# Subtest: native traveler refuses missing inventory binding
+ok 4 - native traveler refuses missing inventory binding
+  ---
+  duration_ms: 1.594125
+  type: 'test'
+  ...
+# Subtest: native traveler refuses incomplete cargo flag
+ok 5 - native traveler refuses incomplete cargo flag
+  ---
+  duration_ms: 1.488833
+  type: 'test'
+  ...
+# Subtest: native traveler refuses wrong body ID
+ok 6 - native traveler refuses wrong body ID
+  ---
+  duration_ms: 1.651959
+  type: 'test'
+  ...
+# Subtest: native traveler refuses omitted equipment
+ok 7 - native traveler refuses omitted equipment
+  ---
+  duration_ms: 1.332916
+  type: 'test'
+  ...
+# Subtest: native traveler refuses duplicated cargo row
+ok 8 - native traveler refuses duplicated cargo row
+  ---
+  duration_ms: 1.446292
+  type: 'test'
+  ...
+# Subtest: native traveler refuses changed stack count
+ok 9 - native traveler refuses changed stack count
+  ---
+  duration_ms: 2.099833
+  type: 'test'
+  ...
+# Subtest: native traveler refuses forged stock revision
+ok 10 - native traveler refuses forged stock revision
+  ---
+  duration_ms: 1.907916
+  type: 'test'
+  ...
+# Subtest: native traveler refuses incapacitated body
+ok 11 - native traveler refuses incapacitated body
+  ---
+  duration_ms: 1.708209
+  type: 'test'
+  ...
+# Subtest: native traveler refuses zero health
+ok 12 - native traveler refuses zero health
+  ---
+  duration_ms: 1.805625
+  type: 'test'
+  ...
+# Subtest: native traveler refuses busy native body
+ok 13 - native traveler refuses busy native body
+  ---
+  duration_ms: 1.994791
+  type: 'test'
+  ...
+# Subtest: native traveler refuses immobile native body
+ok 14 - native traveler refuses immobile native body
+  ---
+  duration_ms: 2.039041
+  type: 'test'
+  ...
+# Subtest: conventional pocket doorway refuses borrowed goods without enrolling permission
+ok 15 - conventional pocket doorway refuses borrowed goods without enrolling permission
+  ---
+  duration_ms: 1.608417
+  type: 'test'
+  ...
+# Subtest: pocket cargo fails closed for absent doorway, missing stock owners and capacity refusal
+ok 16 - pocket cargo fails closed for absent doorway, missing stock owners and capacity refusal
+  ---
+  duration_ms: 1.403209
+  type: 'test'
+  ...
+# Subtest: commission reserves finite resident stock and effort, produces two useful native kits and pays once
+ok 17 - commission reserves finite resident stock and effort, produces two useful native kits and pays once
+  ---
+  duration_ms: 200.869959
+  type: 'test'
+  ...
+# Subtest: supply transfers exact real wood; it survives reload and funds another batch
+ok 18 - supply transfers exact real wood; it survives reload and funds another batch
+  ---
+  duration_ms: 76.886208
+  type: 'test'
+  ...
+# Subtest: absent stock, money, template, covered bench, foreign custody and stale quote refuse atomically
+ok 19 - absent stock, money, template, covered bench, foreign custody and stale quote refuse atomically
+  ---
+  duration_ms: 320.178875
+  type: 'test'
+  ...
+# Subtest: cancelled or unsupported pending commission refunds the actual owners and grants no output/payment
+ok 20 - cancelled or unsupported pending commission refunds the actual owners and grants no output/payment
+  ---
+  duration_ms: 112.645125
+  type: 'test'
+  ...
+# Subtest: commissioned kits return through the actual doorway and fund the existing survey consumer
+ok 21 - commissioned kits return through the actual doorway and fund the existing survey consumer
+  ---
+  duration_ms: 144.307667
+  type: 'test'
+  ...
+# Subtest: dormant pocket permits another registered world but never an unvisited pocket body
+ok 22 - dormant pocket permits another registered world but never an unvisited pocket body
+  ---
+  duration_ms: 17.218292
+  type: 'test'
+  ...
+# Subtest: an opened doorway does not create a context for its unintroduced resident
+ok 23 - an opened doorway does not create a context for its unintroduced resident
+  ---
+  duration_ms: 0.996709
+  type: 'test'
+  ...
+# Subtest: an introduced resident still receives its existing dormant clock context
+ok 24 - an introduced resident still receives its existing dormant clock context
+  ---
+  duration_ms: 0.1915
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1337.56725

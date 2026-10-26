@@ -1,0 +1,17 @@
+{
+  "routine": {
+    "enabled": false,
+    "maxRisk": 0,
+    "maxUnits": 5,
+    "reserve": 1,
+    "last": {
+      "at": 518011686,
+      "reason": "Finish the current conversation first."
+    }
+  },
+  "quote": {
+    "eligible": false,
+    "reason": "Routine is off."
+  },
+  "clock": 6
+}

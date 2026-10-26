@@ -118,3 +118,18 @@ test('native lineage effects are idempotent, preserve current vitals, and follow
     root.actors.player.worldId='another-world';d.refresh();assert.equal(full.max_stamina,104,'the same supported body keeps its physical qualities across passage');
     configureUiPorts(null);
 });
+
+test('inherited descriptions explain mild, full and absent qualities while keeping hidden inheritance private', () => {
+    const m=pure('copy',false),before=structuredClone(m);
+    assert.match(L.locusView(m,'nerve').description,/does not visibly show/);
+    assert.equal(L.locusView(m,'nerve').effect,'');
+    m.genes.nerve=['N','n'];
+    assert.match(L.locusView(m,'nerve').effect,/2%/);
+    m.genes.nerve=['N','N'];
+    assert.match(L.locusView(m,'nerve').effect,/4%/);
+    m.genes.wind=['W','w'];
+    const wind=L.locusView(m,'wind');
+    assert.ok(wind.description.length>0);
+    assert.deepEqual(wind.alleles,['W','?']);
+    assert.deepEqual(before.tested,m.tested,'reading copy never performs an inheritance test');
+});

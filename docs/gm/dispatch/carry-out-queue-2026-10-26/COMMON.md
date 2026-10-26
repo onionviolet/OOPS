@@ -1,0 +1,12 @@
+# Common rules for every carry-out-queue Codex lane (2026-10-26)
+
+Weibao, 2026-10-26: "Using the codex prompt, send out codex coordinator to work on this accordingly? Parallel?" Coordinator lane G1 (Sol) supervises; Claude stays a light coordinator. The queue is the carry-out queue in `docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md` (round 5, rows Q1-Q18); each lane owns one row.
+
+- Read `docs/GROUND_RULES.md` first, then `AGENTS.md` and the parts of `docs/RULES_INDEX.md` your task touches. Cite the codes you apply. The delivery floor FLR1-FLR6 (AD43) is accepted: a runtime slice missing a line is "implemented, below floor". The pre-flight PRF1-PRF8 is proposed; answer it anyway in your first message, in eight lines.
+- You work in your own git worktree on your own branch (named in your prompt), cut from master `97e2e45a3`. Commit there with narrow, descriptive messages; no `Co-Authored-By` trailer. Never push. Never commit `dist/bundle.js`, `dist/bundle.js.map` or a rewritten `index.html` (the merger rebuilds). Never touch the primary checkout at `/Users/weiwei/code/yet-another-idle-rpg` except to read; it has other sessions' dirty `src/` work in it.
+- Lean tests (AD36): run your focused test file and the checks your prompt names. Do not run the full `npm test` unless your prompt says so; the committer runs it once at landing. `npm run check:rules` and `npm run check:arch` are cheap; run them when you touch docs with codes or `src/`.
+- Ports, if you need a server: Q1 5201, Q2 5202, Q3 5203, Q6 5206, Q7 5207, Q8 5208, Q18 5218, G1 5299. Stop your own servers by port or PID when done. Never `pkill -f`.
+- Subagents: you may spawn Codex subagents for bounded parallel pieces, default `gpt-6-luna` low; at most two at once; give each owned files and a done check. No stronger model without a stated reason in your log.
+- Sealed secrets: refer to any world secret by ID, route and status only.
+- Your last message is your receipt. Start it with the front-matter block from `docs/gm/SHARED_WORKTREE_PRACTICE.md` ("Receipts and the delivery floor, 2026-10-26"): build, route, state, viewport, persistence, tests, review, surface. Then: what changed (paths), checks run (one line each: command, result, gaps), what remains, and your branch name and head commit. Save partial results as you go so an interrupted run leaves usable files.
+- Stop conditions: scope done, or a real blocker you have described with evidence, or 3 hours of wall time. Do not widen scope; a useful adjacent idea goes in your receipt under "LATER", not into code.

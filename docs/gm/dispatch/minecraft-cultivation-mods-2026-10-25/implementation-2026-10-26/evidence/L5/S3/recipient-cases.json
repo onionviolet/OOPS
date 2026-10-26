@@ -1,0 +1,121 @@
+{
+  "fixture": "fresh native opening + native enrollment/gather; declared Combat XP 100, eight root-7 herbs/eight Charcoal; eight actual native crafts; no stage grant",
+  "productId": "cb1:[[\"object\",[[\"catalogue\",\"frontier.herbal@1\"],[\"composition\",[\"object\",[[\"ash\",0],[\"matrix\",801],[\"restore\",159],[\"toxin\",40],[\"vigor\",0]]]],[\"family\",\"craft.batch@1\"],[\"inputs\",[\"array\",[[\"array\",[\"consumed\",\"gen:reedherb:0e01ca4a27dedf76\",1,1]]]]],[\"law\",\"frontier.conditioning-tablet@1\"],[\"mass\",1000],[\"order\",[\"array\",[\"gen:reedherb:0e01ca4a27dedf76\"]]],[\"process\",[\"array\",[[\"array\",[\"heat\",2]]]]],[\"recipe\",null],[\"stations\",[\"array\",[]]],[\"thermal\",[\"object\",[[\"control\",10],[\"grade\",1],[\"heat\",2],[\"impurity\",0],[\"residual\",0],[\"safeHeat\",3],[\"tier\",1]]]]]]]",
+  "power": 15,
+  "cases": [
+    {
+      "label": "A untempered dose",
+      "stage": 0,
+      "binding": "[\"native.player.body\",null,\"human\"]",
+      "beforeResidue": 0,
+      "residue": 2,
+      "delta": 2,
+      "beforeCount": 8,
+      "afterCount": 7,
+      "conditioning": 3,
+      "maxStaminaBefore": 40,
+      "maxStaminaAfter": 41.2
+    },
+    {
+      "label": "A same body after native tempering",
+      "stage": 1,
+      "binding": "[\"native.player.body\",null,\"human\"]",
+      "beforeResidue": 2,
+      "residue": 3,
+      "delta": 1,
+      "beforeCount": 7,
+      "afterCount": 6,
+      "conditioning": 6,
+      "maxStaminaBefore": 41.2,
+      "maxStaminaAfter": 42.400000000000006
+    },
+    {
+      "label": "A repeated dose 3",
+      "stage": 1,
+      "binding": "[\"native.player.body\",null,\"human\"]",
+      "beforeResidue": 3,
+      "residue": 4,
+      "delta": 1,
+      "beforeCount": 6,
+      "afterCount": 5,
+      "conditioning": 9,
+      "maxStaminaBefore": 42.400000000000006,
+      "maxStaminaAfter": 43.6
+    },
+    {
+      "label": "A repeated dose 4",
+      "stage": 1,
+      "binding": "[\"native.player.body\",null,\"human\"]",
+      "beforeResidue": 4,
+      "residue": 5,
+      "delta": 1,
+      "beforeCount": 5,
+      "afterCount": 4,
+      "conditioning": 12,
+      "maxStaminaBefore": 43.6,
+      "maxStaminaAfter": 44.800000000000004
+    },
+    {
+      "label": "B replacement body dose",
+      "stage": 0,
+      "binding": "[\"native.player.body\",\"m5.recipient.body.B\",\"human\"]",
+      "beforeResidue": 0,
+      "residue": 2,
+      "delta": 2,
+      "beforeCount": 4,
+      "afterCount": 3,
+      "conditioning": 3,
+      "maxStaminaBefore": 40,
+      "maxStaminaAfter": 41.2
+    }
+  ],
+  "stageChange": {
+    "binding": "[\"native.player.body\",null,\"human\"]",
+    "stageBefore": 0,
+    "stageAfter": 1,
+    "residueBefore": 2,
+    "residueAfter": 2,
+    "breadDebit": 1,
+    "productCount": 7
+  },
+  "replacementBefore": {
+    "currentBinding": "[\"native.player.body\",\"m5.recipient.body.B\",\"human\"]",
+    "priorBinding": "[\"native.player.body\",null,\"human\"]",
+    "rawPriorResidue": 5,
+    "projectedResidue": 0,
+    "projectedConditioning": 0,
+    "stage": 0,
+    "rememberedStage": 1,
+    "stock": 4
+  },
+  "forecasts": {
+    "raw": {
+      "gain": 3,
+      "residue": 2,
+      "thermal": 1,
+      "load": 0,
+      "potency": 1,
+      "stage": 0
+    },
+    "tempered": {
+      "gain": 3,
+      "residue": 1,
+      "thermal": 1,
+      "load": 0,
+      "potency": 0,
+      "stage": 1
+    },
+    "replacement": {
+      "gain": 3,
+      "residue": 2,
+      "thermal": 1,
+      "load": 0,
+      "potency": 1,
+      "stage": 0
+    }
+  },
+  "finalCount": 3,
+  "expectedMade": 8,
+  "actualDoses": 5,
+  "bodyAcquisition": "Instance switch is a named fixture, not an acquisition route"
+}

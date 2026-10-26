@@ -1,0 +1,93 @@
+TAP version 13
+# Subtest: acting needs the taught method, spends spirituality and counts only a completed act
+ok 1 - acting needs the taught method, spends spirituality and counts only a completed act
+  ---
+  duration_ms: 155.240958
+  type: 'test'
+  ...
+# Subtest: acting guidance joins only public current-path actions without spending or bypassing the command
+ok 2 - acting guidance joins only public current-path actions without spending or bypassing the command
+  ---
+  duration_ms: 2601.063583
+  type: 'test'
+  ...
+# Subtest: six acts digest the Seer potion; acting then stops and the assessment releases one Clown dose
+ok 3 - six acts digest the Seer potion; acting then stops and the assessment releases one Clown dose
+  ---
+  duration_ms: 2096.72175
+  type: 'test'
+  ...
+# Subtest: drinking the Clown dose is atomic and irreversible; the ladder moves to Sequence 8 and caps there
+ok 4 - drinking the Clown dose is atomic and irreversible; the ladder moves to Sequence 8 and caps there
+  ---
+  duration_ms: 1207.599125
+  type: 'test'
+  ...
+# Subtest: the owners refuse forged digestion, promotion or a missing or duplicated Clown dose
+ok 5 - the owners refuse forged digestion, promotion or a missing or duplicated Clown dose
+  ---
+  duration_ms: 1162.281875
+  type: 'test'
+  ...
+# Subtest: book person accounts retain received basis without appraising private cultivation or stock
+not ok 6 - book person accounts retain received basis without appraising private cultivation or stock
+  ---
+  duration_ms: 3.095667
+  type: 'test'
+  location: '/Users/weiwei/code/yet-another-idle-rpg/tests/people_knowledge.test.js:12:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot set properties of undefined (setting 'book.mol.admission')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/people_knowledge.test.js:14:32)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: registration and enrollment do not reveal unseen people or their private state
+ok 7 - registration and enrollment do not reveal unseen people or their private state
+  ---
+  duration_ms: 2.086208
+  type: 'test'
+  ...
+# Subtest: a greeting reveals only the person, while inspection and promises add their actual evidence
+ok 8 - a greeting reveals only the person, while inspection and promises add their actual evidence
+  ---
+  duration_ms: 0.64475
+  type: 'test'
+  ...
+# Subtest: player observations and completed exchanges reveal craftsman details without private axes
+ok 9 - player observations and completed exchanges reveal craftsman details without private axes
+  ---
+  duration_ms: 3.545417
+  type: 'test'
+  ...
+# Subtest: town entry does not reveal the clerk before their briefing
+ok 10 - town entry does not reveal the clerk before their briefing
+  ---
+  duration_ms: 0.414417
+  type: 'test'
+  ...
+# Subtest: a hired participant's private return or death does not update the player's record
+ok 11 - a hired participant's private return or death does not update the player's record
+  ---
+  duration_ms: 0.7665
+  type: 'test'
+  ...
+# Subtest: reading records is pure and existing native meeting markers survive expansion reload
+ok 12 - reading records is pure and existing native meeting markers survive expansion reload
+  ---
+  duration_ms: 15.726291
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7682.812959

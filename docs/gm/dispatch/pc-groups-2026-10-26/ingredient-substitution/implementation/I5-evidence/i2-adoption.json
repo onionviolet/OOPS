@@ -1,0 +1,47 @@
+{
+  "review": "actual pure prepare and receipt validation source reviewed; six focused tests adopted, not native floor proof",
+  "paths": [
+    {
+      "path": "src/hp_preparation.js",
+      "released": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "current": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "matches": true
+    },
+    {
+      "path": "tests/hp_preparation.test.js",
+      "released": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "current": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "matches": true
+    },
+    {
+      "path": "src/hp_brewing_state.js",
+      "released": "e4e201576a5cb9e3ae6caca467b4bb6eab4f7de52928117cea11394ab623b73f",
+      "current": "e4e201576a5cb9e3ae6caca467b4bb6eab4f7de52928117cea11394ab623b73f",
+      "matches": true
+    },
+    {
+      "path": "src/hp_brewing_formula.js",
+      "released": "c8063f77e745fe951e1eca5b6f782e16e0c021561224b30f9bb6093d622b5734",
+      "current": "c8063f77e745fe951e1eca5b6f782e16e0c021561224b30f9bb6093d622b5734",
+      "matches": true
+    },
+    {
+      "path": "src/world_pack_registry.js",
+      "released": "e2d64e2f49dc6e1f977fa334ffdfc4d155edcc5abfd18964df71c8bbfd1279c7",
+      "current": "e2d64e2f49dc6e1f977fa334ffdfc4d155edcc5abfd18964df71c8bbfd1279c7",
+      "matches": true
+    },
+    {
+      "path": "src/world_packs/book_hp_pack.js",
+      "released": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+      "current": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+      "matches": true
+    },
+    {
+      "path": "package.json",
+      "released": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+      "current": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+      "matches": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "userRequest": "send chats to implement each little detail",
+  "scope": "PC15–PC22",
+  "chats": [
+    {
+      "lane": "agitation",
+      "title": "Implement PC15–16 causal agitation and direction",
+      "threadId": "01a1794a-9ea2-7ef0-b3eb-df681b047e45",
+      "hostId": "local"
+    },
+    {
+      "lane": "thermal",
+      "title": "Implement PC17 and PC22 thermal stages and scaling",
+      "threadId": "01a1794a-b0c1-7833-9542-96eddb71695b",
+      "hostId": "local"
+    },
+    {
+      "lane": "separation",
+      "title": "Implement PC19–20 separation vessels and residue",
+      "threadId": "01a1794a-bbbf-7fb1-a670-9d7752bd11cd",
+      "hostId": "local"
+    },
+    {
+      "lane": "cues",
+      "title": "Implement PC21 process cues rescue and learned methods",
+      "threadId": "01a1794a-c8f4-7393-8d57-8e0b1d140ae4",
+      "hostId": "local"
+    },
+    {
+      "lane": "integration",
+      "title": "Implement PC18 staged process and integrate PC15–22",
+      "threadId": "01a1794b-4b97-76e0-8219-5d56d0df9665",
+      "hostId": "local"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+diff --git a/src/home_building_model.js b/src/home_building_model.js
+index f04331119..5de98a334 100644
+--- a/src/home_building_model.js
++++ b/src/home_building_model.js
+@@ -1,4 +1,4 @@
+-import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_SITE,HOME_CAMPS,PACKED_TENT,homeKey as k} from './home_content.js';
++import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_WORLD,HOME_SITE,HOME_CAMPS,PACKED_TENT,homeKey as k} from './home_content.js';
+ import {progressKey,permitKey,BUILDER} from './home_work_content.js';
+ const check=(v,m)=>{if(!v)throw Error('Home: '+m);};
+ const natural=n=>Number.isSafeInteger(n)&&n>=0;
+@@ -24,9 +24,12 @@ export function advanceHomeCondition(h,c) {
+     h.condition ||= newHomeCondition(c.clock);
+     const q=h.condition,start=q.lastClock;
+     if(c.clock<=start)return;
++    // Inactive worlds freeze. Move the root cursor so returning cannot apply
++    // the other world's elapsed time as a native weather catch-up interval.
++    if(c.world&&c.world!==(P[h.id].world||HOME_WORLD)){q.lastClock=c.clock;return;}
+     // Native played-calendar intervals supply rain. Roof exposure is local data.
+     const exposure={nest:4,burrow:8,shelter:1,tent:2}[h.id]||0;
+-    for(let at=start;at<c.clock;){const n=Math.min(c.clock-at,60-(at%60)),rain=c.weatherAt?.(at)?.raining===true;
++    for(let at=start;at<c.clock;){const weather=c.weatherAt?.(at),n=Math.min(c.clock-at,weather?.until>at?weather.until-at:1),rain=weather?.raining===true;
+         if(rain&&(exposure||q.integrity<80)){
+             q.wetness=Math.min(1000,q.wetness+n*(h.weatherproof?1:2));
+             if(exposure){const threshold=120*exposure*(h.weatherproof?2:1);q.rainMinutes+=n;const wear=Math.floor(q.rainMinutes/threshold);q.integrity=Math.max(0,q.integrity-wear);q.rainMinutes%=threshold;}
+diff --git a/src/home_domain.js b/src/home_domain.js
+index 678e40891..072d70f93 100644
+--- a/src/home_domain.js
++++ b/src/home_domain.js
+@@ -4,7 +4,7 @@ import {QI_FIELD} from './cultivation_items.js';
+ import {broodView} from './household_brood.js';
+ import {HOUSEHOLD_ACTORS,settleHouseholdRest} from './home_household.js';
+ import {officeDecision} from './home_office.js';
+-import {isRainingOnDay} from './weather_calendar.js';
++import {nativeRainAtClock} from './weather_calendar.js';
+ import {registerHomeWork,applyHomeSimulationEffects,stageHomeJob,previewHomeJob} from './home_work.js';
+ import {conditionOf} from './home_building_model.js';
+ import {STEWARD,COOK,KEEPER,BUILDER} from './home_work_content.js';
+@@ -44,7 +44,7 @@ function context(overrides={}) {
+     c.conditions={[KEEPER]:sim?.conditions?.[KEEPER]?.[QI_FIELD]?{[QI_FIELD]:structuredClone(sim.conditions[KEEPER][QI_FIELD])}:{}};c.resources=root?.actors.player.resources||{};c.people=Object.fromEntries(Object.entries(sim?.people||{}).filter(([id])=>[...HOUSEHOLD_ACTORS,BUILDER].includes(id)));c.jobs=sim?.jobs||[];
+     c.staffResources=Object.fromEntries([...HOUSEHOLD_ACTORS,BUILDER].map(id=>[id,root?.actors[id]?.resources||{}]));c.staffStock=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,sim?.owners[id]||{}]));
+     c.staffFacts=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,root?.actors[id]?.facts||{}]));c.playerFacts=root?.actors.player.facts||{};c.paidHelpReason=domainRegistry.command('pledges','actionReason')?.({kind:'paid-help'})||'';c.warehouseCompleted=root?.actors['home.manor.supplier']?.completed?.[WAREHOUSE_JOB]||0;
+-    c.weatherAt=at=>{if(!c.calendar)return {raining:false};const minute=c.calendar.day_count*1440+c.calendar.hour*60+c.calendar.minute+at-(c.calendarClock??c.clock);return {raining:isRainingOnDay(Math.floor(minute/1440))};};
++    c.weatherAt=at=>nativeRainAtClock(c.calendar,c.calendarClock??c.clock,at);
+     c.raining=c.weatherAt(c.clock).raining;
+     c.fresh=c.fresh&&state?.beginning===true;
+     c.legacyAnimal=!!c.legacyHousehold?.animal;
+diff --git a/src/weather_calendar.js b/src/weather_calendar.js
+index 48f9b7b25..37cc3a9af 100644
+--- a/src/weather_calendar.js
++++ b/src/weather_calendar.js
+@@ -6,3 +6,13 @@ export const isRainingAtMinute=minute=>isRainingOnDay(Math.floor(minute/1440));
+ 
+ // Native weather uses elapsed day_count; service calendars use year/month/day.
+ export const weatherClockMinute=t=>t.day_count*1440+t.hour*60+t.minute;
++
++// Map a root-clock interval onto the native played calendar. `until` is an
++// exclusive root-clock boundary; callers need not guess where midnight falls.
++// Optional E1 weather and P23 gusts are separate sources, not inputs here.
++export function nativeRainAtClock(calendar,calendarClock,clock) {
++    if(!calendar)return {raining:false,source:'unavailable',until:Infinity};
++    const minute=weatherClockMinute(calendar)+clock-calendarClock;
++    if(!Number.isFinite(minute))return {raining:false,source:'unavailable',until:Infinity};
++    return {raining:isRainingAtMinute(minute),source:'native-rain-calendar',until:clock+(Math.floor(minute/1440)+1)*1440-minute};
++}
+diff --git a/tests/home_domain.test.js b/tests/home_domain.test.js
+index 0743ae5e3..89f6222ea 100644
+--- a/tests/home_domain.test.js
++++ b/tests/home_domain.test.js
+@@ -37,3 +37,16 @@ test('restored projects validate their held native material keys before publicat
+  const homes={schema:1,revision:1,start:null,primary:null,properties:{},lodger:null,beginning:false,ledger:[],projects:{shelter:{home:'shelter',kind:'build',at:0,required:40,materials:{'{"id":"Unregistered project material"}':1}}}};
+  assert.throws(()=>domainRegistry.validate({homes,expansion:{clock:0,sequence:0}}),/Unknown native item/);assert.deepEqual(seen,['{"id":"Unregistered project material"}']);
+ });
++
++test('native home clock honors offset rain boundary and derives the damaged/protected roof',()=>{
++ const r=setup();executeHome(quoteHome({type:'acquire',home:'cottage'}));
++ const h=residenceState().properties.cottage;h.condition.integrity=39;h.condition.wetness=10;
++ r.c.calendar={day_count:3,hour:23,minute:30};r.c.calendarClock=r.c.clock;
++ domainRegistry.refresh();assert.equal(r.locations['Hearthside cottage'].is_under_roof,false);assert.equal(r.locations['Hearthside cottage'].temperature_range_modifier,1);
++ const clock=r.c.clock+60,plan={state:{clock,sequence:r.c.sequence,actors:{player:{worldId:r.c.world}}},calendar:{day_count:4,hour:0,minute:30}};
++ stageResidenceClock(plan);plan.absorbPublish();r.c.clock=clock;r.c.calendar=plan.calendar;r.c.calendarClock=clock;
++ assert.equal(residenceState().properties.cottage.condition.wetness,60);
++ const current=residenceState().properties.cottage;current.condition.integrity=40;domainRegistry.refresh();assert.equal(r.locations['Hearthside cottage'].is_under_roof,true);assert.equal(r.locations['Hearthside cottage'].temperature_range_modifier,0.4);
++ current.weatherproof=true;domainRegistry.refresh();assert.equal(r.locations['Hearthside cottage'].temperature_range_modifier,0.25);
++ assert.doesNotThrow(()=>structuredClone(projectHomes()));
++});

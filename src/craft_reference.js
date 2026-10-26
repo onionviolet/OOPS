@@ -9,6 +9,7 @@
 import {natural as nat} from './basics.js';
 import {address, compareCodePoints, drawU32, indexFromU32} from './gen_kit.js';
 import {observe} from './craft_state.js';
+import {validateTrialSetup, compareTrialSetups} from './craft_experiment_log.js';
 
 const fail = message => { throw new Error(message); };
 const text = (value, label) => typeof value === 'string' && value.length ? value : fail(`${label} must be non-empty text.`);
@@ -17,6 +18,69 @@ const MODES = ['access', 'learn', 'training'];
 export const emptyReferences = () => ({defs: {}, learned: {}, read: {}, consumed: [], attempts: {}});
 const owner = state => state.references ?? emptyReferences();
 const bump = (state, references) => ({...state, sequence: state.sequence + 1, references});
+export const DEMONSTRATED_FAMILY = 'craft.demonstrated@1';
+export const MAX_DEMONSTRATED_METHODS = 64;
+const data = value => value === null || ['string', 'boolean'].includes(typeof value) ||
+    typeof value === 'number' && Number.isFinite(value) ||
+    Array.isArray(value) && value.every(data) ||
+    value !== null && typeof value === 'object' && !Array.isArray(value) && Object.values(value).every(data);
+const requestData = value => value !== null && typeof value === 'object' && !Array.isArray(value) && data(value);
+const equalData = (a, b) => JSON.stringify(a, function(key, value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value)
+        ? Object.fromEntries(Object.keys(value).sort(compareCodePoints).map(k => [k, value[k]])) : value;
+}) === JSON.stringify(b, function(key, value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value)
+        ? Object.fromEntries(Object.keys(value).sort(compareCodePoints).map(k => [k, value[k]])) : value;
+});
+
+// A host records an actually committed viable result. This neither grants an
+// authored recipe nor proves efficacy/safe dose. HP may retain this same record
+// in its existing state owner; no second save/stock/stage domain is introduced.
+export function createDemonstratedMethod({id, setup, request, at, success}) {
+    if(success !== true) fail('A method needs an actually demonstrated viable result.');
+    const method = {family: DEMONSTRATED_FAMILY, id, setup: structuredClone(setup), request: structuredClone(request), at, demonstration: 'viable'};
+    return validateDemonstratedMethod(method);
+}
+export function validateDemonstratedMethod(method) {
+    if(method?.family !== DEMONSTRATED_FAMILY || method.demonstration !== 'viable' || !nat(method.at) || !requestData(method.request)) fail('Invalid demonstrated method.');
+    text(method.id, 'Demonstrated method ID');
+    validateTrialSetup(method.setup);
+    return method;
+}
+
+// A plan is an ordinary request, never a paid execution. The host still quotes
+// and revalidates actual instruction access, tools, stock and stages. No default
+// current setup is inferred from a historical method.
+export function planDemonstratedRepeat(method, {mode = 'quick', setup, request} = {}) {
+    validateDemonstratedMethod(method);
+    if(!['quick', 'guided', 'deep'].includes(mode)) fail('Unknown making depth.');
+    const comparison = compareTrialSetups(method.setup, setup);
+    const requestChanged = request !== undefined && !equalData(method.request, request);
+    const modified = !comparison.sameKnownSetup || requestChanged;
+    if(requestChanged) {
+        comparison.sameKnownSetup = false;
+        comparison.changed.push({field: 'request', before: structuredClone(method.request), after: structuredClone(request)});
+    }
+    if(mode === 'quick' && modified) return {ok: false, mode, modified, comparison,
+        reason: 'The recorded known setup has changed or is incomplete. Review it as a modified attempt.'};
+    if(!setup || modified && request === undefined) return {ok: false, mode, modified, comparison,
+        reason: 'Choose the current materials and means before reviewing a modified attempt.'};
+    const next = request ?? method.request;
+    if(!requestData(next)) fail('Invalid making request.');
+    return {ok: true, mode, modified, comparison, request: structuredClone(next),
+        assurance: modified ? 'Modified attempt; the recorded result is not guaranteed.' : 'Repeats the recorded known setup; unmeasured conditions and recipient response remain untested.'};
+}
+
+export const demonstratedMethods = (state, actor) => structuredClone(state?.references?.demonstrated?.[actor] ?? []);
+export function recordDemonstratedMethod(state, actor, method) {
+    text(actor, 'Actor'); validateDemonstratedMethod(method);
+    const refs = owner(state), methods = refs.demonstrated?.[actor] ?? [], prior = methods.find(m => m.id === method.id);
+    if(prior) {
+        if(!equalData(prior, method)) fail('A demonstrated method record would change.');
+        return state;
+    }
+    return bump(state, {...refs, demonstrated: {...refs.demonstrated, [actor]: [...methods, structuredClone(method)].slice(-MAX_DEMONSTRATED_METHODS)}});
+}
 
 // spec: {id, kind:'book'|'disk'|string, mode, recipe?, grant?}
 //  access   : supplies `recipe` while held; never teaches.
@@ -117,5 +181,10 @@ export function validateReferences(state) {
     for(const [actor, ids] of Object.entries(refs.read)) for(const id of ids) if(refs.defs[id]?.mode !== 'training') fail(`${actor} read non-training ${id}.`);
     for(const id of refs.consumed) if(refs.defs[id]?.mode !== 'learn') fail(`Consumed reference ${id} is not a learn reference.`);
     for(const byS of Object.values(refs.attempts)) for(const a of Object.values(byS)) if(!nat(a.misses) || !nat(a.tries) || a.misses > a.tries) fail('Invalid examine record.');
+    for(const [actor, methods] of Object.entries(refs.demonstrated ?? {})) {
+        text(actor, 'Actor');
+        if(!Array.isArray(methods) || methods.length > MAX_DEMONSTRATED_METHODS || new Set(methods.map(m => m.id)).size !== methods.length) fail('Invalid demonstrated methods.');
+        methods.forEach(validateDemonstratedMethod);
+    }
     return state;
 }

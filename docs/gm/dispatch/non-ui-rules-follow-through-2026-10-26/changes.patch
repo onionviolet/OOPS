@@ -1,0 +1,496 @@
+--- baseline/PROJECT.md
++++ current/PROJECT.md
+@@ -17,6 +17,18 @@
+ [Round 7](docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-7-2026-10-26-primary-adoption-and-the-whole-request)
+ maps the full request to addressed and remaining work. PRF/FND remain proposed;
+ tooling adoption does not complete the ideas backlog or replace gameplay work.
++
++## Non-UI rule follow-through, 2026-10-26
++
++The [selected follow-through](docs/gm/dispatch/rules-consideration-2026-10-26/dispatch/README.md)
++splits broader UI work from non-UI rule/workflow corrections. The
++[non-UI receipt](docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md)
++records local authority/status/routing corrections, event-time knowledge,
++admission versus continuing support, actual means/costs, observer-safe failure
++wording and AD36/AD42 evidence/review clarifications. PRF/FND and detailed
++GTR/ABR recommendations remain proposed. This is documentation/source inspection,
++not gameplay verification or publication; UI delivery stays with its sibling
++receipt and R1 remains the owner of sync, nested triage and correction measures.
+ 
+ ## Effect-first UI descriptions, implementation 2026-10-26
+ 
+--- baseline/docs/ABILITY_RULES.md
++++ current/docs/ABILITY_RULES.md
+@@ -110,9 +110,13 @@
+ 
+ **ABR11. Every use passes the causal contract.** Eligibility, Preview (known
+ costs and range, no draw, no spend, no new knowledge), Commitment, Resolution,
+-Observation, Aftermath, Recovery. Commands quote, then revalidate at completion
+-(AR7). Cancellation refunds or forfeits as declared; losing support mid-use
+-refunds per the descriptor.
++Observation, Aftermath, Recovery. Commands quote, then revalidate at each actual commitment boundary (AR7).
++Admission and quoted entitlement remain fixed for admitted work; completion
++checks apply to support the operation still needs and newly committed stages
++check their own requirements (GTR11). The current structured timed-ability
++adapter requires refunds for cancellation and lost-support reservations. Other
++policies need demonstrated adapter and transaction support, not prose alone.
++[Source trace and limitations](gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md#t1-admission-and-support-source-trace).
+ 
+ **ABR12. Each ability needs a fitting use in the world.** An ability ships with
+ at least one situation where it changes an outcome the player cares about: a
+@@ -123,15 +127,20 @@
+ **ABR13. Abilities meet other systems through shared effects.** Damage, healing,
+ items made or mended, knowledge, movement, social standing and conditions go to
+ their owning systems (body, crafting, inventory, knowledge, presence). Making
+-abilities obey MR20: magic input is a step with cost, not a free multiplier.
++abilities obey MR20: magical input uses its actual requirements and costs,
++including no cost where the mechanism supports it (AD5, AD38). Do not invent
++a balancing surcharge.
+ 
+ ### Costs, limits and aftermath
+ 
+-**ABR14. Costs use the world's own resource.** Default: an ability pays what its
+-world says it pays (spirituality for LOTM, essence for Gu, stamina and a held
+-wand for HP school charms), through the shared energy/vital/item cost entries.
+-Today LOTM abilities pay stamina while the Seer method pays spirituality; align
+-them when the rows are next touched.
++**ABR14. Costs follow the world's mechanism.** An ability declares its actual
++resource, custody and other requirements, including none, through the shared
++energy/vital/item cost entries. Distinguish a source-qualified requirement from
++an authored runtime default. Current authored examples include LOTM ability
++stamina costs, its Seer method's spirituality cost, and HP school charms' stamina
++and held-wand requirements. These examples do not establish source law. When
++next selected for alignment, verify the consequential requirement at the source
++locator before changing rows; naming a resource here selects no port or migration.
+ 
+ **ABR15. Limits are adjectives, set per world (AGENTS limits).** How often, how
+ much, how sure: charges, cooldowns, durations, strain and drawbacks are world
+@@ -177,15 +186,21 @@
+ ### Proof
+ 
+ **ABR22. Proof scales with the change (AD36 item 7, AD42).** A data-only row on an
+-existing verb needs its row validation and one focused test that the effect
+-reaches its consumer. A new verb, cost resource or crossing needs a rebuilt
+-desktop browser run of acquire, use, observe aftermath, and Save/reload/Import
+-when state persists. Receipts say "agent-verified, not human-reviewed" when
++unchanged proven mechanism uses its row validation plus one sampled batch
++journey under AD36 item 7. Add a focused regression for a changed meaningful
++invariant or reproduced defect. A new verb, cost resource or crossing needs a rebuilt
++desktop browser run of acquire, use, observe aftermath, and Save/reload/Export/Import
++when persistence changes. Receipts say "agent-verified, not human-reviewed" when
+ Weibao has not played it.
+ 
+ ## How this applies per world today
+ 
+-| World | Ability rows now | Default next step under these rules |
++This table is an October 25 source snapshot and proposed work palette, not a
++current runtime census or source-law authority. Resource examples are authored
++runtime defaults until source-qualified; verify current owners when selecting
++a row. Its cost-alignment suggestions do not authorize a migration.
++
++| World | Ability rows at the October 25 inspection | Proposed next step |
+ | --- | --- | --- |
+ | LOTM | `book_world_lotm_abilities.js` ROWS: about 13 body-faculty rows over four pathways, stamina costs, drawbacks as prices, no digestion gate; Seer method hand-built with spirituality cost | ABR1/ABR12: give existing Spectator/Telepathist rungs a sourced use (acting toward digestion, perception that answers a real question). ABR14: move ability costs to spirituality. ABR7: add digestion facts where the source ties use to them |
+ | HP | Two spells (levitation, glass repair) as descriptor rows; lesson/practice hand-written | ABR6: generate lesson/practice/cast from spell rows so the 100-row census (DWF165) can grow as data; ABR12: each new spell arrives with a school or adult use |
+--- baseline/docs/ARCHITECTURE_RULES.md
++++ current/docs/ARCHITECTURE_RULES.md
+@@ -103,4 +103,4 @@
+ 
+ ## Cycle burn-down rounds, 2026-10-26
+ 
+-An extraction round names the strongly connected component group it removes and records the resulting architecture baseline after the extraction (FND3, proposed). The [cycle ledger](reviews/CYCLE_LEDGER_2026-10-26.md) records the current groups and leaves each round/result cell open for later work.
++Proposed FND3 recommends naming the strongly connected component group and measured reduction for an extraction round. Standing AR5/AR9/AR13/AR15/AR16 retain their own obligations; this proposal adds no gate or claim of cycle removal. The [cycle ledger](reviews/CYCLE_LEDGER_2026-10-26.md) records the current groups and leaves each round/result cell open for later work.
+--- baseline/docs/DOMAIN_RULES.md
++++ current/docs/DOMAIN_RULES.md
+@@ -497,8 +497,8 @@
+ | PIR6 | **Pointer: UR35.** Selecting is free (accepted). | A click to read details that starts a conversation |
+ | PIR7 | **Verbs live in the bottom Actions panel.** A selected subject's verbs pin to the top of Actions; place verbs follow. Conversations render there too, so the act and its result share one place. (S1, S2) | Verbs split between the inspection card and the action panel |
+ | PIR8 | **One function per verb.** Every route to a verb (subject group, dialogue option, command, keyboard) calls the same native function with the same eligibility checks. (AY28, LP9, AT9) | Trade from the card and trade from dialogue behaving differently |
+-| PIR9 | **Unavailable verbs say why.** A blocked verb stays visible with its reason; a verb that would interrupt running work names what it stops. (AY2, ID3) | Silent grey buttons, or verbs that cancel a routine without warning |
+-| PIR10 | **Talking is always allowed for a displayable person.** Repeats cost time, not permission. (AY14) | People greyed out for having "nothing new to say" |
++| PIR9 | **Known unavailable verbs say what can be known.** Known verbs remain visible as applicable, with reasons the observer's means establishes; unknown verbs and causes stay undisclosed. A verb that would interrupt running work names what it stops. (AY2, ID3) | Silent grey buttons, or verbs that cancel a routine without warning |
++| PIR10 | **Known people retain a fitting contact or talk attempt where circumstances allow.** Heard dialogue is not disabled for repetition. Access, distance, consciousness, language, willingness and actual communication means decide whether an attempt or exchange can happen and what time or other cost it has. (AY14) | People greyed out for having "nothing new to say" |
+ | PIR11 | **Keyboard reaches every verb.** Arrows move the selection; Enter on a selected row runs its first verb. (S5) | A mouse-only path for the most frequent action |
+ | PIR12 | **Selection is stable (accepted, UR52).** Ticks, away time and list changes never move the selection or steal focus; a subject that leaves gives a notice, not a silent jump. (AY4, AY10, ID2) | The inspected person changing under the cursor |
+ | PIR13 | **A conversation has an explicit exit.** Leave is listed last, Esc works, and the place returns with the selection kept. A world may make a scene non-leavable with a stated in-world reason. (AY3, AY29) | A conversation that strands the player or loses their place |
+--- baseline/docs/GENERATION_FOUNDATION_RULES_2026-10-14.md
++++ current/docs/GENERATION_FOUNDATION_RULES_2026-10-14.md
+@@ -42,7 +42,7 @@
+ | GR12 | **No generator without a reader.** A generator lands with at least one action, cost or gate that reads its output. | Write-only fields that look done in reports (scorecard F4) |
+ | GR13 | **Same rules for NPCs and player.** NPC crafters, rivals and heirs call the same generator as the player. | Two economies, two balance passes (crafting NP) |
+ | GR14 | **Scope streams to world and life.** Stream roots derive from world and life IDs per E1 section 6, so crossings and rebirths stay independent and replayable. | One world's events reshaping another's |
+-| GR15 | **Text is a grammar over fact IDs.** Generated text stores slot references and renders at display time through knowledge, so renames and discoveries propagate. Only in-world documents (a letter, a carving) freeze rendered text. | Stale names in old logs; accidental secret leaks in prose |
++| GR15 | **Text is a grammar over fact IDs.** Generated text stores slot references and renders through permitted knowledge. Current-subject views may use current public facts. An event record retains the public subject and context known for that occurrence; later knowledge appears as an explicit retrospective reading. Re-resolving an ID must not silently replace event-time equipment, identity or knowledge with today's state. In-world documents (a letter, a carving) can freeze rendered text. See UR48 and [means AA14](MEANS_AND_APPRAISAL.md#reference-detail-fold-2026-10-20-color-previews-and-witnesses). | Stale current-subject names; silently rewritten event knowledge or secret leaks |
+ | GR16 | **Every generator ships three tests.** Seed sweep (N seeds, invariants hold, distribution inside a band), golden snapshot for three fixed seeds, and save/reload/import gives the same next value. | Determinism bugs found by Weibao in play |
+ | GR17 | **Keyed by the owning game clock, not ticks.** Each time-based draw names its world, body or space clock; repeatable actions also retain the committed attempt identity (GR2). Equivalent segmented/catch-up processing retains the same draws. | Background timing changing results; frozen world dates repeating every personal practice draw |
+ 
+@@ -324,10 +324,17 @@
+ 
+ ## Cross-audit clarification, 2026-10-18
+ 
+-GR7 and GR17 above are revised proposals under the requested reconciliation,
+-not newly accepted universal world laws. Historical GR7 described automatic
+-joining "every relevant table by being tagged"; historical GR17 named only the
+-in-game day/hour. The owning mechanism and clock now qualify those shortcuts.
++Current status, reconciled 2026-10-26: GR7 and GR17 are part of the accepted
++GR defaults under the core rules, confirmed by Weibao on October 19
++([authority](USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)).
++This does not accept auxiliary GA/MC/SB proposals or make universal world laws.
++The owning mechanism and clock qualify the historical shortcuts below.
++
++Historical status wording from October 18, preserved:
++> GR7 and GR17 above are revised proposals under the requested reconciliation,
++> not newly accepted universal world laws. Historical GR7 described automatic
++> joining "every relevant table by being tagged"; historical GR17 named only the
++> in-game day/hour.
+ See [G27/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).
+ A world-time credit does not itself freeze a world. Current `computeAway` has
+ one positive elapsed rate; a dual-clock plan must name the missing integration.
+--- baseline/docs/MEANS_AND_APPRAISAL.md
++++ current/docs/MEANS_AND_APPRAISAL.md
+@@ -73,9 +73,9 @@
+ - **Means asymmetry is strategy.** You can see them and they can't see
+   you; they can reach you and you can't reach them. Each mismatch is a
+   situation with obvious moves.
+-- **Means cost something.** Charges, money, favors, fatigue, time,
+-  attention, exposure. A free unlimited means is a cheat and should feel
+-  like one.
++- **Means declare actual costs.** Charges, money, favors, fatigue, time,
++  attention or exposure where the mechanism calls for them, including none.
++  Cost and upkeep are world/means dials, not balancing obligations (AD5, AD38).
+ - **Means can be noticed.** Using one is an action in the fiction, and
+   sensitive targets can feel, trace or block it.
+ - **Idle time follows means too.** What happens while the player is away
+@@ -140,10 +140,11 @@
+ | Weather and omens | Sailor, farmer, diviner | What's coming, how soon |
+ | Groups | General, spymaster | An army's real strength, morale, a sect's politics |
+ 
+-**Specialists beat generalists in their domain.** A generic appraisal
+-skill reads a sword's grade; a master smith reads its flaw, its maker
+-and how long until it breaks. A merchant's eye reads value to the coin
+-and nothing about danger.
++**Specialists can read what a generalist misses.** An ordinary appraisal
++skill might read a sword's grade while a master smith reads its flaw, its maker
++and how long until it breaks. A merchant's eye might read value and little
++about danger. Actual scope and precision decide; a broader or overwhelming
++means can exceed the specialist without an invented penalty (AD28, AD38).
+ 
+ ### By channel
+ 
+@@ -198,7 +199,7 @@
+ 
+ | Code | Subtlety | Detail |
+ |---|---|---|
+-| LS1 | **What `???` means** | Different failures look different: `???` (beyond scope), `[blocked]` (concealment), `cannot be measured` (too far above), `error` (schema mismatch), blank (nothing there, or a perfect concealment). Each tells the reader something, and the VFX should differ |
++| LS1 | **What `???` means** | Public failure labels reflect what the observer's means can distinguish. `???`, `[blocked]`, `cannot be measured`, `error` or blank are illustrative outputs, not a direct map from hidden causes. Indistinguishable internal causes share an uninformative public result; prose and VFX disclose no more than the reading establishes (AD6–AD8) |
+ | LS2 | **Snapshot timing** | A reading is of that moment. Reading someone mid-buff, injured or drunk misleads later |
+ | LS3 | **Base versus equipped** | Is that strength theirs or their armor's? Better means separate them |
+ | LS4 | **Which name** | The registered name, the true name, the name they believe is theirs, or an alias. Each means reads a different one |
+@@ -260,11 +261,12 @@
+ ### Means and fairness
+ 
+ - The player is never denied what their character's means should show.
+-- Anything hidden has some route: a means you could acquire, borrow,
+-  buy or build.
++- Hidden facts can have discovery routes through means you could acquire,
++  borrow, buy or build where the world mechanism supports them. This palette
++  promises no universal reveal route or route count.
+ - Enemies don't get means for free because a fight needs to be hard.
+-  If they're dangerous, it's because of what they hold, and that's
+-  findable.
++  If they're dangerous, it's because of what they hold; discovering that
++  still depends on the observer's means.
+ 
+ ## Implementation considerations
+ 
+@@ -275,10 +277,10 @@
+ | IMP3 | **One reading function** | `read(observer, target, means, context)` runs the existing contest and returns a graded outcome at some AP level, with confidence and possible error |
+ | IMP4 | **Knowledge records** | The reading writes to the observer's knowledge record with the means id, level reached, timestamp and confidence. Ordinary NPCs keep impression tags; record-keepers get fuller records |
+ | IMP5 | **Knowledge filter** | All text and VFX render through the viewer's knowledge (F3 in the [cheat feasibility audit](audits/cheat-implementation-2026-10-10/readers/C_feasibility.md), VP levels in the presentation doc). Truth strings are referenced by id only |
+-| IMP6 | **Failure wording** | LS1's distinct failure strings come from the outcome type, not ad hoc text |
++| IMP6 | **Failure wording** | Public strings come from the observer-safe outcome projection, with distinct causes labelled only when the means distinguishes them (LS1) |
+ | IMP7 | **NPC means budget** | NPCs get means from their role, faction and world commonness, generated once and saved, so a bandit doesn't gain a scrying bowl just because the scene needs one |
+ | IMP8 | **Persistence** | Means on existing records are capability data; readings and impression tags are new save data. One migration with empty defaults, plus an old-save import test |
+-| IMP9 | **Tests** | No means, no information; a means never reads past its max level; failure strings match outcomes; no truth text in any output below the level that reveals it (also guards sealed secrets) |
++| IMP9 | **Tests** | No means, no information; a means never reads past its max level; failure strings match observer-safe outcomes; indistinguishable causes share a result; no truth text in any output below the level that reveals it (also guards sealed secrets) |
+ | IMP10 | **Native realm** | The native enemy tooltip already shows stats (`display.js` around 5061 to 5188). Proposal: model it as a built-in AP3 means everyone in the native realm holds, which keeps current behavior and fits the principle. A change would be a recorded compatibility decision |
+ 
+ ### A first slice (proposal)
+@@ -309,7 +311,7 @@
+ | Code | Stage | Routes | Notes |
+ |---|---|---|---|
+ | ML1 | **Gaining** | Learn, train, awaken, inherit, buy, rent, borrow, steal, loot, build, be granted, bond (a familiar, a spirit) | Each route leaves a trace: a teacher who knows you have it, a seller who remembers, an owner who wants it back |
+-| ML2 | **Keeping** | Charges, repair, feeding a familiar, practice to avoid rust, paying an informant monthly, renewing a license | Upkeep runs while idle, so a neglected means degrades (the idle decay VFX) |
++| ML2 | **Keeping** | Charges, repair, feeding a familiar, practice to avoid rust, paying an informant monthly, renewing a license | Upkeep or degradation occurs where its mechanism requires it, on its owning game clock and selected idle policy; some means need no upkeep (AD15–AD17, AD38) |
+ | ML3 | **Losing** | Stolen, broken, sealed by a curse, confiscated at a city gate, forgotten (memory loss), outgrown, a contact dies or defects | Losing a means changes what the UI shows: numbers turn back into words, a dossier stops updating |
+ | ML4 | **Recovering** | Reforge, re-learn faster than the first time, ransom it back, find a replacement contact | Re-learning is cheaper (the skill remembers), which softens losses without removing them |
+ | ML5 | **Passing on** | Gift, sell, bequeath, teach, betray | Heirlooms can carry their former owners' habits or marks |
+@@ -365,8 +367,9 @@
+ 
+ ### Counters are means too
+ 
+-Every means has counters, and the counters are means held by the other
+-side.
++Counters work through actual opposing means, where the mechanism supports
++them. A means may have no available counter, or none at all under the world
++mechanism. Do not invent a weakness to equalize power (AD28, AD38).
+ 
+ | Means | Typical counters |
+ |---|---|
+--- baseline/docs/PROGRESSION_GATE_RULES.md
++++ current/docs/PROGRESSION_GATE_RULES.md
+@@ -46,7 +46,7 @@
+ | GTR1 | **A gate is a fact rule over actual means.** Write each gate as: what it reads, its default threshold, the dial that moves it, the in-world reason and the cost of the routes around it (AD5, AD38). | Per world, per gate | "X requires Y" locks with no reason or alternative |
+ | GTR2 | **The gate reads the mechanism, not the label.** A realm bottleneck reads the body's capacity and foundation, not "is realm 3"; a guild rank reads the guild's record. If the mechanism is satisfied another way (a pill, a borrowed body, a forged record), the gate behaves accordingly, with that route's costs and risks (AD38). | A world law can make a route very costly, with its reason | Permission lists that miss reasonable routes |
+ | GTR3 | **Name the gate's kind and its owning mechanism.** Kinds: capacity (body or vessel), knowledge (method, recipe, route), credential (an institution's record), resource (cost paid), maturation (time, practice, growth), world state (an event or place), social (sponsor, permission, debt), law (a world rule), presentation (what the UI shows). The kind's own owner holds the mechanism (BHR, SLR, ECR, PIR, SR, UR). | A gate may combine kinds with `all`/`any` | One generic "level" stat standing in for every reason progress waits |
+-| GTR4 | **Gates pace and guide; routes around them cost.** Every gate states at least one other route with its cost (risk, time, debt, side effect, attention), or the in-world reason that the route is rare. Passive and idle progress keeps accruing toward a gate ([famine direction](USER_VISION.md#food-benefits-and-famine-consideration-2026-10-13)). | The cost dial, from cheap to near-prohibitive | Hard walls; idle time wasted at a cap |
++| GTR4 | **Gates pace and guide through actual means.** Record supported alternate routes and their actual costs, including none, or why none is currently known or available. Passive and idle progress accrues where the method still produces it, then follows the declared overflow policy (GTR16) ([famine direction](USER_VISION.md#food-benefits-and-famine-consideration-2026-10-13)). | The cost dial, from none to near-prohibitive | Hard walls; idle time wasted at a cap |
+ 
+ ### Absorbing gates from a source
+ 
+@@ -63,7 +63,7 @@
+ | --- | --- | --- | --- |
+ | GTR9 | **One evaluator.** New gates use `evaluateRule` (`met`, `known`, `reasons`) over caller-owned facts. Existing ad hoc gates stay as they are until a change touches them (AR1, no migration sweep). | None for new content | Parallel boolean checks that disagree |
+ | GTR10 | **Unknown is not unmet, and reasons follow means.** The player sees "you lack X" only when they could know X; otherwise "something is missing" or nothing. Reason text that names a sealed truth never reaches the player outside its discovery route (AD6, AD7, sealed secrets). | How much an appraisal or status window reveals, per world | Gate messages that spoil secrets or claim knowledge the character lacks |
+-| GTR11 | **Check at commitment, not at settlement.** A gate is evaluated when a new action, quote or commitment is made. Work already queued or frozen keeps the admission it had (the Paradise admission pattern, CBR queued outcomes, ECR quotes). | A world event may cancel queued work, as an event with its reason | Old saves and queued jobs breaking when a gate changes |
++| GTR11 | **Separate admission from continuing support.** A gate is evaluated when a new action, quote or commitment is made. Admitted work keeps its admission and quoted entitlement (the Paradise admission pattern, CBR queued outcomes, ECR quotes). Continuing support and newly committed stages follow their own declared checks; losing support settles through the existing owner and cancellation policy, rather than a rescan of all admission gates. | A world event may cancel queued work, as an event with its reason | Old saves and queued jobs breaking when a gate changes |
+ | GTR12 | **Opening is a staged transaction.** Effects stage before the save and publish after it; a reload never replays the reward (`native_unlock_transaction`). The opening is recorded as a saved fact with its cause. | None | Duplicate rewards and openings that vanish on reload |
+ | GTR13 | **Gates can close again, with a reason.** A revoked credential, an injured vessel or a lost sponsor closes what reads it; what was already learned or gained follows its own mechanism (SLR rust, BHR recovery), not an automatic wipe. | Whether openings persist, per gate | Either permanent unlocks that ignore loss, or loss that erases learning |
+ | GTR14 | **Evaluating is a pure read; attempting is a check.** Evaluation never spends, rolls or writes (`rules.js` contract). A risky attempt (a breakthrough, an exam) is a check with the gate as its `requires` and the risk in its outcomes (`check_contract`, GR1–GR17). | Per world: how often attempts can fail and what failure costs | Hidden side effects from merely looking at a gate |
+@@ -127,7 +127,7 @@
+ 
+ | Code | Constraint on current work | Why |
+ | --- | --- | --- |
+-| GTC1 | New gates in current lanes (W1–W4, cultivation, Paradise) use `evaluateRule` and commitment-time checks; no migration of their existing gates is required | Keeps lanes moving without a sweep nobody asked for |
++| GTC1 | Proposed application for selected new gates: use `evaluateRule` and commitment-time checks; no migration of existing gates is selected | Keeps lanes moving without a sweep nobody asked for |
+ | GTC2 | Gate `reason` strings are author text; route them through appraisal before display | Sealed secrets and AD6 already apply; gates are a new leak path |
+ | GTC3 | A gate change in content needs a save-compatibility note: what happens to work admitted under the old gate (GTR11) | Persistence changes need a migration or explicit decision (AGENTS safety) |
+ | GTC4 | Idle progress at a cap follows GTR16; a lane that adds a cap states its overflow behaviour | Passive progression direction applies across systems |
+--- baseline/docs/RULES_INDEX.md
++++ current/docs/RULES_INDEX.md
+@@ -12,7 +12,7 @@
+ 
+ ## How to use it
+ 
+-0. Read [GROUND_RULES](GROUND_RULES.md) once per session; it is the binding digest.
++0. Read [GROUND_RULES](GROUND_RULES.md) once per session; its accepted blocks bind and its proposed blocks are prompts.
+ 1. Find your task in the [router](#router-what-applies-to-my-task) and read the
+    codes it names in their rulebooks.
+ 2. Check the [AD rules](#accepted-direction-rules-ad) for every aspect the task
+@@ -41,25 +41,25 @@
+ | Accepted direction rules | AD1–AD43 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
+ | UI rules | UR1–UR75 | Standing 2026-10-15; Discord reference-guide fold 2026-10-21; small-detail tokens UR65–UR68 and region lending UR69 2026-10-22; effect-first descriptions UR70–UR74 2026-10-25; contextual terms UR75 2026-10-26 | All player-facing UI, including source-qualified reference adaptation | [UI_RULES](UI_RULES.md) |
+ | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
+-| Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons; pinned recipe and current launch fixture studies | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
++| Mockup workflow | MW1–MW7 | Standing 2026-10-16 | Unsettled layouts and interaction comparisons; pinned recipe and current launch fixture studies | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
+ | Making rules | MR1–MR36 | Standing 2026-10-15 | Potions, cooking, smithing, runes, enchanting, formations, constructs, any making; 2026-10-18 application: intermediate work and actual mechanism compatibility | [MAKING_RULES](MAKING_RULES.md) |
+ | Site and exploration rules | SR1–SR24 | Standing 2026-10-16 | Sites, ruins, natural places, maps, discovery, restoration | [SITE_AND_EXPLORATION_RULES](SITE_AND_EXPLORATION_RULES.md) |
+ | Sealed secrets | none | Standing 2026-10-10 | Hiding world truths from Weibao outside play | [AGENTS](../AGENTS.md#sealed-secrets), [discovery doc](worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10) |
+-| Means and appraisal | none | Accepted principle 2026-10-10 | What each side can know and do | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
++| Means and appraisal | none (MN/AP/LS/IMP/ML/AA are proposal identifiers) | Accepted principle 2026-10-10; detailed palette remains proposed | What each side can know and do; actual costs/counters and observer-safe failure readings | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
+ | Agent usage | AU1–AU15 | Standing 2026-10-16 | Whole-book plans, short-lived readers, bounded continuity, tree budgets and stop conditions | [Agent usage rules](AGENT_USAGE_RULES.md) |
+ | Agent workflow | AGENTS sections | Standing | Design framing, scope, research lens, verification, saves, sources, deep-detail storage, multi-agent ownership | [AGENTS](../AGENTS.md), [GM prompt](GAME_MASTER_PROMPT.md), [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md) |
+ | Source research | none | Standing | Saved-source reuse, acquisition and bounded deep dives of books, games and wikis | [Tool registry](TOOL_REGISTRY.md), [acquisition tools](research/SOURCE_ACQUISITION_TOOLS.md), [deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
+-| Generation foundation rules | GR1–GR17 | Accepted 2026-10-18 (proposed 2026-10-14) | Contract for every generator; 2026-10-18 application: selector versus mechanism and owning-clock draw identity | [GENERATION_FOUNDATION_RULES](GENERATION_FOUNDATION_RULES_2026-10-14.md) |
+-| Complexity guardrails | CX1–CX8 | Accepted 2026-10-16 (P9Z40) | Keeping depth while bounding implementation | [Part 9 pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md) |
++| Generation foundation rules | GR1–GR17 | Accepted 2026-10-18, confirmed conditional on core rules 2026-10-19 (proposed 2026-10-14) | Contract for every generator; selector versus mechanism, owning-clock draw identity and event-time public knowledge | [GENERATION_FOUNDATION_RULES](GENERATION_FOUNDATION_RULES_2026-10-14.md) |
++| Complexity guardrails | CX1–CX8 | Accepted 2026-10-16 (P9Z40), confirmed under core rules 2026-10-19 | Keeping depth while bounding implementation; CX4 retains hidden causal commitments | [Part 9 pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md) |
+ | World absorption rules | WA1–WA21 | Accepted 2026-10-18 (proposed 2026-10-17) | Turning a read source into a world pack the shared engine plays: canon status, laws as rules, generated gaps, IDs, proof; 2026-10-18 application: source/observer/implementation coverage and bounded slice floors | [WORLD_ABSORPTION_RULES](WORLD_ABSORPTION_RULES.md) |
+ | Body and health rules | BHR1–BHR30 | Accepted 2026-10-18 (proposed 2026-10-17; BHR1, BHR6, BHR14, BHR16 restate accepted AD13, AD8, AD19 and no hunger death; BHR21, BHR30 accepted through AD38) | Bodies, carriers, injury, illness, poison, healing, medicine, recovery, body wear across worlds; 2026-10-18 application: body clocks, hidden care boundaries and policy reroute | [DOMAIN_RULES](DOMAIN_RULES.md#body-and-health-rules) (old path [stub](BODY_AND_HEALTH_RULES.md)) |
+ | Combat rules | CBR1–CBR30 | Accepted 2026-10-18 (CBR1, CBR7, CBR9, CBR10, CBR13, CBR18 restate accepted AD19, AD20, AD25, AD28, AD8, AD38) | Fights, encounters, enemies, weapons in use, defeat and victory outcomes, fleeing, pursuit, captives, idle combat, nonviolent conflict; 2026-10-18 application: queued outcomes, withdrawal settlement and actual faculties | [DOMAIN_RULES](DOMAIN_RULES.md#combat-rules) (old path [stub](COMBAT_RULES.md)) |
+ | Economy rules | ECR1–ECR33 | Accepted 2026-10-18 (ECR1, ECR24, ECR27 restate accepted AD27, AD31, AD11) | Money, prices, merchants, trade, currencies, credit, wealth, property, carryover of wealth; 2026-10-18 application: belief-based quotes, currency shape and transfer accounting | [DOMAIN_RULES](DOMAIN_RULES.md#economy-rules) (old path [stub](ECONOMY_RULES.md)) |
+ | Skill and learning rules | SLR1–SLR43 | Accepted 2026-10-18 (SLR2, SLR5, SLR17 restate standing MR21–MR23; SLR3, SLR15, SLR20, SLR24–SLR26, SLR32–SLR33, SLR38 restate accepted AD lines) | Skills, practice, teaching, texts, rust/loss and carryover; 2026-10-18 carrier/clock application; 2026-10-21 AD30/AD38 applications SLR40–SLR43 distinguish titles, competence, grants, activation and effect ownership | [DOMAIN_RULES](DOMAIN_RULES.md#skill-and-learning-rules) (old path [stub](SKILL_AND_LEARNING_RULES.md)) |
+-| Presence and interaction rules | PIR1–PIR25 | Accepted 2026-10-18 (PIR5, PIR6, PIR12, PIR20–PIR23, PIR25 restate accepted sealed secrets, UR35, UR52, AD16, D11, AD11–AD12, AR and AD34) | Who and what is present in a place, selecting people, stations, events and ways out, verbs on them, new and heard dialogue, presence across idle time, rewinds and lives | [DOMAIN_RULES](DOMAIN_RULES.md#presence-and-interaction-rules) (old path [stub](PRESENCE_AND_INTERACTION_RULES.md)) |
++| Presence and interaction rules | PIR1–PIR25 | Accepted 2026-10-18 (PIR5, PIR6, PIR12, PIR20–PIR23, PIR25 restate accepted sealed secrets, UR35, UR52, AD16, D11, AD11–AD12, AR and AD34) | Who and what is present in a place, selecting people, stations, events and ways out, verbs on them, known contact availability and observer-safe refusals, new and heard dialogue, presence across idle time, rewinds and lives | [DOMAIN_RULES](DOMAIN_RULES.md#presence-and-interaction-rules) (old path [stub](PRESENCE_AND_INTERACTION_RULES.md)) |
+ | World pass rules | WPR1–WPR32 | Proposed 2026-10-23; workflow reconciliation 2026-10-25 | How any world audit, expansion, exploration or implementation pass runs: pass shape, coverage dimensions (facilities, person-to-person roles, institutions, money, time, power, starts, failure, surfaces), review gates, more-to-consider rounds, durable saving | [WORLD_PASS_RULES](WORLD_PASS_RULES.md) |
+-| Progression gate rules | GTR1–GTR35 | Proposed 2026-10-23; descriptor, inspector and herb lesson implemented 2026-10-23; book-world round GTR28–GTR35 | Any point where progress waits: bottlenecks, ranks, admission, knowledge, maturation, start and UI reveal gates; absorbing them from sources, one evaluator, commitment-time checks, staged openings, overflow and legibility | [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md) |
+-| Ability rules | ABR1–ABR22 | Proposed 2026-10-25 | Absorbing, modelling, using and showing any world's abilities: powers, spells, techniques, cheat powers, device functions; the shared power seam and structured descriptor | [ABILITY_RULES](ABILITY_RULES.md) |
++| Progression gate rules | GTR1–GTR35 | Proposed 2026-10-23; descriptor, inspector and herb lesson implemented 2026-10-23; book-world round GTR28–GTR35 | Any point where progress waits: bottlenecks, ranks, admission, knowledge, maturation, start and UI reveal gates; absorbing them from sources, one evaluator, admission versus continuing support, staged openings, overflow and legibility | [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md) |
++| Ability rules | ABR1–ABR22 | Proposed 2026-10-25 | Absorbing, modelling, using and showing any world's abilities: powers, spells, techniques, cheat powers, device functions; the shared power seam and structured descriptor; admission/support boundaries and AD36-scaled evidence | [ABILITY_RULES](ABILITY_RULES.md) |
+ | World completion standard | none | Proposal 2026-10-11; connected-delivery guidance reconciled 2026-10-25 | Sections, finite world horizons, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
+ 
+ ## Core digest (read this first, 2026-10-18)
+@@ -92,7 +92,7 @@
+ | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md); AR3/AR7/AR8 applications cover reaction, interruption and disclosure boundaries |
+ | Adding or absorbing any mechanic, or "send out and work on" a mechanic | MAW stages 0–7, AD36, AD38, AR11–AR16 | [Systems register](SYSTEMS_REGISTER.md) first (which system and degree fits), then the [mechanic absorption workflow](gm/MECHANIC_ABSORPTION_WORKFLOW.md); [all saved references implementation](gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) |
+ | Desktop host, Electron shell, packaging, Steam | AD39, AR3, AR4, AR6 | [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el); `desktop/` owns the host, `src/` stays host-free |
+-| A world's completion level or what it is missing | Completion standard S00-S14 and C0-C5, sealed-secrets rule | [World subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, proposal); [completion standard](WORLD_COMPLETION_STANDARD.md) |
++| A world's completion level or what it is missing | Completion standard S00-S14 and C0-C5 (proposal; C5 review optional under AD42), AD36, sealed-secrets rule | [World subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, proposal); [completion standard](WORLD_COMPLETION_STANDARD.md) |
+ | Any player-facing UI | UR1–UR75 (UR59–UR64 for reference-guided design), AD34, AD40; mockup workflow if layout is unsettled (recipe/launch studies in the shared workbench) | [UI_RULES](UI_RULES.md), [UI design audit](audits/UI_DESIGN_CORE_AUDIT.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+ | Descriptions for stats, traits, skills, items, conditions or actions | UR70–UR75; UR40/42/43/47; AD6–AD8 | [Description rules](UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25), [source comparison and examples](reviews/ui-descriptions-2026-10-25/REPORT.md) |
+ | Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md); MR1/MR5/MR29 also govern interrupted stages |
+@@ -100,19 +100,19 @@
+ | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |
+ | Gear stats, armor, affixes, sockets, gems | AD5, AD38, AD6–AD8, UR40, CBR; GR1–GR17 for rolls; MKR-IM2 (proposed) for sockets | [Equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md) (ESD1–ESD16, proposal) |
+ | Gear parts, materials to stats, repair, smithing, chemistry, fuel and energy, powers on the stat pipeline | MR1–MR36 (MR5, MR8, MR16, MR32), AD5, AD38, AR3, ESD1–ESD16 | [Gear depth considerations](GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md) (GDP1–GDP39, proposal) |
+-| Generators, RNG, seeds | MR2–MR3, MR28, SR20, Rulebook 9; GR1–GR17 as the recommended contract | [Procedural status](PROCEDURAL_GENERATION_STATUS_2026-10-13.md); GR7/GR17 clarify mechanism selection and owning-clock identity |
++| Generators, RNG, seeds | MR2–MR3, MR28, SR20, Rulebook 9; GR1–GR17 as the accepted contract under AD5/AD38 | [Procedural status](PROCEDURAL_GENERATION_STATUS_2026-10-13.md); GR7/GR17 clarify mechanism selection and owning-clock identity; GR15 preserves event-time public knowledge |
+ | Any world audit, expansion or exploration pass, source dive, facilities or roles pass, or review of a lane return | WPR1–WPR32; AU1–AU15 (AU5 model routing), WA3, WA8, WA11, sealed secrets | [WORLD_PASS_RULES](WORLD_PASS_RULES.md), [topic expansion playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md), [world core kit playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md) |
+-| Progression gates: realm bottlenecks, ranks, exams, admission, unlocks, caps, start or UI reveal gates | GTR1–GTR35; AD5, AD6, AD38, WPR14, WPR31, sealed secrets | [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md) (proposal), `src/progression_gates.js`; [cheat unlock palette](CHEAT_LIBRARY.md#unlocking-the-optional-start-and-keeping-progression-intact-2026-10-13) |
++| Progression gates: realm bottlenecks, ranks, exams, admission, unlocks, caps, start or UI reveal gates | GTR1–GTR35 (proposed; GTR11 distinguishes admission and continuing support); AD5, AD6, AD38, WPR14, WPR31, sealed secrets | [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md) (proposal), `src/progression_gates.js`; [cheat unlock palette](CHEAT_LIBRARY.md#unlocking-the-optional-start-and-keeping-progression-intact-2026-10-13) |
+ | A new world or book adaptation | Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA21 for turning the source into a pack | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |
+ | Different lives within a book world: student, smuggler, craftsperson and overlapping careers | AD1–AD8, AD15–AD19, AD23, AD32–AD38; WA1–WA21; SLR/ECR/PIR, MR/SR where relevant | [BF28–BF70 life and implementation proposals](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-3-different-lives-in-each-book-world-2026-10-21); [W3 people/daily-life palette](worlds/world-core-kit-2026-10-14/W3_PEOPLE_INSTITUTIONS_LIFE.md); named world source owner remains authoritative |
+ | Hidden truths, secrets, identification | Sealed secrets, AD3, AD6–AD8, MR1, MR31, SR5, SR9 | [WORLD_SECRETS_AND_DISCOVERY](worlds/WORLD_SECRETS_AND_DISCOVERY.md), [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
+-| Shown numbers, appraisal, opponent stats | AD6–AD8, UR40 | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
++| Shown numbers, appraisal, opponent stats | AD6–AD8, UR40; LS1 and AA14 (proposed applications for public failures and historical readings) | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
+ | Lives, death, rebirth, return, carryover | Rulebook 4–5, AD10–AD14, AD19–AD20 | [Continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md), [identity owner](worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md) |
+ | Time, idle, offline, recap | Rulebook 7, AD15–AD18, MR28, SR21 | [DIRECTION_SUMMARY](DIRECTION_SUMMARY.md), [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md) |
+ | Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, AD38, MR1–MR36; BHR1–BHR30 (accepted 2026-10-18) | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md); BHR18/BHR28 application names actual body clock and chosen reroute policy |
+ | Combat, enemies, weapons in use, defeat outcomes, fleeing, captives, conflict | AD8, AD19–AD21, AD25, AD28, AD38, BHR11, BHR13, BHR15; CBR1–CBR30 (accepted 2026-10-18) | [Combat palette](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), [W2 combat grammar](worlds/world-core-kit-2026-10-14/W2_LAWS_POWER_COMBAT.md), [encounters and pursuit](ENCOUNTERS_AND_PURSUIT.md); CBR2/CBR27 application separates outcome boundaries from shown stop reasons |
+ | Skills, techniques, faculties, titles and their benefits, practice, teaching, skill loss or carryover | MR21–MR23, AD3, AD6, AD8, AD11, AD17, AD38; SLR1–SLR43 (accepted 2026-10-18) | [Skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md), [SKILLS_AND_TALENTS](SKILLS_AND_TALENTS.md), [skill mechanisms](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md); SLR20 application follows the actual faculty carrier and clock |
+-| A world's abilities, powers, spells or techniques: absorbing, adding rows, costs, use, observers, crossing worlds | ABR1–ABR22 (proposed), AD3, AD6, AD28, AD30, AD38; SLR, GTR, HTP as cited there | [ABILITY_RULES](ABILITY_RULES.md), [ability authoring](worlds/ABILITY_AUTHORING.md) |
++| A world's abilities, powers, spells or techniques: absorbing, adding rows, costs, use, observers, crossing worlds | ABR1–ABR22 (proposed; ABR11 admission/support and ABR22 scaled proof), AD3, AD6, AD28, AD30, AD36, AD38, AD42; SLR, GTR, HTP as cited there | [ABILITY_RULES](ABILITY_RULES.md), [ability authoring](worlds/ABILITY_AUTHORING.md) |
+ | Who is here, talking, trading or using a station, selecting subjects, new and heard dialogue | UR35, UR42, UR52, AD6, AD11–AD12, AD16, AD33; PIR1–PIR25 (accepted 2026-10-18) | [Around you considerations](AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md), [S1–S4 packet](gm/dispatch/around-you-2026-10-18/S1_S4_PACKET.md) |
+ | Danger, defeat, difficulty, settings | AD19–AD22, SR14 | [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15) |
+ | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
+@@ -228,7 +228,7 @@
+ 
+ | Code | Rule | Source |
+ |---|---|---|
+-| AD40 | **Carry useful reference UI families and small details into future design**, especially progress/resource bars, message-condensing options, coloring and playful interaction details. Adapt them to OOPS's accepted shell and actual mechanisms. Later same-day direction selects typography/component-style/glow, then full retained palette implementation with Luna subagents, audit and root repairs. The next instruction authorizes a finite solo completion pass, self-audit and repairs. The 2026-10-21 instruction folds the Discord design guide into standing UR59–UR64; later direction selects internal Gothic by default, visible delivery and reuse of completed work before lesser-agent gap implementation. The later matched desktop comparison authorizes fitting UI repairs and creator/support/cat details, preserving deliberate OOPS differences under UR49. The following instruction requires coordinated local main Electron delivery of released combined work, visible adoption/restart proof, and an explicit inventory-overhaul coverage boundary. The next instruction selects the inventory overhaul and fitting gaps for implementation, latest combined Electron delivery, scoped merge and push. The 2026-10-25 description request selects effect-first narrative with supporting calculations under UR70–UR75; the subsequent request selects current tooltip/trait implementation and a bounded other-game comparison ([direction](USER_VISION.md#description-rules-selected-for-implementation-2026-10-26)). Concrete treatments retain their visual/play acceptance gate; unresolved reference claims do not become native facts. | [Inventory implementation/publication](USER_VISION.md#inventory-overhaul-and-combined-publication-2026-10-21); [Matched comparison direction](USER_VISION.md#matched-proto23-desktop-comparison-and-fitting-ui-fixes-2026-10-21); [Reference-guide fold](USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21); [Initial request](USER_VISION.md#small-contextual-ui-details-for-future-work-2026-10-20); [full implementation request](USER_VISION.md#full-retained-ui-and-engine-palette-implementation-2026-10-20); [reusable palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
++| AD40 | **Carry useful reference UI families and small details into future design**, especially progress/resource bars, message-condensing options, coloring and playful interaction details. Adapt them to OOPS's accepted shell and actual mechanisms. Later same-day direction selects typography/component-style/glow, then full retained palette implementation with Luna subagents, audit and root repairs. The next instruction authorizes a finite solo completion pass, self-audit and repairs. The 2026-10-21 instruction folds the Discord design guide into standing UR59–UR64; later direction selects internal Gothic by default, visible delivery and reuse of completed work before lesser-agent gap implementation. The later matched desktop comparison authorizes fitting UI repairs and creator/support/cat details, preserving deliberate OOPS differences under UR49. The following instruction requires coordinated local main Electron delivery of released combined work, visible adoption/restart proof, and an explicit inventory-overhaul coverage boundary. The next instruction selects the inventory overhaul and fitting gaps for implementation, latest combined Electron delivery, scoped merge and push. The 2026-10-25 description request selects effect-first narrative with supporting calculations under UR70–UR75; the subsequent request selects current tooltip/trait implementation and a bounded other-game comparison ([direction](USER_VISION.md#description-rules-selected-for-implementation-2026-10-26)). Concrete treatments retain required agent-side visual/play evidence; human taste/feel review is optional feedback under AD42. Unresolved reference claims do not become native facts. | [Inventory implementation/publication](USER_VISION.md#inventory-overhaul-and-combined-publication-2026-10-21); [Matched comparison direction](USER_VISION.md#matched-proto23-desktop-comparison-and-fitting-ui-fixes-2026-10-21); [Reference-guide fold](USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21); [Initial request](USER_VISION.md#small-contextual-ui-details-for-future-work-2026-10-20); [full implementation request](USER_VISION.md#full-retained-ui-and-engine-palette-implementation-2026-10-20); [reusable palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+ 
+ ### Checkout workflow
+ 
+@@ -391,7 +391,7 @@
+ 
+ ## Reserved prefixes (2026-10-19)
+ 
+-The prefixes of the [register](#register-of-rule-sets) are reserved: AD, UR, AR,
++The prefixes of the [register](#register-of-rule-sets) are reserved: AD, UR, AR, MW,
+ MR, SR, AU, GR, CX, WA, BHR, CBR, ECR, SLR, PIR, GTR, ABR, plus T for the tension rows and
+ "Rulebook". A bare code with one of these prefixes always means the register
+ owner's rule. A palette, audit or considerations doc that needs its own numbered
+--- baseline/docs/USER_VISION.md
++++ current/docs/USER_VISION.md
+@@ -6390,3 +6390,23 @@
+ Weibao: “implement each idea accordingly? Send out a chat for each research lane accordingly,”
+ 
+ This selects implementation of the applicable ideas from the eight Minecraft/cultivation/webnovel/player-feedback research lanes, with one user-visible chat per lane. Existing source evidence, systems and book-world/menu priority remain the basis; Frontier and Mistglass are test beds. Each lane proceeds through connected playable slices, credits work already present and records genuine source/ownership dependencies. This changes the wave's research-only stopping point; it does not make fan adaptations canon or authorize commits, pushes, purchases or normal-profile adoption. [Implementation dispatch](gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/COMMON.md) and [thread ledger](gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/THREADS.json) own execution and coverage.
++
++
++## Non-UI rule and workflow follow-through selected, 2026-10-26
++
++The [follow-through dispatch](gm/dispatch/rules-consideration-2026-10-26/dispatch/README.md)
++records Weibao's request for a second chat for “the other stuff” alongside the
++broader UI chat, using sharpen and more-to-consider. The resolved scope is the
++non-UI corrections in H1–H6 and H8 of the consideration report: reconcile current
++rule status/routing and clarify existing core direction at its owners. It does
++not accept PRF/FND, implement all gameplay proposals, select a migration or
++change a standing priority. Earlier no-dispatch statements in the consideration
++receipt describe that earlier phase.
++
++[Local correction receipt](gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md)
++records the owner edits, admission/support source trace, per-fold dispositions
++and actual check scope. Later October 18/19 GR/CX acceptance and AD36/AD42 govern
++these clarifications; the earlier status wording remains dated history. The
++UI sibling owns UI changes; R1's existing publication record owns its separate
++sync/triage work. No commit, push, source acquisition, normal-app replacement or
++private-save mutation is selected by this follow-through.
+--- baseline/docs/WORLD_ABSORPTION_RULES.md
++++ current/docs/WORLD_ABSORPTION_RULES.md
+@@ -25,8 +25,10 @@
+ 
+ ## The pipeline
+ 
+-Read once, sort, encode, fill gaps, prove. Each stage reads only the one before
+-it. Nobody rereads the book to build the game.
++Read, sort, encode, fill gaps, prove. Reuse the source ledger and its locators
++across stages; reopen consequential, conflicting or changed claims at their
++locators under WPR2/WPR19. This avoids redundant whole-book reads without
++turning a saved extraction into unquestionable source authority.
+ 
+ 1. **Read.** Deep dive playbook. Output: a private fact ledger with locators.
+ 2. **Sort.** Every fact lands in a kit part (K1–K24) as a pack record.
+--- baseline/docs/WORLD_COMPLETION_STANDARD.md
++++ current/docs/WORLD_COMPLETION_STANDARD.md
+@@ -63,8 +63,8 @@
+   must change decisions, access, relationships, capability or world state;
+   longer waits and renamed currencies do not establish depth.
+ - **Prove the promised layer and stop.** Use AD36 for targeted checks and valid
+-  evidence reuse. Required rebuilt native journeys, affected persistence and
+-  human acceptance remain distinct. Show known costs, readable feedback,
++  evidence reuse. Required rebuilt native journeys and affected persistence remain distinct
++  from optional human visual/feel review under AD42. Show known costs, readable feedback,
+   navigation/focus and recovery under current UI rules without exposing hidden
+   truth. Close the assigned finite revision with accepted/deferred/unknown and
+   unrun gates explicit; content coverage is not app adoption or director approval.
+@@ -226,7 +226,10 @@
+ Levels qualify only their declared scope. A C2 room is not a C4 world. A finished
+ region is not a fully represented source universe. A player's ending is not
+ developer completion of alternate paths. Director acceptance can also apply to
+-a bounded slice without promoting the full campaign to C5.
++a bounded slice without promoting the full campaign to C5. C5 is optional
++feedback under AD42, not a blocking prerequisite for delivery or the next
++dependency-ready slice. Without that review, report "agent-verified, not
++human-reviewed" when the required agent-side evidence is complete.
+ 
+ Freeze a finishable represented scope, not the size of the vision. Later detail
+ requests receive requirement revisions; they reopen affected criteria rather
+@@ -266,8 +269,9 @@
+    Save/reload/Export/Import. Old-save migration/testing follows the current
+    [deferral](USER_VISION.md#old-save-compatibility-deferred-2026-10-17), unless
+    the specific task explicitly retains an older contract.
+-5. P5 review and continue: join worker evidence, review interactions and director
+-   gates, update remaining work and finish the next slice within authorized scope.
++5. P5 review and continue: join worker evidence, review interactions and optional
++   director feedback (AD42), update remaining technical work and finish the next
++   dependency-ready slice within authorized scope.
+ 
+ Roles are useful lanes, not a permanent agent per section. Reviewers can inspect
+ the same files read-only; writers cannot. Contracts settle before dependent code
+--- baseline/docs/WORLD_GAME_MASTER_TEMPLATE.md
++++ current/docs/WORLD_GAME_MASTER_TEMPLATE.md
+@@ -99,7 +99,7 @@
+ 
+ **Engine fit:** [Existing owners/services it can use; specific missing capabilities. Verify before claiming availability.]
+ 
+-**Acceptance:** [Actions to exercise, expected consequences, knowledge boundaries, save/reload behavior and human fiction/balance review.]
++**Acceptance:** [Required actions to exercise, expected consequences, knowledge boundaries and save/reload behavior. Human fiction/balance review is optional feedback under AD42; report "agent-verified, not human-reviewed" when agent-side evidence is complete.]
+ 
+ **Decision record:** [Accepted local decisions with provenance; proposed alternatives and unresolved shared decisions.]
+ 
+--- baseline/docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md
++++ current/docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md
+@@ -100,7 +100,7 @@
+ | CX1 | **Depth on demand.** A place, person or system gains detail only when a player choice uses it. | Can you name the choice the new detail serves? |
+ | CX2 | **Connect, don't add.** A new system plugs into existing verbs, tags and owners before it adds new ones. | Does it reuse at least one existing verb and one existing consumer? |
+ | CX3 | **Rules over pairs.** Prefer one rule on tags over many pairwise interactions. | Would adding the tenth content item need new code? |
+-| CX4 | **Promote, don't pre-simulate.** Things exist as counts or addresses until observed (GR3, GR4). | Does anything tick that the player cannot affect or learn about? |
++| CX4 | **Promote, don't pre-simulate.** Unconstrained detail can remain counts or addresses until observed (GR3, GR4). Hidden causes already consumed by an event retain their actor/resource/time/custody bindings; see [GW5](../../../../GENERATION_FOUNDATION_RULES_2026-10-14.md#gw5-causal-commitment-before-observation-2026-10-15). | Does anything tick that the player cannot affect or learn about? |
+ | CX5 | **Budget declared.** Each generator and simulation states entity, draw and time budgets (GR11). | Is there a number that fails a test when exceeded? |
+ | CX6 | **Honest coverage.** Background, inspectable and playable are distinct (P9K4). Unfinished content is not disguised as a fictional lock. | Does every travel button resolve to real play? |
+ | CX7 | **One slice at a time.** Finish a playable slice before widening (AGENTS.md). | Can Weibao play the last slice now? |
+@@ -206,11 +206,17 @@
+ 
+ - **ACT NOW:** none. Planning only.
+ - **ACCOUNT FOR NOW:** people ladder P9Z23 as the vocabulary for any people
+-  work; CX1–CX8 as proposed pacing; map as a view with no own state (P9Z71);
++  work; CX1–CX8 as accepted pacing under the core rules; map as a view with no own state (P9Z71);
+   explore/ask-around as generator doors (P9Z51); catch-up and save-growth
+   measurement (P9Z81, P9Z82).
+ - **LATER:** deferral register items (P9Z41), generated-world inspector,
+   LLM text, authoring templates.
++
++Current-status reconciliation, 2026-10-26: the earlier disposition said
++"CX1–CX8 as proposed pacing". That wording is history; CX was accepted on
++October 16 and confirmed conditional on the core rules on October 19
++([authority](../../../../USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)).
++The people ladder, deferral entries and other P9Z proposals retain their status.
+ 
+ ## Questions for Weibao
+ 
+--- baseline/docs/worlds/templates/WORLD_COMPLETION_TEMPLATE.md
++++ current/docs/worlds/templates/WORLD_COMPLETION_TEMPLATE.md
+@@ -76,9 +76,9 @@
+ ## Finish line and remaining work
+ 
+ Required IDs for this revision: [frozen parents, leaves and case IDs]
+-Completion target: [C1–C5 qualified scope]
++Completion target: [C1–C4 qualified technical scope; C5 optional director acceptance]
+ Build/browser/persistence gate: [exact authorized checks and current identity]
+-Director gate: [what Weibao still needs to accept through play]
++Optional director review: [fiction, pacing or feel feedback under AD42; no blocking human gate]
+ Unplayed cases: [owning acceptance backlog; cannot count as passes]
+ New requirement policy: [revision and affected-row reopening]
+ 

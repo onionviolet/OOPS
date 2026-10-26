@@ -1,0 +1,7 @@
+
+> check:rules
+> node scripts/check_rules_index.mjs
+
+Rules index check: 24 register rows, 42 AD codes, 140 relative links
+  warn  linked file exists but is not tracked by git: docs/reviews/ui-descriptions-2026-10-25/REPORT.md
+PASS (1 warnings)

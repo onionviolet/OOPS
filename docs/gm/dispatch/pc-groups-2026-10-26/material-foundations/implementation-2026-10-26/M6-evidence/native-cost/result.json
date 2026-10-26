@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "route": "named midgame cooking prerequisites; actual native actions; fresh earned HP begin/acquire; no normal profile",
+  "checks": [
+    "Named native cooking fixture:3 Goat pieces refuses the four-piece recipe without spending;30 Boar pieces do not substitute",
+    "Actual recipe consumes exactly4 chosen Goat pieces and produces1 Animal fat; unchosen stock stays unchanged",
+    "Native Save/reload/Export/literal file Import retains exact selected/unspent stock, output and method",
+    "Actual HP begin/acquire/select:20 unchanged-visible-state ticks retain panel content; disclosure preserves HP state; changed selection invalidates content"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": {
+        "size": "14px",
+        "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": {
+        "size": "14px",
+        "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace"
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": {
+        "size": "21px",
+        "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": {
+        "size": "21px",
+        "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace"
+      }
+    }
+  ],
+  "bundleSha256": "28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5",
+  "missing": [],
+  "pageErrors": []
+}

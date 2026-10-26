@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-26T17:44:34.640413+00:00",
+  "state": "read-only fit; source_ready dependencies pending; no runtime reservation",
+  "hashes": {
+    "src/field_works_extension_content.js": "febf15ce7deeb25e56db992c31a14da378df424fb49c2d28918e7318d4350981",
+    "src/field_works_extension_facts.js": "82533b15d02ae38ba859bc52cf299cfd9f9392bdb8ca6f8c0527e42933bf50ff",
+    "src/feature_expansion_objects.js": "762e2922b9e6baab0dca43771c77d27952abd01ac7028a0a9699f24d52638fef",
+    "src/home_furnishing_content.js": "c88181372772c8bc30bc9c87d6535fceecf8c38f781575647c7e1ab6056c2460",
+    "src/book_world_paradise_campaign_content.js": "c2543099494355dd83ffb7855a3616e6431b0653a31c6fdec60f7d978d599328",
+    "src/book_world_paradise_campaign_facts.js": "a67a26d0be9c02b46b3d04ed5ed7429a1641bbed4df454bda9704fa9259ddc5b",
+    "src/book_world_paradise_campaign_runtime.js": "2bb2692c043253f8422d5c257d9b77f265a8ce49dfaad6235056cab4f61e0787",
+    "src/book_world_paradise_campaign_host.js": "e8f57a262267183364897b73ee4f4a4c7098d4bd6337c8817ae9b381ad7f2489",
+    "src/book_world_paradise_content.js": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+    "src/book_world_paradise_state.js": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+    "src/weather_calendar.js": "63372df713eae1371f595ab98444c003418a909d79a7bea384b8f1942a391503",
+    "src/world_climate.js": "61e29a39fba3e37e0a06b6da9a1f5959716b1b5d0a26db91a16017cc1bc131b0",
+    "src/world_calendar.js": "27e774778f22add7a1ec924f6e2826ea5781cf015509eb7d40f16653e36cb357"
+  }
+}

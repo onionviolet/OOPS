@@ -1,0 +1,22 @@
+{
+  "charged-dry-native": {
+    "staminaToFull": 0,
+    "credits": 15,
+    "clock": 63
+  },
+  "grounded-dry-native": {
+    "staminaToFull": 0,
+    "credits": 13,
+    "clock": 63
+  },
+  "field-useful-commission": {
+    "staminaToFull": 0,
+    "credits": 16,
+    "clock": 68
+  },
+  "final-paid-heat": {
+    "staminaToFull": 0,
+    "credits": 11,
+    "clock": 90
+  }
+}

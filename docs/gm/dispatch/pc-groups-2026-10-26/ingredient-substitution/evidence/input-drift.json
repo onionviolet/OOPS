@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-26T17:33:08.819361+00:00",
+  "headAfter": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "filesCompared": 1438,
+  "changed": [
+    {
+      "path": "src/book_care_facts.js",
+      "before": "2b9f51bf50eafa0fb4445059b090c9a23ceb1d4f159c81e2b2a65c244e857419",
+      "after": "fc9c10983b20cd7ee515f3c5e79c69c6172cb549852afefb23b151d165be68f8"
+    },
+    {
+      "path": "src/peer_standing_domain.js",
+      "before": "027aa33028b445410957c20d407c0e464702808a6285f6b9ad7b8aea063330b7",
+      "after": "f18d921b2ed86e31543a8ca7a01d509797a34f6b9ba00d0ecc4c434b28ab1196"
+    }
+  ],
+  "scope": "src JS, tests JS/MJS, top-level scripts MJS, package.json; not an immutable full dependency snapshot"
+}

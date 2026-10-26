@@ -1,0 +1,26 @@
+{
+  "name": "q1-lane-build",
+  "pid": 1336,
+  "pgid": 1336,
+  "started_at": 1792999249.272566,
+  "cwd": "/Users/weiwei/.codex/worktrees/q1-lane-build/yet-another-idle-rpg",
+  "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/Q1_resume.md",
+  "model": "gpt-6-luna",
+  "effort": "medium",
+  "log": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q1-lane-build.log",
+  "last_message": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q1-lane-build.last.md",
+  "command": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+    "exec",
+    "resume",
+    "01a17709-584e-77f2-aa6b-6c3c8beb225b",
+    "--skip-git-repo-check",
+    "-m",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"medium\"",
+    "-o",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q1-lane-build.last.md",
+    "<prompt text>"
+  ]
+}

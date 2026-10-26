@@ -1,0 +1,62 @@
+{
+  "authority": "send chats to implement each little detail",
+  "sourceThreadId": "01a17940-d6ac-7bb1-ac1d-ffa33b021c0e",
+  "contextHead": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "status": "dispatched",
+  "lanes": [
+    {
+      "id": "C1",
+      "title": "Implement PC23 cross-craft outputs and consumers",
+      "coverage": "PC23; F1/F5/F6/F7; G4E1/G4E2; J1 steps 1\u20133; A7/G4L1",
+      "threadId": "01a1794b-354e-7172-95ab-459abac3a62e",
+      "hostId": "local",
+      "status": "active",
+      "progressCursor": "0af53642-e7ae-477c-94e3-33ea61cb68bd:1"
+    },
+    {
+      "id": "C2",
+      "title": "Implement PC24 teachable and fallible craft methods",
+      "coverage": "PC24; F2; G4E3; G4L2; J1 method follow-up",
+      "threadId": "01a1794b-af8f-7fa1-9729-248143ff49c8",
+      "hostId": "local",
+      "status": "active",
+      "progressCursor": "7c4ef653-5097-4465-b16e-d9a12bd4ae65:1"
+    },
+    {
+      "id": "C3",
+      "title": "Implement PC25 functional commissions and delivery",
+      "coverage": "PC25; F3/F7; G4E4; G4L3; J1 optional handoff now selected where fitting",
+      "threadId": "01a1794b-fc26-7c22-9fc7-d064b53fdc4d",
+      "hostId": "local",
+      "status": "active",
+      "progressCursor": "b4a8c04f-0a2c-45eb-928f-4eb7c0510c67:1"
+    },
+    {
+      "id": "C4",
+      "title": "Implement PC26 recovery and integrate cross-craft details",
+      "coverage": "PC26; F4/F7; G4E2/G4E5; G4L4; G4 combined coverage/integration",
+      "threadId": "01a1794c-0828-75c0-acf7-9b1c51754bbc",
+      "hostId": "local",
+      "status": "active",
+      "progressCursor": "0742e60a-efa0-4d64-a146-a26346696c47:1"
+    }
+  ],
+  "guidanceOwner": "../../IMPLEMENTATION_FOLLOW_THROUGH.md",
+  "guidanceDelivery": {
+    "C1": "COMMON/C1 updated and explicit follow-up sent after creation",
+    "C2": "Included in lane brief and creation prompt",
+    "C3": "Included in lane brief and creation prompt",
+    "C4": "Included in lane brief and creation prompt"
+  },
+  "startProgress": "START_PROGRESS.json",
+  "coverage": "COVERAGE.md",
+  "usageOverrideContinuation": {
+    "atUTC": "2026-10-26T17:55:02.275050+00:00",
+    "checkpoint": "USAGE_CONTINUATION.md",
+    "relayedTo": [
+      "C1"
+    ],
+    "reason": "No child usage-stop found; C1 resumed for refreshed concrete dependencies; downstream dependency triggers preserved",
+    "implementationComplete": false
+  }
+}

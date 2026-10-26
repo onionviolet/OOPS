@@ -1,0 +1,37 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {performance} from 'node:perf_hooks';
+import {drawSpecimen,finishHarvest,createHarvest,observeCarcass,addCarcass} from '../../../../../../../src/harvest.js';
+import {quoteHideTreatment} from '../../../../../../../src/material_treatment.js';
+import {recipeMaterialOutput,lineagePresentation} from '../../../../../../../src/processed_materials.js';
+import {readMaterialLineage} from '../../../../../../../src/material_lineage.js';
+import {validateMaterialLineageEnvelope} from '../../../../../../../src/material_lineage_domain.js';
+import {quoteMender} from '../../../../../../../src/material_apprentice.js';
+import {createExpansionState} from '../../../../../../../src/expansion_engine.js';
+import {initializeExpedition} from '../../../../../../../src/expedition_content.js';
+import {portableEquipmentKey} from '../../../../../../../src/continuation_equipment_baggage.js';
+const state=createHarvest(),specimen=drawSpecimen({species:'Wolf rat',key:'m2-supported-source',clock:10},()=>.5);
+addCarcass(state,specimen,{clock:50});
+observeCarcass(state,'Wolf rat',specimen.key,{clock:50,skill:50});
+const harvested=finishHarvest(state,specimen,'whole',{clock:50,skill:50,tool:1}).outputs.find(r=>r.part==='pelt').item_key;
+const inventory={[harvested]:6,'{"id":"Lamp oil"}':1,'{"id":"Rough wood log"}':1};
+const prepared=quoteHideTreatment({treatmentId:'oiled',inventory,skillLevel:5,clock:60,world:'base.frontier'}).receive[0].key;
+const product=recipeMaterialOutput({resultId:'Processed rat pelt',count:1,quality:90,allocations:[{item_key:prepared,count:3}],recipeId:'butchering.materials.rat-pelt',clock:70,world:'base.frontier'});
+const root=initializeExpedition(createExpansionState(73));root.actors.player.facts['mender.methodsKnown']=true;
+const tool=quoteMender({action:'tool:oiled',state:root,inventory:{[prepared]:3,'{"id":"Rough wood log"}':1},world:'base.frontier',location:'Village',materialClock:70,blocked:''}).receive[0].key;
+const fine=quoteMender({action:'fine:oiled',state:root,inventory:{[prepared]:1,[tool]:1},world:'base.frontier',location:'Village',materialClock:80,blocked:'',capability:1}).receive[0].key;
+assert.equal(readMaterialLineage(fine).history[0].parameters.tool,tool,'existing precision consumer retains its exact unspent kit in parameters');
+const inspect=key=>{
+ let depth=0,parents=0;
+ const walk=(k,d=0)=>{depth=Math.max(depth,d);const l=readMaterialLineage(k);if(l)for(const e of l.history)for(const i of e.inputs){parents++;walk(i.item_key,d+1);}};walk(key);
+ const envelope={inventories:{person:{main_character:{[key]:{count:1}}}}};
+ const start=performance.now();
+ for(let i=0;i<100;i++){const imported=JSON.parse(JSON.stringify(envelope));validateMaterialLineageEnvelope(imported);lineagePresentation(key,80);}
+ const ms=performance.now()-start;
+ assert.ok(depth<=12);assert.ok(key.length<25000);validateMaterialLineageEnvelope(envelope);
+ return {keyCharacters:key.length,keyBytes:Buffer.byteLength(key),envelopeBytes:Buffer.byteLength(JSON.stringify(envelope)),nestedDepth:depth,parentEdges:parents,projectedObservationCount:lineagePresentation(key,80).observations.length,importAndProjection100RunsMs:ms};
+};
+assert.equal(portableEquipmentKey(tool),true,'supported kit fits the actual portable carrier reader');
+const result={route:'named synthetic producer fixture using actual harvest, treatment, recipe and mender planners',chain:{harvest:inspect(harvested),prepared:inspect(prepared),recipe:inspect(product),tool:inspect(tool),precisionLiningWithRetainedTool:inspect(fine)},limits:{envelopeNestedDepth:12,portableKeyCharacters:25000,historyLocalEvents:64},retainedTool:'Exact kit identity is already recorded in precision process parameters and remains unspent; supportInputs provides the typed form for future owner-authorized callers.',conclusion:'Supported chain, including retained-tool parameters, stays below existing depth and portable-key limits. No key representation migration justified for this route. Timing is one local run, not a performance threshold.'};
+fs.writeFileSync(new URL('./receipt-costs.json',import.meta.url),JSON.stringify(result,null,2));
+console.log(JSON.stringify(result,null,2));

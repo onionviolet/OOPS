@@ -17,9 +17,10 @@ import {causeView} from './book_world_lotm_causes.js';
 import {brokerView} from './book_world_lotm_broker.js';
 import {gradeRiteAtTransition} from './book_world_lotm_ritual.js';
 import {meritView} from './book_world_lotm_merit.js';
-import {BENCH_PREFIX,INGREDIENT_BY_NAME,benchRowList,seedBenchStock,stockSeeded} from './book_world_lotm_bench.js';
+import {BENCH_PREFIX,INGREDIENT_BY_NAME,benchRowList,seedBenchStock,stockSeeded,characteristicBrewId} from './book_world_lotm_bench.js';
 import {LOTM_TIERS,rowById} from './lotm_formula_rows.js';
 import {CC_BREW} from './book_world_lotm_brew.js';
+import {abilitySourceOf} from './book_world_lotm_abilities.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
@@ -56,6 +57,8 @@ function benchDetail(s,c,id,{registry,asleep}){
  if(brewable&&!viaMain){
   if(row.price&&!summary.formulaKnown)actions.push(prev(`book.lotm.bf_buy_${id}`));
   if(summary.formulaKnown&&!summary.brewing)actions.push(prev(`book.lotm.bf_start_${id}`));
+  const coreId=characteristicBrewId(row),coreAction=coreId&&summary.formulaKnown&&!summary.brewing?prev(coreId):null;
+  if(coreAction?.visible)actions.push({...coreAction,label:`${coreAction.label} · TC01 held: ${f['lotm.bf.core.tc01.held']||0}`});
   if(summary.brewing)actions.push(prev(`book.lotm.bf_collect_${id}`));
   if(summary.doses&&row.product.sellPence)actions.push(prev(`book.lotm.bf_sell_${id}`));
  }
@@ -131,7 +134,7 @@ export function createLotmHost(ports){
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
   const actingRow=allRows.find(r=>f[`lotm.flag.${flagOf(r,'ingested')}`]&&!f[`lotm.flag.${flagOf(r,'promoted')}`]);
   const actingKey=actingRow&&(actingRow.acting||`book.lotm.${actingRow.key}.acting`);
-  for(const def of lotmCommands){if(pathwayRows.some(r=>r.exam?.currentId&&def.id===`book.lotm.${r.exam.id}`)||def.id.startsWith('book.lotm.walk_')||def.id.startsWith(BENCH_PREFIX)||def.id.startsWith('book.lotm.merit_')||def.targetId&&!s.simulation.people[def.targetId]&&!examIds.has(def.id))continue;const p=previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId||null});
+  for(const def of lotmCommands){if(abilitySourceOf[def.id]&&!s.actors.player.sources[abilitySourceOf[def.id]])continue;if(pathwayRows.some(r=>r.exam?.currentId&&def.id===`book.lotm.${r.exam.id}`)||def.id.startsWith('book.lotm.walk_')||def.id.startsWith(BENCH_PREFIX)||def.id.startsWith('book.lotm.merit_')||def.targetId&&!s.simulation.people[def.targetId]&&!examIds.has(def.id))continue;const p=previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId||null});
    // The rule text of a blocked offer is not player-readable; the switching law is (one pathway per life).
    const other=acceptIds.has(def.id)&&f['lotm.pathChosen']&&!f[`lotm.flag.${acceptFlag[def.id]}`];
    const action={id:def.id,label:def.label,eligible:p.eligible&&!ports.sleeping(),reasons:other?[LOTM_SWITCH_NOTICE]:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,duration:p.duration,cancellation:def.cancellation||'none'};

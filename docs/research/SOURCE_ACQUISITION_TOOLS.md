@@ -41,6 +41,15 @@ User-authorized downloads can proceed within their selected scope without a
 second permission question. Prefer an existing author/platform export when it
 meets the request; preserve source/version, raw hashes and actual reading scope.
 
+Current ranked-book harvest and reuse record (2026-10-25): start with the
+[harvest receipt](SOURCE_HARVEST_2026-10-25.md) and its private
+`docs/research/novels/source-harvest-2026-10-25/REUSE_INDEX.json` before another
+download, extraction or full read. The index joins exact source hashes, aliases,
+formats, preparations, reading owners and remaining chapter/volume gaps;
+`FOLLOWUP_TRANSFERS.json` preserves issued/completed requests. Refresh it through
+the recorded consolidation script after intake. Historical baselines remain
+unchanged; unresolved edition bindings and interrupted jobs are explicit.
+
 | Tool | Actual capability / entry point |
 |---|---|
 | Local library and prepared sources | Read-only Calibre/EPUB discovery first. Registry IDs `calibre`, `saved-sources` and `epub-prepare`; extraction and reading remain separate. |

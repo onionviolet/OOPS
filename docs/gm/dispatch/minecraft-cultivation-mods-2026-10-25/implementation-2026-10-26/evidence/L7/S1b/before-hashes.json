@@ -1,0 +1,8 @@
+{
+  "scripts/playtest/shadow-slave-life.mjs": "c33f6296fe1bea0f741f30780e2071dab0fedb5ffb68d85146b46c605675cdae",
+  "src/book_world_beginning_registration.js": "e75c578de03ac4cb3b01e78a7e1450309d73e0a36604a7a993b6e57893ec724b",
+  "src/structured_equipment_runtime.js": "c1589482097a938feaf832be130f6aa5b80310bd80f5473ce49e46e1e43399f1",
+  "src/world_packs/book_shadow_slave_life.js": "2c2a29c05a56af3bf207e3cef8abd91cd390e1d54caef868ffb4225b1f917a9b",
+  "tests/shadow_slave_life.test.js": "154dae228f545905c625109ae949ed5acef0db1dd30dea50e0c2992cb1ff777b",
+  "tests/structured_equipment_runtime.test.js": "d743b7f6d3765546823f8435cae0cefec006348e5d59c626498013e0d263c6e4"
+}

@@ -1,0 +1,20 @@
+{
+  "owned": [
+    "src/book_care_facts.js",
+    "tests/book_care_support.test.js",
+    "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+    "docs/gm/dispatch/other-systems-depth-2026-10-26/body/"
+  ],
+  "sha256": {
+    "src/book_care_facts.js": "fc9c10983b20cd7ee515f3c5e79c69c6172cb549852afefb23b151d165be68f8",
+    "tests/book_care_support.test.js": "5ac11f151faae647a7c296cffc5b8af844adaa7a6f8241120c2aed4c4545e9d9",
+    "src/book_care_content.js": "e4282a5c3716d3a11cefd81acde1ef0ea3b7344660b24c3796d7424004714688",
+    "src/book_world_paradise_actions.js": "fc1a1b83409384c32a84f9b4764644fac8a1af1afe876edba8558c3cc3f568d8",
+    "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+    "docs/audits/BODY_HEALTH_CORE_AUDIT.md": "f6a9af39d07e2d610ac75e9ff1585fc106354ccf66bc36ca1a527a8d1ddf8c5e"
+  },
+  "bundleSha256": "4a18834fcbce91ea930088a663b50af3ea393267695a43093e3e265cd8811040",
+  "sourceMapParity": [
+    "../../../Users/weiwei/code/yet-another-idle-rpg/src/book_care_facts.js"
+  ]
+}

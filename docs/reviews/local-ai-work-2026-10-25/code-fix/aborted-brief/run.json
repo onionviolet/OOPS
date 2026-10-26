@@ -1,0 +1,31 @@
+{
+  "scratch": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-local-code-fix-t_k02q5n",
+  "pid": 82142,
+  "process_group": 82142,
+  "input_sha256": "39e6eb899c1f7a59f7fd719d257d5ee43293e5e6a7c5ec594b8cd2379a4babae",
+  "prompt_sha256": "2956b147cdb908522199a101fc47ef70a6a5a16e02c5733b02ba20179cf63cae",
+  "command": [
+    "/Users/weiwei/.local/bin/dsh-work",
+    "--patch",
+    "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-local-code-fix-t_k02q5n/observe-overlay.json",
+    "--json",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "-"
+  ],
+  "wall_limit_seconds": 480,
+  "max_model_steps": 8,
+  "diagnostic_control_requests": 0,
+  "relay_url": "http://127.0.0.1:53385/v1",
+  "exit_code": 0,
+  "elapsed_seconds": 46.147,
+  "steps_started": 5,
+  "stopped": null,
+  "registry_unchanged": true,
+  "acceptance_checker_unchanged": true,
+  "wire_task_requests": 6,
+  "verified_off": false,
+  "manual_abort_reason": "Primary agent found incorrectly escaped sample byte literals in task brief; stopped before acceptance."
+}

@@ -1,0 +1,24 @@
+{
+  "lane": "L7",
+  "thread": "01a178b9-de0d-7bb1-a16f-cd25ed38730d",
+  "ready": false,
+  "at": "2026-10-26T21:22:12.604582+00:00",
+  "phase": "L7 selected slices delivered; no outstanding L7 slot request. Do not transfer to old readiness.",
+  "paths": [
+    "src/world_packs/book_shadow_company_life.js",
+    "src/book_world_shadow_company_domain.js",
+    "src/book_world_beginning_registration.js",
+    "src/structured_pack_runtime.js",
+    "tests/shadow_company_life.test.js",
+    "scripts/playtest/shadow-company-life.mjs"
+  ],
+  "custodyHeld": false,
+  "dependencies": {
+    "released": "S2 selected automatic checks; S1/S1b exact-unit and shared energy/custody publication retained",
+    "shared": "Existing NPC controllers/jobs, party, structured expeditions, vitality/conditions/native adapters",
+    "missing": "Actual selected-start controller initialization is not present yet; S3 is its named consumer, no second clock"
+  },
+  "receipt": "docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L7/S3/result.json",
+  "nextAfter": "L4-evidence/S5-ready.json",
+  "status": "DELIVERED_RELEASED"
+}

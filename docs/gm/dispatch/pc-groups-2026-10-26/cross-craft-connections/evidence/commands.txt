@@ -1,0 +1,4 @@
+Snapshot cwd: evidence/snapshot (removed after checks; hashes retained)
+node --test tests/craft_reference.test.js tests/craft_failure_ledger.test.js tests/processed_materials.test.js tests/gear_workshop.test.js tests/systems_workshop.test.js
+After copying stories/: node --test tests/systems_workshop.test.js
+After copying static JSON imports from src/: node --test tests/systems_workshop.test.js

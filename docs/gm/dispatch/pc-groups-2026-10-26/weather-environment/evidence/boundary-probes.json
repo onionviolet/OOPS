@@ -1,0 +1,30 @@
+[
+  {
+    "probe": "P1 place clock partition",
+    "long": {
+      "age": 1,
+      "drift": 3
+    },
+    "split": {
+      "age": 0,
+      "drift": 4
+    },
+    "result": "reproduced mismatch"
+  },
+  {
+    "probe": "P2 native rain boundary offset 30 min from root-hour boundary",
+    "long": {
+      "integrity": 100,
+      "wetness": 0,
+      "rainMinutes": 0,
+      "lastClock": 60
+    },
+    "split": {
+      "integrity": 100,
+      "wetness": 60,
+      "rainMinutes": 30,
+      "lastClock": 60
+    },
+    "result": "reproduced mismatch"
+  }
+]

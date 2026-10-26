@@ -1,0 +1,72 @@
+{
+  "route": "Named starting-material/linen fixture; earned wages/entry/lease, finite care, actual nursery log -> measured wash -> retained dry staves -> kit -> finite commission, real frozen travel",
+  "origin": "http://127.0.0.1:61797",
+  "errors": [],
+  "roundtrips": [
+    "lease-pending",
+    "nursery-paid",
+    "source-exhausted",
+    "finite-water-care",
+    "fractional-supported-growth",
+    "absent-nursery",
+    "regrown-native-log",
+    "source-log-prepared",
+    "source-dry-native",
+    "source-bind-pending",
+    "source-paid-commission"
+  ],
+  "bundleHash": "330a65e1d16e900774e7d876f0caf1482ebb4c3a8f8ca5e07988b8c0c801483d",
+  "finiteCare": true,
+  "frozenTravel": true,
+  "actualConsumer": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 1042.03125,
+        "right": 1354.421875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 1042.03125,
+        "right": 1354.421875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1028.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1028.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ]
+}

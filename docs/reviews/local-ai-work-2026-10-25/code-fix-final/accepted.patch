@@ -1,0 +1,49 @@
+--- a/scripts/toolsets.py
++++ b/scripts/toolsets.py
+@@ -79,10 +79,15 @@
+         # Registry probes are finite, offline help/version/import/health checks.
+         try:
+             run = subprocess.run(command, env=child_env, capture_output=True,
+-                                 text=True, timeout=20)
++                                 timeout=20)
++            # Probe output may contain non-UTF-8 bytes; normalize to str so
++            # diagnostics stay JSON-serializable while valid text is retained
++            # and the real exit status is preserved.
++            out = run.stdout if isinstance(run.stdout, str) else run.stdout.decode('utf-8', 'replace')
++            err = run.stderr if isinstance(run.stderr, str) else run.stderr.decode('utf-8', 'replace')
+             result.update(state='probe-passed' if run.returncode == 0 else 'probe-failed',
+                           exit_code=run.returncode,
+-                          stdout=run.stdout[-16000:], stderr=run.stderr[-4000:])
++                          stdout=out[-16000:], stderr=err[-4000:])
+         except subprocess.TimeoutExpired:
+             result.update(state='probe-timeout')
+         except OSError as error:
+--- a/scripts/toolsets/tests/test_launcher.py
++++ b/scripts/toolsets/tests/test_launcher.py
+@@ -72,6 +72,26 @@
+         with patch.object(subprocess, 'run', side_effect=subprocess.TimeoutExpired([], 20)):
+             self.assertEqual(toolsets.diagnose(row, dict(os.environ), True)['state'], 'probe-timeout')
+ 
++    def test_probe_non_utf8_output_stays_serializable(self):
++        # A child emitting raw (non-UTF-8) bytes must not crash decoding and must
++        # keep useful text, the real exit status, and JSON-serializable strings.
++        probe = "import os,sys;" \
++                " os.write(1,b'version: \\xff\\n');" \
++                " os.write(2,b'warning: \\xfe\\n'); sys.exit(3)"
++        row = self.row(probe=[probe])
++        result = toolsets.diagnose(row, dict(os.environ), True)
++        self.assertEqual(result['state'], 'probe-failed')
++        self.assertEqual(result['exit_code'], 3)
++        self.assertIsInstance(result['stdout'], str)
++        self.assertIsInstance(result['stderr'], str)
++        self.assertIn('version:', result['stdout'])
++        self.assertIn('warning:', result['stderr'])
++        # Retained-output limits are preserved even with replacement characters.
++        self.assertLessEqual(len(result['stdout']), 16000)
++        self.assertLessEqual(len(result['stderr']), 4000)
++        # Diagnostics stay JSON-serializable.
++        self.assertTrue(json.loads(json.dumps(result, ensure_ascii=False)))
++
+     def test_unknown_batch_id_causes_no_partial_probes(self):
+         with patch.object(toolsets, 'diagnose') as diagnose, patch('sys.stderr', new=io.StringIO()):
+             self.assertEqual(toolsets.main(['doctor', '--probe', 'rea', 'unknown']), 2)

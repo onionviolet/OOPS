@@ -1,0 +1,9 @@
+# B: prove and deepen a book-world condition route
+
+Execute COMMON.md and audit B/F2/F5, OSD3/4/6/8 and A2. Start by tracing one actual book-world condition/care route through its producer, carrier, supported body/world, native effect/use, expiry/recovery and transition. Generic actor-keyed conditions are a representational boundary, not a proved possession bug. Check existing care/Paradise/body owners and concurrent work before choosing a released case. Preserve their existing behaviour.
+
+Use a synthetic reproducible scenario to establish what happens when body identity, current-world support or temporary support changes. Fix a reproduced consequential discrepancy, or extend one demonstrably missing source-backed connection so harm/care has a useful functional consequence and supported recovery. If existing behaviour already satisfies the route, report that clearly and choose the next evidenced local gap within this same bounded part. Do not invent an injury engine, illness catalogue or universal carrier migration. Full HP does not automatically settle every condition.
+
+Own `body/CHECKPOINT.md`, body/care-specific implementation/tests and evidence. Leave E's site and L's lesson alone; making's body treatment remains with its existing owner. Put any necessary central shared glue in a narrow patch under your directory for E to integrate after ownership release. Record input hashes and pending integration separately.
+
+Acceptance: named carrier/support policy with source status, actual player-visible/use consequence, recovery, exact expiry/completion boundary where relevant, batch versus stepped/reloaded consistency, meaningful focused regression and applicable AD43 proof. When persistence changes, Save/reload/Export/Import. No private saves, commit, push, normal-profile adoption or further workers. Continue now.

@@ -1,0 +1,27 @@
+{
+  "fixture": "root 4, village, index 0, reedherb + riversalt",
+  "heatPartition": {
+    "thermalEqual": true,
+    "compositionEqual": true,
+    "availabilityVigor": [
+      800,
+      640
+    ],
+    "productIdentityEqual": false
+  },
+  "unsupported": {
+    "durationRejected": true,
+    "stirRejected": true
+  },
+  "scale": {
+    "mass": [
+      2000,
+      20000
+    ],
+    "safeHeat": [
+      4,
+      4
+    ],
+    "reason": "distinct consumed material rows, not total quantity"
+  }
+}

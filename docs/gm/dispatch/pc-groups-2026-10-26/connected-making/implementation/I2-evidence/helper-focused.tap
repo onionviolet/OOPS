@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: effect cancel: opposite pair cancels by its dial and names follow what remains
+ok 1 - effect cancel: opposite pair cancels by its dial and names follow what remains
+  ---
+  duration_ms: 0.75225
+  type: 'test'
+  ...
+# Subtest: names show only what the observer has seen
+ok 2 - names show only what the observer has seen
+  ---
+  duration_ms: 0.07775
+  type: 'test'
+  ...
+# Subtest: tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+ok 3 - tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+  ---
+  duration_ms: 0.273792
+  type: 'test'
+  ...
+# Subtest: experiment log: deduction names likely sources, labels masking, survives reload
+ok 4 - experiment log: deduction names likely sources, labels masking, survives reload
+  ---
+  duration_ms: 0.276708
+  type: 'test'
+  ...
+# Subtest: property view separates unknown from known-none and keeps hidden axes out
+ok 5 - property view separates unknown from known-none and keeps hidden axes out
+  ---
+  duration_ms: 0.095208
+  type: 'test'
+  ...
+# Subtest: cancel table acts on a real resolved batch
+ok 6 - cancel table acts on a real resolved batch
+  ---
+  duration_ms: 0.58425
+  type: 'test'
+  ...
+# Subtest: live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+ok 7 - live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+  ---
+  duration_ms: 18.659334
+  type: 'test'
+  ...
+# Subtest: retained trials preserve ordered amounts and observed conditions without filling historical gaps
+ok 8 - retained trials preserve ordered amounts and observed conditions without filling historical gaps
+  ---
+  duration_ms: 0.538208
+  type: 'test'
+  ...
+# Subtest: comparison preserves recipient and assay confounders instead of diagnosing ingredient absence
+ok 9 - comparison preserves recipient and assay confounders instead of diagnosing ingredient absence
+  ---
+  duration_ms: 0.335334
+  type: 'test'
+  ...
+# Subtest: new trial setup rejects unsupported revisions, invalid amounts and non-JSON observations
+ok 10 - new trial setup rejects unsupported revisions, invalid amounts and non-JSON observations
+  ---
+  duration_ms: 0.260834
+  type: 'test'
+  ...
+# Subtest: absent owner on old saves: no access, valid, nothing created
+ok 11 - absent owner on old saves: no access, valid, nothing created
+  ---
+  duration_ms: 0.564417
+  type: 'test'
+  ...
+# Subtest: access reference supplies a recipe only while held and never teaches
+ok 12 - access reference supplies a recipe only while held and never teaches
+  ---
+  duration_ms: 1.910125
+  type: 'test'
+  ...
+# Subtest: learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+ok 13 - learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+  ---
+  duration_ms: 0.763583
+  type: 'test'
+  ...
+# Subtest: training book grants once per actor read key, not per item
+ok 14 - training book grants once per actor read key, not per item
+  ---
+  duration_ms: 0.509625
+  type: 'test'
+  ...
+# Subtest: examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+ok 15 - examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+  ---
+  duration_ms: 0.963125
+  type: 'test'
+  ...
+# Subtest: forged learned recipe or read key is rejected
+ok 16 - forged learned recipe or read key is rejected
+  ---
+  duration_ms: 0.3635
+  type: 'test'
+  ...
+# Subtest: runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+ok 17 - runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+  ---
+  duration_ms: 5.550417
+  type: 'test'
+  ...
+# Subtest: demonstrated success stays separate from instruction access and observer knowledge
+ok 18 - demonstrated success stays separate from instruction access and observer knowledge
+  ---
+  duration_ms: 0.756125
+  type: 'test'
+  ...
+# Subtest: quick/guided/deep prepare the same paid request and known changes require a modified attempt
+ok 19 - quick/guided/deep prepare the same paid request and known changes require a modified attempt
+  ---
+  duration_ms: 0.5835
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 60.029416

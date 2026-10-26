@@ -1,0 +1,29 @@
+{
+  "source_ready": true,
+  "native_floor_complete": true,
+  "hashes": {
+    "src/planar_drying_field.js": "f09430047de8ef8f1541fb5d43df894800717606f4661bb66f95b750e6615863",
+    "src/book_world_paradise_field.js": "49f4ba7adac25a23f4f3feb5387e2ab2985d5020192392bb97ce3a0787b3db61",
+    "src/drying_exposure.js": "25a36feddcf35e80ed3de7d681ce3054be0b2a9d0095d93be6f55a8888e5da19",
+    "src/book_world_paradise_drying.js": "a646dbbae26f7e61cad1649fc8462c3fe23df7cba2049054cdf724b443e6c73c",
+    "src/book_world_paradise_campaign_content.js": "34ff5dfa3f3d01ff68640f085bfe6dc431a6274a2ddfb2aee3a5778ee1c94c19",
+    "src/book_world_paradise_campaign_host.js": "3fabe0974981ab36a416f11c37f8e8a014671938d8e8566df17ee52e3e5cb71b",
+    "src/book_world_paradise_campaign_facts.js": "e8cc3878a5cdb88221c8bc4da5e69982318ace6adf0c696ee844f22bf6ac3a08",
+    "src/book_world_paradise_content.js": "51008a14d94c7b60f8f6fa4d3eb9849c74e4ddbdf99f1330e5be9d38facb837e",
+    "tests/paradise_field.test.js": "1c45e058c71e14fbda8bfe89790d40676c6787c34121d2236ad45ca2d0672ac1"
+  },
+  "contract": "SOURCE_CONTRACT.md",
+  "snapshot": "/Users/weiwei/.codex/research/weather-w6-2026-10-26/snapshot",
+  "snapshotInputs": 17696,
+  "focused": "final native-vital16/16; combined final3460/3460 covers all focused subsets",
+  "golden": "48 prior commands exact,3 additive",
+  "architecture": "PASS6 grandfathered imports/205cyclic edges unchanged;main/display/save0newlines",
+  "scope": "ORIGINAL contained planar pulse\u2192retained charge\u2192paid grounding\u2192existing kit/order, attributable stale/refresh/comparison forecast",
+  "remaining": "Exact selected wider emitter/consumer gaps in COMBINED_COVERAGE.md. No app adoption, commit or publication.",
+  "nativeVitalIntegration": {
+    "src/book_world_paradise_ecology.js": "94b93d4ac91df341f7918f5dee181d9d3a0382261bdd0900c522fc0e91836560",
+    "tests/paradise_ecology.test.js": "e1f16d0ca766a1208cfd737d6394d6212681c6e9fc1e8be09eb46839be9e4fbe"
+  },
+  "candidateBundle": "bedda8b209685c62585cccf8cb25c52f9bc30911dd8938d866b439bb6c5f5c48",
+  "native": "native-settled-result.json + native-vital-result.json"
+}

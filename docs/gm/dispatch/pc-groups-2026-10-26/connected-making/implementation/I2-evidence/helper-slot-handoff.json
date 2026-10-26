@@ -1,0 +1,48 @@
+{
+  "before": {
+    "lane": "G1-I2",
+    "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "phase": "acknowledged log/reference helper source-only slice",
+    "handoffFrom": "G2-I2",
+    "handoffFromThread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "at": "2026-10-26T18:18:46.877726+00:00",
+    "nextRequested": {
+      "lane": "G7-L3",
+      "thread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca"
+    },
+    "queueAfter": [
+      "G2-I3",
+      "G2-I4",
+      "G2-I5"
+    ],
+    "paths": [
+      "src/craft_experiment_log.js",
+      "src/craft_reference.js",
+      "tests/craft_depth_rules.test.js",
+      "tests/craft_reference.test.js"
+    ],
+    "acquiredByPid": 70905
+  },
+  "after": {
+    "lane": "G7-L3",
+    "thread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "phase": "reserved direct handoff after G1-I2 H1 helper checkpoint",
+    "handoffFrom": "G1-I2",
+    "handoffFromThread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "at": "2026-10-26T18:23:43.960781+00:00",
+    "otherQueue": "G2-I3/I4/I5 separately acknowledged for slot-2 after G6-W2 per final top coordination",
+    "laterRequests": [
+      {
+        "lane": "G1-I2",
+        "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+        "phase": "dependent host/UI/native proof after I1/G3 or I4 source release"
+      }
+    ]
+  },
+  "sourcePathLocksReleased": [
+    "src/craft_experiment_log.js",
+    "src/craft_reference.js",
+    "tests/craft_depth_rules.test.js",
+    "tests/craft_reference.test.js"
+  ]
+}

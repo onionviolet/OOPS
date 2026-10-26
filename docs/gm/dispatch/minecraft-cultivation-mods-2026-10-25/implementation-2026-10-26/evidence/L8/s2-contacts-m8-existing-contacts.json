@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "lane": "m8-existing-contacts",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "24765f43a9fbdc16c9a1405bacd21a3694c208263e839bb1e3aa31fe66adee45",
+  "gates": [
+    "Native choice quota failure preserves prior durable save",
+    "earned-regard-same-save: native Save/reload/Export/literal-file Import",
+    "caused-personal-letter-pending: native Save/reload/Export/literal-file Import",
+    "named-letter-actual-pay: native Save/reload/Export/literal-file Import",
+    "introduced-trade-reserved: native Save/reload/Export/literal-file Import",
+    "actual-direct-provisions: native Save/reload/Export/literal-file Import",
+    "Actual gifts with same-save regard publication and quota rollback, living aggregate regard and named introduction, actual personal report causes funded delayed Sera letter once, real Village direct contract reserves finite Mara stock and player coins, pending/completed native imports"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

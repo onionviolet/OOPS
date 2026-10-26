@@ -1,0 +1,69 @@
+{
+  "route": "Reimport agent-earned charged-stave export into final specific-refusal bundle; no new fixture grants",
+  "origin": "http://127.0.0.1:49415",
+  "errors": [],
+  "roundtrips": [
+    "settled-final-charged-state",
+    "settled-grounded-dry-native",
+    "settled-grounded-bind-pending",
+    "settled-field-useful-commission",
+    "settled-coppice-water-preparation",
+    "settled-joined-coppice-field-order"
+  ],
+  "bundleHash": "bedda8b209685c62585cccf8cb25c52f9bc30911dd8938d866b439bb6c5f5c48",
+  "reimportHash": "970ab3301120044f2882be2566b110c6f469a7c5b14233739456fe537ad8b91a",
+  "actualFieldConsumer": true,
+  "joinedSourceWaterFieldConsumer": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 693.65625,
+        "right": 1006.03125,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 693.65625,
+        "right": 1006.03125,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1009.84375,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1028.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "bundleUrl": "http://127.0.0.1:49415/dist/bundle.js?version=v0.6-bedda8b20968",
+  "status": "agent-verified, not human-reviewed"
+}

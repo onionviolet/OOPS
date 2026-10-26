@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: center navigation restores mixing after nested native modes and Back stops native work once
+ok 1 - center navigation restores mixing after nested native modes and Back stops native work once
+  ---
+  duration_ms: 0.532917
+  type: 'test'
+  ...
+# Subtest: UR9: a rejected stop keeps the current view and return destination, then allows one successful retry
+ok 2 - UR9: a rejected stop keeps the current view and return destination, then allows one successful retry
+  ---
+  duration_ms: 0.89175
+  type: 'test'
+  ...
+# Subtest: native redraw can replace a popped dialogue branch without losing its Back route
+ok 3 - native redraw can replace a popped dialogue branch without losing its Back route
+  ---
+  duration_ms: 0.118375
+  type: 'test'
+  ...
+# Subtest: revisiting a borrowed panel keeps its original history entry mounted until final return
+ok 4 - revisiting a borrowed panel keeps its original history entry mounted until final return
+  ---
+  duration_ms: 0.643833
+  type: 'test'
+  ...
+# Subtest: native completion beneath inspection preserves the reference and removes the obsolete return destination
+ok 5 - native completion beneath inspection preserves the reference and removes the obsolete return destination
+  ---
+  duration_ms: 0.104708
+  type: 'test'
+  ...
+# Subtest: top row follows You when idle and ignores long place prose
+ok 6 - top row follows You when idle and ignores long place prose
+  ---
+  duration_ms: 0.620125
+  type: 'test'
+  ...
+# Subtest: in a fight the taller of You and the opponent cards sets the top row
+ok 7 - in a fight the taller of You and the opponent cards sets the top row
+  ---
+  duration_ms: 0.182167
+  type: 'test'
+  ...
+# Subtest: the bottom row keeps eleven text lines and the top row at most 62% of the board
+ok 8 - the bottom row keeps eleven text lines and the top row at most 62% of the board
+  ---
+  duration_ms: 0.092708
+  type: 'test'
+  ...
+# Subtest: a nearly empty You still gets ten text lines
+ok 9 - a nearly empty You still gets ten text lines
+  ---
+  duration_ms: 0.065583
+  type: 'test'
+  ...
+# Subtest: companions: idle shows Journal (R21: Skills off by Weibao's word), a fight shows Skills only, undiscovered stay out
+ok 10 - companions: idle shows Journal (R21: Skills off by Weibao's word), a fight shows Skills only, undiscovered stay out
+  ---
+  duration_ms: 0.574208
+  type: 'test'
+  ...
+# Subtest: rows that yield grow the top row only up to the R14 default
+ok 11 - rows that yield grow the top row only up to the R14 default
+  ---
+  duration_ms: 0.0815
+  type: 'test'
+  ...
+# Subtest: on a tall screen yielding rows may use 38% of the viewport, as the R14 default did
+ok 12 - on a tall screen yielding rows may use 38% of the viewport, as the R14 default did
+  ---
+  duration_ms: 0.096084
+  type: 'test'
+  ...
+# Subtest: R21 control box and bar helpers
+ok 13 - R21 control box and bar helpers
+  ---
+  duration_ms: 3.813875
+  type: 'test'
+  ...
+# Subtest: UIA12: idle place prose borrows only the space the bottom row does not need
+ok 14 - UIA12: idle place prose borrows only the space the bottom row does not need
+  ---
+  duration_ms: 0.344333
+  type: 'test'
+  ...
+# Subtest: UIA12: a fight keeps its own top-row rule even when the bottom row has room
+ok 15 - UIA12: a fight keeps its own top-row rule even when the bottom row has room
+  ---
+  duration_ms: 0.270708
+  type: 'test'
+  ...
+# Subtest: UM5 strip box labels name only non-default choices
+ok 16 - UM5 strip box labels name only non-default choices
+  ---
+  duration_ms: 0.543417
+  type: 'test'
+  ...
+# Subtest: UI changes introduce no unreviewed colors, fonts, radii, spacing (UR65), control heights (UR66), layers (UR67), type roles (UR68), cssText or foreign-host insertion
+ok 17 - UI changes introduce no unreviewed colors, fonts, radii, spacing (UR65), control heights (UR66), layers (UR67), type roles (UR68), cssText or foreign-host insertion
+  ---
+  duration_ms: 2887.513792
+  type: 'test'
+  ...
+# Subtest: UI contract catches new literal styling and aliased/direct foreign panel insertion
+ok 18 - UI contract catches new literal styling and aliased/direct foreign panel insertion
+  ---
+  duration_ms: 0.504667
+  type: 'test'
+  ...
+# Subtest: every panel declares a surface type and every route resolves through the route table
+ok 19 - every panel declares a surface type and every route resolves through the route table
+  ---
+  duration_ms: 46.324959
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2994.480333

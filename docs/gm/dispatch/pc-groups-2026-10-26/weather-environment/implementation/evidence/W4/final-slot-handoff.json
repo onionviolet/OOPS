@@ -1,0 +1,14 @@
+{
+  "lane": "G6-W6",
+  "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+  "phase": "acknowledged bounded field/forecast source after W4 final native checkpoint",
+  "handoffFrom": "G6-W4",
+  "handoffFromThread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+  "at": "2026-10-26T19:25:25.142927+00:00",
+  "nextRequested": {
+    "lane": "G6-W5",
+    "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "ready": true,
+    "phase": "retained frozen ecological native proof request after W6 safe field-source checkpoint"
+  }
+}

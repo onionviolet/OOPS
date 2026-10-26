@@ -1,0 +1,28 @@
+{
+  "lane": "G1-I4",
+  "thread": "01a1794e-a7cd-7672-929c-bf94c02d19f0",
+  "phase": "direct acknowledged-ready HP consumer source turn after W2 native proof",
+  "handoffFrom": "G6-W2",
+  "handoffFromThread": "01a1794d-9355-7f53-8c4b-12a067d142fb",
+  "at": "2026-10-26T18:44:26.947231+00:00",
+  "next_queue": [
+    "G2-I5 final combined proof requested"
+  ],
+  "preserved_unallocated_requests": [
+    {
+      "lane": "L8",
+      "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+      "status": "ready unpromised S3 request; earlier commitments take precedence"
+    },
+    {
+      "lane": "G6-W3",
+      "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+      "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+    }
+  ],
+  "handoff": {
+    "receiver_ready": true,
+    "readiness": "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/ready-receiver.json",
+    "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/W2.md"
+  }
+}

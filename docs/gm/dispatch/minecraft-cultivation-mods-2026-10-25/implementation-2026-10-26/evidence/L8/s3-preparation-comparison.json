@@ -1,0 +1,14 @@
+{
+  "graded": {
+    "stage": 1,
+    "quality": 1,
+    "rations": 6,
+    "hpDeficit": 2.134999999999998
+  },
+  "guarded": {
+    "stage": 1,
+    "quality": 0,
+    "rations": 1,
+    "hpDeficit": 1.8299999999999983
+  }
+}

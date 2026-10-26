@@ -28,6 +28,11 @@ export function bookCareEffectsSupported(state,context={}) {
     const p=state.simulation?.people?.player,b=p?.body,n=context.nativeBody||context.paradiseNative?.body,d=state.bookWorldCampaign;
     const world=state.actors?.player?.worldId;
     const visit=d?.visits?.find(v=>v.id===d.activeVisitId&&v.status==='active'&&v.actorId==='player');
+    // Rich service frames carry the current native binding. Honor lost/stale
+    // support without deleting the condition. The stat reader supplies only a
+    // body/alive frame, avoiding a recursive read of the stats being projected.
+    const binding=context.paradiseNative;
+    if(binding&&(binding.bound!==true||binding.revision!==d?.nativeRevision))return false;
     return bookCareEnrolled(state)&&d?.bodyPolicy==='same_native_body'&&[P.hub,P.goa].includes(world)&&visit?.endpoint?.worldId===world&&
         p?.life==='alive'&&p.inventory==='native'&&context.nativeAlive===true&&b?.id==='native.player.body'&&b.form==='human'&&
         b.ownerId==='player'&&b.controllerId==='player'&&b.hands>=2&&b.mobile===true&&n?.id===b.id&&n.form===b.form&&

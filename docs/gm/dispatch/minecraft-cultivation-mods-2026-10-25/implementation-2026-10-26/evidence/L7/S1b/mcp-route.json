@@ -1,0 +1,13 @@
+{
+  "route": "fresh Village Beginning -> divergent artisan -> study -> fit coat/gloves -> bind_pair -> practice_pair",
+  "freeze": {
+    "bundlePath": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-mcp-frozen-Q4lZYz/instrumented.mjs",
+    "snapshotManifest": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-mcp-frozen-Q4lZYz/snapshot.json",
+    "manifestSha256": "4074cd7b2d0dbba2e3c6198f2cd5a6870dbe7764eba7a5a4a3153a0cdcd77983",
+    "bundleSha256": "7fbe1cb5ded0db437614557bdda0cf21b176fbe9dd5eb5bb189099c5060cba1b",
+    "inputCount": 121
+  },
+  "pageErrors": 0,
+  "observedOutcome": "Your beginning\nShadow Slave · Memory apprentice\nIn this divergent life, you are an Awakened artisan with rare acquired weave sight and replication training. Your keepsake, unfinished coat and gloves, two shards and twelve essence are laid out at the work desk.\nAwakened artisan workroom\nIven, ward attendant\nIven holds entrusted pieces while you work. Finish or cancel the work to recover them.\nWorking means and costs: The desk and your prior practice support one simple protective pattern. Study costs five played minutes and two essence; fitting costs five played minutes, three essence and one shard per carrier. Cancellation or loss of working support refunds reserved costs. Your carried carrier is checked again at completion.\nPattern knowledge: You traced and understood the protective lattice. The pattern can be fitted to the unfinished coat or gloves; destructive patterns would need a different compatible carrier.\nCoat fitting: The protective lattice is fitted to your same coat. Equip it through Inventory to use its stronger impact protection; loose storage supplies no worn benefit.\nGlove fitting: The protective lattice is fitted to your same gloves. Equip it through Inventory to use its stronger impact protection; loose storage supplies no worn benefit.\nPaired ward: The practiced pair gives 25% more worn protection: coat 8 → 10, gloves 4 → 5. These pieces retain their identity and learned weave.\nCoat bond: Active, practiced bond: this exact piece gives 25% more protection while worn. Dormancy retains the practice; severing requires a new binding.\nGlove bond: Active, practiced bond: this exact piece gives 25% more protection while worn. Dormancy retains the practice; sever",
+  "reviewState": "MCP route verified; desktop reader verified separately"
+}

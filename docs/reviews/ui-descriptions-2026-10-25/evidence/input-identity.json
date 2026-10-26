@@ -1,0 +1,25 @@
+{
+  "headAtReceipt": "c2c41277459abade9938553210e4001de0a158d9",
+  "sha256": {
+    "src/player_attribute_definitions.js": "5ae41902c33e94c731ec76a84b5bfc836f463e8686da37bf0df672d8d387a470",
+    "src/display.js": "846d1a50f0c2eeec329aec2abd64b0da469640b83360cafd2c13a85862ef8979",
+    "src/proto23_shell.js": "458dd5f274b6fc8f8742e1a0039a8435f7b3c660349cd7548d7dde704550535d",
+    "src/character_bio.js": "2ca306c1b2a3f4ab9072dc177f5d8f9323cc2bd0458f1db554ab69838f086fe8",
+    "src/character_bio_ui.js": "5496c09137b9aeb80d0081bf3d8667b6591cd059fda711e560a811d40ff29232",
+    "src/body_progression.js": "027f6137bafe83f2c33bb8afe5c0ae0fc56029dc92b2bab8fe0ecb9e7dfe11e3",
+    "src/expedition_content.js": "7b576582b5ef7b531dc38d40f9f1e76f5bb1abb5fadd4b23f0e4c8e0c3c450f7",
+    "src/lineage_traits.js": "baf42afc78432977fd4364835a033069f1f668a3ceb24e51b17a3f640e81b75c",
+    "src/lineage_domain.js": "364b94c5059d7fbad8641a914a0d6798508a339924f8f00a840ee3f1bc899b94",
+    "src/household_brood_ui.js": "afd94f757bc4931bf7745d08f9e4e7e75e10caefe733943f24af1f46d87d0727",
+    "style.css": "e8554f575481c82890364b9378b743e897e025e81652cd6f13ecb20d4de89ed7",
+    "tests/player_attribute_descriptions.test.js": "f84613ad57ad7becf81615ceffe87995b5b21237e140085c44fef12e2ab50fd3",
+    "tests/character_bio.test.js": "6dc02d868e5648bc7d65d6dbfbe1072fc69aa4b0a7ce20619b0f4d181495d224",
+    "tests/body_progression.test.js": "d03858a1b8354b37ee72d1e68cc329676dfd6fd45dc45c6802ccbb8409bb2402",
+    "tests/lineage_traits.test.js": "b97ebbe6ac2a4205acb103398d5639555b8d8dd04b6215120afde5f63947d774",
+    "scripts/ui_descriptions_browser.cjs": "55fad1b94683f0a410e3cb403727b50e04499145d43327ac732a108389c2552a",
+    "dist/bundle.js": "31ec61169638fb11be00716fe742de4279d13211d2ab9780b9cac68b0f81ee96",
+    "dist/bundle.js.map": "9a4c04ec4d30f1d08e59fc357eb119b53c86296c7bb91f4b3e1ea0131e2df3b9",
+    "index.html": "55da026192bc5292473bbe8f8aaaf66ff38b082085d69adef1ee55160806dbbb"
+  },
+  "scope": "local dirty-checkout implementation; generated browser fixtures only; no publication or installed-app update"
+}

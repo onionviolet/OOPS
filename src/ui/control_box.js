@@ -19,11 +19,13 @@ export function controlBoxLabel(parts, fallback) {
     return shown.length ? shown.join(' · ') : fallback;
 }
 
-export function createControlBox({id, title, placement = 'below', keepOpen = null, panelHome = null}) {
+export function createControlBox({id, title, placement = 'below', keepOpen = null, panelHome = null, triggerLabel = ''}) {
     const root = make('div', 'control-box'); root.dataset.controlBox = id;
     const button = make('button', 'control-box-button'); button.type = 'button';
     const text = make('span', 'control-box-label'), caret = make('span', 'control-box-caret', '▾');
-    caret.setAttribute('aria-hidden', 'true'); button.append(text, caret);
+    caret.setAttribute('aria-hidden', 'true');
+    if (triggerLabel) button.append(make('span', 'control-box-purpose', triggerLabel + ':'));
+    button.append(text, caret);
     const panel = make('div', 'control-box-panel'); panel.id = `control_box_${id}`; panel.setAttribute('popover', 'manual');
     panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', title);
     const heading = make('div', 'control-box-heading'), name = make('strong', '', title), close = make('button', 'control-box-close', '×');
@@ -70,7 +72,7 @@ export function createControlBox({id, title, placement = 'below', keepOpen = nul
         panel.showPopover(); position(); openBox = api;
         button.setAttribute('aria-expanded', 'true');
         // Native strips moved in (UM5) are focusable divs with role=button; they count as controls too.
-        if (focus) (body.querySelector('input:not([hidden]),select,button:not(:disabled),[role="button"][tabindex="0"]:not([hidden])') || close).focus({preventScroll: true});
+        if (focus) ([...body.querySelectorAll('input,select,button,[role="button"][tabindex="0"]')].find(n => !n.disabled && n.getClientRects().length && getComputedStyle(n).visibility !== 'hidden') || close).focus({preventScroll: true});
     }
     function hide({restore = true} = {}) {
         if (!isOpen()) return;

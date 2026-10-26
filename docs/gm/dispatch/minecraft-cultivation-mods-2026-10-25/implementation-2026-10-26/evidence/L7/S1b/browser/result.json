@@ -1,0 +1,112 @@
+{
+  "route": "fresh Village → Beginning choice → authored divergent apprentice start → study → fit → native equip",
+  "errors": [],
+  "checks": [
+    "ordinary start grants no pack state; explicit arrival creates real native location/items and unknown-property refusal",
+    "one worn/unavailable carrier refuses the joint action",
+    "pending-joint-two-carriers: Save/reload/Export/literal Import preserves state",
+    "severed-retained-growth: Save/reload/Export/literal Import preserves state",
+    "pending-exact-carrier-rebind: Save/reload/Export/literal Import preserves state",
+    "restored-grown-pair: Save/reload/Export/literal Import preserves state",
+    "same pair grows to 16 total defense, dormant coat lowers it to 14, sever/rebind/wake restores 16 with retained practice"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "equipDiagnostic": {
+    "unfinishedDefense": 5,
+    "fittedDefense": 9,
+    "fittedKey": "{\"id\":\"book.ss.apprentice.coat\"}",
+    "equipment": {
+      "torso": {
+        "name": "Shelter coat",
+        "id": "book.ss.apprentice.coat",
+        "description": "Shelter coat: protective Memory with an unfinished lattice. Fitting the learned protective pattern doubles this piece’s modeled impact protection while worn. The exact piece stays yours.",
+        "saturates_market": true,
+        "material_type": null,
+        "use_quality": false,
+        "quality": 100,
+        "value": 1,
+        "tags": {
+          "expedition": true,
+          "structuredEquipment": true,
+          "item": true,
+          "equippable": true,
+          "component": true,
+          "armor component": true,
+          "clothing": true,
+          "armor": true
+        },
+        "market_saturation_group": {
+          "group_key": "type_clothing",
+          "group_tier": 0
+        },
+        "item_type": "EQUIPPABLE",
+        "component_stats": {},
+        "component_bonus_skill_levels": {},
+        "component_type": "chestplate interior",
+        "component_tier": 1,
+        "base_defense": 0,
+        "equip_slot": "torso",
+        "defense_value": 0,
+        "stats": {},
+        "bonus_skill_levels": {},
+        "inventory_key": "{\"id\":\"book.ss.apprentice.coat\"}"
+      }
+    },
+    "bareDefense": 1
+  },
+  "defense": {
+    "unfinishedDefense": 5,
+    "fittedDefense": 9,
+    "difference": 4,
+    "nativeEquipConsumer": true
+  },
+  "pairedDefense": 16,
+  "dormantDefense": 14,
+  "bundleSha256": "da32191acbd8786502e439fb4487780517fda9df8aff1e32c943576db10e9675",
+  "reviewState": "agent-verified, not human-reviewed",
+  "success": true
+}

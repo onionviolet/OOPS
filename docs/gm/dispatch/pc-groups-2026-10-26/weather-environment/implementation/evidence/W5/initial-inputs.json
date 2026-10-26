@@ -1,0 +1,12 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "paths": {
+    "src/craft_sources.js": "1ef9a07664b206d5f5eeecbb6d60a094e958f2d232848237c2e214036188f1da",
+    "src/world_calendar.js": "27e774778f22add7a1ec924f6e2826ea5781cf015509eb7d40f16653e36cb357",
+    "src/world_calendar_content.js": "827a342327f406c7e40ea17049b60241599eda4495a6534edd84c80c61852e21",
+    "src/habitat_care.js": "22d2272d94f0b79ed06851b8829faf800e2fdb73e8b5e55d4d8efabe9f6d74e4",
+    "src/world_completion_crop_clock.js": "3e9fe3b2d3ae5251148f48113d937ae38a8f4be16cb368a228b9d2b9955a4a35",
+    "tests/craft_engine.test.js": "2b354148211773d1e9f9b87bdf1212739af72474935926a8c415f90a1cf515db",
+    "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d"
+  }
+}

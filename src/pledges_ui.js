@@ -21,7 +21,7 @@ export function createPledgesPanel({read, commands}) {
     let rerender = () => {},routineDraft=null,loadDraft=0;
     function render() {
         const v = read();
-        if(!s.changed([v.state.vows, v.state.trial,v.state.routine,v.routine,v.sharedLearning, v.ordeal, v.rations, v.trial.ready, v.ready,loadDraft])) return;
+        if(!s.changed([v.state.vows, v.state.trial,v.state.routine,v.routine,v.routineContext,v.sharedLearning, v.ordeal, v.rations, v.trial.ready, v.ready,loadDraft])) return;
         s.body.replaceChildren(node('h3', `Vows (${v.keptCount} of ${v.maxKept} kept)`));
         for(const vow of v.vows) {
             const row = node('p'); row.dataset.vow = vow.id;
@@ -85,9 +85,13 @@ export function createPledgesPanel({read, commands}) {
         }
         if((v.state.trial.quality||0)>0){const r=v.state.routine;routineDraft ||= {maxRisk:r?.maxRisk??50,maxUnits:r?.maxUnits??5,reserve:r?.reserve??1};
             s.body.append(node('h3','Earned frame routine'),node('p','A graded success teaches a bounded preparation routine. It attempts one ready stage on the next ordinary played tick, within your risk and ration limits, then stops for review. Missing means, travel, work or a waiting choice stop it. A zero-risk limit can use the five-ration guarded sequence if your limits fund it. It never chooses a new life for you.'));
-            for(const [id,label,scale,max] of [['maxRisk','Maximum failure risk (%)',10,100],['maxUnits','Maximum rations per attempt',1,5],['reserve','Rations to keep untouched',1,1000000]]){const labelNode=node('label',label+' '),input=node('input');input.type='number';input.min='0';input.max=String(max);input.value=String(routineDraft[id]/scale);input.setAttribute('aria-label',label);input.oninput=()=>{routineDraft[id]=Math.floor(Number(input.value)*scale);};labelNode.append(input);s.body.append(labelNode);}
-            s.body.append(s.button(r?.enabled?'Stop routine':'Arm one bounded attempt',{trialRoutine:''},()=>{s.act(()=>commands.routine({...routineDraft,enabled:!r?.enabled}),r?.enabled?'Routine stopped.':'Routine armed for the next ordinary played tick.');render();}));
-            if(r?.last)s.body.append(node('p',r.last.reason));if(v.routine&&!v.routine.eligible)s.body.append(node('p',v.routine.reason));
+            const status=node('p',r?.enabled?`Armed: maximum ${r.maxRisk/10}% failure risk, at most ${r.maxUnits} rations, keep ${r.reserve} untouched. Draft edits do not change these armed limits.`:'Routine is off. Editing the draft spends nothing and does not arm it.');status.dataset.routineStatus='';s.body.append(status);
+            const preview=node('p');preview.dataset.routinePreview='';preview.setAttribute('role','status');
+            const updatePreview=()=>{try{const q=commands.previewRoutine(routineDraft),source=`Source: ${q.stock} carried Stale bread in your bag. Destination: this body's ${q.next||'next'} stage.`;preview.textContent=`Draft preview (not applied). ${source} `+(q.eligible?`${q.guarded?'Guarded preparation, no grade bonus':'Quick trial'}, ${q.risk/10}% failure risk. Spend ${q.cost} Stale bread; ${q.stock-q.cost} remain, keeping the ${routineDraft.reserve}-ration floor. Recheck means and choices on the next ordinary played tick, then stop for review.`:`Blocked: ${q.reason}`);}catch(e){preview.textContent=`Draft preview (not applied). ${e.message}`;}};
+            for(const [id,label,scale,max] of [['maxRisk','Maximum failure risk (%)',10,100],['maxUnits','Maximum rations per attempt',1,5],['reserve','Rations to keep untouched',1,1000000]]){const labelNode=node('label',label+' '),input=node('input');input.type='number';input.min='0';input.max=String(max);input.value=String(routineDraft[id]/scale);input.setAttribute('aria-label',label);input.oninput=()=>{routineDraft[id]=Math.floor(Number(input.value)*scale);updatePreview();};labelNode.append(input);s.body.append(labelNode);}
+            updatePreview();s.body.append(preview);
+            s.body.append(s.button(r?.enabled?'Stop routine':'Arm one bounded attempt',{trialRoutine:''},()=>{s.act(()=>commands.routine({...routineDraft,enabled:!r?.enabled}),r?.enabled?'Routine stopped.':'Limits saved. Review the current routine state above.');render();}));
+            if(r?.last)s.body.append(node('p',`Last stop: ${r.last.reason}`));if(r?.enabled&&v.routine&&!v.routine.eligible)s.body.append(node('p',`Current block: ${v.routine.reason}`));
         }
         s.notice.hidden = !s.notice.textContent;
     }

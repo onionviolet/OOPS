@@ -2114,7 +2114,7 @@ i {
 }
 #character_bio_profile { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: round(.3rem, 1px); padding: round(.3rem, 1px); }
 #character_bio_profile .character_bio_entry { margin: 0; border-width: 1px; font-size: var(--ui-type-small); }
-.bio_history { margin: 10px; font-size: var(--ui-type-body); line-height: 1.4; }
+.bio_history { margin: 10px; font-size: var(--custom-size, var(--ui-type-body)); line-height: var(--ui-line-prose); }
 .bio_history > p { color: var(--ui-swatch-064); }
 .bio_history details { border-top: 1px solid var(--ui-swatch-065); padding: round(.45rem, 1px) 0; }
 .bio_history summary { cursor: pointer; font-weight: bold; }
@@ -2122,7 +2122,7 @@ i {
 .bio_history li { margin: round(.4rem, 1px) 0; }
 .bio_history button { color: var(--ui-swatch-066); background: transparent; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; }
 .bio_history button:focus-visible { outline: 2px solid var(--ui-swatch-067); }
-.bio_cause { display: block; color: var(--ui-swatch-068); font-size: var(--ui-type-body); }
+.bio_cause { display: block; color: var(--ui-swatch-068); font-size: inherit; }
 .skill_div:focus { outline: 2px solid var(--ui-swatch-067); outline-offset: -2px; }
     #character_race_div:hover .character_race_tooltip {
         display: block;

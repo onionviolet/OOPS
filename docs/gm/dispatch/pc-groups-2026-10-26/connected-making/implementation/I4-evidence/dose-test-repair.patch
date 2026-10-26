@@ -1,0 +1,62 @@
+--- a/tests/dose_process.test.js
++++ b/tests/dose_process.test.js
+@@ -10,7 +10,7 @@
+ import {INGREDIENT_BY_NAME, BENCH_STOCK, STOCK_REV_KEY} from '../src/book_world_lotm_bench.js';
+ import {CC_BREW} from '../src/book_world_lotm_brew.js';
+ import {HP_PROCESS} from '../src/hp_brewing_formula.js';
+-import {settle, validate, HP} from '../src/hp_brewing_state.js';
++import {begin, commit, settle, validate, HP} from '../src/hp_brewing_state.js';
+ import {LOTM_IDS as I} from '../src/book_world_lotm_ids.js';
+ 
+ // DWF101 envelope, DWF102 rows, and the old-save fixtures written before the port (docs/gm/dispatch/dose-mechanism-2026-10-25/fixtures).
+@@ -74,14 +74,46 @@
+     assert.equal(HP_PROCESS.slots.find(s => s.id === 'fluxweed').require.provenance, 'full_moon');
+ });
+ 
+-test('old saves finish on the ported code: CC brew in progress and ready, HP Polyjuice simmering', () => {
++test('retained CC fixtures finish on the ported code: brew in progress and ready', () => {
+     const started = fixture('cc-brew-started.json'), ready = fixture('cc-brew-ready.json');
+     ok(started); let p = started; assert.throws(() => run(p, 'brew_collect_cc'));
+     p = run(wait(p, 120), 'brew_collect_cc'); assert.equal(holds(p, K.corpseDose), 1); ok(p);
+     p = run(ready, 'brew_collect_cc'); assert.equal(holds(p, K.corpseDose), 1); ok(p);
+-    const hp = fixture('hp-brewing.json'), s = hp.slice; validate(s);
+-    settle(s, s.cauldron.brew.readyAt - 1); assert.ok(s.cauldron.brew);
+-    settle(s, s.cauldron.brew.readyAt); assert.equal(s.cauldron.brew, null); assert.equal(Object.values(s.batches)[0].grade, 'canon'); validate(s);
++});
++
++test('history-less legacy HP pending work refuses without changing paid custody', () => {
++    const s = fixture('hp-brewing.json').slice, before = structuredClone(s);
++    assert.throws(() => validate(s), /Unsupported retained HP process terms/);
++    assert.deepEqual(s, before);
++    assert.throws(() => settle(s, s.cauldron.brew.readyAt), /Unsupported retained HP process terms/);
++    assert.deepEqual(s, before, 'refusal cannot settle, mint a batch or restore consumed lots');
++});
++
++test('supported HP paid history keeps its exact canon inputs and settles at its retained deadline', () => {
++    let s = begin({seed: 11, now: 0}), now = 0;
++    const act = req => {s = commit(s, {now, moon: 'Full'}, req).state;};
++    const slots = {};
++    for(const slot of HP.formula.slots) {
++        act({type: 'acquire', ingredient: slot.ingredient, route: slot.id === 'fluxweed' ? 'book.hp.route.harvest'
++            : ['bicorn', 'boomslang'].includes(slot.id) ? 'book.hp.route.trusted_supplier' : 'book.hp.route.student_store'});
++        slots[slot.id] = Object.keys(s.lots).at(-1);
++    }
++    act({type: 'stew', lotId: slots.lacewing});
++    now = HP.formula.slots[0].minStewMinutes; settle(s, now);
++    act({type: 'prepare', lotId: slots.bicorn, variant: 'book.hp.prep.powder_fine'});
++    act({type: 'prepare', lotId: slots.boomslang, variant: 'book.hp.prep.shred_fine'});
++    const paid = structuredClone(s.lots);
++    act({type: 'brew', slots}); validate(s);
++    const pending = structuredClone(s.cauldron.brew);
++    assert.equal(Object.keys(s.lots).length, 0);
++    assert.deepEqual(pending.history.inputs.map(({slot, lot}) => [slot, lot]), Object.entries(slots).map(([slot, id]) => [slot, paid[id]]));
++    settle(s, pending.readyAt - 1); assert.ok(s.cauldron.brew);
++    settle(s, pending.readyAt); validate(s);
++    assert.equal(s.cauldron.brew, null);
++    const batch = Object.values(s.batches)[0];
++    assert.equal(batch.grade, 'canon');
++    assert.deepEqual(batch.history, pending.history);
++    assert.equal(batch.dosesLeft, pending.history.producedDoses);
+ });
+ 
+ // advanceSimulation stops early at some boundaries; long brews repeat until the clock arrives.

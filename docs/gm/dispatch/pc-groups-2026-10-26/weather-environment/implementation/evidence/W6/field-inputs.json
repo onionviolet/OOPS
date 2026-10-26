@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-26T19:27:20.400829+00:00",
+  "paths": [
+    "src/planar_drying_field.js",
+    "src/book_world_paradise_field.js",
+    "src/drying_exposure.js",
+    "src/book_world_paradise_drying.js",
+    "src/book_world_paradise_campaign_content.js",
+    "src/book_world_paradise_campaign_host.js",
+    "src/book_world_paradise_campaign_facts.js",
+    "src/book_world_paradise_content.js",
+    "tests/paradise_field.test.js"
+  ],
+  "hashes": {
+    "src/planar_drying_field.js": null,
+    "src/book_world_paradise_field.js": null,
+    "src/drying_exposure.js": "55194a9ffbcfde99b14e1e1b0b6e4d2d0023c48b2a43e6c39370ef8550769485",
+    "src/book_world_paradise_drying.js": "2d20c213c8811ff747a921858c4cd0a69846a557eaaae09cf5beeeb4e1fab992",
+    "src/book_world_paradise_campaign_content.js": "c78b745ff0dd900fda4af07c4b45856872ac6484cc83866bf684d92047d6a52f",
+    "src/book_world_paradise_campaign_host.js": "c44f9fe8868ae09e38202bd75a98cb81ece3409e3dcbd49aad48313de5fc87cb",
+    "src/book_world_paradise_campaign_facts.js": "ade4b952137ff9ea9601feec4ea62fbf3093e74500ad8877bee721936d9b4750",
+    "src/book_world_paradise_content.js": "cd25575bde05edd6eb5998e30099146404467354cd62007cc54980522921e34b",
+    "tests/paradise_field.test.js": null
+  },
+  "compatibility": "Existing revision1 lots and original commands unchanged; field-bearing lots explicitly revision2; retained field charge survives custody/absence. No new saved bag/clock.",
+  "checks": "new field system regression + existing drying/exposure/environment/ecology/calendar suites; one combined build/full suite/arch/rules after source horizon",
+  "failure": "Stale forecast/reinspection cannot change committed truth; charged dry staves cannot bind until actual paid grounding; sealed/frozen interval emits no charge or extra drying."
+}

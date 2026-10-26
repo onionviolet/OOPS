@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "lane": "m5-layout",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "951c20a5b0c34ba005b7550cb6294d95c905ee321b429340c370659f56963b72",
+  "gates": [
+    "capacity-refused: native Save/reload/Export/literal-file Import",
+    "Saved native 14/21px settings at 1920×1080 and 1536×864, panel width fits; observed next-dose description, real capacity refusal preserves body and stock, final state native roundtrip."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

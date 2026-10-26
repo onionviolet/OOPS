@@ -1,0 +1,13 @@
+{
+  "controls_pass": true,
+  "task_requests_verified_off": 9,
+  "independent_acceptance": "15/15",
+  "generated_code_unchanged": true,
+  "same_prompt": true,
+  "persistent_default_off": true,
+  "persistent_endpoint_direct": true,
+  "relay_closed": true,
+  "harness_process_stopped": true,
+  "local_report_links_valid": 20,
+  "session_completion": "aborted/disposed after step limit"
+}

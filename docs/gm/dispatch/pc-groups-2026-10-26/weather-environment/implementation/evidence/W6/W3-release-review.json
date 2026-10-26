@@ -1,0 +1,20 @@
+{
+  "allCurrentInputsMatch": true,
+  "files": {
+    "src/drying_exposure.js": true,
+    "src/book_world_paradise_drying.js": true,
+    "tests/drying_exposure.test.js": true,
+    "tests/paradise_drying.test.js": true,
+    "src/book_world_paradise_campaign_content.js": true,
+    "src/book_world_paradise_campaign_facts.js": true,
+    "src/book_world_paradise_campaign_host.js": true,
+    "src/book_world_paradise_campaign_runtime.js": true,
+    "src/simulation_content.js": true,
+    "src/field_works_extension_facts.js": true
+  },
+  "focused": "23/23 tests in focused.tap; final helper presentation change additionally 5/5 paradise_drying checks in focused-final-paradise.tap",
+  "golden": "39 earlier commands unchanged; command-golden.json",
+  "contract": "../W3/SOURCE_CONTRACT.md",
+  "nativeFloorComplete": false,
+  "review": "source contract read; focused recorded evidence reused, not rerun"
+}

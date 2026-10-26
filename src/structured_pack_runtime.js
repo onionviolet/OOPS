@@ -1,4 +1,8 @@
 import {admittedExtensionCommands,previewStructuredExtension,planStructuredExtension} from './structured_pack_extensions.js';
+import {energyCharge} from './energy_resources.js';
+import {hashStreamSeed} from './hash_rng.js';
+import {guCareStatus} from './book_world_gu_domain.js';
+import {shadowCompanyStatus} from './book_world_shadow_company_domain.js';
 import {hpSchoolCalendar,hpLifeStatus} from './book_world_hp_facts.js';
 import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
@@ -80,6 +84,18 @@ export function beginStructuredCampaign(state,d,context,receipt,selection=null) 
     }
     const cause=`structured:${d.starts?selection.originSequence:++next.sequence}`;
     applySimulationEffects(out,b.effects,{...context,...(d.starts?{nativeBody:s.people.player.body}:{}),worldId:d.world.id,facts:{...context.facts,location:b.locationId}},context.registry,cause);
+    // Enroll this selected beginning's actual actors once. Shared checks own
+    // biology even while a job reserves its actor; rendering/load never reseed.
+    for(const event of d.simulation.events || []) if(event.automatic && s.people[event.actorId || 'player']) {
+        if(s.checks[event.id])throw Error('This beginning’s event clock is already initialized.');
+        s.checks[event.id] = {due:next.clock+event.interval,interval:event.interval,rng:hashStreamSeed(s.seed,event.id),count:0};
+    }
+    // A selected companion can carry out commissioned work independently;
+    // use the same controller shape as ordinary service enrollment, once.
+    for(const controller of d.simulation.controllers || []) if(s.people[controller.actorId]) {
+        if(s.controllers[controller.id])throw Error('This beginning’s controller is already initialized.');
+        s.controllers[controller.id]={actorId:controller.actorId,due:next.clock+controller.interval,interval:controller.interval};
+    }
     if(d.starts&&(s.people.player.life!=='alive'||s.people.player.body.id!==selection.bodyId||s.people.player.body.ownerId!=='player'||s.people.player.body.controllerId!=='player'||out.vitals?.player&&!(out.vitals.player.health>0)))throw Error('Beginning effects violate the selected living body.');
     const record={schema:1,packId:d.id,revision:d.revision,contentHash:d.contentHash,startId:b.id,seed:state.rng,originSequence:next.sequence,instanceId:`${d.id}.run.${state.rng}.${next.sequence}`,worldId:d.world.id,locationId:b.locationId,locationIds:d.locations.map(l=>l.id),containerBindings:(d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision})),peopleIds:(d.simulation.people||[]).map(p=>p.id),units:structuredClone(d.units||[]),initializedAt:next.clock};
     if(d.starts)Object.assign(record,selection,{initializedAt:next.clock});
@@ -100,6 +116,8 @@ export function structuredCampaignView(state,d,record,context) {
     }
     const status=d.presentation.status.filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
     status.push(...hpLifeStatus(state,context));
+    status.push(...guCareStatus(state,d,record,context));
+    status.push(...shadowCompanyStatus(state,d,record,context));
     const hpCalendar=hpSchoolCalendar(state);
     if(hpCalendar)status.push({label:'School calendar',value:hpCalendar.label});
     // Held claims (A2): the observer sees the belief and whether a test or a changed
@@ -119,7 +137,7 @@ export function structuredCampaignView(state,d,record,context) {
         if(a.actorId && a.actorId!=='player' || a.actorDefinitionId && a.actorDefinitionId!==state.simulation.people.player?.definitionId)continue;
         if(a.location!=null&&a.location!==(context.facts?.location||state.simulation.people.player.location))continue;
         const quote=previewSimulationCommand(state,context.registry,a.id,{...context,targetId:a.targetId});
-        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:[...hints(a),...quote.reasons],duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d)});
+        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:[...hints(a),...quote.reasons],duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d,state)});
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
     const extensions=(d.extensions||[]).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));
@@ -128,7 +146,7 @@ export function structuredCampaignView(state,d,record,context) {
 
 // Show only the acting character's executable input quote. NPC reserves and
 // counterfactual outcomes never become part of the observer projection.
-export function structuredActionCosts(quote, definition) {
+export function structuredActionCosts(quote, definition, state) {
     const rows=[];
     for(const e of quote.costs||[]) {
         if(e.amount != null && !Number.isFinite(e.amount))continue;
@@ -136,6 +154,14 @@ export function structuredActionCosts(quote, definition) {
         if(e.type==='vital'&&e.amount<0)rows.push(`${-e.amount} ${e.key}`);
         else if(e.type==='resource'&&e.amount<0&&e.key.endsWith('.charges'))rows.push(`${-e.amount} charge${e.amount===-1?'':'s'}`);
         else if(e.type==='resource'&&e.amount<0)rows.push(e.native&&e.key==='money'?`${-e.amount} coins`:`${-e.amount} local resource units`);
+        else if(e.type==='energy'&&e.operation==='use') {
+            const policy=state?.simulation?.energies?.player?.[e.energyId]?.policy;
+            if(policy)rows.push(`${energyCharge(policy,e)} ${policy.label}`);
+        }
+        else if(e.type==='custody'&&['player','$actor'].includes(e.from)) {
+            const item=definition.items?.find(i=>i.id===JSON.parse(e.key).id);
+            if(item)rows.push(`Entrust ${e.count} × ${item.label} for this work`);
+        }
         else if(e.type==='transfer'&&['player','$actor'].includes(e.from)) {
             const item=definition.items?.find(i=>i.id===JSON.parse(e.key).id);
             if(item)rows.push(`${e.count} × ${item.label} to recipient`);

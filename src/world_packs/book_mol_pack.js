@@ -9680,6 +9680,3165 @@ export default {
        }
       }
      ]
+    },
+    {
+     "id": "book.mol.lore.borrow",
+     "revision": 1,
+     "label": "Borrow Ibery’s workshop packet · return this copy",
+     "description": "Borrow one real packet with Ibery’s consent. It remains hers; reading it gives no practice or spell.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "once": false,
+     "costs": [],
+     "effects": [
+      {
+       "type": "custody",
+       "from": "book.mol.ibery",
+       "to": "player",
+       "key": "{\"id\":\"Cyorian borrowed workshop packet\"}",
+       "count": 1,
+       "loanId": "book.mol.lore.packet"
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.ibery",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 0,
+     "targetId": "book.mol.ibery",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ]
+    },
+    {
+     "id": "book.mol.lore.return",
+     "revision": 1,
+     "label": "Return Ibery’s workshop packet",
+     "description": "Return the held copy to its owner. Your previously read accounts remain; rereading needs access again.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "once": false,
+     "costs": [],
+     "effects": [
+      {
+       "type": "custody",
+       "from": "player",
+       "to": "book.mol.ibery",
+       "key": "{\"id\":\"Cyorian borrowed workshop packet\"}",
+       "count": 1,
+       "loanId": "book.mol.lore.packet",
+       "returning": true
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "custody.book.mol.lore.packet.holder",
+        "op": "eq",
+        "value": "player"
+       },
+       {
+        "fact": "mol.support.book.mol.ibery",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 0,
+     "targetId": "book.mol.ibery",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ]
+    },
+    {
+     "id": "book.mol.lore.read",
+     "revision": 1,
+     "label": "Read print, copy and margin · 2 min",
+     "description": "Retain three attributed accounts and their gaps. The copy shares its source; these words neither identify your stock nor make a lamp.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.print.r1",
+       "stage": "understood",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.print.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.workshop.print\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Workshop circular compiler (original branch)\",\"speaker\":\"book.mol.ibery\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest library\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"The printed circular calls both a dark inscription liquid and a household fuel “lamp black”. It says darkness itself anchors the lamp. The word does not identify a bottle; the workshop invoice distinguishes formula ink from lamp oil.\",\"confidence\":\"Attributed account; effectiveness untested\",\"coverage\":[{\"scope\":\"preparation diagram\",\"status\":\"missing\"}]}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ibery",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.copy.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.copy.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.workshop.print\",\"copyOf\":\"book.mol.lore.print.r1\",\"supersedes\":null,\"author\":\"Workshop circular compiler (original branch)\",\"speaker\":\"book.mol.ibery\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest library\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"A copied appendix repeats the circular and translates “lamp black” as lamp oil. It inherits the missing preparation diagram; this is the same witness, not independent confirmation.\",\"confidence\":\"Attributed account; effectiveness untested\",\"coverage\":[{\"scope\":\"preparation diagram\",\"status\":\"missing\"},{\"scope\":\"trade term translation\",\"status\":\"mistranslated\"}]}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ibery",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.margin.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.margin.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.borrower.margin\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Anonymous previous borrower\",\"speaker\":\"Unknown previous borrower\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest library\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"An anonymous previous borrower recommends testing a thin line on scrap before committing a cube. The note claims shade, rather than dark color alone, keeps a line usable. Neither explanation has been tested by you.\",\"confidence\":\"Attributed account; effectiveness untested\",\"coverage\":[{\"scope\":\"previous borrower identity\",\"status\":\"redacted\"},{\"scope\":\"reverse sheet\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ibery",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "custody.book.mol.lore.packet.holder",
+        "op": "eq",
+        "value": "player"
+       },
+       {
+        "fact": "item.{\"id\":\"Cyorian borrowed workshop packet\"}",
+        "op": "gte",
+        "value": 1
+       }
+      ]
+     },
+     "duration": 2,
+     "claim": "book.mol.lore.receipt.read",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "custody.book.mol.lore.packet.holder",
+        "op": "eq",
+        "value": "player"
+       },
+       {
+        "fact": "item.{\"id\":\"Cyorian borrowed workshop packet\"}",
+        "op": "gte",
+        "value": 1
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.reverse",
+     "revision": 1,
+     "label": "Inspect the packet’s reverse · 1 min",
+     "description": "Read the previously unread side. A missing diagram remains a gap; a test or teacher can supply practical evidence.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.reverse.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.reverse.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.borrower.margin\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Anonymous previous borrower\",\"speaker\":\"book.mol.ibery\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest library\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"The reverse sheet labels the thin-line check as a material test, not spell activation. Its diagram is torn away. A qualified workshop demonstration or a real strip trial can recover practical evidence; reading the gap cannot fill it.\",\"confidence\":\"Attributed account; effectiveness untested\",\"coverage\":[{\"scope\":\"thin-line check\",\"status\":\"observed\"},{\"scope\":\"preparation diagram\",\"status\":\"missing\"}]}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ibery",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "custody.book.mol.lore.packet.holder",
+        "op": "eq",
+        "value": "player"
+       },
+       {
+        "fact": "item.{\"id\":\"Cyorian borrowed workshop packet\"}",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "knowledge.book.mol.lore.margin.r1.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 1,
+     "claim": "book.mol.lore.receipt.reverse",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "custody.book.mol.lore.packet.holder",
+        "op": "eq",
+        "value": "player"
+       },
+       {
+        "fact": "item.{\"id\":\"Cyorian borrowed workshop packet\"}",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "knowledge.book.mol.lore.margin.r1.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.revision",
+     "revision": 1,
+     "label": "Ask Nora about the conflicting editions · 1 min",
+     "description": "Hear Nora’s correction while she is present. Earlier claims remain; her explanation is distinct from your own trial.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.revision.r2",
+       "stage": "interpreted",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.revision.r2\",\"kind\":\"document\",\"origin\":\"book.mol.lore.nora.correction\",\"copyOf\":null,\"supersedes\":\"book.mol.lore.print.r1\",\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r2\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"Nora corrects the circular: a stable inscription and her anchored formula do different jobs. The lamp lesson still requires reconstruction and her actual means. A copied name or dark appearance supplies neither. The circular’s dark-color explanation remains in your notes as an earlier claim.\",\"confidence\":\"Attributed account; effectiveness untested\",\"coverage\":[{\"scope\":\"dark-color explanation\",\"status\":\"superseded\"},{\"scope\":\"anchoring requirement\",\"status\":\"observed\"}]}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.nora",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.print.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 1,
+     "targetId": "book.mol.nora",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "claim": "book.mol.lore.receipt.revision",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.print.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.trial_ink",
+     "revision": 1,
+     "label": "Test formula ink on a dry strip · paper, 2 min",
+     "description": "Use one research paper to test a thin line. Hold and return the counted liquid unit; a failed strip costs the paper too. No anchoring, lamp or mastery is granted.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian formula ink\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian formula ink\"}",
+       "amount": 1,
+       "reservationReturn": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.trial.ink",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.trial.ink\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.trial.ink\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your strip-trial record\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\"],\"claim\":\"The actual formula-ink unit made a legible thin line on a dry paper strip at Nora’s workshop. The returned ink remains available for the existing keyed-lamp reconstruction. This observed preparation does not establish why a formula anchors or grant casting.\",\"confidence\":\"Observed once on this counted input; no isolated-cause or universal claim\",\"coverage\":[{\"scope\":\"dry strip, workshop bench, thin line\",\"status\":\"observed\"},{\"scope\":\"other lots and conditions\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.margin.r1.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 2,
+     "claim": "book.mol.lore.receipt.trial_ink",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.margin.r1.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.trial_oil",
+     "revision": 1,
+     "label": "Test lamp oil on a dry strip · paper, 2 min",
+     "description": "Use one research paper to test a thin line. Hold and return the counted liquid unit; a failed strip costs the paper too. No anchoring, lamp or mastery is granted.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian lamp oil\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian lamp oil\"}",
+       "amount": 1,
+       "reservationReturn": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.trial.oil",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.trial.oil\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.trial.oil\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your strip-trial record\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"The actual lamp-oil unit spread into a greasy patch on a dry paper strip at Nora’s workshop. This failed inscription trial does not make oil useless as fuel. Your separately held formula ink was not tested or consumed by this comparison.\",\"confidence\":\"Observed once on this counted input; no isolated-cause or universal claim\",\"coverage\":[{\"scope\":\"dry strip, workshop bench, thin line\",\"status\":\"observed\"},{\"scope\":\"other lots and conditions\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.margin.r1.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 2,
+     "claim": "book.mol.lore.receipt.trial_oil",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.margin.r1.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.compare",
+     "revision": 1,
+     "label": "Compare the two strip trials",
+     "description": "Keep both results and earlier claims while correcting your interpretation of the trade term. The comparison changes no liquid or learned skill.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.interpretation.r1",
+       "stage": "interpreted",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.interpretation.r1\",\"kind\":\"interpretation\",\"origin\":\"book.mol.lore.your.comparison\",\"copyOf\":null,\"supersedes\":\"book.mol.lore.copy.r1\",\"author\":\"Your comparison\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian lamp oil\\\"}\"],\"claim\":\"In these notes, “lamp black” has two alleged referents. The observed ink line supports choosing the separately counted formula ink for Nora’s existing reconstruction; the oil patch challenges the copied translation. The margin’s practical check remains useful without proving its shade explanation.\",\"confidence\":\"Inference from two observed strips; conditions held alike, liquids differ\",\"coverage\":[{\"scope\":\"local ink versus oil choice\",\"status\":\"observed\"},{\"scope\":\"other conditions or bottles\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "inference",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.oil.seen",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 0
+    },
+    {
+     "id": "book.mol.lore.practice_hand_guide",
+     "revision": 1,
+     "label": "Practice a folded-paper guide with Nora · paper + 1 crown, 3 min",
+     "description": "Fold and align a one-cube paper pattern with Nora’s feedback. Costs one paper, one stamina and her attention; actual practice teaches alignment, not casting or lamp control.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.crowns",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.crowns",
+       "amount": 1
+      },
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.lore.handGuidePracticed",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.hand.practice",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.hand.practice\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.hand.practice\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"book.mol.nora\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"You completed Nora’s three-minute folding and alignment drill on one paper. You can reproduce that one-cube manual guide with your actual hands, ink and new paper; her school title did not supply those means. This taught no personal mana or keyed-lamp control.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "book.mol.nora",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "knowledge.book.mol.lore.trial.ink.seen",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "claim": "book.mol.lore.receipt.practice_hand_guide",
+     "targetId": "book.mol.nora",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 3,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.prepare_guide_jig",
+     "revision": 1,
+     "label": "Prepare a guide with the ruling jig · ink + paper, 2 min",
+     "description": "Prepare one inked guide for a single cube using the currently restored academy ruling jig. One counted formula-ink unit and one paper become the guide; no magic, lamp or mastery is created. The guide can replace loose ink during Nora’s guided reconstruction.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian formula ink\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
+       "amount": 1
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.method.jig",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.jig\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.method.jig\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Using the currently restored academy ruling jig, you prepared one single-cube tracing guide in 2 played minutes at 1 stamina. One formula-ink unit and one paper became the physical guide. This tests this apparatus, preparation, location and scale together, not which variable caused the result. It does not establish a larger-batch recipe or anchor a spell.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "knowledge.book.mol.lore.trial.ink.seen",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "world.book.mol.lore.jigRestored",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "claim": "book.mol.lore.receipt.prepare_guide_jig",
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "world.book.mol.lore.jigRestored",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.repeat_guide_jig",
+     "revision": 1,
+     "label": "Repeat the jig guide · ink + paper, 2 min",
+     "description": "Repeat the demonstrated one-cube preparation with fresh real materials and the same current support. Your first observed method record stays unchanged; repetition grants no new mastery.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": false,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian formula ink\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
+       "amount": 1
+      }
+     ],
+     "visibleWhen": {
+      "fact": "knowledge.book.mol.lore.method.jig.seen",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "world.book.mol.lore.jigRestored",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.jig.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "world.book.mol.lore.jigRestored",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.jig.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.prepare_guide_folded",
+     "revision": 1,
+     "label": "Prepare a guide with the folded-paper method · ink + paper, 4 min",
+     "description": "Prepare one inked guide for a single cube using your practiced household folded-paper alignment. One counted formula-ink unit and one paper become the guide; no magic, lamp or mastery is created. The guide can replace loose ink during Nora’s guided reconstruction.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian formula ink\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -2
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
+       "amount": 1
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.method.folded",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.folded\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.method.folded\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria Imaya household\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Using your practiced household folded-paper alignment, you prepared one single-cube tracing guide in 4 played minutes at 2 stamina. One formula-ink unit and one paper became the physical guide. This tests this apparatus, preparation, location and scale together, not which variable caused the result. It does not establish a larger-batch recipe or anchor a spell.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "knowledge.book.mol.lore.trial.ink.seen",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lore.handGuidePracticed",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "claim": "book.mol.lore.receipt.prepare_guide_folded",
+     "duration": 4,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lore.handGuidePracticed",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.repeat_guide_folded",
+     "revision": 1,
+     "label": "Repeat the folded-paper guide · ink + paper, 4 min",
+     "description": "Repeat the demonstrated one-cube preparation with fresh real materials and the same current support. Your first observed method record stays unchanged; repetition grants no new mastery.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "once": false,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian formula ink\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -2
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
+       "amount": 1
+      }
+     ],
+     "visibleWhen": {
+      "fact": "knowledge.book.mol.lore.method.folded.seen",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lore.handGuidePracticed",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.folded.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "duration": 4,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lore.handGuidePracticed",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.folded.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.compare_methods",
+     "revision": 1,
+     "label": "Compare the two guide preparations",
+     "description": "Compare your actual one-cube results without treating several changed conditions as one controlled cause.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.method.comparison",
+       "stage": "interpreted",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.comparison\",\"kind\":\"interpretation\",\"origin\":\"book.mol.lore.method.comparison\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Both actual guide preparations produced a usable one-cube pattern. Ink type, counted amounts and single-cube scale matched; apparatus, location, preparation time and effort differed. The comparison supports those two complete setups, not a claim that school, region, shade or one isolated cause made them work. The earlier printed explanation and oil-strip failure remain separate evidence.\",\"confidence\":\"Interpretation bounded by the retained observations\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "inference",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "knowledge.book.mol.lore.trial.ink.seen",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.formulaStudied",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trial.ink.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.jig.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.folded.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
+     },
+     "claim": "book.mol.lore.receipt.compare_methods"
+    },
+    {
+     "id": "book.mol.lore.assemble_guided_lamp",
+     "revision": 1,
+     "label": "Reconstruct from your prepared guide with Nora · cube + guide + 3 crowns, 4 min",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.crowns",
+       "amount": -3
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian blank stone cube\"}",
+       "amount": -1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -2
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.attention",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.personalMana",
+       "amount": -2
+      }
+     ],
+     "effects": [
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.crowns",
+       "amount": 3
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
+       "amount": 1
+      },
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.lampBuilt",
+       "value": true
+      },
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.deviceCapacity",
+       "value": 6
+      },
+      {
+       "type": "source",
+       "actor": "player",
+       "sourceId": "book.mol.formula_operator",
+       "operation": "grant",
+       "origin": "trained",
+       "awakened": true,
+       "active": true
+      },
+      {
+       "type": "power",
+       "actor": "player",
+       "powerId": "book.mol.formula_operator",
+       "operation": "learn"
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lamp",
+       "stage": "understood",
+       "value": "Your actual cube and ink became one keyed lamp after supervised reconstruction and Nora’s two own attuned mana. Its stored reserve is empty; paid calibration still supplies charge. You learned your own manual control procedure at zero mastery, not Nora’s formula knowledge, talent or personal capacity.",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.nora",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.method.guided_lamp",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.guided_lamp\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.method.guided_lamp\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Your physical guide and cube became one empty keyed lamp with Nora’s actual anchoring. The guide supplied its already committed ink, so reconstruction charged no second ink unit. A supported manual preparation did not replace the specialist’s source, grant personal casting, or grant control mastery. Calibration, control practice and useful operation still use their existing means.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.formulaStudied",
+      "op": "eq",
+      "value": true
+     },
+     "targetId": "book.mol.nora",
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "all": [
+         {
+          "fact": "actor.book.mol.formulaStudied",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "actor.book.mol.assessment",
+          "op": "eq",
+          "value": "no_demonstrated_source"
+         },
+         {
+          "fact": "mol.noraSourceSupported",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "knowledge.book.mol.lore.method.jig.seen",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "knowledge.book.mol.lore.method.folded.seen",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       }
+      ]
+     },
+     "duration": 4,
+     "claim": "book.mol.receipt.assemble_lamp",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "all": [
+         {
+          "fact": "actor.book.mol.formulaStudied",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "actor.book.mol.assessment",
+          "op": "eq",
+          "value": "no_demonstrated_source"
+         },
+         {
+          "fact": "mol.noraSourceSupported",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "knowledge.book.mol.lore.method.jig.seen",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "knowledge.book.mol.lore.method.folded.seen",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "description": "Your prepared paper guide already holds one formula-ink unit. Commit it with a cube, two stamina and three crowns; Nora still supplies her actual attention and two attuned mana. Four-minute reconstruction yields the same empty keyed lamp, with no personal casting or control mastery."
+    },
+    {
+     "id": "book.mol.lore.trace",
+     "revision": 1,
+     "label": "Study the old alignment-stop sketch · 1 min",
+     "description": "Spend one minute comparing the surviving stop marks with the old workshop sketch. This retains a historical claim; it does not establish the jig’s present condition.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.trace.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.trace.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.workshop.print\",\"copyOf\":\"book.mol.lore.print.r1\",\"supersedes\":null,\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Earlier workshop setup, before the worn stop (ORIGINAL history)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The surviving stop marks follow an earlier workshop sketch for a single-cube ruling jig. The copied sketch describes its earlier aligned stop, not present usability. Its circular and copied diagram share one source, so they are not independent witnesses. No ink, tool, skill or stock was acquired.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"earlier alignment-stop arrangement\",\"status\":\"observed\"},{\"scope\":\"present apparatus suitability\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.nora",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Spend one minute comparing the surviving stop marks with the old workshop sketch. This retains a historical claim; it does not establish the jig’s present condition."
+     },
+     "claim": "book.mol.lore.receipt.trace",
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Spend one minute comparing the surviving stop marks with the old workshop sketch. This retains a historical claim; it does not establish the jig’s present condition."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.inspect_worn_jig",
+     "revision": 1,
+     "label": "Check the current alignment stop · 1 min",
+     "description": "Check the present stop before using the historical design. Its worn gap prevents the jig method until repaired; a practiced manual method remains possible.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.jig.worn",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.jig.worn\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.jig.worn\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your workshop observation\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The current alignment stop has a worn gap. The old sketch still describes an earlier arrangement, but cannot certify present support. The jig method is unavailable; a learned manual guide uses different actual support.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trace.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.jigWorn",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Check the present stop before using the historical design. Its worn gap prevents the jig method until repaired; a practiced manual method remains possible."
+     },
+     "claim": "book.mol.lore.receipt.inspect_worn_jig",
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.trace.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.jigWorn",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Check the present stop before using the historical design. Its worn gap prevents the jig method until repaired; a practiced manual method remains possible."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.repair_jig",
+     "revision": 1,
+     "label": "Shim the alignment stop with Nora · paper + 1 crown, 3 min",
+     "description": "Nora offers to fit your paper shim to her observed worn stop. The joint three-minute repair costs one paper, one stamina, one crown and her attention; it restores this jig without creating ink, guides or skill.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.crowns",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.attention",
+       "amount": -1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.crowns",
+       "amount": 1
+      },
+      {
+       "type": "world",
+       "worldId": "book.mol.cyoria",
+       "key": "book.mol.lore.jigRestored",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.jig.repair",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.jig.repair\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.jig.repair\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your workshop observation\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"One owned paper became the alignment-stop shim after three minutes of work with Nora. The actual jig now supports the single-cube ruling method. The consumed paper, payment and installed modification remain on revisit; the earlier sketch and worn-stop observation remain historical evidence.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.jig.worn.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.jigWorn",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Nora offers to fit your paper shim to her observed worn stop. The joint three-minute repair costs one paper, one stamina, one crown and her attention; it restores this jig without creating ink, guides or skill."
+     },
+     "claim": "book.mol.lore.receipt.repair_jig",
+     "targetId": "book.mol.nora",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 3,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.jig.worn.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.jigWorn",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Nora offers to fit your paper shim to her observed worn stop. The joint three-minute repair costs one paper, one stamina, one crown and her attention; it restores this jig without creating ink, guides or skill."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.inspect_restored_jig",
+     "revision": 1,
+     "label": "Check the repaired alignment stop · 1 min",
+     "description": "Check the installed shim against the earlier account. This records current suitability without erasing the old worn-stop observation or replenishing supplies.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.jig.restored",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.jig.restored\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.jig.restored\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your workshop observation\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The installed paper shim still closes the observed alignment gap. This current check supports the ruling jig for the demonstrated one-cube preparation. It does not certify other inks or scales; the old worn-stop record remains valid history.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.jig.repair.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "world.book.mol.lore.jigRestored",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Check the installed shim against the earlier account. This records current suitability without erasing the old worn-stop observation or replenishing supplies."
+     },
+     "claim": "book.mol.lore.receipt.inspect_restored_jig",
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.jig.repair.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "world.book.mol.lore.jigRestored",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Check the installed shim against the earlier account. This records current suitability without erasing the old worn-stop observation or replenishing supplies."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.lore.witness_device",
+     "revision": 1,
+     "label": "Ask Nora to record your observed device test · 1 min",
+     "description": "Nora records your existing lamp test and guide evidence while the owned device is present. Her witnessed account is useful evidence, rather than an academy device certificate.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "once": true,
+     "costs": [
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.credential.nora.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.nora.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.nora.r1\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Nora witnessed the retained operational lamp test and received your preparation account. This device evidence covers the original workshop-built lamp, not all lamps or an operator licence. The academy may consider it but Nora does not issue its allocation certificate.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.nora\",\"scope\":\"device_batch\",\"standard\":1,\"subject\":\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\",\"sourceCommand\":\"book.mol.lore.witness_device\",\"conditions\":\"Original unique workshop assembly; observed one-cube preparation and lamp test\"}}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.nora",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "any": [
+         {
+          "fact": "knowledge.book.mol.lore.method.jig.seen",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "knowledge.book.mol.lore.method.folded.seen",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Nora records your existing lamp test and guide evidence while the owned device is present. Her witnessed account is useful evidence, rather than an academy device certificate."
+     },
+     "claim": "book.mol.lore.receipt.witness_device",
+     "targetId": "book.mol.nora",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "any": [
+         {
+          "fact": "knowledge.book.mol.lore.method.jig.seen",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "knowledge.book.mol.lore.method.folded.seen",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Nora records your existing lamp test and guide evidence while the owned device is present. Her witnessed account is useful evidence, rather than an academy device certificate."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.clarify_scope",
+     "revision": 1,
+     "label": "Ask Ilsa which evidence the academy accepts · 1 min",
+     "description": "Ilsa distinguishes Nora’s witness account, your demonstrated manual operation, and her academy’s device review. Her operator record alone cannot obtain a device allocation.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "once": true,
+     "costs": [
+      {
+       "type": "resource",
+       "actor": "book.mol.ilsa",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.credential.operator.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.operator.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.operator.r1\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa recognizes your previously demonstrated keyed-lamp manual operation. This operator record grants no new mastery, fuel, casting or property. Nora’s device witness has another issuer, and this academy operator record has the wrong scope for the academy’s device allocation. The first allocation standard needs your demonstrated ruling-jig preparation and a current device examination. Ilsa can consider a revised standard after receiving your actual comparison of both methods. Ordinary supported lamp use needs neither paper.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"operator\",\"standard\":1,\"subject\":\"player\",\"sourceCommand\":\"book.mol.lore.clarify_scope\",\"conditions\":\"Existing trained manual control; no commercial mage qualification\"}}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.nora.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Ilsa distinguishes Nora’s witness account, your demonstrated manual operation, and her academy’s device review. Her operator record alone cannot obtain a device allocation."
+     },
+     "claim": "book.mol.lore.receipt.clarify_scope",
+     "targetId": "book.mol.ilsa",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.nora.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Ilsa distinguishes Nora’s witness account, your demonstrated manual operation, and her academy’s device review. Her operator record alone cannot obtain a device allocation."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.certify_device_r1",
+     "revision": 1,
+     "label": "Examine this device under academy standard 1 · 1 charge, 2 min",
+     "description": "Bring a demonstrated ruling-jig preparation and your supported owned lamp for the first device review. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.deviceFuel",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.ilsa",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
+       "amount": 1,
+       "reservationReturn": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.credential.academy.r1",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.academy.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.academy.r1\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa witnessed this original workshop-built lamp under academy allocation standard 1. This dated device record covers the demonstrated single-cube preparation and present manual lamp test. It is neither commercial mage qualification nor ownership. Changed custody or a later allocation standard requires reevaluation; ordinary supported operation remains possible.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"device_batch\",\"standard\":1,\"subject\":\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\",\"sourceCommand\":\"book.mol.lore.certify_device_r1\",\"conditions\":\"Original unique workshop assembly; owned device; trained supported operator; actual observed preparation and current lamp test\"}}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.institutionStandard",
+        "op": "eq",
+        "value": 1
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.jig.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Bring a demonstrated ruling-jig preparation and your supported owned lamp for the first device review. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
+     },
+     "claim": "book.mol.lore.receipt.certify_device_r1",
+     "targetId": "book.mol.ilsa",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.institutionStandard",
+        "op": "eq",
+        "value": 1
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.jig.seen",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Bring a demonstrated ruling-jig preparation and your supported owned lamp for the first device review. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.certify_device_r2",
+     "revision": 1,
+     "label": "Examine this device under academy standard 2 · 1 charge, 2 min",
+     "description": "Bring the revised method review and your supported owned lamp. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.deviceFuel",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.ilsa",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
+       "amount": 1,
+       "reservationReturn": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.credential.academy.r2",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.academy.r2\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.academy.r2\",\"copyOf\":null,\"supersedes\":\"book.mol.lore.credential.academy.r1\",\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r2\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa witnessed this original workshop-built lamp under academy allocation standard 2. This dated device record covers the demonstrated single-cube preparation and present manual lamp test. It is neither commercial mage qualification nor ownership. Changed custody or a later allocation standard requires reevaluation; ordinary supported operation remains possible.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"device_batch\",\"standard\":2,\"subject\":\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\",\"sourceCommand\":\"book.mol.lore.certify_device_r2\",\"conditions\":\"Original unique workshop assembly; owned device; trained supported operator; actual observed preparation and current lamp test\"}}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.institutionStandard",
+        "op": "eq",
+        "value": 2
+       },
+       {
+        "fact": "knowledge.book.mol.lore.standard.r2.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "any": [
+         {
+          "fact": "knowledge.book.mol.lore.method.jig.seen",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "knowledge.book.mol.lore.method.folded.seen",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       }
+      ],
+      "reason": "Bring the revised method review and your supported owned lamp. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
+     },
+     "claim": "book.mol.lore.receipt.certify_device_r2",
+     "targetId": "book.mol.ilsa",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.lampTested",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "power.book.mol.formula_operator.mastery",
+        "op": "gte",
+        "value": 1
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.institutionStandard",
+        "op": "eq",
+        "value": 2
+       },
+       {
+        "fact": "knowledge.book.mol.lore.standard.r2.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "any": [
+         {
+          "fact": "knowledge.book.mol.lore.method.jig.seen",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "knowledge.book.mol.lore.method.folded.seen",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       }
+      ],
+      "reason": "Bring the revised method review and your supported owned lamp. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.review_standard",
+     "revision": 1,
+     "label": "Show Ilsa both methods for a revised review · paper, 3 min",
+     "description": "Submit your observed comparison of both guide methods. Ilsa revises her finite research-allocation standard to accept either demonstrated setup with a current device test. Older papers remain, but their prior standard no longer obtains this allocation.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "once": true,
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": -1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.ilsa",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "world",
+       "worldId": "book.mol.cyoria",
+       "key": "book.mol.lore.institutionStandard",
+       "value": 2
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.standard.r2",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.standard.r2\",\"kind\":\"document\",\"origin\":\"book.mol.lore.standard.r2\",\"copyOf\":null,\"supersedes\":\"book.mol.lore.credential.academy.r1\",\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r2\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa received your actual two-method comparison and revised the academy’s bounded research-allocation review. Either demonstrated single-cube setup can be considered with a fresh present-device test. The older jig-only certificate remains historical evidence, but its allocation applicability expired with this announced revision. The device, learned methods and stock did not change.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"method\",\"standard\":2,\"subject\":\"book.mol.lore.method.comparison\",\"sourceCommand\":\"book.mol.lore.review_standard\",\"conditions\":\"The two observed one-cube guide setups; current supported device examination still separate\"}}",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.academy.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.comparison.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.institutionStandard",
+        "op": "eq",
+        "value": 1
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Submit your observed comparison of both guide methods. Ilsa revises her finite research-allocation standard to accept either demonstrated setup with a current device test. Older papers remain, but their prior standard no longer obtains this allocation."
+     },
+     "claim": "book.mol.lore.receipt.review_standard",
+     "targetId": "book.mol.ilsa",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ],
+     "duration": 3,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.credential.academy.r1.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "knowledge.book.mol.lore.method.comparison.seen",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.institutionStandard",
+        "op": "eq",
+        "value": 1
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       }
+      ],
+      "reason": "Submit your observed comparison of both guide methods. Ilsa revises her finite research-allocation standard to accept either demonstrated setup with a current device test. Older papers remain, but their prior standard no longer obtains this allocation."
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.lore.research_allocation",
+     "revision": 1,
+     "label": "Collect one reviewed research paper · 1 crown, finite stock",
+     "description": "A current academy device certificate and the owned supported lamp admit one paper from actual academy stock for one crown. Wrong issuer, operator-only scope, superseded standard or missing custody cannot obtain it. Ordinary lamp use remains independent.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "once": true,
+     "costs": [
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.crowns",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "resource",
+       "actor": "book.mol.nora",
+       "key": "book.mol.crowns",
+       "amount": 1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "amount": 1
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.lore.institution.allocation",
+       "stage": "seen",
+       "value": "{\"schema\":1,\"id\":\"book.mol.lore.institution.allocation\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.institution.allocation\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The academy transferred one counted research paper for one crown under its current device-evidence review. It did not change the lamp or grant skill; this finite allocation cannot be claimed again. The paper is available for existing guide preparation or notebook research.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "actor.book.mol.guestPermit",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.nativeBound",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.playerSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.local.book.mol.cyoria",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.guestPermit",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.lore.currentDeviceCertificate",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.deviceSupported",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.ilsa",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.stock.book.mol.academy.shop.{\"id\":\"Cyorian research paper\"}",
+        "op": "gte",
+        "value": 1
+       }
+      ],
+      "reason": "A current academy device certificate and the owned supported lamp admit one paper from actual academy stock for one crown. Wrong issuer, operator-only scope, superseded standard or missing custody cannot obtain it. Ordinary lamp use remains independent."
+     },
+     "claim": "book.mol.lore.receipt.research_allocation",
+     "molStock": [
+      {
+       "owner": "book.mol.academy.shop",
+       "key": "{\"id\":\"Cyorian research paper\"}",
+       "count": -1
+      }
+     ]
     }
    ],
    "controllers": [
@@ -9879,6 +13038,26 @@ export default {
      "expedition": true,
      "book_world_mol": true
     }
+   },
+   {
+    "id": "Cyorian borrowed workshop packet",
+    "name": "Cyorian borrowed workshop packet",
+    "description": "Ibery’s lent printed circular, copied appendix and marginal note. Return the actual copy; retained reading is distinct from access or mastery.",
+    "value": 1,
+    "tags": {
+     "expedition": true,
+     "book_world_mol": true
+    }
+   },
+   {
+    "id": "Cyorian single-cube tracing guide",
+    "name": "Cyorian single-cube tracing guide",
+    "description": "One counted formula-ink unit bound into a prepared paper pattern for a single cube. Nora’s guided reconstruction consumes it instead of loose ink; paper and a pattern do not anchor a spell. Original local workshop adaptation.",
+    "value": 1,
+    "tags": {
+     "expedition": true,
+     "book_world_mol": true
+    }
    }
   ],
   "nativePeople": {
@@ -9900,7 +13079,8 @@ export default {
    "book.mol.ibery": {
     "inventory": {
      "{\"id\":\"Cyorian research paper\"}": 4,
-     "{\"id\":\"Cyorian formula ink\"}": 2
+     "{\"id\":\"Cyorian formula ink\"}": 2,
+     "{\"id\":\"Cyorian borrowed workshop packet\"}": 1
     },
     "skills": {},
     "reputation": {}

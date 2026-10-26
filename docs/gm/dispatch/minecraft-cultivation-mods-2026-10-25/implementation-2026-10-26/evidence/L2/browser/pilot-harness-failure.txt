@@ -1,0 +1,196 @@
+locator.waitFor: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('#loading_screen_play_button') to be visible[22m
+[2m    34 × locator resolved to hidden <div tabindex="0" role="button" class="fade_in" data-focused="true" id="loading_screen_play_button">↵                PLAY↵            </div>[22m
+
+    at boot (/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L2/source/scripts/playtest/field-applied-mastery.mjs:16:72)
+    at /Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L2/source/scripts/playtest/field-applied-mastery.mjs:44:73
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels…
+Homes
+Standing and ledger
+Family qualities
+Cultivation insights
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Today
+Where I am
+Around this place
+Polyjuice bench
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+Patrol & custody
+Remembered years
+World events
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All items
+3
+Equipment
+1
+Usable
+1
+Other
+1
+Favorites
+0
+Inventory
+9C 4W
+Find / filter:
+Name ↑
+▾
+Rough wood log
+x17
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Shack
+☀ Summer
+Dry
+17.9 °C · comfortable
+
+01/04/999 08:00, Mon · ☼ Day
+
+No work running.
+
+Saving available.
+
+Notes, practice & people
+▾
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Field association & practical workshop
+
+Your route findings earned access. The workshop and its people remain part of this local campaign.
+
+Agreed contributions: parts: reported complete; survey: reported complete; assembly: finished by you. Road: quiet (last report 3 game minutes ago).
+
+Measured focus: 4/4 units; strain 0/2; output 1, control 2. Breath drive: 6/6 units; strain 0/3; output 3, control 1.
+
+Wedged timber & lever lesson · PROPOSAL
+Methods & recovery
+Project & production
+Study a reusable rope · 2 min
+
+Study the workshop's known lashing plan. This teaches a recipe; it does not create rope.
+
+Build a dry-stock rack · 3 logs + 2 coins + 4 min
+
+A permanent workshop upgrade. Pack two kits together without energy, including while the Village bench is wet.
+
+Use the workshop with focus · 1 log + 1 coin · 2 min
+Use the workshop with drive · 1 log + 1 coin · 1 min → 1 kit · 3 drive units
+
+Requested output exceeds this power's capacity.
+
+Pack carefully and learn load control · 2 min
+
+Make one survey kit while learning to steady its real load. Spend one log, one coin and two measured-focus units over two minutes. Completing the packing raises Load-bearing Step mastery from one to two, opening the existing one-minute drive packing and forceful assessment. Drive still needs its own learned, recovered reserve. Previewing or cancelling grants no kit or mastery; cancellation returns reserved inputs. Repeating an already learned application adds no further mastery.
+
+Make up to 3 focus kits · stop when inputs or energy run short
+Practical works
+← Shack
+Here
+Crafting
+Mixing
+?
+Reports
+Filter:
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]Saved the game manuallySaved the game manuallyImport rejected. Current save kept. The file is not a valid save.

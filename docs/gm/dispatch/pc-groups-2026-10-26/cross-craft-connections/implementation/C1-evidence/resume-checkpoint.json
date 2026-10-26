@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-26T18:08:04.903924+00:00",
+  "state": "source dependencies released; runtime capacity blocked",
+  "usageStop": false,
+  "releasedDependencies": [
+    "G5-M2 source release 1: supportInputs and treatment",
+    "G5-M6 source release 1: native rendering metadata",
+    "G3 separation pure source release"
+  ],
+  "reservationsHeld": [],
+  "sourceWrites": [],
+  "slotOwners": {
+    "slot-1": {
+      "lane": "G1-I3",
+      "thread": "01a1794e-9ddc-7f41-9918-d3a9ab0fa7bc",
+      "pid": 52133,
+      "phase": "HP lifecycle",
+      "at": "2026-10-26T18:03:08.691144+00:00"
+    },
+    "slot-2": {
+      "lane": "L7",
+      "thread": "01a178b9-de0d-7bb1-a16f-cd25ed38730d",
+      "slice": "S1b",
+      "at": "2026-10-26T18:03:28.827070+00:00"
+    }
+  },
+  "nextAction": "Acquire shared slot, then sorted exact per-path locks; execute recorded C1 two-consumer design and AD43 journey. No additional authority question or preflight repetition needed.",
+  "release": false,
+  "runtimeChecks": "not run"
+}

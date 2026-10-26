@@ -1,0 +1,11 @@
+{
+  "src/owned_place_clock.js": "82de1bb05b556276ffa98f1af8727381251c5440c9775971d00a363bd155250d",
+  "src/owned_place_clock_host.js": "ea913621960640dc05b6692b221fe1a4e44878cd00d8f716573ef7e34dab240d",
+  "src/owned_place_clock_panel.js": "5254b689fd7d681729d9dff7b1ff21906655a7bc3f9b5e4d2017ee04b995b74f",
+  "src/items.js": "54b2e7203106e9c56e0541c4014516452baf4a4411651ed6f6f4336dcf2c58c1",
+  "src/inventory_key.js": "e17a06549625940a1a52d44030413bbf5d0664a4c61fa0d9832f45a45f7aa679",
+  "src/material_lineage.js": "1c70cf1822c9ac7952be2b3be3a2a503f4eed545ccd1b9246622ecbae540a890",
+  "src/processed_materials.js": "ffefcfe725942d809f7ffe075ff43e33dcecc67ff4376b4b9799e9414b98bab3",
+  "tests/owned_place_clock.test.js": "ac2bf149525af1bfb1d76a65429972a70b813fb053d424b86ae91b59d6f39906",
+  "scripts/place_clock_browser.cjs": "4d8724dac0f2e08d527299e61d9eb25a6bb38dba2b27c879add16acb1eb60188"
+}

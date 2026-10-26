@@ -1,0 +1,754 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Projects
+Ledger
+Worlds
+Beginning
+Connection
+Settings
+All panels…
+Standing and ledger
+Polyjuice bench
+Family qualities
+Your journal & atlas
+Spilled stock and smoke
+Tools
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Naming and achievements
+Statistics
+Today
+Around this place
+Lives & inheritance
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Known routes
+Patrol & custody
+Remembered years
+World events
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Journal & received accounts
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All items
+13
+Equipment
+1
+Usable
+1
+Other
+11
+Favorites
+0
+Inventory
+102 coins (denominations unfamiliar)
+Find / filter:
+Name ↑
+▾
+Charcoal
+x2
+5W
+Charged repair stave
+x2
+1W
+Clear workshop water
+x2
+nothing
+Cloudy workshop water
+nothing
+Linen cloth
+x3
+1C 4W
+Prepared survey kit
+x4
+2W
+Rough wood log
+x22
+1C
+Spent salt-water filter
+nothing
+Spent workshop filter
+nothing
+Stale bread
+x5
+2C
+Strained brackish workshop water
+nothing
+Survey rope
+x7
+4W
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Paradise independent-contractor desk
+Weather unknown · Paradise hub
+
+Paradise hub · Shift day 1 (local elapsed; civil date unknown) 06:50
+
+No work running.
+
+Saving available.
+
+Notes, practice & people
+▾
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Field remedies & optional wound consequences
+
+Distinct treatments use real stock and played time. Extra mild wounds apply only to your explicitly accepted next new sluice challenge; existing fights keep their rules.
+
+Known actions
+Learn the optional field-care procedures
+
+Choose this optional care record. No supplies, cure, immunity or recurring obligation is granted.
+
+Available
+
+Time quote: Immediate action.
+
+Do this: Learn the optional field-care procedures
+Ordinary care and prepared work
+
+Original optional services inside this retained-body branch. Paid service or physical preparation supports safer work. Real supplied care changes your own or the consenting worker’s body; stock, fees, effort and attention stay finite.
+
+Known actions
+Open optional local care and work notes
+
+An optional original care record. The existing source-qualified campaign and present worker must already be admitted. Enrollment grants no goods, injury, replenishment or obligation.
+
+Available
+
+Time quote: Immediate action.
+
+Reserved
+Service worker (original branch desk) is reserved for this accepted work.
+Do this: Open optional local care and work notes
+Paradise · your independent Goa branch
+
+Your own character and received accounts. You hold 15Paradise coins and 0local belli. No survey contract is active. Source edition is supplied English MTL; exact protagonist replacement and arbitrary named-person combat are unselected.
+
+Known actions
+Buy the attributed load-bracing lesson · 2 credits, paired effort
+
+Available
+
+Stated costs
+2 district credits · 1 stamina · Requires the participant’s available body support. · Requires the participant’s agreed attention and available time. · Provider supplies 1 Prepared survey kit · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Do this: Buy the attributed load-bracing lesson · 2 credits, paired effort
+Buy 1 Prepared survey kit · 2 district credits
+
+Available
+
+Stated costs
+2 district credits · 0 played minutes
+Do this: Buy 1 Prepared survey kit · 2 district credits
+Buy 1 Survey rope · 1 district credits
+
+Available
+
+Stated costs
+1 district credits · 0 played minutes
+Do this: Buy 1 Survey rope · 1 district credits
+Buy 1 Goa ration parcel · 2 district credits
+
+Available
+
+Stated costs
+2 district credits · 0 played minutes
+Do this: Buy 1 Goa ration parcel · 2 district credits
+Pay for district rest · 1 credit and 4 played minutes
+
+Available
+
+Stated costs
+1 district credits · Requires the participant’s agreed attention and available time. · 4 played minutes · Cancel accepted work to return its reserved inputs.
+Do this: Pay for district rest · 1 credit and 4 played minutes
+Return to Village in your retained body
+
+Current actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Return to Village in your retained body
+Visit the first-Goa branch on your own account
+
+Current actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Visit the first-Goa branch on your own account
+Hear the optional civilian survey contract
+
+Current actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Hear the optional civilian survey contract
+Go to Paradise paid training booth
+
+Current actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Go to Paradise paid training booth
+This is an original voluntary parallel entry beside the supplied-MTL first-Goa era. You keep your actual living native body, owned cargo and learned history. Ordinary district work and optional contractor travel are separate choices. Entry supplies only the disclosed local language understanding, not Su Xiao’s Hunter role, talent, money, guard office, memories, private task or return protection. Unknown source rights remain unknown. All costs, local played intervals and alternative outcomes are original prototypes; unsupported absence freezes the place.
+Chose your own retained human character in a first-Goa alternate branch. Contractor service and language contact are this entry’s limited authored approval, not Su Xiao’s coerced Hunter trial. You own no copied office, talent, memories, equipment or another entrant’s settlement. Source-era cast keeps its own body, goods and private plans. Hub service institutions are evidenced after his Goa return; their concurrent placement here is an explicit original branch choice.
+Arrived at your actual return point in the same controlled body and owned cargo. Source-world people, dead/departed states, stock, learned work and changed history remain. Unsupported absence freezes; no source-protagonist reward or reset followed.
+The service worker offers one packing shift funded by their own materials and eight owned credits, a two-credit bracing lesson and paid rest. You remain an independent visitor; service work grants no Hunter title.
+The service worker paid eight owned district credits for your completed packing shift and supplied the wood, rope and reusable kit. Those finite wages are yours; this grants no employee office or Hunter task.
+This optional continuation represents the sid20 first-Goa fire, gate and immediate retained aftermath, beside an original paid hub workshop. Its 58–72 local-minute rescue window is a game proposal, not the source tomorrow18:00/midnight notices. People keep their own body, money, materials, attention and source knowledge. Your learned line procedure is ordinary physical craft, not Hunter talent or mana. Failure can kill the endangered Hank; no source restoration, free loot, save rewind, prestige or universal evacuation follows. Previously reserved jobs retain their original terms.
+My two actual logs, rope, two stamina and five played minutes became one personally owned small bench. The original district permits this finite work surface. It supports personal kit repair and paid deliveries; it grants no room, employee office, World Source or automatic stock.
+Built a three-stave rack at my paid district bench. It supplies ordinary air exchange, not dry material, outdoor weather or a magical field.
+Bought the supplier’s finite sealed crate: two clear, two cloudy and one brackish local wash portions. Original measured workshop stock; no rain or drinking-water claim.
+Strained one exact water portion through one actual linen cloth. Suspended grit stayed with the spent filter; dissolved salt and contamination stayed in the water. No general purification or free cloth restoration occurred.
+One real log and a suitable measured water portion became two damp repair staves. Paid washing softened the preparation, saving one stamina against ordinary cutting. The exact water, timber and held kit remain in the preparation receipt. Dry the actual pieces before binding a usable kit.
+Installed one supplied planar pulse head and grounding contact on my actual rack. Each pulse costs two credits and one charcoal, warms for two local minutes and emits for eight. It removes extra moisture but leaves a charge in exposed staves. One credit and one stamina discharge one collected piece; ordinary drying remains available.
+Fitted an actual meter to this stationary pulse head. Its public cycle readings support six-local-minute forecasts; fitting it does not refresh any old observation.
+Practiced the supplied meter’s cycle against the pulse-head controls for four actual minutes. I can interpret its publicly announced window up to twelve local minutes ahead, with one minute of interpretive uncertainty. This is learned apparatus calibration, not a magical faculty or general weather mastery.
+Arrived at your actual return point in the same controlled body and owned cargo. Source-world people, dead/departed states, stock, learned work and changed history remain. Unsupported absence freezes; no source-protagonist reward or reset followed.
+Goa · craft, rescue and retained aftermath
+
+Finite sid20 first-Goa branch and original paid hub services. A personal bench, your own ordinary technique and useful material work continue after the arc. The optional rescue uses an explicitly proposed local 58–72 minute window; opposed actors keep their own means. All new behavior remains implemented-unverified.
+
+Known actions
+Buy line-rigging instruction · 2 credits + paired effort · 4 min
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 stamina. You have 40 available.
+Service worker (original branch desk): 1 stamina.
+Service worker (original branch desk): 1 Prepared survey kit.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Service worker (original branch desk) is reserved for this accepted work.
+Unavailable: Buy line-rigging instruction · 2 credits + paired effort · 4 min
+Develop a line procedure at your own bench · log + held kit/rope + 4 stamina · 7 min
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 22 available.
+1 Prepared survey kit. You have 4 available.
+1 Survey rope. You have 7 available.
+4 stamina. You have 40 available.
+
+Time terms: 7 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Personally built district bench is reserved for this work.
+Unavailable: Develop a line procedure at your own bench · log + held kit/rope + 4 stamina · 7 min
+Make an ordinary bench kit · log + held rope + 3 stamina · 4 min
+
+Available
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Quoted costs
+1 Rough wood log. You have 22 available.
+1 Survey rope. You have 7 available.
+3 stamina. You have 40 available.
+
+Time quote: 4 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Personally built district bench is reserved for this work.
+Do this: Make an ordinary bench kit · log + held rope + 3 stamina · 4 min
+Make a controlled bench kit · log + held rope + 1 stamina · 2 min
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Keep your own active taught line procedure and actual kit/rope.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 22 available.
+1 Survey rope. You have 7 available.
+1 stamina. You have 40 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Personally built district bench is reserved for this work.
+Unavailable: Make a controlled bench kit · log + held rope + 1 stamina · 2 min
+Supply district repair order 1 · one actual kit for 3 owned credits
+
+Available
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Quoted costs
+1 Prepared survey kit. You have 4 available.
+
+Time quote: 2 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Service worker (original branch desk) is reserved for this accepted work.
+A place at Personally built district bench is reserved for this work.
+Do this: Supply district repair order 1 · one actual kit for 3 owned credits
+Supply district repair order 2 · one actual kit for 3 owned credits
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Prepared survey kit. You have 4 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Service worker (original branch desk) is reserved for this accepted work.
+A place at Personally built district bench is reserved for this work.
+Unavailable: Supply district repair order 2 · one actual kit for 3 owned credits
+Show the desk your own return work and attributed Goa account
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Service worker (original branch desk) is reserved for this accepted work.
+Unavailable: Show the desk your own return work and attributed Goa account
+Prepare two damp staves · log + held kit + 2 stamina · 4 min
+
+An ordinary wet-to-sound preparation route at your own bench. It uses the existing repair-stave material and survey-kit consumer.
+
+Available
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Quoted costs
+1 Rough wood log. You have 22 available.
+1 Prepared survey kit. You have 4 available.
+2 stamina. You have 40 available.
+
+Time quote: 4 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Do this: Prepare two damp staves · log + held kit + 2 stamina · 4 min
+Bind two dry staves into a usable survey kit · held rope + 2 stamina · 3 min
+
+Use the exact dry cohorts you carry. Cancellation returns those same keys and histories. Damp staves cannot fill the dry-material input.
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Dry and collect two staves before binding a kit; damp pieces still need air exchange.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Sound repair stave. You have 0 available.
+1 Survey rope. You have 7 available.
+2 stamina. You have 40 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Unavailable: Bind two dry staves into a usable survey kit · held rope + 2 stamina · 3 min
+Lease two rooted coppice stools · 4 credits + 2 stamina · 3 min
+
+Original controlled nursery, not a canon landmark or civil season. Harvested logs feed the existing wash, stave, drying and survey-kit work. Standing capacity is two cuts. Actual water supports one local day of regrowth; exhausted or unsupported care preserves the rooted source and earned growth.
+
+Available
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Quoted costs
+2 stamina. You have 40 available.
+
+Time quote: 3 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Service worker (original branch desk) is reserved for this accepted work.
+Do this: Lease two rooted coppice stools · 4 credits + 2 stamina · 3 min
+Commit one planar pulse · 2 credits + 1 charcoal
+
+Two local minutes of warm-up, then eight emitting minutes. An open receiver dries faster and acquires retained charge. A sealed lid blocks both paths.
+
+Available
+
+Stated costs
+2 district credits are paid.
+1 charcoal is consumed.
+
+Time quote: Immediate action.
+
+Preparation
+The committed apparatus cycle warms for two local minutes, then emits for eight.
+Do this: Commit one planar pulse · 2 credits + 1 charcoal
+Record observation forecast · 2 local min horizon
+
+Retains your place, time and source. Uncertainty ±2 local min, conditional on the same apparatus. Recording spends no stock or time and never alters the pulse.
+
+Available
+
+Stated costs
+Immediate local observation; resource and time cost 0.
+
+Time quote: Immediate action.
+
+Preparation
+Retains your place, time and source. Uncertainty ±2 local min, conditional on the same apparatus. Recording spends no stock or time and never alters the pulse.
+Do this: Record observation forecast · 2 local min horizon
+Record instrument forecast · 6 local min horizon
+
+Retains your place, time and source. Uncertainty ±1 local min, conditional on the same apparatus. Recording spends no stock or time and never alters the pulse.
+
+Available
+
+Stated costs
+Immediate local observation; resource and time cost 0.
+
+Time quote: Immediate action.
+
+Preparation
+Retains your place, time and source. Uncertainty ±1 local min, conditional on the same apparatus. Recording spends no stock or time and never alters the pulse.
+Do this: Record instrument forecast · 6 local min horizon
+Record calibrated forecast · 12 local min horizon
+
+Retains your place, time and source. Uncertainty ±1 local min, conditional on the same apparatus. Recording spends no stock or time and never alters the pulse.
+
+Available
+
+Stated costs
+Immediate local observation; resource and time cost 0.
+
+Time quote: Immediate action.
+
+Preparation
+Retains your place, time and source. Uncertainty ±1 local min, conditional on the same apparatus. Recording spends no stock or time and never alters the pulse.
+Do this: Record calibrated forecast · 12 local min horizon
+Record the current pulse/receiver check
+
+Keeps the dated forecast and what actually changed. A changed lid or source is not retroactive weather; this check spends no stock or time.
+
+Available
+
+Stated costs
+Immediate local observation; resource and time cost 0.
+
+Time quote: Immediate action.
+
+Preparation
+Keeps the dated forecast and what actually changed. A changed lid or source is not retroactive weather; this check spends no stock or time.
+Do this: Record the current pulse/receiver check
+Ground one charged stave · 1 credit + 1 stamina
+
+Discharges only this collected piece. It preserves wetness, prior exposure and preparation, so a damp piece still needs drying.
+
+Available
+
+Stated costs
+1 district credit is paid.
+1 stamina is spent.
+One exact charged stave becomes grounded; its wetness and preparation remain.
+
+Time quote: Immediate action.
+
+Preparation
+Discharges only this collected piece. It preserves wetness, prior exposure and preparation, so a damp piece still needs drying.
+Do this: Ground one charged stave · 1 credit + 1 stamina
+Place one charged stave on your rack
+
+Keep this cohort’s prior drying and wetness. The rack has three physical spaces.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Place one charged stave on your rack
+Seal the lid · stop air exchange
+
+A closed lid protects from direct wetting but traps moisture. It earns no ordinary drying.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Seal the lid · stop air exchange
+Heat the open rack · 1 charcoal · six local minutes
+
+Paid heat speeds moisture removal while ventilation stays open. Pausing the heater stops its work; its paid local interval still passes.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Heat the open rack · 1 charcoal · six local minutes
+Pause active heating · keep passive air exchange
+
+Pausing chosen heating does not seal or protect the material. Passive air exchange remains.
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Pause active heating · keep passive air exchange
+Strain one exact water portion · linen + 1 stamina · 2 min · Cloudy workshop water
+
+A real cloth captures coarse suspended grit. It leaves dissolved salt and contamination in the same counted water portion. Two played minutes and one stamina remain spent after completion.
+
+Available
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Quoted costs
+1 Cloudy workshop water. You have 1 available.
+1 Linen cloth. You have 3 available.
+1 stamina. You have 40 available.
+
+Time quote: 2 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Do this: Strain one exact water portion · linen + 1 stamina · 2 min · Cloudy workshop water
+Wash and soften two staves · log + water + held kit + 1 stamina · 4 min · Clear workshop water
+
+Use suitable damp preparation to save effort: one stamina instead of the ordinary two. Four played minutes and the actual water stay spent. The two retained wet staves still need drying, then feed the existing survey-kit and paid repair-order route.
+
+Available
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Quoted costs
+1 Rough wood log. You have 22 available.
+1 Clear workshop water. You have 2 available.
+1 Prepared survey kit. You have 4 available.
+1 stamina. You have 40 available.
+
+Time quote: 4 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Do this: Wash and soften two staves · log + water + held kit + 1 stamina · 4 min · Clear workshop water
+Wash and soften two staves · log + water + held kit + 1 stamina · 4 min · Cloudy workshop water
+
+Use suitable damp preparation to save effort: one stamina instead of the ordinary two. Four played minutes and the actual water stay spent. The two retained wet staves still need drying, then feed the existing survey-kit and paid repair-order route.
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Why this is unavailable
+Strain the suspended grit with one real linen cloth first.
+Stated costs
+1 Rough wood log. You have 22 available.
+1 Cloudy workshop water. You have 1 available.
+1 Prepared survey kit. You have 4 available.
+1 stamina. You have 40 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Unavailable: Wash and soften two staves · log + water + held kit + 1 stamina · 4 min · Cloudy workshop water
+Wash and soften two staves · log + water + held kit + 1 stamina · 4 min · Strained brackish workshop water
+
+Use suitable damp preparation to save effort: one stamina instead of the ordinary two. Four played minutes and the actual water stay spent. The two retained wet staves still need drying, then feed the existing survey-kit and paid repair-order route.
+
+Unavailable
+
+Known requirements
+Use the actual living, controlled human body in this retained source branch.
+Recover strained or injured hands before precise load work.
+Why this is unavailable
+Dissolved salt or contamination remains. Use a measured clear portion; cloth filtering cannot remove it.
+Stated costs
+1 Rough wood log. You have 22 available.
+1 Strained brackish workshop water. You have 1 available.
+1 Prepared survey kit. You have 4 available.
+1 stamina. You have 40 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Unavailable: Wash and soften two staves · log + water + held kit + 1 stamina · 4 min · Strained brackish workshop water
+Contained planar pulse: spent · 0 local minutes remain. Open staves receive the drying field and retain charge; sealing blocks the field. Outdoor weather remains unknown.
+calibrated observation at local minute 44; horizon through 56, uncertainty ±1 min. Current conditional forecast Pulse window 42–50. Reopening this panel does not refresh the observation.
+Recorded local check at 42: receiver support changed since the forecast. The instrument forecast from 42 remains attached to this observation.
+Reported instruction: This optional continuation represents the sid20 first-Goa fire, gate and immediate retained aftermath, beside an original paid hub workshop. Its 58–72 local-minute rescue window is a game proposal, not the source tomorrow18:00/midnight notices. People keep their own body, money, materials, attention and source knowledge. Your learned line procedure is ordinary physical craft, not Hunter talent or mana. Failure can kill the endangered Hank; no source restoration, free loot, save rewind, prestige or universal evacuation follows. Previously reserved jobs retain their original terms. · Recorded at played minute 8.
+Observed: My two actual logs, rope, two stamina and five played minutes became one personally owned small bench. The original district permits this finite work surface. It supports personal kit repair and paid deliveries; it grants no room, employee office, World Source or automatic stock. · Recorded at played minute 13.
+Observed: Built a three-stave rack at my paid district bench. It supplies ordinary air exchange, not dry material, outdoor weather or a magical field. · Recorded at played minute 16.
+Observed: Bought the supplier’s finite sealed crate: two clear, two cloudy and one brackish local wash portions. Original measured workshop stock; no rain or drinking-water claim. · Recorded at played minute 20.
+Observed: Strained one exact water portion through one actual linen cloth. Suspended grit stayed with the spent filter; dissolved salt and contamination stayed in the water. No general purification or free cloth restoration occurred. · Recorded at played minute 24.
+Observed: One real log and a suitable measured water portion became two damp repair staves. Paid washing softened the preparation, saving one stamina against ordinary cutting. The exact water, timber and held kit remain in the preparation receipt. Dry the actual pieces before binding a usable kit. · Recorded at played minute 28.
+Observed: Installed one supplied planar pulse head and grounding contact on my actual rack. Each pulse costs two credits and one charcoal, warms for two local minutes and emits for eight. It removes extra moisture but leaves a charge in exposed staves. One credit and one stamina discharge one collected piece; ordinary drying remains available. · Recorded at played minute 33.
+Observed: Fitted an actual meter to this stationary pulse head. Its public cycle readings support six-local-minute forecasts; fitting it does not refresh any old observation. · Recorded at played minute 36.
+Reported instruction: Practiced the supplied meter’s cycle against the pulse-head controls for four actual minutes. I can interpret its publicly announced window up to twelve local minutes ahead, with one minute of interpretive uncertainty. This is learned apparatus calibration, not a magical faculty or general weather mastery. · Recorded at played minute 40.
+Your rack: open cross-ventilation. The workshop air is moderately humid; opening the vents lets moisture escape. 0/3 spaces occupied.
+Clear workshop water: 2 sealed local portions. Suitable for this ordinary stave preparation.
+Cloudy workshop water: 1 sealed local portions. Strain the suspended grit with one real linen cloth first.
+Spent workshop filter: 1 sealed spent filters. Retained cloth and any actual filtered grit; no water volume.
+Strained brackish workshop water: 1 sealed local portions. Dissolved salt or contamination remains. Use a measured clear portion; cloth filtering cannot remove it.
+Spent salt-water filter: 1 sealed spent filters. Retained cloth and any actual filtered grit; no water volume.
+Your actually built district bench remains yours. Ordinary or mastered work consumes your own timber, effort and played time; district repair orders need the employee’s remaining means.
+← Paradise independent-contractor desk
+Here
+Crafting
+Mixing
+?
+Reports
+Filter:
+All reports
+▾
+Latest
+[ Paradise hub · Shift day 1 (local elapsed; civil date unknown) ]

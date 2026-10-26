@@ -1,0 +1,110 @@
+{
+  "missingEqualsZero": {
+    "matrix": 1000,
+    "oil": 0
+  },
+  "typoFit": {
+    "status": "rejected",
+    "permille": 0,
+    "reason": "The material does not support this process."
+  },
+  "typoReactionAccepted": {
+    "id": "r",
+    "priority": 0,
+    "after": null,
+    "catalyst": "feul",
+    "station": "fictional-station",
+    "limit": 1000,
+    "reactants": {
+      "oil": 1
+    },
+    "products": {
+      "matrix": 1
+    }
+  },
+  "charcoalTags": [
+    "cleansing",
+    "fuel",
+    "plant",
+    "tinder",
+    "wood"
+  ],
+  "nativeMaterialCount": 33,
+  "renderingSources": [
+    {
+      "id": "Goat meat",
+      "fit": 800,
+      "count": 4
+    },
+    {
+      "id": "Crab meat",
+      "fit": 300,
+      "count": 10
+    },
+    {
+      "id": "Frog meat",
+      "fit": 300,
+      "count": 10
+    }
+  ],
+  "treatment": {
+    "spend": [
+      {
+        "key": "Rat pelt",
+        "count": 3
+      },
+      {
+        "key": "Lamp oil",
+        "count": 1
+      }
+    ],
+    "receiptInputs": [
+      {
+        "item_key": "Rat pelt",
+        "count": 3,
+        "facts": {}
+      }
+    ],
+    "receiptParameters": {
+      "supply": "Lamp oil"
+    }
+  },
+  "lineageKeyGrowth": [
+    {
+      "steps": 1,
+      "keyBytes": 245
+    },
+    {
+      "steps": 4,
+      "keyBytes": 1396
+    },
+    {
+      "steps": 8,
+      "keyBytes": 11784
+    },
+    {
+      "steps": 12,
+      "keyBytes": 166175
+    }
+  ],
+  "tagStoreQuery": [
+    {
+      "size": 33,
+      "matchesCalls": 33,
+      "results": 16,
+      "elapsedMs": 0.191
+    },
+    {
+      "size": 1000,
+      "matchesCalls": 1000,
+      "results": 500,
+      "elapsedMs": 0.852
+    },
+    {
+      "size": 10000,
+      "matchesCalls": 10000,
+      "results": 5000,
+      "elapsedMs": 7.384
+    }
+  ]
+}

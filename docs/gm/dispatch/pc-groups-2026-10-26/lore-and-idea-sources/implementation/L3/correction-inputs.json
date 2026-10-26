@@ -1,0 +1,5 @@
+{
+  "src/world_packs/book_mol_pack.js": "34eb80f9fac7dc6a040f4e9c3af415a2f0640ce8eb8ed6844e973bf47cf534d1",
+  "tests/mol_lore_traces.test.js": "4670b5ef49d5553474a97009430237060c11a69a2923897d992d97170393da07",
+  "tests/world_pack_registry.test.js": "c82b72ccc10d1b5371a55a57a911741d8ad08f26f54b4c6959170a5a6b724383"
+}

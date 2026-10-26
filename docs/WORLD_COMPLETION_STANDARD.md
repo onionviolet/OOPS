@@ -63,8 +63,8 @@ select no world, lore, balance, failure policy or new runtime wave.
   must change decisions, access, relationships, capability or world state;
   longer waits and renamed currencies do not establish depth.
 - **Prove the promised layer and stop.** Use AD36 for targeted checks and valid
-  evidence reuse. Required rebuilt native journeys, affected persistence and
-  human acceptance remain distinct. Show known costs, readable feedback,
+  evidence reuse. Required rebuilt native journeys and affected persistence remain distinct
+  from optional human visual/feel review under AD42. Show known costs, readable feedback,
   navigation/focus and recovery under current UI rules without exposing hidden
   truth. Close the assigned finite revision with accepted/deferred/unknown and
   unrun gates explicit; content coverage is not app adoption or director approval.
@@ -226,7 +226,10 @@ records its own actual delivery and evidence state.
 Levels qualify only their declared scope. A C2 room is not a C4 world. A finished
 region is not a fully represented source universe. A player's ending is not
 developer completion of alternate paths. Director acceptance can also apply to
-a bounded slice without promoting the full campaign to C5.
+a bounded slice without promoting the full campaign to C5. C5 is optional
+feedback under AD42, not a blocking prerequisite for delivery or the next
+dependency-ready slice. Without that review, report "agent-verified, not
+human-reviewed" when the required agent-side evidence is complete.
 
 Freeze a finishable represented scope, not the size of the vision. Later detail
 requests receive requirement revisions; they reopen affected criteria rather
@@ -266,8 +269,9 @@ Use five steps for each selected tranche:
    Save/reload/Export/Import. Old-save migration/testing follows the current
    [deferral](USER_VISION.md#old-save-compatibility-deferred-2026-10-17), unless
    the specific task explicitly retains an older contract.
-5. P5 review and continue: join worker evidence, review interactions and director
-   gates, update remaining work and finish the next slice within authorized scope.
+5. P5 review and continue: join worker evidence, review interactions and optional
+   director feedback (AD42), update remaining technical work and finish the next
+   dependency-ready slice within authorized scope.
 
 Roles are useful lanes, not a permanent agent per section. Reviewers can inspect
 the same files read-only; writers cannot. Contracts settle before dependent code

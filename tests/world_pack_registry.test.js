@@ -26,9 +26,18 @@ test('a broken pack added to the list fails the suite check, and a dormant pack 
     assert.throws(() => installedWorldPack('book.mol', bad), /did not load/);
 });
 
-test('Cyoria installs from the pack: exports match the pre-conversion hash and the pack matches its ID owners', () => {
+test('Cyoria installs from the pack: original exports retain the conversion hash beside additive lore and ID owners', () => {
+    // Keep conversion parity for the original content while permitting the
+    // separately tested additive lore family. Do not replace the baseline hash.
+    const loreItems = new Set(['Cyorian borrowed workshop packet', 'Cyorian single-cube tracing guide']);
+    const loreKeys = new Set([...loreItems].map(id => JSON.stringify({id})));
+    const original = value => Array.isArray(value)
+        ? value.filter(row => !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.')).map(original)
+        : value && typeof value === 'object'
+            ? Object.fromEntries(Object.entries(value).filter(([key]) => !loreKeys.has(key)).map(([key, child]) => [key, original(child)]))
+            : value;
     const out = {};
-    for (const k of Object.keys(content).sort()) if (typeof content[k] !== 'function') out[k] = content[k];
+    for (const k of Object.keys(content).sort()) if (typeof content[k] !== 'function') out[k] = original(content[k]);
     const sha = createHash('sha256').update(JSON.stringify(out, null, 1) + '\n').digest('hex');
     assert.equal(sha, '5196c95ca7a7849e684f19d71035edb2d6e8aa7f2ca04d3890deb8156892ebe4', 'book_world_mol_content exports changed from the hand-coded baseline (WA17)');
     const loaded = installedWorldPack('book.mol');

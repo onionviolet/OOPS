@@ -1,0 +1,53 @@
+{
+  "sourceRead": true,
+  "rows": [
+    {
+      "path": "src/ingredient_world_fit.js",
+      "released": "242fa8241849ef7acb57f44e7f87b619141ee77a112a3cf7b73d3fd1af594fbe",
+      "current": "242fa8241849ef7acb57f44e7f87b619141ee77a112a3cf7b73d3fd1af594fbe",
+      "matches": true
+    },
+    {
+      "path": "tests/ingredient_world_fit.test.js",
+      "released": "fb8ce50d91842d46854296e6eafb95afc2bb3bf3c5cf195ede04d4c7169ff13a",
+      "current": "fb8ce50d91842d46854296e6eafb95afc2bb3bf3c5cf195ede04d4c7169ff13a",
+      "matches": true
+    },
+    {
+      "path": "src/craft_materials.js",
+      "released": "8e026b227e2af6a8f7b4ce1f6b637afed8ba283a16deda7a70009788d2fb912a",
+      "current": "8e026b227e2af6a8f7b4ce1f6b637afed8ba283a16deda7a70009788d2fb912a",
+      "matches": true
+    },
+    {
+      "path": "src/native_material_catalogue.js",
+      "released": "19fdb4ceb05577dfbced175e7ea09fb425b042e6f18f771b5e11d971d3c71383",
+      "current": "19fdb4ceb05577dfbced175e7ea09fb425b042e6f18f771b5e11d971d3c71383",
+      "matches": true
+    },
+    {
+      "path": "src/tag_store.js",
+      "released": "dfe5c6f2acc09ff72a1f6013efbd421a8f34a290d747209e3276ec9188b1a5af",
+      "current": "dfe5c6f2acc09ff72a1f6013efbd421a8f34a290d747209e3276ec9188b1a5af",
+      "matches": true
+    },
+    {
+      "path": "src/gen_kit.js",
+      "released": "bbbd05aea220aae5f1a8af48252f771851ad089690c9e68f2be0e19c99d38ec4",
+      "current": "bbbd05aea220aae5f1a8af48252f771851ad089690c9e68f2be0e19c99d38ec4",
+      "matches": true
+    },
+    {
+      "path": "src/material_lineage.js",
+      "released": "e497bebda1e8b3f440e60701c830fb51c684ed8aff224efbfc7b7c34b2b2b361",
+      "current": "e497bebda1e8b3f440e60701c830fb51c684ed8aff224efbfc7b7c34b2b2b361",
+      "matches": true
+    },
+    {
+      "path": "package.json",
+      "released": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+      "current": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+      "matches": true
+    }
+  ]
+}

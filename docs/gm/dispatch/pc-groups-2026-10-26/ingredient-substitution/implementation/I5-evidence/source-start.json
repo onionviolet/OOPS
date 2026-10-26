@@ -1,0 +1,36 @@
+{
+  "paths": {
+    "src/hp_ingredient_substitution.js": null,
+    "tests/hp_ingredient_substitution.test.js": null,
+    "src/hp_brewing_domain.js": "ea122983b649bb04983435b7b061cd2e666f97ccc7c841106f3af91b6b7c0da7",
+    "src/native_tool_domains.js": "ebcbdeba5c7f7c41fe63e79c3c71cb77f9770f45e8510e7e3be00fb851371131",
+    "tests/hp_brewing_domain.test.js": "9e0d1903a41dfa571d5d4c0a14e170d0db8e5cabb4997dcfcb867ad8fe59fd8c"
+  },
+  "slot": {
+    "lane": "G2-I5",
+    "thread": "01a1794d-81a8-7531-85dd-4cbab063a9c5",
+    "phase": "direct acknowledged-ready transfer after I4 source/focused release",
+    "handoff": {
+      "from_lane": "G2-I4",
+      "from_thread": "01a1794c-fe95-72d1-9119-95175159f5b8",
+      "receiver_ready": true,
+      "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/I4.md"
+    },
+    "next_queue": [
+      "G6-W1 frozen proof requested",
+      "G6-W2 proof pending"
+    ],
+    "preserved_unallocated_requests": [
+      {
+        "lane": "L8",
+        "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+        "status": "ready unpromised S3 request; earlier commitments take precedence"
+      },
+      {
+        "lane": "G6-W3",
+        "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+        "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+      }
+    ]
+  }
+}

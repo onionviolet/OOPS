@@ -1,0 +1,30 @@
+import {pathToFileURL} from 'node:url';
+import assert from 'node:assert/strict';
+const root=process.argv[2];if(!root)throw Error('Pass snapshot root');
+const load=p=>import(pathToFileURL(`${root}/src/${p}`));
+const {quoteCrafting,stageCrafting,materialKey,freshDepth,validateOwner}=await load('crafting_frontier_runtime.js');
+const {createCraftState,freezeMaterials}=await load('craft_state.js');
+const {generateMaterial}=await load('craft_materials.js');
+const {frontierCatalogue:cat}=await load('craft_content_frontier.js');
+const {createFailureLedger,recordBatchAttempt,forecastFromLedger}=await load('craft_failure_ledger.js');
+const {setLedgerOwner,forecastCraft}=await load('craft_ledger_domain.js');
+const {createExperimentLog,recordTrial}=await load('craft_experiment_log.js');
+const herb=generateMaterial(cat,'reedherb',{root:4,scope:'g1',index:0}).value;
+const salt=generateMaterial(cat,'riversalt',{root:4,scope:'g1',index:0}).value;
+const owner=freezeMaterials(createCraftState({world:'base.frontier'}),cat,[herb,salt]);
+const hk=materialKey(herb,50),sk=materialKey(salt,50),inventory={[hk]:30,[sk]:30},ctx={world:'base.frontier',location:'Village',clock:100,root:4,depth:freshDepth()};
+const run=(hq,sq,clock=100)=>{const request={type:'craft',inputs:[{key:hk,qty:hq},...(sq?[{key:sk,qty:sq}]:[])]};return stageCrafting(owner,inventory,quoteCrafting(owner,inventory,request,{...ctx,clock}),{...ctx,clock});};
+let thin=null,useful=null;
+for(let h=1;h<=20;h++)for(let s=1;s<=20;s++){const p=run(h,s);if(p.failure&&!thin)thin={h,s,p};if(p.batch&&!useful)useful={h,s,p};}
+assert.ok(thin&&useful);
+const ledger=recordBatchAttempt(createFailureLedger(),thin.p.failure.result,{reasons:['thin']});
+const predicted=forecastFromLedger(ledger,{materials:[herb.id,salt.id],process:[['steep',1]]});
+assert.equal(predicted.verdict,'known-fail');assert.ok(useful.p.batch);
+setLedgerOwner(ledger);const runtimeForecast=forecastCraft({inputs:[{key:hk,qty:useful.h},{key:sk,qty:useful.s}],process:[{op:'steep',level:1}]},owner);assert.equal(runtimeForecast.verdict,'known-fail');
+const a=run(useful.h,useful.s,100),b=run(useful.h,useful.s,150),ap=a.batch?.product??a.failure.result.product,bp=b.batch?.product??b.failure.result.product;
+assert.equal(ap.id,bp.id);
+const trial={materials:[herb.id,salt.id],process:[['heat',2]],seen:['oral.health'],at:110};
+const l1=recordTrial(createExperimentLog(),trial),l2=recordTrial(createExperimentLog(),{...trial,materials:[salt.id,herb.id]});
+assert.deepEqual(l1,l2);
+const bad=structuredClone(a.state);const p=Object.values(bad.products)[0];let revisionError='no product';if(p){p.law='frontier.brew@999';try{validateOwner(bad);}catch(e){revisionError=e.message;}}
+console.log(JSON.stringify({ratioForecast:{recordedThin:{herb:thin.h,salt:thin.s},usefulDifferentRatio:{herb:useful.h,salt:useful.s},forecast:predicted.verdict,runtimeForecast:runtimeForecast.verdict,actual:'useful batch',note:'Same materials and process, quantities absent from forecast signature.'},cohort:{clocks:[100,150],sameProductIdentity:ap.id===bp.id,note:'No made-at cohort enters product identity for this atomic brew; stock uses the same product key.'},trialLog:{reversedIngredientOrderCollides:JSON.stringify(l1)===JSON.stringify(l2),retainedFields:Object.keys(l1.entries[0]),note:'Quantities, maker control, product identity and pre-dose tolerance are absent.'},unsupportedRevision:{error:revisionError}},null,2));

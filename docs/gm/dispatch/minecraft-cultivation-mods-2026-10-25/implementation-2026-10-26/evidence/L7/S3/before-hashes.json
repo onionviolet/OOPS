@@ -1,0 +1,8 @@
+{
+  "scripts/playtest/shadow-company-life.mjs": null,
+  "src/book_world_beginning_registration.js": "f4c55a9d1571ca71bbdfb519412686100a030e9a85f19f7f59dd204a9c527c56",
+  "src/book_world_shadow_company_domain.js": null,
+  "src/structured_pack_runtime.js": "9933c3bc9358ac05d44bb5a9ac364ac530eec919ca7c88238cc18e1ac05c34d3",
+  "src/world_packs/book_shadow_company_life.js": null,
+  "tests/shadow_company_life.test.js": null
+}

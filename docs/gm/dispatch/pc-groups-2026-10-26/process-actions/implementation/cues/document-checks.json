@@ -1,0 +1,8 @@
+{
+  "paths": [
+    "src/craft_process_cues.js",
+    "tests/craft_process_cues.test.js",
+    "docs/gm/dispatch/pc-groups-2026-10-26/process-actions/implementation/cues/STATUS.md"
+  ],
+  "errors": []
+}

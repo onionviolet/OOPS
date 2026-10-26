@@ -1,0 +1,39 @@
+{
+  "before": {
+    "lane": "G7-L3",
+    "thread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "phase": "READY ACK registry-test-only correction, no life_record changes; any own trace metadata addition requires W6 agreement",
+    "handoffFrom": "G6-W3",
+    "handoffFromThread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+    "nextRequested": {
+      "lane": "G6-W6",
+      "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+      "ready": true,
+      "following": {
+        "lane": "G6-W3",
+        "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+        "phase": "frozen private native proof READY; then W4"
+      }
+    },
+    "at": "2026-10-26T18:42:14.276899+00:00"
+  },
+  "after": {
+    "lane": "G6-W6",
+    "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+    "phase": "granted bounded calendar adapter source/focused turn",
+    "handoffFrom": "G7-L3-correction",
+    "handoffFromThread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "nextRequested": {
+      "lane": "G6-W3",
+      "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+      "phase": "requested frozen native proof after W6 source turn; validate readiness/earlier commitments"
+    },
+    "at": "2026-10-26T18:42:14.276899+00:00"
+  },
+  "focused": "9/9 pass on exact adopted frozen files",
+  "releasedPaths": [
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/6c69a6236e5e1abe39f179467947cd1066bec955a6df209c84caef340680cf1d",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/5f7860498ff09a010878c1b148cd2ce51ede2db3bc52f146de7477369942b3b9",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/e8152ab459a4bd75179ea2f29c157ea4fc56e92171d1fda8ec5807126d4c594d"
+  ]
+}

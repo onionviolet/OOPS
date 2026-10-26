@@ -12,6 +12,8 @@ import {isRainingOnDay} from '../src/weather_calendar.js';
 import {settleHouseholdRest} from '../src/home_household.js';
 import {TUTOR,SUPPLIER} from '../src/home_household_content.js';
 import {deriveHomeEstate,applyHomeEstate} from '../src/home_inheritance.js';
+import {householdAcceptedWork} from '../src/home_household_panel.js';
+import {projectAcceptedWorkLegibility} from '../src/action_legibility.js';
 const registry=createContentRegistry({worlds:[{id:'base.frontier'}],simulation:homeWorkDefinitions});
 function rig(){
  let p={state:createExpansionState(19),external:{money:100},gameplay:{player:{inventory:{},skills:{Literacy:{xp:0,enabled:true}},reputation:{}}}},s={...emptyHomes(),beginning:true},location='Village',rain=false;
@@ -24,6 +26,17 @@ function rig(){
  reload(){p={...p,state:loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry)};s=JSON.parse(JSON.stringify(s));settle();},
  };
 }
+test('commissioned household receipt uses reserved public terms, preserves observer attention and never reads the pending outcome',()=>{
+ const r=rig();r.run({type:'start',profile:'ducal'});r.run({type:'staff_order',service:'cook'});
+ const job=r.p.state.simulation.jobs.find(j=>j.commandId==='home.staff.cook'),c=r.context(),receipt=householdAcceptedWork(job,c);
+ assert.ok(receipt.costs.some(row=>row.text.includes('2 Rat meat chunks')));assert.ok(receipt.completion.some(row=>row.text.includes('2 Roasted rat meat → Iven’s kitchen stock')));
+ assert.ok(receipt.reservations.some(row=>row.text.includes('Iven')));assert.ok(receipt.reservations.every(row=>!row.text.includes('Your attention')),'unattended staff cooking does not occupy the player');
+ const altered={...structuredClone(job),label:'Undisclosed outcome',roll:999,outcomeId:'private',effects:[{type:'fact',key:'private.outcome',value:true}],costs:[...job.costs,{type:'resource',actor:'unintroduced.person',key:'money',amount:-999}]};
+ assert.deepEqual(householdAcceptedWork(altered,{...c,staffStock:{},staffResources:{}}),receipt,'private result, private holder and current means cannot rewrite the known reservation');
+ assert.equal(projectAcceptedWorkLegibility({job,clock:c.clock,actorId:COOK,observerId:'player'}),null,'another observer needs disclosed agreement terms');
+ const own=projectAcceptedWorkLegibility({job,clock:c.clock,actorId:COOK});assert.ok(own.reservations.some(row=>row.text.includes('Your attention')),'existing owning-actor default stays intact');
+ r.reload();assert.deepEqual(householdAcceptedWork(r.p.state.simulation.jobs.find(j=>j.id===job.id),r.context()),receipt);
+});
 test('staff rest uses native occupied intervals, survives reload and leave is an actual refusal',()=>{
  const r=rig();r.run({type:'start',profile:'ducal'});r.run({type:'staff_leave',actor:COOK});assert.throws(()=>r.run({type:'staff_order',service:'cook'}),/leave/);r.reload();r.run({type:'staff_return',actor:COOK});r.run({type:'staff_order',service:'cook'});
  assert.equal(r.p.state.actors[COOK].resources['home.energy'],40);assert.throws(()=>r.run({type:'staff_leave',actor:COOK}),/accepted work/);r.advance(10);assert.equal(r.p.state.actors[COOK].resources['home.energy'],40);r.go('Village');r.advance(7);assert.equal(r.p.state.actors[COOK].resources['home.energy'],47);r.reload();r.advance(100);assert.equal(r.p.state.actors[COOK].resources['home.energy'],60);

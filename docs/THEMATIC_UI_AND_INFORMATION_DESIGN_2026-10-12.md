@@ -1096,3 +1096,94 @@ and an actual settled native pet/play occurrence through existing cue owners.
 Done check: no replay after load/reopen, no cue on mere inspection, plain text and
 reduced-motion/silent equivalents. This is a possible presentation follow-up,
 not an unfinished gameplay system or a prerequisite for this comparison.
+
+## Fresh UI character comparison, 2026-10-26
+
+Weibao likes surface personality, local atmosphere, tactile feedback and small
+human touches (O2–O5), and asked what should define the overall signature (O1).
+[Reference comparison and proposed audit brief](reviews/UI_CHARACTER_DIRECTION_2026-10-26.md)
+records the Proto23 capture comparison, official reference examples, candidate
+visual vocabulary and O5 effort tiers. These remain design proposals; the
+traveler's-journal metaphor is one candidate. Initial review history: no chat,
+runtime change or app adoption was dispatched by that review. A later explicitly
+authorized chat `01a17935-ee3f-76a3-a5ef-3a910749239a` performed the bounded
+source/browser audit and shared-workbench character study below.
+
+### Character audit round, UIC1–UIC13, 2026-10-26
+
+[Fresh audit, source traces, comparisons and ranked implementation proposal](reviews/UI_CHARACTER_DIRECTION_2026-10-26.md#fresh-audit-and-runnable-comparison-2026-10-26).
+ACT NOW completed: fresh frozen native browser matrix, Proto23 saved-source/lab
+comparison, Fallen London developer documentation and A Dark Room public-source
+comparison, two runnable material treatments, and effect/household source traces.
+No production runtime, installed-app, commit or publication change.
+
+ACCOUNT FOR NOW: selected Gothic and Proto23 composition lineage stay; desktop
+1920×1080, laptop 1536×864, actual 14/21px, mobile deferred. Module role is not a
+complete surface identity; return snapshots do not describe offscreen place history;
+preview and settled result are different channels. Existing native craft receipts,
+scene cues and household projections are the implementation seams.
+
+UIC13 records Weibao's feedback that the new workbench feels less fleshed out than
+Proto23. The character study uses current presenters inside a simplified shell;
+the older recipe study is pinned. **The new study is too sparse for a visual
+direction decision.** Signal/Folio are rough color/material alternatives; “Gothic
+windows onto lived worlds” remains a proposed vocabulary. The native screenshots
+show current OOPS; the study does not establish current installed-app appearance.
+
+LATER / DELEGATE proposals, in order: UIC10 medium UI judgment for four existing
+surface styles; UIC11 small household presenter/CSS improvement using known Moss
+mood/posture; UIC12 medium settled craft/atmosphere tuning through current owners.
+A faithful populated current-shell comparison is missing before selection; do not
+turn the reduced fixture into another application or infer permission to implement
+production. Each slice's observable done check and source map live in the report.
+Director review remains optional under AD42; recommendations are not accepted.
+
+UIC14 follow-through: Weibao requested updating the mockup system and a fresh audit
+chat. [MW8](MOCKUP_SYSTEM.md#standing-rules) and the workbench's visible source/output
+freshness banner now distinguish archived, sketch and native evidence. The separate
+[rerun brief](reviews/UI_CHARACTER_RERUN_2026-10-26.md) was dispatched to chat
+`01a17948-448e-77a2-b895-11128bed5435`, which owns the fuller current-shell study.
+This workflow update selects no visual treatment or production runtime change.
+
+## Faithful native character comparison, 2026-10-26: UIC15–UIC22
+
+The [rerun report](reviews/UI_CHARACTER_DIRECTION_2026-10-26.md#uic15uic22-faithful-current-shell-rerun-2026-10-26)
+supersedes the missing-comparison status above. Chat
+`01a17948-448e-77a2-b895-11128bed5435` completed the finite A1–A5 audit with
+baseline and two CSS treatments over the actual populated native shell/controllers.
+The reduced character sketch stays historical and unaccepted. No production
+runtime change, commit/push, app adoption or director selection occurred.
+
+**ACT NOW, UIC15/UIC16/UIC21/UIC22:** the shared workbench defaults to the native
+study; its general builder packages the isolated frozen native bundle. Thirty
+public item entries, native recipe dependencies/costs/results, equipment,
+Reports and a native homeowner/Moss route replace the sparse shell. The
+[matched gallery](../prototypes/workbench/evidence/native-character-2026-10-26/gallery.html)
+places baseline/Signal/Folio alongside. Layout switching keeps one running
+native state; unsupported simultaneous command mirroring is explicitly disabled.
+Twelve desktop/text/treatment command journeys, four effects modes, large-text
+and actor checks, two freshness tests, ten shared-workbench groups and rules
+checks passed. Highest state: agent-verified, not human-reviewed.
+
+**ACCOUNT FOR NOW, UIC17–UIC19:** proposed signature is a vivid Gothic frame,
+stable role colors, different reading surfaces and locally fitting material.
+Signal is the proposed general default; Folio warmth fits a known home/workshop.
+No global journal metaphor is selected. Real 14/21px text, scrollable known
+names/dependencies, static outcomes and current native controllers remain the
+comparison baseline. Type/color alone does not shorten a long policy paragraph.
+The corrected startup waits for native save ownership; its earlier false
+read-only and collapsed-body captures are superseded by final evidence, not
+production defect findings. Native input/output freshness matched after packaging; subsequent live crafting
+source edits are now flagged stale. The manifest/captures preserve the tested
+snapshot. Changes are checked on focus/study change and every 15 seconds.
+
+**LATER / DELEGATE, UIC20a–UIC20e, proposals only:** rank four existing surface
+styles (UI judgment, medium), known Moss expression emphasis (presenter/UI,
+small), settled craft feedback (runtime/UI, medium), public local atmosphere
+(domain/UI, medium), then durable remembrance/crowds (larger simulation/art,
+deferred). The report owns exact source seams and observable done checks.
+The easiest useful O5 slice consumes existing known mood/posture/history in
+`src/household_scene.js`; it needs no new pet simulation or save schema.
+Weather/tool/recovery transitions, every service/world and installed-app
+appearance were not verified by this audit. These limits do not create new
+gates or authorize production implementation.

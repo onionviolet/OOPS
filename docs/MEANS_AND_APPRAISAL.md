@@ -73,9 +73,9 @@ prior knowledge, money, a body that can do it, or simply being there.
 - **Means asymmetry is strategy.** You can see them and they can't see
   you; they can reach you and you can't reach them. Each mismatch is a
   situation with obvious moves.
-- **Means cost something.** Charges, money, favors, fatigue, time,
-  attention, exposure. A free unlimited means is a cheat and should feel
-  like one.
+- **Means declare actual costs.** Charges, money, favors, fatigue, time,
+  attention or exposure where the mechanism calls for them, including none.
+  Cost and upkeep are world/means dials, not balancing obligations (AD5, AD38).
 - **Means can be noticed.** Using one is an action in the fiction, and
   sensitive targets can feel, trace or block it.
 - **Idle time follows means too.** What happens while the player is away
@@ -140,10 +140,11 @@ picks a value on each.
 | Weather and omens | Sailor, farmer, diviner | What's coming, how soon |
 | Groups | General, spymaster | An army's real strength, morale, a sect's politics |
 
-**Specialists beat generalists in their domain.** A generic appraisal
-skill reads a sword's grade; a master smith reads its flaw, its maker
-and how long until it breaks. A merchant's eye reads value to the coin
-and nothing about danger.
+**Specialists can read what a generalist misses.** An ordinary appraisal
+skill might read a sword's grade while a master smith reads its flaw, its maker
+and how long until it breaks. A merchant's eye might read value and little
+about danger. Actual scope and precision decide; a broader or overwhelming
+means can exceed the specialist without an invented penalty (AD28, AD38).
 
 ### By channel
 
@@ -198,7 +199,7 @@ schema has, and maps everything else to its nearest field or to `???`
 
 | Code | Subtlety | Detail |
 |---|---|---|
-| LS1 | **What `???` means** | Different failures look different: `???` (beyond scope), `[blocked]` (concealment), `cannot be measured` (too far above), `error` (schema mismatch), blank (nothing there, or a perfect concealment). Each tells the reader something, and the VFX should differ |
+| LS1 | **What `???` means** | Public failure labels reflect what the observer's means can distinguish. `???`, `[blocked]`, `cannot be measured`, `error` or blank are illustrative outputs, not a direct map from hidden causes. Indistinguishable internal causes share an uninformative public result; prose and VFX disclose no more than the reading establishes (AD6–AD8) |
 | LS2 | **Snapshot timing** | A reading is of that moment. Reading someone mid-buff, injured or drunk misleads later |
 | LS3 | **Base versus equipped** | Is that strength theirs or their armor's? Better means separate them |
 | LS4 | **Which name** | The registered name, the true name, the name they believe is theirs, or an alias. Each means reads a different one |
@@ -260,11 +261,12 @@ The contest's backlash outcome covers this.
 ### Means and fairness
 
 - The player is never denied what their character's means should show.
-- Anything hidden has some route: a means you could acquire, borrow,
-  buy or build.
+- Hidden facts can have discovery routes through means you could acquire,
+  borrow, buy or build where the world mechanism supports them. This palette
+  promises no universal reveal route or route count.
 - Enemies don't get means for free because a fight needs to be hard.
-  If they're dangerous, it's because of what they hold, and that's
-  findable.
+  If they're dangerous, it's because of what they hold; discovering that
+  still depends on the observer's means.
 
 ## Implementation considerations
 
@@ -275,10 +277,10 @@ The contest's backlash outcome covers this.
 | IMP3 | **One reading function** | `read(observer, target, means, context)` runs the existing contest and returns a graded outcome at some AP level, with confidence and possible error |
 | IMP4 | **Knowledge records** | The reading writes to the observer's knowledge record with the means id, level reached, timestamp and confidence. Ordinary NPCs keep impression tags; record-keepers get fuller records |
 | IMP5 | **Knowledge filter** | All text and VFX render through the viewer's knowledge (F3 in the [cheat feasibility audit](audits/cheat-implementation-2026-10-10/readers/C_feasibility.md), VP levels in the presentation doc). Truth strings are referenced by id only |
-| IMP6 | **Failure wording** | LS1's distinct failure strings come from the outcome type, not ad hoc text |
+| IMP6 | **Failure wording** | Public strings come from the observer-safe outcome projection, with distinct causes labelled only when the means distinguishes them (LS1) |
 | IMP7 | **NPC means budget** | NPCs get means from their role, faction and world commonness, generated once and saved, so a bandit doesn't gain a scrying bowl just because the scene needs one |
 | IMP8 | **Persistence** | Means on existing records are capability data; readings and impression tags are new save data. One migration with empty defaults, plus an old-save import test |
-| IMP9 | **Tests** | No means, no information; a means never reads past its max level; failure strings match outcomes; no truth text in any output below the level that reveals it (also guards sealed secrets) |
+| IMP9 | **Tests** | No means, no information; a means never reads past its max level; failure strings match observer-safe outcomes; indistinguishable causes share a result; no truth text in any output below the level that reveals it (also guards sealed secrets) |
 | IMP10 | **Native realm** | The native enemy tooltip already shows stats (`display.js` around 5061 to 5188). Proposal: model it as a built-in AP3 means everyone in the native realm holds, which keeps current behavior and fits the principle. A change would be a recorded compatibility decision |
 
 ### A first slice (proposal)
@@ -309,7 +311,7 @@ suggestions.
 | Code | Stage | Routes | Notes |
 |---|---|---|---|
 | ML1 | **Gaining** | Learn, train, awaken, inherit, buy, rent, borrow, steal, loot, build, be granted, bond (a familiar, a spirit) | Each route leaves a trace: a teacher who knows you have it, a seller who remembers, an owner who wants it back |
-| ML2 | **Keeping** | Charges, repair, feeding a familiar, practice to avoid rust, paying an informant monthly, renewing a license | Upkeep runs while idle, so a neglected means degrades (the idle decay VFX) |
+| ML2 | **Keeping** | Charges, repair, feeding a familiar, practice to avoid rust, paying an informant monthly, renewing a license | Upkeep or degradation occurs where its mechanism requires it, on its owning game clock and selected idle policy; some means need no upkeep (AD15–AD17, AD38) |
 | ML3 | **Losing** | Stolen, broken, sealed by a curse, confiscated at a city gate, forgotten (memory loss), outgrown, a contact dies or defects | Losing a means changes what the UI shows: numbers turn back into words, a dossier stops updating |
 | ML4 | **Recovering** | Reforge, re-learn faster than the first time, ransom it back, find a replacement contact | Re-learning is cheaper (the skill remembers), which softens losses without removing them |
 | ML5 | **Passing on** | Gift, sell, bequeath, teach, betray | Heirlooms can carry their former owners' habits or marks |
@@ -365,8 +367,9 @@ This is where most of the flavor between look-alike means comes from.
 
 ### Counters are means too
 
-Every means has counters, and the counters are means held by the other
-side.
+Counters work through actual opposing means, where the mechanism supports
+them. A means may have no available counter, or none at all under the world
+mechanism. Do not invent a weakness to equalize power (AD28, AD38).
 
 | Means | Typical counters |
 |---|---|

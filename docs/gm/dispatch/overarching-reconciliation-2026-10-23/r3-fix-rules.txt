@@ -1,0 +1,8 @@
+
+> check:rules
+> node scripts/check_rules_index.mjs
+
+Rules index check: 23 register rows, 41 AD codes, 128 relative links
+  warn  linked file exists but is not tracked by git: docs/WORLD_PASS_RULES.md
+  warn  linked file exists but is not tracked by git: docs/PROGRESSION_GATE_RULES.md
+PASS (2 warnings)

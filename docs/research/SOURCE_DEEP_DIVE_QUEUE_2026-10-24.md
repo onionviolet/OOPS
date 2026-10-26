@@ -3,8 +3,15 @@
 Harvest authorized 2026-10-25: reuse held/read sources, fill missing books and
 chapters, include traditional novels and retain all fitting candidates. The
 [harvest receipt](SOURCE_HARVEST_2026-10-25.md) owns actual collection, reuse,
-alias corrections and remaining gaps. Native Z-Library app control works despite
-the desktop API failure. Setup/extraction, research and gameplay are separate.
+alias corrections and remaining gaps. Native Z-Library delivered thirty verified
+files despite desktop API failure. The latest retry acquired Millennial Mage 1–2,
+Industrial Strength Magic, Heretical Fishing, Bog Standard: Scarred, a bounded
+Gamer's Guide Step 1 snapshot and Bookworm's remaining Part 4 gaps. Bookworm
+holds 22/33 main volumes; Part 5 Volumes 2–12 remain open. The account reached its
+explicit daily download limit; P5V2 is recorded as quota-stopped before delivery.
+Remaining gaps and completed hashes are preserved in the receipt's private owners.
+The receipt links the private reuse index and next gaps. Setup/extraction,
+research and gameplay are separate.
 
 Owner for the one-world-at-a-time source-deep-dive sequence Weibao started on 2026-10-24
 ([USER_VISION](../USER_VISION.md#source-deep-dives-one-world-at-a-time-2026-10-24)). Each run follows
@@ -616,3 +623,26 @@ synthesis. This round authorizes no runtime changes, purchase or repeat full rea
 Checks: 18 additional leads, 40 distinct EPUB hashes, 39 verified preparations;
 one alternate DCC extraction blocked. Book 4's MOBI hash matches prior manifest.
 Originals remain unchanged; raw source and private holdings stay gitignored.
+
+
+## Acquisition continuation, 2026-10-25, BMC20–BMC22
+
+The latest authorized retry advanced existing candidates rather than assigning
+new favorite or source-reading claims. Primary identity references remain the
+[Millennial Mage](https://www.royalroad.com/fiction/47826/millennial-mage/),
+[Industrial Strength Magic](https://www.royalroad.com/fiction/57011/industrial-strength-magic),
+[Heretical Fishing](https://www.royalroad.com/fiction/67114/heretical-) and
+[Bog Standard](https://www.royalroad.com/fiction/69512/bog-standard-isekai)
+author listings. Actual acquisitions and coverage belong to the harvest receipt.
+
+| Code | New consideration | Disposition |
+|---|---|---|
+| BMC20 | Download redirects and catalogue recovery can reissue an already-held file | ACT NOW (done): cancelled the repeated P4V5 save, retained completed hashes, recorded normal Back navigation and the actual daily-quota refusal |
+| BMC21 | A serial Step 1 snapshot and a published Book 1 can have different cutoffs | ACCOUNT FOR NOW: Gamer's Guide holds numbered 0–27; edition/cutoff reconciliation is required before claiming the full published opening or requesting a redundant copy |
+| BMC22 | More RR coverage can use the existing ranked gaps while completed source research stays reusable | ACCOUNT FOR NOW: next opening leads are The Runesmith, Forge of Destiny, Dungeon Life, 12 Miles Below, Mana Mirror and The Path of Ascension; retain Carousel, Skill Eater, Godclads, Wish Upon Stars and You Are Summoned reuse bindings |
+
+LATER / DELEGATE (not dispatched): bounded publication-cutoff reconciliation,
+Luna low for mechanical metadata matching with coordinator judgment for conflicting
+editions; done when the held hash/member range is bound to the selected published
+or serial cutoff. No new full read is implied. Next native acquisitions wait for
+actual allowance availability, then review P5V2's stopped receipt before reissue.

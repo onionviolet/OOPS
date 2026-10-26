@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "src/craft_ingredient_selection.js": "27ad3dbbbd1bc6c3437e88c36ff8f9e6e51d229303f1509611b4e4d59df41d27",
+    "src/material_inspector.js": "35fd5a2820e751aba662a6f7e431a3045663498bdda0ddabb2a5c28f47bb8169",
+    "tests/craft_ingredient_selection.test.js": "5d04e4a7f481351c4ef80ad774006919be188a26a8731bd935fa5b300a57a64f",
+    "tests/material_inspector.test.js": "cd671d575db84054d974647ec2fdeaaa430dc551148483e5eaa8730187bc8824",
+    "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d"
+  },
+  "drift": false,
+  "command": "node --test tests/craft_ingredient_selection.test.js tests/material_inspector.test.js",
+  "tests": 12,
+  "passed": 12,
+  "state": "source and focused checks; below AD43 until I5 actual consumer/build/browser proof"
+}

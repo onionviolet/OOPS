@@ -1,6 +1,7 @@
 import {FIELD_EXTENSION as E,FREIGHT_KEYS} from './field_works_extension_content.js';
 import {workerLodgingStatus} from './home_workers.js';
 import {isRainingAtMinute} from './weather_calendar.js';
+import {receivedRainDose} from './drying_exposure.js';
 const busy=(s,id)=>s.simulation?.jobs.some(j=>(j.participants||[j.actorId]).includes(id));
 export function fieldCalendarMinute(state,context) {
     const a=context.remainderLivelihoodClock;
@@ -13,12 +14,12 @@ export function fieldWorksExtensionFacts(state,context,{I,K,owned,local}) {
     if(f[P+'enrolled']!==true)return {clockKnown:weatherMinute!==null,workerCanStart:true,workerResidenceValid:true};
     const housing=workerLodgingStatus(context.nativeHomes,id,minute);
     const ready=actor=>s?.people[actor]?.life==='alive'&&state.actors[actor]?.worldId===I.world;
-    const running=f[P+'rackRunning']===true,wet=stock(E.rack)[K.wet]||0,dry=stock(E.rack)[K.dry]||0,progress=n('rackProgress'),covered=f[P+'rackCovered']===true,raining=weatherMinute!==null&&isRainingAtMinute(weatherMinute);
+    const running=f[P+'rackRunning']===true,wet=stock(E.rack)[K.wet]||0,dry=stock(E.rack)[K.dry]||0,progress=n('rackProgress'),covered=f[P+'rackCovered']===true,raining=weatherMinute!==null&&isRainingAtMinute(weatherMinute),receivedRain=receivedRainDose(raining?1000:0,covered?1000:0)>0;
     const intent=f[P+'freightIntent']||'none',hasOrder=intent!=='none',origin=intent.split('.')[0],carrier=s?.people[E.freighter],freight=f[P+'freight']===true;
     const playerSupported=owned&&local&&['Shack','Village'].includes(location)&&context.nativeAlive===true&&context.nativeReady!==false;
     const out={clockKnown:weatherMinute!==null,workerCanStart:housing.canStart,workerResidenceValid:housing.valid,
         rackSupported:owned&&local&&ready(E.rack)&&weatherMinute!==null,rackRunning:running,rackWet:wet,rackDry:dry,rackProgress:progress,
-        rackCanDry:wet>0&&progress<E.dryMinutes&&(covered||!raining),rackFinish:wet>0&&progress>=E.dryMinutes&&(covered||!raining),rackReset:wet>0&&progress>0&&!covered&&raining,
+        rackCanDry:wet>0&&progress<E.dryMinutes&&!receivedRain,rackFinish:wet>0&&progress>=E.dryMinutes&&!receivedRain,rackReset:wet>0&&progress>0&&receivedRain,
         rackRoom1:dry===0&&wet+1<=3,rackRoom3:dry===0&&wet===0,rack:f[P+'rack']===true,
         freight,freightAssigned:f[P+'freightAssigned']===true,freightIntent:intent,freightHasOrder:hasOrder,freightIdle:!busy(state,E.freighter),
         freightPlayerSupported:freight&&playerSupported,at_shack:location==='Shack',at_village:location==='Village',

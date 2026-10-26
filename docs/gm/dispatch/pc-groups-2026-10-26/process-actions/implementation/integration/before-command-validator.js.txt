@@ -1,0 +1,76 @@
+export function validateFiring(f,owner,clock){
+ if(f===undefined)return;
+ if(!f||Object.keys(f).sort().join(',')!=='at,due,product'||typeof f.product!=='string'||!natural(f.at)||!natural(f.due)||f.due-f.at!==FIRING_MINUTES)fail('Invalid held brazier batch.');
+ if(clock!==undefined&&f.at>clock)fail('Held brazier batch is ahead of the native calendar.');
+ if(owner!==undefined){const p=owner?.products?.[f.product];if(!p||![layeredLaw.ref,tabletLaw.ref].includes(p.law)||p.process.length!==1||p.process[0][0]!=='heat')fail('Held brazier batch needs its retained heated preparation.');}
+ return f;
+}
+function collectFiring(owner,depth,clock){
+ const f=validateFiring(depth?.firing,owner,clock);if(!f)fail('No batch is held on the brazier.');
+ if(clock<f.due)fail(`The held batch needs ${f.due-clock} more played minutes before collection.`);
+ const p=owner.products[f.product],late=Math.min(12,clock-f.due),process=p.process.map(([op,level])=>({op,level}));
+ if(late)process.push({op:'heat',level:late});
+ return resolveBatch(p.law===tabletLaw.ref?tabletLaw:layeredLaw,{inputs:p.inputs.map(([role,id,,qty])=>({role,material:owner.materials[id]??catalogue.materials[id],qty})),process,stations:p.stations,recipe:p.recipe?{ref:p.recipe}:null,order:p.order,control:p.thermal.control});
+}
+export function quoteCrafting(owner,inventory,request,context) {
+ let reason=eligibility(context),treatment,firing;
+ if(!reason)try{
+  validateOwner(owner);
+  if(request.type==='harvest'){
+   const source=request.source??'village-herbs';if(!villageSources.sources[source])fail('Unknown Village source.');
+   const forecast=forecastHarvest(villageSources,source,{at:context.clock,actor:{skill:0},node:owner?.sources.nodes[nodeKey(context.world,context.location,source)]});
+   if(!forecast.stock)fail('This verge is depleted; regrowth uses played time.');
+  }else if(request.type==='craft'||request.type==='begin_firing'){
+   if(request.layered&&context.depth?.firing)fail('Collect or abandon the held batch before using this brazier again.');
+   if(request.type==='begin_firing'&&(!request.layered||request.process?.length!==1||request.process[0].op!=='heat'))fail('A brazier hold starts with one layered heat step.');
+   if(request.tablet&&!request.layered)fail('Conditioning tablets use the layered brazier process.');
+   const lots=inputLots(request,owner,inventory);
+   if(request.layered&&!(inventory[JSON.stringify({id:'Charcoal'})]>0))fail('Layered brazier work spends one owned Charcoal per batch.');
+   resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
+  }else if(request.type==='collect_firing'){firing=collectFiring(owner,context.depth,context.clock).product.thermal;
+  }else if(request.type==='abandon_firing'){if(!validateFiring(context.depth?.firing,owner,context.clock))fail('No batch is held on the brazier.');
+  }else if(request.type==='treatment'){
+   const t=startTreatment(context.depth?.body,request.action,context);if((inventory[JSON.stringify({id:t.spend.id})]||0)<t.spend.count)fail(`Needs ${t.spend.count} ${t.spend.id}.`);
+   if(request.recipe)checkMethod(owner,inventory,request,lots);
+  }else if(request.type==='acquire'){
+   if(!REFERENCES[request.ref])fail('Unknown shelf object.');
+  }else if(request.type==='return'){if(!referenceIdOf(request.key)||!(inventory[request.key]>0))fail('You no longer carry this object.');
+  }else if(request.type==='learn'){refLot(inventory,request.key,'learn');
+  }else if(request.type==='read'){const d=refLot(inventory,request.key,'training');
+   if((owner?.references?.read?.[ACTOR]??[]).includes(d.id))fail('You have already read this; it has nothing new to teach you.');
+  }else if(request.type==='examine'){examineLot(owner,inventory,request);
+  }else if(request.type==='use'){
+   if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');const p=productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');if(p.outputs.permanent){
+    if(owner.knowledge?.player?.[p.id]?.facts.includes('effect:permanent.conditioning'))treatment=tabletConsequence(context.depth?.body,p,context);
+    consumeTablet(context.depth?.body,p,context);
+   }
+  }else fail('Unknown crafting command.');
+ }catch(e){reason=e.message;}
+ const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,context.skill??0,context.mind,context.body,context.depth?.body??null,context.depth?.firing??null,context.temperingStage??0,request]);
+ return {eligible:!reason,reason,token,request:structuredClone(request),...(treatment?{treatment}:{}),...(firing?{firing}:{})};
+}
+import {validateTreatment} from './craft_body_treatment.js';
+// Crafting depth as a registered domain: the tolerance ledger and experiment log for the Village trial.
+// Owns the namespaced `craftDepth` save slice {family:'craft.depth@1', dose, log}. Absent slice = fresh body, empty log.
+import {registerDomain} from './domain_registry.js';
+import {freshDepth,materialName,validateFiring} from './crafting_frontier_runtime.js';
+import {frontierDoseRules as rules} from './craft_content_frontier.js';
+import {validateDoseState,MINUTES_PER_DAY} from './craft_dose_rules.js';
+import {validateExperimentLog,deduce} from './craft_experiment_log.js';
+export const DEPTH_FAMILY='craft.depth@1';
+let depth=freshDepth();
+export const depthOwner=()=>depth;
+export function setDepthOwner(value){depth=value??freshDepth();}
+const effectName=id=>rules.names[id.split('.')[1]]??id;
+// What the panel shows: remaining tolerance per effect at the given minute, and deductions from the player's own trials.
+export function depthView(at,owner){
+ const tolerance=Object.entries(depth.dose.levels).map(([effect,e])=>({effect:rules.names[effect]??effect,level:Math.max(0,e.level-Math.floor((at-e.at)/MINUTES_PER_DAY)*rules.tolerance[effect].decayPerDay),overdoseAt:rules.tolerance[effect].overdoseAt})).filter(t=>t.level>0);
+ const deductions=deduce(depth.log).map(d=>({material:materialName(d.material,owner),effect:effectName(d.effect),status:d.status,hits:d.hits,withCount:d.withCount}));
+ return {tolerance,deductions,trials:depth.log.entries.length};
+}
+function check(slice){if(slice==null)return null;if(slice.family!==DEPTH_FAMILY)throw Error('Unsupported crafting depth slice.');validateTreatment(slice.body);validateFiring(slice.firing);validateDoseState(rules,slice.dose);validateExperimentLog(slice.log);return slice;}
+registerDomain({id:'craftDepth',deps:['crafting'],initialState:()=>null,
+ save:()=>depth.log.entries.length||Object.keys(depth.dose.levels).length||depth.body||depth.firing?{family:DEPTH_FAMILY,dose:structuredClone(depth.dose),log:structuredClone(depth.log),...(depth.body?{body:structuredClone(depth.body)}:{}),...(depth.firing?{firing:structuredClone(depth.firing)}:{})}:undefined,
+ validate:(slice,envelope)=>{check(slice);validateFiring(slice?.firing,envelope?.crafting??null);},
+ migrate:slice=>{if(slice==null)return freshDepth();const {dose,log,body,firing}=structuredClone(check(slice));return {dose,log,...(body?{body}:{}),...(firing?{firing}:{})};},
+ load:slice=>setDepthOwner(slice)});

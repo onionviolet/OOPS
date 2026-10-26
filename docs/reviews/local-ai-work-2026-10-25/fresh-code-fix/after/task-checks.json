@@ -1,0 +1,31 @@
+{
+  "sources": [
+    "scripts/lanes/lanes.py",
+    "scripts/lanes/tests/test_lanes.py"
+  ],
+  "checks": [
+    {
+      "name": "focused lane suite",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/lanes/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "timeout_seconds": 90
+    },
+    {
+      "name": "independent acceptance",
+      "argv": [
+        "python3",
+        "acceptance.py"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

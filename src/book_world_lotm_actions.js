@@ -18,7 +18,7 @@ import {causeCommands,causeSteadyCommand,causeFlags,causeFacts} from './book_wor
 import {brokerCommands,lotFlags,brokerFacts} from './book_world_lotm_broker.js';
 import {clearanceCommands,clearanceFacts,LOTM_ROLE_OF} from './book_world_lotm_clearance.js';
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
-import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift} from './book_world_lotm_districts.js';
+import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
 const acted=()=>({type:'resource',actor:'player',key:'book.lotm.acting',amount:1}),undigested=not(gte('lotm.acting',LOTM_DIGEST_ACTS));
 const sample=name=>K[name];
 const findings={
@@ -126,6 +126,7 @@ export function lotmFacts(state,ctx={}){
  f['lotm.acting']=acting;f['lotm.digested']=acting>=LOTM_DIGEST_ACTS;f['lotm.holds.clownDose']=inv[K.clownDose]||0;
  examFacts(allRows[0],state,f);
  for(const row of [...pathwayRows,...generatedRows])pathwayFacts(row,state,f,{inv,flag});
+ roleOutcomeFacts(state,f);
  // One pathway per life: any allocation or ingestion elsewhere closes the other offers.
  // Generated rows (DWF139) count for choice and ingestion but not for the wrong-potion held set: holding a brewed dose is harmless, drinking it is the act.
  const chosenRows=[...allRows,...generatedRows],rows=chosenRows.map(r=>[flagOf(r,'allocated'),flagOf(r,'ingested'),flagOf(r,'brew.started')]);

@@ -142,7 +142,10 @@ function validateProcessEvent(event) {
     if (!object(event.parameters) || Object.keys(event.parameters).length > 32) fail('Invalid process parameters.');
     if (!Array.isArray(event.inputs) || event.inputs.length < 1) fail('Invalid process inputs.');
     event.inputs.forEach(input => {
-        if (!object(input) || Object.keys(input).some(k => !['item_key', 'count', 'facts'].includes(k)) || !positive(input.count)) fail('Invalid process input.');
+        if (!object(input) || Object.keys(input).some(k => !['item_key', 'count', 'facts', 'role', 'disposition'].includes(k)) || !positive(input.count)) fail('Invalid process input.');
+        if (input.role != null || input.disposition != null) {
+            if (input.role !== 'support' || !['consumed', 'retained'].includes(input.disposition)) fail('Invalid support disposition.');
+        }
         // Parents can themselves be native legacy keys. Validate the serialization
         // without requiring them to have lineage.
         parseKey(input.item_key);
@@ -201,12 +204,21 @@ export function planMaterialMerge(fragments) {
 // Create a new processed key plus a transaction-ready exact input expenditure.
 // Output count cannot exceed consumed count here: recipes that transform volume
 // need a separate explicit, world-authored yield mechanism at their call site.
-export function planProcessedMaterial({stock, inputs, output, process, sourceFacts = {}, yieldRatio = {numerator: 1, denominator: 1}}) {
+export function planProcessedMaterial({stock, inputs, supportInputs = [], output, process, sourceFacts = {}, yieldRatio = {numerator: 1, denominator: 1}}) {
     const selected = exactAllocations(stock, inputs);
+    // Supports retain causal identity without becoming extra units of hide,
+    // meat or wood. A retained tool is checked but is not an expenditure.
+    // Legacy receipts omit support rows; do not reconstruct their missing facts.
+    if (!Array.isArray(supportInputs)) fail('Invalid material supports.');
+    const supports = supportInputs.length ? exactAllocations(stock, supportInputs.map(row => {
+        if (!object(row) || Object.keys(row).some(k => !['item_key', 'count', 'disposition'].includes(k)) || !['consumed', 'retained'].includes(row.disposition)) fail('Invalid support disposition.');
+        if (selected.some(input => input.item_key === row.item_key)) fail('Primary and support selections overlap; supply one exact allocation per stock key.');
+        return {item_key: row.item_key, count: row.count};
+    })).map((row, i) => ({...row, disposition: supportInputs[i].disposition})) : [];
     if (!object(output) || Object.keys(output).some(k => !['id', 'family', 'count', 'quality', 'completeness', 'treatment'].includes(k))) fail('Invalid processed material output.');
     const id = boundedText(output.id, 'material id', 180);
     const family = boundedText(output.family, 'material family', 120);
-    if (!positive(yieldRatio.numerator) || !positive(yieldRatio.denominator) || !positive(output.count) || BigInt(output.count) * BigInt(yieldRatio.denominator) > BigInt(selected.reduce((sum, row) => sum + row.count, 0)) * BigInt(yieldRatio.numerator)) fail('Processed yield exceeds consumed material.');
+    if (!positive(yieldRatio.numerator) || !positive(yieldRatio.denominator) || !positive(output.count) || BigInt(output.count) * BigInt(yieldRatio.denominator) > selected.reduce((sum, row) => sum + BigInt(row.count), 0n) * BigInt(yieldRatio.numerator)) fail('Processed yield exceeds consumed material.');
     if (output.quality != null && (!Number.isFinite(output.quality) || output.quality < 0 || output.quality > 1000)) fail('Invalid processed quality.');
     if (output.completeness != null) boundedText(output.completeness, 'completeness', 80);
     if (!object(process) || Object.keys(process).some(k => !['id', 'revision', 'at', 'world_id', 'parameters'].includes(k))) fail('Invalid process.');
@@ -216,7 +228,7 @@ export function planProcessedMaterial({stock, inputs, output, process, sourceFac
     if (!object(process.parameters ?? {}) || Object.keys(process.parameters ?? {}).length > 32) fail('Invalid process parameters.');
 
     if (!object(sourceFacts)) fail('Invalid source material facts.');
-    const inheritedFacts = selected.map(row => {
+    const parentFacts = [...selected, ...supports].map(row => {
         const lineage = readMaterialLineage(row.item_key);
         const source = row.item;
         const supplied = sourceFacts[row.item_key] == null ? {} : validateFacts(sourceFacts[row.item_key]);
@@ -228,6 +240,7 @@ export function planProcessedMaterial({stock, inputs, output, process, sourceFac
         }, ...supplied};
     });
     const facts = {};
+    const inheritedFacts = parentFacts.slice(0, selected.length);
     const ages = inheritedFacts.map(row => row.born).filter(nonnegative);
     if (ages.length) facts.born = Math.min(...ages); // processing never rejuvenates a perishable input
     const worlds = [...new Set(inheritedFacts.map(row => row.origin_world).filter(Boolean))];
@@ -244,7 +257,8 @@ export function planProcessedMaterial({stock, inputs, output, process, sourceFac
         process_id: processId, revision: process.revision, at: process.at,
         ...(process.world_id ? {world_id: process.world_id} : {}),
         parameters: clone(process.parameters ?? {}),
-        inputs: selected.map((row, index) => ({item_key: row.item_key, count: row.count, facts: clone(inheritedFacts[index])}))
+        inputs: [...selected, ...supports].map((row, index) => ({item_key: row.item_key, count: row.count, facts: clone(parentFacts[index]),
+            ...(row.disposition ? {role: 'support', disposition: row.disposition} : {})}))
     };
     const lineage = {schema: MATERIAL_LINEAGE_SCHEMA, revision: MATERIAL_LINEAGE_REVISION, family, facts, history: [event]};
     if (lineage.history.length > 64) fail('Material history exceeds supported depth.');
@@ -252,7 +266,7 @@ export function planProcessedMaterial({stock, inputs, output, process, sourceFac
     return {
         item_key: itemKey,
         output: {item_key: itemKey, count: output.count},
-        inputs: selected.map(({item_key, count}) => ({item_key, count})),
+        inputs: [...selected, ...supports.filter(row => row.disposition === 'consumed')].map(({item_key, count}) => ({item_key, count})),
         lineage
     };
 }

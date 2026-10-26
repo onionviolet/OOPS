@@ -1,0 +1,10 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "files": {
+    "src/craft_materials.js": "8e026b227e2af6a8f7b4ce1f6b637afed8ba283a16deda7a70009788d2fb912a",
+    "src/craft_resolver.js": "f8a38eeb4959008e2bd3fea2115b8c3fd122080ceaa4905bb74e56b2c4969f25",
+    "src/native_material_catalogue.js": "19fdb4ceb05577dfbced175e7ea09fb425b042e6f18f771b5e11d971d3c71383",
+    "tests/material_vocabulary.test.js": "70428bc9422a766a99e96f0c4dc7d653c292ee25cdc533300bfd3b361794da7a",
+    "tests/native_material_bridge.test.js": "555a6516a8a0021f7a9d1c51b80fef4078390ffd064f65034b25beddb708e778"
+  }
+}

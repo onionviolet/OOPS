@@ -1,0 +1,43 @@
+{
+  "before": {
+    "lane": "G7-L3",
+    "thread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "phase": "W4-consented <2min exact owner-ceded tests/dose_process.test.js adoption, then direct READY W4",
+    "handoffFrom": "G6-W3",
+    "handoffFromThread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+    "at": "2026-10-26T18:55:50.722795+00:00",
+    "nextRequested": {
+      "lane": "G6-W4",
+      "thread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+      "ready": true,
+      "following": {
+        "lane": "G6-W5",
+        "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+        "ready": true,
+        "following": "G6-W6 field/forecast join after released dependencies"
+      }
+    }
+  },
+  "after": {
+    "lane": "G6-W4",
+    "thread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+    "phase": "granted READY W4 bounded source/focused turn",
+    "handoffFrom": "G7-L3-conflict-checkpoint",
+    "handoffFromThread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "at": "2026-10-26T18:55:50.722795+00:00",
+    "nextRequested": {
+      "lane": "G6-W5",
+      "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+      "ready": true,
+      "following": "G6-W6 field/forecast join after released dependencies"
+    }
+  },
+  "applyingPathOwner": {
+    "lane": "G1-I4",
+    "thread": "01a1794e-a7cd-7672-929c-bf94c02d19f0",
+    "path": "tests/dose_process.test.js",
+    "phase": "N2 actual HP consumer",
+    "at": "2026-10-26T18:45:02.900434+00:00"
+  },
+  "action": "No HP test or runtime edit; existing active owner already applying equivalent correction; direct handback to W4"
+}

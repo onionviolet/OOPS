@@ -1,0 +1,38 @@
+[
+  {
+    "width": 699,
+    "height": 1080,
+    "size": 14,
+    "font": 14,
+    "scroll": 699,
+    "page": 1920,
+    "viewport": 1920
+  },
+  {
+    "width": 477,
+    "height": 864,
+    "size": 14,
+    "font": 14,
+    "scroll": 477,
+    "page": 1536,
+    "viewport": 1536
+  },
+  {
+    "width": 699,
+    "height": 1080,
+    "size": 21,
+    "font": 21,
+    "scroll": 699,
+    "page": 1920,
+    "viewport": 1920
+  },
+  {
+    "width": 477,
+    "height": 864,
+    "size": 21,
+    "font": 21,
+    "scroll": 477,
+    "page": 1536,
+    "viewport": 1536
+  }
+]

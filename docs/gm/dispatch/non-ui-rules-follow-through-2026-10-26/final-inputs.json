@@ -1,0 +1,118 @@
+{
+  "scope": "non-UI documentation and inspected source only; no runtime verification",
+  "changed_owner_paths": [
+    "PROJECT.md",
+    "docs/ABILITY_RULES.md",
+    "docs/ARCHITECTURE_RULES.md",
+    "docs/DOMAIN_RULES.md",
+    "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+    "docs/MEANS_AND_APPRAISAL.md",
+    "docs/PROGRESSION_GATE_RULES.md",
+    "docs/RULES_INDEX.md",
+    "docs/USER_VISION.md",
+    "docs/WORLD_ABSORPTION_RULES.md",
+    "docs/WORLD_COMPLETION_STANDARD.md",
+    "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md",
+    "docs/worlds/templates/WORLD_COMPLETION_TEMPLATE.md"
+  ],
+  "sha256": {
+    "PROJECT.md": "26d6edb5f653f6ea06386a0f19cdc798c25d29e9cfe870f31c9a5e87265b05c2",
+    "docs/ABILITY_RULES.md": "6afca62f9b351d907a2c0688b242a06075f7ab348ec3ad8af60a2bc4890a2626",
+    "docs/ARCHITECTURE_RULES.md": "28ce1b5339cd0055d4a44cc93a7af7a9d261952ce9a3cfbb5b1517b2ecee5a3b",
+    "docs/DOMAIN_RULES.md": "ba02cb14eb2c69b8ac28de530e67e8fe09d5da4a63e165d86ae78fc3c084ddde",
+    "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md": "1a8b112f52209ef97e28dd8584bc43fff2fa3c2f0649b0b389c499919d74a0a1",
+    "docs/MEANS_AND_APPRAISAL.md": "2e2ed2d16be449049727bd9b76df1bbd31c353a3a7c6685e06b4fb0df947b0f1",
+    "docs/PROGRESSION_GATE_RULES.md": "414e818ab1911758cf7026c1fbd8a4194da1d1fae6fbb0d1d00224f2ef70b536",
+    "docs/RULES_INDEX.md": "692ab573a2fa0c852ec2d417b42b9b86936f57ed852e513865393b474b8b410a",
+    "docs/USER_VISION.md": "1605d2c1d451a706716474aa16f2fc4a1ba2e9a17e7c76b8d2d64ef224880090",
+    "docs/WORLD_ABSORPTION_RULES.md": "4eeda373c18323ec1e819cff7d2be6366a5ce53bd65016005ae6ea40b46a3d61",
+    "docs/WORLD_COMPLETION_STANDARD.md": "29e471c5518b862df0a0abbc176d86ea0a846502b10ae8296d16edfea2252bf4",
+    "docs/WORLD_GAME_MASTER_TEMPLATE.md": "37b1379b5e1d56330854794a57da439f6aa01fbf68e33a3ec9d6caa3fffad414",
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md": "ce1b9d27e6ef6e1827f967b29e8073f8f66fc80f70465ca144174fc0ab72a1ca",
+    "docs/worlds/templates/WORLD_COMPLETION_TEMPLATE.md": "31997b3e035f18c20f6c78cf757d608ca427f210abe087ba6c54d915b9d719a9",
+    "src/structured_ability_runtime.js": "b8752f8f8022815ecb1c2663ad1dcf0b2a901df807c3e0d3ffbd1a2c126f78f8",
+    "src/simulation.js": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+    "src/simulation_contracts.js": "74ea9305ff0f1e455a09cbcb557afbb0578c4dc1dfe7a71c5be7a921a6749158",
+    "tests/structured_ability_runtime.test.js": "267fa2ed85a837865e5948cd93a3d1db6de2a6c7c4473c32d5bae7401507bee9",
+    "src/book_world_lotm_abilities.js": "f06e82a733176078d97b4d877b58a92b95e411639d6e9cd63eee9b80753e564e",
+    "src/book_world_lotm_actions.js": "fd42609f31f5893ceb6a970f3b0f5a9caa68b7541cafbab090f5c90e490ff19f",
+    "src/world_packs/book_hp_life_data.js": "0291d0e075889a33aff5e8dc8746fd77f44254919ea1bca6c651e40570166411",
+    "docs/audits/RULES_CONSIDERATION_2026-10-26.md": "b1209498e02ff3ef0e882d16a6c54d3a8c235a7f394aa9073f533e3150ba3d3a",
+    "docs/gm/dispatch/rules-consideration-2026-10-26/coverage-map.json": "45e73d3355dc36040ca588a9db964dd8ead045717af3559d743230c62ac9f86f"
+  },
+  "source_locators": [
+    {
+      "path": "src/structured_ability_runtime.js",
+      "symbol": "compileStructuredAbilities",
+      "line": 110,
+      "needle": "export function compileStructuredAbilities(definition)"
+    },
+    {
+      "path": "src/structured_ability_runtime.js",
+      "symbol": "timed refund assertion",
+      "line": 152,
+      "needle": "Timed ability must return reservations when held support is lost."
+    },
+    {
+      "path": "src/simulation.js",
+      "symbol": "startCommand",
+      "line": 172,
+      "needle": "function startCommand(out, registry, commandId"
+    },
+    {
+      "path": "src/simulation.js",
+      "symbol": "support snapshot",
+      "line": 242,
+      "needle": "job.completionSupport = {schema: 1"
+    },
+    {
+      "path": "src/simulation.js",
+      "symbol": "completeJob",
+      "line": 277,
+      "needle": "function completeJob(out, job, registry"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "symbol": "createSimulationRegistry",
+      "line": 109,
+      "needle": "export function createSimulationRegistry(definitions"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "symbol": "paid-forfeit scope",
+      "line": 140,
+      "needle": "const paidForfeit = d.group?.startsWith('remainder_')"
+    },
+    {
+      "path": "tests/structured_ability_runtime.test.js",
+      "symbol": "existing lost-support fixture",
+      "line": 51,
+      "needle": "test('timed ability rechecks source support and refunds reservation on method loss'"
+    },
+    {
+      "path": "src/book_world_lotm_abilities.js",
+      "symbol": "authored costs disclaimer",
+      "line": 5,
+      "needle": "looks are authored proposals"
+    },
+    {
+      "path": "src/book_world_lotm_abilities.js",
+      "symbol": "stamina cost helper",
+      "line": 12,
+      "needle": "const stamina=n=>({type:'vital',key:'stamina',amount:-n})"
+    },
+    {
+      "path": "src/book_world_lotm_actions.js",
+      "symbol": "Seer lesson resource",
+      "line": 49,
+      "needle": "Take the control lesson: learn bounded material perception \u00b7 1 spirituality"
+    },
+    {
+      "path": "src/world_packs/book_hp_life_data.js",
+      "symbol": "school spell stamina and stock",
+      "line": 83,
+      "needle": "costs:[{type:'item',key:key(r.input),amount:-1},{type:'vital',key:'stamina',amount:-1}]"
+    }
+  ]
+}

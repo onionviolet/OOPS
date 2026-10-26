@@ -1,0 +1,106 @@
+{
+  "recorded_at": "2026-10-26T18:18:21.352609+00:00",
+  "state": "G7_selected_scope_complete_on_frozen_QA_artifact",
+  "requested_lane": "G7-L3",
+  "requested_thread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+  "ordering": [
+    "slot1 G1-I2 current bounded source/focused turn",
+    "slot1 G7-L3 recorded successor"
+  ],
+  "live_slots": {
+    "slot-1": {
+      "lane": "G2-I2",
+      "thread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+      "phase": "acknowledged paid HP prep source/focused turn",
+      "handoffFrom": "G6-W1",
+      "handoffFromThread": "01a1794d-427d-7ef2-a399-9e36cf34b5e2",
+      "at": "2026-10-26T18:16:10.614577+00:00",
+      "nextRequested": {
+        "lane": "G1-I2",
+        "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67"
+      },
+      "W1NativeProof": "pending fair later runtime turn"
+    },
+    "slot-2": {
+      "lane": "G6-W2",
+      "thread": "01a1794d-9355-7f53-8c4b-12a067d142fb",
+      "phase": "direct acknowledged-readiness handoff from L7; verify metadata before source work",
+      "handoff": {
+        "from_lane": "L7",
+        "from_thread": "01a178b9-de0d-7bb1-a16f-cd25ed38730d",
+        "at": "2026-10-26T18:17:53.338176+00:00",
+        "boundary": "S1b agent-verified and seven source paths released",
+        "receiver_ready": true,
+        "readiness_evidence": "direct W2 ready notice in L7 chat",
+        "receipt": "docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/L7.md"
+      },
+      "following_requests": [
+        {
+          "lane": "G2-I2",
+          "thread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+          "status": "requested next unpromised turn after earlier G6-W2; not allocated by L7",
+          "note": "G2-I1 already received slot-1; do not give it a second slot."
+        },
+        {
+          "lane": "L8",
+          "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+          "status": "ready unpromised S3 request; earlier commitments take precedence"
+        }
+      ]
+    }
+  },
+  "messages_sent_to": [
+    "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "01a1794a-8b76-7ca3-803b-96d8c1e71dca"
+  ],
+  "slot_granted": false,
+  "note": "Historical queue negotiation retained below; no current scheduling blocker. Latest primary integration/adoption outside frozen proof.",
+  "acknowledgement": "connected-making/implementation/I2.md records G7-L3 as successor after its bounded source/focused turn and notification at actual custody transfer",
+  "notified_threads": [
+    "01a1794a-8b76-7ca3-803b-96d8c1e71dca",
+    "01a17940-e302-7333-af77-a5a8f16446f8"
+  ],
+  "prior_ordering": [
+    "G2-I2 current",
+    "G1-I2 existing promised turn",
+    "G7-L3 requested successor"
+  ],
+  "correction": "Interim after-G2 ordering superseded: G2-I5 saved explicit agreement moves its chain to slot2. Live slot1 nextRequested is G7-L3. Actual slot2 owner asked to persist current agreement over stale inherited following_requests.",
+  "live_slot1": {
+    "lane": "G1-I2",
+    "thread": "01a1794e-8fc7-7c20-b0d0-710380c25b67",
+    "phase": "acknowledged log/reference helper source-only slice",
+    "handoffFrom": "G2-I2",
+    "handoffFromThread": "01a1794c-f253-7383-af54-1bd5b6d3e7d5",
+    "at": "2026-10-26T18:18:46.877726+00:00",
+    "nextRequested": {
+      "lane": "G7-L3",
+      "thread": "01a1794a-8b76-7ca3-803b-96d8c1e71dca"
+    },
+    "queueAfter": [
+      "G2-I3",
+      "G2-I4",
+      "G2-I5"
+    ],
+    "paths": [
+      "src/craft_experiment_log.js",
+      "src/craft_reference.js",
+      "tests/craft_depth_rules.test.js",
+      "tests/craft_reference.test.js"
+    ],
+    "acquiredByPid": 70905
+  },
+  "slot2_agreement": [
+    "G6-W2 bounded source/focused turn",
+    "G2-I3",
+    "G2-I4",
+    "G2-I5",
+    "G6-W1 later frozen proof"
+  ],
+  "runtime_slot_held": false,
+  "source_locks_held": false,
+  "completion_receipt": "lore-and-idea-sources/implementation/L3/REPORT.md",
+  "frozen_bundle_sha256": "def6e6bb93c47cf829fb2f9291be13e8d03ecfa604634a551236940f6790612d",
+  "primary_latest_verified": false
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "path": "src/native_rendering_recipes.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/craft_materials.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/craft_resolver.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/native_material_catalogue.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/material_lineage.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/material_treatment.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/material_inspector.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/hp_brewing_formula.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/hp_brewing_panel.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/hp_brewing_state.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/hp_brewing_domain.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/world_packs/book_hp_pack.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/craft_material_fit.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/craft_recipes.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/hp_preparation.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/craft_ingredient_selection.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/ingredient_world_fit.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/hp_ingredient_substitution.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "src/native_tool_domains.js",
+    "captured": true,
+    "same": true
+  },
+  {
+    "path": "tests/material_query_cost.test.js",
+    "captured": true,
+    "same": true
+  }
+]

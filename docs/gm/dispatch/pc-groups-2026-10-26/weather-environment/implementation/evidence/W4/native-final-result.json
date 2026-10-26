@@ -1,0 +1,62 @@
+{
+  "route": "Reimport agent-earned W4 native exports into final cost-corrected bundle; no new fixture grants",
+  "origin": "http://127.0.0.1:60904",
+  "errors": [],
+  "roundtrips": [
+    "final-prepared",
+    "final-commission",
+    "final-clear-pending"
+  ],
+  "bundleHash": "330a65e1d16e900774e7d876f0caf1482ebb4c3a8f8ca5e07988b8c0c801483d",
+  "correctBlockedTerms": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ]
+}

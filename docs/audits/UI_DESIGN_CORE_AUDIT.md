@@ -223,10 +223,10 @@ reading and the screenshots; nothing here was exercised in a rebuilt browser.
 
 | Code | Finding | Evidence | Status |
 | --- | --- | --- | --- |
-| UIS1 | **Clicking an item replaces the whole center.** The Item details panel is registered with `defaultDock:'center'`, so selecting an item swaps out the place view (its prose, actions and work line) and leaves a "← Village" back bar. The rules already say otherwise: UR41 lets a short item inspection anchor to the item, and UR43 says a fuller view "is available when useful, not the automatic default for item interaction". | `src/proto23_shell.js:258`; screenshot 2 | Rule bypassed in code; fix is implementation, not a new rule |
+| UIS1 | **Correction, 2026-10-26: selection and expansion are separate.** The earlier claim that `defaultDock:'center'` proves a click swaps the place view was incorrect. Baseline browser selection keeps the place/actions/work; More actions explicitly expands `shell-detail`, replacing the center task and adding a back bar. The rules already say otherwise: UR41 lets a short item inspection anchor to the item, and UR43 says a fuller view "is available when useful, not the automatic default for item interaction". | `src/proto23_shell.js:258`; screenshot 2 | Rule bypassed in code; fix is implementation, not a new rule |
 | UIS2 | **Hover previews stop once any item is selected.** The inventory hover preview returns early while a selected item's detail panel is rendered, and only runs when `main_content` is in parity mode `r3`. After one click, hovering other items shows nothing until the detail closes. Likely the "what happened to hover items" report. | `src/proto23_shell.js:196-198` | Inferred from source; reproduce first (UR15) |
 | UIS3 | **An empty slot offers item commands.** The feet slot shows "Empty slot / Equipped · feet" with Take off, Full item and More actions. | Screenshots 1 and 2 | Defect |
-| UIS4 | **The detail panel changes shape with width.** Narrow, it shows "Full item >" and a boxed More actions; wide, it shows Compare equipment under an expanded More actions. The same subject gives different commands by width. | Screenshots 1 vs 2 | Inconsistency (UR74 spirit: one meaning across surfaces) |
+| UIS4 | **Correction, 2026-10-26: the screenshots show different disclosure states.** One shows Full item and closed More actions; the other shows expanded commands. The two captures do not establish width as the cause. Reproduce the same subject, revision and disclosure state at each target before attributing a width defect. | Screenshots 1 vs 2 | Width cause unverified; same-subject commands tested in round 4 |
 | UIS5 | **Reports read as raw log text.** Bracketed date dividers, literal asterisks ("*You hear some rustling*"), music-note glyphs, every name underlined as a link, identical lines not condensed, no category color, and a tall empty area below. The combat log already has a cleaner grammar (UI R22: letters, dealt/taken wording, quieter misses, xN). | Screenshot 2, Reports panel | Presentation gap; UR64 (condense) and UR47/UR48 (hover subjects, event vs subject now) apply |
 
 ### ACCOUNT FOR NOW
@@ -250,3 +250,159 @@ reading and the screenshots; nothing here was exercised in a rebuilt browser.
 
 Verification: source lines read directly; screenshot observations as shown;
 no build, browser run or code change in this round.
+
+## Round 4, 2026-10-26: broader ordinary-play interactions
+
+Weibao corrected the scope: “The Ui problems is broader than just item inspection
+but alot of other stuff too.” [Consideration U9–U13 and revised P1](RULES_CONSIDERATION_2026-10-26.md#broader-ui-correction-item-inspection-is-one-symptom)
+and [execution/checkpoint](../gm/dispatch/broader-ui-follow-through-2026-10-26/CHECKPOINT.md)
+own the finite eight-family map, selected delivery, actual inputs and check results.
+This is implementation authority from that request, not acceptance of every audit proposal.
+
+### Corrections to round 3 proposals
+
+- UIS6/UIS14: preserve the current task, selected subject, pending choices,
+  work/log access, focus, scroll and return. Universal one-pixel immobility is
+  superseded. Full views and UR69 may deliberately reflow.
+- UIS7: focus/hover can preview, explicit selection pins, a command commits.
+  Another preview must not replace a pending choice. If an inspector contains
+  keyboard focus, preserve its controls; moving focus to another row offers its
+  preview. There is no requirement to cover controls with a second box.
+- UIS10/UIS11: the description implementation/adoption is recorded in
+  [its receipt](../reviews/ui-descriptions-2026-10-25/REPORT.md). Live file-path
+  custody is checked again for this delivery. A new chat does not require a
+  worktree (AD41); obsolete tooltip-lane/worktree prerequisites are superseded.
+
+### Delivery and remaining repairs
+
+UIA17: shared view choices previously displayed state such as Name ↑ or All
+recipes without visible search/filter purpose. Inventory, Skills, Quests,
+Crafting and Reports now use the existing control-box primitive with a visible
+purpose and separate current state. The primitive focuses an actually rendered
+control and uses the shared minimum control token.
+
+UIA18: center navigation retained scroll/disclosures but did not restore the
+invoking keyboard control. The existing owner now restores a connected visible
+opener on Back, with the current heading as fallback. No saved-layout schema
+changes. Native stop and settlement callbacks remain the existing owner's work.
+
+UIS1–UIS3: More actions remains local; empty slots describe their vacancy and
+held fitting gear; focus previews another row without selecting it. Full item
+remains deliberate. All-hidden Reports filters explain recovery in the existing
+filter panel, retaining history. Verification state is solely the linked receipt.
+
+LATER (proposals, not additional gates): UIS12's longer-run report grammar and
+semantically equivalent noncombat repeats need occurrence-time evidence; do not
+merge changed outcomes or hide every subject affordance until hover. Specific
+service/person departure and late-game work menus retain their existing owners.
+The eight-family map records unexamined coverage honestly; sampled journeys do
+not certify every interface family. Human review is optional feedback under AD42.
+
+UIA19: the shared list decorator called every subject a stack/item and counted
+collapsed skill rows as unmatched. It now counts admitted skill matches
+independently of category collapse and uses skills/books/entries for the other
+existing consumers. Skill search temporarily reveals matching groups; clearing
+it restores the pre-search category state. Unknown skill names remain whatever
+the native observer-facing row displays. Inventory retains its stacks/unit count.
+
+UIS5 follow-through: a stronger full-width shell row rule overrode the native
+category display variables. The initial control-state assertions missed this;
+actual-size screenshot review found visible rows while all filters were off.
+The reproduced old build shows two rows; the repair follows the six native
+category variables and checks visible rows plus unchanged occurrence history.
+This implements truthful filtering, not general event rewriting or repeat merging.
+
+Final round-4 result: [delivered receipt](../gm/dispatch/broader-ui-follow-through-2026-10-26/CHECKPOINT.md),
+agent-verified, not human-reviewed. Six desktop/text cases and six native edge
+journeys passed on its named immutable bundle. Larger-text floor header
+truncation remains for a future density pass; whole-interface completion and
+normal-app adoption are not claimed.
+
+## Round 5, 2026-10-26: character, local detail and prototype fidelity
+
+UIC1–UIC13 are noncolliding proposal/finding codes, not new UR rules.
+[Owning palette](../THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#character-audit-round-uic1uic13-2026-10-26);
+[full source/browser report](../reviews/UI_CHARACTER_DIRECTION_2026-10-26.md#fresh-audit-and-runnable-comparison-2026-10-26).
+Rules: AD6–8/32/34/36/40–42, UR37–38/49/59–69, MW1–7, WPR19–23/27.
+
+- **UIC1–UIC3, ACT NOW:** proposed Gothic/frame/role-color vocabulary, fresh native
+  browser evidence and reference mechanisms. Frozen bundle identity and seeded
+  prerequisites are in the report. Current interface already has character;
+  large saturated fields compete with small local details. Proto23's saved fixed
+  coordinates are not a suitable transplant for OOPS's desktop/laptop shells.
+- **UIC4–UIC8, ACCOUNT FOR NOW:** explicit module surface homes, observer-safe
+  atmosphere, settled craft publication, existing Moss presentation and captured
+  competence cues. Trace each producer through its public projection/receipt to
+  the visible consumer. Existing session snapshots are not living-place history.
+- **UIC9/UIC13, experiment result:** two shared-workbench treatments run and preserve
+  fixture state, but Weibao found the mockup less fleshed out than Proto23. Current
+  presenters inside a reduced original shell do not represent the full native UI.
+  Treat the studies as material sketches; the global direction remains a hypothesis.
+  A faithful current-shell comparison is missing, not a mandatory new production gate.
+- **UIC10–UIC12, LATER / DELEGATE:** medium four-surface styling, small known-household
+  emphasis, then medium craft/atmosphere cadence. Capability, cost, source map and
+  observable completion checks are in the report. No runtime dispatch or acceptance.
+
+Verification: native six desktop/text cases per game plus ordinary fixture-backed
+commands and household Save/reload; four native effects modes; eight prototype
+viewport/text/treatment journeys, shared workbench ten groups; 26 focused existing
+tests. Optional private-pack manifest absent from the isolated tree produced 404s;
+no page exceptions. Full installed app, every world service, weather/tool/recovery
+transitions and native integration of a visual treatment remain unexamined.
+Agent-inspected; director feedback on fixture insufficiency retained, no visual
+selection. Production runtime was untouched.
+
+UIC14, 2026-10-26: Weibao selected fixing workbench fidelity/freshness and a fresh
+separate audit. [MW8](../MOCKUP_SYSTEM.md#standing-rules) now owns distinct source
+currency versus visual-fidelity labels and live drift warnings; matching inputs
+cannot certify a simplified shell. The visible banner and source/output hash
+checks are implemented and tested. [Rerun brief](../reviews/UI_CHARACTER_RERUN_2026-10-26.md)
+dispatched to `01a17948-448e-77a2-b895-11128bed5435`; it owns the faithful populated
+current-shell comparison. Earlier material sketches remain historical proposals.
+
+## Round 6, 2026-10-26: faithful native character comparison
+
+Codes UIC15–UIC22 extend round 5 without reusing its codes or treating proposals
+as accepted direction. [Full source-linked rerun, dispositions and checks](../reviews/UI_CHARACTER_DIRECTION_2026-10-26.md#uic15uic22-faithful-current-shell-rerun-2026-10-26).
+Applied AD6–8/32/34/36/42, UR37–38/49/59–69, MW1–8 and WPR4/19–24/27.
+Primary 1920×1080, laptop 1536×864, actual 14/21px; mobile deferred.
+
+- **UIC15/UIC21, ACT NOW:** baseline and two runnable treatments use the current
+  full shell/controllers, 30 public native inventory entries, actual recipe
+  dependencies/costs, equipment, results/Reports and a native homeowner/Moss
+  route. Sixty full-size native captures plus three large-text actor captures.
+  Twelve native command journeys and four actual effects modes pass. The earlier
+  sparse shell no longer stands in for the full-interface comparison.
+- **UIC16/UIC17, finding/proposal:** reopen Proto23 source/capture provenance;
+  inspect contrasting Kittens, Trimps and Fallen London mechanisms. Recommend
+  the existing vivid Gothic frame with stable role colors and locally fitting
+  material. Signal is the general proposal, Folio warmth a local proposal.
+  None is director-selected, and no universal journal skin is inferred.
+- **UIC18/UIC19, ACCOUNT FOR NOW:** exact producer/projection/receipt/presenter/
+  consumer traces, subject lifetime, repetition, current versus remembered
+  information, four surface reading roles and service-specific materials. The
+  existing Moss scene is the cheapest useful O5 source; new crowds/durable
+  place memory carry separate simulation/art costs.
+- **UIC22, ACT NOW:** default native study, isolated general-builder integration,
+  declared runtime graph/copied input/output hashes and live freshness warning.
+  A native rebuild alone is not renewed visual acceptance. Simultaneous native
+  command mirroring is explicitly unavailable; single-instance Layout switching
+  preserves state and the static gallery provides the alongside view.
+- **UIC20, LATER / DELEGATE:** ranked four-surface styling, known-household
+  emphasis, settled craft tuning, public local atmosphere and deferred durable
+  remembrance/crowds. Capability/effort/source map and done checks stay in the
+  report. No worker or production implementation is dispatched.
+
+Final native bundle `da32191acbd8786502e439fb4487780517fda9df8aff1e32c943576db10e9675`;
+source/output identity matched after packaging; the closing banner correctly
+flags subsequent edits to `craft_recipes.js` and `craft_material_fit.js` as stale.
+The preserved manifest and screenshots identify the tested snapshot, not those
+newer recipe bytes. Native 12 cases, effects
+4 cases, extras, freshness 2 tests, shared workbench 10 groups, rules and scoped
+syntax/whitespace checks pass. Only expected optional private-pack manifest 404;
+no final page exceptions or save-lock/worker errors. Initial mockup startup races
+were repaired and their affected evidence superseded; they are not current
+production findings. Long policy content and the household scene require scroll
+at laptop/large text; every service/world, weather/tool/recovery transition and
+installed app remain unexamined. Audit/prototypes are agent-verified, not
+human-reviewed; production styling/behavior remains unimplemented.

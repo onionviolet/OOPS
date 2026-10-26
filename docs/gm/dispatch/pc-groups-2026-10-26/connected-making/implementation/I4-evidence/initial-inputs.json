@@ -1,0 +1,13 @@
+{
+  "phase": "read-only pre-release baseline, not verification",
+  "capturedAt": "2026-10-26T17:44:21.027136+00:00",
+  "files": {
+    "src/hp_brewing_state.js": "20a378bda18848e2ec4f21577b16654b2dfb746602cf37fd64e3ebd54d541af4",
+    "src/hp_brewing_domain.js": "068e9dbf2a18ef321e9c6382daaf80a0d102c42808683a0ac82917f15e94e1b1",
+    "src/hp_brewing_formula.js": "7564195a21f6135e5251bc311873d43f2b4d037a1b64b9cd0ed45b68ee42a690",
+    "src/hp_brewing_panel.js": "a51cece97886689a277e19c67137e8156be3cf1062a90df88375b379b912525c",
+    "src/world_packs/book_hp_pack.js": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+    "tests/hp_brewing.test.js": "fc540f76ada49742a77b50bf044e728afcfc29d83f9d324a450ea8da91eb37b8",
+    "tests/hp_material_preparation.test.js": "1f6edaa12a86c1522c8ac778b51dffc474b8bf3b937c9a6e74ef817acae014ca"
+  }
+}

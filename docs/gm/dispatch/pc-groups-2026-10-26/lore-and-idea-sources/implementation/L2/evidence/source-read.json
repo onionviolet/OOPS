@@ -1,0 +1,31 @@
+{
+  "source": "docs/research/procedural-crafting-ui-2026-10-15/private/round2/mol-text.json",
+  "sha256": "140bce97922956aa47ee747a7c02c3d92b8df8b9b5f0232a4374631880e816b4",
+  "edition": "supplied All ARCs compilation; not publisher authenticated",
+  "windows": [
+    {
+      "member": "0074_74_The_Return.xhtml",
+      "lines": [
+        206,
+        222
+      ],
+      "bodySha256": "911c619b8cc4b9e0f4de8192a7ca34c67895e2d75f7a7f723c4c0812db61b881"
+    },
+    {
+      "member": "0028_28_Cauldron.xhtml",
+      "lines": [
+        119,
+        139
+      ],
+      "bodySha256": "969efe8aab152c77eb79e50c401ae86189cfa65b4c100a79cbcab83b84b0e082"
+    },
+    {
+      "member": "0083_83_Scorpion.xhtml",
+      "lines": [
+        55,
+        59
+      ],
+      "bodySha256": "1750a3ec00557b0e109383d75284424dd0c400151737bffde89e9437ab9ca43f"
+    }
+  ]
+}

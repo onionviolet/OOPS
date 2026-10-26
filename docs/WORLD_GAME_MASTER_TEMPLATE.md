@@ -4,6 +4,13 @@ Use this with [Long term game master prompt](GAME_MASTER_PROMPT.md). The master 
 
 Use only brief fields that change the current task. A seed or bounded local fix can use concise prose; expand the brief as the world needs it instead of filling every field to begin.
 
+Start with [GROUND_RULES](GROUND_RULES.md) and the relevant rules-index router
+sections. AD43's delivery floor applies to runtime deliveries; PRF/FND remain
+proposed prompts rather than additional stop gates. Before dispatch, reuse the
+[carry-out queue and its source owners](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#carry-out-queue-2026-10-26)
+to locate existing ownership and prerequisites. A queue row records execution
+state; it does not change the scope selected by Weibao.
+
 The brief is the local source of truth once adopted as that world's owner. The role prompt below tells its game master how to develop it. The worked example is original proposal content showing the expected level of connection.
 
 ## World brief
@@ -92,7 +99,7 @@ existing origin simulation is not proof of a new-game initializer.]
 
 **Engine fit:** [Existing owners/services it can use; specific missing capabilities. Verify before claiming availability.]
 
-**Acceptance:** [Actions to exercise, expected consequences, knowledge boundaries, save/reload behavior and human fiction/balance review.]
+**Acceptance:** [Required actions to exercise, expected consequences, knowledge boundaries and save/reload behavior. Human fiction/balance review is optional feedback under AD42; report "agent-verified, not human-reviewed" when agent-side evidence is complete.]
 
 **Decision record:** [Accepted local decisions with provenance; proposed alternatives and unresolved shared decisions.]
 

@@ -79,10 +79,15 @@ def diagnose(row, env, probe=False):
         # Registry probes are finite, offline help/version/import/health checks.
         try:
             run = subprocess.run(command, env=child_env, capture_output=True,
-                                 text=True, timeout=20)
+                                 timeout=20)
+            # Probe output may contain non-UTF-8 bytes; normalize to str so
+            # diagnostics stay JSON-serializable while valid text is retained
+            # and the real exit status is preserved.
+            out = run.stdout if isinstance(run.stdout, str) else run.stdout.decode('utf-8', 'replace')
+            err = run.stderr if isinstance(run.stderr, str) else run.stderr.decode('utf-8', 'replace')
             result.update(state='probe-passed' if run.returncode == 0 else 'probe-failed',
                           exit_code=run.returncode,
-                          stdout=run.stdout[-16000:], stderr=run.stderr[-4000:])
+                          stdout=out[-16000:], stderr=err[-4000:])
         except subprocess.TimeoutExpired:
             result.update(state='probe-timeout')
         except OSError as error:

@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-26T18:41:01.977483+00:00",
+  "released": [
+    "src/drying_exposure.js",
+    "src/book_world_paradise_drying.js",
+    "tests/drying_exposure.test.js",
+    "tests/paradise_drying.test.js",
+    "src/book_world_paradise_campaign_content.js",
+    "src/book_world_paradise_campaign_facts.js",
+    "src/book_world_paradise_campaign_host.js",
+    "src/book_world_paradise_campaign_runtime.js",
+    "src/simulation_content.js",
+    "src/field_works_extension_facts.js"
+  ],
+  "source_ready": true,
+  "slot": "retained only for acknowledged successor transfer; no checks running"
+}

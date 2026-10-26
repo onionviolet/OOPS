@@ -30,7 +30,9 @@ export const PARADISE_NATIVE_PEOPLE={
 export const PARADISE_NATIVE_STOCK={[I.hubStock]:{[K.log]:2,[K.rope]:2},[I.hubShop]:{[K.kit]:3,[K.rope]:4,[K.ration]:2},[I.goaStock]:{},[I.goaShop]:{[K.ration]:4,[K.rope]:3,[K.log]:4}};
 const people=rows.map(([id,label,worldId,location,resources])=>({id,label,revision:1,worldId,location,inventory:'native',provision:false,resources,body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:16,max_stamina:16}}));
 export const paradiseDefinitions={people,sites:[{id:I.hubSite,revision:1,label:'Paid bracing booth',capacity:1},{id:I.goaSite,revision:1,label:'Gray Terminal material cache',capacity:1}],powers:paradisePowers,situations:paradiseSituations,commands:paradiseCommands,controllers:paradiseControllers};
+import {PARADISE_ENVIRONMENT_ITEM_SPECIFICATIONS} from './book_world_paradise_environment_inputs.js';
 export const PARADISE_ITEM_SPECIFICATIONS=[
+ ['Charged repair stave','A retained stave carrying a contained planar-drier charge. Ground it at your fitted apparatus before ordinary kit binding; drying alone does not remove the charge.'],
  ['Goa ration parcel','An original counted food parcel in the supplied-MTL Goa branch. Used by real meals or civilian preparation.'],
  ['Goa ignition cask','A source-scene explosive/fuel cask represented for the first-Goa branch. Actual custody and diversion affect the limited fire operation; this item grants no universal bomb crafting.'],
  ['Goa duty copy','An original physical copy of local operation terms, obtained from an actual participant. It conveys evidence, not office or author foreknowledge.'],
@@ -38,5 +40,5 @@ export const PARADISE_ITEM_SPECIFICATIONS=[
  ['Goa early strength necklace','Two separately sourced early +1Strength drops held by Su Xiao at the selected cutoff. Possession in this branch is NPC-only; no automatic player stat conversion.'],
  ['Goa Tiger Claw','Su Xiao’s retained source drop; foreign graft/learning is unselected.'],
  ['Goa small soul crystal','Su Xiao’s source-held small Soul Crystal. No free learning/fuel conversion is granted.']
-].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_paradise:true}}));
+].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_paradise:true}})).concat(PARADISE_ENVIRONMENT_ITEM_SPECIFICATIONS);
 export function registerParadiseItems({itemTemplates,OtherItem}){for(const spec of PARADISE_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Paradise item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}

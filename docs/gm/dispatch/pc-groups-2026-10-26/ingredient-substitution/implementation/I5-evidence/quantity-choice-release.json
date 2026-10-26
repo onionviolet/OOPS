@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-26T19:22:38.243221+00:00",
+  "files": {
+    "src/hp_ingredient_substitution.js": "58453ec249bac688fe175d381cc09420df485a3113a5bdefbe8f215ebc312f8c",
+    "tests/hp_ingredient_substitution.test.js": "dac13181846d60f72a23cce9477d5dc14b2d8ed882e46c5b8a9ac5dd071dbd5c"
+  },
+  "command": "node --test tests/hp_ingredient_substitution.test.js",
+  "pass": 4,
+  "fail": 0,
+  "change": "two explicit native quantity trial data rows; actual native UI proof pending"
+}

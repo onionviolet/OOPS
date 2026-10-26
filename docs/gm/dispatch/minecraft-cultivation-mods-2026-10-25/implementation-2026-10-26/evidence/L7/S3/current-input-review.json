@@ -1,0 +1,5 @@
+{
+  "ownSixMatch": true,
+  "concurrentOtherChanges": [],
+  "meaning": "S3 proves its exact frozen candidate, not later concurrent changes; L8 owns changed joined-input proof."
+}

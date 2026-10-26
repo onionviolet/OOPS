@@ -1,0 +1,26 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "snapshot": "/tmp/oops-non-ui-rules-20261026-baseline",
+  "sha256": {
+    "docs/RULES_INDEX.md": "9f8e5f2697be9887e595a8e49cbe0708e88d013dab0268a3f17babf85a4feca0",
+    "docs/ARCHITECTURE_RULES.md": "200d0790ff2da6a4e0e2d8206b1d36a35063847586ef3ae437c86788051f26c5",
+    "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md": "b8692c3e5ff44c8d2478268e78ab77765155b0be49b81d3c9032dbe070a4807b",
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md": "cffefb24e5c324106742dc4ab70ec0c1731bc6f92d76b17811645ca212dca625",
+    "docs/MEANS_AND_APPRAISAL.md": "65dd297d6367f259698284423c457985e2f9756e53a6731c59dbd0810e4acfac",
+    "docs/DOMAIN_RULES.md": "04b468a77ab1e531086eec3fd0bd823ae3e95dc8908906262a58edf0dc906266",
+    "docs/PROGRESSION_GATE_RULES.md": "b745b94b13bd4372292dbf5b6c3873a1995ed0a7eb038a3bdbf2e21eb93d46b4",
+    "docs/ABILITY_RULES.md": "9ef7895abbf0c59412ac6c30ccac4a40d057bacd25d7adad0303774cada3e841",
+    "docs/WORLD_COMPLETION_STANDARD.md": "c2891d63b799c833417c0142294bf43f6ae71efe4adf106ce3b6ab6587fa1dce",
+    "docs/worlds/templates/WORLD_COMPLETION_TEMPLATE.md": "4ff44ce245b4c7da8f25f0a27c3d58ca7ad55075bc02c9acbb9df0b835e5bfd6",
+    "docs/WORLD_GAME_MASTER_TEMPLATE.md": "765b200df207184e06e6658025b87c46d0cfad1078304146a3b3877f29b5421c",
+    "docs/WORLD_ABSORPTION_RULES.md": "cb97b8b1f68a89477b4eb294099be210a7d336fa0fdf61482deae2a9fa46033a",
+    "PROJECT.md": "572e48009f21efb42e19c245ff2634424e3e49f83e5ec3b123c1c1acb087c372",
+    "docs/USER_VISION.md": "792e48f560dc286e6ea91e4eb0f1ce9d0a0b3be4a6be119cfec01a41ff2fe434",
+    "docs/audits/RULES_CONSIDERATION_2026-10-26.md": "b1209498e02ff3ef0e882d16a6c54d3a8c235a7f394aa9073f533e3150ba3d3a",
+    "docs/gm/dispatch/rules-consideration-2026-10-26/coverage-map.json": "45e73d3355dc36040ca588a9db964dd8ead045717af3559d743230c62ac9f86f",
+    "src/structured_ability_runtime.js": "b8752f8f8022815ecb1c2663ad1dcf0b2a901df807c3e0d3ffbd1a2c126f78f8",
+    "src/simulation.js": "6eb679e34883afec05af25613f3d095b53174120c06cc00ec88cc0e7dd074099",
+    "src/simulation_contracts.js": "74ea9305ff0f1e455a09cbcb557afbb0578c4dc1dfe7a71c5be7a921a6749158",
+    "tests/structured_ability_runtime.test.js": "267fa2ed85a837865e5948cd93a3d1db6de2a6c7c4473c32d5bae7401507bee9"
+  }
+}

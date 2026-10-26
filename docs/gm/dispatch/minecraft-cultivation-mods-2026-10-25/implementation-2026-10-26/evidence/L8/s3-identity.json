@@ -1,0 +1,30 @@
+{
+  "status": "agent-verified, not human-reviewed",
+  "bundleSha256": "83f3bd0ef65daceb17f5999714808c511f57b86a83ad34afe4506d367230ada4",
+  "beforeBundleSha256": "ea4a92169946b316dd214f5df21f0eb310c89007212df3149a6f02721b64601a",
+  "inputManifestSha256": "6b09f9eb899d0980e336c8d8820f3885ed8aa9634e226cebceb8c2902d0b914a",
+  "inputCount": 1855,
+  "ownedSourceHashes": {
+    "src/pledges_domain.js": "c1671a0c2d3df679f742890787f9867fc72ad9b569f96a4a028aa4ae606c40e3",
+    "src/pledges_ui.js": "7a698f2a95b96365807125d78f036742f0f4e8f2a1f476cc7dc86ca55e29b7c3",
+    "tests/trial_routine.test.js": "e9d70018581a87efd8bdb41bdb49ac60a5e430d13a0187565254c155849aafdb"
+  },
+  "goldenUnchanged": {
+    "src/trial_routine.js": "ca239bf1022db7d6ff384eccab37c9d1b75fb1166afbca2803c2f28add14520d",
+    "src/pledges.js": "d9cd9875d7581e61fc5b687d65b4a3aa2f221348c357c7e92019fc6c9a922ed1",
+    "src/pledges_content.js": "595cabe8d0533496e6e12d4eab16c621f4673a1e4a3397350630d113f2281185"
+  },
+  "nativeProof": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L8/browser/m8-routine-after-Lyky0h",
+  "baselineGap": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L8/browser/m8-routine-before-zprxXT",
+  "checks": {
+    "focused": "10/10 PASS initial runtime; final strengthened no-mutation/armed-receipt test 2/2 PASS. Final test-only overlay changes no bundled input.",
+    "build": "PASS immutable candidate",
+    "architecture": "PASS unchanged 6 main imports/205 cycle edges; no new core growth",
+    "rules": "PASS two pre-existing warnings, ten receipts/zero problems",
+    "browser": "PASS same-start actual graded vs guarded, free draft, unfunded stop, actual conversation stop, funded guarded stage",
+    "persistence": "Armed Save/Export/reload/literal Import compared before first played tick; completed full native roundtrip",
+    "desktop": "All four saved font/viewports PASS; final 1536/21 preview visually inspected",
+    "fullSuite": "Not run; outside this bounded slot"
+  },
+  "harnessSha256": "61954745160cb40bc66e2be71c49f18a7da6aac4f2b4559d3c5ae959f959c286"
+}

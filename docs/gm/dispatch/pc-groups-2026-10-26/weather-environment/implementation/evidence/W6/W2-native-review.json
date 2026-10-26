@@ -1,0 +1,22 @@
+{
+  "state": "agent-verified, not human-reviewed",
+  "bundlePath": "/Users/weiwei/.codex/research/weather-w2-2026-10-26/built/dist/bundle.js",
+  "bundleMatches": true,
+  "bundleSha256": "c6ef41b7c1f3d6cae3bbd7c50bd97da87c7112d3f02d4b7b3858b32b42806da8",
+  "sourceMatches": {
+    "src/home_building_model.js": true,
+    "src/home_domain.js": true,
+    "src/weather_calendar.js": true,
+    "tests/home_domain.test.js": true,
+    "tests/home_weather.test.js": true
+  },
+  "receiptRead": [
+    "native-release.json",
+    "native-receipt.json",
+    "visual-receipt.json"
+  ],
+  "imageInspected": "weather-section-1920-21.png",
+  "visualReview": "Weather effect/cost/refusal visible in coherent 3-column shell with report/inventory; actual native Gothic font restored in qualified frozen tree.",
+  "qualification": "Packed/pitched/freeze/missing-calendar edges focused-tested, not all native journeys. Expected excluded optional private pack manifest404 remains; original missing fonts fixed in frozen asset set.",
+  "remaining": "W6 settled combined source/full suite/build/arch/rules and changed integrated journey"
+}

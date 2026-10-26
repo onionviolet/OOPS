@@ -2,12 +2,12 @@
 // to catalogue materials with physical, functional and symbolic tag layers.
 // Pure data and lookups: no state, saves or DOM. Native rendering recipes read it.
 // Symbolic tags are proposals (SYMBOLIC_PROPOSALS), never accepted design.
-import {defineCatalogue, materialTags, matchesQuery} from './craft_materials.js';
+import {defineCatalogue, materialTags, matchesQuery, validateMaterialQuery, materialPropertySupport} from './craft_materials.js';
 import {compareCodePoints} from './gen_kit.js';
 
 const tag = (id, kind, parents = []) => ({id, kind, parents, revision: 1});
 const physical = [['plant'], ['animal'], ['mineral'], ['pelt', 'animal'], ['wood', 'plant'], ['oil'], ['fat', 'animal', 'oil'], ['meat', 'animal'],
-    ['herb', 'plant'], ['bone', 'animal'], ['fiber'], ['resin', 'plant'], ['shell', 'animal'], ['ash', 'mineral'], ['bark', 'plant'],
+    ['herb', 'plant'], ['bone', 'animal'], ['fiber'], ['resin', 'plant'], ['shell', 'animal'], ['ash', 'mineral'], ['char'], ['bark', 'plant'],
     ['berry', 'plant'], ['leaf', 'plant'], ['sinew', 'animal', 'fiber']];
 const functional = ['binder', 'fuel', 'solvent', 'preservative', 'padding', 'nutrient', 'tinder', 'astringent', 'abrasive', 'insulator', 'flavoring'];
 // Proposal layer: obvious, low-stakes associations only.
@@ -33,7 +33,7 @@ const ROWS = [
     ['Bonemeal', ['bone'], ['abrasive', 'binder'], {ash: 600, hardness: 15}],
     ['Turtle shell', ['shell'], ['abrasive'], {ash: 400, hardness: 80}],
     ['Coal', ['mineral'], ['fuel'], {ash: 150, hardness: 45}],
-    ['Charcoal', ['wood'], ['fuel', 'tinder'], {ash: 100, hardness: 20}],
+    ['Charcoal', ['char'], ['fuel', 'tinder'], {ash: 100, hardness: 20}],
     ['Rough wood log', ['wood'], ['fuel', 'tinder'], {fiber: 600, hardness: 35}],
     ['Wood log', ['wood'], ['fuel'], {fiber: 650, hardness: 40}],
     ['Ash wood log', ['wood'], ['fuel'], {fiber: 650, hardness: 55}],
@@ -58,15 +58,15 @@ const ROWS = [
 export const NATIVE_ITEM_IDS = Object.freeze(ROWS.map(row => row[0]));
 
 export const nativeCatalogue = defineCatalogue({
-    id: 'base.native', revision: 1, basis: 1000,
+    id: 'base.native', revision: 2, basis: 1000,
     axes: [
         {id: 'oil', kind: 'fraction', label: 'oil'}, {id: 'fiber', kind: 'fraction', label: 'fiber'},
         {id: 'protein', kind: 'fraction', label: 'protein'}, {id: 'resin', kind: 'fraction', label: 'resin'},
-        {id: 'ash', kind: 'fraction', label: 'ash or mineral'}, {id: 'hardness', kind: 'scalar', min: 0, max: 100},
+        {id: 'ash', kind: 'fraction', label: 'ash or mineral'}, {id: 'hardness', kind: 'scalar', min: 0, max: 100, unit: 'base.native:hardness-index', combination: 'unmixed'},
     ],
     tags: [...physical.map(([id, ...parents]) => tag(id, 'physical', parents)), ...functional.map(id => tag(id, 'functional')),
         ...symbolic.map(id => tag(id, 'symbolic_proposal'))],
-    materials: ROWS.map(([id, p, f, properties]) => ({id, revision: 1, name: id, tags: [...p, ...f, ...(SYMBOLIC_PROPOSALS[id] ?? [])], properties})),
+    materials: ROWS.map(([id, p, f, properties]) => ({id, revision: id === 'Charcoal' ? 2 : 1, name: id, tags: [...p, ...f, ...(SYMBOLIC_PROPOSALS[id] ?? [])], properties})),
 });
 
 // Frozen catalogue material for a native item id, or null.
@@ -74,10 +74,32 @@ export const nativeMaterialFor = itemId => Object.hasOwn(nativeCatalogue.materia
 
 // Reverse lookup: item ids whose expanded tags match `query` (null matches all)
 // and whose properties meet every `min` (>=) and `max` (<=) bound. Sorted by id.
-export function nativeItemsMatching(query, {min = {}, max = {}} = {}) {
-    for(const axis of Object.keys({...min, ...max})) if(!nativeCatalogue.axes[axis]) throw new Error(`Unknown axis: ${axis}.`);
+export function nativeItemsMatching(query, {min = {}, max = {}, units = {}} = {}) {
+    validateMaterialQuery(nativeCatalogue, query);
+    for(const [axis, value] of [...Object.entries(min), ...Object.entries(max)]) {
+        if(!Number.isSafeInteger(value) || value < 0) throw new Error(`Invalid bound for ${axis}.`);
+    }
+    for(const axis of Object.keys(units)) {
+        if(!Object.hasOwn(min, axis) && !Object.hasOwn(max, axis)) throw new Error(`Unit without bound: ${axis}.`);
+    }
+    for(const axis of Object.keys({...min, ...max})) {
+        const def = nativeCatalogue.axes[axis];
+        if(!def) throw new Error(`Unknown axis: ${axis}.`);
+        if(units[axis] !== undefined && units[axis] !== def.unit) throw new Error(`Incompatible unit for ${axis}: expected ${def.unit}.`);
+    }
     return Object.values(nativeCatalogue.materials)
         .filter(m => matchesQuery(query, materialTags(nativeCatalogue, m)) &&
-            Object.entries(min).every(([a, v]) => m.properties[a] >= v) && Object.entries(max).every(([a, v]) => m.properties[a] <= v))
+            Object.entries(min).every(([a, v]) => materialPropertySupport(nativeCatalogue, m, a, {unit: units[a]}).value >= v) &&
+            Object.entries(max).every(([a, v]) => materialPropertySupport(nativeCatalogue, m, a, {unit: units[a]}).value <= v))
         .map(m => m.id).sort(compareCodePoints);
 }
+
+// Authoring companion, not character knowledge or a cross-world equivalence.
+// Current substance and origin are separate: this edge grants no wood tags.
+export const NATIVE_MATERIAL_EVIDENCE = Object.freeze({
+    catalogue: nativeCatalogue.ref, world: 'base.frontier', status: 'ORIGINAL',
+    locator: 'src/native_material_catalogue.js:ROWS',
+    properties: 'Authored game approximations; omitted axes use complete-profile defaults, not measurements.',
+    symbolism: 'PROPOSED associations, no active effect or ingredient equivalence.',
+    relations: Object.freeze([Object.freeze({subject: 'Charcoal', relation: 'derived-from', object: 'wood', status: 'ORIGINAL'})]),
+});

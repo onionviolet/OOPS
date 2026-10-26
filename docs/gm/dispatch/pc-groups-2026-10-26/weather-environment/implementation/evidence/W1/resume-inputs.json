@@ -1,0 +1,30 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "files": {
+    "src/owned_place_clock.js": "82de1bb05b556276ffa98f1af8727381251c5440c9775971d00a363bd155250d",
+    "src/owned_place_clock_host.js": "ea913621960640dc05b6692b221fe1a4e44878cd00d8f716573ef7e34dab240d",
+    "src/items.js": "54b2e7203106e9c56e0541c4014516452baf4a4411651ed6f6f4336dcf2c58c1",
+    "tests/owned_place_clock.test.js": "ac2bf149525af1bfb1d76a65429972a70b813fb053d424b86ae91b59d6f39906",
+    "scripts/place_clock_browser.cjs": "4d8724dac0f2e08d527299e61d9eb25a6bb38dba2b27c879add16acb1eb60188"
+  },
+  "commands": {
+    "build": "node build.js",
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "ink:compile": "node scripts/compile_feature_ink.mjs",
+    "ink:check": "node scripts/compile_feature_ink.mjs --check",
+    "check:arch": "node scripts/check_architecture.mjs",
+    "check:rules": "node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs",
+    "check:receipts": "node scripts/check_receipts.mjs",
+    "check:docs": "node scripts/check_doc_slips.mjs",
+    "check:descriptions": "node scripts/check_descriptions.mjs",
+    "check:generators": "node scripts/check_generators.mjs",
+    "report:cycles": "node scripts/cycle_ledger.mjs",
+    "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
+    "build:preview": "node scripts/build_ui_preview.mjs",
+    "desktop": "npm run build && npm run desktop:snapshot && electron .",
+    "desktop:snapshot": "node desktop/snapshot.cjs",
+    "check:desktop": "node scripts/check_desktop.mjs",
+    "mcp:game": "node scripts/mcp/game_mcp.mjs"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "route": "named supplied-stock G7-L2 pre-assembly fixture; assessment/study/document/ink trial earned by fixture-builder commands; actual native UI trace/repair, methods, guided assembly, scoped institution and household use thereafter",
+  "buildRoot": "/Users/weiwei/.codex/research/g7-lore-2026-10-26/L3-build",
+  "initialNativeImport": true,
+  "repairCancellation": true,
+  "pending-repairSaveReloadExportLiteralImport": true,
+  "actualHistoricalTraceRepair": true,
+  "wrongIssuerAndOperatorScopeRefusal": true,
+  "pending-device-reviewSaveReloadExportLiteralImport": true,
+  "revisedStandardWithoutTransmutation": true,
+  "ordinaryHouseholdUseWithSupersededCertificate": true,
+  "actualFiniteInstitutionalStockTransfer": true,
+  "completedSaveReloadExportLiteralImport": true,
+  "revisitRetainsRepairDepletionAndRecords": true,
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedFont": 14,
+      "font": "14px",
+      "custom": "14px",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedFont": 21,
+      "font": "21px",
+      "custom": "21px",
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "requestedFont": 14,
+      "font": "14px",
+      "custom": "14px",
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "requestedFont": 21,
+      "font": "21px",
+      "custom": "21px",
+      "overflow": false
+    }
+  ],
+  "bundleHash": "f56c375b0ac9e7025ffa384eea9cbcaf7a583ac441ed5241ec79ceaa1fc0329e",
+  "fixtureHash": "61df4182433b6c5c76e4ec46a607d9a2cb335702257d5121b6a2d06105d68548",
+  "errors": []
+}

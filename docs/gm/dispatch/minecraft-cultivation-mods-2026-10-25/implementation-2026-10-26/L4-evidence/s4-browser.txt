@@ -1,0 +1,13 @@
+clicked enroll
+clicked book.lotm.report_in
+clicked book.lotm.accept_allocation
+clicked book.lotm.ingest
+clicked book.lotm.request_sealed_3
+clicked book.lotm.learn_sealed_3_protocol
+clicked book.lotm.work_sealed_3_protocol
+clicked cancel
+clicked book.lotm.return_sealed_3
+clicked book.lotm.merit_case_file_copy
+clicked book.lotm.merit_buy_sunflower_lot
+clicked book.lotm.return_sealed_3
+PASS G3 handling, actual body and merit consumer, literal persistence and four desktop/font cases

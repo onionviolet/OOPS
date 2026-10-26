@@ -1,0 +1,78 @@
+{
+  "from": {
+    "lane": "G5-M6",
+    "thread": "01a1794b-d74b-7ba2-baa4-3d398ad3bf47",
+    "phase": "named native rendering unit correction; then shared frozen global gate",
+    "handoffFrom": "G2-I5",
+    "at": "2026-10-26T19:23:02.641622+00:00",
+    "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/N2-source-release.json",
+    "nextRequested": {
+      "lane": "G5-M6",
+      "thread": "01a1794b-d74b-7ba2-baa4-3d398ad3bf47",
+      "phase": "named oil-unit fix then one shared frozen combined gate"
+    },
+    "preserved_unallocated_requests": [
+      {
+        "lane": "L8",
+        "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+        "status": "ready unpromised S3 request; earlier commitments take precedence"
+      },
+      {
+        "lane": "G6-W3",
+        "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+        "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+      },
+      {
+        "lane": "L5",
+        "thread": "01a178b9-cd1a-7480-b692-fe031e180516",
+        "phase": "ready unpromised existing tablet residue verification, after earlier firm commitments"
+      }
+    ],
+    "next_queue": [
+      {
+        "lane": "G2-I5",
+        "thread": "01a1794d-81a8-7531-85dd-4cbab063a9c5",
+        "phase": "actual imported-material/quantity/persistence browser proof on same shared candidate",
+        "ready": true
+      }
+    ],
+    "paths": [
+      "src/native_rendering_recipes.js",
+      "tests/material_query_cost.test.js"
+    ],
+    "verifiedAt": "2026-10-26T19:23:48.282592+00:00"
+  },
+  "to": {
+    "lane": "G2-I5",
+    "thread": "01a1794d-81a8-7531-85dd-4cbab063a9c5",
+    "phase": "actual imported-material/quantity/persistence browser proof on shared frozen candidate",
+    "handoffFrom": "G5-M6",
+    "at": "2026-10-26T19:49:03.970102+00:00",
+    "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/N2-source-release.json",
+    "preserved_unallocated_requests": [
+      {
+        "lane": "L8",
+        "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+        "status": "ready unpromised S3 request; earlier commitments take precedence"
+      },
+      {
+        "lane": "G6-W3",
+        "thread": "01a1794d-a44c-7e00-b14d-36cac3dcb12e",
+        "status": "W6 requested after earlier acknowledged commitments; not allocated by I3"
+      },
+      {
+        "lane": "L5",
+        "thread": "01a178b9-cd1a-7480-b692-fe031e180516",
+        "phase": "ready unpromised existing tablet residue verification, after earlier firm commitments"
+      }
+    ],
+    "verifiedAt": "2026-10-26T19:23:48.282592+00:00",
+    "handoffFromThread": "01a1794b-d74b-7ba2-baa4-3d398ad3bf47",
+    "source": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/source",
+    "output": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/output",
+    "bundleSha256": "28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5",
+    "inputDigest": "0386934e93434d9dc4935c970036f81454c8e5d79bcba60259fe8eb44bfdce5b",
+    "gate": "docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/shared-gate-status.json"
+  },
+  "ownPathLocksReleased": true
+}

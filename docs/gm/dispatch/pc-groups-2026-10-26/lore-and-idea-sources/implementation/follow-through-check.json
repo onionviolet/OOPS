@@ -1,0 +1,12 @@
+{
+  "checked": "COMMON.md follow-through addition and forwarding ledger",
+  "links_checked": 2,
+  "broken_links": [],
+  "forwarded_lanes": [
+    "L1",
+    "L2",
+    "L3"
+  ],
+  "trailing_whitespace_lines": [],
+  "state": "all three message calls accepted; child incorporation/gameplay evidence remains with lane owners"
+}

@@ -1,0 +1,24 @@
+{
+  "lane": "G2-I3",
+  "thread": "01a1794c-f835-7710-a2b6-5d8fce58e7d1",
+  "phase": "direct ready handoff after W2 source-ready focused checkpoint",
+  "handoff": {
+    "from_lane": "G6-W2",
+    "from_thread": "01a1794d-9355-7f53-8c4b-12a067d142fb",
+    "at": "2026-10-26T18:21:17.849280+00:00",
+    "receiver_ready": true,
+    "receipt": "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/W2.md"
+  },
+  "next_queue": [
+    "G2-I4",
+    "G2-I5",
+    "G6-W1 frozen proof requested"
+  ],
+  "preserved_unallocated_requests": [
+    {
+      "lane": "L8",
+      "thread": "01a178b9-e695-7ce3-b9e2-0a4ef7f255b2",
+      "status": "ready unpromised S3 request; earlier commitments take precedence"
+    }
+  ]
+}

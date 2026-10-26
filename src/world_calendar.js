@@ -51,19 +51,40 @@ export function calendarEnvironment(view) {
     return {absoluteLocalDay: view.day_count, dayFraction: view.dayFraction,
         seasonId: view.seasonId, seasonPhase: null, daylight};
 }
-export function resolveWorldCalendar(state, homeCalendar) {
-    const worldId = state?.actors?.player?.worldId ?? 'base.frontier';
-    const hp=hpCalendarBinding(state);
-    if(hp)return projectCalendar(hp.profile,{instanceId:hp.instanceId,elapsed:hp.elapsed,unit:'played_minutes'});
-    const profile = WORLD_CALENDAR_PROFILES[worldId];
-    if (!profile) return null; // Other worlds retain their owners, never a home fallback.
-    if (worldId === 'base.frontier') return projectCalendar(profile, {instanceId: 'frontier.main', calendar: homeCalendar});
+// One visitor binding for display and process/source readers. No home fallback.
+function visitorCalendarBinding(state) {
+    const worldId = state?.actors?.player?.worldId, profile = WORLD_CALENDAR_PROFILES[worldId];
+    if (!profile || worldId === 'base.frontier') return null;
     const domain = worldId === 'book.mol.cyoria' ? state.motherOfLearning : state.bookWorldCampaign;
     const visit = domain?.visits?.find(v => v.id === domain.activeVisitId && v.status === 'active');
     const instance = domain?.instances?.find(i => i.id === visit?.instanceId && i.worldId === worldId);
     if (!instance || domain.definitionRevision !== 1 || instance.definitionId !== profile.definitionId ||
         instance.definitionRevision !== profile.definitionRevision) return null;
-    return projectCalendar(profile, {instanceId: instance.id, elapsed: instance.clock.elapsed, unit: instance.clock.unit});
+    return {worldId, profile, instance};
+}
+export function resolveWorldCalendar(state, homeCalendar) {
+    const worldId = state?.actors?.player?.worldId ?? 'base.frontier';
+    const hp=hpCalendarBinding(state);
+    if(hp)return projectCalendar(hp.profile,{instanceId:hp.instanceId,elapsed:hp.elapsed,unit:'played_minutes'});
+    if (worldId === 'base.frontier') return projectCalendar(WORLD_CALENDAR_PROFILES[worldId], {instanceId: 'frontier.main', calendar: homeCalendar});
+    const binding = visitorCalendarBinding(state);
+    return binding ? projectCalendar(binding.profile, {instanceId: binding.instance.id,
+        elapsed: binding.instance.clock.elapsed, unit: binding.instance.clock.unit}) : null;
+}
+// Pure source coordinate from a supported active visitor, including history.
+// `at` is owning local elapsed time, never an anchored calendar day or root clock.
+// Other clocks keep their own adapters until an actual source adopts them.
+export function sourceCalendarAt(state, at) {
+    const binding = visitorCalendarBinding(state);
+    if (!binding) return null;
+    const {worldId, profile, instance} = binding, clock = instance.clock;
+    if (!clock || clock.unit !== 'played_minutes' || clock.absence !== 'freeze' || !natural(clock.elapsed)) return null;
+    if (at === undefined) at = clock.elapsed;
+    assert(natural(at) && at <= clock.elapsed, 'Source calendar requires a retained local coordinate, not future or foreign time.');
+    const view = projectCalendar(profile, {instanceId: instance.id, elapsed: at, unit: clock.unit});
+    return {worldId, instanceId: instance.id, profileId: view.profileId, profileRevision: view.profileRevision,
+        at, minuteWithinDay: view.minuteWithinDay, seasonId: view.seasonId,
+        minutesPerHour: profile.units.minutesPerHour, hoursPerDay: profile.units.hoursPerDay};
 }
 // Session-only cursor. Invoke after successful publication, never from render.
 export function createCalendarLog(emit) {

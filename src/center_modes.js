@@ -42,7 +42,7 @@ export function centerModes() {
         const node = document.getElementById(id); if (node) content.append(node);
     }
     host.append(nav);
-    const views=new Map(),positions=new Map();let activeMode='local',releasedMode=null;
+    const views=new Map(),positions=new Map(),returnFocus=new Map();let activeMode='local',releasedMode=null;
     const remember=mode=>{const root=views.get(mode)?.node||content;positions.set(mode,{scroll:[content,root,...root.querySelectorAll('*')].filter(n=>n.scrollHeight>n.clientHeight).map(n=>[n,n.scrollTop,n.scrollLeft]),groups:[...root.querySelectorAll('details')].map(n=>[n,n.open]),dropdowns:[...root.querySelectorAll('.location_choice_dropdown')].map(n=>[n.className.split(' ').find(c=>c.startsWith('choice_')),n.classList.contains('location_choice_dropdown_expanded')])});};
     const surfaces = {crafting: 'crafting_window', trade: 'trade_div', storage: 'storage_div', mixing: 'village_mixing_panel'};
     const titles={crafting:'Crafting',trade:'Trade',storage:'Storage',mixing:'Village mixing counter'};
@@ -55,7 +55,10 @@ export function centerModes() {
         return heading;
     }
     owner = createCenterModes((mode, depth, destination,direction) => {
-        const changed=activeMode!==mode;if(changed&&releasedMode!==activeMode)remember(activeMode);releasedMode=null;
+        const previousMode=activeMode;
+        const changed=activeMode!==mode;
+        if(changed&&direction!=='back')returnFocus.set(mode,document.activeElement);
+        if(changed&&releasedMode!==activeMode)remember(activeMode);releasedMode=null;
         activeMode=mode;
         for(const[key,node]of nativeHeadings)node.hidden=key!==mode;
         const mixing = document.getElementById('village_mixing_panel');
@@ -82,7 +85,12 @@ export function centerModes() {
             if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls);n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}
             else content.scrollTop=0;
             if(depth)host.closest('.workspace-module')?.scrollIntoView({block:'nearest'});
-            if(depth)modeHeading(mode)?.focus({preventScroll:true});
+            if(direction==='back'){
+                const origin=returnFocus.get(previousMode);
+                if(origin?.isConnected&&origin.getClientRects().length&&!origin.disabled)origin.focus({preventScroll:true});
+                else {const heading=modeHeading(mode)||actions;heading.tabIndex=-1;heading.focus({preventScroll:true});}
+                returnFocus.delete(previousMode);
+            }else if(depth)modeHeading(mode)?.focus({preventScroll:true});
         }
     });
     owner.registerView=(mode,node,label)=>{views.set(mode,{node,label});content.append(node);};

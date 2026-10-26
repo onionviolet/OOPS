@@ -1,0 +1,47 @@
+{
+  "state": "read-fit only; no runtime edits/checks",
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "recordedAt": "2026-10-26T17:43:41.766888+00:00",
+  "files": {
+    "src/world_calendar.js": "27e774778f22add7a1ec924f6e2826ea5781cf015509eb7d40f16653e36cb357",
+    "src/world_weather_display.js": "7f8715444fe5cce0616b9833ebee9066cc6cb688f79eceea67f6ab80bfcf8d80",
+    "src/weather_calendar.js": "63372df713eae1371f595ab98444c003418a909d79a7bea384b8f1942a391503",
+    "src/lore_practice_content.js": "e9fe93a023c883e8560dd126a6199bd54023563c976ff2607d2e9a72066bea98",
+    "src/lore_practice_facts.js": "11e65fe0f0e67892e1f1de42f4d3132c1b90c47b96b924652dff1fd2b9644de8",
+    "src/lore_practice_runtime.js": "76fab55db9f453dad3e0c99a822430352fcecb7a64e97e45d0917196fff796ec",
+    "src/lore_practice_host.js": "e5a8d3f3f57708e66c3969c9e47830285ae8059d3c2501381c4132bca07b59d8",
+    "tests/world_calendar.test.js": "54f14058c26d2e66dd7bf3cbf0b86ffd58aab2f8514649e756b510455430f64a",
+    "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d"
+  },
+  "usage": {
+    "dispatchStartUsedPercent": 36,
+    "observedUsedPercent": 42,
+    "ceilingUsedPercent": 41,
+    "attribution": "Shared-account observation; not W6 consumption attribution."
+  },
+  "dependencies": {
+    "W3": "event/exposure contract not source_ready at inspection",
+    "W5": "calendar qualification contract not source_ready at inspection",
+    "dispatch_complete": false
+  },
+  "scripts": {
+    "build": "node build.js",
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "ink:compile": "node scripts/compile_feature_ink.mjs",
+    "ink:check": "node scripts/compile_feature_ink.mjs --check",
+    "check:arch": "node scripts/check_architecture.mjs",
+    "check:rules": "node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs",
+    "check:receipts": "node scripts/check_receipts.mjs",
+    "check:docs": "node scripts/check_doc_slips.mjs",
+    "check:descriptions": "node scripts/check_descriptions.mjs",
+    "check:generators": "node scripts/check_generators.mjs",
+    "report:cycles": "node scripts/cycle_ledger.mjs",
+    "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
+    "build:preview": "node scripts/build_ui_preview.mjs",
+    "desktop": "npm run build && npm run desktop:snapshot && electron .",
+    "desktop:snapshot": "node desktop/snapshot.cjs",
+    "check:desktop": "node scripts/check_desktop.mjs",
+    "mcp:game": "node scripts/mcp/game_mcp.mjs"
+  }
+}

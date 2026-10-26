@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-26T17:45:28.349750+00:00",
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "kind": "read-only source-fit snapshot, not verification",
+  "paths": {
+    "src/material_lineage.js": "1c70cf1822c9ac7952be2b3be3a2a503f4eed545ccd1b9246622ecbae540a890",
+    "src/material_lineage_domain.js": "76b4af54db3dc308e0bbf0be1c8a8ef858e929b23c584d3a31d7815c8965483e",
+    "src/processed_materials.js": "ffefcfe725942d809f7ffe075ff43e33dcecc67ff4376b4b9799e9414b98bab3",
+    "src/material_treatment.js": "f4d8d8f9897026887cafe3383babf09a257a11fdbd70140e2d072e5e3b6f45d3",
+    "src/native_rendering_recipes.js": "86a0d3f73ccd347f7bbe2ac91c959e222d29a3867a6d0c77fb058df3f5a5f9b4",
+    "src/gear_work.js": "5f5c34f381b8f91ad3e5da5569b278d8b29d58333b45d244b38d99f51df75378",
+    "src/gear_workshop_domain.js": "5dbae6c3f29b37d0adf69cf45353a58c3b43348c3ff63de7959d66e6b386815d",
+    "src/gear_workshop_panel.js": "93c638b2bfc6b4e0c35a47d878df6bb250834f5136d9490d0b951303305a2eeb",
+    "src/items.js": "54b2e7203106e9c56e0541c4014516452baf4a4411651ed6f6f4336dcf2c58c1",
+    "src/book_world_hp_content.js": "85d6c7b4522460b59123c4d4dd86ccb96868000855c5615aa1343264595ee8a4",
+    "src/world_packs/book_hp_life_data.js": "0291d0e075889a33aff5e8dc8746fd77f44254919ea1bca6c651e40570166411",
+    "tests/processed_materials.test.js": "929f1d0b19672a87b1d18f969b3c936020650e00a1278c4318da95bcc89e784d",
+    "tests/gear_workshop.test.js": "582ada34e5e1f91c1f0104edecd1022d1ebd22ff08773e9de6dbc4d6630a57de"
+  }
+}

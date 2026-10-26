@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "lane": "m5-treatment",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "951c20a5b0c34ba005b7550cb6294d95c905ee321b429340c370659f56963b72",
+  "gates": [
+    "repeat-dose-body: native Save/reload/Export/literal-file Import",
+    "paid-purge-pending: native Save/reload/Export/literal-file Import",
+    "paid-purge-complete: native Save/reload/Export/literal-file Import",
+    "Fixture route: ordinary baseline + native gathered lot stock-control; 12 native paid formulations conserve herb/fuel; power 8, initial residue 1; repeated doses increase load, body conditioning consumed by max-stamina owner, paid purge lowers it only at completion; observed preview updates; four desktop sizes and native persistence states."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

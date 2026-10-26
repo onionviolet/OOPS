@@ -8,7 +8,7 @@ export function renderHouseholdBrood({staff,view,el,action}){
  action(staff,'brood_breed',v.breeding?'Stop automatic pairing':'Permit funded automatic pairing',{type:'brood_breed'});
  action(staff,'brood_release','Let the attending creature return to the chamber',{type:'brood_release'});
  for(const r of v.roster){const box=el('details');box.open=v.active===r.id;box.append(el('summary',r.name+(v.active===r.id?' · attending':'')));staff.append(box);box.append(el('p',`${r.name}: ${r.stage}, ${r.sex==='m'?'male':'female'}, rank ${r.rank}, energy ${r.stage==='egg'?'unhatched':r.energy+'/'+r.capacity}, ${r.rest} min rest; ${r.stage==='egg'?r.incubation+'/60 incubation minutes':r.age+' grown minutes'}. ${v.active===r.id?'Attends your circulation.':''}`));
-  for(const t of r.traits)box.append(el('small',`${t.label}: ${t.shows}; known alleles ${t.alleles.join(' ')}. `));
+  for(const t of r.traits)box.append(el('small',`${t.label}: ${t.description} Known inheritance: ${t.alleles.join(' ')}. `));
   action(box,'brood_attend:'+r.id,'Ask '+r.name+' to attend circulation',{type:'brood_attend',id:r.id});
   action(box,'brood_test:'+r.id,'Examine one hidden quality · 6 coins',{type:'brood_test',id:r.id});
  }

@@ -1,0 +1,18 @@
+{
+  "thread": "01a178bb-aa49-7463-9835-65ca1680e7fe",
+  "released": [
+    "styles/shell_chrome.css",
+    "src/ui/control_box.js",
+    "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+    "src/shell_control_boxes.js",
+    "src/center_modes.js",
+    "src/proto23_shell.js",
+    "src/ui_components.js",
+    "docs/UI_RULES.md",
+    "src/shell_strip_boxes.js"
+  ],
+  "bundleSha256": "1e3c228bbeaf535bbf56d53ba9d37f945464d72822ce7063031b44a47458bee1",
+  "ownedInputsMatch": true,
+  "checkpointLinks": "PASS",
+  "officialBuildRecheck": "npm run build in immutable delivery root; identical bundle hash"
+}

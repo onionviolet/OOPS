@@ -1,0 +1,15 @@
+{
+  "slot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/slot-2",
+  "paths": [
+    "src/book_world_lotm_abilities.js",
+    "src/book_world_lotm_clearance.js",
+    "src/book_world_lotm_host.js",
+    "tests/lotm_artifact_use.test.js"
+  ],
+  "locks": [
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/c9e045107ab84d48f7692fffcc376961c5343a9154b391522f4b9fa67c0df468",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/298259b30559e15d2e1ee77e77b02b8255cb424b7adaafc21aeb7ef0c2029b65",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/c27269c1c15de81971fec24e04f2e570cda7592f0b69f3538e9858f6ded1a302",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/8439e720436bccd4c2e1ae8bcc8b1c464de8109aa8c6efcd8ef05a7016e7acbe"
+  ]
+}

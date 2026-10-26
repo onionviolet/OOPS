@@ -1,0 +1,25 @@
+{
+  "status": "agent-verified, not human-reviewed",
+  "bundleSha256": "b6689c284ff300d9ac0035bf41c04c0474da14e069834e9d5ecaef648048b4fe",
+  "source": "/tmp/yairpg-L7-s2d-source",
+  "build": "/tmp/yairpg-L7-s2d-build",
+  "manifest": "final-input-manifest.json",
+  "routeKind": "earned fresh typed beginning, then earned refined-state branch via native Import",
+  "checks": {
+    "guFocused": 8,
+    "existingShadowSlaveFocused": 10,
+    "existingSimulationAndOptionalEnrollmentFocused": 30,
+    "build": "pass",
+    "architecture": "pass; unchanged imports/core counts after final label/readback-only edits",
+    "rules": "pass, two existing untracked-link warnings; 10 receipts checked",
+    "browser": "pass, six persistence checkpoints, four desktop/font cells, no page errors",
+    "nativeWoodcutting": "0 -> 1",
+    "mcp": "earned route pass on prior instrumented bundle; core healthy commands/effects unchanged by final zero-health/readback/neutral-label corrections; final native browser exercises all corrections"
+  },
+  "scope": "One living Gu control, finite fresh petal plan, separate activation essence, real native cutting XP; not full awakening/aptitude/rank/refinement catalogue or renewable food economy",
+  "remaining": [
+    "M7-P3 companion recovery/evolution",
+    "M7-P5 staged party trial/return"
+  ],
+  "releasedInputs": "released-inputs.json"
+}

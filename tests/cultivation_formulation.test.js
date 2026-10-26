@@ -4,7 +4,7 @@ import {frontierCatalogue as cat,frontierLayeredLaw as law} from '../src/craft_c
 import {generateMaterial} from '../src/craft_materials.js';
 import {resolveBatch,validateBatchProduct} from '../src/craft_resolver.js';
 import {freezeMaterials,createCraftState} from '../src/craft_state.js';
-import {materialKey,quoteCrafting,stageCrafting,validateOwner} from '../src/crafting_frontier_runtime.js';
+import {materialKey,quoteCrafting,stageCrafting,validateOwner,freshDepth} from '../src/crafting_frontier_runtime.js';
 const herb=generateMaterial(cat,'reedherb',{root:4,scope:'village',index:0}).value;
 const salt=generateMaterial(cat,'riversalt',{root:4,scope:'village',index:0}).value;
 const inputs=[herb,salt].map(material=>({material,qty:1}));
@@ -61,4 +61,52 @@ test('channel poison control has an actual exposure consumer, while old revision
  const product=brew([herb.id,salt.id]);assert.ok(product.outputs.oral.poison>0);const old=craftedExposure(product,10,{poison:800},2),controlled=craftedExposure(product,10,{poison:800},3);
  assert.ok(Math.abs(controlled.effects.stats.health_loss_flat.flat)<Math.abs(old.effects.stats.health_loss_flat.flat));assert.ok(Math.abs(controlled.effects.stats.health_loss_flat.flat-old.effects.stats.health_loss_flat.flat*.8)<1e-12);
  validateCraftedExposure(JSON.parse(JSON.stringify(old)),product,EFFECT_ID);validateCraftedExposure(JSON.parse(JSON.stringify(controlled)),product,EFFECT_ID);
+});
+
+import {tabletConsequence} from '../src/craft_body_treatment.js';
+import {recordProduct,observe} from '../src/craft_state.js';
+import {keyForProduct} from '../src/craft_product_registry.js';
+import {BATCH_FAMILY} from '../src/craft_resolver.js';
+test('recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose',()=>{
+ const strong=generateMaterial(cat,'reedherb',{root:7,scope:'village',index:0}).value;
+ const p=resolveBatch(frontierTabletLaw,{inputs:[{material:strong,qty:1}],process:[{op:'heat',level:2}],order:[strong.id]}).product;
+ const c={clock:100,body:{id:'recipient'},temperingStage:0},b={...freshTreatment(c),apparatus:1,impurity:10};
+ const clean=tabletConsequence(undefined,p,c),loaded=tabletConsequence(b,p,c),tempered=tabletConsequence(b,p,{...c,temperingStage:3});
+ assert.equal(loaded.load,2);assert.equal(loaded.residue,clean.residue+2);assert.ok(tempered.residue<loaded.residue);assert.equal(tempered.gain,loaded.gain);
+ const before=structuredClone(b),pending=startTreatment(b,'purge',c);assert.equal(tabletConsequence(pending.body,p,c).load,2);
+ const done=finishTreatment(JSON.parse(JSON.stringify(pending.body)),{...c,clock:112});assert.equal(tabletConsequence(done,p,c).load,1);assert.deepEqual(b,before);
+ assert.equal(tabletConsequence(b,p,{...c,body:{id:'new'}}).load,0);assert.throws(()=>consumeTablet({...b,impurity:20},p,c),/capacity/);
+});
+test('observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected',()=>{
+ const p=resolveBatch(frontierTabletLaw,{inputs:[inputs[0]],process:[{op:'heat',level:2}],order:[herb.id]}).product;
+ let owner=recordProduct(freezeMaterials(createCraftState({world:'base.frontier',life:0}),cat,[herb]),p);
+ const key=keyForProduct(BATCH_FAMILY,p),inventory={[key]:3},request={type:'use',key};
+ const depth={...freshDepth(),body:{...freshTreatment({}),impurity:5}},c={world:'base.frontier',location:'Village',clock:100,temperingStage:0,depth};
+ assert.equal(quoteCrafting(owner,inventory,request,c).treatment,undefined);
+ owner=observe(owner,'player',p.id,['effect:permanent.conditioning'],99);
+ const q=quoteCrafting(owner,inventory,request,c),before=JSON.stringify({owner,inventory,depth});assert.ok(q.treatment);
+ const plan=stageCrafting(owner,inventory,q,c,depth);assert.equal(plan.depth.body.impurity,5+q.treatment.residue);assert.equal(plan.depth.body.conditioning,q.treatment.gain);assert.deepEqual(plan.items,[{key,amount:-1}]);assert.match(plan.outcome.text,/unpurged load/);
+ assert.throws(()=>stageCrafting(owner,inventory,q,{...c,temperingStage:1},depth),/quote changed/);
+ assert.throws(()=>stageCrafting(owner,inventory,q,c,{...depth,body:{...depth.body,impurity:6}}),/quote changed/);
+ assert.equal(JSON.stringify({owner,inventory,depth}),before);validateOwner(JSON.parse(JSON.stringify(plan.state)));validateTreatment(JSON.parse(JSON.stringify(plan.depth.body)));
+ const blocked=quoteCrafting(owner,inventory,request,{...c,depth:{...depth,body:{...depth.body,impurity:20}}});assert.equal(blocked.eligible,false);assert.ok(blocked.treatment);assert.match(blocked.reason,/capacity/);
+});
+
+import {validateFiring,FIRING_MINUTES} from '../src/crafting_frontier_runtime.js';
+test('timed brazier custody consumes exact inputs once, survives serialization and yields distinct late chemistry',()=>{
+ const owner=freezeMaterials(createCraftState({world:'base.frontier',life:0}),cat,[herb]);
+ const hk=materialKey(herb,50),fuel=JSON.stringify({id:'Charcoal'}),inventory={[hk]:3,[fuel]:3},depth=freshDepth();
+ const c={world:'base.frontier',location:'Village',clock:100,mind:0,depth},request={type:'begin_firing',layered:true,tablet:true,inputs:[{key:hk,qty:1}],process:[{op:'heat',level:2}]};
+ const begin=stageCrafting(owner,inventory,quoteCrafting(owner,inventory,request,c),c,depth);
+ assert.deepEqual(begin.items,[{key:fuel,amount:-1},{key:hk,amount:-1}]);assert.equal(begin.batch,null);assert.ok(!begin.items.some(x=>x.amount>0));
+ const saved=JSON.parse(JSON.stringify({owner:begin.state,depth:begin.depth}));validateOwner(saved.owner);validateFiring(saved.depth.firing,saved.owner,100);
+ assert.equal(quoteCrafting(saved.owner,inventory,{type:'collect_firing'},{...c,depth:saved.depth}).eligible,false);
+ assert.equal(quoteCrafting(saved.owner,inventory,request,{...c,depth:saved.depth}).eligible,false);
+ const collect=clock=>{const ctx={...c,depth:saved.depth,clock},q=quoteCrafting(saved.owner,inventory,{type:'collect_firing'},ctx);return stageCrafting(saved.owner,inventory,q,ctx,saved.depth);};
+ const ontime=collect(100+FIRING_MINUTES),late=collect(100+FIRING_MINUTES+4);assert.equal(ontime.depth.firing,undefined);assert.equal(ontime.items.length,1);assert.equal(ontime.items[0].amount,1);
+ assert.deepEqual(quoteCrafting(saved.owner,inventory,{type:'collect_firing'},{...c,depth:saved.depth,clock:110}).firing,late.batch.product.thermal);assert.notEqual(ontime.batch.product.id,late.batch.product.id);assert.ok(late.batch.product.thermal.impurity>ontime.batch.product.thermal.impurity);assert.ok(late.batch.product.outputs.permanent.conditioning<ontime.batch.product.outputs.permanent.conditioning);
+ for(const result of [ontime,late]){assert.equal(result.batch.product.mass,1000);validateOwner(JSON.parse(JSON.stringify(result.state)));assert.equal(quoteCrafting(result.state,inventory,{type:'collect_firing'},{...c,depth:result.depth,clock:110}).eligible,false);}
+ const ctx={...c,depth:saved.depth},abandon=stageCrafting(saved.owner,inventory,quoteCrafting(saved.owner,inventory,{type:'abandon_firing'},ctx),ctx,saved.depth);assert.deepEqual(abandon.items,[]);assert.equal(abandon.depth.firing,undefined);assert.match(abandon.outcome.text,/waste/);
+ assert.throws(()=>validateFiring({...saved.depth.firing,product:'missing'},saved.owner,100),/retained/);assert.throws(()=>validateFiring({...saved.depth.firing,due:999},saved.owner,100),/Invalid/);assert.throws(()=>validateFiring(saved.depth.firing,saved.owner,99),/calendar/);
+ assert.deepEqual(inventory,{[hk]:3,[fuel]:3});assert.equal(owner.products[saved.depth.firing.product],undefined,'planning leaves original owner unchanged');
 });

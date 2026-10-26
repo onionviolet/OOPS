@@ -1,0 +1,5 @@
+Recipient: your next of kin.
+Money: 4999 coins.
+Belongings (17): Cheap leather pants, Stale bread ×5, Rough wood log ×6, Charcoal ×3, Lamp oil, {"components":{"head":"Cheap iron short blade","handle":"Simple wooden short handle"},"quality":100,"gearwork":{"revision":1,"roles":{},"honedAt":0,"finish":0,"fit":0,"treatment":{"stage":"tempered","at":518011712,"hardness":1.05,"toughness":1.1300000000000001},"history":[{"action":"heat","maker":"main_character","location":"Village","at":518011712},{"action":"quench","maker":"main_character","location":"Village","at":518011712},{"action":"temper","maker":"main_character","location":"Village","at":518011712}]},"e2_instance":"e2.1"}.
+Home: the Shack in the Village.
+Inherited from the line: Long wind, Steady nerve (mild). Their other alleles stay unknown until tested.

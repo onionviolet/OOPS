@@ -543,3 +543,92 @@ work, completion and persistence use existing Book and clock owners. The
 recovered source's shelf operation did not require another duplicate book state
 or new per-copy reward. CRL49/50 now have runtime evidence for these bounded
 routes; no claim is made for every kind of book or furnishing.
+
+## Dojos and everyday institutions as progression, 2026-10-26
+
+Continuation of [everyday places EL1–EL21](LIFE_SIM_NORTH_STAR.md#everyday-places-and-becoming-a-regular-round-2026-10-26).
+Weibao: “what about as a progression mechanic too? Like training through the
+dojos? More to consider?” This selects consideration and documentation, not a
+runtime build or universal dojo ladder. All training examples below are proposals.
+No fresh Proto23 or franchise source verification was performed.
+
+Applies accepted SLR1/SLR3–SLR7/SLR14–SLR23/SLR27–SLR35/SLR40–SLR43,
+AD5/AD6–AD8/AD15–AD17/AD32/AD38 and WPR21/WPR27/WPR30. The proposed GTR
+palette informs legible prerequisites and alternatives; it adds no accepted gates.
+
+### ACT NOW: clarify the existing connection (completed)
+
+**EL22 · Everyday life already includes progression.** The previous round stressed
+belonging and texture, underemphasizing training as a meaningful growth route.
+Inspected `src/proto23_world_content.js` contains `instruction_handling`,
+`practice_handling` and `shape_practiced`: a paid lesson plus personal rehearsal
+enables a narrower material task at three minutes/two stamina instead of five
+minutes/three stamina. This is source evidence of one bounded lesson-to-use
+chain, not a newly verified journey or a full combat school. Treat a dojo as a
+place that supplies actual learning means, not merely a social venue or XP shop.
+
+### ACCOUNT FOR NOW: training progression proposals
+
+| Code | Consideration | Default, dial, reason and visible consequence |
+|---|---|---|
+| EL23 | **The curriculum changes what you can do.** | Learn a stance or method, drill it, receive correction, try it against variation, then use it outside training. Dial the sequence by method; experienced entrants may demonstrate competence directly. Outcomes include a usable technique, steadier execution, lower effort, better timing or new practical work, with an existing consumer for each. |
+| EL24 | **Practice modes supply different feedback.** | Solo forms develop repeatable execution; supervised drills correct a specific error; partner drills add uncertainty; sparring tests choices under pressure. Dial equipment, partner and teacher participation. These can improve the same underlying skill through different causes without creating four XP stores. |
+| EL25 | **A school has a specialty and a limit of expertise.** | One instructor is good at defensive footwork, another at spear reach or energy control. Dial their methods and teaching competence separately from fighting strength. Seeking another teacher should open new feedback or methods rather than discard the first school's progress. |
+| EL26 | **Repetition remains useful.** | Familiar drills keep improving fluency and efficiency on a diminishing curve; harder variants or correction supply new information. Dial learning rates and any genuine plateau by world/skill, naming the next route when one exists. Avoid arbitrary “beginner dojo XP stops at level 10” walls. |
+| EL27 | **Rank is a second kind of progress.** | A school exam can change recognized standing, access, duties or permission to teach. Competence can precede or exceed recognition, and losing membership does not erase practice. Dial worlds where a designation also grants a real power; identify that additional mechanism and carrier. |
+| EL28 | **Training transfers by the mechanism learned.** | Footwork may help several weapons, while a stance drilled against one partner needs adaptation against unfamiliar reach or terrain. Dial transfer by actual movement, perception, body and energy requirements. Do not make “dojo skill” useful solely inside its building or grant universal combat strength from every drill. |
+| EL29 | **A fitting challenge is broader than a stronger enemy.** | Change distance, rhythm, equipment, visibility, terrain, restraint or a protection objective. Dial safety and lesson purpose. Meaningful failure can reveal a readable mistake without requiring injury or victory as the sole cause of learning. |
+| EL30 | **Body, resources and recovery affect expression.** | Training spends actual time, effort, consumables and agreed fees. Dial intensity and recovery by the body and method; an injury can lead to adapted drills rather than deleting competence. Teacher time and station capacity constrain supervised throughput through their actual owners. |
+| EL31 | **Idle training is genuine progression.** | Queue a known routine at a supported place, including partner or teacher participation when actually available. Batch gains and correction feedback in a recap; pause for important new choices. Dial routine length and supervision; active play is an option for new decisions, not a universal prerequisite to learn. |
+| EL32 | **Money buys means, not an unexplained mastery level.** | Tuition pays for teaching, feedback, space or equipment. Work-for-training, public lessons, self-study, peers and patronage can provide other routes where someone has a reason and resources. A world with a real direct-transfer technique may sell that transfer, naming what changes and its costs. |
+| EL33 | **Teaching is later progression with a consumer.** | Diagnose a student's error, demonstrate a method and see their execution improve. Dial preparation and teaching competence separately from personal mastery. Students may later assist with real work, carry a method or continue a school; avoid infinite self-XP merely from pressing Teach. |
+| EL34 | **Schools can disagree without inventing one best ladder.** | Competing styles prioritize different situations; mixed training can reveal compatibility or conflicting habits. Dial these through actual methods, bodies and local beliefs. Rivalry, guarded lessons or exclusivity need people with reasons, not engine permission lists. |
+| EL35 | **Entry and return respect earned competence.** | Offer an introductory lesson or a practical placement assessment; returning after a body/world change identifies what still works and what needs adaptation. Dial supported memory/fluency/source carry under SLR20. Do not require the same novice tutorial in every world or assume a foreign certificate is locally recognized. |
+
+### One illustrative progression path, not a compulsory ladder
+
+An ordinary yard's proposed thread: observe a demonstration → learn recovery
+after a committed strike → drill it against a predictable pad → have a teacher
+correct overextension → practice with a partner varying timing → use the recovery
+against a real opponent → demonstrate it well enough to help a beginner.
+Solo practice, prior knowledge, field experience or another teacher may reach
+the same competence through their own costs and feedback. A simple skill can
+remain a single progress value; the causal distinctions need not become seven bars.
+
+Example feedback: “You recover your guard sooner after a missed swing.” An actual
+combat consumer must make that true before such text is presented as behavior.
+Example unavailable feedback: “The instructor is teaching another group. Your
+solo drill is available; supervised practice resumes at the next known session.”
+The schedule and alternatives must exist before this wording claims them.
+
+### World differences, extending EL13–EL18
+
+| Code | Setting | What progression could be about |
+|---|---|---|
+| EL36 | Frontier yard | Weapon handling, distance and practical defense; progress is expressed in ordinary encounters and paid work. |
+| EL37 | Cultivation school or retreat | Body conditioning, circulation/control, method understanding and appropriate breakthroughs. Realm, energy supply and institutional rank remain distinct causes where the world distinguishes them. |
+| EL38 | Hogwarts class or practice group | Explanation, execution, correction and application of a spell; school marks and actual casting competence need not match. Access follows the selected role and era. |
+| EL39 | LOTM instruction or club | Ordinary combat, investigation, ritual procedure or a supported extraordinary method. Training does not supply a potion, promotion, source or digestion by label; an activity contributes where its actual mechanism fits the selected path. |
+| EL40 | Mother of Learning teacher or study group | Understanding, repeatable execution and application; a supported loop separates retained learning from reset relationships and physical conditioning. The independent visitor branch does not gain a loop from this proposal. |
+
+### LATER / DELEGATE: one proposed build candidate
+
+**EL41 · A dojo lesson that changes an existing encounter.** If selected, choose
+one existing training location and skill owner, add a correction/variation route,
+and make its earned benefit visible in an existing combat action. Capability:
+Sol medium, medium effort after seam inspection; no worker dispatched. Done check:
+earned lesson → repeatable supported practice → outside application → interruption
+and save/reload/export/import, with desktop 1920×1080 rebuilt evidence and AD43.
+Prove practice does not replay rewards on reload, a busy teacher does not teach,
+and an existing skilled character can enter appropriately. Use focused checks
+that protect the selected behavior, not a new universal test suite.
+
+Fit starts at [systems register](SYSTEMS_REGISTER.md). Reuse native skill progress,
+world methods, simulation jobs, actor participation and actual combat/stat consumers
+as applicable under SLR27; do not add a third learning ledger or parallel clock.
+Existing command revisions and queued work need a compatibility decision before
+editing a lesson definition. An existing save gains no invented attendance,
+credentials or previously earned technique.
+
+Verification: documentation and local-link checks only. EL22 is source-inspected;
+EL23–EL41 are unbuilt proposals. No runtime, rulebook or accepted direction changed.

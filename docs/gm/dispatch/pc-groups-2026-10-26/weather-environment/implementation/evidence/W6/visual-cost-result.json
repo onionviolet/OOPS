@@ -1,0 +1,42 @@
+{
+  "route": "Visual-only cost sections on agent-generated charged and paid-heat exports; unchanged final bundle",
+  "origin": "http://127.0.0.1:65016",
+  "errors": [],
+  "roundtrips": [],
+  "bundleHash": "58111bc7314c13f3308971cbfeae02756089322a88b0c0f277a6c25a521cb5d5",
+  "captures": [
+    {
+      "specimen": "ground",
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "specimen": "ground",
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "specimen": "heat",
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "specimen": "heat",
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "status": "visual-only verified"
+}

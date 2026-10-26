@@ -1,0 +1,8 @@
+{
+  "installed": "/Users/weiwei/.dsh/skills/local-scripts/SKILL.md",
+  "source": "/Users/weiwei/code/deepseek-harness/apps/cli/config/examples/local-work/skills/local-scripts/SKILL.md",
+  "private_backup": "/Users/weiwei/.dsh/backups/local-scripts-before-bounded-inspection-1792977343.md",
+  "before_sha256": "43b62f09917a1c5bdb8c24a682d578c4b50cc926fa13c5579c70a666768a30b7",
+  "after_sha256": "ff3a0b4075accffbeb5ba8f88909fefa6e520d39c47f5abfcc8fcb5024c352a2",
+  "change": "bounded inspection default; expand only for named missing facts; reserve final two responses for verification/reporting"
+}

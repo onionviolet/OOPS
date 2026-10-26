@@ -1,0 +1,4 @@
+Rules index check: 25 register rows, 43 AD codes, 144 relative links
+  warn  linked file exists but is not tracked by git: docs/GROUND_RULES.md
+  warn  linked file exists but is not tracked by git: docs/reviews/ui-descriptions-2026-10-25/REPORT.md
+PASS (2 warnings)

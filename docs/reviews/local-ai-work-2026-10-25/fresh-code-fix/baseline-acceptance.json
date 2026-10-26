@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/lanes-original-check-jrsjaxq1/acceptance.py\", line 46, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/lanes-original-check-jrsjaxq1/acceptance.py\", line 19, in main\n    assert lanes._alive(value) is False,('invalid PID marked alive',value)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('invalid PID marked alive', 0)\n"
+}

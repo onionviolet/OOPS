@@ -1,0 +1,5 @@
+{
+  "reproduced": true,
+  "exception": "UnicodeDecodeError",
+  "message": "'utf-8' codec can't decode byte 0xff in position 9: invalid start byte"
+}

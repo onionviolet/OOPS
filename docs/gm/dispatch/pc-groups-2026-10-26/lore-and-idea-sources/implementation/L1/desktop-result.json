@@ -1,0 +1,45 @@
+{
+  "bundleHash": "d2f0795d739ef8a0ecc1b8e8a520683336355c4d865c24a7db52491b19b6af71",
+  "checks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 14,
+      "metrics": {
+        "width": 1920,
+        "height": 1080,
+        "inventoryFont": "14px"
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 21,
+      "metrics": {
+        "width": 1920,
+        "height": 1080,
+        "inventoryFont": "21px"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 14,
+      "metrics": {
+        "width": 1536,
+        "height": 864,
+        "inventoryFont": "14px"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 21,
+      "metrics": {
+        "width": 1536,
+        "height": 864,
+        "inventoryFont": "21px"
+      }
+    }
+  ]
+}

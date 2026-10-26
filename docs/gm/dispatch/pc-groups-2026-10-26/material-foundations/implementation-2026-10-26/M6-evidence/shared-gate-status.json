@@ -1,0 +1,33 @@
+{
+  "inputDigest": "0386934e93434d9dc4935c970036f81454c8e5d79bcba60259fe8eb44bfdce5b",
+  "bundleSha256": "28bbfe910094b1d7063f4a14167491704a7f0883815b925412589905e17d89d5",
+  "frozenInputDrift": [],
+  "servedAssetDrift": [],
+  "primaryOutputObservedDrift": [],
+  "harnessHashes": {
+    "native-cost.mjs": "c882ef570dac282ed11df739f449571d7d2eefa71433003ab2cd787011911569",
+    "cost-profile.mjs": "dbf90cd28ced45af6886c63a16acd91865907bf0155de146a381a3a45be4d6b9",
+    "combined-chain-measure.mjs": "79d899c058cf359b0120804063d6f37d4cd9860ba27444ee5438619a1c27bed3"
+  },
+  "fullRun": {
+    "passed": 3452,
+    "failed": 4,
+    "total": 3456,
+    "failures": "capture ENOENT only; no gameplay assertion failure"
+  },
+  "recovery": {
+    "passed": 14,
+    "failed": 0,
+    "files": [
+      "alloy_equipment",
+      "desktop_ipc_channels",
+      "lotm_examination"
+    ]
+  },
+  "build": "PASS",
+  "arch": "PASS",
+  "rules": "PASS139 non-Git tracking warnings,0problems",
+  "nativePC43": "PASS exact bundle; named cooking prerequisites and fresh earned HP begin/acquire; native file Import",
+  "I5NativeImportedQuantity": "PASS exact frozen bundle: reference/alternative/blend, capacity/stale refusal, cross-owner rollback, quantity trials, useful downstream brew/use, reverse refusal, four native file roundtrips,8 desktop/laptop font cases",
+  "I5Evidence": "docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/I5-evidence/native-browser/result.json"
+}

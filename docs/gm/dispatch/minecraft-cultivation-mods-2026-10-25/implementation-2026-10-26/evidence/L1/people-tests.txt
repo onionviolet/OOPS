@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: book person accounts retain received basis without appraising private cultivation or stock
+ok 1 - book person accounts retain received basis without appraising private cultivation or stock
+  ---
+  duration_ms: 8.448666
+  type: 'test'
+  ...
+# Subtest: registration and enrollment do not reveal unseen people or their private state
+ok 2 - registration and enrollment do not reveal unseen people or their private state
+  ---
+  duration_ms: 1.52425
+  type: 'test'
+  ...
+# Subtest: a greeting reveals only the person, while inspection and promises add their actual evidence
+ok 3 - a greeting reveals only the person, while inspection and promises add their actual evidence
+  ---
+  duration_ms: 1.0935
+  type: 'test'
+  ...
+# Subtest: player observations and completed exchanges reveal craftsman details without private axes
+ok 4 - player observations and completed exchanges reveal craftsman details without private axes
+  ---
+  duration_ms: 2.637042
+  type: 'test'
+  ...
+# Subtest: town entry does not reveal the clerk before their briefing
+ok 5 - town entry does not reveal the clerk before their briefing
+  ---
+  duration_ms: 0.435125
+  type: 'test'
+  ...
+# Subtest: a hired participant's private return or death does not update the player's record
+ok 6 - a hired participant's private return or death does not update the player's record
+  ---
+  duration_ms: 0.792833
+  type: 'test'
+  ...
+# Subtest: reading records is pure and existing native meeting markers survive expansion reload
+ok 7 - reading records is pure and existing native meeting markers survive expansion reload
+  ---
+  duration_ms: 21.82625
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1290.0735

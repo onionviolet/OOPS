@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: a stilled hearth ages stored food at its own ratio and charges upkeep
+ok 1 - a stilled hearth ages stored food at its own ratio and charges upkeep
+  ---
+  duration_ms: 0.781542
+  type: 'test'
+  ...
+# Subtest: lapsed upkeep closes the place, rushes the owed hours onto the shelf and refuses until reopened
+ok 2 - lapsed upkeep closes the place, rushes the owed hours onto the shelf and refuses until reopened
+  ---
+  duration_ms: 0.342
+  type: 'test'
+  ...
+# Subtest: orderly release pays the owed days instead of a rush
+ok 3 - orderly release pays the owed days instead of a rush
+  ---
+  duration_ms: 0.109667
+  type: 'test'
+  ...
+# Subtest: only owned eligible places; money and storage failures change nothing
+ok 4 - only owned eligible places; money and storage failures change nothing
+  ---
+  duration_ms: 0.346875
+  type: 'test'
+  ...
+# Subtest: observer routes: nothing away from the place, qualitative present, numeric only with the timekeeping means
+ok 5 - observer routes: nothing away from the place, qualitative present, numeric only with the timekeeping means
+  ---
+  duration_ms: 0.205791
+  type: 'test'
+  ...
+# Subtest: save, reload and legacy save: slice round-trips and an envelope without it loads empty
+ok 6 - save, reload and legacy save: slice round-trips and an envelope without it loads empty
+  ---
+  duration_ms: 0.257375
+  type: 'test'
+  ...
+# Subtest: host settle stages the next slice into the same durable write and a failed commit leaves slice, money and items unchanged
+ok 7 - host settle stages the next slice into the same durable write and a failed commit leaves slice, money and items unchanged
+  ---
+  duration_ms: 0.209417
+  type: 'test'
+  ...
+# Subtest: quarter-speed age and debt agree across minute/uneven partitions, exact expiry and lapse
+ok 8 - quarter-speed age and debt agree across minute/uneven partitions, exact expiry and lapse
+  ---
+  duration_ms: 18.416375
+  type: 'test'
+  ...
+# Subtest: mid-remainder reload and serialized import retain fractions; legacy missing remainder starts at saved whole age
+ok 9 - mid-remainder reload and serialized import retain fractions; legacy missing remainder starts at saved whole age
+  ---
+  duration_ms: 0.402875
+  type: 'test'
+  ...
+# Subtest: release pays exact fractional debt, retains age fraction through restart and reopening follows lapse
+ok 10 - release pays exact fractional debt, retains age fraction through restart and reopening follows lapse
+  ---
+  duration_ms: 4.131792
+  type: 'test'
+  ...
+# Subtest: partial larder withdrawal and redeposit preserve unequal food histories without nested keys or duplicate stock
+ok 11 - partial larder withdrawal and redeposit preserve unequal food histories without nested keys or duplicate stock
+  ---
+  duration_ms: 0.404083
+  type: 'test'
+  ...
+# Subtest: preserved food expires by retained age after redeposit and projections never commit fractional time
+ok 12 - preserved food expires by retained age after redeposit and projections never commit fractional time
+  ---
+  duration_ms: 0.269167
+  type: 'test'
+  ...
+# Subtest: actual food outcomes and release fees agree when many actions commit projected time
+ok 13 - actual food outcomes and release fees agree when many actions commit projected time
+  ---
+  duration_ms: 49.501959
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 119.393833

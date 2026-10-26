@@ -1,3 +1,5 @@
+import {projectActionLegibility} from './action_legibility.js';
+import {planParadiseEcologyAction,paradiseEcologyActions} from './book_world_paradise_ecology.js';
 import {PARADISE_IDS as P, PARADISE_LOCATIONS as L} from './book_world_paradise_ids.js';
 import {PARADISE_CAMPAIGN_IDS as I, PARADISE_CAMPAIGN_WINDOW as W, paradiseCampaignDefinitions as D, paradiseCampaignWithdrawalEffects, paradiseCampaignPostRescueWithdrawalEffects} from './book_world_paradise_campaign_content.js';
 import {paradiseCampaignContext,paradiseCampaignEnrolled,paradiseCampaignFacts,validateParadiseCampaignDepthState,projectParadiseCampaignEffects} from './book_world_paradise_campaign_facts.js';
@@ -6,14 +8,29 @@ import {commitSimulationCommand,cancelSimulationJob,answerSimulationEncounter,wi
 import {applySimulationEffects} from './simulation_effects.js';
 import {projectFeatureCommands,featureWorkControls,featureEncounterControls,featureRecordedKnowledge} from './feature_expansion_host.js';
 import {artifactEquipmentReasons} from './artifact_collection.js';
+import {PARADISE_DRYING,readDryingKey,planParadiseDryingAction,dryingBindingDefinition,paradiseDryingActions} from './book_world_paradise_drying.js';
+import {PARADISE_ENVIRONMENT,preparationRegistry,paradiseEnvironmentActions} from './book_world_paradise_environment_inputs.js';
+import {planParadiseFieldAction,paradiseFieldActions} from './book_world_paradise_field.js';
 const check=(ok,message)=>{if(!ok)throw Error(message);};
 const F=I.prefix;
+function dryingRegistry(state,registry,context){
+    const id=PARADISE_DRYING.prefix+'bind',definition=registry.simulation.commands.get(id);
+    if(!definition)return registry;
+    const commands=new Map(registry.simulation.commands);commands.set(id,dryingBindingDefinition(state,definition,context));
+    return {...registry,simulation:{...registry.simulation,commands}};
+}
 export function commitParadiseCampaignDepthCommand(state,registry,command,context,sequence=state.sequence){
     check(command.type==='book_paradise_campaign'&&context.actorId==='player'&&sequence===state.sequence&&
         (command.sequence==null||command.sequence===sequence),'Review the current source branch, body and actual supplies.');
     check(state.bookWorldCampaign&&state.simulation,'Enter the actual optional source branch first.');
     const current=paradiseCampaignContext(state,context);let out;
-    if(command.action==='cancel'){
+    if(command.action==='ecology'){
+        out=planParadiseEcologyAction(state,command,current);
+    }else if(command.action==='field'){
+        out=planParadiseFieldAction(state,command,current);
+    }else if(command.action==='drying'){
+        out=planParadiseDryingAction(state,command,current);
+    }else if(command.action==='cancel'){
         const j=state.simulation.jobs.find(j=>j.id===command.id&&j.actorId==='player');
         check(j&&registry.simulation.commands.get(j.commandId)?.group===I.group&&j.cancellation==='refund','Choose your actual refundable new campaign work.');
         out=cancelSimulationJob(state,registry,j.id,current,sequence);
@@ -37,8 +54,8 @@ export function commitParadiseCampaignDepthCommand(state,registry,command,contex
         check(paradiseCampaignEnrolled(state)||[F+'hub.begin',F+'goa.begin'].includes(d.id),'Read and adopt the optional extended campaign terms first.');
         check(command.targetId==null||command.targetId===d.targetId,'Meet the actual declared participant.');
         check(!context.busy,'Finish your current native activity first.');
-        const ctx=paradiseCampaignContext(state,{...context,targetId:d.targetId||null}),reasons=artifactEquipmentReasons(d.costs,state,ctx);
-        check(!reasons.length,reasons.join(' '));out=commitSimulationCommand(state,registry,{id:d.id},ctx,sequence);
+        const ctx=paradiseCampaignContext(state,{...context,targetId:d.targetId||null}),selected=preparationRegistry(state,dryingRegistry(state,registry,ctx),ctx,command),actual=selected.simulation.commands.get(d.id),reasons=artifactEquipmentReasons(actual.costs,state,ctx);
+        check(!reasons.length,reasons.join(' '));out=commitSimulationCommand(state,selected,{id:d.id},ctx,sequence);
     }
     reconcileParadiseCampaignDepthRuntime(state,out,registry);validateParadiseCampaignDepthState(out.state,registry);
     validateParadiseCampaignDepthControllers(out.state,registry);return out;
@@ -46,19 +63,34 @@ export function commitParadiseCampaignDepthCommand(state,registry,command,contex
 export function paradiseCampaignDepthPresentation(state,registry,context={}){
     if(!state.bookWorldCampaign||!state.simulation)return {sections:[]};
     const current=paradiseCampaignContext(state,context),facts=paradiseCampaignFacts(state,current),world=state.actors.player.worldId;
-    const actions=projectFeatureCommands(state,registry,current,{groups:[I.group],commandType:'book_paradise_campaign'}).map(a=>{
+    const actions=projectFeatureCommands(state,dryingRegistry(state,registry,current),current,{groups:[I.group],commandType:'book_paradise_campaign'}).filter(a=>!a.id.startsWith(PARADISE_ENVIRONMENT.prefix)).map(a=>{
         const d=registry.simulation.commands.get(a.id),reasons=artifactEquipmentReasons(d.costs,state,current);
-        return {...a,eligible:a.eligible&&!reasons.length,reasons:[...(a.reasons||[]),...reasons],command:{...a.command,sequence:state.sequence}};
+        const capped=[F+'hub.practice',F+'goa.practice'].includes(a.id)&&(state.simulation.powers?.player?.[I.method]?.mastery||0)>=3;
+        const capReason='This control drill is complete at mastery three. Apply the method in construction, rehearse load planning at your bench, or use it in a supported live task.';
+        if(capped)reasons.push(capReason);
+        const chargedShortage=a.id===PARADISE_DRYING.prefix+'bind'&&facts['paradiseDrying.dryCount']<2&&Object.entries(current.gameplay?.player?.inventory||{}).some(([key,count])=>count>0&&readDryingKey(key)?.field?.charge>0);
+        const chargedReason='Ground your charged staves at the fitted pulse head, then collect two dry uncharged pieces for binding.';
+        if(chargedShortage)reasons.push(chargedReason);
+        let legibility=capped&&a.legibility?{...a.legibility,blockers:[...(a.legibility.blockers||[]).filter(row=>row.id!=='contact'),{id:'line-drill-cap',text:capReason}]}:a.legibility;
+        if(chargedShortage&&legibility)legibility={...legibility,blockers:[...(legibility.blockers||[]).filter(row=>row.id!=='contact'),{id:'charged-staves',text:chargedReason}]};
+        return {...a,legibility,eligible:a.eligible&&!reasons.length,reasons:[...(a.reasons||[]),...reasons],command:{...a.command,sequence:state.sequence}};
     });
     const encounter=featureEncounterControls(state,registry,current,[I.group]);
     const work=featureWorkControls(state,registry,[I.group],current);
     const controls=encounter?encounter.actions.map(a=>({...a,command:{type:'book_paradise_campaign',action:a.command.type,
         ...(a.command.responseId?{responseId:a.command.responseId}:{}),sequence:state.sequence}})):
         work.actions.map(a=>({...a,command:{type:'book_paradise_campaign',action:'cancel',id:a.command.id,sequence:state.sequence}}));
-    const records=featureRecordedKnowledge(state,[F]);
+    const field=paradiseFieldActions(state,current,projectActionLegibility);actions.push(...field.actions);
+    const drying=paradiseDryingActions(state,current,projectActionLegibility);
+    actions.push(...drying.actions);
+    const preparation=paradiseEnvironmentActions(state,registry,current,projectFeatureCommands);
+    actions.push(...preparation.actions);
+    const ecology=paradiseEcologyActions(state,current,projectActionLegibility);actions.push(...ecology.actions);
+    const records=[...field.records,...ecology.records,...featureRecordedKnowledge(state,[F]),...drying.records,...preparation.records];
     if(paradiseCampaignEnrolled(state)){
         const owned=state.simulation.powers?.player?.[I.method];
         if(owned?.owned)records.push({id:F+'own_control',text:`Your own line procedure · mastery ${owned.mastery} · ${facts['paradiseCampaign.methodFaculty']?'active':'inactive or currently unsupported'}. Control2 permits its bounded protected lift; mastery3 improves your owned bench and shelter construction. Real hands, kit, rope and local support remain required.`});
+        if(owned?.owned)records.push({id:F+'own_foundation',text:`Load-path planning ${facts['paradiseCampaign.foundation']}/2. Rehearsal spends six minutes and three stamina without adding mastery. A single-load plan opens one kit from one log in three minutes for two stamina; a continuous plan opens two kits from two logs in four minutes for three stamina. Both active learned procedures, your bench and held tools remain necessary; planning grants no passive body bonus.`});
         if(facts['paradiseCampaign.bench'])records.push({id:F+'own_bench',text:'Your actually built district bench remains yours. Ordinary or mastered work consumes your own timber, effort and played time; district repair orders need the employee’s remaining means.'});
         if(facts['paradiseCampaign.shelter'])records.push({id:F+'own_shelter',text:'Your retained two-person-scale district shelter supports further real-material kit work in the same changed instance. Return does not refill it or reset people, damage, wages or orders.'});
         records.push(...Object.values(projectParadiseCampaignEffects(state,registry,current)).map(e=>({id:e.id,text:`${e.name} · ${e.duration} played min · ${e.description}`})));

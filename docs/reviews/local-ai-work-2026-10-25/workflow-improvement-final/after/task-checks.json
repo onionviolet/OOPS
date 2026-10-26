@@ -1,0 +1,31 @@
+{
+  "sources": [
+    "scripts/toolsets.py",
+    "scripts/toolsets/tests/test_launcher.py"
+  ],
+  "checks": [
+    {
+      "name": "focused launcher suite",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/toolsets/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "independent acceptance",
+      "argv": [
+        "python3",
+        "acceptance.py"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

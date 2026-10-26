@@ -1,0 +1,33 @@
+{
+  "name": "q7-generator-census",
+  "pid": 45420,
+  "pgid": 45420,
+  "started_at": 1792998465.10345,
+  "cwd": "/Users/weiwei/.codex/worktrees/q7-generator-census/yet-another-idle-rpg",
+  "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/Q7_generator_census.md",
+  "model": "gpt-6-luna",
+  "effort": "medium",
+  "log": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q7-generator-census.log",
+  "last_message": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q7-generator-census.last.md",
+  "command": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "-m",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"medium\"",
+    "--approve-for-me",
+    "--add-dir",
+    "/Users/weiwei/code/yet-another-idle-rpg/.git",
+    "--add-dir",
+    "/Users/weiwei/code/yet-another-idle-rpg",
+    "--add-dir",
+    "/Users/weiwei/.codex",
+    "--add-dir",
+    "/Users/weiwei/.codex/worktrees/q7-generator-census/yet-another-idle-rpg",
+    "-o",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q7-generator-census.last.md",
+    "<prompt text>"
+  ]
+}

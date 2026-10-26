@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: every pre-brewing LOTM command definition is byte-identical; only additions are allowed
+ok 1 - every pre-brewing LOTM command definition is byte-identical; only additions are allowed
+  ---
+  duration_ms: 4.343459
+  type: 'test'
+  ...
+# Subtest: a paid underwater recovery needs the active Sailor faculty and a prepared breath
+ok 2 - a paid underwater recovery needs the active Sailor faculty and a prepared breath
+  ---
+  duration_ms: 76.39375
+  type: 'test'
+  ...
+# Subtest: work pays only on completion, then cannot replay the same recovered manifest
+ok 3 - work pays only on completion, then cannot replay the same recovered manifest
+  ---
+  duration_ms: 120.16125
+  type: 'test'
+  ...
+# Subtest: cancelled recovery does not pay or claim the manifest
+ok 4 - cancelled recovery does not pay or claim the manifest
+  ---
+  duration_ms: 40.859
+  type: 'test'
+  ...
+# Subtest: lost breath, source or officer support stops settlement without payment and permits retry
+ok 5 - lost breath, source or officer support stops settlement without payment and permits retry
+  ---
+  duration_ms: 113.065208
+  type: 'test'
+  ...
+# Subtest: a finished Savant office outcome counts once, and a later outcome supplies its own experience
+ok 6 - a finished Savant office outcome counts once, and a later outcome supplies its own experience
+  ---
+  duration_ms: 260.946125
+  type: 'test'
+  ...
+# Subtest: canceled and unrelated work, or work before the source was acquired, cannot be backfilled
+ok 7 - canceled and unrelated work, or work before the source was acquired, cannot be backfilled
+  ---
+  duration_ms: 229.327541
+  type: 'test'
+  ...
+# Subtest: the same outcome seam credits Sailor underwater work, but refuses another or suppressed faculty
+ok 8 - the same outcome seam credits Sailor underwater work, but refuses another or suppressed faculty
+  ---
+  duration_ms: 50.333458
+  type: 'test'
+  ...
+# Subtest: ordinary outcomes stop crediting at digestion, and the existing examiner reads the same progress
+ok 9 - ordinary outcomes stop crediting at digestion, and the existing examiner reads the same progress
+  ---
+  duration_ms: 343.756416
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1356.125084

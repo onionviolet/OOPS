@@ -1,0 +1,14 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const {paradiseCampaignDefinitions:current}=await import(pathToFileURL(path.join(process.cwd(),'src/book_world_paradise_campaign_content.js')).href);
+const root=process.cwd(),file=path.join(import.meta.dirname,'before-source/book_world_paradise_campaign_content.js');
+const before=await fs.readFile(file,'utf8');
+const source=before.replace(/from '(.\/[^']+)'/g,(_,relative)=>`from '${pathToFileURL(path.resolve(root,'src',relative)).href}'`);
+const old=(await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'))).paradiseCampaignDefinitions;
+for(const command of old.commands)assert.deepEqual(current.commands.find(d=>d.id===command.id),command,command.id);
+const hash=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
+await fs.writeFile(path.join(import.meta.dirname,'command-golden.json'),JSON.stringify({originalCount:old.commands.length,originalSha256:hash(old.commands),unchanged:true,added:current.commands.filter(d=>!old.commands.some(o=>o.id===d.id)).map(d=>d.id)},null,2)+'\n');
+console.log(`PASS: ${old.commands.length} earlier Paradise command definitions unchanged`);

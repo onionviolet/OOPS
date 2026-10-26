@@ -1,0 +1,117 @@
+{
+  "id": "visionary_9",
+  "world": "book.lotm.tingen",
+  "name": "Spectator",
+  "seq": 9,
+  "pathway": "Visionary",
+  "status": "brewable",
+  "slots": [
+    {
+      "id": "m1",
+      "role": "main",
+      "select": {
+        "material": "Adult Manhar-fish eyes"
+      },
+      "qty": 1,
+      "amount": "pair",
+      "key": "{\"id\":\"Adult Manhar-fish eyes\"}",
+      "evidence": "T Alger 0034",
+      "slug": "adult_manhar_fish_eyes"
+    },
+    {
+      "id": "m2",
+      "role": "main",
+      "select": {
+        "material": "Horn-black-fish blood"
+      },
+      "qty": 1,
+      "amount": "35 ml",
+      "key": "{\"id\":\"Horn-black-fish blood\"}",
+      "evidence": "T Alger 0034",
+      "slug": "horn_black_fish_blood"
+    },
+    {
+      "id": "a1",
+      "role": "aux",
+      "select": {
+        "material": "Purified water"
+      },
+      "qty": 1,
+      "amount": "80 ml",
+      "key": "{\"id\":\"Purified water\"}",
+      "evidence": "T 0034",
+      "slug": "purified_water"
+    },
+    {
+      "id": "a2",
+      "role": "aux",
+      "select": {
+        "material": "Meadow-saffron essence"
+      },
+      "qty": 1,
+      "amount": "5 drops",
+      "key": "{\"id\":\"Meadow-saffron essence\"}",
+      "evidence": "T 0034",
+      "slug": "meadow_saffron_essence"
+    },
+    {
+      "id": "a3",
+      "role": "aux",
+      "select": {
+        "material": "Ox-tooth peony powder"
+      },
+      "qty": 1,
+      "amount": "13 g",
+      "key": "{\"id\":\"Ox-tooth peony powder\"}",
+      "evidence": "T 0034",
+      "slug": "ox_tooth_peony_powder"
+    },
+    {
+      "id": "a4",
+      "role": "aux",
+      "select": {
+        "material": "Elf flowers"
+      },
+      "qty": 1,
+      "amount": "7",
+      "key": "{\"id\":\"Elf flowers\"}",
+      "evidence": "T 0034",
+      "slug": "elf_flowers"
+    }
+  ],
+  "minutes": 120,
+  "bench": "Tingen supervised workroom",
+  "price": {
+    "pence": 1200,
+    "canon": {
+      "pounds": 230,
+      "evidence": "proposal; Corpse Collector reference T 0128"
+    },
+    "proposal": true,
+    "scale": "canon price scaled by LOTM_PRICE_SCALE"
+  },
+  "product": {
+    "key": "{\"id\":\"Brewed Spectator dose (Sequence 9)\"}",
+    "kind": "dose",
+    "name": "Brewed Spectator dose (Sequence 9)",
+    "sellPence": 1500
+  },
+  "ritual": {
+    "needed": false,
+    "text": "No rite is needed (table 0.1: low Sequences).",
+    "scale": "solitary",
+    "materials": [],
+    "evidence": "table 0.1"
+  },
+  "route": {
+    "id": "psychology_alchemists_barter",
+    "text": "The Psychology Alchemists hold many Spectator formulas; Alger traded one for 100 ml of ghost shark blood as the fee.",
+    "evidence": "T Alger 0006, 0060"
+  },
+  "evidence": [
+    "Potion table row Visionary.9",
+    "source: Alger asked 100 ml ghost shark blood as fee",
+    "note: emotional involvement skews perception"
+  ],
+  "gaps": []
+}

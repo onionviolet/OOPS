@@ -1,0 +1,17 @@
+{
+  "stage": "build",
+  "command": [
+    "npm",
+    "run",
+    "build"
+  ],
+  "source": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/source",
+  "output": "/Users/weiwei/.codex/research/material-foundations-M6-2026-10-26/combined-deeb83cb1d/output",
+  "inputDigest": "4c74d20ccec064ad23bba1b2eb9ea0dab77cbdbc8fb2819f238e1bbb2cbb5332",
+  "pid": 95666,
+  "pgid": 95666,
+  "log": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/combined-build.log",
+  "status": "pass",
+  "exitCode": 0,
+  "elapsedSeconds": 0.36799192428588867
+}

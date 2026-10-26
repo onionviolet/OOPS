@@ -1,0 +1,18 @@
+{
+  "state": "agent-verified, not human-reviewed, fixture route; recorded native proof reused",
+  "reportedBundle": "1fd989dfc7ca902ddaea35de4d059700be9be7ace1eb8675b984744e2011fc0c",
+  "frozenBundleOnDisk": "1fd989dfc7ca902ddaea35de4d059700be9be7ace1eb8675b984744e2011fc0c",
+  "bundleMatches": true,
+  "releasedSourceStillMatches": {
+    "src/owned_place_clock.js": true,
+    "src/items.js": true,
+    "tests/owned_place_clock.test.js": true
+  },
+  "receipt": "../W1/native-receipt.json",
+  "nativeChecks": 13,
+  "viewportChecks": 4,
+  "failureBoundary": "first partial receipt preserved; blocked post-failure snapshot replaced by pure visible projection and exact durable-byte assertion; full runtime unchanged assertion in focused unit",
+  "combinedGates": "not run by W6; still pending",
+  "frozenBundlePath": "/Users/weiwei/.codex/research/weather-w1-20261026/build/dist/bundle.js",
+  "inspectionNote": "Build is lane-local BUILD_OUT sibling of snapshot; initial probe at snapshot/dist was not the built artifact."
+}

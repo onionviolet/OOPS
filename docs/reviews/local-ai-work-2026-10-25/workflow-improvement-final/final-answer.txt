@@ -1,0 +1,7 @@
+VERIFICATION_PASS — all checks passed.
+
+**Changed paths:**
+- `scripts/toolsets.py` — added `encoding='utf-8', errors='replace'` to the `subprocess.run` call in `diagnose()` so invalid UTF-8 in probe output decodes gracefully instead of raising `UnicodeDecodeError`.
+- `scripts/toolsets/tests/test_launcher.py` — added regression `test_probe_decodes_invalid_utf8_gracefully` which spawns a child emitting mixed valid/invalid UTF-8 bytes on stdout/stderr and asserts correct state, exit_code, string types, trailing newlines, and JSON serializability.
+
+**Check results:** focused launcher suite (9 tests) pass; independent acceptance pass. Receipt recorded at `verification-receipt.json`.

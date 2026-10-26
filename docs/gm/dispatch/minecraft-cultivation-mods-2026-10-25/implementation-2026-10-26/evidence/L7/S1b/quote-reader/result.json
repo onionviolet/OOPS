@@ -1,0 +1,49 @@
+{
+  "route": "named S1b restored-grown-pair fixture from complete earned-command journey; native literal Import on current quote-reader build",
+  "errors": [],
+  "checks": [
+    "actual Inputs line names both entrusted pieces and actual retained-policy essence debit",
+    "quote-reader-final-fixture: Save/reload/Export/literal Import preserves state"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "bundleSha256": "f40321a0574345b523bb44cb910d93e45dcce2d83a1c41c57ed4045261659da8",
+  "reviewState": "agent-verified, not human-reviewed",
+  "success": true
+}

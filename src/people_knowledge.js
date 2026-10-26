@@ -9,6 +9,11 @@ import {relayPeopleView} from './feature_expansion_subtlety_host.js';
 import {nestedChainPeopleView} from './feature_expansion_nested_chains_host.js';
 import {nestedDefinitions,NESTED_IDS} from './feature_expansion_nested_content.js';
 
+// Received accounts retain their observation basis. Never inspect the subject's
+// live body, powers, purse or inventory to fill an unobserved person book.
+const personAccounts=received=>received.map(([id,r])=>({id,text:r.value,at:r.at,
+    basis:r.basis?.kind==='observation'?'Observed':r.basis?.kind==='instruction'?'Told to you':'Received account'}));
+
 export function knownPeopleView(state, facts = {}) {
     const player = state.actors.player, simulation = state.simulation;
     const knowledge = simulation?.knowledge.player || {}, rows = [];
@@ -96,11 +101,11 @@ export function knownPeopleView(state, facts = {}) {
     }
     for(const person of paradiseDefinitions.people){
         const received=Object.entries(knowledge).filter(([key,r])=>(key.startsWith('book.paradise.')||key.startsWith('book.goa.'))&&r.basis?.attributedTo===person.id);
-        if(received.length)append({id:person.id,name:person.label,location:'Known from your received local meeting or attributed report',details:received.map(([,r])=>r.value),memories:received.map(([id,r])=>({id,at:r.at,text:r.value}))});
+        if(received.length)append({id:person.id,name:person.label,location:'Known from your received local meeting or attributed report',details:received.map(([,r])=>r.value),accounts:personAccounts(received),memories:received.map(([id,r])=>({id,at:r.at,text:r.value}))});
     }
     for(const person of molDefinitions.people){
         const received=Object.entries(knowledge).filter(([key,r])=>key.startsWith('book.mol.')&&r.basis?.attributedTo===person.id);
-        if(received.length)append({id:person.id,name:person.label,location:'Known from your received Cyoria meeting or attributed report',details:received.map(([,r])=>r.value),memories:received.map(([id,r])=>({id,at:r.at,text:r.value}))});
+        if(received.length)append({id:person.id,name:person.label,location:'Known from your received Cyoria meeting or attributed report',details:received.map(([,r])=>r.value),accounts:personAccounts(received),memories:received.map(([id,r])=>({id,at:r.at,text:r.value}))});
     }
     return rows;
 }

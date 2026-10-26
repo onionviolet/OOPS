@@ -46,7 +46,7 @@ test('lineage rejects future processes and altered source observations through t
 });
 
 // E3: one process-derived lot fact, two later recipe readers, a skill-gated route.
-import {quoteHideTreatment,treatedRecipeQuality,treatmentOf,HIDE_BATCH} from '../src/material_treatment.js';
+import {quoteHideTreatment,treatedRecipeQuality,treatmentOf,HIDE_BATCH,samePreparationQuote} from '../src/material_treatment.js';
 test('hide treatments split one pelt stock into different routes that two recipes read differently',async()=>{
  const native=await n(),pelt=source('hide',0,60).out.outputs.find(r=>r.part==='pelt');assert.ok(pelt,'harvest yields a pelt');
  const inv={[pelt.item_key]:6,'{"id":"Rough wood log"}':1,'{"id":"Lamp oil"}':1},at={inventory:inv,clock:70,world:'base.frontier'};
@@ -66,4 +66,41 @@ test('hide treatments split one pelt stock into different routes that two recipe
  assert.equal(treatedRecipeQuality(80,'Piece of wolf rat leather',[{item_key:smoked.receive[0].key,count:3},{item_key:pelt.item_key,count:3}]),80,'mixed batches weigh untreated pelts');
  assert.equal(treatedRecipeQuality(null,'Processed rat pelt',rows(smoked.receive[0].key)),null);
  assert.equal(quoteHideTreatment({...at,inventory:{[smoked.receive[0].key]:6,'{"id":"Rough wood log"}':1},treatmentId:'smoked',skillLevel:0}).eligible,false,'treated pelts are not re-treated');
+});
+
+test('preparation receipt carries exact spent support; stale or changed support cannot reuse reviewed terms', () => {
+ const pelt='{"id":"Rat pelt"}',oilA='{"id":"Lamp oil","quality":80}',oilB='{"id":"Lamp oil","quality":90}';
+ const input={treatmentId:'oiled',inventory:{[pelt]:6,[oilA]:1},skillLevel:5,clock:70,world:'base.frontier'};
+ const q=quoteHideTreatment(input),before=structuredClone(input);
+ assert.equal(q.eligible,true);
+ const event=readMaterialLineage(q.receive[0].key).history[0];
+ assert.equal(event.revision,2);
+ assert.deepEqual(event.inputs[1],{item_key:oilA,count:1,facts:{quality:80},role:'support',disposition:'consumed'});
+ assert.deepEqual(q.spend,event.inputs.map(r=>({key:r.item_key,count:r.count})));
+ assert.deepEqual(input,before,'preview changes no stock/time/evidence');
+ assert.equal(quoteHideTreatment({...input,inventory:{[pelt]:6}}).eligible,false);
+ const changed=quoteHideTreatment({...input,inventory:{[pelt]:6,[oilB]:1}});
+ assert.equal(samePreparationQuote(q,changed),false);
+ assert.equal(samePreparationQuote(q,quoteHideTreatment({...input,clock:75})),true);
+});
+
+test('shared recipe requirements aggregate exact stock once and reject a stale partial allocation', () => {
+ const key='{"id":"Rat pelt"}',item={getInventoryKey:()=>key};
+ const group=count=>({items:[{item,count}]});
+ assert.deepEqual(allocatedRecipeInputs([group(5),group(5)],[{count:2},{count:2}],1),[{item_key:key,count:4}]);
+ assert.throws(()=>allocatedRecipeInputs([group(3),group(3)],[{count:2},{count:2}],1),/stock changed/);
+});
+
+test('two prepared portions of one source retain both parents but display each source observation once', () => {
+ const pelt=source('shared-source',0,60).out.outputs.find(r=>r.part==='pelt').item_key;
+ const inventory={[pelt]:6,'{"id":"Lamp oil"}':1,'{"id":"Rough wood log"}':1};
+ const make=treatmentId=>quoteHideTreatment({treatmentId,inventory,skillLevel:5,clock:70,world:'base.frontier'}).receive[0].key;
+ const a=make('smoked'),b=make('oiled');
+ const product=recipeMaterialOutput({resultId:'Processed rat pelt',count:1,quality:80,
+  allocations:[{item_key:a,count:3},{item_key:b,count:3}],recipeId:'butchering.materials.rat-pelt',clock:80,world:'base.frontier'});
+ assert.equal(readMaterialLineage(product).history[0].inputs.length,2);
+ const before=product;
+ assert.equal(lineagePresentation(product,90).observations.length,2,'same source readings are not repeated through each treatment branch');
+ assert.equal(product,before);
+ validateMaterialLineageEnvelope({inventories:{person:{player:{[product]:{count:1}}}}});
 });

@@ -1,0 +1,10 @@
+clicked enroll
+clicked plan_book.lotm.report_in
+clicked book.lotm.report_in
+clicked book.lotm.accept_allocation
+clicked plan_book.lotm.ingest
+clicked book.lotm.ingest
+clicked book.lotm.lesson
+clicked book.lotm.act_reading
+clicked lotm.move.lodging
+PASS planner native route, no-spend navigation, persistence and desktop matrix

@@ -1,0 +1,27 @@
+{
+  "from": {
+    "lane": "G6-W5",
+    "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "phase": "acknowledged frozen ecological native proof after W6 field source",
+    "handoffFrom": "G6-W6",
+    "handoffFromThread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+    "at": "2026-10-26T19:42:51.584321+00:00",
+    "nextRequested": {
+      "lane": "G6-W6",
+      "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+      "ready": true,
+      "phase": "frozen combined build/fulltest/arch/rules and field/forecast desktop+persistence proof; preserve other acknowledged queue requests"
+    }
+  },
+  "to": {
+    "lane": "G6-W6",
+    "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+    "phase": "acknowledged combined field/final build/full test/arch/rules/native proof",
+    "handoffFrom": "G6-W5",
+    "handoffFromThread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "at": "2026-10-26T19:55:29.728736+00:00",
+    "preserve": "Existing acknowledged earlier fair requests remain; no new source takeover inferred."
+  },
+  "sourceLocksReleased": true,
+  "proofProcessesExited": true
+}

@@ -15,6 +15,43 @@ const learn=(p,name)=>fieldAdvance(fieldCommand(p,`field.learn_${name}`),name ==
 const recover=(p,name)=>fieldAdvance(fieldCommand(p,`field.recover_${name}`,"Shack"),name === "focus" ? 2 : 4);
 const taught=p=>fieldAdvance(fieldCommand(p,"field.teach_step","Village",{targetId:"oldCraftsman"}),2);
 
+test("a completed useful packing application teaches load control; cancellation and unrelated work do not",()=>{
+    let p=completeFieldProject(taught(recover(recover(learn(learn(joinField(),"focus"),"drive"),"focus"),"drive")));
+    const mastery=p=>p.state.simulation.powers.player[method].mastery;
+    const preview=(p,id)=>previewSimulationCommand(p.state,expeditionRegistry,id,fieldContext(p,"Shack"));
+    assert.equal(mastery(p),1);
+    assert.equal(preview(p,"field.pack_drive").eligible,false);
+    const before=structuredClone(p);
+    assert.equal(preview(p,"field.pack_applied_focus").eligible,true);
+    assert.deepEqual(p,before,"a free preview teaches nothing and consumes nothing");
+    const pending=fieldCommand(p,"field.pack_applied_focus","Shack");
+    assert.equal(mastery(pending),1);
+    assert.equal(pending.external.money,p.external.money-1);
+    assert.equal(pending.gameplay.player.inventory[wood],p.gameplay.player.inventory[wood]-1);
+    assert.equal(pending.state.simulation.energies.player[focus].reserve,2);
+    const cancelled=cancelSimulationJob(fieldReload(pending).state,expeditionRegistry,pending.state.simulation.jobs[0].id,fieldContext(pending,"Shack"));
+    assert.equal(mastery(cancelled),1);
+    assert.equal(cancelled.external.money,p.external.money);
+    assert.deepEqual(cancelled.gameplay.player.inventory,p.gameplay.player.inventory);
+    assert.deepEqual(cancelled.state.simulation.energies.player[focus],p.state.simulation.energies.player[focus]);
+    p=fieldAdvance(fieldReload(fieldCommand(cancelled,"field.pack_applied_focus","Shack")),1);
+    assert.equal(mastery(p),1,"an unfinished job grants no partial lesson");
+    p=fieldAdvance(fieldReload(p),1);
+    assert.equal(mastery(p),2);
+    assert.equal(p.gameplay.player.inventory[kit],1);
+    assert.equal(preview(p,"field.pack_drive").eligible,true,"earned mastery changes an existing consumer");
+    assert.equal(preview(p,"field.pack_applied_focus").eligible,false);
+    assert.throws(()=>fieldCommand(p,"field.pack_applied_focus","Shack"));
+    const ready=fieldReload(p);
+    p=fieldAdvance(fieldCommand(ready,"field.pack_drive","Shack"),1);
+    assert.equal(p.gameplay.player.inventory[kit],2);
+    assert.equal(mastery(p),2);
+    assert.equal(p.state.simulation.energies.player[drive].reserve,3);
+    const unrelated=fieldAdvance(fieldCommand(before,"field.pack_focus","Shack"),2);
+    assert.equal(mastery(unrelated),1,"ordinary repetition is not the new loaded lesson");
+    assert.equal(fieldReload(p).state.actors.player.completed["field.pack_applied_focus"],1);
+});
+
 test("old enrolled saves gain no energies, specialist, project or invented history",()=>{
     const p=createFieldFixture(),saved=structuredClone(p.state);delete saved.actors.player.facts["field.introduced"];delete saved.actors.player.completed["field.begin"];delete saved.simulation.powers.oldCraftsman;
     delete saved.simulation.sites["field.route"];delete saved.simulation.sites["field.assembly"];for(const key of Object.keys(saved.worlds["base.frontier"].facts))if(key.startsWith("project.field") || key.startsWith("situation.field"))delete saved.worlds["base.frontier"].facts[key];

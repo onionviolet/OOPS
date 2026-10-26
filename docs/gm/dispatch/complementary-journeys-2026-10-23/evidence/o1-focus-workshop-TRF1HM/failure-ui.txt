@@ -1,0 +1,552 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Village experiments
+Standing and ledger
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Statistics
+Today
+Where I am
+Loadouts
+Around this place
+Polyjuice bench
+Lives & inheritance
+Family qualities
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 17.9 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+All items
+6
+Equipment
+2
+Usable
+1
+Other
+3
+Favorites
+0
+Inventory
+4S 99C 9W
+Name ↑
+▾
+Charcoal
+x5
+5W
+Lamp oil
+x2
+2C 5W
+Rough wood log
+x6
+1C
+Stale bread
+x5
+2C
+[weapon]
+Cheap iron dagger
+[100%]
+15C 7W
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+14.9 °C · comfortable
+
+01/04/999 08:10, Mon · ☼ Day
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+Notes, practice & people
+▾
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Scraped-palm care
+Connect the home-world chapter
+Current condition & small preparations
+Field remedies & optional wound consequences
+Household work & apprenticeship
+The terraced harbor chart
+Earned feats
+Proto23 · your furnished visitor life
+Paradise · your independent Goa branch
+Mother of Learning · your Cyoria guest life
+Service-district side entry
+Fitting tools & materials
+Village crossroads
+
+Three couriers, one keeper, and work that can carry on without you.
+
+Joining is optional. Each begun case has a 36-played-minute window. Time advances during supported play; closing the browser does not advance these cases.
+
+Village couriers
+
+Meet independently supplied residents and hear their work. Only played game time advances their cases.
+
+Your response
+Meet the three Village couriers
+
+0 played minutes.
+
+Lantern & floodline work
+
+Ask about the wet lantern to hear the offer. Work uses the materials, payment and cancellation terms shown below.
+
+Ask about the wet lantern
+Optional lives and local experiments
+
+These original proposals use your actual belongings and local people. Choose a proof to read its terms before committing.
+
+origin
+Weave a living reed rope
+
+Known terms: Spend one of your two opening sap units to make one actual Survey rope.
+
+A living reedling body and one remaining sap unit are required.
+
+device
+Meet Sella and her brass lung
+
+Known terms: Introduce one actual brasswright and her one serialized specimen.
+
+Exchange two logs for BL-01
+
+Known terms: Transfer two owned logs to Sella and receive her actual brass lung.
+
+The actual participant has not been introduced.
+
+Install BL-01
+
+Known terms: Install your own unborrowed specimen in your supported human body. The loose item leaves your bag.
+
+Own the one uninstalled brass lung first.
+
+Learn pressure control
+
+Known terms: Pay Sella one log for her one available lesson. Installation alone grants no usable control.
+
+Install the actual compatible brass lung first.
+
+Fuel BL-01 with one log
+
+Known terms: Consume one owned log for two pressure uses, only when its chamber is empty.
+
+Install the actual compatible brass lung first.
+
+Pressure-fit one sound seal
+
+Known terms: Consume one Sound seal blank and one pressure unit to make a Fitted parcel seal.
+
+Install the actual compatible brass lung first.
+
+Close the lung valve
+
+Known terms: Disable the installed source while retaining the device, learned control and unused pressure.
+
+Install the actual compatible brass lung first.
+
+Open the trained lung valve
+
+Known terms: Reactivate the same installed specimen after learning its control.
+
+Install the actual compatible brass lung first.
+
+Remove BL-01
+
+Known terms: Return the same specimen to your bag and vent unused pressure. Learned control remains.
+
+Install the actual compatible brass lung first.
+
+possession
+Meet Tern, a clay vessel
+
+Known terms: Introduce one actual stationary clay body with its own possessions and reserve.
+
+Ask to borrow Tern's body
+
+Known terms: Obtain Tern's explicit consent for one of at most two controlled visits and an agreed return at the Village.
+
+The actual participant has not been introduced.
+
+Enter the consenting clay vessel
+
+Known terms: Park your original body and move Tern's actual body and physical reserve under your control. Neither host goods nor resources transfer.
+
+The actual participant has not been introduced.
+
+Press one seal with clay hands
+
+Known terms: Use one unit of Tern's physical stamina and your own Sound seal blank. Ordinary travel, combat and work wait for your return.
+
+Control the consenting actual clay hands with remaining physical stamina first.
+
+Return to your original body
+
+Known terms: Restore your parked body and Tern's control. The clay body keeps the stamina it spent.
+
+The actual participant has not been introduced.
+
+inheritance
+Meet Mara and Ren
+
+Known terms: Introduce two living family members, two logs, one template and Mara's actual workbench right.
+
+Record Mara's succession offer
+
+Known terms: Mara willingly offers the two logs, template, taught method and workbench right to Ren.
+
+The actual participant has not been introduced.
+
+Withdraw the unsettled offer
+
+Known terms: Withdraw consent before property or rights move.
+
+The actual participant has not been introduced.
+
+Witness Ren's willing succession
+
+Known terms: Ren accepts; conserve the stock, transfer the same right and teach the one funded method. Both people stay alive.
+
+The actual participant has not been introduced.
+
+Return the unused family property
+
+Known terms: Before any production, return the two logs, template and same right. Ren retains what he learned.
+
+The actual participant has not been introduced.
+
+Ask the current heir to pack a kit
+
+Known terms: Ren must hold the actual workbench right, template, one log, learned method and one effort unit.
+
+The actual participant has not been introduced.
+
+Receive one family kit
+
+Known terms: Transfer one already produced Prepared survey kit from Ren to your native bag.
+
+The actual participant has not been introduced.
+
+time loop
+Seal a bell-yard trial · 1 log
+
+Known terms: One original trial, at most three attempts and two rewinds. Your actual body, local focus, bell-yard facts and keeper restore; common time, knowledge and claims stay. The paid log cannot leave the seal.
+
+Strike the trial bell · 1 minute
+
+Known terms: Spend two actual stamina, one health and local focus. The keeper spends the sealed log. This changes both live bodies and the actual work site; nothing is exported.
+
+Open the finite bell-yard trial first.
+
+Rewind the sealed bell yard
+
+Known terms: Restore the declared actual local domains on the same people. Keep the minute already spent and what both people learned. Two rewinds maximum.
+
+Open the finite bell-yard trial first.
+
+Close the seal and return
+
+Known terms: Restore the trial body state, consume the single sealed log, settle the retained claim and reopen ordinary native actions. No stock or reward is copied out.
+
+Open the finite bell-yard trial first.
+
+offline
+Arm a packing batch · 3 logs + 3 coins
+
+Known terms: Prepay three kits and pause ordinary play. Each needs two actual wall seconds, equivalent to two native game minutes; six minutes total. Nothing advances without your elapsed review.
+
+Review elapsed time and pack the funded batch
+
+Known terms: Explicitly review up to six actual elapsed minutes for the remaining funded kits. This control waits for that full wall interval; unsupported elapsed time is reported and discarded.
+
+Arm or explicitly resume a funded packing batch first.
+
+Pause packing and show its report
+
+Known terms: Keep the remaining prepaid inputs. Discard the current unreviewed wall window; paused wall time earns nothing.
+
+There is no unspent packing batch.
+
+Resume prepaid packing
+
+Known terms: Start a fresh supported wall window for the remaining paid kits. Paused time and previously discarded time cannot be replayed.
+
+There is no unspent packing batch.
+
+Cancel and return unused inputs
+
+Known terms: Return only the unspent prepaid logs and coins once. Already packed kits remain actual owned stock.
+
+There is no unspent packing batch.
+
+fate
+Hear Rill’s one-slot offer
+
+Known terms: Meet a new willing keeper. One existing packing entitlement belongs to Rill; this meeting transfers no access or reward.
+
+Accept the transferred packing chance
+
+Known terms: Rill consents to transfer one scarce entitlement and lend one actual Survey rope. Only its recipient may redeem it; Rill loses that slot.
+
+This chance is not awaiting its first transfer.
+
+Redeem the slot · 1 log
+
+Known terms: Use the exclusive bench opportunity. Spend one actual log, return the borrowed rope and receive Rill’s one funded survey kit. The entitlement settles once.
+
+Accept the actual transferred chance first.
+
+Return the unused slot and rope
+
+Known terms: Return the exact loan and relinquish this chance without a kit. The finite slot closes and cannot be offered again.
+
+Accept the actual transferred chance first.
+
+ecology
+Agree to the reed-bed work rights
+
+Known terms: Rill retains ownership and consents to three finite renewal rounds. You receive harvesting rights; planting, outputs and supply payments require later actions.
+
+Renew the herb edge · 1 log · 10 played min
+
+Known terms: Spend one actual log as mulch and one of Rill’s three root divisions. Two growing shoots occupy the bed; no actor stays reserved and no wall-clock catch-up occurs.
+
+Agree to the actual reed-bed work rights first.
+
+Harvest the mature herb edge
+
+Known terms: After ten played minutes, cut the two actual standing shoots into two native Cooking herbs. An immature or already cut crop gives no output.
+
+Agree to the actual reed-bed work rights first.
+
+Supply 2 herbs · earn 2 coins
+
+Known terms: Transfer two owned native Cooking herbs to Rill. Each completed harvest opens one finite order, funded by two coins from Rill’s actual six-coin purse.
+
+Agree to the actual reed-bed work rights first.
+
+Close the completed reed-bed agreement
+
+Known terms: After all three harvests and supply orders, settle the harvesting rights. The owner, paid stock and remembered work remain.
+
+Agree to the actual reed-bed work rights first.
+
+replacement
+Hear the seal-steward’s terms
+
+Known terms: Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.
+
+Invalid knowledge attribution.
+
+At the seal registry
+
+Conversation not started.
+
+Conversation controls
+Known actions
+Discuss the offered work
+
+Unavailable
+
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+Hear the seal-steward’s terms
+Completion terms
+Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.
+Unavailable: Discuss the offered work
+Village notes
+
+An old survey marker leans against the Village fence. Something has been tucked beneath its dry side.
+
+Pack a long-rest meal
+
+Prepare one meal from two bread and two cooking herbs in four played minutes.
+
+4 min
+
+Requires skill.Cooking gte 1. Needs 2 {"id":"Cooking herbs"}; you have 0.
+
+Investigate the disused waypost
+
+Search the sheltered side of the marker. No supplies required; six Perception XP on completion. This is a single search.
+
+3 min
+
+Field association & practical workshop
+
+Your supplied brace earned access. The workshop and its people remain part of this local campaign.
+
+Progress saved.
+
+Measured focus: 0/4 units; strain 0/2; output 1, control 2.
+
+Wedged timber & lever lesson · PROPOSAL
+
+Assignment evidence: hand-work missing; demonstration missing. Teacher return: not returned. Pivot rule: not checked. Practice: not started. Method: not learned. Missing evidence: finish one hand-work timber job; watch the lever demonstration. Either order is allowed.
+
+Free wedged timber by hand · 1 log + 3 stamina · 6 min
+
+Known task: free and sort your wedged timber into one Prepared survey kit. Hand work takes six minutes. Each new supplied log allows another job.
+
+Ask the craftsman to demonstrate lever-setting
+
+A free safe demonstration, with the craftsman present. Watching alone grants no usable method. Assignment evidence: finish a hand-work timber job and watch this demonstration, in either order. Then return both records to the craftsman.
+
+Return the hand-work and demonstration records to the craftsman
+
+Both known evidence steps can be done in either order. Returning them grants no method, kit, money or practice credit.
+
+Missing evidence: finish one hand-work timber job; watch the lever demonstration. Either order is allowed.
+
+Free wedged timber with lever-setting · 1 log + spare log lever + 1 stamina · 2 min
+
+Same known task, one kit. Reserve two actual carried logs: one becomes the kit, the other stays held as the lever and returns. Two minutes and one stamina. Each idle repeat checks support and reserves fresh inputs.
+
+Complete the lever-setting practice with the craftsman first.
+
+Methods & recovery
+Learn breath drive · 3 min
+
+Force over precision: six units held, three output, one control. Learning spends two stamina. Recovery takes four minutes and two stamina.
+
+Learn Load-bearing Step · 1 coin + 2 min
+
+Reserve the craftsman's attention for two minutes. Learn his steadying method; cancellation returns the fee.
+
+Explore an observed pattern · 2 coins + 3 min
+
+Develop an optional, narrowly defined pattern-imprint faculty. It can reproduce the craftsman's demonstrated Load-bearing Step; it grants no unseen methods.
+
+Project & production
+Commission both specialists · 3 logs + 4 coins
+
+Two logs go to the craftsman; one goes to the pathfinder. Four coins pay their agreed work. Each contribution starts independently. The later assembly costs one coin and can be cancelled; this supplied commission is final.
+
+← Shack
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Journal & received accounts is now available in navigation.
+Journal ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+[ Entering Shack ]

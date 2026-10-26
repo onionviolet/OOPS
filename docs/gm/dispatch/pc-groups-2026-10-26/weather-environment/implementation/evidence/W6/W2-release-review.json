@@ -1,0 +1,33 @@
+{
+  "files": {
+    "src/home_building_model.js": {
+      "released": "6369e39f0db35f6a0c14056d8f03844a301a0028993f9c03a38e0190e55116b0",
+      "current": "6369e39f0db35f6a0c14056d8f03844a301a0028993f9c03a38e0190e55116b0"
+    },
+    "src/home_domain.js": {
+      "released": "d42ce81ab182c026e77fc2c357303733181a4c3bded58b76e91482629bcbd482",
+      "current": "d42ce81ab182c026e77fc2c357303733181a4c3bded58b76e91482629bcbd482"
+    },
+    "src/weather_calendar.js": {
+      "released": "0c64828ef7bcac7d369e6352550feac16e0806f633e0446c6835c0582744b978",
+      "current": "0c64828ef7bcac7d369e6352550feac16e0806f633e0446c6835c0582744b978"
+    },
+    "tests/home_domain.test.js": {
+      "released": "54df6b296b7ecda9ae75646b04d13b80813df3a48d45ec6ef0c1d22050e88311",
+      "current": "54df6b296b7ecda9ae75646b04d13b80813df3a48d45ec6ef0c1d22050e88311"
+    },
+    "tests/home_weather.test.js": {
+      "released": "946b17e5b5d4f9992ce3a8c9679027dc33585234635eaab90b08c144af12fa7b",
+      "current": "946b17e5b5d4f9992ce3a8c9679027dc33585234635eaab90b08c144af12fa7b"
+    }
+  },
+  "allCurrentInputsMatchRelease": true,
+  "review": "source-ready.patch inspected; focused recorded result reused, not rerun",
+  "check": "node --test tests/home_weather.test.js tests/home_extension.test.js tests/home_domain.test.js",
+  "result": "pass",
+  "contract": {
+    "nativeRainAtClock": "(calendar, calendarClock, clock) \u2192 {raining, source, until}; until exclusive next native day boundary in root-clock minutes; absent/invalid native calendar returns false/unavailable/Infinity; E1 and P23 excluded",
+    "home": "native boundary integration; legacy weatherAt fallback one-minute sample; other-world condition frozen and cursor advanced; schema/command terms unchanged"
+  },
+  "native_floor_complete": false
+}

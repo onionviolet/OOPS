@@ -1,0 +1,67 @@
+[
+  {
+    "lane": "agitation",
+    "threadId": "01a1794a-9ea2-7ef0-b3eb-df681b047e45",
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"threadId\":\"01a1794a-9ea2-7ef0-b3eb-df681b047e45\"}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "lane": "thermal",
+    "threadId": "01a1794a-b0c1-7833-9542-96eddb71695b",
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"threadId\":\"01a1794a-b0c1-7833-9542-96eddb71695b\"}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "lane": "separation",
+    "threadId": "01a1794a-bbbf-7fb1-a670-9d7752bd11cd",
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"threadId\":\"01a1794a-bbbf-7fb1-a670-9d7752bd11cd\"}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "lane": "cues",
+    "threadId": "01a1794a-c8f4-7393-8d57-8e0b1d140ae4",
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"threadId\":\"01a1794a-c8f4-7393-8d57-8e0b1d140ae4\"}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "lane": "integration",
+    "threadId": "01a1794b-4b97-76e0-8219-5d56d0df9665",
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"threadId\":\"01a1794b-4b97-76e0-8219-5d56d0df9665\"}"
+        }
+      ],
+      "isError": false
+    }
+  }
+]

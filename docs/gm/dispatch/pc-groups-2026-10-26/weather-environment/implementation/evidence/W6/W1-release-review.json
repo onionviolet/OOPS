@@ -1,0 +1,22 @@
+{
+  "review": "released diff inspected; recorded focused evidence reused, not rerun",
+  "files": {
+    "src/owned_place_clock.js": {
+      "released": "02ca46f039a37652a8c1885f4c8949d04801b3a0743a47a2276298f4d97bb836",
+      "current": "02ca46f039a37652a8c1885f4c8949d04801b3a0743a47a2276298f4d97bb836"
+    },
+    "src/items.js": {
+      "released": "367fd14f2e2feef36353d6cf7aa5c49f48a181ebe8556b4682ed0f8af1d12dc0",
+      "current": "367fd14f2e2feef36353d6cf7aa5c49f48a181ebe8556b4682ed0f8af1d12dc0"
+    },
+    "tests/owned_place_clock.test.js": {
+      "released": "a568ac957cecd6dce16edf4268e3562c6fcca23cc007752f7f4d224d94761860",
+      "current": "a568ac957cecd6dce16edf4268e3562c6fcca23cc007752f7f4d224d94761860"
+    }
+  },
+  "allCurrentInputsMatchRelease": true,
+  "focused": "node --test tests/owned_place_clock.test.js: PASS 13/13",
+  "native": "pending later runtime slot",
+  "usableContract": "Exact native key preservation for valid domainRegistry.ownsItemKey; fractional age/debt are separate; native inventory owns counts.",
+  "remaining": "W2 source_ready required before W3; W1 native AD43 proof and combined gates pending"
+}

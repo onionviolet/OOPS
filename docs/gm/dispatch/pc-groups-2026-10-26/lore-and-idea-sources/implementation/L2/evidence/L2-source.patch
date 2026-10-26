@@ -1,0 +1,1024 @@
+--- a/src/world_packs/book_mol_pack.js
++++ b/src/world_packs/book_mol_pack.js
+@@ -10407,6 +10407,1004 @@
+       ]
+      },
+      "duration": 0
++    },
++    {
++     "id": "book.mol.lore.practice_hand_guide",
++     "revision": 1,
++     "label": "Practice a folded-paper guide with Nora · paper + 1 crown, 3 min",
++     "description": "Fold and align a one-cube paper pattern with Nora’s feedback. Costs one paper, one stamina and her attention; actual practice teaches alignment, not casting or lamp control.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "player",
++       "key": "book.mol.crowns",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.attention",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.crowns",
++       "amount": 1
++      },
++      {
++       "type": "fact",
++       "scope": "actor",
++       "actor": "player",
++       "key": "book.mol.lore.handGuidePracticed",
++       "value": true
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.hand.practice",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.hand.practice\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.hand.practice\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"book.mol.nora\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"You completed Nora’s three-minute folding and alignment drill on one paper. You can reproduce that one-cube manual guide with your actual hands, ink and new paper; her school title did not supply those means. This taught no personal mana or keyed-lamp control.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "book.mol.nora",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "knowledge.book.mol.lore.trial.ink.seen",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "claim": "book.mol.lore.receipt.practice_hand_guide",
++     "targetId": "book.mol.nora",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 3,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.prepare_guide_jig",
++     "revision": 1,
++     "label": "Prepare a guide with the ruling jig · ink + paper, 2 min",
++     "description": "Prepare one inked guide for a single cube using the currently restored academy ruling jig. One counted formula-ink unit and one paper become the guide; no magic, lamp or mastery is created. The guide can replace loose ink during Nora’s guided reconstruction.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian formula ink\"}",
++       "amount": -1
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
++       "amount": 1
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.method.jig",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.jig\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.method.jig\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Using the currently restored academy ruling jig, you prepared one single-cube tracing guide in 2 played minutes at 1 stamina. One formula-ink unit and one paper became the physical guide. This tests this apparatus, preparation, location and scale together, not which variable caused the result. It does not establish a larger-batch recipe or anchor a spell.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "knowledge.book.mol.lore.trial.ink.seen",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "world.book.mol.lore.jigRestored",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "claim": "book.mol.lore.receipt.prepare_guide_jig",
++     "duration": 2,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "world.book.mol.lore.jigRestored",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.repeat_guide_jig",
++     "revision": 1,
++     "label": "Repeat the jig guide · ink + paper, 2 min",
++     "description": "Repeat the demonstrated one-cube preparation with fresh real materials and the same current support. Your first observed method record stays unchanged; repetition grants no new mastery.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": false,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian formula ink\"}",
++       "amount": -1
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
++       "amount": 1
++      }
++     ],
++     "visibleWhen": {
++      "fact": "knowledge.book.mol.lore.method.jig.seen",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "world.book.mol.lore.jigRestored",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.jig.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "duration": 2,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "world.book.mol.lore.jigRestored",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.jig.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.prepare_guide_folded",
++     "revision": 1,
++     "label": "Prepare a guide with the folded-paper method · ink + paper, 4 min",
++     "description": "Prepare one inked guide for a single cube using your practiced household folded-paper alignment. One counted formula-ink unit and one paper become the guide; no magic, lamp or mastery is created. The guide can replace loose ink during Nora’s guided reconstruction.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria Imaya household",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian formula ink\"}",
++       "amount": -1
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -2
++      }
++     ],
++     "effects": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
++       "amount": 1
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.method.folded",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.folded\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.method.folded\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria Imaya household\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Using your practiced household folded-paper alignment, you prepared one single-cube tracing guide in 4 played minutes at 2 stamina. One formula-ink unit and one paper became the physical guide. This tests this apparatus, preparation, location and scale together, not which variable caused the result. It does not establish a larger-batch recipe or anchor a spell.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "knowledge.book.mol.lore.trial.ink.seen",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lore.handGuidePracticed",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "claim": "book.mol.lore.receipt.prepare_guide_folded",
++     "duration": 4,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lore.handGuidePracticed",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.repeat_guide_folded",
++     "revision": 1,
++     "label": "Repeat the folded-paper guide · ink + paper, 4 min",
++     "description": "Repeat the demonstrated one-cube preparation with fresh real materials and the same current support. Your first observed method record stays unchanged; repetition grants no new mastery.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria Imaya household",
++     "once": false,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian formula ink\"}",
++       "amount": -1
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -2
++      }
++     ],
++     "effects": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
++       "amount": 1
++      }
++     ],
++     "visibleWhen": {
++      "fact": "knowledge.book.mol.lore.method.folded.seen",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lore.handGuidePracticed",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.folded.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "duration": 4,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lore.handGuidePracticed",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.folded.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.compare_methods",
++     "revision": 1,
++     "label": "Compare the two guide preparations",
++     "description": "Compare your actual one-cube results without treating several changed conditions as one controlled cause.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [],
++     "effects": [
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.method.comparison",
++       "stage": "interpreted",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.comparison\",\"kind\":\"interpretation\",\"origin\":\"book.mol.lore.method.comparison\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Both actual guide preparations produced a usable one-cube pattern. Ink type, counted amounts and single-cube scale matched; apparatus, location, preparation time and effort differed. The comparison supports those two complete setups, not a claim that school, region, shade or one isolated cause made them work. The earlier printed explanation and oil-strip failure remain separate evidence.\",\"confidence\":\"Interpretation bounded by the retained observations\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "inference",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "knowledge.book.mol.lore.trial.ink.seen",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.formulaStudied",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trial.ink.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.jig.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.folded.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Use the studied lamp brief, tested formula ink and the actual stated tools or practiced method here."
++     },
++     "claim": "book.mol.lore.receipt.compare_methods"
++    },
++    {
++     "id": "book.mol.lore.assemble_guided_lamp",
++     "revision": 1,
++     "label": "Reconstruct from your prepared guide with Nora · cube + guide + 3 crowns, 4 min",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [
++      {
++       "type": "resource",
++       "actor": "player",
++       "key": "book.mol.crowns",
++       "amount": -3
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian blank stone cube\"}",
++       "amount": -1
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian single-cube tracing guide\"}",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -2
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.attention",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.personalMana",
++       "amount": -2
++      }
++     ],
++     "effects": [
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.crowns",
++       "amount": 3
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
++       "amount": 1
++      },
++      {
++       "type": "fact",
++       "scope": "actor",
++       "actor": "player",
++       "key": "book.mol.lampBuilt",
++       "value": true
++      },
++      {
++       "type": "fact",
++       "scope": "actor",
++       "actor": "player",
++       "key": "book.mol.deviceCapacity",
++       "value": 6
++      },
++      {
++       "type": "source",
++       "actor": "player",
++       "sourceId": "book.mol.formula_operator",
++       "operation": "grant",
++       "origin": "trained",
++       "awakened": true,
++       "active": true
++      },
++      {
++       "type": "power",
++       "actor": "player",
++       "powerId": "book.mol.formula_operator",
++       "operation": "learn"
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lamp",
++       "stage": "understood",
++       "value": "Your actual cube and ink became one keyed lamp after supervised reconstruction and Nora’s two own attuned mana. Its stored reserve is empty; paid calibration still supplies charge. You learned your own manual control procedure at zero mastery, not Nora’s formula knowledge, talent or personal capacity.",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.nora",
++        "situationId": "book.mol.visitor_branch"
++       }
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.method.guided_lamp",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.method.guided_lamp\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.method.guided_lamp\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your single-cube workshop record (original branch)\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"{\\\"id\\\":\\\"Cyorian formula ink\\\"}\",\"{\\\"id\\\":\\\"Cyorian single-cube tracing guide\\\"}\"],\"claim\":\"Your physical guide and cube became one empty keyed lamp with Nora’s actual anchoring. The guide supplied its already committed ink, so reconstruction charged no second ink unit. A supported manual preparation did not replace the specialist’s source, grant personal casting, or grant control mastery. Calibration, control practice and useful operation still use their existing means.\",\"confidence\":\"Observed in this stated setup; no universal or isolated-cause claim\",\"coverage\":[{\"scope\":\"one-cube guide, counted formula ink and paper, stated apparatus and effort\",\"status\":\"observed\"},{\"scope\":\"other inks, batch sizes and environmental tolerances\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.formulaStudied",
++      "op": "eq",
++      "value": true
++     },
++     "targetId": "book.mol.nora",
++     "requires": {
++      "all": [
++       {
++        "all": [
++         {
++          "fact": "mol.nativeBound",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "mol.playerSupported",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "mol.local.book.mol.cyoria",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "all": [
++         {
++          "fact": "actor.book.mol.formulaStudied",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "actor.book.mol.assessment",
++          "op": "eq",
++          "value": "no_demonstrated_source"
++         },
++         {
++          "fact": "mol.noraSourceSupported",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       },
++       {
++        "any": [
++         {
++          "fact": "knowledge.book.mol.lore.method.jig.seen",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "knowledge.book.mol.lore.method.folded.seen",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       }
++      ]
++     },
++     "duration": 4,
++     "claim": "book.mol.receipt.assemble_lamp",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "all": [
++         {
++          "fact": "mol.nativeBound",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "mol.playerSupported",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "mol.local.book.mol.cyoria",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "all": [
++         {
++          "fact": "actor.book.mol.formulaStudied",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "actor.book.mol.assessment",
++          "op": "eq",
++          "value": "no_demonstrated_source"
++         },
++         {
++          "fact": "mol.noraSourceSupported",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       },
++       {
++        "any": [
++         {
++          "fact": "knowledge.book.mol.lore.method.jig.seen",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "knowledge.book.mol.lore.method.folded.seen",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       }
++      ]
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true,
++     "description": "Your prepared paper guide already holds one formula-ink unit. Commit it with a cube, two stamina and three crowns; Nora still supplies her actual attention and two attuned mana. Four-minute reconstruction yields the same empty keyed lamp, with no personal casting or control mastery."
+     }
+    ],
+    "controllers": [
+@@ -10616,6 +11614,16 @@
+      "expedition": true,
+      "book_world_mol": true
+     }
++   },
++   {
++    "id": "Cyorian single-cube tracing guide",
++    "name": "Cyorian single-cube tracing guide",
++    "description": "One counted formula-ink unit bound into a prepared paper pattern for a single cube. Nora’s guided reconstruction consumes it instead of loose ink; paper and a pattern do not anchor a spell. Original local workshop adaptation.",
++    "value": 1,
++    "tags": {
++     "expedition": true,
++     "book_world_mol": true
++    }
+    }
+   ],
+   "nativePeople": {

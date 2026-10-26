@@ -1,0 +1,57 @@
+{
+  "route": "named synthetic producer fixture using actual harvest, treatment, recipe and mender planners",
+  "chain": {
+    "harvest": {
+      "keyCharacters": 877,
+      "keyBytes": 877,
+      "envelopeBytes": 1095,
+      "nestedDepth": 1,
+      "parentEdges": 1,
+      "projectedObservationCount": 1,
+      "importAndProjection100RunsMs": 7.802041999999915
+    },
+    "prepared": {
+      "keyCharacters": 1577,
+      "keyBytes": 1577,
+      "envelopeBytes": 2049,
+      "nestedDepth": 2,
+      "parentEdges": 3,
+      "projectedObservationCount": 1,
+      "importAndProjection100RunsMs": 15.455500000000029
+    },
+    "recipe": {
+      "keyCharacters": 2427,
+      "keyBytes": 2427,
+      "envelopeBytes": 3377,
+      "nestedDepth": 3,
+      "parentEdges": 4,
+      "projectedObservationCount": 1,
+      "importAndProjection100RunsMs": 19.918125000000032
+    },
+    "tool": {
+      "keyCharacters": 2530,
+      "keyBytes": 2530,
+      "envelopeBytes": 3502,
+      "nestedDepth": 3,
+      "parentEdges": 5,
+      "projectedObservationCount": 1,
+      "importAndProjection100RunsMs": 20.980999999999995
+    },
+    "precisionLiningWithRetainedTool": {
+      "keyCharacters": 5914,
+      "keyBytes": 5914,
+      "envelopeBytes": 8694,
+      "nestedDepth": 3,
+      "parentEdges": 4,
+      "projectedObservationCount": 1,
+      "importAndProjection100RunsMs": 26.75045799999998
+    }
+  },
+  "limits": {
+    "envelopeNestedDepth": 12,
+    "portableKeyCharacters": 25000,
+    "historyLocalEvents": 64
+  },
+  "retainedTool": "Exact kit identity is already recorded in precision process parameters and remains unspent; supportInputs provides the typed form for future owner-authorized callers.",
+  "conclusion": "Supported chain, including retained-tool parameters, stays below existing depth and portable-key limits. No key representation migration justified for this route. Timing is one local run, not a performance threshold."
+}

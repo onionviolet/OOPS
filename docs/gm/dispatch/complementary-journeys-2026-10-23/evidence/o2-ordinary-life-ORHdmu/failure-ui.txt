@@ -1,0 +1,239 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Regard •
+Room plan •
+Household •
+Village experiments
+Standing and ledger
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Statistics
+Today
+Where I am
+Around this place
+Polyjuice bench
+Lives & inheritance
+Family qualities
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+World events
+Character vitals
+Time & weather •
+Current location •
+Inventory & combat view
+Skills & practice
+Journal & received accounts
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+42/42 stamina
+60/60 hp
+STR
+13.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.3
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Hero XP
+×1.5
+Skill XP
+×1.5
+Global XP
+×1.5
+Attributes ›
+Gear · 0
+Condition · 1 effect
+Spark of Inspiration
+1799m
+Buff
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 18.9 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+All items
+3
+Equipment
+1
+Usable
+1
+Other
+1
+Favorites
+0
+Inventory
+8W
+Name ↑
+▾
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Arlmere family manor
+☀ Summer
+Dry
+18.9 °C · comfortable
+
+01/04/999 10:08, Mon · ☼ Day
+
+No work running.
+
+Saving available.
+
+Homes
+▾
+Homes and belongings
+
+Your rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.
+
+2 residences · human body · 8 coins
+
+Riverside rented room · rented
+Arlmere family manor · shared · here
+Riverside rented room
+
+A private rented room. Prepaid lodging grants use of the bed and room, not title to the building. Stored property stays yours after the term. Owner: your host. Your occupancy is separate from title.
+
+Visit Riverside rented room through the native travel list. Home services available for this body.
+
+Prepaid lodging1438/1440
+Renew lodging · 12 coins / played dayHome: renew with this host or from your room
+
+Settled · 2 furnishing and room comfort. Furnishing details show each active benefit.
+
+Make this your main residenceHome: return to this actual residence
+Furnishings and selected slots
+
+bed: Plain bed · provided by owner. An installed mattress supports ordinary rest and sleep practice.
+
+Pack Plain bedHome: return to this residence with a fitting body
+Private storage · 0/8
+
+Each carried or stored unit uses one local storage unit. Communal furnishings are not yours to sell. Expired lodging permits retrieval.
+
+Cheap leather pants ×1
+Stale bread ×5
+Rough wood log ×2
+Store one selected itemHome: return to this actual residence
+Shelter, weather and repairs
+
+Inspect structural condition and bedding when you return to this home.
+
+Build a home from the land
+
+Visit Wild willow stand through native travel. This authored unclaimed site offers forked branches for a nest, dry diggable roots for a burrow and a clearing for a lean-to. Materials are gathered in small carried bundles; construction spends real materials and played time, without coins.
+
+Weave dry lining · 3 dry grass bundles · 8 minHome: carry enough usable owned materials
+
+Dry weather currently supports outdoor drying and ordinary work. Repair and construction materials are held at their actual project site. Starting work grants no completed housing.
+
+Home history
+
+Minute 128: You enter the Arlmere household as a provision worker and student, with a room by agreement. The household retains its estate, finite 32-coin treasury, pantry and staff. Study its primer and keep the ledger appointment to earn provision-off
+
+Minute 126: Riverside rented room: one day of lodging prepaid.
+
+You enter the Arlmere household as a provision worker and student, with a room by agreement. The household retains its estate, finite 32-coin treasury, pantry and staff. Study its primer and keep the ledger appointment to earn provision-office authority; no personal mastery or noble inheritance is granted.
+
+← Arlmere family manor
+Here
+Skills
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+[ Entering Arlmere family manor ]
+Time & weather is now available in navigation.
+Related panel ›
+Current location is now available in navigation.
+Related panel ›
+Regard is now available in navigation.
+Related panel ›
+Room plan is now available in navigation.
+Related panel ›
+Household is now available in navigation.
+Related panel ›
+You enter the Arlmere household as a provision worker and student, with a room by agreement. The household retains its estate, finite 32-coin treasury, pantry and staff. Study its primer and keep the ledger appointment to earn provision-office authority; no personal mastery or noble inheritance is granted.
+Saved the game manually

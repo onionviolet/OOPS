@@ -1,0 +1,76 @@
+{
+  "bundleSha256": "0f4eaace925547cbfa26373b1ba424c9bf19f8683cf7a888020c991a1553a90e",
+  "route": "Named funded fresh Nighthawk broker-customer fixtures (5000 pence only; no stock, knowledge, source or progress grants)",
+  "routes": [
+    {
+      "mode": "core",
+      "persistence": [
+        {
+          "state": "core pending",
+          "exportChars": 250152,
+          "exportSha256": "f7f532206949697112e594ed29cd9207f53d9cdc18121bcdae35983bce1dc9cc",
+          "projectSha256": "63b99dfa3413be168368956b42808e4596d27506d014bebba63d71cc51b35b71"
+        },
+        {
+          "state": "core dose ingested and used",
+          "exportChars": 253340,
+          "exportSha256": "a90d9fc519ae42b4c881d47de362128883bba1a044dae4bf5bdab7f697a26502",
+          "projectSha256": "cdfa98876211b01ce59f627dc02820822ffdcf802268ec06249c0f1db3bb8082"
+        }
+      ],
+      "product": "{\"id\":\"Brewed Spectator dose (Sequence 9)\"}",
+      "matrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "px": 14,
+          "page": 1920,
+          "panel": 699,
+          "content": 699,
+          "font": "14px"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "px": 21,
+          "page": 1920,
+          "panel": 693,
+          "content": 693,
+          "font": "21px"
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "px": 14,
+          "page": 1536,
+          "panel": 477,
+          "content": 477,
+          "font": "14px"
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "px": 21,
+          "page": 1536,
+          "panel": 473,
+          "content": 473,
+          "font": "21px"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "mode": "materials",
+      "persistence": [
+        {
+          "state": "materials dose ingested and used",
+          "exportChars": 251496,
+          "exportSha256": "27960cf734438bbbb1fd9de8c24c615383ad63202ed2e3d6591f10ab0d13be60",
+          "projectSha256": "478a966d27c3c92c2a584217f6e671cc50f8f9c0056c1c5c95d51fbfe03643b4"
+        }
+      ],
+      "product": "{\"id\":\"Brewed Spectator dose (Sequence 9)\"}",
+      "errors": []
+    }
+  ]
+}

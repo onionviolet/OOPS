@@ -1,0 +1,32 @@
+{
+  "files": {
+    "desktop/README.md": "d3ecb869a627acd8ffa629f407a6a96f2e0de5b7f8d9bb13373e13c8acde2632",
+    "desktop/app_menu.cjs": "30019b0bd759cfe75fae5feef23fa2ff9864c88fe4e1821695e690ba6427188c",
+    "desktop/app_path.cjs": "1d413e5d1696e1ca695929cee340a6ccade36b59ee45a553a3e81dd00d5b6a4b",
+    "desktop/build_host.cjs": "a1be4c0c18a56daeda695015fbda8a1d404a7fd8f73e4fa6ea6b874cab5504a5",
+    "desktop/guard_host.cjs": "ab3ffaae7acb7a0af96a942c898b1e656e35805c5a9dd03d9dc258d6f4013a21",
+    "desktop/host_context.cjs": "f5cd39908136989f23cd22b66d539909883a50f1e25ae0274fcdf360a7be68b6",
+    "desktop/main.cjs": "bb1d08d3b2a1155f9cd2078e2fa65f72721b558010cbddb7e48ed2942a064bd5",
+    "desktop/mirror_host.cjs": "e0df2ca91479379ba84451a70fd0a78de08dcbc62ffd3c940c99de96f53764df",
+    "desktop/popout_host.cjs": "133b08c38d5dada5677d1f49504b9ac9709cddbb97ff9700bcb54415d27e2a36",
+    "desktop/popout_page.cjs": "d8aadb405c1c5da124fdc630406bfaac1162435b54edc43b6e7098942247a14e",
+    "desktop/preload.cjs": "516535a3be1dff89120c6bc2f2fe9c023af63499c5ee24b8165df2778674d1f3",
+    "desktop/presence_host.cjs": "c053cf1dd56747e8adde01c4ae3902ef5ee2b3f48ecb1ab7658459e36d163ae9",
+    "desktop/prompt_page.cjs": "f5f08a863a0b52e03f0fa2045f6e4a68d854c9511f2112f6af9926b4353c34bd",
+    "desktop/recover_page.cjs": "6140329dd87c4f179395933e5868ed9be80844bc9ba943d09346790c47d8945a",
+    "desktop/save_mirror.cjs": "bec6524e7689c2ade045030f26b17509c9de2f56143511ca54b2330e0f2e0c65",
+    "desktop/snapshot.cjs": "1c342bf6fb4b1e34747c0c3ec68f28f60ac32a7b7d8c5890ccfb2a397f70a310",
+    "desktop/window_host.cjs": "0ef22ab725e1be787dbe4c1df17e84d1262a1fb7a488fe0b5e7b9e209b6e57cc",
+    "desktop/window_state.cjs": "e864dfe3f0675b214713c7897edabe94a03468f327460eeff2f606cb008309fb",
+    "docs/gm/d1-alloy-equipment-2026-10-07/fixture/TEST-FIXTURE-D1-smelting-9.txt": "9e718a28c6b578898dc7f83f54573f466f795605b8cc803d75c16e4d354ae5d9",
+    "docs/gm/dispatch/lotm-lives-regions-2026-10-23/fixtures/primary_pre_q2_cc_promoted.json": "696d751a32c5a1cfa56a5b26bbfa5125146ddeb4036376d9390e1f4a25f2d423",
+    "docs/gm/dispatch/lotm-lives-regions-2026-10-23/fixtures/primary_pre_q2_seer_promoted.json": "a0b8ccfdf3a4bafc24154d6c23f30bb671843f0eb2ed103818e10f9511a854d8",
+    "docs/gm/dispatch/lotm-q6-2026-10-25/baseline-commands.json": "e41c814e94bb1b994cc3e45c78e8d7867616f30ac5f7d0c9629e34a0fba2b65e",
+    "docs/gm/dispatch/lotm-q6-2026-10-25/c1-savant-exam.json": "0567c00681d679d896b76b0739ef6962428335eab658bb18347f649b6f7cea3a",
+    "docs/gm/dispatch/lotm-q6-2026-10-25/c1-save.json": "f173bbae872a72636cf9bcc24c7374d5c92aca026bfc855530a776dfabc58a96"
+  },
+  "codeChanges": 0,
+  "initialRuntimeInputsDrift": [],
+  "bundleUnchanged": true,
+  "reason": "Four ENOENT failures; exact declared repository test dependencies, not gameplay repairs."
+}

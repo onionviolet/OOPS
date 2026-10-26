@@ -1,0 +1,22 @@
+[
+  {
+    "pid": 0,
+    "alive": true,
+    "os_kill_called": true
+  },
+  {
+    "pid": -1,
+    "alive": true,
+    "os_kill_called": true
+  },
+  {
+    "pid": true,
+    "alive": true,
+    "os_kill_called": true
+  },
+  {
+    "pid": false,
+    "alive": true,
+    "os_kill_called": true
+  }
+]

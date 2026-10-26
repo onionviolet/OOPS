@@ -1,0 +1,19 @@
+{
+  "state": "verified assertion segment, process later failed on harness navigation; resumed using same-bundle after-assembly save",
+  "pendingTrialSaveReloadExportLiteralImport": "asserted in browser.mjs before proceeding to real assembly",
+  "pendingExportSha256": "dedb77d4b591f15728f5454e4d4444e28f6cc74ed5ead4ee3fe543e78a411d79",
+  "afterAssemblySaveSha256": "98745b429e4c8cf53a5f12c0936696bc0d4e753267be0f89dae7271fc0f4d729",
+  "retainedAccounts": [
+    "book.mol.lore.print.r1",
+    "book.mol.lore.copy.r1",
+    "book.mol.lore.margin.r1",
+    "book.mol.lore.reverse.r1",
+    "book.mol.lore.revision.r2",
+    "book.mol.lore.trial.ink",
+    "book.mol.lore.trial.oil",
+    "book.mol.lore.interpretation.r1"
+  ],
+  "inkConsumed": true,
+  "lampCount": 1,
+  "manualMasteryAfterAssembly": 0
+}

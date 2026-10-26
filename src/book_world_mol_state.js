@@ -1,3 +1,4 @@
+import {validateMolLoreRecords} from './book_world_mol_lore.js';
 import {MOL_IDS as I,MOL_LOCATIONS as L,MOL_FOOTPRINTS as footprints,MOL_FRONTIER,MOL_SOURCE_SNAPSHOT,MOL_SOURCE_HASH,MOL_INITIAL_FACTS,molDefinitions} from './book_world_mol_content.js';
 import {createRealmConnection,realmConnectionBinding,validateRealmConnectionBinding} from './realm_connections.js';
 import {validateWorldRecords,planWorldClock} from './world_instances.js';
@@ -13,6 +14,7 @@ const binding=createMolConnections().map(realmConnectionBinding);
 export function activeMolVisit(state){const d=state.motherOfLearning;return d?.visits.find(v=>v.id===d.activeVisitId&&v.status==='active')||null;}
 const optionalPrefix=k=>k.startsWith('book.mol.');
 export function validateMolCampaignState(state){
+ validateMolLoreRecords(state);
  const d=state.motherOfLearning,s=state.simulation,ids=molDefinitions.people.map(p=>p.id);
  if(d==null){
   assert(!state.worlds?.[I.world]&&!ids.some(id=>state.actors?.[id]||s?.people?.[id])&&state.actors?.player?.worldId!==I.world,'Cyoria presence needs its explicit optional owner.');

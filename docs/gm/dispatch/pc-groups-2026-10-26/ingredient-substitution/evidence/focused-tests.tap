@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: catalogue is base.native@1 with 20 to 40 materials and conserved fractions
+ok 1 - catalogue is base.native@1 with 20 to 40 materials and conserved fractions
+  ---
+  duration_ms: 0.451667
+  type: 'test'
+  ...
+# Subtest: every mapped id exists in the game item definitions
+ok 2 - every mapped id exists in the game item definitions
+  ---
+  duration_ms: 51.751083
+  type: 'test'
+  ...
+# Subtest: lookup and reverse queries
+ok 3 - lookup and reverse queries
+  ---
+  duration_ms: 0.552833
+  type: 'test'
+  ...
+# Subtest: property thresholds
+ok 4 - property thresholds
+  ---
+  duration_ms: 0.304916
+  type: 'test'
+  ...
+# Subtest: rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+ok 5 - rendering fit grades source contribution without revealing unobserved properties or accepting unrelated oil
+  ---
+  duration_ms: 1.738458
+  type: 'test'
+  ...
+# Subtest: native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+ok 6 - native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting
+  ---
+  duration_ms: 49.460917
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 103.444833

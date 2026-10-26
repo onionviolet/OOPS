@@ -1,4 +1,4 @@
-import {consumeTablet,startTreatment,treatmentNow} from './craft_body_treatment.js';
+import {consumeTablet,tabletConsequence,startTreatment,treatmentNow} from './craft_body_treatment.js';
 // ORIGINAL Village trial. Uses the engine's composition law, not the older mixture law.
 import {natural} from './basics.js';
 import {frontierCatalogue as catalogue,frontierBrewLaw as law,frontierLayeredLaw as layeredLaw,frontierTabletLaw as tabletLaw} from './craft_content_frontier.js';
@@ -152,19 +152,40 @@ function examineLot(owner,inventory,request) {
  if(!facts.length)fail('Nothing visible to learn from this material.');
  return {material:record.material,facts,cost:q.cost.sample};
 }
+// ORIGINAL brazier hold: one committed batch on the native calendar. The
+// product record describes chemistry; this optional depth record owns custody.
+export const FIRING_MINUTES=6;
+export function validateFiring(f,owner,clock){
+ if(f===undefined)return;
+ if(!f||Object.keys(f).sort().join(',')!=='at,due,product'||typeof f.product!=='string'||!natural(f.at)||!natural(f.due)||f.due-f.at!==FIRING_MINUTES)fail('Invalid held brazier batch.');
+ if(clock!==undefined&&f.at>clock)fail('Held brazier batch is ahead of the native calendar.');
+ if(owner!==undefined){const p=owner?.products?.[f.product];if(!p||![layeredLaw.ref,tabletLaw.ref].includes(p.law)||p.process.length!==1||p.process[0][0]!=='heat')fail('Held brazier batch needs its retained heated preparation.');}
+ return f;
+}
+function collectFiring(owner,depth,clock){
+ const f=validateFiring(depth?.firing,owner,clock);if(!f)fail('No batch is held on the brazier.');
+ if(clock<f.due)fail(`The held batch needs ${f.due-clock} more played minutes before collection.`);
+ const p=owner.products[f.product],late=Math.min(12,clock-f.due),process=p.process.map(([op,level])=>({op,level}));
+ if(late)process.push({op:'heat',level:late});
+ return resolveBatch(p.law===tabletLaw.ref?tabletLaw:layeredLaw,{inputs:p.inputs.map(([role,id,,qty])=>({role,material:owner.materials[id]??catalogue.materials[id],qty})),process,stations:p.stations,recipe:p.recipe?{ref:p.recipe}:null,order:p.order,control:p.thermal.control});
+}
 export function quoteCrafting(owner,inventory,request,context) {
- let reason=eligibility(context);
+ let reason=eligibility(context),treatment,firing;
  if(!reason)try{
   validateOwner(owner);
   if(request.type==='harvest'){
    const source=request.source??'village-herbs';if(!villageSources.sources[source])fail('Unknown Village source.');
    const forecast=forecastHarvest(villageSources,source,{at:context.clock,actor:{skill:0},node:owner?.sources.nodes[nodeKey(context.world,context.location,source)]});
    if(!forecast.stock)fail('This verge is depleted; regrowth uses played time.');
-  }else if(request.type==='craft'){
+  }else if(request.type==='craft'||request.type==='begin_firing'){
+   if(request.layered&&context.depth?.firing)fail('Collect or abandon the held batch before using this brazier again.');
+   if(request.type==='begin_firing'&&(!request.layered||request.process?.length!==1||request.process[0].op!=='heat'))fail('A brazier hold starts with one layered heat step.');
    if(request.tablet&&!request.layered)fail('Conditioning tablets use the layered brazier process.');
    const lots=inputLots(request,owner,inventory);
    if(request.layered&&!(inventory[JSON.stringify({id:'Charcoal'})]>0))fail('Layered brazier work spends one owned Charcoal per batch.');
    resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
+  }else if(request.type==='collect_firing'){firing=collectFiring(owner,context.depth,context.clock).product.thermal;
+  }else if(request.type==='abandon_firing'){if(!validateFiring(context.depth?.firing,owner,context.clock))fail('No batch is held on the brazier.');
   }else if(request.type==='treatment'){
    const t=startTreatment(context.depth?.body,request.action,context);if((inventory[JSON.stringify({id:t.spend.id})]||0)<t.spend.count)fail(`Needs ${t.spend.count} ${t.spend.id}.`);
    if(request.recipe)checkMethod(owner,inventory,request,lots);
@@ -176,11 +197,14 @@ export function quoteCrafting(owner,inventory,request,context) {
    if((owner?.references?.read?.[ACTOR]??[]).includes(d.id))fail('You have already read this; it has nothing new to teach you.');
   }else if(request.type==='examine'){examineLot(owner,inventory,request);
   }else if(request.type==='use'){
-   if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');const p=productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');if(p.outputs.permanent)consumeTablet(context.depth?.body,p,context);
+   if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');const p=productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');if(p.outputs.permanent){
+    if(owner.knowledge?.player?.[p.id]?.facts.includes('effect:permanent.conditioning'))treatment=tabletConsequence(context.depth?.body,p,context);
+    consumeTablet(context.depth?.body,p,context);
+   }
   }else fail('Unknown crafting command.');
  }catch(e){reason=e.message;}
- const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,context.skill??0,context.mind,context.body,context.depth?.body??null,context.temperingStage??0,request]);
- return {eligible:!reason,reason,token,request:structuredClone(request)};
+ const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,context.skill??0,context.mind,context.body,context.depth?.body??null,context.depth?.firing??null,context.temperingStage??0,request]);
+ return {eligible:!reason,reason,token,request:structuredClone(request),...(treatment?{treatment}:{}),...(firing?{firing}:{})};
 }
 export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth()) {
  context={...context,depth};const fresh=quoteCrafting(owner,inventory,quoted.request,context);
@@ -194,17 +218,26 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   if(!result.result.items.length)fail(result.result.reason);
   next=freezeMaterials(next,catalogue,result.result.items.map(i=>i.material));next=setSourceNode(next,key,result.node);
   for(const i of result.result.items)items.push({key:materialKey(i.material,i.quality),amount:i.qty});
- }else if(request.type==='craft'){
+ }else if(request.type==='craft'||request.type==='begin_firing'){
   const lots=inputLots(request,next,inventory);if(request.recipe)checkMethod(next,inventory,request,lots);const result=resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
   if(request.layered)items.push({key:JSON.stringify({id:'Charcoal'}),amount:-1});
   for(const i of lots)items.push({key:i.key,amount:-i.qty});
   const rough=roughBatch(result.product);
+  if(request.type==='begin_firing'){next=recordProduct(next,result.product);nextDepth={...depth,firing:{product:result.product.id,at,due:at+FIRING_MINUTES}};outcome={kind:'firing',text:`The selected materials and one Charcoal are committed. Collect after ${FIRING_MINUTES} played minutes; each late minute adds heat exposure, up to 12 as this fuel burns out. Control may absorb some excess. Abandoning leaves waste, with no refund.`};}
+  else if(rough)failure={code:rough.code,reason:rough.reason,result:{...result,product:{...result.product,outputs:{}}}};
+  else{next=recordProduct(next,result.product);items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});batch=result;}
+ }else if(request.type==='collect_firing'){
+  const result=collectFiring(next,depth,at),rough=roughBatch(result.product);nextDepth={...depth};delete nextDepth.firing;
   if(rough)failure={code:rough.code,reason:rough.reason,result:{...result,product:{...result.product,outputs:{}}}};
   else{next=recordProduct(next,result.product);items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});batch=result;}
+  outcome={kind:'collected',text:rough?rough.reason:`One held preparation is collected. Heat exposure ${result.product.thermal.heat}, controlled allowance ${result.product.thermal.safeHeat}, residual ${result.product.thermal.residual}. Its effects still need observation.`};
+ }else if(request.type==='abandon_firing'){
+  nextDepth={...depth};delete nextDepth.firing;outcome={kind:'abandoned',text:'The held batch is discarded as unusable waste. Its committed materials and fuel are spent; no preparation or refund is granted.'};
  }else if(request.type==='treatment'){
   const t=startTreatment(depth.body,request.action,context);items.push({key:JSON.stringify({id:t.spend.id}),amount:-t.spend.count});nextDepth={...depth,body:t.body};
  }else if(request.type==='use'&&productFromNativeKey(request.key,next).outputs.permanent){
   const p=productFromNativeKey(request.key,next),t=consumeTablet(depth.body,p,context);nextDepth={...depth,body:t.body};items.push({key:request.key,amount:-1});next=observe(next,'player',p.id,['effect:permanent.conditioning'],at);
+  outcome={kind:'conditioned',text:`This body gains ${t.gain} conditioning and ${t.residue} medicinal residue (${t.thermal} from preparation, ${t.load} from unpurged load, ${t.potency} from potency beyond current tempering). Purging residue eases the next dose's load; poison remains separate.`};
  }else if(request.type==='acquire'){
   const d=REFERENCES[request.ref],spec=REFERENCE_SPECS.find(r=>r.id===d.id);
   if(spec.recipe)next=freezeRecipe(next,RECIPES[spec.recipe],null);

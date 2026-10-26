@@ -1,0 +1,21 @@
+{
+  "source_ready": true,
+  "native_floor_complete": false,
+  "hashes": {
+    "src/drying_exposure.js": "55194a9ffbcfde99b14e1e1b0b6e4d2d0023c48b2a43e6c39370ef8550769485",
+    "src/book_world_paradise_drying.js": "7388fe55e7effe15fce6e8d899bb32ff5cc73b06a5b65b401ce80dd6e1880afd",
+    "tests/drying_exposure.test.js": "b5bb5d092e0944fac2db54886ff1ff93303d3a3a8876bf662da3fdc3cb6219f0",
+    "tests/paradise_drying.test.js": "cc5a704f8fbcc2f21ee34e5add604af66ebb2239fe8bb7a57d0551164364c91f",
+    "src/book_world_paradise_campaign_content.js": "aaf6c1ae3a39fc08a7c2f233f3fdc846c49220877e98905b385d096ec27c6796",
+    "src/book_world_paradise_campaign_facts.js": "80dddd3f24b203e4fd43b521bbe09702dce9285ca592ad72f21e00991ce8a4eb",
+    "src/book_world_paradise_campaign_host.js": "421d0d788ad72be1e7cb64613afe5e0268028699f5eb720f4d6b99e897543e84",
+    "src/book_world_paradise_campaign_runtime.js": "cc2dbc28bae81ae42f4d456fe1ebb4bd1215b18a869a2752d55caa659c356da8",
+    "src/simulation_content.js": "e66d8685a7f77cb987a64b11e3079e826e8dac3f1653da655276bb37fd4cbc5a",
+    "src/field_works_extension_facts.js": "9e72d43765a461f4bd4b2de558a94f3fe91d531f51600e50d75396cceb05207a"
+  },
+  "focused": "23/23 tests in focused.tap; final helper presentation change additionally 5/5 paradise_drying checks in focused-final-paradise.tap",
+  "golden": "39 earlier commands unchanged; command-golden.json",
+  "snapshot": "/Users/weiwei/.codex/research/weather-w3-2026-10-26/snapshot",
+  "contract": "SOURCE_CONTRACT.md",
+  "scope": "S1 ordinary original Paradise drying; full assigned coverage remains ledger-qualified/open"
+}

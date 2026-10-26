@@ -17,6 +17,7 @@ a line before relying on it. Update the owning file when a system or a degree la
 | Making, items, economy | [MAKING_ITEMS_ECONOMY](systems/MAKING_ITEMS_ECONOMY.md) | Items and inventory keys, tags, craft engine, the three recipe systems with the substitution ladder SUB0 to SUB4, product registry, lineage and treatment, gear, effects, HP and LOTM potions, money, shops, custody, escrow, quality, spoilage; 25 common tasks; duplicates MIE-D1 to D7; gaps MIE-G1 to G14 |
 | Progression, world, state, UI | [PROGRESSION_WORLD_STATE](systems/PROGRESSION_WORLD_STATE.md) | Fact rules, gates, ascension paths, skills and overflow, titles and rank, clearance, domain registry, world packs, book-world hosts, simulation commands and jobs, expansion engine, persistence, knowledge and sealed truth, body, lives and heirs, seeded generation, tags, UI ports and panels, debug views, clocks; 25 common tasks; 14 gaps |
 | Combat, people, sites, UI layout | [COMBAT_PEOPLE_SITES_UI](systems/COMBAT_PEOPLE_SITES_UI.md) | Combat math, opponent projection and encounter definitions; people, generated residents, companions and helper/work seams; authored sites, project phases and exploration knowledge; panel registry, layout spec and browser-local placement. Code-fit map, not browser-play proof. |
+| Weather, environment and retained materials | [W6 source contract](gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/SOURCE_CONTRACT.md), [combined coverage](gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/COMBINED_COVERAGE.md) | Active-instance sourceCalendarAt, finite coppice, counted water/composition, moisture exposure and paid cover/heat, contained ORIGINAL pulse forecast, retained charge and paid grounding; bounded native kit/order journey. Outdoor climate, seasonal/animal/soil and light/pressure readers retain source gaps. |
 
 ## Degrees of flexibility worth knowing first
 
@@ -31,15 +32,29 @@ a line before relying on it. Update the owning file when a system or a degree la
 ## Top gaps (from both files)
 
 1. Live crafting runtime is single-world (Village frontier catalogue).
-2. Graded native rendering input costs are implemented; the general recipe matcher still has no live caller, and symbolic/potency/risk substitution remains open.
+2. Graded native rendering costs and Village tag-slot method matching are live; named-method preview/commit parity is defective. Generated discovery recipes and broader symbolic/potency/risk substitution remain open. [2026-10-26 making audit](audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md).
 3. Gate overflow policies mostly unread.
 4. Per-life world-pack state has no importer outside the pack modules.
 5. No legacy-command mechanism for in-flight jobs after a command changes.
 
 ## Keeping it current
 
+Material-foundations implementation, 2026-10-26: [G5 coverage](gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COVERAGE.md)
+supersedes the dated map where explicitly identified: typed material validation,
+current/derived identity, exact support receipts, observer-safe HP preparation
+assessment and paid preparation consumers are released. A specific directional
+ORIGINAL native Bonemeal to HP abrasion reader is separate from LOTM identity
+rules. Measured native queries scan 32 candidates at registration, with explicit
+incomplete diagnostic coverage; no new cache. See the ledger for passing imported-quantity/browser/persistence proof and the
+exact frozen test recovery evidence.
+
 Expansion items for this register live in the workflow's
 [expansion backlog](gm/MECHANIC_ABSORPTION_WORKFLOW.md#expansion-backlog-keep-growing-this-2026-10-25):
 MAW-X2 (drift check against exported functions), MAW-X8 (combat, people, sites and UI layout
 entries: [combat, people, sites and UI layout](systems/COMBAT_PEOPLE_SITES_UI.md)) and MAW-X9
 (owners for each gap above).
+
+
+## Cyoria lore through existing owners, 2026-10-26
+
+The installed `book.mol` pack now connects attributed documents/copies, actual ink trials, two supported guide preparations, a retained apparatus repair and issuer/scope/date-qualified institutional review to its existing lamp/household consumer. `book_world_mol_lore.js` reads separate records from existing per-actor knowledge without changing summary precedence; `molFacts` supplies current native means and custody. There is no new stock owner, clock or general social simulator. [S13 degree](systems/PROGRESSION_WORLD_STATE.md#s13-knowledge-observation-and-sealed-truth) and [G7 joined receipt](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/REPORT.md) own APIs, source qualification, fixture versus earned scope and current verification state.

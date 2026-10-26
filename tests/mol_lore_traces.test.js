@@ -1,0 +1,53 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {fixture,context,act,perform,finish,move,P,envelope} from '../docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L2/fixture.mjs';
+import {expeditionRegistry as registry} from '../src/expedition_content.js';
+import {previewMolCommand,molPresentation} from '../src/book_world_mol_host.js';
+import {molCommands} from '../src/book_world_mol_actions.js';
+import {readMolLore,molLoreEvidence,evaluateMolCredential,molLoreInstitutionFacts} from '../src/book_world_mol_lore.js';
+import {cancelSimulationJob} from '../src/simulation.js';
+import {loadExpansionState} from '../src/expansion_engine.js';
+import {MOL_IDS as I,MOL_KEYS as K} from '../src/book_world_mol_ids.js';
+const q=(p,id)=>previewMolCommand(p.state,registry,P+id,context(p));
+const records=p=>p.state.simulation.knowledge.player;
+const stock=p=>p.gameplay.player.inventory;
+function restored(){let p=fixture();for(const id of ['trace','inspect_worn_jig','repair_jig','inspect_restored_jig'])p=perform(p,P+id);return p;}
+function device(){let p=restored();p=perform(p,P+'prepare_guide_jig');p=perform(p,P+'practice_hand_guide');p=move(p,'house');p=perform(p,P+'prepare_guide_folded');p=move(p,'workshop');p=act(p,P+'compare_methods');p=perform(p,P+'assemble_guided_lamp');p=perform(p,'book.mol.charge_1');p=move(p,'court');p=perform(p,'book.mol.control_drill');p=move(p,'workshop');p=perform(p,'book.mol.lamp_test');p=perform(p,P+'witness_device');p=move(p,'house');p=perform(p,'book.mol.close_service_arc');return move(p,'academy');}
+
+test('released commands stay exact and trace/projection cannot substitute for present apparatus or mint stock',()=>{
+ const before=JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/commands-after-L2.json',import.meta.url)));
+ for(const c of before)assert.deepEqual(molCommands.find(x=>x.id===c.id),c);
+ let p=fixture(),inert=JSON.stringify(p);q(p,'trace');molPresentation(p.state,registry,context(p));readMolLore(p.state);assert.deepEqual(molLoreEvidence(p.state,I.nora).accounts,[]);assert.equal(JSON.stringify(p),inert);
+ const inventory=structuredClone(stock(p));p=perform(p,P+'trace');const trace=structuredClone(records(p)[P+'trace.r1']);assert.equal(JSON.parse(trace.value).origin,JSON.parse(records(p)[P+'print.r1'].value).origin);assert.equal(molLoreEvidence(p.state).documentRoots.length,2);assert.deepEqual(stock(p),inventory);assert.equal(q(p,'prepare_guide_jig').eligible,false);
+ p=perform(p,P+'inspect_worn_jig');p=perform(p,P+'repair_jig');assert.equal(stock(p)[K.paper],inventory[K.paper]-1);assert.equal(q(p,'prepare_guide_jig').eligible,true);
+ p=perform(p,P+'inspect_restored_jig');assert.deepEqual(records(p)[P+'trace.r1'],trace);assert.ok(records(p)[P+'jig.worn']);assert.ok(records(p)[P+'jig.restored']);
+ const current=structuredClone(stock(p));p=move(p,'station');p=act(p,'book.mol.return');p=act(p,'book.mol.enter');p=move(p,'workshop');assert.equal(q(p,'prepare_guide_jig').eligible,true);assert.equal(q(p,'repair_jig').eligible,false);assert.deepEqual(stock(p),current);assert.deepEqual(records(p)[P+'trace.r1'],trace);envelope(p);
+});
+
+test('repair cancellation and loss of actual Nora support refund once without restored support or lost history',()=>{
+ for(const loss of ['cancel','support']){
+  let p=fixture();p=perform(p,P+'trace');p=perform(p,P+'inspect_worn_jig');const before=structuredClone(p);p=act(p,P+'repair_jig');const job=p.state.simulation.jobs.find(j=>j.commandId===P+'repair_jig');p.state=loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry);
+  if(loss==='cancel')p={...p,...cancelSimulationJob(p.state,registry,job.id,context(p))};else{p.state.simulation.people[I.nora].body.mobile=false;p=finish(p);}
+  assert.deepEqual(stock(p),stock(before));assert.equal(p.state.actors.player.resources['book.mol.crowns'],before.state.actors.player.resources['book.mol.crowns']);assert.equal(p.vitals.player.stamina,before.vitals.player.stamina);assert.equal(p.state.worlds[I.world].facts[P+'jigRestored'],undefined);assert.equal(records(p)[P+'jig.repair'],undefined);assert.deepEqual(records(p)[P+'jig.worn'],records(before)[P+'jig.worn']);assert.throws(()=>cancelSimulationJob(p.state,registry,job.id,context(p)));
+ }
+});
+
+test('issuer, operator/method/device scopes, current standard and custody affect institution without changing the lamp',()=>{
+ let p=device();p=perform(p,P+'clarify_scope');let e=molLoreEvidence(p.state).accounts;
+ for(const id of ['credential.nora.r1','credential.operator.r1'])assert.equal(evaluateMolCredential(p.state,e.find(r=>r.id===P+id),{ownedLamp:true}).eligible,false);
+ p=perform(p,P+'certify_device_r1');const cert=structuredClone(records(p)[P+'credential.academy.r1']);assert.equal(molLoreInstitutionFacts(p.state,{ownedLamp:true})['mol.lore.currentDeviceCertificate'],true);
+ const actual=molLoreEvidence(p.state).accounts.find(r=>r.id===P+'credential.academy.r1');assert.match(readMolLore(p.state).find(r=>r.id===actual.id).text,/Issued at played minute/);
+ for(const bad of [{...actual,credential:{...actual.credential,issuer:I.nora}},{...actual,credential:{...actual.credential,scope:'operator'}}])assert.equal(evaluateMolCredential(p.state,bad,{ownedLamp:true}).eligible,false);
+ assert.equal(evaluateMolCredential(p.state,actual,{ownedLamp:false}).eligible,false);
+ const powers=structuredClone(p.state.simulation.powers.player),sources=structuredClone(p.state.actors.player.sources),lamp=stock(p)[K.lamp],fuel=p.state.actors.player.resources['book.mol.deviceFuel'];
+ p=perform(p,P+'review_standard');assert.equal(molLoreInstitutionFacts(p.state,{ownedLamp:true})['mol.lore.currentDeviceCertificate'],false);assert.deepEqual(records(p)[P+'credential.academy.r1'],cert);assert.equal(p.state.actors.player.resources['book.mol.deviceFuel'],fuel);assert.equal(stock(p)[K.lamp],lamp);assert.deepEqual(p.state.simulation.powers.player,powers);assert.deepEqual(p.state.actors.player.sources,sources);
+ const method=molLoreEvidence(p.state).accounts.find(r=>r.id===P+'standard.r2');assert.equal(method.credential.scope,'method');assert.equal(evaluateMolCredential(p.state,method,{ownedLamp:true}).eligible,false);
+ p=move(p,'house');assert.equal(previewMolCommand(p.state,registry,'book.mol.use_lamp_house',context(p)).eligible,true);p=move(p,'academy');p=perform(p,P+'certify_device_r2');assert.equal(molLoreInstitutionFacts(p.state,{ownedLamp:true})['mol.lore.currentDeviceCertificate'],true);assert.deepEqual(records(p)[P+'credential.academy.r1'],cert);
+ p.state=loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry);assert.deepEqual(records(p)[P+'credential.academy.r1'],cert);envelope(p);
+});
+
+test('stale owned-device quote is rejected and malformed credential metadata is preserved for its matching reader',()=>{
+ let p=device();p=perform(p,P+'clarify_scope');assert.equal(q(p,'certify_device_r1').eligible,true);delete stock(p)[K.lamp];const before=structuredClone(p);assert.throws(()=>act(p,P+'certify_device_r1'));assert.deepEqual(p,before);
+ const r=records(p)[P+'credential.operator.r1'],parsed=JSON.parse(r.value);r.value=JSON.stringify({...parsed,credential:{...parsed.credential,scope:'untyped'}});assert.throws(()=>loadExpansionState(p.state,registry),/credential/);
+});

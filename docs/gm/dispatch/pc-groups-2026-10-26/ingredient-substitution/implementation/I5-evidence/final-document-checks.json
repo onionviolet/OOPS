@@ -1,0 +1,57 @@
+{
+  "zeroLoss": {
+    "PROJECT.md": {
+      "baselineSha256": "e2a31345a1446497dda07c908d586d3293988e43ca4475dd70761e15a7c14f3c",
+      "finalSha256": "072b1f9512261eb46ea769c6a346b4dda73191167d94c8bfde3db3d434c6544b",
+      "unrelatedBytesPreserved": true,
+      "changes": [
+        {
+          "kind": "replace",
+          "oldLine": 2167,
+          "removedLines": 1,
+          "newLines": 1
+        }
+      ]
+    },
+    "docs/CRAFTING_ENGINE.md": {
+      "baselineSha256": "d52d1d4607dad326eb006615a1a2050e5d9c5a6e319a4500dced7f755f3093be",
+      "finalSha256": "23e170a7d0140f0343a95ace40ba3cf4801b1fa531e0fb745d0021cb1986b3f2",
+      "unrelatedBytesPreserved": true,
+      "changes": [
+        {
+          "kind": "replace",
+          "oldLine": 1504,
+          "removedLines": 1,
+          "newLines": 1
+        }
+      ]
+    },
+    "docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/INTEGRATION.md": {
+      "baselineSha256": "b6fa9ea028a759b86345fc83de2140f0a93a47e7503b847bae95d8468597d142",
+      "finalSha256": "e669a547d254275a42694f88e56c043ed33df9db85122c244735845a6674b39d",
+      "unrelatedBytesPreserved": true,
+      "changes": [
+        {
+          "kind": "insert",
+          "oldLine": 4,
+          "removedLines": 0,
+          "newLines": 2
+        },
+        {
+          "kind": "insert",
+          "oldLine": 137,
+          "removedLines": 0,
+          "newLines": 54
+        }
+      ]
+    }
+  },
+  "newLocalLinksMissing": [],
+  "legacyMissingLinks": [],
+  "rules": "No registered rule/code edits; frozen check:rules reused.",
+  "diffCheck": {
+    "command": "git diff --check -- own source/test and three doc paths",
+    "exit": 0,
+    "output": ""
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "agent-verified, not human-reviewed",
+  "bundleSha256": "62199464659e8a2cc33d2e7e191c6a0d15f60f0b9c23e77a373894a3c8d7f66f",
+  "source": "/tmp/yairpg-L7-s3-source",
+  "build": "/tmp/yairpg-L7-s3-build",
+  "inputManifest": "final-input-manifest.json",
+  "routeKind": "earned fresh beginning plus earned same-prefix preparation variants",
+  "checks": {
+    "companyFocused": 10,
+    "priorGuAndMemoryFocused": 18,
+    "build": "pass",
+    "architecture": "pass, no new edges/core growth",
+    "rules": "pass, two existing warnings and receipt lint pass",
+    "mcp": "earned independent sleep/camp work/grown brace trial/both return/treatment pass; no page errors",
+    "browser": "eight new literal persistence checkpoints including native offsets, two unchanged old-world imports, four desktop/font cells; no page errors/overflow",
+    "samePrefixComparison": {
+      "grownBrace": {
+        "health": 24.375,
+        "max": 29
+      },
+      "rope": {
+        "health": 19,
+        "max": 20,
+        "nativeHpOffset": 0,
+        "report": true
+      },
+      "brace": {
+        "health": 14.5,
+        "max": 20,
+        "nativeHpOffset": 1,
+        "report": true
+      },
+      "both": {
+        "health": 19,
+        "max": 20,
+        "nativeHpOffset": 0,
+        "report": true
+      },
+      "unprepared": {
+        "health": 13,
+        "max": 20,
+        "nativeHpOffset": 3,
+        "report": false
+      }
+    },
+    "nativeDamageOffset": 1
+  },
+  "coverage": [
+    "M7-P3 companion recovery/evolution bounded independent-job and same-body consumer",
+    "M7-P5 staged party preparation, failure/withdrawal/success and actual return/payout"
+  ],
+  "exclusions": [
+    "Canonical ordinary Echo evolution",
+    "Nightmare Spell promotion",
+    "Arbitrary entity capture/third-party compatibility",
+    "Full Shadowbound fractional-XP/gear catalogue",
+    "Generic Soul Sea world owner (L6)"
+  ],
+  "remainingAuthoritativeGate": "L8 combined integration/full suite/build and changed joined-input native proof; no normal profile/commit/push authorized",
+  "releasedInputs": "released-inputs.json",
+  "currentInputReview": "current-input-review.json"
+}

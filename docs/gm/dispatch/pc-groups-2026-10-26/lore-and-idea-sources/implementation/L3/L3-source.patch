@@ -1,0 +1,1585 @@
+--- a/src/world_packs/book_mol_pack.js
++++ b/src/world_packs/book_mol_pack.js
+@@ -11405,6 +11405,1440 @@
+      "cancellation": "refund",
+      "completionCoLocated": true,
+      "description": "Your prepared paper guide already holds one formula-ink unit. Commit it with a cube, two stamina and three crowns; Nora still supplies her actual attention and two attuned mana. Four-minute reconstruction yields the same empty keyed lamp, with no personal casting or control mastery."
++    },
++    {
++     "id": "book.mol.lore.trace",
++     "revision": 1,
++     "label": "Study the old alignment-stop sketch · 1 min",
++     "description": "Spend one minute comparing the surviving stop marks with the old workshop sketch. This retains a historical claim; it does not establish the jig’s present condition.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [],
++     "effects": [
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.trace.r1",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.trace.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.circular\",\"copyOf\":\"book.mol.lore.print.r1\",\"supersedes\":null,\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Earlier workshop setup, before the worn stop (ORIGINAL history)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The surviving stop marks follow an earlier workshop sketch for a single-cube ruling jig. The copied sketch describes its earlier aligned stop, not present usability. Its circular and copied diagram share one source, so they are not independent witnesses. No ink, tool, skill or stock was acquired.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"earlier alignment-stop arrangement\",\"status\":\"observed\"},{\"scope\":\"present apparatus suitability\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.nora",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Spend one minute comparing the surviving stop marks with the old workshop sketch. This retains a historical claim; it does not establish the jig’s present condition."
++     },
++     "claim": "book.mol.lore.receipt.trace",
++     "duration": 1,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Spend one minute comparing the surviving stop marks with the old workshop sketch. This retains a historical claim; it does not establish the jig’s present condition."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.inspect_worn_jig",
++     "revision": 1,
++     "label": "Check the current alignment stop · 1 min",
++     "description": "Check the present stop before using the historical design. Its worn gap prevents the jig method until repaired; a practiced manual method remains possible.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [],
++     "effects": [
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.jig.worn",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.jig.worn\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.jig.worn\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your workshop observation\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The current alignment stop has a worn gap. The old sketch still describes an earlier arrangement, but cannot certify present support. The jig method is unavailable; a learned manual guide uses different actual support.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trace.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.jigWorn",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Check the present stop before using the historical design. Its worn gap prevents the jig method until repaired; a practiced manual method remains possible."
++     },
++     "claim": "book.mol.lore.receipt.inspect_worn_jig",
++     "duration": 1,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.trace.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.jigWorn",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Check the present stop before using the historical design. Its worn gap prevents the jig method until repaired; a practiced manual method remains possible."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.repair_jig",
++     "revision": 1,
++     "label": "Shim the alignment stop with Nora · paper + 1 crown, 3 min",
++     "description": "Nora offers to fit your paper shim to her observed worn stop. The joint three-minute repair costs one paper, one stamina, one crown and her attention; it restores this jig without creating ink, guides or skill.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "player",
++       "key": "book.mol.crowns",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.attention",
++       "amount": -1
++      },
++      {
++       "type": "vital",
++       "actor": "player",
++       "key": "stamina",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.crowns",
++       "amount": 1
++      },
++      {
++       "type": "world",
++       "worldId": "book.mol.cyoria",
++       "key": "book.mol.lore.jigRestored",
++       "value": true
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.jig.repair",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.jig.repair\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.jig.repair\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your workshop observation\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"One owned paper became the alignment-stop shim after three minutes of work with Nora. The actual jig now supports the single-cube ruling method. The consumed paper, payment and installed modification remain on revisit; the earlier sketch and worn-stop observation remain historical evidence.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.jig.worn.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.jigWorn",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Nora offers to fit your paper shim to her observed worn stop. The joint three-minute repair costs one paper, one stamina, one crown and her attention; it restores this jig without creating ink, guides or skill."
++     },
++     "claim": "book.mol.lore.receipt.repair_jig",
++     "targetId": "book.mol.nora",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 3,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.jig.worn.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.jigWorn",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Nora offers to fit your paper shim to her observed worn stop. The joint three-minute repair costs one paper, one stamina, one crown and her attention; it restores this jig without creating ink, guides or skill."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.inspect_restored_jig",
++     "revision": 1,
++     "label": "Check the repaired alignment stop · 1 min",
++     "description": "Check the installed shim against the earlier account. This records current suitability without erasing the old worn-stop observation or replenishing supplies.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [],
++     "effects": [
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.jig.restored",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.jig.restored\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.jig.restored\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Your workshop observation\",\"speaker\":\"player\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The installed paper shim still closes the observed alignment gap. This current check supports the ruling jig for the demonstrated one-cube preparation. It does not certify other inks or scales; the old worn-stop record remains valid history.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "player",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.jig.repair.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "world.book.mol.lore.jigRestored",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Check the installed shim against the earlier account. This records current suitability without erasing the old worn-stop observation or replenishing supplies."
++     },
++     "claim": "book.mol.lore.receipt.inspect_restored_jig",
++     "duration": 1,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.jig.repair.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "world.book.mol.lore.jigRestored",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Check the installed shim against the earlier account. This records current suitability without erasing the old worn-stop observation or replenishing supplies."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": false
++    },
++    {
++     "id": "book.mol.lore.witness_device",
++     "revision": 1,
++     "label": "Ask Nora to record your observed device test · 1 min",
++     "description": "Nora records your existing lamp test and guide evidence while the owned device is present. Her witnessed account is useful evidence, rather than an academy device certificate.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria formula workshop",
++     "once": true,
++     "costs": [
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.attention",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.credential.nora.r1",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.nora.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.nora.r1\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Nora Boole\",\"speaker\":\"book.mol.nora\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria formula workshop\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Nora witnessed the retained operational lamp test and received your preparation account. This device evidence covers the original workshop-built lamp, not all lamps or an operator licence. The academy may consider it but Nora does not issue its allocation certificate.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.nora\",\"scope\":\"device_batch\",\"standard\":1,\"subject\":\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\",\"sourceCommand\":\"book.mol.lore.witness_device\",\"conditions\":\"Original unique workshop assembly; observed one-cube preparation and lamp test\"}}",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.nora",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "any": [
++         {
++          "fact": "knowledge.book.mol.lore.method.jig.seen",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "knowledge.book.mol.lore.method.folded.seen",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Nora records your existing lamp test and guide evidence while the owned device is present. Her witnessed account is useful evidence, rather than an academy device certificate."
++     },
++     "claim": "book.mol.lore.receipt.witness_device",
++     "targetId": "book.mol.nora",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 1,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "any": [
++         {
++          "fact": "knowledge.book.mol.lore.method.jig.seen",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "knowledge.book.mol.lore.method.folded.seen",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       },
++       {
++        "fact": "mol.support.book.mol.nora",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Nora records your existing lamp test and guide evidence while the owned device is present. Her witnessed account is useful evidence, rather than an academy device certificate."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.clarify_scope",
++     "revision": 1,
++     "label": "Ask Ilsa which evidence the academy accepts · 1 min",
++     "description": "Ilsa distinguishes Nora’s witness account, your demonstrated manual operation, and her academy’s device review. Her operator record alone cannot obtain a device allocation.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria academy guest desk",
++     "once": true,
++     "costs": [
++      {
++       "type": "resource",
++       "actor": "book.mol.ilsa",
++       "key": "book.mol.attention",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.credential.operator.r1",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.operator.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.operator.r1\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa recognizes your previously demonstrated keyed-lamp manual operation. This operator record grants no new mastery, fuel, casting or property. Nora’s device witness has another issuer, and this academy operator record has the wrong scope for the academy’s device allocation. The first allocation standard needs your demonstrated ruling-jig preparation and a current device examination. Ilsa can consider a revised standard after receiving your actual comparison of both methods. Ordinary supported lamp use needs neither paper.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"operator\",\"standard\":1,\"subject\":\"player\",\"sourceCommand\":\"book.mol.lore.clarify_scope\",\"conditions\":\"Existing trained manual control; no commercial mage qualification\"}}",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.ilsa",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.nora.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Ilsa distinguishes Nora’s witness account, your demonstrated manual operation, and her academy’s device review. Her operator record alone cannot obtain a device allocation."
++     },
++     "claim": "book.mol.lore.receipt.clarify_scope",
++     "targetId": "book.mol.ilsa",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 1,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.nora.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Ilsa distinguishes Nora’s witness account, your demonstrated manual operation, and her academy’s device review. Her operator record alone cannot obtain a device allocation."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.certify_device_r1",
++     "revision": 1,
++     "label": "Examine this device under academy standard 1 · 1 charge, 2 min",
++     "description": "Bring a demonstrated ruling-jig preparation and your supported owned lamp for the first device review. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria academy guest desk",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "player",
++       "key": "book.mol.deviceFuel",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.ilsa",
++       "key": "book.mol.attention",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
++       "amount": 1,
++       "reservationReturn": true
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.credential.academy.r1",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.academy.r1\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.academy.r1\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa witnessed this original workshop-built lamp under academy allocation standard 1. This dated device record covers the demonstrated single-cube preparation and present manual lamp test. It is neither commercial mage qualification nor ownership. Changed custody or a later allocation standard requires reevaluation; ordinary supported operation remains possible.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"device_batch\",\"standard\":1,\"subject\":\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\",\"sourceCommand\":\"book.mol.lore.certify_device_r1\",\"conditions\":\"Original unique workshop assembly; owned device; trained supported operator; actual observed preparation and current lamp test\"}}",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.ilsa",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.institutionStandard",
++        "op": "eq",
++        "value": 1
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.jig.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Bring a demonstrated ruling-jig preparation and your supported owned lamp for the first device review. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
++     },
++     "claim": "book.mol.lore.receipt.certify_device_r1",
++     "targetId": "book.mol.ilsa",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 2,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.institutionStandard",
++        "op": "eq",
++        "value": 1
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.jig.seen",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Bring a demonstrated ruling-jig preparation and your supported owned lamp for the first device review. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.certify_device_r2",
++     "revision": 1,
++     "label": "Examine this device under academy standard 2 · 1 charge, 2 min",
++     "description": "Bring the revised method review and your supported owned lamp. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria academy guest desk",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "player",
++       "key": "book.mol.deviceFuel",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.ilsa",
++       "key": "book.mol.attention",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian keyed formula lamp\"}",
++       "amount": 1,
++       "reservationReturn": true
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.credential.academy.r2",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.credential.academy.r2\",\"kind\":\"document\",\"origin\":\"book.mol.lore.credential.academy.r2\",\"copyOf\":null,\"supersedes\":\"book.mol.lore.credential.academy.r1\",\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r2\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa witnessed this original workshop-built lamp under academy allocation standard 2. This dated device record covers the demonstrated single-cube preparation and present manual lamp test. It is neither commercial mage qualification nor ownership. Changed custody or a later allocation standard requires reevaluation; ordinary supported operation remains possible.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"device_batch\",\"standard\":2,\"subject\":\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\",\"sourceCommand\":\"book.mol.lore.certify_device_r2\",\"conditions\":\"Original unique workshop assembly; owned device; trained supported operator; actual observed preparation and current lamp test\"}}",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.ilsa",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.institutionStandard",
++        "op": "eq",
++        "value": 2
++       },
++       {
++        "fact": "knowledge.book.mol.lore.standard.r2.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "any": [
++         {
++          "fact": "knowledge.book.mol.lore.method.jig.seen",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "knowledge.book.mol.lore.method.folded.seen",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       }
++      ],
++      "reason": "Bring the revised method review and your supported owned lamp. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
++     },
++     "claim": "book.mol.lore.receipt.certify_device_r2",
++     "targetId": "book.mol.ilsa",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 2,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.lampTested",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "power.book.mol.formula_operator.mastery",
++        "op": "gte",
++        "value": 1
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.operator.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.institutionStandard",
++        "op": "eq",
++        "value": 2
++       },
++       {
++        "fact": "knowledge.book.mol.lore.standard.r2.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "any": [
++         {
++          "fact": "knowledge.book.mol.lore.method.jig.seen",
++          "op": "eq",
++          "value": true
++         },
++         {
++          "fact": "knowledge.book.mol.lore.method.folded.seen",
++          "op": "eq",
++          "value": true
++         }
++        ]
++       }
++      ],
++      "reason": "Bring the revised method review and your supported owned lamp. The two-minute test consumes one charge and Ilsa’s attention; no material property, mastery or wider licence changes."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.review_standard",
++     "revision": 1,
++     "label": "Show Ilsa both methods for a revised review · paper, 3 min",
++     "description": "Submit your observed comparison of both guide methods. Ilsa revises her finite research-allocation standard to accept either demonstrated setup with a current device test. Older papers remain, but their prior standard no longer obtains this allocation.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria academy guest desk",
++     "once": true,
++     "costs": [
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": -1
++      },
++      {
++       "type": "resource",
++       "actor": "book.mol.ilsa",
++       "key": "book.mol.attention",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "world",
++       "worldId": "book.mol.cyoria",
++       "key": "book.mol.lore.institutionStandard",
++       "value": 2
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.standard.r2",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.standard.r2\",\"kind\":\"document\",\"origin\":\"book.mol.lore.standard.r2\",\"copyOf\":null,\"supersedes\":\"book.mol.lore.credential.academy.r1\",\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r2\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"Ilsa received your actual two-method comparison and revised the academy’s bounded research-allocation review. Either demonstrated single-cube setup can be considered with a fresh present-device test. The older jig-only certificate remains historical evidence, but its allocation applicability expired with this announced revision. The device, learned methods and stock did not change.\",\"confidence\":\"Attributed scoped account, not material truth\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}],\"credential\":{\"issuer\":\"book.mol.ilsa\",\"scope\":\"method\",\"standard\":2,\"subject\":\"book.mol.lore.method.comparison\",\"sourceCommand\":\"book.mol.lore.review_standard\",\"conditions\":\"The two observed one-cube guide setups; current supported device examination still separate\"}}",
++       "basis": {
++        "kind": "instruction",
++        "attributedTo": "book.mol.ilsa",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.academy.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.comparison.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.institutionStandard",
++        "op": "eq",
++        "value": 1
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Submit your observed comparison of both guide methods. Ilsa revises her finite research-allocation standard to accept either demonstrated setup with a current device test. Older papers remain, but their prior standard no longer obtains this allocation."
++     },
++     "claim": "book.mol.lore.receipt.review_standard",
++     "targetId": "book.mol.ilsa",
++     "coLocated": true,
++     "participants": [
++      "$target"
++     ],
++     "duration": 3,
++     "reservationReturns": 1,
++     "completionRequires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.credential.academy.r1.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "knowledge.book.mol.lore.method.comparison.seen",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.institutionStandard",
++        "op": "eq",
++        "value": 1
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       }
++      ],
++      "reason": "Submit your observed comparison of both guide methods. Ilsa revises her finite research-allocation standard to accept either demonstrated setup with a current device test. Older papers remain, but their prior standard no longer obtains this allocation."
++     },
++     "completionFailure": "refund",
++     "cancellation": "refund",
++     "completionCoLocated": true
++    },
++    {
++     "id": "book.mol.lore.research_allocation",
++     "revision": 1,
++     "label": "Collect one reviewed research paper · 1 crown, finite stock",
++     "description": "A current academy device certificate and the owned supported lamp admit one paper from actual academy stock for one crown. Wrong issuer, operator-only scope, superseded standard or missing custody cannot obtain it. Ordinary lamp use remains independent.",
++     "group": "book_mol",
++     "actorId": "player",
++     "worldId": "book.mol.cyoria",
++     "location": "Cyoria academy guest desk",
++     "once": true,
++     "costs": [
++      {
++       "type": "resource",
++       "actor": "player",
++       "key": "book.mol.crowns",
++       "amount": -1
++      }
++     ],
++     "effects": [
++      {
++       "type": "resource",
++       "actor": "book.mol.nora",
++       "key": "book.mol.crowns",
++       "amount": 1
++      },
++      {
++       "type": "item",
++       "actor": "player",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "amount": 1
++      },
++      {
++       "type": "knowledge",
++       "actor": "player",
++       "key": "book.mol.lore.institution.allocation",
++       "stage": "seen",
++       "value": "{\"schema\":1,\"id\":\"book.mol.lore.institution.allocation\",\"kind\":\"observation\",\"origin\":\"book.mol.lore.institution.allocation\",\"copyOf\":null,\"supersedes\":null,\"author\":\"Ilsa Zileti\",\"speaker\":\"book.mol.ilsa\",\"era\":\"Independent Cyoria guest branch (ORIGINAL workshop scene)\",\"edition\":\"r1\",\"language\":\"Cyorian common, translated for this account\",\"place\":\"Cyoria academy guest desk\",\"referents\":[\"book.mol.lore.alignment_stop\",\"{\\\"id\\\":\\\"Cyorian keyed formula lamp\\\"}\"],\"claim\":\"The academy transferred one counted research paper for one crown under its current device-evidence review. It did not change the lamp or grant skill; this finite allocation cannot be claimed again. The paper is available for existing guide preparation or notebook research.\",\"confidence\":\"Observed in this stated setup\",\"coverage\":[{\"scope\":\"the stated apparatus, device and conditions\",\"status\":\"observed\"},{\"scope\":\"other devices, operators and scales\",\"status\":\"unread\"}]}",
++       "basis": {
++        "kind": "observation",
++        "attributedTo": "book.mol.ilsa",
++        "situationId": "book.mol.visitor_branch"
++       }
++      }
++     ],
++     "visibleWhen": {
++      "fact": "actor.book.mol.guestPermit",
++      "op": "eq",
++      "value": true
++     },
++     "requires": {
++      "all": [
++       {
++        "fact": "mol.nativeBound",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.playerSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.local.book.mol.cyoria",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "actor.book.mol.guestPermit",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.lore.currentDeviceCertificate",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.deviceSupported",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.support.book.mol.ilsa",
++        "op": "eq",
++        "value": true
++       },
++       {
++        "fact": "mol.stock.book.mol.academy.shop.{\"id\":\"Cyorian research paper\"}",
++        "op": "gte",
++        "value": 1
++       }
++      ],
++      "reason": "A current academy device certificate and the owned supported lamp admit one paper from actual academy stock for one crown. Wrong issuer, operator-only scope, superseded standard or missing custody cannot obtain it. Ordinary lamp use remains independent."
++     },
++     "claim": "book.mol.lore.receipt.research_allocation",
++     "molStock": [
++      {
++       "owner": "book.mol.academy.shop",
++       "key": "{\"id\":\"Cyorian research paper\"}",
++       "count": -1
++      }
++     ]
+     }
+    ],
+    "controllers": [
+--- a/src/book_world_mol_lore.js
++++ b/src/book_world_mol_lore.js
+@@ -12,9 +12,20 @@
+         !(r.copyOf === null || typeof r.copyOf === 'string') || !(r.supersedes === null || typeof r.supersedes === 'string')) {
+         throw Error('Unsupported retained Cyoria account. Preserve this save for its matching reader.');
+     }
++    if (r.credential) {
++        const c = r.credential;
++        if (r.kind !== 'document' || !c || !['device_batch', 'operator', 'method'].includes(c.scope) ||
++            !Number.isSafeInteger(c.standard) || c.standard < 1 ||
++            !['issuer', 'subject', 'sourceCommand', 'conditions'].every(k => typeof c[k] === 'string' && c[k].length))
++            throw Error('Unsupported retained Cyoria credential. Preserve this save for its matching reader.');
++    }
+     return r;
+ }
+ export function validateMolLoreRecords(state) {
++    const world = state.worlds?.['book.mol.cyoria']?.facts || {};
++    if (world[MOL_LORE_PREFIX + 'jigRestored'] != null && typeof world[MOL_LORE_PREFIX + 'jigRestored'] !== 'boolean' ||
++        world[MOL_LORE_PREFIX + 'institutionStandard'] != null && ![1, 2].includes(world[MOL_LORE_PREFIX + 'institutionStandard']))
++        throw Error('Unsupported actual Cyoria jig or institution state. Preserve this save for its matching reader.');
+     for (const records of Object.values(state.simulation?.knowledge || {})) {
+         for (const [id, record] of Object.entries(records)) if (id.startsWith(MOL_LORE_PREFIX)) parseMolLore(id, record.value);
+     }
+@@ -29,10 +40,44 @@
+     return {accounts, documentRoots: [...new Set(accounts.filter(r => r.kind === 'document').map(r => r.origin))]};
+ }
+ export function formatMolLore(r) {
+-    const lineage = r.copyOf ? ` Copy of ${r.copyOf}.` : '';
+-    const revision = r.supersedes ? ` Revises ${r.supersedes}; the earlier account is retained.` : '';
++    const lineage = r.copyOf ? ' This copies an earlier source; it is not independent corroboration.' : '';
++    const revision = r.supersedes ? ' This revises an earlier account; the earlier account is retained.' : '';
+     return `${r.claim} [${r.author}; ${r.edition}; ${r.era}; ${r.language}; ${r.place}. ${r.confidence}]${lineage}${revision} Coverage: ${r.coverage.map(x => `${x.scope}: ${x.status}`).join('; ')}.`;
+ }
+ export function readMolLore(state, observerId = 'player') {
+-    return molLoreEvidence(state, observerId).accounts.map(r => ({id: r.id, at: r.at, text: formatMolLore(r), stage: r.stage, basis: r.basis, known: true, observerId, recipientId: observerId}));
++    return molLoreEvidence(state, observerId).accounts.map(r => ({id: r.id, at: r.at, text: formatMolLore(r) + credentialText(r), stage: r.stage, basis: r.basis, known: true, observerId, recipientId: observerId}));
+ }
++
++function credentialText(r) {
++    if (!r.credential) return '';
++    const c = r.credential;
++    const issuer = c.issuer === 'book.mol.ilsa' ? 'Ilsa Zileti' : c.issuer === 'book.mol.nora' ? 'Nora Boole' : 'the stated issuer';
++    const scope = {device_batch: 'this device', operator: 'manual operator', method: 'guide methods'}[c.scope];
++    return ` Issued at played minute ${r.at}. Issuer: ${issuer}; scope: ${scope}; standard ${c.standard}. ${c.conditions}.`;
++}
++
++// An institution evaluates its own papers; this does not resolve material law.
++export function evaluateMolCredential(state, account, {ownedLamp = false} = {}) {
++    const c = account?.credential;
++    const standard = state.worlds?.['book.mol.cyoria']?.facts?.[MOL_LORE_PREFIX + 'institutionStandard'] ?? 1;
++    const reasons = [];
++    if (!c) return {eligible: false, reasons: ['Present the academy’s dated device record.']};
++    if (c.issuer !== 'book.mol.ilsa' || account.basis?.attributedTo !== c.issuer) reasons.push('The allocation needs the academy issuer; a witness account remains separate evidence.');
++    if (c.scope !== 'device_batch') reasons.push('This paper covers an operator or method, rather than this device.');
++    if (c.standard !== standard) reasons.push('This earlier standard remains on record; the current allocation requires its announced review.');
++    const expected = MOL_LORE_PREFIX + 'certify_device_r' + standard;
++    if (c.sourceCommand !== expected || state.actors?.player?.completed?.[expected] !== 1 ||
++        account.id !== MOL_LORE_PREFIX + 'credential.academy.r' + standard ||
++        c.subject !== '{"id":"Cyorian keyed formula lamp"}' || state.actors?.player?.facts?.['book.mol.lampBuilt'] !== true ||
++        state.simulation?.claims?.['book.mol.receipt.assemble_lamp']?.status !== 'settled') reasons.push('This device needs its actual original assembly and issued review.');
++    if (!ownedLamp) reasons.push('Present the actual owned device; retaining its paper does not establish current custody.');
++    return {eligible: !reasons.length, reasons};
++}
++export function molLoreInstitutionFacts(state, {ownedLamp = false} = {}) {
++    const world = state.worlds?.['book.mol.cyoria']?.facts || {};
++    const standard = world[MOL_LORE_PREFIX + 'institutionStandard'] ?? 1;
++    const account = molLoreEvidence(state).accounts.find(r => r.id === MOL_LORE_PREFIX + 'credential.academy.r' + standard);
++    return {'mol.lore.jigWorn': world[MOL_LORE_PREFIX + 'jigRestored'] !== true,
++        'mol.lore.institutionStandard': standard,
++        'mol.lore.currentDeviceCertificate': evaluateMolCredential(state, account, {ownedLamp}).eligible};
++}
+--- a/src/book_world_mol_actions.js
++++ b/src/book_world_mol_actions.js
+@@ -1,3 +1,4 @@
++import {molLoreInstitutionFacts} from './book_world_mol_lore.js';
+ // Cyoria's commands, powers, sources, conditions, encounters, situations and
+ // controllers are definitions owned by the book.mol world pack (WAC8, WA17);
+ // this module freezes the installed copies and keeps only the fact reader.
+@@ -37,6 +38,7 @@
+  f['mol.hatchReturnSupported']=['avoided','deterred','negotiated'].includes(worldFacts['book.mol.hazard'])&&worldFacts['book.mol.forecast']==='residue_and_movement';
+  f['mol.outcomeResolved']=['paid','failed','declined','withdrawn'].includes(worldFacts['book.mol.retrieval'])||worldFacts['book.mol.retrieval']==='late'&&state.actors?.player?.facts?.['book.mol.lateAcknowledged']===true;
+  for(const [owner,bag]of Object.entries(n.stock||{}))for(const [key,count]of Object.entries(bag))f[`mol.stock.${owner}.${key}`]=count;
++ Object.assign(f,molLoreInstitutionFacts(state,{ownedLamp:held('player',K.lamp)+acceptedTool(K.lamp)>=1}));
+  return f;
+ }
+ export const molContext=(state,ctx={})=>({...ctx,facts:{...ctx.facts,...molFacts(state,ctx)}});
+--- a/tests/mol_lore_traces.test.js
++++ b/tests/mol_lore_traces.test.js
+@@ -0,0 +1,53 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {fixture,context,act,perform,finish,move,P,envelope} from '../docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L2/fixture.mjs';
++import {expeditionRegistry as registry} from '../src/expedition_content.js';
++import {previewMolCommand,molPresentation} from '../src/book_world_mol_host.js';
++import {molCommands} from '../src/book_world_mol_actions.js';
++import {readMolLore,molLoreEvidence,evaluateMolCredential,molLoreInstitutionFacts} from '../src/book_world_mol_lore.js';
++import {cancelSimulationJob} from '../src/simulation.js';
++import {loadExpansionState} from '../src/expansion_engine.js';
++import {MOL_IDS as I,MOL_KEYS as K} from '../src/book_world_mol_ids.js';
++const q=(p,id)=>previewMolCommand(p.state,registry,P+id,context(p));
++const records=p=>p.state.simulation.knowledge.player;
++const stock=p=>p.gameplay.player.inventory;
++function restored(){let p=fixture();for(const id of ['trace','inspect_worn_jig','repair_jig','inspect_restored_jig'])p=perform(p,P+id);return p;}
++function device(){let p=restored();p=perform(p,P+'prepare_guide_jig');p=perform(p,P+'practice_hand_guide');p=move(p,'house');p=perform(p,P+'prepare_guide_folded');p=move(p,'workshop');p=act(p,P+'compare_methods');p=perform(p,P+'assemble_guided_lamp');p=perform(p,'book.mol.charge_1');p=move(p,'court');p=perform(p,'book.mol.control_drill');p=move(p,'workshop');p=perform(p,'book.mol.lamp_test');p=perform(p,P+'witness_device');p=move(p,'house');p=perform(p,'book.mol.close_service_arc');return move(p,'academy');}
++
++test('released commands stay exact and trace/projection cannot substitute for present apparatus or mint stock',()=>{
++ const before=JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/commands-after-L2.json',import.meta.url)));
++ for(const c of before)assert.deepEqual(molCommands.find(x=>x.id===c.id),c);
++ let p=fixture(),inert=JSON.stringify(p);q(p,'trace');molPresentation(p.state,registry,context(p));readMolLore(p.state);assert.deepEqual(molLoreEvidence(p.state,I.nora).accounts,[]);assert.equal(JSON.stringify(p),inert);
++ const inventory=structuredClone(stock(p));p=perform(p,P+'trace');const trace=structuredClone(records(p)[P+'trace.r1']);assert.deepEqual(stock(p),inventory);assert.equal(q(p,'prepare_guide_jig').eligible,false);
++ p=perform(p,P+'inspect_worn_jig');p=perform(p,P+'repair_jig');assert.equal(stock(p)[K.paper],inventory[K.paper]-1);assert.equal(q(p,'prepare_guide_jig').eligible,true);
++ p=perform(p,P+'inspect_restored_jig');assert.deepEqual(records(p)[P+'trace.r1'],trace);assert.ok(records(p)[P+'jig.worn']);assert.ok(records(p)[P+'jig.restored']);
++ const current=structuredClone(stock(p));p=move(p,'station');p=act(p,'book.mol.return');p=act(p,'book.mol.enter');p=move(p,'workshop');assert.equal(q(p,'prepare_guide_jig').eligible,true);assert.equal(q(p,'repair_jig').eligible,false);assert.deepEqual(stock(p),current);assert.deepEqual(records(p)[P+'trace.r1'],trace);envelope(p);
++});
++
++test('repair cancellation and loss of actual Nora support refund once without restored support or lost history',()=>{
++ for(const loss of ['cancel','support']){
++  let p=fixture();p=perform(p,P+'trace');p=perform(p,P+'inspect_worn_jig');const before=structuredClone(p);p=act(p,P+'repair_jig');const job=p.state.simulation.jobs.find(j=>j.commandId===P+'repair_jig');p.state=loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry);
++  if(loss==='cancel')p={...p,...cancelSimulationJob(p.state,registry,job.id,context(p))};else{p.state.simulation.people[I.nora].body.mobile=false;p=finish(p);}
++  assert.deepEqual(stock(p),stock(before));assert.equal(p.state.actors.player.resources['book.mol.crowns'],before.state.actors.player.resources['book.mol.crowns']);assert.equal(p.vitals.player.stamina,before.vitals.player.stamina);assert.equal(p.state.worlds[I.world].facts[P+'jigRestored'],undefined);assert.equal(records(p)[P+'jig.repair'],undefined);assert.deepEqual(records(p)[P+'jig.worn'],records(before)[P+'jig.worn']);assert.throws(()=>cancelSimulationJob(p.state,registry,job.id,context(p)));
++ }
++});
++
++test('issuer, operator/method/device scopes, current standard and custody affect institution without changing the lamp',()=>{
++ let p=device();p=perform(p,P+'clarify_scope');let e=molLoreEvidence(p.state).accounts;
++ for(const id of ['credential.nora.r1','credential.operator.r1'])assert.equal(evaluateMolCredential(p.state,e.find(r=>r.id===P+id),{ownedLamp:true}).eligible,false);
++ p=perform(p,P+'certify_device_r1');const cert=structuredClone(records(p)[P+'credential.academy.r1']);assert.equal(molLoreInstitutionFacts(p.state,{ownedLamp:true})['mol.lore.currentDeviceCertificate'],true);
++ const actual=molLoreEvidence(p.state).accounts.find(r=>r.id===P+'credential.academy.r1');assert.match(readMolLore(p.state).find(r=>r.id===actual.id).text,/Issued at played minute/);
++ for(const bad of [{...actual,credential:{...actual.credential,issuer:I.nora}},{...actual,credential:{...actual.credential,scope:'operator'}}])assert.equal(evaluateMolCredential(p.state,bad,{ownedLamp:true}).eligible,false);
++ assert.equal(evaluateMolCredential(p.state,actual,{ownedLamp:false}).eligible,false);
++ const powers=structuredClone(p.state.simulation.powers.player),sources=structuredClone(p.state.actors.player.sources),lamp=stock(p)[K.lamp],fuel=p.state.actors.player.resources['book.mol.deviceFuel'];
++ p=perform(p,P+'review_standard');assert.equal(molLoreInstitutionFacts(p.state,{ownedLamp:true})['mol.lore.currentDeviceCertificate'],false);assert.deepEqual(records(p)[P+'credential.academy.r1'],cert);assert.equal(p.state.actors.player.resources['book.mol.deviceFuel'],fuel);assert.equal(stock(p)[K.lamp],lamp);assert.deepEqual(p.state.simulation.powers.player,powers);assert.deepEqual(p.state.actors.player.sources,sources);
++ const method=molLoreEvidence(p.state).accounts.find(r=>r.id===P+'standard.r2');assert.equal(method.credential.scope,'method');assert.equal(evaluateMolCredential(p.state,method,{ownedLamp:true}).eligible,false);
++ p=move(p,'house');assert.equal(previewMolCommand(p.state,registry,'book.mol.use_lamp_house',context(p)).eligible,true);p=move(p,'academy');p=perform(p,P+'certify_device_r2');assert.equal(molLoreInstitutionFacts(p.state,{ownedLamp:true})['mol.lore.currentDeviceCertificate'],true);assert.deepEqual(records(p)[P+'credential.academy.r1'],cert);
++ p.state=loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry);assert.deepEqual(records(p)[P+'credential.academy.r1'],cert);envelope(p);
++});
++
++test('stale owned-device quote is rejected and malformed credential metadata is preserved for its matching reader',()=>{
++ let p=device();p=perform(p,P+'clarify_scope');assert.equal(q(p,'certify_device_r1').eligible,true);delete stock(p)[K.lamp];const before=structuredClone(p);assert.throws(()=>act(p,P+'certify_device_r1'));assert.deepEqual(p,before);
++ const r=records(p)[P+'credential.operator.r1'],parsed=JSON.parse(r.value);r.value=JSON.stringify({...parsed,credential:{...parsed.credential,scope:'untyped'}});assert.throws(()=>loadExpansionState(p.state,registry),/credential/);
++});

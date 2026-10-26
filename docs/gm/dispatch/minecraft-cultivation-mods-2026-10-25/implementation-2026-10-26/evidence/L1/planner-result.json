@@ -1,0 +1,66 @@
+{
+  "bundleSha256": "88cfab04925806db73d44ae904e837c7c6f26e11f924b312d6d7e6be626dc6d8",
+  "indexSha256": "4dfbfb6acf2ae35949756f90507a718d3dbd65cf6c0a87e6f154a42e633801cf",
+  "origin": "http://127.0.0.1:51891/",
+  "persistence": [
+    {
+      "kind": "earned Seer one act",
+      "exportChars": 244128,
+      "exportSha256": "24b766b471f0f3b196c0292556d1fc6a173eaba40447146edbde93b569826b4c",
+      "projectSha256": "be60336ffe44a3cba0e89efd3358526782c7d806876612e075f6cc96f469929c"
+    }
+  ],
+  "plannerMatrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "pageWidth": 1920,
+      "panelWidth": 701,
+      "contentWidth": 701,
+      "font": "14px",
+      "report": true,
+      "screenshot": "planner-1920x1080-14px.png"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "pageWidth": 1920,
+      "panelWidth": 691,
+      "contentWidth": 691,
+      "font": "21px",
+      "report": true,
+      "screenshot": "planner-1920x1080-21px.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "pageWidth": 1536,
+      "panelWidth": 479,
+      "contentWidth": 479,
+      "font": "14px",
+      "report": true,
+      "screenshot": "planner-1536x864-14px.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "pageWidth": 1536,
+      "panelWidth": 469,
+      "contentWidth": 469,
+      "font": "21px",
+      "report": true,
+      "screenshot": "planner-1536x864-21px.png"
+    }
+  ],
+  "planner": {
+    "route": "fresh native probationer test entry; native allocation, ingestion, lesson and completed act",
+    "findNoSpend": true,
+    "heldDoseNotPromotion": true,
+    "changedSupply": true,
+    "errors": []
+  }
+}

@@ -4,7 +4,7 @@ import {QI_FIELD} from './cultivation_items.js';
 import {broodView} from './household_brood.js';
 import {HOUSEHOLD_ACTORS,settleHouseholdRest} from './home_household.js';
 import {officeDecision} from './home_office.js';
-import {isRainingOnDay} from './weather_calendar.js';
+import {nativeRainAtClock} from './weather_calendar.js';
 import {registerHomeWork,applyHomeSimulationEffects,stageHomeJob,previewHomeJob} from './home_work.js';
 import {conditionOf} from './home_building_model.js';
 import {STEWARD,COOK,KEEPER,BUILDER} from './home_work_content.js';
@@ -44,7 +44,7 @@ function context(overrides={}) {
     c.conditions={[KEEPER]:sim?.conditions?.[KEEPER]?.[QI_FIELD]?{[QI_FIELD]:structuredClone(sim.conditions[KEEPER][QI_FIELD])}:{}};c.resources=root?.actors.player.resources||{};c.people=Object.fromEntries(Object.entries(sim?.people||{}).filter(([id])=>[...HOUSEHOLD_ACTORS,BUILDER].includes(id)));c.jobs=sim?.jobs||[];
     c.staffResources=Object.fromEntries([...HOUSEHOLD_ACTORS,BUILDER].map(id=>[id,root?.actors[id]?.resources||{}]));c.staffStock=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,sim?.owners[id]||{}]));
     c.staffFacts=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,root?.actors[id]?.facts||{}]));c.playerFacts=root?.actors.player.facts||{};c.paidHelpReason=domainRegistry.command('pledges','actionReason')?.({kind:'paid-help'})||'';c.warehouseCompleted=root?.actors['home.manor.supplier']?.completed?.[WAREHOUSE_JOB]||0;
-    c.weatherAt=at=>{if(!c.calendar)return {raining:false};const minute=c.calendar.day_count*1440+c.calendar.hour*60+c.calendar.minute+at-(c.calendarClock??c.clock);return {raining:isRainingOnDay(Math.floor(minute/1440))};};
+    c.weatherAt=at=>nativeRainAtClock(c.calendar,c.calendarClock??c.clock,at);
     c.raining=c.weatherAt(c.clock).raining;
     c.fresh=c.fresh&&state?.beginning===true;
     c.legacyAnimal=!!c.legacyHousehold?.animal;

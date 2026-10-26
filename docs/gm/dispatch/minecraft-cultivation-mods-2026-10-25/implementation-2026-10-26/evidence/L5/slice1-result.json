@@ -1,0 +1,32 @@
+{
+  "snapshot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L5/slice1",
+  "manifestSha256": "6bf188a1f8074e010aff3807c49907fe99f0afb9094f4b70c07293504f1ebfef",
+  "bundleSha256": "951c20a5b0c34ba005b7550cb6294d95c905ee321b429340c370659f56963b72",
+  "sourceHashes": {
+    "src/craft_body_treatment.js": "11d8916726d214446e971c2cf9d0e0d2d6352cf043c96bbb31487fbf64ab92cf",
+    "src/crafting_frontier_runtime.js": "f95fab9dda2d20b2c5d90671197b560eb4bedc490da3633d646e3682146c4fdf",
+    "src/crafting_home.js": "1c8bea227e147083703aba12a4018db08bb76a67274bf16de775b6b28f505056"
+  },
+  "checks": {
+    "focused": "29/29 PASS",
+    "arch": "PASS 10083/10115 main; no new cycles",
+    "rules": "PASS 2 preexisting untracked-doc warnings",
+    "native": "PASS repeat dose / purge pending and complete / capacity refusal / 4 native font viewports / literal imports"
+  },
+  "gaps": [
+    "recipient tempering contrast has focused proof, not native comparison",
+    "full combined suite and primary build L8-owned",
+    "not installed, committed or human reviewed"
+  ],
+  "changeSurface": {
+    "coreOwners": 0,
+    "newImportCycles": 0,
+    "compositionRegistrationLines": 0
+  },
+  "review": "agent-verified, not human-reviewed",
+  "route": "named synthetic ordinary baseline and repeated gathered-lot stock control; actual crafts/doses/purges",
+  "focusedTestHashes": {
+    "tests/cultivation_formulation.test.js": "f616537acea30f875471e20791e3a52f6116a2e989a49fe2529686ce5069b229",
+    "tests/home_cultivation.test.js": "7a40cb46a03cee51cc586160403d2dfe9a25491df86744aeff6ef9653ce54c7b"
+  }
+}

@@ -117,6 +117,8 @@ Keep these states distinct in existing receipts: selected, source implemented, f
 
 AD42 update (2026-10-25): A1 no longer ends at showing Weibao. The agent verifies each route (MCP walk, then desktop browser) and carries friction it finds into the M2 slice.
 
+Carry-out queue (2026-10-26): the ordered, dispatchable packets that make this plan and the saved ideas executable, with their live state, are kept in [IPC round 5](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-5-2026-10-26-the-fix-ground-rules-carry-out-queue-and-optimization). A1 remains the first play packet.
+
 ## More to consider, round 1: access, sustainable play and delivery
 
 2026-10-25. Requested through more-to-consider and sharpen. These are plan corrections and proposals, not new runtime dispatch. Stable codes MC1–MC10 extend M1–M5 without replacing the existing source IDs or local ledgers.

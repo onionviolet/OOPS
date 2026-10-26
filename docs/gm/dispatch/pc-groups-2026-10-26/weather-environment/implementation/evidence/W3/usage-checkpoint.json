@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-26T17:45:33.390126+00:00",
+  "startingUsedPercent": 36,
+  "dispatchCeilingUsedPercent": 41,
+  "observedUsedPercent": 44,
+  "windowDurationMins": 10080,
+  "ordinaryUsageAllowed": true,
+  "reason": "COMMON finite included-usage ceiling / AU7; shared-account movement is not task attribution",
+  "source_ready": false,
+  "runtimeChangedFiles": [],
+  "locksOwned": []
+}

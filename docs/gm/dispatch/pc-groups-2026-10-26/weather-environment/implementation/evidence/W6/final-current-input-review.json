@@ -1,0 +1,16 @@
+{
+  "ownCurrentHashesMatch": true,
+  "ownMismatches": [],
+  "otherMovingPrimaryPaths": [
+    "src/book_world_beginning_registration.js",
+    "src/book_world_lotm_abilities.js",
+    "src/book_world_lotm_clearance.js",
+    "src/book_world_lotm_host.js",
+    "src/pledges_domain.js",
+    "src/pledges_ui.js",
+    "src/simulation.js",
+    "src/structured_pack_runtime.js",
+    "tests/trial_routine.test.js"
+  ],
+  "qualification": "Frozen candidate is verification authority; concurrent primary edits outside owned paths are preserved, not incorporated or verified by this receipt."
+}

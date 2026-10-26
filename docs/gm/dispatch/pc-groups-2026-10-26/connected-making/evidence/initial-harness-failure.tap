@@ -1,0 +1,340 @@
+TAP version 13
+# Subtest: effect cancel: opposite pair cancels by its dial and names follow what remains
+ok 1 - effect cancel: opposite pair cancels by its dial and names follow what remains
+  ---
+  duration_ms: 1.06575
+  type: 'test'
+  ...
+# Subtest: names show only what the observer has seen
+ok 2 - names show only what the observer has seen
+  ---
+  duration_ms: 0.26775
+  type: 'test'
+  ...
+# Subtest: tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+ok 3 - tolerance dulls repeat doses, decays by day, and overdose is a cost not a refusal
+  ---
+  duration_ms: 0.461458
+  type: 'test'
+  ...
+# Subtest: experiment log: deduction names likely sources, labels masking, survives reload
+ok 4 - experiment log: deduction names likely sources, labels masking, survives reload
+  ---
+  duration_ms: 0.280375
+  type: 'test'
+  ...
+# Subtest: property view separates unknown from known-none and keeps hidden axes out
+ok 5 - property view separates unknown from known-none and keeps hidden axes out
+  ---
+  duration_ms: 0.128667
+  type: 'test'
+  ...
+# Subtest: cancel table acts on a real resolved batch
+ok 6 - cancel table acts on a real resolved batch
+  ---
+  duration_ms: 0.943917
+  type: 'test'
+  ...
+# Subtest: live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+ok 7 - live runtime: repeat drink overdoses and is validated, a solo drink teaches the ingredient, saves round-trip
+  ---
+  duration_ms: 24.7335
+  type: 'test'
+  ...
+# Subtest: absent owner on old saves: no access, valid, nothing created
+ok 8 - absent owner on old saves: no access, valid, nothing created
+  ---
+  duration_ms: 0.599334
+  type: 'test'
+  ...
+# Subtest: access reference supplies a recipe only while held and never teaches
+ok 9 - access reference supplies a recipe only while held and never teaches
+  ---
+  duration_ms: 2.7155
+  type: 'test'
+  ...
+# Subtest: learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+ok 10 - learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+  ---
+  duration_ms: 0.960916
+  type: 'test'
+  ...
+# Subtest: training book grants once per actor read key, not per item
+ok 11 - training book grants once per actor read key, not per item
+  ---
+  duration_ms: 0.615834
+  type: 'test'
+  ...
+# Subtest: examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+ok 12 - examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+  ---
+  duration_ms: 0.987459
+  type: 'test'
+  ...
+# Subtest: forged learned recipe or read key is rejected
+ok 13 - forged learned recipe or read key is rejected
+  ---
+  duration_ms: 0.778709
+  type: 'test'
+  ...
+# Subtest: runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+ok 14 - runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+  ---
+  duration_ms: 6.724791
+  type: 'test'
+  ...
+# Subtest: native crafting preserves exact stock and knowledge across source, batch and oral use
+ok 15 - native crafting preserves exact stock and knowledge across source, batch and oral use
+  ---
+  duration_ms: 5.3475
+  type: 'test'
+  ...
+# Subtest: stale quotes, reserved/absent materials and unsupported or dangling references fail without mutation
+ok 16 - stale quotes, reserved/absent materials and unsupported or dangling references fail without mutation
+  ---
+  duration_ms: 1.068167
+  type: 'test'
+  ...
+# Subtest: generated source determinism, capacity and freeze survive JSON roundtrip across three roots
+ok 17 - generated source determinism, capacity and freeze survive JSON roundtrip across three roots
+  ---
+  duration_ms: 11.936625
+  type: 'test'
+  ...
+# Subtest: saved exposures reject altered dose, duration and product even if the product remains owned
+ok 18 - saved exposures reject altered dose, duration and product even if the product remains owned
+  ---
+  duration_ms: 0.888833
+  type: 'test'
+  ...
+# Subtest: binder journey: harvest salt, brew, drink; poison conditions shorten and the saved mark validates
+ok 19 - binder journey: harvest salt, brew, drink; poison conditions shorten and the saved mark validates
+  ---
+  duration_ms: 1.755
+  type: 'test'
+  ...
+# Subtest: an herbal tonic with no ash binds nothing and keeps its own effect
+ok 20 - an herbal tonic with no ash binds nothing and keeps its own effect
+  ---
+  duration_ms: 1.028125
+  type: 'test'
+  ...
+# Subtest: directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+ok 21 - directional herbs, heat residue, ingredient tier and complexity retain independent lawful provenance
+  ---
+  duration_ms: 2.776584
+  type: 'test'
+  ...
+# Subtest: native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+ok 22 - native formulation uses paid fuel and actual maker control, stale control quote refuses without mutation
+  ---
+  duration_ms: 2.217458
+  type: 'test'
+  ...
+# Subtest: tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+ok 23 - tablets condition the actual body and consume a separate residue budget; funded soaks settle once
+  ---
+  duration_ms: 1.131625
+  type: 'test'
+  ...
+# Subtest: body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+ok 24 - body channels require matched earned conditioning, settle once, change medicinal capacity and actual breakthrough risk
+  ---
+  duration_ms: 0.913417
+  type: 'test'
+  ...
+# Subtest: channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+ok 25 - channel poison control has an actual exposure consumer, while old revision-two exposures keep their law
+  ---
+  duration_ms: 0.391916
+  type: 'test'
+  ...
+# Subtest: recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+ok 26 - recipient tempering and accumulated unpurged load change tablet stress, paid purge eases the next dose
+  ---
+  duration_ms: 0.331875
+  type: 'test'
+  ...
+# Subtest: observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+ok 27 - observed tablet quote predicts exact dose, with hidden effects protected and stale recipient/load rejected
+  ---
+  duration_ms: 1.942417
+  type: 'test'
+  ...
+# Subtest: timed brazier custody consumes exact inputs once, survives serialization and yields distinct late chemistry
+ok 28 - timed brazier custody consumes exact inputs once, survives serialization and yields distinct late chemistry
+  ---
+  duration_ms: 2.638541
+  type: 'test'
+  ...
+# Subtest: MR35: the exact pinned formula makes the canon product
+ok 29 - MR35: the exact pinned formula makes the canon product
+  ---
+  duration_ms: 1.896917
+  type: 'test'
+  ...
+# Subtest: MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+ok 30 - MR7/MR35: a near miss makes a labelled degraded batch, never the canon product
+  ---
+  duration_ms: 1.117667
+  type: 'test'
+  ...
+# Subtest: wrong provenance or a missing preparation fails the formula and yields only an original mixture
+ok 31 - wrong provenance or a missing preparation fails the formula and yields only an original mixture
+  ---
+  duration_ms: 0.617209
+  type: 'test'
+  ...
+# Subtest: MR6: free mixing always resolves; a similar mix is not Polyjuice
+ok 32 - MR6: free mixing always resolves; a similar mix is not Polyjuice
+  ---
+  duration_ms: 0.450875
+  type: 'test'
+  ...
+# Subtest: a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+ok 33 - a worn cauldron is one qualifier; a fouled one is two (MR16: the condition is read)
+  ---
+  duration_ms: 0.715417
+  type: 'test'
+  ...
+# Subtest: MR5: ingredients are consumed by a brew and a batch is never duplicated
+ok 34 - MR5: ingredients are consumed by a brew and a batch is never duplicated
+  ---
+  duration_ms: 0.422208
+  type: 'test'
+  ...
+# Subtest: MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+ok 35 - MR1/MR31: the projection never shows truth for an unassayed lot; assay reveals it
+  ---
+  duration_ms: 1.113
+  type: 'test'
+  ...
+# Subtest: a labelled sample does not rewrite its true donor or species (card H06)
+ok 36 - a labelled sample does not rewrite its true donor or species (card H06)
+  ---
+  duration_ms: 0.270958
+  type: 'test'
+  ...
+# Subtest: use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+ok 37 - use and lasting consequences: canon transforms for an hour, a cat hair leaves features, both survive a JSON round trip
+  ---
+  duration_ms: 0.760875
+  type: 'test'
+  ...
+# Subtest: a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+ok 38 - a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample
+  ---
+  duration_ms: 0.733375
+  type: 'test'
+  ...
+# Subtest: stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+ok 39 - stewing is timed play: partial days persist through a round trip and finish at twenty-one days
+  ---
+  duration_ms: 0.322458
+  type: 'test'
+  ...
+# Subtest: supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+ok 40 - supply has owners and consequences (MR27): finite stock, loans fall overdue, unlicensed taking may be noticed
+  ---
+  duration_ms: 0.870583
+  type: 'test'
+  ...
+# Subtest: the harvest patch regrows on a dial and needs a readable sky
+ok 41 - the harvest patch regrows on a dial and needs a readable sky
+  ---
+  duration_ms: 0.105791
+  type: 'test'
+  ...
+# Subtest: MR4: a quote consumes nothing and equals the committed result
+ok 42 - MR4: a quote consumes nothing and equals the committed result
+  ---
+  duration_ms: 0.174958
+  type: 'test'
+  ...
+# Subtest: MR34: same seed and actions give the same game; a reload continues with the same next draws
+ok 43 - MR34: same seed and actions give the same game; a reload continues with the same next draws
+  ---
+  duration_ms: 0.825083
+  type: 'test'
+  ...
+# Subtest: seed sweep invariants: coins never negative, doses bounded, every state validates
+ok 44 - seed sweep invariants: coins never negative, doses bounded, every state validates
+  ---
+  duration_ms: 3.997417
+  type: 'test'
+  ...
+# Subtest: validation rejects malformed or future-dated slices (MR30)
+ok 45 - validation rejects malformed or future-dated slices (MR30)
+  ---
+  duration_ms: 0.290834
+  type: 'test'
+  ...
+# Subtest: MR31: a preview never reports hidden results; assay and drink quotes are neutral
+ok 46 - MR31: a preview never reports hidden results; assay and drink quotes are neutral
+  ---
+  duration_ms: 0.3775
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'inkjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-g1-making-px3wvmqf/src/ink_narrative.js
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/lotm_brew.test.js
+not ok 6 - tests/lotm_brew.test.js
+  ---
+  duration_ms: 144.900458
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-g1-making-px3wvmqf/tests/lotm_brew.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'inkjs' imported from /private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-g1-making-px3wvmqf/src/ink_narrative.js
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.3
+# Subtest: tests/systems_workshop.test.js
+not ok 7 - tests/systems_workshop.test.js
+  ---
+  duration_ms: 144.667625
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-g1-making-px3wvmqf/tests/systems_workshop.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..48
+# tests 48
+# suites 0
+# pass 46
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 155.335709

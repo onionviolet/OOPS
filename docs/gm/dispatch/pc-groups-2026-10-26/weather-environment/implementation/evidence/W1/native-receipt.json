@@ -1,0 +1,148 @@
+{
+  "route": "Generated 200-coin, three-cooked-potato fixture; native cottage acquisition and shelf/home-storage commands; direct cottage travel and dev-stepped time. Personal saves untouched.",
+  "checks": [
+    {
+      "name": "fraction committed with native shelf transaction",
+      "details": {
+        "age": 0,
+        "remainder": 0.25,
+        "drift": 0.75
+      }
+    },
+    {
+      "name": "qualitative versus sandglass projection, pure"
+    },
+    {
+      "name": "mid-remainder native Save/reload/Export/literal Import"
+    },
+    {
+      "name": "custody-in-residence native Save/reload/Export/literal Import"
+    },
+    {
+      "name": "exact cohort home-storage transfer/reload/import"
+    },
+    {
+      "name": "redeposit preserves prior age and unequal cohorts",
+      "details": {
+        "receipt": {
+          "schema": 1,
+          "spent": 2.5,
+          "at": 5
+        }
+      }
+    },
+    {
+      "name": "retained-food native Save/reload/Export/literal Import"
+    },
+    {
+      "name": "retained food consumed by native meal effect"
+    },
+    {
+      "name": "exact upkeep endpoint remains releasable"
+    },
+    {
+      "name": "lapse-recovery native Save/reload/Export/literal Import"
+    },
+    {
+      "name": "lapse rush/spoilage/refusal/reopen/refeed"
+    },
+    {
+      "name": "paid release/restart preserves fractional shelf age"
+    },
+    {
+      "name": "failed durable write preserves native-visible shelf/stock/money and exact durable bytes",
+      "details": {
+        "inspector": "native snapshot is deliberately blocked after failed write; visible projections plus exact durable bytes used",
+        "fullStateRegression": "focused test verifies exact runtime state/stock/money",
+        "beforePlace": {
+          "id": "cottage",
+          "status": "stilled",
+          "ratio": 0.25,
+          "at": 2,
+          "age": 0,
+          "remainder": 0.25,
+          "drift": 0.75,
+          "stilledUntil": 4321,
+          "larder": [
+            {
+              "key": "{\"id\":\"Cooked potato\"}",
+              "count": 1,
+              "born": 0,
+              "priorAge": 0
+            },
+            {
+              "key": "{\"id\":\"Cooked potato\"}",
+              "count": 1,
+              "born": 0.25,
+              "priorAge": 0
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 14,
+      "metrics": {
+        "visible": true,
+        "font": "14px",
+        "controlFont": "14px",
+        "left": 673.65625,
+        "right": 1374.421875,
+        "documentWidth": 1920
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 21,
+      "metrics": {
+        "visible": true,
+        "font": "21px",
+        "controlFont": "21px",
+        "left": 673.65625,
+        "right": 1374.421875,
+        "documentWidth": 1920
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 14,
+      "metrics": {
+        "visible": true,
+        "font": "14px",
+        "controlFont": "14px",
+        "left": 569.84375,
+        "right": 1048.6875,
+        "documentWidth": 1536
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 21,
+      "metrics": {
+        "visible": true,
+        "font": "21px",
+        "controlFont": "21px",
+        "left": 569.84375,
+        "right": 1048.6875,
+        "documentWidth": 1536
+      }
+    }
+  ],
+  "origin": "http://127.0.0.1:57812/?test_hooks=1",
+  "status": "agent-verified, not human-reviewed",
+  "priorRun": {
+    "origin": "http://127.0.0.1:57613/?test_hooks=1",
+    "status": "failed",
+    "failure": "page.evaluate: SyntaxError: \"undefined\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at Object.snapshot (http://127.0.0.1:57613/dist/bundle.js?version=v0.6-1fd989dfc7ca:1068:168633)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:25)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at snapshot (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W1/native.cjs:18:27)\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W1/native.cjs:45:436"
+  },
+  "bundleHash": "1fd989dfc7ca902ddaea35de4d059700be9be7ace1eb8675b984744e2011fc0c",
+  "bundleUrl": "http://127.0.0.1:57812/dist/bundle.js?version=v0.6-1fd989dfc7ca",
+  "pageErrors": []
+}

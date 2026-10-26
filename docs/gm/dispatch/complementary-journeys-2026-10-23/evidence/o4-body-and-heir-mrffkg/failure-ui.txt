@@ -1,0 +1,197 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels…
+Homes
+Village experiments
+Standing and ledger
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Statistics
+Today
+Where I am
+Loadouts
+Around this place
+Polyjuice bench
+Lives & inheritance
+Family qualities
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+World events
+Character vitals
+Inventory & combat view
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Authoring
+Layout
+Comfortable
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+Around you
+
+2 people · 5 services / stations
+
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.
+People here · 2
+village elder
+Village neighbor
+village trader
+Merchant
+Services & stations · 5
+Waypost supply clerk
+Supply clerk
+Homes
+Residence rights, furnishings, storage and optional home beginnings.
+Village mixing counter
+Mix and observe your own ingredients.
+Village common herb verge
+Gather common herbs and inspect your carried materials and preparations.
+Gear workshop
+Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.
+
+Choose someone or something here to inspect.
+
+All
+6
+Gear
+2
+Use
+1
+Other
+3
+★
+0
+Inventory
+5S 10C 1W
+Name ↑
+▾
+Charcoal
+x3
+5W
+Lamp oil
+2C 5W
+Rough wood log
+x6
+1C
+Stale bread
+x10
+2C
+[weapon]
+Cheap iron dagger
+[100%]
+15C 7W
+[legs]
+Cheap leather pants
+[40%]
+x2
+4C 6W
+
+Village
+☀ Summer
+Dry
+15.7 °C · comfortable
+
+01/04/999 08:53, Mon · ☼ Day
+Actions
+Options · 7 (5 ready)
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+directions Move somewhere else
+directions Fast travel
+question_answer Talk to someone
+work_outline Find work
+Mix at the Village counter
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Your name is set in the You panel header. Click it to rename.
+Saved the game manually
+Save
+Export
+Import
+settings
+v0.6
+help_outline

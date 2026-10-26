@@ -1,0 +1,658 @@
+{
+  "status": "synthetic acceptance fixtures, unexecuted; no gameplay claim",
+  "cases": [
+    {
+      "name": "ratio",
+      "before": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 1,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "after": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 2,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 3
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "expected": {
+        "changed": [
+          "inputs"
+        ],
+        "conclusion": "modified setup, effect presence is association"
+      }
+    },
+    {
+      "name": "order",
+      "before": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 1,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "after": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 2,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "expected": {
+        "changed": [
+          "inputs"
+        ],
+        "conclusion": "ordered setup differs even when law ignores order"
+      }
+    },
+    {
+      "name": "apparatus",
+      "before": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 1,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "after": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 2,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "other-bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "expected": {
+        "changed": [
+          "conditions.apparatus"
+        ],
+        "conclusion": "modified means; current host must revalidate"
+      }
+    },
+    {
+      "name": "recipient tolerance",
+      "before": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 1,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "after": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [],
+        "at": 2,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 100
+            }
+          },
+          "confounders": [
+            "known recipient tolerance"
+          ]
+        }
+      },
+      "expected": {
+        "changed": [
+          "observation.baseline"
+        ],
+        "confounders": [
+          "known recipient tolerance"
+        ],
+        "conclusion": "omission is not ingredient absence"
+      }
+    },
+    {
+      "name": "paid assay",
+      "before": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 1,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "after": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 2,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "assay",
+          "recipient": null,
+          "baseline": null,
+          "confounders": []
+        }
+      },
+      "expected": {
+        "changed": [
+          "observation.route"
+        ],
+        "conclusion": "assay measures supported facts, not recipient response or safe dose"
+      }
+    },
+    {
+      "name": "legacy unknown",
+      "before": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 1,
+        "setup": {
+          "revision": 1,
+          "law": "synthetic.original@1",
+          "inputs": [
+            {
+              "key": "synthetic-herb",
+              "material": "herb",
+              "qty": 1
+            },
+            {
+              "key": "synthetic-salt",
+              "material": "salt",
+              "qty": 1
+            }
+          ],
+          "process": [
+            [
+              "steep",
+              1
+            ]
+          ],
+          "conditions": {
+            "world": "synthetic",
+            "apparatus": "bench",
+            "control": 10
+          }
+        },
+        "observation": {
+          "route": "oral",
+          "recipient": "synthetic-player",
+          "baseline": {
+            "tolerance": {
+              "health": 0
+            }
+          },
+          "confounders": []
+        }
+      },
+      "after": {
+        "materials": [
+          "herb",
+          "salt"
+        ],
+        "process": [
+          [
+            "steep",
+            1
+          ]
+        ],
+        "seen": [
+          "oral.health"
+        ],
+        "at": 2
+      },
+      "expected": {
+        "unknown": [
+          "setup",
+          "observation"
+        ],
+        "conclusion": "historical entries remain available but cannot supply exact replay"
+      }
+    }
+  ]
+}

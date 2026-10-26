@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: every Sequence 9 and 8 ability is a compiled descriptor row: acquired, costed and with a drawback
+ok 1 - every Sequence 9 and 8 ability is a compiled descriptor row: acquired, costed and with a drawback
+  ---
+  duration_ms: 0.770791
+  type: 'test'
+  ...
+# Subtest: the Sequence 9 ability needs the source, applies its effect and carries its drawback; the Sequence 8 one needs the second source
+ok 2 - the Sequence 9 ability needs the source, applies its effect and carries its drawback; the Sequence 8 one needs the second source
+  ---
+  duration_ms: 1550.578833
+  type: 'test'
+  ...
+# Subtest: looks are concealed by default: the owner does not see them, a Beyonder observer does, and the dead see the undead look
+ok 3 - looks are concealed by default: the owner does not see them, a Beyonder observer does, and the dead see the undead look
+  ---
+  duration_ms: 23.702
+  type: 'test'
+  ...
+# Subtest: a hostile Beyonder uses the same records: the same costs and effects, bound to their own source and body
+ok 4 - a hostile Beyonder uses the same records: the same costs and effects, bound to their own source and body
+  ---
+  duration_ms: 100.803292
+  type: 'test'
+  ...
+# Subtest: the new conditions leave a valid Tingen state
+ok 5 - the new conditions leave a valid Tingen state
+  ---
+  duration_ms: 23.216125
+  type: 'test'
+  ...
+# Subtest: every pathway's hostile Beyonder runs the same base ability records through the engine (Savant and Sailor too)
+ok 6 - every pathway's hostile Beyonder runs the same base ability records through the engine (Savant and Sailor too)
+  ---
+  duration_ms: 42.671708
+  type: 'test'
+  ...
+# Subtest: an ability is repeatable: using it twice works, and the drawback keeps landing
+ok 7 - an ability is repeatable: using it twice works, and the drawback keeps landing
+  ---
+  duration_ms: 56.524459
+  type: 'test'
+  ...
+# Subtest: G3 instruction and work require actual cleared custody and an understood protocol
+ok 8 - G3 instruction and work require actual cleared custody and an understood protocol
+  ---
+  duration_ms: 224.193833
+  type: 'test'
+  ...
+# Subtest: completed G3 work changes the real body and existing merit consumer; return removes support
+ok 9 - completed G3 work changes the real body and existing merit consumer; return removes support
+  ---
+  duration_ms: 428.57125
+  type: 'test'
+  ...
+# Subtest: Stop refunds the borrowed attention without instruction, merit or fatigue
+ok 10 - Stop refunds the borrowed attention without instruction, merit or fatigue
+  ---
+  duration_ms: 408.540791
+  type: 'test'
+  ...
+# Subtest: live group, physical custody, body and supervisor are rechecked before settlement
+ok 11 - live group, physical custody, body and supervisor are rechecked before settlement
+  ---
+  duration_ms: 622.318375
+  type: 'test'
+  ...
+# Subtest: known-source host offers omit unknown powers and retain acquired suppressed powers
+ok 12 - known-source host offers omit unknown powers and retain acquired suppressed powers
+  ---
+  duration_ms: 2192.021292
+  type: 'test'
+  ...
+# Subtest: the rule table reads grades 2 and 3 as the source states them, and says why not
+ok 13 - the rule table reads grades 2 and 3 as the source states them, and says why not
+  ---
+  duration_ms: 0.729542
+  type: 'test'
+  ...
+# Subtest: the seam is world-neutral: a second world's rows (fixture) run through the same leaf
+ok 14 - the seam is world-neutral: a second world's rows (fixture) run through the same leaf
+  ---
+  duration_ms: 0.285125
+  type: 'test'
+  ...
+# Subtest: one clerk cannot take the grade 3 item; formal membership with the captain and a member present can; custody and reload hold
+ok 15 - one clerk cannot take the grade 3 item; formal membership with the captain and a member present can; custody and reload hold
+  ---
+  duration_ms: 108.255417
+  type: 'test'
+  ...
+# Subtest: the group is real: if the member is elsewhere, or the player is only a probationer, the vault stays shut
+ok 16 - the group is real: if the member is elsewhere, or the player is only a probationer, the vault stays shut
+  ---
+  duration_ms: 1225.052458
+  type: 'test'
+  ...
+# Subtest: a save from before the vault (no member, no item) loads and views
+ok 17 - a save from before the vault (no member, no item) loads and views
+  ---
+  duration_ms: 416.954625
+  type: 'test'
+  ...
+# Subtest: a stale group quote revalidates world, presence and life before transferring custody
+ok 18 - a stale group quote revalidates world, presence and life before transferring custody
+  ---
+  duration_ms: 60.097708
+  type: 'test'
+  ...
+# Subtest: every pre-brewing LOTM command definition is byte-identical; only additions are allowed
+ok 19 - every pre-brewing LOTM command definition is byte-identical; only additions are allowed
+  ---
+  duration_ms: 6.592625
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5017.0815

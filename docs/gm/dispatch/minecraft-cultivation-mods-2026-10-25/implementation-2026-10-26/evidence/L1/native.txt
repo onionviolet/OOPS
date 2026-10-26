@@ -1,0 +1,18 @@
+clicked enroll
+clicked plan_book.lotm.report_in
+clicked book.lotm.report_in
+clicked book.lotm.accept_allocation
+clicked plan_book.lotm.ingest
+clicked book.lotm.ingest
+clicked book.lotm.lesson
+clicked book.lotm.act_reading
+clicked lotm.move.lodging
+page.waitForNavigation: Timeout 20000ms exceeded.
+=========================== logs ===========================
+waiting for navigation until "domcontentloaded"
+============================================================
+    at Object.importLiteral (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L1/native.cjs:24:59)
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/implementation-2026-10-26/evidence/L1/native.cjs:55:192 {
+  log: [],
+  name: 'TimeoutError'
+}

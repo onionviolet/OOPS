@@ -1,0 +1,12 @@
+{
+  "snapshot": "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/L1-snapshot",
+  "manifestDigest": "40c6b28b3e42b0cdf3ab0cc11042cc8ad21b4bab24addaf21f31e1aeeeb073cb",
+  "bundleSha256": "88cfab04925806db73d44ae904e837c7c6f26e11f924b312d6d7e6be626dc6d8",
+  "indexSha256": "4dfbfb6acf2ae35949756f90507a718d3dbd65cf6c0a87e6f154a42e633801cf",
+  "taskFiles": {
+    "src/book_world_lotm_ui.js": "93d01ff7f6a9ab73b518a54ef642824204f27813a1acd621e535ffe730778fde",
+    "src/people_knowledge.js": "f4c6aac1637d6ff4043ab168f92163c01837c75a0429ab7be9e81625f85e76cb",
+    "src/people_ui.js": "0f03f6f9d249477ded14563ee16786355100476769ac3abc822d5db82d550eb8",
+    "tests/people_knowledge.test.js": "4da1186fa2fe8c5f554723aa4e07fe0bb780240dacc2c68077ca1d52d3ff2247"
+  }
+}

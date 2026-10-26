@@ -1,0 +1,17 @@
+{
+  "status": "read-only test-content release to G7 L3; write custody retained by I4 through N2 checkpoint",
+  "files": {
+    "tests/dose_process.test.js": "87ef5cf0c35915cc5982bc3c1a3900896fc93111821d0226351e3a25732e1b44",
+    "src/hp_brewing_state.js": "b6d7749301f5d1c2cc48db85041b82ae1b405ac72c3ec097c6e4f9fc407a27d5",
+    "docs/gm/dispatch/dose-mechanism-2026-10-25/fixtures/hp-brewing.json": "367575943aa0b854a5bfe4ec2138ed931e1e66d1f84f4fcacee59fef8329ec19",
+    "docs/gm/dispatch/dose-mechanism-2026-10-25/fixtures/cc-brew-started.json": "ec8847b9282879281f34cbd2b6a492223a01ee5cc79c325c8796ca2ba5374383",
+    "docs/gm/dispatch/dose-mechanism-2026-10-25/fixtures/cc-brew-ready.json": "69c02c03e9e32ed23d4fe8524a3b5e20837f08731d5a9efc7f32c6aae41a6bd0"
+  },
+  "passingEvidence": {
+    "command": "node --test tests/hp_brewing.test.js tests/hp_brewing_domain.test.js tests/hp_material_preparation.test.js tests/dose_process.test.js",
+    "result": "49/49 PASS",
+    "sourceRoot": "/tmp/yairpg-g1-i4-n2-source",
+    "tap": "N2-frozen-focused.txt"
+  },
+  "policy": "Unchanged CC fixtures; history-less HP validate/settle refusal without mutation; earned current six-input canon/history/deadline settlement. No N2 runtime adoption required for G7 test-only correction."
+}

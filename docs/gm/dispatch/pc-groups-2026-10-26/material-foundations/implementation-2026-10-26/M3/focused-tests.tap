@@ -1,0 +1,154 @@
+TAP version 13
+# Subtest: generated materials: golden snapshots for three fixed roots
+ok 1 - generated materials: golden snapshots for three fixed roots
+  ---
+  duration_ms: 1.709583
+  type: 'test'
+  ...
+# Subtest: generated materials: seed sweep keeps ranges, basis and correlation direction
+ok 2 - generated materials: seed sweep keeps ranges, basis and correlation direction
+  ---
+  duration_ms: 4.721708
+  type: 'test'
+  ...
+# Subtest: generated materials survive save/reload and are rejected under another catalogue
+ok 3 - generated materials survive save/reload and are rejected under another catalogue
+  ---
+  duration_ms: 0.376084
+  type: 'test'
+  ...
+# Subtest: pools filter by tag query and apply overlays in order with reasons
+ok 4 - pools filter by tag query and apply overlays in order with reasons
+  ---
+  duration_ms: 0.519959
+  type: 'test'
+  ...
+# Subtest: resolver conserves mass, keeps traces, and is pure and repeatable
+ok 5 - resolver conserves mass, keeps traces, and is pure and repeatable
+  ---
+  duration_ms: 0.644708
+  type: 'test'
+  ...
+# Subtest: process, dilution and catalysts change the product without new templates
+ok 6 - process, dilution and catalysts change the product without new templates
+  ---
+  duration_ms: 1.452208
+  type: 'test'
+  ...
+# Subtest: law definitions reject non-conserving reactions and unknown axes
+ok 7 - law definitions reject non-conserving reactions and unknown axes
+  ---
+  duration_ms: 0.159041
+  type: 'test'
+  ...
+# Subtest: retained products validate only under their own law revision
+ok 8 - retained products validate only under their own law revision
+  ---
+  duration_ms: 0.429833
+  type: 'test'
+  ...
+# Subtest: recipes match exact, tag and property slots and explain misses
+ok 9 - recipes match exact, tag and property slots and explain misses
+  ---
+  duration_ms: 0.758125
+  type: 'test'
+  ...
+# Subtest: seeded discovery recipes are stable, worthwhile and satisfied by their witness
+ok 10 - seeded discovery recipes are stable, worthwhile and satisfied by their witness
+  ---
+  duration_ms: 4.665
+  type: 'test'
+  ...
+# Subtest: harvest: location sources, regional variants and deterministic rolls
+ok 11 - harvest: location sources, regional variants and deterministic rolls
+  ---
+  duration_ms: 0.638834
+  type: 'test'
+  ...
+# Subtest: harvest: gates by tool, skill, hour and season, with an odds forecast
+ok 12 - harvest: gates by tool, skill, hour and season, with an odds forecast
+  ---
+  duration_ms: 0.194792
+  type: 'test'
+  ...
+# Subtest: harvest: depletion, regrowth carry and pity-guaranteed rare finds
+ok 13 - harvest: depletion, regrowth carry and pity-guaranteed rare finds
+  ---
+  duration_ms: 0.819958
+  type: 'test'
+  ...
+# Subtest: idle gathering is bounded, deterministic and stops on depletion
+ok 14 - idle gathering is bounded, deterministic and stops on depletion
+  ---
+  duration_ms: 2.616417
+  type: 'test'
+  ...
+# Subtest: crafting owner: freeze on reveal, knowledge projection and save/reload
+ok 15 - crafting owner: freeze on reveal, knowledge projection and save/reload
+  ---
+  duration_ms: 0.972584
+  type: 'test'
+  ...
+# Subtest: product registry: crafted and mixture keys classify; ordinary keys pass through
+ok 16 - product registry: crafted and mixture keys classify; ordinary keys pass through
+  ---
+  duration_ms: 0.2645
+  type: 'test'
+  ...
+# Subtest: regrowth is exact for any daily rate: many short checks equal one long check
+ok 17 - regrowth is exact for any daily rate: many short checks equal one long check
+  ---
+  duration_ms: 0.586875
+  type: 'test'
+  ...
+# Subtest: a blocked rare find never spends the pity guarantee
+ok 18 - a blocked rare find never spends the pity guarantee
+  ---
+  duration_ms: 0.179625
+  type: 'test'
+  ...
+# Subtest: binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+ok 19 - binder grammar (second case on the same law): many seeds, no degenerate or runaway binder
+  ---
+  duration_ms: 63.057416
+  type: 'test'
+  ...
+# Subtest: inspector preserves zero, uncertainty and attributed belief as different evidence
+ok 20 - inspector preserves zero, uncertainty and attributed belief as different evidence
+  ---
+  duration_ms: 1.383792
+  type: 'test'
+  ...
+# Subtest: inspector is read-only, detaches results, and does not pass through raw truth
+ok 21 - inspector is read-only, detaches results, and does not pass through raw truth
+  ---
+  duration_ms: 0.665167
+  type: 'test'
+  ...
+# Subtest: unknown evidence changes neither numeric display nor refusal when hidden value changes
+ok 22 - unknown evidence changes neither numeric display nor refusal when hidden value changes
+  ---
+  duration_ms: 0.203375
+  type: 'test'
+  ...
+# Subtest: search coverage and receipt sufficiency do not become physical impossibility or invented history
+ok 23 - search coverage and receipt sufficiency do not become physical impossibility or invented history
+  ---
+  duration_ms: 0.226
+  type: 'test'
+  ...
+# Subtest: method conditions and revision survive changed assumptions without claiming replay
+ok 24 - method conditions and revision survive changed assumptions without claiming replay
+  ---
+  duration_ms: 0.116417
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 146.59225

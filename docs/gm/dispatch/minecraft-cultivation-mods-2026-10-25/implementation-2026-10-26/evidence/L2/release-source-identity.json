@@ -1,0 +1,12 @@
+{
+  "ownedPaths": {
+    "src/field_workshop.js": "15e1011c276f41f3830f2dfb2200ccfb4b6707414fba146fc3efc9b7beae67a9",
+    "tests/field_workshop.test.js": "f77f9365b1394468ed5f597e8c2c2a43adcfe0cb8385ce42c6c87470e8e33c0e",
+    "scripts/playtest/field-applied-mastery.mjs": "67fbc30b3932f71ab1c5456d378b0c49663b8b10f95672ee7812cc7170131ede"
+  },
+  "snapshotDrift": [],
+  "manifestSha256": "05419749c97b9859d031e885c7b0a2af61df049b69a2a3ecad973197a7f9daee",
+  "bundleHash": "a58c45767281d74e0b91d702f437261486d09353d4ab514dc1ac1c97e5dd4a6b",
+  "newImportCycles": 0,
+  "mainRegistrationLines": 0
+}

@@ -1,0 +1,9 @@
+locator.isVisible: Error: strict mode violation: locator('[data-place-tab="actions"]') resolved to 2 elements:
+    1) <div data-parity="r3" id="main_content" data-shell-worn="[]" data-shell-fit="true" data-world-theme="warm" data-place-tab="actions" class="workspace-active" data-parity-item="false" data-secondary-shown="0" data-parity-combat="false" data-layout-context="idle" data-density="comfortable" data-workspace-mode="dock" data-editor-reflow="false" data-parity-expanded="false" data-workspace-context="play" data-shell-companions-placed="" data-shell-companions="records" data-inventory-composition="true" data…>…</div> aka locator('#main_content')
+    2) <button type="button" aria-pressed="true" data-place-tab="actions">Actions</button> aka getByRole('button', { name: 'Actions' })
+
+Call log:
+[2m    - checking visibility of locator('[data-place-tab="actions"]')[22m
+
+    at craft (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/native-cost.mjs:17:182)
+    at async file:///Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/M6-evidence/native-cost.mjs:25:30

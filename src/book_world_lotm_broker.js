@@ -9,6 +9,7 @@ import {eq,gte,all,af,has,no,money,transfer,know,cmd} from './book_world_lotm_ki
 export const BROKER_PLACE=L.docks;
 export const BROKER_CUT={percent:10,floorPence:P.soli};
 export const BROKER_VERIFY_FEE=P.soli;
+import {LOTM_CHARACTERISTIC as CORE} from './book_world_lotm_bench.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 // Unmarked doses: every pathway row that defines a market gets two lots (its Sequence 9 and its Sequence 8 dose), so a pathway added as data is
 // purchasable and carries the stated causes through book_world_lotm_causes.js. The appraiser's verdict names what the dose is.
@@ -16,6 +17,7 @@ const marketLots=pathwayRows.filter(r=>r.market).flatMap(r=>[
  {id:`dose9_${r.key}`,label:'an unmarked prepared dose',item:K[r.market.baseHold],genuine:true,payment:{pence:6*P.pound},verdict:`The appraiser judged the unmarked dose genuine: a Sequence 9 ${r.potion} potion. Drinking it is not covered by any church allocation.`},
  {id:`dose8_${r.key}`,label:'an unmarked Sequence 8 dose',item:K[r.market.nextHold],genuine:true,payment:{pence:12*P.pound},verdict:`The appraiser judged the dose genuine: a Sequence 8 ${r.next} potion. Taking it out of order, undigested or unassessed is a stated cause of loss of control.`}]);
 export const LOTM_LOTS=Object.freeze([
+ {id:'tc01',label:'a tagged characteristic lot TC01',item:CORE.key,genuine:true,payment:{pence:CORE.pence},verdict:'The appraiser identified TC01 as a Spectator Sequence 9 characteristic suitable for the matching formula. It replaces the main materials, not the auxiliaries. Holding it is distinct from drinking a prepared potion.'},
  {id:'frog',label:'a dried black-spotted frog',item:K.frog,genuine:true,payment:{pence:3*P.soli},blurb:'A formula material sold by a seller\'s agent; the broker holds it.'},
  {id:'hairs',label:'a bundle of rare hairs',item:K.hairs,genuine:false,payment:{pence:4*P.soli},blurb:'A rarer lot at a rarer price; the broker cannot promise it is what the agent says.'},
  ...marketLots,

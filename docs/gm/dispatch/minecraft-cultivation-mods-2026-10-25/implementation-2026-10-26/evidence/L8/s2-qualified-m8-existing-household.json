@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "lane": "m8-existing-household",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "b1e1b9e8ec7daf666d3722455d4ce3b7152f250e4071fd78af7f6228129d5313",
+  "gates": [
+    "cradle-reserved: native Save/reload/Export/literal-file Import",
+    "household-circulation-earned: native Save/reload/Export/literal-file Import",
+    "Actual paid Cloudseed purchase, real reserve/carrier sealing, purchased installed cradle, existing worker admission, finite keeper field, own energy/pay, two earned studies and actual native Meditation lesson"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

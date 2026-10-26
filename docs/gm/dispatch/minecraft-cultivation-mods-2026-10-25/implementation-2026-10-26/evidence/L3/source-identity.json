@@ -1,0 +1,8 @@
+{
+  "src/book_world_paradise_actions.js": "fc1a1b83409384c32a84f9b4764644fac8a1af1afe876edba8558c3cc3f568d8",
+  "src/book_world_paradise_campaign_content.js": "c2543099494355dd83ffb7855a3616e6431b0653a31c6fdec60f7d978d599328",
+  "src/book_world_paradise_campaign_facts.js": "a67a26d0be9c02b46b3d04ed5ed7429a1641bbed4df454bda9704fa9259ddc5b",
+  "src/book_world_paradise_campaign_host.js": "e8f57a262267183364897b73ee4f4a4c7098d4bd6337c8817ae9b381ad7f2489",
+  "tests/method_foundation.test.js": "3d7e470db29b7a8c9ebba99afd83e3cfbc1254d719163c0e6aa2e8350d92311f",
+  "scripts/playtest/method-foundation.mjs": "07ea12986b40c235fae6cc8358a67889684f9081f343f760d998ec3a4996343f"
+}

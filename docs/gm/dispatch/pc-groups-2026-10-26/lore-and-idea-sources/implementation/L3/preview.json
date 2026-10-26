@@ -1,0 +1,8 @@
+{
+  "url": "http://127.0.0.1:59450/index.html?test_hooks=1",
+  "pid": 88787,
+  "processGroup": 88787,
+  "root": "/Users/weiwei/.codex/research/g7-lore-2026-10-26/L3-build",
+  "purpose": "Retained isolated QA preview; no normal-app/profile adoption",
+  "bundleSha256": "def6e6bb93c47cf829fb2f9291be13e8d03ecfa604634a551236940f6790612d"
+}

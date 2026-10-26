@@ -1,0 +1,22 @@
+{
+  "source_ready": true,
+  "native_floor_complete": true,
+  "hashes": {
+    "src/book_world_paradise_campaign_content.js": "c78b745ff0dd900fda4af07c4b45856872ac6484cc83866bf684d92047d6a52f",
+    "src/book_world_paradise_campaign_facts.js": "ade4b952137ff9ea9601feec4ea62fbf3093e74500ad8877bee721936d9b4750",
+    "src/book_world_paradise_campaign_host.js": "c44f9fe8868ae09e38202bd75a98cb81ece3409e3dcbd49aad48313de5fc87cb",
+    "src/book_world_paradise_content.js": "cd25575bde05edd6eb5998e30099146404467354cd62007cc54980522921e34b",
+    "src/book_world_paradise_environment_inputs.js": "4283d78592977e132a2c4950d737d34d57877248965dd377be51ce35b8518b74",
+    "tests/paradise_environment_inputs.test.js": "0a373ba1d65783e211cd6bbc8f4941332f2eb77cec8ba61f97587979a010133d"
+  },
+  "focused": "15/15 source consumers; final projection4/4 focused-final-ui.tap; all44 prior commands unchanged",
+  "snapshot": "/Users/weiwei/.codex/research/weather-w4-2026-10-26/snapshot",
+  "contract": "SOURCE_CONTRACT.md",
+  "scope": "ORIGINAL paid measured water/filter/soften -> released W3 drying/kit/commission; remaining opportunity/source gaps retained",
+  "bundleHash": "330a65e1d16e900774e7d876f0caf1482ebb4c3a8f8ca5e07988b8c0c801483d",
+  "reviewState": "agent-verified, not human-reviewed",
+  "route": "Named starting-material/linen fixture; actual earned entry, paid water/filter/soften, retained drying, kit and finite paid commission",
+  "native": "native-result.json 12 persistence checkpoints + native-final-result.json 3 on final UI-corrected bundle, matrix4/4, zero page errors",
+  "architecture": "arch-final.log PASS,6 grandfathered imports/205cycle edges unchanged",
+  "remaining": "Exterior rain/fog need committed local source/activity; settling/soil/drainage need actual G3/W5 reader; full horizon not claimed"
+}

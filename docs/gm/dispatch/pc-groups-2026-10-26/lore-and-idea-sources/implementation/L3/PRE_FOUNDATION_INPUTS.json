@@ -1,0 +1,31 @@
+{
+  "state": "read-only pre-foundation snapshot, not verification evidence",
+  "files": {
+    "src/world_packs/book_mol_pack.js": "eb1bec4a5e7a3eb0b158a40ae895926284e542f07302d5a39a8e52c908313f27",
+    "src/book_world_mol_actions.js": "9c8e5d0f4d9bb2af6b2b5f516eb2e78bc236cf787abbd2d498ca08c58a1f9a77",
+    "src/book_world_mol_state.js": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+    "build.js": "d00680670936fdc024280b1c1dfcdef1df64d8b5b44a5d37a7a1e92adf261088"
+  },
+  "commands": {
+    "build": "node build.js",
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "ink:compile": "node scripts/compile_feature_ink.mjs",
+    "ink:check": "node scripts/compile_feature_ink.mjs --check",
+    "check:arch": "node scripts/check_architecture.mjs",
+    "check:rules": "node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs",
+    "check:receipts": "node scripts/check_receipts.mjs",
+    "check:docs": "node scripts/check_doc_slips.mjs",
+    "check:descriptions": "node scripts/check_descriptions.mjs",
+    "check:generators": "node scripts/check_generators.mjs",
+    "report:cycles": "node scripts/cycle_ledger.mjs",
+    "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
+    "build:preview": "node scripts/build_ui_preview.mjs",
+    "desktop": "npm run build && npm run desktop:snapshot && electron .",
+    "desktop:snapshot": "node desktop/snapshot.cjs",
+    "check:desktop": "node scripts/check_desktop.mjs",
+    "mcp:game": "node scripts/mcp/game_mcp.mjs"
+  }
+}

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: every supported verb changes state and charges real work; paste admits kneading
+ok 1 - every supported verb changes state and charges real work; paste admits kneading
+  ---
+  duration_ms: 4.675583
+  type: 'test'
+  ...
+# Subtest: symmetric motion and unqualified rhythm are materially equivalent
+ok 2 - symmetric motion and unqualified rhythm are materially equivalent
+  ---
+  duration_ms: 0.908208
+  type: 'test'
+  ...
+# Subtest: count is work with time and cadence; repeating preview changes nothing
+ok 3 - count is work with time and cadence; repeating preview changes nothing
+  ---
+  duration_ms: 0.226791
+  type: 'test'
+  ...
+# Subtest: viscosity, reach and scale reduce delivered mixing; larger work is paid
+ok 4 - viscosity, reach and scale reduce delivered mixing; larger work is paid
+  ---
+  duration_ms: 0.199
+  type: 'test'
+  ...
+# Subtest: vigorous whisk builds air/foam/heat but shear damages fragile components
+ok 5 - vigorous whisk builds air/foam/heat but shear damages fragile components
+  ---
+  duration_ms: 1.428791
+  type: 'test'
+  ...
+# Subtest: plateau limits gain, damage is irreversible, recovery remixes settling
+ok 6 - plateau limits gain, damage is irreversible, recovery remixes settling
+  ---
+  duration_ms: 0.249792
+  type: 'test'
+  ...
+# Subtest: clock chunking, committed action batching and serialization preserve facts/costs
+ok 7 - clock chunking, committed action batching and serialization preserve facts/costs
+  ---
+  duration_ms: 0.420625
+  type: 'test'
+  ...
+# Subtest: late admission dilutes earlier progress without retroactive work or restored material
+ok 8 - late admission dilutes earlier progress without retroactive work or restored material
+  ---
+  duration_ms: 0.13825
+  type: 'test'
+  ...
+# Subtest: oriented flow and rhythm require a mechanism and consume declared power
+ok 9 - oriented flow and rhythm require a mechanism and consume declared power
+  ---
+  duration_ms: 0.351167
+  type: 'test'
+  ...
+# Subtest: stale means and malformed inputs refuse before changing state
+ok 10 - stale means and malformed inputs refuse before changing state
+  ---
+  duration_ms: 0.597917
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 84.2125

@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: absent owner on old saves: no access, valid, nothing created
+ok 1 - absent owner on old saves: no access, valid, nothing created
+  ---
+  duration_ms: 0.519708
+  type: 'test'
+  ...
+# Subtest: access reference supplies a recipe only while held and never teaches
+ok 2 - access reference supplies a recipe only while held and never teaches
+  ---
+  duration_ms: 2.122
+  type: 'test'
+  ...
+# Subtest: learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+ok 3 - learn-and-consume adds the known recipe; losing the item keeps it, and it needs the item held
+  ---
+  duration_ms: 0.745708
+  type: 'test'
+  ...
+# Subtest: training book grants once per actor read key, not per item
+ok 4 - training book grants once per actor read key, not per item
+  ---
+  duration_ms: 1.330125
+  type: 'test'
+  ...
+# Subtest: examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+ok 5 - examine: success identifies per observer; failure costs more, reveals nothing, is deterministic
+  ---
+  duration_ms: 1.09975
+  type: 'test'
+  ...
+# Subtest: forged learned recipe or read key is rejected
+ok 6 - forged learned recipe or read key is rejected
+  ---
+  duration_ms: 0.41375
+  type: 'test'
+  ...
+# Subtest: runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+ok 7 - runtime: shelf, method gate, loss keeps learned recipe, once-only read, consumed slate
+  ---
+  duration_ms: 5.547667
+  type: 'test'
+  ...
+# Subtest: seeded authored-room layouts vary, stay connected and admit a reachable movable-object objective
+ok 8 - seeded authored-room layouts vary, stay connected and admit a reachable movable-object objective
+  ---
+  duration_ms: 2.178042
+  type: 'test'
+  ...
+# Subtest: native-world truth and actual observations remain distinct; support methods conserve material custody and persist
+ok 9 - native-world truth and actual observations remain distinct; support methods conserve material custody and persist
+  ---
+  duration_ms: 18.354042
+  type: 'test'
+  ...
+# Subtest: explicit attended regional time earns a bounded lesson; finite searches keep source/cargo/loss and risk coherent
+ok 10 - explicit attended regional time earns a bounded lesson; finite searches keep source/cargo/loss and risk coherent
+  ---
+  duration_ms: 2.942958
+  type: 'test'
+  ...
+# Subtest: real failed field work feeds the same bounded learning reader used by tempering, independently of fear
+ok 11 - real failed field work feeds the same bounded learning reader used by tempering, independently of fear
+  ---
+  duration_ms: 5.742542
+  type: 'test'
+  ...
+# Subtest: reward caps do not forbid inspection and weak supported bodies pay actual greater handling effort
+ok 12 - reward caps do not forbid inspection and weak supported bodies pay actual greater handling effort
+  ---
+  duration_ms: 1.023583
+  type: 'test'
+  ...
+# Subtest: recap has exact learned deed, basis, deterministic reload and no render draws
+ok 13 - recap has exact learned deed, basis, deterministic reload and no render draws
+  ---
+  duration_ms: 53.157709
+  type: 'test'
+  ...
+# Subtest: known projection and later card cannot read another observer or hidden person fields
+ok 14 - known projection and later card cannot read another observer or hidden person fields
+  ---
+  duration_ms: 29.824375
+  type: 'test'
+  ...
+# Subtest: actual later response retains the same person/object and contributes to learned recap
+ok 15 - actual later response retains the same person/object and contributes to learned recap
+  ---
+  duration_ms: 188.753125
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 560.144625

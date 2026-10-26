@@ -1,0 +1,10 @@
+{
+  "root": "/tmp/oops-broader-ui-after",
+  "bundleSha256": "8a16a068bc373ae1fda253ee53fca377fabf991a7fa022ed2631d5a9bba6d131",
+  "checks": [
+    "Reproduced: native filters all off, shell still renders category rows"
+  ],
+  "filteredRowsVisible": 2,
+  "errors": [],
+  "status": "PASS"
+}

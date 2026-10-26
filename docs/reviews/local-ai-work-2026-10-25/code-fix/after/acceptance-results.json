@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "mixed_encoding_exit_cases": [
+    {
+      "exit_code": 0,
+      "state": "probe-passed",
+      "cli_exit_code": 0
+    },
+    {
+      "exit_code": 7,
+      "state": "probe-failed",
+      "cli_exit_code": 1
+    }
+  ],
+  "retained_output_limits": {
+    "stdout": 16000,
+    "stderr": 4000
+  }
+}

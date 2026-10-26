@@ -5,6 +5,7 @@ import {applyNamedIdentity, namingState} from './naming_act.js';
 import {registerGearMaterials} from './gear_native_content.js';
 import {registerFieldWorksItems} from './field_works_content.js';
 import {readMaterialLineage, heirloomText} from './material_lineage.js';
+import {domainRegistry} from './domain_registry.js';
 import {current_game_time} from './game_time.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {parseHeirloomKey} from './heirloom_items.js';
@@ -1304,6 +1305,9 @@ function getItemFromKey(key) {
         const name=item.getName(),labels=item.affixes.map(a=>getAffix(a.id)?.name).filter(Boolean);
         item.getName=()=>`${name} [${labels.join(', ')}]`;
     }
+    // Domain-owned cohorts retain their exact key through native use and transfers.
+    // The owning domain validates its receipt; the catalog still owns the item type.
+    if(domainRegistry.ownsItemKey(key))item.inventory_key=key;
     return item;
 }
 function nativeGetItemFromKey(key) {

@@ -1,0 +1,14 @@
+{
+  "files": {
+    "src/hp_brewing_state.js": "e4e201576a5cb9e3ae6caca467b4bb6eab4f7de52928117cea11394ab623b73f",
+    "src/hp_brewing_panel.js": "159b480179541126c2284053d6e6081d02a2b7491ae925e6f17c962426568fa1",
+    "tests/hp_brewing.test.js": "3098bbc1e6f69e188fe6ca795b59fc7d4961074c32a85345a4a43eeeee97a2b1"
+  },
+  "snapshot": "/tmp/yairpg-g1-i3-source",
+  "bundleHash": "c93ee12d8c1ba84428b0550dd43179115e0c13bc008625f1218e9a956ef46547",
+  "focused": {
+    "passed": 29,
+    "command": "node --test tests/hp_brewing.test.js tests/hp_brewing_domain.test.js tests/hp_material_preparation.test.js"
+  },
+  "sourceRelease": "I4 final HP joins, preserve G2 pure preparation plan"
+}

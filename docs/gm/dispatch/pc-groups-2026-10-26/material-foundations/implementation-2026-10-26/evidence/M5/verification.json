@@ -1,0 +1,53 @@
+{
+  "sourceSnapshotDigest": "0b410aa41465bc1d4128b0a3b3cadb0c76275d7927eb776aa9bf561e509980e7",
+  "bundleSha256": "a830035ce10fb7f7186e6647c94cb1e4b8105177ccad4a5a74cc2a93b2280691",
+  "testSha256": "4ff3dd68ab613e2a00c46ab30220b2a8dd0b0c02268459b1fcb53e8947323d17",
+  "focused": {
+    "command": "node --test tests/world_material_semantics.test.js",
+    "result": "4/4 PASS on live and immutable snapshot",
+    "firstFailure": "fixture expected null before settle instead of zero-duration nothing; assertion corrected, no runtime patch"
+  },
+  "build": "PASS immutable BUILD_OUT, primary output untouched",
+  "runtimeSourceEdits": [],
+  "newSaveFields": [],
+  "incumbentLotmReuse": {
+    "source": "L4 S3c",
+    "compared": [
+      "src/book_world_lotm_abilities.js",
+      "src/book_world_lotm_actions.js",
+      "src/book_world_lotm_bench.js",
+      "src/book_world_lotm_brew.js",
+      "src/book_world_lotm_broker.js",
+      "src/book_world_lotm_causes.js",
+      "src/book_world_lotm_clearance.js",
+      "src/book_world_lotm_content.js",
+      "src/book_world_lotm_districts.js",
+      "src/book_world_lotm_domain.js",
+      "src/book_world_lotm_envelope.js",
+      "src/book_world_lotm_generated.js",
+      "src/book_world_lotm_host.js",
+      "src/book_world_lotm_ids.js",
+      "src/book_world_lotm_kit.js",
+      "src/book_world_lotm_lives.js",
+      "src/book_world_lotm_merit.js",
+      "src/book_world_lotm_path.js",
+      "src/book_world_lotm_pathways.js",
+      "src/book_world_lotm_ritual.js",
+      "src/book_world_lotm_rows.js",
+      "src/book_world_lotm_state.js",
+      "src/book_world_lotm_ui.js",
+      "src/dose_process.js",
+      "src/expansion_engine.js",
+      "src/expedition_content.js",
+      "src/lotm_formula_rows.js",
+      "src/simulation.js",
+      "src/simulation_clock.js",
+      "src/simulation_contracts.js",
+      "src/simulation_effects.js"
+    ],
+    "changed": [],
+    "browserAndPersistence": "L4 S3c source record; not rerun by M5"
+  },
+  "newUIClaims": false,
+  "remaining": "M6 combined integration; M4 HP inspector journey; I3/I4 retained receipts and stage joins; M1 vocabulary/support metadata"
+}

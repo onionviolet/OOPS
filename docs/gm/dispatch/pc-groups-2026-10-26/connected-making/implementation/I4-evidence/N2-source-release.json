@@ -1,0 +1,27 @@
+{
+  "status": "SOURCE RELEASED; focused/build/arch/earned desktop/native-persistence verified, not human-reviewed; shared combined and native-import UI gate pending",
+  "files": {
+    "src/hp_brewing_state.js": "5059ad0496bd572d38a509d86da36d8ce84976d49e45834d3666a6ea9eab0bef",
+    "src/hp_brewing_panel.js": "8ba9b5fdad2907f2fe3dc250a99d895b4713147153da1f07e072da0e2f832850",
+    "src/hp_brewing_domain.js": "cf3dd649e517f5324a7170f64c4d93c720f1ceeab366c501bd2bbfcf1ef4522e",
+    "src/world_packs/book_hp_pack.js": "dfe2d95d92c38ff4b0165cb72e1eaf6d8dc77f92179b25905875a39e187863f7",
+    "tests/hp_brewing.test.js": "acdd4d00c1db6cd026e18ba90cc10de949ce720590b13f8df418c3c3b8092eb0",
+    "tests/hp_brewing_domain.test.js": "b4a4e8473c8a2a1560175c21170f19948537dbde170036466e231b81028b7229",
+    "tests/dose_process.test.js": "87ef5cf0c35915cc5982bc3c1a3900896fc93111821d0226351e3a25732e1b44"
+  },
+  "snapshot": "/tmp/yairpg-g1-i4-n2-source",
+  "output": "/tmp/yairpg-g1-i4-n2-output",
+  "bundleHash": "5fa65f6b084040bc9055e2544340f6e0072df7b5a6a54b462628a67219ed76ae",
+  "focused": {
+    "command": "node --test tests/hp_brewing.test.js tests/hp_brewing_domain.test.js tests/hp_material_preparation.test.js tests/dose_process.test.js",
+    "passed": 50,
+    "tap": "N2-final-focused.txt"
+  },
+  "browser": "N2-browser/result.json",
+  "route": "Earned fresh standalone HP bench; named synthetic native disk failure; no normal-app/profile or earned native transport claim",
+  "gatesPending": [
+    "I5 native positive/quantity UI on shared candidate",
+    "M6 one shared combined full suite/build/arch/rules after named oil-unit fix",
+    "Remaining G1 I1/I2/I3 Frontier/LOTM detail releases"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "source": "tests/dose_process.test.js",
+  "sha256": "83453848fd07f1587bcf211dff63dd16008b44bc48bd9a485bee91a2e3f7a00c",
+  "status": "prepared patch only, NOT APPLIED OR RUN; runtime slot pending"
+}

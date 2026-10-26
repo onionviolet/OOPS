@@ -76,9 +76,9 @@ explicitly instead of describing an unsupported alternative as refusal.
 ## Finish line and remaining work
 
 Required IDs for this revision: [frozen parents, leaves and case IDs]
-Completion target: [C1–C5 qualified scope]
+Completion target: [C1–C4 qualified technical scope; C5 optional director acceptance]
 Build/browser/persistence gate: [exact authorized checks and current identity]
-Director gate: [what Weibao still needs to accept through play]
+Optional director review: [fiction, pacing or feel feedback under AD42; no blocking human gate]
 Unplayed cases: [owning acceptance backlog; cannot count as passes]
 New requirement policy: [revision and affected-row reopening]
 

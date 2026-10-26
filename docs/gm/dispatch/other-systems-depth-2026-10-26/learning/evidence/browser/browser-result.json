@@ -1,0 +1,12 @@
+{
+  "route": "named synthetic R15 G4 supplied-stock/body fixture; native commands earned control, tested lamp, surveyed, declined retrieval and closed service; browser uses household application",
+  "viewport": "1920x1080",
+  "cancellation": true,
+  "pendingRoundTrip": true,
+  "completedRoundTrip": true,
+  "actualConsumer": true,
+  "noReplay": true,
+  "bundleHash": "058f066b86c6e42e10d51e7a4b49f63afed474419ace144862c0607102a7f717",
+  "fixtureHash": "7b219325984ce928a9a26595aa9346358009c788250200caf051a671c419ca0f",
+  "errors": []
+}

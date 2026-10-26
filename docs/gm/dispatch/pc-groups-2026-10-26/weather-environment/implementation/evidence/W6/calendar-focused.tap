@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: W33.T1 pure legacy projection matches native calendars and weekdays at all boundaries
+ok 1 - W33.T1 pure legacy projection matches native calendars and weekdays at all boundaries
+  ---
+  duration_ms: 1.276916
+  type: 'test'
+  ...
+# Subtest: W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate from labels
+ok 2 - W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate from labels
+  ---
+  duration_ms: 0.131625
+  type: 'test'
+  ...
+# Subtest: W33.T3 hub unknown civil date and public projection omit undeclared hidden fields
+ok 3 - W33.T3 hub unknown civil date and public projection omit undeclared hidden fields
+  ---
+  duration_ms: 0.116042
+  type: 'test'
+  ...
+# Subtest: W33.T5 legacy bindings resolve without mutating any saved owner, absent and unsupported worlds stay unavailable
+ok 4 - W33.T5 legacy bindings resolve without mutating any saved owner, absent and unsupported worlds stay unavailable
+  ---
+  duration_ms: 0.239542
+  type: 'test'
+  ...
+# Subtest: W33.T6 transient entry/midnight/reentry headers deduplicate and bound jumps
+ok 5 - W33.T6 transient entry/midnight/reentry headers deduplicate and bound jumps
+  ---
+  duration_ms: 0.183042
+  type: 'test'
+  ...
+# Subtest: W33.T6 actual host publication seam emits only after storage success and before new-day messages
+ok 6 - W33.T6 actual host publication seam emits only after storage success and before new-day messages
+  ---
+  duration_ms: 1.994709
+  type: 'test'
+  ...
+# Subtest: W28/W33 display-only climate uses frozen local frame, unknown hub and untouched home
+ok 7 - W28/W33 display-only climate uses frozen local frame, unknown hub and untouched home
+  ---
+  duration_ms: 0.197208
+  type: 'test'
+  ...
+# Subtest: qualified source calendar shares actual visitor binding with display without borrowing home seasons or time
+ok 8 - qualified source calendar shares actual visitor binding with display without borrowing home seasons or time
+  ---
+  duration_ms: 1.703333
+  type: 'test'
+  ...
+# Subtest: local history reprojects at midnight and long versus split reads leave frozen instance unchanged
+ok 9 - local history reprojects at midnight and long versus split reads leave frozen instance unchanged
+  ---
+  duration_ms: 0.293333
+  type: 'test'
+  ...
+# Subtest: unavailable or mismatched visitor coordinates fail closed; future and malformed historical queries refuse
+ok 10 - unavailable or mismatched visitor coordinates fail closed; future and malformed historical queries refuse
+  ---
+  duration_ms: 0.284417
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 162.843417

@@ -1,0 +1,23 @@
+{
+  "status": "adopted released connected HP evidence; shared combined gate remains pending",
+  "producer": "G1-I4 N2",
+  "release": "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/N2-source-release.json",
+  "browser": "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/I4-evidence/N2-browser/result.json",
+  "bundleHash": "5fa65f6b084040bc9055e2544340f6e0072df7b5a6a54b462628a67219ed76ae",
+  "ownInputs": {
+    "src/hp_preparation.js": {
+      "source": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "candidate": "cc9760f51ba4d2443471c4a23efdb91c37ab3647e7009d73e78de4988a125615",
+      "matchesReleasedSource": true
+    },
+    "tests/hp_preparation.test.js": {
+      "source": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "candidate": "0e0d8c7d9de93ab9c7129eb923eb388f207a39ae9f4d57c99bf8fb7c36d15325",
+      "matchesReleasedSource": true
+    }
+  },
+  "review": "source/helper identity checked; actual state hook and released browser result read;1920x1080 screenshot visually inspected",
+  "gaps": [
+    "shared M6 combined full-suite/build/arch/rules and I5 native-import quantity journey"
+  ]
+}

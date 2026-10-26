@@ -1,0 +1,7 @@
+Input route: copied dirty working tree at /var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-other-depth-_osqgpcs
+
+node --test tests/structured_expedition_runtime.test.js tests/drainage_site.test.js tests/body_progression.test.js tests/manual_learning.test.js tests/techniques.test.js tests/habitat_care.test.js
+
+python3 docs/audits/other-systems-depth-2026-10-26/source-census.py /var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-other-depth-_osqgpcs
+
+Docs check: resolve local Markdown file targets, scan trailing whitespace in owned text, compare copied file SHA-256 to current primary. Anchors not validated. No runtime source edits.

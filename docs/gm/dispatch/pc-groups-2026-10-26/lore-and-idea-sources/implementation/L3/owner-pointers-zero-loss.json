@@ -1,0 +1,17 @@
+{
+  "docs/CRAFTING_ENGINE.md": {
+    "beforeSha256": "95c2b197638bada62af27b339dd44e35e0f8ecd009d49f2c1358f3fad0583140",
+    "afterSha256": "8585ceae140c38642742d7b48225f28f28965c859198c78be6f26a4ea2a6b3d5",
+    "priorLinesPreserved": true
+  },
+  "docs/SYSTEMS_REGISTER.md": {
+    "beforeSha256": "8170561e67d1338224a3d1df9a2b6bc29c141032aa9a711c856114ce60ff91a6",
+    "afterSha256": "7923ad69ad9447b01c781a65fa97174ec008fe6dbec53871e77cc7926498d0fd",
+    "priorLinesPreserved": true
+  },
+  "docs/systems/PROGRESSION_WORLD_STATE.md": {
+    "beforeSha256": "d65c5f8ce201a506b484ae25adc3119453c4d5bf806d3e6bbde91a7a92e49392",
+    "afterSha256": "e2f352556a196563f5717f3405a3ff08a2bd5be43df5c20265706fbc709b291b",
+    "priorLinesPreserved": true
+  }
+}

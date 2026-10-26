@@ -1,0 +1,9 @@
+{
+  "coverageIdentifiers": 35,
+  "unique": 35,
+  "relativeLinkMissing": [],
+  "checkedDocuments": 8,
+  "receiptLint": "PASS1/1,0problems",
+  "gate": "all selected consumer gates agent-verified; human review optional; no normal adoption",
+  "preview": "http://127.0.0.1:62990/"
+}

@@ -1,0 +1,67 @@
+{
+  "route": "Fresh native starting-owned-material fixture; real elder/entry/paid bench/rack/preparation/drying/binding/commission and travel",
+  "origin": "http://127.0.0.1:58971",
+  "errors": [],
+  "roundtrips": [
+    "sealed-batches",
+    "partial-native-cohort",
+    "dried-rack",
+    "dry-native-keys",
+    "binding-pending",
+    "used-commission",
+    "absent-rack"
+  ],
+  "bundleHash": "2125d50e57668e4f741fbd2e882529e975b38246c9ff233b489bb3fd48e36911",
+  "actualConsumer": true,
+  "frozenTravel": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 1029.03125,
+        "right": 1367.421875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 576.84375,
+        "right": 1041.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ]
+}

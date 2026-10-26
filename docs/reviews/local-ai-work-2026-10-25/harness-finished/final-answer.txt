@@ -1,0 +1,32 @@
+The fixed acceptance checker passed on the first run, verifying both the real-output fields and the empty/duplicate/optional-field fixtures, and confirming `registry.json` was left byte-for-byte unchanged.
+
+## Result
+
+**What I did**
+- Inspected the real schema: top-level keys `schema_version`, `description`, `tools` (41 rows). Each row has `id`, `kind` (`launch`/`reference`), `required`, `probe`, `owner`, plus `title`/`root`/`argv`/`env`/`effects`/`note`. `required`/`probe`/`owner` are absent/null/empty across many rows.
+- Read the fixed `acceptance.py` to match its exact expected computation (e.g. `required_path_references` = total length of `required` lists over *launch* rows only; `unique_required_paths` = distinct *raw* strings over those same refs — so placeholders are counted, not resolved).
+- Wrote `summarize_registry.py` (stdlib only, CLI `INPUT --json --markdown`).
+
+**Command run**
+```
+python3 summarize_registry.py registry.json --json inventory.json --markdown inventory.md
+python3 acceptance.py
+```
+
+**Output paths (in this workspace)**
+- `summarize_registry.py` — the reusable CLI
+- `inventory.json` — JSON summary
+- `inventory.md` — human-readable Markdown summary
+
+**Inventory highlights (from actual data)**
+- `total_tools`: 41; by kind: launch 31, reference 10
+- launch with probe: 20 / without probe: 11; missing owner: 27; duplicate IDs: 0
+- launch required-path references: 40 total / 38 distinct
+
+**Verification check result**
+- `python3 acceptance.py` → `ACCEPTANCE PASS`: real registry output equals an independent calculation; empty input, duplicate/optional-field input, and unchanged-input cases all pass. `acceptance-results.json` records `"pass": true`.
+- The Markdown explicitly states probe configuration is **not** installation evidence and that no probe executed successfully / nothing was run, placed, or installed.
+
+**Limitations / notes**
+- This reports static registry metadata only. Probe presence describes a check command's shape — it is not proof of installation or a successful run. Placeholder tokens (`{...}`) are treated as raw strings and were neither resolved nor probed. No listed tool was executed or launched.
+- I left `registry.json` unchanged (verified byte-for-byte by the checker) and wrote only within this workspace.

@@ -1,0 +1,27 @@
+{
+  "state": "agent-verified, not human-reviewed",
+  "source_ready": true,
+  "native_floor_complete": true,
+  "bundle_sha256": "c6ef41b7c1f3d6cae3bbd7c50bd97da87c7112d3f02d4b7b3858b32b42806da8",
+  "focusedTests": "20/20",
+  "build": "passed on immutable snapshot via BUILD_OUT",
+  "architecture": "passed on immutable snapshot; baseline and checker hashed in manifest",
+  "native": [
+    "Offset-30 native rain start: 30 dry + 30 rainy minutes produces wetness 60 and one retained wear crossing",
+    "repair-pending: native Save/reload/Export/literal Import",
+    "Repair debits actual earned twig/grass, grants no premature repair, retains accepted job, restores actual roof and refuses redundant repair",
+    "Weatherproofing consumes separate earned materials/work, halves subsequent direct wetting and refuses duplicate fitting",
+    "Repaired local structure supports actual native sleep",
+    "repaired-weatherproofed-condition: native Save/reload/Export/literal Import"
+  ],
+  "visual": "Actual saved Gothic 14/21 controls; 1920\u00d71080 and 1536\u00d7864; loaded font assets and fetched bundle hash checked; four focused weather-section captures",
+  "assetQualification": "Initial git-based snapshot omitted ignored native fonts; first visual assertion exposed 404s. Five required font assets restored/hash-pinned only in frozen trees; focused visual repeated, ordinary gameplay not repeated. Optional private_packs/manifest.json intentionally excluded and is the only remaining expected HTTP absence. Initial shell captures use fallback fonts and are superseded for font proof.",
+  "remaining": "W6 combined full suite/build/arch/rules/integrated proof; packed/pitched/travel/other-world/missing-calendar edge branches focused-tested, maintenance boundary native-proven; no installation/commit/push selected",
+  "sourceHashes": {
+    "src/home_building_model.js": "6369e39f0db35f6a0c14056d8f03844a301a0028993f9c03a38e0190e55116b0",
+    "src/home_domain.js": "d42ce81ab182c026e77fc2c357303733181a4c3bded58b76e91482629bcbd482",
+    "src/weather_calendar.js": "0c64828ef7bcac7d369e6352550feac16e0806f633e0446c6835c0582744b978",
+    "tests/home_domain.test.js": "54df6b296b7ecda9ae75646b04d13b80813df3a48d45ec6ef0c1d22050e88311",
+    "tests/home_weather.test.js": "946b17e5b5d4f9992ce3a8c9679027dc33585234635eaab90b08c144af12fa7b"
+  }
+}

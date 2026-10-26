@@ -1,0 +1,12 @@
+{
+  "hashes": {
+    "src/material_inspector.js": "35fd5a2820e751aba662a6f7e431a3045663498bdda0ddabb2a5c28f47bb8169",
+    "tests/material_inspector.test.js": "cd671d575db84054d974647ec2fdeaaa430dc551148483e5eaa8730187bc8824",
+    "src/craft_state.js": "cbeaea229e1ae982f33fd2692c62b5f595ddf6e950f8f9adfb7ee0259a25900d",
+    "src/craft_materials.js": "bea606cda53ef2bd2e8a2dd76c0b3ea8c9157b73f196aa81e94bffddfb3c2100",
+    "src/hp_brewing_formula.js": "7564195a21f6135e5251bc311873d43f2b4d037a1b64b9cd0ed45b68ee42a690"
+  },
+  "check": "node --test tests/material_inspector.test.js tests/craft_engine.test.js",
+  "result": "pass",
+  "integration": "M4 UI adapter pending; not gameplay complete"
+}

@@ -42,7 +42,7 @@ Each rule names the failure it prevents.
 | GR12 | **No generator without a reader.** A generator lands with at least one action, cost or gate that reads its output. | Write-only fields that look done in reports (scorecard F4) |
 | GR13 | **Same rules for NPCs and player.** NPC crafters, rivals and heirs call the same generator as the player. | Two economies, two balance passes (crafting NP) |
 | GR14 | **Scope streams to world and life.** Stream roots derive from world and life IDs per E1 section 6, so crossings and rebirths stay independent and replayable. | One world's events reshaping another's |
-| GR15 | **Text is a grammar over fact IDs.** Generated text stores slot references and renders at display time through knowledge, so renames and discoveries propagate. Only in-world documents (a letter, a carving) freeze rendered text. | Stale names in old logs; accidental secret leaks in prose |
+| GR15 | **Text is a grammar over fact IDs.** Generated text stores slot references and renders through permitted knowledge. Current-subject views may use current public facts. An event record retains the public subject and context known for that occurrence; later knowledge appears as an explicit retrospective reading. Re-resolving an ID must not silently replace event-time equipment, identity or knowledge with today's state. In-world documents (a letter, a carving) can freeze rendered text. See UR48 and [means AA14](MEANS_AND_APPRAISAL.md#reference-detail-fold-2026-10-20-color-previews-and-witnesses). | Stale current-subject names; silently rewritten event knowledge or secret leaks |
 | GR16 | **Every generator ships three tests.** Seed sweep (N seeds, invariants hold, distribution inside a band), golden snapshot for three fixed seeds, and save/reload/import gives the same next value. | Determinism bugs found by Weibao in play |
 | GR17 | **Keyed by the owning game clock, not ticks.** Each time-based draw names its world, body or space clock; repeatable actions also retain the committed attempt identity (GR2). Equivalent segmented/catch-up processing retains the same draws. | Background timing changing results; frozen world dates repeating every personal practice draw |
 
@@ -324,10 +324,17 @@ GR rules and older source counts retain their original proposal/evidence status.
 
 ## Cross-audit clarification, 2026-10-18
 
-GR7 and GR17 above are revised proposals under the requested reconciliation,
-not newly accepted universal world laws. Historical GR7 described automatic
-joining "every relevant table by being tagged"; historical GR17 named only the
-in-game day/hour. The owning mechanism and clock now qualify those shortcuts.
+Current status, reconciled 2026-10-26: GR7 and GR17 are part of the accepted
+GR defaults under the core rules, confirmed by Weibao on October 19
+([authority](USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)).
+This does not accept auxiliary GA/MC/SB proposals or make universal world laws.
+The owning mechanism and clock qualify the historical shortcuts below.
+
+Historical status wording from October 18, preserved:
+> GR7 and GR17 above are revised proposals under the requested reconciliation,
+> not newly accepted universal world laws. Historical GR7 described automatic
+> joining "every relevant table by being tagged"; historical GR17 named only the
+> in-game day/hour.
 See [G27/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).
 A world-time credit does not itself freeze a world. Current `computeAway` has
 one positive elapsed rate; a dual-clock plan must name the missing integration.

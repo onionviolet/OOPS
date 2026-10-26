@@ -1,0 +1,9 @@
+19d6f94d2b4b  src/main.js
+5ef371a6da3a  src/layout_spec.js
+82de1bb05b55  src/owned_place_clock.js
+ea9136219606  src/owned_place_clock_host.js
+6e450bc897a1  src/owned_place_clock_panel.js
+415ae9293231  src/rank_gap_observer.js
+19239bba602f  src/rank_gap_observer_domain.js
+ac2bf149525a  tests/owned_place_clock.test.js
+360df9f41e1e  tests/rank_gap_observer.test.js

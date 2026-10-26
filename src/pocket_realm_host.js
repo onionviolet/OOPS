@@ -1,4 +1,4 @@
-import {check as assert, copy as clone, eqNoReason as eq} from './basics.js';
+import {check as assert, copy as clone, eqNoReason as eq, eq as requirement} from './basics.js';
 import {createPocketDoorConnection} from './pocket_realm_rules.js';
 import {exchangeContext} from './exchange.js';
 import {buildNativePocketCargo,previewNativeRealmTraveler} from './native_realm_traveler.js';
@@ -42,6 +42,29 @@ definitions.commands.push(
  {...rootCommand('pocket.fund_bench','Contribute to Joss’s bench fund · 1 wooden coin',ids.worldId,'Folded Glasshouse',[{type:'resource',native:true,key:'money',amount:-1}],[{type:'resource',actor:content.caretakerId,key:'coins',amount:1},know('contribution','You transferred one real wooden coin to Joss’s bench fund. It is a contribution, not a purchase of the remaining stock or faculty.')]),targetId:content.caretakerId,coLocated:true,visibleWhen:eq(`world.${prefix}.scenes.shelfBuilt`),requires:{all:[eq('worldVisit.instanceId',ids.instanceId),eq(`person.${content.caretakerId}.willing`),eq(`world.${prefix}.scenes.shelfBuilt`)]}},
  {...rootCommand('pocket.frontier_pack','Pack with Joss’s pattern · 2 logs + 2 stamina · 3 min','base.frontier','Shack',[
   {type:'item',key:JSON.stringify({id:'Rough wood log'}),amount:-2},{type:'vital',key:'stamina',amount:-2}],[{type:'item',key:JSON.stringify({id:'Prepared survey kit'}),amount:2}]),duration:3,cancellation:'refund',requires:{all:[eq(`knowledge.${prefix}.packing.basis`,'instruction'),eq('glasshouse.templateAvailable')]},visibleWhen:eq(`knowledge.${prefix}.packing.seen`)}
+);
+// Supplied workshop service: the resident's real stock and effort fund the
+// batch; the shared job owner reserves/refunds each participant's inputs.
+const supplyPresent={all:[eq('worldVisit.instanceId',ids.instanceId),eq(`knowledge.${prefix}.meeting.seen`)]};
+const supplyWilling=requirement(`person.${content.caretakerId}.willing`,true,'Joss is not offering supplies or bench work now.');
+const supplyWorkSupport={reason:'Uncover the repaired bench; Joss must be here, willing and holding his actual reusable template. After his gift, use your taught packing pattern instead.',all:[supplyPresent,supplyWilling,
+ requirement(`world.${prefix}.bench.open`,true,'Uncover the repaired bench before ordering kits.'),
+ requirement('glasshouse.scene.caretakerTemplateAvailable',true,'Joss needs his actual unencumbered reusable template. After his gift, use your taught packing pattern instead.')]};
+definitions.commands.push(
+ {...rootCommand(commandId('supply_logs'),'Give Joss 2 logs · replenish his workshop stock',ids.worldId,POCKET_LOCATION,[],[
+  {type:'transfer',key:JSON.stringify({id:'Rough wood log'}),from:'player',to:content.caretakerId,count:2},
+  know('supply_logs','You gave Joss two real logs for his workshop. They remain his stock when you leave; this gift grants no withdrawal rights or wages.')]),
+  targetId:content.caretakerId,coLocated:true,participants:['$target'],visibleWhen:supplyPresent,requires:{reason:'Meet willing Joss inside this Glasshouse to give him workshop supplies.',all:[supplyPresent,supplyWilling]}},
+ {...rootCommand(commandId('commission_kits'),'Order 2 survey kits · 2 coins · Joss’s 2 logs + 1 stamina · 3 min',ids.worldId,POCKET_LOCATION,[
+  {type:'resource',native:true,key:'money',amount:-2},
+  {type:'item',actor:content.caretakerId,key:JSON.stringify({id:'Rough wood log'}),amount:-2},
+  {type:'vital',actor:content.caretakerId,key:'stamina',amount:-1}],[
+  {type:'item',key:JSON.stringify({id:'Prepared survey kit'}),amount:2},
+  {type:'resource',actor:content.caretakerId,key:'coins',amount:2},
+  know('commission_kits','Joss packed two survey kits from his two logs and reusable template while you supervised. He spent one stamina and received your two coins. Both kits are in your bag for survey work; the template remains his.')]),
+  targetId:content.caretakerId,coLocated:true,participants:['$target'],duration:3,cancellation:'refund',siteId:`${prefix}.bench`,
+  reservationReturns:1,completionRequires:supplyWorkSupport,completionCoLocated:true,completionFailure:'refund',
+  visibleWhen:supplyPresent,requires:supplyWorkSupport}
 );
 definitions.commands.push(...clone(pocketObservationDefinitions.commands).map(d=>({...d,group:'glasshouse'})));
 definitions.powers=[...(definitions.powers||[]),...clone(pocketObservationDefinitions.powers)];

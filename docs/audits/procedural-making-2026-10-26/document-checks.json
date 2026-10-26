@@ -1,0 +1,14 @@
+{
+  "checkedLinks": 15,
+  "linkErrors": [],
+  "sourceTestDriftSinceSnapshot": [
+    "src/book_world_lotm_ui.js",
+    "src/people_knowledge.js",
+    "src/people_ui.js",
+    "src/ui/control_box.js",
+    "src/world_packs/book_shadow_slave_life.js",
+    "tests/people_knowledge.test.js",
+    "tests/shadow_slave_life.test.js"
+  ],
+  "note": "Snapshot remains verification authority even if current shared checkout changes."
+}

@@ -1,0 +1,30 @@
+{
+  "bundlePath": "/Users/weiwei/.codex/research/weather-w4-2026-10-26/snapshot/output/dist/bundle.js",
+  "bundleSha256": "330a65e1d16e900774e7d876f0caf1482ebb4c3a8f8ca5e07988b8c0c801483d",
+  "bundleMatches": true,
+  "route": "Named starting-material/linen fixture; actual earned entry, paid water/filter/soften, retained drying, kit and finite paid commission",
+  "originalRoundtrips": [
+    "supply-pending",
+    "sealed-water-stock",
+    "filter-pending",
+    "filtered-water",
+    "salt-retained",
+    "soften-pending",
+    "softened-native-staves",
+    "prepared-rack",
+    "partial-prepared-cohort",
+    "prepared-dry-native",
+    "prepared-bind-pending",
+    "prepared-commission"
+  ],
+  "finalRoundtrips": [
+    "final-prepared",
+    "final-commission",
+    "final-clear-pending"
+  ],
+  "errors": [],
+  "desktopCases": 4,
+  "qualification": "Initial12 native checkpoints on original bundle, final3 on corrected UI bundle; source15 focused + final4 projection tests. W5 source joins preserved; W6 current changes intentionally supersede shared host/content/facts/item source hashes. W4 helper/test unchanged and included in W6 frozen candidate.",
+  "reviewState": "agent-verified, not human-reviewed",
+  "remaining": "combined field/forecast/native and full gates plus exact source-reader gaps"
+}

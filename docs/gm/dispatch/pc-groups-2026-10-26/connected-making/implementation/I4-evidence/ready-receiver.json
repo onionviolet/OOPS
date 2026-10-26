@@ -1,0 +1,23 @@
+{
+  "lane": "G1-I4",
+  "thread": "01a1794e-a7cd-7672-929c-bf94c02d19f0",
+  "ready": true,
+  "holdsRuntimeSlot": false,
+  "acknowledgedIncoming": "slot-2 from G6-W2 after G6-W1 and G6-W2 immutable proof checkpoints",
+  "incomingOwner": "01a1794d-9355-7f53-8c4b-12a067d142fb",
+  "sourceSlice": "actual HP state/panel/consumer and named dose_process contract correction",
+  "paths": [
+    "src/hp_brewing_state.js",
+    "src/hp_brewing_panel.js",
+    "src/world_packs/book_hp_pack.js",
+    "tests/hp_brewing.test.js",
+    "tests/hp_material_preparation.test.js",
+    "tests/dose_process.test.js",
+    "src/hp_brewing_domain.js",
+    "tests/hp_brewing_domain.test.js"
+  ],
+  "followingRequested": "G2-I5 combined proof, preserving firm earlier successors and G5-M6 later request",
+  "acknowledgedAt": "2026-10-26T18:39:38.475154+00:00",
+  "sourceDependencies": "all N2 G2/G1 helper and lifecycle source releases received",
+  "receiverAction": "verify incoming G6-W2 slot-2 metadata, acquire sorted path locks, implement bounded N2 HP source/focused and named dose_process test repair, release to G2-I5 for composed native proof"
+}

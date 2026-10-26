@@ -1,0 +1,12 @@
+Initial run: PASS smoke, crash guard, frozen build, save mirror and presence. Offline failed because index.html still referenced Google Fonts.
+Focused correction: index.html now links the existing styles/material_icons.css.
+{
+ "work": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-offline-bw4poG",
+ "fontStatus": [
+  "loaded"
+ ],
+ "iconWidth": 0,
+ "external": [],
+ "serving": "v0.6-f7324af35659",
+ "result": "PASS"
+}

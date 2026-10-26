@@ -1,0 +1,59 @@
+{
+  "route": "DEV SEEDED supplied workshop; method taught and project completed through pure native planners; browser executes packing",
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": "14px",
+      "box": {
+        "x": 680.65625,
+        "y": 892.921875,
+        "width": 686.765625,
+        "height": 28.1875
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": "21px",
+      "box": {
+        "x": 680.65625,
+        "y": 634.9375,
+        "width": 686.765625,
+        "height": 42
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": "14px",
+      "box": {
+        "x": 576.84375,
+        "y": 427.890625,
+        "width": 464.84375,
+        "height": 28.1875
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": "21px",
+      "box": {
+        "x": 576.84375,
+        "y": 424.453125,
+        "width": 464.84375,
+        "height": 68.59375
+      }
+    }
+  ],
+  "cancellationConserves": true,
+  "pendingRoundTrip": true,
+  "existingFasterConsumer": true,
+  "completedRoundTrip": true,
+  "bundleHash": "a58c45767281d74e0b91d702f437261486d09353d4ab514dc1ac1c97e5dd4a6b",
+  "errors": []
+}

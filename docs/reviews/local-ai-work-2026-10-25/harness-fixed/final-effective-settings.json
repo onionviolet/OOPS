@@ -1,0 +1,42 @@
+[
+  {
+    "id": "agent-default-model",
+    "config": {
+      "provider": "ollama-local",
+      "model": "qwen3.8:27b",
+      "reasoningEffort": "off"
+    }
+  },
+  {
+    "id": "llm-pi-ai",
+    "provider": {
+      "api": "openai-completions",
+      "baseURL": "http://127.0.0.1:11434/v1",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "maxTokensField": "max_tokens",
+        "thinkingFormat": "openai",
+        "supportsReasoningEffort": true
+      },
+      "models": [
+        {
+          "id": "qwen3.8:27b",
+          "name": "Qwen 3.8 27B (local MLX)",
+          "contextWindow": 32768,
+          "maxTokens": 4096,
+          "input": [
+            "text",
+            "image"
+          ],
+          "reasoningEfforts": {
+            "off": "none",
+            "low": "low",
+            "medium": "medium",
+            "high": "xhigh",
+            "xhigh": "xhigh"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "from": {
+    "lane": "G6-W5",
+    "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "phase": "acknowledged bounded ecological source/focused/snapshot",
+    "handoffFrom": "G6-W4",
+    "handoffFromThread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+    "at": "2026-10-26T19:05:40.261504+00:00",
+    "nextRequested": {
+      "lane": "G6-W4",
+      "thread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+      "ready": true,
+      "phase": "frozen AD43 proof; W6 explicitly yielded field-source turn",
+      "following": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "ready": true,
+        "phase": "field source; preserve W5 own later native proof request"
+      }
+    }
+  },
+  "to": {
+    "lane": "G6-W4",
+    "thread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+    "phase": "acknowledged frozen W4 AD43 proof and own projection correction",
+    "handoffFrom": "G6-W5",
+    "handoffFromThread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "at": "2026-10-26T19:13:45.921554+00:00",
+    "nextRequested": {
+      "lane": "G6-W6",
+      "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+      "phase": "field/forecast source",
+      "following": {
+        "lane": "G6-W5",
+        "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+        "phase": "frozen native AD43 proof",
+        "ready": true
+      }
+    }
+  },
+  "readiness": "W4 explicit READY now in source handoff message",
+  "sourceLocksReleased": true
+}

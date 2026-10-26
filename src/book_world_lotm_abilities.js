@@ -65,7 +65,10 @@ function definitionFor(actors){
  }
  return {id:'book.lotm',world:{id:I.world},sources,abilities:rows,simulation:{powers:[],commands}};
 }
-const compiled=compileStructuredAbilities(definitionFor(['player',...LOTM_HOSTILES.map(h=>h.id)]));
+const definition=definitionFor(['player',...LOTM_HOSTILES.map(h=>h.id)]);
+// The same binding rows drive execution and the host's known-source offers.
+export const abilitySourceOf=Object.freeze(Object.fromEntries(definition.abilities.map(a=>[a.commandId,a.sourceId])));
+const compiled=compileStructuredAbilities(definition);
 export const abilityCommands=compiled.commands.filter(c=>c.group==='book_lotm');
 export const hostileAbilityCommands=compiled.commands.filter(c=>c.group==='book_lotm_hostile');
 export const abilityIds=(pathKey)=>ROWS[pathKey].map(a=>ownerOf('player',a.key));

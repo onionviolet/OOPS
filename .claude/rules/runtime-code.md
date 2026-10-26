@@ -15,3 +15,6 @@ per fact; no new import cycles or imports of `main.js`; namespaced save slices
 with migrations; structural moves separate from behavior changes; integration
 means a player journey crosses the module. Runtime lane briefs name their seam
 and link that file.
+Before any runtime slice, read [docs/GROUND_RULES.md](docs/GROUND_RULES.md):
+the proposed pre-flight PRF1–PRF8 helps shape the brief and the accepted AD43 floor FLR1–FLR6 decides
+when the slice is done (2026-10-26).

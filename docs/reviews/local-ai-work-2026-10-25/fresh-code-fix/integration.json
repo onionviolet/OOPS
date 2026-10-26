@@ -1,0 +1,19 @@
+{
+  "exact_worker_patch_applied": [
+    "scripts/lanes/lanes.py",
+    "scripts/lanes/tests/test_lanes.py"
+  ],
+  "original_tests_unchanged": true,
+  "new_regressions": [
+    "test_alive_rejects_invalid_pids_without_os_signal",
+    "test_alive_valid_pid_preserves_outcomes",
+    "test_launch_not_blocked_by_invalid_receipt",
+    "test_status_marks_invalid_receipt_exited"
+  ],
+  "primary_code_corrections": 0,
+  "project_commit": false,
+  "integrated_tests": {
+    "exit_code": 0,
+    "stderr": "test_alive_rejects_invalid_pids_without_os_signal (test_lanes.LaneToolTests.test_alive_rejects_invalid_pids_without_os_signal) ... ok\ntest_alive_valid_pid_preserves_outcomes (test_lanes.LaneToolTests.test_alive_valid_pid_preserves_outcomes) ... ok\ntest_launch_not_blocked_by_invalid_receipt (test_lanes.LaneToolTests.test_launch_not_blocked_by_invalid_receipt) ... ok\ntest_launch_writes_receipt_and_forwards_prompt (test_lanes.LaneToolTests.test_launch_writes_receipt_and_forwards_prompt) ... ok\ntest_merge_report_flags_dirty_tree (test_lanes.LaneToolTests.test_merge_report_flags_dirty_tree) ... ok\ntest_merge_report_flags_merge_conflict (test_lanes.LaneToolTests.test_merge_report_flags_merge_conflict) ... ok\ntest_merge_report_flags_stale_base (test_lanes.LaneToolTests.test_merge_report_flags_stale_base) ... ok\ntest_merge_report_ready_clean_branch (test_lanes.LaneToolTests.test_merge_report_ready_clean_branch) ... ok\ntest_status_marks_invalid_receipt_exited (test_lanes.LaneToolTests.test_status_marks_invalid_receipt_exited) ... ok\ntest_status_reports_receipt_and_artifacts (test_lanes.LaneToolTests.test_status_reports_receipt_and_artifacts) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 1.005s\n\nOK\n"
+  }
+}

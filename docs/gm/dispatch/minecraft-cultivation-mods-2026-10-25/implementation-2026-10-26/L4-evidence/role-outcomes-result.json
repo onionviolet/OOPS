@@ -1,0 +1,93 @@
+{
+  "bundleSha256": "99cd1cb5336239045891f9570b5f41abbbea904564e8493ec6fd9a9599f45027",
+  "persistence": [
+    {
+      "state": "pending",
+      "exportChars": 242736,
+      "exportSha256": "de17d98c0d9cc289c7d96a61ed393be77abb0872583b9316cdddfd91328e6fe5",
+      "projectSha256": "585e18f857392b7e022961c71bf3e56f37bf1dbf21c5c4362706c2cdd4924209"
+    },
+    {
+      "state": "completed",
+      "exportChars": 241680,
+      "exportSha256": "1dfef053430ac15401f3e43cbd1682bad47b4db1e3159a80066bb87066d3bc50",
+      "projectSha256": "7f860759191b96ff9ea4193b61acf67da50b1ba848eecb1c0eca953017bccdac"
+    },
+    {
+      "state": "Sailor reflection",
+      "exportChars": 242380,
+      "exportSha256": "987e3f3ea78d93dc1f06631abbc61c24e314688050420cb346225e4ec513acb0",
+      "projectSha256": "538aa706fba88bfa4272e2f03bbadbda03e057f9505350aebc2c2d3302d326e0"
+    },
+    {
+      "state": "Savant reflection",
+      "exportChars": 243700,
+      "exportSha256": "60dafe8660c0558b2b1dd2f2cc57b7ccf435ac656c9296f7a1836f21c6c388be",
+      "projectSha256": "d42ed2801fae21f7f9f9655b585df73bb8593a0d22dbbcc21efb302d4ddc4644"
+    }
+  ],
+  "ability": {
+    "beforeStaminaToFull": 0,
+    "afterStaminaToFull": 2
+  },
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 699,
+        "panelContentWidth": 699,
+        "font": "14px"
+      },
+      "file": "power-work-1920-14.png"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 693,
+        "panelContentWidth": 693,
+        "font": "21px"
+      },
+      "file": "power-work-1920-21.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 477,
+        "panelContentWidth": 477,
+        "font": "14px"
+      },
+      "file": "power-work-1536-14.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 473,
+        "panelContentWidth": 473,
+        "font": "21px"
+      },
+      "file": "power-work-1536-21.png"
+    }
+  ],
+  "errors": [],
+  "route": "Fresh Storm life, report, allocated Sailor dose, ingestion, deep breath, paid manifest recovery; no gameplay grants",
+  "roleOutcomes": {
+    "sailorActs": 1,
+    "savantActs": 4,
+    "pendingCancelledZero": true,
+    "noReplay": true,
+    "existingPrescreenEligible": true,
+    "errors": []
+  }
+}

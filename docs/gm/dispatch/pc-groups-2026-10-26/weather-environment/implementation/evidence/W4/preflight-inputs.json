@@ -1,0 +1,46 @@
+{
+  "state": "preflight inspection only; not frozen verification inputs",
+  "at": "2026-10-26T17:45:15.775652+00:00",
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "files": {
+    "src/craft_sources.js": "1ef9a07664b206d5f5eeecbb6d60a094e958f2d232848237c2e214036188f1da",
+    "src/craft_materials.js": "bea606cda53ef2bd2e8a2dd76c0b3ea8c9157b73f196aa81e94bffddfb3c2100",
+    "src/material_lineage.js": "1c70cf1822c9ac7952be2b3be3a2a503f4eed545ccd1b9246622ecbae540a890",
+    "src/processed_materials.js": "ffefcfe725942d809f7ffe075ff43e33dcecc67ff4376b4b9799e9414b98bab3",
+    "src/craft_process_separation.js": "19855eb1d1f46edeabfc169cd4cce69284d0e93847a139b7cab7b4632d1ec82d",
+    "src/book_world_paradise_campaign_content.js": "c2543099494355dd83ffb7855a3616e6431b0653a31c6fdec60f7d978d599328",
+    "src/book_world_paradise_campaign_facts.js": "a67a26d0be9c02b46b3d04ed5ed7429a1641bbed4df454bda9704fa9259ddc5b",
+    "src/book_world_paradise_campaign_host.js": "e8f57a262267183364897b73ee4f4a4c7098d4bd6337c8817ae9b381ad7f2489",
+    "src/field_works_extension_content.js": "febf15ce7deeb25e56db992c31a14da378df424fb49c2d28918e7318d4350981",
+    "src/field_works_extension_facts.js": "82533b15d02ae38ba859bc52cf299cfd9f9392bdb8ca6f8c0527e42933bf50ff",
+    "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d"
+  },
+  "runtime_ownership": [],
+  "source_ready": false,
+  "dependencies": [
+    "W3 lot/exposure + book-world consumer release",
+    "G5 M2 lot/support inputs release if consumed",
+    "G3 separation release if chemistry consumed",
+    "G2 allocation release if shared inputs consumed"
+  ],
+  "commands": {
+    "build": "node build.js",
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "ink:compile": "node scripts/compile_feature_ink.mjs",
+    "ink:check": "node scripts/compile_feature_ink.mjs --check",
+    "check:arch": "node scripts/check_architecture.mjs",
+    "check:rules": "node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs",
+    "check:receipts": "node scripts/check_receipts.mjs",
+    "check:docs": "node scripts/check_doc_slips.mjs",
+    "check:descriptions": "node scripts/check_descriptions.mjs",
+    "check:generators": "node scripts/check_generators.mjs",
+    "report:cycles": "node scripts/cycle_ledger.mjs",
+    "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
+    "build:preview": "node scripts/build_ui_preview.mjs",
+    "desktop": "npm run build && npm run desktop:snapshot && electron .",
+    "desktop:snapshot": "node desktop/snapshot.cjs",
+    "check:desktop": "node scripts/check_desktop.mjs",
+    "mcp:game": "node scripts/mcp/game_mcp.mjs"
+  }
+}

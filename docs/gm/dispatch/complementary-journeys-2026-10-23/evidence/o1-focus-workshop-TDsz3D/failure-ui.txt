@@ -1,0 +1,249 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels…
+Homes
+Village experiments
+Standing and ledger
+Tools
+Gear workshop
+Stories & history
+Vows and trials
+Rune bench
+Projects
+Known things
+Statistics
+Today
+Where I am
+Loadouts
+Around this place
+Polyjuice bench
+Lives & inheritance
+Family qualities
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+World events
+Character vitals
+Inventory & combat view
+Journal & received accounts
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Hero XP
+×1.5
+Skill XP
+×1.5
+Global XP
+×1.5
+Attributes ›
+Gear · 0
+Condition · 1 effect
+Spark of Inspiration
+1799m
+Buff
+Body · Human
+All items
+6
+Equipment
+2
+Usable
+1
+Other
+3
+Favorites
+0
+Inventory
+4S 99C 9W
+Name ↑
+▾
+Charcoal
+x3
+5W
+Lamp oil
+2C 5W
+Rough wood log
+x6
+1C
+Stale bread
+x5
+2C
+[weapon]
+Cheap iron dagger
+[100%]
+15C 7W
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+15.4 °C · comfortable
+
+01/04/999 08:34, Mon · ☼ Day
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+Gear workshop
+▾
+Gear workshop
+
+Work on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.
+
+Choose maker
+You · Forging 0
+Old craftsman · Forging 15
+Choose carried equipment
+Cheap iron dagger · 100% quality · 1 carried
+
+Condition 100.00/100 · meaningful uses 0 · treatment tempered
+
+head: Cheap iron short blade
+
+handle: Simple wooden short handle
+
+Material hardness 82.5 · toughness 72.4 · wear ×1.097
+
+Heat-treated edge: Attack power ×1.01
+
+Work history (3)
+Attach material role
+Remove material role
+Heat workpiece
+Work hot metal
+Quench in oil
+Temper metal
+Finish the surface
+Refit the handling
+Improve through use
+Replace component
+Make rigid setting
+Reforge craftsmanship
+Repair with material
+Field material repair
+Dismantle for components
+Choose material when needed
+Cheap leather pants ×1
+Lamp oil ×1
+Choose role
+grip
+lining
+coating
+setting
+
+Choose a modeled add-on role.
+
+Apply quoted process
+
+Local repairer
+
+The craftsman can teach local preparation and fitting through actual repair work.
+
+Study hide preparation with the craftsman · 5 minHelp with local repairs · 5 min
+Study the preparation lesson before this repair shift, or continue ordinary workshop work.
+Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot
+Study the craftsman’s preparation lesson first.
+Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot
+Study the craftsman’s preparation lesson first.
+Demonstrate a fitted preparation · consume treated pelts · smoked lot
+Study the craftsman’s preparation lesson first.
+Demonstrate a fitted preparation · consume treated pelts · oiled lot
+Study the craftsman’s preparation lesson first.
+Cut a fitted lining · 1 treated pelt + usable kit · smoked lot
+Study the craftsman’s preparation lesson first.
+Cut a fitted lining · 1 treated pelt + usable kit · oiled lot
+Study the craftsman’s preparation lesson first.
+Prepare hides
+
+Smoke sets the fur: processed rat pelts gain 10 quality; dehaired leather loses 5. Needs 3 untreated rat pelts from one stack.
+
+Smoke three rat pelts over a slow fire
+Needs 3 untreated rat pelts from one stack.
+
+Oil loosens hair and softens the hide: wolf rat leather gains 10 quality; fur pelts lose 10. Learn Crafting to level 5 to dress hides with oil.
+
+Dress three rat pelts with lamp oil
+Learn Crafting to level 5 to dress hides with oil.
+← Village
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
