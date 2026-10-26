@@ -6215,3 +6215,24 @@ and proof should scale with the kind of change. The analysis and proposals live 
 the verification direction is AD36 item 7 in the
 [rules index](RULES_INDEX.md#efficient-rule-verification-ad36). Build order of the
 proposed mechanisms is not yet chosen; this entry authorizes no runtime wave.
+
+## Human gates can be skipped, 2026-10-25
+
+Weibao, after the master playability plan's round 2: "commit and then address
+other stuff accordingly? like planning ability implementation rules for every
+world? More to consider? Human gate can be skipped, send out lesser to remove
+leftover, and archive".
+
+Direction: human or director acceptance is optional feedback, not a gate. Work
+moves to the next dependency-ready slice on the agent-side evidence the rules
+already require (rebuilt fresh-origin desktop browser run, Save/reload/Export/Import
+where state changes, AD36 gates). Receipts label such work "agent-verified, not
+human-reviewed" instead of holding it in a pending human-gate state. When Weibao
+does play and gives feedback, it still overrides and is recorded with the owning
+route. Existing "Human gate" lines in PLAYTEST.md and dispatch checkpoints become
+optional review notes; no one needs to clear them before continuing. Recorded as
+AD42.
+
+The same request asked for cross-world ability implementation rules; they are
+proposed in [ability rules](ABILITY_RULES.md) (ABR codes) and are not accepted
+decisions until Weibao says so.

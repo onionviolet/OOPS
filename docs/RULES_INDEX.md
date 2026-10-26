@@ -36,7 +36,7 @@ open here too.
 | Set | Codes | Status | Covers | Owner |
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
-| Accepted direction rules | AD1–AD41 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
+| Accepted direction rules | AD1–AD42 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR69 | Standing 2026-10-15; Discord reference-guide fold 2026-10-21; small-detail tokens UR65–UR68 and region lending UR69 2026-10-22 | All player-facing UI, including source-qualified reference adaptation | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons; pinned recipe and current launch fixture studies | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
@@ -57,6 +57,7 @@ open here too.
 | Presence and interaction rules | PIR1–PIR25 | Accepted 2026-10-18 (PIR5, PIR6, PIR12, PIR20–PIR23, PIR25 restate accepted sealed secrets, UR35, UR52, AD16, D11, AD11–AD12, AR and AD34) | Who and what is present in a place, selecting people, stations, events and ways out, verbs on them, new and heard dialogue, presence across idle time, rewinds and lives | [DOMAIN_RULES](DOMAIN_RULES.md#presence-and-interaction-rules) (old path [stub](PRESENCE_AND_INTERACTION_RULES.md)) |
 | World pass rules | WPR1–WPR32 | Proposed 2026-10-23; workflow reconciliation 2026-10-25 | How any world audit, expansion, exploration or implementation pass runs: pass shape, coverage dimensions (facilities, person-to-person roles, institutions, money, time, power, starts, failure, surfaces), review gates, more-to-consider rounds, durable saving | [WORLD_PASS_RULES](WORLD_PASS_RULES.md) |
 | Progression gate rules | GTR1–GTR35 | Proposed 2026-10-23; descriptor, inspector and herb lesson implemented 2026-10-23; book-world round GTR28–GTR35 | Any point where progress waits: bottlenecks, ranks, admission, knowledge, maturation, start and UI reveal gates; absorbing them from sources, one evaluator, commitment-time checks, staged openings, overflow and legibility | [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md) |
+| Ability rules | ABR1–ABR22 | Proposed 2026-10-25 | Absorbing, modelling, using and showing any world's abilities: powers, spells, techniques, cheat powers, device functions; the shared power seam and structured descriptor | [ABILITY_RULES](ABILITY_RULES.md) |
 | World completion standard | none | Proposal 2026-10-11; connected-delivery guidance reconciled 2026-10-25 | Sections, finite world horizons, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
 
 ## Core digest (read this first, 2026-10-18)
@@ -107,6 +108,7 @@ line they restate.
 | Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, AD38, MR1–MR36; BHR1–BHR30 (accepted 2026-10-18) | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md); BHR18/BHR28 application names actual body clock and chosen reroute policy |
 | Combat, enemies, weapons in use, defeat outcomes, fleeing, captives, conflict | AD8, AD19–AD21, AD25, AD28, AD38, BHR11, BHR13, BHR15; CBR1–CBR30 (accepted 2026-10-18) | [Combat palette](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), [W2 combat grammar](worlds/world-core-kit-2026-10-14/W2_LAWS_POWER_COMBAT.md), [encounters and pursuit](ENCOUNTERS_AND_PURSUIT.md); CBR2/CBR27 application separates outcome boundaries from shown stop reasons |
 | Skills, techniques, faculties, titles and their benefits, practice, teaching, skill loss or carryover | MR21–MR23, AD3, AD6, AD8, AD11, AD17, AD38; SLR1–SLR43 (accepted 2026-10-18) | [Skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md), [SKILLS_AND_TALENTS](SKILLS_AND_TALENTS.md), [skill mechanisms](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md); SLR20 application follows the actual faculty carrier and clock |
+| A world's abilities, powers, spells or techniques: absorbing, adding rows, costs, use, observers, crossing worlds | ABR1–ABR22 (proposed), AD3, AD6, AD28, AD30, AD38; SLR, GTR, HTP as cited there | [ABILITY_RULES](ABILITY_RULES.md), [ability authoring](worlds/ABILITY_AUTHORING.md) |
 | Who is here, talking, trading or using a station, selecting subjects, new and heard dialogue | UR35, UR42, UR52, AD6, AD11–AD12, AD16, AD33; PIR1–PIR25 (accepted 2026-10-18) | [Around you considerations](AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md), [S1–S4 packet](gm/dispatch/around-you-2026-10-18/S1_S4_PACKET.md) |
 | Danger, defeat, difficulty, settings | AD19–AD22, SR14 | [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15) |
 | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
@@ -229,6 +231,7 @@ unless another owner is linked.
 | Code | Rule | Source |
 |---|---|---|
 | AD41 | **Use the primary checkout by default against the consolidated master baseline.** Temporary isolation needs a concrete reason and owner; reuse suitable checkouts and retire finished lanes after integration, active-use checks and artifact preservation. Later consolidation publishes to the personal fork only, leaving upstream untouched. | [Request](USER_VISION.md#primary-checkout-default-and-finished-worktree-cleanup-2026-10-21); [procedure](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21) |
+| AD42 | **Human gates are optional.** Director/human acceptance is feedback, not a gate: continue to the next dependency-ready slice on the required agent-side evidence (rebuilt desktop browser run, persistence checks, AD36 gates) and label it "agent-verified, not human-reviewed". Weibao's feedback, when given, still overrides. | [Request](USER_VISION.md#human-gates-can-be-skipped-2026-10-25) |
 
 ## Efficient rule verification (AD36)
 
@@ -362,7 +365,7 @@ summary; an audit or an isolated mistake does not require one.
 ## Reserved prefixes (2026-10-19)
 
 The prefixes of the [register](#register-of-rule-sets) are reserved: AD, UR, AR,
-MR, SR, AU, GR, CX, WA, BHR, CBR, ECR, SLR, PIR, GTR, plus T for the tension rows and
+MR, SR, AU, GR, CX, WA, BHR, CBR, ECR, SLR, PIR, GTR, ABR, plus T for the tension rows and
 "Rulebook". A bare code with one of these prefixes always means the register
 owner's rule. A palette, audit or considerations doc that needs its own numbered
 table picks a prefix that is not in this list and that a repo-wide grep shows

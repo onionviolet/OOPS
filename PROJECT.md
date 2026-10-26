@@ -4,6 +4,10 @@
 
 The normal app now runs frozen build `v0.6-0e5bb8f76aef` from verified runtime commit `df847a5c3`, pushed to `origin/master` with Weibao’s explicit authorization. [Adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/APP_ADOPTION.md) records 85 matching runtime files, isolated Electron proof, the 236-file verified profile backup and identical saved bytes across normal-app reload. Active tooling, lanes, research and planning edits remain outside this publication. This supersedes earlier no-push and pending-app summaries below; human pacing/taste remains open.
 
+## Human gates optional and ability rules, 2026-10-25
+
+Weibao: human gates can be skipped. AD42 records it: director/human acceptance is optional feedback, so work continues on the required agent-side evidence and receipts say "agent-verified, not human-reviewed" ([request](docs/USER_VISION.md#human-gates-can-be-skipped-2026-10-25)). The same request asked for ability implementation rules for every world: [ABILITY_RULES](docs/ABILITY_RULES.md) ABR1–ABR22 (proposed) route every world's abilities through the shared power seam and structured descriptor, with more-to-consider round 1 (ABM1–ABM11). No runtime change selected.
+
 ## Master completion and playability plan, 2026-10-25
 
 Weibao requested a master plan to complete the work and make the game highly playable. The [proposed sequence](docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md) connects current delivery to playable sessions, deeper world lives, selected mechanic completion and further world horizons. It routes to existing owners and the latest local-master receipt; its proposed order is not a new runtime dispatch or publication authorization.
