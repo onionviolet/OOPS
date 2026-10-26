@@ -46,6 +46,8 @@ Present the local candidate at desktop 1920×1080, with 1536×864 at native 14/2
 
 Finish check: Weibao has an identifiable runnable build and reproducible routes to the delivered content. Technical evidence and actual director feedback have separate status. No stale “pending merge” or “pending adoption” issue is carried forward from a superseded receipt. Presentation is a short delivery action, not a new prerequisite before already-authorized implementation can continue.
 
+AD42 update (2026-10-25): agents walk the routes themselves, first a `yairpg-game` MCP reachability pass (MC14), then the rebuilt desktop browser run. Showing Weibao is optional; his feedback, when given, overrides.
+
 ### M2: make a continuous session comfortable
 
 Use the M1 routes to find concrete friction, starting with the first place a player cannot understand or continue an intended action. Fix the affected surface and behavior together. Prioritize real blocked-action reasons, reachable controls, stable focus, useful logs, overcrowded lists, and distinctions between learned information, held materials and executable powers.
@@ -110,6 +112,8 @@ Keep these states distinct in existing receipts: selected, source implemented, f
 ## Immediate next packet
 
 **A1, proposed first action:** prepare M1's play cards from the latest reconciled candidate and valid receipts, verify its current entry/build identity, and show the delivered routes. Carry any actual usability blockers into one M2 slice. After that slice is playable, take the first dependency-ready M3 pursuit with its incumbent owner. This request saves the plan; it does not silently launch every proposed runtime task.
+
+AD42 update (2026-10-25): A1 no longer ends at showing Weibao. The agent verifies each route (MCP walk, then desktop browser) and carries friction it finds into the M2 slice.
 
 ## More to consider, round 1: access, sustainable play and delivery
 

@@ -207,7 +207,9 @@ Several Claude and Codex sessions share this checkout and branch. Follow
 ## Reporting
 
 Report what changed, how it was checked and any remaining playable acceptance
-gate. Setup alone is not implemented gameplay.
+gate. Under AD42 a human gate is optional review, not a blocker; say
+"agent-verified, not human-reviewed" instead. Setup alone is not implemented
+gameplay.
 
 
 <!-- BEGIN PORTABLE AGENT RULES v1 -->
