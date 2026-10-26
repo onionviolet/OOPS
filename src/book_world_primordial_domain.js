@@ -18,5 +18,5 @@ registerDomain({id: 'primordial_credit', deps: [], initialState: () => null,
     load: slice => host.load(slice), refresh: () => panel?.render(), projection: () => host.view(),
     // tick: native game ticks (sleep, activity, travel) settle a finished mission; interest is derived from the same clock.
     tick: () => host.tick(),
-    commands: {request: id => host.request(id), askRule: () => host.askHowCreditIsWeighed(), startShift: () => host.startShift(), repay: n => host.repay(n)},
-    panels: [() => { if(probe()) panel = createPrimordialPanel({read: () => host.view(), request: id => host.request(id), askRule: () => host.askHowCreditIsWeighed(), startShift: () => host.startShift(), repay: n => host.repay(n)}); }]});
+    commands: {request: id => host.request(id), askRule: () => host.askHowCreditIsWeighed(), startShift: () => host.startShift(), repay: n => host.repay(n), buy: id => host.buy(id)},
+    panels: [() => { if(probe()) panel = createPrimordialPanel({read: () => host.view(), request: id => host.request(id), askRule: () => host.askHowCreditIsWeighed(), startShift: () => host.startShift(), repay: n => host.repay(n), buy: id => host.buy(id)}); }]});

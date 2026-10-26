@@ -1,0 +1,18 @@
+{
+ "mode": "sect",
+ "root": "this checkout",
+ "port": 51474,
+ "errors": [],
+ "log": [
+  "Sect Library panel opened (?primordial_probe=1); CP in hand 0",
+  "fire grass disabled with its reason: It costs 8 CP; you hold 0.",
+  "screenshots: rc-sect-start-1920x1080.png, rc-sect-start-1536x864-14px.png, rc-sect-start-1536x864-21px.png",
+  "shelving mission 1 done; CP 4",
+  "shelving mission 2 done; CP 8",
+  "saved and reloaded: CP 8 kept",
+  "8 CP bought fire grass (a pill ingredient): CP 0, hall record shows it",
+  "screenshots: rc-sect-spent-1920x1080.png, rc-sect-spent-1536x864-14px.png, rc-sect-spent-1536x864-21px.png",
+  "saved and reloaded: purchase and CP kept",
+  "export string (190600 chars) imported: purchase kept"
+ ]
+}

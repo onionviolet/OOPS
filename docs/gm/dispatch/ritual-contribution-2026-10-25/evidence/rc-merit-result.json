@@ -1,0 +1,19 @@
+{
+ "mode": "merit",
+ "root": "this checkout",
+ "port": 51211,
+ "errors": [],
+ "log": [
+  "Nighthawk probationer reported in; merit 0",
+  "formula copy disabled with its reason: It costs 8 merit; you hold 0.",
+  "screenshots: rc-merit-start-1920x1080.png, rc-merit-start-1536x864-14px.png, rc-merit-start-1536x864-21px.png",
+  "file copy (30 min) paid 1 merit only after the time passed",
+  "six night watches (60 min each): merit 13",
+  "saved and reloaded: merit 13 kept",
+  "8 merit bought the Sequence 8 formula copy: merit 5, formula held",
+  "3 merit bought a lot of crystal sunflower: merit 2",
+  "screenshots: rc-merit-spent-1920x1080.png, rc-merit-spent-1536x864-14px.png, rc-merit-spent-1536x864-21px.png",
+  "Export string (214260 chars) literally imported after walking away: state restored",
+  "export string imported: merit 2 and purchases kept"
+ ]
+}

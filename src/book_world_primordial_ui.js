@@ -2,10 +2,10 @@ import {definePanel} from './panel_kit.js';
 import {node, visibleRenderer} from './reference_kit.js';
 // Surface type: records panel in the main workspace (UR1), desktop first (1366x768 and 1600x1000;
 // mobile deferred). Actions: ask, start the mission, repay; each reports its result or refusal in place.
-export function createPrimordialPanel({read, request, askRule, startShift, repay}) {
+export function createPrimordialPanel({read, request, askRule, startShift, repay, buy}) {
     const root = node('section', null, {id: 'primordial_credit_panel', class: 'reference-panel expedition_panel', 'data-surface-type': 'records'});
-    const intro = node('p'), wallet = node('div'), repayBox = node('div'), dials = node('div'), items = node('div'), ledger = node('div'), held = node('div'), refusal = node('div'), restart = node('div'), note = node('p', '', {role: 'status', 'aria-live': 'polite'});
-    root.append(node('h2', 'Sect Library · priced credit'), intro, wallet, items, refusal, ledger, repayBox, held, restart, dials, note);
+    const intro = node('p'), hall = node('div'), wallet = node('div'), repayBox = node('div'), dials = node('div'), items = node('div'), ledger = node('div'), held = node('div'), refusal = node('div'), restart = node('div'), note = node('p', '', {role: 'status', 'aria-live': 'polite'});
+    root.append(node('h2', 'Sect Library · priced credit'), intro, wallet, hall, items, refusal, ledger, repayBox, held, restart, dials, note);
     let draft = '';
     const act = (fn, done) => { try { fn(); if(done) note.textContent = done; } catch(e) { note.textContent = e.message; } render(true); };
     const render = visibleRenderer(root, () => ({v: read(), n: note.textContent}), ({v}) => {
@@ -16,6 +16,15 @@ export function createPrimordialPanel({read, request, askRule, startShift, repay
         const left = v.shift ? Math.max(0, Math.ceil((v.shift.startedAt + d.taskMinutes.value - v.now) / 60)) : 0;
         wallet.append(node('p', `${v.task.label}: ${d.taskMinutes.value / 60} game hours, pays ${d.taskPay.value} CP less ${d.taskCost.value} CP for lamp oil, ${d.taskPerDay.value} a day. Prototype rates (AUTHORED, see the list at the foot). ${v.shift ? `In progress: about ${left} game hours left.` : 'Not started.'}`, {'data-primordial-task': ''}));
         const sb = node('button', 'Start the mission', {type: 'button', 'data-primordial-start-task': ''}); sb.disabled = !!v.shift; sb.onclick = () => act(startShift, 'You take the mission; it ends after eight game hours.'); wallet.append(sb);
+        hall.replaceChildren(node('h3', 'Treasure hall · spend contribution points'));
+        hall.append(node('p', `CP in hand ${f(v.cp)}; spent at the hall so far ${f(v.hall.spent)}. The hall sells for CP only; a loan is a separate route. Prices and stock are proposals unless marked SOURCE.`, {'data-primordial-hall-balance': String(v.cp)}));
+        for(const r of v.hall.rows) {
+            const line = node('div', null, {'data-primordial-hall-row': r.id});
+            const b = node('button', `Buy for ${f(r.price)} CP${r.left == null ? '' : ` (${r.left} left)`}`, {type: 'button', 'data-primordial-buy': r.id}); b.disabled = !r.eligible; if(!r.eligible) b.title = r.reasons.join(' ');
+            b.onclick = () => act(() => { const out = buy(r.id); if(!out.ok) throw Error(out.reasons.join(' ')); }, `The hall clerk releases ${r.label} for ${r.price} CP.`);
+            line.append(node('span', `${r.label}. ${r.text}${r.eligible ? '' : ` Not yet: ${r.reasons.join(' ')}`} `), b); hall.append(line);
+        }
+        const got = Object.entries(v.hall.bought); if(got.length) hall.append(node('p', `Bought here: ${got.map(([k, n]) => `${v.hall.rows.find(r => r.id === k).label} x${n}`).join('; ')}.`, {'data-primordial-hall-held': ''}));
         items.replaceChildren(node('h3', 'Ask the Library for'));
         for(const it of v.items) {
             const line = node('div', null, {'data-primordial-item': it.id});
@@ -24,7 +33,7 @@ export function createPrimordialPanel({read, request, askRule, startShift, repay
         }
         if(!v.knowsRule) { const b = node('button', 'Ask the clerk how credit is weighed', {type: 'button', 'data-primordial-ask-rule': ''}); b.onclick = () => act(askRule, 'The clerk explains how credit is weighed.'); items.append(b); }
         refusal.replaceChildren();
-        if(v.last && !v.last.ok) {
+        if(v.last && !v.last.ok && !v.last.hall) {
             const it = v.items.find(i => i.id === v.last.itemId);
             refusal.dataset.primordialRefusal = '';
             refusal.append(node('h3', `Refused: ${it.label}`), node('p', v.last.reasons.join(' ')), node('p', v.last.shown.join(' ')));
