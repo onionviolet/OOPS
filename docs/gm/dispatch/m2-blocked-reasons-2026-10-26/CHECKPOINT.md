@@ -1,3 +1,19 @@
+```receipt
+build: n/a
+route: fixture(historical lane proof)
+state: source-spot-checked
+viewport: see historical checks below
+persistence: unchanged
+tests: see historical checks below
+review: none
+surface: existing reason and LOTM entry seams; historical evidence retained below
+```
+
+Integration metadata, 2026-10-26: this header describes source reconciliation.
+The historical checks below retain their original identities and limits;
+current combined verification belongs to
+[master reconciliation](../master-reconciliation-2026-10-26/CHECKPOINT.md).
+
 # M2 slice 1: blocked reasons say where, 2026-10-26
 
 Label: agent-verified, not human-reviewed (AD42). Step M2 of docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md. Rules applied: GTR10/GTR2, UR (player-ui), AR (runtime-code), AD3/ABR19 (reasons use only what the character can know).

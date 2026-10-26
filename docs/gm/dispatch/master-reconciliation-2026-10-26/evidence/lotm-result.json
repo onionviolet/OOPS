@@ -1,0 +1,47 @@
+{
+  "bundleSha256": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2",
+  "route": "fresh Village notice \u2192 ordinary Tingen enrollment \u2192 native Save/reload/Export/literal Import",
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "geometry": {
+        "width": 1536,
+        "height": 864
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "geometry": {
+        "width": 1536,
+        "height": 864
+      }
+    }
+  ],
+  "checks": [
+    "ordinary enrollment and exact LOTM slice/location persist through native reload and literal Import"
+  ],
+  "status": "PASS",
+  "errors": []
+}

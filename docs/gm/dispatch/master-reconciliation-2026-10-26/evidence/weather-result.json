@@ -1,0 +1,77 @@
+{
+  "route": "Agent-earned W4 prepared-stave export plus named25-credit field-funding fixture; actual paid apparatus/forecast/field/grounding/kit and coppice-water join",
+  "origin": "http://127.0.0.1:51642",
+  "errors": [],
+  "roundtrips": [
+    "settled-head-install-pending",
+    "settled-calibration-pending",
+    "settled-dated-pulse-observation",
+    "settled-sealed-pulse-receiver",
+    "settled-charged-damp-custody",
+    "settled-field-frozen-absence",
+    "settled-charged-dry-native",
+    "settled-grounded-dry-native",
+    "settled-grounded-bind-pending",
+    "settled-field-useful-commission",
+    "settled-coppice-water-preparation",
+    "settled-joined-coppice-field-order"
+  ],
+  "bundleHash": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2",
+  "baseFixtureHash": "48a524c5d861666c7fc8dea5052c4bc1ba156f86cffdfd43c9dabe1006703064",
+  "fixture": "Only the synthetic field-funding purse is set to25. Existing native clock, biography, prepared materials and earned W4 state remain exact.",
+  "fixtureHash": "0007395b4e65358b037500504801864231382809685fbbf40e8d800d5b388584",
+  "actualFieldConsumer": true,
+  "joinedSourceWaterFieldConsumer": true,
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bounds": {
+        "left": 693.65625,
+        "right": 1006.03125,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bounds": {
+        "left": 693.65625,
+        "right": 1006.03125,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1009.84375,
+        "overflow": false
+      },
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bounds": {
+        "left": 589.84375,
+        "right": 1028.6875,
+        "overflow": false
+      },
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "bundleUrl": "http://127.0.0.1:51642/dist/bundle.js?version=v0.6-cbf3a4ebe392",
+  "status": "agent-verified, not human-reviewed"
+}

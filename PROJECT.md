@@ -1,3 +1,12 @@
+## Everything into local master, 2026-10-26
+
+Weibao requested “reconcile everything into master”. The
+[current integration receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+records the accumulated primary source/docs/tooling and remaining LOTM/Q branches,
+combined checks, artifact dispositions and exact final state. Existing lane
+backlogs keep their own scope and status. Publication and installed-app replacement
+remain separate; no new feature wave is selected.
+
 ## Weather/environment implementation chats, 2026-10-26
 
 Weibao selected implementing applicable PC44–PC53 audit details through six chats: place-clock aging, native rain/home timing, exposure/drying/shelter, environmental inputs, seasonal ecology and forecasts/supernatural weather with combined proof. [Direction](docs/USER_VISION.md#weatherenvironment-details-selected-for-implementation-2026-10-26); [dispatch](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/COMMON.md); [chat ledger](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/THREADS.json). Shared subtle/necessary guidance is built into all six briefs. Bounded S1 source and agent browser proof now join finite coppice, measured water, physical drying, an explicitly ORIGINAL pulse forecast/charged carrier, paid grounding and existing kit/paid orders. The [combined coverage ledger](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/COMBINED_COVERAGE.md) preserves the wider selected source gaps. This is agent-verified, not human-reviewed; installed-app adoption, commit and publication are unselected. Book-world/menu priority and shared-writer ownership remain. Later continuation authority removes the artificial usage stop for these existing chats; [resumption](docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/RESUMPTION.md) preserves scope and verification.
@@ -46,27 +55,29 @@ GTR/ABR recommendations remain proposed. This is documentation/source inspection
 not gameplay verification or publication; UI delivery stays with its sibling
 receipt and R1 remains the owner of sync, nested triage and correction measures.
 
-## Effect-first UI descriptions, implementation 2026-10-26
+## Effect-first UI descriptions, reconciled 2026-10-26
 
-Weibao selected implementing the description rules in current tooltips and
-traits. [UR70–UR75](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
-now route practical meaning, supporting calculations and contextual terms.
-The [implementation receipt](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
-records the stat/trait changes, other-game comparison, generated desktop proof
-and verification state. Weibao subsequently selected normal-app adoption and
-logo publication: [the normal app now runs the verified description build](docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md), with the logo/icon fix pushed as `d2ef02bdc`.
-The description source remains local/uncommitted; only the logo/icon paths were
-published. The October 25 documentation-only state is historical.
-
-<a id="current-delivery-routing-checked-2026-10-22"></a>
+Weibao selected implementing description rules in current tooltips and traits.
+[UR70–UR75](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
+and the [implementation report](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
+own meaning and evidence. The description source is included in the current
+local-master reconciliation candidate. Earlier normal-app adoption and logo
+publication retain their [recorded scope](docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md);
+this reconciliation selects no app replacement or push. The former local-only
+summary is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
 
 ## Verified master publication and normal-app adoption, 2026-10-25
 
 The normal app now runs frozen build `v0.6-0e5bb8f76aef` from verified runtime commit `df847a5c3`, pushed to `origin/master` with Weibao’s explicit authorization. [Adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/APP_ADOPTION.md) records 85 matching runtime files, isolated Electron proof, the 236-file verified profile backup and identical saved bytes across normal-app reload. Active tooling, lanes, research and planning edits remain outside this publication. This supersedes earlier no-push and pending-app summaries below; human pacing/taste remains open.
 
-## Overnight OOPS slice: LOTM ordinary entrance, 2026-10-26 (resume point)
+## LOTM ordinary entrance, reconciled 2026-10-26
 
-Cross-project overnight pass, OOPS L1 (Claude lanes; Codex usage unverified). Branch `claude/lotm-entrance-2026-10-26` (worktree `.claude/worktrees/lotm-entrance`, commits `89e4da7ed`, `45602ecf2`, `709f8f058`) builds on M2's `claude/m2-blocked-reasons-3cdb2b` (`e9b060849`); neither is merged to master. Tingen now opens on ordinary saves through a Village "Read the Tingen hiring notice" row, with effect-first text, visible one-way costs and per-condition refusals. Agent-verified, not human-reviewed: build, 3216/3216 tests, arch and rules pass; headless 1920×1080 proof on bundle `9acbf7cd...` covers enroll and Save/reload/Export/Import (checkpoint `docs/gm/dispatch/lotm-entrance-2026-10-26/CHECKPOINT.md` on the branch until merged). Resume: merge `claude/lotm-entrance-2026-10-26` (it carries M2) into master after the tooltip lane commits, rebuild, then run Electron and 1536×864 checks (MT13) before any adoption. Recovery bundle: `~/.local/share/codex-recovery/yet-another-idle-rpg-2026-10-26/`.
+The ordinary Village hiring notice and M2 blocked-reason work are now included
+in the local-master reconciliation candidate, alongside the later LOTM mechanics
+and UI work. [Current reconciliation receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+owns integration verification and final commit state. The original lane receipts
+retain their evidence; installed-app adoption is separate. The former merge
+resume point is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
 
 ## Book worlds and menus first, 2026-10-26
 

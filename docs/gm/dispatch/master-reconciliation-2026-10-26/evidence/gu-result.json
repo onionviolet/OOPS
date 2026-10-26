@@ -1,0 +1,47 @@
+{
+  "route": "fresh Village \u2192 original RI beginning \u2192 paid control \u2192 food preparation \u2192 taught native cutting \u2192 daily meal; earned refined-state branch \u2192 hunger \u2192 late food \u2192 spoilage/death",
+  "errors": [],
+  "checks": [
+    "pending-refinement: Save/reload/Export/literal Import equal",
+    "prepared-food-plan: Save/reload/Export/literal Import equal",
+    "first-daily-meal: Save/reload/Export/literal Import equal",
+    "hungry-living-gu: Save/reload/Export/literal Import equal",
+    "one-minute-before-spoilage: Save/reload/Export/literal Import equal",
+    "expired-lot-dead-gu: Save/reload/Export/literal Import equal",
+    "same Gu/body/title after paid refinement; Stop refunds essence",
+    "cut produces actual native skill XP and physical output",
+    "daily meal consumes four petals and no essence",
+    "hungry living Gu works; expired stocked petals fail; dead Gu refuses"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "bundleSha256": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2"
+}

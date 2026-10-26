@@ -1,3 +1,19 @@
+```receipt
+build: n/a
+route: fixture(historical lane proof)
+state: source-spot-checked
+viewport: see historical checks below
+persistence: unchanged
+tests: see historical checks below
+review: none
+surface: existing reason and LOTM entry seams; historical evidence retained below
+```
+
+Integration metadata, 2026-10-26: this header describes source reconciliation.
+The historical checks below retain their original identities and limits;
+current combined verification belongs to
+[master reconciliation](../master-reconciliation-2026-10-26/CHECKPOINT.md).
+
 # LOTM ordinary entrance, 2026-10-26
 
 Overnight OOPS slice for the cross-project coordinator pass (L0 session "Codex

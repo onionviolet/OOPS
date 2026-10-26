@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: matching source remains a sketch; source and built-output drift are detected
+ok 1 - matching source remains a sketch; source and built-output drift are detected
+  ---
+  duration_ms: 10.499916
+  type: 'test'
+  ...
+# Subtest: archived and missing manifests cannot claim current native UI
+ok 2 - archived and missing manifests cannot claim current native UI
+  ---
+  duration_ms: 0.648625
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 62.877875

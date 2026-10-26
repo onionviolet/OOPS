@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: existing commands and pending-job definitions remain byte-equivalent
+ok 1 - existing commands and pending-job definitions remain byte-equivalent
+  ---
+  duration_ms: 2.17675
+  type: 'test'
+  ...
+# Subtest: loan, repeated read, returned access and durable reading remain separate
+ok 2 - loan, repeated read, returned access and durable reading remain separate
+  ---
+  duration_ms: 134.815875
+  type: 'test'
+  ...
+# Subtest: observer projection, aliases, copies and lower-stage revised accounts cannot alter stock or prior understanding
+ok 3 - observer projection, aliases, copies and lower-stage revised accounts cannot alter stock or prior understanding
+  ---
+  duration_ms: 100.586708
+  type: 'test'
+  ...
+# Subtest: different actual liquids retain separate outcomes and ink returns for the incumbent making consumer
+ok 4 - different actual liquids retain separate outcomes and ink returns for the incumbent making consumer
+  ---
+  duration_ms: 127.204125
+  type: 'test'
+  ...
+# Subtest: trial cancellation and due-time support loss return inputs once with no invented outcome
+ok 5 - trial cancellation and due-time support loss return inputs once with no invented outcome
+  ---
+  duration_ms: 146.860125
+  type: 'test'
+  ...
+# Subtest: malformed account saves fail explicitly rather than silently reinterpret provenance
+ok 6 - malformed account saves fail explicitly rather than silently reinterpret provenance
+  ---
+  duration_ms: 46.421958
+  type: 'test'
+  ...
+# Subtest: released commands stay exact and trace/projection cannot substitute for present apparatus or mint stock
+ok 7 - released commands stay exact and trace/projection cannot substitute for present apparatus or mint stock
+  ---
+  duration_ms: 220.07275
+  type: 'test'
+  ...
+# Subtest: repair cancellation and loss of actual Nora support refund once without restored support or lost history
+ok 8 - repair cancellation and loss of actual Nora support refund once without restored support or lost history
+  ---
+  duration_ms: 212.003333
+  type: 'test'
+  ...
+# Subtest: issuer, operator/method/device scopes, current standard and custody affect institution without changing the lamp
+ok 9 - issuer, operator/method/device scopes, current standard and custody affect institution without changing the lamp
+  ---
+  duration_ms: 231.014042
+  type: 'test'
+  ...
+# Subtest: stale owned-device quote is rejected and malformed credential metadata is preserved for its matching reader
+ok 10 - stale owned-device quote is rejected and malformed credential metadata is preserved for its matching reader
+  ---
+  duration_ms: 200.231625
+  type: 'test'
+  ...
+# Subtest: all L1 and incumbent command definitions stay exact; earned fixture has no assembly claim or casting grant
+ok 11 - all L1 and incumbent command definitions stay exact; earned fixture has no assembly claim or casting grant
+  ---
+  duration_ms: 136.155292
+  type: 'test'
+  ...
+# Subtest: jig and practiced household methods consume real ink/paper into guides and preserve earlier claims on repetition
+ok 12 - jig and practiced household methods consume real ink/paper into guides and preserve earlier claims on repetition
+  ---
+  duration_ms: 169.715333
+  type: 'test'
+  ...
+# Subtest: school title, a borrowed packet and stale quote cannot supply current support, practice or stock
+ok 13 - school title, a borrowed packet and stale quote cannot supply current support, practice or stock
+  ---
+  duration_ms: 93.311708
+  type: 'test'
+  ...
+# Subtest: cancellation and changed jig/body support at due refund exact reservations once without output or lost learning
+ok 14 - cancellation and changed jig/body support at due refund exact reservations once without output or lost learning
+  ---
+  duration_ms: 255.185416
+  type: 'test'
+  ...
+# Subtest: learned manual method survives passage; current region and tools reevaluate without copying faculty
+ok 15 - learned manual method survives passage; current region and tools reevaluate without copying faculty
+  ---
+  duration_ms: 97.248667
+  type: 'test'
+  ...
+# Subtest: prepared guide carries ink once into real lamp; unavailable specialist refunds; control and household remain useful consumers
+ok 16 - prepared guide carries ink once into real lamp; unavailable specialist refunds; control and household remain useful consumers
+  ---
+  duration_ms: 152.832375
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1230.02125

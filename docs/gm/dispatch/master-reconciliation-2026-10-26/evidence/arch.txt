@@ -1,0 +1,8 @@
+
+> check:arch
+> node scripts/check_architecture.mjs
+
+src/main.js: 10084 lines; baseline 10115; growth -31
+src/display.js: 6730 lines; baseline 6767; growth -37
+src/save_files.js: 310 lines; baseline 310; growth 0
+Grandfathered: 6 main imports, 205 cyclic edges.

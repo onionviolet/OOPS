@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "bundleHash": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2",
+  "source": "/tmp/oops-reconcile-20261026/candidate",
+  "output": "/tmp/oops-reconcile-20261026/candidate",
+  "served": "http://127.0.0.1:52136/?test_hooks=1",
+  "checks": [
+    "Named starting stock Bonemeal3; normal UI-confirmed HP school arrival retains exact native cargo, then earned bench Begin",
+    "Actual four-portion selection refuses capacity before stock or coin payment",
+    "native-only-pending: native Save/reload/Export/literal file Import preserves HP, native stock and host world",
+    "Stale preferred native quantity refuses while unchosen horn alternatives remain; no automatic substitution",
+    "Actual mixed native-key deletion/local-lot/coin/history failure rolls back both owners; retry spends once and all three production paths conserve quantities",
+    "alternative: actual produced dose raises the same 550-condition fixture to750, spends one dose and records only demonstrated conditions",
+    "native-treated-partial: native Save/reload/Export/literal file Import preserves HP, native stock and host world",
+    "reference: actual produced dose raises the same 550-condition fixture to750, spends one dose and records only demonstrated conditions",
+    "blend: actual produced dose raises the same 550-condition fixture to750, spends one dose and records only demonstrated conditions",
+    "Selectable small native-quantity trial changes actual cleanup by100; remaining material/doses stay conserved",
+    "Selectable bulk native-quantity trial changes actual cleanup by133; remaining material/doses stay conserved",
+    "cleaning-to-canon-use: native Save/reload/Export/literal file Import preserves HP, native stock and host world",
+    "Actual cleaned apparatus makes the qualified pinned potion and real one-hour transformation; named dirty-apparatus control resolves degraded, so cleanup feeds a useful reader",
+    "returned-cargo-inert: native Save/reload/Export/literal file Import preserves HP, native stock and host world",
+    "Named synthetic returned-cargo prerequisite: actual Frontier host quote/execute refuses structural repair and retains HP doses and native gear/stock"
+  ],
+  "matrix": [
+    {
+      "name": "comparison",
+      "width": 1920,
+      "height": 1080,
+      "font": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "comparison",
+      "width": 1920,
+      "height": 1080,
+      "font": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "comparison",
+      "width": 1536,
+      "height": 864,
+      "font": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "comparison",
+      "width": 1536,
+      "height": 864,
+      "font": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "used",
+      "width": 1920,
+      "height": 1080,
+      "font": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "used",
+      "width": 1920,
+      "height": 1080,
+      "font": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "used",
+      "width": 1536,
+      "height": 864,
+      "font": 14,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    },
+    {
+      "name": "used",
+      "width": 1536,
+      "height": 864,
+      "font": 21,
+      "ui": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      }
+    }
+  ],
+  "quantities": [
+    {
+      "name": "small",
+      "removed": 100,
+      "condition": 650
+    },
+    {
+      "name": "bulk",
+      "removed": 133,
+      "condition": 683
+    }
+  ],
+  "production": {
+    "alternative": "b1",
+    "reference": "b3",
+    "blend": "b5"
+  },
+  "route": "Named initial Bonemeal3 fixture, earned actual HP school arrival and all bench acquisition/preparation/commit/use; controlled cloned lab branches; named returned-cargo and dirty-apparatus controls",
+  "pageErrors": [],
+  "httpUnexpected": [],
+  "review": "agent-verified, not human-reviewed"
+}

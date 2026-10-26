@@ -19,7 +19,10 @@ p.on('pageerror',e=>result.errors.push(e.message));
 const play=async()=>{await p.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});await p.evaluate(()=>window.simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click();await p.waitForFunction(()=>document.documentElement.dataset.startScreen==='closed');};
 const open=()=>p.locator('#workspace_navigation select').first().selectOption('beginning');
 const save=()=>p.evaluate(()=>{window.saveProgress();return JSON.parse(localStorage.getItem('save data'));});
-const digest=s=>({record:s.content_packs?.structured,actors:s.expansion.actors,simulation:s.expansion.simulation,clock:s.expansion.clock,inventory:s.inventories,skills:s.levels,location:s['current location'],hp:s.character.hp_to_full,stamina:s.character.stamina_to_full});
+// Loading materializes zero XP for NPC skills; absence and explicit zero agree.
+// Preserve the player ledger and every nonzero NPC entry in exact comparisons.
+const skillDigest=levels=>({...levels,person:Object.fromEntries(Object.entries(levels.person).map(([id,ledger])=>[id,id==='main_character'?ledger:{...ledger,skill_xp:Object.fromEntries(Object.entries(ledger.skill_xp).filter(([,xp])=>xp!==0))}]))});
+const digest=s=>({record:s.content_packs?.structured,actors:s.expansion.actors,simulation:s.expansion.simulation,clock:s.expansion.clock,inventory:s.inventories,skills:skillDigest(s.levels),location:s['current location'],hp:s.character.hp_to_full,stamina:s.character.stamina_to_full});
 const load=async literal=>{await Promise.all([p.waitForEvent('load'),p.evaluate(text=>window.load_progress(text),literal)]);await play();await open();};
 const roundTrip=async name=>{const before=await save(),expected=digest(before);await writeFile(path.join(out,name+'-before.json'),JSON.stringify(before,null,2));await p.reload();await play();assert.deepEqual(digest(await save()),expected,name+' reload');const literal=await p.evaluate(()=>window.save_to_file());await load(literal);assert.deepEqual(digest(await save()),expected,name+' literal Import');result.checks.push(name+': Save/reload/Export/literal Import equal, including native vital offsets');};
 const step=n=>p.evaluate(n=>window.advanceTicks(n),n);

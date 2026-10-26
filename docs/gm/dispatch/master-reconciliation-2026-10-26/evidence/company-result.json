@@ -1,0 +1,80 @@
+{
+  "route": "fresh Village \u2192 company \u2192 independent sleep/camp work \u2192 grown shadow \u2192 brace patrol/paid return/treatment; earned same-prefix rope/both/unprepared comparison",
+  "errors": [],
+  "checks": [
+    "pending-independent-sleep: Save/reload/Export/literal Import equal, including native vital offsets",
+    "same-companion-grown: Save/reload/Export/literal Import equal, including native vital offsets",
+    "pending-party-provision: Save/reload/Export/literal Import equal, including native vital offsets",
+    "pending-party-travel: Save/reload/Export/literal Import equal, including native vital offsets",
+    "pending-patrol-stage: Save/reload/Export/literal Import equal, including native vital offsets",
+    "pending-return-report: Save/reload/Export/literal Import equal, including native vital offsets",
+    "returned-treated-party: Save/reload/Export/literal Import equal, including native vital offsets",
+    "failed-patrol-withdrawal: Save/reload/Export/literal Import equal, including native vital offsets",
+    "same captured identity and actual body growth; useful player work during NPC sleep",
+    "actual rope/brace/both preparations change stage; growth reduces actual injury",
+    "native breach damage, dressing and allocated single payment; no replay",
+    "failed unprepared attempt returns both bodies and escrow without paying report"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": 14,
+      "pageOverflow": false
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": 21,
+      "pageOverflow": false
+    }
+  ],
+  "comparisons": {
+    "grownBrace": {
+      "health": 24.375,
+      "max": 29
+    },
+    "rope": {
+      "health": 19,
+      "max": 20,
+      "nativeHpOffset": 0,
+      "report": true
+    },
+    "brace": {
+      "health": 14.5,
+      "max": 20,
+      "nativeHpOffset": 1,
+      "report": true
+    },
+    "both": {
+      "health": 19,
+      "max": 20,
+      "nativeHpOffset": 0,
+      "report": true
+    },
+    "unprepared": {
+      "health": 13,
+      "max": 20,
+      "nativeHpOffset": 3,
+      "report": false
+    }
+  },
+  "nativeDamageOffset": 1,
+  "bundleSha256": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2"
+}

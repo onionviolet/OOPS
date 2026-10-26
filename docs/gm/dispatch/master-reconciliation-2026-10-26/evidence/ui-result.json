@@ -1,0 +1,86 @@
+{
+  "fixture": "generated broader-ui-mid: perf/mid plus cooking unlock and four rat-meat chunks; empty private-pack manifest",
+  "bundleSha256": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2",
+  "checks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "font": "14px"
+      },
+      "journeys": "Inventory find/inspect/equip/take-off/preview/full/return; recipe filter/craft/refusal/return; Journal and Skills choice/return; Reports all-hidden/recover"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "font": "21px"
+      },
+      "journeys": "Inventory find/inspect/equip/take-off/preview/full/return; recipe filter/craft/refusal/return; Journal and Skills choice/return; Reports all-hidden/recover"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "geometry": {
+        "page": [
+          1800,
+          1040
+        ],
+        "font": "14px"
+      },
+      "journeys": "Inventory find/inspect/equip/take-off/preview/full/return; recipe filter/craft/refusal/return; Journal and Skills choice/return; Reports all-hidden/recover"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "geometry": {
+        "page": [
+          1800,
+          1040
+        ],
+        "font": "21px"
+      },
+      "journeys": "Inventory find/inspect/equip/take-off/preview/full/return; recipe filter/craft/refusal/return; Journal and Skills choice/return; Reports all-hidden/recover"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "font": "14px"
+      },
+      "journeys": "Inventory find/inspect/equip/take-off/preview/full/return; recipe filter/craft/refusal/return; Journal and Skills choice/return; Reports all-hidden/recover"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "font": "21px"
+      },
+      "journeys": "Inventory find/inspect/equip/take-off/preview/full/return; recipe filter/craft/refusal/return; Journal and Skills choice/return; Reports all-hidden/recover"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

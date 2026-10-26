@@ -6476,3 +6476,14 @@ Weibao in G2 chat `01a17940-d066-7e12-8e32-1a7a37d19715`: “send chats to imple
 Weibao: “send chats to implement each little detail”, followed by “Make them consider subtle and necissary stuff accordingly”. The selected G7 coverage is PC54–PC60, C1–C5, F1–F3, A14/A15, P1–P3 and the connected J1 journey. [Shared implementation brief](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/COMMON.md) owns scope, dependency order and exclusions; [follow-through](gm/dispatch/pc-groups-2026-10-26/IMPLEMENTATION_FOLLOW_THROUGH.md) owns the necessary cross-group connections. Source chat: `01a17940-e302-7333-af77-a5a8f16446f8`.
 
 The implementation connects contextual names, attributed editions and observations, supported regional preparations, historical apparatus traces and one bounded institutional response through the existing Cyoria lamp/household consumer. Scenes, standards and numerical values remain ORIGINAL proposals. Existing inventory, custody, learning, physical support and source-qualified laws retain authority; a name, book or certificate does not transmute material, grant competence or replace actual means. Book worlds/menus retain priority and mobile remains deferred. [L3 integration checkpoint](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3.md) owns current evidence and remaining technical gates. Selection and source release do not alone prove joined gameplay, installation, publication or human review.
+
+
+## Everything into master, 2026-10-26
+
+Weibao: “reconcile everything into master”.
+
+This selects local reconciliation of accumulated primary work and outstanding
+branches, preserving existing content, private saves and lane evidence. The
+[reconciliation receipt](gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+owns execution and verification. It does not select new gameplay scope, pushing
+or installed-app replacement. Existing accepted direction remains in effect.
