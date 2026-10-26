@@ -1,3 +1,11 @@
+## Effect-first UI descriptions, 2026-10-25
+
+Weibao requested more narrative descriptions that explain what traits, stats and
+other subjects do, retaining calculations as supporting detail. [UR70–UR74](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
+record the standing writing rules; [base-game comparison and examples](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
+identify the current inspector gap. Rules are saved; runtime copy and app adoption
+remain unchanged by this documentation task.
+
 <a id="current-delivery-routing-checked-2026-10-22"></a>
 
 ## Verified master publication and normal-app adoption, 2026-10-25
@@ -6,7 +14,7 @@ The normal app now runs frozen build `v0.6-0e5bb8f76aef` from verified runtime c
 
 ## Human gates optional and ability rules, 2026-10-25
 
-Weibao: human gates can be skipped. AD42 records it: director/human acceptance is optional feedback, so work continues on the required agent-side evidence and receipts say "agent-verified, not human-reviewed" ([request](docs/USER_VISION.md#human-gates-can-be-skipped-2026-10-25)). The same request asked for ability implementation rules for every world: [ABILITY_RULES](docs/ABILITY_RULES.md) ABR1–ABR22 (proposed) route every world's abilities through the shared power seam and structured descriptor, with more-to-consider round 1 (ABM1–ABM11). No runtime change selected.
+Weibao: human gates can be skipped. AD42 records it: director/human acceptance is optional feedback, so work continues on the required agent-side evidence and receipts say "agent-verified, not human-reviewed" ([request](docs/USER_VISION.md#human-gates-can-be-skipped-2026-10-25)). The same request asked for ability implementation rules for every world: [ABILITY_RULES](docs/ABILITY_RULES.md) ABR1–ABR22 (proposed) route every world's abilities through the shared power seam and structured descriptor, with more-to-consider round 1 (ABM1–ABM11). No runtime change selected. On 2026-10-26 the [implementation practice audit](docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md) IPC1–IPC16 traced recurring lane failures (build lock from `build.js` rewriting tracked `index.html`, late clobbering, non-transactional persists, tool-vs-game defects, fixture-only routes) to proposed checks and tools, and ranked four missing rulebooks.
 
 ## Master completion and playability plan, 2026-10-25
 
