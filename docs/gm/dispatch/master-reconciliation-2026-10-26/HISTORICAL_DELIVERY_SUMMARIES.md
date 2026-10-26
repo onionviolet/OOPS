@@ -68,3 +68,21 @@ retain their evidence; installed-app adoption is separate. The former merge
 resume point is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
 
 
+
+
+## Adoption-check status before subsequent play
+
+## Published master and updated normal app, 2026-10-26
+
+Weibao selected pushing master and updating the normal app. Runtime
+`6077f785a` is published; the normal app serves frozen `v0.6-948bd45d09cd`,
+verified bundle `cbf3a4ebe392…`, with all 90 snapshot files matching. The closed
+350-file profile backup is hash-verified; every persisted value and saved byte
+matches after normal startup and reload. The app remains visible at PLAY.
+[Publication/adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md)
+records native proof and recovery. [Reconciliation](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+records all local source branches and 3486 passing tests. Existing unimplemented
+backlogs remain; this release selects no new feature wave. Earlier dated
+entries retain their original release boundaries; this release supersedes their
+no-commit/no-publication/no-adoption status for the included source.
+

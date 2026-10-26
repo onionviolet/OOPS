@@ -4,7 +4,8 @@ Weibao selected pushing master and updating the normal app. Runtime
 `6077f785a` is published; the normal app serves frozen `v0.6-948bd45d09cd`,
 verified bundle `cbf3a4ebe392…`, with all 90 snapshot files matching. The closed
 350-file profile backup is hash-verified; every persisted value and saved byte
-matches after normal startup and reload. The app remains visible at PLAY.
+matched after normal startup and reload. The normal app is running; a later
+passive check found the start screen closed, and the game was left untouched.
 [Publication/adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md)
 records native proof and recovery. [Reconciliation](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
 records all local source branches and 3486 passing tests. Existing unimplemented

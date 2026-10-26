@@ -14,5 +14,13 @@
   "reloadVerified": true,
   "errors": [],
   "misses": [],
-  "gameplayInvoked": false
+  "gameplayInvoked": false,
+  "verificationWindow": "initial launch and reload; subsequent active-play saves may differ",
+  "finalPassiveStatus": {
+    "appVisible": true,
+    "sameBuild": true,
+    "startScreenClosed": true,
+    "savePresent": true,
+    "agentInvokedGameplay": false
+  }
 }

@@ -14,7 +14,7 @@ Runtime master `6077f785a14d8c6e43f1ed82e0bf3efb1b416b6e` was pushed to
 `cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2`.
 All 90 frozen files match the candidate byte-for-byte. Its original
 `app://yairpg` origin and default player profile remain in use. The normal app
-is visible at PLAY; no gameplay, character creation or fixture import was
+was visible at PLAY at the adoption checkpoints; no gameplay, character creation or fixture import was
 invoked in the player's profile. [Machine-readable result](APP_ADOPTED.json).
 
 The [combined integration receipt](CHECKPOINT.md) supplies the unchanged runtime's
@@ -62,3 +62,14 @@ life advancement was used to repair the failed harness expectation.
 The normal app was launched detached from the verification shell and remains
 open. Existing local/untracked artifacts and source work are preserved. No
 private profile or generated player-save content was published.
+
+
+## Subsequent running-app status
+
+A final passive check confirms the normal process remains visible on the same
+frozen build, with a save present and the start screen now closed. No agent
+clicked PLAY or invoked gameplay in this profile. The running game was left
+untouched. Its later save fingerprint differs from the startup checkpoint;
+byte-preservation claims above apply to the verified initial launch and reload,
+not to saves made during subsequent play. The closed original backup remains
+available.
