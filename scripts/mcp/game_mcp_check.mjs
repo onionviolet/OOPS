@@ -284,6 +284,28 @@ try {
     const laterPage = await c.tool('game_look', {offset: 80});
     assert.ok(laterPage.actions.length > 0 && laterPage.actions[0].index === 80, 'later controls are exposed with stable absolute indices');
     await c.tool('game_click', {index: 0}).catch(() => {});   // index path must not crash the server
+    // Compact view: baseline once, then deltas only, with indices valid against the full list.
+    await c.tool('game_new', {seed: 11, sessionId: 'compact'});
+    const base = await c.tool('game_look', {sessionId: 'compact', view: 'compact'});
+    assert.equal(base.baseline, true);
+    const again = await c.tool('game_look', {sessionId: 'compact', view: 'compact'});
+    assert.equal(again.baseline, false);
+    assert.equal(again.addedLineCount, 0);
+    assert.equal(again.newActionCount, 0, 'unchanged screen reports no delta');
+    const fullView = await c.tool('game_look', {sessionId: 'compact'});
+    assert.ok(fullView.screen.length > 4 * JSON.stringify(again).length, 'compact reply is far smaller than the full one');
+    const stepDelta = await c.tool('game_step', {sessionId: 'compact', minutes: 30, view: 'compact'});
+    assert.ok(stepDelta.addedLineCount > 0 && stepDelta.addedLineCount < 40 && stepDelta.time.minute === 30, 'step delta carries the new clock line');
+    const talk = (await c.tool('game_look', {sessionId: 'compact', view: 'compact'}));
+    const fullNow = await c.tool('game_look', {sessionId: 'compact', offset: 0});
+    const dlg = fullNow.actions.find(a => a.key === '.choice_dialogue');
+    if(dlg) {
+        const d = await c.tool('game_click', {sessionId: 'compact', index: dlg.index, view: 'compact'});
+        for(const a of d.newActions) assert.equal((await c.tool('game_look', {sessionId: 'compact'})).actionCount > a.index, true, 'new action index is valid in the full list');
+        assert.equal(d.baseline, false);
+    }
+    assert.equal(talk.baseline, false);
+    await c.tool('game_close', {sessionId: 'compact'});
     const b = await greetElder(c, 11);
     assert.equal(b.hash, a.hash, 'same seed and actions, same save');
     // Export itself touches state (reward timers), so compare with a save taken just after it.
