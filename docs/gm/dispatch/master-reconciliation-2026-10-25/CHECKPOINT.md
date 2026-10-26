@@ -42,3 +42,8 @@ Representative rebuilt HP and tool screenshots were visually inspected. Browser 
 ## Remaining acceptance
 
 Human pacing/taste and normal-app adoption remain open. The lanes' wider source/content gaps remain in their existing owners. This reconciliation does not turn a ritual preview into a drinkable high-rank transition or claim whole-world completion. Active tooling and late source-harvest work remain working changes by design. No push, normal-player-app snapshot, install or adoption occurs in this task.
+
+
+## Later publication and app adoption, 2026-10-25
+
+Weibao subsequently authorized pushing master and updating the normal app, preserving saves and active work. The runtime was pushed as `df847a5c3`; normal build `v0.6-0e5bb8f76aef` is adopted and verified. [Publication/adoption receipt](APP_ADOPTION.md) supersedes this record's earlier no-push and pending-normal-app boundary. The full normal profile was backed up and verified; save bytes remain identical across reload. Active work and the separate preview process remain intact. Human pacing/taste remains open.

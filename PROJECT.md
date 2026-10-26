@@ -1,5 +1,9 @@
 <a id="current-delivery-routing-checked-2026-10-22"></a>
 
+## Verified master publication and normal-app adoption, 2026-10-25
+
+The normal app now runs frozen build `v0.6-0e5bb8f76aef` from verified runtime commit `df847a5c3`, pushed to `origin/master` with Weibao’s explicit authorization. [Adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/APP_ADOPTION.md) records 85 matching runtime files, isolated Electron proof, the 236-file verified profile backup and identical saved bytes across normal-app reload. Active tooling, lanes, research and planning edits remain outside this publication. This supersedes earlier no-push and pending-app summaries below; human pacing/taste remains open.
+
 ## Local master reconciliation, 2026-10-25
 
 Weibao authorized reconciling remaining branches and released dirty work into local master, preserving active work and running checks, without pushing. [Current receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/CHECKPOINT.md) records both remaining LOTM branch merges, the historical preservation-snapshot disposition, released HP/tool/acting-guidance source and documentation, active tooling exclusions, ten verified worktree archives, passing build/3,214 tests/architecture/rules, and rebuilt browser/persistence proof. This supersedes older local-master-lags and pending-lane-merge summaries below. Human acceptance and normal-app adoption remain open; no push selected.

@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "sourceCommit": "df847a5c37ecff4de72fdbc523df8f6a5c812345",
+  "publishedRuntimeCommit": "df847a5c37ecff4de72fdbc523df8f6a5c812345",
+  "remote": "origin/master",
+  "publishedRepository": "https://github.com/onionviolet/OOPS",
+  "build": "v0.6-0e5bb8f76aef",
+  "bundleSha256": "4987a62a2f3b22f1f31b574f2e5ef0f35379db11142873a6407c6ccfbd98ee8f",
+  "runtimeFiles": 85,
+  "allSnapshotFilesMatch": true,
+  "normalPlayerMode": true,
+  "url": "app://yairpg/index.html",
+  "startScreen": "open",
+  "savePresent": true,
+  "saveBytesUnchangedAcrossReload": true,
+  "profileBackupVerified": true,
+  "profileBackupFiles": 236,
+  "privateRecoveryRoot": "/Users/weiwei/.codex/reconciliation-backups/2026-10-25-master/app-update",
+  "isolatedFrozenElectronSmoke": "PASS: startup, PLAY, Save/reload, exact bundle, hidden window and zero missing resources",
+  "pageErrors": [],
+  "privacy": "No private save contents or hashes published; no PLAY, character creation, import or gameplay commands in the normal profile. Existing separate disposable Electron process untouched.",
+  "at": "2026-10-26T02:11:45.936Z"
+}
