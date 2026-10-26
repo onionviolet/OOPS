@@ -58,6 +58,8 @@ Finish check: a supported start can complete a useful session and resume it, wit
 
 ### M3: deepen the current worlds beyond their openings
 
+Update 2026-10-26 ([direction](USER_VISION.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26)): book worlds (LOTM, HP, then queued sources) and the menus/UI get the depth. The Mistglass and Frontier/household rows below are test beds only: they take a shared mechanism to prove it, not new depth of their own.
+
 Proposed default: start with LOTM's first source-supported missing ability/use or acquisition join, after checking its active owner. Then advance the earliest ready horizon in HP and Mistglass/Frontier. Use whichever owner is ready without duplicating an active writer. Finish each selected pursuit before starting another abstraction or world slice.
 
 | Track | Next connected pursuit to scope with its owner | Observable finish |

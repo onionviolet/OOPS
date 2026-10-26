@@ -207,3 +207,46 @@ default for prose too. That is a dated difference, not a conflict.
 | L8 | Unify the Local actions grammar ("Mix at the Village counter" renders as a boxed button among rows, UIA14, confirmed at full resolution) | sonnet, small | One row style in the list; UR7 |
 | L9 | Motion tokens (UIA10, DL10) and tooltip/popover frame tokens (DL2) | sonnet, small | Tokens plus guard, like UR66–UR68 |
 | L10 | Cascade layers to retire the `!important` stack (UIA9) once L6/L7 shrink it | design-level, large | `!important` count falls; geometry harness shows no change |
+
+## Round 3, 2026-10-26: a stable screen, item inspection, hover and reports
+
+Weibao, with two screenshots of the item details view (desktop Electron, Village):
+"Consider the Ui negatives of changing the netire screen when clicking into
+certain menus like more actions, we should figure out how to make ui more
+intuitive and not shifting and more? ... for the reports section it still doesnt
+look as good? And what happened to hover items?"
+
+Codes UIS1-UIS14 (prefix unused before this round). Findings are from source
+reading and the screenshots; nothing here was exercised in a rebuilt browser.
+
+### Findings
+
+| Code | Finding | Evidence | Status |
+| --- | --- | --- | --- |
+| UIS1 | **Clicking an item replaces the whole center.** The Item details panel is registered with `defaultDock:'center'`, so selecting an item swaps out the place view (its prose, actions and work line) and leaves a "← Village" back bar. The rules already say otherwise: UR41 lets a short item inspection anchor to the item, and UR43 says a fuller view "is available when useful, not the automatic default for item interaction". | `src/proto23_shell.js:258`; screenshot 2 | Rule bypassed in code; fix is implementation, not a new rule |
+| UIS2 | **Hover previews stop once any item is selected.** The inventory hover preview returns early while a selected item's detail panel is rendered, and only runs when `main_content` is in parity mode `r3`. After one click, hovering other items shows nothing until the detail closes. Likely the "what happened to hover items" report. | `src/proto23_shell.js:196-198` | Inferred from source; reproduce first (UR15) |
+| UIS3 | **An empty slot offers item commands.** The feet slot shows "Empty slot / Equipped · feet" with Take off, Full item and More actions. | Screenshots 1 and 2 | Defect |
+| UIS4 | **The detail panel changes shape with width.** Narrow, it shows "Full item >" and a boxed More actions; wide, it shows Compare equipment under an expanded More actions. The same subject gives different commands by width. | Screenshots 1 vs 2 | Inconsistency (UR74 spirit: one meaning across surfaces) |
+| UIS5 | **Reports read as raw log text.** Bracketed date dividers, literal asterisks ("*You hear some rustling*"), music-note glyphs, every name underlined as a link, identical lines not condensed, no category color, and a tall empty area below. The combat log already has a cleaner grammar (UI R22: letters, dealt/taken wording, quieter misses, xN). | Screenshot 2, Reports panel | Presentation gap; UR64 (condense) and UR47/UR48 (hover subjects, event vs subject now) apply |
+
+### ACCOUNT FOR NOW
+
+| Code | Constraint for the next UI slice |
+| --- | --- |
+| UIS6 | **Opening or closing an inspector keeps the frame still.** Default: inspecting an item, person, effect or log line does not move or replace another region; the place view, work line and inventory keep their boxes. Measure it with `scripts/playtest/ui_geometry_snapshot.mjs`: region rectangles before and after open/close match, except the inspector's own. Center replacement stays for large tasks the player chose (UR41), through the one controller (UR9). |
+| UIS7 | **Hover peeks, click pins in the same place.** Hover shows the quick preview anchored beside the item; click pins that same box with its commands, keyboard focus and Esc (UR43). A pinned inspector does not disable hover on other rows; a second hover may show beside it or replace it, but never nothing. "Full item" opens the larger view only on request. |
+| UIS8 | **Commands only for the subject that exists.** An empty slot shows what can go there (fitting items held, or "nothing held fits") instead of Take off. Same rule for empty stations, vacant people slots and finished jobs. |
+| UIS9 | **One command set per subject, whatever the width.** Width may fold commands into More actions, but the same commands exist at every width. |
+| UIS10 | **Coordinate with the live tooltip lane.** Another session is implementing UR70-UR75 descriptions in the same inspection code (`src/proto23_shell.js`, `src/display.js`) and adopting them into the normal app. UIS1, UIS2 and UIS7 wait for that lane to land or are given to it, to avoid two writers in one file. |
+
+### LATER / DELEGATE (ranked)
+
+| Rank | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| UIS11 | Item inspection anchored to the item (UIS1, UIS6, UIS7, UIS8): dock Item details beside the inventory by default, hover-then-pin in one box, empty-slot contents, "Full item" for the center view | Sonnet, medium; after the tooltip lane lands; worktree | Rebuilt 1920×1080 and 1536×864 at 14/21 px: clicking an item leaves the place view's rectangle unchanged (geometry snapshot), hover works with an item pinned, empty slot shows fitting items, Save/reload keeps selection behavior sane |
+| UIS12 | Reports grammar pass (UIS5): quiet date dividers, no literal asterisks, links shown on hover/focus, condensed repeats with xN, category color from tokens, reuse of the combat-log grammar | Sonnet, medium; mockup workbench first if layout is unsettled | Before/after screenshots at the target viewport; repeated lines condensed; no change to stored log data (presentation only) |
+| UIS13 | Reproduce UIS2 first: hover an item, click it, hover another; and in a non-r3 parity mode | Haiku or sonnet with the browser, small | A short note with the observed behavior and parity mode, before UIS11 changes it |
+| UIS14 | A stability check in the geometry harness: open and close each inspector type and fail if any other region's box moves more than a pixel | Sonnet, small to medium | Fails on today's item-detail center swap; passes after UIS11 |
+
+Verification: source lines read directly; screenshot observations as shown;
+no build, browser run or code change in this round.

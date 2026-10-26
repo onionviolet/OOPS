@@ -6236,3 +6236,28 @@ AD42.
 The same request asked for cross-world ability implementation rules; they are
 proposed in [ability rules](ABILITY_RULES.md) (ABR codes) and are not accepted
 decisions until Weibao says so.
+
+## Book worlds and menus first; Frontier and Mistglass as test beds, 2026-10-26
+
+Weibao: "Frontier and Mistgrass is just placeholders right? what matters is the
+book worlds and the menus and more? UI stuff should be done but then I feel like
+the prose and stuff still sucks but we can have local ai work on that
+eventually".
+
+Direction: the book worlds (LOTM, Harry Potter and the queued source worlds) and
+the menus and UI are where depth goes. This continues the earlier priority for
+book and anime worlds ([world depth and canon-first priority, 2026-10-13](#world-depth-and-canon-first-world-priority-2026-10-13)). Frontier (an optional original campaign) and
+Mistglass (the first original extension) stay playable and serve as test beds
+for shared mechanisms, but get no new depth of their own unless a book-world
+need is tested there first. Prose quality is acknowledged as weak; a later
+local-AI drafting pass is the intended route (candidate drafts reviewed through
+their owning consumer, per the
+[local AI audit](reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md) O4), not a current
+gate. Interpretation recorded here: "placeholders" is read as "no further
+investment", not removal; nothing is deleted.
+
+The same message asked for UI that does not shift when opening menus, better
+reports and the missing item hover; saved as
+[UI audit round 3](audits/UI_DESIGN_CORE_AUDIT.md#round-3-2026-10-26-a-stable-screen-item-inspection-hover-and-reports)
+(UIS1-UIS14). The [master plan](MASTER_PLAYABILITY_PLAN_2026-10-25.md) M3 is
+updated to match.
