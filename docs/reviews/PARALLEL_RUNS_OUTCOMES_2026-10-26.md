@@ -12,7 +12,7 @@ All of it reached master. The [master reconciliation](../gm/dispatch/master-reco
 
 | Group | Outcome | Left open |
 | --- | --- | --- |
-| Minecraft/cultivation L1–L8 | **Mostly delivered.** L1 planner/person view, L2 applied-use mastery, L3 foundations/method slice, L4 LOTM brewing/acting/power-to-work/artifact handling, L5 two alchemy slices, L6 supplied workshop, L7 Gu companion and trial loops (S1–S3), L8 three feedback fixes. | L4 A5 staged rite. L2 P3/P5 and L5 reference gaps (source evidence missing). L1 cross-world bond transfer. |
+| Minecraft/cultivation L1–L8 | **Mostly delivered.** L1 planner/person view, L2 applied-use mastery, L3 foundations/method slice, L4 LOTM brewing/acting/power-to-work/artifact handling, L5 two alchemy slices, L6 supplied workshop, L7 Gu companion and trial loops (S1–S3), L8 three feedback fixes. | L4 A5 staged rite (done later 2026-10-26, see priorities). L2 P3/P5 and L5 reference gaps (source evidence missing). L1 cross-world bond transfer. |
 | G1 connected making | **One full journey.** HP supplier → paid preparation → settle → assay → cauldron treatment → stored remainder → repeat, with save/import. | Named-method quote/commit parity, quantity forecast, Frontier and LOTM joins (I1 never released). |
 | G2 ingredient substitution | **Delivered.** HP abrasive preparation joined to carried inventory, paid preparation, demonstrated methods and useful treatment; 15 connected browser checks. | Full suite hit four missing-capture errors in its own run, cleared by 14/14 targeted reruns; later master suite passed. |
 | G3 process actions | **Not delivered as gameplay.** Agitation, thermal, separation and cue leaves were written and unit-tested only. Integration checkpointed before wiring. | Everything player-facing: wiring, real costs, UI, product use, persistence. |
@@ -35,6 +35,6 @@ All of it reached master. The [master reconciliation](../gm/dispatch/master-reco
 
 ## Next if you want the unfinished half closed
 
-1. LOTM A5 staged rite (ready, see [priorities](UNFINISHED_GAME_PRIORITIES_2026-10-26.md)).
+1. LOTM A5 staged rite: done 2026-10-26, see [priorities](UNFINISHED_GAME_PRIORITIES_2026-10-26.md).
 2. G3 integration: wire one process leaf (agitation is smallest) into one real book-world consumer. This unblocks G4.
 3. G1 I1: named-method quote/commit parity and the quantity forecast.

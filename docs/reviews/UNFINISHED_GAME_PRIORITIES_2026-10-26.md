@@ -42,7 +42,7 @@ Consolidates this report, [parallel-run outcomes](PARALLEL_RUNS_OUTCOMES_2026-10
 and [world entry rules](../WORLD_ENTRY_RULES.md). Proposed order; each item is
 one playable slice to the AD43 floor before the next.
 
-1. **LOTM A5 staged rite.** Ready receipt exists; closes the L4 lane (5 of 5).
+1. **LOTM A5 staged rite.** Done 2026-10-26 (`13d110f90`, `94c7e1146`): L4 is 5 of 5, agent-verified, not human-reviewed. Gaps: the Seer variant is proven only in tests (no earned Seer route reaches pressure 1–5), and the browser run used a named purse fixture.
 2. **LOTM launch start under WER.** Pick Tingen at launch with era (ERA1/ERA2), crossing method (XM1 neutral default, XM2 cocoon premise), host age (YS1/YS5) and the nine answers shown before confirming; host life replaces the carried purse (WER9). Removes the Village detour.
 3. **UIV1 visible blocked reasons.** Small; every later slice benefits.
 4. **G3 spine.** Wire one process leaf (agitation) into a real book-world consumer; unblocks G4.
