@@ -25,14 +25,14 @@ export function decorateActionComponents(root) {
                 liveNotes.add(note);
                 if(button.nextSibling!==note)button.after(note);
                 // UIV1: a row that already prints this reason is the description; no duplicate note.
-                const shown=reason?[...(button.parentElement?.children||[])].find(n=>n!==button&&n!==note&&n.localName!=='button'&&!n.hidden&&n.textContent.includes(reason)):null;
+                const shown=reason?[...(button.parentElement?.children||[])].find(n=>n!==button&&n!==note&&n.localName!=='button'&&!n.hidden&&n.textContent.trim()===reason):null;
                 if(shown&&!shown.id)shown.id=`ui-disabled-${++reasonSequence}`;
                 const visible=reason&&!shown?note:shown;
                 if(note.hidden!==(!reason||!!shown))note.hidden=!reason||!!shown;if(note.textContent!==reason)note.textContent=reason;
                 // Disabled buttons leave the Tab order, so the visible reason takes the stop.
                 if(visible&&visible.tabIndex!==0){visible.tabIndex=0;visible.dataset.uiReasonFocus='';}
                 if(note!==visible&&note.hasAttribute('tabindex'))note.removeAttribute('tabindex');
-                const previous=focusable.get(button);if(previous&&previous!==visible&&previous!==note&&'uiReasonFocus' in previous.dataset){previous.removeAttribute('tabindex');delete previous.dataset.uiReasonFocus;}
+                const previous=focusable.get(button);if(previous&&previous!==visible&&previous!==note&&!previous.classList.contains('ui-disabled-reason')&&'uiReasonFocus' in previous.dataset){previous.removeAttribute('tabindex');delete previous.dataset.uiReasonFocus;}
                 if(visible)focusable.set(button,visible);else focusable.delete(button);
                 const ids=(button.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==note.id&&id!==previous?.id);
                 if(visible)ids.push(visible.id);

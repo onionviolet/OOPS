@@ -65,6 +65,10 @@ Noted, not changed: in the paused test harness the Village repair-notes buttons 
 | FLR5 | No persistence change, so no Save/reload/Import run |
 | FLR6 | Agent-verified, not human-reviewed |
 
+Follow-up fix (advisor review): the decorator now borrows only row text that equals the reason exactly, and a button that moves off a shared note no longer strips that note's Tab stop. Regression added; probe re-run PASS in all four cells.
+
+Bundle state: `dist/bundle.js` at `09d77f220` (village-loop's rebuild from the shared disk) already contains the UIV1 decorator and the P02 reasons. The P03 CSS loads from `styles/`. The decorator follow-up fix and later rows are source-committed only until the next shared rebuild.
+
 Status: UIV1 first slice (M2 Mistglass door, Tingen workroom) done at the floor. The M2 Tingen begin buttons need nothing: they are enabled since `bcebdf020`.
 
 ## Q18 P02-P10
@@ -76,7 +80,7 @@ Each row gets a line here before editing: ready or skipped, with the owner lane 
 Ownership: `village_career_ui.js` and `harvest_ui.js` are not in `village-loop`'s recorded files (VL1: `local_life.js`, `main.js`, `tests/local_life.test.js`) or GM plan cards; no uncommitted edits. Reasons only; no Village loop logic or command change.
 
 - DRC11 done: Village teaching-term buttons carry the first failing condition (not on your patrol round; watchcraft not executable; teaching already under way) as `data-disabled-reason`, and the panel is decorated, so the five terms share one visible, Tab-reachable reason.
-- DRC12 done in source: harvest controls name their cause (unwritable tab; current carcass; current activity, conversation, fight, sleep, reading or trade). The last is a list because `frame.ready` is a composite built in `main.js` (village-loop's file); a single precise cause needs a `readyReason` there. Hand-off hunk for the owner, not applied.
+- DRC12 done in source: harvest controls name their cause (unwritable tab; current carcass; current activity, conversation, fight, sleep, reading, trade or other occupation). The last is a list because the UI only sees `frame.ready`. `main.js` already has the exact cause in `harvestBlockReason()`. Hand-off hunk for `village-loop`, not applied: add `readyReason:harvestBlockReason()` to the harvest frame and let `harvest_ui.js` show it in place of the list.
 - DRC10 residual: skipped. The audit marks it "Residual: no" (engine cost errors cannot tell player stock from the craftsman's).
 - UIA15: not reproduced. A fresh Village life's Around you shows 2 people and 5 services/stations; the empty line only appears in a place with no known subjects. No edit.
 
@@ -92,7 +96,7 @@ Ownership: `styles/ui_tokens.css` last changed `0ae420352` (2 days ago); no unco
 - UI L8 / UIA14 reproduced at 1920x1080, text 14, on a fresh Village life: the two native-button place actions ("Cross to another world: Tingen", "Mix at the Village counter") were 28 px boxed buttons with the theme's control fill among 25.5 px clear rows. Cause: `component_themes.css` gives every button in a themed module `background: var(--theme-control) !important` and a 2em minimum, and the existing r3 "one routine-row grammar" rule (Mix only) used larger padding.
 - Fix in `styles/ui_tokens.css`: that existing r3 rule now covers both native-button rows with the div rows' padding (`--ui-space-1`) and no minimum height; one scoped `background: transparent !important` (not on hover or disabled, so theme states stay) beats the theme fill; the Mix glyph is sized like the 20 px row icons. One new `!important`, recorded for UI L10.
 - Result: at 14 px all five rows are 25.5 px with clear backing at 1920x1080 and 1536x864. At 21 px the button rows are 34 px against 36.39 px div rows: the div rows' fractional height comes from the fixed 20 px icon line, which is P04's question. Hover and disabled states not exercised in the browser.
-- UIA13 (populated Reports/Journal sibling measurement): not done in this pass; needs a populated fixture capture. Ready, next.
+- UIA13 measured, no change: `mid` and `crowded` perf fixtures after 6 stepped hours. Reports pane 499×1018 at 1920 is 6% text-filled (8-9% at 1536); Journal (`records`) 5-14%. Fixture loads do not restore the message log and idle stepping wrote 2 lines, so this is still not real-play evidence. DL4/UR69: a sparse capture does not justify lending space away. Re-measure from a played session before any layout change.
 
 | Check | Result | Gaps |
 | --- | --- | --- |
@@ -104,7 +108,6 @@ Ownership: `styles/ui_tokens.css` last changed `0ae420352` (2 days ago); no unco
 Stopped after P03 to keep a clean commit boundary; each row below still needs a live ownership check before editing.
 
 - P04 next. Start from the P03 finding: Village div rows are 36.39 px at text 21 because the fixed 20 px row icon sets the line; native-button rows are 34 px. Measure text width versus padding before changing density.
-- P03 remainder (UIA13): populated Reports/Journal sibling measurement.
 - P05-P08 as written in Q18. P08 leaves live tooltip implementation to its incumbent.
 - P09 (DRC9) is small: `crafting_home.js` "Drink one" names observed effects when known; unknown keeps "Drink one".
 - P10 is a diagnostic first; add recap UI only if a return-session problem reproduces.

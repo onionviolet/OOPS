@@ -10,7 +10,7 @@ export function createHarvestPanel({container,read,act,developer=false,readInspe
     const body=document.createElement('div'),work=createWorkStatusView(),routineMeter=createMeterBar();panel.append(body);let signature='';decorateActionComponents(panel);
     // DRC12: name the first cause a disabled harvest control is waiting on.
     const why=(b,reason)=>{if(b.disabled&&reason){b.dataset.disabledReason=reason;b.title||=reason;}return b;};
-    const UNWRITABLE='Finish current work in the writable game tab.',BUSY='Finish or cancel the current carcass first.',OCCUPIED='Finish the current activity, conversation, fight, sleep, reading or trade first.';
+    const UNWRITABLE='Finish current work in the writable game tab.',BUSY='Finish or cancel the current carcass first.',OCCUPIED='Finish your current activity, conversation, fight, sleep, reading, trade or other occupation first.';
     const inspector=createChainInspector({container,developer,read:readInspector});
     const run=command=>{try{act(command);notice='';}catch(e){notice=e.message;}render(true);};let notice='';const selectedBySpecies=new Map();
     function render(force=false){inspector.render();const frame=read(),s=frame.state;panel.hidden=!s; if(!panel.isConnected)container.append(panel);if(!s)return;

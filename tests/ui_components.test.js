@@ -53,6 +53,14 @@ test('UIV1: a disabled reason is a Tab stop, and a row that already prints it ge
         assert(note.hidden); assert(!note.hasAttribute('tabindex')); assert(!a.hasAttribute('aria-describedby'));
         assert(!text.hasAttribute('tabindex'), 'borrowed row text leaves the Tab order once enabled');
         assert(!b.hasAttribute('aria-describedby'));
+        // A button that borrowed another button's note must not strip that note's Tab stop when it moves on.
+        const c = document.createElement('button'); c.disabled = true; c.title = 'Earn merit first.'; a.disabled = true; plain.append(c); decoration.refresh();
+        assert.equal(c.getAttribute('aria-describedby'), note.id, 'shares the identical note');
+        c.title = 'Wait for dawn.'; decoration.refresh();
+        assert.equal(note.tabIndex, 0, "the first button's reason keeps its Tab stop");
+        const longer = document.createElement('p'); longer.textContent = 'Earn merit first. Then ask again.'; const d = document.createElement('button'); d.disabled = true; d.title = 'Earn merit first.';
+        const row = document.createElement('div'); row.append(d, longer); document.getElementById('root').append(row); decoration.refresh();
+        assert(!longer.hasAttribute('tabindex'), 'a longer paragraph that merely contains the reason is not borrowed');
     } finally {decoration?.destroy(); Object.assign(globalThis, saved);}
 });
 
