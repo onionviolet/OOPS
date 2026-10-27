@@ -333,3 +333,61 @@ Princess Maker 2's plan-the-month blocks [S]. Pokemon Sleep-style rest rewards
 - A headless run for K3 that plants, banks 12 h, and checks ripening, upkeep
   charged and no season crossed. Level: test tooling; effort: small to medium;
   done check: the run passes and a seeded boundary case stops at the door.
+
+## Round 4 (2026-10-27): no hard caps, standing orders, NPC helpers, bad actors, and random events
+
+Weibao's direction (relayed in chat): not everything needs a cap; picking and
+selling can be automated; NPCs can choose to help; bad things and evil people
+can happen too; consider random events alongside all of it. Proposals only; this
+extends K1-K8 and R1-R6. Limits are adjectives (AD22), so each proposal names a
+default, dial and reason.
+
+| # | Proposal (default, dial, reason) | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| L1 | **Replace caps with friction.** The bank is uncapped by default; what limits it is the world: perishables spoil, seasons turn, supplies run out, doors stop the run (R2), and spent time buys a falling rate as the stored amount gets large (a soft curve, an adjective: "stale"). Dial: curve per world, including a hard cap for any world that wants one. Reason: Weibao is the only player; a cap protects nothing here, while friction keeps the world's own logic. | Clock + persistence | Medium | A 30-day stored span settles without a cap, the rate shown falls with size, and perishables and seasons still stop it. |
+| L2 | **Settle analytically, not tick by tick.** Processes use closed-form ready times; only event layers run per day-sized chunk. Reason: an uncapped bank is only safe if cost grows with events, not with hours. | Clock | Medium | Settling 30 days takes about as long as settling 3 days in the headless run. |
+| L3 | **Standing orders for picking and selling.** A pre-made choice: "pick when ripe", "sell above N, keep seed stock and what the household needs, only at the weekly market". The order is the decision, so catch-up does not stop for it. Unlocked by progress (a cart, a stall, a hand). The world still decides who buys and at what price; a market-day rule means nothing sells without a buyer. The return note shows each sale and price. Dial: rule richness per world. | Routine runner + market | Medium | A seeded 12 h run picks and sells under a rule, keeps the reserved stock, and the note lists each sale at the market's price. |
+| L4 | **NPCs may choose to help.** Offers come from the person's own schedule, closeness and need, not from a dice roll on the player: "the miller says he'll bring your barley in if you leave the cart." Consent dial: yes / ask me / no. Helping costs the helper time, so it competes with their own work (N3). Help can be late, partial or withdrawn, with a reason shown. A favour ledger notes what is owed. Reason: gives NPCs agency and the player a reason to be liked. | NPC rules + deck | Medium | A neighbour with closeness above a threshold offers help; accepting moves work from the player's list to theirs and logs a favour; a seeded busy day makes the offer late and says why. |
+| L5 | **Bad actors have motive, means and a trace.** A thief, a swindling buyer, a rival, a tax collector, a saboteur, a forger of letters. They act on state, not on a roll aimed at the player: visible wealth, unattended stock, a grudge, a bad name. Every serious harm has an earlier tell (a stranger seen, an odd letter) and a recourse (track, report to the watch, confront, repay). Defences are choices made beforehand: a lock, a dog, a guard, good neighbours. Permanent loss needs an in-world reason and a cost to the villain's side too. | Event deck + NPC rules | Medium to high | A seeded unattended-stock case draws a theft only when the thief's motive is met; the note names the tell and offers a recourse; a locked store case does not. |
+| L6 | **Evil also reaches out.** N1 inverted: a threatening note, an extortion offer, a forged letter, a too-good trade. Discernible tells by default (handwriting, a wrong seal, a wrong name); dial: subtler in LOTM. Reason: the same courier channel carries both, so the player learns to read it. Villain motives and secrets are referred to by ID and route only (sealed). | Writing + deck | Small to medium | Three bad-letter cards exist per world, each with a tell, and a test run reads one correctly from the tell. |
+| L7 | **Harm scales with pace, and recovery is on the card.** Calm: petty and recoverable (a missing basket, a low-ball buyer). Lively: real losses with a clear recourse. Hands-on: serious, still with a way back. E8 gains a clause: in a Calm life, any hazard during 12 h away is recoverable. | Event director | Small | Seeded Calm runs show only recoverable hazards; a seeded Hands-on run shows a larger one with a recourse listed. |
+| L8 | **One director, layered, resolved in time order.** Each day-sized chunk of a catch-up runs these layers in this order: (1) dated events and doors (R2); (2) processes and standing orders (K3, L3); (3) NPC schedules and offers (L4); (4) bad actors from state (L5); (5) random storylet draws at the temperament (K5, VC12). Later layers read what earlier layers did, so a sale or a helper changes what a thief finds. A per-absence event budget (an adjective: "a few notable things") keeps the note readable; extra events coalesce into one summary line. A hazard that needs a real choice sets a stop reason ("needs you") unless a prior decision already resolves it. | Event director + routine runner | High | A seeded 7-day absence gives the same note on every run, shows all five layers in order, coalesces past the budget, and stops at one unresolved hazard with its options. |
+
+### How random events sit with the rest
+
+- **Random is the last layer, not the only one.** Calendar events, orders, NPC
+  choices and bad actors are state-driven and explainable; plain random draws fill
+  the gaps at the world's temperament. Reason: the player can read why things
+  happened, which keeps absence fair.
+- **Prevention is a reward.** Locks, helpers, standing orders and a good name
+  change outcomes, so planning before leaving pays. A seeded test should show a
+  prepared life losing less than an unprepared one.
+- **Seeded and logged.** Each chunk uses the life's seed and a counter; draws are
+  logged so a reload cannot reroll them. Repeats of the same one-shot card are
+  deduplicated across an absence.
+- **Pace sets the ceiling, not the plot.** R1's readout decides how big a hazard
+  can be; the world's content decides which hazards exist.
+- **Faithful ports.** None of L1-L8 apply to the faithful Proto23 and YAIR builds.
+
+### To account for now
+
+- **Sealed content.** Villain secrets and hidden motives live under IDs; letters
+  and notes show tells, never the sealed truth.
+- **NPC agency versus schedules.** A helper's hours must come out of their own
+  schedule (N3) or the world double-books people.
+- **Return note load.** UT3 needs the coalescing rule before L4-L8 ship, or one
+  long absence produces a wall of text.
+- **Heirs and continuation.** Favour ledgers and grudges must say what survives a
+  death (closeness floor, debts, grudges), per the persistence note in round 1.
+- **Per-world flavour.** Village: swindling peddler, light theft, neighbour help.
+  LOTM: church and rogue tails, subtler letters. HP: rivals and bullies, teacher
+  tolerance. Proto23 and YAIR faithful: none. These are starting nouns, not specs.
+
+### Later
+
+- A villains-and-helpers palette per world (names by ID, motive, tell, recourse).
+  Level: design owner; effort: small per world; done check: each world card lists
+  three helpers and three bad actors with tells.
+- Headless check for L8 order and determinism (above), plus a prepared-versus-
+  unprepared comparison. Level: test tooling; effort: medium; done check: both
+  pass on a seeded week.
