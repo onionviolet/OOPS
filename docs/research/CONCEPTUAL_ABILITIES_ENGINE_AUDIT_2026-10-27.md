@@ -30,7 +30,7 @@ Top three recommendations are at the end.
 
 ## Part A. Repo reality
 
-Locators checked 2026-10-27 on `1b9a035af`'s tree.
+Locators checked 2026-10-27 on `6b2ec0c11`'s tree.
 
 ### A1. Where identity lives today
 
@@ -65,7 +65,7 @@ Owner docs that already model parts of identity, which this audit extends rather
 | CAE-A15 | LOTM abilities | `book_world_lotm_abilities.js:16-40` | Conditions with `stacking:'max'`, `look` with `concealed` and `seenBy`; perception abilities write notes. The `seenBy` field is a second observer pattern |
 | CAE-A16 | Storylet outcomes | `lore_history_state.js:53-73` `appliedStoryDeltas` | "Observe actual resolved native snapshot deltas, never infer them from prose" (`:52`): the right rule for residue too |
 | CAE-A17 | World events and history | `lore_history_state.js:110-179` `deriveWorldHistory` | Derived by rule from a faction list and keyed draws; an entity in that list is *consumed* by the derivation |
-| CAE-A18 | Existing conceptual mechanics in runtime | grep of `src/` for erase/forget/true name/honorific/oath/fate | No runtime mechanic targets a name, record or memory. "Seal" and "fate" hits are item seals, sealed-secret plumbing and opportunity labels |
+| CAE-A18 | Existing conceptual mechanics in runtime | grep of `src/` for erase/forget/true name/honorific/oath/fate/curse, hits opened | No runtime mechanic found that targets a name, record or memory. `forget` is a plan-control button that removes an ended itinerary (`feature_expansion_society_host.js:119`, `crush_social_views.js:204`, `feature_expansion_wave_host.js:63`); `erase` is narrative copy (`feature_expansion_nested_chains.js:62,67,164`); `curse` is a store technique item (`book_world_primordial_credit.js:47,75`). "Seal" and "fate" hits are item seals, sealed-secret plumbing and opportunity labels |
 
 ### A3. Base versus delta
 
@@ -120,7 +120,7 @@ marked [S-snip]. Paraphrased; no long quotes. Fields: what it targets, what it l
 | Planescape: Torment (repo [REPORT](planescape-torment/REPORT.md)) | Name, memory, mortality of one immortal [U, repo report] | Past selves and their deeds persist in the world [U] | Recovering the true name opens a later route (repo REPORT:22) | Past incarnations act as separate people [U] | n/a | Repo's own audit is the source; web unread |
 | Pillars of Eternity ([fanlore](https://fanlore.org/wiki/Pillars_of_Eternity), [Deadfire](https://en.wikipedia.org/wiki/Pillars_of_Eternity_II:_Deadfire)) | Souls; a Watcher reads past lives [S-snip] | Hollowborn: soulless births [S-snip] | A god restores the Watcher's soul for service [S-snip] | Sources disagree on Hollowborn cause [S-snip] | n/a | Soul state per character [I] |
 | Undertale (fan sources, [Steam](https://steamcommunity.com/app/391540/discussions/0/496880203072672213)) | The save and reset itself [S-snip] | Some characters remember resets [S-snip, fan] | Reset is the mechanic | Fans dispute who remembers [S-snip] | n/a | Persistent flags outside the save slot [U] |
-| Hades | Run resets [U] | NPCs remember runs [U] | n/a | n/a | n/a | Persistent dialogue flags [U]. Not searched |
+| Hades ([wiki](https://en.wikipedia.org/wiki/Hades_(video_game)), via the sibling time-travel note) | Run resets | Permanent upgrades, NPC standing, quests and romances persist; run-only upgrades reset [S, sibling note] | n/a | n/a | n/a | Persistent standing outside the run [S, sibling note]; dialogue flags [U] |
 | Dark Souls ([DS2 Hollowing](https://darksouls2.wiki.gg/wiki/Hollowing)) | The self, as hollowing per death [S-snip] | Max HP loss, capped at half (DS2) [S-snip] | An effigy reverses it [S-snip] | n/a | Hollow cannot summon (DS1) [S-snip] | A numeric level [S-snip]. Name loss unread |
 | Hollow Knight ([Moth Tribe](https://hollowknight.wiki/w/Moth_Tribe), [Radiance](https://hollowknight.wiki/w/The_Radiance)) | A god's place in memory [S-snip] | A surviving statue [S-snip]; suppressed memory returns as an infection [S-snip] | A confession ends the forgetting [S-snip] | n/a | Sealed in a vessel [S-snip] | **Correction to the brief:** the moths chose to forget her; she was not erased by a power [S-snip] |
 | Outer Wilds ([Steam](https://steamcommunity.com/app/753640/discussions/0/3126037522476271572)) | Nothing but knowledge carries [S-snip] | Ship log [S-snip] | Loop resets the world [S-snip] | n/a | 22-minute loop [S-snip] | A list of discovered facts [S-snip]. Developer sources unread |
@@ -133,16 +133,16 @@ marked [S-snip]. Paraphrased; no long quotes. Fields: what it targets, what it l
 
 **Patterns the table supports [I]:**
 - **Handle versus thing.** Earthsea, LOTM honorifics and Ars Magica split the *name or link* from the *being*. Power over the handle is not power over the body.
-- **Residue is the norm.** King Crimson (blood drops), Hollow Knight (statue, returning infection), Doctor Who (felt gap), Madoka (one rememberer). Total, traceless erasure appears only as a world's top-rung act.
+- **Residue is the norm.** King Crimson (blood drops), Hollow Knight (statue, returning infection), Doctor Who (felt gap), Madoka (one rememberer). In the works read, total, traceless erasure appears as a world's top-rung act.
 - **Who remembers is a scope.** Madoka's one rememberer, Undertale's some-remember, Aizen's saw-it-once: all are observer sets, not special cases.
-- **Retroactive versus prospective.** King Crimson and Madoka are retroactive; Imagine Breaker and Disco Elysium's forgetting are prospective. Retroactive ones always pay more or leave more.
+- **Retroactive versus prospective.** King Crimson and Madoka are retroactive; Imagine Breaker and Disco Elysium's forgetting are prospective. In the works read, retroactive ones pay more or leave more.
 - **Order is published.** MTG's layers and timestamps are the only fully checkable system read here. Fiction leaves order to the author, which is exactly what ABILITY_AUTHORING warns against ("do not choose whichever order helps the current plot").
 - **Records are claims.** Qud's biased histories and damnatio memoriae: a record says something; it is not the truth, and it can be edited separately from memory.
 - **Contradiction with a project idea (unbiased lens):** most fiction here has *no* reversal rule. Our default of reversible deltas is a design choice for saves and time travel, not something the sources show.
 
 **Unreached or thin (named per WPR):** Earthsea Old Speech; JJK binding vows and disclosure; Bleach's Almighty; Toaru "Authority";
 Gae Bolg and death-perception mechanics; Mushishi memory or sound eaters; MTG 613.1e-g and 613.8 full text (403 on mtg.wiki fetch, snippets only);
-Doctor Who (not fetched); Hades and Planescape web sources (not searched; repo report used for Planescape); DF epithets; Qud Amnesia;
+Doctor Who (not fetched); Hades web source (not searched by the readers; a sibling time-travel note in the shared notes folder sources its persistence split to [Wikipedia](https://en.wikipedia.org/wiki/Hades_(video_game))); Planescape web sources (repo report used instead); DF epithets; Qud Amnesia;
 CK3 mechanics; Dominions "forgotten" effects; RimWorld mind effects and heat; Ars Magica Mentem; LOTM name-perception rule; Outer Wilds developer sources.
 
 ---
@@ -204,7 +204,7 @@ traceless erasure breaks cause and effect (AD38). Reason: every source in Part B
 |---|---|---|
 | Village (variant) | record, relations, claim | An elder keeps archive duty (`chronicle.js:132,138`), graves and heirs are records, debts settle through the estate (`chronicle.js:336-337`). Names matter mostly as they appear in records and bonds |
 | Proto23 (credited port) | existence, effects | Faithful build; no source mechanism touches names or records. Nothing is added to the faithful build |
-| YAIR (faithful baseline) | existence, effects, claim (inventory) | Faithful build; nothing is added. Conceptual ops arrive only through a crossing or cheat (cards K3, K4) |
+| YAIR (faithful baseline) | existence, effects, claim (inventory) | Faithful build; nothing is added. By default conceptual ops arrive through a crossing or cheat (cards K5, K6); reason: the faithful build keeps its source rules |
 | LOTM (Tingen) | reference (honorific handles), memory, effects | Honorific names reach their bearer when recited (repo CHEAT_COSMOLOGY:990, public franchise mechanic); perception and concealment (`look.seenBy`) |
 | HP | reference (spoken names as triggers), memory, relation (concealed places), claim (vows) | Public franchise mechanics [U]: memory charms, a secret-keeper concealment, spoken-name detection, magically bound promises |
 
@@ -217,7 +217,7 @@ The view is `resolve(base(entity), deltas(entity, observer))`.
 - **Revisit and rewind.** A rewind restores the delta log with the snapshot (SI3), so a rewind to before the erasure shows the name; after it, the mask applies.
 - **Branch (TT4).** Copies the delta log to the fork point. Retroactive-total on a consumed entity (CAE-F4) forks by default.
 - **Un-erasing** is deleting the delta. The base and its seed never change, which keeps the seed honest.
-- **What a rewind carries** (KN1 time-travel boundary): the wielder's knowledge of the original name, by default (knowledge always carries, TT rules).
+- **What a rewind carries** (KN1 time-travel boundary): the wielder's knowledge of the original name, by default (knowledge carries by default, TT rules).
   The delta itself does not carry unless the kind says the effect is anchored outside time (a world's top-rung dial).
 - **Retroactive effects touch the delta log, never the base** (brief constraint). A retroactive op writes a delta whose `timing` tells the resolver to apply it to past views too.
 
@@ -252,7 +252,7 @@ Three views, each a projection (AR8): **world** (what the world state holds afte
 
 ### C5. Per-ability cards (CAE-P5)
 
-Twelve cards: at least two per world, and two awkward ones per world tested against the model, with a **breaks at** line. "No new verb"
+Fifteen cards (above the brief's 8 to 12 because the parent asked for two awkward cards per world, plus three cross-world ones), each tested against the model with a **breaks at** line. "No new verb"
 means the card runs on CAE-P6's five delta kinds plus existing commands. Sealed content is referred to by route only.
 
 | Card | World | Ability (original framing) | Target channels | Scope | Timing | Cost (adjective) | Residue | Reversal | Resistance | Seeded-base interaction | Tests | New verb? | Breaks at |
@@ -260,7 +260,7 @@ means the card runs on CAE-P6's five delta kinds plus existing commands. Sealed 
 | CAE-K1 | Village | **A name struck from the archive.** The elder's archive is a record; striking an entry hides a person from records | record | Readers of the archive | Prospective, with old copies still existing | A favor owed to the archivist | A torn page fact | Re-entering the name by a witness | Other copies (graves, heirs' notes) | Mask on record channel of a base person | Struck name absent from archive view; grave still shows it | No | Baked prose (CAE-F1): old news lines still say the name. Accepted: they are other records |
 | CAE-K2 | Village | **A debt forgiven by fate.** A festival custom says a debt dies with a forgiven oath | claim | The creditor and the guard | Prospective | Standing with the creditor | Debt row marked forgiven with cause | None once the oath is kept | Creditor may dispute | Delta on claim; the estate settles nothing for it (`chronicle.js:336-337`) | Heir inherits no debt; receipt names cause | No | Fine. Test of AD38: works because the custom is a mechanism in the world, not a flag |
 | CAE-K3 | Proto23 | **A borrowed skill from a crossing cheat.** A cheat carried in from another world lends a skill for a span | effects | Holder | Prospective | The cheat's charge | Skill leaves a practice trace | Ends with the span | None in source | Delta on the holder's effects; Proto23 data untouched | Skill gone after span; Proto23 save keys unchanged | No | Proto23 data has no channel fields. Model holds only if the resolver falls back to plain `.name` and existing effects |
-| CAE-K4 | Proto23 | **Erase an enemy's name before a fight.** | reference | Holder | Prospective | Charge | Enemy shown as "something" | Fight ends | None | Mask on a bestiary entity; bestiary counts use names (RIVALS:43) | Kill still counts once | No | **Breaks:** bestiary counts are keyed by name string. A mask must not split one enemy into two kinds; needs the stable-id rule first |
+| CAE-K4 | Proto23 | **Erase an enemy's name before a fight.** | reference | Holder | Prospective | Charge | Enemy shown as "something" | Fight ends | None | Mask on a bestiary entity; kill counts are keyed by `target.name` (`main.js:4851-4853`, `display.js:5822,5946`), and Proto23 profiles feed the same bestiary (`absorb_p23/encounter_profiles/profile.js:68`, `add_to_bestiary`) [I: shared host code] | Kill still counts once | No | **Breaks:** bestiary counts are keyed by name string. A mask must not split one enemy into two kinds; needs the stable-id rule first |
 | CAE-K5 | YAIR | **Luck swap.** Swap fortune with a target for a day | draw threshold | Both | Prospective | Heavy | A "the dice feel wrong" condition | Day ends | Target's own protection | Shifts the threshold applied to keyed draws; never reseeds (DT1, E3) | Same seed and day: base roll identical, outcome differs only by threshold | No | Holds only for keyed draws. Cursor-drawn ambient content (G1, G6, G8) cannot be shifted without changing other systems' rolls |
 | CAE-K6 | YAIR | **A place forgotten.** A crossing cheat makes a shop forgotten by the town | memory, relation (route) | Town except the wielder | Retroactive with residue | Heavy | "A shuttered door no one mentions" | Someone who remembers leads another back | None | Mask on the shop's memory channel; stock still generated by K3 key | Shop absent from town talk; wielder can still trade | No | Faithful build has one global shop list. Hiding a place from a route needs the *relation* target kind (CAE-F5) |
 | CAE-K7 | LOTM | **Recite an honorific to reach its bearer.** | reference (honorific handle) | The bearer, and anything else that answers to the same words | Prospective | The risk of who answers | The bearer knows you called | n/a | Concealment (fog-like distortion) | Bind delta: recitation event addresses a handle, resolved to whoever holds it | A recited handle resolves to the holder; a world without the bearer resolves to "nobody" or another answerer | No | Holds. The handle, not the name string, is what resolves. Sealed bearers stay by route ID |
