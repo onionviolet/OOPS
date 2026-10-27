@@ -6569,3 +6569,9 @@ HR1–HR6 and SK1–SK7 are in
 > Also we need to send a GM chat to plan gameplay loops and more, maybe self auditing across user vision and more, like a look of sonnet and then asking advisor what should be done lore wise and gameplay wise and more? So that we can have our own identity but also work towards a whole playable world with endless possibilities, taking advantage and also planning ideas and more? Making ideas like the procedural stuff and more usable? Other ideas left ? We can look at the discord discourse as well, /more-to-consider
 
 Recorded: the Village loop is the first loop to establish; this narrows the 2026-10-26 "Frontier and Mistglass as test beds" line to exclude loop work. See [master plan round 7](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-7-the-village-loop-first-coordinators-and-a-gm-plan-2026-10-27) and the [dispatch packet](gm/dispatch/village-loop-2026-10-27/COMMON.md). Proposals, not accepted designs.
+
+## Three worlds: Proto23, YAIR and our variant, 2026-10-27
+
+> We can take code for base proto23 accordingly, one billiahe world as proto23, another as Yair, and then a variant with our ideas and stuff? More to consider?
+
+Recorded: Proto23 code may be taken for a base Proto23 world, beside a YAIR world and a variant with our ideas. This supersedes the earlier "mechanics only, no copied code" default (PW3/PW4, kept as history). The licence gap is unchanged and its mitigations are in [master plan round 8](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27) WV3-WV4. Design proposals WV1-WV12 are not accepted designs.

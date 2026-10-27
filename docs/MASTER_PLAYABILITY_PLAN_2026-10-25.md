@@ -418,3 +418,30 @@ Weibao: establish a gameplay loop first for the Village (YAIR Village, then a Pr
 - **VL5: three sessions, three file areas.** GM (docs), village-loop (Village runtime), backlog-ui (UIV1, then Q18 P02-P10). AU1 defaults to one coordinator and G6 removed the usage ceiling for existing chats only, so declare the budget in each checkpoint.
 - **VL6: self-audit is input, not authority.** GM output is proposals; only Weibao's instructions change priorities (AGENTS gates).
 - **VL7: Discord and procedural ideas are used, not re-collected.** Saved research is read-only; each procedural idea needs a Village consumer or stays banked (IB1, IB3).
+
+## Round 8: three worlds, Proto23, YAIR and our variant (2026-10-27)
+
+Weibao: "We can take code for base proto23 accordingly, one billiahe world as proto23, another as Yair, and then a variant with our ideas and stuff? More to consider?" Direction recorded in USER_VISION; the design below is proposal. Codes WV1-WV12. Source reads: `docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md` (Proto23 is one `index.html`, pinned revision `e93a8cd617932fb698ff889b968a32f9a20d48f3`), `SOURCE_MECHANISM_PROBES_2026-10-13.json`, intro rounds PW1-PW6, `src/world_pack*.js`.
+
+### What changes
+
+PW3 and PW4 said Proto23 has no licence file, so only mechanics and shape were to be taken. Weibao's later instruction lets us take Proto23 code. Those lines stay as dated history (a PW3 update line was added in the intro doc and a dated override in the Village dispatch COMMON.md).
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| WV1 | **Three sibling worlds.** (1) Proto23 world: rules, places, people and pacing faithful to Proto23. (2) YAIR world: upstream-faithful (MIT, Miktaew). (3) Our variant: everything we have added. | Each is a world pack (`src/world_pack*.js`) on the shared engine: engine owns verbs, worlds own nouns (WA). Dial: a world may borrow a variant feature as an opt-in setting, never by default. Reason: three clear identities, one engine. |
+| WV2 | **The current Village is already the variant.** It is YAIR plus about 17 absorbed Proto23 lanes plus our systems (PW1, PW2). | Do not un-merge it (PW5: saves hold that content). Add the faithful worlds beside it; the Village keeps its saves. Naming it "ours" is a slow decision (LT-class), not a blocker. |
+| WV3 | **"Take code" means port, not paste, and keep it removable.** | Port rules, data and formulas into pack data and shared-engine seams; reuse Proto23 presentation code only where our UI primitives cannot express it. Keep ported material in its own paths with a NOTICE naming source and revision. List it on the credits page (PW6), which moves Proto23 from "inspiration" to "source used". Reason: AR rules (one registration line per feature in `main.js`) and later cleanup. |
+| WV4 | **The one licence risk, named once.** The repository has no licence file, so rights stay with its author, and `origin` is a public fork. | Not a blocker. Mitigations, all cheap: credits and NOTICE; ported files isolated so one commit can remove them; no push of Proto23-derived files without Weibao's yes (pushes already wait for it); optionally ask 23html for permission or a licence, an outward step that is his to take. |
+| WV5 | **"Faithful" is tested, not claimed.** | Matched scenarios against the pinned `index.html` using the existing probes and the Proto23 desktop comparison; a short list of intended deviations (bug fixes, shared-engine corrections, accessibility). Faithful means rule-faithful, not byte-identical. Reason: otherwise "faithful" drifts. |
+| WV6 | **Flow of ideas.** | New ideas land in the variant first. A faithful world takes a feature only as a dial with an in-world or settings reason. Fixes to shared engine bugs apply everywhere and are listed as deviations. Reason: keeps the faithful worlds usable as baselines. |
+| WV7 | **Three worlds are the cheapest travel-loop test.** | Treat them as siblings: memories, base cheat and knowledge carry (TL2), rules differ, so a technique learned in one meets different mechanisms in the next (AD38). Per-life saves (intro round 30) fit. Reason: tests the exchange before building big book-world regions. |
+| WV8 | **Save compatibility.** | Each pack's fingerprint (`worldPackFingerprint`) goes in the life's record so a save knows which ruleset it was made in. No change to existing Village saves. A migration or explicit compatibility decision is still needed before shipping persistence changes (AGENTS Safety). |
+| WV9 | **Port in slices by loop step, not the whole file.** | First slice: Proto23's base loop (what the player does minute to minute, per the saved reports) as a thin pack with one matched-scenario probe. Then widen. Reason: Proto23's `index.html` is large and global-state heavy; a whole-file port is the failure mode AR rules warn about. |
+| WV10 | **YAIR world: configuration before copy.** | Prefer a ruleset that hides the variant's additions over a second copy of YAIR content, if the feature flags are clean; otherwise a thin pack of upstream data. Check the entanglement first; do not start with a duplicate. |
+| WV11 | **Identity.** | The variant carries the game's own name and voice; faithful worlds carry their sources' names and credits. Whether the shared start screen shows three entries or one "Village" with a ruleset choice is a slow UI decision (SMU3/SMU6 territory). |
+| WV12 | **Sealed secrets.** | Proto23's public content is not sealed. Anything the variant adds or randomizes stays sealed by default. |
+
+### Order
+
+After UIV1 and the GM plan: (1) Proto23 pack skeleton plus one base-loop slice with a matched probe, (2) credits page and NOTICE (PW6), (3) YAIR ruleset check (WV10), (4) the three-world carry test (WV7), (5) widen Proto23 loop by loop.

@@ -24,3 +24,7 @@ Check live ownership before each write. If two sessions need one file, the later
 - Git: commit only your own paths from a fresh HEAD; never stash, reset, force or push; no Co-Authored-By trailer. Detached long runs get their own process group; stop by PID, never `pkill -f`. No normal-app adoption.
 - Saved Discord research is read-only input (`docs/audits/DISCORD_RESEARCH_AND_UI_STATUS_2026-10-21.md`, `docs/research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md`). New collection needs Weibao's yes and the polite tools.
 - Report: what changed, how it was checked (one line per check), gaps, and any decision waiting. Link owners; do not copy competing specs.
+
+## Update 2026-10-27 (later instruction, supersedes the "copy no code" wording above)
+
+Weibao: Proto23 code may be taken for a base Proto23 world; one world is Proto23, one is YAIR, and a third variant carries our ideas. The no-copy wording above (PW3/PW4) is kept as dated history. Read [master plan round 8](../../../MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27) (WV1-WV12) before planning or porting. In short: port from the pinned Proto23 `index.html` (revision `e93a8cd6...`) into world-pack data and the shared engine; keep ported material in its own paths with a NOTICE naming source and revision; do not push Proto23-derived files (Weibao's yes is still required for any push); the current Village is treated as the "ours" variant and is not un-merged (PW5).
