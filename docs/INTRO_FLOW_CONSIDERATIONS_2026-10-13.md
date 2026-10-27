@@ -1897,3 +1897,60 @@ changes runtime.
 | Third | BGP5 discovered-only All panels, with the full list kept behind test hooks. | Luna low, small. Done: fresh launch lists only reachable panels; dev route still lists all. |
 | Fourth | BGP4/BGP9 carry wording on the four Tingen starts. | Luna low, small. Done: each start names what carries and why; no "Frontier" in Village text. |
 | Fifth | Game MCP: let `game_new` stop before PLAY so launch choices can be tested headlessly (limit ledger entry 33). | Luna low, small. Done: a tool call can pick a launch start and verify it. |
+
+## Round 26: lore of crossings, the Tingen notice and A Soldier's Life, 2026-10-26
+
+Weibao: "Consider lore implications, wont the tingen notice mean that the
+villiage is in the same universe as LOTM? ... what is better accordingly? Is a
+soldier's life even implementable?" Evidence: round 25's fresh game, the
+[LOTM entrance checkpoint](gm/dispatch/lotm-entrance-2026-10-26/CHECKPOINT.md),
+the [Book world 1 slice](gm/dispatch/soldiers-life-world-2026-10-09/REPORT.md)
+and its [backlog](gm/dispatch/soldiers-life-world-2026-10-09/ACCEPTANCE_BACKLOG.md).
+Rules: AD1, AD4, AD10–AD13, AD23, AD33, WA14, ABR20, Rulebook 5 ("no free
+carries"). Proposals, not accepted direction.
+
+### Findings
+
+| Code | Evidence | Consequence |
+| --- | --- | --- |
+| BGP11 | **Yes, the notice puts the Village and Tingen in one universe.** It is a hiring notice posted in the Village, the civil start charges "one third-class passage", and probationer starts carry "your own money". The entrance slice also proposed MT8, a train between the two. | That is a physical, same-world link. It contradicts AD4/AD11 (worlds are separate; every crossing needs a carrier) and Rulebook 5 (nothing crosses free). It also makes the Village a required lobby, against the 2026-10-11 random-entry decision. |
+| BGP12 | **A Soldier's Life has the same wording problem, lighter.** It is offered as "an optional Lion Legion posting" from the Village, though its state already stays separate ("Village skills, money and commitments remain separate"). | Its mechanics already behave like a separate world; only the framing implies a recruiter in the Village. |
+| BGP13 | **The Beginning panel is closest to right.** "Confirm to leave Village" with progress kept in the save reads as a new life, not a trip. | It is the model the other two routes should follow. |
+
+### ACCOUNT FOR NOW: what is better
+
+| Code | Default, dial and reason |
+| --- | --- |
+| BGP14 | **Worlds are separate universes; entry is a crossing with a named carrier.** Default: no notice, ticket or purse links two worlds. Dial: a world whose own canon has travel between realms can expose a means for it, with a cost and record (WA14). Reason: AD4 and AD11 already say this; the runtime should match. |
+| BGP15 | **LOTM's default carrier is transmigration into a Tingen local.** The book itself opens with a soul from another world waking in a Tingen clerk's body, so this is canon's own mechanism. Memories and the base cheat carry (AD11); the body, money and Village kit do not. Dial: other carriers (dream, rite, cheat) where the player has them. Reason: it fits the book (AD1), AD11–AD13 and AD12's unconscious-body return, and it removes the money-transfer problem. |
+| BGP16 | **The host body brings its own life.** Default: the Tingen local has a name, lodging, small savings, a job prospect and fragments of local memory (language, streets), with the church-team and civil choices becoming that person's situation instead of a purchase. Dial: guided random picks the host (AD23); a chosen start is a means. Reason: AD13 bodies are real, and LC11's inherited-body origin already exists as a proposal. The player's character is a fan premise, never the canon protagonist. |
+| BGP17 | **How the world reads an outsider is a per-world dial.** Default: a quiet crossing nobody notices; worlds whose canon reacts to outsiders can notice later through their own mechanisms. Reason: drama comes from the world's laws, not a blanket rule. |
+| BGP18 | **The Village route becomes a means, not a notice.** Default: the main entry is the launch "Where to begin" list (BGP8). From inside another life, a crossing is a found means with a cost. The Village keeps its own campaign. Reason: the Village stops being a lobby, and in-play crossings still exist. |
+
+MT8 (a train between the Village and Tingen) is superseded by BGP14; the
+entrance checkpoint records the pointer.
+
+### A Soldier's Life: is it implementable?
+
+Yes, and a first slice already exists. Book world 1 (2026-10-09, private pack)
+has four premises, ordinary carriage or two storage-magic methods, drill and
+supply duty, a carried/stored/delivered ledger, return to the Village, and
+browser plus save/import evidence. It is still marked awaiting acceptance (A1),
+some branches are implemented-unverified (A2), and it predates the AD43 floor and
+the newer shared systems. The
+[institutions and roles doc](worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md)
+holds the depth plan.
+
+| Code | Part of the book | Fit |
+| --- | --- | --- |
+| BGP19 | Storage magic as custody of supplies and wages; imprinted versus cast storage failing differently | Strong fit. Existing custody, lot and ledger owners (G5 cohorts, L4 S4 custody) carry it. |
+| BGP20 | Postings, pay, duty roster, promotion bringing command and blame | Fits as a job/standing life using existing work, merit and ledger systems. |
+| BGP21 | Battles and campaigns at army scale; many named comrades | Hard. AD33 deprioritizes NPC-heavy work. Default: abstract battles as duty outcomes with real costs (injury, lost stock, blame), and a few named people. |
+
+### LATER / DELEGATE (ranked, not dispatched)
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | BGP15–BGP16 LOTM transmigration start, folded into round 25's launch-start work: host body, no purse carry, the old life paused if BGP7 lands, otherwise stated as one-way. | Sol medium, medium. Done: a fresh launch into Tingen wakes in a local's life with its own money and partial memories; save/reload/import keep it; no Village text appears. |
+| Second | Reword the Village Tingen and Soldier's Life entries as crossings with a carrier, or move them behind a found means (BGP18). Small, and removes the same-universe reading now. | Luna low, small. Done: no passage, posting or purse-transfer wording links two worlds. |
+| Third | Re-verify A Soldier's Life under the AD43 floor and close its A2 branches before adding depth. | Sol medium, small. Done: fresh rebuilt run through each premise with persistence, A2 rows each pass or are filed. |

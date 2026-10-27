@@ -64,6 +64,7 @@ PRF lines (GROUND_RULES): PRF1 above. PRF2 player sentence: "Tingen: three churc
 
 - **MT7. A Beginning-list entry for native-domain worlds** ("Lord of the Mysteries · Tingen" beside HP's `book.hp.*`). `structured_pack_ui.js` accepts structured pack ids only, so this needs a small start-registry seam. Sonnet medium, advisor before the seam. Done check: a fresh life picks Tingen from Beginning without visiting the Village.
 - **MT8. A road between the Village and Tingen** (train, per canon era) so a life can move back and forth with custody rules. Needs a crossing design (ABR20, WA14).
+  Superseded 2026-10-26 by [intro round 26 BGP14](../../../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-26-lore-of-crossings-the-tingen-notice-and-a-soldiers-life-2026-10-26): a road would put both in one universe; worlds connect through crossings with a carrier.
 
 ## What changed
 
