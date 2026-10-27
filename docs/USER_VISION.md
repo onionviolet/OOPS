@@ -6624,3 +6624,11 @@ Proposal record (not accepted): [clock model](research/NPC_ABSENCE_AND_REACH_OUT
 
 Weibao's words: "Schedule rather than deadline should be the case, unless it is a deadline like the protagonist of the original book doing this at x time or something, we might need separate chat to ponder interactions as a player on the original character of worlds?"
 Proposal record (not accepted): [canon protagonist interactions](research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md) (game and fanwork research, modes, canon beats as clock records, per-world answers, WER11 rewording proposal PX18).
+
+## Time travel gimmicks and seeded worlds (request record, 2026-10-27)
+
+Verbatim, Weibao's request:
+
+> Send chat to consider time travel gimmicks and considerations, seeded item in markets and more to allow time travel to work or the same items or event to appear in the same places?
+
+Proposal record (not accepted): [time travel and seeded worlds](research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md) (repo determinism audit, game and fiction research, determinism contract DT1, time-travel kinds TT1-TT6, first slice FS1).
