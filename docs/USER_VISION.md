@@ -6499,3 +6499,28 @@ the preceding local-only integration boundary for this release. The
 [publication/adoption receipt](gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md)
 owns exact runtime,snapshot,backup and verification evidence. Existing feature
 backlogs and accepted priorities remain unchanged.
+
+## World entry rules for every book world, 2026-10-26
+
+Weibao, after reviewing base gameplay and the LOTM entrance: "Consider base
+gameplay, since we need to start a new run to start in the world of LOTM or
+something?" Then: "wont the tingen notice mean that the villiage is in the same
+universe as LOTM?" Then: "the real lore reason, he never transmigrated but
+instead it was the backup plan of creator worthy?" and "We can have different
+ways of transmigrating and each way could have implications, this can be
+applicable for all worlds accordingly". Then, on child starts and later
+canon: "how to consider starts like starting as a child or something?" Finally:
+"save accordingly, and save rules so these will be taken into considerations
+for other book worlds where things like these matters too?"
+
+Direction recorded: every world's entry must answer the same questions
+(separate worlds and carriers, crossing method and its consequences, the
+source's real mechanism including late reveals, era, origin, host body, what
+carries, age access, protagonists, how the world reads an outsider, one start
+list, credit and licence, save compatibility). Owner:
+[world entry rules WER1–WER16](WORLD_ENTRY_RULES.md); design history in
+[intro rounds 25–28](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-25-base-gameplay-and-getting-into-a-book-world-2026-10-26).
+Named defaults inside those rules stay dials. Weibao called the neutral
+"local who just died" crossing (BGP24) nice; it is not yet implemented. The
+Village LOTM entrance was reworded as a crossing the same day; launch starts,
+era, method and host fields remain proposed work.

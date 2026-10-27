@@ -640,6 +640,15 @@ GTO1–GTO17 and a Paradise gate catalog RPG1–RPG55. GTL6 then made the single
 skill XP overflow a per-world row (frontier banks, others lose with a stated reason).
 Round 3 audited five book worlds' gates and added proposed GTR28–GTR35.
 
+**World entry rules (standing considerations, 2026-10-26):** at Weibao's request,
+[WER1–WER16](docs/WORLD_ENTRY_RULES.md) make every world's entry answer the same
+questions: worlds stay separate unless a premise joins them, each start declares a
+crossing method with nine answers (body, memories, cheat, items and money, identity,
+language, who notices, former life, obligations), passes read the source's real
+mechanism past the opening, and era, origin, host, carry, age access, protagonists,
+one start list, credit/licence and save compatibility are settled per start.
+Named defaults stay dials. [Request](docs/USER_VISION.md#world-entry-rules-for-every-book-world-2026-10-26).
+
 **World absorption rules (proposal, 2026-10-17):** at Weibao's request,
 [WA1–WA21](docs/WORLD_ABSORPTION_RULES.md) describe absorbing a book world as a
 pack of data and rule modules over shared verbs: read once, sort into kit parts,
