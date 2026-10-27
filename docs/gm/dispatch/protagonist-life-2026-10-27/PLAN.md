@@ -1322,3 +1322,179 @@ wireframe, minimal screen and evidence plan; WA40-WA41 drafted.
 | PL-L30 | Source badge on inventory rows (book, filled, yours) | Sonnet, medium, UI lane | One session | Browser evidence at both viewports; badges survive save, reload, import |
 | PL-L31 | Schema 1.3 small fields (`voice`, `procedure`, `tech`, `tone`, `open`, `hook`) with lint | Sonnet, small | Small | Chapters 1-15 convert; lint passes |
 | PL-L32 | First playthrough screen per the wireframe, bot-driven | Sonnet high, UI lane, after PL-B1 | One session | The bot clicks through scene 1 to 2 at 1920x1080 and 1536x864 with evidence |
+
+---
+
+## 18. Round 10: merchant inventory, a top-down relationship system, and other worlds (2026-10-27)
+
+Weibao (relayed): "Inventory also for merchant inventory? More to consider? Going about
+implementing relationship system and more, using the book as basis, considering choices
+people make, and then coding up relationship and stuff and more that leads up to that roll
+and action, so kind of top down design? More to consider? Long term stuff to consider for
+other worlds as well?" Docs only. Owners reused: `src/components/trader_component.js`,
+`src/data/traders.js`, `src/data/inventory_templates.js`, `src/market_saturation.js`,
+`src/seeded_streams.js`, `src/relationship_view.js`, `src/npc_lives.js`,
+[relationships and canon](../../../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md)
+(RLA, RLB), WA34, WA39, WA40. Proposed rules WA42-WA44.
+
+### 18.1 Merchant inventory in the same three layers
+
+Native traders already draw stock by a keyed random on trader name, template, refresh epoch
+and slot (`gameKeyedRandom(STREAMS.market, [name, template, epoch, i, j, decision])`
+[S `src/components/trader_component.js:124`]) with a refresh period in days [S lines 34-51].
+So the time-travel C2 contract exists for native shops; book-world shops (the LOTM broker in
+`book_world_lotm_broker.js`) re-derive their own quotes (DWF113).
+
+| Layer | For a book shop | Change needed |
+| --- | --- | --- |
+| Canon stock | What the book shows or implies a shop sells, with a dated window and price (the bakery's rye order and its price history; market fish and mutton) | Canon rows as anchors the generator must include in their window |
+| Seeded stock | Template by shop type, keyed on world seed, shop id, day, slot; restock period; scarcity by season and supply region | Book-world shops adopt the trader keyed draw (or the C2 hook) instead of their own; add `worldSeed` and shop id to the key for book worlds |
+| Player deltas | What was bought or sold, by receipt | Existing trade receipts; restock does not resurrect sold canon items before their window says so |
+
+**Price memory and haggling:** a quote is a typed talk result (WA39); the merchant remembers
+the last price agreed with this buyer (a ledger row, WA34), and haggling is a check whose
+inputs are the relationship state below. `market_saturation.js` already lowers prices for
+items sold repeatedly; book shops keep that as a dial. **Calibration:** stated prices are
+fixed points; generated prices band around them, and the lead's purse anchors (LP4, WA38)
+must reconcile after every canon purchase.
+
+### 18.2 Relationships, designed top down from the book's choices
+
+**Method (proposed WA42).** Start from a choice a person makes in the book; ask what state
+makes that choice the natural one; store that state; let a resolver turn state into the choice
+with a visible "why". The stored state explains the action, so no meter drives it.
+
+1. **Choice** (from the scene's `choices`, with its locator).
+2. **Reasons**: the motives, needs, information, obligations and circumstances the text gives
+   or implies for it (scene `motives`, `knowledge`, anchors, the household budget).
+3. **State** that holds those reasons (the data model below).
+4. **Resolver**: utility per option from state, plus a seeded roll for close calls, with the
+   top reasons shown as the "why".
+5. **Calibration**: at the book's date, does the state reproduce the book's choice? If not,
+   the state is wrong, not the book (as WA33 does for stats).
+
+**Data model (fields by tier; reuses the NPC life model):**
+
+| Field | Principal | Recurring | Role | Crowd |
+| --- | --- | --- | --- | --- |
+| Traits and manner (voice sheet) | yes | short | template | none |
+| Needs and motives (RLB1) | yes | top two | role need | none |
+| Loyalties and group memberships (organizations, family) | yes | yes | role's organization | district |
+| Information held (per-actor facts, dated) | yes | key facts | role facts | rumors only |
+| Secrets | by opaque ID (WA11) | by ID | none | none |
+| Directed trust and fear toward each person (RLA1-RLA2) | yes | toward the lead and the player | toward the player on contact | none |
+| Debts, favours, obligations (`obligations_ledger.js`, WA34) | yes | yes | open accounts only | none |
+| History of interactions (typed memories, RLA3) | yes | last few | last one | none |
+| Mood in the moment | yes | yes | yes | none |
+
+Tiers keep it from over-modelling: a crowd person is a role and a rumor; a principal carries
+everything. Promotion between tiers follows play (WA22 rungs).
+
+**Worked example (chapter 9, no sealed content).** Choice: the lead is hungry and has meat
+for a stew, and he waits for his sister to come home rather than cooking half of it now
+[S lead-run scene 302, choice locator zh 第9章 p29; motives `hunger` p33 and `thrift` p23].
+
+| Option | Utility from state | Inputs |
+| --- | --- | --- |
+| Cook half now | + hunger relief | Hunger high; meat on hand |
+| Wait for his sister | + thrift (one meal from one cut), + family duty (eat together), + her portion | Household purse low (anchors); she is due home after school (family routine loop); duty toward family (loyalty) |
+
+With the stated purse and the family-routine schedule, "wait" wins unless hunger passes a
+threshold. Calibration passes when the stored hunger, purse and family loyalty reproduce
+"wait" on that date in most seeded runs. A player in his place can still cook now: the
+resolver explains what it costs (a thinner stew later, a small family-ledger row), and the
+world records the choice.
+
+The same method applies to others: his sister walking to school to save the omnibus fare
+(thrift plus a 1-penny-per-km fare capped at 4 pence [S census]) is a choice her state must
+reproduce, and it tells us she holds the household budget as her own motive.
+
+**How player choices change state:** as the lead, through the lead's actions (helping,
+breaking a promise, sharing food); as a bystander, through the same talk results and ledger
+rows toward the people met. The reference resolver keeps names in remembered history stable.
+
+**Gap:** `relationship_view.js` reads directed simulation edges [S header] but holds no
+utility resolver; a decision resolver on `check_resolver.js` (seeded, with reasons) is new.
+This is NPC-heavy work under AD33: build it for the lead's household first.
+
+### 18.3 Long term: other worlds
+
+**World-agnostic engine:** presence rungs and dated whereabouts (WA22-WA24); scene, census,
+fill and loop schemas and their lint; action classes; the three-layer held state (WA40) for
+inventories and shop stock; keyed events; the decision resolver with reasons; calibration
+tests for stats, prices and choices; the bot and its two drivers; the source-layer labels.
+
+**World-specific:** nouns, units, laws, calendars and weather, loops' owners, mechanisms
+(cheats, powers), tone and voice, which states are layered, tier assignments.
+
+| World | What differs for this pipeline |
+| --- | --- |
+| Harry Potter | School calendar drives schedules; a canon school-year calendar beside the 70-day term (A3); a large cast in one building; public franchise twists are not sealed |
+| Mother of Learning | The repeating month is the seeded-day test; each loop is a branch with its own choices; the lead's state carries across loops, the world's resets |
+| Proto23 | A reference game, not a book: loops come from decompiled systems and play, not prose; port permission with credit is recorded (USER_VISION) |
+| YAIR base game | Original content; no canon layer, so fills are the canon; the bot replays the native journeys |
+| Village | Original, public; the harness for engine lanes (PL-H1); every fact is authored |
+
+**Per-world checklist (reuse for every pilot):**
+
+1. Source boundary, edition and hash; budget from the cost model (13.2).
+2. Id registry and unit list seeded before reading (GF1, GF19).
+3. Shards at about three chapters with lint in the reader's loop (WA30).
+4. Scenes, census, fills, loops, conflicts; untaken options; choices with motives.
+5. Calibration targets: stated amounts, outcomes, choices.
+6. Two-layer states the world needs (inventory, shops, body, knowledge).
+7. Mechanism gaps named and marked blocked.
+8. Lived-week target and its bot run.
+
+**Measure now for the next world:** tokens per chapter and per row (13.1); lint failure
+rate per reader; recall per chapter against a candidate list (PL-L12); share of untaken
+options with buildable needs; share of `date-unsettled` rows; reader errors per 100 rows
+found by arithmetic and locator checks (two so far: the money "conflict" and the wage);
+coordinator minutes per shard review.
+
+**What the pilot hands the next world:** the schemas and lint; the reader brief in one file;
+the id-registry and merge script; the cost and quality numbers; the loop library (which
+loops recur across worlds: meals, money, work, study, family); the decision-resolver
+calibration harness; the bot's two drivers; the gap list with which gaps proved world-
+agnostic.
+
+### 18.4 Proposed rules
+
+WA42-WA44 added to [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md), proposed.
+Shop stock needs no new rule: it is a held state under WA40. **The yes that accepts them:**
+"yes to WA42-WA44".
+
+**Status update (2026-10-27):** Weibao adopted this session's proposals as adjustable
+working direction ([record](../../../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27),
+[register 5b](../../WRITEUP_REGISTER.md#5b-adoption-2026-10-27)). Per that entry, WA25-WA41
+are now recorded as accepted (adjustable) in the rulebook and rules index; earlier "awaiting
+yes" lines in rounds 5-9 are history. WA42-WA44 stay proposed because the entry names
+WA25-WA41; the plan's open values (Q0 launch, Q2/Q8 budget, Q3 placement, Q4 start month,
+HP offset) stay open as the entry says.
+
+### 18.5 More to consider (round 10)
+
+**ACT NOW (done):** shop stock in three layers on the existing keyed trader draw; price memory
+and haggling as relationship inputs; the top-down relationship method with tiers; a worked
+example with calibration; the world-agnostic split; per-world checklist; metrics to measure;
+the hand-off list; WA42-WA44 drafted.
+
+**ACCOUNT FOR NOW**
+
+- PL-A32. **Readers wrote choice labels as prose** in one shard (s4); the lint should check
+  `choices[].label` like `date.label` (schema friction).
+- PL-A33. **Calibration of choices needs enough motives.** Scenes with no motive tags cannot
+  be calibrated; readers must tag motives on every choice.
+- PL-A34. **Book shops and native traders should share one keyed draw.** Two stock systems
+  drift; the broker should adopt the trader draw (DWF113).
+- PL-A35. **AD33 still applies.** The relationship resolver starts with the household and the
+  first organization only.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L33 | Decision resolver with reasons on `check_resolver.js` | Opus design, sonnet build | Medium | The chapter-9 choice reproduces in most seeded runs and shows its top two reasons |
+| PL-L34 | Book-world shop stock on the trader keyed draw with canon anchors | Sonnet, medium, after PL-E1 | One session | The bakery's stated price appears on its stated day; generated stock repeats on replay |
+| PL-L35 | Choice-label and motive lint (PL-A32, PL-A33) | Sonnet, small | Small | s4's prose labels fail; a motive-less choice warns |
+| PL-L36 | Per-world checklist as a lane-brief appendix | Docs, small | Small | The HP pilot brief can be filled from it without new questions |

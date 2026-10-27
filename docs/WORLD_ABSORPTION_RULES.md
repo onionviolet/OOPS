@@ -96,9 +96,9 @@ exception and must say why.
 | WA23 | **Whereabouts are dated.** An address is a list of rows with era windows and evidence status, never one overwritten field. A rumor gives a `claimed` address. | A world without dates uses source order as the window | A person found in the wrong city for the year; rumor treated as fact |
 | WA24 | **Forward anchors bind filling.** Anything generated or authored for an entity between its canon mentions must not contradict its later canon mentions. Player-caused divergence (WA15) may change them and is labelled; generator-caused divergence may not. | A divergent or AU continuity (WA18) declares which anchors it drops | Early filler that kills, moves or marries someone the book still needs |
 
-### Lead runs, actions, loops and reading (proposed 2026-10-27, awaiting Weibao's yes)
+### Lead runs, actions, loops and reading (WA25-WA41 accepted 2026-10-27 as adjustable working direction; WA42-WA44 proposed)
 
-Agent drafts, not accepted. Evidence: [protagonist-life plan rounds 5 and 6](gm/dispatch/protagonist-life-2026-10-27/PLAN.md#13-round-5-measured-reading-time-precision-read-ahead-and-the-lead-play-flow-2026-10-27),
+WA25-WA41 were accepted 2026-10-27 as adjustable working direction by Weibao's adoption instruction ([record](USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27), [register 5b](gm/WRITEUP_REGISTER.md#5b-adoption-2026-10-27)); a later dated entry may change them. WA42-WA44 remain agent proposals. Evidence: [protagonist-life plan rounds 5 and 6](gm/dispatch/protagonist-life-2026-10-27/PLAN.md#13-round-5-measured-reading-time-precision-read-ahead-and-the-lead-play-flow-2026-10-27),
 six measured haiku reads of LOTM volume 1 chapters 1-15.
 
 | Code | Rule | Dial | Mistake it prevents |
@@ -120,14 +120,13 @@ six measured haiku reads of LOTM volume 1 chapters 1-15.
 | WA39 | **Talks change facts.** Every interaction yields typed results (information, price, trust, access); book-shown talks keep their results with our own wording; extrapolated talks follow the speaker's stated manner. | Which talk types a world supports | Conversations that are only prose and change nothing |
 | WA40 | **Held state has a canon layer, a seeded layer and player deltas.** Inventory, purse, clothing, documents, home contents and similar states keep the book's dated facts as assertions, fill the rest by keyed draws with stable ids that never exceed stated amounts or introduce later canon items, and apply the player's changes as deltas over both; each canon date checks the result. | Which states a world layers | Generated clutter overwriting what the book says the lead had, or a purse that holds more than the text allows |
 | WA41 | **Extract what a consumer will read.** Beyond beats and facts, readers take voice, idiom, units, customs, procedures, technology, routes, notices, rumors, tone, open questions and hooks only when a named consumer reads that field within one milestone; foreshadowing stays sealed by ID. | Per-world extras list | Schemas that grow fields nobody reads, raising the cost of every shard |
+| WA42 | **Relationships are designed from the book's choices.** For each choice a person makes in the source, record the motives, needs, information, obligations and circumstances behind it; store that state; resolve decisions by utility from state plus a seeded roll with the reasons shown; calibrate so the state reproduces the book's choice on its date, and change the state, not the book, when it does not. | How many choices per person are calibrated | Meters that drive behavior no one can explain, or characters who act against the book for no stored reason |
+| WA43 | **People carry detail by tier.** Principal, recurring, role and crowd tiers carry progressively fewer relationship and life fields; people move between tiers by play and presence rungs (WA22). | Tier assignment per world | Over-modelling every passer-by, or principals as thin as a crowd |
+| WA44 | **Every pilot hands its measurements forward.** A world pilot records cost per chapter and per row, lint failure and recall rates, reader error rate found by checks, and the share of buildable untaken options, and hands the next world its schemas, lint, id registry, loop library and calibration harness. | Which metrics a world adds | Each new world rediscovering the same costs and mistakes |
 
-To accept: Weibao's "yes to WA25-WA31" (or a named subset). Until then they guide the protagonist-life lanes as plan defaults only.
+Accepted 2026-10-27 (WA25-WA41): see the status line above. Earlier "to accept" wording for WA25-WA31, WA32-WA35, WA36-WA39 and WA40-WA41 is settled by that adoption.
 
-To accept WA32-WA35: Weibao's "yes to WA32-WA35" (or "yes to WA25-WA35" for both groups).
-
-To accept WA36-WA39: Weibao's "yes to WA36-WA39" (or "yes to WA25-WA39" for every proposed group).
-
-To accept WA40-WA41: Weibao's "yes to WA40-WA41" (or "yes to WA25-WA41" for every proposed group).
+To accept WA42-WA44: Weibao's "yes to WA42-WA44".
 
 ## Code that enforces it
 
