@@ -96,9 +96,9 @@ exception and must say why.
 | WA23 | **Whereabouts are dated.** An address is a list of rows with era windows and evidence status, never one overwritten field. A rumor gives a `claimed` address. | A world without dates uses source order as the window | A person found in the wrong city for the year; rumor treated as fact |
 | WA24 | **Forward anchors bind filling.** Anything generated or authored for an entity between its canon mentions must not contradict its later canon mentions. Player-caused divergence (WA15) may change them and is labelled; generator-caused divergence may not. | A divergent or AU continuity (WA18) declares which anchors it drops | Early filler that kills, moves or marries someone the book still needs |
 
-### Lead runs, actions, loops and reading (WA25-WA41 accepted 2026-10-27 as adjustable working direction; WA42-WA45 proposed)
+### Lead runs, actions, loops and reading (WA25-WA41 accepted 2026-10-27 as adjustable working direction; WA42-WA47 proposed)
 
-WA25-WA41 were accepted 2026-10-27 as adjustable working direction by Weibao's adoption instruction ([record](USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27), [register 5b](gm/WRITEUP_REGISTER.md#5b-adoption-2026-10-27)); a later dated entry may change them, and earlier wording stays as history. WA42-WA45 remain agent proposals. Evidence: [protagonist-life plan rounds 5 and 6](gm/dispatch/protagonist-life-2026-10-27/PLAN.md#13-round-5-measured-reading-time-precision-read-ahead-and-the-lead-play-flow-2026-10-27),
+WA25-WA41 were accepted 2026-10-27 as adjustable working direction by Weibao's adoption instruction ([record](USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27), [register 5b](gm/WRITEUP_REGISTER.md#5b-adoption-2026-10-27)); a later dated entry may change them, and earlier wording stays as history. WA42-WA47 remain agent proposals. Evidence: [protagonist-life plan rounds 5 and 6](gm/dispatch/protagonist-life-2026-10-27/PLAN.md#13-round-5-measured-reading-time-precision-read-ahead-and-the-lead-play-flow-2026-10-27),
 six measured haiku reads of LOTM volume 1 chapters 1-15.
 
 | Code | Rule | Dial | Mistake it prevents |
@@ -124,10 +124,12 @@ six measured haiku reads of LOTM volume 1 chapters 1-15.
 | WA43 | **People carry detail by tier.** Principal, recurring, role and crowd tiers carry progressively fewer relationship and life fields; people move between tiers by play and presence rungs (WA22). | Tier assignment per world | Over-modelling every passer-by, or principals as thin as a crowd |
 | WA44 | **Every pilot hands its measurements forward.** A world pilot records cost per chapter and per row, lint failure and recall rates, reader error rate found by checks, and the share of buildable untaken options, and hands the next world its schemas, lint, id registry, loop library and calibration harness. | Which metrics a world adds | Each new world rediscovering the same costs and mistakes |
 | WA45 | **Systems that drive a person's choices are designed top down and calibrated.** Money, household, knowledge, law, danger and later systems start from what the source shows people choosing, store the state that makes each choice natural, resolve by utility plus a seeded roll with reasons, and pass a shared calibration test (the book's option wins in most seeded runs, and flipping the input the text names flips the choice). | Pass threshold and run count per world | Systems built bottom up from meters that cannot reproduce the book's own people |
+| WA46 | **Recurring roles are archetypes implemented once.** Merchants, brewers, landladies, clerks, guards, healers, teachers, brokers, couriers, informants, crafters, household members and similar roles share one definition each (services, stock or recipes, schedule, relationship hooks, decision profile, talk slots, price rules, failures, keyed variation, canon overrides, fill markers, UI contract, tests); named canon people are instances with overrides, unnamed ones are keyed draws, and every archetype and instance passes one conformance test. | Which archetypes a world uses; per-world field values | Every shopkeeper written as new code, drifting apart and costing a lane each |
+| WA47 | **One recipe shape for every made thing.** Potions, brews, crafts and invented recipes use the same fields (inputs as role slots, process steps and time, skill check, failure by mechanism, quality, effects by the world's law, secrecy per actor, source) on the shared recipe grammar and process envelope. | A world's laws decide effects and failure kinds | A separate brewing system per world that cannot share tools or tests |
 
 Accepted 2026-10-27 (WA25-WA41): see the status line above. Earlier "to accept" wording for WA25-WA31, WA32-WA35, WA36-WA39 and WA40-WA41 is settled by that adoption.
 
-To accept WA42-WA45: Weibao's "yes to WA42-WA45".
+To accept WA42-WA47: Weibao's "yes to WA42-WA47".
 
 ## Code that enforces it
 

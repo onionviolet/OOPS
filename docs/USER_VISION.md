@@ -6746,3 +6746,8 @@ Weibao's words: "Other systems to build from top down? More to consider?" (first
 ## UI coverage for every system (2026-10-27)
 
 Weibao's words: "What worries me is the UI flow, and how to give Ui for everything accordingly?" (first recorded in the adoption entry above). Planning response, proposals only: [UI coverage plan](gm/dispatch/ui-coverage-2026-10-27/PLAN.md) keeps today's homes fixed (20 routes, 5 regions, 4 center modes) and gives every system a UI contract over eight shared primitives. Proposed rules UR76-UR82 await his yes.
+
+## Standards for things built many times (2026-10-27)
+
+Weibao's words (relayed by the Next implementation priorities session): "Consider standards for things that will be implemented multiple times, like merchants, alchemists, other stuff and more?"
+Working direction under the 2026-10-27 adoption: [plan round 12](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (archetypes implemented once and instantiated as data, instance kinds, an eight-step conformance test, one recipe shape, per-world dials, worked baker and formula-source examples, build order). Proposed rules WA46-WA47 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.

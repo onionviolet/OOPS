@@ -1568,3 +1568,152 @@ the agnostic split; eight parked with triggers; one shared calibration pattern; 
 | PL-L37 | Motive vocabulary (about 20 tags) and a lint check | Sonnet, small | Small | Chapters 1-15 motives map to the list with no orphan tags |
 | PL-L38 | Shared calibration harness (19.3) on the decision resolver (PL-L33) | Sonnet, medium | One session | The chapter-9 choice passes 8 of 10; its sanity flip changes the choice |
 | PL-L39 | Lived week on systems 1 and 2 together | Sonnet, medium, after PL-E0 and PL-L19 | One session | Seven days pass with routine costs, household schedules and every purse anchor matching |
+
+---
+
+## 20. Round 12: standards for things built many times (2026-10-27)
+
+Weibao (relayed): "Consider standards for things that will be implemented multiple times,
+like merchants, alchemists, other stuff and more?" Working direction under the 2026-10-27
+adoption (adjustable). Owners reused: `src/components/trader_component.js`,
+`src/data/inventory_templates.js`, `src/craft_recipes.js` (recipe grammar with role slots
+and explained misses [S header]), `src/dose_process.js` and `src/lotm_formula_rows.js`
+(43 LOTM formula rows on a shared process envelope, 23 brewable [S header]),
+`src/hp_brewing_*`, `src/craft_dose_rules.js`, `src/faction_rank.js`, `src/npc_lives.js`.
+The UI contract defers to the ui-coverage plan's primitives when it lands. Proposed rules
+WA46-WA47.
+
+### 20.1 What recurs (evidence)
+
+Chapters 1-15 census, 720 rows [S private files]: 92 person rows, 94 places, 67
+organizations, 172 items, 34 prices. A keyword pass over person labels and notes [I, rough,
+duplicates across shards not merged] finds family 15, officials and clerks 9, fortune and
+divination 4, household staff 3, guards and enforcers 3, crafts 3, merchants and vendors 3,
+teachers and scholars 2, landlady 1, courier 1; potion or formula items 4. Places: homes and
+lodgings 20, schools 7, inns and taverns 5, offices, stations and churches 4, shops 3. Across
+worlds the same roles recur in the Village (traders, craftsman, elder), HP (shops, teachers,
+brewing), Frontier careers and Proto23 shops.
+
+### 20.2 Archetype standard (one definition, many instances)
+
+An archetype is implemented once as engine behavior and instantiated as pack data (WA5,
+WA1). Fields:
+
+| Field | Content | Existing seam |
+| --- | --- | --- |
+| `services` | Verb classes offered (trade, craft, care, study, appraise...) with the world's nouns | WA25 classes |
+| `stock` / `recipes` | Stock template and restock period; recipe list by the recipe standard (20.5) | Trader keyed draw; `craft_recipes.js`, `dose_process.js` |
+| `schedule` | Hours, days, rest day, seasonal closures | `world_rhythm.js`, calendars |
+| `relationshipHooks` | Trust and fear axes toward buyers, favour and debt rows, price memory | WA34, WA39, `obligations_ledger.js` |
+| `decisionProfile` | Motives and weights for the top-down resolver (refuse, discount, extend credit, report to police) | WA42, WA45 |
+| `talkSlots` | Greeting, quote, haggle, refuse, rumor, farewell; typed results | WA39, voice sheets |
+| `priceQuality` | Price band rule, quality tiers, haggling limits, saturation dial | `market_saturation.js` |
+| `failure` | Refusals and failure behaviors: out of stock, closed, distrust, illegal request, failed brew | CBR30, the resolver's reasons |
+| `variation` | What a keyed draw varies per instance (name, manner, stock mix, hours offset) with stable ids | C1-C2, GF18 |
+| `canon` | Overrides and dated anchors for named canon instances | WA24, WA40 |
+| `fill` | Replaceable-fill markers for unstated fields | WA38 |
+| `ui` | Declared surface contract (panel, scene card, inspect) | UI rules; ui-coverage primitives |
+| `tests` | Conformance hooks (20.4) | New harness |
+
+### 20.3 Instances
+
+| Instance kind | Source | Rung and fidelity | Cost |
+| --- | --- | --- | --- |
+| Named canon person (the baker the lead buys from) | Archetype plus overrides from census rows; anchors on stated prices and dates | M2 to M3 as the lead touches them | Authored overrides only |
+| Unnamed seeded person (another baker in another district) | Archetype plus a keyed draw on place and role | M1 to M2, generated on first visit | Near zero until visited |
+| Promoted seeded person | Becomes named when play or a later reading names them; keeps the id, gains overrides, or is superseded by the canon person (WA38) | As touched | Small |
+
+### 20.4 Conformance test (every archetype and every instance)
+
+1. Loads and lints (schema, ids, kinds, WA5 verbs).
+2. Schedule resolves for a seeded week with no gaps or overlaps that block the lead's loop.
+3. Stock and prices calibrate: stated prices appear in their windows; generated prices fall in
+   band; a stated purse reconciles after a scripted purchase.
+4. Relationship hooks fire: one favour row, one price-memory row, one refusal with a reason.
+5. Decision profile passes the shared calibration pattern (19.3) on any book choice it has.
+6. UI contract is declared and renders at 1920x1080 and 1536x864 (browser evidence for the
+   first instance of each archetype; data rows after that follow AD36 item 7).
+7. Save, reload, export and import round trip keeps stock, ledgers and overrides.
+8. No sealed text in any public field (WA11 lint).
+
+### 20.5 Recipe standard for brewers, alchemists and crafters
+
+One shape for book potions and invented ones, on the existing grammar and process envelope:
+`inputs` (role slots: exact item, tag query or property threshold, from `craft_recipes.js`),
+`process` (steps, heat or bench, time in minutes, from `dose_process.js`), `skill` (the
+check and its band, WA33), `failure` (by mechanism: wrong auxiliary, interrupted step, poor
+material), `quality` (tiers from inputs and the check), `effects` (by the world's law),
+`secrecy` (formula known or not per actor; a sealed formula by opaque ID), `source` (canon
+row with locator, or proposal). LOTM's 43 formula rows and HP's brewing already sit near this
+shape; the standard names it so a new world adds rows, not code.
+
+### 20.6 Per-world dials, extension and versioning
+
+| World | What "merchant" means |
+| --- | --- |
+| Tingen (LOTM) | Weekly-wage economy in pence; bakeries, markets, brokers for Beyonder materials with church oversight |
+| Village | Original traders with weekly refresh (`traders.js`); simple stock |
+| HP school | Term-time shops in a market street; student pocket money |
+| Proto23 | Ported shop systems per the recorded permission |
+| YAIR base | Native traders and templates as they are |
+
+Packs extend an archetype by adding fields and overriding values, never by copying it
+(WA18's overlay rule). Archetypes carry `id@revision`; a revision that changes saved fields
+needs an additive migration; instance data records the archetype revision it used (WA10).
+
+**Lane brief checklist for any archetype or instance:** archetype id and revision; instances
+and their sources (canon rows or seeded); overrides and anchors; the conformance steps run;
+the UI contract; save compatibility.
+
+### 20.7 Worked examples (chapters 1-15, no sealed content)
+
+**Merchant: the bakery the lead buys from** (archetype `baker`). Canon overrides from the
+census: the owner is named; the shop sells rye by an 8 lb order with a dated price history (9
+pence now, 11 before, 15 before a tax repeal); it gives change; it also sells cakes the lead
+does not buy. Seeded: hours, other breads, regulars, the owner's manner beyond what is shown.
+Decision profile: sells, gives change, and could extend credit to a known regular (a fill,
+replaceable). Conformance step 3 passes when the 9-penny order and 3 pence change reproduce.
+
+**Alchemist-like role: a potion formula source** (archetypes `broker` plus `brewer`). The
+chapters show formulas traded for favours or money between people at a gathering [S scene
+types, generic]; the runtime already holds formula rows (`lotm_formula_rows.js`). The
+instance offers `appraise` and `trade` services, a recipe list by the recipe standard, a
+decision profile that weighs what is offered against risk, and secrecy per formula (a formula
+known to one actor and not another). Ingredients and brewing go through the shared process
+envelope.
+
+### 20.8 Build order for the pilot (at most three)
+
+1. **Shopkeeper** (baker, market vendor): the lived week buys food daily.
+2. **Household member** (family archetype): the household schedule and purse (19.1 rank 2).
+3. **Official or clerk**: questioning and the job offer path (19.1 rank 4).
+
+Brewers and brokers follow when the mechanism lane opens.
+
+### 20.9 Proposed rules
+
+WA46-WA47 added to [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md), proposed.
+**The yes:** "yes to WA46-WA47" (or "yes to WA42-WA47" for every proposed group).
+
+### 20.10 More to consider (round 12)
+
+**ACT NOW (done):** recurrence counts; the archetype fields; instance kinds; the conformance
+test; the recipe standard on existing code; per-world dials, extension and versioning; two
+worked examples; build order; WA46-WA47 drafted.
+
+**ACCOUNT FOR NOW**
+
+- PL-A39. **Role counts need the id merge** (GF1) before they are exact; the keyword pass
+  double-counts people across shards.
+- PL-A40. **UI contracts wait for the ui-coverage plan.** Archetypes declare the surface
+  now and adopt its primitives when it lands.
+- PL-A41. **The first instance of each archetype pays the full browser matrix**; later
+  instances are data rows (AD36 item 7).
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L40 | Archetype schema and conformance harness (20.2, 20.4) | Opus design, sonnet build | Medium | The baker archetype and its canon instance pass all eight steps |
+| PL-L41 | Recipe standard adapter over `craft_recipes.js` and `dose_process.js` | Sonnet, medium | One session | One LOTM formula row and one HP brew load through the same adapter |
+| PL-L42 | Household-member and official archetypes | Sonnet, medium, after PL-L40 | One session | Both pass conformance with one canon instance each |
