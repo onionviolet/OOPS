@@ -2,7 +2,7 @@
 
 Owner: `village-gm` session ([COMMON](COMMON.md), brief 1 in [BRIEFS](BRIEFS.md)). Docs only. Everything below is a proposal: Weibao's words and AD codes are the only authority (AD32, [GROUND_RULES](../../../GROUND_RULES.md)). Proposed hunks for PROJECT.md and USER_VISION.md are in [section 12](#12-proposed-hunks-for-shared-owners); this session does not edit them.
 
-**Reading (PRF1).** Weibao wants one gameplay loop working first, in the Village, that gives the game its own identity and grows toward "a whole playable world with endless possibilities" ([USER_VISION, Village loop first](../../../USER_VISION.md#village-loop-first-coordinators-and-gm-plan-2026-10-27)). A relayed clarification from the parent session (2026-10-27) widens the plan to cover cross-world play, Proto23's base gameplay and how the whole idea bank reaches play; those are sections 4, 6 and 9. A later relayed direction from Weibao the same day lets Proto23 code be taken and asks for three sibling worlds (a base Proto23 world, a YAIR world, and our variant); [master plan round 8](../../../MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27) WV1-WV12 and the [COMMON update](COMMON.md#update-2026-10-27-later-instruction-supersedes-the-copy-no-code-wording-above) own it, and sections 5, 6 and cards VC8-VC11 fold it in. Premises: desktop first, the player is Weibao, the YAIR Village already runs Proto23-inspired local life in source.
+**Reading (PRF1).** Weibao wants one gameplay loop working first, in the Village, that gives the game its own identity and grows toward "a whole playable world with endless possibilities" ([USER_VISION, Village loop first](../../../USER_VISION.md#village-loop-first-coordinators-and-gm-plan-2026-10-27)). A relayed clarification from the parent session (2026-10-27) widens the plan to cover cross-world play, Proto23's base gameplay and how the whole idea bank reaches play; those are sections 4, 6 and 9. A later relayed direction from Weibao the same day lets Proto23 code be taken and asks for three sibling worlds (a base Proto23 world, a YAIR world, and our variant); [master plan round 8](../../../MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27) WV1-WV12 and the [COMMON update](COMMON.md#update-2026-10-27-later-instruction-supersedes-the-copy-no-code-wording-above) own it, and sections 5, 6 and cards VC9-VC11 fold it in. Premises: desktop first, the player is Weibao, the YAIR Village already runs Proto23-inspired local life in source.
 
 Codes: **GF** self-audit findings, **VC** slice cards, **VP** procedural picks, **LD** lore and identity decisions, **WD** decisions waiting for Weibao. Existing codes (TL, BC, SC, HR, IB, UT, PW, CL, CRL, PG, F/P Discord rows) keep their owners.
 
@@ -41,10 +41,10 @@ Agent synthesis already on file, still proposals: the core loop is a shape (choo
 | GF2 | **CL25 is partly stale.** "Nothing imports" `away_ledger.js`. | `src/absorb_p23/world_adaptation/techniques.js` imports it now. | Real away-time progress for Village routines is still unproven; VC6 checks it before building. |
 | GF3 | **Home base has three answers.** PROJECT.md:1812 lists home world `base.frontier`; TL4 makes the Village the default home; USER_VISION:2674 and :3581 keep the Village a chosen start, not the first-life opening. | Cited lines. | LD2: home is the life's start place by default; the Village is the first test bed and the home for lives that start there. |
 | GF4 | **First-milestone gate lines linger.** Removed 2026-10-24 (USER_VISION:6131-6136, PROJECT.md:1691-1694), still asserted at USER_VISION:1403, :1691, :1977, :5994, PROJECT.md:1190 and in the [Proto23 design lessons](../../../research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#what-seems-most-useful). | Cited lines. | Dated history under USER_VISION:6135; no slice treats them as a gate. |
-| GF5 | **No PROJECT.md summary for the 2026-10-27 Village-loop request.** | Grep of PROJECT.md. | Hunk H1 below. |
+| GF5 | **No PROJECT.md summary for the 2026-10-27 Village-loop request.** The three-worlds entry now exists (PROJECT.md:3, commit `d0734c983`). | Grep of PROJECT.md. | Hunk H1 below covers the Village loop only. |
 | GF6 | **Viewport drift.** The 1366×768 floor was retired 2026-10-19 (USER_VISION:222), yet PROJECT.md:991 and the [Proto23 loops doc](../../../PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md) target it. | Cited lines. | Village UI evidence uses 1920×1080 and 1536×864 at 14 and 21 px (COMMON). |
 | GF7 | **LOTM ordinary entrance.** PROJECT.md:79-81 calls it reconciled and published; USER_VISION:6527 says the Village LOTM entrance fields and the BGP24 crossing remain proposed. | Cited lines. | Both true at different layers: the entrance plays, its later fields are open. VC7 depends only on the playing part. |
-| GF8 | **Frontier versus the Village.** The 2026-10-26 line keeps Frontier and Mistglass without new depth; the Village loop is exempt (USER_VISION:6571, VL1 in round 7). | Cited lines. | Village cards add no Frontier places or items; the original village (VC8) is its own world, not Frontier depth. |
+| GF8 | **Frontier versus the Village.** The 2026-10-26 line keeps Frontier and Mistglass without new depth; the Village loop is exempt (USER_VISION:6571, VL1 in round 7). | Cited lines. | Village cards add no Frontier places or items; the sibling worlds (VC9, VC10) are their own worlds, not Frontier depth. |
 
 ## 2. Advisor reconciliation
 
@@ -77,7 +77,7 @@ Sources: the [full source audit](../../../research/proto23/PROTO23_VS_YAIRPG_202
 | Setbacks that train resistance | Bleeding trains Iron skin | none |
 | Random hub encounters | Courier (40% per arrival), runner | A deck with memory of who you know (VP1) |
 | Food shapes efficiency | Bodily needs owner (USER_VISION:2622 entry) | Not checked here; leave to its owner |
-| A training-ladder spine (the Dojo courses) | Career ranks are the nearest analogue | The original village (VC8) can take this verb |
+| A training-ladder spine (the Dojo courses) | Career ranks are the nearest analogue | The Proto23 world (VC9) ports this spine |
 | Seasonal weather states | Weather/environment lanes (PROJECT.md 2026-10-26) | Village reading of weather (PG4, banked) |
 
 ## 5. Three sibling worlds: Proto23, YAIR and our variant
@@ -93,7 +93,8 @@ Superseded first version (2026-10-27, before round 8), kept as history: "The ori
 Notes:
 
 - The existing `src/proto23_world_*.js` branch (save key `proto23Village`) is an original, no-copy Proto23-inspired branch. Default: it stays where it is (saves hold it); the faithful pack lives beside it in its own paths and does not overwrite it. Whether to fold it into the variant later is a slow decision.
-- The YAIR Village loop proposals VC1-VC6 apply to the variant. The faithful worlds take a variant feature only as an opt-in dial (WV6), so their loops stay baselines.
+- The YAIR Village loop proposals VC1-VC6 apply to the variant. By default the faithful worlds run without variant features, so their loops stay baselines; dial: a variant feature as an opt-in setting with a stated reason (WV6).
+- **Three-world design card (former VC8, docs only, Sonnet low).** One page per sibling world: its verb (LD4), nouns, the shared verbs it uses, deviation list owner, credit and licence status, save fingerprint (WV8). Done when committed and each world names its first slice and baseline evidence.
 - Per-world verbs (LD4) are now three: variant *keep a place running and be known for it*; Proto23 *train up the ladder between short outings*; YAIR *clear the road outward one quest at a time*.
 
 ## 6. The cross-world loop
@@ -114,7 +115,7 @@ Dependencies: VC11 needs VC9 and VC10 skeletons and per-world carry-ledger rows.
 
 Each card follows IB3 and AD43. Every done check includes: from a fresh Village life (no fixture), rebuilt bundle named by hash, MCP walk first then rebuilt desktop browser at 1920×1080 and 1536×864 for UI claims, Save/reload/Export/Import when state changes, native YAIR Village play unchanged, and the "agent-verified, not human-reviewed" label. Blocked-reason text consumes backlog-ui's UIV1 primitive and does not edit it.
 
-**Village-playable first: VC1, VC2, VC3. New sibling worlds: VC9, VC10 (independent of VC1-VC6; a separate lane can run them). Cross-world dependent: VC11 (on VC9, VC10), VC7 (on RET7 and VC2). Docs: VC8.** Ported Proto23 material: own paths (proposed `src/world_packs/proto23/`), a NOTICE naming source, revision and SHA256, credits page (PW6), no push without Weibao's yes (WV3, WV4).
+**Village-playable first: VC1, VC2, VC3. New sibling worlds: VC9, VC10 (independent of VC1-VC6; a separate lane can run them). Cross-world dependent: VC11 (on VC9, VC10), VC7 (on RET7 and VC2).** Ten cards, two over the brief's 5-8 because round 8 added the sibling worlds; the three-world design card is a section 5 note, not a slice. Ported Proto23 material: own paths (proposed `src/world_packs/proto23/`), a NOTICE naming source, revision and SHA256, credits page (PW6), its own branch until Weibao's yes (WV3, WV4, WD5).
 
 | Card | Step | Outcome (player sentence) | Consumer | Cost | Mechanism (default, dial, reason) | Done check beyond the floor | Model, effort |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -124,11 +125,10 @@ Each card follows IB3 and AD43. Every done check includes: from a fresh Village 
 | VC4 A Village deck that knows who you are | React, return | Occasional Village events cast people you served or helped ("The miller you carried for asks after the parcel"). | E2 storylet deck on F3 simulation streams; standing (VC1) | Event-specific | Salience casting (A1); seeded and saved so reload never rerolls (O1). Dial: frequency per village. | Ten cards drawable with saved cooldowns; one card casts a person from VC1/VC2 history; restore emits nothing | Sonnet medium |
 | VC5 A home stock that changes the next outing | Carry, live | Bread, fuel and parcel goods kept at the Shack shorten the next outing's preparation; the row says what is stocked. | Household/larder clock, paid freight, workspace | Freight coins, spoilage | Home is a buffer (CRL3, CRL11). Dial: spoilage and capacity per home. | Stocking then leaving and returning changes a real preparation; spoilage follows game time | Sonnet medium |
 | VC6 A Village routine while you are away | Return, idle | Choose a routine (watch, market runs) and come back to its results with stop reasons. | AD16 chosen routines; `away_ledger.js`; GN8 digest | The routine's own costs; stops at important choices or empty supplies | AD16 default; inactive worlds pause. Dial: rate per routine. | First confirm what `away_ledger.js` drives today (GF2). Then a closed-tab or bulk-time return shows results and stop reasons; no double pay | Sonnet medium, larger |
-| VC7 Learn there, use here | Carry, apply (cross-world) | Learn one method in Tingen, return, use it in Village making with a visible result, and the crossing confirm lists what you carry. | Village making; carry ledger with RET7 Tingen rows; BC9 world-first milestone; UT1, UT2, UT4 | Time, the method's cost, notice (TL6) | Memories and the cheat cross by default (TL2). Whether it works follows mechanisms (AD38). | TL8's done check; depends on VC2 (a Village use) and the playing LOTM entrance | Sonnet or Sol medium |
-| VC8 Three-world card | Design | One page per sibling world: its verb (LD4), nouns, which shared verbs it uses, deviation list owner, credit and licence status, save fingerprint (WV8). | WER start records, WV1-WV12, credits page | One doc | Engine owns verbs, worlds own nouns. | Card committed; each world names its first slice and its baseline evidence | Sonnet low |
-| **VC9** Proto23 pack and its base loop | Live, earn (Proto23 world) | Starting the Proto23 world opens its hub; the Dojo's first tier trains a skill by doing, the skill tab appears at level 1, and the first milestone perk applies. | World pack registry (`src/world_pack_registry.js`), shared skill and combat engine, start record | Port effort; one registration line (AR13) | Rule-faithful port (WV5). Deviations listed: the overflow double count and biased integer sampling are source bugs and get fixed in the shared engine (WV6). | **Matched probe:** run the [source mechanism probes](../../../research/proto23/SOURCE_MECHANISM_PROBES_2026-10-13.json) cases against the port: `skillReveal` (tab visible at level 1 after 1 XP) matches; `craftRequirements` matches on output 0 and material kept; `overflow` (onGive total 69 for award 60) and `randomDistribution` (2500/5000/2500) are reproduced as recorded deviations with the corrected value beside them. The pinned `index.html` is fetched to the ignored `docs/research/proto23/private/` path and its SHA256 checked first. Plus a fresh-start MCP walk through the first Dojo tier, Save/reload/Export/Import, Village saves unchanged, NOTICE present | Sonnet medium |
+| **VC9** Proto23 pack and its base loop | Live, earn (Proto23 world) | Starting the Proto23 world opens its hub; the Dojo's first tier trains a skill by doing, the skill tab appears at level 1, and the first milestone perk applies. | World pack registry (`src/world_pack_registry.js`), shared skill and combat engine, start record | Port effort; one registration line (AR13) | Rule-faithful port (WV5). Deviations listed: the overflow double count, biased integer sampling and the craft-counter disagreement are source bugs and get fixed in the shared engine (WV6). | **Matched probe:** run the [source mechanism probes](../../../research/proto23/SOURCE_MECHANISM_PROBES_2026-10-13.json) cases against the port: `skillReveal` (tab visible at level 1 after 1 XP) matches; `overflow` (onGive total 69 for award 60) `randomDistribution` (2500/5000/2500) and `craftRequirements` (a missing second tool yields no output yet increments the craft counter, the source's preview/counter disagreement) are reproduced as recorded deviations with the corrected value beside them ([mechanism report](../../../research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md)). The pinned `index.html` is fetched to the ignored `docs/research/proto23/private/` path and its SHA256 checked first. Plus a fresh-start MCP walk through the first Dojo tier, Save/reload/Export/Import, Village saves unchanged, NOTICE present. Commits land on branch `proto23-port/2026-10-27` in its own worktree (AD41 isolation reason: keep unpushed Proto23-derived files off shared `master`), merged only with Weibao's yes (WD5) | Sonnet medium |
 | VC10 YAIR ruleset check | Live, earn (YAIR world) | Starting the YAIR world gives the upstream opening (elder, rats, mill) with the variant's panels absent. | Feature flags or a thin upstream data pack (WV10) | Small if flags are clean | Configuration before copy. | First an entanglement report: which variant features can be hidden by flag. Then a fresh-start walk to the mill matching upstream at a pinned `upstream` commit, with differences listed | Sonnet medium |
 | VC11 Three-world carry test | Carry, apply (cross-world) | Learn one technique in one sibling world, cross, and see it work, fail or work differently in the next by that world's mechanisms; the crossing confirm lists what carries. | Carry ledger rows for the three packs; pack fingerprint in the life record (WV8); UT1, UT2, UT4 | The crossing method's cost | Memories and knowledge carry (TL2); outcome follows each world's rules (AD38). | From a fresh life: one round trip through all three worlds, the technique's result differs by world for a stated reason, Save/reload/Export/Import keep each life's ruleset | Sonnet medium |
+| VC7 Learn there, use here | Carry, apply (cross-world) | Learn one method in Tingen, return, use it in Village making with a visible result, and the crossing confirm lists what you carry. | Village making; carry ledger with RET7 Tingen rows; BC9 world-first milestone; UT1, UT2, UT4 | Time, the method's cost, notice (TL6) | Memories and the cheat cross by default (TL2). Whether it works follows mechanisms (AD38). | TL8's done check; depends on VC2 (a Village use) and the playing LOTM entrance | Sonnet or Sol medium |
 
 ## 8. Procedural ideas with a Village consumer now (at most three)
 
@@ -164,7 +164,7 @@ Banked ideas pulled by step, now:
 
 Q18 P02-P10 are UI rows owned by backlog-ui; P11-P20 belong to book-world lanes. None is pulled into the Village loop except P10's return-session diagnostic, which VC3 can inform.
 
-**This week:** VC1 (in progress), then VC2 and VC3 in the Village; VC9 in a separate lane if one is free; VC8 on a DC4 day. VC10 then VC11 next. **Banked:** everything in the right-hand column above, and VC6 until GF2 is checked.
+**This week:** VC1 (in progress), then VC2 and VC3 in the Village; VC9 in a separate lane if one is free; the three-world card on a DC4 day. VC10 then VC11 next. **Banked:** everything in the right-hand column above, and VC6 until GF2 is checked.
 
 ## 10. Lessons from saved Discord research (no new collection)
 
@@ -212,7 +212,6 @@ Proto23's base gameplay and the idea bank. The Village is the home base (TL4)
 and test bed; new Frontier content stays out of scope. Proposals and slice
 cards: [GM plan](docs/gm/dispatch/village-loop-2026-10-27/GM_PLAN.md);
 first runtime slice: [VL1 checkpoint](docs/gm/dispatch/village-loop-2026-10-27/VILLAGE_LOOP_CHECKPOINT.md).
-Three sibling worlds (Proto23, YAIR, our variant) follow master plan round 8.
 ```
 
 **H2, USER_VISION.md** (append under "Village loop first, coordinators and GM plan, 2026-10-27"):
@@ -222,7 +221,7 @@ Clarification relayed from the coordinating session, 2026-10-27: the plan
 covers cross-world play, Proto23's base gameplay and how to actualize the
 whole idea bank, not only the Village. Recorded in the
 [GM plan](gm/dispatch/village-loop-2026-10-27/GM_PLAN.md) sections 4, 6 and 9;
-the three-world direction is in sections 5 and 6 and cards VC8-VC11.
+the three-world direction is in sections 5 and 6 and cards VC9-VC11.
 ```
 
 **H3, master plan round 7, VL4** (owner: the session that wrote round 7): replace "Proto23 loops are mostly proposals" with "Proto23 loops are playable from a fresh life (village-loop MCP walk, 2026-10-27); their outputs lack consumers."
@@ -236,7 +235,7 @@ Within AGENTS limits: build order, first-slice defaults, save compatibility, eff
 | Code | Decision | Default if he says nothing |
 | --- | --- | --- |
 | WD1 | Build order between the Village cards and the sibling worlds | VC1-VC3 and VC9 in parallel lanes (different files), then VC10, then VC11 before VC7 |
-| WD5 | Push of Proto23-derived files, and whether to ask 23html for permission or a licence (WV4) | Commit locally only; no push until he says yes; the ask is his outward step |
+| WD5 | Merging the `proto23-port` branch into `master` (which makes it part of the next approved push), and whether to ask 23html for permission or a licence (WV4) | Keep the port on its branch; merge and push only on his yes; the ask is his outward step |
 | WD2 | First-slice defaults for VC2: band thresholds 10 and 50, and which ask the elder names first | Use VL1's bands; the first ask is the one the player can already fill |
 | WD3 | Save shape for VC5 and VC6 (new home stock and away records) | Extend existing owners' schemas with migrations; no new top-level key |
 | WD4 | LD1 and LD4 as working sentences | Use them as tests until play notes say otherwise |
