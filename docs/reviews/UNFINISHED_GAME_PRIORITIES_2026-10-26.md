@@ -32,3 +32,25 @@ Read-only recheck of the round-1 answer against live files. No gameplay or tests
 - **F12: no human play yet.** Everything above is agent-verified, not human-reviewed. AD42 makes review optional, but ten minutes in the normal app on the LOTM or HP route is the cheapest way to check the F7 frictions against what Weibao actually notices.
 
 ACCOUNT FOR NOW: F6 order, F7 open frictions, F9 file custody. LATER / DELEGATE: the M2 packet after A5 (Sol medium, small; done check: rebuilt 1920×1080 browser evidence that the chosen friction is gone).
+
+## Next order after the 2026-10-26 design rounds
+
+Consolidates this report, [parallel-run outcomes](PARALLEL_RUNS_OUTCOMES_2026-10-26.md),
+[IPC round 8](../audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-8-2026-10-26-what-the-parallel-fan-out-actually-delivered),
+[UI round 7](../audits/UI_DESIGN_CORE_AUDIT.md#round-7-2026-10-26-general-ui-after-the-parallel-wave),
+[intro rounds 25–28](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-25-base-gameplay-and-getting-into-a-book-world-2026-10-26)
+and [world entry rules](../WORLD_ENTRY_RULES.md). Proposed order; each item is
+one playable slice to the AD43 floor before the next.
+
+1. **LOTM A5 staged rite.** Ready receipt exists; closes the L4 lane (5 of 5).
+2. **LOTM launch start under WER.** Pick Tingen at launch with era (ERA1/ERA2), crossing method (XM1 neutral default, XM2 cocoon premise), host age (YS1/YS5) and the nine answers shown before confirming; host life replaces the carried purse (WER9). Removes the Village detour.
+3. **UIV1 visible blocked reasons.** Small; every later slice benefits.
+4. **G3 spine.** Wire one process leaf (agitation) into a real book-world consumer; unblocks G4.
+5. **G1 quote/commit parity with UIV4.** One promise: preview equals charge.
+
+Later, not before these: paused former lives (BGP7, save-shape decision needed),
+summarized-childhood start (YS2), Paradise hub answers (WER17), Soldier's Life
+re-verification (BGP19–BGP21 depth after), credits page (PW6), CoI source pass (ERA3).
+
+Release state at writing: eight local commits on master after `386b1cb26`, not
+pushed; the normal app runs the earlier published build.
