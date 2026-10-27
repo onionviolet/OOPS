@@ -223,3 +223,57 @@ On days without play, take the next item in the recorded order (UIV1, G3 spine, 
 ### Horizon
 
 Next milestone, proposed: a LOTM life you would choose to keep playing for two hours from a fresh start, with no fixture. Then the same for HP. A world counts as deep when you can describe three different good evenings in it.
+
+## Round 4: overnight development, zoom and prose (2026-10-27)
+
+Weibao: "what about automated development of ideas while I sleep? What is best method for that? Lots of kinks to work out too, like ui scaling when I do ctrl + and more? We will need to work on prose rules too, if the details text on world crossing spoils too much and more? more to consider?" Proposals only; no runtime change. Codes: ON overnight, ZM zoom, PR prose (proposed; not registered in the rules index).
+
+### Overnight development
+
+**ON1: proposed method.** One local night run, not a swarm. At a set hour a scheduled task starts one runner (Codex detached in its own process group, or Claude with the `until-done` skill) in a dedicated night worktree on branch `night/<date>`. It works a night queue of one to three *decided* slices (today: UIV1, G3 spine, G1 parity), each to the AD43 floor, commits on the night branch, never pushes or merges, and writes a morning digest. Free local Ollama persona playtests (AI playtest harness PT14, PT64: about 600 decisions an hour) run alongside and write friction notes that feed DC2.
+
+| Code | Kink | Default answer |
+| --- | --- | --- |
+| ON2 | **What counts as ready.** Ideas needing taste (a world's verb, prose voice, LT decisions) are not night work. | The night queue takes only slices with a recorded outcome and done check. Undecided ideas get a one-page options note, never code. |
+| ON3 | **Writers in the primary checkout.** Day sessions and the night run would collide. | Night work uses its own worktree (isolation is an allowed AD41 reason); morning merge happens only on Weibao's yes, after a fresh full `npm test`. |
+| ON4 | **The Mac sleeps.** A closed lid stops everything. | Keep-awake for the run's window, plugged in; runner records a heartbeat so the digest can say "stopped at 02:40" instead of silence. Cloud routines cannot run the desktop app or local models, so they suit only tests and doc checks. |
+| ON5 | **Usage and runaway loops.** | Declare a budget per night (AU rules); stop a slice after two failed attempts at the same gate and move on; stop the night at the first exhausted bound. |
+| ON6 | **Proof without a person.** | Headless browser at 1920×1080 and 1536×864, fresh origin, Save/reload/Import where state changes (AD43). Everything is "agent-verified, not human-reviewed". |
+| ON7 | **Sealed secrets in the digest.** | Digest names secrets by ID and route only, same as chat. |
+| ON8 | **Morning digest shape.** | Five lines at most: what is playable and how to try it, what failed and why, decisions waiting, branch name, budget used. Screenshots linked, not inlined. |
+| ON9 | **Stale queue.** A queue written days ago may point at done or changed work. | The runner re-checks each packet against current master and its owner before starting, and skips with a reason if it no longer fits. |
+
+ON10 LATER: first night as a trial with one slice (UIV1), then widen. Effort: setting up the schedule, worktree and digest template is one small session; done check is one digest that matches the night branch's commits and gates.
+
+### Zoom and scaling
+
+The desktop View menu uses Electron's built-in `zoomIn`/`zoomOut`/`resetZoom` roles (`desktop/app_menu.cjs:32`). The game also has its own Text size presets (GU6, `src/customization_ui.js:114`). These are two scaling routes that do not know about each other. Not tested yet; the rows below are source inspection and known Electron behavior.
+
+| Code | Interaction | Default answer |
+| --- | --- | --- |
+| ZM1 | **Page zoom shrinks the layout's width.** 1920 px at 125% lays out as 1536 CSS px (the tested floor); 150% is 1280, below any tested size. | Treat zoom as viewport change for UR52/UR69 fitting; add 125% and 150% at 1920 to the desktop check matrix for UI slices. |
+| ZM2 | **The bitmap face blurs at fractional zoom.** UR68 relies on whole-pixel strikes; 110% turns 14 px into 15.4 device px. | Proposed: Cmd/Ctrl with plus or minus steps through the verified Text size presets instead of page zoom, so text stays on strikes; page zoom stays in the menu as a fallback. |
+| ZM3 | **The plus key.** Electron's zoom-in accelerator is Cmd/Ctrl+Plus; on a US keyboard pressing Cmd+= without Shift often does nothing (assumption from known Electron behavior; check in the app). | Register both `CmdOrCtrl+=` and `CmdOrCtrl+Plus` when ZM2 is built. |
+| ZM4 | **Pop-out windows and persistence.** The events pop-out has its own zoom; a zoom level may persist per origin across restarts. | Whatever scale the player picks applies to every window and is saved with the profile's text size, not left to the browser. |
+| ZM5 | **Other kinks of the same kind.** Fullscreen toggle, window snapped to half a screen (960 px wide), a second monitor at a different scale. | Same rule as ZM1: they are viewport changes; check half-width only when Weibao uses it. |
+
+ZM6 LATER: one UI slice implements ZM2–ZM4 and checks ZM1 at 1920×1080 with 100/125/150% (Sol medium, small; done check: rebuilt desktop app, Cmd+= and Cmd+- step text size, glyphs stay crisp, pop-out follows, setting survives restart).
+
+### Prose rules
+
+The Tingen confirm screen (`src/book_world_lotm_entry.js:29-54`) shows the nine WER3 answers. Several name things the character has not met: the Nighthawk office, the church teams knowing your old ties, a secrecy level, church supervision. Those are public franchise facts, not sealed secrets, but they remove discovery the moment you pick a start.
+
+| Code | Proposed rule | Default, dial, reason |
+| --- | --- | --- |
+| PR1 | **Write from what the character knows at that moment.** | Default: name people and institutions by how they appear to a newcomer (an employer, a security office, a watchful supervisor). Dial: a premise where the character arrives knowing the setting (for example someone who read the books) may name them. Reason: WER3 wants a knowing choice about costs, not a tour of hidden structure. |
+| PR2 | **Choice text states costs and stakes, not reveals.** | Default: what you keep, lose, owe and risk, in mechanical plain words. Hidden structure appears when play discovers it. Reason: matches the discovery route and the sealed-secret practice. |
+| PR3 | **A spoiler dial for start screens.** | Default: discovery wording. Dial: a "full premise" disclosure the player can open for exact terms. Reason: some starts are chosen for the setup; let the player ask for it. |
+| PR4 | **One voice per surface.** | Confirm screens and tooltips: short, second person, present tense, effect first (UR70–UR75). Place and event prose: the world's voice. Reason: mixing them reads as UI talking in costume. |
+| PR5 | **Checks follow rules.** GROUND_RULES notes that prose rules without a check recur. | A small lint over entry and description strings for a per-world list of not-yet-discovered names, run with `check:rules`. |
+
+PR6 LATER: a prose rulebook (register it in the rules index when accepted) with PR1–PR5 as its seed, then rewrite the Tingen entry answers to PR1–PR3 and add the lint. Sol medium, small to medium; done check: rebuilt confirm screen shows no undiscovered institution names by default, the full-premise disclosure shows exact terms, lint passes and catches a planted name.
+
+### Account for now
+
+- Overnight work compounds round 3's risk: more code nobody has played. Keep DC1 play as the input that steers night queues.
+- The prose lint and the zoom matrix are both cheap checks that stop recurring mistakes, which is the kind of rule LT6 says to keep.

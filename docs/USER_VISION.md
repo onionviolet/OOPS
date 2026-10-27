@@ -6529,3 +6529,14 @@ Then: "Lobby worlds might exists in the form of reincarnation paradise? other
 stuff?" Recorded: WER13 no longer bans lobby worlds; a hub is a declared
 premise (Paradise, Main God Space, Sigil, cheat spaces, between-lives realms,
 private realms) with its own entry answers in WER17.
+
+## Overnight development, zoom and prose rules, 2026-10-27
+
+> what about automated development of ideas while I sleep? What is best method
+> for that? Lots of kinks to work out too, like ui scaling when I do ctrl + and
+> more? We will need to work on prose rules too, if the details text on world
+> crossing spoils too much and more? more to consider?
+
+Recorded as questions and a stated need for prose rules, not yet accepted
+designs. Proposals ON1–ON10, ZM1–ZM6 and PR1–PR6 are in
+[master plan round 4](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-4-overnight-development-zoom-and-prose-2026-10-27).
