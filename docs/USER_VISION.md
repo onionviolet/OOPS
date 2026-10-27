@@ -6678,3 +6678,8 @@ then thereby transfer it to not playing as the protaginsists or the details of t
 rest of the world?" Proposal record (not accepted):
 [pass 1](gm/WRITEUP_REGISTER.md#5a-pass-log) and
 [the prompt](gm/PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md).
+
+## Protagonist-life pilot: start with a real book world (2026-10-27)
+
+Weibao's words: "We should start with an actuall book world, maybe the first arc or volume or something, or consider the best series to do this on for the most results?"
+Proposal record (not accepted): [plan pass](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) scores the shortlist and proposes Lord of the Mysteries volume 1 as the pilot, with the Village mini-line kept as the engine harness.
