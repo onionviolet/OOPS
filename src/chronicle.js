@@ -1,5 +1,6 @@
 import {ensureWorldHistory,historyMurals} from './world_history_consumers.js';
 import {xorshift32} from './hash_rng.js';
+import {renderRefs} from './ref_resolver.js';
 import {check, copy as clone, finite, natural as integer} from './basics.js';
 import {extendLineage, validateLineage} from './family_tree.js';
 import {LIFE_LESSONS, LIVED_TAGS, remembersLived, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
@@ -71,7 +72,7 @@ export function relationshipChange(c, actorId, {axes = {}, ties = {}, text, id},
     r.memories.push({id, at, text}); r.memories = r.memories.slice(-32);
 }
 
-function note(c, text, at, living = false) {c.log.push({at, text, ...(living ? {life:true} : {})}); c.log = c.log.slice(-40);}
+function note(c, text, at, living = false) {c.log.push({at, text: renderRefs(text), ...(living ? {life:true} : {})}); c.log = c.log.slice(-40);}
 function event(c, id, label, place, opensAt, lifetime, missedText) {
     if(c.events[id]) return;
     c.events[id] = {id, label, place, opensAt, closesAt: opensAt + lifetime, status: c.lastClock >= opensAt ? "open" : "scheduled", heard: false, missedText};
