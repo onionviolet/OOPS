@@ -1,7 +1,7 @@
 import {INVENTORY_KINDS,inventoryRowKind,matchesInventoryFilter} from './inventory_filters.js';
 // Shared display grammar only. Reasons come from the action's existing owner.
 let reasonSequence=0;
-const actionNotes=new WeakMap();
+const actionNotes=new WeakMap(),focusable=new WeakMap();
 export function decorateActionComponents(root) {
     let queued=false;
     const notes=actionNotes;
@@ -24,9 +24,18 @@ export function decorateActionComponents(root) {
             if(note) {
                 liveNotes.add(note);
                 if(button.nextSibling!==note)button.after(note);
-                if(note.hidden!==!reason)note.hidden=!reason;if(note.textContent!==reason)note.textContent=reason;
-                const ids=(button.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==note.id);
-                if(reason)ids.push(note.id);
+                // UIV1: a row that already prints this reason is the description; no duplicate note.
+                const shown=reason?[...(button.parentElement?.children||[])].find(n=>n!==button&&n!==note&&n.localName!=='button'&&!n.hidden&&n.textContent.includes(reason)):null;
+                if(shown&&!shown.id)shown.id=`ui-disabled-${++reasonSequence}`;
+                const visible=reason&&!shown?note:shown;
+                if(note.hidden!==(!reason||!!shown))note.hidden=!reason||!!shown;if(note.textContent!==reason)note.textContent=reason;
+                // Disabled buttons leave the Tab order, so the visible reason takes the stop.
+                if(visible&&visible.tabIndex!==0){visible.tabIndex=0;visible.dataset.uiReasonFocus='';}
+                if(note!==visible&&note.hasAttribute('tabindex'))note.removeAttribute('tabindex');
+                const previous=focusable.get(button);if(previous&&previous!==visible&&previous!==note&&'uiReasonFocus' in previous.dataset){previous.removeAttribute('tabindex');delete previous.dataset.uiReasonFocus;}
+                if(visible)focusable.set(button,visible);else focusable.delete(button);
+                const ids=(button.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==note.id&&id!==previous?.id);
+                if(visible)ids.push(visible.id);
                 const described=ids.join(' ');
                 if(described!==button.getAttribute('aria-describedby')){
                     if(described)button.setAttribute('aria-describedby',described);else button.removeAttribute('aria-describedby');

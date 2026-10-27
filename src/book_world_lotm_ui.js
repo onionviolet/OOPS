@@ -1,6 +1,7 @@
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
+import {decorateActionComponents} from './ui_components.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
@@ -8,6 +9,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
+ decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
  let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null;const bars=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};

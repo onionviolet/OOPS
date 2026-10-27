@@ -32,6 +32,30 @@ test('disabled reasons preserve subject descriptions and follow a moved action w
     } finally {decoration?.destroy(); Object.assign(globalThis, saved);}
 });
 
+test('UIV1: a disabled reason is a Tab stop, and a row that already prints it gets no duplicate note', () => {
+    const saved = {document:globalThis.document, MutationObserver:globalThis.MutationObserver};
+    const dom = createDom(); dom.loadHTML('<body><section id="root"><div id="plain"></div><div id="printed"></div></section></body>');
+    globalThis.document = dom.document;
+    globalThis.MutationObserver = class {observe() {} disconnect() {}};
+    let decoration;
+    try {
+        const plain = document.getElementById('plain'), printed = document.getElementById('printed');
+        const a = document.createElement('button'); a.disabled = true; a.title = 'Earn merit first.'; plain.append(a);
+        const b = document.createElement('button'); b.disabled = true; b.title = 'Brew a dose first.';
+        const text = document.createElement('span'); text.textContent = 'Brew a dose first.'; printed.append(b, text);
+        decoration = decorateActionComponents(document.getElementById('root'));
+        const note = plain.querySelector('.ui-disabled-reason');
+        assert.equal(note.textContent, 'Earn merit first.'); assert.equal(note.tabIndex, 0);
+        assert.equal(a.getAttribute('aria-describedby'), note.id);
+        assert(printed.querySelector('.ui-disabled-reason').hidden, 'no second copy beside printed text');
+        assert.equal(b.getAttribute('aria-describedby'), text.id); assert.equal(text.tabIndex, 0);
+        a.disabled = false; b.disabled = false; decoration.refresh();
+        assert(note.hidden); assert(!note.hasAttribute('tabindex')); assert(!a.hasAttribute('aria-describedby'));
+        assert(!text.hasAttribute('tabindex'), 'borrowed row text leaves the Tab order once enabled');
+        assert(!b.hasAttribute('aria-describedby'));
+    } finally {decoration?.destroy(); Object.assign(globalThis, saved);}
+});
+
 test('quoted action groups keep unavailable alternatives and one shared reason without allowing activation', () => {
     const saved=globalThis.document,dom=createDom();dom.loadHTML('<body></body>');globalThis.document=dom.document;
     try {
