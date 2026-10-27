@@ -13,7 +13,7 @@ Lane definitions: [PLAN section 4](PLAN.md). Rules applied: AR1-AR16, AD36, AD43
 | PL-E2 reference resolver (CAE-E1, E4) | 72f0dfbfb | `src/ref_resolver.js`, `tests/ref_resolver.test.js`, one import and `note()` change in `src/chronicle.js` | Implemented, below floor |
 | PL-E3 beat resolver | 22fe209af | `src/beat_records.js`, `tests/beat_records.test.js` | Implemented, below floor |
 | PL-E1 keyed shop stock (C2) | f43431e5d | `src/keyed_generation.js`, `tests/keyed_generation.test.js` | Implemented, below floor; call site unwired |
-| PL-H1 Village harness | see git log | `src/world_packs/village_lead_line.js`, `tests/village_lead_line.test.js`, `scripts/headless/lead_runs/village_lead_line.mjs` | Implemented, below floor |
+| PL-H1 Village harness | b527bc7fe | `src/world_packs/village_lead_line.js`, `tests/village_lead_line.test.js`, `scripts/headless/lead_runs/village_lead_line.mjs` | Implemented, below floor |
 
 ## Checks (one line each)
 
