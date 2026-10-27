@@ -87,3 +87,29 @@ the next world), and the remaining gate.
   needs and information limits (PX32, PX38); the player influences, does not puppeteer.
 - **Spoiler and prose rules:** perception text per witness level (PX49); sealed truths
   by ID; changed or randomized truths stay sealed.
+
+## Update 2026-10-27 (Weibao): start with a real book world, pick the pilot by score
+
+Weibao's words: "We should start with an actuall book world, maybe the first arc or
+volume or something, or consider the best series to do this on for the most results?"
+This supersedes the "Village mini-line first" order above: the mini-line stays only as a
+small engine harness, not the pilot. The plan pass must choose the pilot book and its
+first arc or volume by score, then default to the highest score.
+
+**Pilot criteria (score each 0 to 3, show the table):**
+1. *Dated beats:* the arc has dates or a clear order the extractor can use.
+2. *Bounded cast and places:* few enough to finish the touched set in one pass.
+3. *Existing implementation:* how much of the touched set already exists in `src/`.
+4. *Source in hand:* local file or already-summarized deep dive (`docs/research/<source>/`,
+   `docs/research/novels/LOCAL_LIBRARY.md`); no new bulk collection.
+5. *Lead-run clarity:* the protagonist's path is well defined, with known consequences.
+6. *Determinism fit:* repeatable days matter (a loop or a calendar helps the golden run).
+7. *Reusability:* how much the finished touched set teaches the next world.
+8. *Spoiler and sealed-secret load:* lower is easier (sealed truths stay by ID).
+9. *Weibao's interest and the project's existing investment.*
+Shortlist to score (add others if the plan pass finds a better fit): Lord of the Mysteries
+volume 1 (Klein in Tingen; deepest existing implementation, local epub), Harry Potter
+year 1 (school calendar gives schedules), Mother of Learning arc 1 (a repeating month
+suits golden runs and the seeded-day work), and the public-domain *Dracula* as the
+method dry run. Default if scores tie or the plan pass cannot read enough: LOTM volume 1.
+The plan pass also states which arc boundary counts as "first arc" and what is out of scope.
