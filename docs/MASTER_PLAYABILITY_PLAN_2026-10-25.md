@@ -182,3 +182,44 @@ Round verification: inspected git worktrees and merge ancestry, running processe
 ## Planning verification
 
 Local Markdown file targets: PASS, 12 checked, zero missing; fragment anchors were not separately validated. PROJECT zero-loss against current HEAD: PASS, zero old nonblank lines missing. `git diff --check -- PROJECT.md docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md`: PASS. No rulebook or registered code changed, so no rules-suite run was needed. No runtime behavior was changed or newly gameplay-tested here; F1–F5 are located receipts and bounded source observations with their stated limits. Planning started at `9b4b220fd`; another session advanced HEAD to `df847a5c3` during inspection, consistent with the later local-master receipt. This task edits only this plan and its additive PROJECT navigation paragraph; no commit or push.
+
+## Round 3: long-term decisions and a daily cadence (2026-10-27)
+
+Weibao: "consider long term things to decide slowly, what it takes, what to implement day to day to eventually have something fun and in depth?" Proposal only; no runtime change, dispatch or new rule. Codes: LT for slow decisions, DC for the daily cadence.
+
+### What the repo shows
+
+- Tracked files: 7,088 Markdown docs against 965 source files. Since 2026-10-20, 96 of 225 commits touched `src/`.
+- Agent verification proves a route works. It cannot prove the route is fun. AD42 made human review optional, and the [priorities review](reviews/UNFINISHED_GAME_PRIORITIES_2026-10-26.md) F12 found no recorded human play of the current LOTM or HP routes.
+- So the depth that exists is mostly unjudged by the one player who matters. More palettes widen the gap; play closes it.
+
+### Slow decisions (decide on play evidence, not on a deadline)
+
+| Code | Decision | Why slow | Meanwhile (default) | Decide when |
+| --- | --- | --- | --- | --- |
+| LT1 | **The verb of each world.** One sentence per world for what you do minute to minute that is fun on its own (LOTM: act the role and digest; HP: learn and use spells in a school life). | Every later system should feed this verb; guessing it wrong makes depth that nobody uses. | Draft one sentence per book world in its owner; treat it as a test, not law. | After about a week of short plays on that world. |
+| LT2 | **How many worlds are deep at once.** | Depth per world is what makes it fun; breadth divides it. | LOTM and HP only for depth (already the 2026-10-26 direction); others stay test beds or later. | When one world holds a two-hour life you want to keep playing. |
+| LT3 | **Save shape for many lives.** Per-life save files (intro round 30), paused former lives (BGP7), save size (two lives are already about 303,000 characters). | Hardest to reverse; every later system writes into it. | Keep the current continuation record; measure size each slice that adds a life or long history. | Before a third concurrent life or a save near a measured load-time problem. |
+| LT4 | **How content gets made.** Hand-written JS rows, a data format, or local-AI drafting for prose (already deferred to later). | Content throughput sets how deep worlds can get; switching late means rewriting rows. | Keep writing rows by hand in existing seams; note each row that felt like boilerplate. | When boilerplate notes show one repeated shape across about three slices (IPC round 4 stop rule). |
+| LT5 | **Active versus idle mix.** What runs while you are away, what needs you, how often it stops to ask. | It sets the feel of the whole game; per-world answers differ. | Existing AD16–AD18 stop rules. | From play notes on "I was bored waiting" versus "I had to click too much". |
+| LT6 | **Process weight per slice.** Keep the AD43 floor; decide which of the other rule families earn their cost. | Rules came from real mistakes (IPC round 3), but each adds time to every slice. | Floor plus the rules the router names; no new rulebooks without a repeated mistake. | After a month of slices: count which rules caught a real defect. |
+
+### What it takes to get to fun and deep
+
+Depth is connected loops, not count of systems: you get something, use it, the world responds, and that opens a new choice (MC6). Fun is the verb (LT1) feeling good to repeat with small surprises. Both need a person playing regularly and an agent turning the notes into slices fast enough that the next play sees the change.
+
+### Daily cadence (proposal)
+
+| Code | Step | Who | Size |
+| --- | --- | --- | --- |
+| DC1 | Play 15 to 20 minutes in the normal app on one route. Note up to three things: bored, confused, delighted. | Weibao | One line each in `docs/PLAYTEST.md` or chat. |
+| DC2 | Turn the top note into one slice: a friction fix, or the next use of something you already have. | Agent | One slice to the AD43 floor. |
+| DC3 | Commit, and when you say yes, publish and update the normal app so tomorrow's play sees it. | Agent, with your yes | Same day. |
+| DC4 | One day a week, no new slice: write the one-page options note for one LT decision from the week's notes. | Agent drafts, Weibao decides or waits | One page. |
+| DC5 | Design rounds and audits only when a slice needs them, or on a DC4 day. | Agent | Keeps runtime ahead of palettes. |
+
+On days without play, take the next item in the recorded order (UIV1, G3 spine, G1 parity) so work continues; play notes jump the queue when they exist.
+
+### Horizon
+
+Next milestone, proposed: a LOTM life you would choose to keep playing for two hours from a fresh start, with no fixture. Then the same for HP. A world counts as deep when you can describe three different good evenings in it.
