@@ -353,3 +353,143 @@ Codes: F findings, D decisions, O options, R risks, Q questions, A actions.
 3. **Reword WER11 as default and dial** (PX18) so "be the protagonist" has a
    private-pack route and avatar-by-construction worlds are not forced into a
    mode system they do not need (PX12).
+
+## Part E. Round 2: prior art, comics and fanfic as a method (2026-10-27)
+
+Weibao asked: has anyone done this before, would we gather fanfics and compare
+them with the original, how do comics do it, more to consider? Method as in Part
+B: one standard search per topic, summaries only, no page fetches. Labels as
+above. Proposals only.
+
+### E.1 Has anyone done this? Closest precedents
+
+No search found a game that combines a scoped canon clock, lazy evaluation and
+protagonist modes the way Part C does. Pieces exist separately. [I]
+
+| Precedent | What it did | Lesson for YAIRPG |
+| --- | --- | --- |
+| Hogwarts Legacy | A new student in the 1890s, about a century before the books; sources say the era freed the developers from altering the main story and opened an unused setting, and canon status is unconfirmed [S, [Den of Geek](https://www.denofgeek.com/?p=814247), [Sportskeeda](https://www.sportskeeda.com/esports/none-harry-potter-s-main-characters-likely-appear-hogwarts-legacy-good-thing)]. Two SEO pages gave other years and are not used. | An **other-era start** is the cheapest way to live in a canon setting with no protagonist to collide with. It fits WER6 and LIVING_BESIDE P5. |
+| Dragonlance modules | Players run pregenerated Heroes of the Lance and reenact the war; Riverwind and Tika begin as DM-run characters and others become playable later; the published adventures flex with choices, but the canon storyline is largely assumed [S, [Dragons of Despair](https://en.wikipedia.org/wiki/Dragons_of_Despair), [DL series](https://en.wikipedia.org/wiki/DL_series)]. A newer world book reportedly moves players to their own Heroes of the Lance, from forum posts [S, weak: [EN World](https://www.enworld.org/posts/9991692/)]. | "Be the protagonist" has a long tabletop precedent as pregens. The weakness is the assumed storyline. Give each pregen's circle seats too (PX24). |
+| SaGa Free Scenario | World days pass as you act; events, recruitment and quests open and close without you [S, Part B.1]. | The closest match to lazy, action-driven canon beats. |
+| The Lord of the Rings Online | Fellowship instances for private story, layered instancing for special story moments, and phasing in the Isengard book so choices change NPCs and buildings in a shared space; players reported spoiled or hijacked phased moments [S, [Engadget](https://www.engadget.com/2009-02-24-the-daily-grind-is-phasing-the-new-instancing.html), [Engadget](https://www.engadget.com/2011-11-15-rings-and-words-of-power-going-inside-lotros-update-5.html), 2009 to 2011 coverage]. The epic story mixes the studio's own events with Tolkien's [S, same]. | Phasing is the MMO name for "render the world by this life's facts", our scope test (PX5). One person can be the hero because the world shows each person their own state. Single-player has no spoil problem, and we avoid the cost of shared instances. [I] |
+| Telltale and BioWare "string of beads" | Branches split and re-converge to a single track; critics call many choices "false" or "for the moment", and compare Mass Effect 3's ending [S, [Game Informer](https://www.gameinformer.com/b/features/archive/2015/02/03/why-your-choices-dont-matter-in-telltale-games.aspx), [Bright Shiny Robot](https://bigshinyrobot.com/video-games/wizeguy-pro-choice/); cost is cited as the cause, [Mancunion](https://mancunion.com/?p=35670)]. | Convergence at big beats is acceptable. Losing the differences afterward is the failure. Keep consequences as facts (PX19). |
+| Spider-Verse "canon events" | Miguel O'Hara's society says certain moments in a Spider-Person's life must happen or a universe collapses; the role of Ben Parker is filled by different people across universes; Miles is called an anomaly; the film leaves Miguel's logic open to doubt [S, [Looper](https://www.looper.com/1304052/spider-man-across-the-spider-verse-every-canon-event), [Digital Fix](https://www.thedigitalfix.com/spider-man/across-the-spider-verse-anomaly-plot-hole)]. | Fiction has already named this exact problem. Two lessons: the role is fixed and the filler can vary (PX20), and the claim "this must happen" is made by someone in the world, so it can be wrong or contested (PX21). |
+| Doctor Who fixed points and Loki's TVA | Fixed points are immovable moments; the TVA prunes "Nexus" deviations before they branch. One article reads them as inverse ideas [S, [SlashFilm](https://www.slashfilm.com/581727/loki-doctor-who-comparisons-marvel/), [Den of Geek](https://www.denofgeek.com/tv/loki-what-is-a-nexus-event/)]. | Two mechanisms for "canon resists": the event is rigid, or an agent enforces. Pick one per beat and name it (OD8). |
+| Marvel and DC comics | Marvel names its main continuity Earth-616 and tells What If? stories that alter one key moment outside it; DC's Elseworlds is a non-canon imprint; DC collapsed its parallel Earths in Crisis on Infinite Earths because juggling them confused readers and creators [S, [Wikipedia What If](https://en.wikipedia.org/wiki/What_If_(comics)), [TV Tropes Elseworlds](https://tropedia.fandom.com/wiki/Elseworlds), fan wikis; dates need primary checks]. | See E.2. |
+
+### E.2 What comics add
+
+- **A labeled main line plus labeled side branches.** Earth numbers and
+  What If? issues are branch ids with a stated departure point. This is BW1
+  (fresh canon) plus BW6 (labeled branch list). A life's branch id is the
+  departure beat and a short change summary, with sealed truths by ID. [I]
+- **A cost warning.** Many live parallel worlds forced a reboot at DC [S,
+  secondary]. BW7 already says abandoned branches are not simulated; add a cap
+  on continued branches shown at once (PX23).
+- **Alternate-reality stories sit outside continuity on purpose.** A
+  divergent start can be cheap if it is declared non-main (Elseworlds) and its
+  results never rewrite the fresh-canon copy. That matches BW4. [I]
+
+### E.3 Fanfic: yes, as a method, with three different jobs
+
+The original, fanfic and other media do different jobs, so comparing them is
+useful and none replaces another.
+
+| Source | Job | Never used as |
+| --- | --- | --- |
+| The original book | Truth of the beat: date, participants, what depended on what. Locators per WA2. | n/a |
+| Fanfic corpus | A palette of departure points, seats beside canon and consequence chains players already want to explore; a count of what readers choose. | Evidence of what the book does. Label as fan inference. |
+| Games, comics, TV | Structural patterns (Part B, E.1). | Content. |
+
+**Research precedent.** Computational fan studies exist: Messina (2019) read about
+3,759 Legend of Korra fics against air dates and classed uptakes as
+canon-complicit, explicit-implicit or canon-resistant [S, [Journal of Writing
+Analytics](https://wacclearinghouse.org/docs/jwa/vol3/messina.pdf)]; Kleindienst
+and Schmidt (2020) compared character mentions in about 7,853 Supernatural fics
+with the episodes [S, [Regensburg](https://epub.uni-regensburg.de/50828/1/Kleindienst%20%26%20Schmidt%20%282020%29%20-%20Supernatural.pdf)];
+Vadde and So paired close and computational reading of Harry Potter fic [S,
+[DukeSpace](https://dukespace.lib.duke.edu/items/e2c1d7ab-6c00-4a8e-af59-c2b0ae658bef)];
+a Harry Potter and Naruto canon-versus-fanon sample used only 10 stories each
+[S, weak: [Uzhhorod repository](https://dspace.uzhnu.edu.ua/jspui/bitstream/lib/68426/1/FROM%20CANON%20TO.pdf)].
+A study using "canon divergence" as a tag category was not found. The tag system
+carries seven tag types usable as metadata [S, [Project MUSE](https://muse.jhu.edu/article/970680)].
+
+**PX25. A bounded departure-point census, not a scrape of everything.**
+Extends the 2026-10-10 fan-premise surveys ([LIVING_BESIDE](LIVING_BESIDE_PROTAGONISTS_2026-10-10.md),
+private folder, gitignored); do not restart them.
+
+1. *Metadata pass (cheap).* Per target world, collect tags and summaries only
+   for a bounded sample of canon-divergence and "beside the protagonist" fics:
+   departure point, seat taken, era, pairings of "what changed" and "first
+   consequence". Output: counts and a ranked list of departure points and seats.
+2. *Text sample (small).* For the top five departure points, read three to five
+   fics in capped shards (haiku readers, AU15 caps) and extract only
+   `input changed, outcome` pairs in our own words.
+3. *Reconcile with the original.* A canon locator decides whether the departure
+   point is real. Pairs from fics enter `outcomes` as `fan inference` and get
+   authored by us; they do not become canon facts.
+4. *Output.* Per world: the first ten departure points worth authoring, the
+   seats worth offering (PX1's follow and bystander), and a tag-derived
+   faithfulness label for branch lists (PX26).
+
+Guards: raw fic text stays out of git (research rules); collection goes through
+the polite scraper and its site-rule checks, and I have not verified any site's
+terms, so that check comes first [U]; one coordinator, one shared budget (AU rules);
+an acquisition needs Weibao's yes where it downloads books or fanfiction in
+bulk. Where he already owns exports, read those first.
+
+### E.4 New proposals
+
+| Code | Proposal | Default, dial and reason |
+| --- | --- | --- |
+| PX19 | **Converge the event, keep the difference.** A `great` beat may converge to a canon-shaped result, but every changed input persists as a fact afterward: who was there, who owes you, what was taken. | Default: persistence on. Dial: how many facts a beat keeps. Reason: the "string of beads" complaint is lost differences, not convergence [S, opinion]. |
+| PX20 | **Beats name roles, not people.** A beat has role slots (the one who dies, the one who warns) with a canon filler by default; another person can fill the slot when inputs allow (RLB3). | Default: the canon filler. Dial: how freely a slot refills. Reason: Spider-Verse shows the same event filled by different people [S]. |
+| PX21 | **"Must happen" needs an in-world authority.** A firm or hard beat names who or what enforces it (a rule of the world, an institution, a fate mechanism), or it stays soft (OD8). | Default: soft without a named enforcer. Dial: the enforcer may be wrong or contested. Reason: Spider-Verse's authority is questioned in the film [S]. |
+| PX22 | **Offer an other-era start beside any canon line.** Before or after the protagonist's era, no protagonist collision. | Default: offered where the pass has era data (WER6). Dial: how far from the canon line. Reason: Hogwarts Legacy [S]. |
+| PX23 | **A cap on continued branches shown at once.** | Default: three live branches in the picker, the rest archived and listed. Dial: any number. Reason: DC's parallel-Earth burden [S, secondary] and BW7. |
+| PX24 | **Pregen circles.** In `follow` and private-pack `be` modes, offer the protagonist's circle as playable seats, with roles that start as NPCs (Dragonlance's Riverwind and Tika [S]). | Default: circle seats only where records exist. Reason: more than one way to be near the line. |
+| PX26 | **A derived faithfulness label for branch lists.** From beat results: *complicit* (mostly carried), *divergent* (some altered), *resistant* (mostly altered). | Default: label only, no reward or penalty. Reason: Messina's three classes [S] make a cheap, spoiler-free summary. |
+
+### E.5 More to consider (round 2)
+
+**ACT NOW (done):** recorded precedents and the fanfic method (E.1 to E.3);
+added PX19 to PX26 (PX25 is the method); no ids collide with CP, C, S, E, N.
+
+**ACCOUNT FOR NOW**
+
+- R6. **Fan corpus bias.** Popular fic skews toward pairings and fix-its, so the
+  census over-represents romance and rescue. Mitigation: rank departure points by
+  canon locator, not popularity alone; use counts to order work only.
+- R7. **A source-world rule against fan content.** Some projects keep fan
+  material off the repo. Mitigation: only our own paraphrase and counts are
+  committed (existing rule).
+- R8. **Fan tags are user-made.** Counts are noisy [S, MUSE]. Treat as
+  indicative.
+- R9. **Hidden "canon events" feel cheap if enforced by a bare label.** PX21 asks
+  for a named enforcer.
+- R10. **Branch sprawl.** PX23.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| L8 | Departure-point census for LOTM and HP (PX25 steps 1 to 3) | Research lane, haiku readers, one coordinator | Medium | A ranked list of ten departure points and five seats per world, each with a canon locator or "no locator"; no raw text in git. |
+| L9 | Role-slot field in the beat record (PX20) | Docs then data | Small | A beat with a role slot filled by a different person resolves with the altered outcome. |
+| L10 | Other-era start for HP (the book's earlier decades) and LOTM | World pass | Medium | A start record with era, WER answers and no protagonist collision. |
+| L11 | Branch picker labels (PX23, PX26) | UI | Small | A picker shows branch id, departure summary and label, hiding sealed truth. |
+| L12 | Primary-source check of the E.1 rows (comics dates, LOTRO current design, Dragonlance's new book) | Research | Small | Rows updated or kept as gaps. |
+
+**Unreached in this round:** current LOTRO design (coverage is 2009 to 2011);
+primary Marvel and DC statements; a study that treats "canon divergence" as a tag
+class; official Dragonlance product details (forum posts only); any site's terms
+for collecting fanfiction.
+
+**Top three after round 2**
+
+1. Add **role slots and persisted differences** to the beat record (PX19, PX20):
+   they answer both "forced script" and "choices vanish".
+2. Treat **other-era starts** as the cheapest first canon-adjacent mode (PX22),
+   then follow and bystander seats where the census says players want them.
+3. Run the **departure-point census** (PX25) as a bounded, metadata-first lane
+   after L1 and L2, so authored beats follow what the original supports and
+   readers choose.
