@@ -6518,9 +6518,14 @@ Direction recorded: every world's entry must answer the same questions
 source's real mechanism including late reveals, era, origin, host body, what
 carries, age access, protagonists, how the world reads an outsider, one start
 list, credit and licence, save compatibility). Owner:
-[world entry rules WER1–WER16](WORLD_ENTRY_RULES.md); design history in
+[world entry rules WER1–WER17](WORLD_ENTRY_RULES.md); design history in
 [intro rounds 25–28](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-25-base-gameplay-and-getting-into-a-book-world-2026-10-26).
 Named defaults inside those rules stay dials. Weibao called the neutral
 "local who just died" crossing (BGP24) nice; it is not yet implemented. The
 Village LOTM entrance was reworded as a crossing the same day; launch starts,
 era, method and host fields remain proposed work.
+
+Then: "Lobby worlds might exists in the form of reincarnation paradise? other
+stuff?" Recorded: WER13 no longer bans lobby worlds; a hub is a declared
+premise (Paradise, Main God Space, Sigil, cheat spaces, between-lives realms,
+private realms) with its own entry answers in WER17.

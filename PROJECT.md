@@ -641,7 +641,7 @@ skill XP overflow a per-world row (frontier banks, others lose with a stated rea
 Round 3 audited five book worlds' gates and added proposed GTR28–GTR35.
 
 **World entry rules (standing considerations, 2026-10-26):** at Weibao's request,
-[WER1–WER16](docs/WORLD_ENTRY_RULES.md) make every world's entry answer the same
+[WER1–WER17](docs/WORLD_ENTRY_RULES.md) make every world's entry answer the same
 questions: worlds stay separate unless a premise joins them, each start declares a
 crossing method with nine answers (body, memories, cheat, items and money, identity,
 language, who notices, former life, obligations), passes read the source's real

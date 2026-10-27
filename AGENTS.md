@@ -47,7 +47,7 @@ World audits, expansion and exploration passes, source dives and reviews: follow
 
 Sites, ruins, maps and exploration: follow `.claude/rules/sites-exploration.md` and [site/exploration rules](docs/SITE_AND_EXPLORATION_RULES.md) SR1-SR24.
 
-World entry, starts, crossings between worlds and transmigration: follow [world entry rules](docs/WORLD_ENTRY_RULES.md) WER1-WER16. Every world pass settles each start's WER answers or names the gap.
+World entry, starts, crossings between worlds and transmigration: follow [world entry rules](docs/WORLD_ENTRY_RULES.md) WER1-WER17. Every world pass settles each start's WER answers or names the gap.
 
 ## Role
 

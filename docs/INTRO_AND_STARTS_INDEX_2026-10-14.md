@@ -4,7 +4,7 @@ Status: **proposals/research unless marked D below**. This index adds no accepte
 
 Scope: requested rounds 1-16 and named lane families. Round 17 was appended by another writer during this read and is outside this index. SHOWN/STATED below mean the inspected owner records evidence, not fresh source reading or execution here; INFERRED labels synthesis/ranking and UNKNOWN a gap. Source claims retain their lane's labels/locators. No sealed truth is indexed.
 
-Update, 2026-10-26: standing entry considerations now live in [world entry rules WER1–WER16](WORLD_ENTRY_RULES.md), from intro rounds 25–28.
+Update, 2026-10-26: standing entry considerations now live in [world entry rules WER1–WER17](WORLD_ENTRY_RULES.md), from intro rounds 25–28.
 
 ## Recorded direction and corrections
 
