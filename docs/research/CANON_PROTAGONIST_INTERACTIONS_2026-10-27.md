@@ -745,3 +745,236 @@ first. The earlier modes (PX1) are the seats opened at PX51 step 3.
 3. **Pilot in the public repo** with the Village mini-line and then one
    verified public-domain book (*Dracula* by default), so the engine and method
    are proven before any named canon enters the private pack.
+
+## Part H. Round 5: implementing a whole world autonomously, lead first (2026-10-27)
+
+Weibao's question: "How does this allow us to autonomously implement a world in
+its entirety before figuring out playing as not the main character? more to
+consider?" Relayed by the Next implementation priorities session. Builds on
+PX51 and PX52 (Part G), the seeded-day contract in
+[TIME_TRAVEL_AND_SEEDED_WORLDS](TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md)
+(DT1, C1 to C12) and the [writeup register](../gm/WRITEUP_REGISTER.md). Proposals
+only; nothing is accepted. Codes PX53 to PX64. No new web research; [I] unless a
+repo owner is linked. No sealed truth is stated.
+
+### H.1 What "entirety" means: three layers
+
+| Layer | Contents | Finishable by an unattended run? | Needs Weibao |
+| --- | --- | --- | --- |
+| **L0 Lead's necessary core** | Every place, item, price, law, person, route, rule and dated beat the lead touches, with evidence labels and locators | Yes, when the source text is saved locally and the whole-source plan (AU13) is declared. Gaps in the source become labeled proposals (WPR, unbiased lens). | Bulk acquisition of a missing source (needs his yes); the per-world protection mechanism if the default is wrong (D2a is unsettled, PX40); whether canon-named rows live in the private pack (default yes, PX36). |
+| **L1 World the lead passes through** | Neighbouring places, the people and trades the lead's route depends on, alternative routes, what a week of ordinary life there needs (lodging, food, work, rumor), second-order ripples (PX48) | Mostly. Written as `inferred` proposals around L0 (PX32). Needs a smoke test that someone other than the lead can live there (PX61). | Taste calls: tone of everyday texture and what counts as worth adding. Defaults carry; he reviews by playing. |
+| **L2 Other seats** | Follow, bystander, divergent, after-canon seats (PX1), pregen circles (PX24), fan-derived departure points (PX25) | Partly: records and tests can be drafted. | Which seats matter, the census yes, any seat that changes the lead's line (PX31). Out of scope for this pass, as he asked. |
+
+**PX53. Layers are an order and a reporting frame, not a new gate.** A world is
+"lead-complete" at L0 plus the L1 smoke test. Default: report layer by layer.
+Dial: how deep L1 goes per world. Reason: PX52 says the lead run is scaffolding.
+
+**Relation to the completion standard.** [WORLD_COMPLETION_STANDARD](../WORLD_COMPLETION_STANDARD.md)
+S00 to S14 measure authored delivery for any world; it is already stated that
+completion does not require a player to visit every world or finish every
+career. L0 touches these sections: S00 (sources and labels), S01 (laws the lead
+meets), S02 (the lead's start), S03 (places on the route), S05 (their livelihood
+and prices), S06 (items), S07 (the lead's powers, once the mechanism exists),
+S08 (threats on the route), S09 (what the lead learns and when), S10 (the lead's
+situations and choices), S11 (timeline and aftermath of each beat). L1 adds S03,
+S04 and S05 beyond the lead. S12 to S14 are engine-wide and are not lead-specific.
+
+**PX54. Coverage columns, not gates.** The completion matrix gains three
+informational columns per S row: *lead-covered*, *world-covered*, *seat-covered*.
+An empty column is a report, not a failure. Reason: the standard stays whole and
+a lead run can claim only the rows it exercised.
+
+### H.2 The autonomous pipeline: lanes, owned files, gates, stops
+
+Practice reused: AD36 (focused tests in lanes, committer runs the full gate),
+AD43 (six-line floor), AU13 to AU15 (finite whole-source plan, short-lived
+readers), WPR (labels and lane review), the source deep dive playbook, the
+overnight rule ON2 (night work takes only slices with a recorded outcome and a
+done check). One writer per file area; hand-offs recorded.
+
+| Lane | Does | Owned files | Gate | Stop conditions |
+| --- | --- | --- | --- | --- |
+| **P0 Plan** | Names the world, the line, the source set, the budget, the layers in scope and the done check | One plan note in the world's dispatch folder | Plan lists source, readers, shard sizes, caps | Missing source needs bulk acquisition: stop and ask. A budget cap is reached. |
+| **P1 Source dive** | Haiku readers in short shards extract beats, places, items, prices, laws and dates with locators | Private ledger (gitignored); a public summary in own words | Every row has a locator and a label (shown, stated, inferred) | Reader cap per AU15; contradiction between sources is recorded, not resolved; a sealed-truth row is stored by ID only. |
+| **P2 Lead-run table** | Orders the lead's beats with date, place, dependencies, touched facts, footprint (PX43), outcomes (PX3) | Table file (private for named canon; public for a public-domain or original line) | Date extractor (E3) gives every row a date or a `date-unsettled` flag; every touched fact has an id | More than a set share of `date-unsettled` rows: stop and report the blocking source passage. |
+| **P3 Pack data** | Writes the world's records through existing seams (places, items, people, clocks, rumors) | Pack files only; no engine files | `npm run build`, the focused pack test, `check:arch`, `check:rules` as AD36 assigns | A needed verb or field does not exist: stop, file an engine card (WA5), do not invent. A save-shape change: stop for a WER16 compatibility decision. |
+| **P4 Scripted lead** | Builds the test bot (H.3) from the P2 table | A test module and its fixture | Bot drives only the public command surface; audit log written | Bot cannot reach a beat after the unreachable-beat procedure (PX59): stop and report. |
+| **P5 Golden runs** | Null-player run and bot run, with poke tests (one per `great` beat) | Test fixtures and the run report | Both runs pass twice with identical results (DT1); poke tests flip the stated outcome and fact | Flaky result: stop, list nondeterminism sources (F-codes), do not loosen assertions. |
+| **P6 Register and floor** | AD43 floor lines per slice, the writeup register row, a checkpoint | Checkpoint file, register row | Six floor lines or "implemented, below floor"; review state named | None. |
+
+**PX55. Lanes P0 to P6 are the default pipeline for a world with a canon line.**
+Dial: lanes merge for tiny worlds (the Village mini-line runs P2 to P6 in one
+slice). Reason: each lane has a different gate and a different failure.
+
+**PX56. The overnight envelope.** An unattended run **may**: read saved sources
+with the declared readers; write ledgers, tables and pack data inside its owned
+files; run focused tests and the AD36 gates; write the bot and golden runs;
+commit its own paths from a fresh HEAD (no push, no stash, no reset, no
+Co-Authored-By); register itself. It **must stop and ask** when: a source must be
+acquired in bulk; the accepted direction would change; an engine verb or save
+shape is missing; a sealed truth would be shown outside its discovery route; a
+choice the world's default-dial-reason framing cannot settle (build order,
+first-slice default, effort, irreversibility are allowed to ask); the budget is
+spent; another writer owns a needed file; or three consecutive failures of the
+same step. Reason: ON2 and AGENTS (ask only about build order, defaults, save
+compatibility, effort or anything irreversible).
+
+### H.3 The scripted-lead bot
+
+**PX57. Same verbs, same surface.** The bot acts only through the command
+surface the UI and the headless game server use (the `yairpg-game` tools expose
+look, click, step, save and load; an in-repo test double should call the same
+public commands). Rules, as a lint on the bot module: it imports no state
+writers, writes no save fields directly, does not teleport, does not set seeds
+or clocks outside the documented save seed, and every action is logged with its
+verb, cost and world minute. A start state is the lead's declared start record
+(WER2 to WER9), not a cheat. A canon windfall the book gave the lead (a gift, a
+lucky find) needs an in-world source in the pack (an NPC action, a find under
+DT1's keyed draws); if none exists, that is a P3 data gap, not a reason to grant
+the item.
+
+**PX58. Canon outcomes are assertions on world dates, on facts.** Each beat
+compiles to `at dayIndex(canonDate) +/- window: assert fact F = outcome`, with an
+outcome class (PX8) and never a prose match. The bot's job is to be where the
+beat's inputs need the lead and to do what the lead did; the assertion is about
+the world's state afterward. Windows come from the beat record (`canonDate` is a
+date, with a stated tolerance in world days).
+
+**Dependence on seeded days.** A golden run only repeats if ambient content is
+keyed, not cursor-drawn. Per DT1 (C1), `H(worldSeed, domain, placeId, dayIndex,
+subject, drawIndex)` keeps shop stock, finds and events identical for a given
+seed and day regardless of how many draws the bot made. Player-caused chance (a
+fight, a craft) is cursor-drawn and saved as receipts, so the bot's own actions
+stay replayable by receipt. The ordered engine changes in that report that the
+first run needs are C1 (`dayIndex` helper) and, if the route buys or finds
+anything ambient, C2 (keyed shop stock) and C7 (keyed finds). A mismatch in
+`genVersion` or the pack fingerprint gives a notice and a regenerate, not a
+silent pass. If those changes have not landed, the first pilot constrains the bot
+to places and beats with no ambient generated content (Part H.6).
+
+**PX59. When the bot cannot reach a beat.** Classify before acting:
+(a) *world gap*: a path, cost, tool, capability or person the lead needed is
+missing or too expensive: file a gap row naming the blocking fact and continue
+with the next beat if its inputs do not depend on this one; (b) *chance loss*:
+reachable but a player-caused roll failed: restore the test snapshot taken at the
+previous beat and retry up to a stated count (a test-harness restore, not an
+in-game rewind); (c) *time*: the run overran a window: record the earliest
+overrun and its cause; (d) *dependent beat*: mark downstream beats `blocked by
+beat N`. The report is "k of n beats reached, with causes", which is useful on
+its own. Never add a cheat to finish the run. Default: partial results are
+reported, not hidden. Reason: an unreachable beat is exactly what the lead-first
+method is designed to surface (PX51's completeness test).
+
+### H.4 Completeness measures, and what they cannot show
+
+| Measure | Check | Needs |
+| --- | --- | --- |
+| M1 Beats covered | Every row of the lead-run table has a pack beat record with `canonDate`, footprint, outcomes | Script over the table |
+| M2 Touched facts present | Every fact id in the table resolves to a pack record | Script |
+| M3 Bot golden run | The bot reproduces the assertions of every reachable beat, twice, identical | DT1 C1 |
+| M4 Null-player run | With no player life, every beat resolves as `carried` on its date | Beat resolver (L3) |
+| M5 Poke tests | One changed input per `great` beat flips the stated outcome and one downstream fact | Beat resolver |
+| M6 Evidence labels | Every table row and pack beat carries a label and a locator, or an `inferred` tag | Lint |
+| M7 Sealed and quote lint | No sealed content outside its route; no quoted source text in committed files beyond the repo limit | Lint (PR5 style) |
+| M8 Persistence | Beat results survive save, reload, export, import (PX16) | Browser run from a fresh origin (AGENTS) |
+| M9 Floor | Each slice states the six AD43 lines or "implemented, below floor" | Checkpoint |
+
+**What these cannot show.** Whether it is fun or well paced; whether prose or
+rumor lines have the right voice; whether the extraction was accurate (a reader
+can be wrong, so a spot check by a stronger model of a sample of rows is part of
+P1, not a measure); the lead's blind spots (PX32); whether other lives can live
+there (only the PX61 smoke test hints at it); whether the canon-protection
+mechanism chosen for the lead feels right (PX40). These need Weibao's play or a
+named reviewer, and the review state says so: "agent-verified, not
+human-reviewed" (AD42).
+
+### H.5 Failure modes
+
+| Code | Failure | Mitigation (default, dial, reason) |
+| --- | --- | --- |
+| PX60 | **Overfitting to the lead:** the world exists only along the path | The L1 rule: for each lead-visited place, include its non-lead users, one alternative route and its neighbours; PX61's smoke test. Dial: depth per world. |
+| PX61 | **No one else can live here** | A scripted bystander lives one world week in the finished pack: finds lodging, food and a means of work, hears the rumor line for each beat, and is not killed by a footprint they were not warned about (PX46). Reason: AD43's natural-route line, tested for a second life. |
+| PX62 | **Railroading:** the lead script leaks into player rules | The bot is a test double and the lead is an NPC life; no player rule reads the lead table (PX52). A lint forbids player-facing code from importing it. |
+| PX63 | **Bot cheating** | PX57's lint and audit log; code review of the bot module is a named review state. |
+| | **Copyright and spoilers for private source text** | Raw text only in the gitignored private folder; committed files paraphrase and cite locators (WA2); sealed truths by ID, route and status; reports to Weibao use IDs and discovery wording (PR1). Public-domain and original lines are exempt from private storage (PX36). |
+| | **Source-reading budgets** | AU13 plan; 12,000-word shard cap per reader; a coverage fraction in every P1 report so a stop leaves a known gap, not a silent one. |
+| | **Drift between table and canon** | Spot check by a stronger model of a sample; labels; disagreement rows are kept. |
+| | **Brittle tests** | Assert facts and dates, never text; pin `genVersion` and fingerprint. |
+| | **The lead's cheat blocks the bot** | Build the mechanism first, or mark the beats `blocked by mechanism`; order signal, not a skip. |
+
+### H.6 Minimal first run
+
+**PX64. First run: the Village mini-line, public and original.** One lead NPC,
+five beats, three role slots, rumor lines, footprints, no ambient generated
+content on the route (so it does not wait on DT1's C2 or C7).
+
+Done check (all in one fresh-origin browser run, headless, plus the focused test
+files; `npm run build` first):
+1. The lead-run table has five rows with dates, places, dependencies and touched
+   facts, each with a label.
+2. Every touched fact resolves to a pack record (M2).
+3. The bot reaches all five beats through the public command surface in a fixed
+   seed, twice, with identical assertions (M3).
+4. The null-player run carries all five beats on their dates (M4).
+5. One poke per `great` beat flips the stated outcome and a downstream fact (M5).
+6. The bystander smoke test passes for seven world days (PX61).
+7. Save, reload, export, import keep beat results (M8).
+8. The checkpoint states the six AD43 lines and the review state "agent-verified,
+   not human-reviewed"; the writeup register row is updated.
+
+Next, the public-domain book (*Dracula* by default, after the edition check L21)
+using P0 to P6 with dated entries feeding the date extractor; its extra checks
+are the first real `date-unsettled` rate and the P1 coverage fraction. Named
+canon worlds follow in the private pack in E6's order (HP routine beats first,
+then the LOTM one-month pilot).
+
+### H.7 Register
+
+The existing CANON_PROTAGONIST_INTERACTIONS row in
+[WRITEUP_REGISTER](../gm/WRITEUP_REGISTER.md) section 4 is updated in place:
+latest round "Part H (round 5)", codes PX1 to PX64, the next action and the done
+check from H.6. Weibao's words for rounds 2 to 5 are recorded in USER_VISION.
+
+### H.8 More to consider (round 5)
+
+**ACT NOW (done):** layers, pipeline, bot rules, measures, failure modes and the
+first-run done check; register row and USER_VISION records.
+
+**ACCOUNT FOR NOW**
+
+- R20. **Determinism is a dependency.** The golden run needs DT1's C1 at minimum.
+  The first run avoids ambient content so it does not wait; later runs do.
+- R21. **A beat resolver does not exist.** M4 and M5 need it (L3). Until then the
+  first run asserts facts the pack and resolver stub write; mark that in the
+  floor lines.
+- R22. **Spot-check cost.** A stronger-model sample is the one place sonnet or
+  higher is used in P1 (agent rules: lightest suitable model, advisor first).
+- R23. **Human touchpoints are few; keep them few.** The four are bulk source
+  acquisition, a wrong protection default, private-pack placement and the final
+  play review. The pipeline proposes defaults for each.
+- R24. **Taste.** What makes the finished lead-run world feel alive cannot be
+  checked by a script; plan a short play review after the Village pilot.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| L23 | Village mini-line first run (PX64) | Engine slice plus tests | Medium to large, one session after L13 | The eight checks in H.6 pass. |
+| L24 | Lint for the bot module (PX57, PX63) | `check:rules` addition | Small | A planted state write or seed override fails the lint. |
+| L25 | Coverage columns on the completion matrix (PX54) | Docs | Small | The matrix shows lead, world and seat columns for one world. |
+| L26 | Bystander smoke test harness (PX61) | Test tooling | Small | A scripted bystander lives seven days in the Village pack. |
+| L27 | Lead-run table template and date extractor (E3, PX51) | Tooling | Small to medium | A table for the pilot book with chapter indexes and flagged ambiguous rows. |
+| L28 | Propose the lead-first pipeline to Weibao as a WPR candidate (L22) | Docs | Small | One paragraph in the register's decisions list. |
+
+**Updated top three**
+
+1. **Run the pipeline on the Village mini-line first** (PX64): lead-run table,
+   pack data, a same-verb bot, null-player and poke tests, bystander smoke test,
+   register row. It proves L0 and L1 with no licence question and no wait on
+   seeded-day work.
+2. **Hold the bot to the public command surface and to date-and-fact assertions**
+   (PX57 to PX59), so a failed run reveals a world gap instead of hiding one.
+3. **Keep Weibao's touchpoints to four** (acquisition, protection default,
+   private-pack placement, play review) and let the overnight envelope (PX56)
+   cover the rest, reporting layer by layer without turning the lead run into a
+   gate (PX52, PX53).

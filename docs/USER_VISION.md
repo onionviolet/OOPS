@@ -6659,3 +6659,12 @@ follow up/consolidate all the various writeups and more that are being created s
 they wont get lost and can be followed up on?" Proposal record (not accepted):
 [writeup register and workflow](gm/WRITEUP_REGISTER.md), which holds the register,
 the consolidation pass, the decisions list and the observed follow-up routine.
+
+## Canon protagonist pass, follow-up questions (2026-10-27)
+
+Weibao's words, in order, after the first pass:
+- "Look into them further? is there any games or like has anyone done these before? would we just need to get a bunch of fanfics and then compare it with the original? Or consider how comics does it? More to consider?"
+- "deeper considerations/ways of going about this we havent considered? what would make this easier for us to do?"
+- "How to considero ur influcence on the original MC? More to consider? Actions that happen in the world affects us too, like if we were in the general area where a story beat happened, we might get caught in the crossfire or be able to participate? other stuff to consider? There are so many ways of going about the same way too? 1. we can probably use something interesting open domain first, 2. make sense, maybe thats how world implementations should work, first assume a playthrough as the book's protaginist, and creating every detail that is needed for the 'main character' to play through, so to convert a book into a real world under the assumtion as the main character and then we can implement playing as our own person and more?"
+- "How does this allow us to autonomously implement a world in its entirety before figuring out playing as not the main character? more to consider?"
+Proposal record (not accepted): [canon protagonist interactions, Parts E to H](research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md) (prior art and fanfic method, considerations, influence and exposure, lead-first authoring, autonomous pipeline).
