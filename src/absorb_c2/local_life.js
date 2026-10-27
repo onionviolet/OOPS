@@ -267,6 +267,12 @@ export function localLifeView(raw,c) {
         encounter:c.location==='Village'?s.encounter?'A supply runner is waiting.':`A runner may stop by after fifteen quiet played minutes. Contact chance starts at 20%, rises on misses and caps at 50%; at most one contact per game day.`:''};
 }
 
+// Facts other systems may read (storylet salience): what the player is doing here now.
+export function localLifeFacts(raw) {
+    const s=normalizeLocalLife(raw);
+    return {'village.watching':s.watching,'village.watchShifts':s.watchShifts,'village.relays':s.parcelRuns};
+}
+
 // Trade host supplies settled purchased quantities; failed quotes never call this.
 export function recordLocalPurchases(raw,quantity) {
     if(!natural(quantity))throw new Error('Invalid purchased item count.');

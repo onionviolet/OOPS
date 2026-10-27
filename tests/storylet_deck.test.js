@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createExpansionState,advanceSimulation,loadExpansionState,createContentRegistry} from '../src/expansion_engine.js';
 import {expeditionRegistry,initializeExpedition} from '../src/expedition_content.js';
 import {enrollSimulation,commitSimulationCommand,respondSimulationEvent,waitingSimulationChoice,simulationFacts,previewSimulationResponse} from '../src/simulation.js';
-import {storyletCandidates,validateStoryletState,STORYLET_DECKS} from '../src/storylet_deck.js';
+import {storyletCandidates,validateStoryletState,STORYLET_DECKS,storyletTemper} from '../src/storylet_deck.js';
 import {storyletEvents} from '../src/storylet_content.js';
 import {encodeSaveFile,decodeSaveFile,importSaveFile} from '../src/save_files.js';
 const registry=expeditionRegistry;
@@ -65,8 +65,8 @@ test('ordinary decisions still globally pause; opt-out saves have no new deck',(
     let state=initializeExpedition(createExpansionState(12));const ctx=out.context;state=enrollSimulation(state,registry,ctx).state;
     const before=structuredClone(state);validateStoryletState(state);assert.deepEqual(state,before);assert.equal(state.simulation.decks,undefined);
 });
-test('all 14 cards have validated real effects and a free safe response; costs cannot be preview-farmed',()=>{
-    assert.equal(storyletEvents.length,14);assert.equal(STORYLET_DECKS.length,4);
+test('all 18 cards have validated real effects and a free safe response; costs cannot be preview-farmed',()=>{
+    assert.equal(storyletEvents.length,18);assert.equal(STORYLET_DECKS.length,4);
     for(const definition of storyletEvents){
         const out=fixture();out.state.actors['storylet.neighbor'].resources.debt=40;
         if(definition.mode==='ambient'){assert.ok(definition.effects.length);continue;}
@@ -88,4 +88,41 @@ test('literal encoding/import preserves pending deck state; corrupt RNG rejects 
     await importSaveFile(encoded,{currentVersion:'v0.5.5.30',preflight:save=>loadExpansionState(save.expansion,registry),storage,key:'save data'});assert.equal(storage.writes,1);
     envelope.expansion.simulation.decks['village.daily'].rng=0;
     await assert.rejects(importSaveFile(encodeSaveFile(JSON.stringify(envelope)),{currentVersion:'v0.5.5.30',preflight:()=>assert.fail('bad state must reject first'),storage,key:'save data'}),/storylet/);assert.equal(storage.writes,1);
+});
+
+// VC12: an evening fitted to what the player is doing, and a temper dial.
+const evening=(out,facts)=>({...out,context:{...out.context,facts:{...out.context.facts,...facts}}});
+const drawn=out=>Object.values(out.state.simulation.decks).reduce((n,d)=>n+d.drawn,0);
+test('an evening on watch draws the lantern card; helping opens a paid follow-up; reload keeps the draw',()=>{
+    const base=fixture(73);
+    assert.ok(!storyletCandidates(base.state,registry,'village.daily',factsFor(evening(base,{'village.watching':true,'day.hour':16}))).some(c=>c.definition.id==='village.watch_lantern'));
+    assert.ok(!storyletCandidates(base.state,registry,'village.daily',factsFor(evening(base,{'village.watching':false,'day.hour':18}))).some(c=>c.definition.id==='village.watch_lantern'));
+    const watch=evening(base,{'village.watching':true,'day.hour':18});
+    // Play the evening in 12-minute steps and answer while the card is open.
+    let out=watch,lantern;
+    for(let m=0;m<180&&!lantern;m+=12){out=advance(out,12);lantern=cards(out).find(e=>e.definitionId==='village.watch_lantern'&&e.status==='open');}
+    assert.ok(lantern,'one played evening draws the fitted card');
+    const restored={...out,state:loadExpansionState(JSON.parse(JSON.stringify(out.state)),registry)};
+    assert.deepEqual(cards(restored),cards(out));assert.deepEqual(advance(restored,60).state.simulation.decks,advance(out,60).state.simulation.decks);
+    assert.ok(!storyletCandidates(out.state,registry,'village.chances',factsFor(out)).some(c=>c.definition.id==='village.lamplighter_wicks'));
+    const helped=respondSimulationEvent(out.state,registry,lantern.id,'steady',out.context);
+    const next={...out,...helped,context:out.context};
+    assert.equal(next.state.actors.player.facts['storylet.lamplighter.known'],true);
+    assert.ok(storyletCandidates(next.state,registry,'village.chances',factsFor(next)).some(c=>c.definition.id==='village.lamplighter_wicks'));
+    // She is a regular: the ask returns after its day-long cooldown, never twice in one evening.
+    assert.ok(!storyletCandidates(next.state,registry,'village.daily',factsFor(next)).some(c=>c.definition.id==='village.watch_lantern'));
+    // Relays and standing fit their own evening cards.
+    assert.ok(storyletCandidates(base.state,registry,'village.daily',factsFor(evening(base,{'village.relays':1,'day.hour':18}))).some(c=>c.definition.id==='village.mill_cart_word'));
+    assert.ok(storyletCandidates(base.state,registry,'village.people',factsFor(evening(base,{'rank.Village':2,'day.hour':18}))).some(c=>c.definition.id==='village.supper_invite'));
+    assert.ok(!storyletCandidates(base.state,registry,'village.people',factsFor(evening(base,{'rank.Village':1,'day.hour':18}))).some(c=>c.definition.id==='village.supper_invite'));
+});
+test('Village temper: usual keeps existing draws; livelier draws more over a fixed-seed 30-day run',()=>{
+    const base=fixture(73);assert.equal(storyletTemper(base.state),'usual');
+    const tempered=temper=>{const out=commitSimulationCommand(base.state,registry,{id:`village.storylets.temper.${temper}`},base.context);return {...base,...out,context:base.context};};
+    const usual=tempered('usual');assert.equal(storyletTemper(usual.state),'usual');
+    assert.deepEqual(advance(usual,180).state.simulation.decks,advance(base,180).state.simulation.decks);
+    const month=60*24*30,counts=Object.fromEntries(['calm','usual','lively'].map(t=>[t,drawn(advance(tempered(t),month))]));
+    assert.ok(counts.lively>counts.usual && counts.usual>counts.calm,JSON.stringify(counts));
+    const fresh=initializeExpedition(createExpansionState(5));
+    assert.throws(()=>commitSimulationCommand(enrollSimulation(fresh,registry,base.context).state,registry,{id:'village.storylets.temper.lively'},base.context));
 });

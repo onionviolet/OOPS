@@ -111,7 +111,7 @@ import {setKnownClearTextReader} from './display.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
 import {registerFortContent} from './absorb_d/register.js';
 import {createFortControls} from './absorb_d/ui.js';
-import {normalizeLocalLife, advanceLocalLife, localLifeAction, localSearchMethod, recordLocalPurchases, villageStandingSentence} from './absorb_c2/local_life.js';
+import {normalizeLocalLife, advanceLocalLife, localLifeAction, localSearchMethod, recordLocalPurchases, villageStandingSentence, localLifeFacts} from './absorb_c2/local_life.js';
 import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {furnitureProjection, furnitureComfort, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
@@ -1694,7 +1694,7 @@ function buildExpeditionContext() {
     const evidence=frontierNativeEvidence();
     return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeHomes:residenceState(),nativeWeatherClock:{minute:weatherClockMinute(current_game_time),clock:expansionState.clock},nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
         facts: {...evidence.facts,...chronicleFacts(expansionState.chronicle), location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
-            ...everydayFacts(expansionState, {hour: current_game_time.hour}),...rankFacts(character.reputation),
+            ...everydayFacts(expansionState, {hour: current_game_time.hour}),...rankFacts(character.reputation),...localLifeFacts(localLife),
             ...bodyFacts(expansionState),
             "day.hour": current_game_time.hour,
             "weather.raining": getPacingEffects(homePacingContext()).raining, "weather.damp": rain_counter > 0,

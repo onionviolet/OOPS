@@ -79,6 +79,29 @@ TL1 steps (live, earn, carry, apply, react, return): live, earn, carry and retur
 
 Effect on VL1 evidence: Known Face in Village now comes at 4 reputation (second shift), not 10 (fifth). The VL1 rows above are kept as dated history.
 
+## Slice VC12: an evening with a surprise (GM_PLAN section 18, card 4)
+
+- **Outcome (PRF2).** After opting in through the elder (existing "Begin Village encounters"), a Village evening (17:00 on) can draw a card fitted to what you are doing. On watch, the lamplighter asks you to steady her ladder; helping makes her a contact, and a later evening offers her paid wick-trimming job (2 coins), a choice that did not exist before. After a relay, the mill cart driver leaves bread. At Known Face, a neighbour asks you to supper. A Village temper dial (Calm, Usual, Lively) in the encounters panel changes how often anything draws.
+- **Consumer (FLR4).** Existing storylet decks and event responses, the encounters panel, money, items and relationship effects.
+- **Cost.** The card's own response costs; none on pass.
+- **Mechanism and dial.** Salience: cards require the current activity (`village.watching`, `village.relays`, `rank.Village`, `day.hour`). The temper scales the deck's quiet weight (Calm ×3, Usual ×1, Lively ×0.3); the default is Usual, so existing draws are unchanged. Another village can set its own temper default.
+- **Seam.** `storylet_content.js` (four card rows and three temper command rows, data only); `storylet_deck.js` (quiet weight reads the saved actor fact `storylets.temper`); `local_life.js` exports `localLifeFacts`; `src/main.js` spreads it into the existing expedition facts object (no registration line); `storylet_ui.js` shows the temper buttons. No new save field: the temper is a simulation actor fact, already saved and imported. No new deck, so saved deck validation is unchanged.
+- **Files.** `src/storylet_content.js`, `src/storylet_deck.js`, `src/storylet_ui.js`, `src/absorb_c2/local_life.js`, `src/main.js`, `tests/storylet_deck.test.js`, this checkpoint, `evidence/`.
+- **Failure scenario.** A fitted card draws off watch or before evening; a reload rerolls a drawn card; the Usual temper changes existing draws; Lively draws fewer than Calm; the follow-up card appears without its contact.
+- **Finish check.** Focused `storylet_deck` test: one on-watch evening at Usual draws the lantern card; the contact opens the follow-up; Lively > Usual > Calm over a fixed-seed 30-day run; restore gives identical next draws. Browser on a fresh origin: opt in, watch into the evening, see a fitted card and respond; set the temper; save/reload; 1920×1080 and 1536×864.
+
+## Verification (VC12)
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/storylet_deck.test.js` (+ `storylet_ui`, `story_spine_qa`, `traveler_lint_hint`) | Pass. New tests: the lantern card is a candidate only on watch from 17:00; one on-watch evening at Usual (seed 73) draws it; restore gives identical cards and next draws; helping opens `lamplighter_wicks`; relay and Known Face cards fit their facts; Usual keeps existing deck draws byte-identical; over a fixed-seed 30-day run Lively > Usual > Calm; temper needs opt-in. Card-count pin moved 14 → 18 | |
+| Found by the full suite | The story lint flagged `watch_lantern` as self-locked (its `not(lamplighter.known)` requirement); removed: the lamplighter is a regular and the ask recurs on its 1440-minute cooldown | Browser walk ran before this change; it only lets the ask return on later evenings |
+| Rebuilt desktop browser, fresh origin, bundle `77025966…`, 1920×1080 | Met the elder, "Begin Village encounters", watch accepted 08:55; at 17:06 the encounters panel showed "Offer · Dusk at the watch post. The lamplighter asks you to steady her ladder…"; "Steady the ladder" resolved and the watch kept running (510 minutes); temper set to Lively; save and reload kept "(lively temper)"; at 18:31 the follow-up "The lamplighter has a spare job: trim the wicks…" drew and "Trim the well lamps · 2 coins" moved the purse 10C 6W → 10C 8W (`evidence/vc12-lantern-card-1920.jpg`) | Mill-cart and supper cards unit-tested only |
+| 1536×864 | Temper row and Lively deck in the encounters panel (`evidence/vc12-temper-lively-1536.jpg`) | 21 px not checked |
+| Committer gates, clean tree (HEAD `63c6393a` plus this slice; bundle `95429446…`) | build ok; `npm test` 3504/3504; `check:arch` pass; `check:rules` PASS | |
+
+Found in passing, not this lane's: the elder's first dialogue shows a line "text not found, id: 'Ask about the moonlit herb b…" (a missing dialogue text id). The encounters panel lives in the parked "Notes, practice & people" module (Notebook → People), so a player must open it there to see cards; card arrival does not surface in Village actions.
+
 ## Seams left for the cross-world loop (TL1-TL8) and a Proto23 pack
 
 Recorded per the coordinator's 2026-10-27 scope notes; no travel or Proto23 work done here.
@@ -114,3 +137,4 @@ Tool note: the browser `advanceTicks` hook stayed locked ("Cannot nest advanceTi
 - 2026-10-27: coordinator relayed Weibao's order: VC3a, then VC2n, then VC12. VC3a recorded before editing.
 - 2026-10-27: VC3a committed (watch forfeit, return note and description sentence walked; relay text unit-tested only).
 - 2026-10-27: VC2n recorded, implemented and committed (Village Known Face dial 10 → 4 as a WD2 proposal; elder's parcel work opens at Known Face).
+- 2026-10-27: VC12 recorded, implemented and committed (four evening cards, Village temper dial). Order from the coordinator is complete; next in GM_PLAN section 18 is VC7a.

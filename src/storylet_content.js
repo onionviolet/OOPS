@@ -58,6 +58,21 @@ export const storyletEvents = [
     card('peddler_with_rope','chances','soft','A peddler unrolls survey rope. “Three coins for a sound coil.”',
         {family:'opportunity',requires:not(F(`item.${JSON.stringify({id:'Survey rope'})}`,'gte',1)),responses:[choice('buy','Buy survey rope · 3 coins',[item('Survey rope',1)],[money(-3)]),
             choice('pass','Walk on',[receipt('peddler.met')])]}), // C12
+    // VC12: evening cards fitted to what the player is doing (17:00 on).
+    card('watch_lantern','daily','soft','Dusk at the watch post. The lamplighter asks you to steady her ladder while she trims the post lantern.',
+        {weight:8,cooldown:1440,requires:all(is('village.watching'),F('day.hour','gte',17)),
+         responses:[choice('steady','Steady the ladder',[fact('storylet.lamplighter.known'),xp('Perception',3)]),
+            choice('pass','Keep your eyes on the road',[receipt('lantern.passed')])]}), // C17
+    card('mill_cart_word','daily','ambient','The mill cart driver waves at dusk: your receipts reached the millers on time. He leaves you a heel of bread.',
+        {weight:4,cooldown:2880,requires:all(F('village.relays','gte',1),F('day.hour','gte',17)),effects:[item('Stale bread',1)]}), // C18
+    card('lamplighter_wicks','chances','soft','The lamplighter has a spare job: trim the wicks of the well lamps before dark.',
+        {family:'opportunity',weight:6,cooldown:1440,requires:all(is('actor.storylet.lamplighter.known'),F('day.hour','gte',17)),
+         responses:[choice('trim','Trim the well lamps · 2 coins',[money(2),fact('storylet.lamplighter.wicks')]),
+            choice('pass','Not tonight',[receipt('wicks.passed')])]}), // C19
+    card('supper_invite','people','soft','A neighbour who has seen you on watch asks you to share supper.',
+        {family:'people',weight:5,cooldown:2880,requires:all(F('rank.Village','gte',2),F('day.hour','gte',17)),
+         responses:[choice('join','Join them for supper',[item('Stale bread',1),rel(1,'Shared supper after the watch.'),fact('storylet.supper.joined')]),
+            choice('pass','Thank them and decline',[receipt('supper.passed')])]}), // C20
     card('rats_in_the_granary','threats','soft','Rats scratch inside the granary wall. Sela offers two coins for help.',
         {family:'threat',requires:is('actor.storylet.rats.noticed'),responses:[choice('clear','Clear the nesting straw',[money(2),xp('Pest killing',12),fact('storylet.granary.cleared')]),
             choice('trap','Use the trap already bought',[money(2),fact('storylet.granary.cleared')],[],is('actor.storylet.rats.trap')),
@@ -74,6 +89,9 @@ export const storyletEvents = [
 export const storyletDefinitions = {
     people:[{id:neighbor,revision:1,label:'Sela',worldId:'base.frontier',location:'Village',inventory:'simulation',provision:false,resources:{roof_neglect:0,debt:0}}],
     commands:[{id:'village.storylets.begin',revision:1,label:'Begin Village encounters',group:'storylet',worldId:'base.frontier',actorId:'player',location:'Village',once:true,
-        effects:[{type:'spawn',definitionId:neighbor,personId:neighbor},fact('storylets.enabled')]}],
+        effects:[{type:'spawn',definitionId:neighbor,personId:neighbor},fact('storylets.enabled')]},
+        // Village temper: how often encounters draw (storylet_deck STORYLET_TEMPERS).
+        ...['calm','usual','lively'].map(temper=>({id:`village.storylets.temper.${temper}`,revision:1,label:`Village temper: ${temper}`,group:'storylet',worldId:'base.frontier',actorId:'player',location:'Village',
+            requires:is('actor.storylets.enabled'),effects:[fact('storylets.temper',temper)]}))],
     events:storyletEvents,
 };

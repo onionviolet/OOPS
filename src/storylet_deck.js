@@ -7,6 +7,10 @@ export const STORYLET_DECKS = [
     {id:'village.daily',interval:12,quiet:3}, {id:'village.people',interval:18,quiet:4},
     {id:'village.chances',interval:30,quiet:4}, {id:'village.threats',interval:36,quiet:6},
 ];
+// Village temper scales the quiet (no card) weight: calmer evenings draw less. Default usual keeps
+// existing draws unchanged; a saved actor fact, so no deck schema change.
+export const STORYLET_TEMPERS = Object.freeze({calm:3,usual:1,lively:.3});
+export const storyletTemper = state => STORYLET_TEMPERS[state.actors.player.facts['storylets.temper']] ? state.actors.player.facts['storylets.temper'] : 'usual';
 const enabled = state => state.actors.player.facts['storylets.enabled']===true;
 const object = value => value && typeof value==='object' && !Array.isArray(value);
 export function initializeStoryletDecks(state) {
@@ -26,6 +30,7 @@ export function nextStoryletBoundary(state) {
 export function storyletFacts(facts) {
     return {'actor.tag.dog':false,'actor.storylet.roof.fixed':false,'actor.storylet.fever.treated':false,
         'actor.storylet.fever.contained':false,'actor.storylet.scouts.warned':false,
+        'actor.storylet.lamplighter.known':false,'village.watching':false,'village.relays':0,'rank.Village':0,'day.hour':0,
         [`item.${JSON.stringify({id:'Survey rope'})}`]:0,...facts};
 }
 export function storyletCandidates(state,registry,deckId,factsFor) {
@@ -62,7 +67,7 @@ export function advanceStoryletDecks(state,registry,factsFor,emit) {
         if(state.actors.player.worldId!=='base.frontier' || location!=='Village' || state.simulation.people.player.life!=='alive')continue;
         if(Object.values(state.simulation.events).filter(e=>e.status==='open' && e.storylet?.deck===config.id).length>=3)continue;
         const candidates=storyletCandidates(state,registry,config.id,factsFor);
-        const total=config.quiet+candidates.reduce((n,c)=>n+c.weight,0), r=record.randomSource==='named'?drawUnit(state,scopedStream(`deck:${config.id}`),`tick:${record.ticks}`):roll(record);
+        const total=config.quiet*STORYLET_TEMPERS[storyletTemper(state)]+candidates.reduce((n,c)=>n+c.weight,0), r=record.randomSource==='named'?drawUnit(state,scopedStream(`deck:${config.id}`),`tick:${record.ticks}`):roll(record);
         let cursor=r*total, selected=null;
         for(const candidate of candidates) {cursor-=candidate.weight;if(cursor<0){selected=candidate.definition;break;}}
         const receipt={at:state.clock,tick:record.ticks,roll:r,total,cardId:selected?.id || null,

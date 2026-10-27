@@ -1,10 +1,17 @@
 import {previewSimulationResponse} from './simulation.js';
+import {storyletTemper} from './storylet_deck.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 export function createStoryletPanel({registry,read,command}) {
     const panel=node('details');panel.id='storylet_panel';panel.className='expedition_panel';panel.open=true;
     panel.append(node('summary','Village encounters'));
     const status=node('p'),begin=node('button','Begin Village encounters'),cards=node('div'),news=node('ol');
-    begin.type='button';begin.dataset.storylet='begin';panel.append(status,begin,cards,news);
+    begin.type='button';begin.dataset.storylet='begin';
+    // Village temper: Calm draws less often, Lively more; Usual keeps the default rhythm.
+    const temper=node('p');temper.dataset.storyletTemper='';
+    const tempers=['calm','usual','lively'].map(id=>{const b=node('button',id[0].toUpperCase()+id.slice(1));b.type='button';b.dataset.storyletTemper=id;
+        b.addEventListener('click',()=>run({type:'command',id:`village.storylets.temper.${id}`}));return b;});
+    temper.append(node('span','Village temper: '),...tempers);
+    panel.append(status,begin,temper,cards,news);
     let notice='',signature='';
     function run(c){try{command(c);notice='Response saved.';}catch(error){notice=error.message;}render();}
     begin.addEventListener('click',()=>run({type:'storylet_begin'}));
@@ -15,7 +22,9 @@ export function createStoryletPanel({registry,read,command}) {
         if(!panel.isConnected)document.getElementById('location_actions_div')?.append(panel);
         const enabled=state.actors.player.facts['storylets.enabled']===true;
         begin.hidden=enabled;begin.disabled=!snapshot.enabled || !!snapshot.error || !!context.busy;
-        status.textContent=snapshot.error || notice || (enabled?'Encounters draw while Village time passes. Decisions let idle play continue; unanswered cards close safely.':'Speak to the elder, then begin. Nothing accrues while the game is closed.');
+        temper.hidden=!enabled;const current=storyletTemper(state);
+        for(const b of tempers){b.disabled=!snapshot.enabled || !!snapshot.error || !!context.busy || b.dataset.storyletTemper===current;b.ariaPressed=String(b.dataset.storyletTemper===current);}
+        status.textContent=snapshot.error || notice || (enabled?`Encounters draw while Village time passes (${storyletTemper(state)} temper). Decisions let idle play continue; unanswered cards close safely.`:'Speak to the elder, then begin. Nothing accrues while the game is closed.');
         const events=Object.values(s?.events || {}).filter(e=>e.storylet && e.actorId==='player' && e.discoveredBy.includes('player'));
         const open=events.filter(e=>e.status==='open');
         const nextSignature=JSON.stringify([open,state.clock,snapshot.enabled,snapshot.error,context.busy,context.external,context.gameplay]);
