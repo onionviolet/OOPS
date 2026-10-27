@@ -277,3 +277,53 @@ PR6 LATER: a prose rulebook (register it in the rules index when accepted) with 
 
 - Overnight work compounds round 3's risk: more code nobody has played. Keep DC1 play as the input that steers night queues.
 - The prose lint and the zoom matrix are both cheap checks that stop recurring mistakes, which is the kind of rule LT6 says to keep.
+
+## Round 5: the world-travel loop, the idea bank and UI subtleties (2026-10-27)
+
+Weibao: "Save accordingly, How to flesh out gameplay loop of world travel and other ideas we have in the bank? Also Ui implementations and subtleties?" Proposals only; no runtime change. Codes: TL travel loop, IB idea bank, UT travel UI. Existing codes (RET, SMU, DSK, WER, UIV, ZM, PR) keep their owners.
+
+### What travel is today
+
+Crossing to Tingen pauses the Village life and starts a tethered Tingen life; resume works both ways (`17f53f76d`). Nothing physical crosses on the default method, the paused life is frozen (RET5), and the carry ledger (`src/carry_ledger.js`) has rows for Frontier and Paradise but not Tingen (RET7). So travel today is switching between two games. Neither life gains anything from the other. A loop needs an exchange.
+
+### The loop
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| TL1 | **The loop: live, earn, carry, apply, react, return.** | Earn something one world gives easily; carry what the edge allows; apply it where it is new; the world reacts (profit, notice, trouble); something pulls you back. One cycle fits an evening. Reason: depth from connected loops (MC6), not more systems. |
+| TL2 | **What crosses is the currency.** | Default method: memories and the base cheat (RET4). So knowledge (recipes, techniques, languages, people's names) and base-cheat growth are the first exchange goods. Dial: methods with a carrier move cargo (Frontier bound cargo, Paradise carriers). Reason: AD11 and WER3 already say this; the loop just uses it. |
+| TL3 | **Every world needs an export and an import hook.** | Export: what is cheap or only possible there. Import hook: where outside knowledge is useful, odd or risky there. Whether it works follows mechanisms (AD38): a Tingen herbal method works in the Village if the herbs exist; a spell needs what spells need. Reason: without both, crossing has no point. Write the pair into each world's owner as a palette, not a spec. |
+| TL4 | **Home base.** | The Village is the default place you come back to and invest in with what you brought. Dial: a hub world (WER17) or any life you choose. Reason: a base gives the loop a place where gains pile up and show. |
+| TL5 | **Reasons to return.** | Frozen time is comfortable but gives no pull. Pull comes from the other side's needs: LOTM digestion advances only in Tingen, HP terms run on, letters and duties wait, a stockpile or workshop sits ready. Dial: a world that runs while you are away (RET5). Reason: pull, not punishment. |
+| TL6 | **Costs of crossing.** | Time, the method's own cost, base-cheat charge where a world says so, and being noticed (WER12). Dial per world. Reason: free travel flattens worlds into one shop. |
+| TL7 | **Idle hook: lives that work while paused.** | Later dial: a paused life runs its chosen routine at a reduced rate and you return to results. Needs the save-shape decision (LT3) and AD16–AD18 stop rules. Reason: idle games live on "come back to find something". Not before LT3. |
+| TL8 | **First slice.** | One round trip with one exchange: learn one thing in Tingen (a technique or recipe the character can plausibly learn), return to the Village, use it in existing Village making with a visible result, go back. Includes RET7 (Tingen rows in the carry ledger) so the crossing lists what you carry. Done check: from a fresh life, rebuilt desktop browser, the knowledge is used in both worlds, Save/reload/Import keep it, the confirm text says what carries. |
+
+### The idea bank
+
+The bank is large (the [ideas inventory](audits/IDEAS_LEFT_INVENTORY_2026-10-25.md), [Q18 triage](audits/IDEAS_TRIAGE_2026-10-26.md) P01–P20, palettes, the reference crosswalk). More ideas are not the gap; the gap is ideas reaching play.
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| IB1 | **Pull, not push.** | An idea moves only when the current loop's weakest step needs it. Reason: pushing ideas from the bank grows breadth nobody plays. |
+| IB2 | **Tag ideas by loop step.** | Add a "loop step" column (live, earn, carry, apply, react, return) to Q18 when its rows are next touched. Ideas that feed no step wait. |
+| IB3 | **Fleshing out means a slice card.** | An idea is fleshed out when it has: the player outcome, the consumer, the cost, the world's mechanism and a done check. A longer palette does not count. |
+| IB4 | **Bank pull on DC4 days.** | The weekly no-slice day (round 3) picks the next one to three ideas for the weakest loop step from play notes. |
+| IB5 | **Merge before adding.** | A new idea checks the inventory first and joins an existing row. Locator counts are not missing mechanics (Q18). |
+
+### UI for travel, and subtleties
+
+Existing owners already cover blocked reasons (UIV1), one under-way list (UIV3), preview equals commit (UIV4), screen survives import (UIV5), known/guessed/unknown (UIV6), date and weather in Tingen (SMU1), world money units (SMU2), five life/world places (SMU3), now→after crossing view (SMU4), per-world skin (SMU7), zoom (ZM) and spoiler wording (PR). New here:
+
+| Code | Subtlety | Default, dial, reason |
+| --- | --- | --- |
+| UT1 | **Always know which life you are in.** | A small header mark: world, life name, that world's date. Reason: two lives look alike in a shared layout; acting in the wrong one is costly. |
+| UT2 | **What you carry is visible on both sides.** | The crossing confirm lists carried things from the carry ledger, and the arrival shows them once. Reason: the exchange is the loop; hide it and the loop disappears. |
+| UT3 | **Say "nothing happened" when nothing did.** | Resuming a frozen life shows a one-line return note ("The Village waited where you left it") instead of an empty recap. Dial: a running world shows its real recap (AD17). Reason: silence reads as a bug. |
+| UT4 | **Mark where knowledge came from.** | Carried knowledge shows its origin world in inspection ("learned in Tingen"). Reason: it explains why a Village character knows an odd method, and makes WER12 notice legible. |
+| UT5 | **Switching lives keeps your place.** | Resume returns to the panel and selection you left in that life, not the default view. Reason: a round trip should feel like a door, not a restart. |
+| UT6 | **One crossing verb everywhere.** | The same word and control for cross and return in the place door, Continuing connection and any later menu (DSK4). Reason: five places already talk about lives (SMU3). |
+
+### Order
+
+After the recorded queue (UIV1, G3 spine, G1 parity) and the PR6 prose fix: TL8 first slice with UT1–UT3, then SMU3 consolidation, then TL3 export/import pairs written for LOTM and HP. TL7 waits on LT3.

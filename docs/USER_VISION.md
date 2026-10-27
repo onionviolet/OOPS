@@ -6540,3 +6540,12 @@ private realms) with its own entry answers in WER17.
 Recorded as questions and a stated need for prose rules, not yet accepted
 designs. Proposals ON1–ON10, ZM1–ZM6 and PR1–PR6 are in
 [master plan round 4](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-4-overnight-development-zoom-and-prose-2026-10-27).
+
+## World-travel loop, idea bank and UI subtleties, 2026-10-27
+
+> Save accordingly, How to flesh out gameplay loop of world travel and other
+> ideas we have in the bank? Also Ui implementations and subtleties?
+
+Recorded as a question, not an accepted design. Proposals TL1–TL8, IB1–IB5 and
+UT1–UT6 are in
+[master plan round 5](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-5-the-world-travel-loop-the-idea-bank-and-ui-subtleties-2026-10-27).
