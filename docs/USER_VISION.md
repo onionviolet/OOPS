@@ -6648,3 +6648,12 @@ Verbatim, Weibao's message:
 > how to add seeding more inherently how to save these things or implement concepts like those? Make a prompt to audit implementing conceptual and hard to grasp attacks and abiltiies more and the engine implications? like havng onw's name ereased erases certain thing? more to consider?
 
 Proposal record (not accepted): [audit brief](research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md) (channel model, delta kinds, resolution order, inherent-seeding API).
+
+## Writeup follow-up workflow request (2026-10-27)
+
+Weibao's words: "Look in each chat on how I followed up with specific chats, saving
+that for future reference, and then also, we need to work on creating workflow to
+follow up/consolidate all the various writeups and more that are being created so
+they wont get lost and can be followed up on?" Proposal record (not accepted):
+[writeup register and workflow](gm/WRITEUP_REGISTER.md), which holds the register,
+the consolidation pass, the decisions list and the observed follow-up routine.

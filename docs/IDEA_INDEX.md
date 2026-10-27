@@ -1,5 +1,7 @@
 # Game idea index
 
+[Writeup register and follow-up workflow, 2026-10-27](gm/WRITEUP_REGISTER.md): status, next action and open decisions for every research writeup and dispatch report; start here to find what to follow up.
+
 [Roblox adaptation audit, 2026-10-26](research/ROBLOX_ANIME_SCOUT_2026-10-26.md): F1-F34 screen including distinct Re:Zero incrementals, Reverend Insanity projects, Shadow Slave and other anime/novel adaptations; source-labelled evidence, existing-system crosswalk and O1-O12 proposals. Round 2 revises the initial ranking toward maintained powers, composed methods and branching continuity. Desk research; no runtime dispatch.
 
 [Gameplay loops and world ideas, 2026-10-26](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md): Proto23 and other saved game-loop research, thirteen book-world source families, original-world/test-bed ideas, shared-system audit ideas, OOPS's proposed moment/session/life loops and five concrete next-slice candidates. A readable guide to existing owners and proposals, not another build queue.
