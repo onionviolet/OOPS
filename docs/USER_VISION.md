@@ -6751,3 +6751,10 @@ Weibao's words: "What worries me is the UI flow, and how to give Ui for everythi
 
 Weibao's words (relayed by the Next implementation priorities session): "Consider standards for things that will be implemented multiple times, like merchants, alchemists, other stuff and more?"
 Working direction under the 2026-10-27 adoption: [plan round 12](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (archetypes implemented once and instantiated as data, instance kinds, an eight-step conformance test, one recipe shape, per-world dials, worked baker and formula-source examples, build order). Proposed rules WA46-WA47 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
+
+## Reader readiness, protocol v2, launch and reading volume 1 (2026-10-27)
+
+Weibao's words (relayed by the Next implementation priorities session): "Patch all the not-ready stuff accordingly. How to optimize the readers?"
+Then: "Implement accordingly"
+Then: "Launch accordingly, and then send out readers? More to consider? Be optimal and coordinate effectively."
+Reading recorded by that session: engine lanes launched in their own coordinator session; reading the rest of LOTM volume 1 approved once the protocol v2 gate passes, in waves of about 10 shards, two readers at once, audited per wave, paced by AU7. Working direction under the 2026-10-27 adoption: [plan round 13](gm/dispatch/protagonist-life-2026-10-27/PLAN.md), [reading plan](gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md), [reading status](gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md).

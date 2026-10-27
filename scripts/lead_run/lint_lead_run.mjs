@@ -1,5 +1,5 @@
-// Lead-run table, census and loop lint, schema 1.1 and 1.2 (protagonist-life plan, SF1-SF10, WA22-WA24;
-// 1.2 adds action classes on steps and loop records, plan round 6).
+// Lead-run table, census, loop, fill and shard-header lint, schemas 1.1-1.3 (protagonist-life plan, SF1-SF10,
+// WA22-WA41; 1.2 adds action classes and loops, 1.3 adds the motive vocabulary, fills, pov and the shard header).
 // Pure checks over parsed rows; the CLI reads JSONL files and an optional private shard
 // (`=== <chapter title> | member <path>` headers, `pN: text` lines) to verify locators.
 // Output is issue codes and counts only, never source text.
@@ -12,7 +12,12 @@ export const KINDS = Object.freeze(['person', 'place', 'organization', 'deity', 
 export const ACTION_CLASSES = Object.freeze(['study', 'practice', 'research', 'craft', 'trade', 'work', 'travel', 'fight',
     'socialize', 'rest', 'care', 'appraise', 'ritual', 'other']);
 const RHYTHMS = new Set(['schedule', 'deadline', 'opportunity']);
-const SCENE_SCHEMAS = new Set(['lead-run/1.1', 'lead-run/1.2']), CENSUS_SCHEMAS = new Set(['census/1.1', 'census/1.2']);
+const SCENE_SCHEMAS = new Set(['lead-run/1.1', 'lead-run/1.2', 'lead-run/1.3']), CENSUS_SCHEMAS = new Set(['census/1.1', 'census/1.2', 'census/1.3']);
+// Shared motive vocabulary (PL-L37, WA45). A new tag needs a reason in the schema changelog.
+export const MOTIVES = Object.freeze(['hunger', 'fatigue', 'safety', 'fear', 'curiosity', 'thrift', 'income', 'family-duty',
+    'loyalty', 'ambition', 'pride', 'secrecy', 'caution', 'guilt', 'grief', 'faith', 'justice', 'comfort', 'belonging', 'revenge']);
+const FILL_LAYERS = new Set(['implied', 'period', 'invented']);
+const AT_LEAST_13 = r => r.schema === 'lead-run/1.3';
 const LABELS = new Set(['S', 'I', 'U']);
 const RUNGS = new Set(['M0', 'M1', 'M2', 'M3', 'M4']);
 const NAME_SOURCES = new Set(['repo', 'wiki', 'pinyin-unconfirmed']);
@@ -74,6 +79,12 @@ export function lintScenes(scenes) {
             if (st.time && !(Number.isFinite(st.time.minutes) || typeof st.time.band === 'string')) out.push({code: 'action-time', where: w});
         }
         for (const o of r.options || []) if (o.class !== undefined && !ACTION_CLASSES.includes(o.class)) out.push({code: 'option-class', where: w});
+        if (AT_LEAST_13(r)) {
+            for (const st of r.steps || []) if (!ACTION_CLASSES.includes(st.class)) out.push({code: 'action-class', where: w});
+            for (const m of r.motives || []) if (!MOTIVES.includes(m.tag)) out.push({code: 'motive-tag', where: w, tag: m.tag});
+            for (const c of r.choices || []) if (!LABELS.has(c.label)) out.push({code: 'choice-label', where: w});
+            if (typeof r.pov !== 'string' || !r.pov) out.push({code: 'pov', where: w});
+        }
         for (const t of r.touched || []) {
             if (!KINDS.includes(t.kind)) out.push({code: 'touched-kind', where: w, kind: t.kind});
             if (!TOUCH_STATUS.has(t.status)) out.push({code: 'touched-status', where: w});
@@ -154,6 +165,35 @@ export function lintLoops(loops) {
     return out;
 }
 
+/** Fill rows (`fill/1.3`): unstated blanks with their layer, basis and what they must respect (WA38). */
+export function lintFills(fills) {
+    const out = [], seen = new Set();
+    for (const [i, r] of fills.entries()) {
+        const w = r.id || `row ${i + 1}`;
+        if (!['fill/1.1', 'fill/1.3'].includes(r.schema)) out.push({code: 'schema', where: w});
+        if (seen.has(r.id)) out.push({code: 'duplicate', where: w});
+        seen.add(r.id);
+        if (!/^[a-z0-9]+\.fill\./.test(r.id || '')) out.push({code: 'id-namespace', where: w});
+        if (!['authored-proposal', 'generator-spec'].includes(r.status)) out.push({code: 'fill-status', where: w});
+        if (!Array.isArray(r.basis) || !r.basis.length) out.push({code: 'fill-basis', where: w});
+        if (r.schema === 'fill/1.3') {
+            if (!FILL_LAYERS.has(r.layer)) out.push({code: 'fill-layer', where: w});
+            if (r.replaceableBy !== 'later reading') out.push({code: 'fill-replaceable', where: w});
+        }
+        quoteGuard(w, r, new Set(), out);
+    }
+    return out;
+}
+
+/** Shard header (`shard-header/1.3`, WA31): what produced the files and how far to trust them. */
+export function lintHeader(h) {
+    const out = [], need = ['shard', 'schema', 'readerModel', 'sourceHash', 'date', 'chapters', 'lint', 'grade'];
+    if (!h || h.schema !== 'shard-header/1.3') out.push({code: 'header-schema', where: 'header'});
+    for (const k of need) if (h?.[k] === undefined) out.push({code: 'header-field', where: 'header', field: k});
+    if (h && !['A', 'B', 'C'].includes(h.grade)) out.push({code: 'header-grade', where: 'header'});
+    return out;
+}
+
 export function summarize(issues) {
     const counts = {};
     for (const i of issues) counts[i.code] = (counts[i.code] || 0) + 1;
@@ -174,6 +214,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const scenes = jsonl(scenesPath), census = jsonl(censusPath);
     const a = lintScenes(scenes), b = lintCensus(census, shard), c = loopsPath ? lintLoops(jsonl(loopsPath)) : [];
     console.log(JSON.stringify({scenes: scenes.length, census: census.length,
-        sceneIssues: summarize(a), censusIssues: summarize(b), loopIssues: summarize(c), ok: !a.length && !b.length && !c.length}, null, 1));
+        sceneIssues: summarize(a), censusIssues: summarize(b), loopIssues: summarize(c), ok: !a.length && !b.length && !c.length,
+        // Row ids per code (ids and codes only, never source text) so a single fix pass can target the rows.
+        rows: [...a, ...b, ...c].slice(0, 60).map(i => `${i.code}:${i.where}${i.field ? '.' + i.field : ''}`)}, null, 1));
     process.exit(a.length || b.length || c.length ? 1 : 0);
 }

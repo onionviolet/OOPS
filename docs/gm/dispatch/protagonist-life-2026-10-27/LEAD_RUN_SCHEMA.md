@@ -114,3 +114,33 @@ Tags `lead-run/1.2`, `census/1.2`, `loop/1.2`; the lint accepts 1.1 and 1.2. See
 | Kind `creature` | Added to the shared kind list |
 | `schema` key | Every row carries the tag as its `schema` field; organization ids use `organization`, never `org` |
 | `firstVolume` | Null when the shard does not show it; never guessed |
+
+## Schema 1.3 (frozen 2026-10-27) and the change rule
+
+The compact card readers get is [SCHEMA_CARD_1_3](SCHEMA_CARD_1_3.md); it is the authority for
+1.3. The lint accepts 1.1, 1.2 and 1.3; new reading uses 1.3 only.
+
+**Changelog (1.2 to 1.3):** motive vocabulary of 20 tags (WA45, PL-L37), lint `motive-tag`;
+`pov` required (RF1); choice labels only S/I/U (PL-A32), lint `choice-label`; fills gain
+`layer` (implied, period, invented) and `replaceableBy` (WA38), lint `lintFills`; optional
+scene `conflict` (WA32), `tone`, `open`, `hook` and census `voice`, `procedure`, `tech`
+(WA41: each has a named consumer: conflicts for the conflict publisher, tone and hooks for
+return notes, open questions for storylets, voice for voice sheets, procedure for
+organization archetypes, tech for the world card); units named (penny, soli, pound); a
+**shard header** file `<prefix>_header.json` (`shard-header/1.3`, WA31) written by
+`scripts/lead_run/audit_shard.mjs` with reader model, chapters, source hash, date, lint
+result, locator validity, name accuracy, spot-check count and grade.
+
+**Migration of existing shards:** the nine shards read so far keep their files; each has a
+1.3 header from the audit gate with its grade. Mechanical fields (schema tags, organization
+id namespace, prose in label fields moved to `note` with label I) are patched by script when
+the shards merge (PL-L16). Fields a script cannot infer (action classes on 1.1 steps, motive
+tags from the vocabulary, `pov`) are added by one cheap pass that reads the shard's own
+JSON, not the source, or the shard is reread if graded C.
+
+**When the schema changes later:** a change that only adds optional fields is a minor
+version (1.4): old shards stay valid. A change that a script can derive from existing rows is
+a patch script plus a new header. A change that needs the source again (a new required fact
+type) is a major version (2.0) and rereads only the shards whose consumers need it. Every
+change records its consumer (WA41) and updates the card, the lint and this changelog in one
+commit.

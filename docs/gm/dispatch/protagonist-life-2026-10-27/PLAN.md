@@ -1717,3 +1717,113 @@ worked examples; build order; WA46-WA47 drafted.
 | PL-L40 | Archetype schema and conformance harness (20.2, 20.4) | Opus design, sonnet build | Medium | The baker archetype and its canon instance pass all eight steps |
 | PL-L41 | Recipe standard adapter over `craft_recipes.js` and `dose_process.js` | Sonnet, medium | One session | One LOTM formula row and one HP brew load through the same adapter |
 | PL-L42 | Household-member and official archetypes | Sonnet, medium, after PL-L40 | One session | Both pass conformance with one canon instance each |
+
+---
+
+## 21. Round 13: readiness patches, protocol v2 and the reader optimization (2026-10-27)
+
+Weibao: "Patch all the not-ready stuff accordingly. How to optimize the readers?", then
+"Implement accordingly", then "Launch accordingly, and then send out readers? More to
+consider? Be optimal and coordinate effectively." Working direction under the 2026-10-27
+adoption. Engine lanes are launched in their own coordinator session (pilot-engine-lanes);
+this session does not touch `src/`.
+
+### 21.1 The five not-ready items, patched
+
+| Code | Item | Patch | State |
+| --- | --- | --- | --- |
+| R1 | Schema not settled | Frozen as 1.3 with a changelog, migration rule and change rule ([LEAD_RUN_SCHEMA](LEAD_RUN_SCHEMA.md#schema-13-frozen-2026-10-27-and-the-change-rule)); compact [card](SCHEMA_CARD_1_3.md); lint accepts 1.1-1.3 and checks motives, pov, choice labels, fills and the shard header | Done |
+| R2 | Reader quality uneven | [Reader brief template](READER_BRIEF_TEMPLATE.md) with example rows; `prepare_shard.mjs` (EPUB to paragraph-numbered text, index, brief with glossary and candidates); lint prints failing row ids; `migrate_shard.mjs` safe repairs | Done; measured below |
+| R3 | Reading budget not confirmed | [Volume 1 reading plan](VOLUME1_READING_PLAN.md); Weibao then approved reading volume 1 once the gate passes | Approved, conditional |
+| R4 | Audit gate not automated | `audit_shard.mjs` writes `shard-header/1.3` with lint, locator validity, name accuracy, spot checks and grade | Done |
+| R5 | Other books | [Readiness notes](OTHER_BOOKS_READINESS.md) for HP year 1 and Mother of Learning | Notes only; no reading |
+
+Tests: `node --test tests/lead_run_lint.test.js tests/lead_run_audit.test.js` passed 13 of 13.
+
+### 21.2 Protocol v2 runs against protocol v1
+
+| Run | Chapters | Chars | Calls | Tokens | Tokens per chapter | Rows (scenes / census / fills) | Lint in reader | After repairs | Name accuracy |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| v1 best (s4) | 9-11 | 10,000 | 6 | 142,743 | 47,600 | 8 / 104 / 6 | pass | n/a | 1.0 |
+| v1 range (s1-s6) | 1-15 | | 5-11 | 108k-237k | 39,000-108,000 | | 1 failed, 1 skipped | | 0.89-1.0 |
+| v2 s7 | 16-18 | 11,257 | 5 | 123,262 | 41,100 | 5 / 125 / 4 | fail (structure) | **B** | 0.928 |
+| v2 s8, first try | 19-21 | 10,842 | 3 | 76,849 | lost | none | not run | | |
+| v2 s8 retry | 19-21 | 10,842 | 6 | 110,468 | 36,800 | 5 / 58 / 5 | fail (structure) | **B** | 0.931 |
+| v2.1 s9 (example rows, row-id lint) | 22-24 | 9,498 | 5 | 135,720 | 45,200 | 6 / 106 / 5 | **pass** | **B** | 1.0 |
+
+The first s8 try failed on a relative path and on shell output truncation (one `cat` of brief
+and shard cut to 2 KB); both are fixed. v2 failures were structural and the safe repairs fixed
+every one; s9, with example rows and row-id lint output, passed the lint inside the reader. Mean
+over the three completed v2 shards: **41,000 tokens per chapter** (v1 mean of comparable runs
+about 52,000). Census rows per chapter vary 19-42 under v2, against 16-87 under v1. The s8
+reader reported its census as incomplete: recall is still the weak point (PL-L12).
+
+**Gate result (as set: every v2 shard lint-clean after repairs, grade A or B, name accuracy at
+least 0.9, mean tokens per chapter at or under 42,000):** pass on all four. One caveat stated
+plainly: s9 alone was 45,200 per chapter; the s9 reader read the brief and the shard in two
+turns because the shard path sat inside the brief, so the agent prompt now carries the
+absolute shard path for a parallel first read.
+
+**Older shards:** each has a 1.3 header with its original grade (four B, two C). Migrated to 1.3
+they carry 165 review items (missing action classes and motive tags); a cheap JSON-only pass
+fixes them, no reread.
+
+### 21.3 Findings for the tooling
+
+- Lint should cross-check step inputs against census ids (the s9 reader found one dangling id).
+- `firstMention` must be the paragraph where the name is printed; the brief now says so through
+  the row-id lint.
+- The candidate regex catches idioms ("a little", "for a moment"); readers skip them with
+  reasons, as designed.
+- Duplicate ids for one place (two washroom rows) confirm the merge step (GF1) before scale.
+
+### 21.4 Reader optimization: options, evidence and the recommended protocol
+
+Measured basis: the fit from round 5 (about 95,000 tokens fixed per reader plus about 4.8 per
+source character) and the protocol v2 runs above.
+
+| Option | Evidence | Expected saving | Risk | Verdict |
+| --- | --- | --- | --- | --- |
+| Fewer turns; one write script | Tool calls drove the v1 spread (6 calls about 143k, 9-11 calls 156-237k) | 15-30% per shard | A reader that cannot fix in-turn returns a failing file | **Adopt**, with coordinator repairs |
+| Two parallel Reads in the first turn instead of `cat` | One v2 run lost its shard to shell output truncation (about 33 KB cut to 2 KB) | Avoids a lost run (about 77k tokens) | None | **Adopt** (done) |
+| Absolute paths in the brief | The same run resolved a relative path wrongly; a later reader retyped a path and lost a turn | One turn per mistake | None | **Adopt** (done; "copy, do not retype") |
+| Stable brief order (template, card, glossary, candidates) for prompt caching | The fixed part is identical across shards | Lower cost per cached prefix where the platform caches subagent prompts [U: not measurable from here] | None | **Adopt** (done by construction) |
+| Precomputed shard text and paragraph index | `prepare_shard.mjs` writes both | Removes source parsing from the model | None | **Adopt** (done) |
+| Deterministic candidates (money, time, duration, measure, dotted names) | 44-72 candidates per shard; readers kept the real ones and skipped idioms with reasons | Recall of amounts no longer depends on the reader [I] | Regex noise (idioms such as "a little"), which readers skip | **Adopt** (done); refine patterns per world |
+| Known-name glossary (wiki plus earlier census) | About 100-120 names per shard; wiki supplies standard English names; ids stay stable | Fewer pinyin guesses and duplicate ids | Wiki names for later volumes could appear; only names present in the shard are injected | **Adopt** (done); add a spoiler check for wiki labels |
+| Incremental census (only new or changed entities) | Not yet measured | Fewer output tokens, which dominate writes | Loses per-shard mention locators | **Later**: keep full mention rows until the id merge (GF1) shows the duplication rate |
+| Two-pass design (cheap census pass, then scenes) | Census recall varied 16-87 rows per chapter in one pass | Better recall [I] | Two reads of the same text, about double the fixed cost | **No** for now; candidates and the glossary cover most of the gain |
+| Strict validators with row ids, then coordinator repairs | The v2 lint failures were structural (string deps, invented anchors, prose labels, missing whereabouts, great without footprint); `migrate_shard.mjs` repaired all of them safely and lifted both shards to grade B | Saves a reader fix turn (about 15-25k tokens) and a rerun | Repairs must never invent content; they only move or downgrade | **Adopt** (done) |
+| Auto-retry rule | | | | One fresh reader rerun only when a shard is grade C after repairs; never retry the same context |
+| Shard size | Fixed cost dominates below about 8,000 characters (chapter 15 alone: 108k tokens) | Bigger is cheaper per character up to the AU cap | Recall and fix cost grow with size | **Keep** about 3 chapters, 8,000-11,500 characters |
+| Haiku versus sonnet readers | Haiku errors were structural and caught by the lint; content errors found so far are two (a misread money "conflict", a dropped wage part), both caught by arithmetic and locator checks | Sonnet costs several times more per token [U: no price table read here] | Haiku misses some mentions | **Keep haiku** for reading; sonnet for 10% spot checks |
+| Local model for deterministic or labelling parts | [Local AI considerations](../../../research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md) records an installed local model used for a slow churn (DWF65: about 17 tokens a second, generic output) | Free tokens for regex-adjacent labelling (idiom or not; unit normalization) | Slow; quality on Chinese literary text unmeasured | **Later**: one pilot on the candidate-labelling step only |
+| Parallelism | AU default two readers; the shared machine and other sessions | | More readers increase merge conflicts in ids | **Keep two** |
+| Failure recovery and resume | Every shard is independent; headers record state | | | Resume by shard: rerun only shards whose header is missing or grade C |
+| Spot-check sampling | Five locators per graded-A shard; every claimed source conflict; every amount by arithmetic | | | **Adopt** (WA30) |
+
+**Recommended protocol v2.1:** prepare the shard with `prepare_shard.mjs` (text, index, glossary,
+candidates, brief with example rows); the reader takes two parallel reads, one write script, one
+lint, and at most one targeted fix using the lint's row ids; the coordinator runs
+`migrate_shard.mjs` (safe repairs) and `audit_shard.mjs` (grade and header); a grade-C shard gets
+one fresh rerun. **Target:** about 115,000-125,000 tokens per three-chapter shard, about 38,000-
+42,000 tokens per chapter, against about 48,000-79,000 per chapter under protocol v1.
+
+
+### 21.5 More to consider (round 13)
+
+**ACT NOW (done):** R1-R5 patched; tooling built and tested; three protocol v2 shards read and
+graded; the gate passed; older shards headed.
+
+**ACCOUNT FOR NOW**
+
+- PL-A42. **Recall is the open quality risk.** Candidates fixed amounts; names and minor
+  entities still vary by reader. PL-L12's recall check runs after wave 1.
+- PL-A43. **Pace by the usage meter.** Baseline before wave 1: 5-hour window 7%, weekly 12%
+  (AU7: stop at plus five points on any window).
+- PL-A44. **Coordinator context.** Each wave adds reader reports to this session; reports stay
+  short and the status file carries the record.
+
+**LATER or DELEGATE:** PL-L43 dangling-input lint check (sonnet, small; done when a planted
+missing census id fails); PL-L44 JSON-only review pass for the 165 older-shard items (haiku,
+small; done when all six migrated shards lint clean).
