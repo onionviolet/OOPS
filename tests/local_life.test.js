@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeLocalLife, advanceLocalLife as advanceWithStream, localLifeAction, localLifeView, localLifeQuestView, LOCAL_LIFE_BALANCE, VILLAGE_STANDING, MEAL_SCHEDULE, localSearchMethod, recordLocalPurchases} from '../src/absorb_c2/local_life.js';
+import {normalizeLocalLife, advanceLocalLife as advanceWithStream, localLifeAction, localLifeView, localLifeQuestView, LOCAL_LIFE_BALANCE, VILLAGE_STANDING, villageStandingSentence, MEAL_SCHEDULE, localSearchMethod, recordLocalPurchases} from '../src/absorb_c2/local_life.js';
 import {createLocalLifePanel} from '../src/absorb_c2/panel.js';
 import {grantEarnedTitles, titleView} from '../src/titles.js';
 import {createDiscoveryCuePolicy} from '../src/native_discovery_policy.js';
@@ -233,6 +233,35 @@ test('village notices completed service only: watch and relay receipts grant Vil
     const finish=localLifeAction(mill.state,c(),'parcel');
     assert.deepEqual(finish.native.reputation,{Village:VILLAGE_STANDING.relay});assert.match(finish.messages[0],/\+3 Village reputation/);
     assert.equal(localLifeAction(finish.state,c(),'parcel').ok,false);
+});
+
+test('leaving says what it costs; returning says what waits; the place remembers standing',()=>{
+    const start=localLifeAction(undefined,c(),'watch');assert.match(start.messages[0],/forfeits the rest/);
+    assert.match(localLifeView(undefined,c()).rows.find(r=>r.id==='watch').label,/leaving early forfeits them/);
+    const on=advanceLocalLife(start.state,c({clock:480,calendarMinute:480}));
+    assert.match(localLifeView(on.state,c({clock:480,calendarMinute:480})).rows.find(r=>r.id==='stop_watch').label,/60 minutes served; forfeits 12 coins, 3 Perception XP and \+2 Village reputation/);
+    const left=localLifeAction(on.state,c({clock:480,calendarMinute:480}),'stop_watch');
+    assert.match(left.messages[0],/after 60 minutes: 12 coins, 3 Perception XP and \+2 Village reputation forfeited\. Persistence XP already earned stays/);
+    assert.match(advanceLocalLife(on.state,c({clock:481,calendarMinute:481,location:'Shack'})).messages[0],/interrupted after 60 minutes: 12 coins/);
+    // Relay: mid-relay rows say nothing is lost; before starting they say nothing extra.
+    let s={...normalizeLocalLife(),pamphletRead:true};
+    assert.doesNotMatch(localLifeView(s,c()).rows.find(r=>r.id==='parcel').label,/nothing is lost/);
+    s=localLifeAction(s,c(),'parcel').state;
+    assert.match(localLifeView(s,c({location:'Eastern mill'})).rows.find(r=>r.id==='parcel').label,/waits while you travel or rest; nothing is lost/);
+    // Arrival note: only on an observed move into Village, never on load, a repeated clock or staying.
+    let a=advanceLocalLife(undefined,c({clock:0,calendarMinute:500,location:'Shack'})).state;
+    const back=advanceLocalLife(a,c({clock:30,calendarMinute:530}));
+    assert.match(back.messages.find(m=>m.startsWith('Back in Village'))||'',/^Back in Village: The watch is taking volunteers until 10:00\.$/);
+    assert.equal(advanceLocalLife(back.state,c({clock:31,calendarMinute:531})).messages.some(m=>m.startsWith('Back')),false);
+    assert.equal(advanceLocalLife(a,c({clock:0,calendarMinute:500})).messages.some(m=>m.startsWith('Back')),false);
+    assert.equal(advanceLocalLife(undefined,c({clock:5,calendarMinute:505})).messages.some(m=>m.startsWith('Back')),false);
+    const relayBack=advanceLocalLife({...normalizeLocalLife(),pamphletRead:true,parcelStep:2,lastClock:0,lastLocation:'Eastern mill'},c({clock:60,calendarMinute:780}));
+    assert.match(relayBack.messages.find(m=>m.startsWith('Back'))||'',/midday bread is on the table; the old craftsman expects your receipt/);
+    // Description: silent for a Stranger, names actual service at Known Face.
+    assert.equal(villageStandingSentence(undefined,9),'');
+    assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:5},10),'People nod when you pass. They remember your 5 watch shifts.');
+    assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:1,parcelRuns:2},50),'You are counted among the people who live here. They remember your 1 watch shift and 2 parcel relays.');
+    assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:3},-5),'People here watch their purses when you pass.');
 });
 
 test('parcel relays remain repeatable with explicit restart and three handoffs per pay',()=>{

@@ -1,5 +1,6 @@
 import {natural} from '../basics.js';
 import {recurringWindow} from '../world_rhythm.js';
+import {rankOf} from '../faction_rank.js';
 
 // Original, bounded Village/household texture. All rewards are plans; the host
 // persists native diffs and this state together before publishing either.
@@ -10,6 +11,7 @@ export const RUNNER_MEAL_COST = 1;
 // Neighbours notice steady service: native Village reputation per completed
 // watch shift or relay receipt. A local default; another village sets its own.
 export const VILLAGE_STANDING = Object.freeze({watch:2,relay:3});
+const WATCH_FORFEIT=`12 coins, 3 Perception XP and +${VILLAGE_STANDING.watch} Village reputation`;
 export const WATCH_SCHEDULE = Object.freeze({period:1440,opens:420,closes:600});
 export const MARKET_SCHEDULE = Object.freeze({period:10080,opens:540,closes:1020});
 export const PARCEL_STOPS = Object.freeze([
@@ -84,6 +86,9 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
         addXp(p,'Iron skin',Math.min(delta,c.bleedingRemaining)*.25);
     const moved=s.lastLocation!==null && s.lastLocation!==c.location;
     const firstVisit=s.lastLocation===null;
+    if(moved && delta>0 && c.location==='Village' && c.worldId==='base.frontier' && c.alive===true) {
+        const note=villageWaiting(s,c);if(note)p.messages.push(`Back in Village: ${note}`);
+    }
     s.lastLocation=c.location;
     // One roll on an observed arrival, never on a view or restore. Once met,
     // the visitor remains reachable rather than making the player reroll.
@@ -97,7 +102,7 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
     if(s.watching) {
         const day=Math.floor(c.calendarMinute/1440);
         if(!ready(c)||c.location!=='Village'||day!==s.watchDay) {
-            s.watching=false;s.watchMinutes=0;p.messages.push('Village watch interrupted. No pay; you can accept another morning shift.');
+            p.messages.push(`Village watch interrupted after ${s.watchMinutes} minutes: ${WATCH_FORFEIT} forfeited. Persistence XP already earned stays; accept another morning shift.`);s.watching=false;s.watchMinutes=0;
         } else if(delta>0) {
             s.watchMinutes=Math.min(1440,s.watchMinutes+delta);
             addXp(p,'Persistence',Math.min(delta,60)*.1);
@@ -139,6 +144,29 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
     return p;
 }
 
+// What a returning player can act on now. It reads current windows, so it
+// never claims a change it cannot see.
+function villageWaiting(s,c) {
+    if(!natural(c.calendarMinute))return '';
+    const open=(rule,claim)=>recurringWindow(rule,c.calendarMinute,claim).open;
+    const notes=[...(open(MARKET_SCHEDULE,s.marketClaim)?['the weekly market is open']:[]),
+        ...(open(MEAL_SCHEDULE,s.mealClaim)?['midday bread is on the table']:[]),
+        ...(!s.watching&&open(WATCH_SCHEDULE,s.watchDay)?['the watch is taking volunteers until 10:00']:[]),
+        ...(s.visitorMet&&!s.pamphletRead?['the courier’s pamphlet is still unread']:[]),
+        ...(s.encounter?['a supply runner is waiting by the well']:[]),
+        ...(s.pamphletRead&&s.parcelStep===2?['the old craftsman expects your receipt']:[])];
+    return notes.length?`${notes.join('; ')}.`.replace(/^./,m=>m.toUpperCase()):'';
+}
+
+// One sentence for the Village description once neighbours know you. Below
+// Known Face the place says nothing new; the words follow the region ladder.
+export function villageStandingSentence(raw,reputation) {
+    const s=normalizeLocalLife(raw),rank=rankOf('Village',reputation);
+    if(rank.id==='stranger')return '';
+    const done=rank.id==='distrusted'?[]:[...(s.watchShifts?[`${s.watchShifts} watch shift${s.watchShifts===1?'':'s'}`]:[]),...(s.parcelRuns?[`${s.parcelRuns} parcel relay${s.parcelRuns===1?'':'s'}`]:[])];
+    return `${rank.feeling}${done.length?` They remember your ${done.join(' and ')}.`:''}`;
+}
+
 export function localLifeAction(raw,c,id) {
     const s=normalizeLocalLife(raw),p=result(s);
     const fail=message=>({...p,ok:false,messages:[message]});
@@ -154,10 +182,10 @@ export function localLifeAction(raw,c,id) {
         const window=recurringWindow(WATCH_SCHEDULE,c.calendarMinute,s.watchDay);
         if(s.watching||!window.open)return fail(s.watching?'You are already on watch.':`Watch accepts 07:00–10:00; next opening in ${window.nextIn} minutes.`);
         s.watching=true;s.watchDay=window.cycle;s.watchMinutes=0;s.lastClock=c.clock;s.lastLocation=c.location;
-        s.looking=false;p.messages.push(`Watch accepted. Stay idle in Village until 20:00 for 12 coins, 3 Perception XP and +${VILLAGE_STANDING.watch} Village reputation. Played watch minutes train Persistence. Other work or leaving interrupts without pay.`);
+        s.looking=false;p.messages.push(`Watch accepted. Stay idle in Village until 20:00 for 12 coins, 3 Perception XP and +${VILLAGE_STANDING.watch} Village reputation. Played watch minutes train Persistence and keep. Leaving Village or other work before 20:00 forfeits the rest.`);
     } else if(id==='stop_watch') {
         if(!s.watching)return fail('No active watch shift.');
-        s.watching=false;s.watchMinutes=0;p.messages.push('You leave the watch. No pay; try another morning.');
+        p.messages.push(`You leave the watch after ${s.watchMinutes} minutes: ${WATCH_FORFEIT} forfeited. Persistence XP already earned stays; try another morning.`);s.watching=false;s.watchMinutes=0;
     } else if(id==='market') {
         if(c.location!=='Village')return fail('Market day is in Village.');
         const window=recurringWindow(MARKET_SCHEDULE,c.calendarMinute,s.marketClaim);
@@ -220,11 +248,11 @@ export function localLifeView(raw,c) {
         readiness:available?`Ready. ${localSearchMethod(c).text} Completed search work stays when the method changes.`: 'Finish combat, travel, dialogue, sleep or other work first.',
         rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 search work; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
-            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
+            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}${s.parcelStarted?' The parcel waits while you travel or rest; nothing is lost.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[
                 {id:'mentor',label:'Ask the village elder what to do next',disabled:!available},
                 ...(s.visitorMet?[{id:'pamphlet',label:s.pamphletRead?'Courier: route pamphlet read':'Visiting courier: read route pamphlet (unlocks parcel relay)',disabled:!available||s.pamphletRead}]:[]),
-                {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; stay until 20:00)` : watch.open?`Accept Village watch (until 20:00; 12 coins, +${VILLAGE_STANDING.watch} Village reputation)`:`Watch closed: next opening in ${watch.nextIn} minutes (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
+                {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; forfeits ${WATCH_FORFEIT})` : watch.open?`Accept Village watch (until 20:00; 12 coins, +${VILLAGE_STANDING.watch} Village reputation; leaving early forfeits them)`:`Watch closed: next opening in ${watch.nextIn} minutes (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
                 {id:'market',label:market.open?'Weekly market: take restocked bread':`Weekly market: next opening in ${market.nextIn} minutes (day 1, 09:00–17:00)`,disabled:!available||!market.open},
                 {id:'meal',label:window.open?'Take midday bread (free, one per game day)':window.claimed?'Midday bread already claimed today':`Midday bread: opens in ${window.nextIn} minutes (12:00–14:00)`,disabled:!available||!window.open},
                 ...(s.runnerMealsIssued>s.runnerMealsUsed?[{id:'runner_meal',label:`Use runner meal ticket (${s.runnerMealsIssued-s.runnerMealsUsed} left; 1 coin → 1 Stale bread)`,disabled:!available||!(c.money>=RUNNER_MEAL_COST)}]:[]),
@@ -242,7 +270,7 @@ export function localLifeQuestView(raw,c={}) {
     const s=normalizeLocalLife(raw);
     return [
         ...(s.watchDay!=null?[{id:'village.watch',name:'Village watch',completed:!s.watching,
-            description:'Repeatable morning watch. Stay idle in Village until 20:00. Leaving or other work interrupts without pay.',
+            description:`Repeatable morning watch. Stay idle in Village until 20:00. Leaving or other work first forfeits ${WATCH_FORFEIT}; Persistence XP already earned stays.`,
             objective:s.watching?`On watch: ${s.watchMinutes} played minutes. Stay until 20:00; 12 coins and +${VILLAGE_STANDING.watch} Village reputation on completion.`:`${s.watchShifts} shifts completed. Accept another at 07:00–10:00.`}]:[]),
         ...(s.pamphletRead?[{id:'village.parcel',name:'Village parcel relay',completed:s.parcelStep===3,
             description:'The courier pamphlet connects the elder, millers and old craftsman. Use ordinary travel between handoffs.',

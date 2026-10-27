@@ -30,6 +30,31 @@ TL1 steps (live, earn, carry, apply, react, return): live, earn, carry and retur
 - **Failure scenario.** Reputation granted on an interrupted shift, twice on one completion, on a restore/replay step, or by the plan without reaching `character.reputation` (message says +2 but trade breakdown unchanged).
 - **Finish check.** Focused `node --test tests/local_life.test.js`; rebuilt bundle; MCP fresh life: watch to 20:00, Village reputation shows 2 and the trader breakdown shows the reputation part; Save, reload, Export, Import keep it; committer gates (build, npm test, check:arch, check:rules).
 
+## Slice VC3a: say what leaving costs; the place remembers (GM_PLAN section 18, card 2)
+
+- **Outcome (PRF2).** The watch rows and messages name the actual forfeit: leaving Village or other work before 20:00 loses the 12 coins, 3 Perception XP and +2 Village reputation, while Persistence XP already earned stays. Relay rows say the parcel waits while you travel or rest (nothing is lost). The Village description gains one sentence from standing once you are a Known Face or above, naming your service. Arriving back in Village from elsewhere logs one note of what is waiting (open market, midday bread, an accept window for the watch, the courier's pamphlet, a waiting runner).
+- **Consumer (FLR4).** Village place description (`src/data/locations.js` via the existing `readVillageLedgerSentence` reader), the main log (UF6 return note), Local life rows.
+- **Cost.** None new.
+- **Mechanism.** Places keep visible consequences. Dial: the description sentence follows `faction_rank.js` feelings; another village's ladder changes its words. The return note reads current windows, so it never claims a change it cannot see.
+- **Seam.** `local_life.js` (row and message text, a pure `villageStandingSentence`, arrival note inside `advanceLocalLife` on an observed move only); `src/main.js` line 464 (existing reader joins the standing sentence; no new registration line) and the existing `publication.publish()` line (re-renders the place description when a reputation change landed, so the sentence appears without leaving). No save field.
+- **Deviation from the card.** The card names `change_badges.js` and `event_feed.js`. Both read other owners (panel rows; expansion state), and local-life state is not in either, so the return note goes to the main log as UF6 assigns. The note reports what is waiting on arrival (open windows, unread pamphlet, waiting runner, expected receipt), not a diff since departure, because local life keeps no departure stamp and a new save field was not worth it here; the pamphlet and runner reminders repeat on each hop while they stay true. Recorded, not widened.
+- **Files.** `src/absorb_c2/local_life.js`, `src/main.js` (one existing line), `tests/local_life.test.js`, this checkpoint, `evidence/`.
+- **Failure scenario.** Forfeit text names pay that is not lost, or misses pay that is; the arrival note fires on load, on a repeated clock or while staying in Village; the description sentence appears for a Stranger or names service the player did not do.
+- **Finish check.** Focused test; rebuilt bundle; fresh life: accept watch, leave mid-shift and read the forfeit; leave mid-relay and read "nothing lost"; return to Village and read the note; reach Known Face and read the description sentence; 1920×1080 and 1536×864.
+
+## Verification (VC3a)
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/local_life.test.js` | 22/22; new test covers forfeit row and messages (leave and interrupt), relay "nothing is lost" only mid-relay, arrival note only on an observed move into Village (not on load, repeated clock or staying), description silent for a Stranger and naming actual service at Known Face, Neighbour and Distrusted | |
+| Rebuilt desktop browser, fresh origin `localhost:19927` (storage cleared), shared-tree bundle `6a1995df…`, 1920×1080 | Accept row: "…12 coins, +2 Village reputation; leaving early forfeits them"; leave after 60 minutes: "You leave the watch after 60 minutes: 12 coins, 3 Perception XP and +2 Village reputation forfeited. Persistence XP already earned stays"; Wild willow stand and back: "Back in Village: The weekly market is open; a supply runner is waiting by the well." (`evidence/vc3a-forfeit-return-1920.jpg`) | MCP walk skipped: the full-screen view per call is too large for this walk; limit already filed |
+| Same life, five shifts (days 2-6) | "Standing rises in Village: Known Face" once; on return the description ends "People nod when you pass. They remember your 5 watch shifts." Save and reload keep it with no false return note | |
+| Live description refresh, bundle `7e76982e…` | Found during the walk: the sentence appeared only on the next arrival. Fixed on the publish line; a sixth shift completed in place and the description read "6 watch shifts" without leaving | |
+| 1536×864 | Description in Around you (`evidence/vc3a-description-known-face-1536.jpg`); the longest row "Leave watch (60 minutes served; forfeits 12 coins, 3 Perception XP and +2 Village reputation)" fits one line at 14 px (`evidence/vc3a-leave-watch-row-1536.jpg`) | 21 px not checked |
+| Relay mid-step text and the "craftsman expects your receipt" return branch | Unit-tested only | Below floor until one relay walk (needs Cave room and mill); that walk also closes VL1's relay gap |
+| Committer gates, run in the clean tree (bundle `336b32b1…`) | `npm run build` ok; `npm test` 3501/3501; `check:arch` pass (main.js under baseline, no new cycles); `check:rules` PASS | |
+| Committed bundle | Built from clean HEAD `fa64b3a1` plus this slice's three source files (`336b32b1…`), because other sessions had uncommitted `src` edits in the shared tree; index.html changes only the bundle line | Walk ran on shared-tree bundles that also held those foreign UI edits; this slice's code is identical |
+
 ## Seams left for the cross-world loop (TL1-TL8) and a Proto23 pack
 
 Recorded per the coordinator's 2026-10-27 scope notes; no travel or Proto23 work done here.
@@ -62,3 +87,5 @@ Tool note: the browser `advanceTicks` hook stayed locked ("Cannot nest advanceTi
 
 - 2026-10-27: survey done; VL1 recorded before editing.
 - 2026-10-27: VL1 committed in `09d77f22` (watch path at the AD43 floor; relay grant unit-tested, not walked). Follow-up: Known Face walk and the card 1 double-count check recorded. Next card per GM_PLAN section 18: VC3a (say what leaving costs; the place remembers).
+- 2026-10-27: coordinator relayed Weibao's order: VC3a, then VC2n, then VC12. VC3a recorded before editing.
+- 2026-10-27: VC3a committed (watch forfeit, return note and description sentence walked; relay text unit-tested only).

@@ -111,7 +111,7 @@ import {setKnownClearTextReader} from './display.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
 import {registerFortContent} from './absorb_d/register.js';
 import {createFortControls} from './absorb_d/ui.js';
-import {normalizeLocalLife, advanceLocalLife, localLifeAction, localSearchMethod, recordLocalPurchases} from './absorb_c2/local_life.js';
+import {normalizeLocalLife, advanceLocalLife, localLifeAction, localSearchMethod, recordLocalPurchases, villageStandingSentence} from './absorb_c2/local_life.js';
 import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {furnitureProjection, furnitureComfort, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
@@ -461,7 +461,7 @@ let importInProgress = false;
 let loadingReputationTotals = null;
 let restoringNativeSave = false;
 const localDateLog = createCalendarLog((...args) => log_message(...args));
-function readVillageLedgerSentence() {return villageLedgerSentence(expansionState);}
+function readVillageLedgerSentence() {return [villageLedgerSentence(expansionState),villageStandingSentence(localLife,character.reputation.Village)].filter(Boolean).join(' ');}
 export function readLocalCalendar() {return resolveWorldCalendar(expansionState, current_game_time);}
 export function readLocalWeatherWords() {
     return worldWeatherWords(expansionState?.actors?.player?.worldId ?? 'base.frontier', readLocalCalendar(), current_location);
@@ -1909,7 +1909,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     if(plan.absorbPublish)plan.absorbPublish();
     publishP23Activity(plan);
     readFrame?.invalidate();
-    publication.publish();if(Object.keys(plan.localLifeResult?.native?.reputation||{}).length)update_displayed_reputation();
+    publication.publish();if(Object.keys(plan.localLifeResult?.native?.reputation||{}).length){update_displayed_reputation();const place=document.getElementById('location_description_div');if(place&&current_location?.getDescription)place.innerText=current_location.getDescription();}
     readFrame?.invalidate();
     unlockPublication.publish();
     for(const text of revealLessonMessages(plan))log_message(text,'notification');
