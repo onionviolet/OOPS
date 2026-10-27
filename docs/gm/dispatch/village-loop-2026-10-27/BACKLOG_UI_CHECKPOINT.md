@@ -98,3 +98,15 @@ Ownership: `styles/ui_tokens.css` last changed `0ae420352` (2 days ago); no unco
 | --- | --- | --- |
 | Row geometry, rebuilt temp bundle, fresh origin, 4 cells | Text 14: 5 × 25.5 px, all clear backing. Text 21: div 36.39, buttons 34 | Fractional div height left to P04 |
 | `node --test tests/ui_contract.test.js tests/presentation_style.test.js` | 8 pass, 0 fail | |
+
+### P04-P10: hand-over (not started)
+
+Stopped after P03 to keep a clean commit boundary; each row below still needs a live ownership check before editing.
+
+- P04 next. Start from the P03 finding: Village div rows are 36.39 px at text 21 because the fixed 20 px row icon sets the line; native-button rows are 34 px. Measure text width versus padding before changing density.
+- P03 remainder (UIA13): populated Reports/Journal sibling measurement.
+- P05-P08 as written in Q18. P08 leaves live tooltip implementation to its incumbent.
+- P09 (DRC9) is small: `crafting_home.js` "Drink one" names observed effects when known; unknown keeps "Drink one".
+- P10 is a diagnostic first; add recap UI only if a return-session problem reproduces.
+- Next UIV1 rows are listed under "UIV1 change" above.
+- Tooling: `scripts/playtest/uiv1-probe.mjs` is the pattern for a 4-cell, fresh-origin, headless matrix with text size asserted on `#inventory_div`.
