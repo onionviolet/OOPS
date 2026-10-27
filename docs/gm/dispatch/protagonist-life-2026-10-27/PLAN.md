@@ -861,3 +861,176 @@ read-ahead design; the play-flow table; the untaken-option ledger method; RF1-RF
 | PL-L19 | Household purse and meal loop as pack data on existing household seams | Sonnet, medium, after PL-E0 | One session | One lived day where the purse matches a stated anchor |
 | PL-L20 | Divination and research loops as engine cards (WA5 verbs) | Opus design, sonnet build | Medium | A loop record runs in the headless harness with time and cost |
 | PL-L21 | Grade and header rows for the six shards (WA31) | Haiku, small | Small | Each shard has a header row with grade A, B or C |
+
+---
+
+## 15. Round 7: battles, stats, allies, gaps found, and codifying the book (2026-10-27)
+
+Weibao (relayed): "Filling in battles and more? How to abstract things into stats and more?
+Ally system? Other gaps discovered and need to be covered on the way? Codifying the book
+into the game in a way that reasonably makes sense? More to consider?" Docs only. Owners
+reused: combat rules CBR1-CBR30 ([DOMAIN_RULES](../../../DOMAIN_RULES.md#combat-rules),
+accepted), ability rules ABR1-ABR22 (proposed), the conceptual-abilities channel model and
+reference resolver (CAE), the companions audit, `src/obligations_ledger.js`,
+`src/check_resolver.js`. Proposed rules WA32-WA35 below.
+
+### 15.1 Battles and conflicts in the lead run
+
+Chapters 1-15 hold four conflict kinds [S scene files, by type only]: a night threat with
+flight and hiding, a questioning by police, a ritual contest of will at a residence, and a
+storm fight seen from another viewpoint (RF1: not a lead scene).
+
+**Method (proposed WA32): record the conflict, not the choreography.**
+
+| Field on a conflict scene | Meaning | Engine owner |
+| --- | --- | --- |
+| `sides` | Who is involved, by census id, with their means (tools, powers, numbers) | Combat opponents and party seams |
+| `stakes` | What each side wants: escape, information, capture, survival, a confession | CBR30: conflict is wider than combat |
+| `means` | Verb classes used (fight, appraise, socialize, ritual, travel for flight) | WA25 classes |
+| `terrain` | Place, light, exits, hiding spots, bystanders | Site rules; footprint (PX43) |
+| `outcome` | The stated result as an assertion on facts (CBR2 typed outcome: withdrew, captured, yielded, survived, ...) | One outcome publisher (CBR2) |
+| `unseen` | What the text skips (how long, who else was hurt) as fills with `basis` | `fill/1.1` |
+
+Same outcome, different routes: the assertion is on the outcome fact, so the bot may reach
+"the lead escapes unhurt" by running, hiding or bluffing if the world allows it; the replay
+policy uses the book's route, the model policy may use another. A fated survival is an
+in-world agent (CBR8), never a hidden invulnerability. What is avoided or lost in the book
+stays avoidable or losable in play; a loss in canon is an outcome to reproduce, not a
+script to force on a player.
+
+**Filling the unseen parts:** duration, injuries and witnesses come from the engine's own
+resolution under the world's numbers; where the book states them, they are calibration
+targets (15.2). **Gaps:** a ritual contest of will has no engine verb (mechanism lane);
+police questioning needs the CBR30 debate and trial model on the conflict publisher, which
+is not wired for book worlds [I].
+
+### 15.2 Abstracting prose into stats
+
+**Method (proposed WA33): ladder, band, calibrate.**
+
+1. **Pick the scale the world already uses** (WAC23: local units, no universal power scale).
+   For LOTM: sequence rank for Beyonders, ordinary skill tiers for ordinary people, money in
+   pence.
+2. **Turn each prose claim into a band, not a point:** "an experienced officer" becomes a
+   skill band such as practiced to expert, with its evidence label (S stated, I inferred)
+   and the speaker if it is a claim (WA23).
+3. **Calibrate against stated outcomes.** For each outcome the book states (who won, who
+   escaped, how long a task took, what it cost), run the engine's resolution
+   (`src/check_resolver.js`, combat math) inside the bands. If the stated outcome is not
+   reproduced in most seeded runs, **the stats are wrong, not the book**: narrow or move the
+   bands and record why.
+4. **Keep it qualitative** where no mechanic reads a number: personality, beauty, fame
+   outside a reputation system, mood. These stay text and tags.
+5. **Unknown stays unknown** (WA8): an opponent's hidden ability is a learned field
+   (CBR14), not a guessed number.
+
+| Prose kind | Engine form | Calibration target |
+| --- | --- | --- |
+| Strength, danger | Combat profile band, threat tier | Stated fight outcomes |
+| Skill | Skill tier band with practice history | Stated task results and durations |
+| Rank | Discrete rank (sequence, office) | Stated permissions and who defers to whom |
+| Wealth | Purse and assets in local money | Stated prices, wages and purchases (LP4 anchors) |
+| Influence | Standing per organization, favour ledger rows | Who helps or obeys, as stated |
+| Knowledge | Knowledge facts with source and confidence | What a character knows at a date (LP5) |
+
+Same facts, different worlds: a "strong" fighter is a different band in a mundane city, a
+cultivation sect or a superhero city; the world card sets the ladder. Cheats and powers go
+through the channel model (CAE): what it reads, what it writes, who observes, so a power's
+stat is its effect on the channel, not a flat bonus. Names in any stat text go through the
+resolver (CAE-E1/E4).
+
+### 15.3 Allies, contacts, organizations and enemies
+
+**Method (proposed WA34): allies are lives with ledgers, and party membership is a state.**
+
+| Part | Model | Existing seam |
+| --- | --- | --- |
+| Who they are | NPC life with needs, schedule, knowledge list and motives | NPC absence clocks; per-actor facts |
+| Closeness and trust | Recognition ladder (PX39) plus trust per direction | Companions audit; relationships owner |
+| Favours and debts | One row per favour or obligation, with what was given and what is owed | `src/obligations_ledger.js` (pure, not wired) |
+| Shared goals | Goal records both lives hold; help offers come from overlap | Role slots (PX47) |
+| Betrayal and leaving | Conditions from motives and pressure, never a timer | RLB need profiles |
+| Organizations | Rank, duties, pay, standing, rules (WA4) | `src/faction_rank.js`, job ladder (DWF110) |
+| Party member or world NPC | A party is a temporary state for a shared goal (an investigation, a journey); outside it they live their own lives | `src/companion_roster.js`, party seams |
+
+The player who is not the lead meets the same people through the same ledgers: the lead's
+allies have their own trust toward the player, starting from what they know of the player
+(nothing, by default). **Sequencing:** AD33 deprioritizes NPC-heavy work. The proposal
+therefore builds only the allies the lived week needs (the household and the first
+organization's members), as lives with ledgers, and leaves a general ally system for
+Weibao to schedule.
+
+### 15.4 Gaps found on the way (no existing owner covers them)
+
+| Code | Gap | Source of the finding | Owner proposal | Effort | Blocks the pilot |
+| --- | --- | --- | --- | --- | --- |
+| GF1 | Cross-shard id registry and merge | RF2 | PL-L16, reading tooling | Small | **Yes**, before read-ahead |
+| GF2 | Shared household purse and budget loop | MS4, loop gap | P3 on household seams | Medium | **Yes**, for the lived week |
+| GF3 | Lead as an NPC life with routine | MS1 | PL-E3 or a new PL-E4 | Medium | **Yes**, for the null-player run |
+| GF4 | Dated knowledge per actor | MS2 | PL-E4 | Small to medium | Yes, for LP5 |
+| GF5 | Divination verb and loop | Loop gap | Engine card (WA5), PL-L20 | Medium | No; marked blocked |
+| GF6 | Research loop with question, sources and confidence | Loop gap | Grow `lore_practice_*`, PL-L20 | Medium | No |
+| GF7 | Threat, hiding and flight verbs outside full combat | Loop gap, 15.1 | Combat seams with CBR25 exit rules | Medium | Partly: the opening nights |
+| GF8 | Ritual contest of will; the lead's cheat space | 15.1, A1 | Mechanism lane (PL-L3) | High | No; beats marked blocked |
+| GF9 | Conflict publisher for questioning and debate in book worlds | 15.1 | CBR30 owner | Medium | No |
+| GF10 | Zone-capped fares, coin rounding, metered utilities | MS3, DA1, DA4 | P3 data, engine card if needed | Small | Yes, for anchors |
+| GF11 | Census recall check | F10, RF5 | PL-L12 | Small | No; affects quality grades |
+| GF12 | Viewpoint field and off-lead scenes | RF1 | Schema 1.2 (done in doc), lint later | Small | No |
+| GF13 | Stat calibration harness (seeded runs against stated outcomes) | 15.2 | New test helper on `check_resolver.js` | Medium | No for the lived week; yes before any fight beat |
+| GF14 | Favour and obligation ledger wired to saves | 15.3 | `obligations_ledger.js` owner; additive migration | Medium | No |
+
+### 15.5 Codifying the book reasonably
+
+**Principles (proposed WA35): faithful, approximate or open, per fact.**
+
+- **Faithful:** stated outcomes, stated prices, stated dates and stated rules. The engine
+  must reproduce them in the canon run (assertions).
+- **Approximate:** mechanisms behind them (how strong, how long, how likely). Modelled with
+  bands and dials, calibrated to the faithful facts.
+- **Open:** what the book does not settle. Kept as a question (WA8), filled only by labelled
+  proposals (WA3, WA24).
+- **Claims and unreliable narration:** a character's statement is a claim with a speaker
+  (WA23); the narrator's own statement is `narration`; contradictions keep both readings
+  (WPR20).
+- **Sealed truths** stay by opaque ID with route and status (WA11).
+
+Worked examples by kind (generic, no plot detail):
+
+| Kind | Faithful | Approximate | Open |
+| --- | --- | --- | --- |
+| A fixed event (an interview on a stated day) | The day and the result | How long it took; who else waited | What was asked beyond the text |
+| A character's power | What the text shows it doing and its stated limits | Its numbers in the world's ladder, calibrated | Undescribed uses: allowed if the mechanism reasonably works (AD38) |
+| A cheat-like mechanism (the lead's private space) | Its stated rules of entry, exit and who can be brought | Time costs and failure chances | Anything the book only hints; sealed by ID if the truth is a twist |
+| A prophecy or divination | That it was given and what it said, as a claim | How reliable divination is in this world, as a dial | Whether it comes true in a divergent run |
+| An organization | Its stated structure, pay, duties and rules | Its staff numbers and schedules | Its internal politics beyond the text |
+| An item | Its stated function and price | Its condition, weight, wear | Its origin when unstated |
+
+### 15.6 Proposed rules
+
+WA32-WA35 are added to [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md) beside
+WA25-WA31, marked "proposed 2026-10-27, awaiting Weibao's yes". **The yes that accepts
+them:** "yes to WA32-WA35" (or together, "yes to WA25-WA35").
+
+### 15.7 More to consider (round 7)
+
+**ACT NOW (done):** conflict fields and routes; the prose-to-stat method with calibration;
+the ally model with AD33 sequencing; GF1-GF14; the faithful, approximate and open
+principle with worked examples; WA32-WA35 drafted.
+
+**ACCOUNT FOR NOW**
+
+- PL-A20. **Calibration is where the book's numbers meet the engine's.** A failed
+  calibration is a finding about our model; record it, never edit the canon assertion.
+- PL-A21. **Allies wait on AD33.** Build only the lived week's people until Weibao
+  reorders.
+- PL-A22. **Conflict fields join schema 1.3**, not 1.2, so the six shards stay valid.
+- PL-A23. **Five gaps block the pilot** (GF1, GF2, GF3, GF4, GF10); they come before any
+  mechanism work.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L22 | Schema 1.3 conflict fields (sides, stakes, means, terrain, outcome, unseen) with lint | Sonnet, small | One session | The four conflict scenes in chapters 1-15 convert and lint |
+| PL-L23 | Calibration harness (GF13): seeded runs against a stated outcome | Sonnet, medium | One session | A planted mis-banded opponent fails calibration; a fixed band passes |
+| PL-L24 | Lived-week allies as lives with favour rows (household, first organization) | Sonnet, medium, after PL-E4 | One session | The bot's week shows two favour rows and one help offer from a shared goal |
