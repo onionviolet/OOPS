@@ -6640,3 +6640,11 @@ Verbatim, Weibao's addition to the time travel request:
 > Seeded npc generation and other stuff too would need to be considered, more to consider? engine level decisions and changes?
 
 Proposal record (not accepted): [Part D of the time travel report](research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md#part-d-seeded-npcs-and-other-generated-content-engine-decisions-addendum-2026-10-27) (generated-things inventory, seed keys, engine decisions E1-E12, ordered changes C1-C12).
+
+## Conceptual abilities and inherent seeding (request record, 2026-10-27)
+
+Verbatim, Weibao's message:
+
+> how to add seeding more inherently how to save these things or implement concepts like those? Make a prompt to audit implementing conceptual and hard to grasp attacks and abiltiies more and the engine implications? like havng onw's name ereased erases certain thing? more to consider?
+
+Proposal record (not accepted): [audit brief](research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md) (channel model, delta kinds, resolution order, inherent-seeding API).
