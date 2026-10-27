@@ -279,3 +279,54 @@ constraint on the next world pack), L = LATER / DELEGATE.
 Evidence gate when any WO is built: rebuilt bundle, 1920x1080 for any panel,
 fresh origin, save, reload, Export and literal Import; late-game fixture for
 WO1-WO3 and WO9. Until then these are specified-not-run.
+
+## More to consider, round 4: everything the book mentions, lead first (2026-10-27)
+
+Weibao, 2026-10-27: "wait, we shoud implement every thing and every part that is mentioned
+in the book? so even if other characters exist, they exist in some place in some plane and
+we can jsut slowly fill in in the future? More to consider? We should set up absorbtion
+rules?" Context: the [protagonist-life plan](gm/dispatch/protagonist-life-2026-10-27/PLAN.md)
+(LOTM volume 1 proposed as pilot). Proposals only; WA1-WA21 are unchanged. Evidence:
+this file, [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) DWF3, DWF35, DWF67-DWF72,
+DWF96, the LOTM census JSONL (fields `kind`, `containedIn`, `era`, `canonWeight`) and
+`src/book_world_lotm_ids.js`. Codes WAL1-WAL17.
+
+**Short answer.** Yes: every thing the book mentions gets a record, and depth grows by
+touch. The absorption rules for this already exist and are accepted (WA1-WA21): a census of
+every named person, place, thing, law and event at the catalog rung (DWF3), a shallow
+runtime rung (DWF96) with an "unwritten" marker (DWF72), and unknowns kept unknown (WA8).
+What is missing is the link between that census and the lead-first pipeline, plus a few
+rules for things that exist off the page. Those are below.
+
+### ACT NOW (done)
+
+- **WAL1 The plan's source lane records every mention, not only the lead's touches.**
+  P1 readers read every chapter of the volume anyway, so each mention becomes a census row
+  at the same pass; the marginal cost is a few fields per row. PLAN.md round 2 updates P1's
+  done check.
+
+### ACCOUNT FOR NOW
+
+| Code | Consideration | Default, dial and reason |
+| --- | --- | --- |
+| WAL2 | **Presence ladder.** Every mentioned entity sits on one rung: M0 *mentioned* (census row, locator, label), M1 *placed* (an address that resolves: place or plane, era window, status), M2 *shallow* (exists at runtime: hear of, inspect, meet as a stub, DWF96), M3 *lead-touched* (all facts the lead run needs), M4 *world- or seat-complete*. | Default: every mention reaches M1 in the source pass; M2 when some life could reach it; M3 and M4 by the pipeline. Dial: how far M2 goes per world. Reason: "exists somewhere" is then a fact the engine can read, not a promise. |
+| WAL3 | **Whereabouts are time-sliced.** An entity's address has an era window, so "in Backlund in 1349, at sea later" is two rows, not one overwritten field (extends DWF68). | Default: each mention's locator adds a dated whereabouts row. Reason: a placed person must be findable where the book has them, when it has them. |
+| WAL4 | **Forward anchors bind later filling.** Anything generated or authored for an entity between mentions must not contradict that entity's later canon mentions: a filled-in 1349 life cannot kill, move or marry someone the book still needs in 1350. | Default: fill reads the entity's future anchors as constraints; a player-caused divergence (WA15) is allowed and labelled, a generator-caused one is not. Reason: slow filling is only safe if early fills cannot break later canon. |
+| WAL5 | **Off-page lives are lazy.** An M1 or M2 person between mentions has no simulated day; their state resolves when a life first meets them, using the NPC-absence clocks, then freezes (GR3, WAC22). | Default: lazy. Reason: thousands of mentions cost nothing until touched (WO1). |
+| WAL6 | **Unreachable is not forbidden.** A person or place on another plane, or with no known route, stays M1 with `route: none known`. A mechanism that reasonably reaches it works (AD38). | Default: record the access mechanism the book gives, if any. Reason: the world is whole even where no player can go yet. |
+| WAL7 | **A mention is a claim.** "Rumored to live in the capital" records the speaker and the claimed-versus-true mark (DWF79); a placed address from a rumor is `claimed`. | Default: address status follows the evidence label. Reason: canon characters are often wrong about each other. |
+| WAL8 | **Implied is not mentioned.** A city with newspapers implies printers; those are derived or generated under the world's laws (WA7, DWF27), labelled, never census rows with a locator. | Reason: keeps the census honest and cheap (DWF35). |
+| WAL9 | **One identity, many names.** Translated and Chinese names, titles, code names and aliases resolve to one id (WAC30), and new prose references names through the resolver (CAE-E1/E4), so a later rename or reveal does not break saved text. | Reason: LOTM's local source is Chinese and characters use several names. |
+| WAL10 | **First-mention volume on every row.** It lets a spoiler dial hide rows a "new reader" life has not reached and lets public reports count rows without naming them. Sealed rows use opaque IDs (WA11). | Reason: a full-book census is the largest spoiler surface the project will have. |
+| WAL11 | **Census ids and pack ids must map once.** The LOTM census uses `lotm.loc.*`-style ids; the runtime uses `book.lotm.*` (`src/book_world_lotm_ids.js`). A single mapping table, written before the first M2 promotion, keeps WA9's stable ids. | Reason: two id spaces drift and break saves on promotion. |
+| WAL12 | **The existing LOTM runtime is an original slice.** Its header says every person, place and price there is an authored proposal, not a canon claim. Canon rows join beside it with their own ids; neither overwrites the other. | Reason: current saves and the existing probationer lives stay playable (WA17). |
+| WAL13 | **Fill order is a queue, not a wave.** "Slowly fill in" ranks M1 rows for promotion by reachability from existing lives, mention count and lead touch, one small lane per batch; local churn may draft under review (DWF65, DWF83). | Default: reachability first. Reason: depth goes where play goes (S5, DWF99). |
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| WAL14 | Decide whether WAL2-WAL4 become accepted WA rules (WA22-WA24) or stay workflow defaults | Weibao's yes; docs, small | RULES_INDEX register and router rows updated in the same change, or this row closed as "workflow only" |
+| WAL15 | Census row schema v2: `whereabouts[]` with era windows, `firstMention`, `addressStatus`, `rung`, `aliases[]`, `futureAnchors[]` | Sonnet, small; schema lint | The LOTM census converts with no lost rows; lint flags a fill that contradicts a future anchor |
+| WAL16 | Census-to-pack id map for LOTM | Sonnet, small | Every census id that has a runtime counterpart maps once; no runtime id renamed |
+| WAL17 | Rung counter in the depth meter (DWF105): mentioned, placed, shallow, touched, complete per world and volume | Sonnet low, after DWF105 | Counts print per rung; IDs only, no names |

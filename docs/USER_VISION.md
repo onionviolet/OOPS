@@ -6683,3 +6683,8 @@ rest of the world?" Proposal record (not accepted):
 
 Weibao's words: "We should start with an actuall book world, maybe the first arc or volume or something, or consider the best series to do this on for the most results?"
 Proposal record (not accepted): [plan pass](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) scores the shortlist and proposes Lord of the Mysteries volume 1 as the pilot, with the Village mini-line kept as the engine harness.
+
+## Everything the book mentions, and absorption rules (2026-10-27)
+
+Weibao's words: "wait, we shoud implement every thing and every part that is mentioned in the book? so even if other characters exist, they exist in some place in some plane and we can jsut slowly fill in in the future? More to consider? We should set up absorbtion rules?"
+Proposal record (not accepted): [world absorption rules round 4](WORLD_ABSORPTION_RULES.md#more-to-consider-round-4-everything-the-book-mentions-lead-first-2026-10-27) (WAL1-WAL17: presence ladder, dated whereabouts, forward anchors, lazy off-page lives) and [plan round 2](gm/dispatch/protagonist-life-2026-10-27/PLAN.md).

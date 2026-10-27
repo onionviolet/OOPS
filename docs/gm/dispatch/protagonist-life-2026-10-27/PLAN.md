@@ -169,7 +169,7 @@ bounded reading, sonnet for code and synthesis, opus only for review and spot ch
 | PL-E3 | Beat resolver (L3, R21) | sonnet, high | `src/beat_records.js`, its test | PL-E0 | Two scripted lives: one in scope sees the beat and a miss note, the other nothing; a changed input flips a downstream fact [S report L3] | as PL-E0 | A beat needs a verb the engine lacks: engine card, stop |
 | PL-B1 | Scripted-lead bot and lint | sonnet, medium | `scripts/headless/lead_bot.mjs`, `scripts/check_lead_bot.mjs`, `test/lead_bot.test.js` | none (uses the existing headless runner) | The lint rejects a planted state import and a planted clock write; the bot logs every action with verb and world minute | focused test | The runner lacks a click route the bot needs: `game_report_limit`, engine card |
 | PL-H1 | Village harness (PX64, reduced) | sonnet, medium | `src/world_packs/village_lead_line.js` (pack data), `test/village_lead_line.test.js` | PL-E0, PL-E3, PL-B1 | PX64 checks 1-5 and 7 on five beats; bystander smoke test (check 6) optional here | build, focused test, `check:arch`, `check:rules`; M8 browser save/reload/import from a fresh origin | Village files owned by the Village session: coordinate by SendMessage before any edit outside the new file |
-| P1 | LOTM vol 1 source ledger | haiku readers, one coordinator | private: `docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/` | Q2, Q8 | Every ledger row has a locator and a label; a coverage fraction is reported | AU13 plan declared; sonnet spot-check of a sample (R22) | Budget cap; contradiction recorded, not resolved; a sealed-truth row stored by ID only |
+| P1 | LOTM vol 1 source ledger | haiku readers, one coordinator | private: `docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/` | Q2, Q8 | Every ledger row has a locator and a label; every mention in the volume is a census row at M1 (placed, with a dated whereabouts) per WAL1-WAL3; a coverage fraction is reported | AU13 plan declared; sonnet spot-check of a sample (R22) | Budget cap; contradiction recorded, not resolved; a sealed-truth row stored by ID only |
 | P2 | LOTM lead-run table | sonnet, medium; opus spot-check of 10% | private: same folder, `lead_run.jsonl`; public: `docs/gm/dispatch/protagonist-life-2026-10-27/LOTM_LEAD_RUN_SUMMARY.md` (IDs and counts only) | P1, Q4 (absolute dates only) | Every row has a date or `date-unsettled`; every touched fact has an id | Schema lint | More than 25% `date-unsettled` [I threshold]: stop and report the blocking passages by locator |
 | P3 | LOTM touched-set data | sonnet, medium | public LOTM pack files only for facts already public in `src`; canon-named rows in `private_packs/lotm-lead/` (Q3); `scripts/lead_touched_inventory.mjs` | P2, PL-E0; PL-E1 if the route buys ambient stock; PL-E2 for any name in a note | M2: every touched id resolves | build, focused pack test, `check:arch`, `check:rules` | Missing verb or field: engine card, stop. Save shape change: stop |
 | P4 | LOTM scripted lead | sonnet, medium | `scripts/headless/lead_runs/lotm_v1.mjs` and fixture | PL-B1, P3, PL-E3 | k of n beats reached, with causes (PX59) | PL-B1 lint passes on this file | Unreachable beat after the PX59 procedure: report, do not add a shortcut |
@@ -304,3 +304,27 @@ risks; decisions with defaults; register row and USER_VISION record.
 | PL-L4 | HP year-one beat pack and canon school-year calendar | World pass | Medium | HP criterion 3 rescored; the 70-day term still loads |
 | PL-L5 | Beat-name lint for public files | `check:rules` | Small | A planted beat name in a public doc fails the lint |
 | PL-L6 | Propose PX51 (protagonist-first pass) as a WPR candidate | Docs | Small | A proposal paragraph, not a rulebook edit |
+
+---
+
+## 10. Round 2: everything the book mentions (2026-10-27)
+
+Weibao asked whether we implement everything the book mentions, with other characters
+existing somewhere and filled in slowly, and whether to set up absorption rules. The
+answer and the considerations are saved in their owner,
+[world absorption rules round 4](../../../WORLD_ABSORPTION_RULES.md#more-to-consider-round-4-everything-the-book-mentions-lead-first-2026-10-27)
+(WAL1-WAL17). Absorption rules already exist and are accepted (WA1-WA21); the round adds
+the link to this pipeline. Changes to this plan:
+
+- **ACT NOW (done):** P1's done check now records every mention in volume 1 as a census
+  row placed at an address and era (WAL1-WAL3), not only the lead's touches.
+- **ACCOUNT FOR NOW:** P3 promotes only lead-touched rows to M3; other rows stay M1 or M2
+  (WAL2). Any fill between canon mentions reads that entity's future anchors (WAL4). A
+  census-to-pack id map comes before the first promotion (WAL11); canon rows sit beside
+  the existing original LOTM slice, never over it (WAL12).
+- **LATER / DELEGATE:** WAL14 (whether WAL2-WAL4 become WA22-WA24, Weibao's yes), WAL15
+  (census schema v2), WAL16 (id map), WAL17 (rung counter). Added to decisions as Q9 below.
+
+| Code | Decision | Recommended default | Blocks |
+| --- | --- | --- | --- |
+| Q9 | Make the presence ladder, dated whereabouts and forward anchors standing rules (WA22-WA24) | Yes, as WA rules, since every book world needs them | Nothing in P1; P3 promotions follow them either way as plan defaults |
