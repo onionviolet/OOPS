@@ -525,3 +525,5 @@ Research, per-world absence cards (Village, Proto23, YAIR, LOTM, HP) and proposa
 - Round 11 addition (2026-10-27): playing as, beside or apart from a world's original protagonist, with canon beats as clock records, is in [the canon protagonist report](research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md). Proposals only.
 
 - Round 11 addition (2026-10-27): time travel kinds and a seeded-world determinism contract (same stock and events on a revisited day, with a delta log) are in [the time travel report](research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md). Proposals only.
+
+- Round 11 addition (2026-10-27): conceptual abilities (names, records, memory, claims, laws) as channel operations stored as deltas over the seeded base, with a layer order, an observer resolver and the `generated(kind, key)` seeding API, are in [the conceptual abilities engine audit](research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md). Proposals only.
