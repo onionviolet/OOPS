@@ -1922,7 +1922,7 @@ carries"). Proposals, not accepted direction.
 | Code | Default, dial and reason |
 | --- | --- |
 | BGP14 | **Worlds are separate universes; entry is a crossing with a named carrier.** Default: no notice, ticket or purse links two worlds. Dial: a world whose own canon has travel between realms can expose a means for it, with a cost and record (WA14). Reason: AD4 and AD11 already say this; the runtime should match. |
-| BGP15 | **LOTM's default carrier is transmigration into a Tingen local.** The book itself opens with a soul from another world waking in a Tingen clerk's body, so this is canon's own mechanism. Memories and the base cheat carry (AD11); the body, money and Village kit do not. Dial: other carriers (dream, rite, cheat) where the player has them. Reason: it fits the book (AD1), AD11–AD13 and AD12's unconscious-body return, and it removes the money-transfer problem. |
+| BGP15 | **LOTM's default carrier is transmigration into a Tingen local.** The book itself opens with a soul from another world waking in a Tingen clerk's body, so this is canon's own mechanism. Memories and the base cheat carry (AD11); the body, money and Village kit do not. Dial: other carriers (dream, rite, cheat) where the player has them. Reason: it fits the book (AD1), AD11–AD13 and AD12's unconscious-body return, and it removes the money-transfer problem. Corrected in round 27 (BGP23–BGP24): this is the opening's appearance, not canon's mechanism. |
 | BGP16 | **The host body brings its own life.** Default: the Tingen local has a name, lodging, small savings, a job prospect and fragments of local memory (language, streets), with the church-team and civil choices becoming that person's situation instead of a purchase. Dial: guided random picks the host (AD23); a chosen start is a means. Reason: AD13 bodies are real, and LC11's inherited-body origin already exists as a proposal. The player's character is a fan premise, never the canon protagonist. |
 | BGP17 | **How the world reads an outsider is a per-world dial.** Default: a quiet crossing nobody notices; worlds whose canon reacts to outsiders can notice later through their own mechanisms. Reason: drama comes from the world's laws, not a blanket rule. |
 | BGP18 | **The Village route becomes a means, not a notice.** Default: the main entry is the launch "Where to begin" list (BGP8). From inside another life, a crossing is a found means with a cost. The Village keeps its own campaign. Reason: the Village stops being a lobby, and in-play crossings still exist. |
@@ -1954,3 +1954,99 @@ holds the depth plan.
 | First | BGP15–BGP16 LOTM transmigration start, folded into round 25's launch-start work: host body, no purse carry, the old life paused if BGP7 lands, otherwise stated as one-way. | Sol medium, medium. Done: a fresh launch into Tingen wakes in a local's life with its own money and partial memories; save/reload/import keep it; no Village text appears. |
 | Second | Reword the Village Tingen and Soldier's Life entries as crossings with a carrier, or move them behind a found means (BGP18). Small, and removes the same-universe reading now. | Luna low, small. Done: no passage, posting or purse-transfer wording links two worlds. |
 | Third | Re-verify A Soldier's Life under the AD43 floor and close its A2 branches before adding depth. | Sol medium, small. Done: fresh rebuilt run through each premise with persistence, A2 rows each pass or are filed. |
+
+## Round 27: ways of crossing, LOTM's real mechanism, Proto23 and credit, 2026-10-26
+
+Weibao: "consider BGP16, the real lore reason, he never transmigrated but
+instead it was the backup plan of creator worthy?" Then: "We can have
+different ways of transmigrating and each way could have implications, this
+can be applicable for all worlds accordingly ... Proto23 is freely availible,
+but we should credit accordingly ... Should we absorbe everything from proto23
+as well? so Proto23 world, Yair world, and then our own and stuff?" Evidence:
+the saved LOTM wiki dump (`research/novels/lord-of-mysteries/wiki-api-2026-10-25`),
+the Proto23 repository metadata (no licence file, checked 2026-10-26) and the
+2026-10-14 absorb-all record. Public franchise twists are not sealed. Rules:
+AD1, AD2, AD4, AD10–AD13, AD23, WA14. Proposals, not accepted direction.
+
+### ACT NOW (done)
+
+- **BGP22: Village entrance reworded as a crossing.** The button now reads
+  "Cross to another world: Tingen" (fog icon instead of a train). The panel
+  says Tingen "lies in another world" and that crossing moves the life there
+  for good. "Your Frontier purse does not travel" became "The money you held
+  before crossing stays behind." Mechanics are unchanged: probationer starts
+  still keep the purse, now worded "The money you hold crosses with you",
+  which remains an open mismatch with AD11 until BGP15–BGP16 land.
+  Checks: `npm run build` PASS; `node --test tests/lotm_lives.test.js` PASS;
+  `node scripts/playtest/reconcile-master.mjs` PASS on the rebuilt bundle
+  (fresh origin, 1920×1080 and 1536×864 at 14/21px, enroll, Save/reload,
+  literal Import); headless MCP fresh game shows the new button.
+  Agent-verified, not human-reviewed.
+- **Soldier's Life text not edited.** Its wording lives in the private pack,
+  and its backlog (A5) says a changed pack identity is rejected by existing
+  saves. Reword it only with a pack version bump and compatibility check.
+
+### Correction to BGP15: what actually happened to Zhou Mingrui
+
+BGP15 called LOTM's mechanism "a soul from another world waking in a Tingen
+clerk's body". That is only how the opening looks. The later canon truth: the
+Sefirah Castle, a legacy of the Original Creator owned by the Celestial Worthy
+of Heaven and Earth for Blessings, held people's spirit bodies sealed in cocoons
+as part of that being's resurrection plans. Cocoons are released when set
+conditions are met; Zhou Mingrui's Luck Enhancement Ritual from an old Qin/Han
+book met them, and the original Klein had already died. Released transmigrators
+are pulled toward the Sefirah Castle's three pathways (Fool, Error, Door) by
+characteristic convergence, and an owner of the Castle faces the Worthy's
+corruption from Sequence 2. Zhou's Earth is the same planet's Pre-Epoch past,
+so in canon "another world" is really another era.
+
+| Code | Default, dial and reason |
+| --- | --- |
+| BGP23 | **Canon's way in is an engineered release, and it has strings attached.** Default for a canon-route LOTM start: you are a released cocoon, with the canon pulls (an affinity toward the three Castle pathways, convergence drawing you to that circle, a hidden claim on you that grows with rank). Dial: in 1349, only three cocoons had opened, so a fourth is a divergence (AD2) and the world may notice it. Reason: the book's own mechanism is the most faithful and the most dramatic. |
+| BGP24 | **Not every LOTM entrant needs to be a cocoon.** Default for the guided random start: our own multiverse crossing (BGP14) into a local who has just died, which matches the opening's mood without the Worthy's plan. Dial: the cocoon route is a chosen premise. Reason: making every life someone's resurrection vessel would force one plot on every run. |
+
+### ACCOUNT FOR NOW: ways of crossing, for every world
+
+A crossing method is part of a start record (LC4's "unusual means" part). Each
+method declares the same nine things, so worlds can mix them without new rules
+each time: **body, memories, base cheat, items and money, identity and
+papers, language, who notices (WA14), the former life's state (AD12), and
+obligations** (to an arranger, summoner or host's family).
+
+| Code | Method | Default implications | Fitting worlds (examples) |
+| --- | --- | --- | --- |
+| XM1 | Soul into a local who just died | Local body and its life (kin, rent, debts), fragments of host memory, memories and cheat carry, nothing physical carries, quiet arrival | LOTM opening, HP adult, most cities |
+| XM2 | Engineered release by a world power | As XM1, plus the arranger's hooks: affinities, pulls, a later claim | LOTM cocoons (BGP23), any world with a god, system or sect that "chose" you |
+| XM3 | Whole-body transport (portal, summoning circle, fall) | Body and carried items arrive; no papers; foreign money is worthless locally; language barrier; visibly foreign | Summoned-hero worlds, portal fantasy |
+| XM4 | Rebirth as an infant | Memories carry and may fade; childhood compresses (AD15); family ties are real | HP born wizard, cultivation clans |
+| XM5 | Sharing a living host | Host keeps a will; consent, conflict and discovery risk | Possession and body-share premises |
+| XM6 | Dream or projection visit | Nothing physical crosses; body sleeps at home; time-limited; the former life keeps running | Round-trip visits (a fit for Soldier's Life "Visit") |
+| XM7 | Summoned by locals | Summoner's contract and status; obligations first | Hero-summoning worlds |
+| XM8 | Native-born, past life wakes later | Full local identity; memories arrive at an age or trigger | Quiet-start worlds, Village |
+| XM9 | Time return to your own earlier self | Same world, earlier date; the world's later events are known but divergence follows (AD2) | Loop and regression premises, Gu-style rebirth |
+| XM10 | Carried by the base cheat or system | The cheat is the carrier and sets its own rules and costs | Any world, when the player holds such a cheat |
+
+| Code | Default, dial and reason |
+| --- | --- |
+| XM11 | **Show the method's nine answers before confirming.** Default: the start confirm step lists them in plain words. Reason: the method decides what you lose, and the player should choose knowingly (BGP9). |
+| XM12 | **Guided random picks a fitting method too.** Default: each world lists the methods that fit its canon or premise, weighted; a specific method is a means (AD23). Reason: suspenseful entry stays the default without breaking a world's logic. |
+| XM13 | **A world's canon method is a premise, not a mandate.** Default: canon methods (LOTM cocoons, Shadow Slave's Spell, a summoning) are offered where they fit, alongside our neutral crossing. Reason: AD1 lets premises vary; one canon mechanism should not dictate every life. |
+
+### Proto23, YAIR and our own worlds
+
+| Code | Finding or default |
+| --- | --- |
+| PW1 | **The YAIR world already is a world here.** The Village/Frontier is upstream YAIR (MIT, Miktaew), kept with its LICENSE and attribution. Current direction keeps it a test bed without new depth of its own. |
+| PW2 | **Proto23 is already heavily absorbed, but into the Village.** The 2026-10-14 absorb-all wave joined about seventeen Proto23 lanes (household, living gear, market, reading, salvage and others) into the shared engine and Village. USER_VISION §5 records "Proto23 becomes a world of its own" as Weibao's earlier direction. |
+| PW3 | **Freely available is not licensed.** The Proto23 repository (`23html/23html.github.io`) has no licence file, so by default its code and assets stay all-rights-reserved even though anyone can play it and read the source. Credit is owed either way, but it does not grant reuse. The project's existing rule (UC3) holds: take mechanics and shape language, write our own code, assets and content. The cheap way to widen this is asking 23html for a licence or written permission; that is Weibao's outward step to take. |
+| PW4 | **Default for a "Proto23 world": an original world drawing on Proto23's mechanics and feel, credited as inspiration,** not a rebuild of Proto23's own places, people and story. Engine verbs stay shared; the new world gets its own nouns (WA: engine owns verbs, world owns nouns). Reason: PW3, and a world we author can grow freely. |
+| PW5 | **Do not move existing Proto23-derived Village content.** Default: what is in the Village stays (saves hold it); the new world gets new content. Reason: moving nouns between worlds needs a save migration for little gain. |
+| PW6 | **One credits page.** Default: a repo `CREDITS.md` and an in-game Credits view list upstream YAIR (Miktaew, MIT), Proto23 (23html) as design inspiration, MIT forks used (for example Schoko), and book-world sources as references. The menu already links Proto23 and YAIR; this gathers them. Reason: credit in one findable place, kept current by each absorption pass. |
+
+### LATER / DELEGATE (ranked, not dispatched)
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | XM1–XM13 as a field on start records, used first by the LOTM launch start (BGP15/BGP24) with the cocoon route (BGP23) as a premise. | Sol medium, medium. Done: launch into Tingen shows the method's nine answers; the cocoon premise carries its pathway pull in state; save/import keep the method. |
+| Second | PW6 credits page. | Luna low, small. Done: `CREDITS.md` plus an in-game view, each entry with source link and licence status. |
+| Third | A Proto23-inspired original world (PW4), after current book-world priorities. | Sol medium, large. Done: its own start record and nouns, no copied Proto23 code, assets or text. |

@@ -12,11 +12,11 @@ import {districtById} from './book_world_lotm_districts.js';
 export const LOTM_WEEK_MINUTES=7*24*60;
 export const LOTM_PROFILES=Object.freeze({
  probationer:{id:'lotm.early_tingen.local_probationer@1',key:'probationer',label:'Begin as a Nighthawk probationer',beyonderTrack:true,cash:null,home:'evernight',start:L.workroom,
-  blurb:'You are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. Your own money carries over.'},
+  blurb:'You are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. The money you hold crosses with you.'},
  machinery:{id:'lotm.early_tingen.machinery_probationer@1',key:'machinery',label:'Begin as a Machinery team probationer',beyonderTrack:true,cash:null,home:'machinery',start:L.university,
-  blurb:'You are a clerk of the Steam and Machinery church\'s team in the university quarter, on the probationer track under its records officer. The Nighthawks are another church\'s team and another district. Your own money carries over.'},
+  blurb:'You are a clerk of the Steam and Machinery church\'s team in the university quarter, on the probationer track under its records officer. The Nighthawks are another church\'s team and another district. The money you hold crosses with you.'},
  storm:{id:'lotm.early_tingen.storm_probationer@1',key:'storm',label:'Begin as a Mandated Punisher probationer',beyonderTrack:true,cash:null,home:'storm',start:L.docks,
-  blurb:'You are a clerk of the Church of the Storm\'s Mandated Punishers at the docks, on the probationer track under the duty officer. The Nighthawks and the Machinery team hold other districts. Your own money carries over.'},
+  blurb:'You are a clerk of the Church of the Storm\'s Mandated Punishers at the docks, on the probationer track under the duty officer. The Nighthawks and the Machinery team hold other districts. The money you hold crosses with you.'},
  civil:{id:'lotm.early_tingen.new_identity_civil@1',key:'civil',label:'Begin under a new identity as civil staff',beyonderTrack:false,cash:5*P.pound,home:'evernight',start:L.workroom,
   contract:{weeklyPence:3*P.pound,termYears:5,secrecy:'for life',allowancePence:10*P.soli},
   // Proposed start budget: 29 pounds funded before entry, 24 spent, 5 remaining, no outstanding loan.
@@ -24,7 +24,7 @@ export const LOTM_PROFILES=Object.freeze({
   opening:{fundedPence:29*P.pound,debtPence:0,passageLegs:1},
   passage:{perLegPence:4*P.pound,certificateRequired:true},
   paidBefore:{papersPence:8*P.pound,clothesAndGoodsPence:12*P.pound},
-  blurb:'An adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. Your Frontier purse does not travel. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'}});
+  blurb:'An adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. The money you held before crossing stays behind. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'}});
 // Opening history uses the existing knowledge owner. It records paid costs, not fresh charges or invented items.
 export const lifeEntryEffects=key=>[{
  // The workroom situation begins at report-in, after enrollment. Opening history has no situation attribution.

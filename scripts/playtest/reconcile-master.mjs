@@ -15,7 +15,7 @@ try{
  assert(!(new URL(p.url()).searchParams.has('lotm_probe')));
  const door=p.locator('#location_actions_div [data-lotm-door]'),panel=p.locator('#lotm_panel');
  assert(await door.isVisible());assert(!(await panel.isVisible()));await door.click();
- assert.match(await panel.innerText(),/for good on this save/);assert.match(await panel.innerText(),/Your Frontier purse does not travel/);
+ assert.match(await panel.innerText(),/for good on this save/);assert.match(await panel.innerText(),/The money you held before crossing stays behind/);
  await p.screenshot({path:path.join(out,'tingen-choice-1920.png')});
  await panel.locator('[data-lotm="enroll"]').click();await p.waitForTimeout(350);
  const before=await s.save(),loc=await p.locator('#location_name_span').innerText();assert.match(loc,/Tingen/);

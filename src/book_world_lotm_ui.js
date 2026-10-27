@@ -52,7 +52,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  }
  // In-world entrance (field_ui.js workshop-door pattern): a Village place action that only opens this panel; it commits nothing.
  const door=node('button');door.type='button';door.className='location_choice_dropdown choice_travel';door.dataset.lotmDoor='';
- {const icon=node('i','train');icon.className='material-icons';icon.setAttribute('aria-hidden','true');door.append(icon,'Read the Tingen hiring notice');}
+ {const icon=node('i','blur_on');icon.className='material-icons';icon.setAttribute('aria-hidden','true');door.append(icon,'Cross to another world: Tingen');}
  // Choosing a new life is a large task, so it opens in the center with the shared Back (UR9, UR41), like Homes.
  door.addEventListener('click',()=>expandWorkspaceModule('lotm'));
  const localActions=()=>document.getElementById('location_actions_div');
@@ -65,7 +65,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   if(!v.enrolled){
    for(const b of bars.values())b.node.remove();bars.clear();
    bench.hidden=true;
-   status.textContent='Tingen is a foggy industrial city where three church teams hire clerks who may later be offered a Beyonder potion; a civil post under a new name is open too. Choosing a start moves this character\'s life to Tingen for good on this save, with no road back to the Village. Export first if you want to keep the Village life.';
+   status.textContent='Tingen lies in another world: a foggy industrial city where three church teams hire clerks who may later be offered a Beyonder potion; a civil post under a new name is open too. Crossing moves this character\'s life to Tingen for good on this save; no way back to the Village exists yet. Export first if you want to keep the Village life.';
    for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'Your first day in Tingen begins.'),!v.startable,v.startable?pr.blurb:v.startReasons.join(' '))),node('p',pr.blurb));
    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
   }
