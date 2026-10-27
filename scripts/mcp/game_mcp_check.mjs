@@ -190,6 +190,7 @@ async function blockedRoutes(c) {
     await c.tool('game_new', {seed: 251042, panel: 'lotm', url: 'http://localhost/?lotm_probe=1'});
     v = await c.tool('game_look', {scope: '#lotm_panel'});
     assert.ok(v.actions.some(a => /Begin as a Nighthawk/.test(a.text)), 'BLD2 localhost opt-in start exposed through native panel');
+    await c.tool('game_click', {key: '[data-lotm="pick_probationer"]'});
     await c.tool('game_click', {key: '[data-lotm="enroll"]'});
     v = await c.tool('game_look', {scope: '#lotm_panel'});
     assert.match(v.screen, /Tingen/);

@@ -8,7 +8,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
- let signature='',selected=null,benchOpen=false,planOpen=true;const bars=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null;const bars=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
@@ -60,13 +60,26 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  let doorObserver=null;
  function render(){
   const v=read(selected);syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
-  const next=JSON.stringify([v,notice.textContent,selected]);if(next===signature)return;signature=next;
+  const next=JSON.stringify([v,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
    for(const b of bars.values())b.node.remove();bars.clear();
    bench.hidden=true;
-   status.textContent='Tingen lies in another world: a foggy industrial city where three church teams hire clerks who may later be offered a Beyonder potion; a civil post under a new name is open too. Crossing moves this character\'s life to Tingen for good on this save; no way back to the Village exists yet. Export first if you want to keep the Village life.';
-   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'Your first day in Tingen begins.'),!v.startable,v.startable?pr.blurb:v.startReasons.join(' '))),node('p',pr.blurb));
+   status.textContent='Tingen lies in another world: a foggy industrial city where three church teams hire clerks who may later be offered a Beyonder potion; a civil post under a new name is open too. Pick a life to see what you keep and what you leave before you cross.';
+   const pick=v.profiles.find(pr=>pr.key===choosing);
+   if(!pick){
+    // Each entry axis shows the written choice and, beside it, what is listed but not written yet (WER2, WER6, WER8).
+    for(const axis of v.axes){const on=axis.options.find(o=>o.available),line=node('p',`${axis.label}: ${on.label}.`);line.dataset.lotmEntryAxis=axis.id;
+     for(const o of axis.options.filter(o=>!o.available)){const off=node('small',` Also listed: ${o.label}. ${o.reason}`);off.dataset.lotmEntryUnwritten=o.id;line.append(off);}
+     actions.append(line);}
+    for(const pr of v.profiles)actions.append(row(button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable,v.startable?'See what this life keeps and leaves before crossing.':v.startReasons.join(' '))),node('p',pr.blurb));
+    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
+   }
+   // The nine entry answers come before the irreversible step (WER3, UR43).
+   const box=node('div');box.dataset.lotmEntryAnswers=pick.key;box.append(node('h3',`Before you cross · ${pick.label.replace(/^Begin /,'')}`));
+   for(const [q,a] of pick.answers){const r=node('p');r.append(node('strong',`${q}. `),a);r.dataset.lotmAnswer=q;box.append(r);}
+   actions.append(box,row(button('Confirm and cross to Tingen',pick.key==='probationer'?'enroll':`enroll_${pick.key}`,()=>{choosing=null;run(()=>enroll(pick.key),'Your first day in Tingen begins.');},!v.startable,v.startable?'Crossing cannot be undone on this save.':v.startReasons.join(' ')),
+    button('Back to the lives','entry_back',()=>{choosing=null;signature='';render();},false,'Return to the list of Tingen lives. Nothing changes.')));
    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
   }
   const d=v.district;bench.hidden=false;

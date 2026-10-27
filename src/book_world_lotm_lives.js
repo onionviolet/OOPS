@@ -1,5 +1,5 @@
 // Life profiles for the Tingen branch (Q3, WA13): a start profile is body, means, debts, access and knowledge.
-// The local probationer (Q1) is on the Beyonder track under Warden Hale. The new-identity civil clerk
+// The local probationer (Q1) is on the Beyonder track under Warden Hale; a probationer life holds the host clerk's purse, not money carried in. The new-identity civil clerk
 // arrives under an assumed name, with cash and no papers carried over, and is hired as civil staff: a contract
 // (F7, F8, F17), not initiation. Source facts: papers 8 pounds, clothes and goods about 12 (R), cash left 5 pounds,
 // third-class passage 4 pounds a leg, an ocean ticket needs an official certificate [494 p20, p53-p56]; civil staff
@@ -10,13 +10,15 @@ import {LOTM_PENCE as P,LOTM_IDS as I,LOTM_LOCATIONS as L} from './book_world_lo
 import {eq,gte,all,af,has,no,money,know,cmd} from './book_world_lotm_kit.js';
 import {districtById} from './book_world_lotm_districts.js';
 export const LOTM_WEEK_MINUTES=7*24*60;
+// A probationer life wakes in a local clerk's body and keeps the clerk's purse (WER9, AD11). Proposed amount.
+const HOST_PURSE=2*P.pound;
 export const LOTM_PROFILES=Object.freeze({
- probationer:{id:'lotm.early_tingen.local_probationer@1',key:'probationer',label:'Begin as a Nighthawk probationer',beyonderTrack:true,cash:null,home:'evernight',start:L.workroom,
-  blurb:'You are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. The money you hold crosses with you.'},
- machinery:{id:'lotm.early_tingen.machinery_probationer@1',key:'machinery',label:'Begin as a Machinery team probationer',beyonderTrack:true,cash:null,home:'machinery',start:L.university,
-  blurb:'You are a clerk of the Steam and Machinery church\'s team in the university quarter, on the probationer track under its records officer. The Nighthawks are another church\'s team and another district. The money you hold crosses with you.'},
- storm:{id:'lotm.early_tingen.storm_probationer@1',key:'storm',label:'Begin as a Mandated Punisher probationer',beyonderTrack:true,cash:null,home:'storm',start:L.docks,
-  blurb:'You are a clerk of the Church of the Storm\'s Mandated Punishers at the docks, on the probationer track under the duty officer. The Nighthawks and the Machinery team hold other districts. The money you hold crosses with you.'},
+ probationer:{id:'lotm.early_tingen.local_probationer@1',key:'probationer',label:'Begin as a Nighthawk probationer',beyonderTrack:true,cash:HOST_PURSE,home:'evernight',start:L.workroom,
+  blurb:'You are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. The clerk\'s own purse of 2 pounds is yours; the money you held before crossing stays behind.'},
+ machinery:{id:'lotm.early_tingen.machinery_probationer@1',key:'machinery',label:'Begin as a Machinery team probationer',beyonderTrack:true,cash:HOST_PURSE,home:'machinery',start:L.university,
+  blurb:'You are a clerk of the Steam and Machinery church\'s team in the university quarter, on the probationer track under its records officer. The Nighthawks are another church\'s team and another district. The clerk\'s own purse of 2 pounds is yours; the money you held before crossing stays behind.'},
+ storm:{id:'lotm.early_tingen.storm_probationer@1',key:'storm',label:'Begin as a Mandated Punisher probationer',beyonderTrack:true,cash:HOST_PURSE,home:'storm',start:L.docks,
+  blurb:'You are a clerk of the Church of the Storm\'s Mandated Punishers at the docks, on the probationer track under the duty officer. The Nighthawks and the Machinery team hold other districts. The clerk\'s own purse of 2 pounds is yours; the money you held before crossing stays behind.'},
  civil:{id:'lotm.early_tingen.new_identity_civil@1',key:'civil',label:'Begin under a new identity as civil staff',beyonderTrack:false,cash:5*P.pound,home:'evernight',start:L.workroom,
   contract:{weeklyPence:3*P.pound,termYears:5,secrecy:'for life',allowancePence:10*P.soli},
   // Proposed start budget: 29 pounds funded before entry, 24 spent, 5 remaining, no outstanding loan.

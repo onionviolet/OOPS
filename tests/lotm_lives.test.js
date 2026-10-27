@@ -27,9 +27,28 @@ test('an ordinary save begins Tingen from the Village and a refusal names the un
  at(o.box.p,'Village');o.host.enroll('probationer');
  assert.deepEqual(o.host.view().startable,undefined);assert.equal(o.host.view().profile,'probationer');
 });
-test('the probationer keeps their money and the civil clerk arrives with only the profile purse (cash does not travel)',()=>{
- assert.equal(begin('probationer',77).box.p.external.money,77);
- assert.equal(begin('civil',77).box.p.external.money,5*P.pound);
+test('money does not cross: each life holds its own purse and the entry record keeps what stayed behind (WER9)',()=>{
+ for(const [key,purse,method] of [['probationer',2*P.pound,'crossing'],['storm',2*P.pound,'crossing'],['civil',5*P.pound,'in_person']]){
+  const {box}=begin(key,77);
+  assert.equal(box.p.external.money,purse);
+  assert.deepEqual(box.p.state.lotm.entry,{era:1349,method,host:'adult',leftBehind:{money:77}});
+  assert.ok(validateLotmState(box.p.state));
+ }
+});
+test('the start view answers the nine entry questions per life, and they match what enrolling does (WER3)',()=>{
+ const v=hostOver(bare(77)).host.view();
+ assert.deepEqual(v.axes.map(a=>a.id),['era','method','host']);
+ for(const a of v.axes){assert.equal(a.options.filter(o=>o.available).length,1);for(const o of a.options.filter(o=>!o.available))assert.match(o.reason,/^Not written yet/);}
+ for(const pr of v.profiles){
+  assert.deepEqual(pr.answers.map(([q])=>q),['Body','Memories','Base cheat','Money and items','Name and papers','Language','Who notices','Your old life','What you owe']);
+  const money=pr.answers.find(([q])=>q==='Money and items')[1],purse=LOTM_PROFILES[pr.key].cash/P.pound;
+  assert.match(money,new RegExp(`${purse} pounds`));assert.match(money,/stays behind/);
+ }
+});
+test('a save enrolled before the entry record still loads; a malformed record is refused',()=>{
+ const {box}=begin('probationer');const old=structuredClone(box.p.state);delete old.lotm.entry;assert.ok(validateLotmState(old));
+ const bad=structuredClone(box.p.state);bad.lotm.entry.method='teleport';assert.throws(()=>validateLotmState(bad),/entry record/);
+ const extra=structuredClone(box.p.state);extra.lotm.surprise=1;assert.throws(()=>validateLotmState(extra),/Unsupported Tingen branch fields/);
 });
 test('earn: the clerk is paid weekly by contract; the probationer has no wage',()=>{
  let {box}=begin('civil');let p=run(box.p,'report_in');
@@ -71,7 +90,7 @@ test('opening means balance and both earned purses survive a serialized save wit
   assert.ok(validateLotmState(restored.state));assert.ok(validateLotmEnvelope(save(restored)));
   assert.equal(hostOver(restored).host.view().profile,key);
   assert.deepEqual(restored,snapshot,'reading and validating must not mint money or rewrite history');
-  assert.equal(restored.external.money,key==='civil'?5*P.pound+3*P.pound+12-2*P.soli:77+12-2*P.soli);
+  assert.equal(restored.external.money,key==='civil'?5*P.pound+3*P.pound+12-2*P.soli:2*P.pound+12-2*P.soli);
   if(key==='civil')refuses(restored,'collect_pay');
  }
 });

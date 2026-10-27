@@ -14,6 +14,7 @@ import {pathwayRows} from './book_world_lotm_rows.js';
 import {generatedRows} from './book_world_lotm_generated.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
+import {validEntryRecord} from './book_world_lotm_entry.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
@@ -30,7 +31,9 @@ export function validateLotmState(state){
   return true;
  }
  jsonData(d);
- assert(d&&typeof d==='object'&&!Array.isArray(d)&&Object.keys(d).length===lotmEnvelopeFields.length&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k)),'Unsupported Tingen branch fields.');
+ // `entry` (how this life got in, WER2-WER9) is optional: saves enrolled before it hold none and stay valid.
+ assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'),'Unsupported Tingen branch fields.');
+ assert(!Object.hasOwn(d,'entry')||validEntryRecord(d.entry),'Unsupported Tingen entry record.');
  assert(d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===LOTM_SOURCE_SNAPSHOT&&d.sourceHash===LOTM_SOURCE_HASH&&PROFILE_IDS.includes(d.entryProfile),'Unsupported Tingen source or entry profile. Preserve this save for its matching reader.');
  assert(natural(d.initializedAt)&&d.initializedAt<=state.clock,'Invalid Tingen activation time.');
  assert(s&&a.player?.worldId===I.world&&state.worlds?.[I.world]&&s.people?.player?.life!=null&&s.people.player.body?.id==='native.player.body'&&s.people.player.body.form==='human','The Tingen branch needs its one actual native player body.');

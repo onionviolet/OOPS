@@ -13,6 +13,7 @@ import {pathwayRows,allRows} from './book_world_lotm_rows.js';
 import {generatedRows,generatedDrinkIds} from './book_world_lotm_generated.js';
 const examIds=new Set(allRows.filter(r=>r.exam).map(r=>`book.lotm.${r.exam.currentId||r.exam.id}`));
 import {LOTM_PROFILES,profileKeyOf,lifeEntryEffects} from './book_world_lotm_lives.js';
+import {entryRecord,entryAnswers,LOTM_ENTRY_AXES} from './book_world_lotm_entry.js';
 import {causeView} from './book_world_lotm_causes.js';
 import {brokerView} from './book_world_lotm_broker.js';
 import {gradeRiteAtTransition} from './book_world_lotm_ritual.js';
@@ -91,8 +92,9 @@ export function createLotmHost(ports){
   const plan=base(cur,{external,gameplay,vitals,equipment});
   if(enrolled){plan.acquisitions=[...enrolled.acquisitions];plan.unlocks=[...enrolled.unlocks];}
   plan.state.sequence++;plan.state.schema=11;enrollLotmBranch(plan.state,profileKey);
-  // A new identity carries no cash (F25): the profile's own purse replaces the frontier money; the panel says so before the click.
-  if(profile.cash!=null)plan.external={...plan.external,money:profile.cash};
+  // Money does not cross (WER9, F25): the life's own purse replaces the money held before crossing, which the entry record keeps for a later return.
+  const leftBehind=Math.max(0,Math.floor(Number(plan.external?.money)||0));
+  plan.external={...plan.external,money:profile.cash};plan.state.lotm.entry=entryRecord(profileKey,leftBehind);
   for(const [owner,stock] of Object.entries(LOTM_NATIVE_STOCK))plan.gameplay[owner]={inventory:copy(stock),skills:{},reputation:{}};
   applySimulationEffects(plan,lifeEntryEffects(profileKey),{...c,actorId:'player'},registry,'book.lotm.enroll');
   plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start};
@@ -135,7 +137,7 @@ export function createLotmHost(ports){
  function tick(){const s=state();if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  function view(selected=null){
   const s=state(),d=s.lotm;
-  if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb}))};
+  if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb,answers:entryAnswers(key)}))};
   const c=ctx(s),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');

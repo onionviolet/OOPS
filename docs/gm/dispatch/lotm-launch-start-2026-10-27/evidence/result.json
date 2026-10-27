@@ -1,0 +1,48 @@
+{
+  "bundleSha256": "e2836f710d9ef713e0c159f575397ef2c1c2c57684da60b75eb3a2dfc935bfca",
+  "route": "fresh Village notice → Tingen life pick → nine entry answers → confirm → native Save/reload/Export/literal Import",
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "geometry": {
+        "width": 1536,
+        "height": 864
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "geometry": {
+        "width": 1536,
+        "height": 864
+      }
+    }
+  ],
+  "checks": [
+    "entry answers shown before commit; purse 480 pence; Village money 102 recorded as left behind",
+    "ordinary enrollment and exact LOTM slice/location persist through native reload and literal Import"
+  ],
+  "status": "PASS",
+  "errors": []
+}
