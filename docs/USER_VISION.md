@@ -6742,3 +6742,7 @@ history. The worry about UI coverage is the next planning item
 ## Other systems to build top down (2026-10-27)
 
 Weibao's words: "Other systems to build from top down? More to consider?" (first recorded in the adoption entry above). Working direction under that entry: [plan round 11](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) ranks five systems to design from the book's choices (money and livelihood, household schedules, knowledge flow, law and investigation, danger and risk), parks eight with triggers, and adds one shared calibration test. Proposed rule WA45 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
+
+## UI coverage for every system (2026-10-27)
+
+Weibao's words: "What worries me is the UI flow, and how to give Ui for everything accordingly?" (first recorded in the adoption entry above). Planning response, proposals only: [UI coverage plan](gm/dispatch/ui-coverage-2026-10-27/PLAN.md) keeps today's homes fixed (20 routes, 5 regions, 4 center modes) and gives every system a UI contract over eight shared primitives. Proposed rules UR76-UR82 await his yes.
