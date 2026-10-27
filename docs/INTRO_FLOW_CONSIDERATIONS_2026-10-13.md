@@ -2110,3 +2110,58 @@ eleven). Split by cost:
 | First | Add era (ERA1/ERA2) and host age (YS1/YS5) fields to the LOTM launch start alongside XM methods. | Sol medium, medium. Done: launching a 1352 cocoon start and a 1349 neutral start each show their nine answers; a teen host is refused a clerk post with a reason and offered another route; save/import keep era, method and age. |
 | Second | YS2 summarized-childhood start for one world (HP is the cheapest, since school already ships). | Sol medium, medium. Done: three formative choices change starting skills or ties visibly, and play begins at eleven. |
 | Third | ERA3 source pass for *Circle of Inevitability*. | Haiku/Sonnet source lane, medium. Done: an implementation-ready brief under WPR rules, no runtime. |
+
+## Round 29: going back to the Village, start and menu UI, the desktop app, 2026-10-27
+
+Weibao: "Ui considerations for the Various starts or the menus and more? more to consider? Is it possible to go back to playing through 'villiage'? Maybe we can just use the fact that it is a electron app accordingly?"
+
+Read against the code after the [Tingen entry slice](gm/dispatch/lotm-launch-start-2026-10-27/CHECKPOINT.md) (`bcebdf020`). Codes: RET for going back, SMU for start and menu UI, DSK for the desktop app. Applies WER9, WER13, WER16, WER17, AD12, AD39, UIV1–UIV7.
+
+### Going back to the Village
+
+| Code | Finding or proposal | Evidence and consequence |
+| --- | --- | --- |
+| RET1 | **The game already has paused lives with a way back.** The Continuing connection system keeps several lives in one save. Starting a new life stores the old one as a full snapshot (the whole save minus the continuation record), and "Resume <life>" swaps back reciprocally. The old life is not healed or rewound. | `src/continuation_state.js` (`nativeSnapshot`, `resume:`), `src/continuation_ui.js`. This is AD12's default already built: the former life pauses and return depends on means. |
+| RET2 | **The Tingen crossing does not use it.** `enroll` rewrites the current life in place: the world id changes and the Village money is replaced. Nothing of the Village life is kept except the money figure in `state.lotm.entry.leftBehind`. | `src/book_world_lotm_host.js`. This is why the confirm step says "No way back is written yet". |
+| RET3 | **Proposed default: cross by starting a new life.** Confirming Tingen pauses the Village life as a snapshot and starts a Tingen life tethered to it. The Village life then shows under Continuing connection as "Resume Village life". Dial: a world whose crossing is in person (the civil life, XM3) leaves the Village life empty. Its resume can say so and pick up where the body left. Reason: the reciprocal route already exists, and the snapshot holds everything, including money, so `leftBehind` becomes a pointer, not a store. | Cost: one adapter seam and a confirm-text change. No new save shape beyond the existing continuation record. |
+| RET4 | **Travel out of a Tingen life is refused today.** Eligibility requires the player to be in the Frontier world ("Return from this world needs its own temporal means"). Because a snapshot keeps the whole save, a Tingen life can be paused as safely as a Village one. An LOTM adapter needs to allow travel-only commands (resume) from `book.lotm.tingen`, while rewinds stay refused. | `continuationEligibility`. Dial: the in-world means. The base cheat's connection is the default carrier (memories and cheat cross, nothing physical). LOTM may later offer its own mechanisms, such as a dream visit or a rite, with costs. |
+| RET5 | **Time while away.** A paused life is frozen at the moment you left. Default: frozen, which is the existing behavior. Dial: a world can run on while you are away (WER17's time rate) where its premise says so. | Account for it in the confirm text ("The Village waits where you left it"). |
+| RET6 | **Saves crossed before RET3 have no Village snapshot.** Resume cannot invent one. Default: they keep playing Tingen; their entry record shows the money left behind. Dial: a "begin a fresh Village life" route through the existing `fresh` command, labelled as new. | WER16. Do not fabricate a past life. |
+| RET7 | **The carry ledger should hear about crossings.** `carry_ledger.js` (IM21) records what crossed between worlds, and its names map lacks Tingen. The nine answers are the natural entries for a crossing. | `src/lives_carry_domain.js` `WORLD_NAMES`. This gives the entry record a real consumer (FLR4). |
+
+### Start and menu UI
+
+| Code | Finding or proposal | Evidence and consequence |
+| --- | --- | --- |
+| SMU1 | **Tingen shows no date or weather.** After crossing, the header reads "Local weather unavailable" and "Local date unavailable", although the start now names 1349. Default: show the Tingen calendar date and the fog/weather from the world's own records, or a plain "Tingen, 1349" if only the year is known (UIV6 known/guessed/unknown). | Seen in the MCP walk, 2026-10-27. |
+| SMU2 | **Money reads in Village coins inside Tingen.** Five pounds shows as "1S 20C". Default: the money display uses the current world's units (pounds, soli, pence for Tingen), from one per-world formatter. | Pre-existing; noted in the slice checkpoint. |
+| SMU3 | **Five places talk about lives and worlds:** Your beginning, Worlds, Optional worlds, Continuing connection, and Lives & inheritance, plus the Tingen door. Default: one "Lives and worlds" hub with three tabs (start or cross, your lives with resume, records and inheritance). Existing panels move in as sections; doors in places stay as in-world entrances that open it. Reason: one grammar for one act (BGP8) and less hunting. | Discovery gating (BGP5) still applies inside the hub. |
+| SMU4 | **The nine answers should compare, not just list.** Default: a two-column "now → after crossing" view, showing only rows that change in bold and the rest collapsed. Reason: the player wants the difference, and nine paragraphs are a wall at 1920. | UR41 disclosure; WER3. |
+| SMU5 | **Confirm text must follow the mechanics.** When RET3 lands, "No way back is written yet" becomes "Your Village life pauses here. Resume it from Lives and worlds." Old-save wording stays for RET6 saves. | WER3 mismatch rule. |
+| SMU6 | **Launch stays PLAY.** The deferred start menu (2026-10-20 direction) can later show "Continue: <life> in <world>" once several lives exist. Not before Weibao revisits that direction. | Direction preserved; listed so it is not lost. |
+| SMU7 | **Per-world skin.** Tingen could use a fog palette and its own place-header art while the shared layout stays. Default: tokens per world, no layout change. | UR65 tokens; flavor, low priority. |
+
+### The desktop app
+
+| Code | Finding or proposal | Evidence and consequence |
+| --- | --- | --- |
+| DSK1 | **In-save lives come first, the app second.** RET3 works in the browser and the app alike and keeps one continuing self (AD10, AD12). The Electron shell is a convenience layer on top, not the way back. | `desktop/README.md` (AD39): the page reaches the host only through `window.yairpgHost`, with browser fallbacks. |
+| DSK2 | **Named save slots in the app menu.** Default: a native "Saves…" window listing named saves (the app already mirrors backups), with "Save a copy as…" and "Open". It covers "Export first" without file juggling: fork a run before a big choice, keep a Village-only save. Dial: the browser keeps Export and Import. | `mirror_host.cjs` and `save_mirror.cjs` already write and restore snapshots, so this extends that owner. |
+| DSK3 | **Two lives side by side needs separate storage.** Two windows on one origin share one save. The game already makes only one tab writable ("Use the writable game tab"). Parallel windows would need one Electron session partition per slot. Default: do not do this until a reason to play two lives at once appears; a pop-out view of the paused life (read-only) is the cheaper version. | `ownsSave` single-writer guard in `src/main.js`; `popout_host.cjs` exists. |
+| DSK4 | **App menu entries mirror in-game ones.** File → New life, Saves…, Export; World → Lives and worlds. Default: menu items call the same in-game commands, so nothing exists only in the app. | `app_menu.cjs`. |
+
+### Disposition
+
+- **ACT NOW:** none. The pushed slice is truthful about having no way back.
+- **ACCOUNT FOR NOW:**
+  - Any further LOTM entry work goes through the continuation seam (RET3/RET4), not more in-place state.
+  - `leftBehind` stays only as a pointer once snapshots exist.
+
+**LATER / DELEGATE:**
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | RET3 + RET4 + SMU5: cross to Tingen as a new life with the Village paused, and resume it from Continuing connection. | Sonnet or a Claude session, medium. Done: in a fresh browser run, cross to Tingen, earn something, resume the Village with its old money and items intact, resume Tingen again with its state intact; save, reload and Import between each hop. |
+| Second | SMU1 + SMU2: Tingen date and money in Tingen units. | Sonnet, small. Done: the header shows the Tingen date or year, and 5 pounds reads as pounds at 1920. |
+| Third | RET7: crossings write carry-ledger entries. | Sonnet, small. Done: the ledger lists the Tingen crossing with what carried and what stayed. |
+| Later | SMU3 hub, SMU4 comparison view, DSK2 save slots, DSK4 menu. | Each its own slice; SMU3 needs a mockup first. |
