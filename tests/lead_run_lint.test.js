@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {lintScenes, lintCensus, parseShard, summarize} from '../scripts/lead_run/lint_lead_run.mjs';
+import {lintScenes, lintCensus, lintLoops, parseShard, summarize} from '../scripts/lead_run/lint_lead_run.mjs';
 
 // Invented fixture text, not source prose.
 const shard = parseShard('=== 第1章 测试 | member x\np1: 小镇有一座钟楼。\np2: 面包两便士。\np3: 无关。');
@@ -43,4 +43,15 @@ test('a one-paragraph drift is tolerated, a paraphrased name is not', () => {
 test('quote guard flags long source-script runs outside the name field', () => {
     const issues = lintCensus([row({note: '这是一段很长的中文句子'})], shard);
     assert.ok(issues.some(i => i.code === 'quote-guard' && i.field === 'note'));
+});
+
+test('schema 1.2 requires an action class and label on steps; loops need rhythm, owner and evidence', () => {
+    const ok = scene({schema: 'lead-run/1.2', steps: [{verb: 'buy', class: 'trade', label: 'S', time: {minutes: 10}}]});
+    assert.deepEqual(lintScenes([ok]), []);
+    const bad = summarize(lintScenes([scene({schema: 'lead-run/1.2', steps: [{verb: 'pocket', class: 'fidget', label: 'S'}]})]));
+    assert.ok(bad['action-class']);
+    const loop = {schema: 'loop/1.2', id: 'test.loop.bake', trigger: 'dawn', steps: ['work', 'trade'], rewards: ['money'],
+        rhythm: 'schedule', owner: 'gap', evidence: [{label: 'I', locator: 'zh 第1章 p2', kind: 'inferred'}]};
+    assert.deepEqual(lintLoops([loop]), []);
+    assert.ok(summarize(lintLoops([{...loop, rhythm: 'sometimes', owner: ''}])).rhythm);
 });

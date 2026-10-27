@@ -96,3 +96,21 @@ points F1-F8 are settled here; the lint enforces the first three.
 | `present` | Scene | `[ids]` | Entities in the scene the lead does not interact with; each is placed at the scene's place and date (F8, WA22) |
 | `timeOfDay.precision` | Scene | `day`, `band`, `hour`, `minute` | The finest time the text supports; `hour` or `minute` only when the text gives a clock time, a bell count or an appointment |
 | `window` | Scene | `{from, to}` in the same form as `date`, plus `precision` | For appointments and events another life could overlap |
+
+## Schema 1.2 (actions, loops and the longer-read fixes, 2026-10-27)
+
+Tags `lead-run/1.2`, `census/1.2`, `loop/1.2`; the lint accepts 1.1 and 1.2. See
+[PLAN rounds 5 and 6](PLAN.md#14-round-6-actions-gameplay-loops-lived-days-and-proposed-rules-2026-10-27).
+
+| Change | Shape |
+| --- | --- |
+| Step and option action class (proposed WA25) | `class` from study, practice, research, craft, trade, work, travel, fight, socialize, rest, care, appraise, ritual, other; plus `inputs`, `time: {minutes} or {band}`, `outputs`, `gains: [{kind: skill/knowledge/standing/money, id, amount}]`, `requires`, `label` (lint: `action-class`, `action-label`, `action-time`) |
+| Loop file `*_loops.jsonl` (proposed WA26) | `{schema: 'loop/1.2', id: '<world>.loop.<slug>', trigger, steps: [classes], rewards, rhythm: schedule/deadline/opportunity, period, owner (a YAIRPG file or 'gap'), progression, evidence}` (lint: `--loops`) |
+| Scene `pov` (RF1) | `lead` or a person id; lead runs use only `lead` |
+| Evidence kind `dream:<who>` (RF3) | For dream content; lint accepts it |
+| Deadlines with no stated date (RF3) | `window: {anchor, offsetDays, label: 'I'}` with the assumption in a fill |
+| Hazards (RF3) | Footprint hazards may include `weather` |
+| `deps` (RF4) | Beat ids only; places go in `touched` |
+| Kind `creature` | Added to the shared kind list |
+| `schema` key | Every row carries the tag as its `schema` field; organization ids use `organization`, never `org` |
+| `firstVolume` | Null when the shard does not show it; never guessed |

@@ -604,3 +604,260 @@ blanks; detail-to-surface table; MS1-MS9 recorded.
 | PL-B2 | `model` policy with choice-point fidelity score | Sonnet high, opus review | Medium | On the first lived week, k of n canon choices reproduced, reported |
 | PL-L14 | One counterfactual demo: remove one knowledge fact at one date and re-run | Sonnet, after PL-B2 and PL-E0 | Small | A divergence report with scene statuses (PC2) |
 | PL-L15 | Shop-type stock grammar for Tingen, keyed by place and day (C2) | Sonnet, after PL-E1 | Medium | Two visits on the same day give the same stock; the band matches stated price anchors |
+
+---
+
+## 13. Round 5: measured reading, time precision, read-ahead and the lead play flow (2026-10-27)
+
+Weibao's questions this round (verbatim in USER_VISION): a longer sample to find what the
+lead needs to play through all his own options while also building what exists but is not
+touched; whether events need to be down to the hour; whether tiny reads save or cost
+tokens; reading ahead so an implementor catches up later; the best chapters per read; and
+the UI flow for playing the lead's life as in the book. Proposals except where marked built.
+
+### 13.1 What ran (AU and WPR7 ledger)
+
+Six haiku readers, fresh contexts, chapters 1-15 of volume 1 (7.0% of the volume's 213
+chapters), all output private and gitignored. Token counts are the harness's reported
+subagent totals [S task notifications].
+
+| Run | Chapters | Source chars | Tool calls | Tokens | Rows (scenes / census / fills) | Tokens per source char | Tokens per row | Lint on return |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| s1 (schema 1.0) | 1-3 | 8,747 | 5 | 137,571 | 23 / 82 / 0 | 15.7 | 1,310 | not applicable |
+| s1 re-run (1.1) | 1-3 | 8,747 | 6 | 116,813 | 5 / 47 / 5 | 13.4 | 2,049 | 1 code (date label) |
+| s2 | 4-6 | 10,465 | 9 | 236,715 | 11 / 223 / 15 | 22.6 | 951 | **failed**: reader did not run the lint; 22 names not at locator, 17 id namespaces, schema tags missing |
+| s3 | 7-8 | 7,670 | 11 | 155,767 | 5 / 173 / 5 | 20.3 | 851 | pass, after over-budget self-fixes |
+| s4 | 9-11 | 10,000 | 6 | 142,743 | 8 / 104 / 6 | 14.3 | 1,210 | pass first time |
+| s5 (lean protocol) | 12-14 | 9,683 | 7 | 154,059 | 9 / 121 / 6 | 15.9 | 1,133 | pass after 2 fixes |
+| s6 (lean protocol) | 15 | 2,738 | 5 | 108,289 | 4 / 52 / 6 | 39.6 | 1,747 | pass |
+
+Totals for chapters 1-15 under schema 1.1 or later: 42 scenes, 720 census rows, 43 fills,
+89 options (47 not taken), 4 scenes with hour or minute precision out of 37 in chapters 4-15.
+
+Coordinator review (WPR18-WPR19): the s2 reader reported a money conflict between two
+paragraphs; opened at source, the two agree (one note spent at each of two shops), so the
+claim was a misreading and is not folded. Earlier spot checks: 5 of 5 locators correct.
+
+### 13.2 Do tiny reads save tokens? No: they cost more per chapter
+
+Fitting the runs with similar tool counts (s4 and s6): about **95,000 tokens of fixed
+overhead per reader** (brief, schema, and the whole context resent on every tool call) plus
+about **4.8 tokens per source character** [I, two-point fit, checked against s1 and s5 within
+about 15%]. So:
+
+| Shard size | Predicted tokens | Per source char |
+| --- | --- | --- |
+| 1 chapter (about 3,000 chars) | about 110,000 | about 37 |
+| 3 chapters (about 10,000) | about 143,000 | about 14 |
+| 4 chapters (about 13,000, over the AU cap) | about 157,000 | about 12 |
+
+The big lever is **tool calls, not shard size**: s2 (9 calls) and s3 (11) cost 40-65% more
+than s4 (6) for similar text, because each call resends everything so far. The "lean"
+four-call protocol did not hold (7 and 5 calls) because the readers read the brief and the
+schema separately and fixed their own output. Overrun causes: a reader rereading its own
+files, self-fixing after the lint, and the brief arriving as a separate file.
+
+Whole-volume estimate: chapters average about 3,300 characters [S 49,303 chars / 15
+chapters], so volume 1 is about 700,000 characters, about 61 three-chapter shards and about
+9 million haiku tokens at today's rate [I]; cutting each reader to four calls would save
+perhaps 20-30% [I].
+
+### 13.3 Best chapters per read
+
+**Default: about three chapters, 8,000 to 11,500 Chinese characters, split at a scene
+boundary** (proposed WA30). Evidence: errors tracked whether the reader ran the lint, not
+shard size (s2 failed without it; s3, s4, s5 and s6 passed with it); census recall varied by
+reader far more than by size (16 to 87 rows per chapter); one-chapter shards paid the
+overhead three times over. Split by scene rather than chapter when a scene crosses the
+boundary (`continues`), and keep two-chapter shards when the next chapter would pass
+11,500 characters. Going larger needs a change to the AU 12,000-word cap, which is
+Weibao's call, and buys only about 15% per character.
+
+### 13.4 Hours and minutes: where they matter
+
+Only 4 of 37 scenes in chapters 4-15 had hour or minute precision, each from a bell, a
+pocket watch, a stated recurring time or the night hour. Proposed WA29:
+
+| Case | Precision | Why |
+| --- | --- | --- |
+| Appointments, interviews, recurring gatherings with a stated hour | minute window | Another life can be there or miss it |
+| Opening hours, shop and office hours | hour | Decides whether an action is possible |
+| Bells and public clocks | hour | The world's own clock signal, shown to the player |
+| Transit and walking times | minutes as a duration | Fill the lived day correctly (LP3) |
+| Deadlines with a stated day | day plus band | A day is enough unless the text sets an hour |
+| Routine meals, chores, rest, most scenes | band | Nothing reads a minute here |
+
+The engine runs in minutes already (`src/book_world_hp_facts.js` uses minute clocks), so
+this is about **what readers must extract**, not what the engine can hold. Cost: almost
+none, because readers record a time only when the text gives one; the bot fills the rest
+from schedules.
+
+### 13.5 Read ahead, catch up later
+
+Yes, once the schema is stable. An advance ledger per shard holds everything an implementor
+needs without rereading: scenes, census, fills, untaken options, loops, open questions,
+and a **shard header row** (proposed WA31): schema version, reader model, source member
+hashes, date, lint result, audit grade (A: lint pass plus five locators and every conflict
+checked; B: lint pass only; C: lint failed). Rules:
+
+1. An implementor uses grade A, or grade B after a five-locator check; grade C is reread.
+2. A minor schema change (1.1 to 1.2) converts by script; a major change rereads.
+3. **Catch-up checklist** for the implementor: run the inventory script (section 3) against
+   the current pack, list ledger ids now present, partial or missing; reconcile cross-shard
+   ids first (see 13.7 RF2); then take the missing list for the lived week in order.
+4. Freshness: a repo change that renames a pack id updates the id map, not the ledger.
+
+Recommendation: read the rest of volume 1 in advance only after PL-L7's v1.2 and the
+cross-shard id registry (RF2) land, and after Weibao's yes on the budget (Q8 at about
+9 million haiku tokens).
+
+### 13.6 The lead's play flow in the UI
+
+The bot and a player-as-lead use the same screens; the bot proves the path first. Playing
+**as** the lead needs Q5 (the WER11 wording); until then this flow is for the bot run and
+for a later decision. Target viewports 1920x1080 and 1536x864 (standing UI priority).
+
+| Element | What the player sees | Existing owner to reuse |
+| --- | --- | --- |
+| **Scene card** | Where and when, the goal, and the options: the canon choice and the untaken ones (playable at their rung or marked as not built) | Storylet deck and UI (`src/storylet_deck.js`, `storylet_ui.js`) |
+| **The lived day** | Ordinary panels between scenes: go, shop, work, cook, rest, family, with the clock strip and purse | Existing location, shop and household panels; direct paths (UR21) |
+| **Diary and return note** | What happened today in plain words, beat statuses, and the witness-level line | Chronicle (`src/chronicle.js`) and return notes (PX44) |
+| **Clocks and amounts** | Bells, time band, purse with coin rounding, stated anchors ticking | Clock and money surfaces (12.6) |
+| **Book line toggle** | "Follow the book" shows the next canon scene as optional guidance; turning it off leaves only the life | New small panel; progressive disclosure (UR42) |
+
+**Minimal first screen:** the lodging room at night on day one: the scene card with its
+goal and options, the purse and clock strip, the room's look text, and one exit to the
+washroom. Done check: the bot reaches scene 2 through clicks at 1920x1080 and 1536x864,
+saves, reloads and imports with the same state.
+
+### 13.7 The longer sample: necessary core and the untaken-option ledger
+
+**Unit:** chapters 1-15 now (done: they cover the opening days through the first job offer
+[I]); the next unit is "one lived week" measured in story days, not chapters.
+
+**Method:**
+1. *Necessary core* = everything in `touched` for taken steps and options, plus every
+   `needs` id of a taken option (what must be built to replay the book).
+2. *Untaken-option ledger* = each untaken option with its `needs` (47 so far). Each gets a
+   stub action at rung M2 (cost, requirement, plain result; WA28) when its needs exist, or a
+   gap row when they do not. Their needs are mostly items (18), people (8), fills (7) and
+   organizations (3) [S counts over s2-s4].
+3. *Present but untouched* = scene `present` ids (45 so far) and the rest of the census
+   (720 rows): placed at M1, shallow at M2 only where a life can reach them (WA22).
+4. *Out:* off-lead viewpoint scenes become census and other lives' rows, not lead scenes;
+   later volumes; mechanism verbs until a mechanism lane is approved.
+
+**Findings from the longer read (RF codes):**
+
+| Code | Finding | Fix |
+| --- | --- | --- |
+| RF1 | Readers handle off-lead viewpoint chapters differently: one dropped them to census only, another wrote them as lead scenes | Add `pov` to scenes; lead runs use only `pov: lead`; other viewpoints feed other lives (L1) |
+| RF2 | The lead's lodging got five different ids across shards | A shared id registry handed to every reader, plus a merge script; needed before any read-ahead |
+| RF3 | Dream content, deadlines with no stated date, and storms or weather had no home | Evidence kind `dream:<who>`; deadline windows as `{anchor, offsetDays, label: I}` with the assumption in a fill; hazard list gains `weather` |
+| RF4 | Readers wrote `deps` as places | `deps` are beat ids only; place needs go in `touched` |
+| RF5 | Recall still varies by reader (16 to 87 census rows per chapter) | PL-L12's deterministic recall check before grading |
+
+---
+
+## 14. Round 6: actions, gameplay loops, lived days and proposed rules (2026-10-27)
+
+Weibao: "consider actions and more too? Adding in Gameplay loops? Stuff like training
+skills, researching this, or something else and more? More to consider? Set up rules
+accordingly for the future?" Built: schema 1.2 lint support; a private loop file for
+chapters 1-15. Proposed: WA25-WA31.
+
+### 14.1 Action layer
+
+Readers wrote 88 distinct free-form verbs in fifteen chapters ("pocket", "rotate",
+"season", "call-out") [S scene files]. Schema 1.2 adds, on every step and option:
+`class` (study, practice, research, craft, trade, work, travel, fight, socialize, rest,
+care, appraise, ritual, other), `inputs`, `time` (`minutes` or `band`), `outputs`,
+`gains` (skill, knowledge, standing, money), `requires`, and `label`. The lint enforces the
+class and label on 1.2 rows and checks loop records (`--loops`); the focused test passes 5
+of 5. The class is the engine verb (WA5); the free verb stays as the world's noun.
+
+### 14.2 Loops the book shows (chapters 1-15)
+
+Eight loop records, private, lint clean (`loop/1.2`). By type, without scene detail:
+
+| Loop | Classes | Rhythm | Rewards | YAIRPG owner |
+| --- | --- | --- | --- | --- |
+| Household meals | trade, care | schedule, daily | family fed, purse spent | `home_household.js` partial; food and price data missing |
+| Money keeping | trade | schedule | solvency | **gap**: shared household purse (MS4) |
+| Job seeking | study, socialize | deadline | standing, a job offer | job ladder (`faction_rank.js`, DWF110) partial |
+| Divination practice | appraise, ritual | opportunity | knowledge, skill | **gap**: no divination verb |
+| Recurring gathering through the lead's cheat space | ritual, socialize, trade | schedule, weekly | knowledge, contacts | `book_world_lotm_ritual.js` partial; mechanism gap |
+| Reading and notes | research, study | opportunity | knowledge | `lore_practice_*` partial |
+| Family routine | care, travel | schedule, weekly | ties, fare savings | `home_household.js`, `family_tree.js` partial |
+| Night safety | rest, appraise | opportunity | safety | **gap**: threat and hiding verbs |
+
+**Gaps Weibao named:** *training skills* does not appear in chapters 1-15 [S scene files]; it
+should be expected later in the volume, and `life_experience.js` and `teacher_window.js` are
+the seams to grow. *Researching a thing* appears as reading and notes; it needs a research
+loop with a question, sources, time and a confidence result (the `lore_practice_*` family is
+closest). **Other:** divination, the gathering's trade of information for favors, and
+household budgeting each need a loop the engine does not have.
+
+**Progression from loops (proposed WA27):** knowledge comes from reading, divination and
+gatherings; standing and the job offer come from the job-seeking loop and its interview
+deadline, with the offer itself granted by a beat the text shows; skill comes from practice
+loops; any advancement (the book's sequence ladder) maps to the loop or beat the text
+shows producing it, never to a calendar date.
+
+### 14.3 The lived-day filler
+
+Between scenes the bot (and a player-as-lead) runs loops by rhythm: schedules first
+(meals, family routine, the weekly gathering), then deadlines (the interview), then
+opportunities when idle (reading, divination). Each loop step costs time and money from the
+pack; the day's purse must reproduce the book's stated anchors (LP4). Where a loop is a gap,
+the bot logs "loop not built" and the day continues; the count of such days is a measure of
+how far the world is from playable.
+
+### 14.4 Rules for the future
+
+WA25-WA31 are written into [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md)
+marked "proposed 2026-10-27, awaiting Weibao's yes", with the RULES_INDEX register and
+router rows updated; `check:rules` passes. **The yes that accepts them:** "yes to
+WA25-WA31" (or a named subset).
+
+### 14.5 Lane brief template (what every world lane brief must name)
+
+1. World, line and boundary (chapters or volume), with the source snapshot hash.
+2. Rule codes applied, including WA22-WA24 and, once accepted, WA25-WA31.
+3. Shard plan: size, count, reader model, call cap, token budget, the lint command.
+4. Schema version and the shared id registry file.
+5. Audit gate: grade rule and locator sample size.
+6. Output folder (private for named canon) and the public summary rule (IDs and counts).
+7. What counts as a scene, an option, a loop and a fill, by link to LEAD_RUN_SCHEMA.
+8. Stop conditions: budget, a failed audit, a sealed truth, a missing source.
+9. Report: the AU ledger line, rows by type, lint result, the RF-style findings.
+
+### 14.6 More to consider (rounds 5 and 6)
+
+**ACT NOW (done):** six measured reads; the cost model; shard and precision defaults; the
+read-ahead design; the play-flow table; the untaken-option ledger method; RF1-RF5; schema
+1.2 lint and test; eight loop records; WA25-WA31 drafted as proposals; lane brief template.
+
+**ACCOUNT FOR NOW**
+
+- PL-A15. **Readers must run the lint before returning** (s2 shows why); make it the last
+  line of every brief.
+- PL-A16. **Id reconciliation before scale** (RF2): without it, 61 shards produce dozens of
+  ids for one room.
+- PL-A17. **The brief and schema in one file** so a reader's first call reads both; this is
+  the cheapest token cut.
+- PL-A18. **Loop gaps decide build order.** The household purse, divination and research loops
+  carry most of chapters 1-15; build them before mechanism verbs.
+- PL-A19. **Public plan detail.** Rounds 5 and 6 name loop types and counts, not scene
+  content; keep it that way (PL-A5).
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L16 | Shared id registry and merge script for shards (RF2) | Sonnet, small | One session | Chapters 1-15 merge to one id per entity; the lodging has one id |
+| PL-L17 | Combined brief-plus-schema file and a three-call reader protocol; re-measure on one shard | Haiku run, coordinator | Small | Tool calls at most 4; tokens per char at or below 14 |
+| PL-L18 | Convert chapters 1-15 to schema 1.2 (action classes) by script plus one reader for gaps | Sonnet small, haiku | Small | Lint passes with `lead-run/1.2` on all six shards |
+| PL-L19 | Household purse and meal loop as pack data on existing household seams | Sonnet, medium, after PL-E0 | One session | One lived day where the purse matches a stated anchor |
+| PL-L20 | Divination and research loops as engine cards (WA5 verbs) | Opus design, sonnet build | Medium | A loop record runs in the headless harness with time and cost |
+| PL-L21 | Grade and header rows for the six shards (WA31) | Haiku, small | Small | Each shard has a header row with grade A, B or C |

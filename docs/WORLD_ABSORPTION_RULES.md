@@ -96,6 +96,23 @@ exception and must say why.
 | WA23 | **Whereabouts are dated.** An address is a list of rows with era windows and evidence status, never one overwritten field. A rumor gives a `claimed` address. | A world without dates uses source order as the window | A person found in the wrong city for the year; rumor treated as fact |
 | WA24 | **Forward anchors bind filling.** Anything generated or authored for an entity between its canon mentions must not contradict its later canon mentions. Player-caused divergence (WA15) may change them and is labelled; generator-caused divergence may not. | A divergent or AU continuity (WA18) declares which anchors it drops | Early filler that kills, moves or marries someone the book still needs |
 
+### Lead runs, actions, loops and reading (proposed 2026-10-27, awaiting Weibao's yes)
+
+Agent drafts, not accepted. Evidence: [protagonist-life plan rounds 5 and 6](gm/dispatch/protagonist-life-2026-10-27/PLAN.md#13-round-5-measured-reading-time-precision-read-ahead-and-the-lead-play-flow-2026-10-27),
+six measured haiku reads of LOTM volume 1 chapters 1-15.
+
+| Code | Rule | Dial | Mistake it prevents |
+| --- | --- | --- | --- |
+| WA25 | **Every action is classed.** Each step the lead takes, each untaken option and each background routine names a shared verb class (study, practice, research, craft, trade, work, travel, fight, socialize, rest, care, appraise, ritual, other) plus the world's nouns, inputs, time, outputs, gains, requirements and an evidence label (WA5). | `other` is allowed with a reason; a world may add a class only through the shared engine (WA1) | Free-form verbs ("pocket", "rotate") that no engine system can run |
+| WA26 | **Loops are extracted per source.** Anything the lead does more than once or as a stated habit becomes a loop record: trigger, steps (classes), rewards, rhythm (schedule, deadline or opportunity), the YAIRPG owner that runs it, or `gap`. | Repeat threshold per world (default: twice, or once if stated as a habit) | A world that is a chain of plot beats with nothing to do between them (DWF99) |
+| WA27 | **Progression comes from loops.** Every skill, knowledge, rank, standing or advancement gain is mapped to the loop or the beat that produced it; a beat grants only what the text shows it granting. | A world may grant by beat when the source does, with the locator | Power that arrives on a plot date instead of through play |
+| WA28 | **Untaken options stay possible.** Each named or plausible option the lead did not take is recorded with its needs and kept at a lower rung (WA22): a stub action with cost, requirement and a plain result, or a gap row naming what is missing. | Depth per world; options that need a mechanism the engine lacks wait as `blocked by mechanism` | A world where only the book's path exists, so deviating hits a wall |
+| WA29 | **Time precision follows the clock.** Minutes are recorded only where they change play: an overlap with another life, a deadline, opening hours, transit, a bell or an appointment. Elsewhere a band or a day is enough. | Per world; a world built on exact timing raises the default | Spending reading effort on minutes nothing reads, or missing the ones that matter |
+| WA30 | **Reading shards are measured and gated.** A reader takes about 2-3 chapters (8,000-11,500 source characters for Chinese text), split at a scene boundary, works in four tool calls or fewer, runs the lint itself before returning, and the coordinator opens at least five locators and every claimed source conflict before folding (WPR18-WPR19). | Shard size moves with measured cost and error per run | One-chapter shards that pay the fixed overhead each time; unlinted returns; reader misreadings folded as canon |
+| WA31 | **Read-ahead ledgers carry their freshness.** Each shard's files record schema version, reader model, source hash, date, lint result and audit grade. An implementor uses a shard only if its grade passes, converts minor schema versions by script, and rereads only on a major version change or a failed audit. | Grade threshold per world | Advance reading that later work cannot trust or cannot tell is stale |
+
+To accept: Weibao's "yes to WA25-WA31" (or a named subset). Until then they guide the protagonist-life lanes as plan defaults only.
+
 ## Code that enforces it
 
 [`src/world_pack.js`](../src/world_pack.js) is a pure lint and coverage read

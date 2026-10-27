@@ -1,4 +1,5 @@
-// Lead-run table and census lint, schema 1.1 (protagonist-life plan, SF1-SF10, WA22-WA24).
+// Lead-run table, census and loop lint, schema 1.1 and 1.2 (protagonist-life plan, SF1-SF10, WA22-WA24;
+// 1.2 adds action classes on steps and loop records, plan round 6).
 // Pure checks over parsed rows; the CLI reads JSONL files and an optional private shard
 // (`=== <chapter title> | member <path>` headers, `pN: text` lines) to verify locators.
 // Output is issue codes and counts only, never source text.
@@ -6,7 +7,12 @@ import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 
 export const KINDS = Object.freeze(['person', 'place', 'organization', 'deity', 'item', 'price', 'law', 'calendar',
-    'clock', 'event', 'language', 'measure', 'document', 'note']);
+    'clock', 'event', 'language', 'measure', 'document', 'note', 'creature']);
+// Shared engine verb classes (WA5); a world supplies the nouns, costs and requirements.
+export const ACTION_CLASSES = Object.freeze(['study', 'practice', 'research', 'craft', 'trade', 'work', 'travel', 'fight',
+    'socialize', 'rest', 'care', 'appraise', 'ritual', 'other']);
+const RHYTHMS = new Set(['schedule', 'deadline', 'opportunity']);
+const SCENE_SCHEMAS = new Set(['lead-run/1.1', 'lead-run/1.2']), CENSUS_SCHEMAS = new Set(['census/1.1', 'census/1.2']);
 const LABELS = new Set(['S', 'I', 'U']);
 const RUNGS = new Set(['M0', 'M1', 'M2', 'M3', 'M4']);
 const NAME_SOURCES = new Set(['repo', 'wiki', 'pinyin-unconfirmed']);
@@ -14,7 +20,7 @@ const PLACE_STATUS = new Set(['stated', 'claimed', 'inferred']);
 const TOUCH_STATUS = new Set(['present', 'partial', 'missing']);
 const CLASSES = new Set(['carried', 'changed', 'blocked']);
 const LOCATOR = /^zh 第(\d+)章 p(\d+)$/;
-const EVIDENCE_KIND = /^(shown|narration|inferred|thought:[\w.-]+|dialogue:[\w.-]+)$/;
+const EVIDENCE_KIND = /^(shown|narration|inferred|thought:[\w.-]+|dialogue:[\w.-]+|dream:[\w.-]+)$/;
 const CJK_RUN = /[㐀-鿿]{6,}/;   // quote guard: more than five source characters outside `zh`
 const words = s => String(s).trim().split(/\s+/).filter(Boolean).length;
 
@@ -46,7 +52,7 @@ export function lintScenes(scenes) {
     const out = [], ids = new Map();
     scenes.forEach((r, i) => {
         const w = r.beat || `row ${i + 1}`;
-        if (r.schema !== 'lead-run/1.1') out.push({code: 'schema', where: w});
+        if (!SCENE_SCHEMAS.has(r.schema)) out.push({code: 'schema', where: w});
         if (!/^lr\.[a-z0-9]+\.[a-z0-9]+\.\d{3,}$/.test(r.beat || '')) out.push({code: 'beat-id', where: w});
         if (ids.has(r.beat)) out.push({code: 'duplicate', where: w});
         if (!Number.isInteger(r.order)) out.push({code: 'order', where: w});
@@ -62,6 +68,12 @@ export function lintScenes(scenes) {
             && r.footprint.window && typeof r.footprint.window === 'object')) out.push({code: 'footprint-shape', where: w});
         for (const c of r.choices || []) locatorIssues(w, c.locator, out);
         if (!Array.isArray(r.steps) || !r.steps.every(s => s && typeof s.verb === 'string')) out.push({code: 'steps', where: w});
+        if (r.schema === 'lead-run/1.2') for (const st of r.steps || []) {
+            if (!ACTION_CLASSES.includes(st.class)) out.push({code: 'action-class', where: w});
+            if (!LABELS.has(st.label)) out.push({code: 'action-label', where: w});
+            if (st.time && !(Number.isFinite(st.time.minutes) || typeof st.time.band === 'string')) out.push({code: 'action-time', where: w});
+        }
+        for (const o of r.options || []) if (o.class !== undefined && !ACTION_CLASSES.includes(o.class)) out.push({code: 'option-class', where: w});
         for (const t of r.touched || []) {
             if (!KINDS.includes(t.kind)) out.push({code: 'touched-kind', where: w, kind: t.kind});
             if (!TOUCH_STATUS.has(t.status)) out.push({code: 'touched-status', where: w});
@@ -97,7 +109,7 @@ export function lintCensus(rows, shard = null) {
     const out = [], seen = new Set();
     for (const [i, r] of rows.entries()) {
         const w = r.id || `row ${i + 1}`;
-        if (r.schema !== 'census/1.1') out.push({code: 'schema', where: w});
+        if (!CENSUS_SCHEMAS.has(r.schema)) out.push({code: 'schema', where: w});
         if (seen.has(r.id)) out.push({code: 'duplicate', where: w});
         seen.add(r.id);
         if (!KINDS.includes(r.kind)) out.push({code: 'kind', where: w, kind: r.kind});
@@ -121,6 +133,27 @@ export function lintCensus(rows, shard = null) {
     return out;
 }
 
+/** Loop records (`loop/1.2`): what the lead repeats, how often, what it pays, and which engine owner runs it. */
+export function lintLoops(loops) {
+    const out = [], seen = new Set();
+    for (const [i, r] of loops.entries()) {
+        const w = r.id || `row ${i + 1}`;
+        if (r.schema !== 'loop/1.2') out.push({code: 'schema', where: w});
+        if (seen.has(r.id)) out.push({code: 'duplicate', where: w});
+        seen.add(r.id);
+        if (!/^[a-z0-9]+\.loop\./.test(r.id || '')) out.push({code: 'id-namespace', where: w});
+        if (!r.trigger) out.push({code: 'trigger', where: w});
+        if (!Array.isArray(r.steps) || !r.steps.length || !r.steps.every(c => ACTION_CLASSES.includes(c))) out.push({code: 'loop-steps', where: w});
+        if (!Array.isArray(r.rewards) || !r.rewards.length) out.push({code: 'rewards', where: w});
+        if (!RHYTHMS.has(r.rhythm)) out.push({code: 'rhythm', where: w});
+        if (typeof r.owner !== 'string' || !r.owner) out.push({code: 'owner', where: w});
+        if (!Array.isArray(r.evidence) || !r.evidence.length) out.push({code: 'evidence-missing', where: w});
+        for (const e of r.evidence || []) if (!LABELS.has(e.label)) out.push({code: 'evidence-label', where: w});
+        quoteGuard(w, r, new Set(), out);
+    }
+    return out;
+}
+
 export function summarize(issues) {
     const counts = {};
     for (const i of issues) counts[i.code] = (counts[i.code] || 0) + 1;
@@ -130,15 +163,17 @@ export function summarize(issues) {
 const jsonl = path => readFileSync(path, 'utf8').split('\n').filter(l => l.trim()).map(l => JSON.parse(l));
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-    const [scenesPath, censusPath, shardPath] = process.argv.slice(2);
+    const args = process.argv.slice(2), li = args.indexOf('--loops');
+    const loopsPath = li >= 0 ? args.splice(li, 2)[1] : null;
+    const [scenesPath, censusPath, shardPath] = args;
     if (!scenesPath || !censusPath) {
-        console.error('usage: node scripts/lead_run/lint_lead_run.mjs <scenes.jsonl> <census.jsonl> [shard.txt]');
+        console.error('usage: node scripts/lead_run/lint_lead_run.mjs <scenes.jsonl> <census.jsonl> [shard.txt] [--loops loops.jsonl]');
         process.exit(2);
     }
     const shard = shardPath ? parseShard(readFileSync(shardPath, 'utf8')) : null;
     const scenes = jsonl(scenesPath), census = jsonl(censusPath);
-    const a = lintScenes(scenes), b = lintCensus(census, shard);
+    const a = lintScenes(scenes), b = lintCensus(census, shard), c = loopsPath ? lintLoops(jsonl(loopsPath)) : [];
     console.log(JSON.stringify({scenes: scenes.length, census: census.length,
-        sceneIssues: summarize(a), censusIssues: summarize(b), ok: !a.length && !b.length}, null, 1));
-    process.exit(a.length || b.length ? 1 : 0);
+        sceneIssues: summarize(a), censusIssues: summarize(b), loopIssues: summarize(c), ok: !a.length && !b.length && !c.length}, null, 1));
+    process.exit(a.length || b.length || c.length ? 1 : 0);
 }
