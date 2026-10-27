@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeLocalLife, advanceLocalLife as advanceWithStream, localLifeAction, localLifeView, localLifeQuestView, LOCAL_LIFE_BALANCE, MEAL_SCHEDULE, localSearchMethod, recordLocalPurchases} from '../src/absorb_c2/local_life.js';
+import {normalizeLocalLife, advanceLocalLife as advanceWithStream, localLifeAction, localLifeView, localLifeQuestView, LOCAL_LIFE_BALANCE, VILLAGE_STANDING, MEAL_SCHEDULE, localSearchMethod, recordLocalPurchases} from '../src/absorb_c2/local_life.js';
 import {createLocalLifePanel} from '../src/absorb_c2/panel.js';
 import {grantEarnedTitles, titleView} from '../src/titles.js';
 import {createDiscoveryCuePolicy} from '../src/native_discovery_policy.js';
@@ -214,6 +214,25 @@ test('title cue shares discovery policy but never responds to restored rows or d
     assert.equal(policy.take([{id:'homebody',known:true,label:'Homebody'}]),null);
     const e={type:'native-title-discovery',id:'homebody',known:true,label:'Homebody',settled:true};
     assert.equal(policy.take([e]).text,'Title earned: Homebody');assert.equal(policy.take([e]),null);
+});
+
+test('village notices completed service only: watch and relay receipts grant Village reputation once',()=>{
+    const start=localLifeAction(undefined,c(),'watch');assert.match(start.messages[0],/\+2 Village reputation/);
+    assert.deepEqual(start.native.reputation,{});
+    assert.match(localLifeView(undefined,c()).rows.find(r=>r.id==='watch').label,/\+2 Village reputation/);
+    let p=advanceLocalLife(start.state,c({clock:1199,calendarMinute:1199}));assert.deepEqual(p.native.reputation,{});
+    p=advanceLocalLife(p.state,c({clock:1200,calendarMinute:1200}));
+    assert.deepEqual(p.native.reputation,{Village:VILLAGE_STANDING.watch});assert.match(p.messages.at(-1),/\+2 Village reputation/);
+    assert.deepEqual(advanceLocalLife(p.state,c({clock:1201,calendarMinute:1201})).native.reputation,{});
+    assert.deepEqual(advanceLocalLife(p.state,c({clock:1200,calendarMinute:1200})).native.reputation,{});
+    assert.deepEqual(advanceLocalLife(start.state,c({clock:421,location:'Shack'})).native.reputation,{});
+    let s={...normalizeLocalLife(),pamphletRead:true};
+    s=localLifeAction(s,c(),'parcel').state;
+    const mill=localLifeAction(s,c({location:'Eastern mill'}),'parcel');assert.deepEqual(mill.native.reputation,{});
+    assert.match(localLifeView(mill.state,c()).rows.find(r=>r.id==='parcel').label,/\+3 Village reputation/);
+    const finish=localLifeAction(mill.state,c(),'parcel');
+    assert.deepEqual(finish.native.reputation,{Village:VILLAGE_STANDING.relay});assert.match(finish.messages[0],/\+3 Village reputation/);
+    assert.equal(localLifeAction(finish.state,c(),'parcel').ok,false);
 });
 
 test('parcel relays remain repeatable with explicit restart and three handoffs per pay',()=>{

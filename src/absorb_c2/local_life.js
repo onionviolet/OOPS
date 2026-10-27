@@ -7,6 +7,9 @@ export const LOCAL_LIFE_BALANCE = Object.freeze({searchMinutes:5,baseChance:.1,m
     perceptionStep:.002,perceptionCap:.1,poisonXpPerMinute:.25,hubMinutes:15,hubBase:.2,hubStep:.1,hubCap:.5,
     helpCost:5,helpXp:2});
 export const RUNNER_MEAL_COST = 1;
+// Neighbours notice steady service: native Village reputation per completed
+// watch shift or relay receipt. A local default; another village sets its own.
+export const VILLAGE_STANDING = Object.freeze({watch:2,relay:3});
 export const WATCH_SCHEDULE = Object.freeze({period:1440,opens:420,closes:600});
 export const MARKET_SCHEDULE = Object.freeze({period:10080,opens:540,closes:1020});
 export const PARCEL_STOPS = Object.freeze([
@@ -59,7 +62,7 @@ export function localSearchMethod(c) {
 const chance = (s,c) => Math.min(LOCAL_LIFE_BALANCE.chanceCap,LOCAL_LIFE_BALANCE.baseChance+
     LOCAL_LIFE_BALANCE.missStep*(s.searches[c.location]?.misses||0)+Math.min(LOCAL_LIFE_BALANCE.perceptionCap,
         LOCAL_LIFE_BALANCE.perceptionStep*(finite(c.perception)?c.perception:0)));
-const result = s => ({state:s,native:{money:0,items:[],skillXp:{}},messages:[]});
+const result = s => ({state:s,native:{money:0,items:[],skillXp:{},reputation:{}},messages:[]});
 const addXp = (p,id,n) => {p.native.skillXp[id]=(p.native.skillXp[id]||0)+n;};
 const roll = rng => {const n=rng();if(!Number.isFinite(n)||n<0||n>=1)throw new Error('Chance input must be in [0, 1).');return n;};
 
@@ -100,7 +103,8 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
             addXp(p,'Persistence',Math.min(delta,60)*.1);
             if(c.calendarMinute%1440>=1200) {
                 s.watching=false;s.watchShifts++;p.native.money+=12;
-                addXp(p,'Perception',3);p.messages.push('Village watch complete: 12 coins and 3 Perception XP. Another shift opens next morning.');
+                addXp(p,'Perception',3);p.native.reputation.Village=VILLAGE_STANDING.watch;
+                p.messages.push(`Village watch complete: 12 coins, 3 Perception XP and +${VILLAGE_STANDING.watch} Village reputation. Another shift opens next morning.`);
             }
         }
     }
@@ -150,7 +154,7 @@ export function localLifeAction(raw,c,id) {
         const window=recurringWindow(WATCH_SCHEDULE,c.calendarMinute,s.watchDay);
         if(s.watching||!window.open)return fail(s.watching?'You are already on watch.':`Watch accepts 07:00–10:00; next opening in ${window.nextIn} minutes.`);
         s.watching=true;s.watchDay=window.cycle;s.watchMinutes=0;s.lastClock=c.clock;s.lastLocation=c.location;
-        s.looking=false;p.messages.push('Watch accepted. Stay idle in Village until 20:00 for 12 coins and 3 Perception XP. Played watch minutes train Persistence. Other work or leaving interrupts without pay.');
+        s.looking=false;p.messages.push(`Watch accepted. Stay idle in Village until 20:00 for 12 coins, 3 Perception XP and +${VILLAGE_STANDING.watch} Village reputation. Played watch minutes train Persistence. Other work or leaving interrupts without pay.`);
     } else if(id==='stop_watch') {
         if(!s.watching)return fail('No active watch shift.');
         s.watching=false;s.watchMinutes=0;p.messages.push('You leave the watch. No pay; try another morning.');
@@ -172,7 +176,8 @@ export function localLifeAction(raw,c,id) {
         if(c.location!==stop.location)return fail(stop.text);
         if(s.parcelStep===0 && c.millUnlocked!==true)return fail('Clear the Cave room and report to the village elder to open the Eastern mill route first.');
         s.parcelStarted=true;s.parcelStep++;
-        if(s.parcelStep===3){s.parcelRuns++;p.native.money=8;addXp(p,'Perception',2);p.messages.push('Parcel relay complete: the old craftsman accepts the receipt. 8 coins and 2 Perception XP.');}
+        if(s.parcelStep===3){s.parcelRuns++;p.native.money=8;addXp(p,'Perception',2);p.native.reputation.Village=VILLAGE_STANDING.relay;
+            p.messages.push(`Parcel relay complete: the old craftsman accepts the receipt. 8 coins, 2 Perception XP and +${VILLAGE_STANDING.relay} Village reputation.`);}
         else p.messages.push(`Parcel handoff complete. Next: ${PARCEL_STOPS[s.parcelStep].text}`);
     } else if(id==='mentor') {
         if(c.location!=='Village')return fail('The elder gives route advice in Village.');
@@ -215,11 +220,11 @@ export function localLifeView(raw,c) {
         readiness:available?`Ready. ${localSearchMethod(c).text} Completed search work stays when the method changes.`: 'Finish combat, travel, dialogue, sleep or other work first.',
         rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 search work; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
-            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
+            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[
                 {id:'mentor',label:'Ask the village elder what to do next',disabled:!available},
                 ...(s.visitorMet?[{id:'pamphlet',label:s.pamphletRead?'Courier: route pamphlet read':'Visiting courier: read route pamphlet (unlocks parcel relay)',disabled:!available||s.pamphletRead}]:[]),
-                {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; stay until 20:00)` : watch.open?'Accept Village watch (until 20:00; 12 coins)':`Watch closed: next opening in ${watch.nextIn} minutes (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
+                {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; stay until 20:00)` : watch.open?`Accept Village watch (until 20:00; 12 coins, +${VILLAGE_STANDING.watch} Village reputation)`:`Watch closed: next opening in ${watch.nextIn} minutes (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
                 {id:'market',label:market.open?'Weekly market: take restocked bread':`Weekly market: next opening in ${market.nextIn} minutes (day 1, 09:00–17:00)`,disabled:!available||!market.open},
                 {id:'meal',label:window.open?'Take midday bread (free, one per game day)':window.claimed?'Midday bread already claimed today':`Midday bread: opens in ${window.nextIn} minutes (12:00–14:00)`,disabled:!available||!window.open},
                 ...(s.runnerMealsIssued>s.runnerMealsUsed?[{id:'runner_meal',label:`Use runner meal ticket (${s.runnerMealsIssued-s.runnerMealsUsed} left; 1 coin → 1 Stale bread)`,disabled:!available||!(c.money>=RUNNER_MEAL_COST)}]:[]),
@@ -238,9 +243,9 @@ export function localLifeQuestView(raw,c={}) {
     return [
         ...(s.watchDay!=null?[{id:'village.watch',name:'Village watch',completed:!s.watching,
             description:'Repeatable morning watch. Stay idle in Village until 20:00. Leaving or other work interrupts without pay.',
-            objective:s.watching?`On watch: ${s.watchMinutes} played minutes. Stay until 20:00; 12 coins on completion.`:`${s.watchShifts} shifts completed. Accept another at 07:00–10:00.`}]:[]),
+            objective:s.watching?`On watch: ${s.watchMinutes} played minutes. Stay until 20:00; 12 coins and +${VILLAGE_STANDING.watch} Village reputation on completion.`:`${s.watchShifts} shifts completed. Accept another at 07:00–10:00.`}]:[]),
         ...(s.pamphletRead?[{id:'village.parcel',name:'Village parcel relay',completed:s.parcelStep===3,
             description:'The courier pamphlet connects the elder, millers and old craftsman. Use ordinary travel between handoffs.',
-            objective:s.parcelStep===3?`${s.parcelRuns} relays delivered. 8 coins and 2 Perception XP paid for the last receipt. Start another in Village.`:`Next stop ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&c.millUnlocked!==true?' Before collecting: clear the Cave room and report to the village elder to open Eastern mill.':''}`}]:[])
+            objective:s.parcelStep===3?`${s.parcelRuns} relays delivered. 8 coins, 2 Perception XP and +${VILLAGE_STANDING.relay} Village reputation paid for the last receipt. Start another in Village.`:`Next stop ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&c.millUnlocked!==true?' Before collecting: clear the Cave room and report to the village elder to open Eastern mill.':''}`}]:[])
     ];
 }

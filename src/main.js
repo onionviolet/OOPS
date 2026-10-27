@@ -555,7 +555,7 @@ expeditionRegistry.bookPlayerAgency={contracts:BOOK_WORLD_AGENCY_CONTRACTS,nativ
 import {createLifeRecord, migrateLifeRecord, observeLifeSave, appendLifeMilestone, lifeCalendarMinute,reflectionMessage} from './life_record.js';
 import {createLifeRecordPanel} from './life_record_ui.js';
 import {normalizeTitles, grantEarnedTitles, titleView, title_by_id, describeTitleBonus, yearsSince, titleCalendarMinute} from './titles.js';
-import {createTitlesPanel} from './titles_ui.js';import {rankFacts,promotionText} from './faction_rank.js';
+import {createTitlesPanel} from './titles_ui.js';import {rankFacts,promotionText,rankChange} from './faction_rank.js';
 let titlesPanel;
 let title_check_ticks = 0;
 import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_lives.js';
@@ -1606,6 +1606,7 @@ function stageLocalLifeResult(plan, result) {
         applyGameplayEffect(plan.gameplay,{type:'item',key,amount:row.count},'player');acquisitions.push({owner:'player',key,count:row.count});}
     for(const [skill,amount] of Object.entries(result.native.skillXp))if(amount>0)
         applyGameplayEffect(plan.gameplay,{type:'xp',skill,amount:Math.round(amount*100)/100},'player');
+    for(const [region,amount] of Object.entries(result.native.reputation||{})){const before=plan.gameplay.player.reputation[region];applyGameplayEffect(plan.gameplay,{type:'reputation',region,amount},'player');const change=rankChange(region,before,plan.gameplay.player.reputation[region]);if(change)result.messages.push(promotionText(region,change));}
     plan.acquisitions=[...(plan.acquisitions||[]),...acquisitions];
     plan.nativePatch={...plan.nativePatch,absorb_local_life:result.state};plan.localLifeResult=result;
     return plan;
@@ -1908,7 +1909,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     if(plan.absorbPublish)plan.absorbPublish();
     publishP23Activity(plan);
     readFrame?.invalidate();
-    publication.publish();
+    publication.publish();if(Object.keys(plan.localLifeResult?.native?.reputation||{}).length)update_displayed_reputation();
     readFrame?.invalidate();
     unlockPublication.publish();
     for(const text of revealLessonMessages(plan))log_message(text,'notification');
