@@ -154,3 +154,67 @@ Suggested order [I]: E8 and E1 first (nothing new to balance), then E2, E3, E4 (
 | LATER | Source pass on the [U] rows (Higurashi, Long Live the Queen, Tokimeki thresholds, CK3 defaults) through the research route. | Research | Medium | Rows move from [U] to [S] with primary links. |
 | LATER | A "people who keep their own lives" digest: a weekly one-line summary of what each of the five did, as a home-screen item. | UI + deck | Medium | A week-old life shows five lines drawn from deck cards. |
 | LATER | Per-world voice samples for greeting lines (N4), written with the LOTM and HP PR rules. | Writing | Small per world | Each world has three greeting samples reviewed against its voice. |
+
+## Update 2026-10-27 (Weibao's correction): many clocks, scoped to the life (proposals)
+
+Weibao's words: "Doesnt proto23 have the weekly meals from the dojo? Yair has the
+merchant stock change maybe, LOTm could have many hard clocks with varian degrees
+of things? lots of hard clocks can be from the book and the lore accordingly?
+Different clocks run but only those that matter to specific life matters?"
+
+**Corrections.** Proto23's weekly free meal (B.2) is a real rhythm, so B.2 and the
+contrast table's "None / Nothing" mean "no NPC reach-out and no penalty", not "no
+rhythm". YAIR's daily price recovery is the one rhythm this report sourced; a
+merchant stock change is unverified here and belongs to a source check of the
+pinned YAIR data. The earlier "at most one hard clock per world" (E7, N5) is
+superseded as a default: LOTM can carry many clocks, and the limit becomes how
+many are visible and firm at once for one life.
+
+**C1. A clock is a small record, not a global timer.** Fields: id; source (book
+or lore beat, or an original one); scope (the life facts it attaches to: an
+employer, a faction, a pathway and sequence, a contact, a home, a promise);
+degree; lead (how early it shows); what a miss does (move, harden, re-offer,
+close with a trace); recovery (named cost). Default: a clock exists in the world
+data but is only active, visible and counted for a life whose facts match its scope.
+Dial: a world may show ambient clocks for flavor; reason: absence pressure should
+come from what this life took on, so an unattached life is not nagged (matches
+the sealed-secrets and frozen-world rules).
+
+**C2. Degrees as a ladder.** Ambient (flavor, never penalizes), soft (a miss moves
+or re-offers it), firm (a miss hardens it or costs standing or closeness), hard
+(a miss closes it with a trace; always shown early and recoverable at a named
+cost, N5). Default: a life shows a few firm clocks at once at Lively and fewer at
+Calm; hard clocks are rare per life, not per world. Dial: the pace and a world's
+temperament. Reason: many clocks are fine if few press at once.
+
+**C3. Evaluate lazily.** Clocks that matter to no current fact are not simulated;
+on return the engine checks only the attached ones and writes missed ones into
+the return note (E2). Frozen worlds do not tick (accepted default); a running
+world is the exception with a stated rule.
+
+**C4. Where clocks come from, per world (unverified lore reads marked [U]).**
+- *LOTM:* pathway and sequence digestion windows tied to acting; official
+  organization duty rotations and report dates; church observances and
+  summons; periodic gatherings you were invited to; risk windows around a dose or
+  ritual. [U] Each pathway can carry its own clocks, so a different pathway
+  sees a different calendar. Content comes from a source deep dive, not memory.
+- *Village (variant):* market day, watch roster, a relay window, a promised
+  favor.
+- *Proto23:* the weekly free meal and day cycle as the source has them; nothing
+  added to the faithful build.
+- *YAIR:* daily price recovery and quest chains as the source has them; a stock
+  change only once verified.
+- *HP:* term timetable, lessons, exams, fixtures, holiday breaks.
+
+**C5. Proposals.**
+
+| # | Proposal | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| C1 | Clock record and attachment test as above, data rows in the world pack | World pack data + one resolver | Medium | Two test lives in one world: the one with the matching facts sees and counts the clock; the other sees nothing and no note line. |
+| C2 | Degree ladder with visible-and-firm cap per pace | Rules + UI row | Small | A scripted life with five attached clocks shows at most the cap; the rest wait as ambient or soft. |
+| C3 | Lazy evaluation on return with missed clocks in the return note | Resolver + UT3 | Small | A 12 h absence settles only attached clocks; the note names each miss and its recovery. |
+| C4 | LOTM clock set drawn from a source deep dive, by pathway | Research then data | Medium to high | A pathway page lists its clocks with locators; sealed truths stay by ID. |
+| C5 | Supersede E7 and N5 wording "at most one" with the cap in C2 | Docs | Small | Both rows updated in the same change that accepts C2. |
+
+None of this is accepted. The next owner step is Weibao's pick of C1 and C2 as the
+shape; C4 needs a LOTM source pass first.

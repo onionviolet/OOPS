@@ -6611,3 +6611,11 @@ Verbatim, Weibao's last three messages on this topic:
 > Consider specific interactions for specific worlds? Consider how VNs and even more worlds handle this and save accordingly
 
 Saved as proposals (none accepted): [NPC absence and reach-out report](research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md) (game research, per-world cards, E1-E8 and N1-N7).
+
+## Many clocks, scoped to the life; Proto23 weekly meal (2026-10-27)
+
+Weibao's words: "Doesnt proto23 have the weekly meals from the dojo? Yair has the
+merchant stock change maybe, LOTm could have many hard clocks with varian degrees
+of things? lots of hard clocks can be from the book and the lore accordingly?
+Different clocks run but only those that matter to specific life matters?"
+Proposal record (not accepted): [clock model](research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md#update-2026-10-27-weibaos-correction-many-clocks-scoped-to-the-life-proposals).
