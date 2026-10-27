@@ -1766,12 +1766,15 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 .ui-panel-shortcuts {display:flex;flex-wrap:wrap;gap:var(--ui-space-2);margin-block:var(--ui-space-3);}
 #main_content.workspace-active .ui-panel-shortcuts > button {min-height:var(--ui-control-sm);padding:var(--ui-space-1) var(--ui-space-3);}
 #main_content.workspace-active .ui-connection-body .panel-info > button {display:block;margin:var(--ui-space-2) 0;min-height:var(--ui-control-md);text-align:start;max-width:100%;white-space:normal;}
-/* One routine-row grammar, including the counter entrance. */
-#main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open {
+/* One routine-row grammar, including the counter entrance and the crossing door (UI L8, UIA14):
+   native-button rows match the div rows' padding and backing. The theme fills every button with
+   !important, so the backing override needs it too; hover and disabled keep their theme states. */
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > :is(#village_mixing_open,button.location_choice_dropdown) {
  display:block;width:100%;box-sizing:border-box;text-align:start;margin:0;border-width:0 0 1px;border-color:var(--ui-hairline);
- background:transparent;box-shadow:none;min-height:var(--ui-control-md);padding:var(--ui-space-2) var(--ui-space-3);line-height:var(--ui-line-body);
+ background:transparent;box-shadow:none;min-height:0;padding:var(--ui-space-1);line-height:var(--ui-line-body);
 }
-#main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open::before {content:'⚗ ';color:var(--ui-text);}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > :is(#village_mixing_open,button.location_choice_dropdown):not(:hover,:disabled) {background:transparent !important;}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open::before {content:'⚗ ';color:var(--ui-text);font-size:20px;line-height:1;vertical-align:middle;}
 #main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open:hover {background:var(--p23-hover-fill);}
 /* Keep settlement controls on screen even when a price explanation wraps. The
    same native accept/cancel/exit commands remain in their established owner. */

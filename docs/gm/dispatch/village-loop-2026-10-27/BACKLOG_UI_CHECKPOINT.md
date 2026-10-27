@@ -84,3 +84,17 @@ Ownership: `village_career_ui.js` and `harvest_ui.js` are not in `village-loop`'
 | --- | --- | --- |
 | `node --test tests/village_career.test.js tests/harvest.test.js tests/ui_components.test.js` | pass, new DRC11 DOM regression | Harvest reasons have no DOM test |
 | Browser | Not run for P02: mentor rank and a carcass need a long earned route | Implemented, below floor (FLR2) for DRC11/DRC12
+
+### P03 · UIA13 / UIA14 / UI L8
+
+Ownership: `styles/ui_tokens.css` last changed `0ae420352` (2 days ago); no uncommitted edits; no live lane names it.
+
+- UI L8 / UIA14 reproduced at 1920x1080, text 14, on a fresh Village life: the two native-button place actions ("Cross to another world: Tingen", "Mix at the Village counter") were 28 px boxed buttons with the theme's control fill among 25.5 px clear rows. Cause: `component_themes.css` gives every button in a themed module `background: var(--theme-control) !important` and a 2em minimum, and the existing r3 "one routine-row grammar" rule (Mix only) used larger padding.
+- Fix in `styles/ui_tokens.css`: that existing r3 rule now covers both native-button rows with the div rows' padding (`--ui-space-1`) and no minimum height; one scoped `background: transparent !important` (not on hover or disabled, so theme states stay) beats the theme fill; the Mix glyph is sized like the 20 px row icons. One new `!important`, recorded for UI L10.
+- Result: at 14 px all five rows are 25.5 px with clear backing at 1920x1080 and 1536x864. At 21 px the button rows are 34 px against 36.39 px div rows: the div rows' fractional height comes from the fixed 20 px icon line, which is P04's question. Hover and disabled states not exercised in the browser.
+- UIA13 (populated Reports/Journal sibling measurement): not done in this pass; needs a populated fixture capture. Ready, next.
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| Row geometry, rebuilt temp bundle, fresh origin, 4 cells | Text 14: 5 × 25.5 px, all clear backing. Text 21: div 36.39, buttons 34 | Fractional div height left to P04 |
+| `node --test tests/ui_contract.test.js tests/presentation_style.test.js` | 8 pass, 0 fail | |
