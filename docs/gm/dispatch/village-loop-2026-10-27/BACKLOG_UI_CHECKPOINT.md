@@ -103,13 +103,31 @@ Ownership: `styles/ui_tokens.css` last changed `0ae420352` (2 days ago); no unco
 | Row geometry, rebuilt temp bundle, fresh origin, 4 cells | Text 14: 5 × 25.5 px, all clear backing. Text 21: div 36.39, buttons 34 | Fractional div height left to P04 |
 | `node --test tests/ui_contract.test.js tests/presentation_style.test.js` | 8 pass, 0 fail | |
 
-### P04-P10: hand-over (not started)
+### P04 · UIA4 / UI L6 (measured, no change)
 
-Stopped after P03 to keep a clean commit boundary; each row below still needs a live ownership check before editing.
+Scan of the `mid` perf fixture, rebuilt temp bundle, fresh origin, 4 cells (1920x1080 and 1536x864 at text 14 and 21). About 280 visible elements in `#main_content`, 181-190 with fractional height.
 
-- P04 next. Start from the P03 finding: Village div rows are 36.39 px at text 21 because the fixed 20 px row icon sets the line; native-button rows are 34 px. Measure text width versus padding before changing density.
-- P05-P08 as written in Q18. P08 leaves live tooltip implementation to its incumbent.
+- Padding is whole pixels everywhere. Every fractional height is text: unitless line-height × size (14 px: 16.8, 17.5, 18.2, 15.6; 21 px: 25.2, 26.25, 27.3, 23.4). Largest groups: Stats rows (`button.shell-stat-record`, 23.8 / 34.19 px), focus list buttons and labels, inventory tabs and rows. The Village place-action rows (36.39 px at 21) are the same cause: a fixed 20 px icon line plus fractional text leading.
+- Off-scale spacing: 3 px (gap ×21, padding ×16-17) and 5 px (inventory rows at 21) are the real off-scale values; the space tokens resolve to 2/4/6/8/12/16.
+- Necessary change: none for P04. The fix is whole-pixel leading (UR68 already requires it), which shifts density across the shell; L6 leaves density choices to Weibao. Proposal: source the unitless line-heights from `--ui-line-*` tokens, starting with the Stats rows, behind a geometry harness before/after.
+
+### P05 · UI L7 (synthetic bold fixed; sizes and leading recorded)
+
+- Reproduced: module header titles and the Village scene title (`.workspace-module-header > strong`, `.scene-location-header > strong`) were weight 600 on "OOPS Gothic Bitmap 14", which ships weight 400 only, so the browser drew fake bold (7 per screen). Fix in `styles/corc_readability.css`, following that file's existing Gothic precedent: `--ui-weight-regular` and `font-synthesis:none`. After: no synthetic bold on Gothic in any of the 4 cells; the 1920x1080 21 px capture shows crisp regular titles.
+- Recorded, not changed: off-role sizes 11.9, 12.6, 10, 17.85 and 18.9 px, and the fractional leading above (UR68). Migrating them changes visible density; same proposal as P04.
+- Stats values (`button.shell-stat-record > strong`) are bold on system-ui, which has a real bold, so they are not synthetic.
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| Type scan, `mid` fixture, 4 cells | Synthetic bold on Gothic: 7 → 0 | Fresh and crowded fixtures not scanned |
+| `node --test tests/ui_contract.test.js tests/presentation_style.test.js` | 8 pass, 0 fail | |
+
+### P06-P10: hand-over (not started)
+
+Each row still needs a live ownership check before editing.
+
+- P06 (DL6, long labels keep meaning and full-name access), P07 (DL9, time/weather signals without color alone), P08 (tooltip frame and reduced-motion tokens; leave live tooltip implementation to its incumbent): as written in Q18.
 - P09 (DRC9) is small: `crafting_home.js` "Drink one" names observed effects when known; unknown keeps "Drink one".
 - P10 is a diagnostic first; add recap UI only if a return-session problem reproduces.
 - Next UIV1 rows are listed under "UIV1 change" above.
-- Tooling: `scripts/playtest/uiv1-probe.mjs` is the pattern for a 4-cell, fresh-origin, headless matrix with text size asserted on `#inventory_div`.
+- Tooling: `scripts/playtest/uiv1-probe.mjs` is the pattern for a 4-cell, fresh-origin, headless matrix with text size asserted on `#inventory_div`; perf fixtures via `scripts/perf/lib.mjs` `readFixture`.

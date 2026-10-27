@@ -84,6 +84,8 @@
  font-size:var(--shell-context-small-size);font-family:var(--shell-context-small-font);font-weight:400;font-synthesis:none;
 }
 #main_content.workspace-active[data-parity="r3"] .nearby-context-list strong {font-weight:400;font-synthesis:none;}
+/* UR68 / Q18 P05: module and scene titles sit on the single-weight bitmap Gothic; no synthetic bold. */
+#main_content.workspace-active[data-parity="r3"] :is(.workspace-module-header,.scene-location-header) > strong {font-weight:var(--ui-weight-regular);font-synthesis:none;}
 #main_content.workspace-active[data-parity="r3"] #proto23_item_detail > p,
 #main_content.workspace-active[data-parity="r3"] .attribute-inspector-count {
  font-size:var(--custom-small-size);font-family:var(--custom-small-font);
