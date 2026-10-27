@@ -6599,3 +6599,15 @@ keep the original wording of corc's reply in the credits note if he can paste it
 This supersedes the earlier "copy no code" and "ask 23html first" defaults in
 [the Village dispatch](gm/dispatch/village-loop-2026-10-27/COMMON.md) and
 GM_PLAN WD5 (kept there as dated history). Push still waits for Weibao's yes.
+
+## NPCs, absence and reaching out (request record, 2026-10-27)
+
+Verbatim, Weibao's last three messages on this topic:
+
+> Time considerations if Afk would mean missing out on events and stuff? How does other games address the open stuff? ... how does proto23 or yair work?
+
+> Could we be inspired by how other similar games that might need similar considerations? like Visual novels and more? how does other npcs respond? do they reach out? What happens? Specific games we can draw from?
+
+> Consider specific interactions for specific worlds? Consider how VNs and even more worlds handle this and save accordingly
+
+Saved as proposals (none accepted): [NPC absence and reach-out report](research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md) (game research, per-world cards, E1-E8 and N1-N7).

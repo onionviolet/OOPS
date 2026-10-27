@@ -517,3 +517,7 @@ Existing owners already carry the structure: world absorption WA1-WA21, completi
 ### Order
 
 After UIV1 and the GM plan: write WR1 cards for the Village variant and Proto23 first (the GM page-per-world work, PW1, is the seed); run RT on them; then the event-director and storylet shape (CP2, CP3) as one small slice that gives the Village an evening with a surprise; then headroom typing (WR6). CP-LATER: a source pass on CP1-CP9 through the research route, since this table is unverified.
+
+### Round 11 pointer (2026-10-27): absence, NPCs and reach-out
+
+Research, per-world absence cards (Village, Proto23, YAIR, LOTM, HP) and proposals E1-E8, N1-N7 are in [the NPC absence and reach-out report](research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md). Proposals only; builds on Round 10 WR1 and the attention report.
