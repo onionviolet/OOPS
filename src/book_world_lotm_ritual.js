@@ -106,12 +106,12 @@ export const selfRiteCommands=[
  why(cmd('rit_self_learn',`Ask Hale to teach a weak rite addressed to yourself · ${SELF_RITE.learn} min · reserves 1 attention, returned on completion or Stop`,L.workroom,{
   targetId:I.supervisor,once:false,visibleWhen:all(home,caster,eq('lotm.rit.self.known',false)),requires:all(home,caster,eq('lotm.rit.self.known',false)),
   duration:SELF_RITE.learn,costs:[attention()],...guard([caster]),
-  effects:[attention(1),know('rit.self.protocol',`Hale taught the smallest rite: a circle of one candle, herbs and oil, addressed to yourself and paid from your own reserve. A Seer pays 1 spirituality; a pathway with no trained pool pays it bodily, ${SELF_RITE.stamina} stamina. Prepared, the circle can wait unlit for as long as you stay; any walk away breaks it, and coming back does not mend it. Lit under supervision it eases the pre-signs one step. It does nothing past the loss line.`,I.supervisor,'player','instruction','understood')]}),'Hale teaches this rite to his own team members who hold a supported pathway source.'),
+  effects:[attention(1),know('rit.self.protocol',`Hale taught the smallest rite: a circle of one candle, herbs and oil, addressed to yourself and paid from your own reserve. A Seer pays 1 spirituality and takes 1 strain; a pathway with no trained pool pays it bodily, ${SELF_RITE.stamina} stamina. Prepared, the circle can wait unlit for as long as you stay; any walk away breaks it, and coming back does not mend it. Lit under supervision it eases the pre-signs one step. It does nothing past the loss line.`,I.supervisor,'player','instruction','understood')]}),'Hale teaches this rite to his own team members who hold a supported pathway source.'),
  why(cmd('rit_self_prepare',`Prepare the unlit circle here · ${SELF_RITE.prepare} min · ${SELF_RITE.supplies} pence of candle, herbs and oil, and 1 attention, both returned on Stop · it waits unlit until you walk away`,L.workroom,{
   targetId:I.supervisor,once:false,visibleWhen:all(home,known),requires:all(home,known,caster,eq('lotm.rit.self.ready',false)),
   duration:SELF_RITE.prepare,costs:[money(-SELF_RITE.supplies),attention()],...guard([known,caster]),
   effects:[attention(1),know('rit.self.prepared','The circle is laid and unlit: one candle, herbs and oil. It keeps while you stay here. A walk away breaks it.','player','player','observation','understood')]}),`Needs Hale here, the taught rite, ${SELF_RITE.supplies} pence and no unlit circle already waiting.`),
- eases('rit_self_light',use(),'spirit','1 spirituality'),
+ eases('rit_self_light',use(),'spirit','1 spirituality (+1 strain)'),
  eases('rit_self_light_body',{type:'vital',key:'stamina',amount:-SELF_RITE.stamina},'body',`${SELF_RITE.stamina} stamina`)];
 ritualCommands.push(...selfRiteCommands);
 if(selfRiteCommands.slice(2).some(c=>!LOTM_RECOVERY_COMMANDS.includes(c.id)))throw Error('A pressure-easing rite must be a recorded recovery.');

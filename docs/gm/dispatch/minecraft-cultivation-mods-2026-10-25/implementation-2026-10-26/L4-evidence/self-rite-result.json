@@ -1,18 +1,18 @@
 {
-  "bundleSha256": "4a7f270c0e8bf0f0bb92d6688b1a2ccc9428c30ba482a7d339edf091b91ed941",
+  "bundleSha256": "5fed1b3b48a77cea2d9e0d8760dcb5f231772824a05c2e38e6444eaf29e3bfab",
   "route": "Fresh Nighthawk Corpse Collector life; one named purse-only fixture (3000 pence, no stock, knowledge, source, pressure or progress grants) pays the broker's posted 12-pound unmarked Sequence 8 dose. Every other step is a native click.",
   "persistence": [
     {
       "state": "rite pending",
-      "exportChars": 255340,
-      "exportSha256": "26b28a5f7747dc3fe68e5786dc57db79c637af3a5a96e199e49fb980e95e273c",
-      "projectSha256": "68dd577e3c0b368f92330a870bda5f69692d0fd3ab84a24451515da3cf97bba8"
+      "exportChars": 255372,
+      "exportSha256": "26c902a85f507f7420ad39a92abe35f46309943b9d5747579851ce3451e0d003",
+      "projectSha256": "097b39860f582e8e17d82a1173fbfddc5daff6075d505b2d329edef2aad96efc"
     },
     {
       "state": "rite completed",
-      "exportChars": 253904,
-      "exportSha256": "57c3f9d70d06cde13708ca08ba76264c99b64b969cb4655d68ff0badf5da1f2e",
-      "projectSha256": "eb456f707c76acd8577a271b47092af2ab4dbaaf67d8d62668ae647df40a53af"
+      "exportChars": 253936,
+      "exportSha256": "864c6f920d13ea77185163e7d7cabb0daec3dff93f145b3db8d6d3b802fd2d2b",
+      "projectSha256": "42442bc7a5287e87308b585b1cd4cdebabb01c66ba2a03904951279493a82a17"
     }
   ],
   "matrix": [

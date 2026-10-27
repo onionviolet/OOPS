@@ -17,7 +17,7 @@ const stop=p=>({...p,...cancelSimulationJob(p.state,registry,p.state.simulation.
 const walk=(p,to)=>{const from=p.state.simulation.people.player.location,id=`walk_${LOTM_PLACE_KEYS[from]}_${LOTM_PLACE_KEYS[to]}`;p=act(p,id);p.state.simulation.people.player.location=to;return wait(p,def(id).duration);};
 const attention=p=>p.state.actors[I.supervisor].resources['book.lotm.attention'];
 const pressure=p=>p.state.actors.player.resources['book.lotm.pressure']||0;
-const spirit=p=>p.state.simulation.energies.player[I.energy].reserve;
+const spirit=p=>p.state.simulation.energies.player[I.energy].reserve,strain=p=>p.state.simulation.energies.player[I.energy].strain;
 const facts=p=>lotmFacts(p.state,context(p));
 const checked=p=>{assert.ok(validateLotmState(p.state));assert.ok(validateLotmEnvelope(save(p)));return p;};
 const seer=()=>run(run(run(fresh(40000),'report_in'),'accept_allocation'),'ingest');
@@ -85,8 +85,8 @@ test('a Seer pays 1 spirituality; an empty reserve and the loss line refuse',()=
  const e=spirit(p),held=structuredClone(p.state.simulation.energies.player[I.energy]);
  p.state.simulation.energies.player[I.energy].reserve=0;assert.equal(preview(p,'rit_self_light').eligible,false,'no spirituality, no rite');
  p.state.simulation.energies.player[I.energy]=held;
- p=act(p,'rit_self_light');assert.equal(spirit(p),e-1);p=stop(p);assert.equal(spirit(p),e,'Stop returns the spirituality');
- p=wait(act(p,'rit_self_light'),SELF_RITE.rite);assert.equal(spirit(p),e-1);assert.equal(pressure(p),1);checked(p);
+ const t=strain(p);p=act(p,'rit_self_light');assert.equal(spirit(p),e-1);assert.equal(strain(p),t+1);p=stop(p);assert.equal(spirit(p),e,'Stop returns the spirituality');assert.equal(strain(p),t);
+ p=wait(act(p,'rit_self_light'),SELF_RITE.rite);assert.equal(spirit(p),e-1);assert.equal(strain(p),t+1,'the disclosed strain stays');assert.equal(pressure(p),1);checked(p);
  let q=prepared(seer());q.state.simulation.people.player.location=L.docks;for(const t of ['pay','verify','settle'])q=run(q,`lot_${t}_dose9_cc`);q=run(q,'drink_market_cc9');
  q=walk(q,L.workroom);q=wait(act(q,'rit_self_prepare'),SELF_RITE.prepare);
  assert.equal(facts(q)['lotm.lostControl'],true);assert.match(preview(q,'rit_self_light').reasons.join(' '),/loss line/);
