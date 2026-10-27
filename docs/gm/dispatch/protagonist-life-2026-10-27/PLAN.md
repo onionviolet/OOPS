@@ -1034,3 +1034,138 @@ principle with worked examples; WA32-WA35 drafted.
 | PL-L22 | Schema 1.3 conflict fields (sides, stakes, means, terrain, outcome, unseen) with lint | Sonnet, small | One session | The four conflict scenes in chapters 1-15 convert and lint |
 | PL-L23 | Calibration harness (GF13): seeded runs against a stated outcome | Sonnet, medium | One session | A planted mis-banded opponent fails calibration; a fixed band passes |
 | PL-L24 | Lived-week allies as lives with favour rows (household, first organization) | Sonnet, medium, after PL-E4 | One session | The bot's week shows two favour rows and one help offer from a shared goal |
+
+---
+
+## 16. Round 8: environment, events, NPC interactions and filling the blanks (2026-10-27)
+
+Weibao (relayed): "What about environment and events? They will get to those situations
+eventually but should be considered, more to consider? Interactions with NPCs, filling in
+the blanks for merchants, some stuff from book, some stuff extrapolated and more? more to
+consider?" Docs only. Evidence: the six private reads (counts and generic types only here),
+`src/weather_calendar.js`, `src/world_calendar*.js`, `src/book_world_lotm_districts.js`,
+`src/event_feed.js`, `src/life_events.js`, `src/npc_lives.js`, the time-travel report
+(C1-C12) and the canon-protagonist report (PX43-PX46). Proposed rules WA36-WA39.
+
+### 16.1 Environment as facts the lead run touches
+
+| Aspect | Book-stated in chapters 1-15 [S scene and census files, by type] | Extrapolated | Feeds | Existing code |
+| --- | --- | --- | --- | --- |
+| Weather and season | Storm (other viewpoint), night and dawn light, a red moon | Daily weather by season and place | Exposure, travel time, crowding, footprint hazard `weather` | `src/weather_calendar.js` is one shared 13-day rain cycle for all worlds [S file header]; `src/world_calendar_content.js` has per-world calendar profiles and no LOTM entry [S grep] |
+| Light and dark | Gas lamps, candles, moonlight, the hour of dawn | Street lighting by district | Risk at night, reading and work hours | None specific [I] |
+| Crowding, noise, smell | Market and street scenes, the shared washroom | Per district and hour | Ambient lines, pickpocket and witness chances | None [I] |
+| District character | Who polices which quarter, the docks, the university area | Ordinary trades per district | Who answers an incident, errand pay, rumor speed | `src/book_world_lotm_districts.js` (teams, churches, endorsement, errands) [S header] |
+| Buildings and interiors | The lodging, a bakery, a market, a fortune tent, a residence | Layout beyond what is shown | Where steps happen, hiding spots, exits | Place records; site rules |
+| Transport and routes | Omnibus fare by distance with zone caps; walking times | Routes and stops | Travel time and cost (LP3) | Travel seams; fares are a gap (GF10) |
+
+**Source order** (WA38 below): stated, then implied by a stated fact, then period-consistent
+extrapolation, then free invention; each with its label. **Feed rule:** environment changes
+play only through a stated mechanism (exposure, time, hours, risk, visibility), never as a
+flat modifier.
+
+### 16.2 Events: four kinds, all keyed
+
+| Kind | Example type | Seed and key | Clock model | How it appears |
+| --- | --- | --- | --- | --- |
+| Scheduled | Services on the rest day, school days, a weekly gathering at a stated hour, newspaper days | Calendar records; no draw | Schedule, scoped to the life facts that hold it | Clock strip, notices, routine |
+| Reactive | Police visit after a death the lead reports | Caused by an action record; the cause id is the key | Deadline from the cause, when the text states one | Return note and diary |
+| Ambient | Street incidents, vendor calls, rumors | Keyed draw `H(worldSeed, domain, placeId, dayIndex, subject, drawIndex)` (C1, C2, C7) | Opportunity | Ambient lines, rumor with travel delay (DWF70) |
+| Canon beat | The lead's great scenes | Beat record with footprint (PX43) | Schedule or deadline per the beat | Exposure ladder for other lives (PX44-PX46); witness-level text (PX49) |
+
+Keying means the canon run and every replay see the same ambient day. Ambient and reactive
+events obey forward anchors (WA24): a street incident may not remove someone the book still
+needs. A player in another seat sees scheduled and ambient events where they are, reactive
+events only through a channel that reaches them, and canon beats by exposure.
+
+### 16.3 NPC interactions
+
+Readers found service and social contact with landladies, bakers, vendors, police, a
+fortune teller, family and recruiters [S census kinds, generic]. Model:
+
+| Part | Rule |
+| --- | --- |
+| What a talk changes | One or more typed results: information (a knowledge fact), price (a quote or a discount), trust (a ledger row, WA34), access (a door, a list, an appointment). Never prose alone |
+| Book-shown versus extrapolated | Book-shown talks are faithful (WA35) on their results; their wording is ours. Extrapolated talks (asking the baker about rye prices on another day) use the same result types and the speaker's stated manner |
+| The lead's manner | The lead's observed manner (cautious, polite, money-conscious in these chapters [I]) is a voice and policy tag that the model policy and extrapolated lines respect |
+| Unnamed people | Role records (baker, clerk, conductor) with stable ids from place plus role (16.4) |
+| Existing owners | [Dialogue and interactions](../../../worlds/DIALOGUE_AND_INTERACTIONS.md) (D1-D6), storylets, voice sheets (DWF74), barks (DWF76) |
+
+### 16.4 Filling the blanks, merchants first
+
+**Layers and labels:** `stated` (S), `implied` (I, from a stated fact), `period` (I, consistent
+with the world's era and genre), `invented` (proposal). Each fill row carries its layer,
+its basis, the forward anchors it respects, and `replaceableBy: "later reading"`; when a later
+shard states otherwise, the stated row replaces the fill and the fill keeps its id with
+`supersededBy` (WAC25).
+
+**Unnamed merchants:** id `<world>.person.<place>.<role>.<n>`, generated by a keyed draw on
+place and role, so the same baker exists on every replay and in every seat. Stock comes from
+the shop-type grammar keyed by day (C2, PL-L15); prices from bands calibrated to stated
+anchors.
+
+**Worked example (chapters 1-15, private census, amounts only):**
+
+| Fact | Amount | Layer |
+| --- | --- | --- |
+| Coins and notes | 12 pence a shilling, 20 shillings a pound; coin and note denominations | stated |
+| Bakery | 8 lb rye order at 9 pence now, 11 before, 15 before a tax repeal | stated |
+| Market | A fish at 5 pence called by a vendor; 1 lb mutton at 7 pence | stated |
+| A shopping trip | Two shilling notes plus one penny, 25 pence in all, with 3 pence change at the bakery | stated |
+| Omnibus | 1 penny per km, capped at 4 pence in the city and 6 outside | stated |
+| School fees | 1, 3 and 9 pence a week by school type | stated |
+| Wages | Factory about 1 pound a week; a sibling's 1.5; a trainee lecturer 2, then 3.5; the clerk post below | stated |
+| Rent | A detached house 19 shillings, up to 38; the lead's own rent not yet seen | stated; own rent open |
+| Market stock beyond fish and mutton, bakery hours, other bread | | period or invented fills |
+
+**Calibration and arithmetic (proposed WA38):** stated amounts must reconcile. The trip
+checks: 24 pence in notes plus 1 penny is 25; the bakery takes 9 from a 12-penny note and
+gives 3 back; the market takes the remaining 16, of which 7 is mutton, leaving 9 for unstated
+items [I arithmetic]. The same check caught a reader error: the chapter-15 reader recorded the
+clerk's base wage as 2 pounds, while the text says 2 pounds 10 soli [S zh 第15章 p57, opened
+by the coordinator], which is what makes the stated weekly total reconcile; the existing LOTM
+code already cites it correctly (`src/book_world_lotm_lives.js:6`). Readers also wrote the
+same unit three ways (shilling, sol, gold-pound): a shared unit list joins the id registry
+(GF1).
+
+### 16.5 Gaps
+
+| Code | Gap | Owner proposal | Effort | Blocks the pilot |
+| --- | --- | --- | --- | --- |
+| GF15 | LOTM calendar profile and per-world weather (only a shared 13-day rain cycle exists) | `world_calendar_content.js`, `world_climate.js` owners | Small to medium | Yes, for dated days and exposure |
+| GF16 | Ambient event table keyed by place and day | Time-travel C7 lane | Medium | No; the lived week can run without ambient events |
+| GF17 | Typed talk results (information, price, trust, access) for book worlds | Dialogue owner D1-D6 | Medium | Partly: price talk at shops |
+| GF18 | Unnamed-merchant id scheme and keyed generation | P3 with C2 | Small | Yes, for shops the lead uses |
+| GF19 | Amount arithmetic lint (sums, change, conversions) and a shared unit list | Lead-run lint (PL-L7 family) | Small | Yes, for anchors |
+| GF20 | Lighting, crowding and noise as place-hour facts | Site owner | Small | No |
+
+### 16.6 Proposed rules
+
+WA36-WA39 added to [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md), marked
+"proposed 2026-10-27, awaiting Weibao's yes". **The yes that accepts them:** "yes to
+WA36-WA39", or "yes to WA25-WA39" for every proposed group.
+
+### 16.7 More to consider (round 8)
+
+**ACT NOW (done):** environment table with sources and code; the four event kinds with keys;
+the talk model; fill layers with replaceability; the merchant id scheme; the worked price
+example; one reader error found and verified; GF15-GF20; WA36-WA39 drafted.
+
+**ACCOUNT FOR NOW**
+
+- PL-A24. **Arithmetic is the cheapest truth check.** Every stated amount joins a sum check;
+  run it in the reader's lint, not after.
+- PL-A25. **The shared weather cycle is not a world's weather.** LOTM needs its own season and
+  weather profile before footprints with `weather` hazards mean anything.
+- PL-A26. **Ambient events wait for keyed draws** (C1, C2, C7); until then the lived week runs
+  without them and says so.
+- PL-A27. **Extrapolated merchants must be replaceable.** Never let a fill's id be reused for a
+  different person when a later chapter names the real baker; supersede instead.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L25 | Amount arithmetic lint and unit list (GF19) | Sonnet, small | One session | The chapter-15 wage row fails; a corrected row passes |
+| PL-L26 | LOTM calendar and weather profile (GF15) | Sonnet, medium | One session | A Tingen day shows its own weather; other worlds unchanged |
+| PL-L27 | Typed talk results for shop talk (GF17) | Sonnet, medium, after P3 | One session | Asking a baker changes a quote or a knowledge fact, logged |
+| PL-L28 | Unnamed-merchant generation keyed by place and role (GF18) | Sonnet, small, after PL-E1 | Small | The same baker id on two replays and in two seats |

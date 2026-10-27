@@ -6712,3 +6712,8 @@ Proposal record (not accepted): [plan rounds 5 and 6](gm/dispatch/protagonist-li
 
 Weibao's words (relayed by the Next implementation priorities session): "Filling in battles and more? How to abstract things into stats and more? Ally system? Other gaps discovered and need to be covered on the way? Codifying the book into the game in a way that reasonably makes sense? More to consider?"
 Proposal record (not accepted): [plan round 7](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (conflicts by outcome, prose-to-stat calibration, allies as lives with ledgers, gaps GF1-GF14, faithful/approximate/open). Proposed rules WA32-WA35 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
+
+## Environment, events, NPC interactions and filling blanks (2026-10-27)
+
+Weibao's words (relayed by the Next implementation priorities session): "What about environment and events? They will get to those situations eventually but should be considered, more to consider? Interactions with NPCs, filling in the blanks for merchants, some stuff from book, some stuff extrapolated and more? more to consider?"
+Proposal record (not accepted): [plan round 8](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (environment as keyed facts, four event kinds, typed talk results, layered and replaceable fills, worked price example, gaps GF15-GF20). Proposed rules WA36-WA39 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
