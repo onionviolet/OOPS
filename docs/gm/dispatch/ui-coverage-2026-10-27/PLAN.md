@@ -17,8 +17,8 @@ UIV4, UIV6; UT1-UT6; UF1-UF7; ZM1-ZM2; PR1-PR3.
 
 The game already has enough homes. It has 20 nav routes (`src/layout_spec.js:239-258`),
 5 regions (player, Around you, inventory, actions, log), 4 center modes (idle, fight,
-travel, service), the nine surface types ST1-ST9 that UR1 requires, and about 52 panels
-registered through `definePanel`. What is missing is a small set of **shapes** that any
+travel, service), the nine surface types ST1-ST9 that UR1 requires, and about 50 source
+files that register panels through `definePanel`. What is missing is a small set of **shapes** that any
 system can pour its rows into. Today each system invents its own shape, so each new
 system looks like it needs a new screen.
 
@@ -27,7 +27,7 @@ one-page UI contract: which existing home, which of eight shared primitives, wha
 says in each state, and what the player can do. A headless check fails when a system
 names a home that does not exist or a shape outside the set. With that, the 18 systems
 below need **zero new nav routes, zero new regions and zero new center modes**. They
-add seven tabs inside three existing routes, and they add lines and rows to surfaces that
+add seven tabs inside four existing routes, and they add lines and rows to surfaces that
 already exist.
 
 The first build is the **note** primitive: the return note and stop-reason lines. It
@@ -57,32 +57,40 @@ point at.
 
 The columns are: **Home** (an existing route, region or surface type) · **Primitive**
 (section 2) · **Says** · **Player can** · **States** (E empty, B blocked, L loading, U
-unknown) · **Start** (main = extends an accepted surface; drawer = Projects drawer until
-Weibao promotes it, UR2).
+unknown) · **Start**. Start values: **fix** = a line or row added to an accepted surface
+that already shows this system, which ships as adopted direction; **main if UR78** = a new
+tab, chip or Here-view note, which goes through UR2 (Weibao promotes it from the Projects
+drawer) until proposed UR78 is accepted; **drawer** = Projects drawer until its engine
+exists and Weibao promotes it.
 
 | # | System (codes) | Home | Primitive | Says | Player can | States | Start |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| M1 | Pace dial and evening budget (P1, P4, R1) | Header strip, beside world · life · date | Chip, then a policy row in a popover | "Lively · next dated event in 3 days"; the budget ("shift window 2 h left") | Change the pace at a rest point | B: "Change at a rest point. You are on watch." L: the chip is hidden until a life exists | main (the storylet temper already exists) |
-| M2 | Stop reasons and takeover (P2, E3, E4, 3.2) | Work line status row (actions region) | Note line plus choice row | "Stopped: rye flour ran out (2 of 5 loaves made)" | Resume in one click; open the source (UR29); edit the stop rules (M14) | E: "Running · stops when inputs run out, a choice appears or the shift ends." B: resume is disabled and shows its reason | main |
-| M3 | Return note (P3, UT3, E2, C3, N4, K5, TI7) | Top of the Here center view on the first screen after an absence; one grouped log entry (UR64); archived in Journal → Days | Note | What settled, what stopped and why, what was missed and how to recover it, what waits. At most 5 lines, then "and 7 more" | Click a line to open its source; dismiss; keep it pinned | E (frozen world): "The Village waited where you left it." L: "Settling 3 days…" with a count, no input until done. U: nothing about clocks the life is not attached to | main |
-| M4 | Clocks and appointments (C1-C3, E1, E7, R2-R5, N3) | Ledger route → new **Due** tab; header chip for the next firm clock | Timeline plus chip | Dated rows with degree (ambient, soft, firm), lead time, what a miss does, recovery | Join, witness or let pass (R3) once inside the lead time; "Skip to the next thing" (R5) | E: "Nothing scheduled concerns this life." (A sparse world stays sparse, R6.) B: skip is disabled with a reason ("a choice is open"). U: unattached clocks are absent, not greyed | main for Village rows; drawer for R5 skip |
-| M5 | NPC reach-out, letters, greetings, threats (N1, N4, N7, L6) | The scene card in the center via the storylet deck; a log line; the timeline row for the reply window | Scene card, note line, timeline row | The letter in the world's voice; reply window; tells on a suspect letter in its inspector | Reply (choice rows), defer, open the sender | E: none needed (letters arrive). B: an option shows its reason ("You can't write yet") | main (rides VC12's deck) |
-| M6 | Closeness and schedules (N2, N3, N6, RLA) | People route; person inspector | List plus inspector, meter | A closeness meter that names its question (UR61): "Warmth: cooled since you left; the floor holds." A "Usually at the mill, mornings" line once observed | Greet and give a gift where the person is (existing commands); pin the person | U: "Not seen enough to know their hours." E: "You know no one here yet. Talk to people in the Village." | main |
-| M7 | Favour and debt ledger (WA34, L4, heirs) | Ledger route → new **Owed** tab | Ledger, policy row on the person | Who, what, since when, due, and what survives an heir | Settle or call in (at the person's place); set a helper's consent (yes / ask me / no) on their inspector | E: "No one owes you and you owe no one." B: "Settle in person at the mill." | main for reads; drawer for consent until L4 exists |
-| M8 | Merchant stock and price memory (SI1-SI5, 18.1, WA39) | Shop service view (ST2, service center mode) | List plus inspector, chip, choice row | Stock rows with source chips; "Last agreed with you: 4 d, Tuesday" as a dated observation (UR61); sold-out and restock times | Buy, sell, haggle (choice rows with cost and reason) | E: "Sold out until the next market (3 days)." U: price unknown until asked. Revisit: a "last time you were here" note line | main |
+| M1 | Pace dial and evening budget (P1, P4, R1) | Header strip, beside world · life · date | Chip, then a policy row in a popover | "Lively · next dated event in 3 days"; the budget ("shift window 2 h left") | Change the pace at a rest point | B: "Change at a rest point. You are on watch." L: the chip is hidden until a life exists | main if UR78; after the P1 answer |
+| M2 | Stop reasons and takeover (P2, E3, E4, 3.2) | Work line status row (actions region) | Note line plus choice row | "Stopped: rye flour ran out (2 of 5 loaves made)" | Resume in one click; open the source (UR29); edit the stop rules (M14) | E: "Running · stops when inputs run out, a choice appears or the shift ends." B: resume is disabled and shows its reason | fix |
+| M3 | Return note (P3, UT3, E2, C3, N4, K5, TI7) | Top of the Here center view on the first screen after an absence; one grouped log entry (UR64); archived in Notebook → Days | Note | What settled, what stopped and why, what was missed and how to recover it, what waits. At most 5 lines, then "and 7 more" | Click a line to open its source; dismiss; keep it pinned | E (frozen world): "The Village waited where you left it." L: "Settling 3 days…" with a count, no input until done. U: nothing about clocks the life is not attached to | main if UR78 |
+| M4 | Clocks and appointments (C1-C3, E1, E7, R2-R5, N3) | Ledger route → new **Due** tab; header chip for the next firm clock | Timeline plus chip | Dated rows with degree (ambient, soft, firm), lead time, what a miss does, recovery | Join, witness or let pass (R3) once inside the lead time; "Skip to the next thing" (R5) | E: "Nothing scheduled concerns this life." (A sparse world stays sparse, R6.) B: skip is disabled with a reason ("a choice is open"). U: unattached clocks are absent, not greyed | main if UR78; drawer for R5 skip |
+| M5 | NPC reach-out, letters, greetings, threats (N1, N4, N7, L6) | The scene card in the center via the storylet deck; a log line; the timeline row for the reply window | Scene card, note line, timeline row | The letter in the world's voice; reply window; tells on a suspect letter in its inspector | Reply (choice rows), defer, open the sender | E: none needed (letters arrive). B: an option shows its reason ("You can't write yet") | fix (rides VC12's deck) |
+| M6 | Closeness and schedules (N2, N3, N6, RLA) | People route; person inspector | List plus inspector, meter | A closeness meter that names its question (UR61): "Warmth: cooled since you left; the floor holds." A "Usually at the mill, mornings" line once observed | Greet and give a gift where the person is (existing commands); pin the person | U: "Not seen enough to know their hours." E: "You know no one here yet. Talk to people in the Village." | fix |
+| M7 | Favour and debt ledger (WA34, L4, heirs) | Ledger route → new **Owed** tab | Ledger, policy row on the person | Who, what, since when, due, and what survives an heir | Settle or call in (at the person's place); set a helper's consent (yes / ask me / no) on their inspector | E: "No one owes you and you owe no one." B: "Settle in person at the mill." | main if UR78 for reads; drawer for consent until L4 exists |
+| M8 | Merchant stock and price memory (SI1-SI5, 18.1, WA39) | Shop service view (ST2, service center mode) | List plus inspector, chip, choice row | Stock rows with source chips; "Last agreed with you: 4 d, Tuesday" as a dated observation (UR61); sold-out and restock times | Buy, sell, haggle (choice rows with cost and reason) | E: "Sold out until the next market (3 days)." U: price unknown until asked. Revisit: a "last time you were here" note line | fix |
 | M9 | Inventory canon / filled / yours badges (17.1, PL-L30) | Inventory region rows; item inspector source line | Chip | **book**, **filled**, **yours**; the inspector says "from the book's day 3", resolving names through the resolver | Filter by source (default all, PL-A29) | Chips appear only in a life whose world has a canon layer; elsewhere none | drawer (lead playthrough) |
-| M10 | Seeds, time travel and branches (TT1-TT6, TI5, TI7, DT1) | Connection route → new **Branches** tab; a rewind or branch is a threshold screen (ST3); the day's delta log is in Journal → Days | Timeline, ledger in diff mode, note line | The branch atlas; on rewind, what carries and what is undone (now → after); "Last time you were here you bought the sword" | Rewind or branch (threshold confirm with cost); resume a frozen branch | E: "One line so far." B: "Your carrier has no charge." Import with a new genVersion: a plain note line (TI5) | drawer |
-| M11 | Conceptual-ability effects and residue (CAE-P4, K1-K15) | No surface of its own. Effects show through every surface via `refOf`; held operations are listed in Continuing insight | Inspector line, ledger rows in insight | Residue text where a name or record is masked ("someone", "a name you can't hold"); in insight, each held operation with scope, cost, reversal | Use an ability from the target's inspector or from insight (choice row with cost and reason) | U: residue only; a sealed route shows by ID and status. E (insight): "No working held." | drawer |
+| M10 | Seeds, time travel and branches (TT1-TT6, TI5, TI7, DT1) | Connection route → new **Branches** tab; a rewind or branch is a threshold screen (ST3); the day's delta log is in Notebook → Days | Timeline, ledger in diff mode, note line | The branch atlas; on rewind, what carries and what is undone (now → after); "Last time you were here you bought the sword" | Rewind or branch (threshold confirm with cost); resume a frozen branch | E: "One line so far." B: "Your carrier has no charge." Import with a new genVersion: a plain note line (TI5) | drawer |
+| M11 | Conceptual-ability effects and residue (CAE-P4, K1-K15) | No surface of its own. Effects show through every surface via `refOf`; held operations are listed in the Continuing insight panel (`cheat-faculty`, You region) | Inspector line, ledger rows in insight | Residue text where a name or record is masked ("someone", "a name you can't hold"); in insight, each held operation with scope, cost, reversal | Use an ability from the target's inspector or from insight (choice row with cost and reason) | U: residue only; a sealed route shows by ID and status. E (insight): "No working held." | drawer |
 | M12 | Canon beats, modes and seats (PX1-PX5, PX13-PX15) | Start screen (ST3): mode and seat as choice rows; attached beats are rows in the Due tab; a canon-line chip in the header | Choice row, timeline, chip | Labels per reader dial ("something due at the church office" for a new reader); chip reads "On the book line", "Shifted" or "Diverged" | Pick a mode or seat; join, witness or let pass a beat; set "history leans on" per life (policy row in Connection → This world) | U: beats outside the life's scope are absent (PX5). Sealed outcomes stay off the confirm screen (PX15) | drawer |
 | M13 | Lead playthrough (17.4) | Scene card in the center; the rest reuses M3, M4, M9 and Journal → **Knows** | Scene card, the lens of section 4 | Where, when, goal, options; untaken options are "not built yet" | Choose; open the book overlay (off by default) | E: "No scene now. Live the day." The overlay shows only current and past scenes | drawer |
-| M14 | Routines, standing orders and plan-before-leaving (3.2, L3, K4) | The routine's own surface (work line or service) for its rules; Ledger route → new **Orders** tab lists them all | Policy row | "Pick when ripe; sell above 6 d; keep seed stock; weekly market only" | Add, edit or pause an order; set stop reasons; "Before you go" plan on the work line | E: "No standing orders. Set one from a field or stall." B: "Unlocks after your first harvest sale." | drawer for orders; main for stop-reason toggles once M2 lands |
-| M15 | Battles, allies and optional pressure (15.1, 15.3, P5) | Fight center mode, opponents panel, Around you | List plus inspector, policy row, note | Allies as rows beside opponents; an outing's stop reason; pressure modifiers with their named reward | Pick modifiers on the outing confirm (Hands-on only) | U: unknown stats per UR36. E: no allies, so no rows | main for allies; drawer for P5 |
-| M16 | Environment, events and bad actors (16.1, 16.2, CP2, K5, L5) | Header (date, weather, SMU1), Around you prose, log, scene cards | Chip, note line, inspector, choice row | The weather and season; for a loss, its trace ("muddy prints by the shed") in the loss line's inspector | Follow up on recourse (choice row); the temperament is M1's pace | U: a trace that is not yet noticed shows nothing | main |
-| M17 | World travel and carry (UF1-UF3, UT1-UT6, TL8) | Header orientation; the crossing confirm (ST3) with now → after; Connection → new **This world** tab (UF3) | Chip, ledger diff, note | "Tingen · your clerk life · 4 June"; what carries; the arrival line | Cross and return with one verb (UT6) | E: carry ledger with no rows: "Nothing physical crosses this way; memories do." | main (UF7 is a GM card) |
-| M18 | Base cheat growth (UF4, BC3-BC5) | Continuing insight; status window | Ledger, chip | Stage, verbs, point sources (UT4), limits found, observers who noticed | Spend or choose a branch (choice rows) | U: quiet parts are absent, not greyed (UF4) | main |
+| M14 | Routines, standing orders and plan-before-leaving (3.2, L3, K4) | The routine's own surface (work line or service) for its rules; Ledger route → new **Orders** tab lists them all | Policy row | "Pick when ripe; sell above 6 d; keep seed stock; weekly market only" | Add, edit or pause an order; set stop reasons; "Before you go" plan on the work line | E: "No standing orders. Set one from a field or stall." B: "Unlocks after your first harvest sale." | drawer for orders; stop-reason toggles main if UR78, after M2 |
+| M15 | Battles, allies and optional pressure (15.1, 15.3, P5) | Fight center mode, opponents panel, Around you | List plus inspector, policy row, note | Allies as rows beside opponents; an outing's stop reason; pressure modifiers with their named reward | Pick modifiers on the outing confirm (Hands-on only) | U: unknown stats per UR36. E: no allies, so no rows | fix for allies; drawer for P5 |
+| M16 | Environment, events and bad actors (16.1, 16.2, CP2, K5, L5) | Header (date, weather, SMU1), Around you prose, log, scene cards | Chip, note line, inspector, choice row | The weather and season; for a loss, its trace ("muddy prints by the shed") in the loss line's inspector | Follow up on recourse (choice row); the temperament is M1's pace | U: a trace that is not yet noticed shows nothing | fix |
+| M17 | World travel and carry (UF1-UF3, UT1-UT6, TL8) | Header orientation; the crossing confirm (ST3) with now → after; Connection → new **This world** tab (UF3) | Chip, ledger diff, note | "Tingen · your clerk life · 4 June"; what carries; the arrival line | Cross and return with one verb (UT6) | E: carry ledger with no rows: "Nothing physical crosses this way; memories do." | fix for header orientation (UF7 card); main if UR78 for the This world tab |
+| M18 | Base cheat growth (UF4, BC3-BC5) | Continuing insight panel (`cheat-faculty`, You region); status window | Ledger, chip | Stage, verbs, point sources (UT4), limits found, observers who noticed | Spend or choose a branch (choice rows) | U: quiet parts are absent, not greyed (UF4) | fix |
 
-New tabs in the table: Ledger → Due, Owed, Orders; Journal → Days, Knows; Connection →
-This world, Branches. That is seven tabs in three routes, and no new route.
+New tabs in the table: Ledger → Due, Owed, Orders; Journal → Knows; Notebook → Days;
+Connection → This world, Branches. That is seven tabs in four routes, and no new route.
+Baselines (source read 2026-10-27): Journal has 5 tabs (quests, bestiary, books, data,
+notebook) and goes to 6; Notebook ("Notes, practice & people") has 3 views and goes to 4;
+Connection has 3 tabs (Return, Anchors & study, Learning) and goes to 5. The Ledger route
+opens the **Work Ledger** panel, which has no tabs today, so B2 adds a tab strip (Work,
+Due, Owed, Orders) rather than one more tab.
 
 ## 2. Shared primitives and the surface budget
 
@@ -114,7 +122,8 @@ a component, not a home. It renders a projection (AR8). It never decides settlem
   (crossing, rewind, start mode). It is built from K1, K3 and K5.
 
 **Budget, frozen at today's counts (proposal):** 20 nav routes, 5 regions, 4 center
-modes, about 7 Local actions, 7 tabs per route. The coverage check (section 6) reads
+modes, about 7 Local actions, 7 tabs per route. Today's tab counts: Journal 5, Notebook 3,
+Connection 3, Ledger 0 (one panel); after this plan 6, 4, 5 and 4. The coverage check (section 6) reads
 `routeTable()` and the region and center-mode specs, and fails when a count rises
 without an entry in a ledgered allowlist that has a `reason`.
 
@@ -128,8 +137,11 @@ without an entry in a ledgered allowlist that has a `reason`.
   scene card or service), the work line with its status row (M2), and the full-height
   log (UR11).
 
-**One click:** nav routes (Ledger → Due, Owed, Orders; Journal → Days, Knows; People;
-Connection → This world, Branches; Inventory; Continuing insight). Alt+key from
+**One click:** nav routes (Ledger → Work, Due, Owed, Orders; Journal → Knows; Notebook →
+Days; People; Connection → This world, Branches; Inventory). Continuing insight is a
+panel in You (`cheat-faculty`, `src/cheat_ui.js:8`), not a route; it is reached through
+You and the "Other known panels" list. If its stages grow as UF4 plans, the missing
+direct path is a UR21 gap to close by a route merge, not a 21st route. Alt+key from
 `layout_spec.js`; tabs keep their place on return (UR23).
 
 **Inspector (hover then pin, UR43):** person, item, stock row, ledger row, clock row,
@@ -148,7 +160,7 @@ confirm (ST4):** spend, leave mid-relay (says what leaving forfeits, VC3a).
 | 1920×1080, 14 px | All chips in one line | List and pinned inspector side by side | 5 lines visible | Options all visible |
 | 1800×1040 (MacBook), 14 px | Same | Same | Same | Same |
 | 1536×864, 14 px | Chips past the first two fold into "+2", which opens a popover listing them in the same order | Side by side; the inspector narrows | 5 lines | Same |
-| 1536×864, 21 px | world · life · date always; then pace; the rest fold into "+n". Chips keep their text, never colour alone (UR37) | The inspector overlays the list's right half inside the panel; Esc returns (UR53) | 3 lines, then "and n more" opens Journal → Days | Options scroll inside the card; the back bar stays pinned (UR33) |
+| 1536×864, 21 px | world · life · date always; then pace; the rest fold into "+n". Chips keep their text, never colour alone (UR37) | The inspector overlays the list's right half inside the panel; Esc returns (UR53) | 3 lines, then "and n more" opens Notebook → Days | Options scroll inside the card; the back bar stays pinned (UR33) |
 
 Chip priority when folding: orientation, pace, next firm clock, canon line, then other chips.
 
@@ -202,8 +214,8 @@ where state persists. Coordinate file ownership with backlog-ui (UR19).
 
 | Order | Slice | Level | Effort | Done check |
 | --- | --- | --- | --- | --- |
-| B1 | **Note primitive, return note and stop-reason line** (K2; M2, M3; P2, P3, E2, C3, UT3). Builds on `event_feed.js` and `work_status_view.js`. Needs one persistence decision: what "since you last looked" is stored as | Sonnet medium | One session | A scripted 12 h absence in the Village shows a note with at least one settled, one stopped (with its reason) and one missed line, each opening its source; a frozen-world return shows the "waited" line; the work line shows the stop reason and resumes in one click; after reload the note is still unseen until dismissed; Import does not replay it |
-| B2 | **Ledger primitive and Ledger → Owed** (K3; M7), read-only over `obligations_ledger.js` adapters | Sonnet medium | One session | Debt, favour and duty rows show in one tab with filters, counts, an inspector and the empty text; no save fields change; the panel matrix covers it |
+| B1 | **Note primitive, return note and stop-reason line** (K2; M2, M3; P2, P3, E2, C3, UT3). Builds on `event_feed.js` and `work_status_view.js`. Needs one persistence decision: what "since you last looked" is stored as. The work-line stop reason is a fix; the Here-view note needs UR78 or Weibao's promotion | Sonnet medium | One session | A scripted 12 h absence in the Village shows a note with at least one settled, one stopped (with its reason) and one missed line, each opening its source; a frozen-world return shows the "waited" line; the work line shows the stop reason and resumes in one click; after reload the note is still unseen until dismissed; Import does not replay it |
+| B2 | **Ledger primitive and Ledger → Owed** (K3; M7), read-only over `obligations_ledger.js` adapters | Sonnet medium | One session | The Work Ledger gains a tab strip with Work as its first tab and no change to existing work rows; debt, favour and duty rows show in one tab with filters, counts, an inspector and the empty text; no save fields change; the panel matrix covers it |
 | B3 | **Choice-row extension** (K1): reasons on scene-card options, on non-button rows and on VC2n closed rows; preview equals commit (UIV4) | Sonnet low | Half a session; backlog-ui owns `ui_components.js` | Every disabled option in a scene card shows its reason and is a Tab stop; a preview and its commit show the same cost in a scripted case |
 | B4 | **Timeline and Ledger → Due, with the next-clock chip** (K4, K7; M4). Before C1 exists it reads `world_calendar`, owned-place clocks and the under-way list (UIV3) | Sonnet medium | One session | Three concurrent timed jobs and one dated event show with time left and degree; the chip names the next firm one; the empty text shows in a fresh life |
 | B5 | **Policy row and the pace chip** (K8; M1, M2 toggles), generalising the storylet temper | Sonnet medium, after Weibao's P1 answer | One session | Changing pace at a rest point changes the deck rate in a fixed-seed run; off a rest point the reason shows |
@@ -288,8 +300,8 @@ template; UR76-UR82 proposed; the "pinned box" naming gap (F1) mapped to the wor
   touches persistence; it needs a migration or compatibility decision before code.
 - UC-A2. **backlog-ui owns `ui_components.js`.** B3 is its row or a hand-off; it is not a
   parallel edit (UR19).
-- UC-A3. **Tabs are cheap and can still sprawl.** Seven new tabs land across three
-  routes; Ledger goes to four or five tabs. Review it at B4.
+- UC-A3. **Tabs are cheap and can still sprawl.** Seven new tabs land across four
+  routes; Journal reaches 6 of 7 and the Ledger gets its first tab strip. Review it at B4.
 - UC-A4. **K5 is thin.** It has one strong consumer (`storylet_ui.js`); confirm the
   threshold start screens really share its shape before generalising it.
 - UC-A5. **The resolver is a dependency.** M9, M11 and PD4's observer view assume
@@ -315,7 +327,11 @@ template; UR76-UR82 proposed; the "pinned box" naming gap (F1) mapped to the wor
   travel TT1-TT6, TI1-TI7, SI1-SI6; CAE-P4, K1-K15). File headers in `src/` as cited.
 - Advisor: one call before writing, on the primitive set. Taken: note first (UIV1 had
   landed), the policy-row primitive, lenses only narrow, numeric budget, checks built on
-  the existing test and matrix, the "pinned box" gap.
+  the existing test and matrix, the "pinned box" gap. A second call after the first commit
+  caught three slips, fixed in the follow-up commit: Continuing insight is a You panel, not
+  a route; the Start column had applied proposed UR78 as if accepted; tab counts had no
+  baseline (now read from `layout_spec.js`, `adventure_notebook.js:10`,
+  `continuation_ui.js:21` and `main.js:9946`).
 - `scripts/check_rules_index.mjs` reads rule files and the index only, so proposed codes in
   this dispatch doc do not affect `check:rules`; it was not run (no rule file touched).
 - No game run: nothing here is implemented. Every row is a proposal; nothing is
