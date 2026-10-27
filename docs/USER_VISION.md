@@ -6581,3 +6581,9 @@ Recorded: Proto23 code may be taken for a base Proto23 world, beside a YAIR worl
 > Make the gm audit its own ideas offensively, consider gameplay loop of each world, each identity, implementation and more? Also UI flow, cohesive shifts between them, dedicated ui for the world stuff and the cheat stuff and all the other cool ideas too
 
 Recorded; proposals RT1-RT3, PW1-PW2 and UF1-UF7 are in [master plan round 9](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-9-red-team-the-gm-plan-per-world-loops-and-identities-ui-flow-2026-10-27). Not accepted designs.
+
+## Overarching loop, comparable games and long-term world rules, 2026-10-27
+
+> Game play loop overarching considerations for a cohesive game, what other games with scope like this do and more? Considering base gameplay, long term stuff like rules to make each world implementation better and more
+
+Recorded; proposals OL1-OL5, CP1-CP9 (unverified, general knowledge) and WR1-WR10 are in [master plan round 10](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-10-overarching-loop-what-big-scope-games-do-and-long-term-world-rules-2026-10-27). Not accepted designs or registered rules.

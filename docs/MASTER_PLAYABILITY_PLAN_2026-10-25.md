@@ -464,3 +464,56 @@ Weibao: make the GM audit its own ideas offensively; consider each world's gamep
 | UF5 | **Rules for the dedicated panels.** Desktop first (1920x1080, 1536x864 at 14 and 21 px); observer-safe known / guessed / unknown grammar (UIV6); effect-first descriptions (UR70-UR75); blocked reasons visible (UIV1); zoom steps through text-size presets (ZM2). | Reason: the existing UI rules already cover these; the panels must not need new exceptions. |
 | UF6 | **Other ideas from the bank as UI.** Under-way list (UIV3), now-to-after crossing comparison (SMU4), return note (UT3), preview equals commit (UIV4). Attach each to one panel above instead of a new surface. | Reason: fewer surfaces, more cohesion. |
 | UF7 | **First UI slice.** After UIV1: the header orientation (UF2) and arrival change summary (UF1) for the existing Tingen crossing, since both worlds exist today. Done check: rebuilt 1920x1080 and 1536x864 browser from a fresh life; Save/reload/Import keep the view. | Reason: smallest slice that proves cross-world UI cohesion. |
+
+## Round 10: overarching loop, what big-scope games do, and long-term world rules (2026-10-27)
+
+Weibao: "Game play loop overarching considerations for a cohesive game, what other games with scope like this do and more? Considering base gameplay, long term stuff like rules to make each world implementation better and more." Proposals. Codes OL overarching loop, CP comparable practice, WR world rules.
+
+**Evidence limit.** The idle and LitRPG references (Proto23, Melvor, Idle Loops, Arcanum, Increlution, Evolve, Trimps and others) are already source-checked in `docs/RESEARCH_IDLE_GAMES.md` and `docs/RESEARCH_LITRPG_SYSTEMS.md`. The broader-scope games below are from general knowledge, not checked against sources this session. Treat them as leads; a source pass through the existing research route is the verification (CP-LATER).
+
+### What games with this scope do
+
+| Code | Game | Pattern that keeps a big game cohesive | Take | Danger |
+| --- | --- | --- | --- | --- |
+| CP1 | Caves of Qud, Dwarf Fortress | Deep simulation plus authored lore on one set of rules; failure produces stories | Make failure leave a chronicle entry and a recovery contract (defeat is content) | A decade of scope; interaction depth, not content count, is what scales |
+| CP2 | RimWorld | A "storyteller" director picks events from world state and a chosen temperament | One event director per world with a dial (calm to pressure), over the existing world-events seam | A director that ignores player state feels random |
+| CP3 | Fallen London, Sunless Sea | Quality-based storylets: content is cards with prerequisites over persistent qualities; breadth stays cheap and one voice | Storylet pools in pack data (WA21) as the cheapest unit of procedural content that is still authored | Prose volume; needs voice rules (round 4 PR1-PR5) |
+| CP4 | Stardew Valley, Proto23's market and watch windows | A calendar rhythm gives each day a shape and a reason to return | Each world declares one daily and one weekly or seasonal rhythm | Rhythm without reward becomes chore |
+| CP5 | Universal Paperclips, Evolve, Cookie Clicker | Phase shifts: at thresholds the game changes shape, not just size | Headroom (round 6 HR) comes from phase changes in scale: a household, a district, a region, a continent, each with new verbs | Phases that only rename the meter |
+| CP6 | Hades, Wildermyth | Returning after a run changes what people say; legacy carries as story | The world remembers: remembered responses and the return note (UT3) | Reaction text volume |
+| CP7 | Kingdom of Loathing, Melvor | Many zones, each with its own joke or verb, on shared resources so skills feed each other | Shared currencies across worlds (the base cheat, knowledge, relationships) with world-specific verbs | Tone drift between zones |
+| CP8 | Crusader Kings | Lives and dynasty as the unit of story; traits drive events | Lives as the unit (continuation record, heirs); traits as event prerequisites | Complexity creep |
+| CP9 | Wide-scope solo or small-team hits generally | Few systems that multiply each other; one clear verb; a hard scope line | Pull ideas by loop step (IB1), not by count | The "mile wide, inch deep" failure |
+
+### The overarching loop (OL)
+
+| Code | Scale | Shape | What exists | Gap |
+| --- | --- | --- | --- | --- |
+| OL1 | Moment | Choose an action, see a cost and a result | Native commands, costs, blocked reasons (UIV1) | Reasons not always visible |
+| OL2 | Evening (20-120 min) | Arrive (return note), pick a project, tend it while idle, meet an event, see a consequence, choose next | Idle routines, journal, work line | Return note (UT3), under-way list (UIV3), event director (CP2) |
+| OL3 | Week / season | A rhythm and an arc: market day, term, harvest, a pathway rung | Calendar, Proto23 windows, examinations | One declared rhythm per world; arcs per rung (HR2) |
+| OL4 | Life | A character's story ends or turns | Heirs, continuation, death rules | Chronicle of the life as the reward (CP1, CP6) |
+| OL5 | Beyond | Travel, lineage, the cheat across lives | Continuing connection, carry ledger | The exchange (TL1-TL8) |
+
+The skeleton under every world's base gameplay is the same: place, needs and means, work, learn, exchange, risk, rest. Worlds differ in the nouns, the pacing and the signature loop, not in the skeleton (WA5).
+
+### Rules to make each world implementation better (WR)
+
+Existing owners already carry the structure: world absorption WA1-WA21, completion standard S00-S14, entry rules WER, sites SR, passes WPR. The additions below are only what those lack for cohesion. Proposals; register in the rules index if accepted.
+
+| Code | Rule | Default, dial, reason |
+| --- | --- | --- |
+| WR1 | **A world loop card, one page, before deep work.** The verb in a sentence (LT1); the evening shape (OL2) with existing systems at each step; the declared rhythm (CP4); the event director's temperament (CP2); the scale ladder and its phase shifts (CP5, HR1-HR6); the voice sample; the contrast row against other worlds (PW2). | Dial: a thin world has a thin card. Reason: WA19 says lint passing is not absorbed; this is the human-readable test of the signature loop (K13). |
+| WR2 | **Three good evenings.** A world counts as deep when three different evenings can be described and each has been played to the AD43 floor in the browser, with notes. | Reason: depth is judged by play, matching DC1 and the master plan horizon. |
+| WR3 | **Failure is content.** Each risk names its chronicle entry, recovery contract and what the character learns. | Reason: CP1; also fits the defeat contract in the loop vocabulary. |
+| WR4 | **Content is cards with prerequisites, procedural pieces need a consumer.** Event and dialogue pools use one storylet-like shape in pack data; a generator ships only with a consumer that uses its output now (IB3). | Reason: CP3 and the procedural usability request; keeps breadth cheap and tone consistent. |
+| WR5 | **Shared thread, local verbs.** Currencies that cross worlds (cheat points, knowledge, relationships) are declared once in the carry ledger; each world adds its own verbs on them. | Reason: CP7, TL2. |
+| WR6 | **Headroom is typed from day one.** A world's higher rungs exist as typed rows with required region, ritual, cost and risk even when empty (HR6); unbuilt rungs say "not offered" in the UI. | Reason: stops "no room for higher levels". |
+| WR7 | **One kill pass per world plan.** Red-team the world card (RT1-RT3) before building from it; list killed ideas. | Reason: the bank only grows otherwise. |
+| WR8 | **A world pack is proven by a second, different world.** Already WA20; schedule it: Proto23 pack or LOTM region pack is the first real test of the format for the Village variant. | Reason: format flaws show on the second world. |
+| WR9 | **Scope line.** Pull by loop step; one deep world at a time per loop; a new world needs the previous one's three evenings first (dial: a test-bed world may be thin). | Reason: CP9. |
+| WR10 | **Retire dead ideas.** An idea with no loop step and no consumer after two review rounds is marked banked-cold in the inventory. | Reason: keeps the bank usable. |
+
+### Order
+
+After UIV1 and the GM plan: write WR1 cards for the Village variant and Proto23 first (the GM page-per-world work, PW1, is the seed); run RT on them; then the event-director and storylet shape (CP2, CP3) as one small slice that gives the Village an evening with a surprise; then headroom typing (WR6). CP-LATER: a source pass on CP1-CP9 through the research route, since this table is unverified.
