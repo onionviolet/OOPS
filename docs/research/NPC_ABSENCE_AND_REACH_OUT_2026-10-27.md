@@ -275,3 +275,61 @@ LATER: a per-world event calendar page in each loop card (dated events, lead tim
 miss outcome); a source pass for canon timelines needs the existing source-world
 routes and is not done here. Level: docs plus pack data; effort: small per world
 once its source pass exists; done check: each world card lists its horizon.
+
+## Round 3 (2026-10-27): ways catch-up can work, and what banked time buys
+
+Question from Weibao: different ways catch-up could work, using banked time
+toward harvesting and other processes. Proposals only; rates, caps and banking
+stay open under OD4. Sourced models: Atom Idle's Time Bank at about 5x, Idle
+Spiral's 20x boost, Revolution Idle's saveable Offline Flux, Kittens Game's
+temporal flux [S, links in Part A]. Neko Atsume as "absence is the reward" [S].
+Princess Maker 2's plan-the-month blocks [S]. Pokemon Sleep-style rest rewards
+[U, unchecked].
+
+| # | Model (default, dial, reason) | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| K1 | **Settle.** The current routine resolves at the life's pace into a summary; nothing is replayed. Default for short absences. Dial: length cap (24 h of world time, P7). Reason: cheapest, safest, matches accepted background. | Routine runner | Small | A 3 h absence settles one routine and the note lists it. |
+| K2 | **Spend the bank as accelerated play** (E5). Away time banks; spending runs the world at a stated multiple and stops at choices, deadline events (R2) and exhausted supplies. Dial: multiple per world; efficiency under 1 for income-like output, 1 for physical processes. Reason: the genre's standard answer, and the player decides when to spend [S]. | Clock + persistence | High | Spending 6 h at the chosen multiple advances the world 6 h and stops at the first open choice. |
+| K3 | **Bank pours into processes, not into choices.** Time-gated processes (crops, brewing, digestion, cooking, relay trips, study blocks, repairs) advance by banked world time; attention verbs (talk, decide, fight) never do. A crop's ripening is physics, so it banks at full rate; wages and market income bank at an efficiency below 1. Reason: this answers "what is the bank for" without letting it replace play. | Process data per world | Medium | A planted field ripens from bank time alone; a conversation does not advance; income from the same hours is lower than live play and the note says so. |
+| K4 | **Plan before leaving** (Princess Maker's month blocks [S]). "While I'm away" picks a routine, a tending list and a stop rule; the absence settles it with results, so a long absence is a chosen plan, not a blank. Dial: how many blocks per world. | UI + routine runner | Medium | Setting a three-block plan then a 12 h absence yields three block results. |
+| K5 | **The world acts and reports** (Neko Atsume gifts, Wildermyth gaps [S]). Some outcomes come from the world, not your routine: a visitor, a letter, a stray find, a neighbour's gift. Drawn from the storylet deck at the world's temperament (R1). Reason: absence should sometimes pay in surprise, not only in numbers. | Event deck (VC12) | Small to medium | A 12 h absence draws zero to two world-made items and lists each; a seeded case shows one. |
+| K6 | **Delegated tending** (household, companion, hired hand). Named people tend the fields and stock at a stated skill and cost, and their skill decides the efficiency in K3. Reason: gives the household a job and makes progress into a relationship. | Household/NPC rules | Medium | A named hand tends a field overnight; the note credits them and shows the wage. |
+| K7 | **Skip to the next thing** (R5) as a manual form of catch-up. | UI + clock | Small | The skip lands at the next dated event or choice and prints why. |
+| K8 | **Optional risk run** (E6): spend bank at a boosted rate in exchange for a named hazard. Off in Calm. | Rules | Medium | Same hours with and without the hazard pay different named rewards. |
+
+### Harvest, in particular (default, dial, reason)
+
+- A crop has a ready time in world time. Banked time can bring it to ripe; it then
+  waits in the field. Spoil is slow and set per crop and weather, shown on the
+  plot (a limit as an adjective). Reason: a harvest should feel rewarded, and a
+  week away should not erase the field.
+- The bank never crosses a season boundary or a frost/flood date unannounced:
+  catch-up stops at the door (R2) and the note names it.
+- Harvest itself (picking, selling, choosing what to keep) is an attention verb
+  and waits for you.
+
+### To account for now
+
+- **Upkeep must be charged.** Food, wages and fuel consumed during banked time
+  are paid or the run stops at "supplies empty" (P2). Otherwise the bank creates
+  free output.
+- **Determinism.** Banked outcomes use the life's seed and a counter so a reload
+  cannot reroll them; the spent amount is logged in the save.
+- **Whose bank.** The bank accrues only for the current world's current life;
+  frozen worlds do not bank. Recommended default; dial: a shared pool with a
+  stated rate if Weibao asks.
+- **Wall clock.** Read it once on load, clamp negatives, store the result in
+  world minutes. Anti-tamper is out of scope beyond save integrity (AD22).
+- **Faithful ports.** K1-K8 are variant-layer. Proto23 and YAIR in their faithful
+  builds keep 1 real second = 1 game minute with no catch-up (WV6).
+- **Rates stay open.** Multiples, caps and decay of the bank are not settled here;
+  the 24 h cap and 5x to 20x examples are reference points, not choices.
+
+### Later
+
+- A one-page rate table once Weibao picks a feel (cozy slow multiple versus
+  Idle-Loops-style fast one). Level: design owner; effort: small; done check: each
+  world card lists multiple, cap and efficiency.
+- A headless run for K3 that plants, banks 12 h, and checks ripening, upkeep
+  charged and no season crossed. Level: test tooling; effort: small to medium;
+  done check: the run passes and a seeded boundary case stops at the door.
