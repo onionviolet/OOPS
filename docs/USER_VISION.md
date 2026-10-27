@@ -6632,3 +6632,11 @@ Verbatim, Weibao's request:
 > Send chat to consider time travel gimmicks and considerations, seeded item in markets and more to allow time travel to work or the same items or event to appear in the same places?
 
 Proposal record (not accepted): [time travel and seeded worlds](research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md) (repo determinism audit, game and fiction research, determinism contract DT1, time-travel kinds TT1-TT6, first slice FS1).
+
+## Seeded NPCs and generated content (request record, 2026-10-27)
+
+Verbatim, Weibao's addition to the time travel request:
+
+> Seeded npc generation and other stuff too would need to be considered, more to consider? engine level decisions and changes?
+
+Proposal record (not accepted): [Part D of the time travel report](research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md#part-d-seeded-npcs-and-other-generated-content-engine-decisions-addendum-2026-10-27) (generated-things inventory, seed keys, engine decisions E1-E12, ordered changes C1-C12).
