@@ -6575,3 +6575,9 @@ Recorded: the Village loop is the first loop to establish; this narrows the 2026
 > We can take code for base proto23 accordingly, one billiahe world as proto23, another as Yair, and then a variant with our ideas and stuff? More to consider?
 
 Recorded: Proto23 code may be taken for a base Proto23 world, beside a YAIR world and a variant with our ideas. This supersedes the earlier "mechanics only, no copied code" default (PW3/PW4, kept as history). The licence gap is unchanged and its mitigations are in [master plan round 8](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27) WV3-WV4. Design proposals WV1-WV12 are not accepted designs.
+
+## Red-team the GM plan; per-world loops; UI flow, 2026-10-27
+
+> Make the gm audit its own ideas offensively, consider gameplay loop of each world, each identity, implementation and more? Also UI flow, cohesive shifts between them, dedicated ui for the world stuff and the cheat stuff and all the other cool ideas too
+
+Recorded; proposals RT1-RT3, PW1-PW2 and UF1-UF7 are in [master plan round 9](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-9-red-team-the-gm-plan-per-world-loops-and-identities-ui-flow-2026-10-27). Not accepted designs.
