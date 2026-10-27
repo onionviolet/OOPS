@@ -447,3 +447,38 @@ snapshot. Its isolated fresh browser contexts do not touch the player's app.
 The per-lane build and report commands can support current gameplay work; these
 follow-ups are not prerequisites for the next book-world slice. PRF/FND status
 remains proposed without another repetitive acceptance question.
+
+## Round 8, 2026-10-26: what the parallel fan-out actually delivered
+
+Weibao asked how much of the day's roughly 20 parallel chats succeeded, then
+how to address the misses in future. Evidence: [parallel-run outcomes](../reviews/PARALLEL_RUNS_OUTCOMES_2026-10-26.md)
+(10 of 13 groups delivered working results; G3 process actions stopped before
+wiring and G4 cross-craft waited on G3 the whole time) and
+[unfinished priorities](../reviews/UNFINISHED_GAME_PRIORITIES_2026-10-26.md).
+Applicable: AD32, AD36, AD41–AD43, AU1–AU15. Proposals, not accepted rules.
+
+### ACT NOW (done in this review)
+
+Corrected stale `Status:` headers in L4 and L7 that contradicted their own
+verified release sections. Committed the two review reports, which existed
+only as untracked files in the shared primary checkout.
+
+### ACCOUNT FOR NOW
+
+| Code | Evidence and consequence | Default, dial and reason |
+| --- | --- | --- |
+| IPC81 | **Dependent lanes launched beside their producer idle.** G4's four chats (C1–C4) were dispatched with G3 and spent their turns writing contracts and waiting on G3's playable release, which never came. | Default: dispatch a consumer lane when its producer has released a playable contract, and give the coordinator a written "start when" trigger instead. Dial: launch early only for read-only fit work that can finish on its own. Reason: a waiting chat costs usage and goes stale. |
+| IPC82 | **Leaves before a spine.** G3 wrote four tested process leaves (agitation, thermal, separation, cues), each "implemented, below floor", and its integration chat stopped at the AU7 allowance before any reached play. | Default: wire one leaf end to end into a real consumer first, then widen. Dial: parallel leaves once the spine is proven and the remaining ones are independent. Reason: one playable leaf beats four unwired ones, and AD43 counts only the wired result. |
+| IPC83 | **Status lines lag their own records.** L4 and L7 kept "unfinished" or "not yet verified" headers after later sections recorded verified slices. A resuming agent reading the first line would redo finished work. | Default: each release edit updates the record's `Status:` line in the same change. Dial: a cheap check could flag a status line that says unverified while the same file holds an AD43 "floor met" line. Reason: the header is what resumers and reviewers read first. |
+| IPC84 | **Integration boundaries go stale after a wider reconciliation.** Many lane records still say "combined integration remains L8-owned" after the master reconciliation joined and tested all source. | Default: a reconciliation that supersedes lane-level gates writes one lane-disposition table naming each superseded gate, rather than editing every lane file. Reason: one pointer fixes the read without touching other owners' files. |
+| IPC85 | **Read-only reviews left their report uncommitted.** The unfinished-priorities report sat untracked, invisible to every other worktree and session. | Default: a review that saves a report commits that one path at the end under the shared commit procedure, or says plainly that it did not. Reason: AD41 makes primary the shared record; an untracked file there is private in practice. |
+| IPC86 | **Waits were not labelled by cause.** When Weibao lifted usage limits, the coordinators found the chats were waiting on dependencies and slots, not usage. | Default: lane THREADS/STATUS records name the wait cause (dependency, slot, usage, user decision) and what releases it. Reason: the coordinator answers an override correctly the first time. |
+| IPC87 | **Fixture-only delivery.** G2's journey starts from named generated stock because no earned HP return route exists; it is proven, but not reachable in ordinary play. | Default: a delivery record names whether its route is earned in ordinary play or fixture-entered, and lists the missing earned entry as the next gap. Dial: fixtures stay fine for proof. Reason: Weibao plays the normal app; a feature he cannot reach is not yet delivered to him. |
+
+### LATER / DELEGATE (ranked, not dispatched)
+
+| Priority | Work and owner | Capability / effort / done check |
+| --- | --- | --- |
+| First | G3 spine: wire the agitation leaf into one real book-world consumer, which also unblocks G4. Owner: G3 integration record. | Sol medium, medium. Done: AD43 floor on one earned route with persistence. |
+| Second | Status-drift check (IPC83) inside the existing receipt validator, reporting warnings only. | Luna low, small. Done: flags the pre-fix L4/L7 text in a fixture and nothing in current records. |
+| Third | Add the delivery-rate figure (10 of 13 groups) to the IPC80 comparison as a baseline for the next fan-out. | Luna low, small. Done: one dated row in the Q11 comparison. |

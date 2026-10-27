@@ -406,3 +406,35 @@ production findings. Long policy content and the household scene require scroll
 at laptop/large text; every service/world, weather/tool/recovery transition and
 installed app remain unexamined. Audit/prototypes are agent-verified, not
 human-reviewed; production styling/behavior remains unimplemented.
+
+## Round 7, 2026-10-26: general UI after the parallel wave
+
+Weibao: "Other general UI stuff and more to consider?" Read-only round against
+the [M1 route walk](../gm/dispatch/m1-route-walk-2026-10-26/ROUTES.md),
+[M2 blocked reasons](../gm/dispatch/m2-blocked-reasons-2026-10-26/CHECKPOINT.md),
+[Q18 triage](IDEAS_TRIAGE_2026-10-26.md) P02–P10 and the
+[parallel-run outcomes](../reviews/PARALLEL_RUNS_OUTCOMES_2026-10-26.md). Rounds 3–6
+(stable frame, inspection, reports, character styling) and Q18 P02–P10 are not
+repeated. Desktop first (1920×1080, 1536×864); mobile deferred. Proposals only;
+no browser run in this round.
+
+### ACCOUNT FOR NOW
+
+| Code | Evidence and consequence | Default, dial and reason |
+| --- | --- | --- |
+| UIV1 | **Blocked reasons hide in `title` tooltips.** The M2 fix put reasons in button `title` text; its own record says a player may not see them without hovering. UI_RULES has no rule on native `title` use. Keyboard users and slow hovers get nothing. | Default: a disabled action shows its reason inline or on focus/click in the same pinned box as UR43; `title` may duplicate it, never hold it alone. Dial: very short reasons may sit beside the button. Reason: a reason the player never sees does not explain the block. |
+| UIV2 | **Delivered features are hard to find.** Tingen started only through All panels; G2's HP journey starts from generated stock because no earned return route exists. | Default: when a system first becomes reachable in a life, the Journal records where it is and the place view shows its entrance. All panels stays a reference and dev route, not the only way in. Reason: Weibao plays the normal app; unreachable work reads as missing. |
+| UIV3 | **Everything under way needs one home.** The wave added timed work (20-minute settles, suspensions, drying, recovery, lessons), and the route walk found a false "nothing else under way" refusal. | Default: one under-way list on the existing work line, each row with time left, what finishes it and what leaving or travel does to it (PC52). Dial: fold to a count when long. Reason: idle play is mostly waiting on clocks the player cannot see. |
+| UIV4 | **Preview must match commit.** Route-walk friction #4 (two-step Find work) and G1's open named-method quote/commit parity are the same player promise. | Default: what a preview shows is what commit does; if state changed in between, commit refuses or states the change before charging. Joins G1 I1's runtime fix. Reason: a cost that shifts after you agree feels like a cheat. |
+| UIV5 | **The screen should survive save and import.** Route-walk friction #5 saw currency labels and the nearby-people panel change between the live and re-imported view. | Default: the geometry harness (UIS14) also compares visible text before Save and after literal Import on one populated fixture. Reason: persistence checks prove state, not what the player sees. |
+| UIV6 | **One known / guessed / unknown grammar.** UR36 covers this for combat only, while assays, forecasts (PC51), drink effects (DRC9) and the material inspector each mark uncertainty their own way. | Default: extend UR36's distinction to every subject with one shared token and wording, under UR74. Reason: the same doubt should look the same everywhere. |
+| UIV7 | **UI reviews go stale under live source lanes.** The UI character report's tested build was overtaken by crafting edits the same evening. | Default: schedule UI review after source lanes in the same area have released, and name the inputs that would invalidate it. Reason: a stale screenshot sends styling work after a screen that no longer exists. |
+
+### LATER / DELEGATE (ranked, after LOTM A5)
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | UIV1 visible blocked reasons, starting with the M2 Mistglass and Tingen buttons. | Sol medium, small. Done: rebuilt 1920×1080 browser shows each reason without hover, and keyboard focus reaches it. |
+| Second | UIV4 with G1 I1: quote/commit parity in one book-world route. | Sol medium, medium. Done: changed state between preview and commit yields a stated change or refusal, no silent charge. |
+| Third | UIV3 under-way list on the work line. | Sol medium, medium. Done: three concurrent timed jobs show time left and travel consequence; save and import keep them. |
+| Fourth | UIV5 text comparison in the geometry harness. | Luna low, small. Done: catches the friction #5 drift on its fixture, or records that it no longer reproduces. |
