@@ -78,21 +78,47 @@ written 2026-10-27 and are proposals unless the next-action cell says otherwise.
 | [TIME_TRAVEL_AND_SEEDED_WORLDS](../research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md) | Time-travel kinds, seeded-day contract, generated-things inventory, engine decisions E1 to E12, ordered changes C1 to C12 | New | AR rulebook; PROJECT.md OD23 | Part D | Per-instance seed; Import behaviour; genVersion | First slice C1/C2: keyed shop stock test on the Village shop. Done: same seed and date give identical stock twice, saves unchanged. |
 | [CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT](../research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md) | Brief for the conceptual-abilities audit | Done (executed by `conceptual-abilities`) | Time travel Parts C and D | Initial | none | Audit landed; see the next row. |
 | [CONCEPTUAL_ABILITIES_ENGINE_AUDIT](../research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md) | Channel model for name, record, memory, claim effects as delta rows over the seeded base; one reference resolver; `generated(kind, key)` | New | Time travel report Parts C and D | Initial | Reference-resolver ownership; delta kinds (mask, rewrite, seal, swap, bind); which generators migrate first | First slice CAE-E1/E2/E4: one resolver with fallback and stop baking names into new prose. Done: erased-name test shows fallback in UI and no dangling references after save, reload, Import. |
+| [PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md) | Brief for a GM session: implement the protagonist's life, then open the seat and transfer to the rest of the world | New (not launched) | Canon protagonist Parts G and H | Initial | D2 (WER11 wording), D3 (LOTM start month, HP cohort offset), launch yes | Weibao says launch; GM runs plan pass, then PX64 Village mini-line. Done: PX64 checks 1 to 8. |
 | [VC9_STEP0_PROBE](../research/proto23/VC9_STEP0_PROBE_2026-10-27.md) | Proto23 port: mechanisms, licence gaps, first slice | Read (port permitted with credit) | GM_PLAN VC9 | Initial | Where the port lives (branch), credits note wording | village-loop or a port lane builds the first slice. Done: probe cases match. |
 | [USER_VISION entries 2026-10-27](../USER_VISION.md) | Verbatim requests (Proto23 permission, many clocks, schedules, time travel, abilities, this register) | Decided (as Weibao's words) | n/a | n/a | n/a | n/a |
 
 ## 5. Decisions waiting for Weibao (rolling)
 
 Rank by what each unblocks. Keep to the five most useful at any time; the rest stay in
-the writeups with their codes. Default recommendations are proposals.
+the writeups with their codes. Default recommendations are proposals, not accepted.
 
 | # | Decision | Default if he says nothing | Unblocks |
 | --- | --- | --- | --- |
-| 1 | Pick the clock shape: schedules by default, deadlines only from an in-world source, scoped to life facts, cap on firm visible clocks | Adopt C1/C2 as the working shape | Village cards N1/N2/N4, per-world clock sets |
-| 2 | Catch-up feel: cozy and slow or fast, and whether the bank has any cap | Uncapped bank with world friction (L1/L2), multiples per world | Offline and banked-time cards |
-| 3 | Known Face threshold proposal | Keep the current value until played | Village standing gates |
-| 4 | Where the Proto23 port lives and credits wording | Port on its own branch; credits note names Proto23 and 23html; push waits for his yes | VC9 pack |
-| 5 | Start the keyed shop-stock test (time-travel C1/C2) | Yes: smallest engine slice, no save change | Seeded NPCs, finds, time travel |
+| 1 | Launch the protagonist-life GM ([prompt](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md)): plan pass, then the Village mini-line (PX64) | Yes, plan pass only until he confirms the mini-line | Lead-first pipeline, golden run, every later world |
+| 2 | First engine slice: keyed Village shop-stock test (time travel C1/C2) with the reference resolver (CAE-E1/E2/E4) right after | Yes: smallest change, no save change | Repeatable days, golden runs, seeded NPCs, name abilities |
+| 3 | Clock shape: schedules by default, deadlines only from an in-world source, scoped to life facts, cap on firm visible clocks (C1/C2) | Adopt as working shape | Village cards N1/N2/N4, per-world clock sets |
+| 4 | Canon start settings: LOTM start month, HP cohort offset (D3), WER11 rewording (D2), default seat `beside` (D1) | D1 `beside`; D2 and D3 wait for his yes | Beat data for LOTM and HP |
+| 5 | Catch-up feel and cap; Known Face threshold; Proto23 port branch and credits wording | Uncapped bank with world friction; keep the current threshold until played; port on its own branch, push waits | Offline cards, Village standing gates, VC9 pack |
+
+## 5a. Pass log
+
+### Pass 1, 2026-10-27
+
+- **Inventory:** nine writeups plus three dispatch folders were already rowed; added the
+  canon rounds 3 to 5 (PX37 to PX64), the conceptual abilities audit and the new
+  protagonist-life prompt. No unregistered 2026-10-27 research file remains.
+- **Read-state:** Weibao reacted in chat to attention balance, NPC absence (four times),
+  canon protagonist (twice), time travel (twice). Not yet read by him: Village checkpoints,
+  conceptual audit, Proto23 probe, VC9 report. His reactions are already folded in those
+  reports' later rounds; no extra recording needed.
+- **Routed:** (1) lead-first pipeline to the new prompt (not launched); (2) time travel C1/C2
+  plus the reference resolver to a Village engine card (pending his yes, decision 2);
+  (3) attention P2 and P3 (stop reasons, return note) and NPC N1/N2/N4 to the Village loop
+  as the cards after VC12, in that order; (4) clock shape C1/C2 to GM_PLAN as a working
+  shape once he picks (decision 3); (5) canon beat records PX19/PX20 wait for the start
+  settings (decision 4).
+- **Parked, with triggers:** fanfic departure-point census (needs his yes and a terms check);
+  LOTM clock set by pathway (needs a LOTM source pass); VN primary-source pass (only if VN
+  depth becomes a design reason); offline multiples and bank decay (after he picks a feel).
+- **Superseded wording:** "at most one hard clock per world" (E7, N5) by the cap on firm
+  visible clocks per life; the earlier no-copy Proto23 default by the 2026-10-27 permission.
+- **Not changed:** GM_PLAN, PROJECT.md and the master plan were not edited in this pass;
+  routed cards wait for Weibao's decisions, then the owners get dated hunks.
 
 ## 6. How Weibao follows up (observed 2026-10-27, for future sessions)
 
