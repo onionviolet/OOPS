@@ -601,3 +601,147 @@ defaults, none accepted:
    beat system exists.
 3. **Keep canon names and dates in the private pack** (PX36) and derive dates with
    a tool (E3), so the public repo carries the mechanism and tests only.
+
+## Part G. Round 4: influence on the original lead, being caught in beats, an open-domain pilot and protagonist-first authoring (2026-10-27)
+
+Weibao's questions: how do we treat our influence on the original protagonist;
+beats change the world around us too (caught in the crossfire, or able to
+join); a first story from the open domain; and whether a world should be built
+by first assuming a full playthrough as the book's protagonist, then opening
+the seat to our own person. No new web research. [I] unless noted; [U] items are
+from memory and need a check before use. Proposals only. Codes PX37 to PX52.
+
+### G.1 Our influence on the original lead
+
+PX27 makes the lead an NPC life, so influence uses the same channels as any
+NPC (RLB; ENEMY_PROTAGONISTS). Nothing new is needed except a ledger.
+
+| Code | Proposal | Default, dial and reason |
+| --- | --- | --- |
+| PX37 | **Five channels, all existing verbs.** What they *know* (tell, rumor, warn), what they *have* (gift, trade, theft), whom they *meet* (introduce, block, delay), their *state* (heal, harm, feed, lodge), and their *opposition* (aid or hinder those against them). | Default: influence only through these channels, each recorded as an input diff (PX9). Reason: WA5; engine owns verbs. |
+| PX38 | **Reaction comes from their need profile and the world's laws, not from you.** The lead weighs a help or a warning against what they want and fear (RLB1, RLB4) and against their own information limits (PX32). | Dial: how stubborn, per character. Reason: advice that always works is a cheat; advice that never works is a wall. |
+| PX39 | **Recognition ladder.** Unknown, glimpsed, known by name, remembered, trusted, rival. It advances by repeated, legible contact and sets how the lead and their circle treat you. | Default: no automatic closeness for arriving first (RLB3). Reason: a bond is a mechanism, not a meter. |
+| PX40 | **Protective fate is a named mechanism per world, not a blanket shield.** D2a stays unsettled; each pack says what protects the lead (an institution, luck, a rule, plot-adjacent authors do not count, OD8), what it covers and what gets through. | Default: protection stated per pack, with cost and exceptions. Reason: AD38 and the project's default-dial-reason framing. |
+| PX41 | **Credit and blame travel.** The lead and their circle may attribute outcomes to you correctly, wrongly or not at all; third parties hear the version their sources give. | Default: attribution follows who saw it. Reason: gives influence a social shape and a trace. |
+| PX42 | **An influence ledger per line.** One row per change: channel, was, now, date, how seen. Summed it is the line's divergence, which feeds PX26's label and the branch list. | Default: always on for lines you touch. Reason: cheap, replayable, spoiler-free. |
+
+### G.2 Beats change the world around us
+
+A beat has a **footprint**, so the question "were we nearby" has an answer
+without simulating anyone.
+
+| Code | Proposal | Default, dial and reason |
+| --- | --- | --- |
+| PX43 | **Beat footprint = place set, window, hazard kinds, open roles.** Examples of hazard kinds: violence, fire, crowd, official sweep, curse or other world-specific hazard, contagion. The record is data on the beat (PX3). | Default: every `great` beat has one. Reason: lets exposure be a lookup. |
+| PX44 | **Exposure ladder.** Unaffected, heard of, saw the aftermath, affected by the aftermath, present, caught up, involved. | Default: the ladder is shown in the return note by name. Reason: states are already what a player would say. |
+| PX45 | **Exposure is computed lazily from where the life was.** A life's schedule and under-way list give its place at the window (PX29); if that place is in the footprint, the engine resolves an exposure outcome. Lives elsewhere get only the ripple. | Default: lazy, one lookup per beat per attached life. Reason: C3 evaluation; no simulation of absent lives. |
+| PX46 | **Idle safety.** A footprint with a hazard is announced with a lead (a closed street, a posted notice, a curfew), and an idle life with stop conditions halts at the edge. Without prior consent, outcomes are bounded: displaced, delayed, hurt but recoverable, questioned, recruited or hired. Harsher outcomes need a dial the player set (a risky life, a hunter, a soldier). | Default: bounded unless the life took on risk. Reason: the attention report's stop reasons and pace dial; Persona's lead without its opacity (F2). |
+| PX47 | **Participation is a role slot (PX20) offered to a life that fits.** Witness, helper, guide, rescuer, supplier, hostage, scapegoat, hired hand. It appears as an invitation or a chance if the life is in the footprint and has the capability or the fact the role needs. | Default: offered, never forced; declining leaves the canon filler. Reason: the same slot machinery handles joining and being caught. |
+| PX48 | **Second-order ripples reach everyone in scope.** Prices, closures, new patrols or laws, refugees, shortages, investigations and funerals. They are world-state changes written to notices and prices, affecting lives by the facts they hold, whether or not they were present. | Default: a small set per `great` beat (two or three). Reason: the beat matters to lives that never saw it, and the cost is one world-state edit each. |
+| PX49 | **Sealed truths stay behind discovery even when you are present.** Witnessing a beat shows what a person there would perceive, not the beat's sealed content; public franchise facts are not sealed (AGENTS). | Default: perception text per witness level. Reason: PR1 and the sealed-secret rule. |
+
+### G.3 Starting from the open domain
+
+The request is to pilot on something we can use freely. Two pieces already
+settled the first part: the Village mini-line (E1) is original and public. For a
+real book, an out-of-copyright work lets us test the whole method, including
+dates and text extraction, in the public repo.
+
+**PX50. Pilot book from the public domain, chosen for what it tests.**
+Candidates from memory [U]; each edition's status needs a check on Project
+Gutenberg or equivalent before any text is used, since a translation or
+edition can be in copyright when the original is not.
+
+| Candidate | Tests | Notes |
+| --- | --- | --- |
+| *Dracula* (1897, English) | Dated beats from diary and letter entries, a small cast, bounded months, a clear lead and circle. | Best test of `canonDate` extraction (E3) and of the null-player run. Recommended first. |
+| *Pride and Prejudice* | A social schedule (visits, balls, letters), bystander seats around a lead, a life-sim feel close to HP's calendar. | Second pilot. Dates are implicit, so a human pass is needed. |
+| *Journey to the West* (a public-domain English edition, if one is verified) | A passing hero on a road, villages that meet him, a progression feel. | Good for the "passing hero" seat. Pick an edition only after a status check. |
+| *The Count of Monte Cristo* | Long arcs, a deliberate plan with dated stages, a lead who manipulates others. | Strong test of influence (G.1) and of a line with a plan. |
+
+Default: *Dracula* after the Village mini-line, then one more only if it adds a
+distinct test. Reason: dated entries give E3 its cleanest input, and a pilot in
+the public repo needs no private pack. [I] Caveat: a horror text is not our
+tone; the pilot is an engine and method test, not a shipped world, and nothing
+requires it to become one.
+
+### G.4 Protagonist-first authoring (the method Weibao described)
+
+His proposal: first assume a full playthrough as the book's protagonist and
+create every detail that character needs, so the book becomes a real world; then
+implement playing as our own person.
+
+**Assessment.** It is sound, and it matches PX27 and E2: the protagonist's run is
+the canon line, and the null-player golden run is that same run played by a
+scripted lead. It also supplies a completeness test that the repo's world passes
+lack: **every place, item, price, law and person the lead touches must exist as
+a world fact.** That list is the necessary core; a bystander's needs (lodging,
+food, work, rumor) are the second layer and are covered by the existing world
+pass questions.
+
+| Code | Proposal | Default, dial and reason |
+| --- | --- | --- |
+| PX51 | **Protagonist-first pass, in four steps.** (1) *Lead run*: write the lead's path as dated beats and dependencies, with every touched fact (the necessary core). (2) *Scripted lead*: a bot plays the lead through the engine; the null-player golden run must reproduce the canon outcomes on their dates. (3) *Open the seat*: the same world with the lead as an NPC and the player in `beside`, `follow` or `bystander` modes. (4) *Add the second layer*: fill the needs of other lives and the fan-derived departure points (PX25). | Default: the method for any world with a canon line. Dial: depth of step 4 per world. Reason: the whole world is then proven playable by someone before the player arrives. |
+| PX52 | **Scaffold, not a gate.** The lead run proves the world; it is not a required player playthrough, and it is not a quality gate for worlds without a canon line. | Default: authoring and test scaffold only. Reason: WORLD_COMPLETION_STANDARD says an opening playthrough is not a prerequisite; completion measures authored delivery. |
+
+**What this changes in the earlier plan.** Part F's E6 order stays; PX51 is the
+method inside each step. A world pass would add one small deliverable: the
+lead-run table (beat, date, place, dependencies, touched facts) with evidence
+labels (WPR). Proposed as a WPR candidate and not edited into WORLD_PASS_RULES.
+
+**Cautions.**
+- The lead's run covers the lead's world. Their blind spots are the world's
+  blind spots (PX32); step 4 and the `inferred` label address that.
+- A lead with a cheat or a special route makes step 2 depend on that mechanism.
+  The bot may need the mechanism built before it can finish, which is a useful
+  ordering signal, not a reason to skip it.
+- Several leads or lines (PX34) need one run each.
+- Step 2 must not become a script that the real player is pushed along. The bot
+  is a test double; the player's world has no lead script except the lead's NPC
+  life.
+
+### G.5 Many ways to do the same thing
+
+The orders overlap, so pick by the cheapest verification. Recommended single
+path, no either/or: Village mini-line (public, original; E1, L13) with a
+null-player run, then a public-domain pilot through PX51 (*Dracula* as the
+default), then the private-pack canon worlds in E6's order, HP routine beats
+first. The earlier modes (PX1) are the seats opened at PX51 step 3.
+
+### G.6 More to consider (round 4)
+
+**ACT NOW (done):** PX37 to PX52; the method assessment; the pilot shortlist.
+
+**ACCOUNT FOR NOW**
+
+- R15. **Edition status.** A public-domain original may have in-copyright
+  translations or editions. Check before extraction (PX50 [U]).
+- R16. **Footprint authoring cost.** Two or three ripples per `great` beat.
+  Mitigation: write footprints only for beats a life can plausibly reach.
+- R17. **Exposure surprises in idle play.** PX46 lead and bounded outcomes.
+- R18. **Fan-derived departure points outrun canon.** Keep the `inferred` label
+  and the canon locator rule (PX25).
+- R19. **A lead-run table is a spoiler artifact.** Keep it in the private pack
+  for named canon; the public pilot's table is fine to publish.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| L18 | Footprint and exposure resolver (PX43 to PX46) on the Village mini-line | Engine slice | Medium | A life at the market on the beat's date gets an exposure line and a bounded outcome; a life at home gets only a ripple; an idle life halts at the posted edge. |
+| L19 | Influence ledger and recognition ladder (PX39, PX42) | Engine slice | Small to medium | A warning flips one outcome; the ledger shows the row; the lead's reaction differs by need profile. |
+| L20 | Lead-run table template and the scripted-lead bot (PX51 steps 1 and 2) | Tooling plus test | Medium | The bot reproduces five beats on their dates from the table. |
+| L21 | Edition check and date extraction for the public-domain pilot | Research then tooling | Small | An edition verified as public domain; a dated beat table with chapter indexes. |
+| L22 | Propose PX51 as a WPR candidate for Weibao's decision | Docs | Small | A WPR proposal paragraph, not an edit to the rulebook. |
+
+**Updated top three**
+
+1. **Adopt protagonist-first as the authoring method** (PX51, PX52): lead run,
+   scripted lead, open the seat, add the second layer. It doubles as the
+   golden-run test and proves the world playable before the player arrives.
+2. **Make exposure a lookup on a beat footprint** (PX43 to PX46), with bounded
+   outcomes for idle lives and role slots for joining (PX47), so being caught
+   and being able to help use the same machinery.
+3. **Pilot in the public repo** with the Village mini-line and then one
+   verified public-domain book (*Dracula* by default), so the engine and method
+   are proven before any named canon enters the private pack.
