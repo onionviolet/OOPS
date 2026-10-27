@@ -327,3 +327,82 @@ Existing owners already cover blocked reasons (UIV1), one under-way list (UIV3),
 ### Order
 
 After the recorded queue (UIV1, G3 spine, G1 parity) and the PR6 prose fix: TL8 first slice with UT1–UT3, then SMU3 consolidation, then TL3 export/import pairs written for LOTM and HP. TL7 waits on LT3.
+
+## Round 6: base cheat growth, world scale, headroom and skill depth (2026-10-27)
+
+Weibao: "Expand on our implementation of the base cheat? What should it cover? Upgrade paths and more? LOTM world should be so much bigger then tingen, others too, how can we go about implementation? Unfortunately thus far the higher level stuff has no room to exist quite yet? Also depth expansion for skills and other stuff and more?" Proposals only; no runtime change. Codes: BC base cheat, SC world scale, HR headroom, SK skills. Source reads below are inspection, not play.
+
+### What exists (read 2026-10-27)
+
+- **Base cheat ("quiet faculty").** `src/cheat_definitions.js` has eight modules (True Appraisal, Loaded Dice, Fate Ledger, Earned Habit, Pattern Book, Heirloom Compact, Patient Furnace, Freshness Sense). Growth is points: the faculty validator accepts exactly eight milestone ids (recognition, first-victory, first-processing, practised-craft, practised-perception, learned-method, recorded-pattern, completed-routine), each claimed once for one point. So the whole upgrade path today is at most eight points, spent to develop a module or restore a reserve (`src/cheat_mechanisms.js:67-78`). A module's charge ceiling is fixed by its definition.
+- **The library.** `docs/CHEAT_LIBRARY.md` already designs the missing parts: a nine-step arc from dormant to resolution (line 242), 49 cheat families with their own loops, enemy cheats, and the rule "growth adds verbs, not only numbers".
+- **LOTM.** `src/book_world_lotm_*.js` is about 2,000 lines. Four pathways (Seer, Corpse Collector, Savant, Sailor), Sequence 9 and 8 only, one city (three districts, Evernight, docks, university). Sequence 7 is the literal row "Not offered in this slice" (`book_world_lotm_path.js:21`). Higher rungs are named but have no places, people, costs or consumers.
+- **Skills.** `src/skill_expansion_content.js` holds a catalogue on a "practice" model with capacity 1 per power. Deep skills are a proposal-stage review (`granularity-expansion/workers/skills/REVIEW.md`), and the world completion standard rows S07 and S12 are proposed.
+
+### The base cheat
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| BC1 | **The cheat is the thread across worlds.** | It is the one thing that crosses by default (AD11, WER3), so it is the main carrier of the travel loop (TL2). Growth that happens in any life belongs to the continuing self, in its own save record. Reason: this makes travel and cheat growth reinforce each other. |
+| BC2 | **Eight points is a ceiling, not a path.** | Keep the eight milestones as the *first-season* arc, then add repeatable and world-specific milestones: a first for each new world, each new kind of practice, each new carry. Dial: a world grants its own. Reason: a finite list ends growth just when worlds multiply. |
+| BC3 | **Stages, not only points.** | Follow CHEAT_LIBRARY steps 1–9: dormant, awakening, learning limits, early use, growth by new verbs, evolution, mastery, exposure, resolution. Each stage unlocks a verb, not a bigger number. Reason: "growth adds verbs". |
+| BC4 | **Upgrade paths branch.** | A module has two or three developments, chosen by use and by world (Appraisal toward flaws, provenance or danger). Dial: a late respec at a cost. Reason: choice and replay; two lives with the same cheat should feel different. |
+| BC5 | **Evolution and fusion.** | Late stage: modules can fuse or change kind (Fate Ledger plus Loaded Dice into a different call), or a world's mechanism can transform one. Reason: the library names fusion as step 6; it is the long-horizon reward. |
+| BC6 | **Each world reads the cheat.** | Per world, a short palette: what the cheat is called, who can sense it (WER12), what it costs there, where it is weak, which module it favors. Reason: same cheat, different feel per world; avoids a universal permission list (AD38). |
+| BC7 | **Contrast and pushback.** | Somewhere you are the monster, somewhere you are nobody. Observers, rivals and patrons react as the cheat grows. Reason: library "watch out" rules; keeps other systems meaningful. |
+| BC8 | **Lineage.** | Heirs carry the cheat by its backing, with some stages kept and others reset (Heirloom Compact, Rebirth Ledger ideas). Reason: ties to the existing heir/inheritance code. |
+| BC9 | **First slice.** | Add one repeatable world-first milestone (arriving in Tingen the first time) and one branch for one module. Done check: from a fresh life the milestone fires once on crossing, the branch changes a real consumer, Save/reload/Import keep it, and the UI says where the new point came from (UT4). |
+
+### Bigger worlds
+
+LOTM is a continent, a sea and a hidden order structure, not a city. One city at a time can still be the engine as long as each city is a *pack* with the same shape.
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| SC1 | **Regions are packs, not rewrites.** | The Tingen districts layer (`book_world_lotm_districts.js`, SR rules) is the template: a region pack declares places, institutions, officers, travel minutes and local rules. Add Backlund, the sea routes, Feysac and others the same way. Reason: reuses AR rules and keeps each addition small. |
+| SC2 | **Build outward by reason to go.** | Order regions by what the player needs next: the next pathway rung needs a place that supplies a reagent, a mentor, an examination or a sealed-artifact owner. Reason: places that gate nothing do not get visited. |
+| SC3 | **Scale is a dial per world.** | Travel minutes, distances and institutions hold realistic scale, but a world may compress travel between regions (carriers, rail, ships) with an in-world reason. Reason: AD38 and WA14; keeps a continent from becoming a loading screen. |
+| SC4 | **Thin before thick.** | A new region first ships as a *thin* pack (arrival, two institutions, one office, one errand, a local price list), then deepens when play visits it. Reason: avoids another whole-city lane before the first visit proves its worth. |
+| SC5 | **Same for other worlds.** | Use the same pack shape for HP (school, village, ministry, abroad), Fanren and the others. S01, S03 and S12 of the world completion standard are the check. Reason: one structure to test and lint. |
+| SC6 | **Source map before building.** | Each region pack starts from a source-mapped entry in the world brief (WPR rules). Reason: avoids inventing canon and keeps secrets sealed. |
+
+### Headroom for higher levels
+
+The cause of "no room" is concrete: Sequence 7 is a literal stub, and nothing above Tingen-scale exists to hold it.
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| HR1 | **Show the ladder, lock the rungs.** | Every pathway shows its next rung as known-by-the-character information (UIV6 known / guessed / unknown), with what it asks for as far as the character has learned. Reason: a visible ceiling gives direction; a stub gives nothing. |
+| HR2 | **A rung is a consumer chain, not a name.** | For each rung: a source, an ingredient or ritual, a place, a person or institution, an examination or risk, and at least one ability with a real use (MC11). Stubs that lack these stay labelled "not offered". Reason: "a ritual preview is not delivery". |
+| HR3 | **Headroom comes from places and stakes.** | Higher rungs need larger institutions, rarer reagents, graver loss-of-control risk, and attention from bigger powers. These live in SC regions. Reason: a rung with Tingen-sized stakes feels like a renamed meter. |
+| HR4 | **One rung at a time, in the loop.** | Build Sequence 7 for one pathway to the AD43 floor before opening 6 and above. Pick the pathway whose rung 7 best exercises TL3 export/import (a reagent or place from another region). Reason: proves the template before multiplying it. |
+| HR5 | **Power scales in the world, not the screen.** | Higher rungs make some old problems trivial and open new ones; the world reacts through its own mechanisms (BC7, WER12). Dial: some worlds cap ordinary advancement low. Reason: players should feel growth in what the world lets or lets not happen. |
+| HR6 | **Reserve the shape now.** | Add rung rows to each pathway's data with fields for required region, ritual, cost and risk, even where empty; the UI reads them for HR1. Reason: stubs become typed gaps that tools can list. |
+
+### Skills and other depth
+
+| Code | Proposal | Default, dial, reason |
+| --- | --- | --- |
+| SK1 | **Skills gain verbs at thresholds.** | Like cheat stages: a new technique, a new context or a cost reduction at set levels, not only a bigger number. Reason: S07 asks for execution and mastery; numbers alone do not. |
+| SK2 | **Skills specialize by use.** | A skill's branches follow what you did (with whom, with what, where). Teaching and learning from a source differ from practice alone. Reason: gives two characters different crafts from the same start. |
+| SK3 | **Skills connect.** | Pairs and trios unlock synergies (S07 synergy; Measured Focus is the existing example). Reason: depth from interactions. |
+| SK4 | **Mastery has a consumer.** | A high skill changes what an NPC offers, what a place allows or what a craft produces. Reason: MC6; avoids dead levels. |
+| SK5 | **Decay and dormancy are dials.** | Unused skill fades slowly in worlds that say so, with fast recovery. Reason: gives rest between lives and pulls travel to use them. |
+| SK6 | **Cross-world skills.** | Skills cross as memories and the cheat do, but usable only where mechanisms exist (AD38). Reason: ties to the travel loop. |
+| SK7 | **Do not clone the catalogue.** | Add depth to three to five skills tied to the first loops (cooking, herbal, scribe, a pathway skill), then reuse the shape. Reason: avoids a 200-skill balance chase. |
+
+### Order and what to avoid
+
+1. After UIV1 and PR6: TL8 (first travel exchange), which doubles as BC9's first milestone.
+2. HR6 typed rung rows plus HR1 visible ladder (small, no new content).
+3. One thin region (SC4) chosen by HR4's rung-7 needs, then rung 7 for one pathway.
+4. SK1 on the three loop skills.
+5. BC4 and BC5 later; they need BC2's repeatable milestones first.
+
+Avoid: opening several regions at once, naming Sequences 6 to 0 without consumer chains, and growing the cheat library palette further before BC2 and BC9 exist.
+
+### Account for now
+
+- Typed gaps and a visible ladder are cheap and stop "unfinished" from reading as "missing".
+- Every rung and region needs a done check from the world completion standard rows named above, not a word count.
+- The cheat is sealed-secret adjacent in some worlds (the real nature of a system). Show its truth only through discovery routes, as in PR2.

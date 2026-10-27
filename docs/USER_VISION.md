@@ -6549,3 +6549,15 @@ designs. Proposals ON1–ON10, ZM1–ZM6 and PR1–PR6 are in
 Recorded as a question, not an accepted design. Proposals TL1–TL8, IB1–IB5 and
 UT1–UT6 are in
 [master plan round 5](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-5-the-world-travel-loop-the-idea-bank-and-ui-subtleties-2026-10-27).
+
+## Base cheat growth, bigger worlds, headroom and skill depth, 2026-10-27
+
+> Expand on our implementation of the base cheat? What should it cover? Upgrade
+> paths and more? LOTM world should be so much bigger then tingen, others too,
+> how can we go about implementation? Unfortunately thus far the higher level
+> stuff has no room to exist quite yet? Also depth expansion for skills and
+> other sufff and more?
+
+Recorded as questions, not accepted designs. Proposals BC1–BC9, SC1–SC6,
+HR1–HR6 and SK1–SK7 are in
+[master plan round 6](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-6-base-cheat-growth-world-scale-headroom-and-skill-depth-2026-10-27).
