@@ -6619,3 +6619,8 @@ merchant stock change maybe, LOTm could have many hard clocks with varian degree
 of things? lots of hard clocks can be from the book and the lore accordingly?
 Different clocks run but only those that matter to specific life matters?"
 Proposal record (not accepted): [clock model](research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md#update-2026-10-27-weibaos-correction-many-clocks-scoped-to-the-life-proposals).
+
+## Playing as or beside a world's original protagonist (2026-10-27)
+
+Weibao's words: "Schedule rather than deadline should be the case, unless it is a deadline like the protagonist of the original book doing this at x time or something, we might need separate chat to ponder interactions as a player on the original character of worlds?"
+Proposal record (not accepted): [canon protagonist interactions](research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md) (game and fanwork research, modes, canon beats as clock records, per-world answers, WER11 rewording proposal PX18).

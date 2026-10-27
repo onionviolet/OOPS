@@ -521,3 +521,5 @@ After UIV1 and the GM plan: write WR1 cards for the Village variant and Proto23 
 ### Round 11 pointer (2026-10-27): absence, NPCs and reach-out
 
 Research, per-world absence cards (Village, Proto23, YAIR, LOTM, HP) and proposals E1-E8, N1-N7 are in [the NPC absence and reach-out report](research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md). Proposals only; builds on Round 10 WR1 and the attention report.
+
+- Round 11 addition (2026-10-27): playing as, beside or apart from a world's original protagonist, with canon beats as clock records, is in [the canon protagonist report](research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md). Proposals only.

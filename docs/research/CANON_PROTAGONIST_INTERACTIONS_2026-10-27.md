@@ -1,0 +1,355 @@
+# Playing as, beside or apart from a world's original protagonist (2026-10-27)
+
+Status: research and proposals. Nothing here is accepted. Codes PX1 to PX18 are
+proposed local labels and are not registered in the rules index. Engine owns
+verbs, worlds own nouns (WA5). No world's sealed truth is stated in this file;
+canon facts used are public and come from repo owners.
+
+Weibao's words (2026-10-27, also in [USER_VISION](../USER_VISION.md)): "Schedule
+rather than deadline should be the case, unless it is a deadline like the
+protagonist of the original book doing this at x time or something, we might need
+separate chat to ponder interactions as a player on the original character of
+worlds?" This file is that separate pass. It builds on the clock record in the
+[NPC absence report](NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md) (C1 to C3, S1 to S3).
+
+Labels: **[S]** sourced this session (link given); **[U]** from memory,
+unverified; **[I]** inference for this project. Method: one standard web search
+per topic, no page fetches, so every [S] row is a search summary. Many results
+were forum threads, fan wikis or guide sites and are flagged. Unreached items are
+listed in Part B.3.
+
+## Part A. What the repo already decided
+
+### A.1 Existing owners
+
+| Topic | Owner | What it says |
+| --- | --- | --- |
+| Beside, never as | [WER11](../WORLD_ENTRY_RULES.md) | "Live beside protagonists, never as them." Check sequels for later protagonists and eras. |
+| Direct canon starts | [INTRO_FLOW SG8, WF1, SA10](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md) | Playing a source character is reachable under a chosen premise or a direct-adaptation request, with its own label. Default starts sit beside canon. Hero-adjacent seats (sibling, rival, classmate, mentor) are owned. |
+| Direct recreations stay private | AD1; [WA2](../WORLD_ABSORPTION_RULES.md) | Public build uses original names; direct adaptations live in a private pack. Packs cite, they do not quote. |
+| Fresh canon per life | INTRO_FLOW BW1 to BW8 | Each new life starts a fresh copy of the timeline at the chosen anchor. A changed timeline continues only by choice (BW2). A played canon character returns to canon behavior in the next fresh timeline (BW4). Same OC replayed is a fresh instance (BW5). |
+| Timeline anchor and premise | INTRO_FLOW WC4, WC5 | Before, during or after a source arc, or source-free. Premise: canon, divergent, AU, randomized truth. A Soldier's Life already offers canon and divergent premises in its private pack. |
+| Natural course | [TIMELINES_AND_DIVERGENCE](../TIMELINES_AND_DIVERGENCE.md) OD7, OD8 | Divergence spreads along relationships. Canon corrects itself only through a world mechanism (fate, will, history), never to protect an author's planned scene. |
+| Canon clock and foreknowledge | [LIVING_BESIDE_PROTAGONISTS](LIVING_BESIDE_PROTAGONISTS_2026-10-10.md) P1 to P10, M1 to M3 | Premise families (born there, adult outsider, replace a canon character P3, peer P4, earlier era P5, civilian P6, villain-side P7, regressor P8). M1: canon events as scheduled deadlines. M2: foreknowledge as states (full, partial, fading, scrambled, none). M3: sticky great events, fragile local details. |
+| Needs and fillers | [RELATIONSHIPS_AND_CANON](../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md) RLB3, RLB4 | Canon already assigned who fills each need. Arrive first and both can share the role; displacing one needs a real cause. |
+| Protagonist fate | LIFE_SIM_NORTH_STAR D2a; RIVALS_IDENTITIES_AND_FATE | Book protagonists are very hard to defeat unless fate is severed; fate works per world and is not settled. |
+| Other protagonists as people | LIFE_SIM_NORTH_STAR "Protagonists and cheaters as other characters"; [ENEMY_PROTAGONISTS](../ENEMY_PROTAGONISTS.md) | They run on the life framework, can be sponsored, warned, replaced or ignored, and notice change. Not implemented. |
+| Entry questions | WER2 to WER9, WER14; [prose rules PR1 to PR3](../MASTER_PLAYABILITY_PLAN_2026-10-25.md) | Method, nine answers, era, origin, carry. Start text speaks from what the character knows, with a "full premise" dial. |
+| Entry-method catalogue | WER2 XM1 to XM10 | XM1 soul into the recently dead, XM3 whole-body transport, XM4 rebirth, XM8 native-born with later memories, XM9 time return. |
+
+### A.2 What exists per entry shape
+
+| Shape | In the repo today |
+| --- | --- |
+| Transmigration into the protagonist's body | Paper only: LIVING_BESIDE P3 and SG8. No pack offers it. The LOTM pack's people are "original, unnamed, no canon identity" (`src/book_world_lotm_content.js`), and the HP pack has "one unnamed role" for the Potions master. Direct recreations are outside the public build by AD1. |
+| Starting beside them | The only built shape. LOTM: four early-Tingen starts in 1349 (`src/book_world_lotm_entry.js`), clerk hosts, original supervisors. HP: an eleven-year-old pupil, or an adult glass trader. Both are beside canon by default, but no canon person is present. |
+| Taking a bystander's place | Listed (SA10, P4, "Moretti family" in P4's LOTM example) with no mechanism for "the seat is taken, so the canon occupant is elsewhere". RLB3 says two people may share a role. |
+| Arriving at a different date | LOTM: era axis offers 1349 only; 1352 and later are listed as "Not written yet". The Tingen source card places the protagonist's arrival on 28 June and notes July 1349 elsewhere ([CONTEXT_OPENING](novels/full-book/lord-of-mysteries/CONTEXT_OPENING.md), edition-qualified). HP: no cohort anchor. |
+
+### A.3 Gaps this pass found
+
+- **G1. WER11 says "never" and SG8 says "reachable".** Both are repo text. Part C
+  proposes the reconciliation as default, dial, reason (PX1, PX17).
+- **G2. LOTM's start has a year but no month.** Today's four starts say 1349; the
+  source card says the protagonist arrives in June and a later chapter is in July
+  of the same year. Whether a start is before, on or after that arrival is
+  therefore unsettled in data. Until a world pass records the start's date,
+  "beside" can only mean "same city, same year, relation to the arrival unknown".
+- **G3. HP has no cohort offset.** The school start is first-year at eleven, but
+  nothing says which year relative to the protagonist's cohort. The WER table
+  already flags era as a question.
+- **G4. No record for a beat.** C1's clock record has `source` and `scope`, but
+  nothing yet describes a canon beat's date check, its inputs or its outcomes.
+- **G5. Sequels and later volumes are unread for beat purposes.** WER4 and WER11
+  already require this before a premise leans on them.
+
+## Part B. How other games and fanwork handle it
+
+### B.1 Findings
+
+| Work | Playing the canon character or a near-canon seat | Fixed date or recurring schedule | If you ignore a canon beat | Script versus waiting world |
+| --- | --- | --- | --- | --- |
+| Fire Emblem: Three Houses | You are Byleth, the fixed protagonist, and choose a house. Part I is shared; the game diverges at Chapter 12 into one of four routes, and the Black Eagles route needs conditions met earlier or the game defaults to Silver Snow [S, [Prima](https://primagames.com/tips/fire-emblem-three-houses-chapters-guide-story-paths), [RPG Site](https://rpgsite.net/feature/8833-fire-emblem-three-houses-routes-guide); the two guides disagree on where that Edelgard condition is checked, so the exact point is unresolved]. | Calendar months with free days; story dates are fixed. | A missed condition silently routes you to the default branch [S]. | Authored branches avoid both a forced single script and a waiting world, at the cost of one hidden gate. [I] |
+| Persona 5 (Royal) | You are a fixed named-by-player avatar in a calendar year. | Dated cutoffs: most confidants remain open to the end of the year, a few close earlier tied to plot events [S, secondary guides that disagree on exact dates: [Games Learning Society](https://www.gameslearningsociety.org/wiki/is-there-a-deadline-for-confidants/), [cgmag](https://www.cgmagonline.com/guides/persona-5-confidant-guide-sae-igor-morgana-and-sojiro)]. | A missed link is gone for that run [S]. Opacity about which ranks matter pushes players to manual saves [S]. | Hard dates with early warning from the calendar. The opacity is the part to avoid. [I] |
+| Mass Effect | Shepard is player-defined; BioWare's marketing director said there is no "canon" version of the hero [S, [Engadget on default-hero use](https://www.engadget.com/2011/07/19/bioware-13-of-mass-effect-players-use-default-hero-18-play-f/), [Wikipedia](https://en.wikipedia.org/wiki/Commander_Shepard)]. ME2's crew-risk clock is in the [absence report](NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md) Part A. | A fear clock before one finale [S there]. | Costs land on the crew, not on the player's access [S there]. | The protagonist is a blank the player fills, so "playing the canon character" is not a conflict. [I] |
+| Fate/Grand Order | Ritsuka Fujimaru is written as a self-insert for the player, with sparse background; name and gender are customizable [S, [Type-Moon wiki via search](https://typemoon.fandom.com/wiki/File:Agartha.png)]. The Lostbelt detail came only from a fan profile and is unverified [U]. | Event-driven, not a calendar [U]. | Not found. | The avatar is a thin shell so the canon cast carries the story. [I] |
+| Dragon Age | The Keep turns Origins and DA2 decisions into a world state loaded when a new game starts; a default state loads if you export none; not every choice matters [S, [EA Keep FAQ](https://help.ea.com/en-us/help/dragon-age/dragon-age-keep-faq)]. How the earlier Warden appears in Inquisition: not found. | None. | Choices persist as facts, not deadlines. | A world state as an import record is the closest precedent for a branch carried between lives. [I] |
+| The Witcher 3 | You are Geralt, a canonical lead from earlier games. One critic argues the urgency framing around finding Ciri does not hold when the game invites side play [S, opinion: [GameSkinny](https://www.gameskinny.com/opinion/why-the-witcher-3-didnt-completely-win-me-over/)]. | Soft urgency by story framing. | The world visibly waits. | A cautionary case: urgency stated but not enforced reads as dissonance, not freedom. [I] |
+| Pathologic 2 | You are a fixed protagonist in a twelve-day plague. | Hard: twelve days, a town destroyed if no cure; each day's single major task, if skipped, kills an ally [S, [Bonus Stage](https://www.bonusstage.co.uk/archives/156659), [Edge via PressReader](https://www.pressreader.com/australia/edge/20200103/281522227989678)]. Quests vanish when the day ends [S]. | Permanent loss; opportunities may be gone for good [S]. Whether the town's end follows directly from ignored quests: not found. | "You can't save everyone" is the design [S]. An authored stance the player chooses by buying the game, not a default to import. [I] |
+| Disco Elysium | You are a fixed amnesiac protagonist. | The clock advances only on interaction, so there is no waiting world [S, [RPGamer](https://rpgamer.com/review/disco-elysium-review/)]. A one-week structure: not found. | Not applicable: time moves when you act. | An action-driven clock: nothing happens while you idle. Matches the repo's frozen-world default. [I] |
+| Crusader Kings 3, Hearts of Iron IV | You are a ruler placed at a bookmark date. Bookmark start dates are limited (hard to source distant history) and extra ones come from mods [S, fan-sourced: [Steam Workshop](https://steamcommunity.com/app/1158310/discussions/0/3004423845044036499)]. HoI4 offers a Historical Focus setting for the AI, and alternate-history paths in DLC [S, [Paradox press](https://gamespress.com/New-Histories-and-New-Tactics-Coming-to-Hearts-of-Iron-IV)]. | Dated bookmarks; historical or free AI. | Nothing forces history. | A per-game switch between "history leans on" and "history is only a starting state" is the clean precedent for a per-life dial. [I] Total War scripted historical triggers: not reached. |
+| SaGa (Romancing SaGa series, Free Scenario) | You pick among protagonists in one setting. Minstrel Song's time progression tracks days in a living world and governs quest availability, recruitment and world events; you can miss an event you never had to attend [S, [Common Sense Media](https://www.commonsensemedia.org/game-reviews/romancing-saga-minstrel-song-remastered), [Cubed3](https://www.cubed3.com/games/reviews/playstation-5/romancing-saga-minstrel-song-remastered-international)]. Time in these games passes by battles per a forum list [S, weak: [GOG forum](https://www.gog.com/forum/general/how_should_games_model_time)]. | A world calendar advanced by play. | The event happens without you. | The world carries on without the protagonist, but only while the player acts, which is the repo's lazy model. [I] |
+| Self-insert and canon-divergence fanwork | Fanlore: a canon divergence AU diverges from canon at a point of departure, sometimes in backstory or during canon; "canon-compliant" aligns with canon [S, [Fanlore](https://fanlore.org/wiki/Canon_divergent)]. Self-inserts are often fix fics [S, [PPC wiki](https://ppc.fandom.com/wiki/Self-Insert)]. "Butterfly effect" and "fixed point" were not found in the glossary results. | Canon events as the clock (LIVING_BESIDE M1). | Readers favor foreknowledge that costs something and mock walkthrough style (LIVING_BESIDE M2 [S there]). | Fanwork practice backs M3: big beats resist, details bend. |
+| Tabletop campaigns in canon | Canon characters work best as cameos so important NPCs can grow with the party; killing a major canon figure breaks continuity fastest; campaigns that engage canon directly tend to be more memorable if the group wants that [S, opinion: [Cannibal Halfling](https://cannibalhalflinggaming.com/2020/10/28/the-trouble-with-canon/)]. A GM anchors a campaign at a fixed point to cut note-keeping [S, [Nerdist](https://nerdist.com/article/gms-our-best-tips-for-handling-time-travel-in-your-rpgs/)]. | An anchor date. | GM judgment. | Cameo canon plus an anchor date. [I] |
+| Fallout 1, Majora's Mask, Stardew, Animal Crossing | Covered in the [absence report](NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md) Part A. | Fallout: a paid-extendable deadline; Majora: visible schedules with notebook memory; Stardew: recurring decay with offsets. | See there. | See there. |
+
+### B.2 What the findings say
+
+- **F1. Fixed dates and recurring schedules usually coexist.** Persona and Fire
+  Emblem run a calendar (schedule) with dated gates (deadlines) on top. The gates
+  carry the story; the calendar carries the days. Matches S1: schedules are the
+  default, deadlines come only from an in-world source. [I]
+- **F2. Silent gates are the common complaint.** Persona's opacity and Fire
+  Emblem's hidden Edelgard condition are the failures to avoid. A canon beat that
+  can close a door needs a lead the player can read (C2's hard degree). [I]
+- **F3. A world that waits forever reads as dissonance when urgency is stated.**
+  The Witcher critique is one opinion, but it names the risk. The repo's frozen
+  default is fine only if the beat is stated as a date in the world's own clock,
+  not as a pressure about real time. [I]
+- **F4. A forced script reads as a railroad; a branch list reads as options.**
+  Fire Emblem and HoI4 both turn "the story" into a chosen path or setting.
+  [I]
+- **F5. Action-driven clocks avoid both problems.** Disco Elysium and SaGa
+  advance time through the player's acts, so the world moves exactly as far as
+  the player has. This is the repo's lazy evaluation (C3). [I]
+- **F6. An import record is the precedent for branch continuation.** Dragon Age's
+  Keep. [I]
+- **F7. Cameo canon plus anchor date is what tabletop advice converges on.** [S,
+  opinion]
+
+### B.3 Unreached or weak
+
+- Total War scripted historical triggers: the search returned only Hearts of Iron.
+- Dragon Age's Warden-versus-Inquisitor cameo handling: no page found.
+- Disco Elysium's day structure: not confirmed.
+- "Butterfly effect" and "fixed point" as fandom terms: not in results.
+- Persona and Fire Emblem exact dates: guide sites disagree; used only as shape.
+- Fate/Grand Order's Lostbelt structure: fan profile only.
+- Primary developer statements: none retrieved for any entry. All [S] rows are
+  search summaries, several secondary.
+
+## Part C. Proposals for YAIRPG
+
+Every item is a proposal with default, dial and reason, in the repo's framing.
+
+### C.1 Modes
+
+**PX1. Six modes, with "beside" as the default.** The mode is a field on the
+start record next to WER2 to WER9.
+
+| Mode | What it is | Default, dial and reason |
+| --- | --- | --- |
+| Beside | A life in the canon setting who is not the protagonist and not in their circle (a clerk, a classmate in another house, a neighbor). | Default for every book world (WER11, WF1). Dial: beside can be near (shares a place and weekly rhythm with the protagonist) or far. Reason: it is the only shape that exists in data. |
+| Follow or join | Enter the protagonist's circle: a teammate, house-mate, same employer or same class (P4). | Dial: offered where the world pass has canon records for that circle. Reason: gives canon beats a natural attachment point (scope C1) without being the protagonist. |
+| Bystander seat | Take a minor canon seat the book places near a beat (SA10, RLB3). The canon occupant still exists elsewhere unless a cause removes them. | Default: the seat is shared (RLB3), not stolen. Dial: displacing the occupant needs an in-world cause and cost. Reason: otherwise a seat read as a free swap erases canon without a mechanism. |
+| Divergent | Start from a changed premise at a branch point (fanlore "point of departure"; WC5). | Dial: what changed is recorded as input diffs (PX9); a changed or randomized truth is sealed by ID. Reason: matches OD7 and OD8. |
+| After canon | A life after the arc closes (P5's mirror), or in a sequel's era (WER11's Lumian note). | Gated on a source pass of the late volumes (G5). Reason: later reveals can overturn an opening (WER4); do not start there from the opening alone. |
+| Be the protagonist | Take the original character's life, by replacement (the body, the place, the obligations; an outsider mind, XM1) or as a straight recreation. | Default: not in the public build. Dial: available in the private direct-adaptation pack under its own label (SG8, AD1) and in worlds whose protagonist is the player by construction (C.4). Reason: attribution, and D2a plus the world's fate rules were written around that person. |
+
+**PX2. Era is a field of the mode, in the world's own calendar.** WER6 already
+requires it. For each mode, a start names a date relative to the canon line:
+before it, at an anchor beat, or after it. LOTM's 1349 gets a month once the
+world pass settles G2. HP gets a cohort offset (G3). Reason: "beside" before the
+protagonist arrives and "beside" in their third year are different lives.
+
+### C.2 A canon beat is a clock with extra fields
+
+**PX3. Beat record = C1 clock record plus these fields.** C1's fields stay (id,
+source, scope, degree, lead, miss behavior, recovery). Add:
+
+| Field | Meaning |
+| --- | --- |
+| `canonDate` | The beat's date in the world's own calendar, with the source's locator (WA2: cite, do not quote). A date, never a count of real time. |
+| `inputs` | The facts the canon outcome depended on (people present, an item held, a place open). A disturbance to an input changes the outcome (OD7, RLC). |
+| `outcomes` | Canon outcome, altered outcome per changed input class, deferred. Each is a record, not prose. |
+| `kind` | `great` (sticky, M3), `detail` (fragile, M3) or `routine` (the protagonist's own recurring schedule). |
+| `sealed` | Whether the beat's truth is sealed (changed or randomized truths only). |
+
+**PX4. Degree follows kind.** Default: `routine` beats are ambient or soft
+schedules (S1), `detail` beats are soft, `great` beats are firm, and a `great`
+beat becomes hard only if the world has an in-world mechanism that closes the
+door (OD8) and the player's life is within scope. Reason: Weibao's correction
+says deadlines only from an in-world source; this makes the source explicit.
+
+**PX5. Attachment is by scope, not by world.** Default: a canon beat attaches to
+a life only if one of these holds: the life is in `follow`, `bystander` or `be`
+mode for that circle; the life holds a fact in the beat's `inputs` (for example
+works at the same office); or the life has been within the ripple reach of the
+protagonist (TIMELINES default: connected people). A `beside` life far from the
+line is not counted and gets no note line. Reason: C1, and the sealed-secrets and
+frozen-world rules. Dial: a visible "history leans on" switch per life (HoI4's
+Historical Focus is the precedent [S]) with three settings: *background*
+(beats happen and are ambient), *natural course* (beats attach by scope, the
+default), *free* (the canon line is only a starting state).
+
+### C.3 What happens to a beat the player does not attend, and to ones they cause
+
+**PX6. Evaluate against the world's own date, lazily.** A canon beat is keyed to
+`canonDate` on that world's clock and checked when that world's clock next moves
+(C3). The accepted frozen-world default holds: a world does not tick while the
+player is in another world or away, so a beat never fires because real time
+passed, and absence cannot trigger canon. Where a world runs while you are away
+(an exception with a stated rule), the beat resolves when the world clock passes
+`canonDate` and the player is next in that world.
+
+**PX7. Unattended means the world carried on, with a trace.** Default: the canon
+actors produce the canon outcome unless an input changed; the player gets a line
+in the return note ("while you were at X: the register at Y was posted") plus one
+visible after-effect in the place (a door shut, a rumor, a seat changed hands).
+Dial: how large the trace is, by degree. Reason: F3 and F5, a world that moves
+exactly as far as the player has, and a miss that still reads as consequence.
+
+**PX8. Three outcome classes, no fourth "world waits".** Resolved by inputs:
+(a) *carried*: inputs unchanged, canon outcome; (b) *altered*: an input changed
+(by the player or another cause), so the altered outcome record applies; (c)
+*deferred*: a precondition is absent (the protagonist is elsewhere), so the beat
+moves to its next valid date or lapses with a trace. Reason: avoids both a world
+that freezes the plot for you and a script that forces you through it.
+
+**PX9. Beats the player causes are input diffs.** A change is recorded as
+`{beat id, input, was, now, cause, date}`. Downstream beats whose `inputs` mention
+the changed fact are re-evaluated when their date arrives (lazy, per beat). No
+whole-world simulation. Canon corrects itself only through a named world
+mechanism (OD8); where none exists, the new state stands. Reason: OD7, OD8.
+
+**PX10. Never a silent gate.** Any beat that can close a door shows its lead
+early and shows what recovery costs (C2). The first firm or hard beat of a life
+gets a plain heads-up in the return note and the World/Schedule view. Reason:
+F2.
+
+**PX11. Foreknowledge is a state with a price.** Mode defaults for M2: `beside`
+and `bystander` natives: none; `follow` natives: none or partial; outsiders with
+canon memory: full, fading or scrambled by the method (XM1, XM8, XM9); `be` by
+replacement: the body's memories plus whatever the method carries. The "hide
+it" choice exists. Dial: per start. Reason: M2 and WER3's memory question.
+
+### C.4 Per world
+
+| World | Honest answer | Modes offered, default | Canon beats |
+| --- | --- | --- | --- |
+| Village variant | Original world. There is no canon protagonist; the lead is the player's own character, and past lives can be NPCs there (BW3, IX2). | One mode in practice: the player is the Village's hero by construction. | None by default. A "passing hero" world event is an original proposal (a named traveler passes through on a schedule) and not canon. In-world deadlines exist only if Weibao writes them for this world. |
+| Proto23 | Credited faithful port ([access decision](NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md)). The source's protagonist is the player avatar. | Be, which here means the source's own avatar. No modes to add. | None. The weekly dojo meal stays a schedule (C4 of the absence doc). Nothing added to the faithful build. |
+| YAIR | Faithful baseline of an idle game whose lead is the player [I]. | Be, as above. | None. Daily price recovery stays a schedule. The quest chain is a sequence, not a dated deadline [I]. |
+| LOTM (Tingen) | The only built world with a real canon line. Today's pack has no canon identities; starts are 1349, month unsettled (G2). | Beside (default, built). Follow and bystander after a world pass writes the early-arc circle as records. Divergent where WER5's neutral crossing meets a canon route. After canon waits for a late-volume pass. Be only in the private pack. | Many beats, by degree (PX4). Date anchors exist for the opening (the protagonist's arrival in June 1349 and a later July date, edition-qualified). Beats beyond the early arc stay off until the source pass reads past it (WER4). The world's own mechanisms may notice divergence (divination, fate); verify per beat before use (OD8). |
+| HP | Pack has an unnamed Potions master role and original household people; school start at eleven with no cohort offset (G3). | Beside (default). Follow as a house-mate or classmate of the protagonist's cohort needs the cohort offset and canon records (HP doc proposes six schedule-bearing canon people as T2 records). Bystander and after canon are LATER. Be only in the private pack. | `routine` beats are the term timetable (schedules, already the HP rhythm). `great` beats attach only to lives whose cohort overlaps. Term events are scheduled first (GM plan 15.5), so most HP "canon" is calendar and not deadline. |
+
+**PX12. Where the player is the avatar, add nothing.** Proto23 and YAIR already
+satisfy "play the original protagonist" because the original protagonist is the
+player's avatar. Inventing modes there would add canon the sources do not have
+(WA17-style scope drift). Reason: F4 and the faithful-port decision.
+
+### C.5 Spoilers, prose and sealed secrets
+
+**PX13. Beat names are spoilers for a new reader even when they are public
+franchise facts.** Start and schedule text follows PR1 to PR3: discovery wording
+by default, "full premise" on request. Add a per-player dial: *I know this
+book*, *new reader*. It changes labels only (the beat is "the arrival at the
+bureau" for a reader who knows, "something due at the church office" for one who
+does not). Reason: WER3 wants a knowing choice about costs without a tour of
+hidden structure.
+
+**PX14. Canon text is cited, not reproduced.** Beat records hold a locator and a
+short paraphrase (WA2). A returning-note line is original prose in the world's
+voice. Reason: copyright and AD35.
+
+**PX15. Sealing follows the existing rule.** Public franchise twists are not
+sealed. A changed or randomized truth is: its beat record sets `sealed` and is
+referred to by ID, route and status in docs and UI (for example "B-D2: altered,
+route found"). The `outcomes` of a divergent start do not appear on its confirm
+screen. Reason: AGENTS sealed-secrets rule.
+
+### C.6 Saves and continuation
+
+**PX16. Save shape.** A life stores `mode`, `anchor` (world date and canon
+reference), the `history leans on` setting, and a list of beat results
+`{beat id, class (carried, altered, deferred, caused), date, input diffs}`. No
+canon text is stored. Reason: small, replayable, cites sources.
+
+**PX17. Compatibility and branches.** Fresh canon per life (BW1) stays the
+default. Continuing a changed timeline is an explicit branch choice (BW2), and the
+branch list shows the mode and the count of altered beats, never the sealed
+truth (BW6). Existing saves load as `beside`, `natural course`, with no beat list
+(WER16): no behavior change. A change to a start record or pack identity needs a
+compatibility decision as WER16 says. A dedicated import record in the style of
+the Dragon Age Keep [S] is an option only if branch transfer becomes common.
+
+**PX18. Proposed rewording of WER11 (not edited here).** Current: "Live beside
+protagonists, never as them." Proposed: "**Default: live beside protagonists.**
+Dial: a life may follow, replace a bystander or diverge from them; being the
+protagonist is available in the private direct-adaptation pack and in worlds
+whose protagonist is the player's own avatar (SG8, AD1). Reason: public
+attribution, canon fate rules built around that character, and a start that
+declares its mode like any other." This removes the "never" the project's own
+framing forbids. It needs Weibao's acceptance and a same-change update to the
+WER11 row and its AD line in the rules index.
+
+### C.7 Recommended defaults in one place
+
+- Mode: beside. Attachment: by scope. History switch: natural course.
+- Degree: great is firm, detail is soft, routine is ambient or soft.
+- Unattended: carried with a trace in the return note.
+- Foreknowledge: none for natives, a priced state for outsiders.
+- Spoiler dial: discovery wording by default, "I know this book" opt-in.
+- Be the protagonist: private pack and avatar-by-construction worlds only.
+
+## Part D. More to consider (round 1)
+
+Codes: F findings, D decisions, O options, R risks, Q questions, A actions.
+
+### Findings (new)
+
+- **F8. "Beside" is the only shape with data, and "beside" is itself unspecified
+  until the world settles its date.** G2 and G3 mean the built LOTM and HP starts
+  cannot say whether they come before, with or after the canon line.
+- **F9. Replacement is cheaper to model than recreation.** An outsider in the
+  protagonist's body inherits the body's obligations, and canon deadlines attach
+  through them (scope) with no new beat data. A direct recreation needs full
+  character data and fidelity. [I]
+- **F10. A bystander seat conflicts with RLB3's default.** If two people can share
+  a role, "I took the seat" needs an explicit cause for the occupant's absence,
+  or the seat is shared and the occupant reacts to you.
+
+### ACT NOW (done in this file)
+
+- A1. Named the WER11 versus SG8 conflict and proposed a rewording (PX18).
+- A2. Reconciled the owners instead of writing a rival spec (A.1, PX3 to PX11).
+- A3. Settled the frozen-world question: beats key to the world's date (PX6).
+- A4. Named the data gaps (G1 to G5) and picked codes that do not collide with
+  CP, C, S, E, N (PX).
+- A5. Recorded the request in USER_VISION and a pointer in Round 11.
+
+### ACCOUNT FOR NOW
+
+- R1. **Spoiler leak through beat labels.** Mitigation: PX13 and PR5's lint over
+  start and schedule strings, extended with a per-world list of beat names.
+- R2. **A beat record for each of dozens of canon events is content cost.**
+  Mitigation: write only `great` and `routine` beats for the early arc first
+  (kind-gated), `detail` beats on demand.
+- R3. **A returned-from-absence note listing many canon misses becomes noise.**
+  Mitigation: C2's cap on visible firm beats applies; attached beats only.
+- R4. **Sealed changed truths in a divergent start.** Mitigation: PX15 by ID.
+- R5. **D2a (protagonist fate) is unsettled.** `be` and `follow` modes make the
+  protagonist's survival a pack decision; do not fix a single rule across
+  worlds. Default per pack, with the world's mechanism named (WA4).
+
+### LATER or DELEGATE
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| L1 | Settle LOTM start date (G2): add month to start records and read the opening's date anchors | World pass (WPR/WER6) | Small, Sonnet reader plus review | Each of the four starts records a date relative to the arrival, with locators. |
+| L2 | HP cohort offset (G3) and the six canon schedule records | World pass | Medium | A life with cohort offset 0 sees canon `routine` beats; offset 2 sees none. |
+| L3 | Beat record resolver on top of the clock resolver (PX3 to PX9) | Engine, small | Medium | Two scripted lives: one in scope sees the beat and a miss note; the other sees nothing. A changed input flips a downstream outcome. |
+| L4 | Early-arc LOTM beat set as data, `great` and `routine` only | Source deep dive then data | Medium to high | Each beat has a locator, inputs and at least two outcomes; sealed ones are marked. |
+| L5 | Spoiler dial and beat-name lint | UI plus `check:rules` | Small | The confirm screen of a "new reader" life shows no beat names; the lint catches a planted name. |
+| L6 | Source pass on the research gaps (Total War, Dragon Age cameo, primary developer statements) | Research | Small | B.3 rows updated with primary sources or kept as gaps. |
+| L7 | "Passing hero" original event for the Village variant | Design, Village slice | Small | Optional; only if Weibao asks. |
+
+### Decisions and questions
+
+- D1. Proposed default: beside, natural course. Recommended; not accepted.
+- D2. Proposed WER11 rewording. Needs Weibao's yes before the owner edit.
+- D3. Order: L1 and L2 before any beat data (a beat has no anchor without a date).
+- No either/or questions: each item above carries a default.
+
+### Top three recommendations
+
+1. **Make "beside, natural course" the default and attach canon beats by scope**
+   (PX1, PX5). Reason: it gives LOTM and HP a canon line without forcing any life
+   through a script, and it makes Weibao's "deadline only from the protagonist's
+   line" literal.
+2. **Settle dates first (L1, L2), then build the beat record on the clock
+   resolver** (PX3 to PX9). Reason: a beat cannot be checked without a world date,
+   and C1 to C3 already give the lazy evaluation.
+3. **Reword WER11 as default and dial** (PX18) so "be the protagonist" has a
+   private-pack route and avatar-by-construction worlds are not forced into a
+   mode system they do not need (PX12).
