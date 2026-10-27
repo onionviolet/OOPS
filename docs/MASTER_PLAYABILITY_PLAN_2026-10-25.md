@@ -406,3 +406,15 @@ Avoid: opening several regions at once, naming Sequences 6 to 0 without consumer
 - Typed gaps and a visible ladder are cheap and stop "unfinished" from reading as "missing".
 - Every rung and region needs a done check from the world completion standard rows named above, not a word count.
 - The cheat is sealed-secret adjacent in some worlds (the real nature of a system). Show its truth only through discovery routes, as in PR2.
+
+## Round 7: the Village loop first, coordinators and a GM plan (2026-10-27)
+
+Weibao: establish a gameplay loop first for the Village (YAIR Village, then a Proto23-style village); send coordinators for small backlog items and loose audits; start a GM chat to plan loops and self-audit across USER_VISION with an advisor look at lore and gameplay, make procedural and banked ideas usable, and use the saved Discord discourse. Dispatch packet: [common](gm/dispatch/village-loop-2026-10-27/COMMON.md), [briefs](gm/dispatch/village-loop-2026-10-27/BRIEFS.md). Sessions were not started in this turn (Remote Control cannot start them).
+
+- **VL1: this supersedes the 2026-10-26 "no new depth for Frontier" line for loop work only.** The Village is the home base (TL4) and shared-mechanism test bed. New Frontier content stays out of scope.
+- **VL2: "Proto23 village" is read as an original village drawing on Proto23 mechanics** (PW2, PW4, PW5), since Proto23-derived content already lives in the Village and the repo has no licence for copying (PW3). Correct this if you meant something else.
+- **VL3: the core loop was already asked to be scoped (2026-10-16).** The [identity thread](reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md) is the owner; the GM continues it.
+- **VL4: Proto23 loops are mostly proposals.** [Village life loops](PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md) lists watch, weekly market, courier, relay, bleeding and search; the first coordinator step is to find which are actually playable.
+- **VL5: three sessions, three file areas.** GM (docs), village-loop (Village runtime), backlog-ui (UIV1, then Q18 P02-P10). AU1 defaults to one coordinator and G6 removed the usage ceiling for existing chats only, so declare the budget in each checkpoint.
+- **VL6: self-audit is input, not authority.** GM output is proposals; only Weibao's instructions change priorities (AGENTS gates).
+- **VL7: Discord and procedural ideas are used, not re-collected.** Saved research is read-only; each procedural idea needs a Village consumer or stays banked (IB1, IB3).

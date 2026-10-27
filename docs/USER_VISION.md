@@ -6561,3 +6561,11 @@ UT1–UT6 are in
 Recorded as questions, not accepted designs. Proposals BC1–BC9, SC1–SC6,
 HR1–HR6 and SK1–SK7 are in
 [master plan round 6](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-6-base-cheat-growth-world-scale-headroom-and-skill-depth-2026-10-27).
+
+## Village loop first, coordinators and GM plan, 2026-10-27
+
+> We also need to establish an gameplay loop, first for village, we can have YAIR village and then also proto23 village, we should send out coordinators to implement little stuff we can work on right now that are in the back logs and need to be addressed and all the various loose audits /more-to-consider , /sharpen
+>
+> Also we need to send a GM chat to plan gameplay loops and more, maybe self auditing across user vision and more, like a look of sonnet and then asking advisor what should be done lore wise and gameplay wise and more? So that we can have our own identity but also work towards a whole playable world with endless possibilities, taking advantage and also planning ideas and more? Making ideas like the procedural stuff and more usable? Other ideas left ? We can look at the discord discourse as well, /more-to-consider
+
+Recorded: the Village loop is the first loop to establish; this narrows the 2026-10-26 "Frontier and Mistglass as test beds" line to exclude loop work. See [master plan round 7](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-7-the-village-loop-first-coordinators-and-a-gm-plan-2026-10-27) and the [dispatch packet](gm/dispatch/village-loop-2026-10-27/COMMON.md). Proposals, not accepted designs.
