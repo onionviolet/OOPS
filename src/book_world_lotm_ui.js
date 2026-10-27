@@ -78,7 +78,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    // The nine entry answers come before the irreversible step (WER3, UR43).
    const box=node('div');box.dataset.lotmEntryAnswers=pick.key;box.append(node('h3',`Before you cross · ${pick.label.replace(/^Begin /,'')}`));
    for(const [q,a] of pick.answers){const r=node('p');r.append(node('strong',`${q}. `),a);r.dataset.lotmAnswer=q;box.append(r);}
-   actions.append(box,row(button('Confirm and cross to Tingen',pick.key==='probationer'?'enroll':`enroll_${pick.key}`,()=>{choosing=null;run(()=>enroll(pick.key),'Your first day in Tingen begins.');},!v.startable,v.startable?'Crossing cannot be undone on this save.':v.startReasons.join(' ')),
+   actions.append(box,row(button('Confirm and cross to Tingen',pick.key==='probationer'?'enroll':`enroll_${pick.key}`,()=>{choosing=null;notice.textContent='Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{notice.textContent=e.message;}).finally(()=>{signature='';render();});},!v.startable,v.startable?'Crossing cannot be undone on this save.':v.startReasons.join(' ')),
     button('Back to the lives','entry_back',()=>{choosing=null;signature='';render();},false,'Return to the list of Tingen lives. Nothing changes.')));
    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
   }
@@ -123,6 +123,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   if(p.capped)path.append(node('p','Later Sequences are not offered in this branch.'));
   }
+  // RET3: the paused Village life is resumed from the connection panel, not from here.
+  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';path.append(r);}
   if(v.cause.line)path.append(node('p',v.cause.line));
   if(v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);

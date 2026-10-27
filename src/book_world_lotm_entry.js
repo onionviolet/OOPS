@@ -26,14 +26,16 @@ const officerOf=key=>{const p=LOTM_PROFILES[key];return p.home==='evernight'?'Wa
 const pounds=pence=>`${pence/P.pound} pound${pence===P.pound?'':'s'}`;
 
 // The nine questions every crossing answers (WER3), in plain words, matching what enroll does.
-export function entryAnswers(key){
+export function entryAnswers(key,{returnable=false}={}){
  const p=LOTM_PROFILES[key];if(!p)throw Error('Choose one of the Tingen starts.');
- const paused='Your Village life stops where you left it. No way back is written yet, so Export first if you want to keep playing it.';
+ // With a continuing connection the Village life pauses as a whole and can be resumed (RET3); without one, nothing of it is kept.
+ const paused=returnable?(entryMethodOf(key)==='in_person'?'Your Village life pauses where you left it. Resume it from Continuing connection; you travel back in person.':'Your Village life pauses where you left it, money and all. Resume it from Continuing connection; this Tingen life then pauses in turn.')
+  :'Your Village life stops where you left it. This character has no way back yet, so Export first if you want to keep playing it.';
  if(entryMethodOf(key)==='in_person')return [
   ['Body','Your own adult body. You arrive in person.'],
   ['Memories','Yours, whole. You carry no one else\'s.'],
   ['Base cheat','Comes with you, unchanged.'],
-  ['Money and items',`Of 29 pounds funded before you came, papers, clothes and one passage took 24. You hold ${pounds(p.cash)}. The money you held before crossing stays behind.`],
+  ['Money and items',`Of 29 pounds funded before you came, papers, clothes and one passage took 24. You hold ${pounds(p.cash)}. The money you held before crossing stays behind${returnable?' with your Village life':''}.`],
   ['Name and papers','A bought name on 8-pound papers. The church teams know your old ties.'],
   ['Language','You speak Loenese well enough to pass as a clerk.'],
   ['Who notices','The Nighthawk office knows you are new and keeps a close eye on a new clerk.'],
@@ -43,7 +45,7 @@ export function entryAnswers(key){
   ['Body','An adult Tingen clerk who died in the night. You wake in their body, healthy enough to work.'],
   ['Memories','Yours carry whole. The clerk\'s come in fragments: faces, the office routine, the way home.'],
   ['Base cheat','Comes with you, unchanged.'],
-  ['Money and items',`Nothing physical crosses. The money you held stays behind; the clerk\'s own purse, ${pounds(p.cash)}, is yours.`],
+  ['Money and items',`Nothing physical crosses. The money you held stays behind${returnable?' with your Village life':''}; the clerk\'s own purse, ${pounds(p.cash)}, is yours.`],
   ['Name and papers','The clerk\'s name, papers and post are yours, and their colleagues expect them at work.'],
   ['Language','The clerk\'s Loenese comes with the body.'],
   ['Who notices','No one, at first. Colleagues see a clerk who seems a little changed.'],

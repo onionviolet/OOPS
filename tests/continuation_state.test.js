@@ -187,3 +187,23 @@ test('an older reserved-copy point alone waits, while export, other points and r
 test('plain goods and physical coins debit reachable source return points without touching unrelated world state',()=>{
  const base=fresh(),key='{"id":"Rough wood log"}';base.character.money=2000;base.inventories.person.main_character[key]={count:3};let s=beginContinuation(base,'fungible-custody');for(let i=0;i<3;i++)s=cmd(s,'baggage:buy');for(let i=0;i<2;i++)s=cmd(s,'baggage:item:'+encodeURIComponent(key));s=cmd(s,'baggage:coins');s=cmd(s,'fresh',{fresh:fresh()});assert.equal(s.inventories.person.main_character[key].count,2);assert.equal(s.character.money,35);s=cmd(s,'resume:life-1');s=cmd(s,'initial');assert.equal(s.inventories.person.main_character[key].count,1);assert.equal(s.character.money,1975);assert.equal(s.expansion.worlds['base.frontier'].stock,5);assert.equal(s.continuation.lives['life-2'].paused.inventories.person.main_character[key].count,2);
 });
+test('a branch pauses this life as it is and continues a tethered life; resume works from a Tingen life, rewinds do not (RET3, RET4)',()=>{
+    let s=enroll();s.character.money=77;
+    s=cmd(s,'branch:'+encodeURIComponent('Tingen · Nighthawk probationer'));
+    const c=s.continuation,village=c.lives['life-1'],tingen=c.lives[c.active];
+    assert.equal(c.active,'life-2');assert.equal(tingen.tether,'life-1');assert.equal(tingen.label,'Tingen · Nighthawk probationer');
+    assert.equal(village.paused.character.money,77,'the paused Village life keeps its money');assert.equal(s.character.money,77,'the running game is unchanged by the branch');
+    // The running life then crosses in place (what the LOTM enroll does).
+    s.expansion.actors.player.worldId='book.lotm.tingen';s.expansion.worlds['book.lotm.tingen']={};s.character.money=480;
+    assert.match(continuationView(s).paused.map(p=>p.label).join(),/First life/);
+    assert.throws(()=>cmd(s,'initial'),/temporal means|retained worlds/,'no rewind inside Tingen');
+    const back=cmd(s,'resume:life-1');
+    assert.equal(back.continuation.active,'life-1');assert.equal(back.character.money,77);assert.equal(back.expansion.actors.player.worldId,'base.frontier');
+    assert.equal(back.continuation.lives['life-2'].paused.character.money,480,'the Tingen life is paused with its own purse');
+    const again=cmd(back,'resume:life-2');
+    assert.equal(again.expansion.actors.player.worldId,'book.lotm.tingen');assert.equal(again.character.money,480);
+});
+test('a branch is refused from a world that cannot travel',()=>{
+    const s=enroll();s.expansion.actors.player.worldId='book.other';
+    assert.throws(()=>cmd(s,'branch:x'),/temporal means/);
+});

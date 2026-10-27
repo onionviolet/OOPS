@@ -100,6 +100,15 @@ export function createLotmHost(ports){
   plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start};
   ports.persist(plan);return plan;
  }
+ // RET3: when a continuing connection can carry this life, crossing first pauses the Village life as it is (a tethered branch), then enrolls in place.
+ // Without one (a non-adult host, a running challenge, no host port) it enrolls in place as before and the entry answers say there is no way back.
+ function returnable(){return !!ports.branch&&!ports.branchReason?.();}
+ async function cross(profileKey='probationer'){
+  const profile=LOTM_PROFILES[profileKey];assert(profile,'Choose one of the Tingen starts.');
+  assert(startable(),startBlockers().join(' '));
+  if(returnable())await ports.branch(`Tingen · ${profile.label.replace(/^Begin (as |under )?/,'')}`);
+  return enroll(profileKey);
+ }
  // DWF127: stock for the bench is written on first need, once per row revision, so a save enrolled before the bench still sees it.
  function seedBench(){const s=state();if(!s.lotm||stockSeeded(s))return;const plan=base(s,ports.context());if(seedBenchStock(plan))ports.persist(plan);}
  function act(id){
@@ -137,7 +146,7 @@ export function createLotmHost(ports){
  function tick(){const s=state();if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  function view(selected=null){
   const s=state(),d=s.lotm;
-  if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb,answers:entryAnswers(key)}))};
+  if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,returnable:returnable(),profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb,answers:entryAnswers(key,{returnable:returnable()})}))};
   const c=ctx(s),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
@@ -169,7 +178,7 @@ export function createLotmHost(ports){
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
   const merit=f['lotm.home.evernight']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
+  return {enrolled:true,pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
- return {enroll,act,cancel,move,wake,tick,view,startable};
+ return {enroll,cross,act,cancel,move,wake,tick,view,startable};
 }

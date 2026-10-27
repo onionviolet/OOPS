@@ -21,4 +21,4 @@ export function configureLotm(p){
 registerDomain({id:'lotm',deps:[],tick:()=>host?.tick(),refresh:()=>panel?.render(),
  commands:{wake:()=>host?.wake()},
  projection:(kind,...args)=>kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
- panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.enroll(profile),home:ports.home()});}]});
+ panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});

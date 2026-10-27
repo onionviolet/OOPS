@@ -98,3 +98,17 @@ test('a hand-edited civil save holding a dose or pathway is refused',()=>{
  let {box}=begin('civil');let p=run(box.p,'report_in');p.state.actors.player.facts['book.lotm.allocated']=true;assert.throws(()=>validateLotmState(p.state),/civil clerk holds no Beyonder/);
  let q=run(begin('probationer').box.p,'report_in');q.state.actors.player.facts['book.lotm.contract.signed']=true;assert.throws(()=>validateLotmState(q.state),/belongs to the civil clerk/);
 });
+test('crossing with a continuing connection branches first, then enrolls; without one it enrolls in place (RET3)',async()=>{
+ const calls=[];const o=hostOver(bare(77));
+ assert.equal(o.host.view().returnable,false);
+ assert.match(o.host.view().profiles[0].answers.find(([q])=>q==='Your old life')[1],/no way back yet/);
+ await o.host.cross('probationer');assert.equal(o.box.p.state.lotm.entry.leftBehind.money,77);
+ // A host port that can branch: the label names the life, and enrolling still follows.
+ const fake=hostOver(bare(77),{branch:async label=>{calls.push(label);},branchReason:()=>''}),h=fake.host;
+ assert.equal(h.view().returnable,true);
+ assert.match(h.view().profiles[0].answers.find(([q])=>q==='Your old life')[1],/Resume it from Continuing connection/);
+ await h.cross('storm');
+ assert.deepEqual(calls,['Tingen · a Mandated Punisher probationer']);assert.equal(fake.box.p.state.lotm.entryProfile,LOTM_PROFILES.storm.id);
+ const refused=hostOver(bare(77),{branch:async()=>{throw Error('The save is not writable. Your life is kept.');},branchReason:()=>''}).host;
+ await assert.rejects(()=>refused.cross('probationer'),/not writable/);assert.equal(refused.view().enrolled,false,'a failed branch leaves the Village life untouched');
+});

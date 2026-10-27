@@ -2165,3 +2165,35 @@ Read against the code after the [Tingen entry slice](gm/dispatch/lotm-launch-sta
 | Second | SMU1 + SMU2: Tingen date and money in Tingen units. | Sonnet, small. Done: the header shows the Tingen date or year, and 5 pounds reads as pounds at 1920. |
 | Third | RET7: crossings write carry-ledger entries. | Sonnet, small. Done: the ledger lists the Tingen crossing with what carried and what stayed. |
 | Later | SMU3 hub, SMU4 comparison view, DSK2 save slots, DSK4 menu. | Each its own slice; SMU3 needs a mockup first. |
+
+**Round 29 update, 2026-10-27:** RET3, RET4 and SMU5 are built ([checkpoint](gm/dispatch/lotm-return-2026-10-27/CHECKPOINT.md)). Crossing to Tingen pauses the Village life and starts a tethered Tingen life. Either one resumes from Continuing connection.
+
+## Round 30: a save per world, organized in files, 2026-10-27
+
+Weibao: "maybe we can use a save system for each world? organize in some way locally in the files? More to consider?"
+
+Measured on the RET3 journey: one save holding a Village life and a Tingen life is about 303 KB of JSON. The continuation record is 212 KB of that. Each life keeps two whole-save snapshots, its start and its paused moment, about 80 KB each. Browser storage per origin is a few MB, so a journey that keeps many lives reaches the limit within a few dozen. The desktop app already mirrors the save to files under userData (`latest.json`, rolling `history/*.json.gz`; `desktop/save_mirror.cjs`). Codes: SAV. Applies AR3 (one writer), AD10, AD12, AD39, WER16.
+
+| Code | Finding or proposal | Evidence and consequence |
+| --- | --- | --- |
+| SAV1 | **Organize by life, label by world.** Default: one file per life, grouped under its journey, named by world and life. A world can hold several lives, and one life can move between worlds, so world is a tag and label, not the key. Reason: AD10's one continuing self is the unit that pauses and resumes. | Avoids two "Tingen" saves colliding when two lives go there. |
+| SAV2 | **Layout (desktop).** `saves/<journey>/journey.json` holds the active life, tethers, mastery and memories (the continuation record without snapshots). `saves/<journey>/lives/<life>-<world>.json.gz` holds each life's paused or start snapshot. A `manifest.json` lists every life with world, label, date and content hash. Dial: the browser keeps everything in one save as now. | Reuses the mirror's gzip, hash and atomic-replace code. |
+| SAV3 | **Snapshots move out, references stay.** Default: the in-game continuation keeps `{file, hash}` references instead of whole saves. Loading a paused life reads and checks the file's hash before resume. Reason: the 80 KB snapshots dominate size, and the page stays the only writer (AR3) because the host only stores bytes the page hands it. | A missing or altered file refuses the resume with a plain reason; the other lives are unaffected. |
+| SAV4 | **Export stays one file.** Export bundles the journey record and all life files into one portable file, so a save copied to another machine or the browser build still works. Import unbundles. | Literal Import already passes with paused lives (RET3 journey); keep that test as the gate. |
+| SAV5 | **Per-life backups for free.** The mirror's rolling history can keep per-life history, so you can restore one life's past without touching the others. Dial: keep the counts as now, 24 recent and 14 days. | It is a recovery tool, not gameplay rewind; rewinds stay the connection's job. |
+| SAV6 | **Reading saves outside the game.** Plain per-life files let the Saves… window (DSK2) show each life's world, date, money and place without loading it, and let agents inspect a life without starting the game. Default: readable, never edited by hand; the game refuses edited files by hash. | Fits AD22: integrity check, no anti-cheat beyond it. |
+| SAV7 | **Migration.** Existing saves carry inline snapshots. Default: on first desktop run, the page moves each snapshot to a file, verifies the hash, then swaps the inline copy for the reference in one save write. The old inline save stays in the mirror history. Reason: WER16, no data loss on a failed move. | One-time, reversible from history. |
+| SAV8 | **Storage pressure in the browser.** Default: the existing storage-full guard (`SAVE_STORAGE_FULL`) names lives as the cause when they are. A connection action can drop a life's start snapshot (making it resume-only) to free space, with confirmation. | Browser fallback for SAV3's job. |
+
+### Disposition
+
+- **ACT NOW:** none. Current sizes are well inside limits.
+- **ACCOUNT FOR NOW:** no other feature should assume snapshots are inline. Read lives through `continuation_state.js`, so SAV3 can change storage behind one owner.
+
+**LATER / DELEGATE:**
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | SAV2 + SAV3 + SAV7 on desktop, with a host capability and a browser fallback. | Sonnet or a Claude session, medium to large. Done: hidden-Electron check where a two-life journey writes `journey.json` plus two life files, resumes each, survives an app restart, Export then Import in the browser build, and refuses a hand-edited life file by hash. |
+| Second | DSK2 Saves… window reading the SAV2 manifest. | Sonnet, medium. Done: lists both lives with world and date at 1920, opens either. |
+| Later | SAV5 per-life history, SAV8 browser pressure tool. | Small each. |

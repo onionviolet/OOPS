@@ -8,6 +8,8 @@ import {check, copy, natural} from './basics.js';
 import {carryCheats} from './cheat_cards.js';
 export const CONTINUATION_SCHEMA = 1;
 export const STUDY_MINUTES = 10;
+// Worlds whose lives may pause and resume through the connection (RET4). Early Tingen joined 2026-10-27.
+export const TRAVEL_WORLDS = new Set(['base.frontier', 'book.lotm.tingen']);
 // These native skills do not grant bodily stat milestones. Other learning stays
 // recorded, without copying its mixed body/stat XP into a new embodiment.
 export const COMPATIBLE_MASTERY = Object.freeze(['Literacy', 'Crafting', 'Smelting', 'Forging']);
@@ -30,7 +32,9 @@ export function continuationEligibility(save,{travelOnly=false}={}) {
     const bio=save.character?.bio;
     if(bio&&((bio.race||'human')!=='human'||(bio.age||'adult')!=='adult'))
         return 'This embodiment needs its own capability adapter. The current continuation route supports an adult human; your life is preserved.';
-    if(save.expansion?.actors?.player?.worldId !== 'base.frontier') return 'Return from this world needs its own temporal means. This slice supports the Frontier.';
+    // A snapshot keeps the whole save, so a life in a world listed here can pause and resume (travel); rewinds stay Frontier-only.
+    const world=save.expansion?.actors?.player?.worldId;
+    if(world !== 'base.frontier' && !(travelOnly && TRAVEL_WORLDS.has(world))) return 'Return from this world needs its own temporal means. This slice supports the Frontier.';
     if(!travelOnly&&Object.keys(save.expansion?.worlds||{}).some(world=>world!=='base.frontier'))
         return 'Other retained worlds need a compatible temporal boundary. Their state is preserved; this first slice cannot rewind them.';
     if(!travelOnly&&(save.content_packs?.structured || save.content_packs?.pendingStructured ||
@@ -126,7 +130,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     check(id(token),'Missing continuation event identity.');
     check(c.lastTransition?.token!==token,'This return has already been applied.');
     if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
-    else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
+    else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
     const life=c.lives[c.active];let next=source;
     if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
     else if(command.startsWith('intent:')){anchorIntent(source,c,command.slice(7));}
@@ -154,6 +158,14 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         check(target,'There is no later checkpoint in this life.');
         check(nativeMoment(target)<=nativeMoment(source),'That recorded point lies in an abandoned future. This connection does not grant forward travel.');
         next=restore(source,target,c);
+    } else if(command.startsWith('branch:')) {
+        // A crossing that changes this body in place (the Tingen crossing, RET3): the current life pauses exactly as it is,
+        // and a tethered life continues from the same moment. Nothing is restored, so the running game is unchanged.
+        const old=c.active,newId=`life-${c.nextLife++}`,here=nativeSnapshot(source);
+        life.paused=here;
+        c.lives[newId]={id:newId,bodyId:`${c.journeyId}:body-${newId}`,label:decodeURIComponent(command.slice(7))||`Life ${c.nextLife-1}`,
+            tether:old,initial:copy(here),checkpoint:null,paused:null};
+        c.active=newId;
     } else if(command==='fresh') {
         check(fresh&&!continuationEligibility(fresh),'A compatible native fresh beginning is required.');
         const old=c.active,newId=`life-${c.nextLife++}`;

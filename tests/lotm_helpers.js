@@ -26,11 +26,11 @@ export const save=p=>({expansion:p.state,'current location':p.state.simulation.p
  main_character:Object.fromEntries(Object.entries(p.gameplay.player.inventory).map(([k,n])=>[k,{count:n}])),
  ...Object.fromEntries(Object.entries(p.gameplay).filter(([k])=>k.startsWith('book.lotm.')).map(([k,v])=>[k,Object.fromEntries(Object.entries(v.inventory||{}).map(([a,n])=>[a,{count:n}]))]))}}});
 // A host over a fake port set, so view(), move() and act() run without main.js.
-export function hostOver(p){
+export function hostOver(p,extra={}){
  const box={p,sleeping:false};
  const ports={registry,state:()=>box.p.state,context:()=>({external:box.p.external,gameplay:box.p.gameplay,vitals:vitals(),vitalsByActor:vitals(),equipment:{},facts:{location:box.p.state.simulation.people.player.location},nativeAlive:true}),
   persist:plan=>{box.p={...box.p,state:plan.state,external:plan.external??box.p.external,gameplay:plan.gameplay??box.p.gameplay};},
-  writable:()=>true,busy:()=>false,sleeping:()=>box.sleeping,restoring:()=>false,location:()=>box.p.state.simulation.people.player.location,startEnabled:()=>true,beginSleep:()=>{box.sleeping=true;},endSleep:()=>{box.sleeping=false;}};
+  writable:()=>true,busy:()=>false,sleeping:()=>box.sleeping,restoring:()=>false,location:()=>box.p.state.simulation.people.player.location,startEnabled:()=>true,beginSleep:()=>{box.sleeping=true;},endSleep:()=>{box.sleeping=false;},...extra};
  return {host:createLotmHost(ports),box};
 }
 // The simulation enrolled but Tingen not begun: what host.enroll() starts from.

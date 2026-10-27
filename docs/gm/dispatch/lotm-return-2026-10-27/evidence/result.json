@@ -1,0 +1,55 @@
+{
+  "bundleSha256": "099c05ecfc299439d2669986c09668c26e003c7755edd4874a888f8d8556f080",
+  "route": "fresh Village notice → Tingen life pick → nine entry answers → confirm → resume Village → resume Tingen → native Save/reload/Export/literal Import",
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "geometry": {
+        "width": 1536,
+        "height": 864
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "geometry": {
+        "width": 1536,
+        "height": 864
+      }
+    }
+  ],
+  "checks": [
+    "entry answers shown before commit; purse 480 pence; Village money 102 recorded as left behind",
+    "ordinary enrollment and exact LOTM slice/location persist through native reload and literal Import",
+    "Village resumed with 102 money and no Tingen branch; Tingen resumed with 480 pence and its exact slice; paused lives survive literal Import"
+  ],
+  "saveBytes": {
+    "whole": 303409,
+    "pausedVillage": 78221,
+    "continuation": 211607,
+    "expansion": 9763
+  },
+  "status": "PASS",
+  "errors": []
+}

@@ -49,7 +49,8 @@ export function createContinuationUI({read,command}) {
         summary.textContent=s.available?`${s.life} · ${s.arrivalPaused?'arrival paused':'one continuing self'}`:'Your past is preserved. An adoption baseline marks now; it does not invent an earlier arrival.';
         if(!s.available) {body.append(button(s.legacy?'Establish baseline at this moment':'Recognize the initial connection','enroll',!s.canWrite||!!s.reason,s.reason));return;}
         const reason=s.reason||(!s.canWrite?'Use the writable game tab.':'');
-        if(s.arrivalPaused)body.append(button('Continue this life from the paused boundary','continue',!!reason,reason));
+        // Continuing an arrival needs only a writable save: a resumed life in a travel-only world (Tingen) cannot rewind but must be able to go on.
+        if(s.arrivalPaused)body.append(button('Continue this life from the paused boundary','continue',!s.canWrite,!s.canWrite?'Use the writable game tab.':''));
         if(s.challenge){const c=s.challenge;body.append(node('h3',c.label),node('p',c.description),node('p',`Observed goal: ${c.have}/${c.need}. The original life remains shelved. Other connection operations stay outside this isolated run.`),
             confirm('Complete challenge and return','challenge:return',c.description,c.have<c.need||!s.canWrite,c.have<c.need?'Meet the stated goal or cancel this run.':''),
             confirm('Cancel challenge and return','challenge:cancel','Discard this challenge body, stock and progression. Resume the original body and possessions. Your own journal text stays with the continuing self.',!s.canWrite));return;}
