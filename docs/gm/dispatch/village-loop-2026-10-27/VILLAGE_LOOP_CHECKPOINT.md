@@ -43,17 +43,22 @@ Recorded per the coordinator's 2026-10-27 scope notes; no travel or Proto23 work
 
 | Check | Result | Gaps |
 | --- | --- | --- |
-| `node --test tests/local_life.test.js` | 21/21 pass; new test covers watch +2 once, no grant on interrupted/replayed steps, relay +3 on receipt only, row/message text | Rank-change message covered by code path only (needs 10 rep) |
+| `node --test tests/local_life.test.js` | 21/21 pass; new test covers watch +2 once, no grant on interrupted/replayed steps, relay +3 on receipt only, row/message text | |
 | MCP fresh life, frozen bundle `8b51cd72…` then `809b2e84…` (manifest `29185e8e…`) | Accept watch 08:02 → 20:02: "Village watch complete: 12 coins, 3 Perception XP and +2 Village reputation." | Relay not walked (needs mill via Cave room) |
 | MCP Save → Export → Import → re-Export | Exported character reputation `Village:2`, `watchShifts:1`; same after Import | |
 | Rebuilt desktop browser, fresh origin `localhost:19927`, bundle `4797799b…` (dist sha), 1920×1080 | Three shifts across days 3-6: reputation 2 → 4 → 6; Data row "Village reputation Stranger (6)" updated live; trade breakdown "Village reputation (2): selling +0.8%, buying −0.8%"; page reload kept the active watch and the value | 21 px text size not checked; screenshots at 14 px in `evidence/` |
 | 1536×864 | Rows and report text fit (`evidence/vl1-watch-complete-1536.jpg`) | |
+| MCP fresh life (seed 11), frozen bundle `809b2e84…` (manifest `31dec920…`), five watch shifts days 1-5 | Fifth completion logged once: "Standing rises in Village: Known Face. People nod when you pass." | |
+| GM_PLAN card 1 double-count check | No double count: `market_circle` standing moves only through `tradeDeed`, debt payment and missed debt (`economy_standing.js:124,170,196`); hero reputation is a separate read-only price part, so no rival backlash fires. Browser breakdown showed "Market Circle · Neutral (0)" beside "Village reputation (2)". | |
+| Relay +3 Village reputation | Unit-tested on the action-dispatch path; not walked in play (needs the Eastern mill via Cave room) | Implemented, unit-tested, not walked |
 | Committer gates (bundle `4797799b…`) | `npm run build` ok; `npm test` 3500/3500 pass; `check:arch` pass (main.js 10085 vs baseline 10115, no new cycles); `check:rules` PASS | |
 | Found and fixed during the walk | Native reputation row only refreshed on load; first refresh call sat before publication and read the old value; moved after `publication.publish()` | |
 
-Review state: agent-verified, not human-reviewed. Route: earned from a fresh life (watch), no fixture.
+Review state: agent-verified, not human-reviewed. Route: earned from a fresh life (watch), no fixture. The watch path meets the AD43 floor; the relay grant is implemented and unit-tested, not walked.
+
+Tool note: the browser `advanceTicks` hook stayed locked ("Cannot nest advanceTicks") after a tool-side timeout during a `render:true` advance; a page reload cleared it. MCP limits filed once through `game_report_limit`.
 
 ## Log
 
 - 2026-10-27: survey done; VL1 recorded before editing.
-- 2026-10-27: VL1 implemented and verified to the AD43 floor (FLR1-FLR6 above); committed own paths. GM_PLAN adopts VL1 as VC1; next card from its section 18 in a later slice.
+- 2026-10-27: VL1 committed in `09d77f22` (watch path at the AD43 floor; relay grant unit-tested, not walked). Follow-up: Known Face walk and the card 1 double-count check recorded. Next card per GM_PLAN section 18: VC3a (say what leaving costs; the place remembers).
