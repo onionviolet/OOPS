@@ -28,3 +28,10 @@ Check live ownership before each write. If two sessions need one file, the later
 ## Update 2026-10-27 (later instruction, supersedes the "copy no code" wording above)
 
 Weibao: Proto23 code may be taken for a base Proto23 world; one world is Proto23, one is YAIR, and a third variant carries our ideas. The no-copy wording above (PW3/PW4) is kept as dated history. Read [master plan round 8](../../../MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27) (WV1-WV12) before planning or porting. In short: port from the pinned Proto23 `index.html` (revision `e93a8cd6...`) into world-pack data and the shared engine; keep ported material in its own paths with a NOTICE naming source and revision; do not push Proto23-derived files (Weibao's yes is still required for any push); the current Village is treated as the "ours" variant and is not un-merged (PW5).
+
+## Update 2026-10-27 (later): Proto23 port is permitted with credit
+
+Weibao asked corc; the answer was that a port is fine if credited and respected
+([record](../../../USER_VISION.md#proto23-may-be-ported-as-is-with-credit-2026-10-27)).
+GM_PLAN WD5 is answered: the port may merge locally; "ask 23html" is dropped.
+Credit and respect conditions go in the pack's credits note. No push without his yes.

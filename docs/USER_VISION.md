@@ -6587,3 +6587,15 @@ Recorded; proposals RT1-RT3, PW1-PW2 and UF1-UF7 are in [master plan round 9](MA
 > Game play loop overarching considerations for a cohesive game, what other games with scope like this do and more? Considering base gameplay, long term stuff like rules to make each world implementation better and more
 
 Recorded; proposals OL1-OL5, CP1-CP9 (unverified, general knowledge) and WR1-WR10 are in [master plan round 10](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-10-overarching-loop-what-big-scope-games-do-and-long-term-world-rules-2026-10-27). Not accepted designs or registered rules.
+
+## Proto23 may be ported as-is with credit (2026-10-27)
+
+Weibao's words: "For proto23, it can just be a port of the original, I asked
+corc and he said it was fine as long as it is credited and well respected."
+Standing direction: the Proto23 world may be a faithful port of the original.
+Conditions: visible credit to Proto23 and 23html, respectful treatment, and a
+pointer to the source. The permission is relayed by Weibao, not a licence file;
+keep the original wording of corc's reply in the credits note if he can paste it.
+This supersedes the earlier "copy no code" and "ask 23html first" defaults in
+[the Village dispatch](gm/dispatch/village-loop-2026-10-27/COMMON.md) and
+GM_PLAN WD5 (kept there as dated history). Push still waits for Weibao's yes.
