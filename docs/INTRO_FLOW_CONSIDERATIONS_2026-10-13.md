@@ -2050,3 +2050,63 @@ obligations** (to an arranger, summoner or host's family).
 | First | XM1–XM13 as a field on start records, used first by the LOTM launch start (BGP15/BGP24) with the cocoon route (BGP23) as a premise. | Sol medium, medium. Done: launch into Tingen shows the method's nine answers; the cocoon premise carries its pathway pull in state; save/import keep the method. |
 | Second | PW6 credits page. | Luna low, small. Done: `CREDITS.md` plus an in-game view, each entry with source link and licence status. |
 | Third | A Proto23-inspired original world (PW4), after current book-world priorities. | Sol medium, large. Done: its own start record and nouns, no copied Proto23 code, assets or text. |
+
+## Round 28: LOTM eras, the second book and young starts, 2026-10-26
+
+Weibao: "BGP23, at the end of LOTM, doesnt Klein release the others? who is
+the protag of the second novel? ... BGP24 is nice, how to consider starts like
+starting as a child or something? or should that be defered way into the
+future?" Evidence: the saved LOTM wiki dump (Transmigrators, Curly-Haired
+Baboons Research Society, April Fool's, Lumian Lee, Circle of Inevitability),
+existing young-start palettes (RP1, AG2, HI5, GHS28, SLC56) and the shipped HP
+school start at age eleven. Public franchise facts, not sealed. Proposals only.
+
+### Canon check
+
+Yes. In 1352, before his long sleep, Klein released the hundred-plus people
+still in the Sefirah Castle's cocoons; each landed in the body of someone who
+had just died. Some founded the Curly-Haired Baboons Research Society, a
+mutual-support circle of transmigrators. A faction inside it, April Fool's, led
+by Loki, secretly served the Celestial Worthy and killed members. The cocoons
+held people from the Modern Era (the Pre-Epoch), and released transmigrators
+have their fate twisted toward the Castle's pathways. Hosts vary: Franca
+Roland landed in a man's body, another in a teenager's.
+
+The second novel, *Circle of Inevitability* (set from 1358), follows **Lumian
+Lee**, a local orphan taken in by Aurore Lee in Cordu Village, then in Trier and
+at sea. He is not a transmigrator; Aurore is.
+
+### ACCOUNT FOR NOW: era is part of an LOTM start
+
+| Code | Default, dial and reason |
+| --- | --- |
+| ERA1 | **1349, early Tingen (current pack).** Only three cocoons have opened. A cocoon start here is a divergence the world may notice; the neutral crossing into the recently dead (BGP24) is quieter. |
+| ERA2 | **1352 onward, after the release.** BGP24's "a local who just died" is canon's own mechanism here, so a cocoon start is ordinary. It brings the Research Society as possible allies (letters, shared Modern-Era knowledge, Roselle's diary in Simplified Chinese) and April Fool's as a hidden danger. |
+| ERA3 | **1358, the second book's era (Intis: Cordu, Trier).** A life beside Lumian's story, as a fan premise, never as Lumian. Needs its own pack and source pass; later. |
+| BGP25 | **A cocoon start says where you came from.** Cocoons held Modern-Era people, so a cocoon premise means the previous life was on Modern-Era Earth (a memory-only origin), not the Village. A continuing self from the Village crosses by our neutral crossing instead (AD10). Reason: canon fixes who was in the cocoons. |
+| BGP26 | **The host decides a lot.** Default: the host's age, sex, health and circumstances come with the start and are shown before confirming (XM11, AD13). Dial: guided random can roll an unusual host; a specific one is a means. Reason: canon hosts already vary this way. |
+
+### Young starts: tiers, not one decision
+
+Young starts are not all far-future. One already ships (HP first year at
+eleven). Split by cost:
+
+| Code | Tier | What it is | When |
+| --- | --- | --- | --- |
+| YS1 | **Young host (now-ish).** | A crossing (XM1/XM2) into a child or teen. The body sets real limits: guardians, school, who will hire or teach you, smaller stamina, critical-period learning (SLC56). | Can ride the launch-start work: a host age field plus refusals and opportunities that read it. |
+| YS2 | **Rebirth with a summarized childhood (medium).** | XM4 or XM8: born there, a few formative choices (household, a hardship, a talent noticed, a friend) set traits, skills and ties, then play starts at a chosen age (RP1). No clicking through infancy. | After the launch-start work; reuses kin, skills and knowledge owners. |
+| YS3 | **Playable childhood (defer).** | Growing up as play: outgrowing gear, losing teeth, guardians' rules, AG2/HI5 variety, born into your own line (GHS28, needs lineage records). | Later. Large, NPC-heavy (AD33). |
+
+| Code | Default, dial and reason |
+| --- | --- |
+| YS4 | **Age sets access, not a block.** Default: a child can do what a child plausibly can (errands, school, street work, apprenticeship), and adult-only doors say why in plain words (UIV1). Dial: a world's canon may treat young Beyonders, wizards or cultivators as normal, rare or alarming; the church teams in early Tingen hire adults. Reason: AD38 says things work by how they work. |
+| YS5 | **Reuse the launch age choice.** The YAIR creation screen already offers young, adult and middle-aged. Default: it becomes the host-age preference for any start, honored where the world fits. Reason: one control, already familiar. |
+| YS6 | **LOTM young-host shapes.** An orphan on the streets (canon has one at the heart of book two), a younger sibling in a working household, an apprentice. No canon family is used. |
+
+### LATER / DELEGATE (ranked, not dispatched)
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | Add era (ERA1/ERA2) and host age (YS1/YS5) fields to the LOTM launch start alongside XM methods. | Sol medium, medium. Done: launching a 1352 cocoon start and a 1349 neutral start each show their nine answers; a teen host is refused a clerk post with a reason and offered another route; save/import keep era, method and age. |
+| Second | YS2 summarized-childhood start for one world (HP is the cheapest, since school already ships). | Sol medium, medium. Done: three formative choices change starting skills or ties visibly, and play begins at eleven. |
+| Third | ERA3 source pass for *Circle of Inevitability*. | Haiku/Sonnet source lane, medium. Done: an implementation-ready brief under WPR rules, no runtime. |
