@@ -2,6 +2,10 @@
 
 Weibao: Proto23 code may be taken for a base Proto23 world, beside a YAIR world and a variant with our ideas ([direction](docs/USER_VISION.md#three-worlds-proto23-yair-and-our-variant-2026-10-27)). This supersedes the earlier no-copied-code default for Proto23; the licence gap and its mitigations are in [round 8](docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27). The current Village stays as the variant. Proposals only; no runtime change yet, and no push of Proto23-derived files without Weibao's yes.
 
+## Adjustable working direction from the 2026-10-27 planning reports
+
+Weibao: the proposals from the attention-balance, NPC absence, canon protagonist, time travel, conceptual abilities and protagonist-life reports are adopted as working direction with room to adjust ([record](docs/USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27), [register](docs/gm/WRITEUP_REGISTER.md#5b-adoption-2026-10-27)). Conflicts resolve to the later dated wording; nothing is frozen. Runtime work still needs its own slice, floor and checkpoint, and UI coverage is the open worry.
+
 ## Published master and updated normal app, 2026-10-26
 
 Weibao selected pushing master and updating the normal app. Runtime

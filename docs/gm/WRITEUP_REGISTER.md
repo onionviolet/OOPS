@@ -21,6 +21,7 @@ the missing piece: **status and next action per writeup**.
 | Decided | Weibao chose; PROJECT.md or USER_VISION records it | Weibao's instruction only |
 | Building | A card from it is in a session or branch | The coordinator session |
 | Done | A card passed the AD43 floor, or the writeup was fully absorbed | The coordinator |
+| Adopted (adjustable) | Working direction by Weibao's 2026-10-27 instruction; may be changed by a later dated entry | Weibao's instruction (section 5b) |
 | Parked | Deliberately waiting, with a named trigger | The GM, with Weibao's yes |
 | Superseded | A newer writeup replaced it; link to it | The GM |
 
@@ -78,7 +79,7 @@ written 2026-10-27 and are proposals unless the next-action cell says otherwise.
 | [TIME_TRAVEL_AND_SEEDED_WORLDS](../research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md) | Time-travel kinds, seeded-day contract, generated-things inventory, engine decisions E1 to E12, ordered changes C1 to C12 | New | AR rulebook; PROJECT.md OD23 | Part D | Per-instance seed; Import behaviour; genVersion | First slice C1/C2: keyed shop stock test on the Village shop. Done: same seed and date give identical stock twice, saves unchanged. |
 | [CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT](../research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md) | Brief for the conceptual-abilities audit | Done (executed by `conceptual-abilities`) | Time travel Parts C and D | Initial | none | Audit landed; see the next row. |
 | [CONCEPTUAL_ABILITIES_ENGINE_AUDIT](../research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md) | Channel model for name, record, memory, claim effects as delta rows over the seeded base; one reference resolver; `generated(kind, key)` | New | Time travel report Parts C and D | Initial | Reference-resolver ownership; delta kinds (mask, rewrite, seal, swap, bind); which generators migrate first | First slice CAE-E1/E2/E4: one resolver with fallback and stop baking names into new prose. Done: erased-name test shows fallback in UI and no dangling references after save, reload, Import. |
-| [PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md) | Brief for a GM session: implement the protagonist's life, then open the seat and transfer to the rest of the world | Plan rounds 1-9 done 2026-10-27 ([PLAN](dispatch/protagonist-life-2026-10-27/PLAN.md), [schema](dispatch/protagonist-life-2026-10-27/LEAD_RUN_SCHEMA.md)); lead-run lint built; chapters 1-15 sampled privately; lanes not started | Canon protagonist Parts G and H; time travel C1/C2; CAE-E1/E2/E4; WA22-WA24 | Round 9 (two-layer inventory and states, extraction catalogue, playthrough UI; proposed WA25-WA41) | Plan Q0 launch yes; Q2/Q8 edition and reading budget (about 9M haiku tokens for volume 1); Q3 private placement; Q4 LOTM start month; yes to WA25-WA41; Q5 WER11 wording; AD33 order for allies | On Weibao's launch yes (plan Q0): engine lanes PL-E0, PL-E2, PL-B1, then PL-E3, PL-E1 and the Village harness PL-H1; reading tooling PL-L16, PL-L17, PL-L18 before any read-ahead. Done: P6 checkpoint with M2 to M5 and M8, agent-verified, not human-reviewed. |
+| [PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md) | Brief for a GM session: implement the protagonist's life, then open the seat and transfer to the rest of the world | Plan rounds 1-10 done 2026-10-27 ([PLAN](dispatch/protagonist-life-2026-10-27/PLAN.md), [schema](dispatch/protagonist-life-2026-10-27/LEAD_RUN_SCHEMA.md)); lead-run lint built; chapters 1-15 sampled privately; lanes not started | Canon protagonist Parts G and H; time travel C1/C2; CAE-E1/E2/E4; WA22-WA24 | Round 10 (merchant stock, top-down relationships, other worlds; proposed WA25-WA44) | Plan Q0 launch yes; Q2/Q8 edition and reading budget (about 9M haiku tokens for volume 1); Q3 private placement; Q4 LOTM start month; yes to WA25-WA44; Q5 WER11 wording; AD33 order for allies | On Weibao's launch yes (plan Q0): engine lanes PL-E0, PL-E2, PL-B1, then PL-E3, PL-E1 and the Village harness PL-H1; reading tooling PL-L16, PL-L17, PL-L18 before any read-ahead. Done: P6 checkpoint with M2 to M5 and M8, agent-verified, not human-reviewed. |
 | [VC9_STEP0_PROBE](../research/proto23/VC9_STEP0_PROBE_2026-10-27.md) | Proto23 port: mechanisms, licence gaps, first slice | Read (port permitted with credit) | GM_PLAN VC9 | Initial | Where the port lives (branch), credits note wording | village-loop or a port lane builds the first slice. Done: probe cases match. |
 | [USER_VISION entries 2026-10-27](../USER_VISION.md) | Verbatim requests (Proto23 permission, many clocks, schedules, time travel, abilities, this register) | Decided (as Weibao's words) | n/a | n/a | n/a | n/a |
 
@@ -119,6 +120,22 @@ the writeups with their codes. Default recommendations are proposals, not accept
   visible clocks per life; the earlier no-copy Proto23 default by the 2026-10-27 permission.
 - **Not changed:** GM_PLAN, PROJECT.md and the master plan were not edited in this pass;
   routed cards wait for Weibao's decisions, then the owners get dated hunks.
+
+## 5b. Adoption (2026-10-27)
+
+Weibao's words are in [USER_VISION](../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27).
+Reading: proposals in the rows above are **Adopted (adjustable)**, a new state between
+Routed and Building. It means: use as the working default, change by a later dated
+entry, never treat as frozen. Rules: (1) the later dated wording wins and the earlier
+stays as history; (2) adoption does not skip the AD43 floor for runtime work; (3) the
+proposed WA25 to WA41 rules are accepted by the plan session editing the rulebook and
+rules index after its current round (the yes is covered by this entry); (4) sealed
+secrets, the UI priority and the save-compatibility rule still apply; (5) open
+questions that need a value from Weibao (LOTM start month, HP offset, reading budget,
+the launch of engine lanes) stay open.
+
+Open worry recorded: UI coverage for everything. Owner: the UI coverage plan
+(session `ui-coverage`, docs only), then the Backlog UI coordinator.
 
 ## 6. How Weibao follows up (observed 2026-10-27, for future sessions)
 

@@ -6722,3 +6722,19 @@ Proposal record (not accepted): [plan round 8](gm/dispatch/protagonist-life-2026
 
 Weibao's words (relayed by the Next implementation priorities session): "The generated inventory can be seeded too, with the canon inventory also being there? Other aspects like these to consider? What else can we pull from the book? How to consider UI flow and more for the UI main character playthrough?"
 Proposal record (not accepted): [plan round 9](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (canon, seeded and player layers for inventory and other states, extraction catalogue, playthrough UI with wireframe and evidence plan). Proposed rules WA40-WA41 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
+
+## Merchant inventory, top-down relationships, other worlds (2026-10-27)
+
+Weibao's words (relayed by the Next implementation priorities session): "Inventory also for merchant inventory? More to consider? Going about implementing relationship system and more, using the book as basis, considering choices people make, and then coding up relationship and stuff and more that leads up to that roll and action, so kind of top down design? More to consider? Long term stuff to consider for other worlds as well? /more-to-consider"
+Proposal record (not accepted): [plan round 10](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (shop stock in three layers on the keyed trader draw, relationships designed from the book's choices with calibration, people by tier, world-agnostic split, per-world checklist and hand-off). Proposed rules WA42-WA44 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
+
+## Adopt this session's proposals as adjustable working direction (2026-10-27)
+
+Weibao's words: "Other systems to build from top down? More to consider? Everything
+talked about here and ideaboarded will be acccepted, with room to adjust in the
+future? What worries me is the UI flow, and how to give Ui for everything
+accordingly?" Reading recorded: the proposals from this session's reports are
+adopted as **working direction that may be adjusted** (not frozen specifications).
+Where two proposals conflict, the later dated one wins and the earlier stays as
+history. The worry about UI coverage is the next planning item
+([register](gm/WRITEUP_REGISTER.md#5b-adoption-2026-10-27)).
