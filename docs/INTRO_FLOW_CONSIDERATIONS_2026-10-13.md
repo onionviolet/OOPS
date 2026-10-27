@@ -1858,3 +1858,42 @@ Suggestions, separate from the selected work: first pair a working start with a 
 ## Launch-screen restoration and deferred start menu, 2026-10-20
 
 Later user direction supersedes LC2/LC5's proposed launch treatment: restore the original screen and direct PLAY; a separate start menu can come later. [Exact correction](USER_VISION.md#restore-the-original-loading-screen-and-defer-the-start-menu-2026-10-20). The richer starts remain future proposals, not missing work in this slice. Existing internal MS Gothic direction remains; the old launch font and upstream loading text are retained. Rejected mockup snapshots remain historical evidence. [Restoration receipt](reviews/launch_menu_2026-10-20/REPORT.md#restored-original-play-screen-final-direction).
+
+## Round 25: base gameplay and getting into a book world, 2026-10-26
+
+Weibao: "Consider base gameplay, since we need to start a new run to start in
+the world of LOTM or something? more to consider?" Evidence: a fresh headless
+game on master `b90d70492` (seed 20261026, no test hooks) and `index.html`'s
+launch markup. Rules: AD4, AD10–AD12, AD20, AD23, LC4. Proposals, not accepted
+direction. Round 24's six-start launch study remains a study; nothing below
+changes runtime.
+
+### What the current build does
+
+| Code | Observed | Gap against accepted direction |
+| --- | --- | --- |
+| BGP1 | **Launch offers age, race and an optional system, but no world.** Every new game starts in the Village. | AD23's guided random entry and LC4's "world/place" part of a beginning are not at launch yet. To play LOTM you start a Village life first. |
+| BGP2 | **Three entry routes with three sets of rules.** The Village "Tingen hiring notice" offers four LOTM starts. The Beginning panel offers HP school, HP adult, Shadow Slave, the Moonlight Gu novice and the Shadowbound company, but not LOTM. Optional worlds offers a round-trip visit to A Soldier's Life with "no forced restart". | The player has no single place that lists every world they can begin in, and the same act (begin elsewhere) works three ways. |
+| BGP3 | **The LOTM move is one-way per save.** The notice says the life moves to Tingen "for good on this save, with no road back to the Village" and suggests Export to keep the Village life. | AD12's default is that the former life pauses and return is reciprocal, depending on means. Export is a file workaround, not that default. |
+| BGP4 | **What carries differs inside one panel.** Probationer starts say your money carries over; the civil start says "Your Frontier purse does not travel". | AD11 says memories and the base cheat carry, and the rest needs a carrier. Neither line names the carrier, and "Frontier" is internal naming in a Village life. |
+| BGP5 | **A fresh start lists about 50 panels under All panels,** including Tingen workroom, Polyjuice bench and Cultivation insights, before any is found. | Discovery-gated menus are an accepted intro constraint. All panels spoils and crowds the first minute. |
+| BGP6 | **Back follows history, not place.** After opening Worlds from the Tingen notice, back reads "← Tingen workroom"; after Beginning, "← Worlds". | Minor; the way back should name where you are going in the world, per UR25. |
+
+### ACCOUNT FOR NOW
+
+| Code | Default, dial and reason |
+| --- | --- |
+| BGP7 | **A save is the continuing self; a run is a life inside it.** Default: starting in a new world creates a new life in the same save and pauses the old one (AD10, AD12). Dial: a world or means can make a crossing one-way, and the game says which before you confirm. Reason: this matches accepted direction and removes the need for Export to keep two lives. |
+| BGP8 | **One "Where to begin" list.** Default: the launch screen and the in-game Beginning panel read the same start records (the pack `starts[]`/admission shape from round 3), so LOTM, HP, Shadow Slave, Gu, Soldier's Life and the Village appear in one list, each tagged new life, visit or move. Dial: guided random stays the default pick (AD23); a specific start is chosen through the existing beginning choice as its means. Reason: one grammar for one act. |
+| BGP9 | **Every crossing states its carry.** Default: the confirm step lists what carries (memories, base cheat, anything with a named carrier) and what stays, in in-world words. Reason: AD11 needs a carrier, and the player should not learn the rule by losing a purse. |
+| BGP10 | **The Village stays a real start, not a lobby.** Default: the Village keeps its own campaign (PROJECT: starting world is a full campaign), and a book-world start at launch skips it without penalty. Reason: Weibao's priority is book worlds; a detour every time would tax the main path. |
+
+### LATER / DELEGATE (ranked, not dispatched)
+
+| Priority | Work | Capability / effort / done check |
+| --- | --- | --- |
+| First | BGP8 at launch: add a world/start choice to the pre-PLAY screen that reads existing start records, LOTM included, with guided random as default. Builds on LC1's study. | Sol medium, medium. Done: rebuilt 1920×1080 launch shows each playable start; choosing LOTM lands in Tingen on day 1 with no Village step; save/reload/import keep it. |
+| Second | BGP7 paused former life. **Save-shape change: needs a migration or compatibility decision before build.** | Sol high, large. Done: begin LOTM from the Village, return to the paused Village life through the stated means, both histories intact after Export/Import of one file. |
+| Third | BGP5 discovered-only All panels, with the full list kept behind test hooks. | Luna low, small. Done: fresh launch lists only reachable panels; dev route still lists all. |
+| Fourth | BGP4/BGP9 carry wording on the four Tingen starts. | Luna low, small. Done: each start names what carries and why; no "Frontier" in Village text. |
+| Fifth | Game MCP: let `game_new` stop before PLAY so launch choices can be tested headlessly (limit ledger entry 33). | Luna low, small. Done: a tool call can pick a launch start and verify it. |
