@@ -327,4 +327,113 @@ the link to this pipeline. Changes to this plan:
 
 | Code | Decision | Recommended default | Blocks |
 | --- | --- | --- | --- |
-| Q9 | Make the presence ladder, dated whereabouts and forward anchors standing rules (WA22-WA24) | Yes, as WA rules, since every book world needs them | Nothing in P1; P3 promotions follow them either way as plan defaults |
+| Q9 | Make the presence ladder, dated whereabouts and forward anchors standing rules (WA22-WA24) | **Answered 2026-10-27: yes.** Accepted as WA22-WA24 in [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md) and the rules index | None now |
+
+---
+
+## 11. Round 3: a sampled reading, improvements, and the lead living his own life (2026-10-27)
+
+Weibao: "Yes, send a lesser reader to sample a little and then consider improvements, and
+then, how will the thing go through and implement the main character as if they are
+playing through their own life? more to consider? details to absorb?" The "Yes" answered
+Q9 (WA22-WA24 accepted). Proposals below; nothing else is accepted.
+
+### 11.1 What ran (AU and WPR7 ledger)
+
+| Item | Value |
+| --- | --- |
+| Reader | 1 haiku agent, fresh context, 5 tool uses, retired after one shard |
+| Source read | Volume 1, chapters 1 to 3 (`lotm_c_0001` to `lotm_c_0003.xhtml`), 8,747 Chinese characters, extracted to a private shard with paragraph numbers |
+| Output (private, gitignored) | `docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/`: 23 lead-run rows, 82 census rows, a friction note |
+| Coordinator review (WPR18-WPR19) | 5 locators opened at source: 5 correct. A script checked every census row's first-mention locator against its Chinese name: 72 exact, 4 off by one paragraph, 6 rows whose `zh` field is a paraphrase rather than the literal name |
+| Coverage | 3 of 213 chapters (1.4%) of volume 1 [S nav count] |
+
+### 11.2 What the sample showed, and the improvements (schema v1.1, proposals)
+
+| Code | Finding [S sample files] | Improvement |
+| --- | --- | --- |
+| SF1 | **Too fine.** 23 rows for three chapters projects to about 1,600 rows for the volume [I, linear]; 10 of 23 were marked `great`, several of them the lead thinking or planning | Two levels: **scenes** (one row per place-and-time with a goal or a world change) and **steps** (routine actions folded into the scene's `steps[]` or into schedule records). `great` only when a world fact changes and a footprint exists |
+| SF2 | **Thought is not a beat.** Remembering, realizing and planning rows change what the lead knows or wants, not the world | Move them to the lead's knowledge list (LP5) and motive tags (LP7) with locators; a beat may cite them as inputs |
+| SF3 | **Dates are relative and no field holds time of day.** Only 1 of 23 rows had a stated date (the next dawn); bells, moon and dawn carry the clock | Add `anchor` (the beat a relative date counts from) and `timeOfDay` with its evidence (bell count, light, moon). The start-month decision (Q4) turns `D+n` into dates in one pass |
+| SF4 | **Amounts had nowhere to go.** Fees, fares, caps and coin values sat in notes | Census `amount: {value, unit, per, cap}`; a separate `estimateBy` when a character converts to another world's money (a claim, WA23) |
+| SF5 | **Kinds did not match** between `touched` and the census (event, organization, deity, language, measure) | One kind vocabulary for both files, validated by the schema lint |
+| SF6 | **`action` shape was undefined** | `actions: [{verb, object, cost}]` with engine verbs |
+| SF7 | **Evidence could not tell narration from the lead's thought or another speaker** | `kind`: `shown`, `narration`, `thought:<who>`, `dialogue:<who>`, `inferred` |
+| SF8 | **One lead, two identities** (the arriving mind and the host body's name) | One life id; names as aliases; two knowledge lists in the start package (LP1); names resolved through the resolver (WA22 rows, CAE-E1/E4) |
+| SF9 | **English names guessed as pinyin** | `nameSource: repo / wiki / pinyin-unconfirmed`; repo usage wins, then the wiki dump already saved (`wiki-api-2026-10-25`) |
+| SF10 | **Locators drift by a paragraph and `zh` gets paraphrased** | The locator check above becomes a P1 gate script: `zh` must be literal and found in the cited paragraph or the next two |
+| SF11 | **Mechanism beats appear at once.** The opening's first rows already depend on things ordinary verbs cannot do (four rows were marked with a mechanism) | Expected (A1); the mechanism lane's size is measurable from P2's counts |
+| SF12 | **The opening is dense with daily-life facts**: 10 price rows, 4 clock rows and 3 calendar rows in three chapters, most not in the runtime [I, grep pending] | This is the strongest support for LP3 and LP4: the lead's ordinary days are where the touched set grows fastest |
+
+### 11.3 The lead lives his own life: how the run works
+
+The bot is not a list of teleports between plot points. It is a **life** in the engine,
+with the same records a player life has, driven by a **lead policy** instead of clicks
+from Weibao. Three layers (codes LP1-LP12, proposals):
+
+| Code | Layer | What it does | Default, dial and reason |
+| --- | --- | --- | --- |
+| LP1 | **Start package** | The lead's day-one record per WA13 and WER2-WER9: body, purse, debts, lodging, household, job, papers and two knowledge lists (the host's memories and the arriving mind's own) | Default: built from beat 001's touched facts. Reason: the lead starts where the book starts, with nothing granted that the pack cannot source (PX57) |
+| LP2 | **Beat goals** | Each lead-run row becomes a goal: be at place P inside the date window with inputs I, then do the action | Default: goals only for rows; the policy plans the route with the same travel, buy and talk verbs a player uses |
+| LP3 | **Days between beats are lived** | Between goals the lead runs the ordinary routine a player life would: work shift, meals, rent, sleep, family time, from his schedule records | Default: routine from pack schedules, never skipped time. Reason: this is what "playing through his own life" means, and it is what tests prices, wages and clocks |
+| LP4 | **Ledger anchors** | Where the book states the lead's money, possessions or debts, that becomes an assertion on that date (for example purse after a purchase) | Default: every stated amount is an anchor. Reason: a world whose prices and wages do not reproduce the lead's purse is wrong somewhere, and the anchor says where |
+| LP5 | **Knowledge-gated acting** | The policy may use only facts on the lead's knowledge list at that date (WA12); each new fact enters by a beat with a locator | Default: strict. Reason: stops the bot from playing with the reader's knowledge, the commonest canon error (DWF68) |
+| LP6 | **Choices are recorded as branch points** | Where the book shows the lead weighing options, the row stores the option taken and the options named; these become role slots and divergence points when the seat opens | Default: options named in text only (S), others marked I. Reason: free material for step 5 and for poke tests |
+| LP7 | **Motives drive routine, not prose** | Fear, need and want become need-profile tags on the lead (RLB) that the routine and the choice points read | Default: tags only where an action depends on them |
+| LP8 | **The engine writes his diary** | Each beat and each lived day writes chronicle and return-note lines through the resolver; the run report compares the diary's beat list with the table (M1) | Reason: proves return notes exist for every beat and that names resolve (CAE-E1/E4) |
+| LP9 | **Mechanism beats wait** | A beat that needs a power the engine lacks is `blocked by mechanism`; routine continues around it so later ordinary beats still run | Reason: one missing power must not stop the rest of the life |
+| LP10 | **Three runs, one table** | (a) lead as the player life, driven through the UI by the bot; (b) lead as an NPC with no player (null-player); (c) later, lead as NPC with a bystander beside. (a) proves the player path; (b) proves NPC autonomy; their facts must agree | Default: (a) and (b) both in P5 |
+| LP11 | **Daily snapshots** | One snapshot per world day in the harness, so a failed anchor can be bisected to the day that drifted | Reason: cheap with seeded days (C1) |
+| LP12 | **Watch mode (later)** | A read-only replay of the lead's life at speed, with the diary and anchor ticks beside it | LATER: a demo and a review tool for Weibao; inspection only, no mutation |
+
+### 11.4 Details to absorb (what a lived life needs; checklist for P1 readers)
+
+Taken from the sample's rows and from LP1-LP12; each is a census kind or a field. Readers
+record every one they see, with a locator.
+
+| Code | Detail | Why the lead's life needs it |
+| --- | --- | --- |
+| DA1 | Coin denominations, their values and **rounding** (the sample shows small coins too coarse, so purchases round) | Purse anchors (LP4) and every price |
+| DA2 | Prices with unit, per and cap (fares by distance with zone caps; fees per week by school type) | Routine costs (LP3) |
+| DA3 | Household budget: who earns, who pays rent, utilities, food, schooling | The lead's start package and monthly balance |
+| DA4 | Metered utilities and how they are paid (the lamp row needed a payment) | Daily routine costs and a reason to keep coins |
+| DA5 | Lodging layout and shared facilities (washroom down the hall) | Where routine steps happen; bystander lodging later (PX61) |
+| DA6 | Family members' schedules and their own economies (walking to school to save the fare) | Household NPC lives beside the lead; L1 people |
+| DA7 | Walking times and transit options between named places | Route planning (LP2) and the time cost of a day |
+| DA8 | Public clocks: bells, light, moon phases; the week and its rest day; month and year length | Day boundaries, `timeOfDay`, the C1 day index |
+| DA9 | Appointments with time and place (an interview the next day) | Beat windows and dependencies |
+| DA10 | Body state and its changes (injury, healing, fatigue, hunger) | Whether the lead can act; mechanism flags |
+| DA11 | Knowledge events: what the lead learns, from whom, when | LP5 knowledge gating |
+| DA12 | Languages and scripts the lead can read, and how he came to read them | Knowledge list and mechanism flags |
+| DA13 | Religious observance and church calendar where it shapes the day | Routine and rest days; laws (WA4) |
+| DA14 | Documents and identity papers | Starts, jobs, travel (the existing pack already prices papers) |
+| DA15 | The lead's choices and the options he names | LP6 branch points |
+| DA16 | Motives that change behavior (fear, money worry, duty to family) | LP7 tags |
+
+### 11.5 More to consider (round 3)
+
+**ACT NOW (done):** one sampled reading under budget with review; SF1-SF12; WA22-WA24
+recorded on Weibao's yes; LP1-LP12; DA1-DA16; Q9 closed.
+
+**ACCOUNT FOR NOW**
+
+- PL-A6. **Living the days multiplies the touched set.** LP3 means P3 must cover the
+  routine (meals, rent, utilities, fares, work) before the bot can pass a month, not only
+  the beats. The first P5 target is therefore one lived week, not the volume.
+- PL-A7. **Ledger anchors will find inconsistencies in the book itself.** When the book's
+  own amounts do not add up, keep both (WPR20) and mark the anchor `source-inconsistent`
+  rather than tuning the world to fit.
+- PL-A8. **Interior rows are spoiler-dense.** Knowledge-list rows reveal what the lead
+  learns; they stay in the private table, IDs only in public files.
+- PL-A9. **Scenes, not chapters.** P1 shards stay chapter-aligned for budgeting, but rows
+  are per scene; a scene that crosses a shard boundary carries a `continues` link.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L7 | Schema v1.1 file and lint (SF1-SF10), with the locator check as a script | Sonnet, small | One session | The three sample files convert; the lint flags a planted wrong locator and a paraphrased `zh` |
+| PL-L8 | Re-run the same three chapters under v1.1 with one fresh haiku reader | Haiku, small | 1 shard | Fewer rows than 23; amounts in fields; kinds match |
+| PL-L9 | Grep the runtime for the sample's price, clock and calendar rows | Haiku, small | Minutes | A present, partial or missing list (M2 baseline) |
+| PL-L10 | One lived week (LP3, LP4) as the first P5 target | Sonnet, medium, after PL-E0 and P3 for that week | One session | The bot lives seven days with routine costs and every stated amount matches its anchor |
+| PL-L11 | Watch mode (LP12) | Sonnet, medium, later | One session | A read-only replay shows the diary and anchor ticks; no state changes |

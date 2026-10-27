@@ -6688,3 +6688,8 @@ Proposal record (not accepted): [plan pass](gm/dispatch/protagonist-life-2026-10
 
 Weibao's words: "wait, we shoud implement every thing and every part that is mentioned in the book? so even if other characters exist, they exist in some place in some plane and we can jsut slowly fill in in the future? More to consider? We should set up absorbtion rules?"
 Proposal record (not accepted): [world absorption rules round 4](WORLD_ABSORPTION_RULES.md#more-to-consider-round-4-everything-the-book-mentions-lead-first-2026-10-27) (WAL1-WAL17: presence ladder, dated whereabouts, forward anchors, lazy off-page lives) and [plan round 2](gm/dispatch/protagonist-life-2026-10-27/PLAN.md).
+
+## Sample reading, lead living his own life, details to absorb (2026-10-27)
+
+Weibao's words: "Yes, send a lesser reader to sample a little and then consider improvements, and then, how will the thing go through and implement the main character as if they are playing through their own life? more to consider? details to absorb?"
+The "Yes" answered whether the presence ladder, dated whereabouts and forward anchors become standing rules: accepted as WA22-WA24 in [world absorption rules](WORLD_ABSORPTION_RULES.md). Proposal record (not accepted) for the rest: [plan round 3](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (sampled reading SF1-SF12, lead-life policy LP1-LP12, details DA1-DA16).

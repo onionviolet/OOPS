@@ -22,6 +22,9 @@ Status: accepted 2026-10-18 as standing defaults (Weibao: "accept based on base
 and existing rules"; no conflict with Rulebook 1–12 or AD1–AD38). Agents use the
 WA rules to absorb a world once a world is selected. They do not
 select a world, accept lore, or authorize implementation of any world's slice.
+WA22-WA24 were added and accepted 2026-10-27 (Weibao: "Yes", answering whether
+the presence ladder, dated whereabouts and forward anchors should become standing rules;
+source: [round 4](#more-to-consider-round-4-everything-the-book-mentions-lead-first-2026-10-27)).
 
 ## The pipeline
 
@@ -84,6 +87,14 @@ exception and must say why.
 | WA19 | **Lint passing means "pack valid", not "absorbed".** Absorbed means the signature loop was played in a rebuilt browser with save, reload and import (AR10). | None | Clean data reported as gameplay |
 | WA20 | **A second, different world proves the format.** Revise the format after it absorbs a world unlike the pilot (AR11). | The format may change freely before that second world ships | A format shaped by one world that every later world works around |
 | WA21 | **A pack is plain data.** It survives a JSON round trip and hashes to a fingerprint that saves can record next to `id@revision` (added round 2). | A JS builder may assemble a pack (the Cyoria pilot does), but its output must be plain data | Functions hidden in content; a changed pack under an unchanged revision |
+
+### Census and off-page entities (accepted 2026-10-27)
+
+| Code | Rule | Dial | Mistake it prevents |
+| --- | --- | --- | --- |
+| WA22 | **Every mention gets a rung.** Each entity the source mentions sits on the presence ladder: M0 mentioned, M1 placed (an address that resolves to a place or plane, an era window and an evidence status), M2 shallow runtime, M3 lead-touched, M4 world- or seat-complete. The source pass brings every mention to M1. | How far M2 reaches per world; an entity the source never locates stays M0 with the question kept (WA8) | "They exist somewhere" as a promise nothing can read; characters lost between passes |
+| WA23 | **Whereabouts are dated.** An address is a list of rows with era windows and evidence status, never one overwritten field. A rumor gives a `claimed` address. | A world without dates uses source order as the window | A person found in the wrong city for the year; rumor treated as fact |
+| WA24 | **Forward anchors bind filling.** Anything generated or authored for an entity between its canon mentions must not contradict its later canon mentions. Player-caused divergence (WA15) may change them and is labelled; generator-caused divergence may not. | A divergent or AU continuity (WA18) declares which anchors it drops | Early filler that kills, moves or marries someone the book still needs |
 
 ## Code that enforces it
 
@@ -326,7 +337,7 @@ rules for things that exist off the page. Those are below.
 
 | Code | Item | Level, effort | Done check |
 | --- | --- | --- | --- |
-| WAL14 | Decide whether WAL2-WAL4 become accepted WA rules (WA22-WA24) or stay workflow defaults | Weibao's yes; docs, small | RULES_INDEX register and router rows updated in the same change, or this row closed as "workflow only" |
+| WAL14 | Done 2026-10-27: WAL2-WAL4 accepted as WA22-WA24 on Weibao's yes | Docs | RULES_INDEX register and router rows updated in the same change |
 | WAL15 | Census row schema v2: `whereabouts[]` with era windows, `firstMention`, `addressStatus`, `rung`, `aliases[]`, `futureAnchors[]` | Sonnet, small; schema lint | The LOTM census converts with no lost rows; lint flags a fill that contradicts a future anchor |
 | WAL16 | Census-to-pack id map for LOTM | Sonnet, small | Every census id that has a runtime counterpart maps once; no runtime id renamed |
 | WAL17 | Rung counter in the depth meter (DWF105): mentioned, placed, shallow, touched, complete per world and volume | Sonnet low, after DWF105 | Counts print per rung; IDs only, no names |
