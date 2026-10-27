@@ -6717,3 +6717,8 @@ Proposal record (not accepted): [plan round 7](gm/dispatch/protagonist-life-2026
 
 Weibao's words (relayed by the Next implementation priorities session): "What about environment and events? They will get to those situations eventually but should be considered, more to consider? Interactions with NPCs, filling in the blanks for merchants, some stuff from book, some stuff extrapolated and more? more to consider?"
 Proposal record (not accepted): [plan round 8](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (environment as keyed facts, four event kinds, typed talk results, layered and replaceable fills, worked price example, gaps GF15-GF20). Proposed rules WA36-WA39 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.
+
+## Seeded and canon inventory, what else to pull, lead playthrough UI (2026-10-27)
+
+Weibao's words (relayed by the Next implementation priorities session): "The generated inventory can be seeded too, with the canon inventory also being there? Other aspects like these to consider? What else can we pull from the book? How to consider UI flow and more for the UI main character playthrough?"
+Proposal record (not accepted): [plan round 9](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (canon, seeded and player layers for inventory and other states, extraction catalogue, playthrough UI with wireframe and evidence plan). Proposed rules WA40-WA41 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.

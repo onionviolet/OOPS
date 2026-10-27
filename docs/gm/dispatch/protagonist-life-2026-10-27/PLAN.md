@@ -1169,3 +1169,156 @@ example; one reader error found and verified; GF15-GF20; WA36-WA39 drafted.
 | PL-L26 | LOTM calendar and weather profile (GF15) | Sonnet, medium | One session | A Tingen day shows its own weather; other worlds unchanged |
 | PL-L27 | Typed talk results for shop talk (GF17) | Sonnet, medium, after P3 | One session | Asking a baker changes a quote or a knowledge fact, logged |
 | PL-L28 | Unnamed-merchant generation keyed by place and role (GF18) | Sonnet, small, after PL-E1 | Small | The same baker id on two replays and in two seats |
+
+---
+
+## 17. Round 9: two-layer inventory and states, what else to pull from the book, and the lead playthrough UI (2026-10-27)
+
+Weibao (relayed): "The generated inventory can be seeded too, with the canon inventory
+also being there? Other aspects like these to consider? What else can we pull from the
+book? How to consider UI flow and more for the UI main character playthrough?" Docs only.
+Owners reused: inventory (`src/inventory_composition.js`, `inventory_tabs.js`,
+`inventory_filters.js`), change badges (`src/change_badges.js`, GU8), personal journal
+(`src/personal_journal*.js`), workspace layout and navigation (`src/workspace_*.js`),
+storylets, chronicle, the reference resolver (CAE-E1/E4), the seeded-day contract (C1-C12),
+[UI rules](../../../UI_RULES.md) and `.claude/rules/player-ui.md`. Proposed rules WA40-WA41.
+
+### 17.1 Inventory in two layers, plus the player's changes
+
+| Layer | What | Source | Form |
+| --- | --- | --- | --- |
+| **Canon** | What the lead carries, wears, owns and keeps at home on each dated scene, with amounts | Census rows and scene anchors (LP4) | Dated assertions; forward anchors for everything else (WA24) |
+| **Seeded filler** | Loose coins within the stated purse, receipts, groceries, clutter, wear | Keyed draw `H(worldSeed, 'inventory', holderId, dayIndex, slot, n)` (C1, C2, C7) | Stable ids per holder, day and slot; the same day shows the same things |
+| **Player deltas** | What the player or the bot changed | Saved receipts | Applied over both layers, never rewriting either |
+
+Rules: filler never adds up to more than a stated amount (a purse of 5 pence holds 5 pence
+of coins, split by the keyed draw); filler never contains an item the book introduces later
+(forward anchor); at each canon date the checker compares the effective inventory with the
+canon layer and reports `carried`, `changed by player` or `drift` (a bug). In the UI each row
+carries a small source badge: **book**, **filled** or **yours**, using the change-badge
+component's styling rather than a new one; badge text resolves names through the resolver so
+a later rename or reveal does not break saved rows.
+
+### 17.2 Other states with the same shape
+
+| State | Canon-stated (examples by type) | Canon-implied | Extrapolated | Seeded |
+| --- | --- | --- | --- | --- |
+| Body: health, fatigue, hunger, injury, appearance | A wound and its healing; waking at night | Tiredness after a sleepless night | Meal timing | Small daily variation within bounds |
+| Clothing | A formal suit kept for interviews | One everyday outfit | Wear and laundry days | Which shirt today |
+| Documents and papers | Notes the lead reads; identity papers in the existing pack | A diploma from his studies | Receipts | Paper clutter |
+| Correspondence and news | Newspapers mentioned; letters [I] | A news cycle by weekday | Headlines in period style | Which stories run, keyed by day |
+| Home contents | The stash, a revolver, cooking stock shortages | Furniture of a cheap flat | Kitchen items | Exact counts within bands |
+| Contacts and addresses | Named people and where they live, when stated | Neighbours | Shop regulars | Unnamed people by place and role (GF18) |
+| Knowledge at date | What he learns, from whom (LP5) | Common knowledge of his class and city | Rumors heard in passing | Which rumor reaches him first |
+| Memory versus mind | The arriving mind's own memories and the body's | Gaps in the body's memories | Neither | None: never seeded |
+| Reputation and legal standing | Witness status, police attention | Neighbourhood standing | How fast word spreads | Rumor travel timing |
+| Habits | Walking to save fares (family); cautious money use | Daily routine | Small routines | Order of chores |
+| Language and manner | Reads unfamiliar scripts in the opening [S scene files, generic] | Polite, careful speech | Barks in his manner | Line variant choice |
+| Vehicles and pets | None in chapters 1-15 | | | |
+
+Each state lives with its existing owner (body with the body owners, clothing with
+equipment, documents and letters with items, knowledge with per-actor facts). The two-layer
+rule is one shape, not a new store (AR: one authority per fact).
+
+### 17.3 What else to pull from the book
+
+| Catalogue item | Example type | Best home in the engine | Cheap per shard? | Add to schema? |
+| --- | --- | --- | --- | --- |
+| Voice and diction samples | Three short anchor lines per principal, our paraphrase | Voice sheets (DWF74) | Yes | Census `voice` note on person rows, 1.3 |
+| Slang and idiom | Forms of address, oaths | Voice sheets, barks | Yes | Census kind `language` already fits |
+| Units and money | Coins, conversions, measures | Unit list (GF19) | Yes | Done (`amount`) |
+| Laws and customs | Rest day, school fees, police practice | Law records (WA4) | Yes | Done (kind `law`) |
+| Institutions' procedures | How a witness is questioned; how a clerk is hired | Organization records, conflict publisher | Medium | Census `procedure` steps on organizations, 1.3 |
+| Religion and ritual forms | Services, prayers, ritual steps | Ritual records (`book_world_lotm_ritual.js`) | Medium | Kind `law` or `event`; no new field |
+| Fashion and food | The suit, rye bread, mutton stew | Items, fills | Yes | Existing kinds |
+| Technology level | Gas lamps, revolvers, ironclads, omnibuses | World card | Yes, once | Census `tech` tag, 1.3 |
+| Maps and routes | Walking times, districts | Places and routes | Yes | `whereabouts` plus a `route` kind later |
+| Newspapers, ads, notices | Mentioned papers and notices | Notice surfaces, rumors | Yes | Kind `document` |
+| Rumors | What people say | Rumor lines with travel delay (DWF70) | Yes | Census `claimant` already |
+| Background and one-line characters | A vendor's call, a passing child | Crowd and role templates (DWF67) | Yes | Existing rows at M1 |
+| Humor and emotional beats | A wry aside, a moment of grief | Return-note and storylet voice | Medium | Scene `tone` tag, 1.3 |
+| Foreshadowing | Hints of later events | Sealed by opaque ID (WA11) | Medium | Scene `sealed` already |
+| Unanswered questions and hooks | Things the lead wonders about | Open questions (WA8), hooks for storylets | Yes | Scene `open` list, 1.3 |
+| Narrator reliability | The lead's misjudgements | Claims (WA23), `thought:<who>` | Yes | Done |
+| Chapter-end hooks | The cliff at each chapter end | Pacing for return notes | Yes | Scene `hook: true`, 1.3 |
+| Recurring motifs | Images that recur | Ambient line palette | Medium | Census kind `note`; no field |
+
+Rule of thumb: add a field only if a consumer reads it within one milestone (proposed WA41).
+The 1.3 candidates above are small: `voice`, `procedure`, `tech`, `tone`, `open`, `hook`.
+
+### 17.4 UI flow for the lead playthrough (desktop first)
+
+Targets: 1920x1080 primary and 1536x864, mobile deferred (standing UI priority). Playing
+**as** the lead still needs Q5 (WER11 wording); the same screens serve the bot run now.
+Every element reuses an existing surface.
+
+| Element | Surface (existing) | Rules |
+| --- | --- | --- |
+| Scene card: where, when, goal, options (taken in canon marked only when the overlay is on; untaken playable or marked "not built yet") | Storylet deck in the center view | UR41 scope, UR42 disclosure, UR70-UR75 descriptions |
+| Lived day between scenes | Normal location, shop, household and work panels | UR21 direct paths, UR25 scroll budget |
+| Diary and return note | Chronicle and personal journal; return note on coming back | UR44 log as a stream, UR48 event versus subject |
+| Purse and inventory with book / filled / yours badges | Inventory tabs and filters; change badges | UR47 shared hovers, GU8 badge rules |
+| Clocks and appointments | Clock strip and calendar; appointments list | UR61 meters say what they answer, UR63 dependencies with the task |
+| What the lead knows | A journal tab listing knowledge facts with source and date | UR43 pinned inspection |
+| "What the book did" overlay | Opt-in setting, off by default, spoiler-safe: shows only the current and past canon scenes | Sealed truths by ID only |
+| Time controls | Existing speed and step controls | No new control |
+| Canon versus divergence indicator | One status chip: on the book line, shifted, or diverged (PC2) | UR26 summary first |
+| Save and branch points | Existing save; a branch label at each divergence (PC5) | Persistence gates M8 |
+
+**Paper wireframe (1920x1080, first screen; times, amounts and option wording are placeholders, not canon):**
+
+```text
++--------------------------------------------------------------------------------------+
+| You / time strip: [Night · first bell unknown]  Purse 5 d [book]   Book line: ON (chip) |
++-------------------------+------------------------------------------+-----------------+
+| Place: lodging room     | SCENE CARD                               | Log (stream)    |
+|  look text (our words)  |  Where: room, night  Goal: find out what | 23:10 woke ...  |
+|  exits: washroom (hall) |  happened                                | 23:12 lit lamp  |
+|                         |  Options:                                |                 |
+| Inventory [book/filled] |   ( ) inspect the room                   |                 |
+|  coins 5 d [book]       |   ( ) light the lamp (costs a coin)      |                 |
+|  notebook [book]        |   ( ) go to the washroom                 |                 |
+|  clutter x3 [filled]    |  [What the book did: off]                |                 |
++-------------------------+------------------------------------------+-----------------+
+| Back bar (Esc)                                     Journal · Knows · Diary · Calendar |
++--------------------------------------------------------------------------------------+
+```
+
+**Minimal first screen:** the room at night, the scene card with three options, the purse
+and inventory with badges, one exit. **Browser-evidence plan:** rebuild; fresh origin;
+1920x1080 and 1536x864; screenshots of the first screen, the inventory badges, the scene
+card after one option, the return note; save, reload, export and import with the same state
+and badges; the overlay off by default and on after the setting; no page scroll (UR25).
+Label anything unexercised "implemented-unverified".
+
+### 17.5 Proposed rules
+
+WA40-WA41 added to [WORLD_ABSORPTION_RULES](../../../WORLD_ABSORPTION_RULES.md) as proposed.
+**The yes that accepts them:** "yes to WA40-WA41", or "yes to WA25-WA41" for every proposed
+group. The UI items above belong to UI_RULES owners and are not proposed as WA rules.
+
+### 17.6 More to consider (round 9)
+
+**ACT NOW (done):** the two-layer inventory with player deltas and badges; the state table;
+the extraction catalogue with homes and schema candidates; the playthrough UI table,
+wireframe, minimal screen and evidence plan; WA40-WA41 drafted.
+
+**ACCOUNT FOR NOW**
+
+- PL-A28. **Filler must sum to stated amounts.** The arithmetic lint (PL-L25) applies to
+  generated coins too.
+- PL-A29. **Badges add visual load.** Keep them small and filterable, and default the
+  inventory filter to "all" so the badge is information, not a gate.
+- PL-A30. **The overlay is a spoiler surface.** Off by default; never shows future scenes;
+  sealed truths by ID.
+- PL-A31. **Memory versus mind is never seeded.** What each identity knows comes only from
+  the text and play.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L29 | Keyed inventory filler for one holder (the lead) | Sonnet, medium, after PL-E1 | One session | Two replays show the same filler; filler never exceeds the stated purse |
+| PL-L30 | Source badge on inventory rows (book, filled, yours) | Sonnet, medium, UI lane | One session | Browser evidence at both viewports; badges survive save, reload, import |
+| PL-L31 | Schema 1.3 small fields (`voice`, `procedure`, `tech`, `tone`, `open`, `hook`) with lint | Sonnet, small | Small | Chapters 1-15 convert; lint passes |
+| PL-L32 | First playthrough screen per the wireframe, bot-driven | Sonnet high, UI lane, after PL-B1 | One session | The bot clicks through scene 1 to 2 at 1920x1080 and 1536x864 with evidence |

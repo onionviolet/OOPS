@@ -118,12 +118,16 @@ six measured haiku reads of LOTM volume 1 chapters 1-15.
 | WA37 | **Every event has a kind and a key.** Scheduled events come from calendar records, reactive events from the action that caused them, ambient events from keyed draws by place and day, canon beats from beat records with footprints; all repeat on replay and obey forward anchors (WA24). | Ambient density per world | Replays that drift; a random incident removing someone the book still needs |
 | WA38 | **Fills are layered, replaceable and calibrated.** Each unstated fact names its layer (stated, implied, period, invented), its basis and `replaceableBy`; a later stated fact supersedes it without reusing its id; unnamed people get stable ids from place and role; stated amounts must reconcile by arithmetic and calibrate generated prices and wages. | How far invention goes per world | Merchants and prices that silently become canon, or a purse that cannot add up |
 | WA39 | **Talks change facts.** Every interaction yields typed results (information, price, trust, access); book-shown talks keep their results with our own wording; extrapolated talks follow the speaker's stated manner. | Which talk types a world supports | Conversations that are only prose and change nothing |
+| WA40 | **Held state has a canon layer, a seeded layer and player deltas.** Inventory, purse, clothing, documents, home contents and similar states keep the book's dated facts as assertions, fill the rest by keyed draws with stable ids that never exceed stated amounts or introduce later canon items, and apply the player's changes as deltas over both; each canon date checks the result. | Which states a world layers | Generated clutter overwriting what the book says the lead had, or a purse that holds more than the text allows |
+| WA41 | **Extract what a consumer will read.** Beyond beats and facts, readers take voice, idiom, units, customs, procedures, technology, routes, notices, rumors, tone, open questions and hooks only when a named consumer reads that field within one milestone; foreshadowing stays sealed by ID. | Per-world extras list | Schemas that grow fields nobody reads, raising the cost of every shard |
 
 To accept: Weibao's "yes to WA25-WA31" (or a named subset). Until then they guide the protagonist-life lanes as plan defaults only.
 
 To accept WA32-WA35: Weibao's "yes to WA32-WA35" (or "yes to WA25-WA35" for both groups).
 
 To accept WA36-WA39: Weibao's "yes to WA36-WA39" (or "yes to WA25-WA39" for every proposed group).
+
+To accept WA40-WA41: Weibao's "yes to WA40-WA41" (or "yes to WA25-WA41" for every proposed group).
 
 ## Code that enforces it
 
