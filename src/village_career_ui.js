@@ -1,12 +1,13 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, openWorkspaceModule} from './workspace_layout.js';
+import {decorateActionComponents} from './ui_components.js';
 import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE, recruitMemory, TEACHING_TERMS} from './village_career.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 // Lives inside the native center menu, including the ongoing patrol display.
 export function createVillageCareerControls({read,resolve,promote,notes,readNotes,practice,mentor,tutor}) {
     const panel=node('section');panel.id='village_career_controls';
     const title=node('h4'),status=node('p'),memory=node('p'),requirements=node('p'),study=node('p'),outcome=node('p'),buttons=node('div'),error=node('p');study.id='village_watchcraft_status';outcome.id='village_watchcraft_outcome';
-    const junior=node('p');junior.id='village_mentor_status';panel.append(title,status,memory,requirements,study,outcome,junior,buttons,error);let signature='';
-    const action=(id,label,fn,disabled)=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};
+    const junior=node('p');junior.id='village_mentor_status';panel.append(title,status,memory,requirements,study,outcome,junior,buttons,error);let signature='';decorateActionComponents(panel);
+    const action=(id,label,fn,disabled,reason='')=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;if(disabled&&reason){b.dataset.disabledReason=reason;b.title=reason;}b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};
     function render() {
         const v=read();panel.hidden=!v.visible;refreshShortcut();
         if(!v.visible)return;
@@ -32,7 +33,9 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
                     if(s.recruit.practiceMinutes<5) {
                         junior.textContent+=' Choose terms before teaching. Five shared teaching minutes block other activities; Time commits a fresh full two-hour shift. Paid mentor is the default.';
                         const labels={paid:'Paid mentor (default) · 5 teaching minutes · post pays +10 stipend · full round 70 coins',pay:'Teach on your shift · 5 minutes · 10 lost wages, you worked less · full round 50 coins',time:'Time · full fresh 120-minute teaching shift · no pay',favor:'Favor · 5 minutes · no coin cost · Iona owes one covered shift · full round 60 coins',free:'Free · 5 minutes · no coin cost or obligation · full round 60 coins'};
-                        for(const term of TEACHING_TERMS)controls.push(action(`village_teach_${term}`,labels[term],()=>mentor(`teach:${term}`),!v.canTeach || !v.study.executable || !!s.loan?.teaching));
+                        // DRC11: the first failing condition, in the order a player meets them.
+                        const teachReason=!v.canTeach?'Teach on your own Village patrol round, with no other work holding you.':!v.study.executable?'Watchcraft must be executable: practiced, with the loaned lantern and baton held on this round.':s.loan?.teaching?'Teaching is already under way on this round.':'';
+                        for(const term of TEACHING_TERMS)controls.push(action(`village_teach_${term}`,labels[term],()=>mentor(`teach:${term}`),!!teachReason,teachReason));
                     }
                     if(s.recruit.practiceMinutes===5 && s.recruit.soloRemaining===null) {
                         controls.push(action('village_recruit_solo','Send Iona on a solo patrol · 120 Village minutes · +10 coins',()=>mentor('solo'),disabled));

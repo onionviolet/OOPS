@@ -69,4 +69,18 @@ Status: UIV1 first slice (M2 Mistglass door, Tingen workroom) done at the floor.
 
 ## Q18 P02-P10
 
-Not started. Each row gets a line here before editing: ready or skipped, with the owner lane checked.
+Each row gets a line here before editing: ready or skipped, with the owner lane checked.
+
+### P02 · DRC10 residual / DRC11 / DRC12 / UIA15
+
+Ownership: `village_career_ui.js` and `harvest_ui.js` are not in `village-loop`'s recorded files (VL1: `local_life.js`, `main.js`, `tests/local_life.test.js`) or GM plan cards; no uncommitted edits. Reasons only; no Village loop logic or command change.
+
+- DRC11 done: Village teaching-term buttons carry the first failing condition (not on your patrol round; watchcraft not executable; teaching already under way) as `data-disabled-reason`, and the panel is decorated, so the five terms share one visible, Tab-reachable reason.
+- DRC12 done in source: harvest controls name their cause (unwritable tab; current carcass; current activity, conversation, fight, sleep, reading or trade). The last is a list because `frame.ready` is a composite built in `main.js` (village-loop's file); a single precise cause needs a `readyReason` there. Hand-off hunk for the owner, not applied.
+- DRC10 residual: skipped. The audit marks it "Residual: no" (engine cost errors cannot tell player stock from the craftsman's).
+- UIA15: not reproduced. A fresh Village life's Around you shows 2 people and 5 services/stations; the empty line only appears in a place with no known subjects. No edit.
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/village_career.test.js tests/harvest.test.js tests/ui_components.test.js` | pass, new DRC11 DOM regression | Harvest reasons have no DOM test |
+| Browser | Not run for P02: mentor rank and a carcass need a long earned route | Implemented, below floor (FLR2) for DRC11/DRC12

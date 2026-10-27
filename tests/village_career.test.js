@@ -33,3 +33,19 @@ test('import rejects impossible custody, debt, ranks and active patrol mismatch'
     assert.throws(()=>validateSaveEnvelope(original,'v0.5.5.30'),/native patrol/);
     original.current_activity={activity_id:'patrolling'};assert.doesNotThrow(()=>validateSaveEnvelope(original,'v0.5.5.30'));
 });
+
+test('DRC11: disabled teaching terms name their first failing condition', async () => {
+    const {createDom}=await import('../scripts/headless/dom.mjs'),{createVillageCareerControls}=await import('../src/village_career_ui.js');
+    const saved={document:globalThis.document,MutationObserver:globalThis.MutationObserver,setInterval:globalThis.setInterval};
+    const dom=createDom();dom.loadHTML('<body><div id="location_actions_div"></div></body>');
+    Object.assign(globalThis,{document:dom.document,MutationObserver:class{observe(){}disconnect(){}},setInterval:()=>0});
+    try {
+        const {assignVillageRecruit}=await import('../src/village_career.js');
+        const state=assignVillageRecruit(promoteVillageCareer(round(round(round(promoteVillageCareer(round(round(createVillageCareer()))))))));
+        const view={visible:true,state,study:{known:true,practiced:true,practiceMinutes:5,executable:false},hasNotes:true,canWrite:true,busy:false,canTeach:false,recruitAlive:true};
+        const controls=createVillageCareerControls({read:()=>view}),paid=()=>document.getElementById('village_teach_paid');
+        assert(paid().disabled);assert.match(paid().dataset.disabledReason,/patrol round/);
+        view.canTeach=true;controls.render();assert.match(paid().dataset.disabledReason,/Watchcraft must be executable/);
+        view.study={...view.study,executable:true};controls.render();assert(!paid().disabled);assert.equal(paid().dataset.disabledReason,undefined);
+    } finally {Object.assign(globalThis,saved);}
+});
