@@ -6,7 +6,7 @@ import {lintScenes, lintCensus, lintFills, summarize} from './lint_lead_run.mjs'
 
 const CJK_NUM = '零一二两三四五六七八九十百千半几\\d';
 const PATTERNS = Object.freeze({
-    money: new RegExp(`[${CJK_NUM}]+(?:个|枚|张)?(?:铜)?(?:便士|苏勒|金镑|镑)`, 'g'),
+    money: new RegExp(`(?:[${CJK_NUM}]+分之)?[${CJK_NUM}]+(?:个|枚|张)?(?:铜)?(?:便士|苏勒|金镑|镑)`, 'g'),
     time: new RegExp(`[${CJK_NUM}]+(?:点半|点钟|点|时)(?:[${CJK_NUM}]+分)?`, 'g'),
     duration: new RegExp(`[${CJK_NUM}]+(?:分钟|小时|天|周|个月|年)`, 'g'),
     measure: new RegExp(`[${CJK_NUM}]+(?:磅|盎司|公里|英里|码|米|公斤)`, 'g'),
@@ -19,12 +19,17 @@ export function extractCandidates(shardMap) {
     for (const [key, text] of shardMap) {
         const [ch, p] = key.split(':');
         for (const [kind, re] of Object.entries(PATTERNS)) {
-            for (const m of text.matchAll(re)) out.push({kind, value: m[0], locator: `zh 第${ch}章 p${p}`});
+            for (const m of text.matchAll(re)) {
+                // "一点", "半点", "一时" are usually idioms ("a little", "for a moment"); keep them only with a clock word.
+                if (kind === 'time' && /^[一半几]?[点时]$|^[一半几]点$|^一时$/.test(m[0]) && !/^[钟整半]/.test(text.slice(m.index + m[0].length))) continue;
+                out.push({kind, value: m[0], locator: `zh 第${ch}章 p${p}`});
+            }
         }
     }
     return out;
 }
 
+const CONTEXTUAL = new Set(['price', 'measure', 'clock', 'calendar']);
 const NOT_ENTITY = /^(Episode|Chapter|Volume|Season|Book)\b/i;   // adaptation and index pages carry Chinese titles too
 const normalize = s => String(s || '').replace(/[.．・]/g, '·').trim();
 
@@ -41,7 +46,10 @@ export function buildGlossary({wikiPages = [], censusRows = []}) {
     // Ids come from earlier census rows (organization ids normalized); labels prefer the wiki title.
     for (const r of censusRows) {
         const zh = normalize(r.zh);
-        if (!zh || g.get(zh)?.id) continue;
+        // Amounts, measures and times are contextual: "4 pence" in one scene is not the same row as in another.
+        if (!zh || g.get(zh)?.id || CONTEXTUAL.has(r.kind)) continue;
+        // Short common nouns (bedroom, hat) name different things in different scenes; only proper names carry ids across.
+        if (['place', 'item', 'event', 'note', 'creature'].includes(r.kind) && zh.length < 3 && !zh.includes('·')) continue;
         const wiki = g.get(zh)?.source === 'wiki' ? g.get(zh).label : null;
         g.set(zh, {id: String(r.id || '').replace(/\.org\./, '.organization.'), label: wiki || r.label, kind: r.kind,
             source: wiki ? 'census+wiki' : 'census'});
@@ -54,7 +62,10 @@ export function glossaryHits(glossary, shardText) {
     const text = normalize(shardText), hits = [];
     for (const [zh, e] of glossary) {
         const short = zh.split('·')[0];
-        if (text.includes(zh) || (short.length >= 2 && zh.includes('·') && text.includes(short))) hits.push({zh, ...e});
+        if (!(text.includes(zh) || (short.length >= 2 && zh.includes('·') && text.includes(short)))) continue;
+        // Show the name as this edition prints it (some print an ASCII dot, some a middle dot), so `zh` stays literal.
+        const printed = [zh, zh.replace(/·/g, '.'), zh.replace(/·/g, '．')].find(v => shardText.includes(v)) || zh;
+        hits.push({...e, zh: printed});
     }
     return hits;
 }

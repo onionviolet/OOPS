@@ -14,14 +14,16 @@ test('candidates find money, time, measure and dotted names with locators', () =
 
 test('glossary prefers census ids over wiki labels and matches given names', () => {
     const g = buildGlossary({wikiPages: [{title: 'John Smith', text: '|chinese = 约翰.史密斯'}, {title: 'Episode 2', text: '|chinese = 面包'}],
-        censusRows: [{zh: '面包', id: 'test.item.bread', label: 'Bread', kind: 'item'}]});
+        censusRows: [{zh: '面包', id: 'test.person.bread', label: 'Bread', kind: 'person'}]});
     const hits = glossaryHits(g, text);
     assert.ok(hits.some(h => h.label === 'John Smith' && h.source === 'wiki'));
-    assert.ok(hits.some(h => h.id === 'test.item.bread' && h.label === 'Bread'));
+    assert.ok(hits.some(h => h.id === 'test.person.bread' && h.label === 'Bread'));
     const merged = buildGlossary({wikiPages: [{title: 'John Smith', text: '|chinese = 约翰.史密斯'}],
         censusRows: [{zh: '约翰·史密斯', id: 'test.org.x', label: 'Yuehan', kind: 'person'}]});
     assert.equal(merged.get('约翰·史密斯').label, 'John Smith');
     assert.equal(merged.get('约翰·史密斯').id, 'test.organization.x');
+    assert.ok(!buildGlossary({censusRows: [{zh: '九便士', id: 'test.price.bread', kind: 'price'}]}).has('九便士'));
+    assert.ok(!buildGlossary({censusRows: [{zh: '卧室', id: 'test.place.someones-room', kind: 'place'}]}).has('卧室'));
 });
 
 test('fills and headers lint by schema 1.3', () => {
@@ -86,4 +88,23 @@ test('migration repairs string deps, foreign anchors, free-text evidence labels 
     const review = [];
     assert.equal(migrateScene({beat: 'lr.test.v1.003', weight: 'great', footprint: null}, review).weight, 'routine');
     assert.equal(review[0].need, 'great-without-footprint');
+});
+
+test('glossary shows the printed dot form and migration wraps a free-text footprint window', async () => {
+    const g = buildGlossary({wikiPages: [{title: 'John Smith', text: '|chinese = 约翰·史密斯'}]});
+    assert.equal(glossaryHits(g, 'p1: 约翰.史密斯来了')[0].zh, '约翰.史密斯');
+    const {migrateScene} = await import('../scripts/lead_run/migrate_shard.mjs');
+    const s = migrateScene({beat: 'lr.test.v1.004', weight: 'great', footprint: {places: 'x', window: 'that night'}}, []);
+    assert.deepEqual(s.footprint, {places: ['x'], window: {note: 'that night'}, hazards: [], roles: []});
+});
+
+test('idiomatic 一点 and 一时 are not time candidates; 一点钟 is', () => {
+    const m = parseShard('=== 第1章 测试 | member x\np1: 慢一点，一时没想到。\np2: 一点钟见。');
+    const times = extractCandidates(m).filter(c => c.kind === 'time').map(c => c.locator);
+    assert.deepEqual(times, ['zh 第1章 p2']);
+});
+
+test('fractional money amounts are one candidate', () => {
+    const m = parseShard('=== 第1章 测试 | member x\np1: 找回四分之一便士。');
+    assert.deepEqual(extractCandidates(m).filter(c => c.kind === 'money').map(c => c.value), ['四分之一便士']);
 });

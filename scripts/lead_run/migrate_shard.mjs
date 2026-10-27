@@ -34,6 +34,12 @@ export function migrateScene(r, review, beats = new Set()) {
         s.date = {...s.date, anchor: null, offsetDays: null, value: 'date-unsettled'};
     }
     for (const e of s.evidence || []) fixLabel(e);
+    // A footprint with a free-text window keeps the text inside a window object; list fields default to empty.
+    if (s.footprint && typeof s.footprint === 'object') {
+        const f = s.footprint;
+        if (typeof f.window !== 'object' || f.window === null) f.window = {note: String(f.window ?? '')};
+        for (const k of ['places', 'hazards', 'roles']) if (!Array.isArray(f[k])) f[k] = f[k] ? [f[k]] : [];
+    }
     // `great` needs a footprint; without one the scene is kept as routine and listed for review, not given a guessed footprint.
     if (s.weight === 'great' && !s.footprint) { s.weight = 'routine'; review.push({beat: s.beat, need: 'great-without-footprint'}); }
     for (const c of s.choices || []) fixLabel(c);
@@ -75,7 +81,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const scenes = read(`${prefix}_scenes.jsonl`), beats = new Set(scenes.map(r => r.beat));
     write(`${prefix}_m13_scenes.jsonl`, scenes.map(r => migrateScene(r, review, beats)));
     write(`${prefix}_m13_census.jsonl`, read(`${prefix}_census.jsonl`).map(migrateCensus));
-    write(`${prefix}_m13_fills.jsonl`, read(`${prefix}_fills.jsonl`).map(migrateFill));
+    // A fill with no basis cannot be checked against the text; it goes to review instead of the shard (nothing invented).
+    const fills = read(`${prefix}_fills.jsonl`).map(migrateFill);
+    for (const f of fills) if (!Array.isArray(f.basis) || !f.basis.length) review.push({fill: f.id, need: 'fill-without-basis'});
+    write(`${prefix}_m13_fills.jsonl`, fills.filter(f => Array.isArray(f.basis) && f.basis.length));
     writeFileSync(join(dir, `${prefix}_m13_review.json`), JSON.stringify(review, null, 1) + '\n');
     console.log(JSON.stringify({prefix, review: review.length, byNeed: review.reduce((a, r) => (a[r.need] = (a[r.need] || 0) + 1, a), {})}));
 }

@@ -32,4 +32,4 @@ voice?, procedure?, tech?, note}`. Present in a scene means M1 at that place and
 layer:'implied'|'period'|'invented', basis:[ids or locators], respects:[ids], replaceableBy:'later reading',
 confidence:'high'|'medium'|'low'}`.
 
-**Units:** penny (pence), soli (shilling), pound (gold pound); record the unit the text uses and its amount.
+**Units:** money is penny (便士), soli (苏勒), pound (镑, gold pound); weight 磅 is `lb`, a measure, not money; other measures use the text's unit in English (ml, drop, g, km). Record the unit the text uses and its amount. Time-of-day bands: night, dawn, morning, noon, afternoon, evening.

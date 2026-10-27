@@ -1827,3 +1827,30 @@ graded; the gate passed; older shards headed.
 **LATER or DELEGATE:** PL-L43 dangling-input lint check (sonnet, small; done when a planted
 missing census id fails); PL-L44 JSON-only review pass for the 165 older-shard items (haiku,
 small; done when all six migrated shards lint clean).
+
+---
+
+## 22. Round 14: after wave 1 (2026-10-27)
+
+Wave 1 read chapters 25-54 in 10 shards under protocol v2.1 ([status](READING_STATUS.md)).
+All 10 graded A or B (two A after five-row coordinator checks); 131,700 tokens per shard, 43,900
+per chapter (5% over the 42,000 target, inside the 110% stop line); 6.2 tool calls per reader.
+It stopped at the AU7 bound (the 5-hour window rose five points). Tooling changes made during
+the wave, each with a focused test: amounts and short common nouns no longer enter the glossary
+(readers had reused one id for different prices and one "bedroom" for two rooms); names show in
+the edition's printed dot form; idiomatic "a little" and "for a moment" are no longer time
+candidates; fractional amounts are one candidate; free-text footprint windows and fills without a
+basis are repaired or set aside by `migrate_shard.mjs`.
+
+**More to consider (readers):**
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| PL-A45 | **Quality drift across waves.** Wave 1 calls fell from 8 to 5-6 as the brief and glossary improved; watch calls, lint-first-pass rate and rows per chapter per wave in the status file | Account for now: add the three columns to each wave row |
+| PL-A46 | **Readers import outside knowledge.** One note out of fifteen checked states a fact that is not in its paragraph; a haiku reader knows this famous book. This can leak later-volume facts into early rows | Act at wave 2: brief line "only what this shard states; no knowledge from elsewhere"; spot checks look for it; such rows are labelled I or removed |
+| PL-A47 | **Glossary between waves.** The glossary grows from every census row; wrong rows propagate. Rebuild it only from graded A or B shards, and from census rows of proper names | Account for now |
+| PL-A48 | **Census dedupe across shards.** The same entity has several ids (two washrooms, two reception halls under one Chinese name) | LATER: PL-L16 merge with a registry; run after wave 2, before the table assembly |
+| PL-A49 | **Cross-shard consistency pass.** A sonnet reviewer samples rows that cross wave boundaries (a person's whereabouts, an amount that recurs) | LATER: one sonnet pass per two waves, about 150,000 tokens |
+| PL-A50 | **Lead-run table assembly (P2).** Merge scenes in order, resolve `date-unsettled` with anchors across shards, attach census ids, compute the necessary core and the untaken-option ledger | LATER: sonnet, medium; done when chapters 1-54 produce one ordered table with fewer than 25% `date-unsettled` rows |
+| PL-A51 | **The first lived week needs chapters 1-15 most.** Its prices, lodging, family schedule and household purse are there; later chapters add work at the Night Watch, pay and the Beyonder track. The lived week can start from chapters 1-24 (graded) without waiting for the whole volume | Account for now: PL-L39 depends on chapters 1-24, not on waves 2-7 |
+| PL-A52 | **Usage pacing.** One wave of 10 shards cost about five points of the 5-hour window here; the remaining 53 shards need about five more such windows or a raised ceiling | Ask Weibao: resume per window, or raise the AU7 ceiling for this task |
