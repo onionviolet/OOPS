@@ -493,3 +493,111 @@ for collecting fanfiction.
 3. Run the **departure-point census** (PX25) as a bounded, metadata-first lane
    after L1 and L2, so authored beats follow what the original supports and
    readers choose.
+
+## Part F. Round 3: considerations not yet covered, and what makes this easier (2026-10-27)
+
+Weibao asked for deeper considerations and what would make this easier. No new
+web research; this round is inference from the repo owners and Parts A to E, so
+every item is [I] unless a source is linked. Proposals only.
+
+### F.1 Considerations not yet covered
+
+| Code | Consideration | Why it matters | Default, dial and reason |
+| --- | --- | --- | --- |
+| PX27 | **The canon line is a life, not a table.** A protagonist is an NPC with a plan, a schedule and information limits, run on the same life framework as everyone else (LIFE_SIM_NORTH_STAR "Protagonists and cheaters as other characters"; ENEMY_PROTAGONISTS; plan clocks, BX6). Beats are what that life does on its dates. | It removes a second beat system. Inputs are that person's dependencies; outcomes are what they do next. | Default: a line is one scripted NPC life plus its circle. Dial: how much of it is simulated versus replayed from records. Reason: reuse. |
+| PX28 | **Beats reach the player through in-world media, with delay.** Newspaper line, rumor, a clerk's remark, a changed notice board. Witness levels: heard of, saw the aftermath, present, involved. | The cheapest content per beat is one line, and it makes unattended beats real (PX7). It matches the foreknowledge states "known, guessed, unknown" (UIV6). | Default: every `great` beat gets a rumor line with a delay by distance. Dial: media per world (HP papers, Tingen papers). Reason: a trace you can read costs one string. |
+| PX29 | **Attendance is an appointment, not a new system.** "Be at the office on the day" is an ordinary errand or appointment on the one under-way list (UIV3). | Idle play needs beats that do not block. | Default: beats you choose to attend become appointments; others resolve without you. Reason: reuse the schedule and return-note machinery. |
+| PX30 | **Playing the part is a verb.** In `be` by replacement, NPCs compare you with the person they knew; imitation quality (voice, habits, known facts) governs suspicion over time. LOTM's own verb is "act the role" (GM plan 15.4), so this lands on a built mechanism. | It turns the hardest mode into play instead of a switch. It needs a per-character profile (voice, habits, ties) that the RLB need-profile idea already sketches. | Default: private-pack `be` modes carry a role profile. Dial: how fast suspicion rises, by how close each NPC is. Reason: the world notices through its own mechanisms (WER12). |
+| PX31 | **A line has a status.** *Active*, *diverged* (alive, off the canon track), *ended* (died, retired, finished), *succeeded* (someone else carries it). When the player removes or replaces the protagonist, the world keeps going: beats whose roles lose their filler lapse with a trace or reassign (PX20). | Without this, killing or sponsoring the protagonist breaks the world or freezes it. | Default: the world continues as an ordinary world after an ended line. Dial: whether a successor exists, by the world's mechanisms (OD8). Reason: AD38. |
+| PX32 | **Offscreen is mostly inference.** A book is told from the protagonist's side, so most of the world's simultaneous life is invented. Beats the protagonist does not witness are labeled `inferred` and written as our own proposal. | It stops invented content reading as canon. | Default: label every non-witnessed beat. Reason: unbiased-lens rule and WPR evidence labels. |
+| PX33 | **Compression.** A canon year can span a thousand chapters while idle play covers many days between beats. | Quiet stretches are normal, so beats act as the event-director feed (CP2): canon beats become storylet prerequisites, not a separate pacer. | Default: beats and local storylets share one director. Dial: world temperament. Reason: no second pacer. |
+| PX34 | **Several lines per world.** Sequels, spin-offs, ensembles and villain-side leads give more than one line (WER11 already notes LOTM's second book). | A world pass should list lines, not one protagonist. | Default: `lines[]` per world; each line carries its own era and circle. Reason: P5 and P7 premises. |
+| PX35 | **Information hazard is a cost, not a block.** Foreknowledge of a beat can be spent (warn, trade, intercept). Using it tells the world's observers where to look; reaction comes from the world's mechanisms (OD8). | Gives the knowing player something to play and the world something to answer. | Default: spending foreknowledge raises attention in worlds that watch (divination, institutions). Dial: per world. Reason: M2 and WER12. |
+| PX36 | **Public/private split of the data.** Public packs use original names and cite instead of quote (AD1, WA2). A beat table with canon names and dates is direct-adaptation data and belongs in the private pack; the engine fields, original sample beats and tests stay public. | This is the largest structural fact: the system must be buildable and testable without any canon text in the public repo. | Default: engine and test content public, canon beat rows private. Reason: attribution and WA2. |
+
+### F.2 What would make this easier
+
+**E1. Build the engine against an original mini-book first.** The Village is
+ours. Give it a small original "passing hero" line: one NPC life, five beats,
+three role slots, one circle. It exercises scope, degrees, inputs, outcomes,
+traces, rumors, branches and saves with no licence question, in the public build,
+and every later world gets the same engine. Default: this is the first slice.
+Reason: PX36, and the Village loop is the cozy low-pressure test bed already in
+the plan.
+
+**E2. A null-player golden run.** Run the world with no player life and assert
+each beat resolves as `carried` on its `canonDate`. Then run a scripted
+intervention and assert the exact `altered` outcome and the changed downstream
+fact. It is cheap, deterministic and covers the property that matters (the line
+reproduces itself and moves when poked). Default: one fixture per line. Reason:
+lean tests (AGENTS), by system.
+
+**E3. Derive `canonDate` with a deterministic tool.** Where the repo already holds
+source cards and chapter notes (the LOTM cards give date anchors such as the June
+arrival and a July chapter), extract date anchors and chapter indexes with a
+local script into a table, then have a reader check the few ambiguous ones.
+Default: tool first, human or model review second. Reason: token-efficient long
+runs; the cards already warn that intervening-day links need evidence.
+
+**E4. Start with `routine` and `great` beats of one month.** One month of LOTM's
+early arc (the opening weeks around the June 1349 arrival) and one school term of
+HP's timetable. Ten to twenty beats each. Default: that is the pilot size.
+Reason: R2 content cost.
+
+**E5. Reuse, do not extend, the existing records.** Clock record (C1), under-way
+list (UIV3), return note (UT3), foreknowledge states (UIV6), branch list (BW6),
+start record fields (WER2 to WER9), event director (CP2). New fields are PX3's
+five and the line status. Default: no new UI surface beyond a "Canon" section in
+the existing schedule view and a mode line on the confirm screen. Reason: UR and
+AD36 efficiency.
+
+**E6. Order by what is cheapest to verify.** (1) Village mini-line (E1, public).
+(2) HP routine beats, since the calendar is already built and the beats are
+schedules, with the cohort offset (L2). (3) LOTM month pilot in the private pack
+after L1. (4) `follow` and `bystander` seats from the census (PX25). (5) `be` in
+the private pack. Default: this order. Reason: each step reuses the last and none
+needs a licence decision before the engine exists.
+
+**E7. Decide four small things once, so lanes do not reopen them.** Recommended
+defaults, none accepted:
+
+| Decision | Recommended default |
+| --- | --- |
+| Where canon beat rows live | Private pack for named canon; public for original lines |
+| History switch default | Natural course (PX5) |
+| Who may be played as the protagonist | Private pack and avatar-by-construction worlds (PX18) |
+| What a lapsed beat does | Trace in the return note, no penalty to the player, and recovery only where C2's hard degree says so |
+
+### F.3 More to consider (round 3)
+
+**ACT NOW (done):** PX27 to PX36 and E1 to E7 recorded here.
+
+**ACCOUNT FOR NOW**
+
+- R11. **A line is a heavy NPC.** A fully simulated protagonist costs more than a
+  replayed one. Mitigation: replay from records by default (PX27's dial).
+- R12. **Role profiles for `be` are content-heavy and copyright-adjacent.** They
+  belong in the private pack and cite instead of quote.
+- R13. **A null-player run can hide drift in non-canon fixtures.** Pin the
+  fixture's inputs in the test record.
+- R14. **Rumors can spoil.** PX13's spoiler dial applies to rumor text too.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| L13 | Village mini-line: one NPC life, five beats, three role slots, rumor lines, golden-run test | Engine slice, public | Medium | Null run carries all five beats on their dates; a scripted warning flips one outcome and one downstream fact; a life out of scope sees no note; save and reload keep the results. |
+| L14 | Date-anchor extraction script for local source cards | Tooling | Small | A table of dates with chapter indexes for the LOTM early arc; ambiguous rows flagged. |
+| L15 | Line status field (PX31) and succession rules per world | Rules | Small | An ended line leaves the world running; lapsed beats leave traces. |
+| L16 | Role profile format for `be` (PX30) | Private pack data | Medium | A profile drives a suspicion score in a scripted run. |
+| L17 | Media delay table per world (PX28) | World data | Small | Each `great` beat has a rumor line with a delay by distance. |
+
+### F.4 Updated top three
+
+1. **Build the engine on the Village mini-line with a null-player golden run**
+   (E1, E2, L13). It is public, licence-free and proves the whole path.
+2. **Treat the protagonist as an NPC life and beats as its dated actions**
+   (PX27), delivered through rumors and appointments (PX28, PX29), so no second
+   beat system exists.
+3. **Keep canon names and dates in the private pack** (PX36) and derive dates with
+   a tool (E3), so the public repo carries the mechanism and tests only.
