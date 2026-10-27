@@ -437,3 +437,170 @@ recorded on Weibao's yes; LP1-LP12; DA1-DA16; Q9 closed.
 | PL-L9 | Grep the runtime for the sample's price, clock and calendar rows | Haiku, small | Minutes | A present, partial or missing list (M2 baseline) |
 | PL-L10 | One lived week (LP3, LP4) as the first P5 target | Sonnet, medium, after PL-E0 and P3 for that week | One session | The bot lives seven days with routine costs and every stated amount matches its anchor |
 | PL-L11 | Watch mode (LP12) | Sonnet, medium, later | One session | A read-only replay shows the diary and anchor ticks; no state changes |
+
+---
+
+## 12. Round 4: schema 1.1 built, the bot, different information, path changes, blanks and surfaces (2026-10-27)
+
+Weibao: "Consider and record missing stuff accordingly and then implementing it? More to
+consider? Can we find out how the bot would play differently given different info long
+term? more to consider? We should change the path accordingly? more to consider? How does
+each prose detail even get shown in the game? More to consider? how does the 'bot' work?
+more to consider?" and, mid-round: "there will be alot of work needed to implement each
+location and more? and the people in each location? the stuff in the merchant's inventory
+that isnt stated? Lots of blanks we can reasonably fill at the same time(not stated in the
+book)?" Proposals, except the tooling built in 12.1.
+
+### 12.1 What was built and run
+
+| Item | Result |
+| --- | --- |
+| [LEAD_RUN_SCHEMA](LEAD_RUN_SCHEMA.md) 1.1 | Scenes, census and a new `fill/1.1` file for blanks; F1-F10 clarifications from the re-run |
+| `scripts/lead_run/lint_lead_run.mjs` | Pure lint plus CLI; checks SF1-SF10, footprint shape, numeric anchors, choice locators, literal-name locators against a private shard, and a quote guard. Prints codes and counts only |
+| `tests/lead_run_lint.test.js` | 4 tests, invented fixture text: `node --test tests/lead_run_lint.test.js` passed 4 of 4 |
+| Lint on the first sample (1.0) | Every row fails the schema tag as expected; plus 10 `great` rows without footprint, 17 evidence kinds, 10 prices without amounts, 10 kinds, 14 whereabouts statuses, 7 names not at their locator |
+| Re-run under 1.1 | 1 haiku reader, fresh context, 6 tool uses, same 8,747-character shard. 5 scenes (from 23), 47 census rows, 5 fills. Lint: census clean; scenes failed only `date-label` (prose in the label field, now F9) |
+| New findings | Census recall fell from 82 rows to 47 when scenes were compressed (F10); every row stayed M0 because the rung had no criteria (F8, now defined). The five fills each cite stated facts as basis; one fill gives a stated person (the landlord) a duty the text does not state, which is what a fill is for, and stays `authored-proposal` |
+
+### 12.2 How the bot works
+
+The bot is a test harness that owns no game state. Parts (new files under
+`scripts/headless/lead_bot/`, owned by PL-B1):
+
+| Part | Input | Output |
+| --- | --- | --- |
+| **Compiler** | Scenes, census, fills (schema 1.1) | Goals (be at P in window W with inputs I, do steps), assertions (outcomes, anchors), knowledge events by date |
+| **Calendar** | C1 `dayIndex`, the start-month decision (Q4) | Absolute dates for `anchor + offsetDays` rows |
+| **Knowledge gate** | The lead actor's facts (per-actor facts already exist: `src/world_knowledge.js:3` takes an `actorId`) plus the compiled knowledge events | Which facts the policy may use today |
+| **Policy** | Goals due, routine schedule, motives, knowledge | Today's ordered intents. Two modes: `replay` (do the scene's steps) and `model` (choose by motives and needs; canon is the expected answer, 12.3) |
+| **Planner** | An intent and the world map | A route of public verbs: travel, buy, talk, work, rest. A missing route or verb is a world-gap row (PX59), never a teleport |
+| **Driver** | Verbs | `ui` driver: clicks through `scripts/headless/runner.mjs` with the lead as the player life. `npc` driver: the same intents handed to the lead's NPC life through the beat resolver (PL-E3) with no player |
+| **Checker** | World facts after each day | Pass, fail or `source-inconsistent` per assertion; the first failing day |
+| **Snapshots** | Harness state each world day | Bisecting a drift to its day (LP11) |
+| **Reporter** | Log and checks | "k of n scenes reached, with causes", anchor table, gap rows, diary-versus-table diff (LP8) |
+
+Daily loop, the same for both drivers:
+
+```text
+for day from start to end:
+  facts = knowledgeGate(day)
+  intents = policy(goalsDue(day), routine(day), motives, facts)
+  for intent in intents: for verb in planner(intent): driver.do(verb); log(verb, cost, minute)
+  checker(assertionsDue(day)); snapshot(day)
+report()
+```
+
+### 12.3 How the lead would play differently with different information
+
+Only the `model` policy can answer this; `replay` just repeats the book. Order:
+
+1. **Fidelity first.** At every recorded choice point (LP6), give the model the lead's
+   canon knowledge and motives and see whether it picks the canon option. Score: k of n
+   choices reproduced. A low score means the motive tags are wrong or thin, not that the
+   book is wrong.
+2. **Then change one input.** Add, remove or delay one knowledge fact at one date (what a
+   player could do through the PX37 channels: tell, warn, rumor, hide). Re-run from that
+   day's snapshot. Report: the first choice that changed; each later scene as carried,
+   shifted (time), moved (place), averted, replaced or blocked; the end-of-run world facts
+   that differ; the influence-ledger rows (PX42).
+3. **Long term.** Divergence compounds. After the first change, later canon scenes run by
+   their causal preconditions (WA15): a scene whose needs still hold happens; one whose
+   needs fail is averted, not forced (AD2). Decisions canon never showed are labelled
+   `policy-inferred`.
+
+Each counterfactual is a cheap headless re-run from a snapshot; the cost is authoring the
+motive and need tags well enough that fidelity is high. Uses: testing the influence
+channels before the seat opens; a "what would he do if told X" preview for design; finding
+which facts the lead's line actually depends on (a fact whose removal changes nothing is
+not a dependency).
+
+### 12.4 Changing the path accordingly
+
+Yes, and by rule rather than by hand:
+
+| Code | Rule (proposal) | Reason |
+| --- | --- | --- |
+| PC1 | Re-plan only the affected subgraph: scenes reachable through `needs` edges from the changed fact | Keeps the rest of the canon line stable and cheap to check |
+| PC2 | Each scene gets a status: carried, shifted, moved, averted, replaced, blocked | The same words in the run report, the influence ledger and the return note |
+| PC3 | After divergence the lead's goals come from his motives, not from the dropped canon scene | He keeps living a life, not waiting for a plot that no longer happens |
+| PC4 | Forward anchors (WA24) still bind generators; player-caused change may break them and is labelled; the continuity becomes divergent (WA18) with the dropped anchors listed | WA24's dial, applied |
+| PC5 | Divergent runs are branches with a label, never edits of the canon table | The canon run stays the regression baseline |
+
+### 12.5 Blanks the book never states (locations, people, merchant stock)
+
+Yes, it is a lot of work if each blank is hand-written, so most blanks are not. Three
+routes, cheapest last:
+
+| Route | What | When | Rules |
+| --- | --- | --- | --- |
+| **Scene kit** (authored proposals, reviewed) | For every place a scene uses: who runs and staffs it, hours, stock categories, a price band, regulars, sounds and smells | At the same pass as the reading, as `fill/1.1` rows | `basis` cites the stated facts; `respects` lists laws and forward anchors (WA24); never claims source truth (WA3) |
+| **Generators** (for anything repeated) | Shop stock from a shop-type grammar plus the world's laws, era and stated price anchors, keyed by place and day (C2); people from cast tiers (DWF67): principals authored, recurring role templates, crowd derived | When the scene kit names a type that recurs | WA7, GR1-GR17; stated prices calibrate the band; frozen on first reveal |
+| **Lazy fill** | Everything nobody has looked at | First visit by any life | Same generators; costs nothing until visited (WAL5, WO1) |
+
+Fill priority follows the lived week (PL-L10): the places the lead's ordinary days use come
+first, then places other lives can reach (WAL13). Stated facts always win over fills; a
+later reading that contradicts a fill replaces it, and the fill's id is kept with
+`supersededBy` (WAC25).
+
+### 12.6 How a prose detail reaches the screen
+
+The book's prose never does. A detail becomes a fact, and the fact is shown in our own
+words on a surface when it matters:
+
+| Detail kind | Fact | Surface and trigger |
+| --- | --- | --- |
+| Place description, smells, sounds | Place record fields | Look text on arrival; ambient line by time of day |
+| Prices, coins, rounding | Price and currency records | Shop panel and receipt; a rounding note when the change is short |
+| Bells, dawn, moon | Clock records | Clock strip; a line at the hour |
+| People's routines and habits | Schedule records | Seen where they are; mentioned in talk and rumor |
+| Events | Beat records with footprints | Return note and diary at the witness level (PX44, PX49); rumor and news with travel delay (DWF70) |
+| What a character knows or says | Knowledge and claims (WA23) | Dialogue barks from voice sheets (DWF74, DWF76); claimed versus true marks |
+| Laws and customs | Law records (WA4) | The plain result when they block or permit; the reason once learned (WAC21) |
+| Items and documents | Item records | Inspect panel |
+
+Proposal for census 1.2: a `surfaces: [{surface, trigger}]` field, so a lint can report
+details with no surface. A detail with no surface is either data that a mechanic uses (a
+price inside a wage) or texture waiting in a queue; both are fine, but the count is visible.
+
+### 12.7 Missing pieces recorded (what a lived lead needs that no lane owns yet)
+
+| Code | Missing | Existing seam to grow | Owner lane |
+| --- | --- | --- | --- |
+| MS1 | The lead as an NPC life that runs a daily routine from schedules, not only beats | Beat resolver (PL-E3); NPC absence schedules-first clocks | PL-E3 scope grows to "routine plus beats", or a new PL-E4 |
+| MS2 | Dated knowledge per actor (gained on a date, from a source) | Per-actor facts exist (`src/world_knowledge.js`, `src/people_knowledge.js`) [S file headers]; dating them is [U] | PL-E4 |
+| MS3 | Zone-capped fares, coin rounding, metered utilities | Trade and travel cost seams (`trade.js`, `shop_restock.js`) [I] | P3 data, engine card if a cap rule needs a verb |
+| MS4 | Shared household purse and budget | `home_household.js`, `household_fortunes*` [S file list] | P3 with an owner check |
+| MS5 | Per-life diary with resolver names | `chronicle.js` plus CAE-E1/E4 (PL-E2) | PL-E2 |
+| MS6 | Public clocks (bells, light, moon) as signals a life can read | `world_rhythm.js` [S file list] | P3 data |
+| MS7 | The `model` policy and choice-point fidelity score | None | PL-B2 (new, after PL-B1) |
+| MS8 | A `surfaces` field and the count of details with no surface | None | PL-L13 |
+| MS9 | Grep baseline: coach fares, washroom and rest day have no hits in the LOTM runtime files; bells 1 file [S grep 2026-10-27] | | PL-L9 |
+
+### 12.8 More to consider (round 4)
+
+**ACT NOW (done):** schema 1.1, lint and test built and run twice; F1-F10 settled; the bot's
+parts and loop; information variants; path-change rules PC1-PC5; three fill routes for
+blanks; detail-to-surface table; MS1-MS9 recorded.
+
+**ACCOUNT FOR NOW**
+
+- PL-A10. **Two policies, two purposes.** `replay` proves the world (golden run);
+  `model` explores what-ifs. Never let a `model` result redefine the canon table.
+- PL-A11. **Fill review is the real cost.** Readers can propose fills cheaply; reviewing them
+  against stated facts and forward anchors is where effort goes. Batch review per place, and
+  let generators replace fills for any type that repeats.
+- PL-A12. **Recall versus compression.** Scenes compress; the census never does (F10).
+- PL-A13. **Counterfactual runs need snapshots and seeded days** (PL-E0, LP11) before they
+  mean anything.
+- PL-A14. **Surfaces have an attention budget.** Showing every detail at once buries the
+  useful ones; triggers decide (UI rules). A detail used only inside a mechanic is fine.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L12 | Census recall check: deterministic candidate list from the shard compared with census rows | Sonnet, small | One session | Reports missed amounts and names per shard; the first sample's misses appear |
+| PL-L13 | Census 1.2 `surfaces` field and a no-surface count | Sonnet, small | Small | Lint prints the count per kind |
+| PL-B2 | `model` policy with choice-point fidelity score | Sonnet high, opus review | Medium | On the first lived week, k of n canon choices reproduced, reported |
+| PL-L14 | One counterfactual demo: remove one knowledge fact at one date and re-run | Sonnet, after PL-B2 and PL-E0 | Small | A divergence report with scene statuses (PC2) |
+| PL-L15 | Shop-type stock grammar for Tingen, keyed by place and day (C2) | Sonnet, after PL-E1 | Medium | Two visits on the same day give the same stock; the band matches stated price anchors |

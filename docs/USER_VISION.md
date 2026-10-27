@@ -6693,3 +6693,9 @@ Proposal record (not accepted): [world absorption rules round 4](WORLD_ABSORPTIO
 
 Weibao's words: "Yes, send a lesser reader to sample a little and then consider improvements, and then, how will the thing go through and implement the main character as if they are playing through their own life? more to consider? details to absorb?"
 The "Yes" answered whether the presence ladder, dated whereabouts and forward anchors become standing rules: accepted as WA22-WA24 in [world absorption rules](WORLD_ABSORPTION_RULES.md). Proposal record (not accepted) for the rest: [plan round 3](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (sampled reading SF1-SF12, lead-life policy LP1-LP12, details DA1-DA16).
+
+## Lead bot, information variants, prose surfaces and unstated blanks (2026-10-27)
+
+Weibao's words: "Consider and record missing stuff accordingly and then implementing it? More to consider? Can we find out how the bot would play differently given different info long term? more to consider? We should change the path accordingly? more to consider? How does each prose detail even get shown in the game? More to consider? how does the 'bot' work? more to consider?"
+Then: "there will be alot of work needed to implement each location and more? and the people in each location? the stuff in the merchant's inventory that isnt stated? Lots of blanks we can reasonably fill at the same time(not stated in the book)?"
+Proposal record (not accepted): [plan round 4](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) (bot parts and loop, `replay` and `model` policies, path-change rules PC1-PC5, fill routes, detail surfaces, MS1-MS9). Built: [lead-run schema 1.1](gm/dispatch/protagonist-life-2026-10-27/LEAD_RUN_SCHEMA.md), its lint and test.
