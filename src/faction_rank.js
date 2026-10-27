@@ -13,7 +13,8 @@ export const DEFAULT_LADDER = [
 
 // Per-region overrides. A region without an entry uses DEFAULT_LADDER (dial, not a rule).
 export const REGION_LADDERS = {
-    Village: DEFAULT_LADDER,
+    // Proposal dial (WD2, 2026-10-27): two watch shifts make a Known Face here.
+    Village: DEFAULT_LADDER.map(r => r.id === 'known_face' ? {...r, at: 4} : r),
     Town: DEFAULT_LADDER.map(r => r.id === 'neighbour' ? {...r, at: 30, name: 'Regular'} : r),
     Slums: DEFAULT_LADDER.map(r => ({
         distrusted: {...r, feeling: 'Doors close as you approach.'},

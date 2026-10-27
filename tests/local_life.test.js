@@ -258,10 +258,32 @@ test('leaving says what it costs; returning says what waits; the place remembers
     const relayBack=advanceLocalLife({...normalizeLocalLife(),pamphletRead:true,parcelStep:2,lastClock:0,lastLocation:'Eastern mill'},c({clock:60,calendarMinute:780}));
     assert.match(relayBack.messages.find(m=>m.startsWith('Back'))||'',/midday bread is on the table; the old craftsman expects your receipt/);
     // Description: silent for a Stranger, names actual service at Known Face.
-    assert.equal(villageStandingSentence(undefined,9),'');
+    assert.equal(villageStandingSentence(undefined,3),'');
     assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:5},10),'People nod when you pass. They remember your 5 watch shifts.');
     assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:1,parcelRuns:2},50),'You are counted among the people who live here. They remember your 1 watch shift and 2 parcel relays.');
     assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:3},-5),'People here watch their purses when you pass.');
+});
+
+test('Village standing opens the elder\'s parcel work without closing the courier route',()=>{
+    const stranger=localLifeView(undefined,c({villageReputation:2})).rows.find(r=>r.id==='parcel');
+    assert.equal(stranger.disabled,true);
+    assert.equal(stranger.label,"Elder's parcel work: Needs Known Face standing in Village (4 reputation); you are Stranger. The visiting courier's pamphlet also opens it.");
+    assert.equal(localLifeAction(undefined,c({villageReputation:2}),'parcel').ok,false);
+    assert.equal(localLifeQuestView(undefined,c({villageReputation:2})).some(q=>q.id==='village.parcel'),false);
+    // Courier route unchanged for a Stranger.
+    const courier={...normalizeLocalLife(),pamphletRead:true};
+    assert.equal(localLifeView(courier,c({villageReputation:0})).rows.find(r=>r.id==='parcel').disabled,false);
+    // Two shifts (+4) make a Known Face: the row and the elder open the relay.
+    const known=c({villageReputation:2*VILLAGE_STANDING.watch});
+    const row=localLifeView(undefined,known).rows.filter(r=>r.id==='parcel');
+    assert.equal(row.length,1);assert.equal(row[0].disabled,false);assert.match(row[0].label,/^Parcel relay 1\/3/);
+    assert.match(localLifeAction(undefined,known,'mentor').messages[0],/^Elder: You have kept our watch; I can trust you with a parcel\./);
+    assert.match(localLifeQuestView(undefined,known).find(q=>q.id==='village.parcel').description,/^The elder connects/);
+    const started=localLifeAction(undefined,known,'parcel');assert.equal(started.ok,true);
+    // A begun relay stays open if standing later falls.
+    const fallen=c({location:'Eastern mill',villageReputation:-1});
+    assert.equal(localLifeView(started.state,fallen).rows.find(r=>r.id==='parcel').disabled,false);
+    assert.equal(localLifeAction(started.state,fallen,'parcel').ok,true);
 });
 
 test('parcel relays remain repeatable with explicit restart and three handoffs per pay',()=>{

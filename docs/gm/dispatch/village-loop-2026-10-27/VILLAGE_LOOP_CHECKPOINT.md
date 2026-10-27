@@ -55,6 +55,30 @@ TL1 steps (live, earn, carry, apply, react, return): live, earn, carry and retur
 | Committer gates, run in the clean tree (bundle `336b32b1…`) | `npm run build` ok; `npm test` 3501/3501; `check:arch` pass (main.js under baseline, no new cycles); `check:rules` PASS | |
 | Committed bundle | Built from clean HEAD `fa64b3a1` plus this slice's three source files (`336b32b1…`), because other sessions had uncommitted `src` edits in the shared tree; index.html changes only the bundle line | Walk ran on shared-tree bundles that also held those foreign UI edits; this slice's code is identical |
 
+## Slice VC2n: standing opens what already exists (GM_PLAN section 18, card 3)
+
+- **Outcome (PRF2).** Two watch shifts into a fresh life you become a Known Face in Village, and the elder offers the parcel relay directly, without needing the courier's pamphlet. Before that, Village shows a closed row: "Elder's parcel work: Needs Known Face standing in Village (4 reputation); you are Stranger. The visiting courier's pamphlet also opens it." Nothing that is open today closes.
+- **Why this row.** The courier is a 40% roll on each arrival in Village. A player who stays for watch shifts gets one roll, so the relay can stay unreachable for a whole watch-only life. Standing gives a second, earned route to existing content.
+- **Consumer (FLR4).** The existing parcel relay rows, elder advice and quest entry; `faction_rank.js` `rankAllows` for the gate and its reason.
+- **Cost.** Two completed watch shifts (26 idle hours over two days), or one relay plus one shift. The relay's own cost and its Eastern mill gate are unchanged.
+- **Mechanism and dial (WD2, still open for Weibao).** People trust those they have seen serve. Proposal default: the Village ladder puts Known Face at 4 (`REGION_LADDERS.Village`), two shifts at +2. Rung indices are unchanged, so `rank.Village` facts and the discount at Neighbour stay as they were. Another village keeps the default 10. Reverting is one line.
+- **Seam.** `faction_rank.js` (Village ladder override); `local_life.js` (relay open = pamphlet read, or already started or run, or Known Face; closed row with the `rankAllows` reason; elder text); `src/main.js` `localLifeContext` gains `villageReputation` (existing function, no registration line). No save field. Once a relay has started, falling below Known Face does not close it.
+- **Closed reason.** The reason sits in the row label text, so it is visible without hover. The UIV1 primitive is not needed or edited.
+- **Files.** `src/faction_rank.js`, `src/absorb_c2/local_life.js`, `src/main.js`, `tests/local_life.test.js`, `tests/faction_rank.test.js` if needed, this checkpoint, `evidence/`.
+- **Failure scenario.** The gate closes the courier route; the row opens below Known Face or stays closed at it; a started relay closes when standing falls; the Known Face change moves the Neighbour discount or rank indices; the promotion message fires twice.
+- **Finish check.** Focused tests (`local_life`, `faction_rank`); fresh life in the rebuilt browser with no courier read: the closed row before, Known Face after the second shift, the elder's parcel row then, save/reload keeps it; 1920×1080 and 1536×864.
+
+## Verification (VC2n)
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/local_life.test.js tests/faction_rank.test.js` | 31 + 8 pass; new test: closed row and its reason for a Stranger, action refused, courier route still open for a Stranger, Known Face at +4 opens row, elder line and quest, a begun relay stays open after standing falls; ladder test pins Village 4 / Town 10 | |
+| Rebuilt desktop browser, fresh origin (storage cleared), bundle `9f2633e6…`, 1920×1080 | Day 1: "Elder's parcel work: Needs Known Face standing in Village (4 reputation); you are Stranger. The visiting courier's pamphlet also opens it." (disabled, inline). Second shift (day 2, 20:00): "Standing rises in Village: Known Face." once; row became "Parcel relay 1/3: Collect the elder's parcel in Village. Clear the Cave room…"; elder: "You have kept our watch; I can trust you with a parcel…"; description "They remember your 2 watch shifts." (`evidence/vc2n-closed-row-1920.jpg`, `evidence/vc2n-known-face-opens-1920.jpg`) | The opened relay still waits on the Eastern mill (Cave room), an existing gate |
+| Save and reload, 1536×864 | Opened row kept; label wraps to two lines and stays readable (`evidence/vc2n-reload-1536.jpg`) | 21 px not checked |
+| Committer gates, clean tree (HEAD `59eb19de` plus this slice; bundle `94c459ce…`) | build ok; `npm test` 3502/3502; `check:arch` pass; `check:rules` PASS | |
+
+Effect on VL1 evidence: Known Face in Village now comes at 4 reputation (second shift), not 10 (fifth). The VL1 rows above are kept as dated history.
+
 ## Seams left for the cross-world loop (TL1-TL8) and a Proto23 pack
 
 Recorded per the coordinator's 2026-10-27 scope notes; no travel or Proto23 work done here.
@@ -89,3 +113,4 @@ Tool note: the browser `advanceTicks` hook stayed locked ("Cannot nest advanceTi
 - 2026-10-27: VL1 committed in `09d77f22` (watch path at the AD43 floor; relay grant unit-tested, not walked). Follow-up: Known Face walk and the card 1 double-count check recorded. Next card per GM_PLAN section 18: VC3a (say what leaving costs; the place remembers).
 - 2026-10-27: coordinator relayed Weibao's order: VC3a, then VC2n, then VC12. VC3a recorded before editing.
 - 2026-10-27: VC3a committed (watch forfeit, return note and description sentence walked; relay text unit-tested only).
+- 2026-10-27: VC2n recorded, implemented and committed (Village Known Face dial 10 → 4 as a WD2 proposal; elder's parcel work opens at Known Face).

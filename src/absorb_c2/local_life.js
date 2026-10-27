@@ -1,6 +1,6 @@
 import {natural} from '../basics.js';
 import {recurringWindow} from '../world_rhythm.js';
-import {rankOf} from '../faction_rank.js';
+import {rankOf,rankAllows} from '../faction_rank.js';
 
 // Original, bounded Village/household texture. All rewards are plans; the host
 // persists native diffs and this state together before publishing either.
@@ -167,6 +167,11 @@ export function villageStandingSentence(raw,reputation) {
     return `${rank.feeling}${done.length?` They remember your ${done.join(' and ')}.`:''}`;
 }
 
+// The relay opens through the courier's pamphlet or through Village standing;
+// once begun it stays open even if standing later falls.
+const elderTrust = c => rankAllows('Village',c.villageReputation,'known_face');
+const relayOpen = (s,c) => s.pamphletRead||s.parcelStarted||s.parcelRuns>0||elderTrust(c).ok;
+
 export function localLifeAction(raw,c,id) {
     const s=normalizeLocalLife(raw),p=result(s);
     const fail=message=>({...p,ok:false,messages:[message]});
@@ -199,7 +204,7 @@ export function localLifeAction(raw,c,id) {
         if(c.location!=='Village'||s.parcelStep!==3)return fail('Finish the current relay before taking another in Village.');
         s.parcelStep=0;s.parcelStarted=false;p.messages.push('Another parcel relay is available. Collect it from the elder, visit the millers and return the receipt.');
     } else if(id==='parcel') {
-        if(!s.pamphletRead||s.parcelStep>=3)return fail('Read the courier pamphlet before taking this errand.');
+        if(!relayOpen(s,c)||s.parcelStep>=3)return fail(`Read the courier pamphlet or earn the elder's trust first. ${elderTrust(c).reason}`);
         const stop=PARCEL_STOPS[s.parcelStep];
         if(c.location!==stop.location)return fail(stop.text);
         if(s.parcelStep===0 && c.millUnlocked!==true)return fail('Clear the Cave room and report to the village elder to open the Eastern mill route first.');
@@ -209,7 +214,7 @@ export function localLifeAction(raw,c,id) {
         else p.messages.push(`Parcel handoff complete. Next: ${PARCEL_STOPS[s.parcelStep].text}`);
     } else if(id==='mentor') {
         if(c.location!=='Village')return fail('The elder gives route advice in Village.');
-        p.messages.push(!s.pamphletRead?'Elder: Look for the visiting courier’s pamphlet in Village. Meet me through Talk to someone for the field and cave tasks. Clear the Cave room, then report back to open the Eastern mill route.':s.parcelStep<3?`Elder: ${PARCEL_STOPS[s.parcelStep].text}${!c.millUnlocked?' Clear the Cave room, then report back to me to open the Eastern mill route.':''}`:'Elder: Your relay is finished. Morning watch, midday bread and weekly market are repeatable local routines.');
+        p.messages.push(!s.pamphletRead&&!s.parcelStarted&&elderTrust(c).ok&&s.parcelStep===0?`Elder: You have kept our watch; I can trust you with a parcel. ${PARCEL_STOPS[0].text}${!c.millUnlocked?' Clear the Cave room, then report back to me to open the Eastern mill route.':''}`:!relayOpen(s,c)?'Elder: Look for the visiting courier’s pamphlet in Village. Meet me through Talk to someone for the field and cave tasks. Clear the Cave room, then report back to open the Eastern mill route.':s.parcelStep<3?`Elder: ${PARCEL_STOPS[s.parcelStep].text}${!c.millUnlocked?' Clear the Cave room, then report back to me to open the Eastern mill route.':''}`:'Elder: Your relay is finished. Morning watch, midday bread and weekly market are repeatable local routines.');
     } else if(id==='help' || id==='decline') {
         if(c.location!=='Village' || !s.encounter) return fail('The runner is not waiting here.');
         if(id==='help') {
@@ -248,9 +253,10 @@ export function localLifeView(raw,c) {
         readiness:available?`Ready. ${localSearchMethod(c).text} Completed search work stays when the method changes.`: 'Finish combat, travel, dialogue, sleep or other work first.',
         rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 search work; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
-            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}${s.parcelStarted?' The parcel waits while you travel or rest; nothing is lost.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
+            ...(relayOpen(s,c) && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}${s.parcelStarted?' The parcel waits while you travel or rest; nothing is lost.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[
                 {id:'mentor',label:'Ask the village elder what to do next',disabled:!available},
+                ...(!relayOpen(s,c)?[{id:'parcel',label:`Elder's parcel work: ${elderTrust(c).reason} The visiting courier's pamphlet also opens it.`,disabled:true}]:[]),
                 ...(s.visitorMet?[{id:'pamphlet',label:s.pamphletRead?'Courier: route pamphlet read':'Visiting courier: read route pamphlet (unlocks parcel relay)',disabled:!available||s.pamphletRead}]:[]),
                 {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; forfeits ${WATCH_FORFEIT})` : watch.open?`Accept Village watch (until 20:00; 12 coins, +${VILLAGE_STANDING.watch} Village reputation; leaving early forfeits them)`:`Watch closed: next opening in ${watch.nextIn} minutes (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
                 {id:'market',label:market.open?'Weekly market: take restocked bread':`Weekly market: next opening in ${market.nextIn} minutes (day 1, 09:00–17:00)`,disabled:!available||!market.open},
@@ -272,8 +278,8 @@ export function localLifeQuestView(raw,c={}) {
         ...(s.watchDay!=null?[{id:'village.watch',name:'Village watch',completed:!s.watching,
             description:`Repeatable morning watch. Stay idle in Village until 20:00. Leaving or other work first forfeits ${WATCH_FORFEIT}; Persistence XP already earned stays.`,
             objective:s.watching?`On watch: ${s.watchMinutes} played minutes. Stay until 20:00; 12 coins and +${VILLAGE_STANDING.watch} Village reputation on completion.`:`${s.watchShifts} shifts completed. Accept another at 07:00–10:00.`}]:[]),
-        ...(s.pamphletRead?[{id:'village.parcel',name:'Village parcel relay',completed:s.parcelStep===3,
-            description:'The courier pamphlet connects the elder, millers and old craftsman. Use ordinary travel between handoffs.',
+        ...(relayOpen(s,c)?[{id:'village.parcel',name:'Village parcel relay',completed:s.parcelStep===3,
+            description:`${s.pamphletRead?'The courier pamphlet':'The elder'} connects the elder, millers and old craftsman. Use ordinary travel between handoffs.`,
             objective:s.parcelStep===3?`${s.parcelRuns} relays delivered. 8 coins, 2 Perception XP and +${VILLAGE_STANDING.relay} Village reputation paid for the last receipt. Start another in Village.`:`Next stop ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&c.millUnlocked!==true?' Before collecting: clear the Cave room and report to the village elder to open Eastern mill.':''}`}]:[])
     ];
 }

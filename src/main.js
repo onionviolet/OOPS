@@ -1592,7 +1592,7 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         alive:character.is_alive===true&&state.chronicle?.life.endedAt==null,
         idle:!current_combat&&!current_activity&&!current_game_action&&!is_sleeping&&!is_reading&&!current_dialogue&&!is_in_trade()&&nativeActionReasons(state).length===0,
         clock:calendarMinutes(calendar),calendarMinute:calendarMinutes(calendar),
-        perception:character.getTotalSkillLevel('Perception'),money:character.money,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
+        perception:character.getTotalSkillLevel('Perception'),money:character.money,villageReputation:character.reputation.Village,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
         millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
         bleedingRemaining:active_effects.Bleeding?.duration||0,
         foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};

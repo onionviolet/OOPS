@@ -14,6 +14,8 @@ test('rank is a derived band over signed reputation, with per-region names', () 
     assert.equal(rankOf('Slums', 50).name, 'Kin');
     assert.equal(rankOf('Village', 5000).next, null);
     assert.equal(rankOf('Nowhere', 10).id, 'known_face');
+    // WD2 proposal dial: Village names a Known Face after two watch shifts; other regions keep 10.
+    assert.equal(rankOf('Village', 4).id, 'known_face');assert.equal(rankOf('Village', 3).id, 'stranger');assert.equal(rankOf('Town', 4).id, 'stranger');
     assert.equal(rankOf('Village', 'x').id, 'stranger');
 });
 
