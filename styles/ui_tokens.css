@@ -1590,7 +1590,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 #main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button,select,input,textarea,.activable_buttons > div,.recipe_name,.action_travel,.start_dialogue,.start_activity,.dialogue_textline) {
  font-family: var(--custom-font); border-radius: var(--ui-luminous-radius);
  border-color: var(--ui-luminous-rule); background-image: none;
- transition: border-color .12s, box-shadow .12s;
+ transition: border-color var(--ui-motion-fast) var(--ui-motion-ease), box-shadow var(--ui-motion-fast) var(--ui-motion-ease);
 }
 #main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button,select,summary,[tabindex],.inventory_item_control,.recipe_name):hover {
  box-shadow: var(--ui-luminous-glow); border-color: var(--theme-accent);
@@ -1714,6 +1714,10 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
  --ui-glow-discovery: 0 0 6px color-mix(in srgb, var(--sem-money, var(--ui-accent)) 38%, transparent);
  --ui-reading-fill: var(--theme-surface, var(--workspace-surface, var(--ui-navy)));
 }
+/* DL10 / Q18 P08: reduced motion is one token switch. Every --ui-motion-* consumer turns static
+   under the OS preference or the Effects off/reduced setting; static cues stay. */
+:root:is([data-effects="off"],[data-effects="reduced"]), :root:is([data-effects="off"],[data-effects="reduced"]) .customization-module {--ui-motion-fast:0ms;--ui-motion-normal:0ms;}
+@media (prefers-reduced-motion:reduce) {:where(:root, .customization-module) {--ui-motion-fast:0ms;--ui-motion-normal:0ms;}}
 #main_content.workspace-active :is(button,select,input,textarea,[role="button"],summary) {
  transition: border-color var(--ui-motion-fast) var(--ui-motion-ease), box-shadow var(--ui-motion-fast) var(--ui-motion-ease), background-color var(--ui-motion-fast) var(--ui-motion-ease);
 }

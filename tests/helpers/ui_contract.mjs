@@ -21,6 +21,9 @@ export function scanUiText(text) {
     // UR68: size, leading and weight come from the type tokens.
     for(const m of text.matchAll(/(?<![\w-])(?:font-size|line-height|font-weight)\s*:[^;\n}"'`]+/g))
         if(!/^[\w-]+\s*:\s*(?:inherit|normal|initial|unset|0|1|var\([^;]*\))\s*(?:!\s*important)?\s*$/.test(m[0].trim()))add('type',m[0]);
+    // DL10 / P08: transition and animation timing comes from --ui-motion-*, so reduced motion is one switch.
+    for(const m of text.matchAll(/(?<![\w-])(?:transition|animation)(?:-duration)?\s*:[^;\n}"'`]+/g))
+        if(/(?<![\w.-])(?:\d*\.)?\d+m?s\b/.test(m[0].replace(/var\([^()]*\)/g,'')))add('motion',m[0]);
     // UR66: controls take their height from --ui-control-*.
     for(const m of text.matchAll(/([^{}]*)\{([^{}]*)\}/g)){
         if(!/(?:button|select|summary|input|\[role=["']?button|\btab\b|-tab\b|-button\b|\bbtn\b)/i.test(m[1]))continue;

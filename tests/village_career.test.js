@@ -47,5 +47,9 @@ test('DRC11: disabled teaching terms name their first failing condition', async 
         assert(paid().disabled);assert.match(paid().dataset.disabledReason,/patrol round/);
         view.canTeach=true;controls.render();assert.match(paid().dataset.disabledReason,/Watchcraft must be executable/);
         view.study={...view.study,executable:true};controls.render();assert(!paid().disabled);assert.equal(paid().dataset.disabledReason,undefined);
+        // Reproduced 2026-10-27: Watchcraft lessons held by the shared busy/write gate showed no reason at all.
+        const tutor=()=>document.getElementById('village_watchcraft_tutor');
+        view.study={...view.study,known:false};view.busy=true;controls.render();assert(tutor().disabled);assert.match(tutor().dataset.disabledReason,/current activity/);
+        view.busy=false;view.canWrite=false;controls.render();assert.match(tutor().dataset.disabledReason,/writable game tab/);
     } finally {Object.assign(globalThis,saved);}
 });

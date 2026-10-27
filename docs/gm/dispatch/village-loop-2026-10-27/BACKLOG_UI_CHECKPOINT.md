@@ -1,14 +1,14 @@
 # Backlog UI checkpoint, 2026-10-27
 
 ```receipt
-build: 04171f3a7ba386db189a754c0eefa900f9cc1a2ff2f0dd91ba0632befeb57928
+build: 4c8cd696083f7fe7c54e66cd4aa8a22cb592b971fec603d799692a702e596452
 route: natural
 state: browser-verified
 viewport: 1920x1080 primary; 1536x864 floor; font 14 and 21
-persistence: unchanged
-tests: node --test tests/ui_components.test.js tests/lotm_*.test.js 145/145; npm test 3499/3499; check:arch exit 0; check:rules PASS
+persistence: checked
+tests: focused crafting_home, village_career, workspace, ui_contract pass; npm test 3504/3505 (CN11 load flake, passes alone); check:arch exit 0; check:rules PASS
 review: diff-scoped
-surface: shared disabled-reason decorator; Tingen workroom (place service); Projects drawer
+surface: disabled-reason decorator; Tingen workroom; Projects drawer; Patrol & custody; carcass processing; Village experiments; module headers; motion tokens
 ```
 
 Session: `backlog-ui` (Claude, started by the Village loop coordinator). Brief: [BRIEFS.md section 3](BRIEFS.md), [COMMON.md](COMMON.md).
@@ -122,12 +122,95 @@ Scan of the `mid` perf fixture, rebuilt temp bundle, fresh origin, 4 cells (1920
 | Type scan, `mid` fixture, 4 cells | Synthetic bold on Gothic: 7 → 0 | Fresh and crowded fixtures not scanned |
 | `node --test tests/ui_contract.test.js tests/presentation_style.test.js` | 8 pass, 0 fail | |
 
-### P06-P10: hand-over (not started)
+### P06-P10 and the DRC11/DRC12 browser pass (second request, 2026-10-27)
 
-Each row still needs a live ownership check before editing.
+The coordinator relayed Weibao's "continue": take P06-P10, then run the DRC11/DRC12 browser pass. Ownership check before editing: no live lane names `crafting_home.js`, `workspace_layout.js`, `styles/shell_chrome.css`, `styles/meter_bar.css` or the UI contract files. Before staging, `git diff` of each committed file showed only this lane's hunks. `village_career_ui.js` and `harvest_ui.js` are this lane's from P02. `main.js` has another session's uncommitted edits and is not touched.
 
-- P06 (DL6, long labels keep meaning and full-name access), P07 (DL9, time/weather signals without color alone), P08 (tooltip frame and reduced-motion tokens; leave live tooltip implementation to its incumbent): as written in Q18.
-- P09 (DRC9) is small: `crafting_home.js` "Drink one" names observed effects when known; unknown keeps "Drink one".
-- P10 is a diagnostic first; add recap UI only if a return-session problem reproduces.
-- Next UIV1 rows are listed under "UIV1 change" above.
-- Tooling: `scripts/playtest/uiv1-probe.mjs` is the pattern for a 4-cell, fresh-origin, headless matrix with text size asserted on `#inventory_div`; perf fixtures via `scripts/perf/lib.mjs` `readFixture`.
+#### P06 · DL6 long labels (fixed)
+
+- Probe: `scripts/playtest/long-label-probe.mjs` loads the `crowded` fixture with a 67-character hero name and runs 4 cells. It lists every visible leaf text cut by its box and checks that the full text is available through `title` or `aria-label`.
+- Reproduced at 1536x864, text 21: the Reports and Journal module titles were cut to "Rep…" and "Jo…" with no full-name access, while the Reports filter box kept its width.
+- Fix:
+  - `workspace_layout.js` gives every module header title a `title` equal to its visible text, including companion boxes and the composed "You" and "Inventory" titles.
+  - `shell_chrome.css` keeps the Reports title at its own width (`flex:0 0 auto`), so the filter box, which is decoration, shrinks first.
+- After: 0 cut labels without full-name access in all 4 cells, and Reports reads in full at 1536/21.
+- Left as is:
+  - The Journal companion column is about 60 px wide at 1536/21, so "Jo…" stays cut, but its full name is now on the title. Widening the column is a layout-density choice (L6).
+  - The hero-name input is clipped at its 12em cap with no ellipsis. The name stays editable and inspectable in the field. Adding a `title` there would mean editing `main.js`.
+
+#### P07 · DL9 time and weather signals (checked, no change)
+
+- Sampled the scene header of the `mid` fixture every game hour for 96 hours at 1920x1080, text 14.
+- Every signal carries a word plus a glyph, so none relies on color alone: season ("☀ Summer"), weather ("☂ Rain", "Dry"), temperature with a comfort word ("16.5 °C · cold"), exposure ("Cold exposure") and day part ("☼ Day", "☾ Night").
+- Proposal, not applied: the season glyph is ☀ even while raining, which reads as mixed weather. A season-specific glyph would remove that.
+
+#### P08 · DL10 / DL2 motion and tooltip tokens (one token change plus guard)
+
+- Audit:
+  - The motion tokens were already zeroed by consumer rules under Effects off or reduced (the default Effects setting is reduced).
+  - Two literal transitions bypassed the tokens: `meter_bar.css` `.2s` and the luminous theme's `.12s`.
+  - Eight named keyframes each carry their own reduced-motion or Effects guard.
+  - Tooltip frame (`--ui-tooltip-frame`, `-outline`, `-shadow`) and reading backing (`--ui-tooltip-fill`, opaque) are already separate tokens, so DL2 is met. The item-inspection repair stays with its incumbent.
+- Change:
+  - `ui_tokens.css` sets `--ui-motion-fast` and `--ui-motion-normal` to 0ms under Effects off/reduced and under `prefers-reduced-motion`. Reduced motion is now one switch.
+  - The two literal transitions now read the tokens.
+  - Guard: the UI contract scanner has a new `motion` rule. The ten existing literal durations are allowlisted with reasons; eight of them are animations with their own guard (the five upstream `style.css` ones rely on the workspace kill switch), and the other two are that kill switch's own durations.
+- Browser check at 1920x1080:
+  - Effects full: button 0.12s, meter 0.18s.
+  - Effects reduced and off: 0s.
+  - OS reduced motion: 1e-6s (the existing kill switch wins).
+
+#### P09 · DRC9 Drink one names observed effects (fixed)
+
+- `crafting_home.js`: a preparation with observed effects reads "Drink one · observed bind 28". Unknown batches keep "Drink one" (AD6).
+- Browser: earned route from a fresh life at 1920x1080/14 and 1536x864/21 (gather, steep three times, drink one). After the drink, the drunk batch is named and the untried batch stays plain.
+
+#### P10 · MC9 return-session diagnostic (not needed)
+
+- Route: a fresh life, the Tingen probationer life, report to the supervisor, then start "Copy a closed case file · 30 min". After 10 minutes, save and reopen in a new context at 1920x1080/14.
+- Known goal: the LOTM panel's first action block is "Plan the next crossing · Sequence 9 · Seer · Hold the allocated Seer dose, then drink it".
+- Real stop: the work module is open on landing without navigation and shows "…: 20 min remaining" with "Stop (cost not returned)". The job finishes 25 minutes after the return and pays 1 merit.
+- Timing: the reopen to a playable screen took about 7 s headless.
+- No return-session problem reproduced, so no recap UI was added.
+- Recorded:
+  - The workroom list grows from 10 to 26 buttons after reporting, and 22 of them are disabled with reasons.
+  - "Find step" appears twice.
+  - Both are inputs for the UF7 orientation slice, not defects fixed here.
+
+#### DRC11 / DRC12 browser pass (DRC11 at the floor; DRC12 browser-verified on seeded state, below floor)
+
+- Probe: `scripts/playtest/backlog-ui-probe.mjs`.
+  - DRC11 is earned from a fresh life: five full patrol rounds with the kit returned, two promotions, then Iona assigned through the Patrol & custody buttons.
+  - DRC12 is seeded on that earned save: a running carcass job with two more carcasses waiting. An earned carcass needs a fight, which this pass did not drive.
+  - Runs 4 cells, plus the P08 motion and P09 drink checks.
+  - Tab reachability is a real Tab walk from the panel's first stop. Focusing a mid-panel control redraws the harvest panel, so the earlier focus-the-predecessor method gave a false miss.
+- New defect found and fixed (regression added to the DRC11 test): "Learn from Tessa in person" and "Ask Tessa for Tessa's watchcraft notes" were disabled with no reason at all, held by the shared write/busy gate. The fix is in `village_career_ui.js`:
+  - Every control held by that gate now names it: "Finish current work in the writable game tab." or "Finish your current activity, work or occupation first."
+  - Read notes and Promotion name their own cause.
+- Result: 12 blocked controls per cell (7 Village patrol, 5 carcass), every reason visible without hover and reached by Tab, in all 4 cells.
+- Remaining gap: DRC12's carcass is seeded, so DRC12 stays implemented, below floor (FLR2), though its reasons are browser-verified.
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/crafting_home_refresh.test.js` | 2 pass, new DRC9 known/unknown test | |
+| `node --test tests/workspace_*.test.js tests/village_workspace.test.js` | 11 pass | |
+| `node --test tests/ui_contract.test.js` | 3 pass, motion rule and its catch/allow cases | |
+| `node --test tests/village_career.test.js` | 6 pass; DRC11 test now covers the reasonless Watchcraft lesson (busy and unwritable) | |
+| `node scripts/playtest/long-label-probe.mjs` | 4 cells, 0 cut labels without full-name access | Journal column stays narrow |
+| `node scripts/playtest/backlog-ui-probe.mjs` | PASS: earned mentor career; 4 cells × 12 controls; motion full/reduced/off/OS; drink at 2 cells | DRC12 carcass seeded |
+| P07 and P10 diagnostics | Scratch scripts, results above | Not committed as scripts |
+| `BUILD_OUT=.lane-builds/backlog-ui npm run build` | ok, bundle sha256 in the receipt | Shared `dist/` left to its owner; this request's JS goes live with the next shared rebuild |
+| `npm test` | Final run 3504 pass, 1 fail: CN11 in `native_save_fixtures.test.js`, which passes alone (1/1). An earlier run had `alloy_equipment` fail under load, also passing alone (5/5), and two `SELF_LOCKED_REQUIREMENT` lint failures from another session's uncommitted `village.watch_lantern` card, since cleared | Timing flakes under parallel browser load; shared checkout carries other sessions' uncommitted edits |
+| `npm run check:arch` / `npm run check:rules` | exit 0 / PASS | |
+
+Floor (AD43) for this request:
+
+| Row | FLR1 | FLR2 | FLR3 | FLR4 | FLR5 | FLR6 |
+| --- | --- | --- | --- | --- | --- | --- |
+| P06 headers | Lane hash | Populated `crowded` fixture (UI-only, no state) | Full name on title; Reports keeps its width | Player reading a module title | No persistence change | Agent-verified, not human-reviewed |
+| P08 motion | Lane hash | Fresh life, 1920x1080 | Effects setting and OS preference change motion | Every `--ui-motion-*` consumer | No persistence change | Agent-verified, not human-reviewed |
+| P09 drink | Lane hash | Earned: fresh life, gather, steep, drink | Button names what was observed | Player choosing which batch to drink | Existing knowledge state; no new field | Agent-verified, not human-reviewed |
+| DRC11 | Lane hash | Earned: fresh life to Mentor with Iona | Every held control names its cause | Player reading why a term is closed | No persistence change | Agent-verified, not human-reviewed |
+| DRC12 | Lane hash | Seeded carcass job: below floor | Every held control names its cause | As above | No persistence change | Agent-verified, not human-reviewed |
+
+Status: P06, P08, P09 and DRC11 done at the floor. P07 and P10 needed no change. DRC12 is browser-verified but implemented, below floor until an earned carcass route runs.

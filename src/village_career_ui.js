@@ -7,7 +7,9 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
     const panel=node('section');panel.id='village_career_controls';
     const title=node('h4'),status=node('p'),memory=node('p'),requirements=node('p'),study=node('p'),outcome=node('p'),buttons=node('div'),error=node('p');study.id='village_watchcraft_status';outcome.id='village_watchcraft_outcome';
     const junior=node('p');junior.id='village_mentor_status';panel.append(title,status,memory,requirements,study,outcome,junior,buttons,error);let signature='';decorateActionComponents(panel);
-    const action=(id,label,fn,disabled,reason='')=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;if(disabled&&reason){b.dataset.disabledReason=reason;b.title=reason;}b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};
+    // DRC11: a control held by the shared write/busy gate names that gate unless it passes its own reason.
+    let held='';
+    const action=(id,label,fn,disabled,reason='')=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;reason||=held;if(disabled&&reason){b.dataset.disabledReason=reason;b.title=reason;}b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};
     function render() {
         const v=read();panel.hidden=!v.visible;refreshShortcut();
         if(!v.visible)return;
@@ -17,7 +19,7 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
             memory.textContent=villageColleagueMemory(s);
             const unmet=villagePromotionRequirements(s);
             requirements.textContent=s.rank===2?'Mentor: all three career ranks earned.':`Next: ${CAREER_RANKS[s.rank+1]}. ${unmet.length?unmet.join(' '):'All requirements met. Ask Tessa for your promotion.'}`;
-            const controls=[],disabled=!v.canWrite||v.busy;
+            const controls=[],disabled=!v.canWrite||v.busy;held=!v.canWrite?'Finish current work in the writable game tab.':v.busy?'Finish your current activity, work or occupation first.':'';
             const w=v.study;
             study.textContent=`Watchcraft: known ${w.known?'yes':'no'} · practiced ${w.practiced?'yes':`no (${w.practiceMinutes}/${WATCHCRAFT_PRACTICE} meditation minutes)`} · executable now ${w.executable?'yes, loaned lantern and baton held on this round':'no'}.`;
             outcome.textContent=s.loan?.status==='active'?(w.executable?`This full round: 50 coins + ${WATCHCRAFT_BONUS} for a clear report = 60 coins. Leaving early pays nothing.`:'This full round: 50 coins. Watchcraft bonus unavailable on this round.'):
@@ -51,14 +53,14 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
             if(s.watchcraft.tutoring)outcome.textContent=`Tessa’s in-person instruction: ${s.watchcraft.tutorMinutes}/6 meditation minutes. Leaving pauses it; resume Village meditation. No coin cost.`;
             if(s.rank>=1 && !w.known && !s.watchcraft.tutoring)controls.push(action('village_watchcraft_tutor','Learn from Tessa in person · 6 meditation minutes · no book or coin cost',tutor,disabled));
             if(s.rank>=1 && !s.watchcraft.notesIssued)controls.push(action('village_watchcraft_notes',`Ask Tessa for ${WATCHCRAFT_BOOK}`,notes,disabled));
-            if(s.watchcraft.issued && !w.known)controls.push(action('village_watchcraft_read','Read watchcraft notes · 6 minutes',readNotes,disabled||!v.hasNotes));
+            if(s.watchcraft.issued && !w.known)controls.push(action('village_watchcraft_read','Read watchcraft notes · 6 minutes',readNotes,disabled||!v.hasNotes,disabled?'':'Carry Tessa’s watchcraft notes to read them.'));
             if(s.watchcraft.issued && !w.known && !v.hasNotes)outcome.textContent+=' Retrieve your notes from storage to read them.';
             if(w.known && !w.practiced)controls.push(action('village_watchcraft_practice','Rehearse watchcraft while meditating · 5 minutes',practice,disabled));
             if(s.loan && s.loan.status!=='active') {
                 controls.push(action('village_return_kit','Return loaned kit',()=>resolve('return'),disabled));
                 controls.push(s.debt?action('village_pay_debt',`Pay ${KIT_DEBT}-coin kit debt`,()=>resolve('pay'),disabled):action('village_keep_kit','Keep kit and record debt',()=>resolve('keep'),disabled));
             }
-            if(s.rank<2)controls.push(action('village_promotion',`Ask Tessa: ${CAREER_RANKS[s.rank+1]}`,promote,disabled||!!unmet.length));
+            if(s.rank<2)controls.push(action('village_promotion',`Ask Tessa: ${CAREER_RANKS[s.rank+1]}`,promote,disabled||!!unmet.length,disabled?'':unmet.join(' ')));
             buttons.replaceChildren(...controls);
         }
         const host=document.getElementById('location_actions_div');if(host && !workspaceOwns(panel) && panel.parentElement!==host)host.append(panel);

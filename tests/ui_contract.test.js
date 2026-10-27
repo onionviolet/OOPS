@@ -22,6 +22,9 @@ test('UI contract catches new literal styling and aliased/direct foreign panel i
     // UR66-UR68: control heights, layers and type roles.
     for(const [text,rule] of [['button.x {min-height:23px}','control-height'],['.x {z-index:30}','layer'],["el.style.zIndex='5';",'layer'],['.x {line-height:1.35}','type'],['.x {font-weight:600}','type'],['.x {font-size:.85em}','type']])
         assert.deepEqual(scanUiText(text).map(v=>v.rule),[rule],text);
+    // DL10: literal motion timing is caught; token timing and none are not.
+    for(const text of ['.x {transition: width .2s}','.x {animation: pulse 900ms ease-out 1}','.x {animation-duration: 1s}'])assert.deepEqual(scanUiText(text).map(v=>v.rule),['motion'],text);
+    assert.deepEqual(scanUiText('.x {transition: width var(--ui-motion-normal, .2s)} .y {transition:none;animation:none}'),[]);
     assert.deepEqual(scanUiText('button.x {min-height:var(--ui-control-sm);height:auto} .y {z-index:var(--ui-layer-popover);line-height:var(--ui-line-body);font-weight:var(--ui-weight-strong);font-size:inherit} .panel {min-height:420px}'),[]);
 });
 // UIL1 (UIM1, UIM2): every panel declares a surface type and every navigation route resolves

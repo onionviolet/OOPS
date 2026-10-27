@@ -25,3 +25,17 @@ test('registry refresh redraws a paused crafting home after readiness changes, b
   assert.equal(gather().disabled,true);assert.equal(gather().title,native.blocked);assert.equal(ticks,0);
  }finally{globalThis.document=previous;}
 });
+
+// DRC9: an observed preparation's drink action names what was seen; an unknown one keeps "Drink one".
+test('DRC9: Drink one names observed effects and stays plain when nothing is known',async()=>{
+ const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="main_content"></div></body></html>');globalThis.document=dom.document;
+ try{
+  const {createCraftingHome}=await import('../src/crafting_home.js');
+  const products=[{key:'known',count:1,name:'Steep (health)',effects:[{route:'oral',effect:'health',value:3},{route:'oral',effect:'poison',value:1}]},{key:'unknown',count:2,name:'Unidentified steep',effects:[]}];
+  const read=()=>({materials:[],products,blocked:'',world:'base.frontier',location:'Village',discovered:true});
+  const panel=createCraftingHome({read,quote:()=>({eligible:true,reason:''}),execute:()=>{}});panel.render();
+  const label=key=>dom.document.querySelector(`[data-crafted-use="${key}"]`).textContent;
+  assert.equal(label('known'),'Drink one · observed health 3, poison 1');
+  assert.equal(label('unknown'),'Drink one');
+ }finally{globalThis.document=previous;}
+});

@@ -1,7 +1,7 @@
 /* World meters (src/meter_bar.js). Color is paired with the label text and a state outline, never alone. */
 .meter-bar { position: relative; min-height: 20px; margin: var(--ui-space-1) 0; }
 .meter-bar-track { display:block; height: 4px; margin-top: 3px; background: var(--ui-meter-track-bg); overflow:hidden; }
-.meter-bar-fill { display:block; height: 100%; background: var(--meter-fill, var(--ui-meter-pool)); transition: width .2s; }
+.meter-bar-fill { display:block; height: 100%; background: var(--meter-fill, var(--ui-meter-pool)); transition: width var(--ui-motion-normal, .2s); }
 .meter-bar[data-kind="accumulator"] { --meter-fill: var(--ui-meter-accumulator); }
 .meter-bar[data-kind="track"] { --meter-fill: var(--ui-meter-track); }
 .meter-bar-label, .meter-bar-value { color: var(--ui-text); font-size: var(--ui-type-body, inherit); }

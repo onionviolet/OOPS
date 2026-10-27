@@ -216,7 +216,8 @@ function moduleCritical(id) { return registry.get(id)?.critical === true; }
 function labelShell(module, known) {
     if (!module.shell || module.labelled === known) return; module.labelled = known;
     const name = known ? module.title : 'panel', shell = module.shell;
-    shell.querySelector('.workspace-module-header > strong').textContent = known ? module.title : '';
+    // DL6: a header cut by a narrow box keeps its full name inspectable.
+    const heading = shell.querySelector('.workspace-module-header > strong'); heading.textContent = known ? module.title : ''; heading.title = known ? module.title : '';
     module.decorateShell?.(shell, known);
     shell.querySelector('.workspace-drag-handle').setAttribute('aria-label', `Move ${name}`);
     shell.querySelectorAll('[data-workspace-action=width],[data-workspace-action=height]').forEach(r => r.setAttribute('aria-label', `${name} ${r.dataset.workspaceAction}`));
@@ -323,8 +324,8 @@ export function updateWorkspace() {
         // R21c: a panel the layout spec puts in a box (the status window under You) has a home there.
         const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&(companionPanels().includes(state.id)||boxOf(state.id)));
         setData(shell,'compositionParked',String(parked));
-        if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
-        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(LAYOUT_SPEC.boxes[boxOf(state.id)]?.title||module.title):module.title);
+        if(known&&['vitals','belongings'].includes(state.id)){const heading=shell.querySelector('.workspace-module-header > strong'),text=composed?(state.id==='vitals'?'You':'Inventory'):module.title;setProperty(heading,'textContent',text);setProperty(heading,'title',text);}
+        if(known&&companionPanels().includes(state.id)){const heading=shell.querySelector('.workspace-module-header > strong'),text=owner.parity?(LAYOUT_SPEC.boxes[boxOf(state.id)]?.title||module.title):module.title;setProperty(heading,'textContent',text);setProperty(heading,'title',text);}
         if(known&&state.id==='vitals'){
             const race=document.getElementById('character_race_div');
             const visibleRace=race?[...race.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').replace(/^[^:]*:\s*/,'').trim():'';

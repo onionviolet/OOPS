@@ -6174,6 +6174,86 @@
       "snippet": "font-size: 24px",
       "count": 1,
       "reason": "Material Icons uses its nominal 24px optical glyph size; player text roles and spacing tokens do not describe icon geometry. Existing context-specific icon size overrides remain in force."
+    },
+    {
+      "key": "style.css|motion|04be8960edd78faf",
+      "path": "style.css",
+      "rule": "motion",
+      "snippet": "animation-duration: 4s",
+      "count": 1,
+      "reason": "Upstream keyframe timing; the workspace reduced-motion rule in styles/workspace.css shortens it."
+    },
+    {
+      "key": "style.css|motion|41341b66f59540e8",
+      "path": "style.css",
+      "rule": "motion",
+      "snippet": "animation-duration: 1s",
+      "count": 2,
+      "reason": "Upstream keyframe timing; the workspace reduced-motion rule in styles/workspace.css shortens it."
+    },
+    {
+      "key": "style.css|motion|4a08fe0a7c0e1084",
+      "path": "style.css",
+      "rule": "motion",
+      "snippet": "animation-duration: 2s",
+      "count": 1,
+      "reason": "Upstream keyframe timing; the workspace reduced-motion rule in styles/workspace.css shortens it."
+    },
+    {
+      "key": "style.css|motion|8ceaa83009832d28",
+      "path": "style.css",
+      "rule": "motion",
+      "snippet": "animation-duration: 0.2s",
+      "count": 1,
+      "reason": "Upstream keyframe timing; the workspace reduced-motion rule in styles/workspace.css shortens it."
+    },
+    {
+      "key": "styles/display_settings.css|motion|143696ac9a3dda0e",
+      "path": "styles/display_settings.css",
+      "rule": "motion",
+      "snippet": "animation: workspace-reveal-quiet 400ms linear 1",
+      "count": 1,
+      "reason": "Named keyframe with its own reduced-motion or Effects guard beside it."
+    },
+    {
+      "key": "styles/palette_feedback.css|motion|948c4bf3f64008c1",
+      "path": "styles/palette_feedback.css",
+      "rule": "motion",
+      "snippet": "animation: household-fire 1.4s ease-in-out infinite alternate",
+      "count": 1,
+      "reason": "Named keyframe with its own reduced-motion or Effects guard beside it."
+    },
+    {
+      "key": "styles/palette_feedback.css|motion|ad75611b66199b30",
+      "path": "styles/palette_feedback.css",
+      "rule": "motion",
+      "snippet": "animation:palette-recover .6s ease-out",
+      "count": 1,
+      "reason": "Named keyframe with its own reduced-motion or Effects guard beside it."
+    },
+    {
+      "key": "styles/workspace_discovery.css|motion|273a5efb38c84115",
+      "path": "styles/workspace_discovery.css",
+      "rule": "motion",
+      "snippet": "animation: workspace-reveal-arrival 900ms ease-out 1",
+      "count": 1,
+      "reason": "Named keyframe with its own reduced-motion or Effects guard beside it."
+    },
+    {
+      "key": "styles/workspace.css|motion|7a569aa303abd10e",
+      "path": "styles/workspace.css",
+      "rule": "motion",
+      "snippet": "animation-duration: .001ms !important",
+      "count": 1,
+      "reason": "The reduced-motion kill switch itself."
+    },
+    {
+      "key": "styles/workspace.css|motion|b93dce051e849f72",
+      "path": "styles/workspace.css",
+      "rule": "motion",
+      "snippet": "transition-duration: .001ms !important",
+      "count": 1,
+      "reason": "The reduced-motion kill switch itself."
     }
   ]
 }

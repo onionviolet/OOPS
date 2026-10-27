@@ -55,7 +55,8 @@
 /* Reports: the box and Latest sit in the Reports header; the old two bottom rows are gone. */
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="shell-log-tools"] {display:none!important;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="messages"] > .workspace-module-header {display:flex;align-items:center;}
-#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="messages"] > .workspace-module-header > strong {flex:0 1 auto;text-align:left;padding-left:round(.3em, 1px);}
+/* DL6: the Reports name keeps its width; the filter box shrinks first. */
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="messages"] > .workspace-module-header > strong {flex:0 0 auto;text-align:left;padding-left:round(.3em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .shell-header-tools {display:inline-flex;align-items:center;gap:3px;margin-left:auto;min-width:0;font-size:var(--shell-context-size,var(--ui-type-body));letter-spacing:0;font-weight:400;}
 #main_content.workspace-active[data-parity="r3"] .shell-header-tools > button:not(.control-box-button) {font:inherit;line-height:1.25;padding:0 round(.4em, 1px);min-height:0;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);cursor:pointer;}
 #main_content.workspace-active[data-parity="r3"] .shell-header-tools > button:disabled {color:var(--p23-muted);border-style:dashed;cursor:default;}
