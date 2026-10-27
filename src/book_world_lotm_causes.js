@@ -43,6 +43,8 @@ export const causeFlags=[...LOTM_CAUSES.map(c=>`cause.${c.id}`),...LOTM_LOC_FLAG
 // Steadying is the reversible half: guided attention under the supervisor lowers pressure while it is still below the loss line.
 export const causeSteadyCommand=cmd('steady','Ask Hale for guided attention to steady the pre-signs · 1 of Hale\'s attention',L.workroom,{targetId:I.supervisor,once:false,
  requires:all(gte('lotm.pressure',1),not(gte('lotm.pressure',LOTM_PRESSURE.loss)),gte('lotm.supervisorAttention',1)),costs:[attention()],effects:[press(-1),know('cause.steadied','Hale held your attention on a familiar object until the hum eased a little. It is only the pre-signs; past the line there is no easing them.','player','player','observation','understood')]});
+// Completed recoveries that may bring recorded pressure to zero: the steadying above and the self-addressed rite (ritual.js, M4 A5).
+export const LOTM_RECOVERY_COMMANDS=Object.freeze(['book.lotm.steady','book.lotm.rit_self_light','book.lotm.rit_self_light_body']);
 export function causeFacts(state,f){
  const n=state.actors?.player?.resources?.['book.lotm.pressure']||0;
  f['lotm.pressure']=n;f['lotm.presign']=n>=LOTM_PRESSURE.presign;f['lotm.lostControl']=n>=LOTM_PRESSURE.loss;
@@ -52,7 +54,9 @@ export function causeAssertions({a,has,assert,natural}){
  const causes=LOTM_CAUSES.filter(c=>causeHeld(has,c.id));
  assert(n===undefined||natural(n),'Pressure is a natural number.');
  assert((n||0)<=total(causes)+LOTM_PRESSURE.loss,'Pressure cannot exceed what the recorded causes add.');
- assert(causes.length===0||(n||0)>0||has('declined'),'A recorded cause leaves pressure behind.');
+ // Zero is reachable only through a completed recovery; the causes stay recorded as history either way.
+ const recovered=LOTM_RECOVERY_COMMANDS.some(id=>(a.player.completed?.[id]||0)>0);
+ assert(causes.length===0||(n||0)>0||has('declined')||recovered,'A recorded cause leaves pressure behind.');
 }
 export const causeView=f=>({pressure:f['lotm.pressure'],presign:f['lotm.presign'],lost:f['lotm.lostControl'],loss:LOTM_PRESSURE.loss,
  line:f['lotm.lostControl']?'You have lost control. The branch is over: nothing you do here changes it.':f['lotm.presign']?`Pre-signs: a hum behind the eyes and whispers at the edge of hearing (${f['lotm.pressure']} of ${LOTM_PRESSURE.loss}). Guided attention can ease them; past the line nothing can.`:f['lotm.pressure']?`A faint residue (${f['lotm.pressure']} of ${LOTM_PRESSURE.loss}).`:''});

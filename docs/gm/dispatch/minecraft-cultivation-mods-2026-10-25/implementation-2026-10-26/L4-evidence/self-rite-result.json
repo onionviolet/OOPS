@@ -1,0 +1,73 @@
+{
+  "bundleSha256": "4a7f270c0e8bf0f0bb92d6688b1a2ccc9428c30ba482a7d339edf091b91ed941",
+  "route": "Fresh Nighthawk Corpse Collector life; one named purse-only fixture (3000 pence, no stock, knowledge, source, pressure or progress grants) pays the broker's posted 12-pound unmarked Sequence 8 dose. Every other step is a native click.",
+  "persistence": [
+    {
+      "state": "rite pending",
+      "exportChars": 255340,
+      "exportSha256": "26b28a5f7747dc3fe68e5786dc57db79c637af3a5a96e199e49fb980e95e273c",
+      "projectSha256": "68dd577e3c0b368f92330a870bda5f69692d0fd3ab84a24451515da3cf97bba8"
+    },
+    {
+      "state": "rite completed",
+      "exportChars": 253904,
+      "exportSha256": "57c3f9d70d06cde13708ca08ba76264c99b64b969cb4655d68ff0badf5da1f2e",
+      "projectSha256": "eb456f707c76acd8577a271b47092af2ab4dbaaf67d8d62668ae647df40a53af"
+    }
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 699,
+        "panelContentWidth": 699,
+        "font": "14px"
+      },
+      "file": "self-rite-1920-14.png"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "geometry": {
+        "pageWidth": 1920,
+        "panelWidth": 693,
+        "panelContentWidth": 693,
+        "font": "21px"
+      },
+      "file": "self-rite-1920-21.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 477,
+        "panelContentWidth": 477,
+        "font": "14px"
+      },
+      "file": "self-rite-1536-14.png"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "geometry": {
+        "pageWidth": 1536,
+        "panelWidth": 473,
+        "panelContentWidth": 473,
+        "font": "21px"
+      },
+      "file": "self-rite-1536-21.png"
+    }
+  ],
+  "pressure": {
+    "afterCauses": 5,
+    "afterRite": 4
+  },
+  "errors": []
+}

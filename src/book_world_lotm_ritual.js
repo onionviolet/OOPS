@@ -4,7 +4,8 @@
 // (WPR5): canon names the rite, not where a Tingen probationer gets the ice or the harpy. Nothing here is consumed, because Seq 5 doses are not drinkable
 // yet: the grade is shown at the bench (a preview) and by `gradeRiteAtTransition`, the hook a future ingestion command calls at the moment of drinking.
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_PENCE as P} from './book_world_lotm_ids.js';
-import {eq,gte,all,af,has,no,item,know,money,cmd} from './book_world_lotm_kit.js';
+import {eq,gte,all,any,not,af,has,no,item,know,money,attention,use,cmd} from './book_world_lotm_kit.js';
+import {LOTM_PRESSURE,LOTM_RECOVERY_COMMANDS} from './book_world_lotm_causes.js';
 import {defineRitual,gradeRitual,describeGrade,ritualDial} from './ritual_conditions.js';
 import {itemKey} from './lotm_formula_rows.js';
 
@@ -59,6 +60,7 @@ export const ritualCommands=[
 // Facts: holdings, flags, branch-day night and a fresh feeling (a timed note), all computed from state the save already holds.
 export function ritualFacts(state,f,{inv}){
  const clock=state.clock||0,note=state.simulation?.knowledge?.player?.['book.lotm.rit.feeling'];
+ selfRiteFacts(state,f);
  f['lotm.rit.nonMeltingIce']=(inv[RITE_KEYS.nonMelting]||0)>=1;f['lotm.rit.ice']=(inv[RITE_KEYS.ice]||0)>=1;f['lotm.rit.canvas']=(inv[RITE_KEYS.canvas]||0)>=1;
  f['lotm.rit.harpyFeather']=inv[RITE_KEYS.harpyFeather]||0;f['lotm.rit.messengerFeather']=inv[RITE_KEYS.messengerFeather]||0;
  f['lotm.rit.night']=clock%1440>=RITE_DARK_FROM;f['lotm.rit.feeling']=!!note&&clock-note.at<=RITE_EMOTION_MINUTES;
@@ -68,3 +70,48 @@ export function gradeRiteAtTransition(formulaId,f,dial=LOTM_RITUAL_DIAL){
  const rite=riteByFormula(formulaId);if(!rite)return null;
  const result=gradeRitual(rite,f,dial);return {...result,label:rite.label,scale:rite.scale,evidence:rite.evidence,proposals:rite.proposals,text:describeGrade(result)};
 }
+
+// M4 A5 (S5): a staged weak rite addressed to oneself and paid from one's own reserve. Source: a self-addressed, self-funded weak ritual
+// (local Chinese EPUB 0150 paragraphs 32-33, edition-qualified); pre-signs are reversible [0165]. Hale's protocol, the supplies and price,
+// the timings, the one-point easing and the body cost for a pathway without a measured spirituality pool are authored PROPOSALS (WPR5).
+// The recipient is always the caster: no honorific, deity or other named recipient is resolved here, and the Sun/Visionary grades above
+// are previews, not answered rites. Stages: learn from Hale, prepare the circle, an unlit pause with no deadline, then an explicit lighting.
+// The knowledge notes' `.at` are the only state: a completed walk (`book.lotm.arrived`) newer than the preparation ends the setup, and a
+// response at or after the preparation means it has been used. No timer, flag or counter is added.
+export const SELF_RITE=Object.freeze({learn:5,prepare:10,rite:5,supplies:12,stamina:3,relief:1});
+const SELF=k=>`book.lotm.rit.self.${k}`;
+// Every pathway row emits `lotm.<key>Supported`; Seer's is `lotm.sourceSupported` and it alone has a measured spirituality pool.
+const OTHER_SOURCE=/^lotm\.(?!source|method)\w+Supported$/;
+export function selfRiteFacts(state,f){
+ const k=state.simulation?.knowledge?.player||{},prep=k[SELF('prepared')],resp=k[SELF('response')],arr=k['book.lotm.arrived'];
+ const unused=!!prep&&!(resp&&resp.at>=prep.at),moved=unused&&!!arr&&arr.at>prep.at;
+ f['lotm.rit.self.known']=k[SELF('protocol')]?.stage==='understood';
+ f['lotm.rit.self.spirit']=f['lotm.sourceSupported']===true;
+ f['lotm.rit.self.body']=!f['lotm.rit.self.spirit']&&Object.keys(f).some(x=>OTHER_SOURCE.test(x)&&f[x]===true);
+ f['lotm.rit.self.ready']=unused&&!moved;f['lotm.rit.self.expired']=moved;
+}
+const known=eq('lotm.rit.self.known'),home=eq('lotm.home.evernight'),ready=eq('lotm.rit.self.ready');
+const caster=any(eq('lotm.rit.self.spirit'),eq('lotm.rit.self.body'));
+const presign=all(gte('lotm.pressure',1),not(gte('lotm.pressure',LOTM_PRESSURE.loss)));
+// The engine shows a command's top-level reason, so each stage states its whole condition in one line.
+const why=(c,reason)=>{c.requires.reason=reason;return c;};
+const guard=extra=>({cancellation:'refund',completionRequires:all(home,...extra),completionCoLocated:true,completionFailure:'refund'});
+const eases=(id,spend,reserve,cost)=>why(cmd(id,`Light the circle and address the rite to yourself · ${SELF_RITE.rite} min · ${cost} and 1 attention, both returned on Stop · eases ${SELF_RITE.relief} pressure`,L.workroom,{
+ targetId:I.supervisor,once:false,visibleWhen:all(known,eq(`lotm.rit.self.${reserve}`)),requires:all(home,known,eq(`lotm.rit.self.${reserve}`),ready,presign),
+ duration:SELF_RITE.rite,costs:[spend,attention()],...guard([known,eq(`lotm.rit.self.${reserve}`),ready,presign]),
+ effects:[attention(1),{type:'resource',actor:'player',key:'book.lotm.pressure',amount:-SELF_RITE.relief},
+  know('rit.self.response','The candle took, and the words you addressed to yourself came back as a quiet weight behind the eyes. The hum eased a step while Hale watched. The circle is spent: another rite needs another preparation, and past the loss line no rite eases anything.','player','player','observation','understood')]}),
+ `Needs Hale here, the taught rite, ${cost}, an unlit circle prepared here since your last walk (a walk away ends it; returning does not revive it) and pre-signs short of the loss line.`);
+export const selfRiteCommands=[
+ why(cmd('rit_self_learn',`Ask Hale to teach a weak rite addressed to yourself · ${SELF_RITE.learn} min · reserves 1 attention, returned on completion or Stop`,L.workroom,{
+  targetId:I.supervisor,once:false,visibleWhen:all(home,caster,eq('lotm.rit.self.known',false)),requires:all(home,caster,eq('lotm.rit.self.known',false)),
+  duration:SELF_RITE.learn,costs:[attention()],...guard([caster]),
+  effects:[attention(1),know('rit.self.protocol',`Hale taught the smallest rite: a circle of one candle, herbs and oil, addressed to yourself and paid from your own reserve. A Seer pays 1 spirituality; a pathway with no trained pool pays it bodily, ${SELF_RITE.stamina} stamina. Prepared, the circle can wait unlit for as long as you stay; any walk away breaks it, and coming back does not mend it. Lit under supervision it eases the pre-signs one step. It does nothing past the loss line.`,I.supervisor,'player','instruction','understood')]}),'Hale teaches this rite to his own team members who hold a supported pathway source.'),
+ why(cmd('rit_self_prepare',`Prepare the unlit circle here · ${SELF_RITE.prepare} min · ${SELF_RITE.supplies} pence of candle, herbs and oil, and 1 attention, both returned on Stop · it waits unlit until you walk away`,L.workroom,{
+  targetId:I.supervisor,once:false,visibleWhen:all(home,known),requires:all(home,known,caster,eq('lotm.rit.self.ready',false)),
+  duration:SELF_RITE.prepare,costs:[money(-SELF_RITE.supplies),attention()],...guard([known,caster]),
+  effects:[attention(1),know('rit.self.prepared','The circle is laid and unlit: one candle, herbs and oil. It keeps while you stay here. A walk away breaks it.','player','player','observation','understood')]}),`Needs Hale here, the taught rite, ${SELF_RITE.supplies} pence and no unlit circle already waiting.`),
+ eases('rit_self_light',use(),'spirit','1 spirituality'),
+ eases('rit_self_light_body',{type:'vital',key:'stamina',amount:-SELF_RITE.stamina},'body',`${SELF_RITE.stamina} stamina`)];
+ritualCommands.push(...selfRiteCommands);
+if(selfRiteCommands.slice(2).some(c=>!LOTM_RECOVERY_COMMANDS.includes(c.id)))throw Error('A pressure-easing rite must be a recorded recovery.');
