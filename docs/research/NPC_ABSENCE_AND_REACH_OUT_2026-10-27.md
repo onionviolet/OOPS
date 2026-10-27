@@ -247,3 +247,31 @@ world may carry the beat on without the player (the world response is the
 consequence, not a penalty to you). Open design pass: playing as, beside or
 against the original character. Sent to its own session
 (`docs/research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md`); proposals only.
+
+## Round 2 (2026-10-27): pace comes from what the world has scheduled
+
+Weibao's direction (relayed in chat): do not set a world calm or busy by
+category. A world is naturally calm when little is happening or due; a book
+world, where canon events fall at set times, is busy because of its calendar.
+Proposals only.
+
+| # | Proposal (default, dial, reason) | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| R1 | **Pace is a readout, not a label.** Each world declares an event horizon: dated events (canon or invented) with a lead time. Pace shows as Calm when the next dated event is farther than its lead time and no pressure is open; Lively as one approaches; Hands-on while one is live. Replaces the per-world default table in the attention report 3.4 as the starting value. Dial: the player's override and a per-world floor (LOTM leans Hands-on). Reason: a Village with no calendar is quiet by its content, Tingen or a school year is busy by its. | Event director + world pack data | Medium | The Village (no dated events) reads Calm for a 12 h run; a seeded dated event inside its lead time flips the readout to Lively with the date shown. |
+| R2 | **Catch-up stops at the door.** Offline or banked time (E5) never crosses a dated event the player has not entered; it stops a lead time before and shows the stop reason (E3). Reason: this is the main protection against missing a canon beat while away. Dial: lead time scales with how consequential the event is; a world that wants the world to move on may set a miss rule (R3). | Clock + routine runner | Medium | A 30 h absence with a dated event at hour 10 settles to just before it and shows the stop line. |
+| R3 | **Three ways to meet a dated event: join, witness, let it pass.** Letting it pass is allowed with a stated outcome (canon outcome, or a variant outcome from AD38), shown in the lead-up and in the return note. Default: recoverable consequence, never a closed life. Reason: E1 and WPR rules; the world response is a consequence, not a penalty. | Event data | Small to medium | A dated event passed in a test life gives the stated outcome and a return-note line. |
+| R4 | **Two clocks.** The life clock (what you do) and the world calendar (what is scheduled). Frozen worlds hold both. A start (WER) sets the offset between them, so the same canon date can fall early or late in a given life. Reason: otherwise canon dates collide with arbitrary arrival days. | World entry data | Medium | Two starts in one world show the same canon event at different life days. |
+| R5 | **Skip to the next thing** (Majora's skip to dawn, Persona and Princess Maker month moves [S/U]): a Calm world offers "move to the next dated event or open choice" instead of fast idle, ending at the same door as R2. | UI + clock | Small | The skip stops at the next dated event and prints the reason. |
+| R6 | **Sparse worlds stay sparse.** A world with no dated events does not get invented deadlines to feel busy (E7). The reach-out layer (N1-N7) carries the texture there. | Rules | Small | A Village card lists zero hard clocks unless the weekly market counts, and says so. |
+
+Interactions to account for (ACCOUNT FOR NOW): canon dates are public, but a
+changed or randomized truth is sealed, so the readout names the date and route,
+never the hidden outcome; the playing-as, beside or against question is the
+canon-protagonist pass's, and R3 only supplies its dated hook; a dated event in a
+frozen world does not tick (the frozen rule), which E8's headless check should
+include.
+
+LATER: a per-world event calendar page in each loop card (dated events, lead time,
+miss outcome); a source pass for canon timelines needs the existing source-world
+routes and is not done here. Level: docs plus pack data; effort: small per world
+once its source pass exists; done check: each world card lists its horizon.
