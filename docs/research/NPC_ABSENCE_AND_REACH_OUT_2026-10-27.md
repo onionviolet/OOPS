@@ -218,3 +218,32 @@ world is the exception with a stated rule.
 
 None of this is accepted. The next owner step is Weibao's pick of C1 and C2 as the
 shape; C4 needs a LOTM source pass first.
+
+## Update 2026-10-27 (Weibao): schedules first, deadlines only from canon (proposals)
+
+Weibao's words: "Some clocks might be a weekly thing, More to consider? Schedule
+rather than deadline should be the case, unless it is a deadline like the
+protagonist of the original book doing this at x time or something, we might need
+separate chat to ponder interactions as a player on the original character of
+worlds?"
+
+**S1. Two clock kinds, schedule by default.** A *schedule* repeats (weekly meal,
+market day, watch roster, term timetable, duty rotation): a miss costs that
+occurrence only, and the next one is on the calendar. A *deadline* happens once
+and has a consequence (a summons, a dose window, a canon beat). Default: clocks
+are schedules; dial: a deadline needs an in-world source, a lead and a recovery
+(C2's hard degree), and a canon-protagonist beat is the usual source.
+Reason: schedules give rhythm (Stardew, Proto23's weekly meal) without making
+absence punishing.
+
+**S2. Cadences.** Daily, weekly, seasonal and one-off are fields on the clock
+record (C1). A weekly schedule shown once as "next: market day" does most of the
+work a countdown would do.
+
+**S3. Canon deadlines belong to the canon protagonist's line.** A deadline that
+mirrors what the original character does at a set time attaches to a life that
+follows or intersects that line. A life that does not stays free of it, and the
+world may carry the beat on without the player (the world response is the
+consequence, not a penalty to you). Open design pass: playing as, beside or
+against the original character. Sent to its own session
+(`docs/research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md`); proposals only.
