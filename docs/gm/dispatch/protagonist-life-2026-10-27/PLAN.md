@@ -25,7 +25,7 @@ No lane has started. No `src/` edit, no source collection.
 
 | Check | Result |
 | --- | --- |
-| Local sources | LOTM: Chinese EPUB only, Calibre ID 1 [S `docs/research/novels/LOCAL_LIBRARY.md` source table]. HP: seven-novel private text with FTS5 index and page locators, `docs/research/novels/harry-potter/source-preparation-2026-10-11/` [S its README]. MoL: English "All ARCs" EPUB, Calibre ID 21 [S LOCAL_LIBRARY]. *Dracula*: no local copy (Calibre author list has no Stoker) [S `ls` of the Calibre library, 2026-10-27]. |
+| Local sources | LOTM: Chinese EPUB only, Calibre ID 1, mirrored in `/Users/weiwei/Sync/CalibreLibrary`; the only English LOTM file is the sequel, ID 34 [S `docs/research/novels/LOCAL_LIBRARY.md` source table]. HP: seven-novel private text with FTS5 index and page locators, `docs/research/novels/harry-potter/source-preparation-2026-10-11/` [S its README]. MoL: English "All ARCs" EPUB, Calibre ID 21 [S LOCAL_LIBRARY]. *Dracula*: no local copy [S title search of both Calibre roots for mystery, 诡秘, Dracula and Stoker, 2026-10-27]. |
 | Prior reading | LOTM first novel: "1,402 read / 363 reviewed" in private reader notes, units as the census states; 466-record census [S `LOTM_CENSUS_REPORT.md` line 1]. MoL: R1-R4 window passes and a W4 census [S `passes-2026-10-23/`]. HP: FTS index, craft integration, census, world audit folders [S folder listing]. |
 | Touched-set nouns in `src/` and `src/world_packs/` | Grep of 12 year-one / volume-one / first-month nouns per world, 2026-10-27 [S command in section 3.3]. HP: 1 of 12 hit (`diagon`, 3 files); Gringotts, Ollivander, Privet, King's Cross, the platform, Quidditch, the train, the Leaky Cauldron, the forest, the Great Hall and Hagrid all 0. LOTM: 7 of 12 (Tingen 32 files, Nighthawks 10, Klein 3, Dunn 3, Tarot 2, Old Neil 1, the lead's cheat space 1); 5 family and club nouns 0. MoL: 9 of 12 (Cyoria 23, Ilsa 6, Kael 6, Zorian 4, Xvim 4, dungeon 2, Cirin, Kirielle, Zach 1 each); summer festival, Novak, Akoja 0. |
 | Calendars in code | HP's `hpSchoolCalendar` is an abstract 70-day term with five teaching days a week, not a canon September-to-June year [S `src/book_world_hp_facts.js:4-13`]. LOTM entry era is 1349 [S `src/book_world_lotm_entry.js:9`]. MoL pack is a visitor campaign on an "original independent" branch [S `src/world_packs/book_mol_pack.js` native.worlds]. |
@@ -54,7 +54,8 @@ and the brief's tie default is LOTM volume 1, so the choice holds. HP overtakes 
 two points move its way: for example HP criterion 3 at 2 (a year-one beat pack landed
 first). If LOTM instead loses two (criterion 4 at 0, say, because the Chinese text proves
 unusable for locators), HP and MoL tie at 19 and the plan returns to Weibao. Sensitivity, not a
-tuning target: these scores were set before the totals were added.
+tuning target: one score (LOTM criterion 5) was changed after a first total; section 8
+records why, and the choice holds without that change.
 
 ### 1.3 Arc boundary and scope
 
@@ -69,7 +70,7 @@ tuning target: these scores were set before the totals were added.
 - **Second and third pilots** (after the LOTM P6 checkpoint, proposals): HP year 1 (all of
   B1), then MoL with the boundary set by a bounded reader to "chapter 1 to the end of the
   first restart" [U until read], because the TOC gives none.
-- **The Village mini-line** stays as the engine harness (H1 below), not a pilot.
+- **The Village mini-line** stays as the engine harness (PL-H1 below), not a pilot.
 
 ---
 
@@ -105,11 +106,11 @@ Two sample rows (format only; no sealed truth; one HP, one LOTM):
 
 ```json
 {"beat":"lr.hp.y1.004","order":4,"date":{"world":"hp.school-year","value":"late summer before term","tolerance":20,"label":"I"},"dayIndex":null,"place":"missing:hp.place.wand-shop","deps":[{"id":"lr.hp.y1.003","kind":"after"}],"touched":[{"kind":"place","id":"missing:hp.place.wand-shop","status":"missing"},{"kind":"item","id":"missing:hp.item.wand","status":"missing"},{"kind":"price","id":"missing:hp.price.wand","status":"missing"}],"action":"go wand shop; try; buy","outcomes":[{"fact":"lead.holds.wand","value":true,"class":"carried"},{"fact":"lead.purse.galleons","value":"-7","class":"carried"}],"footprint":null,"weight":"routine","sealed":[],"evidence":[{"label":"S","locator":"B1:PDF-p68","kind":"stated"},{"label":"I","locator":"date from surrounding order","kind":"inferred"}],"mechanism":null}
-{"beat":"lr.lotm.v1.0xx","order":"tbd","date":{"world":"lotm.calendar","value":"D+?","tolerance":3,"label":"U"},"dayIndex":null,"place":"book.lotm.district.north","deps":[],"touched":[{"kind":"place","id":"book.lotm.district.north","status":"present"},{"kind":"law","id":"lotm.law.jurisdiction.by-church","status":"present"}],"action":"go north quarter; talk church team","outcomes":[{"fact":"lead.knows.team.north","value":true,"class":"carried"}],"footprint":null,"weight":"routine","sealed":[],"evidence":[{"label":"S","locator":"zh 第17章 p79 (as cited at src/book_world_lotm_districts.js:3; reused, not rechecked)","kind":"stated"}],"mechanism":null}
+{"beat":"lr.lotm.v1.017","order":17,"date":{"world":"lotm.calendar","value":"date-unsettled","tolerance":null,"label":"U"},"dayIndex":null,"place":"book.lotm.district.north","deps":[],"touched":[{"kind":"place","id":"book.lotm.district.north","status":"present"},{"kind":"law","id":"lotm.law.jurisdiction.by-church","status":"present"}],"action":"go north quarter; talk church team","outcomes":[{"fact":"lead.knows.team.north","value":true,"class":"carried"}],"footprint":null,"weight":"routine","sealed":[],"evidence":[{"label":"S","locator":"zh 第17章 p79 (as cited at src/book_world_lotm_districts.js:3; reused, not rechecked)","kind":"stated"}],"mechanism":null}
 ```
 
 The HP row's price is [S B1:PDF-p68]; its date is [I] (B1's order, no in-text date found by
-the one FTS query run). The LOTM row's district id is illustrative; P3 maps it to the real
+the one FTS query run). The LOTM row's beat number is a placeholder for format; its district id is illustrative; P3 maps it to the real
 `LOTM_LOCATIONS` key.
 
 ---
@@ -162,27 +163,27 @@ bounded reading, sonnet for code and synthesis, opus only for review and spot ch
 | # | Lane | Owner model, effort | Owned files (proposed) | Depends on | Done check | Gates | Stop conditions |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | P0 | Plan pass | opus | this file | none | This file plus the register and USER_VISION hunks | `check:rules` not needed (no codes registered); link check | Done |
-| E0 | C1 `dayIndex` helper and clock table | sonnet, medium | `src/world_day_index.js`, `test/world_day_index.test.js` | none | Both clocks give the same `dayIndex` on a known day [S C1 row] | build, focused test, `check:arch` | Needs a save field: stop for a compatibility decision |
-| E1 | C2 keyed shop stock | sonnet, medium | `src/keyed_generation.js`, its test; one call site named in the lane brief | E0 | Same seed and day give identical stock twice; an unrelated draw between calls changes nothing [S C2 row] | as E0 | Call site owned by another session: stop and hand off |
-| E2 | Reference resolver CAE-E1, E2, E4 | sonnet, medium | `src/ref_resolver.js`, its test; render hook in `src/chronicle.js` only after an owner check | none | CAE-E1/E2/E4 done checks [S CAE rows 300-303] | as E0; old saves render identically | E2's heir snapshot is a save addition: stop for an additive-migration yes |
-| E3 | Beat resolver (L3, R21) | sonnet, high | `src/beat_records.js`, its test | E0 | Two scripted lives: one in scope sees the beat and a miss note, the other nothing; a changed input flips a downstream fact [S report L3] | as E0 | A beat needs a verb the engine lacks: engine card, stop |
-| B1 | Scripted-lead bot and lint | sonnet, medium | `scripts/headless/lead_bot.mjs`, `scripts/check_lead_bot.mjs`, `test/lead_bot.test.js` | none (uses the existing headless runner) | The lint rejects a planted state import and a planted clock write; the bot logs every action with verb and world minute | focused test | The runner lacks a click route the bot needs: `game_report_limit`, engine card |
-| H1 | Village harness (PX64, reduced) | sonnet, medium | `src/world_packs/village_lead_line.js` (pack data), `test/village_lead_line.test.js` | E0, E3, B1 | PX64 checks 1-5 and 7 on five beats; bystander smoke test (check 6) optional here | build, focused test, `check:arch`, `check:rules`; M8 browser save/reload/import from a fresh origin | Village files owned by the Village session: coordinate by SendMessage before any edit outside the new file |
+| PL-E0 | C1 `dayIndex` helper and clock table | sonnet, medium | `src/world_day_index.js`, `test/world_day_index.test.js` | none | Both clocks give the same `dayIndex` on a known day [S C1 row] | build, focused test, `check:arch` | Needs a save field: stop for a compatibility decision |
+| PL-E1 | C2 keyed shop stock | sonnet, medium | `src/keyed_generation.js`, its test; one call site named in the lane brief | PL-E0 | Same seed and day give identical stock twice; an unrelated draw between calls changes nothing [S C2 row] | as PL-E0 | Call site owned by another session: stop and hand off |
+| PL-E2 | Reference resolver CAE-E1, CAE-E2, CAE-E4 | sonnet, medium | `src/ref_resolver.js`, its test; render hook in `src/chronicle.js` only after an owner check | none | CAE-E1/PL-E2/E4 done checks [S CAE rows 300-303] | as PL-E0; old saves render identically | CAE-E2's heir snapshot is a save addition: stop for an additive-migration yes |
+| PL-E3 | Beat resolver (L3, R21) | sonnet, high | `src/beat_records.js`, its test | PL-E0 | Two scripted lives: one in scope sees the beat and a miss note, the other nothing; a changed input flips a downstream fact [S report L3] | as PL-E0 | A beat needs a verb the engine lacks: engine card, stop |
+| PL-B1 | Scripted-lead bot and lint | sonnet, medium | `scripts/headless/lead_bot.mjs`, `scripts/check_lead_bot.mjs`, `test/lead_bot.test.js` | none (uses the existing headless runner) | The lint rejects a planted state import and a planted clock write; the bot logs every action with verb and world minute | focused test | The runner lacks a click route the bot needs: `game_report_limit`, engine card |
+| PL-H1 | Village harness (PX64, reduced) | sonnet, medium | `src/world_packs/village_lead_line.js` (pack data), `test/village_lead_line.test.js` | PL-E0, PL-E3, PL-B1 | PX64 checks 1-5 and 7 on five beats; bystander smoke test (check 6) optional here | build, focused test, `check:arch`, `check:rules`; M8 browser save/reload/import from a fresh origin | Village files owned by the Village session: coordinate by SendMessage before any edit outside the new file |
 | P1 | LOTM vol 1 source ledger | haiku readers, one coordinator | private: `docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/` | Q2, Q8 | Every ledger row has a locator and a label; a coverage fraction is reported | AU13 plan declared; sonnet spot-check of a sample (R22) | Budget cap; contradiction recorded, not resolved; a sealed-truth row stored by ID only |
 | P2 | LOTM lead-run table | sonnet, medium; opus spot-check of 10% | private: same folder, `lead_run.jsonl`; public: `docs/gm/dispatch/protagonist-life-2026-10-27/LOTM_LEAD_RUN_SUMMARY.md` (IDs and counts only) | P1, Q4 (absolute dates only) | Every row has a date or `date-unsettled`; every touched fact has an id | Schema lint | More than 25% `date-unsettled` [I threshold]: stop and report the blocking passages by locator |
-| P3 | LOTM touched-set data | sonnet, medium | public LOTM pack files only for facts already public in `src`; canon-named rows in `private_packs/lotm-lead/` (Q3); `scripts/lead_touched_inventory.mjs` | P2, E0; E1 if the route buys ambient stock; E2 for any name in a note | M2: every touched id resolves | build, focused pack test, `check:arch`, `check:rules` | Missing verb or field: engine card, stop. Save shape change: stop |
-| P4 | LOTM scripted lead | sonnet, medium | `scripts/headless/lead_runs/lotm_v1.mjs` and fixture | B1, P3, E3 | k of n beats reached, with causes (PX59) | B1 lint passes on this file | Unreachable beat after the PX59 procedure: report, do not add a shortcut |
+| P3 | LOTM touched-set data | sonnet, medium | public LOTM pack files only for facts already public in `src`; canon-named rows in `private_packs/lotm-lead/` (Q3); `scripts/lead_touched_inventory.mjs` | P2, PL-E0; PL-E1 if the route buys ambient stock; PL-E2 for any name in a note | M2: every touched id resolves | build, focused pack test, `check:arch`, `check:rules` | Missing verb or field: engine card, stop. Save shape change: stop |
+| P4 | LOTM scripted lead | sonnet, medium | `scripts/headless/lead_runs/lotm_v1.mjs` and fixture | PL-B1, P3, PL-E3 | k of n beats reached, with causes (PX59) | PL-B1 lint passes on this file | Unreachable beat after the PX59 procedure: report, do not add a shortcut |
 | P5 | Golden runs and pokes | sonnet, medium | fixtures and `RUN_REPORT.md` in this folder | P4 | M3 bot run twice identical; M4 null-player run; M5 one poke per `great` beat | full `npm test` by the committer once; `check:arch`; `check:rules` | Flaky result: list nondeterminism sources, do not loosen assertions |
 | P6 | Checkpoint and register | opus review | `CHECKPOINT.md` in this folder; register row | P5 | AD43 six lines or "implemented, below floor"; "agent-verified, not human-reviewed" | none | none |
-| S1 | Open the seat (brief step 5) | later | named at P6 | P6, Q5, Q6, Q7 | Bystander seven-day smoke test (PX61) | brief gates | Out of this plan's authority |
+| PL-S1 | Open the seat (brief step 5) | later | named at P6 | P6, Q5, Q6, Q7 | Bystander seven-day smoke test (PX61) | brief gates | Out of this plan's authority |
 
-**Start now (no decision needed):** E0, E2 (except E2's save addition), B1, then E3 and E1
-once E0 lands, then H1. These are the engine prerequisites the brief names plus the beat
+**Independent of Q1 to Q8 (each starts only on Weibao's launch yes, Q0):** PL-E0, PL-E2 (except CAE-E2's save addition), PL-B1, then PL-E3 and PL-E1
+once PL-E0 lands, then PL-H1. These are the engine prerequisites the brief names plus the beat
 resolver the brief left out (R21 shows M4 and M5 need it). Up to two lanes at once
 (AU default), one writer per file.
 
 **Waits on Weibao:** P1 (edition and budget), P2's absolute dates (start month), P3's
-private placement, S1 (seat defaults and the HP offset when HP comes).
+private placement, PL-S1 (seat defaults and the HP offset when HP comes).
 
 **Lead mechanism.** Beats that need the lead's cheat space are marked
 `mechanism:<id>` and reported as "blocked by mechanism" until a mechanism lane is
@@ -197,7 +198,7 @@ authorized. That lane is a proposal for P6, not part of this plan [I].
   points the markup itself exposes, as the runner README defines [S `scripts/headless/README.md`
   API table]. The Village precedent is `scripts/headless/village_route.mjs` [S]. The game MCP
   uses the same build, so a bot route can be replayed there by hand.
-- **Lint (B1).** The bot module may import only the runner and its own fixture. It may not
+- **Lint (PL-B1).** The bot module may import only the runner and its own fixture. It may not
   import `src/` state writers, write save fields, set the clock or seeds beyond `boot`'s
   documented seed, or teleport. Every action is logged: verb, selector, cost, world minute.
 - **Start.** The lead's declared start record (WER2 to WER9) in the pack, not a cheat. A
@@ -205,7 +206,7 @@ authorized. That lane is a proposal for P6, not part of this plan [I].
   none exists, that is a P3 gap.
 - **Canon outcomes as assertions.** Each row compiles to `at dayIndex(date) ± tolerance:
   assert fact F == value`, with the PX8 class. Never a prose match.
-- **Null-player run.** Same seed, no player life; the lead runs as an NPC life through E3's
+- **Null-player run.** Same seed, no player life; the lead runs as an NPC life through PL-E3's
   beat resolver; every reachable beat must resolve `carried` on its date (M4). Results must
   equal the bot run's facts.
 - **Unreachable beat** (PX59): classify as world gap, chance loss, time overrun or
@@ -221,13 +222,13 @@ authorized. That lane is a proposal for P6, not part of this plan [I].
 | Code | Risk | Mitigation |
 | --- | --- | --- |
 | R1 | **Overfit to the lead** (PX60): Tingen exists only along the lead's path | L1 rule per place (non-lead users, one alternative route, neighbours); PX61 bystander week before step 6 |
-| R2 | **Bot cheating** (PX63) | B1 lint and audit log; code review of the bot is a named review state |
+| R2 | **Bot cheating** (PX63) | PL-B1 lint and audit log; code review of the bot is a named review state |
 | R3 | **Copyright and private source text** | Raw text only in gitignored `docs/research/novels/.../private/` and `private_packs/`; committed files paraphrase with locators; the public summary carries IDs and counts. `origin` is public, so nothing canon-named from the table is committed (Q3) |
 | R4 | **Sealed truths** | By ID, route and status only; witness-level text (PX49); M7 lint. None is held today for these worlds [S grep], and new ones created by YAIRPG changes stay sealed |
 | R5 | **Reading budget (AU13)** | Reuse the 1,402-chapter notes and census first; new reading only for rows the notes lack; a declared shard cap (Q8); coverage fraction in every P1 report |
 | R6 | **Chinese source and locators** | Locators as `zh 第N章 pM` with member file; English names follow existing `src` usage; a name with no English precedent is marked [U]. 12,000-word shards become a character cap for Chinese (Q8) [I] |
-| R7 | **Save compatibility** | New records are additive pack data; E2's heir snapshot and any beat-result slice need an additive migration and a yes; M8 save, reload, export, import from a fresh origin |
-| R8 | **Determinism not landed** | E0 first; until E1 lands, the LOTM route avoids ambient purchases or marks them [I] |
+| R7 | **Save compatibility** | New records are additive pack data; CAE-E2's heir snapshot and any beat-result slice need an additive migration and a yes; M8 save, reload, export, import from a fresh origin |
+| R8 | **Determinism not landed** | PL-E0 first; until PL-E1 lands, the LOTM route avoids ambient purchases or marks them [I] |
 | R9 | **Mechanism dependence** | The lead's cheat-space beats are marked and reported, not faked |
 | R10 | **Shared checkout** | New-file ownership; SendMessage before touching another session's files; own-path commits only |
 | R11 | **One-point margin** | The choice is robust to one-point moves (tie default); a two-point move is reported in P6, not silently switched |
@@ -238,19 +239,20 @@ authorized. That lane is a proposal for P6, not part of this plan [I].
 
 | Code | Decision | Recommended default | Blocks |
 | --- | --- | --- | --- |
+| Q0 | Launch yes for the lanes (the brief is not launched) | Yes for PL-E0, PL-E2, PL-B1, then PL-E3, PL-E1, PL-H1 | Every lane |
 | Q1 | Confirm the pilot | LOTM volume 1 (score 20, tie default either way); HP year 1 next | P1-P6 for LOTM |
 | Q2 | Edition and source | The local Chinese EPUB (Calibre ID 1) as the canon text, English names from existing `src` usage; no new acquisition. An English translation would need his yes | P1 |
 | Q3 | Where the lead-run table and canon-named rows live | Private and gitignored (`docs/research/novels/lord-of-mysteries/private/` and `private_packs/lotm-lead/`); public summary with IDs and counts only | P2, P3 |
 | Q4 | LOTM start month (D3) | The month given by the volume's opening date anchors, read by one bounded reader with a locator; until then relative dates `D+n`. My memory says early summer 1349 [U] | P2 absolute dates (relative rows can proceed) |
-| Q5 | WER11 rewording (D2) | "Live beside protagonists by default; the protagonist's own life exists as an NPC life and as a test double, not as a player seat unless a world says otherwise." | S1 only; not the lead run, because the bot is a test double |
-| Q6 | Default seat | `beside`, natural course (D1) | S1 |
-| Q7 | HP cohort offset (D3) | 0 when HP's turn comes; an offset only for lives that ask for it | HP S1 only |
+| Q5 | WER11 rewording (D2) | "Live beside protagonists by default; the protagonist's own life exists as an NPC life and as a test double, not as a player seat unless a world says otherwise." | PL-S1 only; not the lead run, because the bot is a test double |
+| Q6 | Default seat | `beside`, natural course (D1) | PL-S1 |
+| Q7 | HP cohort offset (D3) | 0 when HP's turn comes; an offset only for lives that ask for it | HP PL-S1 only |
 | Q8 | P1 reading budget (AU13) | Gap-only reading over existing notes; 12,000 Chinese characters per haiku shard, at most 15 shards and 6 responses each, two readers at once; a sonnet spot-check of 10% of rows | P1 |
 
-**Top three to answer first:** Q2 with Q8 (edition and budget unblock P1), Q3 (private
+**Top three to answer first** (after Q0, the launch yes): Q2 with Q8 (edition and budget unblock P1), Q3 (private
 placement), Q4 (start month). Q1 holds by default unless he picks another book.
 
-**Lanes that start without any answer:** E0, E2 (minus its save addition), B1, E3, E1, H1.
+**Lanes independent of Q1 to Q8 (still gated on Q0, the launch yes):** PL-E0, PL-E2 (minus its save addition), PL-B1, PL-E3, PL-E1, PL-H1.
 
 ---
 
@@ -265,7 +267,7 @@ The advisor reviewed the survey and a first draft of the scores (HP 22, MoL 20, 
 | Score criterion 8 on sealed IDs actually held | None found for any of the three; kept spoiler density as the tiebreak inside the criterion and said so |
 | Take arc boundaries from TOC metadata | LOTM boundary from `nav.xhtml`; MoL has no arc labels, so its boundary is [U] |
 | Add a sensitivity line; if the margin is ≤1, apply the tie default | Added. I also re-read criterion 5's wording and raised LOTM from 2 to 3: the path is clear; the mechanism dependence belongs in risks (R9), not clarity. That change is mine, not the advisor's, and it does not decide the result: at 19 LOTM would tie and win on the default |
-| Build order: engine seams first, add the beat resolver, Village as harness, P1 in parallel | Adopted as E0, E2, B1, E3, E1, H1; P1 parallel once Q2/Q8 are answered |
+| Build order: engine seams first, add the beat resolver, Village as harness, P1 in parallel | Adopted as PL-E0, PL-E2, PL-B1, PL-E3, PL-E1, PL-H1; P1 parallel once Q2/Q8 are answered |
 | Tie decisions to what they block; make private placement a decision | Done in section 7 (Q3) |
 | Sample-row dates | The HP row's date is [I]; no year is stated |
 
@@ -279,26 +281,26 @@ risks; decisions with defaults; register row and USER_VISION record.
 
 **ACCOUNT FOR NOW**
 
-- A1. **The lead's cheat space is the first mechanism gap.** Many volume-one beats route
+- PL-A1. **The lead's cheat space is the first mechanism gap.** Many volume-one beats route
   through it; count them in P2 so the mechanism lane's size is known before P4.
-- A2. **The LOTM pack's existing lives are original roles** (a probationer under an original
+- PL-A2. **The LOTM pack's existing lives are original roles** (a probationer under an original
   warden; a civil clerk) [S `book_world_lotm_lives.js:1-7`]. The lead run adds a canon line
   beside them; the two must not share ids, and the existing lives stay playable.
-- A3. **HP's abstract term must not be rewritten for the pilot.** When HP's turn comes, a
+- PL-A3. **HP's abstract term must not be rewritten for the pilot.** When HP's turn comes, a
   canon school-year calendar sits beside the 70-day term as a separate record, so current
   saves keep their term.
-- A4. **Remote contacts.** Gatherings in the cheat space touch people in other cities; only
+- PL-A4. **Remote contacts.** Gatherings in the cheat space touch people in other cities; only
   the touched facts enter L0, and their places stay out of scope.
-- A5. **The public summary is still a spoiler surface.** IDs and counts only; no beat names
-  in public files (L5 lint later).
+- PL-A5. **The public summary is still a spoiler surface.** IDs and counts only; no beat names
+  in public files (PL-L5 lint later).
 
 **LATER or DELEGATE**
 
 | # | Item | Level | Effort | Done check |
 | --- | --- | --- | --- | --- |
-| L1 | Bounded reader for the MoL first-loop boundary | Research, haiku | Small | A chapter number with a locator, or [U] kept |
-| L2 | Edition and copy check for *Dracula* | Research | Small | A verified public-domain edition named; acquisition only on his yes |
-| L3 | Lead mechanism lane for LOTM (cheat-space verbs) | Engine plus pack | Medium to high | The bot reaches the first mechanism beat through public commands |
-| L4 | HP year-one beat pack and canon school-year calendar | World pass | Medium | HP criterion 3 rescored; the 70-day term still loads |
-| L5 | Beat-name lint for public files | `check:rules` | Small | A planted beat name in a public doc fails the lint |
-| L6 | Propose PX51 (protagonist-first pass) as a WPR candidate | Docs | Small | A proposal paragraph, not a rulebook edit |
+| PL-L1 | Bounded reader for the MoL first-loop boundary | Research, haiku | Small | A chapter number with a locator, or [U] kept |
+| PL-L2 | Edition and copy check for *Dracula* | Research | Small | A verified public-domain edition named; acquisition only on his yes |
+| PL-L3 | Lead mechanism lane for LOTM (cheat-space verbs) | Engine plus pack | Medium to high | The bot reaches the first mechanism beat through public commands |
+| PL-L4 | HP year-one beat pack and canon school-year calendar | World pass | Medium | HP criterion 3 rescored; the 70-day term still loads |
+| PL-L5 | Beat-name lint for public files | `check:rules` | Small | A planted beat name in a public doc fails the lint |
+| PL-L6 | Propose PX51 (protagonist-first pass) as a WPR candidate | Docs | Small | A proposal paragraph, not a rulebook edit |
