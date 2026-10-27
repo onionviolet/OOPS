@@ -6738,3 +6738,7 @@ adopted as **working direction that may be adjusted** (not frozen specifications
 Where two proposals conflict, the later dated one wins and the earlier stays as
 history. The worry about UI coverage is the next planning item
 ([register](gm/WRITEUP_REGISTER.md#5b-adoption-2026-10-27)).
+
+## Other systems to build top down (2026-10-27)
+
+Weibao's words: "Other systems to build from top down? More to consider?" (first recorded in the adoption entry above). Working direction under that entry: [plan round 11](gm/dispatch/protagonist-life-2026-10-27/PLAN.md) ranks five systems to design from the book's choices (money and livelihood, household schedules, knowledge flow, law and investigation, danger and risk), parks eight with triggers, and adds one shared calibration test. Proposed rule WA45 in [world absorption rules](WORLD_ABSORPTION_RULES.md), awaiting his yes.

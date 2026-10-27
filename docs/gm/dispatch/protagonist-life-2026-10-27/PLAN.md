@@ -1498,3 +1498,73 @@ the hand-off list; WA42-WA44 drafted.
 | PL-L34 | Book-world shop stock on the trader keyed draw with canon anchors | Sonnet, medium, after PL-E1 | One session | The bakery's stated price appears on its stated day; generated stock repeats on replay |
 | PL-L35 | Choice-label and motive lint (PL-A32, PL-A33) | Sonnet, small | Small | s4's prose labels fail; a motive-less choice warns |
 | PL-L36 | Per-world checklist as a lane-brief appendix | Docs, small | Small | The HP pilot brief can be filled from it without new questions |
+
+---
+
+## 19. Round 11: other systems to build top down (2026-10-27)
+
+Weibao: "Other systems to build from top down? More to consider?" (recorded in the
+[adoption entry](../../../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27)).
+Under that entry this round is adjustable working direction, not frozen. Method as in 18.2:
+start from what the book shows a person doing, work back to the stored state, motives,
+information and circumstances that make it natural, then forward to the check or roll.
+
+**Evidence base (chapters 1-15, private files, counts only):** 50 recorded choices, 81
+knowledge events, 16 purse anchors, 34 price rows, 8 loops; motive tags are free-form and
+sparse (about 20 distinct tags, most used once), so a shared motive vocabulary comes first
+(PL-L37).
+
+### 19.1 Build now (ranked by value to the lead run and build order)
+
+| Rank | System | Book evidence | Stored state | Decision or roll it feeds | Owner to reuse | Measure in the pilot | Agnostic / specific |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | **Money and livelihood** | Money-keeping and meals loops; 34 price rows; 16 purse anchors; the walk-versus-fare and wait-to-cook choices | Purse, household budget, wages, debts, prices seen | Buy or skip, walk or ride, cook now or wait, take a job | `trade.js`, `market_saturation.js`, `home_household.js`, `obligations_ledger.js` | Anchor pass rate per lived day | Agnostic ledger; world units and prices |
+| 2 | **Household and family schedules** (includes school and work timetables) | Family-routine loop; school fees; a sibling's work week | Members, schedules, duties, shared purse | Who cooks, who pays, who is home when | `home_household.js`, `family_tree.js`, `village_family.js`, `world_rhythm.js` | Days where the household routine runs without a gap | Agnostic schedules; world calendars |
+| 3 | **Knowledge and information flow** (how the lead finds out: reading, notes, talk, news, rumor, divination results) | 81 knowledge events; reading-and-notes loop | Dated per-actor facts with source and confidence | Act on it or not; whom to ask; what to hide | Per-actor facts (`world_knowledge.js`, `people_knowledge.js`), event feed | LP5 violations (acting on unknown facts) per run | Agnostic; channels are world-specific |
+| 4 | **Law, investigation and consequences** | Police questioning and witness status (chapters 9-11 scenes) | Legal standing, what officials know, evidence held, procedures | Answer, deny, confess, hide evidence; officials' next step | CBR29-CBR30, conflict publisher (GF9), organization records | Calibration of the lead's answers in questioning | Agnostic procedure shape; world laws |
+| 5 | **Danger and risk-taking** | Night threat, hiding a weapon, flight (chapters 12-14 scenes); fear and self-protection motives | Known threats, fear, exits, hiding spots, allies nearby | Hide, flee, confront, call for help | Combat exit rules (CBR25), footprints and idle safety (PX46), GF7 | Calibration of hide versus flee choices | Agnostic risk model; world threats |
+
+### 19.2 Parked, with triggers
+
+| System | Trigger to start |
+| --- | --- |
+| Health, fatigue, hunger and injury | The lived-week bot shows fatigue or hunger changing a choice (the chapter-9 example already hints at hunger) |
+| Sleep, dreams and divination-like mechanisms | A mechanism lane is approved (GF5, GF8) |
+| Organizations and ranks | The lead run reaches a joined organization (after the chapter-15 offer) |
+| Reputation and rumor | Keyed ambient events land (C7, GF16) |
+| Travel and logistics beyond walking and fares | A route the lead takes needs more than walking or the omnibus |
+| Shopping and crafting | Shopping is covered by money and shop stock; crafting starts at the first brewing or making beat |
+| Ritual and ability use | The mechanism lane (as divination) |
+| News and information flow as its own system | Newspaper rows grow past the knowledge system's channels |
+
+### 19.3 One calibration test pattern for all of them
+
+For each recorded choice: take the stored state at the book's date, the options, and N seeded
+runs of the resolver. **Pass** when the book's option wins in at least k of N (default 8 of
+10) and the shown reasons include the motive the text gives. **Sanity flip:** change the one
+input the text says mattered (more money, no threat, the sister already home) and the choice
+should change as the text implies. **Fail** means the state or the weights are wrong; record
+the fix with the choice's locator; never change the book's choice. The same harness serves
+stats (WA33), prices (WA38) and relationships (WA42). Proposed WA45 generalizes it.
+
+### 19.4 More to consider (round 11)
+
+**ACT NOW (done):** five systems ranked with evidence, state, decisions, owners, measures and
+the agnostic split; eight parked with triggers; one shared calibration pattern; WA45 drafted.
+
+**ACCOUNT FOR NOW**
+
+- PL-A36. **A motive vocabulary before any calibration.** Free-form tags used once cannot be
+  weighted; readers pick from a short list and add a new tag only with a reason.
+- PL-A37. **Rank 1 and 2 share one ledger.** Money and household schedules are one build for
+  the lived week, not two lanes.
+- PL-A38. **Law and danger lean on mechanisms the engine half has** (the conflict publisher,
+  hiding verbs); keep their first slice to the choices, not full systems.
+
+**LATER or DELEGATE**
+
+| # | Item | Level | Effort | Done check |
+| --- | --- | --- | --- | --- |
+| PL-L37 | Motive vocabulary (about 20 tags) and a lint check | Sonnet, small | Small | Chapters 1-15 motives map to the list with no orphan tags |
+| PL-L38 | Shared calibration harness (19.3) on the decision resolver (PL-L33) | Sonnet, medium | One session | The chapter-9 choice passes 8 of 10; its sanity flip changes the choice |
+| PL-L39 | Lived week on systems 1 and 2 together | Sonnet, medium, after PL-E0 and PL-L19 | One session | Seven days pass with routine costs, household schedules and every purse anchor matching |
