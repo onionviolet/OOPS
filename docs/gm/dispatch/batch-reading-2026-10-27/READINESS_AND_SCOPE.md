@@ -343,3 +343,30 @@ LATER / DELEGATE:
 | RB6 Hero works for a batch index in November or later: You Are Summoned 1-5, Godclads 1-2 and Wish Upon the Stars 1-8 (Calibre EPUBs); The Perfect Run and Super Supportive (Royal Road JSON captures). All five already have full agent reads and cards, so the index adds paragraph citations, not a first read. Rough measured cost from Mother of Learning's $4.70 for about 0.7M words: about $0.7-0.8 per 100K words, about $33 for the five (Perfect Run 0.48M, You Are Summoned 0.66M, Godclads 0.46M, Wish 1.05M, Super Supportive 1.51M) | sonnet; register the EPUBs in `books.json` and run `make_book_plans --prepare` offline; convert the two JSON captures into a private EPUB or HTML copy, as A Soldier's Life book 4 was, rather than adding an adapter | The five keys have plans and true-bound caps; nothing sent |
 | RB7 Default November order: LOTM texture, Circle of Inevitability, TTKS 1-5, then the hero works. At true bounds this passes $100, but at measured rates (50-60%) the first three fit and the hero works start | Weibao's call on order only | One go per run file |
 | RB8 Retry HP and Shadow Slave texture failures (0 and 1 shards) and any r3 shards still cut off at 128K, by splitting the shard | generator, small | Retry plans list split shards |
+
+## 16. Round 12: schema 1.4, finishing the prime books, shards to gameplay (2026-10-28)
+
+Weibao: "Start schema work, lets finish up the prime ones, considering gaps we can pull from the text but then also what info from the book we can get to address those? Send new chat to look into turning the shards into gameplay, following the goal of first creating everything the protraginist interacted with to go through their own stories?"
+
+ACT NOW (done):
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| SV1 | Price links were broken. Of 491 Mother of Learning and 717 HP `services` rows, 476 and 685 hold free-text `price` ("none stated", "a pretty penny"), and 0 resolve to a census price row | Schema 1.4 adds `kind`, `amount`, `unit`, `per`, `priceId` and a three-way `priceStated` to services (READING_GAP_MAP PG1) |
+| SV2 | A schema change landing unconditionally would change what approved runs send on a relaunch, and would mix two schemas in one book | 1.4 is opt-in per plan (`schemaVersion: '1.4'`). Existing plans rebuild byte-identically to the requests already sent (checked against the HP people requests). `d37049ebf` |
+| SV3 | 1.4 fields: `recurrence` and `until` on routine slots (PG2), `since` on relations (PG8), `acquire` on rules (PG3), rule kind `reset` with `reset` (PG4; named to avoid `loop/1.2`, which owns the lead's gameplay loops), `enforcement` (PG9), and three-way `costStated` (PG6). All are optional and omitted when the text is silent; an inferred pattern takes label I | Lint checks the new enums when present, and that a stated price has a number. Tests: 82 lead_run tests pass; full `npm test` passes 3,629 of 3,629 |
+| SV4 | A new session, [Turn reading shards into gameplay](#local_8464a2d9-9ecb-4dd8-8f78-2d4bb62d6b72), owns importing the index into game state (everything the lead touches gets its own story; WA22-WA24) and owns `merge_shards.mjs` runs | This session sends it the 1.4 field names and does not merge |
+
+ACCOUNT FOR NOW:
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| SV5 | More fields mean more output. The 2x-estimate cost rule already stopped dense retries | Set `outTokensAssumed` for November from the 1.4 pilot's measured output |
+| SV6 | The prime books already read lack 1.4 fields. A whole re-read is not worth the cost | Re-read only shards whose existing rows point at prices, routines, teachers or resets (selected from the merged index), priced from the pilot |
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| SV7 Regenerate the November plans (`2026-11-01-*`, COI, TTKS) with `schemaVersion: '1.4'` once the pilot settles the fields | generator flag, small | Plans carry 1.4; caps re-sized |
+| SV8 Targeted 1.4 re-read list for Mother of Learning, HP, Shadow Slave and LOTM, from merged rows (prices, teachers, resets, routines) | sonnet, medium | A plan per book with a measured bound |
