@@ -561,3 +561,21 @@ module and its six focused tests pass in the working tree. Neither lane is commi
 | CL102 | **L1 found a merge hazard.** `merge_shards.mjs` applies people-pass `same_as` claims before overlay review, and some merged different people. L1 blocks unreviewed claims in the private overlays instead of editing the merge | L1 running; owner of `merge_shards.mjs` is the batch-reading session (tell it once L1 reports) |
 | CL103 | **Codex CLI route confirmed:** `/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex` (0.165.0-alpha), ChatGPT login, ordinary usage allowed, 3% of the window used. Lanes launch detached with API keys stripped from the environment so they cannot fall back to API billing | Supersedes CL98's "LATER" |
 | CL104 | **Next briefs ready:** [L2b worksheets](cast-lives-lanes/L2B_WORKSHEET_BRIEF.md) (Luna, low) and [L2c fight contracts and after-actions](cast-lives-lanes/L2C_CONFLICT_AND_AFTER_BRIEF.md) (Luna, medium). Both start when L1 reports done; they share no files | Waiting on L1 |
+| CL105 | **L1 landed** (`b3b2c0c8e`): crosswalk for every entity touched in LOTM chapters 1-24 (297 rows, 0 runtime matches, as expected) and MoL chapter 1 to the first restart (`en b1 c5 p9`; 109 rows, 5 runtime matches); reviewed overlays keep uncertain ids apart; `classifyAction` exported | [L1 checkpoint](cast-lives-lanes/L1_CHECKPOINT.md); focused 15/15, `npm test` 3,652/3,652 |
+| CL106 | **L2b and L2c launched** detached through the Codex CLI (Luna low and Luna medium; logs and PIDs in this session's scratchpad); L3 brief written and waits on L2b | [L2b](cast-lives-lanes/L2B_WORKSHEET_BRIEF.md), [L2c](cast-lives-lanes/L2C_CONFLICT_AND_AFTER_BRIEF.md), [L3](cast-lives-lanes/L3_CAST_RECORDS_BRIEF.md) |
+| CL107 | **Told the reading session:** CL56 evidence (the keyword classifier places 40% of LOTM slice triggers and 37% of MoL's) with a proposed 1.5 `reacts` shape, and CL102 (unreviewed `same_as` applied by the merge) | Its call |
+
+## 14. Round 7: what L1's numbers change (2026-10-28)
+
+Weibao: "its dont, work on next part? More to consider?"
+
+| Code | Finding or consideration | Disposition |
+| --- | --- | --- |
+| CL108 | **Timing is the thinnest layer.** Only 11 of 131 LOTM slice routine slots (10 of 76 MoL) carry both a registry place and a time; most give days without hours, which is the text, not the reader. The first week will run mostly on role-mechanism fills | ACCOUNT FOR NOW: L3 fills hours from the role with a basis and searches LOTM rows for stated hours first |
+| CL109 | **An hours table per world.** The fills L3 writes (office, school, market, church hours) are world facts, not personal ones; collect them once as a Tingen hours table that every role reads (GM5) | LATER/DELEGATE: Luna low after L3; done when role rows reference the table instead of repeating hours |
+| CL110 | **L3 is data only.** The new "beside the lead" start and `canon_beside` continuity (D1) move to L4, which owns the host wiring and the save-touching step, and must state its additive compatibility decision | ACCOUNT FOR NOW: L3 brief |
+| CL111 | **Most of the 297 LOTM entities stay at M1.** L3 takes at most 8 principals, 12 recurring and role records; the rest are listed by id in its checkpoint as the next promotion queue (WA22, WA43) | ACCOUNT FOR NOW |
+| CL112 | **The classifier is a floor, not the rule table.** At about 40% coverage, CL60's reaction grammar needs either the 1.5 field or a slice-sized hand classification (196 LOTM and 100 MoL triggers) by a reading lane | LATER/DELEGATE: Luna medium, after L2c reports its unplaced share; done when every slice trigger has a class or a stated reason |
+| CL113 | **Re-imports after a re-read.** If SV8 re-reads the slice at schema 1.4, rerun L1's two merge and crosswalk commands; crosswalk addresses are deterministic, so L3's ids survive, and new rows arrive as additions. L3 records the merge input hashes it was built from | ACCOUNT FOR NOW |
+| CL114 | **Lanes did not commit by themselves** (L1, L2). The launcher prompt now says to commit; this session reviews and commits when a lane stops short | ACCOUNT FOR NOW |
+| CL115 | **MoL is cheap to prove.** Its slice is 25 lead scenes (chapters 1-5), so L6, the AR11 second case, is small once L4 works | ACCOUNT FOR NOW |
