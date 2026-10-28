@@ -275,3 +275,26 @@ Gap closure (2026-10-28, no API call): a Calibre `metadata.db` search found all 
 
 No `overPromptCap`. Books 2, 3, 5, 6 and `ss11` have a contents list or numbering quirks (`Chapter: 103 Title`, `Chapter 98 Title`); the splitter handles them and the chapter counts match the editions' own ranges. A Soldier's Life book 4's conversion keeps its headings but not its volume title. `coi` is the largest at about 1,800 words per chapter; its chapters do not need to be read in one go, and the pilot gate applies as for any new book.
 
+
+## 14. Round 10: what the pilot and gates do and do not test (2026-10-28)
+
+Weibao: "is pilot to test for mistakes and stuff and then driver sends full thing? more to ocnsider?" Yes: a one-shard pilot (census and scenes) per new book, then each pass in full, with a stop check after every step. Today the pilots caught four format faults for cents (locator form, English lint, `duration` kind, name form) before any whole-book pass.
+
+ACCOUNT FOR NOW:
+
+| Code | Finding | Evidence | Constraint |
+| --- | --- | --- | --- |
+| P1 | Gates test form, not truth: grade B means valid locators, names printed where cited and clean lint. Nothing checks that a row's claim matches the paragraph | 745 of 747 batch shard headers have `spotChecked: 0` | Treat batch rows as an index to the source, never as facts, until spot-checked; the implementer reads the cited paragraphs (round 8) |
+| P2 | A one-shard pilot catches systematic faults but cannot measure rates: truncation (5-10% of shards) and parse failures show only in the full step | Mother of Learning census: pilot clean, full pass 9 of 105 `max_tokens` | Every run ends with a retry step for failed shards (128K, `--tag`), not a pilot rerun |
+| P3 | The pilot uses each book's first shard, often an atypical opening (few names, a prologue POV) | `hp1c001`, `molc001` pilots are chapter 1 | Pilots should add the densest shard by candidate count |
+| P4 | Passes 3-5 (rules, people, texture) are never piloted; their stop rule counts failures only, so a prompt-mode fault spreads to every book of a world before it shows | `hp4c020-scenes` `json-parse`; people truncated 2 of 36 in Stage A | Accepted for now; the per-step stop rule still halts at 20% failures |
+| P5 | Drivers load code at launch, so a lint fix needs a relaunch; relaunching re-collects from receipts and resends nothing | Four relaunches today | Simulate the gate offline (`sim.mjs` pattern) before relaunching |
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| L5 Spot-check lane: per book, sample 20 rows across kinds, fetch each cited paragraph with `cite_paragraphs.mjs`, and mark the row supported, partly supported or unsupported; write `spotChecked` and a support rate into the headers | haiku readers on bounded paragraphs, sonnet to judge disagreements; small per book | Every finished book has a support rate; books under an agreed rate get a re-read |
+| L6 Pilot picks the first and the densest shard | generator change, small | Pilot plans list two shards for a new book |
+| L7 Fold the offline gate simulation into the driver (`--regrade-only`) | small | One command regrades a stopped run without the API |
+| L8 Retry step written automatically at the end of each run file for failed and truncated shards | generator change, small | Run files end with a `retry` step |
