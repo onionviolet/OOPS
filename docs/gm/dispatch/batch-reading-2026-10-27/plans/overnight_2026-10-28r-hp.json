@@ -1,0 +1,102 @@
+{
+ "name": "2026-10-28r-hp",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 3,
+ "capTotal": 1.97,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp2_census_r3.json",
+     "cap": 0.07,
+     "label": "hp2-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp4_census_r3.json",
+     "cap": 0.04,
+     "label": "hp4-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp5_census_r3.json",
+     "cap": 0.1,
+     "label": "hp5-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp6_census_r3.json",
+     "cap": 0.1,
+     "label": "hp6-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp7_census_r3.json",
+     "cap": 0.04,
+     "label": "hp7-census-r3"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_scenes_r3.json",
+     "cap": 0.04,
+     "label": "hp1-scenes-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp4_scenes_r3.json",
+     "cap": 0.07,
+     "label": "hp4-scenes-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp5_scenes_r3.json",
+     "cap": 0.04,
+     "label": "hp5-scenes-r3"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_people_r3.json",
+     "cap": 0.11,
+     "label": "hp1-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp2_people_r3.json",
+     "cap": 0.14,
+     "label": "hp2-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp3_people_r3.json",
+     "cap": 0.2,
+     "label": "hp3-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp4_people_r3.json",
+     "cap": 0.27,
+     "label": "hp4-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp5_people_r3.json",
+     "cap": 0.27,
+     "label": "hp5-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp6_people_r3.json",
+     "cap": 0.24,
+     "label": "hp6-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp7_people_r3.json",
+     "cap": 0.24,
+     "label": "hp7-people-r3"
+    }
+   ]
+  }
+ ],
+ "pooledStop": true
+}

@@ -1,0 +1,131 @@
+{
+ "world": "ss",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+  "censusMatch": "^(ss|ss10|ss9|ss11)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ss-census-r3",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "ssc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch045-050.txt",
+   "base": "04501",
+   "chapters": "45-50"
+  },
+  {
+   "prefix": "ssc228",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch228-234.txt",
+   "base": "22801",
+   "chapters": "228-234"
+  },
+  {
+   "prefix": "ssc335",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch335-341.txt",
+   "base": "33501",
+   "chapters": "335-341"
+  },
+  {
+   "prefix": "ssc368",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch368-373.txt",
+   "base": "36801",
+   "chapters": "368-373"
+  },
+  {
+   "prefix": "ssc502",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch502-507.txt",
+   "base": "50201",
+   "chapters": "502-507"
+  },
+  {
+   "prefix": "ssc649",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch649-654.txt",
+   "base": "64901",
+   "chapters": "649-654"
+  },
+  {
+   "prefix": "ssc690",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch690-695.txt",
+   "base": "69001",
+   "chapters": "690-695"
+  },
+  {
+   "prefix": "ssc708",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch708-712.txt",
+   "base": "70801",
+   "chapters": "708-712"
+  },
+  {
+   "prefix": "ssc760",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch760-765.txt",
+   "base": "76001",
+   "chapters": "760-765"
+  },
+  {
+   "prefix": "ssc941",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch941-946.txt",
+   "base": "94101",
+   "chapters": "941-946"
+  },
+  {
+   "prefix": "ssc947",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch947-953.txt",
+   "base": "94701",
+   "chapters": "947-953"
+  },
+  {
+   "prefix": "ssc987",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch987-993.txt",
+   "base": "98701",
+   "chapters": "987-993"
+  },
+  {
+   "prefix": "ssc1045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1045-1050.txt",
+   "base": "104501",
+   "chapters": "1045-1050"
+  },
+  {
+   "prefix": "ssc1149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1149-1154.txt",
+   "base": "114901",
+   "chapters": "1149-1154"
+  },
+  {
+   "prefix": "ssc1333",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1333-1338.txt",
+   "base": "133301",
+   "chapters": "1333-1338"
+  },
+  {
+   "prefix": "ssc1364",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1364-1369.txt",
+   "base": "136401",
+   "chapters": "1364-1369"
+  },
+  {
+   "prefix": "ssc1468",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1468-1473.txt",
+   "base": "146801",
+   "chapters": "1468-1473"
+  },
+  {
+   "prefix": "ssc1573",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1573-1578.txt",
+   "base": "157301",
+   "chapters": "1573-1578"
+  },
+  {
+   "prefix": "ssc1715",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss_b1_ch1715-1718.txt",
+   "base": "171501",
+   "chapters": "1715-1718"
+  }
+ ]
+}

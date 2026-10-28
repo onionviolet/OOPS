@@ -1,0 +1,66 @@
+{
+ "world": "hp",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+  "censusMatch": "^(hp1|hp2|hp3|hp4|hp5|hp6|hp7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "hp5-people-r3",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "hp5c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch006-006.txt",
+   "base": "500601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "hp5c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch009-009.txt",
+   "base": "500901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "hp5c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch012-012.txt",
+   "base": "501201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "hp5c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch015-015.txt",
+   "base": "501501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "hp5c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch019-019.txt",
+   "base": "501901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "hp5c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch024-024.txt",
+   "base": "502401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "hp5c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch029-029.txt",
+   "base": "502901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "hp5c038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp5_b5_ch038-038.txt",
+   "base": "503801",
+   "chapters": "38-38"
+  }
+ ]
+}

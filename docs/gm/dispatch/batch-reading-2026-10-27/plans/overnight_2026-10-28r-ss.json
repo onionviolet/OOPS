@@ -1,0 +1,150 @@
+{
+ "name": "2026-10-28r-ss",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 12,
+ "capTotal": 22.04,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_pilot_census_r3.json",
+     "cap": 0.04,
+     "label": "ss9-pilot-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_pilot_scenes_r3.json",
+     "cap": 0.04,
+     "label": "ss9-pilot-scenes-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_pilot_census_r3.json",
+     "cap": 0.04,
+     "label": "ss11-pilot-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_pilot_scenes_r3.json",
+     "cap": 0.04,
+     "label": "ss11-pilot-scenes-r3"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_census_r3.json",
+     "cap": 0.64,
+     "label": "ss-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_census_r3.json",
+     "cap": 0.24,
+     "label": "ss10-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_census_r3.json",
+     "cap": 2.27,
+     "label": "ss9-census-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_census_r3.json",
+     "cap": 1.67,
+     "label": "ss11-census-r3"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_scenes_r3.json",
+     "cap": 0.04,
+     "label": "ss-scenes-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_scenes_r3.json",
+     "cap": 2.27,
+     "label": "ss9-scenes-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_scenes_r3.json",
+     "cap": 1.67,
+     "label": "ss11-scenes-r3"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_rules_r3.json",
+     "cap": 0.04,
+     "label": "ss-rules-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_rules_r3.json",
+     "cap": 2.3,
+     "label": "ss9-rules-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_rules_r3.json",
+     "cap": 1.7,
+     "label": "ss11-rules-r3"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_people_r3.json",
+     "cap": 0.8,
+     "label": "ss-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_people_r3.json",
+     "cap": 0.2,
+     "label": "ss10-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_people_r3.json",
+     "cap": 2.3,
+     "label": "ss9-people-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_people_r3.json",
+     "cap": 1.7,
+     "label": "ss11-people-r3"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_texture_r3.json",
+     "cap": 0.04,
+     "label": "ss10-texture-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss9_texture_r3.json",
+     "cap": 2.3,
+     "label": "ss9-texture-r3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss11_texture_r3.json",
+     "cap": 1.7,
+     "label": "ss11-texture-r3"
+    }
+   ]
+  }
+ ],
+ "pooledStop": true
+}

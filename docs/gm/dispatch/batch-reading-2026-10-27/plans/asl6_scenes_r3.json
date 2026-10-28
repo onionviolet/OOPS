@@ -1,0 +1,162 @@
+{
+ "world": "asl",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+  "censusMatch": "^(asl1|asl2|asl3|asl4|asl5|asl6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "asl6-scenes-r3",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "asl6c323",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch323-324.txt",
+   "base": "32301",
+   "chapters": "323-324"
+  },
+  {
+   "prefix": "asl6c325",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch325-327.txt",
+   "base": "32501",
+   "chapters": "325-327"
+  },
+  {
+   "prefix": "asl6c328",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch328-330.txt",
+   "base": "32801",
+   "chapters": "328-330"
+  },
+  {
+   "prefix": "asl6c331",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch331-332.txt",
+   "base": "33101",
+   "chapters": "331-332"
+  },
+  {
+   "prefix": "asl6c333",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch333-335.txt",
+   "base": "33301",
+   "chapters": "333-335"
+  },
+  {
+   "prefix": "asl6c336",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch336-338.txt",
+   "base": "33601",
+   "chapters": "336-338"
+  },
+  {
+   "prefix": "asl6c339",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch339-341.txt",
+   "base": "33901",
+   "chapters": "339-341"
+  },
+  {
+   "prefix": "asl6c342",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch342-344.txt",
+   "base": "34201",
+   "chapters": "342-344"
+  },
+  {
+   "prefix": "asl6c345",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch345-346.txt",
+   "base": "34501",
+   "chapters": "345-346"
+  },
+  {
+   "prefix": "asl6c347",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch347-348.txt",
+   "base": "34701",
+   "chapters": "347-348"
+  },
+  {
+   "prefix": "asl6c349",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch349-351.txt",
+   "base": "34901",
+   "chapters": "349-351"
+  },
+  {
+   "prefix": "asl6c352",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch352-354.txt",
+   "base": "35201",
+   "chapters": "352-354"
+  },
+  {
+   "prefix": "asl6c355",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch355-357.txt",
+   "base": "35501",
+   "chapters": "355-357"
+  },
+  {
+   "prefix": "asl6c358",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch358-360.txt",
+   "base": "35801",
+   "chapters": "358-360"
+  },
+  {
+   "prefix": "asl6c361",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch361-363.txt",
+   "base": "36101",
+   "chapters": "361-363"
+  },
+  {
+   "prefix": "asl6c364",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch364-366.txt",
+   "base": "36401",
+   "chapters": "364-366"
+  },
+  {
+   "prefix": "asl6c367",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch367-368.txt",
+   "base": "36701",
+   "chapters": "367-368"
+  },
+  {
+   "prefix": "asl6c369",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch369-370.txt",
+   "base": "36901",
+   "chapters": "369-370"
+  },
+  {
+   "prefix": "asl6c371",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch371-372.txt",
+   "base": "37101",
+   "chapters": "371-372"
+  },
+  {
+   "prefix": "asl6c373",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch373-374.txt",
+   "base": "37301",
+   "chapters": "373-374"
+  },
+  {
+   "prefix": "asl6c375",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch375-377.txt",
+   "base": "37501",
+   "chapters": "375-377"
+  },
+  {
+   "prefix": "asl6c378",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch378-380.txt",
+   "base": "37801",
+   "chapters": "378-380"
+  },
+  {
+   "prefix": "asl6c381",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch381-382.txt",
+   "base": "38101",
+   "chapters": "381-382"
+  },
+  {
+   "prefix": "asl6c383",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/shard_asl6_b1_ch383-384.txt",
+   "base": "38301",
+   "chapters": "383-384"
+  }
+ ]
+}
