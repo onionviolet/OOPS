@@ -72,6 +72,8 @@ export function normalize(rows) {
     const out = {};
     if (rows.scenes) out.scenes = rows.scenes.map(r => {
         const x = {...r, date: {anchor: null, offsetDays: null, ...r.date}, footprint: r.footprint ?? null, mechanism: r.mechanism ?? null};
+        // Evidence kinds `dialogue:<who>` must match [\w.-]+: a speaker written with a space ("Old Neil") is a lint failure for free, so fix it here.
+        x.evidence = (r.evidence || []).map(e => { const m = /^(thought|dialogue|dream):(.*)$/.exec(e.kind || ''); return m ? {...e, kind: `${m[1]}:${m[2].trim().replace(/[^\w.]+/g, '-').replace(/^-+|-+$/g, '') || 'unknown'}`} : e; });
         x.outcomes = (r.outcomes || []).map(o => ({...o, value: o.value === 'true' ? true : o.value === 'false' ? false : o.value}));
         return x;
     });
@@ -172,6 +174,17 @@ export function glossaryFromPlan(plan) {
     const pages = g.wiki ? JSON.parse(readFileSync(g.wiki, 'utf8')).pages : [];
     const rows = g.censusDir ? readDirJsonl(g.censusDir, new RegExp(g.censusMatch || '_census\\.jsonl$')) : [];
     return buildGlossary({wikiPages: pages, censusRows: rows});
+}
+
+/** Two reader rows with one id are one entity under two spellings (a full name and its given name): keep the first row and fold the other spelling into its aliases. */
+export function mergeDuplicateIds(census) {
+    const first = new Map(), out = [];
+    for (const r of census) {
+        const k = first.get(r.id);
+        if (!k) { first.set(r.id, r); out.push(r); continue; }
+        if (r.zh !== k.zh && !(k.aliases || []).includes(r.zh)) k.aliases = [...(k.aliases || []), r.zh];
+    }
+    return out;
 }
 
 /** Known names (with ids) that occur in the shard but are missing from the model's census: add an M0 row each, claimant `script`. Nothing is invented. */
@@ -296,7 +309,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
             const prior = {scenes: readJsonl(join(plan.privateDir, `${s.prefix}_scenes.jsonl`)), census: readJsonl(join(plan.privateDir, `${s.prefix}_census.jsonl`)), fills: readJsonl(join(plan.privateDir, `${s.prefix}_fills.jsonl`))};
             rows = mergeRepair(prior, rows);
         }
-        if (plan.pass !== 'scenes' && plan.scriptFill !== false && rows.census) rows = {...rows, census: addMissingKnown(rows.census, glossaryFromPlan(plan), shardText)};
+        if (plan.pass !== 'scenes' && plan.scriptFill !== false && rows.census) rows = {...rows, census: addMissingKnown(mergeDuplicateIds(rows.census), glossaryFromPlan(plan), shardText)};
         const p = s.prefix, keys = plan.pass === 'census' ? ['census'] : plan.pass === 'scenes' ? ['scenes', 'fills'] : ['scenes', 'census', 'fills'];
         // Write only what this pass returned: a scenes pass must not blank the census an earlier pass wrote for the same prefix.
         for (const k of keys) writeJsonl(join(plan.privateDir, `${p}_${k}.jsonl`), rows[k]);

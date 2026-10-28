@@ -200,3 +200,12 @@ test('script fill adds known names missing from the census as M0 rows and nothin
     assert.equal(addMissingKnown(out, g, TEXT).length, 2);
     assert.equal(addMissingKnown([{zh: '约翰', id: 'test.person.john'}], g, TEXT).length, 1, 'an id the reader already used is never duplicated');
 });
+
+test('duplicate reader ids merge into aliases and speaker kinds with spaces are repaired', async () => {
+    const {mergeDuplicateIds, normalize} = await import('../scripts/lead_run/batch_lib.mjs');
+    const out = mergeDuplicateIds([{zh: '邓恩', id: 'x.person.dunn'}, {zh: '邓恩.史密斯', id: 'x.person.dunn'}, {zh: '面包', id: 'x.item.bread'}]);
+    assert.equal(out.length, 2);
+    assert.deepEqual(out[0].aliases, ['邓恩.史密斯']);
+    const n = normalize({scenes: [{date: {}, outcomes: [], evidence: [{kind: 'dialogue:Old Neil'}, {kind: 'shown'}, {kind: 'thought:邓恩'}]}]});
+    assert.deepEqual(n.scenes[0].evidence.map(e => e.kind), ['dialogue:Old-Neil', 'shown', 'thought:unknown']);
+});
