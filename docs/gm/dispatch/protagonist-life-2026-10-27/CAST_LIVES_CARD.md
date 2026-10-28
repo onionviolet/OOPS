@@ -23,11 +23,12 @@ LOTM chapters 1-24, "beside the lead" start. Second world: Mother of Learning, f
 | L4e | Polish: capitalized report lines, district grouping, place title, person-view beat rows | Landed `1dd4f88db` |
 | L5r | Chapters 1-3 UI replay: two identical fresh UI runs, zero page errors; 1/18 verified (clean fold), 17 typed gaps, measured in beside | Landed `8a6dffa6a`; fidelity counts in the be seat once B1 lands (CL269) |
 | W1 | Lane runner (`scripts/codex_lane.mjs`), review script, brief template | Landed `6324d336f` |
-| G1 | Wait until (quoted, interruptible); beat aftermath writes dated knowledge to who learned it | Floor PASS bundle `0539519f` (1920×1080, zero page errors, Save/reload/Export/Import); wait takes 13 s for six hours (target 3 s, CO3) |
-| C1, S1 | Perspective tags for 64 controls; seat filter with one read point | Reviewed; commit with G1 |
-| P1 | One command per book to records-ready (CL272) | Running |
+| G1 | Wait until (quoted, interruptible); beat aftermath writes dated knowledge to who learned it | Landed `5832a1f8b`; floor PASS bundle `0539519f` (1920×1080, zero page errors, Save/reload/Export/Import); wait takes 13 s for six hours (target 3 s, CO3) |
+| C1, S1 | Perspective tags for 64 controls; seat filter with one read point | Landed `5832a1f8b` with G1 |
+| P1 | One command per book to records-ready (CL272) | Landed `569616c90`; MoL reproduces, LOTM shows input drift |
 | G2 | Concealment | Held until the be replay needs it |
-| Next | **B1 be the lead** with history pass, then the be replay (CL268) | See the handoff queue |
+| B1 | **Be the lead**: history pass, seat registration, no Village behind him, seeded draws | Running (Sol, pid 25335, `codex_lane.mjs status`) |
+| Next | Browser check of B1, then the L5r replay in the be seat (CL269); D1 determinism and divergence | See the handoff queue |
 
 ## What you can do now
 

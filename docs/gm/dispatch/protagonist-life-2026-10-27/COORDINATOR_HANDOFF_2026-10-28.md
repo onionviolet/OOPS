@@ -19,10 +19,11 @@ This handoff grants no new scope.
 | --- | --- | --- |
 | W1 | Lane runner, review script, brief template | Committed `6324d336f`; resume fixed to `-c sandbox_mode` and proven on a live G1 resume |
 | L5r | Chapters 1-3 UI replay driver | Committed `8a6dffa6a`; two identical UI runs, 1/18 verified (beside seat) |
-| G1 | Wait until; beat aftermath writes knowledge | Fix round done; floor PASS on bundle `0539519f`; committing with C1 and S1 after the full suite |
-| C1 | Perspective tags for 64 controls (`src/perspective_controls.js`) | Reviewed; committing with G1 |
-| S1 | Seat filter (`src/seat_profiles.js`), shell hunk, LOTM panel hunk | Reviewed; coordinator fixed two defects (below); committing with G1 |
-| P1 | `world_lead_pipeline.mjs`, one command per book to records-ready (CL272) | Running (Luna medium), scripts only |
+| G1 | Wait until; beat aftermath writes knowledge | Committed `5832a1f8b`; floor PASS bundle `0539519f` |
+| C1 | Perspective tags for 64 controls (`src/perspective_controls.js`) | Committed `5832a1f8b` |
+| S1 | Seat filter (`src/seat_profiles.js`), shell hunk, LOTM panel hunk | Committed `5832a1f8b`; coordinator fixed two defects (below) |
+| P1 | `world_lead_pipeline.mjs`, one command per book to records-ready (CL272) | Committed `569616c90` |
+| B1 | Be the lead ([brief](cast-lives-lanes/B1_BE_SEAT_BRIEF.md)) | **Running** (Sol medium, pid 25335, launched 2026-10-28 ~20:00); review with the loop, then the be-seat browser check and the L5r replay in the be seat |
 | G2 | Concealment | **Held** until the be replay asks for it (brief kept: `G2_CONCEALMENT_BRIEF.md`) |
 
 Coordinator fixes made in review this session (each lane's checkpoint records them): L5r snapshot paths
@@ -55,10 +56,10 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
 
 ## Queue (CL268 order)
 
-1. Commit G1, C1, S1 (full suite running at handoff time); then the browser check that every visible control
+1. Done: G1, C1, S1 and P1 committed. Still open: the browser check that every visible control
    in a beside screenshot has a C1 tag, and a synthetic be state hides crossing and other-seat controls.
-2. **B1, the be seat** (Sol, medium), with its history pass (CL245, CL251, CL264) and CO1-CO5 below. Needs
-   G1, C1 and S1 committed. Brief not yet written.
+2. **B1, the be seat**: running. Its files cover the LOTM host, UI, state, lives, seat profiles and the book
+   pack, so a second writer now must stay in `scripts/` (CL278 floor or CL274 ready-queue).
 3. **Day-binding fix** (CL252/CL265, Luna low): flashback scenes tagged `history`, excluded from day binding.
    Can run beside B1 if it owns only the binding script and book-pack data.
 4. **Be replay**: rerun L5r in the be seat (CL269); report fidelity there. Then the be replay's ledger is the
