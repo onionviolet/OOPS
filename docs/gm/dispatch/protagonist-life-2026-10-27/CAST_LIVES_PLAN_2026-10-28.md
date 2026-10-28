@@ -956,3 +956,30 @@ CL215-CL220 still apply to how each is built. Earlier wording stays as history.
 | CL229 | **World mechanisms still belong to their world** (AR12): the dream confrontation and ritual contest are built as LOTM mechanisms, available wherever LOTM's powers are; other worlds get theirs from their own books | ACCOUNT FOR NOW |
 | CL230 | **The fidelity score is the progress measure.** The L5r replay's reproducible share rises with each capability; with all gaps built and the be seat, chapters 1-3 should reach every step reproducible or a clean fold | ACCOUNT FOR NOW: report it after each G-lane |
 | CL231 | **Order stays by dependency and count**, now including seat-only work once the be seat exists: world-general capabilities first (they serve every seat), the be seat next, seat-only capabilities after it, world mechanisms with the LOTM power work | ACCOUNT FOR NOW |
+
+## 24. Round 16: each round-15 item turned into an action; mechanisms built for reuse (2026-10-28)
+
+Weibao: "address each of the More to consider accordingly, dont limit mechanisms to one place, if they
+could be potially useful in other places in the future?" ([USER_VISION](../../../USER_VISION.md#mechanisms-are-built-for-reuse-not-for-one-world-2026-10-28)).
+
+### 24.1 Mechanisms for reuse (replaces CL229)
+
+| Code | Rule (default, dial and reason) |
+| --- | --- |
+| CL232 | **A mechanism is general; its world supplies rows and dials.** The engine owns the verb (a contest of will, entering a shared dream, a ritual with a stake), the world owns the nouns, costs and limits (WA5, AD38). Reason: the same mechanism serves other books later at the cost of data rows |
+| CL233 | **Reconciling AR12.** AR12 forbids flattening distinct world rules into one shape. A general mechanism is a frame (who takes part, by what means, for what stake, on what ground, how it resolves through `check_resolver.js`, what follows), not a rule set; each world's rules stay its own rows. If a second world's rules do not fit the frame, the frame grows a field or the world keeps a local mechanism, recorded with the reason (AR11) |
+| CL234 | **Name candidate second cases before building**, not as a gate (round 15) but to shape the frame: the dream confrontation's frame should also fit other books' mind and dream contests already indexed (Mother of Learning's mind magic, Shadow Slave's dream realm, Harry Potter's mind reading), each checked in its own index by `cite_paragraphs.mjs --topic` before the frame is fixed |
+| CL235 | **One mechanism catalogue.** Each built mechanism gets a row in the existing systems register (SYSTEMS_REGISTER, PRF5) with its frame fields, the worlds using it and its tags (CL224), so later worlds find it before building their own |
+
+### 24.2 Each round-15 item as an action
+
+| Code | Action | Owner | Done check |
+| --- | --- | --- | --- |
+| CL224 | **S1 seat filter lane**: `src/seat_profiles.js` holds the capability registry (id, audience tag, panel id) and per-seat lists (default: be gets all; beside, follow, bystander get world-general); one read point that panels and command lists consult; G-lanes register their capabilities there | Luna, medium; coordinator briefs it next | A synthetic capability tagged seat-only is hidden for beside and shown for be; original starts unchanged |
+| CL225 | **Template line**: "parametrize the capability by actor; lead-specific parts are private-pack data"; review step greps the diff for lead-only branching | Coordinator, in `LANE_BRIEF_TEMPLATE.md` | Next G-brief carries the line |
+| CL226 | **Ask Weibao** for the be-seat wording with the default: a private-pack-only "be the lead" start reusing the beside records, with the lead's own body, purse, memories and duties as the player life | Asked in chat 2026-10-28 | His answer recorded in USER_VISION |
+| CL227 | **Test in S1**: a beside save carries no seat-only fields; changing seat starts a new life | S1 | Test present |
+| CL228 | **Panel rule in the template**: each new panel lists its disclosure group and gets a 1920×1080 screenshot | Coordinator | Template line |
+| CL229 | Superseded by CL232-CL235 | | |
+| CL230 | **Fidelity score after each G-lane**: rerun the L5r replay (once its clock defect is fixed) and report reproducible share of chapters 1-3 steps | Coordinator | One line per lane in the coordination log |
+| CL231 | **Order**: world-general capabilities, the be seat, seat-only capabilities, then mechanisms; under CL232 a mechanism with indexed second cases may move earlier because it serves several worlds | Coordinator | Queue in the handoff reflects it |

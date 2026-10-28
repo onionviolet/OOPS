@@ -6787,3 +6787,8 @@ Same day: Weibao accepted "Haiku records the index; the implementer reads the ci
 
 Weibao's words: "So the idea is that all of those panels will be implemented, but when adapting to the non main character play through, i guess we can chose in the ufutre".
 Recorded: every capability and panel the protagonist's lived life needs is implemented, including the seat-only ones (his body, memories and family duties, which need the "be" seat in the private pack). What a non-lead playthrough (beside, follow, bystander) gets is chosen later. The round 14 audience classes become tags for that later choice, not a gate on building. Owner: [cast-lives plan round 15](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).
+
+### Mechanisms are built for reuse, not for one world (2026-10-28)
+
+Weibao's words: "address each of the More to consider accordingly, dont limit mechanisms to one place, if they could be potially useful in other places in the future?"
+Recorded: a mechanism a book needs (for example the lead's dream confrontation or ritual contest) is built as a general mechanism other worlds can use, with the book's world supplying its rows, costs and dials; this replaces round 15's "world mechanisms stay in their world" (CL229). Owner: [cast-lives plan round 16](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).
