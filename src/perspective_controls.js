@@ -1,0 +1,82 @@
+// CL243: public, name-free inventory of the controls the seat profile can filter.
+// Keep anchors tied to stable shell/panel tokens, never book-pack labels.
+const routeRows = [
+  ['here', 'local-actions', 'in-world', 'The current place and its actions are the player life.'],
+  ['stats', 'preparation', 'in-world', 'Character attributes belong to this life.'],
+  ['condition', 'condition', 'in-world', 'The character body belongs to this life.'],
+  ['inventory', 'belongings', 'in-world', 'Carried belongings belong to this life.'],
+  ['crafting', 'crafting', 'in-world', 'The character can work at available stations.'],
+  ['mixing', 'mixing', 'in-world', 'The character can mix available materials.'],
+  ['journal', 'records:quests', 'in-world', 'The journal records this life.'],
+  ['bestiary', 'records:bestiary', 'in-world', 'Known creatures belong to this life.'],
+  ['books', 'records:books', 'in-world', 'Reading records belong to this life.'],
+  ['data', 'records:data', 'in-world', 'Recorded character data belongs to this life.'],
+  ['notebook', 'records:notebook', 'in-world', 'The notebook contains this life’s notes.'],
+  ['skills', 'skills', 'in-world', 'Learned skills belong to this life.'],
+  ['people', 'known-people', 'in-world', 'Known people belong to this life.'],
+  ['travelers', 'village-travelers', 'crossing', 'Travelers belong to the Village route between lives.'],
+  ['projects', 'projects', 'in-world', 'Projects are available work in the current life.'],
+  ['ledger', 'ledger', 'in-world', 'The work ledger records this life.'],
+  ['worlds', 'optional-worlds', 'crossing', 'World selection crosses between lives.'],
+  ['beginning', 'beginning', 'crossing', 'Beginning chooses a life outside the lead’s current world.'],
+  ['connection', 'continuation', 'crossing', 'Continuing connection switches between lives.'],
+  ['settings', 'customization', 'system', 'Settings control the game interface.'],
+];
+
+const rows = [
+  ...routeRows.map(([id, route, tag, basis]) => ({id: `menu.${id}`, kind: 'menu', anchor: `[data-route-id="${route}"]`, tag, basis})),
+  {id: 'menu.pane-selector', kind: 'pane', anchor: '#workspace_pane_navigation', tag: 'in-world', basis: 'It selects a view of the current life.'},
+  {id: 'menu.save', kind: 'menu', anchor: '#save_button', tag: 'system', basis: 'Saving preserves the current game state.'},
+  {id: 'menu.export', kind: 'menu', anchor: '#save_to_file_button', tag: 'system', basis: 'Export is a game data operation.'},
+  {id: 'menu.import', kind: 'menu', anchor: '#load_from_file_button', tag: 'system', basis: 'Import is a game data operation.'},
+  {id: 'menu.game-menu', kind: 'menu', anchor: '#game-bar-menu', tag: 'system', basis: 'The Menu contains interface and life-management controls.'},
+  {id: 'control.start-picker', kind: 'panel-block', anchor: '[data-lotm^="pick_"]', tag: 'other-seat', basis: 'Each picker starts a different Tingen seat.'},
+  {id: 'control.start-confirm', kind: 'panel-block', anchor: '[data-lotm^="enroll"]', tag: 'other-seat', basis: 'This confirmation starts a different Tingen seat.'},
+  {id: 'control.continuation', kind: 'panel-block', anchor: '[data-lotm="open_connection"]', tag: 'crossing', basis: 'Continuing connection switches to another life.'},
+
+  {id: 'header.place-title', kind: 'header-line', anchor: '#location_name_span', tag: 'in-world', basis: 'It names the place the character occupies.'},
+  {id: 'header.local-clock', kind: 'header-line', anchor: '#lotm_panel > :nth-child(2)', tag: 'in-world', basis: 'It shows the lead’s local day and time.'},
+  {id: 'header.home-calendar', kind: 'header-line', anchor: '#time_div', tag: 'crossing', basis: 'The native home calendar belongs to the paused Village life.'},
+
+  // The nine stable content regions appended to the LOTM place panel.
+  {id: 'lotm.block.status', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(2)', tag: 'in-world', basis: 'Current place and condition of this life.'},
+  {id: 'lotm.block.meters', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(3)', tag: 'in-world', basis: 'Character resources and strain.'},
+  {id: 'lotm.block.path', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(4)', tag: 'in-world', basis: 'Current duties and pathway.'},
+  {id: 'lotm.block.work', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(5)', tag: 'in-world', basis: 'Work, custody and ongoing jobs.'},
+  {id: 'lotm.block.bench', kind: 'panel-block', anchor: '#lotm_panel [data-lotm-bench]', tag: 'in-world', basis: 'Disclosure group: the character’s brewing bench.'},
+  {id: 'lotm.block.actions', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(7)', tag: 'in-world', basis: 'Actions available to this character.'},
+  {id: 'lotm.block.walks', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(8)', tag: 'in-world', basis: 'Nearby places and walks.'},
+  {id: 'lotm.block.notebook', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(9)', tag: 'in-world', basis: 'What this character knows.'},
+  {id: 'lotm.block.notice', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(10)', tag: 'in-world', basis: 'Feedback from this character’s actions.'},
+
+  // Every data-lotm family is included; dynamic suffixes are represented by the attribute token.
+  ...[
+    ['command', 'in-world', 'A command available in the current character’s life.'],
+    ['acting-guidance', 'in-world', 'Guidance for this character’s current method.'],
+    ['answer', 'other-seat', 'Entry answers for a different Tingen start.'],
+    ['bench', 'in-world', 'Disclosure group: brewing bench.'],
+    ['district', 'in-world', 'Districts in the character’s current world.'],
+    ['door', 'crossing', 'This door enters Tingen from the Village.'],
+    ['elsewhere', 'in-world', 'People away from the current place.'],
+    ['entry-answers', 'other-seat', 'Entry answers for a different Tingen start.'],
+    ['entry-axis', 'other-seat', 'Choices for a different Tingen start.'],
+    ['entry-unwritten', 'other-seat', 'Unwritten choices for a different Tingen start.'],
+    ['gap', 'in-world', 'Known gaps in the current record.'],
+    ['merit', 'in-world', 'The character’s merit account.'],
+    ['merit-balance', 'in-world', 'The character’s current merit balance.'],
+    ['merit-row', 'in-world', 'An available merit use.'],
+    ['path', 'in-world', 'Current pathway information.'],
+    ['paused-life', 'crossing', 'This line exposes a connection to another life.'],
+    ['places', 'in-world', 'Places in the current world.'],
+    ['plan', 'in-world', 'Preparation for this character’s next step.'],
+    ['rite', 'in-world', 'The character’s preparation preview.'],
+    ['rite-condition', 'in-world', 'A preparation condition for this character.'],
+    ['slots', 'in-world', 'Materials held for the character’s formula.'],
+  ].map(([token, tag, basis]) => ({id: `lotm.data-${token}`, kind: 'panel-block', anchor: `[data-lotm-${token}]`, tag, basis})),
+  {id: 'lotm.data-command-control', kind: 'panel-block', anchor: '[data-lotm]', tag: 'in-world', basis: 'A command or formula selector for the current character.'},
+
+  {id: 'report.event', kind: 'report-kind', anchor: 'kind:event', tag: 'in-world', basis: 'A witnessed or affected cast event enters the character’s Reports.'},
+  {id: 'report.background', kind: 'report-kind', anchor: 'kind:background', tag: 'in-world', basis: 'A cast event outside the character’s exposure enters Reports as background.'},
+];
+
+export const PERSPECTIVE_CONTROLS = Object.freeze(rows.map(row => Object.freeze(row)));

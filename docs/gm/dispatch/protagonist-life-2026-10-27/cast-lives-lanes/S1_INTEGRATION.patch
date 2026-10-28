@@ -1,0 +1,39 @@
+--- a/src/book_world_lotm_ui.js
++++ b/src/book_world_lotm_ui.js
+@@ -2,6 +2,8 @@
+ import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
+ import {createMeterBar} from './meter_bar.js';
+ import {decorateActionComponents} from './ui_components.js';
++import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
++import {seatAllows} from './seat_profiles.js';
+ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
+ export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
+ // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
+@@ -12,6 +14,16 @@
+  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
+  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
+  let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
++ const applySeatFilter=()=>{
++  const state={lotm:{entryProfile:read(selected)?.entryProfile}};
++  for(const item of PERSPECTIVE_CONTROLS){
++   if(item.kind!=='panel-block')continue;
++   const selector=item.anchor.startsWith('#lotm_panel')?item.anchor.replace('#lotm_panel',':scope'):item.anchor;
++   let targets=[];try{targets=panel.querySelectorAll(selector);}catch{}
++   for(const node of targets){const target=node.closest('[data-panel-row]')||node;target.hidden=!seatAllows(state,{control:item.id});}
++  }
++ };
++ const seatObserver=new MutationObserver(applySeatFilter);seatObserver.observe(panel,{childList:true,subtree:true});
+  const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
+  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
+  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
+--- a/src/book_world_lotm_host.js
++++ b/src/book_world_lotm_host.js
+@@ -187,7 +187,7 @@
+    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
+   const merit=f['lotm.home.evernight']?meritView(s,f,prevMerit):null;
+   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
+-  return {enrolled:true,...(lotmBeside(s)?{resident:true,elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
++  return {enrolled:true,...(lotmBeside(s)?{resident:true,elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
+  }
+  return {enroll,cross,act,cancel,move,wake,tick,view,startable};
+ }

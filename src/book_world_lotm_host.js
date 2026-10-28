@@ -1,3 +1,5 @@
+import {runWaitUntil} from './wait_until.js';
+import {castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
 import {persistLotmCastPlan,castBeatsPending,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBeside,syncLotmCast,castTalkCommands,castTalkPreview} from './book_world_lotm_cast_host.js';
 // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
 // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
@@ -116,7 +118,13 @@ export function createLotmHost(ports){
  }
  // DWF127: stock for the bench is written on first need, once per row revision, so a save enrolled before the bench still sees it.
  function seedBench(){const s=state();if(!s.lotm||stockSeeded(s))return;const plan=base(s,ports.context());if(seedBenchStock(plan))persist(plan);}
+ function waitReason(){const s=state();return !ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':ports.busy()||s.simulation.jobs.length?'Finish or stop your current work first.':!ports.advanceWaitMinute?'Waiting is unavailable in this host.':'';}
+ const waits=s=>castWaitOptions(s,{appointments:ports.knownAppointments?.(s)||[],reason:waitReason()});
  function act(id){
+  if(id.startsWith('wait.until.')){
+   writable();assert(!waitReason(),waitReason());
+   return runWaitUntil(id,{read:()=>{const s=state();return {clock:s.clock,place:s.simulation.people.player.location,state:s};},options:r=>waits(r.state),advance:minutes=>ports.advanceWaitMinute(minutes),blocked:waitReason,nextBoundary:(r,target)=>nextCastBeatTime(r.state,target,currentCastBeatLedger())});
+  }
   writable();if(id.startsWith(BENCH_PREFIX))seedBench();
   const s=castState(state()),def=registry.simulation.commands.get(id);
   assert(s.lotm&&def?.group==='book_lotm','Choose an action from the Tingen branch.');
@@ -187,7 +195,7 @@ export function createLotmHost(ports){
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
   const merit=f['lotm.home.evernight']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,...(lotmBeside(s)?{resident:true,elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
+  return {enrolled:true,...(lotmBeside(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  return {enroll,cross,act,cancel,move,wake,tick,view,startable};
 }

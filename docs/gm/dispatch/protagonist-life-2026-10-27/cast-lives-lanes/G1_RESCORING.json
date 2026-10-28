@@ -1,0 +1,51 @@
+{
+  "scope": "G1 source and native fixtures; no browser completion claim",
+  "originalLedgerRows": 32,
+  "aftermathRows": 5,
+  "rows": [
+    {
+      "scene": "lr.lotm.main.004",
+      "step": "lr.lotm.main.004#1",
+      "layer": "verb",
+      "status": "native-fixture-reproducible; UI pending",
+      "evidence": "Prepared host patch: quote 358 min after two-minute walk, advances 358 min to dawn, place retained.",
+      "remaining": "Coordinator applies unowned patch and runs rebuilt browser."
+    },
+    {
+      "scene": "lr.lotm.main.005",
+      "layer": "aftermath",
+      "status": "narrowed",
+      "evidence": "Six authored per-actor knowledge entries retained with beat causes in native four-day fixture.",
+      "remaining": "Concealment result and its consumer remain unimplemented."
+    },
+    {
+      "scene": "lr.lotm.main.005",
+      "step": "lr.lotm.main.005#2",
+      "layer": "aftermath",
+      "status": "unchanged-source-rejected",
+      "evidence": "Preserved actor correction; no rejected lead verb implemented.",
+      "remaining": "No actor-correct preparation/pouring verb supplied by G1."
+    },
+    {
+      "scene": "lr.lotm.main.104",
+      "layer": "aftermath",
+      "status": "unchanged-open",
+      "evidence": "Knowledge writes do not transfer physical stock.",
+      "remaining": "Bread custody and later meal consumption."
+    },
+    {
+      "scene": "lr.lotm.main.304",
+      "layer": "aftermath",
+      "status": "closed-native-fixture",
+      "evidence": "All three expected learned statements committed to actor knowledge with their beat as cause; envelope roundtrip passes.",
+      "remaining": "No claim to implement the separate questioning verb/rule rows; desktop knowledge UI still pending."
+    },
+    {
+      "scene": "lr.lotm.main.503",
+      "layer": "aftermath",
+      "status": "narrowed",
+      "evidence": "All three existing attributed knowledge statements committed to actor knowledge with beat cause.",
+      "remaining": "Corrected numerical offer total is not yet a committed knowledge anchor; no contract owner implemented."
+    }
+  ]
+}

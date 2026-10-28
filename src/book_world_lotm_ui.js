@@ -2,6 +2,8 @@ import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
 import {decorateActionComponents} from './ui_components.js';
+import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
+import {seatAllows} from './seat_profiles.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -12,7 +14,17 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
  let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
- const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
+ const applySeatFilter=()=>{
+  const state={lotm:{entryProfile:read(selected)?.entryProfile}};
+  for(const item of PERSPECTIVE_CONTROLS){
+   if(item.kind!=='panel-block')continue;
+   const selector=item.anchor.startsWith('#lotm_panel')?item.anchor.replace('#lotm_panel',':scope'):item.anchor;
+   let targets=[];try{targets=panel.querySelectorAll(selector);}catch{}
+   for(const node of targets){const target=node.closest('[data-panel-row]')||node;target.hidden=!seatAllows(state,{control:item.id});}
+  }
+ };
+ const seatObserver=new MutationObserver(applySeatFilter);seatObserver.observe(panel,{childList:true,subtree:true});
+ const run=(fn,done)=>{try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();};
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  // Navigation only: focus the existing command row, including its disabled reason.
@@ -150,6 +162,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   renderBench(v);
   }
   for(const j of v.jobs)work.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[button(j.cancellation==='refund'?'Stop (reserved attention returned)':'Stop (cost not returned)','cancel',()=>run(()=>cancel(j.id),j.cancellation==='refund'?'You stopped. Reserved attention was returned.':'You stopped. What it cost is gone.'),false,j.cancellation==='refund'?'Stopping returns reserved attention; elapsed time stays spent.':'Stopping forfeits what this spent.')]:[])));
+  if(v.waits?.length){
+   actions.append(node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
+   for(const a of v.waits)actions.append(row(button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
+  }
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));

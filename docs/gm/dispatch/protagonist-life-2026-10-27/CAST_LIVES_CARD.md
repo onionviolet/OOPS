@@ -1,7 +1,7 @@
 # Cast lives: one-page card
 
 Read this first, then [the coordinator handoff](COORDINATOR_HANDOFF_2026-10-28.md); the [plan](CAST_LIVES_PLAN_2026-10-28.md) is the dated record (rounds 1-12) and the
-lane folder [cast-lives-lanes/](cast-lives-lanes/) holds briefs and checkpoints. Updated 2026-10-28.
+lane folder [cast-lives-lanes/](cast-lives-lanes/) holds briefs and checkpoints. Updated 2026-10-28 (late). Standing goal: lead first (AD44, CL268).
 Everything here is a proposal under the 2026-10-27 adoption entry unless it cites an accepted code.
 
 ## Goal
@@ -21,9 +21,13 @@ LOTM chapters 1-24, "beside the lead" start. Second world: Mother of Learning, f
 | L7 | Reaction classes; classifier 40% to 59% (LOTM), 37% to 63% (MoL) | Landed `cdefcf80e`, partial |
 | L4b | Beats settle on their days with no player; Reports lines at witness level; gap probe (15 gaps); fold-loss ledger | Landed; FLR3 partial (person view rows) |
 | L4e | Polish: capitalized report lines, district grouping, place title, person-view beat rows | Landed `1dd4f88db` |
-| L5r | Chapters 1-3 UI replay: 18 steps, 0 verified, 1 candidate fold, 17 typed gaps; combined ledger 32 | Uncommitted; browser replay running |
-| W1, G1 | Workflow runner and review script; wait-until and aftermath knowledge | Running |
-| Next | G2 concealment, G3 NPC trades, G4 obligations and law, scene card, MoL host | See the handoff queue |
+| L5r | Chapters 1-3 UI replay: two identical fresh UI runs, zero page errors; 1/18 verified (clean fold), 17 typed gaps, measured in beside | Landed `8a6dffa6a`; fidelity counts in the be seat once B1 lands (CL269) |
+| W1 | Lane runner (`scripts/codex_lane.mjs`), review script, brief template | Landed `6324d336f` |
+| G1 | Wait until (quoted, interruptible); beat aftermath writes dated knowledge to who learned it | Floor PASS bundle `0539519f` (1920×1080, zero page errors, Save/reload/Export/Import); wait takes 13 s for six hours (target 3 s, CO3) |
+| C1, S1 | Perspective tags for 64 controls; seat filter with one read point | Reviewed; commit with G1 |
+| P1 | One command per book to records-ready (CL272) | Running |
+| G2 | Concealment | Held until the be replay needs it |
+| Next | **B1 be the lead** with history pass, then the be replay (CL268) | See the handoff queue |
 
 ## What you can do now
 

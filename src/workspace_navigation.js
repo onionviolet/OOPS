@@ -11,6 +11,8 @@ import {shortcutGroups} from './shortcut_registry.js';
 import {mountUiExtras} from './ui_extras.js';
 import {configureUiPorts} from './ui_ports.js';
 import {pollBadges,badgeCount,markSeen,paintBadge} from './change_badges.js';
+import {controlForRoute,seatAllows} from './seat_profiles.js';
+import {readPort} from './ui_ports.js';
 
 // UIL1 (UIM2): the routes come from the layout spec's route table; this module owns how each opens.
 const routes=routeTable();
@@ -67,9 +69,12 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         for(const list of lists)list.refresh();summarizeGroups(document.getElementById('location_actions_div'));summarizeGroups(document.getElementById('projects_drawer'));
         if(!notified&&document.getElementById('main_content').dataset.workspaceComposition==='proto23'){notified=true;if(document.getElementById('main_content').dataset.parity!=='r3')notice?.('Workspace now groups You above Inventory. Character details and known records remain in the named navigation.','preparation');const stats=[...buttons].find(([route])=>route.target==='preparation')?.[1];if(stats)stats.dataset.newHome='true';}
         const known=knownWorkspaceModules(),ids=new Set(known.map(m=>m.id));
+        const state=readPort('expansion');
         for(const [route,b]of buttons){const {target:id,tab}=route;
             let hidden=!views.has(id)&&!ids.has(id);
             if(tab){const control=document.getElementById(tab);hidden=!control||control.hidden||control.dataset.referenceKnown==='false';}
+            const controlId=controlForRoute(route.id);
+            if(controlId&&!seatAllows(state,{control:controlId}))hidden=true;
             if(b.hidden!==hidden){if(hold)held=true;else b.hidden=hidden;}
             const module=known.find(m=>m.id===id);b.disabled=!!module&&!module.eligible;
             if(arrivals.has(id))b.dataset.newHome='true';
@@ -79,9 +84,9 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
             b.setAttribute('aria-current',centerModes().mode===`workspace:${id}`?'page':'false');
         }
         pollBadges();for(const [route,b]of buttons)paintBadge(b,badgeCount(route.id),route.label);
-        for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden;b.disabled=original.disabled;b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
+        for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!seatAllows(state,{control:'menu.pane-selector'});b.disabled=original.disabled;b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
         const next=JSON.stringify([known,[...arrivals],known.map(m=>badgeCount(m.id))]);if(next!==last){last=next;more.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=arrivals.size?'All panels… •':'All panels…';more.append(first);
-            for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id))continue;const option=document.createElement('option');option.value=m.id;option.textContent=m.title+(arrivals.has(m.id)?' •':'')+(badgeCount(m.id)?` (${badgeCount(m.id)} new)`:'');option.disabled=!m.eligible;more.append(option);}}
+            for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id)||(controlForRoute(m.id)&&!seatAllows(state,{control:controlForRoute(m.id)})))continue;const option=document.createElement('option');option.value=m.id;option.textContent=m.title+(arrivals.has(m.id)?' •':'')+(badgeCount(m.id)?` (${badgeCount(m.id)} new)`:'');option.disabled=!m.eligible;more.append(option);}}
     };
     document.addEventListener('workspace-panel-arrival',event=>{const{id}=event.detail||{};if(id==='pane-navigation')return;const known=knownWorkspaceModules().find(m=>m.id===id);if(!known)return;arrivals.add(id);notice?.(`${known.title} is now available in navigation.`,id);publishChange('knowledge','panel-arrival');});
     // A held route change lands once the pointer leaves the bar or focus moves off it.
