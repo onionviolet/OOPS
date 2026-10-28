@@ -31,7 +31,8 @@ export function extractCandidates(shardMap) {
 
 const CONTEXTUAL = new Set(['price', 'measure', 'clock', 'calendar']);
 const NOT_ENTITY = /^(Episode|Chapter|Volume|Season|Book)\b/i;   // adaptation and index pages carry Chinese titles too
-const normalize = s => String(s || '').replace(/[.．・]/g, '·').trim();
+// Wiki template remnants (braces, brackets, pipes) are dropped so a name like 洛耀·莱汀}} becomes the bare name.
+const normalize = s => String(s || '').replace(/[{}\[\]|<>]/g, '').replace(/[.．・]/g, '·').trim();
 
 /** zh name -> {id?, label, kind?, source}; earlier census rows win over the wiki (they carry our ids). */
 export function buildGlossary({wikiPages = [], censusRows = []}) {

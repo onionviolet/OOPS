@@ -6,7 +6,7 @@
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {MOTIVES} from './lint_lead_run.mjs';
+import {MOTIVES, parseShard} from './lint_lead_run.mjs';
 
 const LABEL = new Set(['S', 'I', 'U']);
 // Free-form tags seen in chapters 1-15 mapped onto the vocabulary; extend with a reason in the changelog.
@@ -64,6 +64,20 @@ export function migrateCensus(r) {
     return c;
 }
 
+/** With the shard text: a census row whose literal name is not at its cited paragraph (or the next two) moves its
+ *  firstMention to the first paragraph that prints that name. A name printed nowhere in the shard is left for review. */
+export function relocateFirstMention(c, shardMap, review) {
+    const m = (c.firstMention || '').match(/^zh 第(\d+)章 p(\d+)$/);
+    if (!c.zh || !shardMap) return c;
+    if (m && [0, 1, 2].some(d => (shardMap.get(`${m[1]}:${Number(m[2]) + d}`) || '').includes(c.zh))) return c;
+    for (const [key, text] of shardMap) if (text.includes(c.zh)) {
+        const [ch, p] = key.split(':');
+        return {...c, firstMention: `zh 第${ch}章 p${p}`, note: c.note};
+    }
+    review.push({id: c.id, need: 'name-not-in-shard'});
+    return c;
+}
+
 export function migrateFill(r) {
     const f = structuredClone(r);
     f.schema = 'fill/1.3';
@@ -73,14 +87,15 @@ export function migrateFill(r) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-    const [dir, prefix] = process.argv.slice(2);
-    if (!dir || !prefix) { console.error('usage: migrate_shard.mjs <dir> <prefix>'); process.exit(2); }
+    const [dir, prefix, shardPath] = process.argv.slice(2);
+    if (!dir || !prefix) { console.error('usage: migrate_shard.mjs <dir> <prefix> [shard.txt]'); process.exit(2); }
+    const shardMap = shardPath ? parseShard(readFileSync(shardPath, 'utf8')) : null;
     const read = n => existsSync(join(dir, n)) ? readFileSync(join(dir, n), 'utf8').split('\n').filter(l => l.trim()).map(l => JSON.parse(l)) : [];
     const write = (n, rows) => writeFileSync(join(dir, n), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
     const review = [];
     const scenes = read(`${prefix}_scenes.jsonl`), beats = new Set(scenes.map(r => r.beat));
     write(`${prefix}_m13_scenes.jsonl`, scenes.map(r => migrateScene(r, review, beats)));
-    write(`${prefix}_m13_census.jsonl`, read(`${prefix}_census.jsonl`).map(migrateCensus));
+    write(`${prefix}_m13_census.jsonl`, read(`${prefix}_census.jsonl`).map(migrateCensus).map(c => relocateFirstMention(c, shardMap, review)));
     // A fill with no basis cannot be checked against the text; it goes to review instead of the shard (nothing invented).
     const fills = read(`${prefix}_fills.jsonl`).map(migrateFill);
     for (const f of fills) if (!Array.isArray(f.basis) || !f.basis.length) review.push({fill: f.id, need: 'fill-without-basis'});

@@ -6758,3 +6758,7 @@ Weibao's words (relayed by the Next implementation priorities session): "Patch a
 Then: "Implement accordingly"
 Then: "Launch accordingly, and then send out readers? More to consider? Be optimal and coordinate effectively."
 Reading recorded by that session: engine lanes launched in their own coordinator session; reading the rest of LOTM volume 1 approved once the protocol v2 gate passes, in waves of about 10 shards, two readers at once, audited per wave, paced by AU7. Working direction under the 2026-10-27 adoption: [plan round 13](gm/dispatch/protagonist-life-2026-10-27/PLAN.md), [reading plan](gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md), [reading status](gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md).
+
+## Reading pace: raise the ceiling (2026-10-27)
+
+Weibao's words: "Raise the ceiling" (answering whether volume 1 reading resumes one wave per 5-hour window or raises the AU7 ceiling; the offered option was 15 points per window for this reading task). Recorded: the AU7 ceiling for the LOTM volume 1 reading task is 15 percentage points of any usage window per window, measured from each window's starting level; other limits and stop conditions in the [reading plan](gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md) stay. Status: [reading status](gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md).

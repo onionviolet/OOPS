@@ -11,13 +11,15 @@ import {extractCandidates, buildGlossary, glossaryHits} from './shard_tools.mjs'
 const args = process.argv.slice(2);
 const flag = name => { const i = args.indexOf(name); return i >= 0 ? args.splice(i, 2)[1] : null; };
 const wiki = flag('--wiki'), censusDir = flag('--census'), prefix = flag('--prefix'), base = flag('--base');
+// Only graded shards feed the glossary (PL-A47), so a wrong row in an ungraded or grade-C shard does not propagate.
+const censusMatch = new RegExp(flag('--census-match') || '_census\\.jsonl$');
 const [templatePath, schemaPath, shardPath, outPath] = args;
 if (!templatePath || !schemaPath || !shardPath || !outPath || !prefix || !base) {
     console.error('usage: assemble_brief.mjs <template> <schema> <shard> <out> --prefix p --base n [--wiki f] [--census dir]');
     process.exit(2);
 }
 const shardText = readFileSync(shardPath, 'utf8');
-const censusRows = censusDir ? readdirSync(censusDir).filter(f => /_census\.jsonl$/.test(f) && !f.startsWith('sample'))
+const censusRows = censusDir ? readdirSync(censusDir).filter(f => /_census\.jsonl$/.test(f) && censusMatch.test(f) && !f.startsWith('sample'))
     .flatMap(f => readFileSync(join(censusDir, f), 'utf8').split('\n').filter(l => l.trim()).map(l => JSON.parse(l))) : [];
 const glossary = buildGlossary({wikiPages: wiki ? JSON.parse(readFileSync(wiki, 'utf8')).pages : [], censusRows});
 const hits = glossaryHits(glossary, shardText);

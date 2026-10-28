@@ -108,3 +108,16 @@ test('fractional money amounts are one candidate', () => {
     const m = parseShard('=== 第1章 测试 | member x\np1: 找回四分之一便士。');
     assert.deepEqual(extractCandidates(m).filter(c => c.kind === 'money').map(c => c.value), ['四分之一便士']);
 });
+
+test('migration moves a first mention to where the name is printed, and flags names absent from the shard', async () => {
+    const {relocateFirstMention} = await import('../scripts/lead_run/migrate_shard.mjs');
+    const review = [];
+    assert.equal(relocateFirstMention({id: 'a', zh: '面包', firstMention: 'zh 第1章 p9'}, shard, review).firstMention, 'zh 第1章 p2');
+    assert.equal(relocateFirstMention({id: 'b', zh: '不存在', firstMention: 'zh 第1章 p1'}, shard, review).firstMention, 'zh 第1章 p1');
+    assert.deepEqual(review, [{id: 'b', need: 'name-not-in-shard'}]);
+});
+
+test('wiki template remnants are stripped from glossary names', () => {
+    const g = buildGlossary({wikiPages: [{title: 'Some Name', text: '|chinese = 洛耀·莱汀}}'}]});
+    assert.ok(g.has('洛耀·莱汀'));
+});
