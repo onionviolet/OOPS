@@ -3,6 +3,7 @@
 // the CLIs `assemble_brief.mjs` and `audit_shard.mjs` do the file work. Outputs carry ids, locators and counts,
 // plus short names in the source script (the census `zh` field already holds them); never source sentences.
 import {lintScenes, lintCensus, lintFills, summarize} from './lint_lead_run.mjs';
+import {EN_PATTERNS, EN_RELATIONAL, formatLocator, parseLocator, nameIn} from './world_profiles.mjs';
 
 const CJK_NUM = '零一二两三四五六七八九十百千半几\\d';
 const PATTERNS = Object.freeze({
@@ -15,9 +16,13 @@ const PATTERNS = Object.freeze({
 
 /** Candidate facts by kind with paragraph locators, so readers label and link rather than search. */
 export function extractCandidates(shardMap) {
-    const out = [];
+    const out = [], en = shardMap.lang === 'en';
     for (const [key, text] of shardMap) {
         const [ch, p] = key.split(':');
+        if (en) {
+            for (const [kind, re] of Object.entries(EN_PATTERNS)) for (const m of text.matchAll(re)) out.push({kind, value: m[0], locator: formatLocator('en', {book: shardMap.book || 1, ch, p})});
+            continue;
+        }
         for (const [kind, re] of Object.entries(PATTERNS)) {
             for (const m of text.matchAll(re)) {
                 // "一点", "半点", "一时" are usually idioms ("a little", "for a moment"); keep them only with a clock word.
@@ -50,7 +55,7 @@ export function buildGlossary({wikiPages = [], censusRows = []}) {
     for (const r of censusRows) {
         const zh = normalize(r.zh);
         // Amounts, measures and times are contextual: "4 pence" in one scene is not the same row as in another.
-        if (!zh || g.get(zh)?.id || CONTEXTUAL.has(r.kind) || RELATIONAL.has(zh)) continue;
+        if (!zh || g.get(zh)?.id || CONTEXTUAL.has(r.kind) || RELATIONAL.has(zh) || EN_RELATIONAL.has(zh)) continue;
         // Short common nouns (bedroom, hat) name different things in different scenes; only proper names carry ids across.
         if (['place', 'item', 'event', 'note', 'creature'].includes(r.kind) && zh.length < 3 && !zh.includes('·')) continue;
         const wiki = g.get(zh)?.source === 'wiki' ? g.get(zh).label : null;
@@ -63,6 +68,11 @@ export function buildGlossary({wikiPages = [], censusRows = []}) {
 /** Glossary entries whose name appears in this shard (also the dotted given-name part of a full name). */
 export function glossaryHits(glossary, shardText) {
     const text = normalize(shardText), hits = [];
+    // English names match as whole words, in the printed form (no dotted given-name shortcut: "Mr. Dursley" must not hit every "Mr").
+    if (/^=== Chapter \d+/m.test(shardText)) {
+        for (const [zh, e] of glossary) { const printed = zh.replace(/·/g, '.'); if (nameIn(shardText, printed, 'en')) hits.push({...e, zh: printed}); }
+        return hits;
+    }
     for (const [zh, e] of glossary) {
         const short = zh.split('·')[0];
         if (!(text.includes(zh) || (short.length >= 2 && zh.includes('·') && text.includes(short)))) continue;
@@ -79,8 +89,8 @@ export function auditShard({scenes = [], census = [], fills = [], shardMap, spot
     const locs = [];
     for (const r of scenes) for (const e of r.evidence || []) if (e.label === 'S') locs.push(e.locator);
     const inShard = loc => {
-        const m = (loc || '').match(/^zh 第(\d+)章 p(\d+)$/);
-        return !!m && shardMap.has(`${m[1]}:${m[2]}`);
+        const m = parseLocator(loc);
+        return !!m && shardMap.has(m.key);
     };
     const locatorValid = locs.length ? locs.filter(inShard).length / locs.length : 1;
     const named = census.filter(r => r.zh && r.firstMention);

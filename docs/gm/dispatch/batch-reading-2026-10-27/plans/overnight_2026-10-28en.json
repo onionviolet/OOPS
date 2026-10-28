@@ -1,0 +1,39 @@
+{
+ "name": "2026-10-28en",
+ "approval": "PENDING: needs Weibao's go phrase (NOV1_SCHEDULE section 8).",
+ "ceilingUsd": 1,
+ "steps": [
+  {
+   "name": "E1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_pilot_census.json",
+     "cap": 0.02,
+     "label": "hp1-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mol_pilot_census.json",
+     "cap": 0.02,
+     "label": "mol-pilot-census"
+    }
+   ]
+  },
+  {
+   "name": "E2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "hp1-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mol_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "mol-pilot-scenes"
+    }
+   ]
+  }
+ ]
+}

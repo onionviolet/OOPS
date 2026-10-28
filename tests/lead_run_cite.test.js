@@ -17,9 +17,9 @@ const merged = {
 
 test('index keeps the first edition of an overlapping paragraph; locators are found anywhere in a row', () => {
     const idx = shardIndex(dir);
-    assert.equal(idx.get('2:1'), '四。');
-    assert.equal(idx.get('2:2'), '五。');
-    assert.deepEqual(locatorsOf({a: 'zh 第1章 p2', b: [{c: 'zh 第2章 p1 and zh 第1章 p2'}]}), ['1:2', '2:1']);
+    assert.equal(idx.get('0:2:1'), '四。');
+    assert.equal(idx.get('0:2:2'), '五。');
+    assert.deepEqual(locatorsOf({a: 'zh 第1章 p2', b: [{c: 'zh 第2章 p1 and zh 第1章 p2'}]}), ['0:1:2', '0:2:1']);
 });
 
 test('rows for an id: registry, scenes naming it, extras mentioning it; topic matches labels and aliases', () => {
@@ -34,6 +34,6 @@ test('cite returns cited paragraphs with context, deduplicated, and reports miss
     assert.equal(new Set(keys).size, keys.length);
     assert.ok(r.paragraphs.find(p => p.ch === 1 && p.p === 2).cited);
     assert.ok(keys.includes('1:1'), 'context neighbour included');
-    assert.deepEqual(r.missing, ['9:9']);
+    assert.deepEqual(r.missing, ['0:9:9']);
     assert.equal(cite({merged, index: shardIndex(dir), ids: ['t.person.ann'], max: 1}).paragraphs.length, 1);
 });

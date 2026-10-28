@@ -10,6 +10,7 @@ import {readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync} from 'n
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {RELATIONAL, CONTEXTUAL} from './shard_tools.mjs';
+import {parseLocator, EN_RELATIONAL} from './world_profiles.mjs';
 
 const readJsonl = p => existsSync(p) ? readFileSync(p, 'utf8').split('\n').filter(l => l.trim()).map(l => JSON.parse(l)) : [];
 const writeJsonl = (p, rows) => writeFileSync(p, rows.map(r => JSON.stringify(r)).join('\n') + (rows.length ? '\n' : ''));
@@ -18,7 +19,7 @@ const top = m => [...m].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0]
 const RUNG = {M0: 0, M1: 1, M2: 2, M3: 3};
 const ID_LIKE = /^[a-z]+(\.[a-z0-9-]+){2,}$/;
 // Titles and kin words name a role, not one person: never an alias (shard_tools RELATIONAL plus police titles seen in volume 1).
-const ROLE_WORDS = new Set([...RELATIONAL, '警官', '督察', '警察']);
+const ROLE_WORDS = new Set([...RELATIONAL, ...EN_RELATIONAL, '警官', '督察', '警察']);
 const roleWord = a => ROLE_WORDS.has(String(a).replace(/\s*\([^)]*\)\s*$/, '').trim());
 const PROPER_KINDS = new Set(['person', 'place', 'organization', 'deity']);
 export const EXTRA_KINDS = ['rules', 'people', 'places', 'services', 'news', 'customs', 'rules_other', 'people_other', 'texture_other'];
@@ -26,8 +27,8 @@ const ABSOLUTE_DATE = /^(\d{4})(?:-(\d\d))?(?:-(\d\d))?$/;
 
 /** Order key for locators `zh 第N章 pM` (or `B1:PDF-pN` style falls back to string order). */
 export function locatorKey(loc) {
-    const m = /第(\d+)章 p(\d+)/.exec(String(loc || ''));
-    return m ? Number(m[1]) * 10000 + Number(m[2]) : Infinity;
+    const m = parseLocator(loc);
+    return m ? m.book * 1e8 + m.ch * 10000 + m.p : Infinity;
 }
 
 /** "Benson, Klein's older brother" and "Tingen (city)" are descriptions of one label: keep the name part. */

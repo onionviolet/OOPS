@@ -1,0 +1,24 @@
+{
+ "world": "hp",
+ "model": "claude-haiku-5-5",
+ "effort": "high",
+ "maxTokens": 64000,
+ "outTokensAssumed": 45000,
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+  "censusMatch": "^hp1c\\d+m_census\\.jsonl$"
+ },
+ "label": "hp1-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "hp1c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp1_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ]
+}

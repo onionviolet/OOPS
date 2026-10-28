@@ -24,7 +24,9 @@ const NAME_SOURCES = new Set(['repo', 'wiki', 'pinyin-unconfirmed']);
 const PLACE_STATUS = new Set(['stated', 'claimed', 'inferred']);
 const TOUCH_STATUS = new Set(['present', 'partial', 'missing']);
 const CLASSES = new Set(['carried', 'changed', 'blocked']);
-const LOCATOR = /^zh 第(\d+)章 p(\d+)$/;
+import {LOCATOR_ANY, parseLocator, headerOf, nameIn} from './world_profiles.mjs';
+
+const LOCATOR = LOCATOR_ANY;   // `zh 第N章 pM` or `en bB cN pM` (world_profiles.mjs)
 const EVIDENCE_KIND = /^(shown|narration|inferred|thought:[\w.-]+|dialogue:[\w.-]+|dream:[\w.-]+)$/;
 const CJK_RUN = /[㐀-鿿]{6,}/;   // quote guard: more than five source characters outside `zh`
 const words = s => String(s).trim().split(/\s+/).filter(Boolean).length;
@@ -34,8 +36,8 @@ export function parseShard(text) {
     const map = new Map();
     let ch = null;
     for (const line of text.split('\n')) {
-        const h = line.match(/^=== .*?第(\d+)章/);
-        if (h) { ch = Number(h[1]); continue; }
+        const h = headerOf(line);
+        if (h) { ch = h.ch; map.lang = h.lang; map.book = h.book; continue; }
         const p = line.match(/^p(\d+): (.*)$/);
         if (p && ch !== null) map.set(`${ch}:${p[1]}`, p[2]);
     }
@@ -134,10 +136,10 @@ export function lintCensus(rows, shard = null) {
         if (r.kind === 'price' && !(r.amount && Number.isFinite(r.amount.value) && r.amount.unit)) out.push({code: 'price-amount', where: w});
         if (r.note && words(r.note) > 15) out.push({code: 'note-length', where: w});
         locatorIssues(w, r.firstMention, out);
-        const m = (r.firstMention || '').match(LOCATOR);
+        const m = parseLocator(r.firstMention);
         if (shard && m && r.zh) {
-            const c = Number(m[1]), p = Number(m[2]);
-            const hit = [p, p + 1, p + 2].some(q => (shard.get(`${c}:${q}`) || '').includes(r.zh));
+            const c = m.ch, p = m.p;
+            const hit = [p, p + 1, p + 2].some(q => nameIn(shard.get(`${c}:${q}`) || '', r.zh, shard.lang));
             if (!hit) out.push({code: shard.has(`${c}:${p}`) ? 'zh-not-at-locator' : 'locator-outside-shard', where: w});
         }
         quoteGuard(w, r, new Set(['zh', 'aliases']), out);

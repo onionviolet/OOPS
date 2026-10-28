@@ -5,15 +5,17 @@ import {readFileSync, existsSync, readdirSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseShard} from './lint_lead_run.mjs';
+import {locatorsIn} from './world_profiles.mjs';
 
 const readJsonl = p => existsSync(p) ? readFileSync(p, 'utf8').split('\n').filter(l => l.trim()).map(l => JSON.parse(l)) : [];
-const LOC = /第(\d+)章 p(\d+)/g;
 
-/** "ch:p" -> paragraph text over every shard file (first file wins where two editions overlap). */
+/** "book:ch:p" -> paragraph text over every shard file (book 0 for Chinese locators; first file wins where two editions overlap). */
 export function shardIndex(privateDir) {
     const index = new Map();
-    for (const f of readdirSync(privateDir).filter(f => /^shard_.*\.txt$/.test(f)).sort())
-        for (const [k, v] of parseShard(readFileSync(join(privateDir, f), 'utf8'))) if (!index.has(k)) index.set(k, v);
+    for (const f of readdirSync(privateDir).filter(f => /^shard_.*\.txt$/.test(f)).sort()) {
+        const map = parseShard(readFileSync(join(privateDir, f), 'utf8')), book = map.lang === 'en' ? map.book : 0;
+        for (const [k, v] of map) if (!index.has(`${book}:${k}`)) index.set(`${book}:${k}`, v);
+    }
     return index;
 }
 
@@ -21,7 +23,7 @@ export function shardIndex(privateDir) {
 export function locatorsOf(row) {
     const out = [];
     const walk = v => {
-        if (typeof v === 'string') for (const m of v.matchAll(LOC)) { const k = `${Number(m[1])}:${Number(m[2])}`; if (!out.includes(k)) out.push(k); }
+        if (typeof v === 'string') for (const m of locatorsIn(v)) { const k = `${m.book}:${m.ch}:${m.p}`; if (!out.includes(k)) out.push(k); }
         else if (Array.isArray(v)) v.forEach(walk);
         else if (v && typeof v === 'object') Object.values(v).forEach(walk);
     };
@@ -50,13 +52,13 @@ export function cite({merged, index, ids, context = 0, max = 60}) {
     const add = (from, keys) => {
         for (const k of keys) {
             if (out.length >= max) return;
-            const [ch, p] = k.split(':').map(Number);
+            const [book, ch, p] = k.split(':').map(Number);
             for (let q = p - context; q <= p + context; q++) {
-                const key = `${ch}:${q}`;
+                const key = `${book}:${ch}:${q}`;
                 if (seen.has(key)) continue;
                 if (!index.has(key)) { if (q === p) missing.push(key); continue; }
                 seen.add(key);
-                out.push({from, ch, p: q, cited: q === p, text: index.get(key)});
+                out.push({from, book, ch, p: q, cited: q === p, text: index.get(key)});
             }
         }
     };

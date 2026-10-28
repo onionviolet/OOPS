@@ -12,7 +12,8 @@ const WIKI = join(root, 'docs/research/novels/lord-of-mysteries/wiki-api-2026-10
 // Agent-read shards plus the volume 1 batch prefixes (graded A or B only; batch_lib enforces the grade at read time).
 const ALL_CENSUS = '^(s[2-6]r?|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m)_census\\.jsonl$'.replace('s[2-6]r?', 's2m|s[2-6]rm');
 const SETTINGS = {
-    census: {effort: 'medium', maxTokens: 48000, outTokensAssumed: 42000},
+    // High effort since the 2026-10-28 Stage A pilot: new-entity recall 0.74 against 0.53 at medium; 64,000 tokens because dense shards hit 48,000.
+    census: {effort: 'high', maxTokens: 64000, outTokensAssumed: 50000},
     scenes: {effort: 'high', maxTokens: 64000, outTokensAssumed: 45000, schemaMode: 'prompt'},
     rules: {effort: 'high', maxTokens: 64000, outTokensAssumed: 45000, schemaMode: 'prompt'},
     people: {effort: 'high', maxTokens: 64000, outTokensAssumed: 45000, schemaMode: 'prompt'},
@@ -46,7 +47,8 @@ const sab = [['w2s25', '070-072', '2501', '70-72'], ['w3s33', '094-096', '3301',
 // The census arm must not see these shards' own answers; the other arms read the agent census as pass 2 does.
 const notOwn = '^(s2m|s[2-6]rm|s[7-9]vm|w1s1[0-9]m|w2s2[0-46-9]m|w3s3[0-24-57-9]m|w4s4[0-1]m)_census\\.jsonl$';
 for (const pass of ['census', 'scenes', 'rules', 'people']) {
-    const plan = base(`sab-${pass}`, pass, sab.map(({raw, ...x}) => ({...x, prefix: `z${raw}${pass[0]}`})), {model: 'claude-sonnet-5-5'});
+    // The A/B ran on 2026-10-28 with census at medium; keep its plan as run.
+    const plan = base(`sab-${pass}`, pass, sab.map(({raw, ...x}) => ({...x, prefix: `z${raw}${pass[0]}`})), {model: 'claude-sonnet-5-5', ...(pass === 'census' ? {effort: 'medium', maxTokens: 48000, outTokensAssumed: 42000} : {})});
     if (pass === 'census') plan.glossary.censusMatch = notOwn;
     out.push(write(`sab_${pass}`, plan));
 }

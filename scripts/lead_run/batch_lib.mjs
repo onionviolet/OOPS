@@ -9,6 +9,7 @@ import {join, dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseShard, lintScenes, lintCensus, lintFills} from './lint_lead_run.mjs';
 import {extractCandidates, buildGlossary, glossaryHits, auditShard} from './shard_tools.mjs';
+import {worldProfile, languageRules, parseLocator, sharedWordRun} from './world_profiles.mjs';
 
 export const MODEL = 'claude-haiku-5-5';
 // claude-api skill cached table 2026-10-06: Haiku 5.5, prompts up to 100K tokens; the Batch API is half price.
@@ -145,14 +146,25 @@ const RECORD_TEXT = 'Record everything the shard states or shows for this pass, 
 
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
 export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md')} = {}) {
-    return [
+    const profile = worldProfile(world);
+    return localize([
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
         ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
         (EXTRA_SCHEMA[pass] ? 'Rules: labels are exactly T, S, I or U; ' : 'Rules: labels are exactly S, I or U; ') + 'locators are `zh 第N章 pM` for a paragraph inside the shard; copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
         `World id prefix for ids: ${world}. Beat ids are \`lr.${world}.main.NNNN\` counting up from the base given in the user message.`,
         '# Schema card\n\n' + readFileSync(cardPath, 'utf8'),
-    ].join('\n\n');
+        // World appendix (units, kinds, calendar, structure) for worlds other than LOTM; it overrides the card's LOTM-specific units.
+        ...(profile.appendix ? ['# World appendix (overrides the card where they differ)\n\n' + profile.appendix] : []),
+    ].join('\n\n'), profile.lang);
+}
+
+/** English worlds swap the three Chinese-specific rules (locator form, the `zh` field, the quote limit); Chinese text is returned unchanged. */
+function localize(text, lang) {
+    if (lang !== 'en') return text;
+    const zh = languageRules('zh'), en = languageRules('en');
+    return text.replace(zh.locator, en.locator).replace(zh.name, en.name).replace(zh.quote, en.quote)
+        .replace('Every money, time, duration, measure and dotted-name candidate', 'Every money, time, duration and measure candidate');
 }
 
 export function glossaryTable(hits) {
@@ -297,8 +309,22 @@ export function usageUsd(u = {}, model = MODEL) {
 const writeJsonl = (p, rows) => writeFileSync(p, (rows || []).map(r => JSON.stringify(r)).join('\n') + (rows?.length ? '\n' : ''));
 
 /** Lint codes with row ids for a parsed result, in-process (same checks as the CLI). */
-export function lintAll({scenes = [], census = [], fills = [], shardMap}) {
-    return [...lintScenes(scenes), ...lintCensus(census, shardMap), ...lintFills(fills)];
+export function lintAll({scenes = [], census = [], fills = [], shardMap, shardText = null}) {
+    const out = [...lintScenes(scenes), ...lintCensus(census, shardMap), ...lintFills(fills)];
+    if (shardMap?.lang === 'en' && shardText) out.push(...enQuoteIssues({scenes, census, fills}, shardText));
+    return out;
+}
+
+/** English quote guard: any text field sharing nine or more consecutive words with the shard is a copied sentence (the Chinese guard counts CJK runs instead). */
+export function enQuoteIssues(rows, shardText) {
+    const out = [];
+    const walk = (n, where, key) => {
+        if (typeof n === 'string') { if (!['zh', 'aliases'].includes(key) && sharedWordRun(n, shardText)) out.push({code: 'quote-guard', where, field: key}); return; }
+        if (Array.isArray(n)) return n.forEach(x => walk(x, where, key));
+        if (n && typeof n === 'object') for (const [k, v] of Object.entries(n)) walk(v, n.id || n.beat || where, k);
+    };
+    walk(rows, '?', null);
+    return out;
 }
 
 /** Rows that failed lint, by kind, so a repair request can carry only them. */
@@ -344,7 +370,7 @@ export function lintExtra(rows, shardMap) {
         if (!n || typeof n !== 'object') return;
         const w = n.id || n.name || where;
         if ('label' in n && !['T', 'S', 'I', 'U'].includes(n.label)) issues.push({code: 'label', where: w});
-        if (typeof n.locator === 'string') { const m = /^zh 第(\d+)章 p(\d+)$/.exec(n.locator); if (!m || !shardMap.has(`${m[1]}:${m[2]}`)) issues.push({code: 'locator', where: w}); }
+        if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key)) issues.push({code: 'locator', where: w}); }
         for (const v of Object.values(n)) walk(v, w);
     };
     walk(rows, '?');
@@ -383,7 +409,8 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         let rows = parsed.rows;
         if (EXTRA_PASSES[plan.pass]) {
             // Passes 3-5 write their own files; no migrate, no audit grade, no repair (a bad row set is re-read after the consumer probe).
-            const keys = EXTRA_PASSES[plan.pass], issues = lintExtra(Object.fromEntries(keys.map(k => [k, rows[k] || []])), shardMap);
+            const keys = EXTRA_PASSES[plan.pass], extraRows = Object.fromEntries(keys.map(k => [k, rows[k] || []]));
+            const issues = [...lintExtra(extraRows, shardMap), ...(shardMap.lang === 'en' ? enQuoteIssues(extraRows, shardText) : [])];
             for (const k of keys) writeJsonl(join(plan.privateDir, `${s.prefix}_${extraFile(plan.pass, k)}.jsonl`), rows[k]);
             summary.shards.push({id, status: 'ok', pass: plan.pass, counts: Object.fromEntries(keys.map(k => [k, (rows[k] || []).length])), lintIssues: issues.length, issueCodes: [...new Set(issues.map(i => i.code))]});
             continue;
@@ -403,7 +430,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         const suffix = runTools ? 'm' : '';
         const cur = {scenes: readJsonl(join(plan.privateDir, `${p}${suffix}_scenes.jsonl`)), census: readJsonl(join(plan.privateDir, `${p}${suffix}_census.jsonl`)), fills: readJsonl(join(plan.privateDir, `${p}${suffix}_fills.jsonl`))};
         // Repair is decided on the migrated rows: migrate_shard already fixes the structural failures for free.
-        const issues = lintAll({...cur, shardMap});
+        const issues = lintAll({...cur, shardMap, shardText});
         const audit = auditShard({...cur, shardMap});
         const grade = audit.grade;
         const coverage = plan.pass === 'scenes' ? null : candidateCoverage(extractCandidates(shardMap), cur.census);

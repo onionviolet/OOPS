@@ -1,0 +1,126 @@
+{
+ "name": "2026-10-28b",
+ "approval": "PENDING: needs Weibao's go phrase (NOV1_SCHEDULE section 8).",
+ "ceilingUsd": 6,
+ "steps": [
+  {
+   "name": "B1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pilot3_scenes.json",
+     "cap": 0.06,
+     "label": "pilot-3-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w1.json",
+     "cap": 0.19,
+     "label": "v1-census-w1"
+    }
+   ]
+  },
+  {
+   "name": "B2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w2.json",
+     "cap": 0.19,
+     "label": "v1-census-w2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w1.json",
+     "cap": 0.19,
+     "label": "v1-scenes-w1"
+    }
+   ]
+  },
+  {
+   "name": "B3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w3.json",
+     "cap": 0.16,
+     "label": "v1-census-w3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w2.json",
+     "cap": 0.19,
+     "label": "v1-scenes-w2"
+    }
+   ]
+  },
+  {
+   "name": "B4",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w3.json",
+     "cap": 0.16,
+     "label": "v1-scenes-w3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w5.json",
+     "cap": 0.16,
+     "label": "v1-rules-w5"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w6.json",
+     "cap": 0.16,
+     "label": "v1-rules-w6"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w7.json",
+     "cap": 0.16,
+     "label": "v1-rules-w7"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w8.json",
+     "cap": 0.16,
+     "label": "v1-rules-w8"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w5.json",
+     "cap": 0.16,
+     "label": "v1-people-w5"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w6.json",
+     "cap": 0.16,
+     "label": "v1-people-w6"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w7.json",
+     "cap": 0.16,
+     "label": "v1-people-w7"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w8.json",
+     "cap": 0.16,
+     "label": "v1-people-w8"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w5.json",
+     "cap": 0.16,
+     "label": "v1-texture-w5"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w6.json",
+     "cap": 0.16,
+     "label": "v1-texture-w6"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w7.json",
+     "cap": 0.16,
+     "label": "v1-texture-w7"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w8.json",
+     "cap": 0.16,
+     "label": "v1-texture-w8"
+    }
+   ]
+  }
+ ]
+}
