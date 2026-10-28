@@ -29,9 +29,9 @@ export function extractCandidates(shardMap) {
     return out;
 }
 
-const CONTEXTUAL = new Set(['price', 'measure', 'clock', 'calendar']);
+export const CONTEXTUAL = new Set(['price', 'measure', 'clock', 'calendar']);
 // Kinship terms and titles point at different people depending on the speaker (a sister says 哥哥 for Klein).
-const RELATIONAL = new Set(['哥哥', '妹妹', '姐姐', '弟弟', '父亲', '母亲', '爸爸', '妈妈', '队长', '导师', '老师', '先生', '女士', '夫人', '小姐', '大人', '阁下', '房东']);
+export const RELATIONAL = new Set(['哥哥', '妹妹', '姐姐', '弟弟', '父亲', '母亲', '爸爸', '妈妈', '队长', '导师', '老师', '先生', '女士', '夫人', '小姐', '大人', '阁下', '房东']);
 const NOT_ENTITY = /^(Episode|Chapter|Volume|Season|Book)\b/i;   // adaptation and index pages carry Chinese titles too
 // Wiki template remnants (braces, brackets, pipes) are dropped so a name like 洛耀·莱汀}} becomes the bare name.
 const normalize = s => String(s || '').replace(/[{}\[\]|<>]/g, '').replace(/[.．・]/g, '·').trim();

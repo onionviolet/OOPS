@@ -1,0 +1,36 @@
+{
+ "world": "lotm",
+ "model": "claude-haiku-5-5",
+ "effort": "high",
+ "maxTokens": 64000,
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/batch",
+ "glossary": {
+  "wiki": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+  "censusMatch": "^(s[3-6]r|s[7-9]vm|w1s1[0-4]m|w1s1[6-9]m|w2s2[0-4]m|w2s2[6-9]m|w3s3[0-2]m)_census\\.jsonl$"
+ },
+ "label": "pilot-3-census-high",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "h15",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_w1s15_ch040-042.txt",
+   "base": "1501",
+   "chapters": "40-42"
+  },
+  {
+   "prefix": "h25",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_w2s25_ch070-072.txt",
+   "base": "2501",
+   "chapters": "70-72"
+  },
+  {
+   "prefix": "h36",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_w3s36_ch103-105.txt",
+   "base": "3601",
+   "chapters": "103-105"
+  }
+ ],
+ "outTokensAssumed": 50000
+}

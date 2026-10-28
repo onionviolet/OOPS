@@ -1,5 +1,7 @@
 # Opus review: batched reading, state and next steps (2026-10-27)
 
+**Superseded in part (2026-10-28):** the credit expires Nov 1, so [NOV1_SCHEDULE](NOV1_SCHEDULE.md) replaces section 4's order and section 5's go phrases. The merge (lane L1) is built. Sections 2, 3, 6 and 7 stand.
+
 Reviewer: Opus-role session, reading [OPUS_HANDOFF](OPUS_HANDOFF.md), [REFLECTION](REFLECTION.md), [PLAN](PLAN.md) 5-6a, [READINESS_AND_SCOPE](READINESS_AND_SCOPE.md) 1-8, `scripts/lead_run/batch_*.mjs` and `tests/lead_run_batch.test.js` (17 pass, rerun today). Labels: [S] seen in files or commands, [I] inference. **No live submit, no key read, no spend.** Dry runs of `pilot3_census`, `pilot3_scenes` and `ab_w3s33_rules` still work.
 
 ## 1. Verdict
@@ -8,7 +10,7 @@ The method is right in shape: Haiku records, scripts fill and merge, Sonnet judg
 
 - **D1. Build the merge now, on shards that already exist.** 47 agent-read, migrated shards with headers (grades: 5 C, 1 A, 41 B) and 155 census files sit in the private folder [S]. The merge (C5, F1, F3, F7) needs no new batch to be written and tested. The handoff lists it as stage 2, after the pilot; it should start today.
 - **D2. Run the gap probe on what exists, not after volume 1.** Pilot shards plus agent shards are enough to ask the question list. The probe decides schema 1.4; it should not wait for 31 more shards (G3 is currently behind G2).
-- **D3. Sonnet is cheap relative to the credit; the expiry argues for using it, not hoarding.** Credit expires Nov 10 [S]. Volume 1 with every Haiku pass and every Sonnet lane is $2 to $4 of $100. Test Sonnet at settings that matter (medium census, high scenes) once, on two shards, so the model choice is evidence and not the low-effort accident.
+- **D3. Sonnet is cheap relative to the credit; the expiry argues for using it, not hoarding.** Credit expires Nov 1 (corrected 2026-10-28 by Weibao; first written as Nov 10). Volume 1 with every Haiku pass and every Sonnet lane is $2 to $4 of $100. Test Sonnet at settings that matter (medium census, high scenes) once, on two shards, so the model choice is evidence and not the low-effort accident.
 - **D4. Fewer round trips for Weibao.** Independent labels can share one go phrase (precedent: "Go on batches ab-w3s33-full and ab-w3s33-census, cap $0.05 each."). Two phrases cover the whole next stage.
 
 ## 2. What I agree with
@@ -54,7 +56,7 @@ Not changed, but worth stating: I would **not** run the union-of-two-census (F5)
 | 11 | Sonnet options-and-needs and dense-shard rules/people, then 10% fact check | Sonnet batch | about $1 to $3 for volume 1 [I] | Per label |
 | 12 | Other books: English adapter first (G5), then one book at a time | Mixed | per book, see PLAN 4 | Per-book go and cap |
 
-Total through step 9: about **$1.5 to $2.5**, all inside the Nov 10 window. Steps 10-11 add $2 to $5. Nothing here approaches the $100.
+Total through step 9: about **$1.5 to $2.5**, all inside the credit window. Steps 10-11 add $2 to $5. Nothing here approaches the $100.
 
 Two things to avoid: running volume 1 before step 8 (extra passes may change the schema, wasting merge effort, the real cost per L1), and running Sonnet on every shard before step 9 shows it earns its 20x.
 
