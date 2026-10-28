@@ -1,0 +1,66 @@
+{
+ "name": "2026-10-28s-lotm",
+ "approval": "Weibao 2026-10-28: \"We can fix LOTM, and then do the rest? Splot accordingly? Address each of the tihng ti consider?\", answering \"Finish ASL texture now, then send Godclads if its worst case still fits under $99?\" (LOTM split retry first: 48 census and 7 people cut-off shards split to one chapter each; caps as written; pooled stop; ceiling $3.59 true bound).",
+ "ceilingUsd": 3.59,
+ "capTotal": 3.59,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_census_s1.json",
+     "cap": 0.52,
+     "label": "lotm2-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_census_s1.json",
+     "cap": 0.78,
+     "label": "lotm3-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_census_s1.json",
+     "cap": 0.78,
+     "label": "lotm4-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_census_s1.json",
+     "cap": 0.39,
+     "label": "lotm5-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_census_s1.json",
+     "cap": 0.26,
+     "label": "lotm6-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_census_s1.json",
+     "cap": 0.33,
+     "label": "lotm7-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_census_s1.json",
+     "cap": 0.07,
+     "label": "lotm8-census-s1"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_people_s1.json",
+     "cap": 0.07,
+     "label": "lotm2-people-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_people_s1.json",
+     "cap": 0.39,
+     "label": "lotm4-people-s1"
+    }
+   ]
+  }
+ ]
+}

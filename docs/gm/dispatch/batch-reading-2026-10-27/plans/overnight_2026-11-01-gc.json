@@ -1,7 +1,7 @@
 {
  "name": "2026-11-01-gc",
- "approval": "PENDING: needs Weibao's go phrase.",
- "ceilingUsd": 10,
+ "approval": "Weibao 2026-10-28: \"We can fix LOTM, and then do the rest? Splot accordingly? Address each of the tihng ti consider?\", answering \"Finish ASL texture now, then send Godclads if its worst case still fits under $99?\" (run 2026-11-01-gc, schema 1.4, caps as written, ceiling = true-bound cap $13.38; sent last, after r-asl texture, only if measured spend plus $13.38 is at most $99 and before Oct 31 noon).",
+ "ceilingUsd": 13.38,
  "capTotal": 13.38,
  "steps": [
   {

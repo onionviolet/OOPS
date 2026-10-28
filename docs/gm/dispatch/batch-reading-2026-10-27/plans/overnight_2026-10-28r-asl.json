@@ -1,7 +1,7 @@
 {
  "name": "2026-10-28r-asl",
- "approval": "Weibao 2026-10-28: \"Go on three\", answering \"Send the HP and MoL retries plus A Soldier's Life now, at $15 in ceilings?\" (runs 2026-10-28r-hp $3, r-mol $1, r-asl $11; caps as written; pooled stop rule; r-ss held until LOTM census measures). | Weibao 2026-10-28: \"Go on both\", answering \"Send Shadow Slave ($12) and relaunch A Soldier's Life with the fix ($11) on October's credit?\" (relaunch after the census fixes in 6c307c329; offline gate simulation passes, 18 of 145 counted; caps as written; ceiling $11).",
- "ceilingUsd": 11,
+ "approval": "Weibao 2026-10-28: \"Go on three\", answering \"Send the HP and MoL retries plus A Soldier's Life now, at $15 in ceilings?\" (runs 2026-10-28r-hp $3, r-mol $1, r-asl $11; caps as written; pooled stop rule; r-ss held until LOTM census measures). | Weibao 2026-10-28: \"Go on both\", answering \"Send Shadow Slave ($12) and relaunch A Soldier's Life with the fix ($11) on October's credit?\" (relaunch after the census fixes in 6c307c329; offline gate simulation passes, 18 of 145 counted; caps as written; ceiling $11). | Weibao 2026-10-28: \"We can fix LOTM, and then do the rest? Splot accordingly? Address each of the tihng ti consider?\", answering \"Finish ASL texture now, then send Godclads if its worst case still fits under $99?\" (ceiling raised to $16 so texture finishes; launched after the LOTM split retry, Perfect Run and RI pilot finish, only if measured spend plus texture caps $5.01 stays at or under $95).",
+ "ceilingUsd": 16,
  "capTotal": 25.13,
  "steps": [
   {
