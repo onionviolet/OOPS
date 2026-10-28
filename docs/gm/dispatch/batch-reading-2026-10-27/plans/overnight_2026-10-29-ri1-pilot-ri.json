@@ -1,0 +1,79 @@
+{
+ "name": "2026-10-29-ri1-pilot-ri",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 3.4,
+ "capTotal": 4.66,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_pilot_census.json",
+     "cap": 0.04,
+     "label": "ri1-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "ri1-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_census.json",
+     "cap": 0.89,
+     "label": "ri1-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_scenes.json",
+     "cap": 0.9,
+     "label": "ri1-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_rules.json",
+     "cap": 0.93,
+     "label": "ri1-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_people.json",
+     "cap": 0.93,
+     "label": "ri1-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_texture.json",
+     "cap": 0.93,
+     "label": "ri1-texture"
+    }
+   ]
+  }
+ ]
+}

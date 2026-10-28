@@ -1,0 +1,1993 @@
+{
+ "world": "rtoc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.4",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29",
+  "censusMatch": "^(rtoc)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "rtoc-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "rtocc000",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch000-001.txt",
+   "base": "00001",
+   "chapters": "0-1"
+  },
+  {
+   "prefix": "rtocc002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch002-003.txt",
+   "base": "00201",
+   "chapters": "2-3"
+  },
+  {
+   "prefix": "rtocc004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch004-005.txt",
+   "base": "00401",
+   "chapters": "4-5"
+  },
+  {
+   "prefix": "rtocc006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch006-008.txt",
+   "base": "00601",
+   "chapters": "6-8"
+  },
+  {
+   "prefix": "rtocc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "rtocc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "rtocc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "rtocc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch015-015.txt",
+   "base": "01501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "rtocc016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch016-017.txt",
+   "base": "01601",
+   "chapters": "16-17"
+  },
+  {
+   "prefix": "rtocc018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch018-019.txt",
+   "base": "01801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "rtocc020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch020-022.txt",
+   "base": "02001",
+   "chapters": "20-22"
+  },
+  {
+   "prefix": "rtocc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "rtocc024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch024-025.txt",
+   "base": "02401",
+   "chapters": "24-25"
+  },
+  {
+   "prefix": "rtocc026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch026-027.txt",
+   "base": "02601",
+   "chapters": "26-27"
+  },
+  {
+   "prefix": "rtocc028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "rtocc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch029-029.txt",
+   "base": "02901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "rtocc030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch030-030.txt",
+   "base": "03001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "rtocc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch031-031.txt",
+   "base": "03101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "rtocc032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch032-033.txt",
+   "base": "03201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "rtocc034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch034-035.txt",
+   "base": "03401",
+   "chapters": "34-35"
+  },
+  {
+   "prefix": "rtocc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch036-037.txt",
+   "base": "03601",
+   "chapters": "36-37"
+  },
+  {
+   "prefix": "rtocc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch038-039.txt",
+   "base": "03801",
+   "chapters": "38-39"
+  },
+  {
+   "prefix": "rtocc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch040-041.txt",
+   "base": "04001",
+   "chapters": "40-41"
+  },
+  {
+   "prefix": "rtocc042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch042-043.txt",
+   "base": "04201",
+   "chapters": "42-43"
+  },
+  {
+   "prefix": "rtocc044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch044-044.txt",
+   "base": "04401",
+   "chapters": "44-44"
+  },
+  {
+   "prefix": "rtocc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "rtocc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "rtocc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "rtocc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "rtocc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch053-055.txt",
+   "base": "05301",
+   "chapters": "53-55"
+  },
+  {
+   "prefix": "rtocc056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch056-057.txt",
+   "base": "05601",
+   "chapters": "56-57"
+  },
+  {
+   "prefix": "rtocc058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch058-059.txt",
+   "base": "05801",
+   "chapters": "58-59"
+  },
+  {
+   "prefix": "rtocc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch060-061.txt",
+   "base": "06001",
+   "chapters": "60-61"
+  },
+  {
+   "prefix": "rtocc062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch062-063.txt",
+   "base": "06201",
+   "chapters": "62-63"
+  },
+  {
+   "prefix": "rtocc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch064-065.txt",
+   "base": "06401",
+   "chapters": "64-65"
+  },
+  {
+   "prefix": "rtocc066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch066-067.txt",
+   "base": "06601",
+   "chapters": "66-67"
+  },
+  {
+   "prefix": "rtocc068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch068-069.txt",
+   "base": "06801",
+   "chapters": "68-69"
+  },
+  {
+   "prefix": "rtocc070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch070-071.txt",
+   "base": "07001",
+   "chapters": "70-71"
+  },
+  {
+   "prefix": "rtocc072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch072-073.txt",
+   "base": "07201",
+   "chapters": "72-73"
+  },
+  {
+   "prefix": "rtocc074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch074-075.txt",
+   "base": "07401",
+   "chapters": "74-75"
+  },
+  {
+   "prefix": "rtocc076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch076-077.txt",
+   "base": "07601",
+   "chapters": "76-77"
+  },
+  {
+   "prefix": "rtocc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch078-079.txt",
+   "base": "07801",
+   "chapters": "78-79"
+  },
+  {
+   "prefix": "rtocc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch080-081.txt",
+   "base": "08001",
+   "chapters": "80-81"
+  },
+  {
+   "prefix": "rtocc082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch082-083.txt",
+   "base": "08201",
+   "chapters": "82-83"
+  },
+  {
+   "prefix": "rtocc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch084-084.txt",
+   "base": "08401",
+   "chapters": "84-84"
+  },
+  {
+   "prefix": "rtocc085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch085-086.txt",
+   "base": "08501",
+   "chapters": "85-86"
+  },
+  {
+   "prefix": "rtocc087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch087-088.txt",
+   "base": "08701",
+   "chapters": "87-88"
+  },
+  {
+   "prefix": "rtocc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch089-090.txt",
+   "base": "08901",
+   "chapters": "89-90"
+  },
+  {
+   "prefix": "rtocc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "rtocc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "rtocc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch093-094.txt",
+   "base": "09301",
+   "chapters": "93-94"
+  },
+  {
+   "prefix": "rtocc095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch095-097.txt",
+   "base": "09501",
+   "chapters": "95-97"
+  },
+  {
+   "prefix": "rtocc098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch098-098.txt",
+   "base": "09801",
+   "chapters": "98-98"
+  },
+  {
+   "prefix": "rtocc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch099-100.txt",
+   "base": "09901",
+   "chapters": "99-100"
+  },
+  {
+   "prefix": "rtocc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch101-102.txt",
+   "base": "10101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "rtocc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch103-104.txt",
+   "base": "10301",
+   "chapters": "103-104"
+  },
+  {
+   "prefix": "rtocc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch105-106.txt",
+   "base": "10501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "rtocc107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch107-109.txt",
+   "base": "10701",
+   "chapters": "107-109"
+  },
+  {
+   "prefix": "rtocc110",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch110-111.txt",
+   "base": "11001",
+   "chapters": "110-111"
+  },
+  {
+   "prefix": "rtocc112",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch112-113.txt",
+   "base": "11201",
+   "chapters": "112-113"
+  },
+  {
+   "prefix": "rtocc114",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch114-116.txt",
+   "base": "11401",
+   "chapters": "114-116"
+  },
+  {
+   "prefix": "rtocc117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch117-118.txt",
+   "base": "11701",
+   "chapters": "117-118"
+  },
+  {
+   "prefix": "rtocc119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch119-121.txt",
+   "base": "11901",
+   "chapters": "119-121"
+  },
+  {
+   "prefix": "rtocc122",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch122-122.txt",
+   "base": "12201",
+   "chapters": "122-122"
+  },
+  {
+   "prefix": "rtocc123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch123-124.txt",
+   "base": "12301",
+   "chapters": "123-124"
+  },
+  {
+   "prefix": "rtocc125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch125-126.txt",
+   "base": "12501",
+   "chapters": "125-126"
+  },
+  {
+   "prefix": "rtocc127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch127-128.txt",
+   "base": "12701",
+   "chapters": "127-128"
+  },
+  {
+   "prefix": "rtocc129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch129-131.txt",
+   "base": "12901",
+   "chapters": "129-131"
+  },
+  {
+   "prefix": "rtocc132",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch132-133.txt",
+   "base": "13201",
+   "chapters": "132-133"
+  },
+  {
+   "prefix": "rtocc134",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch134-135.txt",
+   "base": "13401",
+   "chapters": "134-135"
+  },
+  {
+   "prefix": "rtocc136",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch136-136.txt",
+   "base": "13601",
+   "chapters": "136-136"
+  },
+  {
+   "prefix": "rtocc137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch137-138.txt",
+   "base": "13701",
+   "chapters": "137-138"
+  },
+  {
+   "prefix": "rtocc139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch139-140.txt",
+   "base": "13901",
+   "chapters": "139-140"
+  },
+  {
+   "prefix": "rtocc141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch141-142.txt",
+   "base": "14101",
+   "chapters": "141-142"
+  },
+  {
+   "prefix": "rtocc143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch143-145.txt",
+   "base": "14301",
+   "chapters": "143-145"
+  },
+  {
+   "prefix": "rtocc146",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch146-146.txt",
+   "base": "14601",
+   "chapters": "146-146"
+  },
+  {
+   "prefix": "rtocc147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch147-148.txt",
+   "base": "14701",
+   "chapters": "147-148"
+  },
+  {
+   "prefix": "rtocc149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch149-150.txt",
+   "base": "14901",
+   "chapters": "149-150"
+  },
+  {
+   "prefix": "rtocc151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch151-152.txt",
+   "base": "15101",
+   "chapters": "151-152"
+  },
+  {
+   "prefix": "rtocc153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch153-154.txt",
+   "base": "15301",
+   "chapters": "153-154"
+  },
+  {
+   "prefix": "rtocc155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch155-157.txt",
+   "base": "15501",
+   "chapters": "155-157"
+  },
+  {
+   "prefix": "rtocc158",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch158-158.txt",
+   "base": "15801",
+   "chapters": "158-158"
+  },
+  {
+   "prefix": "rtocc159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch159-159.txt",
+   "base": "15901",
+   "chapters": "159-159"
+  },
+  {
+   "prefix": "rtocc160",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch160-162.txt",
+   "base": "16001",
+   "chapters": "160-162"
+  },
+  {
+   "prefix": "rtocc163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch163-164.txt",
+   "base": "16301",
+   "chapters": "163-164"
+  },
+  {
+   "prefix": "rtocc165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch165-166.txt",
+   "base": "16501",
+   "chapters": "165-166"
+  },
+  {
+   "prefix": "rtocc167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch167-168.txt",
+   "base": "16701",
+   "chapters": "167-168"
+  },
+  {
+   "prefix": "rtocc169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch169-170.txt",
+   "base": "16901",
+   "chapters": "169-170"
+  },
+  {
+   "prefix": "rtocc171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch171-171.txt",
+   "base": "17101",
+   "chapters": "171-171"
+  },
+  {
+   "prefix": "rtocc172",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch172-173.txt",
+   "base": "17201",
+   "chapters": "172-173"
+  },
+  {
+   "prefix": "rtocc174",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch174-175.txt",
+   "base": "17401",
+   "chapters": "174-175"
+  },
+  {
+   "prefix": "rtocc176",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch176-177.txt",
+   "base": "17601",
+   "chapters": "176-177"
+  },
+  {
+   "prefix": "rtocc178",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch178-178.txt",
+   "base": "17801",
+   "chapters": "178-178"
+  },
+  {
+   "prefix": "rtocc179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch179-179.txt",
+   "base": "17901",
+   "chapters": "179-179"
+  },
+  {
+   "prefix": "rtocc180",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch180-181.txt",
+   "base": "18001",
+   "chapters": "180-181"
+  },
+  {
+   "prefix": "rtocc182",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch182-183.txt",
+   "base": "18201",
+   "chapters": "182-183"
+  },
+  {
+   "prefix": "rtocc184",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch184-184.txt",
+   "base": "18401",
+   "chapters": "184-184"
+  },
+  {
+   "prefix": "rtocc185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch185-186.txt",
+   "base": "18501",
+   "chapters": "185-186"
+  },
+  {
+   "prefix": "rtocc187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch187-188.txt",
+   "base": "18701",
+   "chapters": "187-188"
+  },
+  {
+   "prefix": "rtocc189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch189-189.txt",
+   "base": "18901",
+   "chapters": "189-189"
+  },
+  {
+   "prefix": "rtocc190",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch190-190.txt",
+   "base": "19001",
+   "chapters": "190-190"
+  },
+  {
+   "prefix": "rtocc191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch191-192.txt",
+   "base": "19101",
+   "chapters": "191-192"
+  },
+  {
+   "prefix": "rtocc193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch193-193.txt",
+   "base": "19301",
+   "chapters": "193-193"
+  },
+  {
+   "prefix": "rtocc194",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch194-194.txt",
+   "base": "19401",
+   "chapters": "194-194"
+  },
+  {
+   "prefix": "rtocc195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch195-196.txt",
+   "base": "19501",
+   "chapters": "195-196"
+  },
+  {
+   "prefix": "rtocc197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch197-198.txt",
+   "base": "19701",
+   "chapters": "197-198"
+  },
+  {
+   "prefix": "rtocc199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch199-200.txt",
+   "base": "19901",
+   "chapters": "199-200"
+  },
+  {
+   "prefix": "rtocc201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch201-202.txt",
+   "base": "20101",
+   "chapters": "201-202"
+  },
+  {
+   "prefix": "rtocc203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch203-205.txt",
+   "base": "20301",
+   "chapters": "203-205"
+  },
+  {
+   "prefix": "rtocc206",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch206-208.txt",
+   "base": "20601",
+   "chapters": "206-208"
+  },
+  {
+   "prefix": "rtocc209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch209-210.txt",
+   "base": "20901",
+   "chapters": "209-210"
+  },
+  {
+   "prefix": "rtocc211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch211-213.txt",
+   "base": "21101",
+   "chapters": "211-213"
+  },
+  {
+   "prefix": "rtocc214",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch214-215.txt",
+   "base": "21401",
+   "chapters": "214-215"
+  },
+  {
+   "prefix": "rtocc216",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch216-216.txt",
+   "base": "21601",
+   "chapters": "216-216"
+  },
+  {
+   "prefix": "rtocc217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch217-217.txt",
+   "base": "21701",
+   "chapters": "217-217"
+  },
+  {
+   "prefix": "rtocc218",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch218-219.txt",
+   "base": "21801",
+   "chapters": "218-219"
+  },
+  {
+   "prefix": "rtocc220",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch220-221.txt",
+   "base": "22001",
+   "chapters": "220-221"
+  },
+  {
+   "prefix": "rtocc222",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch222-222.txt",
+   "base": "22201",
+   "chapters": "222-222"
+  },
+  {
+   "prefix": "rtocc223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch223-224.txt",
+   "base": "22301",
+   "chapters": "223-224"
+  },
+  {
+   "prefix": "rtocc225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch225-226.txt",
+   "base": "22501",
+   "chapters": "225-226"
+  },
+  {
+   "prefix": "rtocc227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch227-228.txt",
+   "base": "22701",
+   "chapters": "227-228"
+  },
+  {
+   "prefix": "rtocc229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch229-229.txt",
+   "base": "22901",
+   "chapters": "229-229"
+  },
+  {
+   "prefix": "rtocc230",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch230-230.txt",
+   "base": "23001",
+   "chapters": "230-230"
+  },
+  {
+   "prefix": "rtocc231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch231-231.txt",
+   "base": "23101",
+   "chapters": "231-231"
+  },
+  {
+   "prefix": "rtocc232",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch232-234.txt",
+   "base": "23201",
+   "chapters": "232-234"
+  },
+  {
+   "prefix": "rtocc235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch235-236.txt",
+   "base": "23501",
+   "chapters": "235-236"
+  },
+  {
+   "prefix": "rtocc237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch237-238.txt",
+   "base": "23701",
+   "chapters": "237-238"
+  },
+  {
+   "prefix": "rtocc239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch239-240.txt",
+   "base": "23901",
+   "chapters": "239-240"
+  },
+  {
+   "prefix": "rtocc241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch241-243.txt",
+   "base": "24101",
+   "chapters": "241-243"
+  },
+  {
+   "prefix": "rtocc244",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch244-245.txt",
+   "base": "24401",
+   "chapters": "244-245"
+  },
+  {
+   "prefix": "rtocc246",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch246-247.txt",
+   "base": "24601",
+   "chapters": "246-247"
+  },
+  {
+   "prefix": "rtocc248",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch248-249.txt",
+   "base": "24801",
+   "chapters": "248-249"
+  },
+  {
+   "prefix": "rtocc250",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch250-252.txt",
+   "base": "25001",
+   "chapters": "250-252"
+  },
+  {
+   "prefix": "rtocc253",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch253-254.txt",
+   "base": "25301",
+   "chapters": "253-254"
+  },
+  {
+   "prefix": "rtocc255",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch255-256.txt",
+   "base": "25501",
+   "chapters": "255-256"
+  },
+  {
+   "prefix": "rtocc257",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch257-258.txt",
+   "base": "25701",
+   "chapters": "257-258"
+  },
+  {
+   "prefix": "rtocc259",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch259-260.txt",
+   "base": "25901",
+   "chapters": "259-260"
+  },
+  {
+   "prefix": "rtocc261",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch261-263.txt",
+   "base": "26101",
+   "chapters": "261-263"
+  },
+  {
+   "prefix": "rtocc264",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch264-265.txt",
+   "base": "26401",
+   "chapters": "264-265"
+  },
+  {
+   "prefix": "rtocc266",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch266-268.txt",
+   "base": "26601",
+   "chapters": "266-268"
+  },
+  {
+   "prefix": "rtocc269",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch269-270.txt",
+   "base": "26901",
+   "chapters": "269-270"
+  },
+  {
+   "prefix": "rtocc271",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch271-272.txt",
+   "base": "27101",
+   "chapters": "271-272"
+  },
+  {
+   "prefix": "rtocc273",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch273-274.txt",
+   "base": "27301",
+   "chapters": "273-274"
+  },
+  {
+   "prefix": "rtocc275",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch275-277.txt",
+   "base": "27501",
+   "chapters": "275-277"
+  },
+  {
+   "prefix": "rtocc278",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch278-279.txt",
+   "base": "27801",
+   "chapters": "278-279"
+  },
+  {
+   "prefix": "rtocc280",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch280-283.txt",
+   "base": "28001",
+   "chapters": "280-283"
+  },
+  {
+   "prefix": "rtocc284",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch284-285.txt",
+   "base": "28401",
+   "chapters": "284-285"
+  },
+  {
+   "prefix": "rtocc286",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch286-287.txt",
+   "base": "28601",
+   "chapters": "286-287"
+  },
+  {
+   "prefix": "rtocc288",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch288-290.txt",
+   "base": "28801",
+   "chapters": "288-290"
+  },
+  {
+   "prefix": "rtocc291",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch291-293.txt",
+   "base": "29101",
+   "chapters": "291-293"
+  },
+  {
+   "prefix": "rtocc294",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch294-295.txt",
+   "base": "29401",
+   "chapters": "294-295"
+  },
+  {
+   "prefix": "rtocc296",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch296-297.txt",
+   "base": "29601",
+   "chapters": "296-297"
+  },
+  {
+   "prefix": "rtocc298",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch298-298.txt",
+   "base": "29801",
+   "chapters": "298-298"
+  },
+  {
+   "prefix": "rtocc299",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch299-300.txt",
+   "base": "29901",
+   "chapters": "299-300"
+  },
+  {
+   "prefix": "rtocc301",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch301-303.txt",
+   "base": "30101",
+   "chapters": "301-303"
+  },
+  {
+   "prefix": "rtocc304",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch304-306.txt",
+   "base": "30401",
+   "chapters": "304-306"
+  },
+  {
+   "prefix": "rtocc307",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch307-308.txt",
+   "base": "30701",
+   "chapters": "307-308"
+  },
+  {
+   "prefix": "rtocc309",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch309-310.txt",
+   "base": "30901",
+   "chapters": "309-310"
+  },
+  {
+   "prefix": "rtocc311",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch311-311.txt",
+   "base": "31101",
+   "chapters": "311-311"
+  },
+  {
+   "prefix": "rtocc312",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch312-312.txt",
+   "base": "31201",
+   "chapters": "312-312"
+  },
+  {
+   "prefix": "rtocc313",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch313-313.txt",
+   "base": "31301",
+   "chapters": "313-313"
+  },
+  {
+   "prefix": "rtocc314",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch314-314.txt",
+   "base": "31401",
+   "chapters": "314-314"
+  },
+  {
+   "prefix": "rtocc315",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch315-317.txt",
+   "base": "31501",
+   "chapters": "315-317"
+  },
+  {
+   "prefix": "rtocc318",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch318-319.txt",
+   "base": "31801",
+   "chapters": "318-319"
+  },
+  {
+   "prefix": "rtocc320",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch320-321.txt",
+   "base": "32001",
+   "chapters": "320-321"
+  },
+  {
+   "prefix": "rtocc322",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch322-324.txt",
+   "base": "32201",
+   "chapters": "322-324"
+  },
+  {
+   "prefix": "rtocc325",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch325-326.txt",
+   "base": "32501",
+   "chapters": "325-326"
+  },
+  {
+   "prefix": "rtocc327",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch327-328.txt",
+   "base": "32701",
+   "chapters": "327-328"
+  },
+  {
+   "prefix": "rtocc329",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch329-331.txt",
+   "base": "32901",
+   "chapters": "329-331"
+  },
+  {
+   "prefix": "rtocc332",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch332-334.txt",
+   "base": "33201",
+   "chapters": "332-334"
+  },
+  {
+   "prefix": "rtocc335",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch335-336.txt",
+   "base": "33501",
+   "chapters": "335-336"
+  },
+  {
+   "prefix": "rtocc337",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch337-339.txt",
+   "base": "33701",
+   "chapters": "337-339"
+  },
+  {
+   "prefix": "rtocc340",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch340-343.txt",
+   "base": "34001",
+   "chapters": "340-343"
+  },
+  {
+   "prefix": "rtocc344",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch344-345.txt",
+   "base": "34401",
+   "chapters": "344-345"
+  },
+  {
+   "prefix": "rtocc346",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch346-347.txt",
+   "base": "34601",
+   "chapters": "346-347"
+  },
+  {
+   "prefix": "rtocc348",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch348-349.txt",
+   "base": "34801",
+   "chapters": "348-349"
+  },
+  {
+   "prefix": "rtocc350",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch350-352.txt",
+   "base": "35001",
+   "chapters": "350-352"
+  },
+  {
+   "prefix": "rtocc353",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch353-354.txt",
+   "base": "35301",
+   "chapters": "353-354"
+  },
+  {
+   "prefix": "rtocc355",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch355-356.txt",
+   "base": "35501",
+   "chapters": "355-356"
+  },
+  {
+   "prefix": "rtocc357",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch357-357.txt",
+   "base": "35701",
+   "chapters": "357-357"
+  },
+  {
+   "prefix": "rtocc358",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch358-358.txt",
+   "base": "35801",
+   "chapters": "358-358"
+  },
+  {
+   "prefix": "rtocc359",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch359-360.txt",
+   "base": "35901",
+   "chapters": "359-360"
+  },
+  {
+   "prefix": "rtocc361",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch361-361.txt",
+   "base": "36101",
+   "chapters": "361-361"
+  },
+  {
+   "prefix": "rtocc362",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch362-362.txt",
+   "base": "36201",
+   "chapters": "362-362"
+  },
+  {
+   "prefix": "rtocc363",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch363-363.txt",
+   "base": "36301",
+   "chapters": "363-363"
+  },
+  {
+   "prefix": "rtocc364",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch364-365.txt",
+   "base": "36401",
+   "chapters": "364-365"
+  },
+  {
+   "prefix": "rtocc366",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch366-368.txt",
+   "base": "36601",
+   "chapters": "366-368"
+  },
+  {
+   "prefix": "rtocc369",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch369-370.txt",
+   "base": "36901",
+   "chapters": "369-370"
+  },
+  {
+   "prefix": "rtocc371",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch371-373.txt",
+   "base": "37101",
+   "chapters": "371-373"
+  },
+  {
+   "prefix": "rtocc374",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch374-375.txt",
+   "base": "37401",
+   "chapters": "374-375"
+  },
+  {
+   "prefix": "rtocc376",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch376-377.txt",
+   "base": "37601",
+   "chapters": "376-377"
+  },
+  {
+   "prefix": "rtocc378",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch378-380.txt",
+   "base": "37801",
+   "chapters": "378-380"
+  },
+  {
+   "prefix": "rtocc381",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch381-383.txt",
+   "base": "38101",
+   "chapters": "381-383"
+  },
+  {
+   "prefix": "rtocc384",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch384-386.txt",
+   "base": "38401",
+   "chapters": "384-386"
+  },
+  {
+   "prefix": "rtocc387",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch387-389.txt",
+   "base": "38701",
+   "chapters": "387-389"
+  },
+  {
+   "prefix": "rtocc390",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch390-391.txt",
+   "base": "39001",
+   "chapters": "390-391"
+  },
+  {
+   "prefix": "rtocc392",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch392-393.txt",
+   "base": "39201",
+   "chapters": "392-393"
+  },
+  {
+   "prefix": "rtocc394",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch394-395.txt",
+   "base": "39401",
+   "chapters": "394-395"
+  },
+  {
+   "prefix": "rtocc396",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch396-397.txt",
+   "base": "39601",
+   "chapters": "396-397"
+  },
+  {
+   "prefix": "rtocc398",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch398-400.txt",
+   "base": "39801",
+   "chapters": "398-400"
+  },
+  {
+   "prefix": "rtocc401",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch401-403.txt",
+   "base": "40101",
+   "chapters": "401-403"
+  },
+  {
+   "prefix": "rtocc404",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch404-406.txt",
+   "base": "40401",
+   "chapters": "404-406"
+  },
+  {
+   "prefix": "rtocc407",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch407-408.txt",
+   "base": "40701",
+   "chapters": "407-408"
+  },
+  {
+   "prefix": "rtocc409",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch409-409.txt",
+   "base": "40901",
+   "chapters": "409-409"
+  },
+  {
+   "prefix": "rtocc410",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch410-411.txt",
+   "base": "41001",
+   "chapters": "410-411"
+  },
+  {
+   "prefix": "rtocc412",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch412-413.txt",
+   "base": "41201",
+   "chapters": "412-413"
+  },
+  {
+   "prefix": "rtocc414",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch414-415.txt",
+   "base": "41401",
+   "chapters": "414-415"
+  },
+  {
+   "prefix": "rtocc416",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch416-417.txt",
+   "base": "41601",
+   "chapters": "416-417"
+  },
+  {
+   "prefix": "rtocc418",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch418-420.txt",
+   "base": "41801",
+   "chapters": "418-420"
+  },
+  {
+   "prefix": "rtocc421",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch421-423.txt",
+   "base": "42101",
+   "chapters": "421-423"
+  },
+  {
+   "prefix": "rtocc424",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch424-425.txt",
+   "base": "42401",
+   "chapters": "424-425"
+  },
+  {
+   "prefix": "rtocc426",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch426-427.txt",
+   "base": "42601",
+   "chapters": "426-427"
+  },
+  {
+   "prefix": "rtocc428",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch428-429.txt",
+   "base": "42801",
+   "chapters": "428-429"
+  },
+  {
+   "prefix": "rtocc430",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch430-430.txt",
+   "base": "43001",
+   "chapters": "430-430"
+  },
+  {
+   "prefix": "rtocc431",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch431-432.txt",
+   "base": "43101",
+   "chapters": "431-432"
+  },
+  {
+   "prefix": "rtocc433",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch433-434.txt",
+   "base": "43301",
+   "chapters": "433-434"
+  },
+  {
+   "prefix": "rtocc435",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch435-436.txt",
+   "base": "43501",
+   "chapters": "435-436"
+  },
+  {
+   "prefix": "rtocc437",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch437-437.txt",
+   "base": "43701",
+   "chapters": "437-437"
+  },
+  {
+   "prefix": "rtocc438",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch438-439.txt",
+   "base": "43801",
+   "chapters": "438-439"
+  },
+  {
+   "prefix": "rtocc440",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch440-441.txt",
+   "base": "44001",
+   "chapters": "440-441"
+  },
+  {
+   "prefix": "rtocc442",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch442-443.txt",
+   "base": "44201",
+   "chapters": "442-443"
+  },
+  {
+   "prefix": "rtocc444",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch444-445.txt",
+   "base": "44401",
+   "chapters": "444-445"
+  },
+  {
+   "prefix": "rtocc446",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch446-447.txt",
+   "base": "44601",
+   "chapters": "446-447"
+  },
+  {
+   "prefix": "rtocc448",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch448-449.txt",
+   "base": "44801",
+   "chapters": "448-449"
+  },
+  {
+   "prefix": "rtocc450",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch450-450.txt",
+   "base": "45001",
+   "chapters": "450-450"
+  },
+  {
+   "prefix": "rtocc451",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch451-452.txt",
+   "base": "45101",
+   "chapters": "451-452"
+  },
+  {
+   "prefix": "rtocc453",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch453-454.txt",
+   "base": "45301",
+   "chapters": "453-454"
+  },
+  {
+   "prefix": "rtocc455",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch455-456.txt",
+   "base": "45501",
+   "chapters": "455-456"
+  },
+  {
+   "prefix": "rtocc457",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch457-458.txt",
+   "base": "45701",
+   "chapters": "457-458"
+  },
+  {
+   "prefix": "rtocc459",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch459-460.txt",
+   "base": "45901",
+   "chapters": "459-460"
+  },
+  {
+   "prefix": "rtocc461",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch461-462.txt",
+   "base": "46101",
+   "chapters": "461-462"
+  },
+  {
+   "prefix": "rtocc463",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch463-464.txt",
+   "base": "46301",
+   "chapters": "463-464"
+  },
+  {
+   "prefix": "rtocc465",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch465-465.txt",
+   "base": "46501",
+   "chapters": "465-465"
+  },
+  {
+   "prefix": "rtocc466",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch466-467.txt",
+   "base": "46601",
+   "chapters": "466-467"
+  },
+  {
+   "prefix": "rtocc468",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch468-469.txt",
+   "base": "46801",
+   "chapters": "468-469"
+  },
+  {
+   "prefix": "rtocc470",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch470-470.txt",
+   "base": "47001",
+   "chapters": "470-470"
+  },
+  {
+   "prefix": "rtocc471",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch471-472.txt",
+   "base": "47101",
+   "chapters": "471-472"
+  },
+  {
+   "prefix": "rtocc473",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch473-474.txt",
+   "base": "47301",
+   "chapters": "473-474"
+  },
+  {
+   "prefix": "rtocc475",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch475-476.txt",
+   "base": "47501",
+   "chapters": "475-476"
+  },
+  {
+   "prefix": "rtocc477",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch477-477.txt",
+   "base": "47701",
+   "chapters": "477-477"
+  },
+  {
+   "prefix": "rtocc478",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch478-478.txt",
+   "base": "47801",
+   "chapters": "478-478"
+  },
+  {
+   "prefix": "rtocc479",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch479-480.txt",
+   "base": "47901",
+   "chapters": "479-480"
+  },
+  {
+   "prefix": "rtocc481",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch481-482.txt",
+   "base": "48101",
+   "chapters": "481-482"
+  },
+  {
+   "prefix": "rtocc483",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch483-484.txt",
+   "base": "48301",
+   "chapters": "483-484"
+  },
+  {
+   "prefix": "rtocc485",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch485-485.txt",
+   "base": "48501",
+   "chapters": "485-485"
+  },
+  {
+   "prefix": "rtocc486",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch486-487.txt",
+   "base": "48601",
+   "chapters": "486-487"
+  },
+  {
+   "prefix": "rtocc488",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch488-490.txt",
+   "base": "48801",
+   "chapters": "488-490"
+  },
+  {
+   "prefix": "rtocc491",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch491-492.txt",
+   "base": "49101",
+   "chapters": "491-492"
+  },
+  {
+   "prefix": "rtocc493",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch493-493.txt",
+   "base": "49301",
+   "chapters": "493-493"
+  },
+  {
+   "prefix": "rtocc494",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch494-495.txt",
+   "base": "49401",
+   "chapters": "494-495"
+  },
+  {
+   "prefix": "rtocc496",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch496-496.txt",
+   "base": "49601",
+   "chapters": "496-496"
+  },
+  {
+   "prefix": "rtocc497",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch497-498.txt",
+   "base": "49701",
+   "chapters": "497-498"
+  },
+  {
+   "prefix": "rtocc499",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch499-499.txt",
+   "base": "49901",
+   "chapters": "499-499"
+  },
+  {
+   "prefix": "rtocc500",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch500-501.txt",
+   "base": "50001",
+   "chapters": "500-501"
+  },
+  {
+   "prefix": "rtocc502",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch502-502.txt",
+   "base": "50201",
+   "chapters": "502-502"
+  },
+  {
+   "prefix": "rtocc503",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch503-504.txt",
+   "base": "50301",
+   "chapters": "503-504"
+  },
+  {
+   "prefix": "rtocc505",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch505-506.txt",
+   "base": "50501",
+   "chapters": "505-506"
+  },
+  {
+   "prefix": "rtocc507",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch507-509.txt",
+   "base": "50701",
+   "chapters": "507-509"
+  },
+  {
+   "prefix": "rtocc510",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch510-510.txt",
+   "base": "51001",
+   "chapters": "510-510"
+  },
+  {
+   "prefix": "rtocc511",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch511-511.txt",
+   "base": "51101",
+   "chapters": "511-511"
+  },
+  {
+   "prefix": "rtocc512",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch512-513.txt",
+   "base": "51201",
+   "chapters": "512-513"
+  },
+  {
+   "prefix": "rtocc514",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch514-514.txt",
+   "base": "51401",
+   "chapters": "514-514"
+  },
+  {
+   "prefix": "rtocc515",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch515-516.txt",
+   "base": "51501",
+   "chapters": "515-516"
+  },
+  {
+   "prefix": "rtocc517",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch517-519.txt",
+   "base": "51701",
+   "chapters": "517-519"
+  },
+  {
+   "prefix": "rtocc520",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch520-522.txt",
+   "base": "52001",
+   "chapters": "520-522"
+  },
+  {
+   "prefix": "rtocc523",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch523-524.txt",
+   "base": "52301",
+   "chapters": "523-524"
+  },
+  {
+   "prefix": "rtocc525",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch525-525.txt",
+   "base": "52501",
+   "chapters": "525-525"
+  },
+  {
+   "prefix": "rtocc526",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch526-527.txt",
+   "base": "52601",
+   "chapters": "526-527"
+  },
+  {
+   "prefix": "rtocc528",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch528-530.txt",
+   "base": "52801",
+   "chapters": "528-530"
+  },
+  {
+   "prefix": "rtocc531",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch531-533.txt",
+   "base": "53101",
+   "chapters": "531-533"
+  },
+  {
+   "prefix": "rtocc534",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch534-534.txt",
+   "base": "53401",
+   "chapters": "534-534"
+  },
+  {
+   "prefix": "rtocc535",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch535-535.txt",
+   "base": "53501",
+   "chapters": "535-535"
+  },
+  {
+   "prefix": "rtocc536",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch536-536.txt",
+   "base": "53601",
+   "chapters": "536-536"
+  },
+  {
+   "prefix": "rtocc537",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch537-537.txt",
+   "base": "53701",
+   "chapters": "537-537"
+  },
+  {
+   "prefix": "rtocc538",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch538-539.txt",
+   "base": "53801",
+   "chapters": "538-539"
+  },
+  {
+   "prefix": "rtocc540",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch540-542.txt",
+   "base": "54001",
+   "chapters": "540-542"
+  },
+  {
+   "prefix": "rtocc543",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch543-543.txt",
+   "base": "54301",
+   "chapters": "543-543"
+  },
+  {
+   "prefix": "rtocc544",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch544-545.txt",
+   "base": "54401",
+   "chapters": "544-545"
+  },
+  {
+   "prefix": "rtocc546",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch546-547.txt",
+   "base": "54601",
+   "chapters": "546-547"
+  },
+  {
+   "prefix": "rtocc548",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch548-549.txt",
+   "base": "54801",
+   "chapters": "548-549"
+  },
+  {
+   "prefix": "rtocc550",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch550-551.txt",
+   "base": "55001",
+   "chapters": "550-551"
+  },
+  {
+   "prefix": "rtocc552",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch552-552.txt",
+   "base": "55201",
+   "chapters": "552-552"
+  },
+  {
+   "prefix": "rtocc553",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch553-553.txt",
+   "base": "55301",
+   "chapters": "553-553"
+  },
+  {
+   "prefix": "rtocc554",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch554-554.txt",
+   "base": "55401",
+   "chapters": "554-554"
+  },
+  {
+   "prefix": "rtocc555",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch555-556.txt",
+   "base": "55501",
+   "chapters": "555-556"
+  },
+  {
+   "prefix": "rtocc557",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch557-557.txt",
+   "base": "55701",
+   "chapters": "557-557"
+  },
+  {
+   "prefix": "rtocc558",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch558-558.txt",
+   "base": "55801",
+   "chapters": "558-558"
+  },
+  {
+   "prefix": "rtocc559",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch559-561.txt",
+   "base": "55901",
+   "chapters": "559-561"
+  },
+  {
+   "prefix": "rtocc562",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch562-564.txt",
+   "base": "56201",
+   "chapters": "562-564"
+  },
+  {
+   "prefix": "rtocc565",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch565-566.txt",
+   "base": "56501",
+   "chapters": "565-566"
+  },
+  {
+   "prefix": "rtocc567",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch567-568.txt",
+   "base": "56701",
+   "chapters": "567-568"
+  },
+  {
+   "prefix": "rtocc569",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch569-570.txt",
+   "base": "56901",
+   "chapters": "569-570"
+  },
+  {
+   "prefix": "rtocc571",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch571-572.txt",
+   "base": "57101",
+   "chapters": "571-572"
+  },
+  {
+   "prefix": "rtocc573",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch573-575.txt",
+   "base": "57301",
+   "chapters": "573-575"
+  },
+  {
+   "prefix": "rtocc576",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch576-577.txt",
+   "base": "57601",
+   "chapters": "576-577"
+  },
+  {
+   "prefix": "rtocc578",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch578-578.txt",
+   "base": "57801",
+   "chapters": "578-578"
+  },
+  {
+   "prefix": "rtocc579",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch579-581.txt",
+   "base": "57901",
+   "chapters": "579-581"
+  },
+  {
+   "prefix": "rtocc582",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch582-582.txt",
+   "base": "58201",
+   "chapters": "582-582"
+  },
+  {
+   "prefix": "rtocc583",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch583-583.txt",
+   "base": "58301",
+   "chapters": "583-583"
+  },
+  {
+   "prefix": "rtocc584",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch584-584.txt",
+   "base": "58401",
+   "chapters": "584-584"
+  },
+  {
+   "prefix": "rtocc585",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch585-586.txt",
+   "base": "58501",
+   "chapters": "585-586"
+  },
+  {
+   "prefix": "rtocc587",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch587-589.txt",
+   "base": "58701",
+   "chapters": "587-589"
+  },
+  {
+   "prefix": "rtocc590",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch590-590.txt",
+   "base": "59001",
+   "chapters": "590-590"
+  },
+  {
+   "prefix": "rtocc591",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch591-593.txt",
+   "base": "59101",
+   "chapters": "591-593"
+  },
+  {
+   "prefix": "rtocc594",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch594-595.txt",
+   "base": "59401",
+   "chapters": "594-595"
+  },
+  {
+   "prefix": "rtocc596",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch596-597.txt",
+   "base": "59601",
+   "chapters": "596-597"
+  },
+  {
+   "prefix": "rtocc598",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch598-598.txt",
+   "base": "59801",
+   "chapters": "598-598"
+  },
+  {
+   "prefix": "rtocc599",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch599-600.txt",
+   "base": "59901",
+   "chapters": "599-600"
+  },
+  {
+   "prefix": "rtocc601",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch601-601.txt",
+   "base": "60101",
+   "chapters": "601-601"
+  },
+  {
+   "prefix": "rtocc602",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch602-603.txt",
+   "base": "60201",
+   "chapters": "602-603"
+  },
+  {
+   "prefix": "rtocc604",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch604-605.txt",
+   "base": "60401",
+   "chapters": "604-605"
+  },
+  {
+   "prefix": "rtocc606",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch606-607.txt",
+   "base": "60601",
+   "chapters": "606-607"
+  },
+  {
+   "prefix": "rtocc608",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch608-609.txt",
+   "base": "60801",
+   "chapters": "608-609"
+  },
+  {
+   "prefix": "rtocc610",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch610-611.txt",
+   "base": "61001",
+   "chapters": "610-611"
+  },
+  {
+   "prefix": "rtocc612",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch612-613.txt",
+   "base": "61201",
+   "chapters": "612-613"
+  },
+  {
+   "prefix": "rtocc614",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch614-616.txt",
+   "base": "61401",
+   "chapters": "614-616"
+  },
+  {
+   "prefix": "rtocc617",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch617-617.txt",
+   "base": "61701",
+   "chapters": "617-617"
+  },
+  {
+   "prefix": "rtocc618",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch618-619.txt",
+   "base": "61801",
+   "chapters": "618-619"
+  },
+  {
+   "prefix": "rtocc620",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch620-621.txt",
+   "base": "62001",
+   "chapters": "620-621"
+  },
+  {
+   "prefix": "rtocc622",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch622-623.txt",
+   "base": "62201",
+   "chapters": "622-623"
+  },
+  {
+   "prefix": "rtocc624",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch624-625.txt",
+   "base": "62401",
+   "chapters": "624-625"
+  },
+  {
+   "prefix": "rtocc626",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch626-627.txt",
+   "base": "62601",
+   "chapters": "626-627"
+  },
+  {
+   "prefix": "rtocc628",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch628-630.txt",
+   "base": "62801",
+   "chapters": "628-630"
+  },
+  {
+   "prefix": "rtocc631",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch631-633.txt",
+   "base": "63101",
+   "chapters": "631-633"
+  },
+  {
+   "prefix": "rtocc634",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch634-635.txt",
+   "base": "63401",
+   "chapters": "634-635"
+  },
+  {
+   "prefix": "rtocc636",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch636-636.txt",
+   "base": "63601",
+   "chapters": "636-636"
+  },
+  {
+   "prefix": "rtocc637",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch637-637.txt",
+   "base": "63701",
+   "chapters": "637-637"
+  },
+  {
+   "prefix": "rtocc638",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch638-638.txt",
+   "base": "63801",
+   "chapters": "638-638"
+  },
+  {
+   "prefix": "rtocc639",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch639-639.txt",
+   "base": "63901",
+   "chapters": "639-639"
+  }
+ ]
+}

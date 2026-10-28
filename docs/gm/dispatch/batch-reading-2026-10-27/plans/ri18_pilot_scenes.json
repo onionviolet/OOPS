@@ -1,0 +1,25 @@
+{
+ "world": "ri",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.4",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+  "censusMatch": "^(ri1|ri2|ri3|ri4|ri5|ri6|ri7|ri8|ri9|ri10|ri11|ri12|ri13|ri14|ri15|ri16|ri17|ri18|ri19|ri20|ri21|ri22|ri23|ri24)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ri18-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "ri18c1701",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri18_b18_ch1701-1703.txt",
+   "base": "18170101",
+   "chapters": "1701-1703"
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "name": "2026-11-01-ttks5",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 81.4,
+ "capTotal": 108.56,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_pilot_census.json",
+     "cap": 0.04,
+     "label": "ttks5-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "ttks5-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_census.json",
+     "cap": 21.65,
+     "label": "ttks5-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_scenes.json",
+     "cap": 21.68,
+     "label": "ttks5-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_rules.json",
+     "cap": 21.73,
+     "label": "ttks5-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_people.json",
+     "cap": 21.71,
+     "label": "ttks5-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks5_texture.json",
+     "cap": 21.71,
+     "label": "ttks5-texture"
+    }
+   ]
+  }
+ ]
+}

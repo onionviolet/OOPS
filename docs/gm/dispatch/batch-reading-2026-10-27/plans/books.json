@@ -736,6 +736,384 @@
     "max": 2
    },
    "convertWith": "docs/research/novels/super-supportive/source-2026-10-25/super-supportive-merged.json, chapters renumbered 1-314 in order (numeric words in titles dropped), same conversion"
+  },
+  {
+   "key": "ri1",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 1 = nav Volume 1; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri2",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 2 = nav Volume 2; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri3",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 3 = nav Volume 3; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri4",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 4 = nav Volume 4; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri5",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 5 = nav Volume 5; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri6",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 6 = nav Volume 6; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri7",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 7 = nav Volume 7; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri8",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 8 = nav Volume 8; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri9",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri9.epub",
+   "book": 9,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 9 = nav Volume 9; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri10",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri10.epub",
+   "book": 10,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 10 = nav Volume 10; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri11",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri11.epub",
+   "book": 11,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 11 = nav Volume 11; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri12",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri12.epub",
+   "book": 12,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 12 = nav Volume 12; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri13",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri13.epub",
+   "book": 13,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 13 = nav Volume 13; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri14",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri14.epub",
+   "book": 14,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 14 = nav Volume 14; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri15",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri15.epub",
+   "book": 15,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 15 = nav Volume 15; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri16",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri16.epub",
+   "book": 16,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 16 = nav Volume 16; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri17",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri17.epub",
+   "book": 17,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 17 = nav Volume 17; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri18",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri18.epub",
+   "book": 18,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 18 = nav Volume 18; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri19",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri19.epub",
+   "book": 19,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 19 = nav Volume 19; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri20",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri20.epub",
+   "book": 20,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 20 = nav Volume 20; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri21",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri21.epub",
+   "book": 21,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 21 = nav Volume 21; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri22",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri22.epub",
+   "book": 22,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 22 = nav Volume 22; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri23",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri23.epub",
+   "book": 23,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 23 = nav Volume 23; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "ri24",
+   "world": "ri",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri24.epub",
+   "book": 24,
+   "dir": "docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py ri (4th argument 24 = nav Volume 24; the 24 volumes are the Calibre copy’s 100-chapter blocks, not the author’s volumes)",
+   "calibreId": 15
+  },
+  {
+   "key": "rtoc",
+   "world": "rtoc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/source/rtoc.epub",
+   "book": 1,
+   "dir": "docs/research/novels/regressors-tale/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py rtoc (titles from toc.ncx; Prologue = 0, chapters renumbered 1-639 in reading order, 4 Author’s Q&A files skipped, site number kept in the title as [site ch N] where it differs)",
+   "calibreId": 17,
+   "duplicateCalibreIds": [
+    43
+   ]
   }
  ]
 }

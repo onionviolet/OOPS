@@ -1,8 +1,8 @@
 {
  "name": "2026-11-01-pr",
  "approval": "PENDING: needs Weibao's go phrase.",
- "ceilingUsd": 10,
- "capTotal": 13.71,
+ "ceilingUsd": 10.2,
+ "capTotal": 13.72,
  "steps": [
   {
    "name": "pilot",
@@ -100,7 +100,7 @@
    "labels": [
     {
      "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_texture.json",
-     "cap": 2.63,
+     "cap": 2.64,
      "label": "pr-texture"
     },
     {

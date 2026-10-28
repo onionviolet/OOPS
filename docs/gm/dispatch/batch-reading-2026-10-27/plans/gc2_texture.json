@@ -5,6 +5,7 @@
  "outTokensAssumed": 32000,
  "effort": "high",
  "schemaMode": "prompt",
+ "schemaVersion": "1.4",
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29",
  "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/batch",
  "glossary": {

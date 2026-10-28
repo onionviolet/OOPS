@@ -1,0 +1,181 @@
+{
+ "world": "ri",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.4",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+  "censusMatch": "^(ri1|ri2|ri3|ri4|ri5|ri6|ri7|ri8|ri9|ri10|ri11|ri12|ri13|ri14|ri15|ri16|ri17|ri18|ri19|ri20|ri21|ri22|ri23|ri24)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ri17-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "ri17c1601",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1601-1604.txt",
+   "base": "17160101",
+   "chapters": "1601-1604"
+  },
+  {
+   "prefix": "ri17c1605",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1605-1608.txt",
+   "base": "17160501",
+   "chapters": "1605-1608"
+  },
+  {
+   "prefix": "ri17c1609",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1609-1612.txt",
+   "base": "17160901",
+   "chapters": "1609-1612"
+  },
+  {
+   "prefix": "ri17c1613",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1613-1615.txt",
+   "base": "17161301",
+   "chapters": "1613-1615"
+  },
+  {
+   "prefix": "ri17c1616",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1616-1618.txt",
+   "base": "17161601",
+   "chapters": "1616-1618"
+  },
+  {
+   "prefix": "ri17c1619",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1619-1621.txt",
+   "base": "17161901",
+   "chapters": "1619-1621"
+  },
+  {
+   "prefix": "ri17c1622",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1622-1624.txt",
+   "base": "17162201",
+   "chapters": "1622-1624"
+  },
+  {
+   "prefix": "ri17c1625",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1625-1628.txt",
+   "base": "17162501",
+   "chapters": "1625-1628"
+  },
+  {
+   "prefix": "ri17c1629",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1629-1631.txt",
+   "base": "17162901",
+   "chapters": "1629-1631"
+  },
+  {
+   "prefix": "ri17c1632",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1632-1635.txt",
+   "base": "17163201",
+   "chapters": "1632-1635"
+  },
+  {
+   "prefix": "ri17c1636",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1636-1639.txt",
+   "base": "17163601",
+   "chapters": "1636-1639"
+  },
+  {
+   "prefix": "ri17c1640",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1640-1643.txt",
+   "base": "17164001",
+   "chapters": "1640-1643"
+  },
+  {
+   "prefix": "ri17c1644",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1644-1647.txt",
+   "base": "17164401",
+   "chapters": "1644-1647"
+  },
+  {
+   "prefix": "ri17c1648",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1648-1651.txt",
+   "base": "17164801",
+   "chapters": "1648-1651"
+  },
+  {
+   "prefix": "ri17c1652",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1652-1655.txt",
+   "base": "17165201",
+   "chapters": "1652-1655"
+  },
+  {
+   "prefix": "ri17c1656",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1656-1659.txt",
+   "base": "17165601",
+   "chapters": "1656-1659"
+  },
+  {
+   "prefix": "ri17c1660",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1660-1663.txt",
+   "base": "17166001",
+   "chapters": "1660-1663"
+  },
+  {
+   "prefix": "ri17c1664",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1664-1667.txt",
+   "base": "17166401",
+   "chapters": "1664-1667"
+  },
+  {
+   "prefix": "ri17c1668",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1668-1671.txt",
+   "base": "17166801",
+   "chapters": "1668-1671"
+  },
+  {
+   "prefix": "ri17c1672",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1672-1674.txt",
+   "base": "17167201",
+   "chapters": "1672-1674"
+  },
+  {
+   "prefix": "ri17c1675",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1675-1677.txt",
+   "base": "17167501",
+   "chapters": "1675-1677"
+  },
+  {
+   "prefix": "ri17c1678",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1678-1681.txt",
+   "base": "17167801",
+   "chapters": "1678-1681"
+  },
+  {
+   "prefix": "ri17c1682",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1682-1685.txt",
+   "base": "17168201",
+   "chapters": "1682-1685"
+  },
+  {
+   "prefix": "ri17c1686",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1686-1689.txt",
+   "base": "17168601",
+   "chapters": "1686-1689"
+  },
+  {
+   "prefix": "ri17c1690",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1690-1693.txt",
+   "base": "17169001",
+   "chapters": "1690-1693"
+  },
+  {
+   "prefix": "ri17c1694",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1694-1696.txt",
+   "base": "17169401",
+   "chapters": "1694-1696"
+  },
+  {
+   "prefix": "ri17c1697",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri17_b17_ch1697-1700.txt",
+   "base": "17169701",
+   "chapters": "1697-1700"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {groupBySize, ncxChapterMembers, bookShards, passDone} from '../scripts/lead_run/make_book_plans.mjs';
+import {groupBySize, ncxChapterMembers, bookShards, passDone, planObject} from '../scripts/lead_run/make_book_plans.mjs';
 import {textChapters, shardText} from '../scripts/lead_run/prepare_shard.mjs';
 import {htmlBlocks, epubSpine, blockChapters, BOOK_TAIL} from '../scripts/lead_run/prepare_shard_en.mjs';
 
@@ -64,4 +64,14 @@ test('captured Chinese chapters: renumbered title, mirror notice and a repeated 
 
 test('a pass with a partial marker is not done, so the planner re-reads it', () => {
     assert.ok(!passDone('census', 'x2c001', new Set(['x2c001m_census.jsonl', 'x2c001_census.partial'])));
+});
+
+test('--schema 1.4 stamps schemaVersion on a plan; the default leaves no field and the same key order', () => {
+    const args = {world: 'w', lang: 'en', pass: 'rules', priv: '/p', glossary: {}, label: 'x-rules', shards: []};
+    const plain = planObject(args), v14 = planObject({...args, schema: '1.4'});
+    assert.ok(!('schemaVersion' in plain));
+    assert.equal(v14.schemaVersion, '1.4');
+    const {schemaVersion, ...rest} = v14;
+    assert.deepEqual(rest, plain);
+    assert.deepEqual(Object.keys(plain), ['world', 'model', 'maxTokens', 'outTokensAssumed', 'effort', 'schemaMode', 'privateDir', 'outDir', 'glossary', 'label', 'pass', 'shards']);
 });

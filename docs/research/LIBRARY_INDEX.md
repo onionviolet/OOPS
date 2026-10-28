@@ -17,7 +17,7 @@ Source text stays outside tracked files. Never modify the library; convert into 
 
 ## Batch-registered hero works (2026-10-28, run files pending Weibao's go)
 
-Registered in `books.json` from Calibre or a Royal Road capture, converted to a private `Chapter N: Title` copy under `docs/research/novels/<slug>/private/source/` (the converter for the Calibre EPUBs is `scripts/lead_run/normalize_epub_chapters.py`). Run files `plans/overnight_2026-11-01-<world>.json` are `approval: PENDING`.
+Registered in `books.json` from Calibre or a Royal Road capture, converted to a private `Chapter N: Title` copy under `docs/research/novels/<slug>/private/source/` (the converter for the Calibre EPUBs is `scripts/lead_run/normalize_epub_chapters.py`). Run files `plans/overnight_2026-11-01-<world>.json` are `approval: PENDING`. All November plans (these, `coi` and the five TTKS books, Reverend Insanity and A Regressor's Tale of Cultivation) were regenerated at schema 1.4 on 2026-10-28 (`make_book_plans.mjs --schema 1.4`); ceilings are about 0.75 of each true-bound cap.
 
 | Book | Source | Chapters | Batch keys | Run file (ceiling) |
 |---|---|---|---|---|
@@ -28,6 +28,8 @@ Registered in `books.json` from Calibre or a Royal Road capture, converted to a 
 | The Perfect Run (Royal Road capture, listing 36735) | `perfect-run/source-preparation-2026-10-11/prepared/main-*.json` in manifest order | 130 | `pr` | `2026-11-01-pr` ($10) |
 | The Perfect Run: Bad Runs (3 what-if chapters, not main continuity) | same capture, `bad-runs-*.json` | 3 | `prb` (book 2 of world `pr`) | same file |
 | Super Supportive (Royal Road capture, 2026-10-25) | `super-supportive/source-2026-10-25/super-supportive-merged.json`, renumbered 1-314 | 314 | `sup` | `2026-11-01-sup` ($32) |
+| Reverend Insanity (Gu Zhen Ren), English | Calibre 15, EPUB (`chapter_N.xhtml`, headings `Chapter N - Title`, about 4.86M words); the 24 "volumes" are the copy's own 100-chapter blocks (volume 24 has 34), not the author's volumes. Converted per volume by `normalize_epub_chapters.py ri` into private `ri1.epub`-`ri24.epub` under `reverend-insanity/private/source/` | 2,334 (volume 1 = 1-100 ... volume 24 = 2301-2334; site numbering kept) | `ri1`-`ri24` | `2026-10-29-ri1-pilot-ri` ($3.40, volume 1 alone); `2026-11-01-ri` ($88.10, volumes 2-24) |
+| A Regressor's Tale of Cultivation (Tremendous) | Calibre 17, EPUB (`chapterN.html`, no headings in the text; titles from `toc.ncx`, about 2.17M words). Calibre 43 is a byte-identical duplicate (same md5), not registered. Converted by `normalize_epub_chapters.py rtoc` (ad, Discord and translator lines dropped) | 640: Prologue as 0, then 1-639 renumbered in reading order (the site's own number is kept in the title as `[site ch N]` where it differs; 4 "Author's Q&A" files skipped) | `rtoc` | `2026-11-01-rtoc` ($40.60) |
 
 ## The five TTKS books
 
@@ -61,7 +63,7 @@ Reading state (what has been read, spent or merged) lives in the run files and `
 
 ## Other things on disk, not batch-registered
 
-Er Gen's settings (`er-gen-haul-2026-10-09`: A Will Eternal, Beyond the Timescape and others, Calibre 71-73), Reincarnation Paradise (13), I Am the Fated Villain (14), Reverend Insanity (15), A Regressor's Tale of Cultivation (17), Omniscient Reader's Viewpoint (18), Labyrinth of the Mad God (19, 20), Solo Leveling (46), Second Life Ranker (85) and about 200 more: see the catalogue.
+Er Gen's settings (`er-gen-haul-2026-10-09`: A Will Eternal, Beyond the Timescape and others, Calibre 71-73), Reincarnation Paradise (13), I Am the Fated Villain (14), Omniscient Reader's Viewpoint (18), Labyrinth of the Mad God (19, 20), Solo Leveling (46), Second Life Ranker (85) and about 200 more: see the catalogue.
 
 ## Keeping this current
 

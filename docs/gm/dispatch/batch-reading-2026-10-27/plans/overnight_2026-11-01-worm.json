@@ -1,8 +1,8 @@
 {
  "name": "2026-11-01-worm",
  "approval": "PENDING: needs Weibao's go phrase.",
- "ceilingUsd": 33,
- "capTotal": 43.84,
+ "ceilingUsd": 32.9,
+ "capTotal": 43.87,
  "steps": [
   {
    "name": "pilot",
@@ -48,7 +48,7 @@
    "labels": [
     {
      "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_rules.json",
-     "cap": 8.77,
+     "cap": 8.78,
      "label": "worm-rules"
     }
    ]
@@ -59,7 +59,7 @@
    "labels": [
     {
      "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_people.json",
-     "cap": 8.76,
+     "cap": 8.77,
      "label": "worm-people"
     }
    ]
@@ -70,7 +70,7 @@
    "labels": [
     {
      "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_texture.json",
-     "cap": 8.76,
+     "cap": 8.77,
      "label": "worm-texture"
     }
    ]

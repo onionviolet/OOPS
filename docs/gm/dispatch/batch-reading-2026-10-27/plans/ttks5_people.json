@@ -1,10 +1,11 @@
 {
  "world": "ttks5",
  "model": "claude-haiku-5-5",
- "maxTokens": 64000,
+ "maxTokens": 128000,
  "outTokensAssumed": 32000,
  "effort": "high",
  "schemaMode": "prompt",
+ "schemaVersion": "1.4",
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28",
  "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28/batch",
  "glossary": {

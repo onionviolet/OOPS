@@ -1,7 +1,8 @@
 // Whole-book batch plans from one registry (plans/books.json, docs/research/BATCH_READING_WORKFLOW.md): prepares size-grouped shards when a book has none, writes one
 // plan per pass per book that skips shards already read, and writes one run file per world with true-bound caps (every request at max_tokens).
 //   Book types: pdf, epub (numbered members), ncx (`Chapter N:` labels), html (spine blocks split at `Chapter N: Title`), zh-nav (Chinese nav.xhtml), json (browser-captured `NNNN: [title, text]` files, Chinese).
-//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...]
+//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4]
+//   --schema 1.4 stamps `schemaVersion: '1.4'` on every plan written (READINESS_AND_SCOPE round 12); without it plans carry no field and read as 1.3.
 // Plans and run files only: nothing is sent. Each run file starts `approval: PENDING` and needs Weibao's go before batch_overnight.mjs runs it.
 import {execFileSync} from 'node:child_process';
 import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync} from 'node:fs';
@@ -27,6 +28,11 @@ const SETTINGS = {
 const settings = (lang, pass) => ({maxTokens: 128000, outTokensAssumed: 32000, ...(SETTINGS[lang][pass] || {effort: 'high', schemaMode: 'prompt'})});
 
 /** Consecutive chapters grouped up to `target` size units and `max` chapters; a chapter over the target stands alone. */
+/** The plan object for one label; `schema` ('1.4') is opt-in and leaves no field when unset, so existing plans do not move. */
+export function planObject({world, lang, pass, priv, glossary, label, shards, schema = null}) {
+    return {world, model: 'claude-haiku-5-5', ...settings(lang, pass), ...(schema ? {schemaVersion: schema} : {}), privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
+}
+
 export function groupBySize(chapters, size, {target, max}) {
     const out = [];
     let cur = [], sum = 0;
@@ -133,7 +139,8 @@ export function passDone(pass, prefix, files) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const a = process.argv.slice(2), flag = n => { const i = a.indexOf(n); return i >= 0 ? a[i + 1] : null; };
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
-    const keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
+    const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
+    if (schema && schema !== '1.4') throw new Error(`--schema supports 1.4 only, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
     const byWorld = {}, report = [];
     for (const b of registry.books.filter(x => !keys || keys.has(x.key))) {
@@ -161,7 +168,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
                 .map(s => ({prefix: s.prefix, shard: join(priv, s.file), base: s.base, chapters: s.chapters}));
             if (!todo.length) continue;
             // `--tag r2` gives a rerun its own labels and plan files, so the driver does not collect an earlier batch by its receipt.
-            const label = `${b.key}-${suffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = {world: b.world, model: 'claude-haiku-5-5', ...settings(b.lang, pass), privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards: todo};
+            const label = `${b.key}-${suffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = planObject({world: b.world, lang: b.lang, pass, priv, glossary, label, shards: todo, schema});
             const name = `${b.key}_${suffix}${tag ? `_${tag}` : ''}`;
             writeFileSync(join(PLANS, `${name}.json`), JSON.stringify(plan, null, 1) + '\n');
             // True bound: every request at max_tokens. Rounded up to the cent.
