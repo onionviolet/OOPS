@@ -934,3 +934,25 @@ The 32-row gap ledger (L4b plus L5r) sorts into four audiences. Only the first b
 | CL221 | **W1 workflow worker**: a repo lane runner (preflight, detached launch with API keys stripped, resume, PID and receipt), a lane review script (canon-name sweep against the private pack, top-level-await check, unowned-file check), and the lane brief template with the CLR blocks | Luna, medium | Launched |
 | CL222 | **G1 first gap build**: "wait until" as a readable UI action (world-general) and beat aftermath writing knowledge to the actors who learned it (all cast, any world). Concealment (hide in a container, noticing) is G2 for the next coordinator | Sol, medium | Launched |
 | CL223 | **Hand-off to a fresh coordinator** with [the handoff](COORDINATOR_HANDOFF_2026-10-28.md) | | After launch |
+
+## 23. Round 15: build all of it; choose per seat later (2026-10-28)
+
+Weibao: "So the idea is that all of those panels will be implemented, but when adapting to the non main
+character play through, i guess we can chose in the ufutre" ([USER_VISION](../../../USER_VISION.md#cast-lives-build-everything-the-leads-life-needs-choose-later-for-other-seats-2026-10-28)).
+
+**What changes.** Round 14's CL214 used the second-case test as the gate for entering the game. Under this
+direction it becomes a **tag**: every gap in the ledger gets built, including the seven seat-only ones and
+the two world mechanisms, and each capability carries its audience tag (world-general, seat-only, world
+mechanism, harness) so a later choice per seat is a data change. CL210-CL213 stay as the tag vocabulary;
+CL215-CL220 still apply to how each is built. Earlier wording stays as history.
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL224 | **Seat profiles as data.** Each seat (be, beside, follow, bystander) is a list of enabled capability tags and panels; the later choice Weibao mentions edits that list, not code. Default until he chooses: be gets everything; beside, follow and bystander get world-general only | ACCOUNT FOR NOW: G-lanes register each capability with its tag; a small seat filter reads the list (one module, no per-feature checks scattered in UI code) |
+| CL225 | **Build by actor, not by lead.** Capabilities take an actor (anyone can wash, hide, pay a meter, inherit a memory record); the lead-specific part is data in the private pack. Then adapting to another seat or world is mostly free | ACCOUNT FOR NOW: every G-brief says "parametrize by actor" |
+| CL226 | **The be seat is now on the critical path.** Seven gaps need it. It needs Weibao's WER11 wording; default proposal: a private-pack-only "be the lead" start that reuses the beside start's records with the lead's own body, purse, memories and duties as the player life (CL159) | Ask Weibao by name with that default |
+| CL227 | **Seat-only state never leaks.** Saves of non-be lives carry no seat-only fields; switching seats is a new life, not a toggle on an existing save (CL153, CL217) | ACCOUNT FOR NOW |
+| CL228 | **Panels stay findable but quiet.** All panels exist; progressive disclosure (UR42) keeps rarely used ones grouped, so building everything does not crowd the ordinary screen. Each new panel earns its 1920×1080 screenshot (SUI12) | ACCOUNT FOR NOW |
+| CL229 | **World mechanisms still belong to their world** (AR12): the dream confrontation and ritual contest are built as LOTM mechanisms, available wherever LOTM's powers are; other worlds get theirs from their own books | ACCOUNT FOR NOW |
+| CL230 | **The fidelity score is the progress measure.** The L5r replay's reproducible share rises with each capability; with all gaps built and the be seat, chapters 1-3 should reach every step reproducible or a clean fold | ACCOUNT FOR NOW: report it after each G-lane |
+| CL231 | **Order stays by dependency and count**, now including seat-only work once the be seat exists: world-general capabilities first (they serve every seat), the be seat next, seat-only capabilities after it, world mechanisms with the LOTM power work | ACCOUNT FOR NOW |
