@@ -252,7 +252,7 @@ Sources: [structured outputs](https://platform.claude.com/docs/en/build-with-cla
 
 **LATER / DELEGATE:**
 - Language profile and English adapter (code lane; done when a Harry Potter year 1 shard lints clean and `check:arch` passes; effort: one lane).
-- Sonnet spot check as a batch (10% of rows per book at about 10x the haiku price per token still costs cents); level: sonnet; done when `spotChecked >= 5` is recorded in headers.
+- Sonnet spot check as a batch (10% of rows per book at 20x the haiku price per token ($2 and $10 against $0.10 and $0.50 per million) still costs cents); level: sonnet; done when `spotChecked >= 5` is recorded in headers.
 - Cross-shard id merge script (PL-L16) as a pass 1 to pass 2 step; done when the merged glossary is one file with unique ids.
 - Acquisition of TTKS editions before any TTKS plan.
 - A Soldier's Life book 4: find or acquire.
