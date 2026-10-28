@@ -584,3 +584,57 @@ Weibao: "its dont, work on next part? More to consider?"
 | CL118 | **Tool gap:** `cite_paragraphs.mjs --id` takes entity ids, not beat ids; lanes read a scene's paragraphs through its evidence locators instead | LATER: a `--beat` option (Luna low), owned with the reading tools |
 | CL119 | **Codex sandbox cannot write `.git`**, so lanes never commit; this session reviews, runs the full suite where code changed, and commits each lane's own paths | Launcher prompt and briefs updated |
 | CL120 | **L3 running** (Sol, medium). **L4a brief written** ([L4a](cast-lives-lanes/L4A_LIVING_WEEK_BRIEF.md), Sol, medium): the beside start, schedule-driven locations through the one location store, talk gated by presence, additive save decision; the day index counts from the life's start because the LOTM start month is still Weibao's open question. Beats, the null-player run and the gap probe split off as L4b | Waiting on L3 |
+
+## 15. Round 8: scenes in the UI, a leaner pipeline, and what else (2026-10-28)
+
+Weibao: "What else to consider? anything to be more optimal? Ohter stuff? Rules on how to create the
+scenes into our UI?"
+
+### 15.1 Scene-to-UI rules (proposed SUI1-SUI12)
+
+These turn a book scene into what the player sees. They restate and apply existing owners (UR41-UR49,
+UR70-UR75, AR7, AR8, PX49, PLAN 17.4) for this case; proposals until Weibao accepts them. Target:
+1920×1080 desktop first; mobile deferred.
+
+| Code | Rule (default, dial and reason) | Restates |
+| --- | --- | --- |
+| SUI1 | **A scene is state, not prose.** The UI draws place, time band, who is here, available actions and results from game state; every line is our own wording generated from fields. Source text never reaches the screen. Reason: copyright and one truth (AR8) | AR8, research rules |
+| SUI2 | **Pick the surface by what the scene asks of the player** (UR41): a routine moment lives in the location panel; a scene with a choice opens a scene card in the center view through the shared controller with the back bar and Esc; a fight uses the existing combat surface; a scene the player is not in becomes a log line | UR41, PLAN 17.4 |
+| SUI3 | **Witness level decides the text** (PX49): present gets the card; affected gets the outcome and its effect on you; aftermath gets what you find afterwards; heard gets a rumor line marked as told to you. Never more than the player perceived | PX49, AR8 |
+| SUI4 | **No canon labels by default.** Options are not marked "what the book did"; the opt-in overlay shows past and current canon scenes only | PLAN 17.4, sealed-secrets rule |
+| SUI5 | **Untaken options stay visible** as actions with their cost, or as a quiet "not possible yet: [what is missing]" line; never silently absent (WA28) | WA28, UR72 |
+| SUI6 | **Quote before commit.** Every scene action shows time, cost, who is affected and, where weighted, the observable resistance (CL40) before the click, and rechecks on commit | AR7, UR71, CL40 |
+| SUI7 | **Scenes keep their window, not the player's attention.** A scene you are part of waits within its window and shows in the calendar and an "upcoming" strip; past the window it settles without you (CL6a) and reaches you at your witness level. No forced pause; an optional notice for appointments | NPC absence report, CL6 |
+| SUI8 | **One card at a time.** Several live scenes queue in the upcoming strip in time order; cards never stack | UR42 |
+| SUI9 | **Lead with meaning** (UR70): the card's first line says what is at stake for you in one sentence; mechanics follow (UR71) | UR70, UR71 |
+| SUI10 | **People on the card are links** to their person view (CL36, CL37): where they usually are, why they act toward you as they do | UR43, UR47 |
+| SUI11 | **The log line is the receipt.** Every settled scene writes one compact subject-first log line (UR44) through the name resolver, so a missed scene is still traceable | UR44, CAE-E1 |
+| SUI12 | **Each new scene kind earns browser evidence** at 1920×1080 on a populated save before it is called done (AD43) | AD43, UR rules |
+
+| Code | Disposition |
+| --- | --- |
+| CL121 | ACCOUNT FOR NOW: L4a uses SUI2 (talk through the existing action list, no new card yet), SUI3 (log line for an away person is not needed in wave 1) and SUI6 |
+| CL122 | LATER/DELEGATE: the scene card itself (SUI2, SUI8, SUI9) after L4b's beats exist; Sol, medium; done when one chapter 1-24 choice scene renders as a card at 1920×1080 with quote, commit and log receipt |
+| CL123 | ACCOUNT FOR NOW: register SUI1-SUI12 in UI_RULES and the rules index only after Weibao accepts them |
+
+### 15.2 A leaner pipeline (what the first six lanes taught)
+
+| Code | Finding | Change |
+| --- | --- | --- |
+| CL124 | Two lanes lost a run to wrong assumptions about the data (L2c's fight filter, L1's prefix regex) | ACT NOW (done for L6a): every brief opens with a **five-minute data probe** that counts the fields it depends on and stops if a count is under half the expectation |
+| CL125 | Luna handled the scripted lanes (L2, L2b, L2c) well; Sol was right for identity review (L1) and paragraph reading (L3) | ACCOUNT FOR NOW: keep the split; escalate a Luna lane to medium before switching to Sol |
+| CL126 | Lanes block on one another (L4a waits on L3) while unrelated lanes could run | ACT NOW (done): L6a, the MoL worksheets, runs beside L3; at most two writers at once (CL83) |
+| CL127 | The coordinator's review found real defects in two of six lanes (L2's undated `once` rows, L2c's selection) | ACCOUNT FOR NOW: keep the review step: diff read, focused test, one data spot check, before each commit |
+| CL128 | The full suite takes about two minutes and lanes cannot commit | ACCOUNT FOR NOW: when two lanes finish close together, run the suite once and commit both, one commit each |
+| CL129 | Codex usage was 3% then 4% of the window across five lanes | ACCOUNT FOR NOW: run the preflight before each batch; no need to throttle at this rate |
+| CL130 | Briefs that link plan sections stay short; the lane reads the sections it needs | ACCOUNT FOR NOW |
+
+### 15.3 Other things to consider
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL131 | **A lane runner.** The launcher, PID watch and preflight live in this session's scratchpad; a repo script (`scripts/codex_lane.mjs`: preflight, launch detached with API keys stripped, record session id and PID, report on exit) would let any session coordinate Codex lanes | LATER/DELEGATE: Luna low; done when one lane runs end to end through it and AGENTS.md's multi-agent section links it |
+| CL132 | **Promotion queue.** L3 leaves most of the 187 LOTM entities at M1; when the player meets one, promote them by the same worksheet path (WA22) instead of improvising | LATER: after L4a |
+| CL133 | **The lead as a player-visible life.** Once beats run (L4b), the lead's own week is the richest test of every system; the watch view (CL5) shows it to Weibao | LATER |
+| CL134 | **Golden fixture.** Keep one saved "day 3, beside start" fixture for every later lane's regression check (games lens: a save fixture per important state) | ACCOUNT FOR NOW: L4a adds it under `tests/fixtures/` if its test needs one |
+| CL135 | **Hidden coupling with the original branch.** The beside start shares Tingen places with the original probationer branch; a later change to the original pack's places must keep the cast's place ids valid | ACCOUNT FOR NOW: L3's test checks every cast place exists in the pack or the cast data |
