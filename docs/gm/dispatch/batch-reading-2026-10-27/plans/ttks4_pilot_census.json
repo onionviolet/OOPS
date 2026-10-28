@@ -1,0 +1,23 @@
+{
+ "world": "ttks4",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "medium",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28",
+  "censusMatch": "^(ttks4)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ttks4-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "ttks4c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28/shard_ttks4_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ]
+}

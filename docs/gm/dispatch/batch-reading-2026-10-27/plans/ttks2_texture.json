@@ -1,0 +1,2016 @@
+{
+ "world": "ttks2",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28",
+  "censusMatch": "^(ttks2)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ttks2-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "ttks2c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "ttks2c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "ttks2c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "ttks2c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "ttks2c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "ttks2c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "ttks2c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "ttks2c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "ttks2c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "ttks2c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "ttks2c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "ttks2c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "ttks2c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "ttks2c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "ttks2c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "ttks2c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "ttks2c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "ttks2c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch035-036.txt",
+   "base": "03501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "ttks2c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch037-038.txt",
+   "base": "03701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "ttks2c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch039-040.txt",
+   "base": "03901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "ttks2c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "ttks2c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "ttks2c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "ttks2c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "ttks2c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "ttks2c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "ttks2c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch053-054.txt",
+   "base": "05301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "ttks2c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch055-056.txt",
+   "base": "05501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "ttks2c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch057-058.txt",
+   "base": "05701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "ttks2c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch059-060.txt",
+   "base": "05901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "ttks2c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch061-062.txt",
+   "base": "06101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "ttks2c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch063-064.txt",
+   "base": "06301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "ttks2c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch065-066.txt",
+   "base": "06501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "ttks2c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch067-068.txt",
+   "base": "06701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "ttks2c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch069-070.txt",
+   "base": "06901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "ttks2c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch071-072.txt",
+   "base": "07101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "ttks2c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch073-074.txt",
+   "base": "07301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "ttks2c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch075-076.txt",
+   "base": "07501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "ttks2c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch077-078.txt",
+   "base": "07701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "ttks2c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch079-080.txt",
+   "base": "07901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "ttks2c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch081-082.txt",
+   "base": "08101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "ttks2c083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch083-084.txt",
+   "base": "08301",
+   "chapters": "83-84"
+  },
+  {
+   "prefix": "ttks2c085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch085-086.txt",
+   "base": "08501",
+   "chapters": "85-86"
+  },
+  {
+   "prefix": "ttks2c087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch087-088.txt",
+   "base": "08701",
+   "chapters": "87-88"
+  },
+  {
+   "prefix": "ttks2c089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch089-090.txt",
+   "base": "08901",
+   "chapters": "89-90"
+  },
+  {
+   "prefix": "ttks2c091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch091-092.txt",
+   "base": "09101",
+   "chapters": "91-92"
+  },
+  {
+   "prefix": "ttks2c093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch093-094.txt",
+   "base": "09301",
+   "chapters": "93-94"
+  },
+  {
+   "prefix": "ttks2c095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch095-096.txt",
+   "base": "09501",
+   "chapters": "95-96"
+  },
+  {
+   "prefix": "ttks2c097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch097-098.txt",
+   "base": "09701",
+   "chapters": "97-98"
+  },
+  {
+   "prefix": "ttks2c099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch099-100.txt",
+   "base": "09901",
+   "chapters": "99-100"
+  },
+  {
+   "prefix": "ttks2c101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch101-102.txt",
+   "base": "10101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "ttks2c103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch103-104.txt",
+   "base": "10301",
+   "chapters": "103-104"
+  },
+  {
+   "prefix": "ttks2c105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch105-106.txt",
+   "base": "10501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "ttks2c107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch107-108.txt",
+   "base": "10701",
+   "chapters": "107-108"
+  },
+  {
+   "prefix": "ttks2c109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch109-110.txt",
+   "base": "10901",
+   "chapters": "109-110"
+  },
+  {
+   "prefix": "ttks2c111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch111-112.txt",
+   "base": "11101",
+   "chapters": "111-112"
+  },
+  {
+   "prefix": "ttks2c113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch113-114.txt",
+   "base": "11301",
+   "chapters": "113-114"
+  },
+  {
+   "prefix": "ttks2c115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch115-116.txt",
+   "base": "11501",
+   "chapters": "115-116"
+  },
+  {
+   "prefix": "ttks2c117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch117-118.txt",
+   "base": "11701",
+   "chapters": "117-118"
+  },
+  {
+   "prefix": "ttks2c119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch119-120.txt",
+   "base": "11901",
+   "chapters": "119-120"
+  },
+  {
+   "prefix": "ttks2c121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch121-122.txt",
+   "base": "12101",
+   "chapters": "121-122"
+  },
+  {
+   "prefix": "ttks2c123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch123-124.txt",
+   "base": "12301",
+   "chapters": "123-124"
+  },
+  {
+   "prefix": "ttks2c125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch125-126.txt",
+   "base": "12501",
+   "chapters": "125-126"
+  },
+  {
+   "prefix": "ttks2c127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch127-128.txt",
+   "base": "12701",
+   "chapters": "127-128"
+  },
+  {
+   "prefix": "ttks2c129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch129-130.txt",
+   "base": "12901",
+   "chapters": "129-130"
+  },
+  {
+   "prefix": "ttks2c131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch131-132.txt",
+   "base": "13101",
+   "chapters": "131-132"
+  },
+  {
+   "prefix": "ttks2c133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch133-134.txt",
+   "base": "13301",
+   "chapters": "133-134"
+  },
+  {
+   "prefix": "ttks2c135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch135-136.txt",
+   "base": "13501",
+   "chapters": "135-136"
+  },
+  {
+   "prefix": "ttks2c137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch137-138.txt",
+   "base": "13701",
+   "chapters": "137-138"
+  },
+  {
+   "prefix": "ttks2c139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch139-140.txt",
+   "base": "13901",
+   "chapters": "139-140"
+  },
+  {
+   "prefix": "ttks2c141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch141-142.txt",
+   "base": "14101",
+   "chapters": "141-142"
+  },
+  {
+   "prefix": "ttks2c143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch143-144.txt",
+   "base": "14301",
+   "chapters": "143-144"
+  },
+  {
+   "prefix": "ttks2c145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch145-146.txt",
+   "base": "14501",
+   "chapters": "145-146"
+  },
+  {
+   "prefix": "ttks2c147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch147-148.txt",
+   "base": "14701",
+   "chapters": "147-148"
+  },
+  {
+   "prefix": "ttks2c149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch149-150.txt",
+   "base": "14901",
+   "chapters": "149-150"
+  },
+  {
+   "prefix": "ttks2c151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch151-152.txt",
+   "base": "15101",
+   "chapters": "151-152"
+  },
+  {
+   "prefix": "ttks2c153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch153-154.txt",
+   "base": "15301",
+   "chapters": "153-154"
+  },
+  {
+   "prefix": "ttks2c155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch155-156.txt",
+   "base": "15501",
+   "chapters": "155-156"
+  },
+  {
+   "prefix": "ttks2c157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch157-158.txt",
+   "base": "15701",
+   "chapters": "157-158"
+  },
+  {
+   "prefix": "ttks2c159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch159-160.txt",
+   "base": "15901",
+   "chapters": "159-160"
+  },
+  {
+   "prefix": "ttks2c161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch161-162.txt",
+   "base": "16101",
+   "chapters": "161-162"
+  },
+  {
+   "prefix": "ttks2c163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch163-164.txt",
+   "base": "16301",
+   "chapters": "163-164"
+  },
+  {
+   "prefix": "ttks2c165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch165-166.txt",
+   "base": "16501",
+   "chapters": "165-166"
+  },
+  {
+   "prefix": "ttks2c167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch167-168.txt",
+   "base": "16701",
+   "chapters": "167-168"
+  },
+  {
+   "prefix": "ttks2c169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch169-170.txt",
+   "base": "16901",
+   "chapters": "169-170"
+  },
+  {
+   "prefix": "ttks2c171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch171-172.txt",
+   "base": "17101",
+   "chapters": "171-172"
+  },
+  {
+   "prefix": "ttks2c173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch173-174.txt",
+   "base": "17301",
+   "chapters": "173-174"
+  },
+  {
+   "prefix": "ttks2c175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch175-176.txt",
+   "base": "17501",
+   "chapters": "175-176"
+  },
+  {
+   "prefix": "ttks2c177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch177-178.txt",
+   "base": "17701",
+   "chapters": "177-178"
+  },
+  {
+   "prefix": "ttks2c179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch179-180.txt",
+   "base": "17901",
+   "chapters": "179-180"
+  },
+  {
+   "prefix": "ttks2c181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch181-182.txt",
+   "base": "18101",
+   "chapters": "181-182"
+  },
+  {
+   "prefix": "ttks2c183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch183-184.txt",
+   "base": "18301",
+   "chapters": "183-184"
+  },
+  {
+   "prefix": "ttks2c185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch185-186.txt",
+   "base": "18501",
+   "chapters": "185-186"
+  },
+  {
+   "prefix": "ttks2c187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch187-188.txt",
+   "base": "18701",
+   "chapters": "187-188"
+  },
+  {
+   "prefix": "ttks2c189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch189-190.txt",
+   "base": "18901",
+   "chapters": "189-190"
+  },
+  {
+   "prefix": "ttks2c191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch191-192.txt",
+   "base": "19101",
+   "chapters": "191-192"
+  },
+  {
+   "prefix": "ttks2c193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch193-194.txt",
+   "base": "19301",
+   "chapters": "193-194"
+  },
+  {
+   "prefix": "ttks2c195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch195-196.txt",
+   "base": "19501",
+   "chapters": "195-196"
+  },
+  {
+   "prefix": "ttks2c197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch197-198.txt",
+   "base": "19701",
+   "chapters": "197-198"
+  },
+  {
+   "prefix": "ttks2c199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch199-200.txt",
+   "base": "19901",
+   "chapters": "199-200"
+  },
+  {
+   "prefix": "ttks2c201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch201-202.txt",
+   "base": "20101",
+   "chapters": "201-202"
+  },
+  {
+   "prefix": "ttks2c203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch203-204.txt",
+   "base": "20301",
+   "chapters": "203-204"
+  },
+  {
+   "prefix": "ttks2c205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch205-206.txt",
+   "base": "20501",
+   "chapters": "205-206"
+  },
+  {
+   "prefix": "ttks2c207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch207-208.txt",
+   "base": "20701",
+   "chapters": "207-208"
+  },
+  {
+   "prefix": "ttks2c209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch209-210.txt",
+   "base": "20901",
+   "chapters": "209-210"
+  },
+  {
+   "prefix": "ttks2c211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch211-212.txt",
+   "base": "21101",
+   "chapters": "211-212"
+  },
+  {
+   "prefix": "ttks2c213",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch213-214.txt",
+   "base": "21301",
+   "chapters": "213-214"
+  },
+  {
+   "prefix": "ttks2c215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch215-216.txt",
+   "base": "21501",
+   "chapters": "215-216"
+  },
+  {
+   "prefix": "ttks2c217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch217-218.txt",
+   "base": "21701",
+   "chapters": "217-218"
+  },
+  {
+   "prefix": "ttks2c219",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch219-220.txt",
+   "base": "21901",
+   "chapters": "219-220"
+  },
+  {
+   "prefix": "ttks2c221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch221-222.txt",
+   "base": "22101",
+   "chapters": "221-222"
+  },
+  {
+   "prefix": "ttks2c223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch223-224.txt",
+   "base": "22301",
+   "chapters": "223-224"
+  },
+  {
+   "prefix": "ttks2c225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch225-226.txt",
+   "base": "22501",
+   "chapters": "225-226"
+  },
+  {
+   "prefix": "ttks2c227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch227-228.txt",
+   "base": "22701",
+   "chapters": "227-228"
+  },
+  {
+   "prefix": "ttks2c229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch229-230.txt",
+   "base": "22901",
+   "chapters": "229-230"
+  },
+  {
+   "prefix": "ttks2c231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch231-232.txt",
+   "base": "23101",
+   "chapters": "231-232"
+  },
+  {
+   "prefix": "ttks2c233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch233-234.txt",
+   "base": "23301",
+   "chapters": "233-234"
+  },
+  {
+   "prefix": "ttks2c235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch235-236.txt",
+   "base": "23501",
+   "chapters": "235-236"
+  },
+  {
+   "prefix": "ttks2c237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch237-238.txt",
+   "base": "23701",
+   "chapters": "237-238"
+  },
+  {
+   "prefix": "ttks2c239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch239-240.txt",
+   "base": "23901",
+   "chapters": "239-240"
+  },
+  {
+   "prefix": "ttks2c241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch241-242.txt",
+   "base": "24101",
+   "chapters": "241-242"
+  },
+  {
+   "prefix": "ttks2c243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch243-244.txt",
+   "base": "24301",
+   "chapters": "243-244"
+  },
+  {
+   "prefix": "ttks2c245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch245-246.txt",
+   "base": "24501",
+   "chapters": "245-246"
+  },
+  {
+   "prefix": "ttks2c247",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch247-248.txt",
+   "base": "24701",
+   "chapters": "247-248"
+  },
+  {
+   "prefix": "ttks2c249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch249-250.txt",
+   "base": "24901",
+   "chapters": "249-250"
+  },
+  {
+   "prefix": "ttks2c251",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch251-252.txt",
+   "base": "25101",
+   "chapters": "251-252"
+  },
+  {
+   "prefix": "ttks2c253",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch253-254.txt",
+   "base": "25301",
+   "chapters": "253-254"
+  },
+  {
+   "prefix": "ttks2c255",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch255-256.txt",
+   "base": "25501",
+   "chapters": "255-256"
+  },
+  {
+   "prefix": "ttks2c257",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch257-258.txt",
+   "base": "25701",
+   "chapters": "257-258"
+  },
+  {
+   "prefix": "ttks2c259",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch259-260.txt",
+   "base": "25901",
+   "chapters": "259-260"
+  },
+  {
+   "prefix": "ttks2c261",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch261-262.txt",
+   "base": "26101",
+   "chapters": "261-262"
+  },
+  {
+   "prefix": "ttks2c263",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch263-264.txt",
+   "base": "26301",
+   "chapters": "263-264"
+  },
+  {
+   "prefix": "ttks2c265",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch265-266.txt",
+   "base": "26501",
+   "chapters": "265-266"
+  },
+  {
+   "prefix": "ttks2c267",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch267-268.txt",
+   "base": "26701",
+   "chapters": "267-268"
+  },
+  {
+   "prefix": "ttks2c269",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch269-270.txt",
+   "base": "26901",
+   "chapters": "269-270"
+  },
+  {
+   "prefix": "ttks2c271",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch271-272.txt",
+   "base": "27101",
+   "chapters": "271-272"
+  },
+  {
+   "prefix": "ttks2c273",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch273-274.txt",
+   "base": "27301",
+   "chapters": "273-274"
+  },
+  {
+   "prefix": "ttks2c275",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch275-276.txt",
+   "base": "27501",
+   "chapters": "275-276"
+  },
+  {
+   "prefix": "ttks2c277",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch277-278.txt",
+   "base": "27701",
+   "chapters": "277-278"
+  },
+  {
+   "prefix": "ttks2c279",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch279-280.txt",
+   "base": "27901",
+   "chapters": "279-280"
+  },
+  {
+   "prefix": "ttks2c281",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch281-282.txt",
+   "base": "28101",
+   "chapters": "281-282"
+  },
+  {
+   "prefix": "ttks2c283",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch283-284.txt",
+   "base": "28301",
+   "chapters": "283-284"
+  },
+  {
+   "prefix": "ttks2c285",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch285-286.txt",
+   "base": "28501",
+   "chapters": "285-286"
+  },
+  {
+   "prefix": "ttks2c287",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch287-288.txt",
+   "base": "28701",
+   "chapters": "287-288"
+  },
+  {
+   "prefix": "ttks2c289",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch289-290.txt",
+   "base": "28901",
+   "chapters": "289-290"
+  },
+  {
+   "prefix": "ttks2c291",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch291-292.txt",
+   "base": "29101",
+   "chapters": "291-292"
+  },
+  {
+   "prefix": "ttks2c293",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch293-294.txt",
+   "base": "29301",
+   "chapters": "293-294"
+  },
+  {
+   "prefix": "ttks2c295",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch295-296.txt",
+   "base": "29501",
+   "chapters": "295-296"
+  },
+  {
+   "prefix": "ttks2c297",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch297-298.txt",
+   "base": "29701",
+   "chapters": "297-298"
+  },
+  {
+   "prefix": "ttks2c299",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch299-300.txt",
+   "base": "29901",
+   "chapters": "299-300"
+  },
+  {
+   "prefix": "ttks2c301",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch301-302.txt",
+   "base": "30101",
+   "chapters": "301-302"
+  },
+  {
+   "prefix": "ttks2c303",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch303-304.txt",
+   "base": "30301",
+   "chapters": "303-304"
+  },
+  {
+   "prefix": "ttks2c305",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch305-306.txt",
+   "base": "30501",
+   "chapters": "305-306"
+  },
+  {
+   "prefix": "ttks2c307",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch307-308.txt",
+   "base": "30701",
+   "chapters": "307-308"
+  },
+  {
+   "prefix": "ttks2c309",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch309-310.txt",
+   "base": "30901",
+   "chapters": "309-310"
+  },
+  {
+   "prefix": "ttks2c311",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch311-312.txt",
+   "base": "31101",
+   "chapters": "311-312"
+  },
+  {
+   "prefix": "ttks2c313",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch313-314.txt",
+   "base": "31301",
+   "chapters": "313-314"
+  },
+  {
+   "prefix": "ttks2c315",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch315-316.txt",
+   "base": "31501",
+   "chapters": "315-316"
+  },
+  {
+   "prefix": "ttks2c317",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch317-318.txt",
+   "base": "31701",
+   "chapters": "317-318"
+  },
+  {
+   "prefix": "ttks2c319",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch319-320.txt",
+   "base": "31901",
+   "chapters": "319-320"
+  },
+  {
+   "prefix": "ttks2c321",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch321-322.txt",
+   "base": "32101",
+   "chapters": "321-322"
+  },
+  {
+   "prefix": "ttks2c323",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch323-324.txt",
+   "base": "32301",
+   "chapters": "323-324"
+  },
+  {
+   "prefix": "ttks2c325",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch325-326.txt",
+   "base": "32501",
+   "chapters": "325-326"
+  },
+  {
+   "prefix": "ttks2c327",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch327-328.txt",
+   "base": "32701",
+   "chapters": "327-328"
+  },
+  {
+   "prefix": "ttks2c329",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch329-330.txt",
+   "base": "32901",
+   "chapters": "329-330"
+  },
+  {
+   "prefix": "ttks2c331",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch331-332.txt",
+   "base": "33101",
+   "chapters": "331-332"
+  },
+  {
+   "prefix": "ttks2c333",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch333-334.txt",
+   "base": "33301",
+   "chapters": "333-334"
+  },
+  {
+   "prefix": "ttks2c335",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch335-336.txt",
+   "base": "33501",
+   "chapters": "335-336"
+  },
+  {
+   "prefix": "ttks2c337",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch337-338.txt",
+   "base": "33701",
+   "chapters": "337-338"
+  },
+  {
+   "prefix": "ttks2c339",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch339-340.txt",
+   "base": "33901",
+   "chapters": "339-340"
+  },
+  {
+   "prefix": "ttks2c341",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch341-342.txt",
+   "base": "34101",
+   "chapters": "341-342"
+  },
+  {
+   "prefix": "ttks2c343",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch343-344.txt",
+   "base": "34301",
+   "chapters": "343-344"
+  },
+  {
+   "prefix": "ttks2c345",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch345-346.txt",
+   "base": "34501",
+   "chapters": "345-346"
+  },
+  {
+   "prefix": "ttks2c347",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch347-348.txt",
+   "base": "34701",
+   "chapters": "347-348"
+  },
+  {
+   "prefix": "ttks2c349",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch349-350.txt",
+   "base": "34901",
+   "chapters": "349-350"
+  },
+  {
+   "prefix": "ttks2c351",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch351-352.txt",
+   "base": "35101",
+   "chapters": "351-352"
+  },
+  {
+   "prefix": "ttks2c353",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch353-354.txt",
+   "base": "35301",
+   "chapters": "353-354"
+  },
+  {
+   "prefix": "ttks2c355",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch355-356.txt",
+   "base": "35501",
+   "chapters": "355-356"
+  },
+  {
+   "prefix": "ttks2c357",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch357-358.txt",
+   "base": "35701",
+   "chapters": "357-358"
+  },
+  {
+   "prefix": "ttks2c359",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch359-360.txt",
+   "base": "35901",
+   "chapters": "359-360"
+  },
+  {
+   "prefix": "ttks2c361",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch361-362.txt",
+   "base": "36101",
+   "chapters": "361-362"
+  },
+  {
+   "prefix": "ttks2c363",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch363-364.txt",
+   "base": "36301",
+   "chapters": "363-364"
+  },
+  {
+   "prefix": "ttks2c365",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch365-366.txt",
+   "base": "36501",
+   "chapters": "365-366"
+  },
+  {
+   "prefix": "ttks2c367",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch367-368.txt",
+   "base": "36701",
+   "chapters": "367-368"
+  },
+  {
+   "prefix": "ttks2c369",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch369-370.txt",
+   "base": "36901",
+   "chapters": "369-370"
+  },
+  {
+   "prefix": "ttks2c371",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch371-372.txt",
+   "base": "37101",
+   "chapters": "371-372"
+  },
+  {
+   "prefix": "ttks2c373",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch373-374.txt",
+   "base": "37301",
+   "chapters": "373-374"
+  },
+  {
+   "prefix": "ttks2c375",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch375-376.txt",
+   "base": "37501",
+   "chapters": "375-376"
+  },
+  {
+   "prefix": "ttks2c377",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch377-378.txt",
+   "base": "37701",
+   "chapters": "377-378"
+  },
+  {
+   "prefix": "ttks2c379",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch379-380.txt",
+   "base": "37901",
+   "chapters": "379-380"
+  },
+  {
+   "prefix": "ttks2c381",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch381-382.txt",
+   "base": "38101",
+   "chapters": "381-382"
+  },
+  {
+   "prefix": "ttks2c383",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch383-384.txt",
+   "base": "38301",
+   "chapters": "383-384"
+  },
+  {
+   "prefix": "ttks2c385",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch385-386.txt",
+   "base": "38501",
+   "chapters": "385-386"
+  },
+  {
+   "prefix": "ttks2c387",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch387-388.txt",
+   "base": "38701",
+   "chapters": "387-388"
+  },
+  {
+   "prefix": "ttks2c389",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch389-390.txt",
+   "base": "38901",
+   "chapters": "389-390"
+  },
+  {
+   "prefix": "ttks2c391",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch391-392.txt",
+   "base": "39101",
+   "chapters": "391-392"
+  },
+  {
+   "prefix": "ttks2c393",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch393-394.txt",
+   "base": "39301",
+   "chapters": "393-394"
+  },
+  {
+   "prefix": "ttks2c395",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch395-396.txt",
+   "base": "39501",
+   "chapters": "395-396"
+  },
+  {
+   "prefix": "ttks2c397",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch397-398.txt",
+   "base": "39701",
+   "chapters": "397-398"
+  },
+  {
+   "prefix": "ttks2c399",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch399-400.txt",
+   "base": "39901",
+   "chapters": "399-400"
+  },
+  {
+   "prefix": "ttks2c401",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch401-402.txt",
+   "base": "40101",
+   "chapters": "401-402"
+  },
+  {
+   "prefix": "ttks2c403",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch403-404.txt",
+   "base": "40301",
+   "chapters": "403-404"
+  },
+  {
+   "prefix": "ttks2c405",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch405-406.txt",
+   "base": "40501",
+   "chapters": "405-406"
+  },
+  {
+   "prefix": "ttks2c407",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch407-408.txt",
+   "base": "40701",
+   "chapters": "407-408"
+  },
+  {
+   "prefix": "ttks2c409",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch409-410.txt",
+   "base": "40901",
+   "chapters": "409-410"
+  },
+  {
+   "prefix": "ttks2c411",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch411-412.txt",
+   "base": "41101",
+   "chapters": "411-412"
+  },
+  {
+   "prefix": "ttks2c413",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch413-414.txt",
+   "base": "41301",
+   "chapters": "413-414"
+  },
+  {
+   "prefix": "ttks2c415",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch415-416.txt",
+   "base": "41501",
+   "chapters": "415-416"
+  },
+  {
+   "prefix": "ttks2c417",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch417-418.txt",
+   "base": "41701",
+   "chapters": "417-418"
+  },
+  {
+   "prefix": "ttks2c419",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch419-420.txt",
+   "base": "41901",
+   "chapters": "419-420"
+  },
+  {
+   "prefix": "ttks2c421",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch421-422.txt",
+   "base": "42101",
+   "chapters": "421-422"
+  },
+  {
+   "prefix": "ttks2c423",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch423-424.txt",
+   "base": "42301",
+   "chapters": "423-424"
+  },
+  {
+   "prefix": "ttks2c425",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch425-426.txt",
+   "base": "42501",
+   "chapters": "425-426"
+  },
+  {
+   "prefix": "ttks2c427",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch427-428.txt",
+   "base": "42701",
+   "chapters": "427-428"
+  },
+  {
+   "prefix": "ttks2c429",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch429-430.txt",
+   "base": "42901",
+   "chapters": "429-430"
+  },
+  {
+   "prefix": "ttks2c431",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch431-432.txt",
+   "base": "43101",
+   "chapters": "431-432"
+  },
+  {
+   "prefix": "ttks2c433",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch433-434.txt",
+   "base": "43301",
+   "chapters": "433-434"
+  },
+  {
+   "prefix": "ttks2c435",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch435-436.txt",
+   "base": "43501",
+   "chapters": "435-436"
+  },
+  {
+   "prefix": "ttks2c437",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch437-438.txt",
+   "base": "43701",
+   "chapters": "437-438"
+  },
+  {
+   "prefix": "ttks2c439",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch439-440.txt",
+   "base": "43901",
+   "chapters": "439-440"
+  },
+  {
+   "prefix": "ttks2c441",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch441-442.txt",
+   "base": "44101",
+   "chapters": "441-442"
+  },
+  {
+   "prefix": "ttks2c443",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch443-444.txt",
+   "base": "44301",
+   "chapters": "443-444"
+  },
+  {
+   "prefix": "ttks2c445",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch445-446.txt",
+   "base": "44501",
+   "chapters": "445-446"
+  },
+  {
+   "prefix": "ttks2c447",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch447-448.txt",
+   "base": "44701",
+   "chapters": "447-448"
+  },
+  {
+   "prefix": "ttks2c449",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch449-450.txt",
+   "base": "44901",
+   "chapters": "449-450"
+  },
+  {
+   "prefix": "ttks2c451",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch451-452.txt",
+   "base": "45101",
+   "chapters": "451-452"
+  },
+  {
+   "prefix": "ttks2c453",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch453-454.txt",
+   "base": "45301",
+   "chapters": "453-454"
+  },
+  {
+   "prefix": "ttks2c455",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch455-456.txt",
+   "base": "45501",
+   "chapters": "455-456"
+  },
+  {
+   "prefix": "ttks2c457",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch457-458.txt",
+   "base": "45701",
+   "chapters": "457-458"
+  },
+  {
+   "prefix": "ttks2c459",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch459-460.txt",
+   "base": "45901",
+   "chapters": "459-460"
+  },
+  {
+   "prefix": "ttks2c461",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch461-462.txt",
+   "base": "46101",
+   "chapters": "461-462"
+  },
+  {
+   "prefix": "ttks2c463",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch463-464.txt",
+   "base": "46301",
+   "chapters": "463-464"
+  },
+  {
+   "prefix": "ttks2c465",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch465-466.txt",
+   "base": "46501",
+   "chapters": "465-466"
+  },
+  {
+   "prefix": "ttks2c467",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch467-468.txt",
+   "base": "46701",
+   "chapters": "467-468"
+  },
+  {
+   "prefix": "ttks2c469",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch469-470.txt",
+   "base": "46901",
+   "chapters": "469-470"
+  },
+  {
+   "prefix": "ttks2c471",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch471-472.txt",
+   "base": "47101",
+   "chapters": "471-472"
+  },
+  {
+   "prefix": "ttks2c473",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch473-474.txt",
+   "base": "47301",
+   "chapters": "473-474"
+  },
+  {
+   "prefix": "ttks2c475",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch475-476.txt",
+   "base": "47501",
+   "chapters": "475-476"
+  },
+  {
+   "prefix": "ttks2c477",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch477-478.txt",
+   "base": "47701",
+   "chapters": "477-478"
+  },
+  {
+   "prefix": "ttks2c479",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch479-480.txt",
+   "base": "47901",
+   "chapters": "479-480"
+  },
+  {
+   "prefix": "ttks2c481",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch481-482.txt",
+   "base": "48101",
+   "chapters": "481-482"
+  },
+  {
+   "prefix": "ttks2c483",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch483-484.txt",
+   "base": "48301",
+   "chapters": "483-484"
+  },
+  {
+   "prefix": "ttks2c485",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch485-486.txt",
+   "base": "48501",
+   "chapters": "485-486"
+  },
+  {
+   "prefix": "ttks2c487",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch487-488.txt",
+   "base": "48701",
+   "chapters": "487-488"
+  },
+  {
+   "prefix": "ttks2c489",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch489-490.txt",
+   "base": "48901",
+   "chapters": "489-490"
+  },
+  {
+   "prefix": "ttks2c491",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch491-492.txt",
+   "base": "49101",
+   "chapters": "491-492"
+  },
+  {
+   "prefix": "ttks2c493",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch493-494.txt",
+   "base": "49301",
+   "chapters": "493-494"
+  },
+  {
+   "prefix": "ttks2c495",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch495-496.txt",
+   "base": "49501",
+   "chapters": "495-496"
+  },
+  {
+   "prefix": "ttks2c497",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch497-498.txt",
+   "base": "49701",
+   "chapters": "497-498"
+  },
+  {
+   "prefix": "ttks2c499",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch499-500.txt",
+   "base": "49901",
+   "chapters": "499-500"
+  },
+  {
+   "prefix": "ttks2c501",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch501-502.txt",
+   "base": "50101",
+   "chapters": "501-502"
+  },
+  {
+   "prefix": "ttks2c503",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch503-504.txt",
+   "base": "50301",
+   "chapters": "503-504"
+  },
+  {
+   "prefix": "ttks2c505",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch505-506.txt",
+   "base": "50501",
+   "chapters": "505-506"
+  },
+  {
+   "prefix": "ttks2c507",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch507-508.txt",
+   "base": "50701",
+   "chapters": "507-508"
+  },
+  {
+   "prefix": "ttks2c509",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch509-510.txt",
+   "base": "50901",
+   "chapters": "509-510"
+  },
+  {
+   "prefix": "ttks2c511",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch511-512.txt",
+   "base": "51101",
+   "chapters": "511-512"
+  },
+  {
+   "prefix": "ttks2c513",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch513-514.txt",
+   "base": "51301",
+   "chapters": "513-514"
+  },
+  {
+   "prefix": "ttks2c515",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch515-516.txt",
+   "base": "51501",
+   "chapters": "515-516"
+  },
+  {
+   "prefix": "ttks2c517",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch517-518.txt",
+   "base": "51701",
+   "chapters": "517-518"
+  },
+  {
+   "prefix": "ttks2c519",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch519-520.txt",
+   "base": "51901",
+   "chapters": "519-520"
+  },
+  {
+   "prefix": "ttks2c521",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch521-522.txt",
+   "base": "52101",
+   "chapters": "521-522"
+  },
+  {
+   "prefix": "ttks2c523",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch523-524.txt",
+   "base": "52301",
+   "chapters": "523-524"
+  },
+  {
+   "prefix": "ttks2c525",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch525-526.txt",
+   "base": "52501",
+   "chapters": "525-526"
+  },
+  {
+   "prefix": "ttks2c527",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch527-528.txt",
+   "base": "52701",
+   "chapters": "527-528"
+  },
+  {
+   "prefix": "ttks2c529",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch529-530.txt",
+   "base": "52901",
+   "chapters": "529-530"
+  },
+  {
+   "prefix": "ttks2c531",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch531-532.txt",
+   "base": "53101",
+   "chapters": "531-532"
+  },
+  {
+   "prefix": "ttks2c533",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch533-534.txt",
+   "base": "53301",
+   "chapters": "533-534"
+  },
+  {
+   "prefix": "ttks2c535",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch535-536.txt",
+   "base": "53501",
+   "chapters": "535-536"
+  },
+  {
+   "prefix": "ttks2c537",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch537-538.txt",
+   "base": "53701",
+   "chapters": "537-538"
+  },
+  {
+   "prefix": "ttks2c539",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch539-540.txt",
+   "base": "53901",
+   "chapters": "539-540"
+  },
+  {
+   "prefix": "ttks2c541",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch541-542.txt",
+   "base": "54101",
+   "chapters": "541-542"
+  },
+  {
+   "prefix": "ttks2c543",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch543-544.txt",
+   "base": "54301",
+   "chapters": "543-544"
+  },
+  {
+   "prefix": "ttks2c545",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch545-546.txt",
+   "base": "54501",
+   "chapters": "545-546"
+  },
+  {
+   "prefix": "ttks2c547",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch547-548.txt",
+   "base": "54701",
+   "chapters": "547-548"
+  },
+  {
+   "prefix": "ttks2c549",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch549-550.txt",
+   "base": "54901",
+   "chapters": "549-550"
+  },
+  {
+   "prefix": "ttks2c551",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch551-552.txt",
+   "base": "55101",
+   "chapters": "551-552"
+  },
+  {
+   "prefix": "ttks2c553",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch553-554.txt",
+   "base": "55301",
+   "chapters": "553-554"
+  },
+  {
+   "prefix": "ttks2c555",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch555-556.txt",
+   "base": "55501",
+   "chapters": "555-556"
+  },
+  {
+   "prefix": "ttks2c557",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch557-558.txt",
+   "base": "55701",
+   "chapters": "557-558"
+  },
+  {
+   "prefix": "ttks2c559",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch559-560.txt",
+   "base": "55901",
+   "chapters": "559-560"
+  },
+  {
+   "prefix": "ttks2c561",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch561-562.txt",
+   "base": "56101",
+   "chapters": "561-562"
+  },
+  {
+   "prefix": "ttks2c563",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch563-564.txt",
+   "base": "56301",
+   "chapters": "563-564"
+  },
+  {
+   "prefix": "ttks2c565",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch565-566.txt",
+   "base": "56501",
+   "chapters": "565-566"
+  },
+  {
+   "prefix": "ttks2c567",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch567-568.txt",
+   "base": "56701",
+   "chapters": "567-568"
+  },
+  {
+   "prefix": "ttks2c569",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch569-570.txt",
+   "base": "56901",
+   "chapters": "569-570"
+  },
+  {
+   "prefix": "ttks2c571",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch571-572.txt",
+   "base": "57101",
+   "chapters": "571-572"
+  },
+  {
+   "prefix": "ttks2c573",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch573-574.txt",
+   "base": "57301",
+   "chapters": "573-574"
+  },
+  {
+   "prefix": "ttks2c575",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch575-576.txt",
+   "base": "57501",
+   "chapters": "575-576"
+  },
+  {
+   "prefix": "ttks2c577",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch577-578.txt",
+   "base": "57701",
+   "chapters": "577-578"
+  },
+  {
+   "prefix": "ttks2c579",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch579-580.txt",
+   "base": "57901",
+   "chapters": "579-580"
+  },
+  {
+   "prefix": "ttks2c581",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch581-582.txt",
+   "base": "58101",
+   "chapters": "581-582"
+  },
+  {
+   "prefix": "ttks2c583",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch583-584.txt",
+   "base": "58301",
+   "chapters": "583-584"
+  },
+  {
+   "prefix": "ttks2c585",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch585-586.txt",
+   "base": "58501",
+   "chapters": "585-586"
+  },
+  {
+   "prefix": "ttks2c587",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch587-588.txt",
+   "base": "58701",
+   "chapters": "587-588"
+  },
+  {
+   "prefix": "ttks2c589",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch589-590.txt",
+   "base": "58901",
+   "chapters": "589-590"
+  },
+  {
+   "prefix": "ttks2c591",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch591-592.txt",
+   "base": "59101",
+   "chapters": "591-592"
+  },
+  {
+   "prefix": "ttks2c593",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch593-594.txt",
+   "base": "59301",
+   "chapters": "593-594"
+  },
+  {
+   "prefix": "ttks2c595",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch595-596.txt",
+   "base": "59501",
+   "chapters": "595-596"
+  },
+  {
+   "prefix": "ttks2c597",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch597-598.txt",
+   "base": "59701",
+   "chapters": "597-598"
+  },
+  {
+   "prefix": "ttks2c599",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch599-600.txt",
+   "base": "59901",
+   "chapters": "599-600"
+  },
+  {
+   "prefix": "ttks2c601",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch601-602.txt",
+   "base": "60101",
+   "chapters": "601-602"
+  },
+  {
+   "prefix": "ttks2c603",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch603-604.txt",
+   "base": "60301",
+   "chapters": "603-604"
+  },
+  {
+   "prefix": "ttks2c605",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch605-606.txt",
+   "base": "60501",
+   "chapters": "605-606"
+  },
+  {
+   "prefix": "ttks2c607",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch607-608.txt",
+   "base": "60701",
+   "chapters": "607-608"
+  },
+  {
+   "prefix": "ttks2c609",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch609-610.txt",
+   "base": "60901",
+   "chapters": "609-610"
+  },
+  {
+   "prefix": "ttks2c611",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch611-612.txt",
+   "base": "61101",
+   "chapters": "611-612"
+  },
+  {
+   "prefix": "ttks2c613",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch613-614.txt",
+   "base": "61301",
+   "chapters": "613-614"
+  },
+  {
+   "prefix": "ttks2c615",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch615-616.txt",
+   "base": "61501",
+   "chapters": "615-616"
+  },
+  {
+   "prefix": "ttks2c617",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch617-618.txt",
+   "base": "61701",
+   "chapters": "617-618"
+  },
+  {
+   "prefix": "ttks2c619",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch619-620.txt",
+   "base": "61901",
+   "chapters": "619-620"
+  },
+  {
+   "prefix": "ttks2c621",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch621-622.txt",
+   "base": "62101",
+   "chapters": "621-622"
+  },
+  {
+   "prefix": "ttks2c623",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch623-624.txt",
+   "base": "62301",
+   "chapters": "623-624"
+  },
+  {
+   "prefix": "ttks2c625",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch625-626.txt",
+   "base": "62501",
+   "chapters": "625-626"
+  },
+  {
+   "prefix": "ttks2c627",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch627-628.txt",
+   "base": "62701",
+   "chapters": "627-628"
+  },
+  {
+   "prefix": "ttks2c629",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch629-630.txt",
+   "base": "62901",
+   "chapters": "629-630"
+  },
+  {
+   "prefix": "ttks2c631",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch631-632.txt",
+   "base": "63101",
+   "chapters": "631-632"
+  },
+  {
+   "prefix": "ttks2c633",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch633-634.txt",
+   "base": "63301",
+   "chapters": "633-634"
+  },
+  {
+   "prefix": "ttks2c635",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch635-636.txt",
+   "base": "63501",
+   "chapters": "635-636"
+  },
+  {
+   "prefix": "ttks2c637",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch637-638.txt",
+   "base": "63701",
+   "chapters": "637-638"
+  },
+  {
+   "prefix": "ttks2c639",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch639-640.txt",
+   "base": "63901",
+   "chapters": "639-640"
+  },
+  {
+   "prefix": "ttks2c641",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch641-642.txt",
+   "base": "64101",
+   "chapters": "641-642"
+  },
+  {
+   "prefix": "ttks2c643",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch643-644.txt",
+   "base": "64301",
+   "chapters": "643-644"
+  },
+  {
+   "prefix": "ttks2c645",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch645-646.txt",
+   "base": "64501",
+   "chapters": "645-646"
+  },
+  {
+   "prefix": "ttks2c647",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch647-648.txt",
+   "base": "64701",
+   "chapters": "647-648"
+  },
+  {
+   "prefix": "ttks2c649",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch649-650.txt",
+   "base": "64901",
+   "chapters": "649-650"
+  },
+  {
+   "prefix": "ttks2c651",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch651-652.txt",
+   "base": "65101",
+   "chapters": "651-652"
+  },
+  {
+   "prefix": "ttks2c653",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch653-654.txt",
+   "base": "65301",
+   "chapters": "653-654"
+  },
+  {
+   "prefix": "ttks2c655",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch655-656.txt",
+   "base": "65501",
+   "chapters": "655-656"
+  },
+  {
+   "prefix": "ttks2c657",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch657-658.txt",
+   "base": "65701",
+   "chapters": "657-658"
+  },
+  {
+   "prefix": "ttks2c659",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch659-660.txt",
+   "base": "65901",
+   "chapters": "659-660"
+  },
+  {
+   "prefix": "ttks2c661",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch661-662.txt",
+   "base": "66101",
+   "chapters": "661-662"
+  },
+  {
+   "prefix": "ttks2c663",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch663-664.txt",
+   "base": "66301",
+   "chapters": "663-664"
+  },
+  {
+   "prefix": "ttks2c665",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28/shard_ttks2_ch665-665.txt",
+   "base": "66501",
+   "chapters": "665-665"
+  }
+ ]
+}

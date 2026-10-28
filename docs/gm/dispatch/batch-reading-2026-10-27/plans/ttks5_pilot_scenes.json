@@ -1,0 +1,24 @@
+{
+ "world": "ttks5",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28",
+  "censusMatch": "^(ttks5)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ttks5-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "ttks5c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28/shard_ttks5_ch001-001.txt",
+   "base": "00101",
+   "chapters": "1-1"
+  }
+ ]
+}

@@ -1,17 +1,19 @@
 // Whole-book batch plans from one registry (plans/books.json, docs/research/BATCH_READING_WORKFLOW.md): prepares size-grouped shards when a book has none, writes one
 // plan per pass per book that skips shards already read, and writes one run file per world with true-bound caps (every request at max_tokens).
+//   Book types: pdf, epub (numbered members), ncx (`Chapter N:` labels), html (spine blocks split at `Chapter N: Title`), zh-nav (Chinese nav.xhtml), json (browser-captured `NNNN: [title, text]` files, Chinese).
 //   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...]
 // Plans and run files only: nothing is sent. Each run file starts `approval: PENDING` and needs Weibao's go before batch_overnight.mjs runs it.
 import {execFileSync} from 'node:child_process';
 import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync} from 'node:fs';
 import {join, dirname, relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {pdfChapters, epubChapterMembers, epubParagraphs, shardTextEn} from './prepare_shard_en.mjs';
-import {chapterLinks, volumeRuns, shardText} from './prepare_shard.mjs';
+import {pdfChapters, epubChapterMembers, epubParagraphs, htmlBlocks, epubSpine, blockChapters, BOOK_TAIL, shardTextEn} from './prepare_shard_en.mjs';
+import {chapterLinks, volumeRuns, shardText, textChapters} from './prepare_shard.mjs';
 import {requestsFromPlan, estimateCost, EXTRA_PASSES, extraFile} from './batch_lib.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const PLANS = join(root, 'docs/gm/dispatch/batch-reading-2026-10-27/plans');
+const EBOOK_CONVERT = process.env.EBOOK_CONVERT || '/Applications/calibre.app/Contents/MacOS/ebook-convert';
 const pad = n => String(n).padStart(3, '0');
 const PASSES = ['census', 'scenes', 'rules', 'people', 'texture'];
 // Stage A and run c evidence (NOV1_SCHEDULE sections 8-9): English one-chapter shards fit at high effort (about 26,000 output tokens); Chinese 3-chapter
@@ -47,13 +49,34 @@ export function ncxChapterMembers(ncx) {
 const words = ps => ps.reduce((a, p) => a + (typeof p === 'string' ? p : p.text).split(/\s+/).length, 0);
 const unzip = (f, m) => execFileSync('unzip', ['-p', f, m], {maxBuffer: 256 << 20}).toString('utf8');
 
+/**
+ * Chapters of a browser-captured book: `b.json` files map `NNNN` to `[title, text]` (ttks.tw captures); `b.txtDir` holds `NNNN.txt` for chapters the captures lack,
+ * titled from `b.toc` (a Fanqie catalogue with `realChapterOrder` and `title`). A chapter in a capture wins over the same number in `b.txtDir`.
+ */
+export function jsonChapters(b) {
+    const by = new Map();
+    for (const f of b.json || []) for (const [k, v] of Object.entries(JSON.parse(readFileSync(f, 'utf8')))) if (k !== '_meta') by.set(Number(k), {n: Number(k), title: v[0], text: v[1]});
+    if (b.txtDir && existsSync(b.txtDir)) {
+        const titles = new Map((b.toc ? JSON.parse(readFileSync(b.toc, 'utf8')) : []).map(t => [Number(t.realChapterOrder), t.title]));
+        for (const f of readdirSync(b.txtDir).filter(x => /^\d{4}\.txt$/.test(x))) {
+            const n = Number(f.slice(0, 4));
+            if (!by.has(n)) by.set(n, {n, title: titles.get(n) || '', text: readFileSync(join(b.txtDir, f), 'utf8')});
+        }
+    }
+    return textChapters([...by.values()]);
+}
+
 /** Writes the book's shard files (and index files) from its source; returns their names. Read-only on the source. */
 function prepare(b, priv) {
     mkdirSync(priv, {recursive: true});
     const written = [];
     if (b.lang === 'zh') {
-        const runs = volumeRuns(chapterLinks(unzip(b.source, b.nav || 'OEBPS/Text/nav.xhtml'), dirname(b.nav || 'OEBPS/Text/nav.xhtml')));
-        const chs = (runs[b.book - 1] || []).map(l => ({...l, xhtml: unzip(b.source, l.member)}));
+        let chs;
+        if (b.type === 'json') chs = jsonChapters(b);
+        else {
+            const runs = volumeRuns(chapterLinks(unzip(b.source, b.nav || 'OEBPS/Text/nav.xhtml'), dirname(b.nav || 'OEBPS/Text/nav.xhtml')));
+            chs = (runs[b.book - 1] || []).map(l => ({...l, xhtml: unzip(b.source, l.member)}));
+        }
         for (const g of groupBySize(chs, c => c.xhtml.replace(/<[^>]+>/g, '').length, b.group)) {
             const {text, index} = shardText(g, {volume: b.book});
             const name = `shard_${b.key}_ch${pad(g[0].n)}-${pad(g.at(-1).n)}.txt`;
@@ -68,10 +91,17 @@ function prepare(b, priv) {
         const cache = join(priv, 'source_pdftotext.txt');
         if (!existsSync(cache)) execFileSync('pdftotext', [b.source, cache], {maxBuffer: 256 << 20});
         chapters = (pdfChapters(readFileSync(cache, 'utf8'))[b.book] || []).map(c => ({...c, book: b.book}));
+    } else if (b.type === 'html') {
+        // No usable table of contents (Kindle-style or mixed editions): read the spine in order and split at `Chapter N: Title` blocks.
+        const inZip = new Set(execFileSync('unzip', ['-Z1', b.source]).toString().split('\n'));
+        const blocks = epubSpine(m => unzip(b.source, m)).filter(m => inZip.has(m)).flatMap(m => htmlBlocks(unzip(b.source, m)));
+        chapters = blockChapters(blocks, b.stop ? new RegExp(b.stop, 'i') : BOOK_TAIL).map(c => ({...c, book: b.book}));
     } else {
         const members = b.type === 'ncx' ? ncxChapterMembers(unzip(b.source, b.ncx || 'toc.ncx')) : epubChapterMembers(execFileSync('unzip', ['-Z1', b.source]).toString());
         chapters = members.map(m => ({...m, book: b.book, paragraphs: epubParagraphs(unzip(b.source, m.member))}));
     }
+    // `to` ends the book before its back matter (an author's afterword numbered as the last chapter).
+    if (b.to) chapters = chapters.filter(c => c.ch <= b.to);
     for (const g of groupBySize(chapters, c => words(c.paragraphs), b.group)) {
         const {text, index} = shardTextEn(g);
         const name = `shard_${b.key}_b${b.book}_ch${pad(g[0].ch)}-${pad(g.at(-1).ch)}.txt`;
@@ -104,6 +134,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const byWorld = {}, report = [];
     for (const b of registry.books.filter(x => !keys || keys.has(x.key))) {
         const priv = join(root, b.dir);
+        // A source kept in another format (a .mobi) is converted once, into the private folder, with Calibre's ebook-convert; the original is untouched.
+        if (!existsSync(b.source) && b.convertFrom && existsSync(b.convertFrom)) { mkdirSync(dirname(b.source), {recursive: true}); execFileSync(EBOOK_CONVERT, [b.convertFrom, b.source], {stdio: 'ignore'}); }
         if (!existsSync(b.source)) { report.push({key: b.key, skipped: 'source missing'}); continue; }
         let files = existsSync(priv) ? readdirSync(priv) : [];
         if (!bookShards(b, files).length) {

@@ -39,6 +39,45 @@ export function epubParagraphs(xhtml) {
     return /^Chapter \d+/i.test(ps[0] || '') ? ps.slice(1) : ps;
 }
 
+/** Text blocks of one XHTML file in reading order: `<p>` paragraphs and `<h1-6>` headings, or the innermost `<div>`s when the file has none (Kindle-style conversions). Headings are kept. */
+export function htmlBlocks(xhtml) {
+    const body = xhtml.replace(/<(script|style)[\s\S]*?<\/\1>/gi, '');
+    const re = /<p[\b\s>]/i.test(body) ? /<(?:p|h[1-6])[^>]*>([\s\S]*?)<\/(?:p|h[1-6])>/g : /<div[^>]*>((?:(?!<div)[\s\S])*?)<\/div>/g;
+    return [...body.matchAll(re)].map(m => decode(m[1])).filter(Boolean);
+}
+
+/** Spine files of an EPUB in reading order, as paths inside the zip. `read(member)` returns a member's text. Works with or without an NCX or nav document. */
+export function epubSpine(read) {
+    const opfPath = /full-path="([^"]+)"/.exec(read('META-INF/container.xml'))[1], opf = read(opfPath), dir = opfPath.replace(/[^/]*$/, '');
+    const href = {};
+    for (const m of opf.matchAll(/<item\b[^>]*>/g)) {
+        const id = /\bid="([^"]*)"/.exec(m[0]), h = /\bhref="([^"]*)"/.exec(m[0]);
+        if (id && h) href[id[1]] = h[1];
+    }
+    return [...opf.matchAll(/<itemref\b[^>]*\bidref="([^"]*)"/g)].map(m => href[m[1]]).filter(Boolean).map(h => dir + decodeURI(h));
+}
+
+/** Blocks that end the last chapter of a serial's volume: end-of-book notes, patron credits, bonus fiction, a contents link. */
+export const BOOK_TAIL = /^(end of book|special thanks to my patrons|fan ?fiction|a draft of book|draft of book|table of contents|looking for the litrpg)/i;
+const CHAPTER_LINE = /^Chapter:? (\d+)(?:\s*[:.\u2013\u2014-]\s*|\s+)(\S.{0,120})$/i;
+/**
+ * Blocks in reading order -> chapters headed by a `Chapter N: Title` block. A heading repeated in a table of contents keeps the occurrence with the most prose;
+ * `stop` (a block that ends the last chapter, e.g. bonus fiction or a credits list) closes the open chapter and drops the blocks after it until the next heading.
+ */
+export function blockChapters(blocks, stop = null) {
+    const found = [];
+    let cur = null;
+    for (const b of blocks) {
+        const h = b.length <= 140 && CHAPTER_LINE.exec(b);
+        if (h) { cur = {ch: Number(h[1]), title: h[2].trim(), paragraphs: []}; found.push(cur); }
+        else if (cur && stop && stop.test(b)) cur = null;
+        else if (cur) cur.paragraphs.push(b);
+    }
+    const best = new Map();
+    for (const c of found) if (!best.has(c.ch) || c.paragraphs.length > best.get(c.ch).paragraphs.length) best.set(c.ch, c);
+    return [...best.values()].sort((a, b) => a.ch - b.ch);
+}
+
 /**
  * pdftotext output (pages split by form feeds) -> books of chapters with paragraphs and their PDF page. A chapter starts at `CHAPTER <number word>`
  * with its title on the next non-blank line; `CHAPTER ONE` starts a new book. A paragraph ends at a blank line or at a short line (under 85% of

@@ -258,7 +258,20 @@ LATER / DELEGATE:
 
 | Item | Level, effort | Done check |
 | --- | --- | --- |
-| L1 Source acquisition for Shadow Slave 1841-2260, Circle of Inevitability, TTKS and the missing A Soldier's Life books (source acquisition rules) | haiku lookup, then sonnet; small | Sources in the local library with receipts; registry rows added |
-| L2 Volume 11 EPUB adapter (no NCX) and an A Soldier's Life world profile | sonnet, small | Shards split with chapter counts matching the edition |
+| L1 Source acquisition for Shadow Slave 3001+ and the two unregistered ttks captures. TTKS (five books) was already on disk (source acquisition rules). Shadow Slave 1841-2260, Circle of Inevitability and A Soldier's Life 1-6 were found in the Calibre library (done, below) | haiku lookup, then sonnet; small | Sources in the local library with receipts; registry rows added |
+| L2 (done 2026-10-28) `html` and `json` adapters for EPUBs without NCX, `asl` and `coi` appendices and profiles | sonnet, small | Shards split with chapter counts matching the edition (below) |
 | L3 Second census arm (union) for LOTM volumes 2-8 on next month's credit | plan only | Recall measured against the first arm |
 | L4 Monthly pacing: each month, rerun `make_book_plans.mjs` and spend that month's credit on what is left plus repairs | GM routine | Run files dated per month |
+
+Gap closure (2026-10-28, no API call): a Calibre `metadata.db` search found all of it already catalogued. Keys, shards and true-bound caps from `make_book_plans.mjs --prepare` (no run files written; each needs Weibao's go):
+
+| Keys | Source | Chapters | Shards | Cap total |
+| --- | --- | --- | --- | --- |
+| `asl1`-`asl6` (world `asl`) | Calibre ids 55, 56, 57, 58, 112 and the book 4 .mobi converted | 1-58, 59-121, 122-181, 182-243, 244-319, 320-384 (384, none empty or missing) | 21, 21, 22, 27, 35, 25 | $12.99 (1.80, 1.82, 1.90, 2.32, 3.00, 2.15) |
+| `ss9` (world `ss`) | Calibre id 35, "Shadow Slave Novel Vol 9" | 1841-2260 (420, contiguous) | 69 | $5.91 |
+| `ss11` (world `ss`, beyond scope) | Calibre id 37, volume 11 | 2721-3000 (280) | 51 | $4.37 |
+| `coi` (world `coi`, English) | Calibre id 34 | 1-1179 minus the skipped 1026 (1,178; afterword 1180 cut) | 295 | $25.16 |
+| `ttks1`-`ttks5` (one world each, Chinese, traditional script) | ttks.tw captures in `docs/research/novels/ttks-novels-2026-10-10/B1-B5`; B2 and B3 chapters 1-10 from the Fanqie free text | 111, 665, 429, 206, 668 (contiguous from 1, none empty) | 60, 333, 215, 103, 668 | $113.31 in all (4.95, 27.27, 17.62, 8.50, 54.97); `ttks5` alone is about half |
+
+No `overPromptCap`. Books 2, 3, 5, 6 and `ss11` have a contents list or numbering quirks (`Chapter: 103 Title`, `Chapter 98 Title`); the splitter handles them and the chapter counts match the editions' own ranges. A Soldier's Life book 4's conversion keeps its headings but not its volume title. `coi` is the largest at about 1,800 words per chapter; its chapters do not need to be read in one go, and the pilot gate applies as for any new book.
+

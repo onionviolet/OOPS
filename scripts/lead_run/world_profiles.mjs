@@ -92,6 +92,11 @@ export const WORLDS = Object.freeze({
     asl: {lang: 'en', name: "A Soldier's Life"},
     ss: {lang: 'en', name: 'Shadow Slave'},
     coi: {lang: 'en', name: 'Circle of Inevitability'},
+    ttks1: {lang: 'zh', name: 'TTKS B1 (wushinihaowoshiweiren)'},
+    ttks2: {lang: 'zh', name: 'TTKS B2 (yinianchouquyicitiaomonideyekeyi)'},
+    ttks3: {lang: 'zh', name: 'TTKS B3 (zhouhuitejidewoqusimiedasunuole)'},
+    ttks4: {lang: 'zh', name: 'TTKS B4 (quanrenleidejichengzhe)'},
+    ttks5: {lang: 'zh', name: 'TTKS B5 (feitubianjingjianchaguan)'},
     test: {lang: 'zh', name: 'test'},
     'test-en': {lang: 'en', name: 'test'},
 });

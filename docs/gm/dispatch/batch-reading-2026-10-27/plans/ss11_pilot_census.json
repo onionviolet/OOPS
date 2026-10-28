@@ -1,0 +1,23 @@
+{
+ "world": "ss",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+  "censusMatch": "^(ss|ss10|ss9|ss11)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ss11-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "ss11c2721",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/shadow-slave/private/lead-run-2026-10-28/shard_ss11_b1_ch2721-2725.txt",
+   "base": "272101",
+   "chapters": "2721-2725"
+  }
+ ]
+}

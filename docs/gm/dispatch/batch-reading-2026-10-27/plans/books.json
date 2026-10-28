@@ -1,10 +1,9 @@
 {
  "note": "Book registry for make_book_plans.mjs (BATCH_READING_WORKFLOW.md). Sources stay outside the repo; shard and output dirs are gitignored private folders. LOTM volume 1 was read by the older wave plans (make_wave_plans.mjs) and is not listed here.",
  "gaps": [
-  "Shadow Slave chapters 1841-2260 (no local source)",
-  "Shadow Slave volume 11 EPUB has no NCX table of contents (adapter needed)",
-  "A Soldier's Life: only book 4 (mobi) and book 6 on disk; no world profile",
-  "Circle of Inevitability (LOTM 2) and TTKS: no local source"
+  "TTKS and Circle of Inevitability are registered (ttks1-ttks5, coi); what remains is Shadow Slave from chapter 3001 (not on disk) and the two other ttks captures (XXMNQ, FRJY) if wanted.",
+  "A Soldier's Life book 4 is a .mobi converted once into a private copy; its chapter headings come from that conversion.",
+  "ttks2 and ttks3 chapters 1-10 are the official Fanqie free text (simplified script); chapters 11+ are ttks.tw captures (traditional)."
  ],
  "books": [
   {
@@ -248,6 +247,215 @@
     "target": 99999,
     "max": 2
    }
+  },
+  {
+   "key": "asl1",
+   "world": "asl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/Calibre Library/A Soldiers Life (Always RollsAOne) (z-library.sk, 1lib.sk, z-lib.sk)/A Soldier's Life_ Book 1 (55)/A Soldier's Life_ Book 1 - A Soldiers Life (Always RollsAOne) (z-libr.epub",
+   "book": 1,
+   "dir": "docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 3
+   }
+  },
+  {
+   "key": "asl2",
+   "world": "asl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/Calibre Library/RollsAOne, Always/A Soldier's Life_ Book 2_ Sobral City (56)/A Soldier's Life_ Book 2_ Sobral City - RollsAOne, Always.epub",
+   "book": 1,
+   "dir": "docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 3
+   }
+  },
+  {
+   "key": "asl3",
+   "world": "asl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/Calibre Library/THIEMKE, ERICK/A Soldier's Life_ Book 3_ The Shimmering Labyrinth (57)/A Soldier's Life_ Book 3_ The Shimmering L - THIEMKE, ERICK.epub",
+   "book": 1,
+   "dir": "docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 3
+   }
+  },
+  {
+   "key": "asl4",
+   "world": "asl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/source/asl4_the_hounds_converted.epub",
+   "book": 1,
+   "dir": "docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "convertFrom": "/Users/weiwei/Downloads/A Soldiers Life Book 4 The Hounds (Always RollsAOne  Erick Thiemke) (z-library.sk, 1lib.sk, z-lib.sk).mobi"
+  },
+  {
+   "key": "asl5",
+   "world": "asl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/Calibre Library/THIEMKE, ERICK/A Soldier's Life_ Book 5_ The Boutan Caliphate (58)/A Soldier's Life_ Book 5_ The Boutan Calip - THIEMKE, ERICK.epub",
+   "book": 1,
+   "dir": "docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 3
+   }
+  },
+  {
+   "key": "asl6",
+   "world": "asl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/Calibre Library/Always Rollsaone/A Soldier's Life Book 6_ Adventures in Godok (112)/A Soldier's Life Book 6_ Adventures in God - Always Rollsaone.epub",
+   "book": 1,
+   "dir": "docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 3
+   }
+  },
+  {
+   "key": "ss9",
+   "world": "ss",
+   "lang": "en",
+   "type": "epub",
+   "source": "/Users/weiwei/Calibre Library/_unknown_/Shadow Slave Novel Vol 9 (35)/Shadow Slave Novel Vol 9 - _unknown_.epub",
+   "book": 1,
+   "dir": "docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 8
+   }
+  },
+  {
+   "key": "ss11",
+   "world": "ss",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/Calibre Library/Author_ Guiltythree/Shadow Slave - Volume 11_ The Song of Ariadne (37)/Shadow Slave - Volume 11_ The Song of Aria - Author_ Guiltythree.epub",
+   "book": 1,
+   "dir": "docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 8
+   }
+  },
+  {
+   "key": "coi",
+   "world": "coi",
+   "lang": "en",
+   "type": "epub",
+   "source": "/Users/weiwei/Calibre Library/_unknown_/Lord of Mysteries 2_ Circle of Inevitability Novel Chapters _ Light Novel World (34)/Lord of Mysteries 2_ Circle of Inevitabili - _unknown_.epub",
+   "book": 1,
+   "dir": "docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 4
+   },
+   "to": 1179
+  },
+  {
+   "key": "ttks1",
+   "world": "ttks1",
+   "lang": "zh",
+   "type": "json",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B1/sources/ttks-browser-2026-10-10/ttks_B1_wushinihaowoshiweiren.json",
+   "book": 1,
+   "dir": "docs/research/novels/ttks-novels-2026-10-10/B1/private/lead-run-2026-10-28",
+   "group": {
+    "target": 9000,
+    "max": 2
+   },
+   "json": [
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B1/sources/ttks-browser-2026-10-10/ttks_B1_wushinihaowoshiweiren.json"
+   ]
+  },
+  {
+   "key": "ttks2",
+   "world": "ttks2",
+   "lang": "zh",
+   "type": "json",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/sources/ttks-browser-2026-10-10/ttks_B2_yinianchouquyicitiaomonideyekeyi.json",
+   "book": 1,
+   "dir": "docs/research/novels/ttks-novels-2026-10-10/B2/private/lead-run-2026-10-28",
+   "group": {
+    "target": 9000,
+    "max": 2
+   },
+   "json": [
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/sources/ttks-browser-2026-10-10/ttks_B2_yinianchouquyicitiaomonideyekeyi.json"
+   ],
+   "txtDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/sources",
+   "toc": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B2/sources/FANQIE_TOC.json"
+  },
+  {
+   "key": "ttks3",
+   "world": "ttks3",
+   "lang": "zh",
+   "type": "json",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/sources/ttks-browser-2026-10-10/ttks_B3_zhouhuitejidewoqusimiedasunuole.json",
+   "book": 1,
+   "dir": "docs/research/novels/ttks-novels-2026-10-10/B3/private/lead-run-2026-10-28",
+   "group": {
+    "target": 9000,
+    "max": 2
+   },
+   "json": [
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/sources/ttks-browser-2026-10-10/ttks_B3_zhouhuitejidewoqusimiedasunuole.json"
+   ],
+   "txtDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/sources",
+   "toc": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/sources/FANQIE_TOC.json"
+  },
+  {
+   "key": "ttks4",
+   "world": "ttks4",
+   "lang": "zh",
+   "type": "json",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/sources/ttks-browser-2026-10-10/ttks_B4_quanrenleidejichengzhe.json",
+   "book": 1,
+   "dir": "docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28",
+   "group": {
+    "target": 9000,
+    "max": 2
+   },
+   "json": [
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/sources/ttks-browser-2026-10-10/ttks_B4_quanrenleidejichengzhe.json"
+   ]
+  },
+  {
+   "key": "ttks5",
+   "world": "ttks5",
+   "lang": "zh",
+   "type": "json",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_106-205.json",
+   "book": 1,
+   "dir": "docs/research/novels/ttks-novels-2026-10-10/B5/private/lead-run-2026-10-28",
+   "group": {
+    "target": 9000,
+    "max": 1
+   },
+   "json": [
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_106-205.json",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_206-305.json",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_306-405.json",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_406-505.json",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_506-605.json",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_606-668.json",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_feitubianjingjianchaguan_PARTIAL.json"
+   ]
   }
  ]
 }

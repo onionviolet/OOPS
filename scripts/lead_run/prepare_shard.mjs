@@ -29,6 +29,24 @@ export function chapterLinks(navXhtml, navDir) {
     return out;
 }
 
+const HEADING_ZH = /^第[0-9零〇一二三四五六七八九十百千两]+章\s*/;
+/** The mirror's cache notice appended to paragraphs: not prose. */
+export const MIRROR_NOTICE = /\s*（由於緩存原因[^）]*）/g;
+const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/**
+ * Plain-text chapters (`{n, title, text}`, text one paragraph per line) -> the chapter shape `shardText` reads. The title is renumbered `第N章 ...` from `n`
+ * (some books print `第一章`), the mirror notice is dropped and a first line that only repeats the title is not prose.
+ */
+export function textChapters(entries) {
+    return entries.map(({n, title, text}) => {
+        const rest = String(title || '').replace(HEADING_ZH, '').trim();
+        let lines = String(text || '').replace(MIRROR_NOTICE, '').split('\n').map(l => l.trim()).filter(Boolean);
+        if (lines[0] && HEADING_ZH.test(lines[0]) && lines[0].replace(HEADING_ZH, '').trim() === rest) lines = lines.slice(1);
+        return {n, title: `第${n}章${rest ? ' ' + rest : ''}`, member: `text:${String(n).padStart(4, '0')}`, xhtml: lines.map(l => `<p>${esc(l)}</p>`).join('')};
+    }).sort((a, b) => a.n - b.n);
+}
+
 /** Paragraph-numbered shard text and an index of paragraph counts and characters per chapter. */
 export function shardText(chapters, {volume = 1} = {}) {
     const lines = [], index = [];
