@@ -648,3 +648,67 @@ UR70-UR75, AR7, AR8, PX49, PLAN 17.4) for this case; proposals until Weibao acce
 | CL138 | **L3 left the day binding open, correctly.** Every canon row is `irregular` and every beat waits on a window fact, because no lane had chosen how source order maps to civil days. L4a now does it first (step 0) with a labelled source-order default, kept in its own data file so it can be replaced | L4a brief step 0 |
 | CL139 | **Runtime ids are hashed** (`lotm.person.cast-<hash>`), readable names in `indexId`. Fine for play; awkward for debugging and briefs | LATER: readable slugs when the crosswalk is next regenerated, with a redirect map |
 | CL140 | **L4a launched** (Sol, medium; Codex usage 5% of the window) | Running |
+
+## 17. Round 9: book text, details, emergence, travel between scenes, durability, and build order (2026-10-28)
+
+Weibao: "For descriptions of locations and more, we can literally use text from the bookj and more? even
+for character? what about the little details? Emergent behavior? Other stuff? UI travel path from on
+scene to the net? mroe to consider? Make stuff alst long term and more? The Playthrough and also as NPC?
+Or should we finish playthrough first and then set up the NPC versioon? More to conisder?"
+
+### 17.1 ACT NOW: the canon cast belongs in the private pack
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| CL141 | **Wrong home for canon data.** Accepted direction: "Direct recreations live in a private pack outside git and outside `dist/bundle.js`; the public fork keeps original names" (PROJECT.md book worlds, AD1). `origin` is public. L3 put the canon cast (names, relations, beats) in `src/book_world_lotm_cast.js`, committed locally in `92af8ce99`, **not pushed**. My L3 brief named that path; the error is the brief's | Move the data to `private_packs/lotm-cast/` (gitignored, fetched at runtime by the existing `loadContentPacks` route, like `a-soldiers-life`); `src/` keeps only world-neutral code and a pure bridge that validates a pack object (the `lotm_ingredient_catalogue.js` pattern). The beside start appears only when the private pack is present. Same for L6b's MoL cast |
+| CL142 | **The local commit still holds the data.** A later removal leaves it in history, which a push would publish. Removing it from history needs a rewrite, which the shared-checkout rules forbid without Weibao's explicit yes | Ask Weibao before any push; until then nothing here is pushed |
+| CL143 | **Tests cannot read the private pack** (the public repo's tests run without it). Focused tests use synthetic fixtures; checks against the real cast run through a private check command that skips cleanly when the pack is absent | ACCOUNT FOR NOW: the move lane (L3m) and every later brief |
+
+### 17.2 Using the book's own text
+
+| Code | Default, dial and reason |
+| --- | --- |
+| CL144 | **Yes, in the private pack, and only there.** The private pack is local, gitignored and never bundled, the same privacy class as the private research folders. It may carry book text for place descriptions, a person's first-meeting description and canon dialogue in canon-faithful scenes, each with its locator. The public build always uses our own wording (SUI1 holds for it). Dial: per world, quote, paraphrase or both. Reason: Weibao plays his private copy; the book's own description is the best description, and the locator keeps it traceable |
+| CL145 | **Quoted text is a layer over our own text, not a replacement.** Each description has our version (always present) and an optional book version (private). The UI shows the book version when present, marked "from the book"; mechanics and effects stay in our words (UR70, UR71). Reason: a quote never carries the mechanical meaning, and the public build needs a full description anyway |
+| CL146 | **Extrapolated lines stay ours.** Lines for things the book never shows (a vendor on another day, a talk the player starts) use the person's voice tags from `speech` rows, never stitched book quotes. Reason: stitched quotes put words in a character's mouth the text never gave them (WA35) |
+| CL147 | **Choose quotes by an implementer reading the paragraph** (round 8), short and about the subject; a lane never bulk-copies chapters into the pack | LATER/DELEGATE: a "book text" lane after L3m, Sol, medium; done when 10 slice places and the 8 principals have a quoted description with locator in the private pack |
+
+### 17.3 Little details and emergent behavior
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL148 | **Details are keyed to place, time band, weather and witness** (texture rows, CL12): a detail shows when the player is there at that band and perceives it; it repeats rarely (a seen-detail list per place) | LATER: after the scene card (CL122) |
+| CL149 | **Emergence comes from the loops, not from scripts:** schedules put people in the same place, the interaction loop (10.2) changes their state, the state changes their next actions. Nothing new needs authoring for it to happen | ACCOUNT FOR NOW: no scripted "emergent events" |
+| CL150 | **Emergence has guard rails:** forward anchors (WA24), deterministic keyed draws (CL49), the butterfly radius (CL48), and an emergence log listing what happened that the book never showed, labelled divergence, so Weibao can read what the world did on its own | LATER/DELEGATE: emergence log with L4b; Luna medium; done when one idle week prints its non-canon events |
+| CL151 | **A surprise budget per world:** how much off-book life a world generates per day, a dial set by the world (a quiet town low, a war high) | LATER |
+
+### 17.4 Travel from one scene to the next (UI)
+
+| Code | Rule (proposed, extends SUI1-SUI12) |
+| --- | --- |
+| SUI13 | **Every closed scene points onward.** The card's close shows what is next that the player knows of: an appointment, a lead, a person's usual place, each with the travel action and its time quoted (SUI6) |
+| SUI14 | **Travel is the real move verb**, with real minutes (district links), never a jump to the next scene. Arriving early means waiting or doing something else; arriving late means the scene settled without you (SUI7) |
+| SUI15 | **The route is a place too.** People whose schedules cross the route can be met on the way; a short "on the way" line shows who you passed, at your witness level |
+| SUI16 | **Follow mode:** "follow [person]" moves the player with them by the same verbs, at a distance the world sets (shadowing is a skill check where it matters), so watching the lead's day is one action, not many |
+
+| Code | Disposition |
+| --- | --- |
+| CL152 | ACCOUNT FOR NOW: L4a's talk refusal already points onward (where and when the person is back); SUI13-SUI16 build after L4b |
+
+### 17.5 Lasting long term
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL153 | **Saves hold state, never pack content.** A save stores what changed (where a person is if moved by play, settled beats, relations changed by play); the pack supplies the rest. A save without the pack loads, hides the beside start and shows the cast as unavailable rather than failing | ACCOUNT FOR NOW: L3m and L4a |
+| CL154 | **Every pack carries its input identity** (merge hashes, crosswalk hash, schema version), which L1 and L3 already record; a regenerated pack keeps ids stable through the crosswalk, and changed ids ship with a redirect map | ACCOUNT FOR NOW |
+| CL155 | **One importer per world, world-neutral engine.** `cast_schedule`, `beat_records`, the worksheet and crosswalk tools stay world-neutral; each world adds data and at most a thin bridge (AR11, AR12). L6b's AR11 report is the check | ACCOUNT FOR NOW |
+| CL156 | **Docs say where things live.** The plan, briefs and checkpoints stay the record; when the slice is done, PROJECT.md gets one summary line and the rules index gets codes only when Weibao accepts them | ACCOUNT FOR NOW |
+
+### 17.6 Order: the NPC version first, then the lead's playthrough
+
+| Code | Default and reason | Disposition |
+| --- | --- | --- |
+| CL157 | **Build the NPC version first** (now under way: the beside start, cast schedules, then the null-player run in L4b). Reasons: it serves every seat (beside, follow, bystander and later playing as the lead); the null-player run is the regression harness every later change is checked against; and it needs no player-facing powers, while the lead's own playthrough hits `blocked by mechanism` beats (the cheat space) early | ACCOUNT FOR NOW |
+| CL158 | **Then the lead's playthrough driven by the bot** (PLAN LP10a): the same records, the lead as the player life, the bot using the same commands a player has. Where it diverges from the null-player run, one of the two is wrong | LATER: after L4b |
+| CL159 | **Then the seat for Weibao as the lead** ("be" mode), private pack only (AD1), after the WER11 wording he has not yet settled (implementation prompt D2) | LATER: needs his WER11 answer |
+| CL160 | **Nothing is built twice.** The cast records, schedules, beats and UI rules are the same in all three; only the driver changes (NPC policy, bot, Weibao) | ACCOUNT FOR NOW |
