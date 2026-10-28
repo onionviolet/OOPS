@@ -31,5 +31,6 @@
    "base": "3601",
    "chapters": "103-105"
   }
- ]
+ ],
+ "outTokensAssumed": 45000
 }

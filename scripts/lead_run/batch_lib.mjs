@@ -330,7 +330,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         if (grade === 'C' || issues.length) {
             const failing = failingRows({...cur, issues});
             if (!id.endsWith('-repair') && (failing.scenes.length || failing.census.length || failing.fills.length)) {
-                const orig = {custom_id: id, params: buildRequest({customId: id, prefix: p, base: s.base, shardText, glossary: null, pass: plan.pass, model: plan.model, effort: plan.effort, schemaMode: plan.schemaMode, world: plan.world}).params};
+                const orig = {custom_id: id, params: buildRequest({customId: id, prefix: p, base: s.base, shardText, glossary: glossaryFromPlan(plan), pass: plan.pass, model: plan.model, effort: plan.effort, maxTokens: plan.maxTokens, schemaMode: plan.schemaMode, world: plan.world}).params};
                 summary.repair.push({id, why: 'lint', request: repairRequest({original: orig, failing, shardText, pass: plan.pass})});
             }
         }

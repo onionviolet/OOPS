@@ -2,7 +2,7 @@
  "world": "lotm",
  "model": "claude-haiku-5-5",
  "effort": "high",
- "maxTokens": 48000,
+ "maxTokens": 64000,
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
  "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/batch",
  "glossary": {
@@ -32,5 +32,6 @@
    "chapters": "103-105"
   }
  ],
- "schemaMode": "prompt"
+ "schemaMode": "prompt",
+ "outTokensAssumed": 45000
 }

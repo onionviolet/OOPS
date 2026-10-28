@@ -38,6 +38,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const planPath = flag('--plan');
     if (!planPath) { console.error('usage: batch_submit.mjs --plan plan.json [--live --max-usd N] [--out-tokens N] [--requests repair.jsonl] [--resubmit]'); process.exit(2); }
     try {
-        await submit({plan: JSON.parse(readFileSync(planPath, 'utf8')), live: a.includes('--live') && !a.includes('--dry-run'), maxUsd: Number(flag('--max-usd', 0)), outTokens: Number(flag('--out-tokens', 25000)), requestsFile: flag('--requests'), resubmit: a.includes('--resubmit')});
+        await submit({plan: JSON.parse(readFileSync(planPath, 'utf8')), live: a.includes('--live') && !a.includes('--dry-run'), maxUsd: Number(flag('--max-usd', 0)), outTokens: Number(flag('--out-tokens', JSON.parse(readFileSync(planPath, 'utf8')).outTokensAssumed || 25000)), requestsFile: flag('--requests'), resubmit: a.includes('--resubmit')});
     } catch (e) { console.error(e.message); process.exit(1); }
 }
