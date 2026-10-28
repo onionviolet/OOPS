@@ -159,6 +159,10 @@ sealed; a changed or randomized truth is.
 
 ## Source acquisition tools
 
+Before searching for or acquiring any book, check the [library index](docs/research/LIBRARY_INDEX.md)
+(prime books, the five TTKS titles, Calibre IDs, what is missing) and the
+[Calibre catalogue](docs/research/CALIBRE_CATALOGUE.md). Name TTKS books by title, never "TTKS" alone.
+
 Start at [the shared tool registry](docs/TOOL_REGISTRY.md) or
 `python3 scripts/toolsets.py list` for current REA/Ghidra, managed/Unity,
 Discord, book, media and verification routes. Use `show` and scoped

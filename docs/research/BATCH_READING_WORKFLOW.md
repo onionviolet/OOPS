@@ -22,6 +22,8 @@ Measured per request (Haiku 5.5, batch, 2026-10-28; usage files under each book'
 
 Cost is mostly the reader's reasoning output, so it scales with **shards × passes**, not with how eventful a chapter is. Rules of thumb for all five passes: about **$5-6 per million English words** (8,000-word shards) and about **$7 per million Chinese characters** (2-chapter shards). The true bound used for caps is every request at 64,000 output tokens, about $0.0168 per request; measured spend has run at 50-60% of it.
 
+Where each book is: [library index](LIBRARY_INDEX.md).
+
 ## Procedure
 
 1. **Register the book** in [`plans/books.json`](../gm/dispatch/batch-reading-2026-10-27/plans/books.json): key, world, language, source type (`pdf`, `epub`, `ncx`, `html`, `json`, `zh-nav`; `convertFrom` converts a .mobi once with Calibre), source path, book or volume number, private dir and shard size (`group.target` words or characters, `group.max` chapters). A new world also needs a profile in `scripts/lead_run/world_profiles.mjs` and an appendix in `world_appendix/<world>.md` (units, kinds, calendar, lead, locator form).
