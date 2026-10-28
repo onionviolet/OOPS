@@ -125,6 +125,33 @@ The two deeper gaps are design questions, not reading problems: **breadth of opt
 
 "Little stuff" (a coin, gears, a gas meter): the lane picks it up as `item` or `note` rows with a short cause, which is more than haiku lists (haiku's 57 rows contain 5 items). That texture is useful for everyday play; do not filter the generic nouns out blindly. Tag them (for example `texture`) and let the game pack decide, instead of dropping them.
 
+## Why the gaps were not covered earlier, and a stage-2 design (proposal)
+
+**They were considered, then deliberately left out of the reader.** Evidence from the owners:
+
+- `voice`, `procedure` and `tech` are in schema 1.3 with named consumers (voice sheets, organization archetypes, the world card; [LEAD_RUN_SCHEMA](../gm/dispatch/protagonist-life-2026-10-27/LEAD_RUN_SCHEMA.md) changelog). The reader card marks them optional (`voice?`) and the brief's example rows omit them, so haiku wrote none: 0 rows in both baselines.
+- Options with `needs` exist, and PLAN 13.7 defines the next step for them (the untaken-option ledger, with an M2 stub action per option whose needs exist). The volume 1 reading plan does not schedule that step: its only follow-up lane is the sonnet 10% spot check.
+- PLAN 21.4 rejected a two-pass reader ("No for now") on cost, after census recall alone raised shard cost by 14%. Adding options, voice and procedure to the same pass would have cost more again.
+- Off-lead viewpoints were settled in RF1 (they feed other lives' rows via `pov`), and NPC routine lives are card MS1, not a reading job.
+
+So the gap is sequencing: the reader produces the spine, and the stages that turn it into play material were written down but not scheduled. I also did not check this until asked; round 1 and round 2 measured against haiku's output, which inherits the gap.
+
+**Stage 2 after the id merge (GF1), run per wave or per volume, never inside the shard reader:**
+
+| Lane | Input (bounded) | Output | Runner | Check |
+| --- | --- | --- | --- | --- |
+| S2-a Claimants | Scene `evidence` kinds (`dialogue:<who>`, `thought:<who>`) | Census `claimant` set by script | Script, 0 tokens | Lint; every non-narration claimant is a census id |
+| S2-b Touched and whereabouts | Scene `touched`, `present`, `place`, `date` | `touchedByLead`, M1 `whereabouts` | Script | Lint (an M1 row has an address) |
+| S2-c Options and needs | One lead scene row, its cited paragraphs, the census ids of its places and things | At least two alternatives per choice with `needs` resolved to census ids or fills, labelled S or I | **Sonnet** (judgment), bounded per scene | Needs resolve; labels only S/I/U; 5 rows read against paragraphs |
+| S2-d Voice, procedure, tech | For one person or organization with at least N mentions: the paragraphs found by script from `zh`, nothing else | Own-words `voice`, `procedure`, `tech` fields (no quotes) | Local Qwen first, sonnet on failure | Quote guard; 5 rows read against paragraphs |
+| S2-e Off-lead lives | Paragraphs where an NPC is present, by script | NPC schedule and goal rows for the absence clocks (MS1) | Sonnet after the lead spine is merged | Owned by the NPC-absence work, not the reader |
+
+**Cost guess [I].** S2-c input is a scene row plus its paragraphs, about 15k to 25k tokens per shard, output about 3k; 33 remaining shards come to roughly 0.6 to 0.9 million sonnet tokens, inside the 1.0 million already budgeted for sonnet checks but not a replacement for them. S2-d on local Qwen costs machine time only.
+
+**Pilot first.** Run S2-c on w1s16 and w2s20 only (about 60k to 80k sonnet tokens by the guess above), and score: options per scene, share of `needs` that resolve, five rows read against the text. That tests the one lane that needs a stronger model before anyone commits 33 shards to it. It spends Weibao's usage window, so it waits for his yes (AU7).
+
+**Gate for "ready for play".** Reading a volume is not done for play until per lead scene with a choice there are at least two alternatives with resolved needs, every person with at least N mentions has a voice row, and each M1 person has a whereabouts row. Add these as counts to READING_STATUS (owned by the reading coordinator, not changed here).
+
 ## Guidelines for local-model lanes (proposals, 2026-10-27)
 
 L1. **Narrow the task before you pick the model.** A script for what is deterministic, a local model for labelling and extraction in small chunks, haiku or stronger only for judgment (scenes, options, fills).
@@ -162,6 +189,7 @@ L10. **Keep private outputs private**: raw model output stays in the gitignored 
 | A1 | Review `local_census_lane.py` and wire it into protocol v3 prep (census from the lane, haiku writes scenes and fills only) | Reading coordinator | A wave 4 shard: lint pass, name accuracy at least 0.98, haiku brief without the census section |
 | A2 | Re-estimate haiku tokens per shard with A1 in place | Reading coordinator | Measured on one wave 4 shard against 150,000 |
 | A3 | Check the lane census with the 5-locator spot check on one shard (grade A path) and decide whether generic-noun rows stay | Coordinator | 5 locators match; keep/drop rule recorded |
+| A6 | Pilot S2-c (sonnet options and needs) on w1s16 and w2s20, then decide on S2-a, S2-b, S2-d | Needs Weibao's yes for the sonnet spend; coordinator schedules S2 after the id merge | Options per scene, needs resolved, 5 rows checked |
 | A5 | Feed the lane's census ids into the haiku brief and derive `touchedByLead` and M1 `whereabouts` from scene `touched`, `present` and `place` | Coordinator | On a wave 4 shard: at least 70% of scene-referenced ids resolve to lane rows; the derived rows pass lint |
 | A4 | Anthropic API key route for a haiku batch via script | Needs Weibao's explicit yes | Spend within the stated promo credit |
 
