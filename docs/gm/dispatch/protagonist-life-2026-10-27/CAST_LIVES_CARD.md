@@ -18,7 +18,9 @@ LOTM chapters 1-24, "beside the lead" start. Second world: Mother of Learning, f
 | L2, L2b, L2c | Schedule module; worksheets; fight contracts and after-actions | Landed |
 | L3, L6a, L6b | LOTM cast records; MoL worksheets; MoL cast records (AR11: zero seam edits) | L3 landed in `src/` (moving to the private pack, CL141); L6b data held uncommitted |
 | L4a | Beside start, schedule-driven locations, talk gate, save round trip | Implemented, below floor; uncommitted (canon names, AD1) |
-| L4c | Private pack move, travel to cast places, beside entry answers, AD43 floor | Running |
+| L4c | Private pack move, travel to cast places, beside entry answers | Implemented, below floor; uncommitted (G0 boot-blocking await breaks 4 tests) |
+| L4d | Fix G0-G3 (boot await; resident sees probationer content; remote principals as talk targets; no date or weather) | Running |
+| L7 | Reaction classes; classifier 40% to 59% (LOTM), 37% to 63% (MoL) | Landed `cdefcf80e`, partial |
 | Next | L4b beats and null-player run with the gap probe; L5r UI replay of chapters 1-3; scene card | Briefs to write from L4c's checkpoint |
 
 ## Rules for this work (CLR1-CLR12, proposed)
@@ -38,6 +40,7 @@ Each line restates an accepted code where one exists; only CLR2, CLR3, CLR6, CLR
 | CLR9 | **Codex lanes never commit; the coordinator reviews the diff, runs the focused test and one data spot check, and commits each lane's own paths** (the Codex sandbox cannot write `.git`) | New (CL119, CL127); IPC29 |
 | CLR10 | Name the seam and the one location authority; no second store or clock | AR3, AR14, IPC12 |
 | CLR11 | Receipts carry build hash, route kind (natural or fixture) and review state; below the floor is said plainly | AD43, IPC8, IPC9 |
+| CLR13 | A page error or test failure during a lane's run is the lane's until a clean-HEAD run proves otherwise | IPC10 (CL205) |
 | CLR12 | A lane's stop is a finding, not a failure: give the default for the known ambiguity in the next brief so the same stop does not recur | CL99 |
 
 ## Where to look

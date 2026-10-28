@@ -889,3 +889,10 @@ knowledge note.
 | CL201 | **Description lint covers report lines** (IPC32): non-empty, an effect clause, no raw ids, length bound | LATER/DELEGATE: when IPC32 lands, add cast report templates to its population |
 | CL202 | **Our own receipts follow the same discipline.** Checkpoints keep IPC27's front matter (build, route, state) and plain player terms in their "what you can do now" lines; implementation notes stay below | ACCOUNT FOR NOW |
 | CL203 | **L4b and the scene card own the first report lines.** L4b writes beat settlement lines at witness levels; the card writes its receipt line (SUI11). Both cite RPT codes in their briefs | ACCOUNT FOR NOW |
+
+| Code | Event | State |
+| --- | --- | --- |
+| CL204 | **L4c: implemented, below floor.** Canon data moved to `private_packs/lotm-cast/` and `private_packs/mol-cast/`; `src/` and `tests/` name-free; walks to cast places; resident entry answers; the coordinator's unsandboxed browser run passed the route, talk gate and Save, reload, Export and Import ([L4c checkpoint](cast-lives-lanes/L4C_CHECKPOINT.md)) | Uncommitted: breaks 4 tests (G0) |
+| CL205 | **G0, a boot-blocking `await`, and my own misread.** I first called the run's `get_game_version` page errors pre-existing; the full suite then failed 4 save and load tests with the same error, which pass at HEAD in a clean worktree and fail once L4c's files are copied in. Cause: a top-level `await` of the private-pack fetch holds module evaluation at boot. Lesson for the card: a page error during a lane's run is the lane's until a clean-HEAD run proves otherwise (IPC10 cuts both ways) | Fix in L4d |
+| CL206 | **G1-G3 seen at 1920×1080:** the resident sees probationer content, remote principals appear as Tingen talk targets, and the header lacks a date and weather | L4d (Sol, medium) running |
+| CL207 | **L7 landed** (`cdefcf80e`): classifier placement LOTM 40% to 59%, MoL 37% to 63%; recommendation sent to the reading session: keep optional `reacts.class` and `reacts.by` for schema 1.5 | Partial: unclear rows not yet paragraph-reviewed |
