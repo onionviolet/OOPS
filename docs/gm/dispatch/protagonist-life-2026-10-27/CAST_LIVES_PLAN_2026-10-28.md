@@ -552,3 +552,12 @@ module and its six focused tests pass in the working tree. Neither lane is commi
 | CL98 | **The Codex CLI is on disk**, inside `/Applications/ChatGPT.app/Contents/Resources/codex-cli/`, just not on PATH. Round 5's "not installed" was wrong about the binary; a session could run the usage preflight and launch lanes detached once that path is confirmed | LATER: confirm the binary path and add it to the tool registry |
 | CL99 | **Codex stop gates work.** L1 stopped exactly where the brief told it to; keep numeric stop lines in every brief, and give the default (like CL86) in the next brief so the same stop does not recur | ACCOUNT FOR NOW |
 | CL100 | **Lane drift.** L1 found the narrower prefix regex dropped four early shards before correcting it; a later brief names the expected shard count so the lane can check itself | ACCOUNT FOR NOW: L3 and later briefs carry expected counts |
+
+## 13. Coordination log (2026-10-28, Weibao: "Work with them accordingly")
+
+| Code | Event | State |
+| --- | --- | --- |
+| CL101 | **L2 reviewed and repaired.** The brief's row shape had no date, so a `once` row matched every day; the lint skipped `intention` rows, which are generated and must obey WA24. Added an optional `day` (first day; required for `once`, phase for repeating rows) and linted every non-canon row. Codex's L2 session had finished uncommitted, so this session took over its two files | `src/cast_schedule.js`, `tests/cast_schedule.test.js`; focused test 6/6 |
+| CL102 | **L1 found a merge hazard.** `merge_shards.mjs` applies people-pass `same_as` claims before overlay review, and some merged different people. L1 blocks unreviewed claims in the private overlays instead of editing the merge | L1 running; owner of `merge_shards.mjs` is the batch-reading session (tell it once L1 reports) |
+| CL103 | **Codex CLI route confirmed:** `/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex` (0.165.0-alpha), ChatGPT login, ordinary usage allowed, 3% of the window used. Lanes launch detached with API keys stripped from the environment so they cannot fall back to API billing | Supersedes CL98's "LATER" |
+| CL104 | **Next briefs ready:** [L2b worksheets](cast-lives-lanes/L2B_WORKSHEET_BRIEF.md) (Luna, low) and [L2c fight contracts and after-actions](cast-lives-lanes/L2C_CONFLICT_AND_AFTER_BRIEF.md) (Luna, medium). Both start when L1 reports done; they share no files | Waiting on L1 |
