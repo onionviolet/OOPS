@@ -1,0 +1,25 @@
+{
+ "world": "lotm",
+ "model": "claude-haiku-5-5",
+ "effort": "high",
+ "maxTokens": 64000,
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/batch",
+ "glossary": {
+  "wiki": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+  "censusMatch": "^(s[3-6]r|s[7-9]vm|w[12]s[0-9]+m|w3s3[0-2]m|w3s33wm)_census\\.jsonl$"
+ },
+ "label": "ab-w3s33-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "w3s33t",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_w3s33_ch094-096.txt",
+   "base": "3301",
+   "chapters": "94-96"
+  }
+ ],
+ "schemaMode": "prompt",
+ "outTokensAssumed": 45000
+}

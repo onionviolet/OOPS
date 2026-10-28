@@ -209,3 +209,22 @@ test('duplicate reader ids merge into aliases and speaker kinds with spaces are 
     const n = normalize({scenes: [{date: {}, outcomes: [], evidence: [{kind: 'dialogue:Old Neil'}, {kind: 'shown'}, {kind: 'thought:邓恩'}]}]});
     assert.deepEqual(n.scenes[0].evidence.map(e => e.kind), ['dialogue:Old-Neil', 'shown', 'thought:unknown']);
 });
+
+test('rules, people and texture passes build prompt-mode requests, keep the stable prefix and write their own lint-checked files', async () => {
+    for (const pass of ['rules', 'people', 'texture']) {
+        const walk = n => { if (n && typeof n === 'object') { if (n.type === 'object') assert.equal(n.additionalProperties, false); Object.values(n).forEach(walk); } };
+        walk(shardSchema(pass));
+        const r = buildRequest({customId: `a-${pass}`, prefix: 'a', base: '1', shardText: TEXT, pass, world: 'test'});
+        assert.equal(r.params.output_config.format, undefined, 'extra passes are prompt mode');
+        assert.match(r.params.system[0].text, new RegExp(`PASS ${{rules: 3, people: 4, texture: 5}[pass]}`));
+    }
+    const {dir, plan} = fixture();
+    const p = {...plan, pass: 'rules'};
+    const rule = {id: 'test.law.bread', name: 'Bread sale', kind: 'law', conditions: [], steps: [], inputs: [], costs: [], results: [], limits: [], consequences: [], who: [], label: 'S', locator: 'zh 第1章 p2'};
+    const bad = {...rule, id: 'test.law.x', label: 'Z', locator: 'zh 第9章 p9'};
+    const sum = await collect({client: mockClient([ok('z1-rules', {rules: [rule, bad]})]), batchId: 'b', plan: p, outDir: p.outDir, sleep: async () => {}, runTools: false});
+    assert.equal(sum.shards[0].counts.rules, 2);
+    assert.deepEqual(sum.shards[0].issueCodes.sort(), ['label', 'locator']);
+    assert.equal(sum.repair.length, 0);
+    assert.equal(readFileSync(join(p.privateDir, 'z1_rules.jsonl'), 'utf8').trim().split('\n').length, 2);
+});

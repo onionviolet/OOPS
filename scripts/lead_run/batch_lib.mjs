@@ -79,11 +79,41 @@ export function normalize(rows) {
     });
     if (rows.census) out.census = rows.census.map(r => ({firstVolume: null, ...r}));
     if (rows.fills) out.fills = rows.fills;
+    for (const k of Object.values(EXTRA_PASSES).flat()) if (rows[k]) out[k] = rows[k];
     return out;
 }
 
+// Passes 3-5 (own-style coverage, READINESS_AND_SCOPE C1-C3): rules, people, texture. Prompt mode only (too large for a strict grammar); rows are linted
+// for labels and locators in code. Ids reuse the known-names table; free text is the model's own words (no source quotes).
+const lab = {type: 'string', enum: ['S', 'I', 'U']};
+const RULE = obj({id: str, name: str, kind: {type: 'string', enum: ['rite', 'potion', 'ability', 'craft', 'law', 'custom', 'institution', 'other']},
+    conditions: arr(str), steps: arr(str), inputs: arr(str), costs: arr(str),
+    results: arr(obj({when: {type: 'string', enum: ['success', 'failure', 'partial']}, what: str}, ['when', 'what'])), limits: arr(str),
+    consequences: arr(obj({trigger: str, response: str, by: str}, ['trigger', 'response', 'by'])), who: arr(str), label: lab, locator: str},
+    ['id', 'name', 'kind', 'conditions', 'steps', 'inputs', 'costs', 'results', 'limits', 'consequences', 'who', 'label', 'locator']);
+const PERSON = obj({id: str, label: lab, locator: str,
+    routine: arr(obj({slot: str, place: str, days: str, label: lab, locator: str}, ['slot', 'place', 'days', 'label', 'locator'])),
+    relations: arr(obj({with: str, kind: str, attitude: str, basis: str, label: lab, locator: str}, ['with', 'kind', 'attitude', 'basis', 'label', 'locator'])),
+    knows: arr(obj({fact: str, since: str, label: lab, locator: str}, ['fact', 'since', 'label', 'locator'])),
+    reacts: arr(obj({to: str, response: str, label: lab, locator: str}, ['to', 'response', 'label', 'locator'])),
+    speech: arr(str), wants: arr(str),
+    reveals: arr(obj({same_as: str, label: lab, locator: str}, ['same_as', 'label', 'locator']))},
+    ['id', 'label', 'locator', 'routine', 'relations', 'knows', 'reacts', 'speech', 'wants', 'reveals']);
+const PLACE = obj({id: str, within: str, hours: str, access: arr(str), crowd: str, label: lab, locator: str,
+    affordances: arr(obj({class: str, what: str, needs: arr(str)}, ['class', 'what', 'needs'])),
+    routes: arr(obj({to: str, minutes: num, mode: str}, ['to', 'minutes', 'mode']))},
+    ['id', 'within', 'hours', 'access', 'crowd', 'label', 'locator', 'affordances', 'routes']);
+const SERVICE = obj({place: str, what: str, price: str, hours: str, label: lab, locator: str}, ['place', 'what', 'price', 'hours', 'label', 'locator']);
+const NEWS = obj({date: str, what: str, scope: {type: 'string', enum: ['public', 'private']}, carriedBy: str, label: lab, locator: str}, ['date', 'what', 'scope', 'carriedBy', 'label', 'locator']);
+const CUSTOM = obj({what: str, applies: str, label: lab, locator: str}, ['what', 'applies', 'label', 'locator']);
+/** Output keys per extra pass. */
+export const EXTRA_PASSES = Object.freeze({rules: ['rules'], people: ['people'], texture: ['places', 'services', 'news', 'customs']});
+const EXTRA_SCHEMA = {rules: () => obj({rules: arr(RULE)}, ['rules']), people: () => obj({people: arr(PERSON)}, ['people']),
+    texture: () => obj({places: arr(PLACE), services: arr(SERVICE), news: arr(NEWS), customs: arr(CUSTOM)}, ['places', 'services', 'news', 'customs'])};
+
 /** Output schema per pass: 'census' (pass 1), 'scenes' (pass 2, scenes and fills), 'full' (both in one call). */
 export function shardSchema(pass) {
+    if (EXTRA_SCHEMA[pass]) return EXTRA_SCHEMA[pass]();
     if (pass === 'census') return obj({census: arr(CENSUS)}, ['census']);
     if (pass === 'scenes') return obj({scenes: arr(SCENE), fills: arr(FILL)}, ['scenes', 'fills']);
     return obj({scenes: arr(SCENE), census: arr(CENSUS), fills: arr(FILL)}, ['scenes', 'census', 'fills']);
@@ -94,6 +124,9 @@ const PASS_TEXT = {
     census: 'PASS 1 (census). Return only the `census` array: every named entity and every distinct amount, time and measure in the shard.',
     scenes: 'PASS 2 (scenes). Return `scenes` and `fills`. Do not return census rows; reuse the ids in the known-names table for `present`, `touched`, `needs` and `whereabouts` references. A name missing from the table gets an id built from the schema card rules.',
     full: 'Return `scenes`, `census` and `fills` in one pass.',
+    rules: 'PASS 3 (rules). Return only `rules`: every rite, potion, ability, craft, law, custom or institution whose working the shard states or shows, as conditions, ordered steps, inputs, costs, success/failure/partial results, limits, and what the world does in response (`consequences`: trigger, response, by whom). Use the ids in the known-names table. Own words, no source quotes. Label `S` only for what the shard states; `I` for what it implies.',
+    people: 'PASS 4 (people). Return only `people`: for every named person or group the shard shows, daily routine slots (slot, place, days), relations with attitude and basis, what they know and since when, how they react to kinds of actions (`reacts`), speech habits and goals, and `reveals` when the shard shows two names are one person. Use the ids in the known-names table. Own words, no source quotes.',
+    texture: 'PASS 5 (texture). Return `places`, `services`, `news`, `customs`: for each place its containing place, opening hours, who may enter, crowding, what actions (affordances: an action class from the card, what, what it needs) and routes with minutes the shard states or shows; services with price ids and hours; dated public or private news and notices; customs and etiquette. Use the ids in the known-names table. State only what the shard shows; label `I` for implied values. Own words, no source quotes.',
 };
 
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
@@ -119,6 +152,7 @@ export function candidateTable(candidates) {
 /** One batch request. Varying parts (base, glossary, candidates, text) go in the user turn after the stable system prefix. */
 export function buildRequest({customId, prefix, base, shardText, glossary, pass, model = MODEL, effort = 'low', maxTokens = 48000,
     schemaMode = 'format', world = 'lotm', system = systemText(pass, {world})}) {
+    if (EXTRA_SCHEMA[pass]) schemaMode = 'prompt';
     const hits = glossary ? glossaryHits(glossary, shardText) : [];
     const cands = extractCandidates(parseShard(shardText));
     const meta = `Shard ${prefix}. Beat ids start at lr.${world}.main.${base}.\n\n# Known names in this shard (reuse these ids and labels)\n\n${glossaryTable(hits)}\n\n# Candidates found by script\n\n${candidateTable(cands)}\n\n# Shard text\n`;
@@ -276,6 +310,21 @@ export function mergeRepair(base, fixed) {
     return out;
 }
 
+/** Labels and locators of an extra-pass row set: every `label` must be S, I or U and every `locator` a paragraph inside the shard. */
+export function lintExtra(rows, shardMap) {
+    const issues = [];
+    const walk = (n, where) => {
+        if (Array.isArray(n)) return n.forEach(x => walk(x, where));
+        if (!n || typeof n !== 'object') return;
+        const w = n.id || n.name || where;
+        if ('label' in n && !['S', 'I', 'U'].includes(n.label)) issues.push({code: 'label', where: w});
+        if (typeof n.locator === 'string') { const m = /^zh 第(\d+)章 p(\d+)$/.exec(n.locator); if (!m || !shardMap.has(`${m[1]}:${m[2]}`)) issues.push({code: 'locator', where: w}); }
+        for (const v of Object.values(n)) walk(v, w);
+    };
+    walk(rows, '?');
+    return issues;
+}
+
 /**
  * Poll, download, and process a batch. `plan.shards` maps custom ids to files. Writes private outputs, runs migrate and audit,
  * logs usage per request (AU12), and returns a summary plus an optional repair request list. No source text in the summary.
@@ -289,6 +338,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         await sleep(pollMs);
     }
     mkdirSync(plan.privateDir, {recursive: true});
+    mkdirSync(outDir, {recursive: true});
     const byId = new Map(plan.shards.map(s => [`${s.prefix}-${plan.pass}`, s]));
     const summary = {batchId, counts: batch.request_counts, shards: [], repair: [], usd: 0};
     const ledger = join(outDir, `${plan.label}_usage.csv`);
@@ -305,6 +355,13 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         if (parsed.error) { summary.shards.push({id, status: parsed.error}); summary.repair.push({id, why: parsed.error}); continue; }
         const shardText = readFileSync(s.shard, 'utf8'), shardMap = parseShard(shardText);
         let rows = parsed.rows;
+        if (EXTRA_PASSES[plan.pass]) {
+            // Passes 3-5 write their own files; no migrate, no audit grade, no repair (a bad row set is re-read after the consumer probe).
+            const keys = EXTRA_PASSES[plan.pass], issues = lintExtra(Object.fromEntries(keys.map(k => [k, rows[k] || []])), shardMap);
+            for (const k of keys) writeJsonl(join(plan.privateDir, `${s.prefix}_${k}.jsonl`), rows[k]);
+            summary.shards.push({id, status: 'ok', pass: plan.pass, counts: Object.fromEntries(keys.map(k => [k, (rows[k] || []).length])), lintIssues: issues.length, issueCodes: [...new Set(issues.map(i => i.code))]});
+            continue;
+        }
         if (id.endsWith('-repair')) {
             const prior = {scenes: readJsonl(join(plan.privateDir, `${s.prefix}_scenes.jsonl`)), census: readJsonl(join(plan.privateDir, `${s.prefix}_census.jsonl`)), fills: readJsonl(join(plan.privateDir, `${s.prefix}_fills.jsonl`))};
             rows = mergeRepair(prior, rows);
