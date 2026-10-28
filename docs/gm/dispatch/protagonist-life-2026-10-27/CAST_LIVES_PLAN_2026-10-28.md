@@ -510,3 +510,45 @@ Paste each brief into the Codex app with the working folder set to this checkout
 local classifier (CL77) reports its hit rate; if it falls short, this plan sends the reading session a
 1.5 field shape. SV8's targeted re-read now covers routines and reacts for the slice's people; it runs at
 schema 1.4 and needs Weibao's go.
+
+## 12. Round 6: after L1 and L2 land (2026-10-28)
+
+Weibao: "what to consider after tthey are done? I allowed L1 to get past checkpoint". State when written:
+L1 stopped at its ambiguity gate (26 item ids in 12 groups, [checkpoint](cast-lives-lanes/L1_CHECKPOINT.md)),
+then continued on Weibao's go; the LOTM volume-1 re-merge now loads 590 people and 490 rules rows. L2's
+module and its six focused tests pass in the working tree. Neither lane is committed.
+
+### 12.1 Item identity default (closes L1's stop for later lanes)
+
+| Code | Default, dial and reason |
+| --- | --- |
+| CL86 | **Items are types unless the rows show one object.** Same-named items (keys, a key) stay separate ids and map to one runtime item type; an id becomes an instance only when rows give it one holder, one place or a unique description (the lead's notebook, a specific revolver). People, places and organizations take overlay redirects; items do not in wave 1. Reason: the cast import needs one id per person and place; item instances matter only for things that change hands in a beat, and L3 reads those paragraphs anyway |
+
+### 12.2 Review checklist when each lane reports done
+
+| Code | Check | Lane |
+| --- | --- | --- |
+| CL87 | `tests/lead_run_crosswalk.test.js` exists and passes on fixtures (missing when this round was written) | L1 |
+| CL88 | Every person, place and organization present in LOTM chapters 1-24 lead scenes has a crosswalk row or a named skip reason; counts in the checkpoint | L1 |
+| CL89 | The fitness table is filled for both books (no "not measured"), and the classifier's hit rate on `reacts` is stated: that number decides CL56 (send a 1.5 field shape to the reading session, or not) | L1 |
+| CL90 | The MoL first-restart chapter is named with its locator, or left `U` with the reason; L6 needs it | L1 |
+| CL91 | No edit to `merge_shards.mjs` or `batch_lib.mjs`; committed files carry ids, counts and locators only | L1 |
+| CL92 | Tests cover each case the brief lists (weekend gap, `once`, `irregular`, precedence, `until`, the anchor lint both ways); `check:arch` no new cycle; no save field; labelled "engine ready, not integrated" | L2 |
+| CL93 | Each lane commits only its own paths from a fresh HEAD; the committer runs `npm run build`, the full `npm test` once, `check:arch` and `check:rules` | Both |
+
+### 12.3 What comes next, in order
+
+| Code | Next | Model | Done check |
+| --- | --- | --- | --- |
+| CL94 | **Worksheet script** (`scripts/lead_run/cast_worksheet.mjs`): the plan's S2 stage was left out of the L2 brief. One private worksheet per slice entity from the merged dir plus the crosswalk | Luna, low | One worksheet per crosswalk person in chapters 1-24, with presence and partial counts (CL2), whereabouts, routine slots, relations, reacts, anchors |
+| CL95 | **CL18 fight contracts and CL61 after-interaction mining**, both from L1's output and classifier (CL77) | Luna, medium | As in sections 8.5 and 10.2 |
+| CL96 | **L3 cast records** (Sol, medium), briefed from L1's final checkpoint (CL82). Includes D1: the new "beside the lead" start profile and `canon_beside` continuity, which is the first save-touching step. It is additive (a new start, no change to existing saves); the brief must state that compatibility decision (AGENTS.md safety) | Sol, medium | Section 4 L3 row |
+| CL97 | **L4 living week**, after L3: wires `cast_schedule` into the location authority and runs the gap probe (section 8) | Luna, medium | Section 4 L4 row |
+
+### 12.4 More to consider (round 6)
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL98 | **The Codex CLI is on disk**, inside `/Applications/ChatGPT.app/Contents/Resources/codex-cli/`, just not on PATH. Round 5's "not installed" was wrong about the binary; a session could run the usage preflight and launch lanes detached once that path is confirmed | LATER: confirm the binary path and add it to the tool registry |
+| CL99 | **Codex stop gates work.** L1 stopped exactly where the brief told it to; keep numeric stop lines in every brief, and give the default (like CL86) in the next brief so the same stop does not recur | ACCOUNT FOR NOW |
+| CL100 | **Lane drift.** L1 found the narrower prefix regex dropped four early shards before correcting it; a later brief names the expected shard count so the lane can check itself | ACCOUNT FOR NOW: L3 and later briefs carry expected counts |
