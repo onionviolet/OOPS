@@ -19,6 +19,27 @@ At the start menu: a fourth Tingen start whose blurb says you live near the lead
 ordinary resident. In Tingen: a cast person present at your place can be talked to; one who is away
 gives "Away; usually back by [band] at [place]".
 
+## Step 0: bind the slice to days (added after the L3 review, 2026-10-28)
+
+L3 left every canon schedule row `irregular` and every beat behind a `lotm.cast.window.<scene>` fact,
+because no lane had chosen how source order maps to civil days ([L3 checkpoint](L3_CHECKPOINT.md) D2).
+Without a binding nobody moves. Default (a reversible proposal, WA23's dial "source order as the window"):
+
+- Walk the slice scenes in source order. Each scene gets the earliest day that is not before its `deps`,
+  respects every `clockClaims` row L3 kept (the stated interview date, the four-day countdown, the
+  proposed gathering), and moves to the next day only where a scene's time band runs backwards from the
+  previous one or the paragraphs mark a new day. Record each binding as `{scene, day, band, label: 'I',
+  basis}` in a new data file `src/book_world_lotm_cast_days.js`; stated dates keep label `S`.
+- The window grows to the last bound day (do not force seven days if the slice needs more).
+- A canon schedule row for a bound scene becomes a `once` row on that day and band. Bound beats get that
+  `dayIndex`, and the host sets their window fact on that day. Fills for actors whose forward anchors are
+  now dated may become daily within the window if `lintAnchors` passes.
+- Report the day count, rows bound per label and any scene the walk could not place (left `irregular`).
+
+Owned for step 0: `src/book_world_lotm_cast_days.js` and its cases in `tests/lotm_cast_week.test.js`.
+Do not edit `src/book_world_lotm_cast.js`; read through its exports and resolve place aliases as its
+D1 note says.
+
 ## Seam (AR14) and the decisions already made
 
 - **Start profile and continuity (D1):** add `beside` to `LOTM_PROFILES` (`src/book_world_lotm_lives.js`)
