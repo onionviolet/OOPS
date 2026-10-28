@@ -16,12 +16,18 @@ LOTM chapters 1-24, "beside the lead" start. Second world: Mother of Learning, f
 | --- | --- | --- |
 | L1 | Merge, id crosswalk, fitness report | Landed `b3b2c0c8e` |
 | L2, L2b, L2c | Schedule module; worksheets; fight contracts and after-actions | Landed |
-| L3, L6a, L6b | LOTM cast records; MoL worksheets; MoL cast records (AR11: zero seam edits) | L3 landed in `src/` (moving to the private pack, CL141); L6b data held uncommitted |
-| L4a | Beside start, schedule-driven locations, talk gate, save round trip | Implemented, below floor; uncommitted (canon names, AD1) |
-| L4c | Private pack move, travel to cast places, beside entry answers | Implemented, below floor; uncommitted (G0 boot-blocking await breaks 4 tests) |
-| L4d | Fix G0-G3 (boot await; resident sees probationer content; remote principals as talk targets; no date or weather) | Running |
+| L3, L6a, L6b | LOTM cast records; MoL worksheets; MoL cast records (AR11: zero seam edits) | Landed; data now in `private_packs/` |
+| L4a, L4c, L4d | Beside start from the private pack: cast moves by schedule, walks to cast places, resident entry, talk gate with away reasons, remote people excluded, relative day in the header | **Meets the AD43 floor** `1cadee65e` (bundle `11cf2385`, 1920×1080, zero page errors, Save/reload/Export/Import) |
 | L7 | Reaction classes; classifier 40% to 59% (LOTM), 37% to 63% (MoL) | Landed `cdefcf80e`, partial |
-| Next | L4b beats and null-player run with the gap probe; L5r UI replay of chapters 1-3; scene card | Briefs to write from L4c's checkpoint |
+| L4b | Beats settle on their days, no-player run, Reports lines, gap probe | Running |
+| Next | L5r UI replay of chapters 1-3; scene card; polish (section header, Places grouping) | After L4b |
+
+## What you can do now
+
+With the private pack on this machine: from the Village, pick the fifth Tingen start ("beside the lead").
+You wake in neighbourhood lodging on day 1. Walk to the household's flat, the market, the bakery and other
+places; the people the lead knows are where their day puts them. Talk to whoever is there; anyone away
+says when and where they are usually back. Their story beats do not run yet (L4b).
 
 ## Rules for this work (CLR1-CLR12, proposed)
 
