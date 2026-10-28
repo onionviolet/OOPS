@@ -712,3 +712,7 @@ Or should we finish playthrough first and then set up the NPC versioon? More to 
 | CL158 | **Then the lead's playthrough driven by the bot** (PLAN LP10a): the same records, the lead as the player life, the bot using the same commands a player has. Where it diverges from the null-player run, one of the two is wrong | LATER: after L4b |
 | CL159 | **Then the seat for Weibao as the lead** ("be" mode), private pack only (AD1), after the WER11 wording he has not yet settled (implementation prompt D2) | LATER: needs his WER11 answer |
 | CL160 | **Nothing is built twice.** The cast records, schedules, beats and UI rules are the same in all three; only the driver changes (NPC policy, bot, Weibao) | ACCOUNT FOR NOW |
+
+**CL142 decided (Weibao, 2026-10-28): "Keep history".** Local commit `92af8ce99` keeps the cast data in
+history; no rewrite. Going forward the data lives in the private pack (L3m), and `src/` holds only the
+name-free bridge.
