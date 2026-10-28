@@ -9,8 +9,17 @@ Updated after each wave. Plan: [VOLUME1_READING_PLAN](VOLUME1_READING_PLAN.md). 
 | Gate (v2) | 16-24 | 3 (+1 lost try) | 0 / 3 / 0 | about 0.45 million | 7% / 12% before wave 1 | Gate passed |
 | 1 | 25-54 | 10 of 10 | 2 / 8 / 0 (one B after a safe repair) | 1,317,219 (131,700 per shard; 43,900 per chapter; 6.2 calls) | 12% / 13% | **Done; paused at the AU7 bound** |
 | 2 | 55-84 | 10 of 10 | 0 / 10 / 0 (one B after a locator repair) | 1,340,283 (134,000 per shard; 44,700 per chapter) | 1% (window reset) / 13% | Done |
-| 3 | 85-114 | 0 of 10 | | | | Running |
-| 4-7 | 115-213 | 0 of 33 | | | | Waiting |
+| 3 | 85-114 | 10 of 10 | 0 / 10 / 0 | 1,501,355 (150,100 per shard; 50,000 per chapter) | 4% / 14% | Done; **stopped: 122% of the wave estimate (stop line 110%)** |
+| 4 | 115-144 | 0 of 10 (prepared) | | | | Waiting for Weibao: continue at the new rate or revert |
+| 5-7 | 145-213 | 0 of 23 | | | | Waiting |
+
+**Why wave 3 cost more:** from mid-wave 2 the reader prompt requires every named entity, not only
+lead-relevant ones (one wave-2 reader had returned 28 census rows for three chapters). Census
+rows per chapter: wave 1, 21.4; wave 2, 23.2; wave 3, **32.4** (+52%), for 14% more tokens per
+shard. **Proposed:** keep the recall instruction and re-estimate the remaining 33 shards at
+about 150,000 each, about 5.0 million haiku tokens (volume 1 total about 9.4 million with the
+1.0 million already spent before wave 1). Alternative: revert to the wave-1 prompt at about
+132,000 per shard with lower census recall.
 
 **Wave 1 output (private):** 85 scenes, 641 census rows, 47 fills; 88 options, 69 not taken;
 9 scenes with hour or minute precision. Name accuracy 1.0 on every shard. Coordinator spot
@@ -27,4 +36,4 @@ each window's starting level: the 5-hour window reset to 1% before wave 3, so it
 the weekly window started at 12%, so its stop is 27%). Stop on a wave with more than two grade-C shards, name accuracy under 0.9 on any
 shard, or three consecutive failures of one kind.
 
-**Blockers:** none.
+**Blockers:** the 110% wave-cost stop line (needs Weibao's call on the new rate).

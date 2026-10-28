@@ -55,3 +55,7 @@ test('schema 1.2 requires an action class and label on steps; loops need rhythm,
     assert.deepEqual(lintLoops([loop]), []);
     assert.ok(summarize(lintLoops([{...loop, rhythm: 'sometimes', owner: ''}])).rhythm);
 });
+
+test('a non-array whereabouts is a lint code, not a crash', () => {
+    assert.ok(lintCensus([row({whereabouts: 'zh 第1章 p2'})], shard).some(i => i.code === 'whereabouts'));
+});

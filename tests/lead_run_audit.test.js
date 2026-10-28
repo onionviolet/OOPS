@@ -121,3 +121,7 @@ test('wiki template remnants are stripped from glossary names', () => {
     const g = buildGlossary({wikiPages: [{title: 'Some Name', text: '|chinese = 洛耀·莱汀}}'}]});
     assert.ok(g.has('洛耀·莱汀'));
 });
+
+test('kinship terms and titles do not carry an id across scenes', () => {
+    assert.ok(!buildGlossary({censusRows: [{zh: '哥哥', id: 'test.person.someone', kind: 'person'}]}).has('哥哥'));
+});

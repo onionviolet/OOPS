@@ -30,6 +30,8 @@ export function extractCandidates(shardMap) {
 }
 
 const CONTEXTUAL = new Set(['price', 'measure', 'clock', 'calendar']);
+// Kinship terms and titles point at different people depending on the speaker (a sister says 哥哥 for Klein).
+const RELATIONAL = new Set(['哥哥', '妹妹', '姐姐', '弟弟', '父亲', '母亲', '爸爸', '妈妈', '队长', '导师', '老师', '先生', '女士', '夫人', '小姐', '大人', '阁下', '房东']);
 const NOT_ENTITY = /^(Episode|Chapter|Volume|Season|Book)\b/i;   // adaptation and index pages carry Chinese titles too
 // Wiki template remnants (braces, brackets, pipes) are dropped so a name like 洛耀·莱汀}} becomes the bare name.
 const normalize = s => String(s || '').replace(/[{}\[\]|<>]/g, '').replace(/[.．・]/g, '·').trim();
@@ -48,7 +50,7 @@ export function buildGlossary({wikiPages = [], censusRows = []}) {
     for (const r of censusRows) {
         const zh = normalize(r.zh);
         // Amounts, measures and times are contextual: "4 pence" in one scene is not the same row as in another.
-        if (!zh || g.get(zh)?.id || CONTEXTUAL.has(r.kind)) continue;
+        if (!zh || g.get(zh)?.id || CONTEXTUAL.has(r.kind) || RELATIONAL.has(zh)) continue;
         // Short common nouns (bedroom, hat) name different things in different scenes; only proper names carry ids across.
         if (['place', 'item', 'event', 'note', 'creature'].includes(r.kind) && zh.length < 3 && !zh.includes('·')) continue;
         const wiki = g.get(zh)?.source === 'wiki' ? g.get(zh).label : null;

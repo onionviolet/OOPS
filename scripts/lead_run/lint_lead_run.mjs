@@ -127,9 +127,10 @@ export function lintCensus(rows, shard = null) {
         if (!new RegExp(`^[a-z0-9]+\\.${r.kind}\\.`).test(r.id || '')) out.push({code: 'id-namespace', where: w});
         if (!RUNGS.has(r.rung)) out.push({code: 'rung', where: w});
         if (!NAME_SOURCES.has(r.nameSource)) out.push({code: 'name-source', where: w});
+        const where = Array.isArray(r.whereabouts) ? r.whereabouts : [];   // a non-array is reported, never crashes the lint
         if (!Array.isArray(r.whereabouts)) out.push({code: 'whereabouts', where: w});
-        for (const p of r.whereabouts || []) if (!PLACE_STATUS.has(p.status)) out.push({code: 'whereabouts-status', where: w});
-        if (r.rung !== 'M0' && !(r.whereabouts || []).some(p => p.place || p.era)) out.push({code: 'placed-without-address', where: w});
+        for (const p of where) if (!PLACE_STATUS.has(p?.status)) out.push({code: 'whereabouts-status', where: w});
+        if (r.rung !== 'M0' && !where.some(p => p?.place || p?.era)) out.push({code: 'placed-without-address', where: w});
         if (r.kind === 'price' && !(r.amount && Number.isFinite(r.amount.value) && r.amount.unit)) out.push({code: 'price-amount', where: w});
         if (r.note && words(r.note) > 15) out.push({code: 'note-length', where: w});
         locatorIssues(w, r.firstMention, out);
