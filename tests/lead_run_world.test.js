@@ -93,3 +93,31 @@ test('free census fixes: id kind segment follows the kind (old id kept), price a
     assert.equal(zhNumber('三百五十'), 350);
     assert.equal(zhNumber('两千'), 2000);
 });
+
+test('PDF chapter headings: bare, dashed, glued title, colon and double dash; contents lists are dropped', async () => {
+    const {chapterHeading, pdfChapters} = await import('../scripts/lead_run/prepare_shard_en.mjs');
+    // Invented heading lines in the forms one omnibus PDF uses.
+    assert.deepEqual(chapterHeading('CHAPTER TWENTY-THREE'), {n: 23, title: ''});
+    assert.deepEqual(chapterHeading('— CHAPTER ONE —'), {n: 1, title: ''});
+    assert.deepEqual(chapterHeading('-CHAPTER ONEThe Old Mill'), {n: 1, title: 'The Old Mill'});
+    assert.deepEqual(chapterHeading('-CHAPTER SEVENTEENA Long Road'), {n: 17, title: 'A Long Road'});
+    assert.deepEqual(chapterHeading('Chapter 16: AVeryLong Night'), {n: 16, title: 'AVeryLong Night'});
+    assert.deepEqual(chapterHeading('Chapter 8 -- Quiet Rooms'), {n: 8, title: 'Quiet Rooms'});
+    assert.equal(chapterHeading('Chapter one of the report was long and dull.'), null);
+    const prose = n => Array.from({length: 3}, (_, i) => `Line ${n}.${i} of invented prose that runs long enough to count as a full printed line here.`).join('\n') + '\n\nShort end.';
+    const text = ['CHAPTER ONE\nFirst\n' + prose(1), 'CHAPTER TWO\nSecond\n' + prose(2), 'CHAPTER ONE\nCHAPTER TWO\nCHAPTER THREE', '-CHAPTER ONEThe Next Book\n' + prose(3)].join('\f');
+    const books = pdfChapters(text);
+    assert.deepEqual(books.slice(1).map(b => b.map(c => c.ch)), [[1, 2], [1]]);
+    assert.equal(books[2][0].title, 'The Next Book');
+});
+
+test('Chinese locators carry the volume after volume 1; volume 1 keeps the old form', async () => {
+    const {volumeRuns} = await import('../scripts/lead_run/prepare_shard.mjs');
+    assert.deepEqual(parseLocator('zh b3 第12章 p4'), {lang: 'zh', book: 3, ch: 12, p: 4, key: '12:4'});
+    assert.equal(parseLocator('zh 第12章 p4').book, 0);
+    assert.equal(formatLocator('zh', {book: 3, ch: 12, p: 4}), 'zh b3 第12章 p4');
+    assert.equal(formatLocator('zh', {book: 0, ch: 12, p: 4}), 'zh 第12章 p4');
+    assert.deepEqual(headerOf('=== 第12章 夜 | book 3 | member x'), {ch: 12, book: 3, lang: 'zh'});
+    assert.deepEqual(locatorsIn('see zh b2 第1章 p1 and zh 第2章 p3').map(l => l.book), [2, 0]);
+    assert.deepEqual(volumeRuns([1, 2, 3, 1, 2, 1].map(n => ({n}))).map(r => r.length), [3, 2, 1]);
+});

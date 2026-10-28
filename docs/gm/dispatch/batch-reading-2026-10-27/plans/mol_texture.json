@@ -1,0 +1,654 @@
+{
+ "world": "mol",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28",
+  "censusMatch": "^(mol)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mol-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "molc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch001-001.txt",
+   "base": "00101",
+   "chapters": "1-1"
+  },
+  {
+   "prefix": "molc002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch002-002.txt",
+   "base": "00201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "molc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch003-003.txt",
+   "base": "00301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "molc004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch004-004.txt",
+   "base": "00401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "molc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch005-005.txt",
+   "base": "00501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "molc006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch006-006.txt",
+   "base": "00601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "molc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch007-007.txt",
+   "base": "00701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "molc008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch008-008.txt",
+   "base": "00801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "molc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch009-009.txt",
+   "base": "00901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "molc010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch010-010.txt",
+   "base": "01001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "molc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch011-011.txt",
+   "base": "01101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "molc012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch012-012.txt",
+   "base": "01201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "molc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch013-013.txt",
+   "base": "01301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "molc014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch014-014.txt",
+   "base": "01401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "molc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch015-015.txt",
+   "base": "01501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "molc016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch016-016.txt",
+   "base": "01601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "molc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch017-017.txt",
+   "base": "01701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "molc018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch018-018.txt",
+   "base": "01801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "molc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch019-019.txt",
+   "base": "01901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "molc020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch020-020.txt",
+   "base": "02001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "molc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch021-021.txt",
+   "base": "02101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "molc022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch022-022.txt",
+   "base": "02201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "molc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "molc024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch024-024.txt",
+   "base": "02401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "molc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch025-025.txt",
+   "base": "02501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "molc026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch026-026.txt",
+   "base": "02601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "molc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch027-027.txt",
+   "base": "02701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "molc028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "molc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch029-029.txt",
+   "base": "02901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "molc030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch030-030.txt",
+   "base": "03001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "molc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch031-031.txt",
+   "base": "03101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "molc032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch032-032.txt",
+   "base": "03201",
+   "chapters": "32-32"
+  },
+  {
+   "prefix": "molc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch033-033.txt",
+   "base": "03301",
+   "chapters": "33-33"
+  },
+  {
+   "prefix": "molc034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch034-034.txt",
+   "base": "03401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "molc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch035-035.txt",
+   "base": "03501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "molc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch036-036.txt",
+   "base": "03601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "molc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch037-037.txt",
+   "base": "03701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "molc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch038-038.txt",
+   "base": "03801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "molc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch039-039.txt",
+   "base": "03901",
+   "chapters": "39-39"
+  },
+  {
+   "prefix": "molc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch040-040.txt",
+   "base": "04001",
+   "chapters": "40-40"
+  },
+  {
+   "prefix": "molc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch041-041.txt",
+   "base": "04101",
+   "chapters": "41-41"
+  },
+  {
+   "prefix": "molc042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch042-042.txt",
+   "base": "04201",
+   "chapters": "42-42"
+  },
+  {
+   "prefix": "molc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch043-043.txt",
+   "base": "04301",
+   "chapters": "43-43"
+  },
+  {
+   "prefix": "molc044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch044-044.txt",
+   "base": "04401",
+   "chapters": "44-44"
+  },
+  {
+   "prefix": "molc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch045-045.txt",
+   "base": "04501",
+   "chapters": "45-45"
+  },
+  {
+   "prefix": "molc046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch046-046.txt",
+   "base": "04601",
+   "chapters": "46-46"
+  },
+  {
+   "prefix": "molc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch047-047.txt",
+   "base": "04701",
+   "chapters": "47-47"
+  },
+  {
+   "prefix": "molc048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch048-048.txt",
+   "base": "04801",
+   "chapters": "48-48"
+  },
+  {
+   "prefix": "molc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch049-049.txt",
+   "base": "04901",
+   "chapters": "49-49"
+  },
+  {
+   "prefix": "molc050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch050-050.txt",
+   "base": "05001",
+   "chapters": "50-50"
+  },
+  {
+   "prefix": "molc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch051-051.txt",
+   "base": "05101",
+   "chapters": "51-51"
+  },
+  {
+   "prefix": "molc052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch052-052.txt",
+   "base": "05201",
+   "chapters": "52-52"
+  },
+  {
+   "prefix": "molc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch053-053.txt",
+   "base": "05301",
+   "chapters": "53-53"
+  },
+  {
+   "prefix": "molc054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch054-054.txt",
+   "base": "05401",
+   "chapters": "54-54"
+  },
+  {
+   "prefix": "molc055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch055-055.txt",
+   "base": "05501",
+   "chapters": "55-55"
+  },
+  {
+   "prefix": "molc056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch056-056.txt",
+   "base": "05601",
+   "chapters": "56-56"
+  },
+  {
+   "prefix": "molc057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch057-057.txt",
+   "base": "05701",
+   "chapters": "57-57"
+  },
+  {
+   "prefix": "molc058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch058-058.txt",
+   "base": "05801",
+   "chapters": "58-58"
+  },
+  {
+   "prefix": "molc059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch059-059.txt",
+   "base": "05901",
+   "chapters": "59-59"
+  },
+  {
+   "prefix": "molc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch060-060.txt",
+   "base": "06001",
+   "chapters": "60-60"
+  },
+  {
+   "prefix": "molc061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch061-061.txt",
+   "base": "06101",
+   "chapters": "61-61"
+  },
+  {
+   "prefix": "molc062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch062-062.txt",
+   "base": "06201",
+   "chapters": "62-62"
+  },
+  {
+   "prefix": "molc063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch063-063.txt",
+   "base": "06301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "molc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch064-064.txt",
+   "base": "06401",
+   "chapters": "64-64"
+  },
+  {
+   "prefix": "molc065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch065-065.txt",
+   "base": "06501",
+   "chapters": "65-65"
+  },
+  {
+   "prefix": "molc066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch066-066.txt",
+   "base": "06601",
+   "chapters": "66-66"
+  },
+  {
+   "prefix": "molc067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch067-067.txt",
+   "base": "06701",
+   "chapters": "67-67"
+  },
+  {
+   "prefix": "molc068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch068-068.txt",
+   "base": "06801",
+   "chapters": "68-68"
+  },
+  {
+   "prefix": "molc069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch069-069.txt",
+   "base": "06901",
+   "chapters": "69-69"
+  },
+  {
+   "prefix": "molc070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch070-070.txt",
+   "base": "07001",
+   "chapters": "70-70"
+  },
+  {
+   "prefix": "molc071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch071-071.txt",
+   "base": "07101",
+   "chapters": "71-71"
+  },
+  {
+   "prefix": "molc072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch072-072.txt",
+   "base": "07201",
+   "chapters": "72-72"
+  },
+  {
+   "prefix": "molc073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch073-073.txt",
+   "base": "07301",
+   "chapters": "73-73"
+  },
+  {
+   "prefix": "molc074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch074-074.txt",
+   "base": "07401",
+   "chapters": "74-74"
+  },
+  {
+   "prefix": "molc075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch075-075.txt",
+   "base": "07501",
+   "chapters": "75-75"
+  },
+  {
+   "prefix": "molc076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch076-076.txt",
+   "base": "07601",
+   "chapters": "76-76"
+  },
+  {
+   "prefix": "molc077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch077-077.txt",
+   "base": "07701",
+   "chapters": "77-77"
+  },
+  {
+   "prefix": "molc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch078-078.txt",
+   "base": "07801",
+   "chapters": "78-78"
+  },
+  {
+   "prefix": "molc079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch079-079.txt",
+   "base": "07901",
+   "chapters": "79-79"
+  },
+  {
+   "prefix": "molc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch080-080.txt",
+   "base": "08001",
+   "chapters": "80-80"
+  },
+  {
+   "prefix": "molc081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch081-081.txt",
+   "base": "08101",
+   "chapters": "81-81"
+  },
+  {
+   "prefix": "molc082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch082-082.txt",
+   "base": "08201",
+   "chapters": "82-82"
+  },
+  {
+   "prefix": "molc083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch083-083.txt",
+   "base": "08301",
+   "chapters": "83-83"
+  },
+  {
+   "prefix": "molc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch084-084.txt",
+   "base": "08401",
+   "chapters": "84-84"
+  },
+  {
+   "prefix": "molc085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch085-085.txt",
+   "base": "08501",
+   "chapters": "85-85"
+  },
+  {
+   "prefix": "molc086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch086-086.txt",
+   "base": "08601",
+   "chapters": "86-86"
+  },
+  {
+   "prefix": "molc087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch087-087.txt",
+   "base": "08701",
+   "chapters": "87-87"
+  },
+  {
+   "prefix": "molc088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch088-088.txt",
+   "base": "08801",
+   "chapters": "88-88"
+  },
+  {
+   "prefix": "molc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch089-089.txt",
+   "base": "08901",
+   "chapters": "89-89"
+  },
+  {
+   "prefix": "molc090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch090-090.txt",
+   "base": "09001",
+   "chapters": "90-90"
+  },
+  {
+   "prefix": "molc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "molc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "molc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch093-093.txt",
+   "base": "09301",
+   "chapters": "93-93"
+  },
+  {
+   "prefix": "molc094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch094-094.txt",
+   "base": "09401",
+   "chapters": "94-94"
+  },
+  {
+   "prefix": "molc095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch095-095.txt",
+   "base": "09501",
+   "chapters": "95-95"
+  },
+  {
+   "prefix": "molc096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch096-096.txt",
+   "base": "09601",
+   "chapters": "96-96"
+  },
+  {
+   "prefix": "molc097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch097-097.txt",
+   "base": "09701",
+   "chapters": "97-97"
+  },
+  {
+   "prefix": "molc098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch098-098.txt",
+   "base": "09801",
+   "chapters": "98-98"
+  },
+  {
+   "prefix": "molc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch099-099.txt",
+   "base": "09901",
+   "chapters": "99-99"
+  },
+  {
+   "prefix": "molc100",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch100-100.txt",
+   "base": "10001",
+   "chapters": "100-100"
+  },
+  {
+   "prefix": "molc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch101-101.txt",
+   "base": "10101",
+   "chapters": "101-101"
+  },
+  {
+   "prefix": "molc102",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch102-102.txt",
+   "base": "10201",
+   "chapters": "102-102"
+  },
+  {
+   "prefix": "molc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch103-103.txt",
+   "base": "10301",
+   "chapters": "103-103"
+  },
+  {
+   "prefix": "molc104",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch104-104.txt",
+   "base": "10401",
+   "chapters": "104-104"
+  },
+  {
+   "prefix": "molc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch105-105.txt",
+   "base": "10501",
+   "chapters": "105-105"
+  },
+  {
+   "prefix": "molc106",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch106-106.txt",
+   "base": "10601",
+   "chapters": "106-106"
+  }
+ ]
+}

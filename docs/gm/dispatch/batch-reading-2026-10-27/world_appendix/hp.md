@@ -6,3 +6,4 @@ World: Harry Potter (English source, book 1 unless the header says otherwise). I
 - Calendar: the school year runs from 1 September to the summer; record stated dates and days of the week as given, term events (Halloween, Christmas, exams) as anchors. The year is not printed in book 1: leave it out rather than guess.
 - Kinds: spells and charms are `rules` rows of kind `spell` (incantation in `worldKind`, wand movement and effect in `steps`); potions are kind `potion` with ingredients as `inputs`; magical creatures use census kind `creature`; the four Houses and the Ministry are `organization`.
 - Lead: Harry Potter (`pov: lead`). Chapters seen through another person (for example the opening chapter) are not lead scenes; record their people, places and facts in census, people and texture.
+- In a scene's `touched`, a spell, potion or ritual uses its rule kind (`spell`, `potion`, `rite`, `ability`), never `rules`.

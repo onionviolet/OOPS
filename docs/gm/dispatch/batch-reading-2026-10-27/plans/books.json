@@ -1,0 +1,253 @@
+{
+ "note": "Book registry for make_book_plans.mjs (BATCH_READING_WORKFLOW.md). Sources stay outside the repo; shard and output dirs are gitignored private folders. LOTM volume 1 was read by the older wave plans (make_wave_plans.mjs) and is not listed here.",
+ "gaps": [
+  "Shadow Slave chapters 1841-2260 (no local source)",
+  "Shadow Slave volume 11 EPUB has no NCX table of contents (adapter needed)",
+  "A Soldier's Life: only book 4 (mobi) and book 6 on disk; no world profile",
+  "Circle of Inevitability (LOTM 2) and TTKS: no local source"
+ ],
+ "books": [
+  {
+   "key": "hp1",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 1,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "hp2",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 2,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "hp3",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 3,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "hp4",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 4,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "hp5",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 5,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "hp6",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 6,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "hp7",
+   "world": "hp",
+   "lang": "en",
+   "type": "pdf",
+   "source": "/Users/weiwei/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+   "book": 7,
+   "dir": "docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 2
+   }
+  },
+  {
+   "key": "mol",
+   "world": "mol",
+   "lang": "en",
+   "type": "epub",
+   "source": "/Users/weiwei/Calibre Library/nobody103/Mother of Learning (21)/Mother of Learning - nobody103.epub",
+   "book": 1,
+   "dir": "docs/research/novels/mother-of-learning/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 1
+   }
+  },
+  {
+   "key": "ss",
+   "world": "ss",
+   "lang": "en",
+   "type": "ncx",
+   "source": "/Users/weiwei/Calibre Library/Guiltythree/Shadow Slave (16)/Shadow Slave - Guiltythree.epub",
+   "book": 1,
+   "dir": "docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 8
+   }
+  },
+  {
+   "key": "ss10",
+   "world": "ss",
+   "lang": "en",
+   "type": "ncx",
+   "source": "/Users/weiwei/Calibre Library/Guiltythree/Shadow Slave_ Volume 10 - Dark Lord's Dreadful Travelogue (36)/Shadow Slave_ Volume 10 - Dark Lord's Drea - Guiltythree.epub",
+   "book": 1,
+   "dir": "docs/research/novels/shadow-slave/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 8
+   }
+  },
+  {
+   "key": "lotm2",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 2,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  },
+  {
+   "key": "lotm3",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 3,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  },
+  {
+   "key": "lotm4",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 4,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  },
+  {
+   "key": "lotm5",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 5,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  },
+  {
+   "key": "lotm6",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 6,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  },
+  {
+   "key": "lotm7",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 7,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  },
+  {
+   "key": "lotm8",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 8,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "wiki": "docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+   "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
+  }
+ ]
+}

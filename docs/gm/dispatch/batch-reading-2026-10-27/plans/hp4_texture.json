@@ -1,0 +1,210 @@
+{
+ "world": "hp",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+  "censusMatch": "^(hp1|hp2|hp3|hp4|hp5|hp6|hp7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "hp4-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "hp4c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch001-002.txt",
+   "base": "400101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "hp4c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch003-004.txt",
+   "base": "400301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "hp4c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch005-006.txt",
+   "base": "400501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "hp4c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch007-007.txt",
+   "base": "400701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "hp4c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch008-008.txt",
+   "base": "400801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "hp4c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch009-009.txt",
+   "base": "400901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "hp4c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch010-011.txt",
+   "base": "401001",
+   "chapters": "10-11"
+  },
+  {
+   "prefix": "hp4c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch012-012.txt",
+   "base": "401201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "hp4c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch013-013.txt",
+   "base": "401301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "hp4c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch014-014.txt",
+   "base": "401401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "hp4c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch015-015.txt",
+   "base": "401501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "hp4c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch016-016.txt",
+   "base": "401601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "hp4c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch017-017.txt",
+   "base": "401701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "hp4c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch018-018.txt",
+   "base": "401801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "hp4c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch019-019.txt",
+   "base": "401901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "hp4c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch020-020.txt",
+   "base": "402001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "hp4c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch021-021.txt",
+   "base": "402101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "hp4c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch022-022.txt",
+   "base": "402201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "hp4c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch023-023.txt",
+   "base": "402301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "hp4c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch024-024.txt",
+   "base": "402401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "hp4c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch025-025.txt",
+   "base": "402501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "hp4c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch026-026.txt",
+   "base": "402601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "hp4c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch027-027.txt",
+   "base": "402701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "hp4c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch028-028.txt",
+   "base": "402801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "hp4c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch029-029.txt",
+   "base": "402901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "hp4c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch030-030.txt",
+   "base": "403001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "hp4c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch031-031.txt",
+   "base": "403101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "hp4c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch032-033.txt",
+   "base": "403201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "hp4c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch034-034.txt",
+   "base": "403401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "hp4c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch035-035.txt",
+   "base": "403501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "hp4c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch036-036.txt",
+   "base": "403601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "hp4c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp4_b4_ch037-037.txt",
+   "base": "403701",
+   "chapters": "37-37"
+  }
+ ]
+}

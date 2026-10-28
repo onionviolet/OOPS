@@ -66,8 +66,22 @@ export function migrateCensus(r) {
     const seg = /^([a-z0-9]+)\.([a-z]+)\.(.+)$/.exec(c.id || '');
     if (seg && c.kind && seg[2] !== c.kind) { c.idWas = c.id; c.id = `${seg[1]}.${c.kind}.${seg[3]}`; }
     // A price row without a parsed amount gets one when its printed name is a number and a known unit ("7便士", "three Galleons").
-    if (c.kind === 'price' && !(c.amount && Number.isFinite(c.amount.value) && c.amount.unit)) { const a = parseAmount(c.zh); if (a) c.amount = a; }
+    if (c.kind === 'price' && !(c.amount && Number.isFinite(c.amount.value) && c.amount.unit)) { const a = parseAmount(c.zh) || noteAmount(c.note); if (a) c.amount = a; }
+    // Batch readers put an evidence label (S, I, U, T) in the census `label`, which is the display name (2026-10-28): the printed name stands in for English
+    // sources, a title from the id slug for others; `labelFrom` marks it so the merge prefers a real label.
+    if (['S', 'I', 'U', 'T'].includes(c.label)) {
+        c.labelWas = c.label;
+        const ascii = /^[\x20-\x7e]+$/.test(c.zh || '');
+        c.label = ascii ? c.zh : String(c.id || '').split('.').pop().split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        c.labelFrom = ascii ? 'zh' : 'id';
+    }
     return c;
+}
+
+/** A reader's own bracketed amount in a note ("Cash left.[5 pounds]") -> parseAmount of the bracket; null otherwise. */
+export function noteAmount(note) {
+    const m = /\[([^\]]+)\]/.exec(String(note || ''));
+    return m ? parseAmount(m[1].trim()) : null;
 }
 
 const ZH_DIGIT = {零: 0, 一: 1, 二: 2, 两: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9};

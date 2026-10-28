@@ -1,0 +1,114 @@
+{
+ "name": "2026-10-28w-ss",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 24,
+ "capTotal": 32.07,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_pilot_census.json",
+     "cap": 0.02,
+     "label": "ss-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "ss-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_pilot_census.json",
+     "cap": 0.02,
+     "label": "ss10-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "ss10-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_census.json",
+     "cap": 5.14,
+     "label": "ss-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_census.json",
+     "cap": 1.23,
+     "label": "ss10-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_scenes.json",
+     "cap": 5.15,
+     "label": "ss-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_scenes.json",
+     "cap": 1.24,
+     "label": "ss10-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_rules.json",
+     "cap": 5.16,
+     "label": "ss-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_rules.json",
+     "cap": 1.25,
+     "label": "ss10-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_people.json",
+     "cap": 5.16,
+     "label": "ss-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_people.json",
+     "cap": 1.25,
+     "label": "ss10-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss_texture.json",
+     "cap": 5.16,
+     "label": "ss-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ss10_texture.json",
+     "cap": 1.25,
+     "label": "ss10-texture"
+    }
+   ]
+  }
+ ]
+}

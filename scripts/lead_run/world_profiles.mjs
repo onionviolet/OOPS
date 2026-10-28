@@ -1,6 +1,7 @@
 // World profiles for the lead-run readers (READINESS_AND_SCOPE section 10, X1-X8): language, locator form, shard header, candidate patterns,
 // name matching, titles and the world appendix that rides in the cached system prefix. LOTM (Chinese) behaviour is the default and unchanged.
-// Locators: Chinese `zh 第N章 pM`; English `en bB cN pM` (book, chapter, paragraph; chapter numbers restart per book, so the book is part of it).
+// Locators: Chinese `zh 第N章 pM` (volume 1) or `zh bB 第N章 pM` (volume B > 1: LOTM numbers chapters per volume, 2026-10-28); English `en bB cN pM`
+// (book, chapter, paragraph; chapter numbers restart per book, so the book is part of it).
 import {existsSync, readFileSync} from 'node:fs';
 import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -8,15 +9,15 @@ import {fileURLToPath} from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const APPENDIX_DIR = join(here, '../../docs/gm/dispatch/batch-reading-2026-10-27/world_appendix');
 
-export const LOCATOR_ANY = /^(?:zh 第(\d+)章 p(\d+)|en b(\d+) c(\d+) p(\d+))$/;
-const LOCATOR_IN_TEXT = /zh 第(\d+)章 p(\d+)|en b(\d+) c(\d+) p(\d+)/g;
+export const LOCATOR_ANY = /^(?:zh (?:b(\d+) )?第(\d+)章 p(\d+)|en b(\d+) c(\d+) p(\d+))$/;
+const LOCATOR_IN_TEXT = /zh (?:b\d+ )?第\d+章 p\d+|en b\d+ c\d+ p\d+/g;
 
-/** `zh 第3章 p4` -> {lang:'zh', book:0, ch:3, p:4, key:'3:4'}; `en b1 c3 p4` -> {lang:'en', book:1, ...}. Null when not a locator. */
+/** `zh 第3章 p4` -> {lang:'zh', book:0, ch:3, p:4, key:'3:4'} (book 0 is volume 1); `zh b2 第3章 p4` -> book 2; `en b1 c3 p4` -> {lang:'en', book:1, ...}. */
 export function parseLocator(loc) {
     const m = LOCATOR_ANY.exec(String(loc || '').trim());
     if (!m) return null;
-    return m[1] ? {lang: 'zh', book: 0, ch: Number(m[1]), p: Number(m[2]), key: `${Number(m[1])}:${Number(m[2])}`}
-        : {lang: 'en', book: Number(m[3]), ch: Number(m[4]), p: Number(m[5]), key: `${Number(m[4])}:${Number(m[5])}`};
+    return m[2] ? {lang: 'zh', book: m[1] && Number(m[1]) > 1 ? Number(m[1]) : 0, ch: Number(m[2]), p: Number(m[3]), key: `${Number(m[2])}:${Number(m[3])}`}
+        : {lang: 'en', book: Number(m[4]), ch: Number(m[5]), p: Number(m[6]), key: `${Number(m[5])}:${Number(m[6])}`};
 }
 
 /** Every locator inside a string, in order. */
@@ -25,13 +26,13 @@ export function locatorsIn(text) {
 }
 
 export function formatLocator(lang, {book = 1, ch, p}) {
-    return lang === 'en' ? `en b${book} c${ch} p${p}` : `zh 第${ch}章 p${p}`;
+    return lang === 'en' ? `en b${book} c${ch} p${p}` : book > 1 ? `zh b${book} 第${ch}章 p${p}` : `zh 第${ch}章 p${p}`;
 }
 
 /** Shard header line -> {ch, book} or null. Chinese `=== … 第N章 …`; English `=== Chapter N: Title | book B | …`. */
 export function headerOf(line) {
     const zh = line.match(/^=== .*?第(\d+)章/);
-    if (zh) return {ch: Number(zh[1]), book: 0, lang: 'zh'};
+    if (zh) { const b = line.match(/\|\s*book (\d+)/); return {ch: Number(zh[1]), book: b && Number(b[1]) > 1 ? Number(b[1]) : 0, lang: 'zh'}; }
     const en = line.match(/^=== Chapter (\d+)\b.*?(?:\|\s*book (\d+))?/);
     if (en) { const b = line.match(/\|\s*book (\d+)/); return {ch: Number(en[1]), book: b ? Number(b[1]) : 1, lang: 'en'}; }
     return null;
@@ -105,5 +106,5 @@ export function languageRules(lang) {
         ? {locator: 'locators are `en bB cN pM` (book, chapter, paragraph) for a paragraph inside the shard; the book number is in each chapter header',
             name: 'the `zh` field holds the name exactly as printed in this English source (the field name is historical); `aliases` hold other printed forms',
             quote: 'never copy more than eight consecutive source words outside `zh` and `aliases`'}
-        : {locator: 'locators are `zh 第N章 pM` for a paragraph inside the shard', name: 'copy `zh` exactly as printed', quote: 'never copy more than five source characters outside `zh` and `aliases`'};
+        : {locator: 'locators are `zh 第N章 pM` for a paragraph inside the shard (`zh bB 第N章 pM` when the chapter header says `| book B`)', name: 'copy `zh` exactly as printed', quote: 'never copy more than five source characters outside `zh` and `aliases`'};
 }

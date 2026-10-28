@@ -1,0 +1,769 @@
+{
+ "world": "lotm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 64000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/batch",
+ "glossary": {
+  "wiki": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/lotm_wiki_api_2026-10-25.json",
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+  "censusMatch": "^(s2m|s[2-6]rm|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m|lotm[2-8]c\\d{3,}m)_census\\.jsonl$"
+ },
+ "label": "lotm3-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "lotm3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch001-002.txt",
+   "base": "300101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "lotm3c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch003-004.txt",
+   "base": "300301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "lotm3c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch005-006.txt",
+   "base": "300501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "lotm3c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch007-008.txt",
+   "base": "300701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "lotm3c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch009-010.txt",
+   "base": "300901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "lotm3c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch011-012.txt",
+   "base": "301101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "lotm3c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch013-014.txt",
+   "base": "301301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "lotm3c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch015-016.txt",
+   "base": "301501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "lotm3c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch017-018.txt",
+   "base": "301701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "lotm3c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch019-020.txt",
+   "base": "301901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "lotm3c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch021-022.txt",
+   "base": "302101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "lotm3c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch023-024.txt",
+   "base": "302301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "lotm3c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch025-026.txt",
+   "base": "302501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "lotm3c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch027-028.txt",
+   "base": "302701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "lotm3c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch029-030.txt",
+   "base": "302901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "lotm3c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch031-032.txt",
+   "base": "303101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "lotm3c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch033-034.txt",
+   "base": "303301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "lotm3c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch035-036.txt",
+   "base": "303501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "lotm3c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch037-038.txt",
+   "base": "303701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "lotm3c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch039-040.txt",
+   "base": "303901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "lotm3c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch041-042.txt",
+   "base": "304101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "lotm3c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch043-044.txt",
+   "base": "304301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "lotm3c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch045-046.txt",
+   "base": "304501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "lotm3c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch047-048.txt",
+   "base": "304701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "lotm3c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch049-050.txt",
+   "base": "304901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "lotm3c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch051-052.txt",
+   "base": "305101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "lotm3c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch053-054.txt",
+   "base": "305301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "lotm3c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch055-056.txt",
+   "base": "305501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "lotm3c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch057-058.txt",
+   "base": "305701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "lotm3c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch059-060.txt",
+   "base": "305901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "lotm3c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch061-062.txt",
+   "base": "306101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "lotm3c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch063-064.txt",
+   "base": "306301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "lotm3c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch065-066.txt",
+   "base": "306501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "lotm3c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch067-068.txt",
+   "base": "306701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "lotm3c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch069-070.txt",
+   "base": "306901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "lotm3c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch071-072.txt",
+   "base": "307101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "lotm3c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch073-074.txt",
+   "base": "307301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "lotm3c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch075-076.txt",
+   "base": "307501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "lotm3c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch077-078.txt",
+   "base": "307701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "lotm3c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch079-080.txt",
+   "base": "307901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "lotm3c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch081-082.txt",
+   "base": "308101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "lotm3c083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch083-084.txt",
+   "base": "308301",
+   "chapters": "83-84"
+  },
+  {
+   "prefix": "lotm3c085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch085-086.txt",
+   "base": "308501",
+   "chapters": "85-86"
+  },
+  {
+   "prefix": "lotm3c087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch087-088.txt",
+   "base": "308701",
+   "chapters": "87-88"
+  },
+  {
+   "prefix": "lotm3c089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch089-090.txt",
+   "base": "308901",
+   "chapters": "89-90"
+  },
+  {
+   "prefix": "lotm3c091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch091-092.txt",
+   "base": "309101",
+   "chapters": "91-92"
+  },
+  {
+   "prefix": "lotm3c093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch093-094.txt",
+   "base": "309301",
+   "chapters": "93-94"
+  },
+  {
+   "prefix": "lotm3c095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch095-096.txt",
+   "base": "309501",
+   "chapters": "95-96"
+  },
+  {
+   "prefix": "lotm3c097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch097-098.txt",
+   "base": "309701",
+   "chapters": "97-98"
+  },
+  {
+   "prefix": "lotm3c099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch099-100.txt",
+   "base": "309901",
+   "chapters": "99-100"
+  },
+  {
+   "prefix": "lotm3c101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch101-102.txt",
+   "base": "310101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "lotm3c103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch103-104.txt",
+   "base": "310301",
+   "chapters": "103-104"
+  },
+  {
+   "prefix": "lotm3c105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch105-106.txt",
+   "base": "310501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "lotm3c107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch107-108.txt",
+   "base": "310701",
+   "chapters": "107-108"
+  },
+  {
+   "prefix": "lotm3c109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch109-110.txt",
+   "base": "310901",
+   "chapters": "109-110"
+  },
+  {
+   "prefix": "lotm3c111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch111-112.txt",
+   "base": "311101",
+   "chapters": "111-112"
+  },
+  {
+   "prefix": "lotm3c113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch113-114.txt",
+   "base": "311301",
+   "chapters": "113-114"
+  },
+  {
+   "prefix": "lotm3c115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch115-116.txt",
+   "base": "311501",
+   "chapters": "115-116"
+  },
+  {
+   "prefix": "lotm3c117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch117-118.txt",
+   "base": "311701",
+   "chapters": "117-118"
+  },
+  {
+   "prefix": "lotm3c119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch119-120.txt",
+   "base": "311901",
+   "chapters": "119-120"
+  },
+  {
+   "prefix": "lotm3c121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch121-122.txt",
+   "base": "312101",
+   "chapters": "121-122"
+  },
+  {
+   "prefix": "lotm3c123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch123-124.txt",
+   "base": "312301",
+   "chapters": "123-124"
+  },
+  {
+   "prefix": "lotm3c125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch125-126.txt",
+   "base": "312501",
+   "chapters": "125-126"
+  },
+  {
+   "prefix": "lotm3c127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch127-128.txt",
+   "base": "312701",
+   "chapters": "127-128"
+  },
+  {
+   "prefix": "lotm3c129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch129-130.txt",
+   "base": "312901",
+   "chapters": "129-130"
+  },
+  {
+   "prefix": "lotm3c131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch131-132.txt",
+   "base": "313101",
+   "chapters": "131-132"
+  },
+  {
+   "prefix": "lotm3c133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch133-134.txt",
+   "base": "313301",
+   "chapters": "133-134"
+  },
+  {
+   "prefix": "lotm3c135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch135-136.txt",
+   "base": "313501",
+   "chapters": "135-136"
+  },
+  {
+   "prefix": "lotm3c137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch137-138.txt",
+   "base": "313701",
+   "chapters": "137-138"
+  },
+  {
+   "prefix": "lotm3c139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch139-140.txt",
+   "base": "313901",
+   "chapters": "139-140"
+  },
+  {
+   "prefix": "lotm3c141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch141-142.txt",
+   "base": "314101",
+   "chapters": "141-142"
+  },
+  {
+   "prefix": "lotm3c143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch143-144.txt",
+   "base": "314301",
+   "chapters": "143-144"
+  },
+  {
+   "prefix": "lotm3c145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch145-146.txt",
+   "base": "314501",
+   "chapters": "145-146"
+  },
+  {
+   "prefix": "lotm3c147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch147-148.txt",
+   "base": "314701",
+   "chapters": "147-148"
+  },
+  {
+   "prefix": "lotm3c149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch149-150.txt",
+   "base": "314901",
+   "chapters": "149-150"
+  },
+  {
+   "prefix": "lotm3c151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch151-152.txt",
+   "base": "315101",
+   "chapters": "151-152"
+  },
+  {
+   "prefix": "lotm3c153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch153-154.txt",
+   "base": "315301",
+   "chapters": "153-154"
+  },
+  {
+   "prefix": "lotm3c155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch155-156.txt",
+   "base": "315501",
+   "chapters": "155-156"
+  },
+  {
+   "prefix": "lotm3c157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch157-158.txt",
+   "base": "315701",
+   "chapters": "157-158"
+  },
+  {
+   "prefix": "lotm3c159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch159-160.txt",
+   "base": "315901",
+   "chapters": "159-160"
+  },
+  {
+   "prefix": "lotm3c161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch161-162.txt",
+   "base": "316101",
+   "chapters": "161-162"
+  },
+  {
+   "prefix": "lotm3c163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch163-164.txt",
+   "base": "316301",
+   "chapters": "163-164"
+  },
+  {
+   "prefix": "lotm3c165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch165-166.txt",
+   "base": "316501",
+   "chapters": "165-166"
+  },
+  {
+   "prefix": "lotm3c167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch167-168.txt",
+   "base": "316701",
+   "chapters": "167-168"
+  },
+  {
+   "prefix": "lotm3c169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch169-170.txt",
+   "base": "316901",
+   "chapters": "169-170"
+  },
+  {
+   "prefix": "lotm3c171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch171-172.txt",
+   "base": "317101",
+   "chapters": "171-172"
+  },
+  {
+   "prefix": "lotm3c173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch173-174.txt",
+   "base": "317301",
+   "chapters": "173-174"
+  },
+  {
+   "prefix": "lotm3c175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch175-176.txt",
+   "base": "317501",
+   "chapters": "175-176"
+  },
+  {
+   "prefix": "lotm3c177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch177-178.txt",
+   "base": "317701",
+   "chapters": "177-178"
+  },
+  {
+   "prefix": "lotm3c179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch179-180.txt",
+   "base": "317901",
+   "chapters": "179-180"
+  },
+  {
+   "prefix": "lotm3c181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch181-182.txt",
+   "base": "318101",
+   "chapters": "181-182"
+  },
+  {
+   "prefix": "lotm3c183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch183-184.txt",
+   "base": "318301",
+   "chapters": "183-184"
+  },
+  {
+   "prefix": "lotm3c185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch185-186.txt",
+   "base": "318501",
+   "chapters": "185-186"
+  },
+  {
+   "prefix": "lotm3c187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch187-188.txt",
+   "base": "318701",
+   "chapters": "187-188"
+  },
+  {
+   "prefix": "lotm3c189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch189-190.txt",
+   "base": "318901",
+   "chapters": "189-190"
+  },
+  {
+   "prefix": "lotm3c191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch191-192.txt",
+   "base": "319101",
+   "chapters": "191-192"
+  },
+  {
+   "prefix": "lotm3c193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch193-194.txt",
+   "base": "319301",
+   "chapters": "193-194"
+  },
+  {
+   "prefix": "lotm3c195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch195-196.txt",
+   "base": "319501",
+   "chapters": "195-196"
+  },
+  {
+   "prefix": "lotm3c197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch197-198.txt",
+   "base": "319701",
+   "chapters": "197-198"
+  },
+  {
+   "prefix": "lotm3c199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch199-200.txt",
+   "base": "319901",
+   "chapters": "199-200"
+  },
+  {
+   "prefix": "lotm3c201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch201-202.txt",
+   "base": "320101",
+   "chapters": "201-202"
+  },
+  {
+   "prefix": "lotm3c203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch203-204.txt",
+   "base": "320301",
+   "chapters": "203-204"
+  },
+  {
+   "prefix": "lotm3c205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch205-206.txt",
+   "base": "320501",
+   "chapters": "205-206"
+  },
+  {
+   "prefix": "lotm3c207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch207-208.txt",
+   "base": "320701",
+   "chapters": "207-208"
+  },
+  {
+   "prefix": "lotm3c209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch209-210.txt",
+   "base": "320901",
+   "chapters": "209-210"
+  },
+  {
+   "prefix": "lotm3c211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch211-212.txt",
+   "base": "321101",
+   "chapters": "211-212"
+  },
+  {
+   "prefix": "lotm3c213",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch213-214.txt",
+   "base": "321301",
+   "chapters": "213-214"
+  },
+  {
+   "prefix": "lotm3c215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch215-216.txt",
+   "base": "321501",
+   "chapters": "215-216"
+  },
+  {
+   "prefix": "lotm3c217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch217-218.txt",
+   "base": "321701",
+   "chapters": "217-218"
+  },
+  {
+   "prefix": "lotm3c219",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch219-220.txt",
+   "base": "321901",
+   "chapters": "219-220"
+  },
+  {
+   "prefix": "lotm3c221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch221-222.txt",
+   "base": "322101",
+   "chapters": "221-222"
+  },
+  {
+   "prefix": "lotm3c223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch223-224.txt",
+   "base": "322301",
+   "chapters": "223-224"
+  },
+  {
+   "prefix": "lotm3c225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch225-226.txt",
+   "base": "322501",
+   "chapters": "225-226"
+  },
+  {
+   "prefix": "lotm3c227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch227-228.txt",
+   "base": "322701",
+   "chapters": "227-228"
+  },
+  {
+   "prefix": "lotm3c229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch229-230.txt",
+   "base": "322901",
+   "chapters": "229-230"
+  },
+  {
+   "prefix": "lotm3c230",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch230-232.txt",
+   "base": "323001",
+   "chapters": "230-232"
+  },
+  {
+   "prefix": "lotm3c233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch233-234.txt",
+   "base": "323301",
+   "chapters": "233-234"
+  },
+  {
+   "prefix": "lotm3c235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch235-236.txt",
+   "base": "323501",
+   "chapters": "235-236"
+  },
+  {
+   "prefix": "lotm3c237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch237-238.txt",
+   "base": "323701",
+   "chapters": "237-238"
+  },
+  {
+   "prefix": "lotm3c239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch239-240.txt",
+   "base": "323901",
+   "chapters": "239-240"
+  },
+  {
+   "prefix": "lotm3c241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch241-242.txt",
+   "base": "324101",
+   "chapters": "241-242"
+  },
+  {
+   "prefix": "lotm3c243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch243-244.txt",
+   "base": "324301",
+   "chapters": "243-244"
+  },
+  {
+   "prefix": "lotm3c245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch245-246.txt",
+   "base": "324501",
+   "chapters": "245-246"
+  },
+  {
+   "prefix": "lotm3c247",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch247-248.txt",
+   "base": "324701",
+   "chapters": "247-248"
+  },
+  {
+   "prefix": "lotm3c249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch249-250.txt",
+   "base": "324901",
+   "chapters": "249-250"
+  }
+ ]
+}

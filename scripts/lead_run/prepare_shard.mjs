@@ -12,6 +12,13 @@ import {fileURLToPath} from 'node:url';
 const decode = s => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"').replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n))).replace(/&amp;/g, '&').trim();
 
+/** Nav links split into volumes: a new volume starts where chapter 1 comes again. Volume V is runs[V - 1]. */
+export function volumeRuns(links) {
+    const runs = [];
+    for (const l of links) { if (!runs.length || (l.n === 1 && runs.at(-1).length)) runs.push([]); runs.at(-1).push(l); }
+    return runs;
+}
+
 /** Chapter links in reading order with their chapter number from 第N章 titles. */
 export function chapterLinks(navXhtml, navDir) {
     const out = [];
@@ -23,11 +30,12 @@ export function chapterLinks(navXhtml, navDir) {
 }
 
 /** Paragraph-numbered shard text and an index of paragraph counts and characters per chapter. */
-export function shardText(chapters) {
+export function shardText(chapters, {volume = 1} = {}) {
     const lines = [], index = [];
     for (const c of chapters) {
         const ps = [...c.xhtml.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map(m => decode(m[1])).filter(Boolean);
-        lines.push(`=== ${c.title} | member ${c.member}`, ...ps.map((p, i) => `p${i + 1}: ${p}`));
+        // Volumes after the first carry `| book V` so locators become `zh bV 第N章 pM` (chapter numbers restart per volume).
+        lines.push(`=== ${c.title}${volume > 1 ? ` | book ${volume}` : ''} | member ${c.member}`, ...ps.map((p, i) => `p${i + 1}: ${p}`));
         index.push({chapter: c.n, member: c.member, paragraphs: ps.length, chars: ps.reduce((a, p) => a + p.length, 0)});
     }
     return {text: lines.join('\n'), index};

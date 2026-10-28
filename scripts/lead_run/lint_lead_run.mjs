@@ -8,6 +8,8 @@ import {fileURLToPath} from 'node:url';
 
 export const KINDS = Object.freeze(['person', 'place', 'organization', 'deity', 'item', 'price', 'law', 'calendar',
     'clock', 'event', 'language', 'measure', 'document', 'note', 'creature']);
+// A scene can touch a rule row (a spell cast, a potion brewed); its id lives in the rules pass, so `touched` also takes the rule kinds (2026-10-28, MoL pilot).
+export const RULE_KINDS = Object.freeze(['rite', 'potion', 'ability', 'craft', 'spell', 'law', 'custom', 'institution']);
 // Shared engine verb classes (WA5); a world supplies the nouns, costs and requirements.
 export const ACTION_CLASSES = Object.freeze(['study', 'practice', 'research', 'craft', 'trade', 'work', 'travel', 'fight',
     'socialize', 'rest', 'care', 'appraise', 'ritual', 'other']);
@@ -88,7 +90,7 @@ export function lintScenes(scenes) {
             if (typeof r.pov !== 'string' || !r.pov) out.push({code: 'pov', where: w});
         }
         for (const t of r.touched || []) {
-            if (!KINDS.includes(t.kind)) out.push({code: 'touched-kind', where: w, kind: t.kind});
+            if (!KINDS.includes(t.kind) && !RULE_KINDS.includes(t.kind)) out.push({code: 'touched-kind', where: w, kind: t.kind});
             if (!TOUCH_STATUS.has(t.status)) out.push({code: 'touched-status', where: w});
         }
         for (const o of r.outcomes || []) if (!CLASSES.has(o.class)) out.push({code: 'outcome-class', where: w});

@@ -44,6 +44,16 @@ export function epubParagraphs(xhtml) {
  * with its title on the next non-blank line; `CHAPTER ONE` starts a new book. A paragraph ends at a blank line or at a short line (under 85% of
  * the usual line width) ending in sentence punctuation; bare page numbers are dropped. Deterministic, so locators are stable for one PDF.
  */
+// Chapter heading forms seen in one PDF (the complete Harry Potter): `CHAPTER ONE`, `— CHAPTER ONE —`, and `-CHAPTER ONEThe Riddle House` with the title glued on.
+// Number words are matched longest first so `ONEThe` splits as ONE + The.
+const NUM_WORDS = [...WORDS.slice(1), ...Object.keys(TENS).flatMap(t => [t, ...WORDS.slice(1, 10).map(u => `${t}-${u}`)])].map(w => w.toUpperCase()).sort((a, b) => b.length - a.length);
+// ... and `Chapter 1: The Other Minister` or `Chapter 8 -- Victorious Snape`.
+const HEADING = new RegExp(`^[-—–\\s]*(?:CHAPTER|Chapter) (${NUM_WORDS.join('|')}|\\d+):?(?:\\s*[-—–]+\\s*)?(?:\\s*([A-Z].*)|\\s*)$`);
+export function chapterHeading(line) {
+    const m = HEADING.exec(line);
+    return m ? {n: wordNumber(m[1]), title: (m[2] || '').trim()} : null;
+}
+
 export function pdfChapters(text) {
     const pages = text.split('\f');
     const lens = pages.flatMap(p => p.split('\n')).map(l => l.trim().length).filter(n => n > 20).sort((a, b) => a - b);
@@ -54,14 +64,14 @@ export function pdfChapters(text) {
     pages.forEach((pg, pi) => {
         for (const raw of pg.split('\n')) {
             const line = raw.trim();
-            const head = line.match(/^CHAPTER ([A-Z]+(?:[- ][A-Z]+)?|\d+)$/);
-            if (head && wordNumber(head[1]) != null) {
+            const head = chapterHeading(line);
+            if (head && head.n != null) {
                 flush();
-                const n = wordNumber(head[1]);
+                const n = head.n;
                 if (n === 1) { book++; books[book] = []; }
                 if (!book) continue;
-                cur = {book, ch: n, title: '', startPage: pi + 1, paragraphs: []};
-                books[book].push(cur); wantTitle = true; continue;
+                cur = {book, ch: n, title: head.title, startPage: pi + 1, paragraphs: []};
+                books[book].push(cur); wantTitle = !head.title; continue;
             }
             if (!cur) continue;
             if (wantTitle) { if (line) { cur.title = line; wantTitle = false; } continue; }
@@ -73,8 +83,8 @@ export function pdfChapters(text) {
         }
     });
     flush();
-    // A table of contents also prints CHAPTER ONE…N with no body: drop books without paragraphs and renumber from 1.
-    const real = books.filter(b => b && b.some(c => c.paragraphs.length));
+    // A table of contents also prints CHAPTER ONE…N with no body: drop chapters and books without paragraphs and renumber books from 1.
+    const real = books.filter(Boolean).map(b => b.filter(c => c.paragraphs.length)).filter(b => b.length);
     real.forEach((b, i) => b.forEach(c => { c.book = i + 1; }));
     return [null, ...real];
 }

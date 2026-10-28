@@ -9,11 +9,11 @@ import {locatorsIn} from './world_profiles.mjs';
 
 const readJsonl = p => existsSync(p) ? readFileSync(p, 'utf8').split('\n').filter(l => l.trim()).map(l => JSON.parse(l)) : [];
 
-/** "book:ch:p" -> paragraph text over every shard file (book 0 for Chinese locators; first file wins where two editions overlap). */
+/** "book:ch:p" -> paragraph text over every shard file (book 0 for Chinese volume 1; first file wins where two editions overlap). */
 export function shardIndex(privateDir) {
     const index = new Map();
     for (const f of readdirSync(privateDir).filter(f => /^shard_.*\.txt$/.test(f)).sort()) {
-        const map = parseShard(readFileSync(join(privateDir, f), 'utf8')), book = map.lang === 'en' ? map.book : 0;
+        const map = parseShard(readFileSync(join(privateDir, f), 'utf8')), book = map.book || 0;   // Chinese volume 1 is book 0; later volumes carry `| book V`
         for (const [k, v] of map) if (!index.has(`${book}:${k}`)) index.set(`${book}:${k}`, v);
     }
     return index;

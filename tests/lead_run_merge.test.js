@@ -123,3 +123,21 @@ test('--match includes batch-route shards by prefix; texture places feed the aff
     assert.deepEqual(r.extras.find(x => x.extra === 'places').affordances[0].needs, ['t.person.mask']);
     assert.equal(r.report.extras.places, 1);
 });
+
+test('a label derived from the id fills in only when no reader gave a real label', () => {
+    const dir = fixture();
+    writeFileSync(join(dir, 'a1m_census.jsonl'), [cen('t.person.ann', 'Ann', 'person'), cen('t.person.ann', 'Ann Row', 'person', {labelFrom: 'id', nameSource: 'wiki'}), cen('t.person.ann', 'Ann Row', 'person', {labelFrom: 'id'}),
+        cen('t.person.bo', 'Bo', 'person', {labelFrom: 'id'})].map(r => JSON.stringify(r)).join('\n') + '\n');
+    const reg = mergeAll(dir).registry;
+    assert.equal(reg.find(x => x.id === 't.person.ann').label, 'Ann');
+    assert.equal(reg.find(x => x.id === 't.person.bo').label, 'Bo');
+});
+
+test('rows read before the label fix: an evidence label is no label, so the id or printed name stands in', () => {
+    const dir = fixture();
+    writeFileSync(join(dir, 'a1m_census.jsonl'), [cen('t.person.old-man', 'S', 'person', {zh: '老人'}), cen('t.person.ann', 'S', 'person', {zh: 'Ann Smith'}), cen('t.person.ann', 'Ann', 'person')].map(r => JSON.stringify(r)).join('\n') + '\n');
+    const reg = mergeAll(dir).registry;
+    assert.equal(reg.find(x => x.id === 't.person.old-man').label, 'Old Man');
+    assert.equal(reg.find(x => x.id === 't.person.ann').label, 'Ann');
+    assert.ok(!reg.find(x => x.id === 't.person.ann').aliases.includes('S'));
+});

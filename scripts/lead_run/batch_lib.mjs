@@ -9,7 +9,7 @@ import {join, dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseShard, lintScenes, lintCensus, lintFills} from './lint_lead_run.mjs';
 import {extractCandidates, buildGlossary, glossaryHits, auditShard} from './shard_tools.mjs';
-import {worldProfile, languageRules, parseLocator, sharedWordRun} from './world_profiles.mjs';
+import {worldProfile, languageRules, parseLocator, formatLocator, sharedWordRun} from './world_profiles.mjs';
 
 export const MODEL = 'claude-haiku-5-5';
 // claude-api skill cached table 2026-10-06: Haiku 5.5, prompts up to 100K tokens; the Batch API is half price.
@@ -134,6 +134,8 @@ export function shardSchema(pass) {
 // ---- prompt -------------------------------------------------------------------------------------------------
 const PASS_TEXT = {
     census: 'PASS 1 (census). Return only the `census` array: every named entity and every distinct amount, time and measure in the shard. ' +
+        // 2026-10-28: batch readers filled `label` with S/I/U; census rows carry no evidence label.
+        'A census `label` is the English display name (the label in the known-names table when there is one, otherwise a short English name), never S, I, U or T. ' +
         // Stage A (NOV1_SCHEDULE SA1, SA2): grade C came from price rows without `amount` and ids whose kind segment differed from the row; recall missed one-line names.
         'An id\'s middle segment is exactly the row\'s `kind` (a price row is `<world>.price.<slug>`). A price row exists only when the text prints an amount, and it carries `amount` with that number; a vague amount ("several hundred") takes its lowest reading as `value` with "approx" in the note; a cost with no number goes in the note of the item or service row, not in a price row. Notes stay at most 15 words. ' +
         'The known-names table is not complete, and the names it lacks matter most: before replying, go back through each chapter and add every named person, group, place, item, title and creature not yet in your rows, including names mentioned once in passing.',
@@ -154,7 +156,7 @@ export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
         ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
-        (EXTRA_SCHEMA[pass] ? 'Rules: labels are exactly T, S, I or U; ' : 'Rules: labels are exactly S, I or U; ') + 'locators are `zh 第N章 pM` for a paragraph inside the shard; copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
+        (EXTRA_SCHEMA[pass] ? 'Rules: labels are exactly T, S, I or U; ' : 'Rules: labels are exactly S, I or U; ') + 'locators are `zh 第N章 pM` for a paragraph inside the shard (`zh bB 第N章 pM` when the chapter header says `| book B`); copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
         `World id prefix for ids: ${world}. Beat ids are \`lr.${world}.main.NNNN\` counting up from the base given in the user message.`,
         '# Schema card\n\n' + readFileSync(cardPath, 'utf8'),
         // World appendix (units, kinds, calendar, structure) for worlds other than LOTM; it overrides the card's LOTM-specific units.
@@ -262,7 +264,7 @@ export function addMissingKnown(census, glossary, shardText) {
         const [ch, para] = hit[0].split(':');
         have.add(zh); ids.add(h.id);
         added.push({schema: 'census/1.3', id: h.id, label: h.label, zh: h.zh, nameSource: h.source === 'wiki' ? 'wiki' : 'repo', kind: h.kind, rung: 'M0', whereabouts: [],
-            firstMention: `zh 第${ch}章 p${para}`, firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
+            firstMention: formatLocator(shardMap.lang || 'zh', {book: shardMap.book || (shardMap.lang === 'en' ? 1 : 0), ch, p: para}), firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
     }
     return [...census, ...added];
 }

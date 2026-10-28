@@ -1,0 +1,289 @@
+{
+ "name": "2026-10-28w-lotm",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 36,
+ "capTotal": 49.13,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm2-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm2-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm3-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm3-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm4-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm4-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm5-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm5-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm6-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm6-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm7-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm7-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_pilot_census.json",
+     "cap": 0.02,
+     "label": "lotm8-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_pilot_scenes.json",
+     "cap": 0.02,
+     "label": "lotm8-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_census.json",
+     "cap": 2.22,
+     "label": "lotm2-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_census.json",
+     "cap": 2.05,
+     "label": "lotm3-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_census.json",
+     "cap": 1.75,
+     "label": "lotm4-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_census.json",
+     "cap": 1.67,
+     "label": "lotm5-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_census.json",
+     "cap": 0.95,
+     "label": "lotm6-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_census.json",
+     "cap": 0.71,
+     "label": "lotm7-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_census.json",
+     "cap": 0.33,
+     "label": "lotm8-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_scenes.json",
+     "cap": 2.22,
+     "label": "lotm2-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_scenes.json",
+     "cap": 2.06,
+     "label": "lotm3-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_scenes.json",
+     "cap": 1.76,
+     "label": "lotm4-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_scenes.json",
+     "cap": 1.68,
+     "label": "lotm5-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_scenes.json",
+     "cap": 0.95,
+     "label": "lotm6-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_scenes.json",
+     "cap": 0.72,
+     "label": "lotm7-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_scenes.json",
+     "cap": 0.34,
+     "label": "lotm8-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_rules.json",
+     "cap": 2.24,
+     "label": "lotm2-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_rules.json",
+     "cap": 2.07,
+     "label": "lotm3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_rules.json",
+     "cap": 1.78,
+     "label": "lotm4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_rules.json",
+     "cap": 1.69,
+     "label": "lotm5-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_rules.json",
+     "cap": 0.96,
+     "label": "lotm6-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_rules.json",
+     "cap": 0.73,
+     "label": "lotm7-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_rules.json",
+     "cap": 0.35,
+     "label": "lotm8-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_people.json",
+     "cap": 2.24,
+     "label": "lotm2-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_people.json",
+     "cap": 2.07,
+     "label": "lotm3-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_people.json",
+     "cap": 1.77,
+     "label": "lotm4-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_people.json",
+     "cap": 1.69,
+     "label": "lotm5-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_people.json",
+     "cap": 0.96,
+     "label": "lotm6-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_people.json",
+     "cap": 0.73,
+     "label": "lotm7-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_people.json",
+     "cap": 0.35,
+     "label": "lotm8-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_texture.json",
+     "cap": 2.24,
+     "label": "lotm2-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_texture.json",
+     "cap": 2.07,
+     "label": "lotm3-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_texture.json",
+     "cap": 1.77,
+     "label": "lotm4-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_texture.json",
+     "cap": 1.69,
+     "label": "lotm5-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_texture.json",
+     "cap": 0.96,
+     "label": "lotm6-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_texture.json",
+     "cap": 0.73,
+     "label": "lotm7-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_texture.json",
+     "cap": 0.35,
+     "label": "lotm8-texture"
+    }
+   ]
+  }
+ ]
+}

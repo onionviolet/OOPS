@@ -59,6 +59,9 @@ export function buildRedirect(shards, overlay = {}) {
 }
 
 /** One registry: one row per id, one label, union of aliases, earliest mention, best rung, kind by majority (conflicts reported). */
+/** Fallback display name when every row held only an evidence label: the printed name for English sources, else a title from the id slug. */
+const slugLabel = e => { const zh = top(e.zh) || ''; return /^[\x20-\x7e]+$/.test(zh) ? zh : e.id.split('.').pop().split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '); };
+
 export function buildRegistry(shards, resolve, overlay = {}) {
     const by = new Map(), kindConflicts = [], zhCollisions = new Map();
     for (const s of shards) for (const r of s.census) {
@@ -67,21 +70,24 @@ export function buildRegistry(shards, resolve, overlay = {}) {
         const e = by.get(id);
         e.rows++; e.shards.add(s.prefix);
         const lab = cleanLabel(r.label);
-        if (lab) count(e.labels, lab);
+        // A label derived by migrate from the id or printed name only fills in when no reader gave a real one.
+        // Rows read before the 2026-10-28 migrate fix still hold an evidence label (S, I, U, T) in `label`: treat it as no label.
+        const evidenceOnly = ['S', 'I', 'U', 'T'].includes(lab);
+        if (lab && !evidenceOnly) count(r.labelFrom ? (e.derivedLabels ??= new Map()) : e.labels, lab);
         // A label from the wiki or repo glossary is the canonical spelling when one exists (F7).
-        if (lab && (r.nameSource === 'wiki' || r.nameSource === 'repo')) count(e.glossLabels, lab);
+        if (lab && !evidenceOnly && !r.labelFrom && (r.nameSource === 'wiki' || r.nameSource === 'repo')) count(e.glossLabels, lab);
         if (r.label && r.label !== lab) e.aliases.add(r.label);
         if (r.zh) { count(e.zh, r.zh); if (r.id !== id) e.aliases.add(r.zh); }
         count(e.kinds, r.kind); count(e.nameSource, r.nameSource);
         for (const a of r.aliases || []) if (!roleWord(a)) e.aliases.add(a);
-        if (r.id !== id && r.label) e.aliases.add(r.label);
+        if (r.id !== id && r.label && !evidenceOnly) e.aliases.add(r.label);
         if (!e.firstMention || locatorKey(r.firstMention) < locatorKey(e.firstMention)) e.firstMention = r.firstMention;
         if ((RUNG[r.rung] || 0) > (RUNG[e.rung] || 0)) e.rung = r.rung;
         e.touchedByLead ||= !!r.touchedByLead;
     }
     const registry = [];
     for (const e of by.values()) {
-        const label = overlay.labels?.[e.id] || top(e.glossLabels.size ? e.glossLabels : e.labels);
+        const label = overlay.labels?.[e.id] || top(e.glossLabels.size ? e.glossLabels : e.labels.size ? e.labels : e.derivedLabels || e.labels) || slugLabel(e);
         const zh = top(e.zh), kind = overlay.kinds?.[e.id] || top(e.kinds);
         if (e.kinds.size > 1) kindConflicts.push({id: e.id, kinds: Object.fromEntries(e.kinds)});
         if (zh && !CONTEXTUAL.has(kind) && !roleWord(zh)) { if (!zhCollisions.has(zh)) zhCollisions.set(zh, []); zhCollisions.get(zh).push({id: e.id, kind, rows: e.rows, first: locatorKey(e.firstMention), glossary: e.nameSource.has('wiki') || e.nameSource.has('repo')}); }

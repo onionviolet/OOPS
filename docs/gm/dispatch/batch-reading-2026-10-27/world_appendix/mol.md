@@ -6,3 +6,4 @@ World: Mother of Learning (English source). Id prefix `mol`.
 - Money and measures: record the units as the text gives them; do not convert.
 - Kinds: spells, shaping skills, soul magic and rituals are `rules` rows (kind `spell`, `ability` or `rite`, the book's own term in `worldKind`); the Academy, guilds and houses are `organization`; magical creatures use census kind `creature`.
 - Lead: Zorian Kazinski (`pov: lead`). Scenes from another person's view are not lead scenes; record their people, places and facts in census, people and texture.
+- In a scene's `touched`, a spell, potion or ritual uses its rule kind (`spell`, `potion`, `rite`, `ability`), never `rules`.

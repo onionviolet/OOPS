@@ -231,3 +231,34 @@ Gap work afterwards (LATER, owners as in sections 9-10): the merge, then the pac
 Weibao asked why Haiku reads at all if Sonnet could implement from the text; he accepted this answer ("Sounds good, save idea accordingly, Build it"). **Haiku records; the implementer reads the source where it matters.** Rows are the index (ids, locators, cheap, read once per shard); the merge and topic packets gather the rows for one implementation topic; the implementer (a Sonnet-level session) then opens the **cited paragraphs** in the private shards and implements from the prose, checking each row against its source. Judgment stays on real text, row errors do not propagate, and nobody re-reads 200 chapters per topic. Omissions are caught by the coverage count (section 11) and plain text search over the shards.
 
 Tool: `scripts/lead_run/cite_paragraphs.mjs` prints, for ids or a topic, every cited paragraph from the private shards (with optional neighbouring paragraphs). Output is source text: read it locally, never commit it. Consequence for the schedule: Sonnet batch scale-ups (T2-T5, NOV1_SCHEDULE) matter less, because the implementer gets Sonnet-quality reading of exactly the passages it builds from; run them only where the A/B shows a large gain.
+
+## 13. Round 9: whole books and the long-term workflow (2026-10-28)
+
+Weibao: "save and improve the batching thing as a long term workflow, can we cover the entire book for each? how come Harry potteter and MOL would be 7$? More to consider?" The procedure now lives in [BATCH_READING_WORKFLOW](../../../research/BATCH_READING_WORKFLOW.md).
+
+ACT NOW (done):
+
+| Code | Finding | Done |
+| --- | --- | --- |
+| W1 | The Harry Potter PDF split ran books 3-6 together (four more heading forms) and kept a contents list as 21 empty chapters | Splitter takes all five forms and drops empty chapters: 17, 18, 22, 37, 38, 30, 36 chapters, numbered in order; year 1 shards unchanged byte for byte |
+| W2 | Batch census rows put an evidence label (S, I, U) in `label` (the display name): 144 of 150 rows on one shard, so a merged registry would be labelled "S" | Prompt says what `label` is; migrate derives the name for new rows; merge ignores evidence labels in old rows (960 batch ids merged, 0 evidence-letter labels) |
+| W3 | LOTM chapter numbers restart in each of its 8 volumes, so volume 2 would collide with volume 1 locators and cited paragraphs | `zh bV 第N章 pM` for volumes after 1 (volume 1 unchanged), headers carry `| book V`, cite keys by volume |
+| W4 | Price amounts the reader wrote into notes ("[5 pounds]") failed lint | Migrate parses the bracket; nothing is guessed |
+| W5 | MoL scenes used `spell` and `rules` as touched kinds | Touched takes rule kinds; appendices say never `rules` |
+| W6 | Waves of 10 shards with a fixed chapter count could not cover whole books before Nov 1, and dense shards truncated | `books.json` plus `make_book_plans.mjs`: size-grouped shards, skip-done plans, a pilot per new book, one step per pass per world, true-bound caps |
+
+ACCOUNT FOR NOW:
+
+- A1. A world's gate stops all its books: one bad Harry Potter book halts the other six. Accepted for this round (safer); split the run file per book if that costs a night.
+- A2. Books in one step read their census in parallel, so volume 3 does not see volume 2's names in its known-names table; ids can diverge across volumes. The merge's proposed overlay folds same-name proper ids; review it before use.
+- A3. The scenes grade also lints the shard's census rows, so a census fault shows twice; repair the census first, then regrade.
+- A4. Measured spend is computed from the runner's price table. Ceilings leave about $16 of the month's credit unassigned as margin.
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| L1 Source acquisition for Shadow Slave 1841-2260, Circle of Inevitability, TTKS and the missing A Soldier's Life books (source acquisition rules) | haiku lookup, then sonnet; small | Sources in the local library with receipts; registry rows added |
+| L2 Volume 11 EPUB adapter (no NCX) and an A Soldier's Life world profile | sonnet, small | Shards split with chapter counts matching the edition |
+| L3 Second census arm (union) for LOTM volumes 2-8 on next month's credit | plan only | Recall measured against the first arm |
+| L4 Monthly pacing: each month, rerun `make_book_plans.mjs` and spend that month's credit on what is left plus repairs | GM routine | Run files dated per month |

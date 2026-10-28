@@ -27,7 +27,7 @@ export function extractCandidates(shardMap) {
             for (const m of text.matchAll(re)) {
                 // "一点", "半点", "一时" are usually idioms ("a little", "for a moment"); keep them only with a clock word.
                 if (kind === 'time' && /^[一半几]?[点时]$|^[一半几]点$|^一时$/.test(m[0]) && !/^[钟整半]/.test(text.slice(m.index + m[0].length))) continue;
-                out.push({kind, value: m[0], locator: `zh 第${ch}章 p${p}`});
+                out.push({kind, value: m[0], locator: formatLocator('zh', {book: shardMap.book || 0, ch, p})});
             }
         }
     }

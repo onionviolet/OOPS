@@ -125,3 +125,15 @@ test('wiki template remnants are stripped from glossary names', () => {
 test('kinship terms and titles do not carry an id across scenes', () => {
     assert.ok(!buildGlossary({censusRows: [{zh: '哥哥', id: 'test.person.someone', kind: 'person'}]}).has('哥哥'));
 });
+
+test('census: an evidence label in `label` becomes the display name; a bracketed note amount fills a price row', async () => {
+    const {migrateCensus} = await import('../scripts/lead_run/migrate_shard.mjs');
+    const zh = migrateCensus({id: 'test.person.old-man', kind: 'person', zh: '老人', label: 'S'});
+    assert.equal(zh.label, 'Old Man');
+    assert.equal(zh.labelFrom, 'id');
+    assert.equal(zh.labelWas, 'S');
+    assert.equal(migrateCensus({id: 'test.person.ann', kind: 'person', zh: 'Ann Smith', label: 'I'}).label, 'Ann Smith');
+    assert.equal(migrateCensus({id: 'test.person.ann', kind: 'person', zh: 'Ann', label: 'Ann'}).labelFrom, undefined);
+    assert.deepEqual(migrateCensus({id: 'test.price.cash', kind: 'price', zh: '现金', label: 'S', note: 'Cash left.[5 pounds]'}).amount, {value: 5, unit: 'pound'});
+    assert.equal(migrateCensus({id: 'test.price.cash', kind: 'price', zh: '现金', note: 'no number'}).amount, undefined);
+});
