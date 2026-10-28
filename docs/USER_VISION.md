@@ -6771,3 +6771,8 @@ Weibao's words: "Continue, new rate" (answering whether the remaining 33 volume 
 
 Weibao's words (relayed by the Next implementation priorities session): "Let's improve accordingly, make the chat restart with cheaper lanes, send a separate chat to test how local AI can do these."
 Recorded: reading stops after the two running wave-4 shards; a fresh coordinator continues from the [reading handoff](gm/dispatch/protagonist-life-2026-10-27/READING_HANDOFF.md), which designs protocol v3 (one headless `claude -p` haiku call per shard by script, validated in code, A/B against wave 3 first). The local-AI test runs in its own chat.
+
+## Batch API reading campaign (2026-10-27)
+
+Weibao's words: "send new chat to plan a batch api send to cover the most important of our books to consider comprehensively? Can you use DSH's key for it? Or give me a prompt to put the key locally? More to consider?"
+Recorded: a planning chat produced the [campaign plan](gm/dispatch/batch-reading-2026-10-27/PLAN.md) (scored books, passes, estimates, A/B) and a batch runner. It is a proposal: he picks the books and says go per batch; the key stays in his Keychain and is loaded only into the child process. Agent reading of LOTM volume 1 is paused for this route.

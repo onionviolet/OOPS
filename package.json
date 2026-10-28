@@ -27,6 +27,7 @@
     "node": ">=22.13.0"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "1.3.0",
     "electron": "44.9.2",
     "esbuild": "0.25.10"
   },
