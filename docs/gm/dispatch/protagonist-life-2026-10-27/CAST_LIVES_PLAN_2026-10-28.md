@@ -716,3 +716,41 @@ Or should we finish playthrough first and then set up the NPC versioon? More to 
 **CL142 decided (Weibao, 2026-10-28): "Keep history".** Local commit `92af8ce99` keeps the cast data in
 history; no rewrite. Going forward the data lives in the private pack (L3m), and `src/` holds only the
 name-free bridge.
+
+## 18. Round 10: the lead's own actions, reproducible through our UI (2026-10-28)
+
+Weibao: "I meant from one scene to the next, we need an accurate UI flow possiblity too? so its as if the
+main character themselves can reproduce their own actions through the interface of our game?"
+
+Reading: every action the lead takes in the book, in order, should be doable by a player through the
+game's real screens, with what the lead knew and had at that moment. This is PLAN LP10a (the bot plays the
+lead through the same commands a player uses) made into a UI test. Measured 2026-10-28: LOTM chapters 1-24
+hold 58 lead scenes with 161 steps (31 classed), 113 named options and 58 choices; the LOTM pack has 350
+player commands.
+
+### 18.1 Method: step table, UI path, replay
+
+| Code | Step | Default, dial and reason |
+| --- | --- | --- |
+| CL161 | **Step table.** Each lead step becomes one row: verb, action class, place, time band, inputs and outputs, and its locator | From the scenes rows; the classifier (CL77) fills the class, a reader fills the rest where it misses |
+| CL162 | **Map, fold or gap.** Each step maps to an existing game action, folds into a coarser one (book steps below the game's granularity, such as getting dressed, fold into "morning at home"), or becomes a gap row naming what is missing (a verb, a place, an item, knowledge) | Dial: the world's action granularity. Reason: one button per prose verb would bury the UI; a fold must keep every input, cost and outcome the step had |
+| CL163 | **UI path, not internal command.** For each mapped step, from the screen the previous step left, the action must be visible and reachable through the real interface (navigation, panel, button) in a few clicks, with its cost quoted (SUI6). A step only the code can run counts as a gap | Reason: the request is about the interface; AR10 says integration means a player journey crosses it |
+| CL164 | **Only what the lead knew** (LP5). A step must be findable from what is on screen plus the lead's knowledge at that date; a step that needs reader knowledge is a gap in the UI's disclosure or in the knowledge record | Reason: otherwise the replay plays with the book open |
+| CL165 | **Replay through the UI.** The bot (game MCP `game_look`, `game_click`, `game_step`, or the headless lead bot) clicks through the mapped steps in order and asserts the anchors on their dates (purse, place, knowledge, outcomes). No teleport, no direct state writes, no cheat verbs | Reason: a passing run through a shortcut proves nothing (implementation prompt) |
+| CL166 | **Score and ledger.** Report the share of steps reproducible through the UI, folded, and gapped, by gap kind (missing verb, missing UI path, hidden by disclosure, missing knowledge, blocked by mechanism). The ledger feeds the gap probe (CL15) | Default target for the slice: every step either reproducible, folded or a named gap; no silent skips |
+| CL167 | **Seat.** Until the "be" seat exists (CL159, private pack, WER11 answer pending), the replay runs in the beside start with a player body standing in for the lead; identity-bound steps (the lead's own family, his post) are recorded as `needs seat: be` rather than faked | Reason: the map and most UI paths are identical; only identity differs |
+| CL168 | **The same table drives the NPC lead.** The lead as an NPC (L4b) runs the same mapped actions through the same commands, so the NPC version and the playthrough cannot drift apart (CL160) | ACCOUNT FOR NOW: L4b brief |
+
+### 18.2 What this adds to the UI rules
+
+| Code | Rule (proposed, extends SUI1-SUI16) |
+| --- | --- |
+| SUI17 | **Every lead step has a reachable control or a named fold.** A world is UI-complete for a slice when its step table has no unmapped, unfolded step |
+| SUI18 | **The next step is findable from the current screen.** Where the lead's next action happens elsewhere, the current screen offers the route (SUI13, SUI14); where it needs an item or knowledge, the screen shows what is missing (SUI5) |
+| SUI19 | **Folded actions show their parts.** A folded action's description lists the book steps it stands for, in our words, so the player sees the lead's morning as it happened |
+
+### 18.3 Lane
+
+| Code | Lane | Model | Done check |
+| --- | --- | --- | --- |
+| CL169 | **L5r, UI replay audit, chapters 1-3 first** (the opening night and morning), then the rest of the slice. Step table (private), mapping file with folds and gaps (committed: ids, action ids, counts), and a replay script through the UI; starts after L4a and L3m so it runs on the private-pack cast | Sol, medium (mapping judgment); the replay script itself Luna | Chapters 1-3: every step reproducible, folded or a named gap; the replay passes its anchors through the UI; the score table is in the checkpoint; browser screenshots at 1920×1080 for three steps |
