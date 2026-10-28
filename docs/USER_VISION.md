@@ -6792,3 +6792,8 @@ Recorded: every capability and panel the protagonist's lived life needs is imple
 
 Weibao's words: "address each of the More to consider accordingly, dont limit mechanisms to one place, if they could be potially useful in other places in the future?"
 Recorded: a mechanism a book needs (for example the lead's dream confrontation or ritual contest) is built as a general mechanism other worlds can use, with the book's world supplying its rows, costs and dials; this replaces round 15's "world mechanisms stay in their world" (CL229). Owner: [cast-lives plan round 16](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).
+
+### Cast lives: the "be the lead" seat, from the lead's own perspective (2026-10-28)
+
+Weibao's words, answering the be-seat default (a private-pack-only "be the lead" start reusing the beside records, with the lead's own body, purse, memories and duties as the player life): "Save accordingly for now and reconcile accordingl also adjust it so that the entire menu and everything is adjusted as the perspective of being the lead, so  some stuff should be gone like \"open continuous connection\" or whatver that is seperate in a way? More to consider?"
+Recorded: the default is accepted for now, which accepts PX18's WER11 rewording ([WER11](WORLD_ENTRY_RULES.md)). In the be seat the whole interface (menus, panels, header, reports, start and help text) takes the lead's perspective: game-meta and out-of-world controls that do not belong to his life, such as the "Open Continuing connection" control for the paused Village life, are hidden in that seat. Owner: [cast-lives plan round 17](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).

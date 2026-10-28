@@ -983,3 +983,32 @@ could be potially useful in other places in the future?" ([USER_VISION](../../..
 | CL229 | Superseded by CL232-CL235 | | |
 | CL230 | **Fidelity score after each G-lane**: rerun the L5r replay (once its clock defect is fixed) and report reproducible share of chapters 1-3 steps | Coordinator | One line per lane in the coordination log |
 | CL231 | **Order**: world-general capabilities, the be seat, seat-only capabilities, then mechanisms; under CL232 a mechanism with indexed second cases may move earlier because it serves several worlds | Coordinator | Queue in the handoff reflects it |
+
+## 25. Round 17: the be seat sees everything from the lead's perspective (2026-10-28)
+
+Weibao accepted the be-seat default for now and asked that "the entire menu and everything is adjusted
+as the perspective of being the lead, so some stuff should be gone like 'open continuous connection' or
+whatver that is seperate in a way" ([USER_VISION](../../../USER_VISION.md#cast-lives-the-be-the-lead-seat-from-the-leads-own-perspective-2026-10-28)).
+Reconciled: WER11 now reads "Default: live beside protagonists", with being the protagonist available in
+the private pack (PX18 accepted with this answer); CL226 is answered.
+
+### 25.1 Perspective tags on every control
+
+| Code | Rule (default, dial and reason) |
+| --- | --- |
+| CL236 | **Every menu item, panel, header line and report kind carries a perspective tag**: `in-world` (part of the character's life: place, people, inventory, journal), `system` (save, export, import, settings: outside the fiction but needed), `crossing` (the player's other lives and worlds: Continuing connection, Worlds, Travelers, Beginning, the home calendar line, the Village quest), `other-seat` (content from another start: the probationer workroom, its supervisor, other Tingen starts). The be seat shows `in-world`, keeps `system` inside the Menu only, and hides `crossing` and `other-seat`. Reason: the lead has no Village life, no other worlds and no awareness of a game |
+| CL237 | **The tags live in the seat profile** (S1, CL224): one list per seat, read at one point by the shell, the place panel and Reports. No per-control `if (be)` checks. Dial: Weibao can move a control between groups later |
+| CL238 | **In-world wording follows the lead.** Reports and descriptions say "you" as him; people he already knows are named from day 1 (his family, his landlady), so name masking (RPT4) reads his knowledge record, not the player's; the journal is his diary; time reads as his calendar once the start month is set |
+| CL239 | **The player's meta powers are a question, not a default.** The ordinary game's cheat cards and crossing powers do not belong to the lead; in the be seat they are hidden unless Weibao chooses a premise where an outsider mind arrives in the lead (XM1, an AU dial). The lead's own power (his cheat space) is his, behind its mechanism lane |
+| CL240 | **Leaving the seat is a system action.** Ending or pausing a be life happens from the Menu (system), not an in-world control; switching seat starts a new life (CL227) |
+| CL241 | **Onboarding and hints follow the seat.** Village tutorials, quest hints and help text are `crossing` or `other-seat`; the be seat gets its own short start text from the private pack |
+| CL242 | **Dev tools stay separate.** The inspector (CL19) and test hooks are neither in-world nor system; they are dev-only and never shown in a seat |
+
+### 25.2 Actions
+
+| Code | Action | Owner | Done check |
+| --- | --- | --- | --- |
+| CL243 | **Control inventory**: list every top-level menu item (Stats, Condition, Inventory, Journal, Data, Notebook, Travelers, Projects, Ledger, Worlds, Beginning, Connection, Settings, the pane selector), every panel block in the LOTM place panel, every header line and report kind, and tag each (CL236) | Luna, low; a data file read by S1 | Every visible control in a beside-life screenshot has a tag |
+| CL244 | **S1 extended**: the seat filter also reads perspective tags (CL237) | S1 lane | A be-seat test life shows no `crossing` or `other-seat` control |
+| CL245 | **Be seat lane (B1)** after S1 and the inventory: the private-pack "be the lead" start, his body, purse, memories and duties as the player life, his knowledge record for naming (CL238), the lead-perspective start text (CL241); the seven seat-only gaps become reachable | Sol, medium | Fresh be life at 1920×1080: screenshots of every top-level menu show only in-world and system items; the L5r replay's seat-only steps rescored |
+| CL246 | **Ask Weibao later, not now**: which meta powers, if any, an outsider-mind premise keeps in the be seat (CL239) | When B1 lands | Recorded answer |
