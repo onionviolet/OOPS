@@ -1,6 +1,6 @@
 import {ensureWorldHistory,historyMurals} from './world_history_consumers.js';
 import {xorshift32} from './hash_rng.js';
-import {renderRefs} from './ref_resolver.js';
+import {renderRefs, refOf} from './ref_resolver.js';
 import {check, copy as clone, finite, natural as integer} from './basics.js';
 import {extendLineage, validateLineage} from './family_tree.js';
 import {LIFE_LESSONS, LIVED_TAGS, remembersLived, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
@@ -309,6 +309,14 @@ export const archiveDutyAction = {id: "chronicle.archive_duty", worldId: "base.f
 // The heir receives what the ended life left behind (accepted 2026-10-10;
 // docs/RULES_FROM_SCRATCH.md#the-heir). Heirs saved under the earlier
 // one-lesson rule stay valid as saved; nothing is added or removed later.
+// CAE-E2: the heir tie keeps the frozen display name (rememberedPredecessor, the old shape)
+// and adds predecessorLife, an additive life id. Old saves lack the id and render the snapshot.
+export const predecessorLifeId = previous => `life:gen${previous.life.experience?.generation || 1}`;
+export function heirPredecessorLabel(c, names) {
+    const t = c?.relationships?.villageElder?.ties || {}, snap = typeof t.rememberedPredecessor === 'string' ? t.rememberedPredecessor : undefined;
+    if(snap === undefined) return undefined;
+    return typeof t.predecessorLife === 'string' ? refOf(t.predecessorLife, {names}, snap).label : snap;
+}
 export function createHeirChronicle(previous, clock, calendar, name, leftovers) {
     check(previous.life.endedAt!==null, "There is no ended life to inherit.");
     check(leftovers && leftovers.schema===1, "The inheritance has not been counted.");
@@ -318,7 +326,7 @@ export function createHeirChronicle(previous, clock, calendar, name, leftovers) 
     c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave,lineage:extendLineage(previous,grave,l.recipient,l.kin),
         inheritance:{recipient:l.recipient,papers:[...l.papers],apprentice:[...l.apprentice],money:l.money,residences:Object.values(l.residences?.homes.properties||{}).filter(h=>h.id!=='shack'||!l.home).length+(l.residences?.homes.portable?1:0),
             belongings:l.belongings.reduce((n,r)=>n+r[1],0)+(l.residences?.goods||[]).reduce((n,r)=>n+r[1],0),chest:l.chest.reduce((n,r)=>n+r[1],0),home:l.home,obligations:[...l.obligations],archiveLine:l.archiveLine,debtsPaid:l.debts.reduce((n,d)=>n+d.paid,0)}};
-    const ties={rememberedPredecessor:grave.name};
+    const ties={rememberedPredecessor:grave.name,predecessorLife:predecessorLifeId(previous)};
     if(l.obligations.includes('grievance'))ties.grievance=true;
     if(l.obligations.includes('archiveDuty'))ties.archiveDuty=true;
     if(l.archiveLine) {ties.successor=true;const e=c.events.inheritance;e.status="resolved";e.settledAt=clock;}
