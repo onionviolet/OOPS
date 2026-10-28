@@ -94,7 +94,7 @@ test('invalid baskets, incomplete deliveries and overflow cannot mutate caller s
 // bodies with small dependency doubles. This is source behavior evidence only,
 // not browser/native integration. Direct Node import hits native circular init.
 const doubles = {
-    'seeded_streams.js':`export const STREAMS={market:'market'};let draws=[0];export const setMarketDraws=x=>{draws=[...x]};export const gameKeyedRandom=()=>draws.length>1?draws.shift():draws[0];`,
+    'seeded_streams.js':`export const STREAMS={market:'market'};let draws=[0];export const setMarketDraws=x=>{draws=[...x]};export const gameKeyedRandom=()=>draws.length>1?draws.shift():draws[0];export const createStreams=()=>({}),unitDecision=()=>({value:0}),hashStreamSeed=()=>0,mix32=x=>x;`,
     'accessories.js':`export const accessoryTradeMargin=n=>n;`,
     'character.js':`export const character={reputation:{Village:0},getTotalLevelBonus:()=>0};`,
     'inventory_templates.js':`export const row={item_name:'bread',chance:.5,count:[2,4],canBeStarted:()=>true}; export default {Test:[{canBeStarted:()=>true,items:[row]}]};`,

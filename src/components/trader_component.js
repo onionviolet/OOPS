@@ -14,6 +14,8 @@ import {factorioRetortItemSpecifications} from '../factorio_retort_content.js';
 import {proto23ItemSpecifications} from '../proto23_world_content.js';
 import {affixedStockEntries} from '../gear_acquisition.js';
 import {getItemFromKey} from '../items.js';
+import {keyedShopStock,keyedUnitFor} from '../keyed_generation.js';
+import {dayIndex} from '../world_day_index.js';
 
 const conservedCampaignItems = [...factorioRetortItemSpecifications,...proto23ItemSpecifications];
 const conservedCampaignKeys = new Set(conservedCampaignItems.map(spec => JSON.stringify({id:spec.id})));
@@ -73,7 +75,7 @@ class TraderComponent {
      * refreshes trader inventory
      * @returns boolean informing if it was able to refresh
      */
-    refresh(context) {
+    refresh(context, worldSeed) {
         // Optional owner callback stages the same private inventory through the
         // normal durable native transaction. Legacy shops retain day cadence.
         if(this.played_minute_refresh) return this.played_minute_refresh(context);
@@ -87,7 +89,7 @@ class TraderComponent {
                 } else if(conservedCampaignIds.some(id => key.includes(id))) throw new Error('Malformed conserved campaign merchant key.');
             }
             this.emptyInventory();
-            this.fillInventoryFromTemplate(context);
+            this.fillInventoryFromTemplate(context, worldSeed);
             for(const [key, entry] of Object.entries(retained)) {
                 if(this.#inventory.getItems()[key]) throw new Error('Merchant templates cannot create conserved campaign stock.');
                 this.#inventory.getItems()[key] = entry;
@@ -117,7 +119,8 @@ class TraderComponent {
      * creates new choice of items for the trader, based on assigned inventory template
      * @returns {null}
      */
-    fillInventoryFromTemplate(context) {
+    fillInventoryFromTemplate(context, worldSeed) {
+        if(worldSeed !== undefined) return this.#fillKeyed(context, worldSeed);
         const items = this.getInventoryComponent().getItems();
         const inventory_template = inventory_templates[this.inventory_template];
         const epoch = current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time;
@@ -153,6 +156,32 @@ class TraderComponent {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    // Opt-in (PL-E1): stock is a pure keyed draw of (worldSeed, shop name, refresh epoch day). worldSeed is a
+    // runtime argument only; nothing is saved on the trader. Start conditions are resolved before keying.
+    #fillKeyed(context, worldSeed) {
+        const items = this.getInventoryComponent().getItems();
+        const epoch = current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time;
+        const day = dayIndex({calendar: {day_count: epoch}});
+        const groups = inventory_templates[this.inventory_template].filter(g => g.canBeStarted(context))
+            .map(g => g.items.filter(spec => spec.canBeStarted(context)));
+        const rows = keyedShopStock({worldSeed, shopId: this.name, dayIndex: day,
+            template: groups.map(specs => ({items: specs}))});
+        for(const row of rows) {
+            const specification = groups[row.group][row.index];
+            const template = item_templates[specification.item_name];
+            const item = getItem(row.quality !== undefined ? {...template, quality: row.quality} : template);
+            let draw = 0;
+            const entries = affixedStockEntries({item, count: row.count,
+                partsOf: components => Object.fromEntries(Object.entries(components).map(([slot, id]) => [slot, item_templates[id]])),
+                random: piece => keyedUnitFor(worldSeed, STREAMS.market, [this.name, day, row.group, row.index, `affix:${piece}:${draw++}`]),
+                plain: specification.roll_affixes === false});
+            for(const entry of entries) {
+                const existing = items[entry.item_key];
+                items[entry.item_key] = {item: existing?.item || getItemFromKey(entry.item_key), count: (existing?.count || 0) + entry.count};
             }
         }
     }
