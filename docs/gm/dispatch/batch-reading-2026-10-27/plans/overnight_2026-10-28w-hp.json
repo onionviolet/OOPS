@@ -1,6 +1,6 @@
 {
  "name": "2026-10-28w-hp",
- "approval": "Weibao 2026-10-28: \"Go on all four\", answering \"Launch the four whole-book runs?\" (runs 2026-10-28w-lotm $36, -ss $24, -hp $13, -mol $8 ceilings; caps as written; repairable-C stop rule).",
+ "approval": "Weibao 2026-10-28: \"Go on all four\", answering \"Launch the four whole-book runs?\" (runs 2026-10-28w-lotm $36, -ss $24, -hp $13, -mol $8 ceilings; caps as written; repairable-C stop rule). | Weibao 2026-10-28: \"Go on both\", answering \"Use the pooled stop rule for Harry Potter and the LOTM retry?\" (resume with the pooled stop rule; caps as written; ceiling $13).",
  "ceilingUsd": 13,
  "capTotal": 15.32,
  "steps": [
@@ -275,5 +275,6 @@
     }
    ]
   }
- ]
+ ],
+ "pooledStop": true
 }
