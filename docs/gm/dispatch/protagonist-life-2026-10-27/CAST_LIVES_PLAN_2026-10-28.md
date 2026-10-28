@@ -461,3 +461,46 @@ build the smallest state that produces it (the WA42 method, applied to reactions
 The direct answer to "would it be considered": the current pipeline already plans gap work after
 recording (round 7), so rounds 2-4 add **consumer audits and derivation lanes**, not a new read. The two
 reader-side asks (CL55, CL56) are small and opt-in.
+
+## 11. Round 5: improvements, dispatch and timing (2026-10-28)
+
+Weibao: "we can improve the stuff accordingly where there is room to improve, send stuff accordingly?
+while we still can? More ot consider?"
+
+### 11.1 Done (ACT NOW)
+
+| Code | What | Where |
+| --- | --- | --- |
+| CL72 | Paste-ready Codex briefs for the two lanes that can start now and run in parallel (disjoint files, no shared data): L1 merge, crosswalk and fitness report (Sol, medium); L2 schedule module (Luna, low). Each names files, seam, done check and stop conditions | [L1](cast-lives-lanes/L1_BRIEF.md), [L2](cast-lives-lanes/L2_BRIEF.md) |
+| CL73 | Reader-side asks (CL55 routine place ids, CL56 structured reacts, the slice's people for SV8's targeted re-read list) sent to the batch-reading session ahead of the October credit lapse, quoting Weibao's words and stating that each paid run still needs its own go | Message to the reading session; shared notes file |
+| CL74 | Round 1's F4 overstated name joins; corrected in place with the round 4 counts | Section 1 |
+
+**Why the briefs are files, not a launched run:** the `codex` CLI is not on this Mac's PATH (checked
+2026-10-28 with a login shell), so this session cannot start a Codex worker or run the usage preflight.
+Paste each brief into the Codex app with the working folder set to this checkout.
+
+### 11.2 Improvements to earlier rounds (ACCOUNT FOR NOW)
+
+| Code | Improvement | Applies to |
+| --- | --- | --- |
+| CL75 | **Wave order tightened.** L1 and L2 run together; L3 starts when L1's crosswalk lands; CL18 (fight contracts) and CL61 (after-interaction actions) start right after L1, before L4, so L4's probe has sourced contracts and rates instead of fills | Section 4 order |
+| CL76 | **The schedule is the hub.** Rounds 2-4 all write into schedules (intentions CL63, aftermath CL8, fate weight CL21 as a stored field). L2's row shape carries `source` and `weight` from day one so nothing reshapes it later | L2 brief |
+| CL77 | **One classifier, three uses.** The WA25 action-class classifier L1 writes for the fitness report is the same one CL60 (reaction grammar) and CL61 need. Keep it in `build_crosswalk.mjs` as an export, not three copies | L1 brief; CL60, CL61 |
+| CL78 | **Probe before polish.** No detail, UI beyond CL36/CL38 or trend lane starts until L4's gap ledger exists for the slice; the ledger ranks what to build next | Section 8.2 |
+
+### 11.3 Timing ("while we still can")
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL79 | **The API credit lapses at month end** (last safe submit: noon on the last day, BATCH_READING_WORKFLOW). Only reads spend it; every lane in this plan is local and free. What benefits from the lapse window is the reading session's targeted 1.4 re-read (SV8), now including the slice's routines and reacts | Reading session's call, with Weibao's go per run file |
+| CL80 | **Codex allowance is separate from the API credit.** The lanes draw on the Codex subscription, not the credit, so they need not rush before the lapse; they need the usage preflight once the CLI is available | ACCOUNT FOR NOW |
+| CL81 | **Do not wait on reads.** Wave 1 runs on the rows already on disk; 1.4 rows slot in later without a rerun (section 4 table) | ACCOUNT FOR NOW |
+
+### 11.4 More to consider (round 5)
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL82 | **Lane receipts feed the plan.** Each lane writes a checkpoint in `cast-lives-lanes/`; the next brief is written from the last checkpoint, not from this plan's assumptions | ACCOUNT FOR NOW |
+| CL83 | **A second Codex lane per wave at most while the shared checkout is busy.** Other sessions commit here (AD41); two writers with disjoint files is the safe ceiling | ACCOUNT FOR NOW |
+| CL84 | **Cost of the Sol lanes.** L1 and L3 are the only Sol lanes in wave 1; if either stalls, split it rather than escalating the model | LATER: per checkpoint |
+| CL85 | **Install or point to the Codex CLI** so a session can run the preflight and launch detached lanes with recorded PIDs (AGENTS.md multi-agent rules) | LATER: Weibao's choice; until then the Codex app route works |
