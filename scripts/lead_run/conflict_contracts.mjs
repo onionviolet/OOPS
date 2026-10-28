@@ -5,11 +5,17 @@ import {fileURLToPath} from 'node:url';
 import {parseLocator} from './world_profiles.mjs';
 
 const read = p => readFileSync(p, 'utf8').split('\n').filter(Boolean).map(JSON.parse);
-const firstChapter = s => {
-  for (const e of s.evidence || []) { const p = parseLocator(e.locator); if (p?.lang === 'zh') return p.ch; }
+const firstLocator = s => {
+  for (const e of s.evidence || []) { const p = parseLocator(e.locator); if (p) return p; }
   return null;
 };
-export function contractsFor(scenes) {
+const inRange = (s, from, to) => {
+  const p = firstLocator(s), a = parseLocator(from), b = parseLocator(to);
+  if (!p || !a || !b || p.lang !== a.lang || p.lang !== b.lang || p.book !== a.book || p.book !== b.book) return false;
+  const key = x => x.ch * 1e6 + x.p;
+  return key(p) >= key(a) && key(p) <= key(b);
+};
+export function contractsFor(scenes, {from = 'zh 第1章 p1', to = 'zh 第24章 p99999'} = {}) {
   const danger = /\b(danger\w*|attack\w*|threat\w*|chase\w*|flight|flee\w*|hid\w*|hide\w*|escap\w*|injur\w*|wound\w*|captur\w*|question\w*|police)\b/i;
   const notConflicts = new Map([
     ['lr.lotm.main.001', 'The scene records discovery and healing of an existing wound; no opposing actor or conflict action occurs.'],
@@ -21,8 +27,7 @@ export function contractsFor(scenes) {
     ['lr.lotm.main.402', {fact:'Lead wakes abruptly after the frightening dream', value:'shown', locator:'zh 第12章 p81'}],
   ]);
   return scenes.filter(s => {
-    const ch = firstChapter(s);
-    return s.pov === 'lead' && ch >= 1 && ch <= 24 &&
+    return s.pov === 'lead' && inRange(s, from, to) &&
       (s.steps?.some(x => x.class === 'fight') ||
         (s.steps || []).some(x => danger.test(x.verb || '')) ||
         (s.outcomes || []).some(x => danger.test(x.verb || '') || danger.test(x.fact || '')) ||
@@ -50,9 +55,13 @@ export function contractsFor(scenes) {
   });
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const [dir, out = join(dir, 'conflict_contracts.jsonl')] = process.argv.slice(2);
+  const args = process.argv.slice(2), dir = args[0];
+  const value = name => { const i = args.indexOf(name); return i < 0 ? null : args[i + 1]; };
+  const positionalOut = args[1] && !args[1].startsWith('--') ? args[1] : null;
+  const out = positionalOut || join(dir, 'conflict_contracts.jsonl');
+  const from = value('--from') || 'zh 第1章 p1', to = value('--to') || 'zh 第24章 p99999';
   if (!dir) throw new Error('usage: conflict_contracts.mjs <mergedDir> [out.jsonl]');
-  const rows=contractsFor(read(join(dir,'scenes.jsonl'))); mkdirSync(dirname(out),{recursive:true});
+  const rows=contractsFor(read(join(dir,'scenes.jsonl')), {from, to}); mkdirSync(dirname(out),{recursive:true});
   writeFileSync(out, rows.map(x=>JSON.stringify(x)).join('\n')+(rows.length?'\n':''));
   console.log(`contracts=${rows.length} output=${out}`);
 }

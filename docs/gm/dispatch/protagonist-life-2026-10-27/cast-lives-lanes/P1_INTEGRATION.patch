@@ -1,0 +1,44 @@
+--- a/scripts/lead_run/conflict_contracts.mjs
++++ b/scripts/lead_run/conflict_contracts.mjs
+@@ -7,7 +7,13 @@
+ const read = p => readFileSync(p, 'utf8').split('\n').filter(Boolean).map(JSON.parse);
+-const firstChapter = s => {
+-  for (const e of s.evidence || []) { const p = parseLocator(e.locator); if (p?.lang === 'zh') return p.ch; }
++const firstLocator = s => {
++  for (const e of s.evidence || []) { const p = parseLocator(e.locator); if (p) return p; }
+   return null;
+ };
+-export function contractsFor(scenes) {
++const inRange = (s, from, to) => {
++  const p = firstLocator(s), a = parseLocator(from), b = parseLocator(to);
++  if (!p || !a || !b || p.lang !== a.lang || p.lang !== b.lang || p.book !== a.book || p.book !== b.book) return false;
++  const key = x => x.ch * 1e6 + x.p;
++  return key(p) >= key(a) && key(p) <= key(b);
++};
++export function contractsFor(scenes, {from = 'zh 第1章 p1', to = 'zh 第24章 p99999'} = {}) {
+   const danger = /\b(danger\w*|attack\w*|threat\w*|chase\w*|flight|flee\w*|hid\w*|hide\w*|escap\w*|injur\w*|wound\w*|captur\w*|question\w*|police)\b/i;
+@@ -23,4 +29,3 @@
+   return scenes.filter(s => {
+-    const ch = firstChapter(s);
+-    return s.pov === 'lead' && ch >= 1 && ch <= 24 &&
++    return s.pov === 'lead' && inRange(s, from, to) &&
+       (s.steps?.some(x => x.class === 'fight') ||
+@@ -52,5 +57,9 @@
+ if (process.argv[1] === fileURLToPath(import.meta.url)) {
+-  const [dir, out = join(dir, 'conflict_contracts.jsonl')] = process.argv.slice(2);
++  const args = process.argv.slice(2), dir = args[0];
++  const value = name => { const i = args.indexOf(name); return i < 0 ? null : args[i + 1]; };
++  const positionalOut = args[1] && !args[1].startsWith('--') ? args[1] : null;
++  const out = positionalOut || join(dir, 'conflict_contracts.jsonl');
++  const from = value('--from') || 'zh 第1章 p1', to = value('--to') || 'zh 第24章 p99999';
+   if (!dir) throw new Error('usage: conflict_contracts.mjs <mergedDir> [out.jsonl]');
+-  const rows=contractsFor(read(join(dir,'scenes.jsonl'))); mkdirSync(dirname(out),{recursive:true});
++  const rows=contractsFor(read(join(dir,'scenes.jsonl')), {from, to}); mkdirSync(dirname(out),{recursive:true});
+   writeFileSync(out, rows.map(x=>JSON.stringify(x)).join('\n')+(rows.length?'\n':''));
+--- a/scripts/lead_run/world_lead_pipeline.mjs
++++ b/scripts/lead_run/world_lead_pipeline.mjs
+@@ -98,3 +98,3 @@
+         const contracts = join(merged, 'conflict_contracts.jsonl');
+-        report.stages.push(runStage('conflict_contracts', process.execPath, [contractScript, merged, contracts], [contractScript, join(merged, 'scenes.jsonl')], [contracts]));
++        report.stages.push(runStage('conflict_contracts', process.execPath, [contractScript, merged, contracts, '--from', options.from, '--to', options.to], [contractScript, join(merged, 'scenes.jsonl')], [contracts]));
+         const afterScript = join(ROOT, 'scripts/lead_run/after_actions.mjs');
