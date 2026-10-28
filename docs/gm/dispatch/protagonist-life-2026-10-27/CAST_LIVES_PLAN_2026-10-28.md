@@ -504,3 +504,9 @@ Paste each brief into the Codex app with the working folder set to this checkout
 | CL83 | **A second Codex lane per wave at most while the shared checkout is busy.** Other sessions commit here (AD41); two writers with disjoint files is the safe ceiling | ACCOUNT FOR NOW |
 | CL84 | **Cost of the Sol lanes.** L1 and L3 are the only Sol lanes in wave 1; if either stalls, split it rather than escalating the model | LATER: per checkpoint |
 | CL85 | **Install or point to the Codex CLI** so a session can run the preflight and launch detached lanes with recorded PIDs (AGENTS.md multi-agent rules) | LATER: Weibao's choice; until then the Codex app route works |
+
+**Reading session reply (2026-10-28):** CL55 done in `6aec36129` (schema 1.4 people prompts require routine
+`place` to be a known-names id or a newly minted one; 1.3 prompts unchanged). CL56 is held until L1's
+local classifier (CL77) reports its hit rate; if it falls short, this plan sends the reading session a
+1.5 field shape. SV8's targeted re-read now covers routines and reacts for the slice's people; it runs at
+schema 1.4 and needs Weibao's go.
