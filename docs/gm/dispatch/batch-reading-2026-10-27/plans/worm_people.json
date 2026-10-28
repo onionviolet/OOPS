@@ -1,0 +1,1614 @@
+{
+ "world": "worm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29",
+  "censusMatch": "^(worm)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "worm-people",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "wormc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "wormc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "wormc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "wormc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "wormc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "wormc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "wormc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "wormc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "wormc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "wormc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "wormc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "wormc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "wormc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "wormc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "wormc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "wormc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "wormc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "wormc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch035-036.txt",
+   "base": "03501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "wormc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch037-038.txt",
+   "base": "03701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "wormc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch039-040.txt",
+   "base": "03901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "wormc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "wormc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "wormc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "wormc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "wormc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "wormc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "wormc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch053-053.txt",
+   "base": "05301",
+   "chapters": "53-53"
+  },
+  {
+   "prefix": "wormc054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch054-054.txt",
+   "base": "05401",
+   "chapters": "54-54"
+  },
+  {
+   "prefix": "wormc055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch055-056.txt",
+   "base": "05501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "wormc057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch057-058.txt",
+   "base": "05701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "wormc059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch059-059.txt",
+   "base": "05901",
+   "chapters": "59-59"
+  },
+  {
+   "prefix": "wormc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch060-060.txt",
+   "base": "06001",
+   "chapters": "60-60"
+  },
+  {
+   "prefix": "wormc061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch061-061.txt",
+   "base": "06101",
+   "chapters": "61-61"
+  },
+  {
+   "prefix": "wormc062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch062-062.txt",
+   "base": "06201",
+   "chapters": "62-62"
+  },
+  {
+   "prefix": "wormc063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch063-063.txt",
+   "base": "06301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "wormc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch064-064.txt",
+   "base": "06401",
+   "chapters": "64-64"
+  },
+  {
+   "prefix": "wormc065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch065-066.txt",
+   "base": "06501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "wormc067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch067-068.txt",
+   "base": "06701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "wormc069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch069-070.txt",
+   "base": "06901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "wormc071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch071-072.txt",
+   "base": "07101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "wormc073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch073-074.txt",
+   "base": "07301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "wormc075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch075-076.txt",
+   "base": "07501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "wormc077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch077-077.txt",
+   "base": "07701",
+   "chapters": "77-77"
+  },
+  {
+   "prefix": "wormc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch078-079.txt",
+   "base": "07801",
+   "chapters": "78-79"
+  },
+  {
+   "prefix": "wormc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch080-080.txt",
+   "base": "08001",
+   "chapters": "80-80"
+  },
+  {
+   "prefix": "wormc081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch081-081.txt",
+   "base": "08101",
+   "chapters": "81-81"
+  },
+  {
+   "prefix": "wormc082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch082-082.txt",
+   "base": "08201",
+   "chapters": "82-82"
+  },
+  {
+   "prefix": "wormc083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch083-083.txt",
+   "base": "08301",
+   "chapters": "83-83"
+  },
+  {
+   "prefix": "wormc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch084-084.txt",
+   "base": "08401",
+   "chapters": "84-84"
+  },
+  {
+   "prefix": "wormc085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch085-085.txt",
+   "base": "08501",
+   "chapters": "85-85"
+  },
+  {
+   "prefix": "wormc086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch086-087.txt",
+   "base": "08601",
+   "chapters": "86-87"
+  },
+  {
+   "prefix": "wormc088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch088-088.txt",
+   "base": "08801",
+   "chapters": "88-88"
+  },
+  {
+   "prefix": "wormc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch089-089.txt",
+   "base": "08901",
+   "chapters": "89-89"
+  },
+  {
+   "prefix": "wormc090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch090-090.txt",
+   "base": "09001",
+   "chapters": "90-90"
+  },
+  {
+   "prefix": "wormc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "wormc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "wormc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch093-093.txt",
+   "base": "09301",
+   "chapters": "93-93"
+  },
+  {
+   "prefix": "wormc094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch094-094.txt",
+   "base": "09401",
+   "chapters": "94-94"
+  },
+  {
+   "prefix": "wormc095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch095-095.txt",
+   "base": "09501",
+   "chapters": "95-95"
+  },
+  {
+   "prefix": "wormc096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch096-097.txt",
+   "base": "09601",
+   "chapters": "96-97"
+  },
+  {
+   "prefix": "wormc098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch098-098.txt",
+   "base": "09801",
+   "chapters": "98-98"
+  },
+  {
+   "prefix": "wormc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch099-099.txt",
+   "base": "09901",
+   "chapters": "99-99"
+  },
+  {
+   "prefix": "wormc100",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch100-100.txt",
+   "base": "10001",
+   "chapters": "100-100"
+  },
+  {
+   "prefix": "wormc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch101-101.txt",
+   "base": "10101",
+   "chapters": "101-101"
+  },
+  {
+   "prefix": "wormc102",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch102-102.txt",
+   "base": "10201",
+   "chapters": "102-102"
+  },
+  {
+   "prefix": "wormc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch103-103.txt",
+   "base": "10301",
+   "chapters": "103-103"
+  },
+  {
+   "prefix": "wormc104",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch104-104.txt",
+   "base": "10401",
+   "chapters": "104-104"
+  },
+  {
+   "prefix": "wormc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch105-105.txt",
+   "base": "10501",
+   "chapters": "105-105"
+  },
+  {
+   "prefix": "wormc106",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch106-106.txt",
+   "base": "10601",
+   "chapters": "106-106"
+  },
+  {
+   "prefix": "wormc107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch107-107.txt",
+   "base": "10701",
+   "chapters": "107-107"
+  },
+  {
+   "prefix": "wormc108",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch108-108.txt",
+   "base": "10801",
+   "chapters": "108-108"
+  },
+  {
+   "prefix": "wormc109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch109-109.txt",
+   "base": "10901",
+   "chapters": "109-109"
+  },
+  {
+   "prefix": "wormc110",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch110-110.txt",
+   "base": "11001",
+   "chapters": "110-110"
+  },
+  {
+   "prefix": "wormc111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch111-111.txt",
+   "base": "11101",
+   "chapters": "111-111"
+  },
+  {
+   "prefix": "wormc112",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch112-112.txt",
+   "base": "11201",
+   "chapters": "112-112"
+  },
+  {
+   "prefix": "wormc113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch113-113.txt",
+   "base": "11301",
+   "chapters": "113-113"
+  },
+  {
+   "prefix": "wormc114",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch114-114.txt",
+   "base": "11401",
+   "chapters": "114-114"
+  },
+  {
+   "prefix": "wormc115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch115-115.txt",
+   "base": "11501",
+   "chapters": "115-115"
+  },
+  {
+   "prefix": "wormc116",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch116-116.txt",
+   "base": "11601",
+   "chapters": "116-116"
+  },
+  {
+   "prefix": "wormc117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch117-117.txt",
+   "base": "11701",
+   "chapters": "117-117"
+  },
+  {
+   "prefix": "wormc118",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch118-118.txt",
+   "base": "11801",
+   "chapters": "118-118"
+  },
+  {
+   "prefix": "wormc119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch119-119.txt",
+   "base": "11901",
+   "chapters": "119-119"
+  },
+  {
+   "prefix": "wormc120",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch120-120.txt",
+   "base": "12001",
+   "chapters": "120-120"
+  },
+  {
+   "prefix": "wormc121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch121-121.txt",
+   "base": "12101",
+   "chapters": "121-121"
+  },
+  {
+   "prefix": "wormc122",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch122-122.txt",
+   "base": "12201",
+   "chapters": "122-122"
+  },
+  {
+   "prefix": "wormc123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch123-123.txt",
+   "base": "12301",
+   "chapters": "123-123"
+  },
+  {
+   "prefix": "wormc124",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch124-124.txt",
+   "base": "12401",
+   "chapters": "124-124"
+  },
+  {
+   "prefix": "wormc125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch125-125.txt",
+   "base": "12501",
+   "chapters": "125-125"
+  },
+  {
+   "prefix": "wormc126",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch126-126.txt",
+   "base": "12601",
+   "chapters": "126-126"
+  },
+  {
+   "prefix": "wormc127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch127-127.txt",
+   "base": "12701",
+   "chapters": "127-127"
+  },
+  {
+   "prefix": "wormc128",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch128-128.txt",
+   "base": "12801",
+   "chapters": "128-128"
+  },
+  {
+   "prefix": "wormc129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch129-129.txt",
+   "base": "12901",
+   "chapters": "129-129"
+  },
+  {
+   "prefix": "wormc130",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch130-130.txt",
+   "base": "13001",
+   "chapters": "130-130"
+  },
+  {
+   "prefix": "wormc131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch131-131.txt",
+   "base": "13101",
+   "chapters": "131-131"
+  },
+  {
+   "prefix": "wormc132",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch132-132.txt",
+   "base": "13201",
+   "chapters": "132-132"
+  },
+  {
+   "prefix": "wormc133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch133-133.txt",
+   "base": "13301",
+   "chapters": "133-133"
+  },
+  {
+   "prefix": "wormc134",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch134-134.txt",
+   "base": "13401",
+   "chapters": "134-134"
+  },
+  {
+   "prefix": "wormc135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch135-135.txt",
+   "base": "13501",
+   "chapters": "135-135"
+  },
+  {
+   "prefix": "wormc136",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch136-136.txt",
+   "base": "13601",
+   "chapters": "136-136"
+  },
+  {
+   "prefix": "wormc137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch137-137.txt",
+   "base": "13701",
+   "chapters": "137-137"
+  },
+  {
+   "prefix": "wormc138",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch138-138.txt",
+   "base": "13801",
+   "chapters": "138-138"
+  },
+  {
+   "prefix": "wormc139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch139-139.txt",
+   "base": "13901",
+   "chapters": "139-139"
+  },
+  {
+   "prefix": "wormc140",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch140-140.txt",
+   "base": "14001",
+   "chapters": "140-140"
+  },
+  {
+   "prefix": "wormc141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch141-141.txt",
+   "base": "14101",
+   "chapters": "141-141"
+  },
+  {
+   "prefix": "wormc142",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch142-142.txt",
+   "base": "14201",
+   "chapters": "142-142"
+  },
+  {
+   "prefix": "wormc143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch143-143.txt",
+   "base": "14301",
+   "chapters": "143-143"
+  },
+  {
+   "prefix": "wormc144",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch144-144.txt",
+   "base": "14401",
+   "chapters": "144-144"
+  },
+  {
+   "prefix": "wormc145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch145-145.txt",
+   "base": "14501",
+   "chapters": "145-145"
+  },
+  {
+   "prefix": "wormc146",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch146-146.txt",
+   "base": "14601",
+   "chapters": "146-146"
+  },
+  {
+   "prefix": "wormc147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch147-147.txt",
+   "base": "14701",
+   "chapters": "147-147"
+  },
+  {
+   "prefix": "wormc148",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch148-148.txt",
+   "base": "14801",
+   "chapters": "148-148"
+  },
+  {
+   "prefix": "wormc149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch149-149.txt",
+   "base": "14901",
+   "chapters": "149-149"
+  },
+  {
+   "prefix": "wormc150",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch150-150.txt",
+   "base": "15001",
+   "chapters": "150-150"
+  },
+  {
+   "prefix": "wormc151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch151-151.txt",
+   "base": "15101",
+   "chapters": "151-151"
+  },
+  {
+   "prefix": "wormc152",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch152-152.txt",
+   "base": "15201",
+   "chapters": "152-152"
+  },
+  {
+   "prefix": "wormc153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch153-153.txt",
+   "base": "15301",
+   "chapters": "153-153"
+  },
+  {
+   "prefix": "wormc154",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch154-154.txt",
+   "base": "15401",
+   "chapters": "154-154"
+  },
+  {
+   "prefix": "wormc155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch155-155.txt",
+   "base": "15501",
+   "chapters": "155-155"
+  },
+  {
+   "prefix": "wormc156",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch156-156.txt",
+   "base": "15601",
+   "chapters": "156-156"
+  },
+  {
+   "prefix": "wormc157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch157-157.txt",
+   "base": "15701",
+   "chapters": "157-157"
+  },
+  {
+   "prefix": "wormc158",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch158-158.txt",
+   "base": "15801",
+   "chapters": "158-158"
+  },
+  {
+   "prefix": "wormc159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch159-159.txt",
+   "base": "15901",
+   "chapters": "159-159"
+  },
+  {
+   "prefix": "wormc160",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch160-160.txt",
+   "base": "16001",
+   "chapters": "160-160"
+  },
+  {
+   "prefix": "wormc161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch161-161.txt",
+   "base": "16101",
+   "chapters": "161-161"
+  },
+  {
+   "prefix": "wormc162",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch162-162.txt",
+   "base": "16201",
+   "chapters": "162-162"
+  },
+  {
+   "prefix": "wormc163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch163-163.txt",
+   "base": "16301",
+   "chapters": "163-163"
+  },
+  {
+   "prefix": "wormc164",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch164-164.txt",
+   "base": "16401",
+   "chapters": "164-164"
+  },
+  {
+   "prefix": "wormc165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch165-165.txt",
+   "base": "16501",
+   "chapters": "165-165"
+  },
+  {
+   "prefix": "wormc166",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch166-166.txt",
+   "base": "16601",
+   "chapters": "166-166"
+  },
+  {
+   "prefix": "wormc167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch167-167.txt",
+   "base": "16701",
+   "chapters": "167-167"
+  },
+  {
+   "prefix": "wormc168",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch168-168.txt",
+   "base": "16801",
+   "chapters": "168-168"
+  },
+  {
+   "prefix": "wormc169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch169-169.txt",
+   "base": "16901",
+   "chapters": "169-169"
+  },
+  {
+   "prefix": "wormc170",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch170-170.txt",
+   "base": "17001",
+   "chapters": "170-170"
+  },
+  {
+   "prefix": "wormc171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch171-171.txt",
+   "base": "17101",
+   "chapters": "171-171"
+  },
+  {
+   "prefix": "wormc172",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch172-172.txt",
+   "base": "17201",
+   "chapters": "172-172"
+  },
+  {
+   "prefix": "wormc173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch173-173.txt",
+   "base": "17301",
+   "chapters": "173-173"
+  },
+  {
+   "prefix": "wormc174",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch174-174.txt",
+   "base": "17401",
+   "chapters": "174-174"
+  },
+  {
+   "prefix": "wormc175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch175-175.txt",
+   "base": "17501",
+   "chapters": "175-175"
+  },
+  {
+   "prefix": "wormc176",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch176-176.txt",
+   "base": "17601",
+   "chapters": "176-176"
+  },
+  {
+   "prefix": "wormc177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch177-177.txt",
+   "base": "17701",
+   "chapters": "177-177"
+  },
+  {
+   "prefix": "wormc178",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch178-178.txt",
+   "base": "17801",
+   "chapters": "178-178"
+  },
+  {
+   "prefix": "wormc179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch179-179.txt",
+   "base": "17901",
+   "chapters": "179-179"
+  },
+  {
+   "prefix": "wormc180",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch180-180.txt",
+   "base": "18001",
+   "chapters": "180-180"
+  },
+  {
+   "prefix": "wormc181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch181-181.txt",
+   "base": "18101",
+   "chapters": "181-181"
+  },
+  {
+   "prefix": "wormc182",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch182-182.txt",
+   "base": "18201",
+   "chapters": "182-182"
+  },
+  {
+   "prefix": "wormc183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch183-183.txt",
+   "base": "18301",
+   "chapters": "183-183"
+  },
+  {
+   "prefix": "wormc184",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch184-184.txt",
+   "base": "18401",
+   "chapters": "184-184"
+  },
+  {
+   "prefix": "wormc185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch185-185.txt",
+   "base": "18501",
+   "chapters": "185-185"
+  },
+  {
+   "prefix": "wormc186",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch186-186.txt",
+   "base": "18601",
+   "chapters": "186-186"
+  },
+  {
+   "prefix": "wormc187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch187-187.txt",
+   "base": "18701",
+   "chapters": "187-187"
+  },
+  {
+   "prefix": "wormc188",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch188-188.txt",
+   "base": "18801",
+   "chapters": "188-188"
+  },
+  {
+   "prefix": "wormc189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch189-189.txt",
+   "base": "18901",
+   "chapters": "189-189"
+  },
+  {
+   "prefix": "wormc190",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch190-190.txt",
+   "base": "19001",
+   "chapters": "190-190"
+  },
+  {
+   "prefix": "wormc191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch191-191.txt",
+   "base": "19101",
+   "chapters": "191-191"
+  },
+  {
+   "prefix": "wormc192",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch192-192.txt",
+   "base": "19201",
+   "chapters": "192-192"
+  },
+  {
+   "prefix": "wormc193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch193-193.txt",
+   "base": "19301",
+   "chapters": "193-193"
+  },
+  {
+   "prefix": "wormc194",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch194-194.txt",
+   "base": "19401",
+   "chapters": "194-194"
+  },
+  {
+   "prefix": "wormc195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch195-195.txt",
+   "base": "19501",
+   "chapters": "195-195"
+  },
+  {
+   "prefix": "wormc196",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch196-196.txt",
+   "base": "19601",
+   "chapters": "196-196"
+  },
+  {
+   "prefix": "wormc197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch197-197.txt",
+   "base": "19701",
+   "chapters": "197-197"
+  },
+  {
+   "prefix": "wormc198",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch198-198.txt",
+   "base": "19801",
+   "chapters": "198-198"
+  },
+  {
+   "prefix": "wormc199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch199-199.txt",
+   "base": "19901",
+   "chapters": "199-199"
+  },
+  {
+   "prefix": "wormc200",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch200-200.txt",
+   "base": "20001",
+   "chapters": "200-200"
+  },
+  {
+   "prefix": "wormc201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch201-201.txt",
+   "base": "20101",
+   "chapters": "201-201"
+  },
+  {
+   "prefix": "wormc202",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch202-202.txt",
+   "base": "20201",
+   "chapters": "202-202"
+  },
+  {
+   "prefix": "wormc203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch203-203.txt",
+   "base": "20301",
+   "chapters": "203-203"
+  },
+  {
+   "prefix": "wormc204",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch204-204.txt",
+   "base": "20401",
+   "chapters": "204-204"
+  },
+  {
+   "prefix": "wormc205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch205-205.txt",
+   "base": "20501",
+   "chapters": "205-205"
+  },
+  {
+   "prefix": "wormc206",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch206-206.txt",
+   "base": "20601",
+   "chapters": "206-206"
+  },
+  {
+   "prefix": "wormc207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch207-207.txt",
+   "base": "20701",
+   "chapters": "207-207"
+  },
+  {
+   "prefix": "wormc208",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch208-208.txt",
+   "base": "20801",
+   "chapters": "208-208"
+  },
+  {
+   "prefix": "wormc209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch209-209.txt",
+   "base": "20901",
+   "chapters": "209-209"
+  },
+  {
+   "prefix": "wormc210",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch210-210.txt",
+   "base": "21001",
+   "chapters": "210-210"
+  },
+  {
+   "prefix": "wormc211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch211-211.txt",
+   "base": "21101",
+   "chapters": "211-211"
+  },
+  {
+   "prefix": "wormc212",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch212-212.txt",
+   "base": "21201",
+   "chapters": "212-212"
+  },
+  {
+   "prefix": "wormc213",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch213-213.txt",
+   "base": "21301",
+   "chapters": "213-213"
+  },
+  {
+   "prefix": "wormc214",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch214-214.txt",
+   "base": "21401",
+   "chapters": "214-214"
+  },
+  {
+   "prefix": "wormc215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch215-215.txt",
+   "base": "21501",
+   "chapters": "215-215"
+  },
+  {
+   "prefix": "wormc216",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch216-216.txt",
+   "base": "21601",
+   "chapters": "216-216"
+  },
+  {
+   "prefix": "wormc217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch217-217.txt",
+   "base": "21701",
+   "chapters": "217-217"
+  },
+  {
+   "prefix": "wormc218",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch218-218.txt",
+   "base": "21801",
+   "chapters": "218-218"
+  },
+  {
+   "prefix": "wormc219",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch219-219.txt",
+   "base": "21901",
+   "chapters": "219-219"
+  },
+  {
+   "prefix": "wormc220",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch220-220.txt",
+   "base": "22001",
+   "chapters": "220-220"
+  },
+  {
+   "prefix": "wormc221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch221-221.txt",
+   "base": "22101",
+   "chapters": "221-221"
+  },
+  {
+   "prefix": "wormc222",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch222-222.txt",
+   "base": "22201",
+   "chapters": "222-222"
+  },
+  {
+   "prefix": "wormc223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch223-223.txt",
+   "base": "22301",
+   "chapters": "223-223"
+  },
+  {
+   "prefix": "wormc224",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch224-224.txt",
+   "base": "22401",
+   "chapters": "224-224"
+  },
+  {
+   "prefix": "wormc225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch225-225.txt",
+   "base": "22501",
+   "chapters": "225-225"
+  },
+  {
+   "prefix": "wormc226",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch226-226.txt",
+   "base": "22601",
+   "chapters": "226-226"
+  },
+  {
+   "prefix": "wormc227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch227-227.txt",
+   "base": "22701",
+   "chapters": "227-227"
+  },
+  {
+   "prefix": "wormc228",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch228-228.txt",
+   "base": "22801",
+   "chapters": "228-228"
+  },
+  {
+   "prefix": "wormc229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch229-229.txt",
+   "base": "22901",
+   "chapters": "229-229"
+  },
+  {
+   "prefix": "wormc230",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch230-230.txt",
+   "base": "23001",
+   "chapters": "230-230"
+  },
+  {
+   "prefix": "wormc231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch231-231.txt",
+   "base": "23101",
+   "chapters": "231-231"
+  },
+  {
+   "prefix": "wormc232",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch232-232.txt",
+   "base": "23201",
+   "chapters": "232-232"
+  },
+  {
+   "prefix": "wormc233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch233-233.txt",
+   "base": "23301",
+   "chapters": "233-233"
+  },
+  {
+   "prefix": "wormc234",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch234-234.txt",
+   "base": "23401",
+   "chapters": "234-234"
+  },
+  {
+   "prefix": "wormc235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch235-235.txt",
+   "base": "23501",
+   "chapters": "235-235"
+  },
+  {
+   "prefix": "wormc236",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch236-236.txt",
+   "base": "23601",
+   "chapters": "236-236"
+  },
+  {
+   "prefix": "wormc237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch237-237.txt",
+   "base": "23701",
+   "chapters": "237-237"
+  },
+  {
+   "prefix": "wormc238",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch238-238.txt",
+   "base": "23801",
+   "chapters": "238-238"
+  },
+  {
+   "prefix": "wormc239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch239-239.txt",
+   "base": "23901",
+   "chapters": "239-239"
+  },
+  {
+   "prefix": "wormc240",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch240-240.txt",
+   "base": "24001",
+   "chapters": "240-240"
+  },
+  {
+   "prefix": "wormc241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch241-241.txt",
+   "base": "24101",
+   "chapters": "241-241"
+  },
+  {
+   "prefix": "wormc242",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch242-242.txt",
+   "base": "24201",
+   "chapters": "242-242"
+  },
+  {
+   "prefix": "wormc243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch243-243.txt",
+   "base": "24301",
+   "chapters": "243-243"
+  },
+  {
+   "prefix": "wormc244",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch244-244.txt",
+   "base": "24401",
+   "chapters": "244-244"
+  },
+  {
+   "prefix": "wormc245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch245-245.txt",
+   "base": "24501",
+   "chapters": "245-245"
+  },
+  {
+   "prefix": "wormc246",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch246-246.txt",
+   "base": "24601",
+   "chapters": "246-246"
+  },
+  {
+   "prefix": "wormc247",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch247-247.txt",
+   "base": "24701",
+   "chapters": "247-247"
+  },
+  {
+   "prefix": "wormc248",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch248-248.txt",
+   "base": "24801",
+   "chapters": "248-248"
+  },
+  {
+   "prefix": "wormc249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch249-249.txt",
+   "base": "24901",
+   "chapters": "249-249"
+  },
+  {
+   "prefix": "wormc250",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch250-250.txt",
+   "base": "25001",
+   "chapters": "250-250"
+  },
+  {
+   "prefix": "wormc251",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch251-251.txt",
+   "base": "25101",
+   "chapters": "251-251"
+  },
+  {
+   "prefix": "wormc252",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch252-252.txt",
+   "base": "25201",
+   "chapters": "252-252"
+  },
+  {
+   "prefix": "wormc253",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch253-253.txt",
+   "base": "25301",
+   "chapters": "253-253"
+  },
+  {
+   "prefix": "wormc254",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch254-254.txt",
+   "base": "25401",
+   "chapters": "254-254"
+  },
+  {
+   "prefix": "wormc255",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch255-255.txt",
+   "base": "25501",
+   "chapters": "255-255"
+  },
+  {
+   "prefix": "wormc256",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch256-256.txt",
+   "base": "25601",
+   "chapters": "256-256"
+  },
+  {
+   "prefix": "wormc257",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch257-257.txt",
+   "base": "25701",
+   "chapters": "257-257"
+  },
+  {
+   "prefix": "wormc258",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch258-258.txt",
+   "base": "25801",
+   "chapters": "258-258"
+  },
+  {
+   "prefix": "wormc259",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch259-259.txt",
+   "base": "25901",
+   "chapters": "259-259"
+  },
+  {
+   "prefix": "wormc260",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch260-260.txt",
+   "base": "26001",
+   "chapters": "260-260"
+  },
+  {
+   "prefix": "wormc261",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch261-261.txt",
+   "base": "26101",
+   "chapters": "261-261"
+  },
+  {
+   "prefix": "wormc262",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch262-262.txt",
+   "base": "26201",
+   "chapters": "262-262"
+  },
+  {
+   "prefix": "wormc263",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch263-263.txt",
+   "base": "26301",
+   "chapters": "263-263"
+  },
+  {
+   "prefix": "wormc264",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch264-264.txt",
+   "base": "26401",
+   "chapters": "264-264"
+  },
+  {
+   "prefix": "wormc265",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch265-265.txt",
+   "base": "26501",
+   "chapters": "265-265"
+  },
+  {
+   "prefix": "wormc266",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch266-266.txt",
+   "base": "26601",
+   "chapters": "266-266"
+  },
+  {
+   "prefix": "wormc267",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch267-267.txt",
+   "base": "26701",
+   "chapters": "267-267"
+  },
+  {
+   "prefix": "wormc268",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch268-268.txt",
+   "base": "26801",
+   "chapters": "268-268"
+  },
+  {
+   "prefix": "wormc269",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch269-269.txt",
+   "base": "26901",
+   "chapters": "269-269"
+  },
+  {
+   "prefix": "wormc270",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch270-270.txt",
+   "base": "27001",
+   "chapters": "270-270"
+  },
+  {
+   "prefix": "wormc271",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch271-271.txt",
+   "base": "27101",
+   "chapters": "271-271"
+  },
+  {
+   "prefix": "wormc272",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch272-272.txt",
+   "base": "27201",
+   "chapters": "272-272"
+  },
+  {
+   "prefix": "wormc273",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch273-273.txt",
+   "base": "27301",
+   "chapters": "273-273"
+  },
+  {
+   "prefix": "wormc274",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch274-275.txt",
+   "base": "27401",
+   "chapters": "274-275"
+  },
+  {
+   "prefix": "wormc276",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch276-276.txt",
+   "base": "27601",
+   "chapters": "276-276"
+  },
+  {
+   "prefix": "wormc277",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch277-277.txt",
+   "base": "27701",
+   "chapters": "277-277"
+  },
+  {
+   "prefix": "wormc278",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch278-278.txt",
+   "base": "27801",
+   "chapters": "278-278"
+  },
+  {
+   "prefix": "wormc279",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch279-279.txt",
+   "base": "27901",
+   "chapters": "279-279"
+  },
+  {
+   "prefix": "wormc280",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch280-280.txt",
+   "base": "28001",
+   "chapters": "280-280"
+  },
+  {
+   "prefix": "wormc281",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch281-281.txt",
+   "base": "28101",
+   "chapters": "281-281"
+  },
+  {
+   "prefix": "wormc282",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch282-282.txt",
+   "base": "28201",
+   "chapters": "282-282"
+  },
+  {
+   "prefix": "wormc283",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch283-283.txt",
+   "base": "28301",
+   "chapters": "283-283"
+  },
+  {
+   "prefix": "wormc284",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch284-284.txt",
+   "base": "28401",
+   "chapters": "284-284"
+  },
+  {
+   "prefix": "wormc285",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch285-285.txt",
+   "base": "28501",
+   "chapters": "285-285"
+  },
+  {
+   "prefix": "wormc286",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch286-286.txt",
+   "base": "28601",
+   "chapters": "286-286"
+  },
+  {
+   "prefix": "wormc287",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch287-287.txt",
+   "base": "28701",
+   "chapters": "287-287"
+  },
+  {
+   "prefix": "wormc288",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch288-288.txt",
+   "base": "28801",
+   "chapters": "288-288"
+  },
+  {
+   "prefix": "wormc289",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch289-289.txt",
+   "base": "28901",
+   "chapters": "289-289"
+  },
+  {
+   "prefix": "wormc290",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch290-290.txt",
+   "base": "29001",
+   "chapters": "290-290"
+  },
+  {
+   "prefix": "wormc291",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch291-291.txt",
+   "base": "29101",
+   "chapters": "291-291"
+  },
+  {
+   "prefix": "wormc292",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch292-292.txt",
+   "base": "29201",
+   "chapters": "292-292"
+  },
+  {
+   "prefix": "wormc293",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch293-293.txt",
+   "base": "29301",
+   "chapters": "293-293"
+  },
+  {
+   "prefix": "wormc294",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch294-294.txt",
+   "base": "29401",
+   "chapters": "294-294"
+  },
+  {
+   "prefix": "wormc295",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch295-295.txt",
+   "base": "29501",
+   "chapters": "295-295"
+  },
+  {
+   "prefix": "wormc296",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch296-296.txt",
+   "base": "29601",
+   "chapters": "296-296"
+  },
+  {
+   "prefix": "wormc297",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch297-297.txt",
+   "base": "29701",
+   "chapters": "297-297"
+  },
+  {
+   "prefix": "wormc298",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch298-298.txt",
+   "base": "29801",
+   "chapters": "298-298"
+  },
+  {
+   "prefix": "wormc299",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch299-299.txt",
+   "base": "29901",
+   "chapters": "299-299"
+  },
+  {
+   "prefix": "wormc300",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch300-300.txt",
+   "base": "30001",
+   "chapters": "300-300"
+  },
+  {
+   "prefix": "wormc301",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch301-301.txt",
+   "base": "30101",
+   "chapters": "301-301"
+  },
+  {
+   "prefix": "wormc302",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch302-302.txt",
+   "base": "30201",
+   "chapters": "302-302"
+  },
+  {
+   "prefix": "wormc303",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch303-303.txt",
+   "base": "30301",
+   "chapters": "303-303"
+  },
+  {
+   "prefix": "wormc304",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/lead-run-2026-10-29/shard_worm_b1_ch304-304.txt",
+   "base": "30401",
+   "chapters": "304-304"
+  }
+ ]
+}

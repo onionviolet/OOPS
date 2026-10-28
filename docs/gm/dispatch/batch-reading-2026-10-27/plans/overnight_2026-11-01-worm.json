@@ -1,0 +1,79 @@
+{
+ "name": "2026-11-01-worm",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 33,
+ "capTotal": 43.84,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_pilot_census.json",
+     "cap": 0.04,
+     "label": "worm-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "worm-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_census.json",
+     "cap": 8.73,
+     "label": "worm-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_scenes.json",
+     "cap": 8.74,
+     "label": "worm-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_rules.json",
+     "cap": 8.77,
+     "label": "worm-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_people.json",
+     "cap": 8.76,
+     "label": "worm-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_texture.json",
+     "cap": 8.76,
+     "label": "worm-texture"
+    }
+   ]
+  }
+ ]
+}

@@ -454,6 +454,288 @@
     "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_part_606-668.json",
     "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B5/sources/ttks-browser-2026-10-10/ttks_B5_feitubianjingjianchaguan_PARTIAL.json"
    ]
+  },
+  {
+   "key": "worm",
+   "world": "worm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worm/private/source/worm.epub",
+   "book": 1,
+   "dir": "docs/research/novels/worm/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py worm",
+   "calibreId": 32
+  },
+  {
+   "key": "yas1",
+   "world": "yas",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/source/yas1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py yas",
+   "calibreId": 48
+  },
+  {
+   "key": "yas2",
+   "world": "yas",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/source/yas2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py yas",
+   "calibreId": 49
+  },
+  {
+   "key": "yas3",
+   "world": "yas",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/source/yas3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py yas",
+   "calibreId": 51
+  },
+  {
+   "key": "yas4",
+   "world": "yas",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/source/yas4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py yas",
+   "calibreId": 52
+  },
+  {
+   "key": "yas5",
+   "world": "yas",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/source/yas5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py yas",
+   "calibreId": 53
+  },
+  {
+   "key": "wus1",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 54
+  },
+  {
+   "key": "wus2",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 59
+  },
+  {
+   "key": "wus3",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 60
+  },
+  {
+   "key": "wus4",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 61
+  },
+  {
+   "key": "wus5",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 62
+  },
+  {
+   "key": "wus6",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 63
+  },
+  {
+   "key": "wus7",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 64
+  },
+  {
+   "key": "wus8",
+   "world": "wus",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/source/wus8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py wus",
+   "calibreId": 65
+  },
+  {
+   "key": "gc1",
+   "world": "gc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/source/gc1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/godclads/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py gc",
+   "calibreId": 76
+  },
+  {
+   "key": "gc2",
+   "world": "gc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/source/gc2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/godclads/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py gc",
+   "calibreId": 77
+  },
+  {
+   "key": "pr",
+   "world": "pr",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/source/perfect_run.epub",
+   "book": 1,
+   "dir": "docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "Royal Road capture docs/research/novels/perfect-run/source-preparation-2026-10-11/prepared/main-*.json, ordered by manifest.json ordinal, as HTML (one h1 Chapter N: Title per chapter) then ebook-convert"
+  },
+  {
+   "key": "prb",
+   "world": "pr",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/source/perfect_run_bad_runs.epub",
+   "book": 2,
+   "dir": "docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "Royal Road capture prepared/bad-runs-*.json (3 what-if chapters, not main continuity), same conversion"
+  },
+  {
+   "key": "sup",
+   "world": "sup",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/source/super_supportive.epub",
+   "book": 1,
+   "dir": "docs/research/novels/super-supportive/private/lead-run-2026-10-29",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "docs/research/novels/super-supportive/source-2026-10-25/super-supportive-merged.json, chapters renumbered 1-314 in order (numeric words in titles dropped), same conversion"
   }
  ]
 }

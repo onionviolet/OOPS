@@ -1,0 +1,1559 @@
+{
+ "world": "sup",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29",
+  "censusMatch": "^(sup)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "sup-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "supc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "supc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "supc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "supc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "supc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "supc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "supc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "supc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "supc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "supc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "supc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "supc024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch024-024.txt",
+   "base": "02401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "supc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch025-025.txt",
+   "base": "02501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "supc026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch026-026.txt",
+   "base": "02601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "supc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch027-027.txt",
+   "base": "02701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "supc028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "supc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch029-029.txt",
+   "base": "02901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "supc030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch030-030.txt",
+   "base": "03001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "supc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch031-031.txt",
+   "base": "03101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "supc032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch032-033.txt",
+   "base": "03201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "supc034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch034-035.txt",
+   "base": "03401",
+   "chapters": "34-35"
+  },
+  {
+   "prefix": "supc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch036-036.txt",
+   "base": "03601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "supc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch037-037.txt",
+   "base": "03701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "supc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch038-038.txt",
+   "base": "03801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "supc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch039-039.txt",
+   "base": "03901",
+   "chapters": "39-39"
+  },
+  {
+   "prefix": "supc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch040-040.txt",
+   "base": "04001",
+   "chapters": "40-40"
+  },
+  {
+   "prefix": "supc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "supc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "supc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "supc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "supc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "supc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "supc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch053-054.txt",
+   "base": "05301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "supc055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch055-056.txt",
+   "base": "05501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "supc057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch057-058.txt",
+   "base": "05701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "supc059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch059-060.txt",
+   "base": "05901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "supc061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch061-062.txt",
+   "base": "06101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "supc063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch063-063.txt",
+   "base": "06301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "supc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch064-064.txt",
+   "base": "06401",
+   "chapters": "64-64"
+  },
+  {
+   "prefix": "supc065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch065-065.txt",
+   "base": "06501",
+   "chapters": "65-65"
+  },
+  {
+   "prefix": "supc066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch066-066.txt",
+   "base": "06601",
+   "chapters": "66-66"
+  },
+  {
+   "prefix": "supc067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch067-067.txt",
+   "base": "06701",
+   "chapters": "67-67"
+  },
+  {
+   "prefix": "supc068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch068-068.txt",
+   "base": "06801",
+   "chapters": "68-68"
+  },
+  {
+   "prefix": "supc069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch069-069.txt",
+   "base": "06901",
+   "chapters": "69-69"
+  },
+  {
+   "prefix": "supc070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch070-070.txt",
+   "base": "07001",
+   "chapters": "70-70"
+  },
+  {
+   "prefix": "supc071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch071-072.txt",
+   "base": "07101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "supc073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch073-073.txt",
+   "base": "07301",
+   "chapters": "73-73"
+  },
+  {
+   "prefix": "supc074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch074-074.txt",
+   "base": "07401",
+   "chapters": "74-74"
+  },
+  {
+   "prefix": "supc075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch075-075.txt",
+   "base": "07501",
+   "chapters": "75-75"
+  },
+  {
+   "prefix": "supc076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch076-076.txt",
+   "base": "07601",
+   "chapters": "76-76"
+  },
+  {
+   "prefix": "supc077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch077-077.txt",
+   "base": "07701",
+   "chapters": "77-77"
+  },
+  {
+   "prefix": "supc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch078-078.txt",
+   "base": "07801",
+   "chapters": "78-78"
+  },
+  {
+   "prefix": "supc079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch079-079.txt",
+   "base": "07901",
+   "chapters": "79-79"
+  },
+  {
+   "prefix": "supc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch080-080.txt",
+   "base": "08001",
+   "chapters": "80-80"
+  },
+  {
+   "prefix": "supc081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch081-082.txt",
+   "base": "08101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "supc083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch083-083.txt",
+   "base": "08301",
+   "chapters": "83-83"
+  },
+  {
+   "prefix": "supc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch084-084.txt",
+   "base": "08401",
+   "chapters": "84-84"
+  },
+  {
+   "prefix": "supc085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch085-085.txt",
+   "base": "08501",
+   "chapters": "85-85"
+  },
+  {
+   "prefix": "supc086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch086-086.txt",
+   "base": "08601",
+   "chapters": "86-86"
+  },
+  {
+   "prefix": "supc087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch087-087.txt",
+   "base": "08701",
+   "chapters": "87-87"
+  },
+  {
+   "prefix": "supc088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch088-088.txt",
+   "base": "08801",
+   "chapters": "88-88"
+  },
+  {
+   "prefix": "supc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch089-089.txt",
+   "base": "08901",
+   "chapters": "89-89"
+  },
+  {
+   "prefix": "supc090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch090-090.txt",
+   "base": "09001",
+   "chapters": "90-90"
+  },
+  {
+   "prefix": "supc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "supc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "supc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch093-093.txt",
+   "base": "09301",
+   "chapters": "93-93"
+  },
+  {
+   "prefix": "supc094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch094-094.txt",
+   "base": "09401",
+   "chapters": "94-94"
+  },
+  {
+   "prefix": "supc095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch095-095.txt",
+   "base": "09501",
+   "chapters": "95-95"
+  },
+  {
+   "prefix": "supc096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch096-096.txt",
+   "base": "09601",
+   "chapters": "96-96"
+  },
+  {
+   "prefix": "supc097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch097-097.txt",
+   "base": "09701",
+   "chapters": "97-97"
+  },
+  {
+   "prefix": "supc098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch098-098.txt",
+   "base": "09801",
+   "chapters": "98-98"
+  },
+  {
+   "prefix": "supc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch099-099.txt",
+   "base": "09901",
+   "chapters": "99-99"
+  },
+  {
+   "prefix": "supc100",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch100-100.txt",
+   "base": "10001",
+   "chapters": "100-100"
+  },
+  {
+   "prefix": "supc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch101-101.txt",
+   "base": "10101",
+   "chapters": "101-101"
+  },
+  {
+   "prefix": "supc102",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch102-102.txt",
+   "base": "10201",
+   "chapters": "102-102"
+  },
+  {
+   "prefix": "supc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch103-103.txt",
+   "base": "10301",
+   "chapters": "103-103"
+  },
+  {
+   "prefix": "supc104",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch104-104.txt",
+   "base": "10401",
+   "chapters": "104-104"
+  },
+  {
+   "prefix": "supc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch105-105.txt",
+   "base": "10501",
+   "chapters": "105-105"
+  },
+  {
+   "prefix": "supc106",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch106-106.txt",
+   "base": "10601",
+   "chapters": "106-106"
+  },
+  {
+   "prefix": "supc107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch107-107.txt",
+   "base": "10701",
+   "chapters": "107-107"
+  },
+  {
+   "prefix": "supc108",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch108-108.txt",
+   "base": "10801",
+   "chapters": "108-108"
+  },
+  {
+   "prefix": "supc109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch109-109.txt",
+   "base": "10901",
+   "chapters": "109-109"
+  },
+  {
+   "prefix": "supc110",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch110-110.txt",
+   "base": "11001",
+   "chapters": "110-110"
+  },
+  {
+   "prefix": "supc111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch111-111.txt",
+   "base": "11101",
+   "chapters": "111-111"
+  },
+  {
+   "prefix": "supc112",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch112-112.txt",
+   "base": "11201",
+   "chapters": "112-112"
+  },
+  {
+   "prefix": "supc113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch113-113.txt",
+   "base": "11301",
+   "chapters": "113-113"
+  },
+  {
+   "prefix": "supc114",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch114-114.txt",
+   "base": "11401",
+   "chapters": "114-114"
+  },
+  {
+   "prefix": "supc115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch115-115.txt",
+   "base": "11501",
+   "chapters": "115-115"
+  },
+  {
+   "prefix": "supc116",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch116-116.txt",
+   "base": "11601",
+   "chapters": "116-116"
+  },
+  {
+   "prefix": "supc117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch117-117.txt",
+   "base": "11701",
+   "chapters": "117-117"
+  },
+  {
+   "prefix": "supc118",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch118-118.txt",
+   "base": "11801",
+   "chapters": "118-118"
+  },
+  {
+   "prefix": "supc119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch119-119.txt",
+   "base": "11901",
+   "chapters": "119-119"
+  },
+  {
+   "prefix": "supc120",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch120-120.txt",
+   "base": "12001",
+   "chapters": "120-120"
+  },
+  {
+   "prefix": "supc121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch121-121.txt",
+   "base": "12101",
+   "chapters": "121-121"
+  },
+  {
+   "prefix": "supc122",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch122-122.txt",
+   "base": "12201",
+   "chapters": "122-122"
+  },
+  {
+   "prefix": "supc123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch123-123.txt",
+   "base": "12301",
+   "chapters": "123-123"
+  },
+  {
+   "prefix": "supc124",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch124-124.txt",
+   "base": "12401",
+   "chapters": "124-124"
+  },
+  {
+   "prefix": "supc125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch125-125.txt",
+   "base": "12501",
+   "chapters": "125-125"
+  },
+  {
+   "prefix": "supc126",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch126-126.txt",
+   "base": "12601",
+   "chapters": "126-126"
+  },
+  {
+   "prefix": "supc127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch127-127.txt",
+   "base": "12701",
+   "chapters": "127-127"
+  },
+  {
+   "prefix": "supc128",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch128-128.txt",
+   "base": "12801",
+   "chapters": "128-128"
+  },
+  {
+   "prefix": "supc129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch129-129.txt",
+   "base": "12901",
+   "chapters": "129-129"
+  },
+  {
+   "prefix": "supc130",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch130-130.txt",
+   "base": "13001",
+   "chapters": "130-130"
+  },
+  {
+   "prefix": "supc131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch131-131.txt",
+   "base": "13101",
+   "chapters": "131-131"
+  },
+  {
+   "prefix": "supc132",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch132-132.txt",
+   "base": "13201",
+   "chapters": "132-132"
+  },
+  {
+   "prefix": "supc133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch133-133.txt",
+   "base": "13301",
+   "chapters": "133-133"
+  },
+  {
+   "prefix": "supc134",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch134-134.txt",
+   "base": "13401",
+   "chapters": "134-134"
+  },
+  {
+   "prefix": "supc135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch135-135.txt",
+   "base": "13501",
+   "chapters": "135-135"
+  },
+  {
+   "prefix": "supc136",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch136-136.txt",
+   "base": "13601",
+   "chapters": "136-136"
+  },
+  {
+   "prefix": "supc137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch137-137.txt",
+   "base": "13701",
+   "chapters": "137-137"
+  },
+  {
+   "prefix": "supc138",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch138-138.txt",
+   "base": "13801",
+   "chapters": "138-138"
+  },
+  {
+   "prefix": "supc139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch139-139.txt",
+   "base": "13901",
+   "chapters": "139-139"
+  },
+  {
+   "prefix": "supc140",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch140-140.txt",
+   "base": "14001",
+   "chapters": "140-140"
+  },
+  {
+   "prefix": "supc141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch141-141.txt",
+   "base": "14101",
+   "chapters": "141-141"
+  },
+  {
+   "prefix": "supc142",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch142-142.txt",
+   "base": "14201",
+   "chapters": "142-142"
+  },
+  {
+   "prefix": "supc143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch143-143.txt",
+   "base": "14301",
+   "chapters": "143-143"
+  },
+  {
+   "prefix": "supc144",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch144-144.txt",
+   "base": "14401",
+   "chapters": "144-144"
+  },
+  {
+   "prefix": "supc145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch145-145.txt",
+   "base": "14501",
+   "chapters": "145-145"
+  },
+  {
+   "prefix": "supc146",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch146-146.txt",
+   "base": "14601",
+   "chapters": "146-146"
+  },
+  {
+   "prefix": "supc147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch147-147.txt",
+   "base": "14701",
+   "chapters": "147-147"
+  },
+  {
+   "prefix": "supc148",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch148-148.txt",
+   "base": "14801",
+   "chapters": "148-148"
+  },
+  {
+   "prefix": "supc149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch149-149.txt",
+   "base": "14901",
+   "chapters": "149-149"
+  },
+  {
+   "prefix": "supc150",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch150-150.txt",
+   "base": "15001",
+   "chapters": "150-150"
+  },
+  {
+   "prefix": "supc151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch151-151.txt",
+   "base": "15101",
+   "chapters": "151-151"
+  },
+  {
+   "prefix": "supc152",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch152-152.txt",
+   "base": "15201",
+   "chapters": "152-152"
+  },
+  {
+   "prefix": "supc153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch153-154.txt",
+   "base": "15301",
+   "chapters": "153-154"
+  },
+  {
+   "prefix": "supc155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch155-155.txt",
+   "base": "15501",
+   "chapters": "155-155"
+  },
+  {
+   "prefix": "supc156",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch156-156.txt",
+   "base": "15601",
+   "chapters": "156-156"
+  },
+  {
+   "prefix": "supc157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch157-158.txt",
+   "base": "15701",
+   "chapters": "157-158"
+  },
+  {
+   "prefix": "supc159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch159-159.txt",
+   "base": "15901",
+   "chapters": "159-159"
+  },
+  {
+   "prefix": "supc160",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch160-160.txt",
+   "base": "16001",
+   "chapters": "160-160"
+  },
+  {
+   "prefix": "supc161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch161-161.txt",
+   "base": "16101",
+   "chapters": "161-161"
+  },
+  {
+   "prefix": "supc162",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch162-162.txt",
+   "base": "16201",
+   "chapters": "162-162"
+  },
+  {
+   "prefix": "supc163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch163-163.txt",
+   "base": "16301",
+   "chapters": "163-163"
+  },
+  {
+   "prefix": "supc164",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch164-164.txt",
+   "base": "16401",
+   "chapters": "164-164"
+  },
+  {
+   "prefix": "supc165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch165-165.txt",
+   "base": "16501",
+   "chapters": "165-165"
+  },
+  {
+   "prefix": "supc166",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch166-166.txt",
+   "base": "16601",
+   "chapters": "166-166"
+  },
+  {
+   "prefix": "supc167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch167-167.txt",
+   "base": "16701",
+   "chapters": "167-167"
+  },
+  {
+   "prefix": "supc168",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch168-168.txt",
+   "base": "16801",
+   "chapters": "168-168"
+  },
+  {
+   "prefix": "supc169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch169-169.txt",
+   "base": "16901",
+   "chapters": "169-169"
+  },
+  {
+   "prefix": "supc170",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch170-170.txt",
+   "base": "17001",
+   "chapters": "170-170"
+  },
+  {
+   "prefix": "supc171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch171-171.txt",
+   "base": "17101",
+   "chapters": "171-171"
+  },
+  {
+   "prefix": "supc172",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch172-172.txt",
+   "base": "17201",
+   "chapters": "172-172"
+  },
+  {
+   "prefix": "supc173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch173-173.txt",
+   "base": "17301",
+   "chapters": "173-173"
+  },
+  {
+   "prefix": "supc174",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch174-174.txt",
+   "base": "17401",
+   "chapters": "174-174"
+  },
+  {
+   "prefix": "supc175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch175-175.txt",
+   "base": "17501",
+   "chapters": "175-175"
+  },
+  {
+   "prefix": "supc176",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch176-176.txt",
+   "base": "17601",
+   "chapters": "176-176"
+  },
+  {
+   "prefix": "supc177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch177-177.txt",
+   "base": "17701",
+   "chapters": "177-177"
+  },
+  {
+   "prefix": "supc178",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch178-178.txt",
+   "base": "17801",
+   "chapters": "178-178"
+  },
+  {
+   "prefix": "supc179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch179-179.txt",
+   "base": "17901",
+   "chapters": "179-179"
+  },
+  {
+   "prefix": "supc180",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch180-180.txt",
+   "base": "18001",
+   "chapters": "180-180"
+  },
+  {
+   "prefix": "supc181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch181-181.txt",
+   "base": "18101",
+   "chapters": "181-181"
+  },
+  {
+   "prefix": "supc182",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch182-182.txt",
+   "base": "18201",
+   "chapters": "182-182"
+  },
+  {
+   "prefix": "supc183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch183-183.txt",
+   "base": "18301",
+   "chapters": "183-183"
+  },
+  {
+   "prefix": "supc184",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch184-184.txt",
+   "base": "18401",
+   "chapters": "184-184"
+  },
+  {
+   "prefix": "supc185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch185-185.txt",
+   "base": "18501",
+   "chapters": "185-185"
+  },
+  {
+   "prefix": "supc186",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch186-187.txt",
+   "base": "18601",
+   "chapters": "186-187"
+  },
+  {
+   "prefix": "supc188",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch188-188.txt",
+   "base": "18801",
+   "chapters": "188-188"
+  },
+  {
+   "prefix": "supc189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch189-189.txt",
+   "base": "18901",
+   "chapters": "189-189"
+  },
+  {
+   "prefix": "supc190",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch190-190.txt",
+   "base": "19001",
+   "chapters": "190-190"
+  },
+  {
+   "prefix": "supc191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch191-192.txt",
+   "base": "19101",
+   "chapters": "191-192"
+  },
+  {
+   "prefix": "supc193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch193-194.txt",
+   "base": "19301",
+   "chapters": "193-194"
+  },
+  {
+   "prefix": "supc195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch195-195.txt",
+   "base": "19501",
+   "chapters": "195-195"
+  },
+  {
+   "prefix": "supc196",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch196-196.txt",
+   "base": "19601",
+   "chapters": "196-196"
+  },
+  {
+   "prefix": "supc197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch197-197.txt",
+   "base": "19701",
+   "chapters": "197-197"
+  },
+  {
+   "prefix": "supc198",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch198-198.txt",
+   "base": "19801",
+   "chapters": "198-198"
+  },
+  {
+   "prefix": "supc199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch199-199.txt",
+   "base": "19901",
+   "chapters": "199-199"
+  },
+  {
+   "prefix": "supc200",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch200-201.txt",
+   "base": "20001",
+   "chapters": "200-201"
+  },
+  {
+   "prefix": "supc202",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch202-203.txt",
+   "base": "20201",
+   "chapters": "202-203"
+  },
+  {
+   "prefix": "supc204",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch204-204.txt",
+   "base": "20401",
+   "chapters": "204-204"
+  },
+  {
+   "prefix": "supc205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch205-205.txt",
+   "base": "20501",
+   "chapters": "205-205"
+  },
+  {
+   "prefix": "supc206",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch206-206.txt",
+   "base": "20601",
+   "chapters": "206-206"
+  },
+  {
+   "prefix": "supc207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch207-207.txt",
+   "base": "20701",
+   "chapters": "207-207"
+  },
+  {
+   "prefix": "supc208",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch208-208.txt",
+   "base": "20801",
+   "chapters": "208-208"
+  },
+  {
+   "prefix": "supc209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch209-209.txt",
+   "base": "20901",
+   "chapters": "209-209"
+  },
+  {
+   "prefix": "supc210",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch210-211.txt",
+   "base": "21001",
+   "chapters": "210-211"
+  },
+  {
+   "prefix": "supc212",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch212-213.txt",
+   "base": "21201",
+   "chapters": "212-213"
+  },
+  {
+   "prefix": "supc214",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch214-214.txt",
+   "base": "21401",
+   "chapters": "214-214"
+  },
+  {
+   "prefix": "supc215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch215-215.txt",
+   "base": "21501",
+   "chapters": "215-215"
+  },
+  {
+   "prefix": "supc216",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch216-216.txt",
+   "base": "21601",
+   "chapters": "216-216"
+  },
+  {
+   "prefix": "supc217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch217-217.txt",
+   "base": "21701",
+   "chapters": "217-217"
+  },
+  {
+   "prefix": "supc218",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch218-219.txt",
+   "base": "21801",
+   "chapters": "218-219"
+  },
+  {
+   "prefix": "supc220",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch220-220.txt",
+   "base": "22001",
+   "chapters": "220-220"
+  },
+  {
+   "prefix": "supc221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch221-221.txt",
+   "base": "22101",
+   "chapters": "221-221"
+  },
+  {
+   "prefix": "supc222",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch222-222.txt",
+   "base": "22201",
+   "chapters": "222-222"
+  },
+  {
+   "prefix": "supc223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch223-223.txt",
+   "base": "22301",
+   "chapters": "223-223"
+  },
+  {
+   "prefix": "supc224",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch224-224.txt",
+   "base": "22401",
+   "chapters": "224-224"
+  },
+  {
+   "prefix": "supc225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch225-226.txt",
+   "base": "22501",
+   "chapters": "225-226"
+  },
+  {
+   "prefix": "supc227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch227-228.txt",
+   "base": "22701",
+   "chapters": "227-228"
+  },
+  {
+   "prefix": "supc229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch229-230.txt",
+   "base": "22901",
+   "chapters": "229-230"
+  },
+  {
+   "prefix": "supc231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch231-231.txt",
+   "base": "23101",
+   "chapters": "231-231"
+  },
+  {
+   "prefix": "supc232",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch232-232.txt",
+   "base": "23201",
+   "chapters": "232-232"
+  },
+  {
+   "prefix": "supc233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch233-233.txt",
+   "base": "23301",
+   "chapters": "233-233"
+  },
+  {
+   "prefix": "supc234",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch234-235.txt",
+   "base": "23401",
+   "chapters": "234-235"
+  },
+  {
+   "prefix": "supc236",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch236-236.txt",
+   "base": "23601",
+   "chapters": "236-236"
+  },
+  {
+   "prefix": "supc237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch237-238.txt",
+   "base": "23701",
+   "chapters": "237-238"
+  },
+  {
+   "prefix": "supc239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch239-240.txt",
+   "base": "23901",
+   "chapters": "239-240"
+  },
+  {
+   "prefix": "supc241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch241-242.txt",
+   "base": "24101",
+   "chapters": "241-242"
+  },
+  {
+   "prefix": "supc243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch243-243.txt",
+   "base": "24301",
+   "chapters": "243-243"
+  },
+  {
+   "prefix": "supc244",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch244-244.txt",
+   "base": "24401",
+   "chapters": "244-244"
+  },
+  {
+   "prefix": "supc245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch245-246.txt",
+   "base": "24501",
+   "chapters": "245-246"
+  },
+  {
+   "prefix": "supc247",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch247-248.txt",
+   "base": "24701",
+   "chapters": "247-248"
+  },
+  {
+   "prefix": "supc249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch249-249.txt",
+   "base": "24901",
+   "chapters": "249-249"
+  },
+  {
+   "prefix": "supc250",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch250-250.txt",
+   "base": "25001",
+   "chapters": "250-250"
+  },
+  {
+   "prefix": "supc251",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch251-251.txt",
+   "base": "25101",
+   "chapters": "251-251"
+  },
+  {
+   "prefix": "supc252",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch252-252.txt",
+   "base": "25201",
+   "chapters": "252-252"
+  },
+  {
+   "prefix": "supc253",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch253-253.txt",
+   "base": "25301",
+   "chapters": "253-253"
+  },
+  {
+   "prefix": "supc254",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch254-254.txt",
+   "base": "25401",
+   "chapters": "254-254"
+  },
+  {
+   "prefix": "supc255",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch255-256.txt",
+   "base": "25501",
+   "chapters": "255-256"
+  },
+  {
+   "prefix": "supc257",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch257-257.txt",
+   "base": "25701",
+   "chapters": "257-257"
+  },
+  {
+   "prefix": "supc258",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch258-258.txt",
+   "base": "25801",
+   "chapters": "258-258"
+  },
+  {
+   "prefix": "supc259",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch259-260.txt",
+   "base": "25901",
+   "chapters": "259-260"
+  },
+  {
+   "prefix": "supc261",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch261-261.txt",
+   "base": "26101",
+   "chapters": "261-261"
+  },
+  {
+   "prefix": "supc262",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch262-262.txt",
+   "base": "26201",
+   "chapters": "262-262"
+  },
+  {
+   "prefix": "supc263",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch263-263.txt",
+   "base": "26301",
+   "chapters": "263-263"
+  },
+  {
+   "prefix": "supc264",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch264-265.txt",
+   "base": "26401",
+   "chapters": "264-265"
+  },
+  {
+   "prefix": "supc266",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch266-266.txt",
+   "base": "26601",
+   "chapters": "266-266"
+  },
+  {
+   "prefix": "supc267",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch267-268.txt",
+   "base": "26701",
+   "chapters": "267-268"
+  },
+  {
+   "prefix": "supc269",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch269-269.txt",
+   "base": "26901",
+   "chapters": "269-269"
+  },
+  {
+   "prefix": "supc270",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch270-271.txt",
+   "base": "27001",
+   "chapters": "270-271"
+  },
+  {
+   "prefix": "supc272",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch272-272.txt",
+   "base": "27201",
+   "chapters": "272-272"
+  },
+  {
+   "prefix": "supc273",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch273-273.txt",
+   "base": "27301",
+   "chapters": "273-273"
+  },
+  {
+   "prefix": "supc274",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch274-275.txt",
+   "base": "27401",
+   "chapters": "274-275"
+  },
+  {
+   "prefix": "supc276",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch276-277.txt",
+   "base": "27601",
+   "chapters": "276-277"
+  },
+  {
+   "prefix": "supc278",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch278-279.txt",
+   "base": "27801",
+   "chapters": "278-279"
+  },
+  {
+   "prefix": "supc280",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch280-281.txt",
+   "base": "28001",
+   "chapters": "280-281"
+  },
+  {
+   "prefix": "supc282",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch282-282.txt",
+   "base": "28201",
+   "chapters": "282-282"
+  },
+  {
+   "prefix": "supc283",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch283-283.txt",
+   "base": "28301",
+   "chapters": "283-283"
+  },
+  {
+   "prefix": "supc284",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch284-284.txt",
+   "base": "28401",
+   "chapters": "284-284"
+  },
+  {
+   "prefix": "supc285",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch285-285.txt",
+   "base": "28501",
+   "chapters": "285-285"
+  },
+  {
+   "prefix": "supc286",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch286-286.txt",
+   "base": "28601",
+   "chapters": "286-286"
+  },
+  {
+   "prefix": "supc287",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch287-287.txt",
+   "base": "28701",
+   "chapters": "287-287"
+  },
+  {
+   "prefix": "supc288",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch288-288.txt",
+   "base": "28801",
+   "chapters": "288-288"
+  },
+  {
+   "prefix": "supc289",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch289-289.txt",
+   "base": "28901",
+   "chapters": "289-289"
+  },
+  {
+   "prefix": "supc290",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch290-290.txt",
+   "base": "29001",
+   "chapters": "290-290"
+  },
+  {
+   "prefix": "supc291",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch291-291.txt",
+   "base": "29101",
+   "chapters": "291-291"
+  },
+  {
+   "prefix": "supc292",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch292-292.txt",
+   "base": "29201",
+   "chapters": "292-292"
+  },
+  {
+   "prefix": "supc293",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch293-293.txt",
+   "base": "29301",
+   "chapters": "293-293"
+  },
+  {
+   "prefix": "supc294",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch294-294.txt",
+   "base": "29401",
+   "chapters": "294-294"
+  },
+  {
+   "prefix": "supc295",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch295-295.txt",
+   "base": "29501",
+   "chapters": "295-295"
+  },
+  {
+   "prefix": "supc296",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch296-296.txt",
+   "base": "29601",
+   "chapters": "296-296"
+  },
+  {
+   "prefix": "supc297",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch297-297.txt",
+   "base": "29701",
+   "chapters": "297-297"
+  },
+  {
+   "prefix": "supc298",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch298-298.txt",
+   "base": "29801",
+   "chapters": "298-298"
+  },
+  {
+   "prefix": "supc299",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch299-299.txt",
+   "base": "29901",
+   "chapters": "299-299"
+  },
+  {
+   "prefix": "supc300",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch300-300.txt",
+   "base": "30001",
+   "chapters": "300-300"
+  },
+  {
+   "prefix": "supc301",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch301-301.txt",
+   "base": "30101",
+   "chapters": "301-301"
+  },
+  {
+   "prefix": "supc302",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch302-303.txt",
+   "base": "30201",
+   "chapters": "302-303"
+  },
+  {
+   "prefix": "supc304",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch304-304.txt",
+   "base": "30401",
+   "chapters": "304-304"
+  },
+  {
+   "prefix": "supc305",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch305-305.txt",
+   "base": "30501",
+   "chapters": "305-305"
+  },
+  {
+   "prefix": "supc306",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch306-306.txt",
+   "base": "30601",
+   "chapters": "306-306"
+  },
+  {
+   "prefix": "supc307",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch307-307.txt",
+   "base": "30701",
+   "chapters": "307-307"
+  },
+  {
+   "prefix": "supc308",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch308-308.txt",
+   "base": "30801",
+   "chapters": "308-308"
+  },
+  {
+   "prefix": "supc309",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch309-309.txt",
+   "base": "30901",
+   "chapters": "309-309"
+  },
+  {
+   "prefix": "supc310",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch310-310.txt",
+   "base": "31001",
+   "chapters": "310-310"
+  },
+  {
+   "prefix": "supc311",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch311-311.txt",
+   "base": "31101",
+   "chapters": "311-311"
+  },
+  {
+   "prefix": "supc312",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch312-313.txt",
+   "base": "31201",
+   "chapters": "312-313"
+  },
+  {
+   "prefix": "supc314",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch314-314.txt",
+   "base": "31401",
+   "chapters": "314-314"
+  }
+ ]
+}

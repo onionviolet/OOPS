@@ -1,0 +1,114 @@
+{
+ "name": "2026-11-01-pr",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 10,
+ "capTotal": 13.71,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_pilot_census.json",
+     "cap": 0.04,
+     "label": "pr-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "pr-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_pilot_census.json",
+     "cap": 0.04,
+     "label": "prb-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "prb-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_census.json",
+     "cap": 2.6,
+     "label": "pr-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_census.json",
+     "cap": 0.07,
+     "label": "prb-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_scenes.json",
+     "cap": 2.6,
+     "label": "pr-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_scenes.json",
+     "cap": 0.07,
+     "label": "prb-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_rules.json",
+     "cap": 2.64,
+     "label": "pr-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_rules.json",
+     "cap": 0.1,
+     "label": "prb-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_people.json",
+     "cap": 2.64,
+     "label": "pr-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_people.json",
+     "cap": 0.1,
+     "label": "prb-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pr_texture.json",
+     "cap": 2.63,
+     "label": "pr-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/prb_texture.json",
+     "cap": 0.1,
+     "label": "prb-texture"
+    }
+   ]
+  }
+ ]
+}

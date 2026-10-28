@@ -1,0 +1,114 @@
+{
+ "name": "2026-11-01-gc",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 10,
+ "capTotal": 13.38,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_pilot_census.json",
+     "cap": 0.04,
+     "label": "gc1-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "gc1-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_pilot_census.json",
+     "cap": 0.04,
+     "label": "gc2-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "gc2-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_census.json",
+     "cap": 1.15,
+     "label": "gc1-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_census.json",
+     "cap": 1.45,
+     "label": "gc2-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_scenes.json",
+     "cap": 1.16,
+     "label": "gc1-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_scenes.json",
+     "cap": 1.45,
+     "label": "gc2-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_rules.json",
+     "cap": 1.19,
+     "label": "gc1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_rules.json",
+     "cap": 1.48,
+     "label": "gc2-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_people.json",
+     "cap": 1.19,
+     "label": "gc1-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_people.json",
+     "cap": 1.48,
+     "label": "gc2-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_texture.json",
+     "cap": 1.19,
+     "label": "gc1-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_texture.json",
+     "cap": 1.48,
+     "label": "gc2-texture"
+    }
+   ]
+  }
+ ]
+}

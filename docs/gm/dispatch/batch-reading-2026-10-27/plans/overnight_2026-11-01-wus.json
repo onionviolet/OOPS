@@ -1,0 +1,324 @@
+{
+ "name": "2026-11-01-wus",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 33,
+ "capTotal": 43.54,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus1-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus1-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus2-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus2-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus3-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus3-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus4-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus4-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus5-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus5-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus6-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus6-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus7-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus7-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_pilot_census.json",
+     "cap": 0.04,
+     "label": "wus8-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "wus8-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_census.json",
+     "cap": 0.66,
+     "label": "wus1-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_census.json",
+     "cap": 1.11,
+     "label": "wus2-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_census.json",
+     "cap": 0.85,
+     "label": "wus3-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_census.json",
+     "cap": 1.18,
+     "label": "wus4-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_census.json",
+     "cap": 1.21,
+     "label": "wus5-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_census.json",
+     "cap": 1.18,
+     "label": "wus6-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_census.json",
+     "cap": 1.18,
+     "label": "wus7-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_census.json",
+     "cap": 1.05,
+     "label": "wus8-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_scenes.json",
+     "cap": 0.66,
+     "label": "wus1-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_scenes.json",
+     "cap": 1.12,
+     "label": "wus2-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_scenes.json",
+     "cap": 0.85,
+     "label": "wus3-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_scenes.json",
+     "cap": 1.18,
+     "label": "wus4-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_scenes.json",
+     "cap": 1.21,
+     "label": "wus5-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_scenes.json",
+     "cap": 1.18,
+     "label": "wus6-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_scenes.json",
+     "cap": 1.18,
+     "label": "wus7-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_scenes.json",
+     "cap": 1.05,
+     "label": "wus8-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_rules.json",
+     "cap": 0.69,
+     "label": "wus1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_rules.json",
+     "cap": 1.15,
+     "label": "wus2-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_rules.json",
+     "cap": 0.89,
+     "label": "wus3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_rules.json",
+     "cap": 1.21,
+     "label": "wus4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_rules.json",
+     "cap": 1.25,
+     "label": "wus5-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_rules.json",
+     "cap": 1.21,
+     "label": "wus6-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_rules.json",
+     "cap": 1.21,
+     "label": "wus7-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_rules.json",
+     "cap": 1.08,
+     "label": "wus8-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_people.json",
+     "cap": 0.69,
+     "label": "wus1-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_people.json",
+     "cap": 1.15,
+     "label": "wus2-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_people.json",
+     "cap": 0.89,
+     "label": "wus3-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_people.json",
+     "cap": 1.21,
+     "label": "wus4-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_people.json",
+     "cap": 1.24,
+     "label": "wus5-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_people.json",
+     "cap": 1.21,
+     "label": "wus6-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_people.json",
+     "cap": 1.21,
+     "label": "wus7-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_people.json",
+     "cap": 1.08,
+     "label": "wus8-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus1_texture.json",
+     "cap": 0.69,
+     "label": "wus1-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus2_texture.json",
+     "cap": 1.15,
+     "label": "wus2-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus3_texture.json",
+     "cap": 0.89,
+     "label": "wus3-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_texture.json",
+     "cap": 1.21,
+     "label": "wus4-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_texture.json",
+     "cap": 1.24,
+     "label": "wus5-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_texture.json",
+     "cap": 1.21,
+     "label": "wus6-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_texture.json",
+     "cap": 1.21,
+     "label": "wus7-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_texture.json",
+     "cap": 1.08,
+     "label": "wus8-texture"
+    }
+   ]
+  }
+ ]
+}

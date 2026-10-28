@@ -1,0 +1,23 @@
+{
+ "world": "wus",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+  "censusMatch": "^(wus1|wus2|wus3|wus4|wus5|wus6|wus7|wus8)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "wus8-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "wus8c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus8_b8_ch001-002.txt",
+   "base": "800101",
+   "chapters": "1-2"
+  }
+ ]
+}

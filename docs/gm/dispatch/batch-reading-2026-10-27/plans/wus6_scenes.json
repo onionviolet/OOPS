@@ -1,0 +1,234 @@
+{
+ "world": "wus",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29",
+  "censusMatch": "^(wus1|wus2|wus3|wus4|wus5|wus6|wus7|wus8)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "wus6-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "wus6c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch003-004.txt",
+   "base": "600301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "wus6c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch005-006.txt",
+   "base": "600501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "wus6c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch007-008.txt",
+   "base": "600701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "wus6c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch009-010.txt",
+   "base": "600901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "wus6c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch011-012.txt",
+   "base": "601101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "wus6c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch013-014.txt",
+   "base": "601301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "wus6c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch015-016.txt",
+   "base": "601501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "wus6c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch017-018.txt",
+   "base": "601701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "wus6c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch019-020.txt",
+   "base": "601901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "wus6c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch021-022.txt",
+   "base": "602101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "wus6c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch023-024.txt",
+   "base": "602301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "wus6c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch025-026.txt",
+   "base": "602501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "wus6c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch027-028.txt",
+   "base": "602701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "wus6c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch029-030.txt",
+   "base": "602901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "wus6c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch031-032.txt",
+   "base": "603101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "wus6c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch033-034.txt",
+   "base": "603301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "wus6c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch035-036.txt",
+   "base": "603501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "wus6c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch037-038.txt",
+   "base": "603701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "wus6c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch039-040.txt",
+   "base": "603901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "wus6c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch041-042.txt",
+   "base": "604101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "wus6c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch043-044.txt",
+   "base": "604301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "wus6c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch045-046.txt",
+   "base": "604501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "wus6c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch047-048.txt",
+   "base": "604701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "wus6c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch049-050.txt",
+   "base": "604901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "wus6c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch051-052.txt",
+   "base": "605101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "wus6c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch053-054.txt",
+   "base": "605301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "wus6c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch055-056.txt",
+   "base": "605501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "wus6c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch057-058.txt",
+   "base": "605701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "wus6c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch059-060.txt",
+   "base": "605901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "wus6c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch061-062.txt",
+   "base": "606101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "wus6c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch063-064.txt",
+   "base": "606301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "wus6c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch065-066.txt",
+   "base": "606501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "wus6c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch067-068.txt",
+   "base": "606701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "wus6c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch069-070.txt",
+   "base": "606901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "wus6c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch071-072.txt",
+   "base": "607101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "wus6c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/private/lead-run-2026-10-29/shard_wus6_b6_ch073-073.txt",
+   "base": "607301",
+   "chapters": "73-73"
+  }
+ ]
+}

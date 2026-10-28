@@ -1,0 +1,498 @@
+{
+ "world": "pr",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+  "censusMatch": "^(pr|prb)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "pr-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "prc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "prc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "prc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "prc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "prc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "prc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "prc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "prc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "prc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "prc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "prc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "prc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "prc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "prc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "prc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "prc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "prc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "prc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch035-036.txt",
+   "base": "03501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "prc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch037-038.txt",
+   "base": "03701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "prc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch039-040.txt",
+   "base": "03901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "prc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "prc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "prc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "prc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "prc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "prc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "prc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch053-054.txt",
+   "base": "05301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "prc055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch055-055.txt",
+   "base": "05501",
+   "chapters": "55-55"
+  },
+  {
+   "prefix": "prc056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch056-056.txt",
+   "base": "05601",
+   "chapters": "56-56"
+  },
+  {
+   "prefix": "prc057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch057-057.txt",
+   "base": "05701",
+   "chapters": "57-57"
+  },
+  {
+   "prefix": "prc058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch058-059.txt",
+   "base": "05801",
+   "chapters": "58-59"
+  },
+  {
+   "prefix": "prc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch060-060.txt",
+   "base": "06001",
+   "chapters": "60-60"
+  },
+  {
+   "prefix": "prc061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch061-062.txt",
+   "base": "06101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "prc063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch063-063.txt",
+   "base": "06301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "prc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch064-064.txt",
+   "base": "06401",
+   "chapters": "64-64"
+  },
+  {
+   "prefix": "prc065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch065-066.txt",
+   "base": "06501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "prc067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch067-068.txt",
+   "base": "06701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "prc069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch069-070.txt",
+   "base": "06901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "prc071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch071-072.txt",
+   "base": "07101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "prc073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch073-074.txt",
+   "base": "07301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "prc075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch075-076.txt",
+   "base": "07501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "prc077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch077-077.txt",
+   "base": "07701",
+   "chapters": "77-77"
+  },
+  {
+   "prefix": "prc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch078-078.txt",
+   "base": "07801",
+   "chapters": "78-78"
+  },
+  {
+   "prefix": "prc079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch079-079.txt",
+   "base": "07901",
+   "chapters": "79-79"
+  },
+  {
+   "prefix": "prc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch080-081.txt",
+   "base": "08001",
+   "chapters": "80-81"
+  },
+  {
+   "prefix": "prc082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch082-083.txt",
+   "base": "08201",
+   "chapters": "82-83"
+  },
+  {
+   "prefix": "prc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch084-085.txt",
+   "base": "08401",
+   "chapters": "84-85"
+  },
+  {
+   "prefix": "prc086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch086-087.txt",
+   "base": "08601",
+   "chapters": "86-87"
+  },
+  {
+   "prefix": "prc088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch088-088.txt",
+   "base": "08801",
+   "chapters": "88-88"
+  },
+  {
+   "prefix": "prc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch089-089.txt",
+   "base": "08901",
+   "chapters": "89-89"
+  },
+  {
+   "prefix": "prc090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch090-090.txt",
+   "base": "09001",
+   "chapters": "90-90"
+  },
+  {
+   "prefix": "prc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "prc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "prc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch093-093.txt",
+   "base": "09301",
+   "chapters": "93-93"
+  },
+  {
+   "prefix": "prc094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch094-095.txt",
+   "base": "09401",
+   "chapters": "94-95"
+  },
+  {
+   "prefix": "prc096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch096-096.txt",
+   "base": "09601",
+   "chapters": "96-96"
+  },
+  {
+   "prefix": "prc097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch097-098.txt",
+   "base": "09701",
+   "chapters": "97-98"
+  },
+  {
+   "prefix": "prc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch099-099.txt",
+   "base": "09901",
+   "chapters": "99-99"
+  },
+  {
+   "prefix": "prc100",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch100-100.txt",
+   "base": "10001",
+   "chapters": "100-100"
+  },
+  {
+   "prefix": "prc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch101-102.txt",
+   "base": "10101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "prc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch103-103.txt",
+   "base": "10301",
+   "chapters": "103-103"
+  },
+  {
+   "prefix": "prc104",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch104-104.txt",
+   "base": "10401",
+   "chapters": "104-104"
+  },
+  {
+   "prefix": "prc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch105-106.txt",
+   "base": "10501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "prc107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch107-108.txt",
+   "base": "10701",
+   "chapters": "107-108"
+  },
+  {
+   "prefix": "prc109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch109-110.txt",
+   "base": "10901",
+   "chapters": "109-110"
+  },
+  {
+   "prefix": "prc111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch111-111.txt",
+   "base": "11101",
+   "chapters": "111-111"
+  },
+  {
+   "prefix": "prc112",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch112-113.txt",
+   "base": "11201",
+   "chapters": "112-113"
+  },
+  {
+   "prefix": "prc114",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch114-114.txt",
+   "base": "11401",
+   "chapters": "114-114"
+  },
+  {
+   "prefix": "prc115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch115-116.txt",
+   "base": "11501",
+   "chapters": "115-116"
+  },
+  {
+   "prefix": "prc117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch117-117.txt",
+   "base": "11701",
+   "chapters": "117-117"
+  },
+  {
+   "prefix": "prc118",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch118-118.txt",
+   "base": "11801",
+   "chapters": "118-118"
+  },
+  {
+   "prefix": "prc119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch119-120.txt",
+   "base": "11901",
+   "chapters": "119-120"
+  },
+  {
+   "prefix": "prc121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch121-122.txt",
+   "base": "12101",
+   "chapters": "121-122"
+  },
+  {
+   "prefix": "prc123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch123-123.txt",
+   "base": "12301",
+   "chapters": "123-123"
+  },
+  {
+   "prefix": "prc124",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch124-125.txt",
+   "base": "12401",
+   "chapters": "124-125"
+  },
+  {
+   "prefix": "prc126",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch126-126.txt",
+   "base": "12601",
+   "chapters": "126-126"
+  },
+  {
+   "prefix": "prc127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch127-127.txt",
+   "base": "12701",
+   "chapters": "127-127"
+  },
+  {
+   "prefix": "prc128",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch128-128.txt",
+   "base": "12801",
+   "chapters": "128-128"
+  },
+  {
+   "prefix": "prc129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch129-129.txt",
+   "base": "12901",
+   "chapters": "129-129"
+  },
+  {
+   "prefix": "prc130",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch130-130.txt",
+   "base": "13001",
+   "chapters": "130-130"
+  }
+ ]
+}

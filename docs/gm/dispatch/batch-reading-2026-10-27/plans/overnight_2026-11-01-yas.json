@@ -1,0 +1,219 @@
+{
+ "name": "2026-11-01-yas",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 15,
+ "capTotal": 20.04,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_pilot_census.json",
+     "cap": 0.04,
+     "label": "yas1-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "yas1-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_pilot_census.json",
+     "cap": 0.04,
+     "label": "yas2-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "yas2-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_pilot_census.json",
+     "cap": 0.04,
+     "label": "yas3-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "yas3-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_pilot_census.json",
+     "cap": 0.04,
+     "label": "yas4-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "yas4-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_pilot_census.json",
+     "cap": 0.04,
+     "label": "yas5-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "yas5-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_census.json",
+     "cap": 0.86,
+     "label": "yas1-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_census.json",
+     "cap": 0.66,
+     "label": "yas2-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_census.json",
+     "cap": 0.82,
+     "label": "yas3-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_census.json",
+     "cap": 0.76,
+     "label": "yas4-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_census.json",
+     "cap": 0.73,
+     "label": "yas5-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_scenes.json",
+     "cap": 0.86,
+     "label": "yas1-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_scenes.json",
+     "cap": 0.66,
+     "label": "yas2-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_scenes.json",
+     "cap": 0.83,
+     "label": "yas3-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_scenes.json",
+     "cap": 0.76,
+     "label": "yas4-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_scenes.json",
+     "cap": 0.73,
+     "label": "yas5-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_rules.json",
+     "cap": 0.89,
+     "label": "yas1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_rules.json",
+     "cap": 0.69,
+     "label": "yas2-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_rules.json",
+     "cap": 0.86,
+     "label": "yas3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_rules.json",
+     "cap": 0.79,
+     "label": "yas4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_rules.json",
+     "cap": 0.76,
+     "label": "yas5-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_people.json",
+     "cap": 0.89,
+     "label": "yas1-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_people.json",
+     "cap": 0.69,
+     "label": "yas2-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_people.json",
+     "cap": 0.86,
+     "label": "yas3-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_people.json",
+     "cap": 0.79,
+     "label": "yas4-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_people.json",
+     "cap": 0.76,
+     "label": "yas5-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas1_texture.json",
+     "cap": 0.89,
+     "label": "yas1-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas2_texture.json",
+     "cap": 0.69,
+     "label": "yas2-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas3_texture.json",
+     "cap": 0.86,
+     "label": "yas3-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas4_texture.json",
+     "cap": 0.79,
+     "label": "yas4-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/yas5_texture.json",
+     "cap": 0.76,
+     "label": "yas5-texture"
+    }
+   ]
+  }
+ ]
+}

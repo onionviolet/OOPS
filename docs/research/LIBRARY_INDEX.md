@@ -15,6 +15,20 @@ Source text stays outside tracked files. Never modify the library; convert into 
 | Harry Potter 1-7 (Rowling) | en | One omnibus PDF in `~/Downloads` (also Calibre author folders `J. K. Rowling`) | books 1-7 | `hp1`-`hp7` |
 | A Soldier's Life (Always RollsAOne / Erick Thiemke) | en | Calibre 55, 56, 57, 58, 112; book 4 only as a `.mobi` in `~/Downloads` (converted copy in the private folder) | 1-384 (books 1-6) | `asl1`-`asl6`. Books 7+ not on disk |
 
+## Batch-registered hero works (2026-10-28, run files pending Weibao's go)
+
+Registered in `books.json` from Calibre or a Royal Road capture, converted to a private `Chapter N: Title` copy under `docs/research/novels/<slug>/private/source/` (the converter for the Calibre EPUBs is `scripts/lead_run/normalize_epub_chapters.py`). Run files `plans/overnight_2026-11-01-<world>.json` are `approval: PENDING`.
+
+| Book | Source | Chapters | Batch keys | Run file (ceiling) |
+|---|---|---|---|---|
+| Worm (John McCrae) | Calibre 32, EPUB; every spine file is a chapter, numbered 1-304 in reading order (bonus interludes included) | 304 | `worm` | `2026-11-01-worm` ($33) |
+| You Are Summoned 1-5 (Dean Henegar) | Calibre 48, 49, 51, 52, 53 | 80 (incl. Introduction as 0), 61, 76, 71, 69 | `yas1`-`yas5` | `2026-11-01-yas` ($15) |
+| Wish Upon the Stars 1-8 (Malcolm Tent) | Calibre 54, 59-65; untitled chapters carry the number word as title | 42, 70, 54, 74, 75, 73, 74, 65 | `wus1`-`wus8` | `2026-11-01-wus` ($33) |
+| Godclads 1-2 (OstensibleMammal) | Calibre 76, 77 | 62 (incl. Prologue as 0), 89 | `gc1`, `gc2` | `2026-11-01-gc` ($10) |
+| The Perfect Run (Royal Road capture, listing 36735) | `perfect-run/source-preparation-2026-10-11/prepared/main-*.json` in manifest order | 130 | `pr` | `2026-11-01-pr` ($10) |
+| The Perfect Run: Bad Runs (3 what-if chapters, not main continuity) | same capture, `bad-runs-*.json` | 3 | `prb` (book 2 of world `pr`) | same file |
+| Super Supportive (Royal Road capture, 2026-10-25) | `super-supportive/source-2026-10-25/super-supportive-merged.json`, renumbered 1-314 | 314 | `sup` | `2026-11-01-sup` ($32) |
+
 ## The five TTKS books
 
 "TTKS" is the site ttks.tw (a Taiwanese mirror), not one novel. Weibao's TTKS shelf is five books, captured on 2026-10-10 into `docs/research/novels/ttks-novels-2026-10-10/B1`-`B5` (gitignored). Always name them by title; the B-codes and keys are only handles. English titles below are glosses, not official.

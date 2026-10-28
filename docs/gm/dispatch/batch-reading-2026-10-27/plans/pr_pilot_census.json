@@ -1,0 +1,23 @@
+{
+ "world": "pr",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+  "censusMatch": "^(pr|prb)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "pr-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "prc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ]
+}

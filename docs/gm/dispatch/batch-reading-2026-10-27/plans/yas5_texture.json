@@ -1,0 +1,156 @@
+{
+ "world": "yas",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+  "censusMatch": "^(yas1|yas2|yas3|yas4|yas5)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "yas5-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "yas5c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch001-003.txt",
+   "base": "500101",
+   "chapters": "1-3"
+  },
+  {
+   "prefix": "yas5c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch004-006.txt",
+   "base": "500401",
+   "chapters": "4-6"
+  },
+  {
+   "prefix": "yas5c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch007-009.txt",
+   "base": "500701",
+   "chapters": "7-9"
+  },
+  {
+   "prefix": "yas5c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch010-012.txt",
+   "base": "501001",
+   "chapters": "10-12"
+  },
+  {
+   "prefix": "yas5c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch013-015.txt",
+   "base": "501301",
+   "chapters": "13-15"
+  },
+  {
+   "prefix": "yas5c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch016-018.txt",
+   "base": "501601",
+   "chapters": "16-18"
+  },
+  {
+   "prefix": "yas5c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch019-021.txt",
+   "base": "501901",
+   "chapters": "19-21"
+  },
+  {
+   "prefix": "yas5c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch022-024.txt",
+   "base": "502201",
+   "chapters": "22-24"
+  },
+  {
+   "prefix": "yas5c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch025-027.txt",
+   "base": "502501",
+   "chapters": "25-27"
+  },
+  {
+   "prefix": "yas5c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch028-030.txt",
+   "base": "502801",
+   "chapters": "28-30"
+  },
+  {
+   "prefix": "yas5c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch031-033.txt",
+   "base": "503101",
+   "chapters": "31-33"
+  },
+  {
+   "prefix": "yas5c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch034-036.txt",
+   "base": "503401",
+   "chapters": "34-36"
+  },
+  {
+   "prefix": "yas5c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch037-039.txt",
+   "base": "503701",
+   "chapters": "37-39"
+  },
+  {
+   "prefix": "yas5c040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch040-042.txt",
+   "base": "504001",
+   "chapters": "40-42"
+  },
+  {
+   "prefix": "yas5c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch043-045.txt",
+   "base": "504301",
+   "chapters": "43-45"
+  },
+  {
+   "prefix": "yas5c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch046-048.txt",
+   "base": "504601",
+   "chapters": "46-48"
+  },
+  {
+   "prefix": "yas5c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch049-051.txt",
+   "base": "504901",
+   "chapters": "49-51"
+  },
+  {
+   "prefix": "yas5c052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch052-054.txt",
+   "base": "505201",
+   "chapters": "52-54"
+  },
+  {
+   "prefix": "yas5c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch055-057.txt",
+   "base": "505501",
+   "chapters": "55-57"
+  },
+  {
+   "prefix": "yas5c058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch058-060.txt",
+   "base": "505801",
+   "chapters": "58-60"
+  },
+  {
+   "prefix": "yas5c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch061-063.txt",
+   "base": "506101",
+   "chapters": "61-63"
+  },
+  {
+   "prefix": "yas5c064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch064-066.txt",
+   "base": "506401",
+   "chapters": "64-66"
+  },
+  {
+   "prefix": "yas5c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas5_b5_ch067-069.txt",
+   "base": "506701",
+   "chapters": "67-69"
+  }
+ ]
+}

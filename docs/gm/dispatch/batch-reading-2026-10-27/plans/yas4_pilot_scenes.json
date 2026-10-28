@@ -1,0 +1,24 @@
+{
+ "world": "yas",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29",
+  "censusMatch": "^(yas1|yas2|yas3|yas4|yas5)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "yas4-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "yas4c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/you-are-summoned/private/lead-run-2026-10-29/shard_yas4_b4_ch001-003.txt",
+   "base": "400101",
+   "chapters": "1-3"
+  }
+ ]
+}
