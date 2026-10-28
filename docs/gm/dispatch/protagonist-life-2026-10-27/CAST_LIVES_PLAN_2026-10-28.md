@@ -758,3 +758,57 @@ player commands.
 | Code | Event | State |
 | --- | --- | --- |
 | CL170 | **L6b landed, AR11 holds for data:** MoL first loop, 60 schedules and 44 beats, with zero edits to `cast_schedule`, `beat_records`, core owners, registration or saves. Its seven needs (loop identity, day derivation, a late-evening band, multi-place scenes, alias resolution, dated learning, same-loop anchors) are world data or host consumer work, not seam changes ([L6b checkpoint](cast-lives-lanes/L6B_CHECKPOINT.md) F3). Not yet an integrated second-world journey | Checkpoint committed; `src/book_world_mol_cast.js` and its test **left uncommitted** so no more canon data enters history; L3m moves them into `private_packs/mol-cast/` first (CL141) |
+
+## 19. Round 11: over-coarse folds mean the game is missing something (2026-10-28)
+
+Weibao: "Anything that requrese coursening beyond and extent, means we are missing something and then we
+can edit the game to be able fo fufil those? More to consider?"
+
+Yes. A fold (CL162) is a claim that the game's coarser action keeps everything the book's steps carried.
+When it cannot, the fold is hiding a missing capability, and that becomes build work.
+
+### 19.1 When a fold is too coarse (the fold-loss test)
+
+A fold passes only if it keeps every one of these from the steps it replaces. Losing any one makes it a
+**lossy fold**, recorded as a gap of the matching kind.
+
+| Code | What the fold must keep | Lossy example (kind of gap) |
+| --- | --- | --- |
+| CL171 | **Choices.** Every point where the lead chose (`choices`, `options`) stays a separate decision the player can make differently | Folding "wait for his sister or cook now" into "dinner" (missing decision) |
+| CL172 | **Inputs and outputs.** Items, money, knowledge in and out, with amounts | A purchase folded into "errands" with no purse change (missing transaction) |
+| CL173 | **Time and order** where anything reads them: a window, an appointment, a before-after the outcome depends on | Two visits folded so the second can happen before the first (missing ordering) |
+| CL174 | **Who was there** (present list, witness levels) | A talk folded into a solo action (missing participant) |
+| CL175 | **Place.** Steps in different places stay separate moves | A trip across districts folded into one action with no travel (missing travel) |
+| CL176 | **Outcomes and risks** that can differ by how it was done | A flight folded into "go home" with no chance of being caught (missing risk) |
+| CL177 | **What the player can notice.** Information the lead gained by the step | An inspection folded away so the clue never appears (missing perception) |
+
+Steps that carry none of these (getting dressed, a walk with nothing on the way) fold freely: that is
+granularity, not loss.
+
+### 19.2 Measuring it
+
+| Code | Measure | Disposition |
+| --- | --- | --- |
+| CL178 | **Fold-loss per step:** which of CL171-CL177 a fold drops, recorded per row of the step table | ACCOUNT FOR NOW: L5r's mapping file gets a `loses` field per fold; empty means a clean fold |
+| CL179 | **Per-scene fidelity:** share of steps reproducible or clean-folded. A scene below the bar (default: all choices kept, no lossy fold on a step with an outcome) is not UI-complete (SUI17) | ACCOUNT FOR NOW: L5r score table |
+| CL180 | **Gap density by kind across the slice:** the kinds that recur are the capabilities to build first | ACCOUNT FOR NOW: the gap ledger (CL15) sorts by count |
+
+### 19.3 Turning a gap into a game change, without bloat
+
+| Code | Rule (default, dial and reason) |
+| --- | --- |
+| CL181 | **Fix at the cheapest layer that removes the loss** (section 8.2 order): a content row on an existing verb; then a UI disclosure fix (the action exists but is buried or unnamed); then a world mechanism; then a new engine verb. Reason: most losses are missing nouns or hidden actions, not missing engines |
+| CL182 | **A new verb needs a second case** (FND5, AR11): a capability built for one book step must also serve a step from another scene or world, found before building. Otherwise it is a content row or a world-local action. Reason: stops one-scene buttons |
+| CL183 | **Mechanisms, not scene scripts** (AD38): build the general thing the step relies on (buying on credit, shadowing someone, a sealed letter), so the lead's step works and so do the untaken options and the player's own ideas |
+| CL184 | **Granularity lives in disclosure, not in the action list** (UR42): fine actions exist but group under one place or task (a "household" group holding dinner, waiting, cleaning); the frequent choice stays on top. Reason: the full book grain without a cluttered screen |
+| CL185 | **Re-run the replay after each fix.** The step's row changes from gap to reproducible or clean fold, and the replay's anchors still pass; a fix that breaks another step is reverted or reworked |
+| CL186 | **Some coarseness is the right answer.** A step that is pure narration (a memory, a feeling) maps to a log or journal line, not an action; a step needing a mechanism the world truly lacks stays `blocked by mechanism` (LP9) until its own lane | 
+
+### 19.4 More to consider
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL187 | **The same test applies to NPCs.** An NPC's day folded too coarsely loses the same things (who they met, what they bought); the cast's schedules and beats use the fold-loss test too, so the world's off-screen life is as faithful as the player's | ACCOUNT FOR NOW: L4b brief |
+| CL188 | **Build queue from the ledger.** After L5r's chapters 1-3 pass, the top three gap kinds by count become the next build lanes, each briefed with its second case (CL182) | LATER: after L5r |
+| CL189 | **Folds are reversible data.** A fold is a row in the mapping file; when the game gains the capability, the row splits back into steps with no save change | ACCOUNT FOR NOW |
+| CL190 | **The book's grain is not the ceiling.** Where the game can do finer than the book (the book skips how he paid; the game asks coin or notes), that is fine: the replay asserts only what the book states | ACCOUNT FOR NOW |
