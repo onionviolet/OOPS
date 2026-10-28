@@ -370,3 +370,15 @@ LATER / DELEGATE:
 | --- | --- | --- |
 | SV7 Regenerate the November plans (`2026-11-01-*`, COI, TTKS) with `schemaVersion: '1.4'` once the pilot settles the fields | generator flag, small | Plans carry 1.4; caps re-sized |
 | SV8 Targeted 1.4 re-read list for Mother of Learning, HP, Shadow Slave and LOTM, from merged rows (prices, teachers, resets, routines) | sonnet, medium | A plan per book with a measured bound |
+
+### Schema 1.4 direct pilot (2026-10-28, Weibao: "Go, cap $2")
+
+11 calls at high effort and 128K: 6 HP people shards (the same as the effort pilot), 3 Mother of Learning rules chapters with loop-reset paragraphs, and 2 texture chapters (Diagon Alley, Mother of Learning chapter 5). Cost $0.28 direct. All 11 completed with 0 lint issues.
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| SV9 | People output rose about 5% over the 1.4-less high/128K arm (378K against 360K tokens across the 6 shards) | Keep `outTokensAssumed` at 32K for caps; the cost rule's 2x estimate needs the measured per-pass rate, not a guess (see SV5) |
+| SV10 | `recurrence` was filled on 49 of 132 routine slots (9 inferred, label I): 20 once, 14 daily, 6 irregular, 4 term, 2 weekly, 2 yearly, 1 weekdays. A sample read sensibly ("weekdays" for Vernon's work, "term" for Percy's prefect duty) | Accepted as working |
+| SV11 | `since` on relations: 3 of 451 (books rarely date an attitude) | Keep; merge ordering by locator (PG8) carries most of the timing |
+| SV12 | Rules: `acquire` on 6 of 26 rules, with teacher, practice, progress sign and ceiling where shown. All 3 loop chapters produced a `reset` rule (trigger, resets, keeps). `costStated` on 24 of 26. `enforcement` on 1 of 5 laws | Accepted as working |
+| SV13 | Texture: 7 of 22 services carry typed prices (Diagon Alley: 5 Knuts a scoop, 17 Sickles an ounce, 21 Galleons each, a 5-Knut delivery fee); the other 15 are marked `not-mentioned` instead of "none stated" | Accepted as working |
