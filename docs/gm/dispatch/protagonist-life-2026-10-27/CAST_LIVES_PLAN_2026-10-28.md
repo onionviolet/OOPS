@@ -132,9 +132,21 @@ Shape per PLAN 14.5, adapted for runtime lanes. All lanes:
   never source text, never the cited paragraphs (round 8).
 - **Shared checkout rules** (AD41, shared worktree practice): own files only, hunk edits to shared docs,
   commit own paths from a fresh HEAD, no stash, reset, force or push, no `Co-Authored-By`.
-- **Schema in flight.** The reading session is adding price fields, routine recurrence, skill acquisition
-  steps and a loop reset record. Readers and importers treat each as optional and default it (recurrence
-  `once`, reset absent), so the new fields slot in without a lane rerun.
+- **Schema 1.4** (committed `d37049ebf`, opt-in per plan, older rows unchanged; READINESS_AND_SCOPE
+  round 12). Absent means the text is silent, not "no": an importer never turns a missing field into a
+  negative fact. Where each field lands:
+
+  | 1.4 field | Lands in | Absent default |
+  | --- | --- | --- |
+  | routine `recurrence` (once, daily, weekdays, weekly, monthly, term, seasonal, yearly, irregular), `until` | L2 schedule rows; `irregular` gives a window with no fixed phase | `once` at the row's scene window; no end |
+  | relations `since` | L3 relation rows, ordered into attitude changes (CL3) | Locator order |
+  | rules `acquire` {teacher, prerequisites, time, practice, progressSign, failure, ceiling} | A teacher's schedule (L2) plus the skill owner; wave 2 and GM8 | Not built for that skill |
+  | rules kind `reset` with `reset` {trigger, span, resets, keeps, remembers, ends} | L6 MoL restart continuity (D4 lifts once rows exist) | No restart run |
+  | rules `enforcement` {penalty, enforcer, detection} | Role people who enforce (constable, proctor) as cast; GM14 | Enforcer unknown |
+  | rules `costStated` | Cost lint: `stated-free` is free, `not-mentioned` is a gap | Gap |
+  | texture services `kind`, `amount`, `unit`, `per`, `priceId`, `priceStated` | Opening hours and prices a routine needs (a vendor's stall hours, the lead's rent) | Hours from the role mechanism, labelled fill |
+
+  The batch-reading session does not run `merge_shards.mjs`; L1 owns every merge for this plan.
 - **Gates** (AD36, AD43): lanes run their focused test file; the committer runs the full `npm test` once,
   plus `npm run build`, `npm run check:arch`, `npm run check:rules`. A lane without the browser and
   persistence lines reports "implemented, below floor".
@@ -158,7 +170,7 @@ file; L3 and L4 share no file. Wave 2 is one lane, **L6 MoL first loop**, on the
 | R1 | Reader rows import outside knowledge (PL-A46) and pull later-volume facts into early lives | L3 confirms each used row against its cited paragraph; a row that fails is dropped, not repaired from memory |
 | R2 | Sparse dates make the week drift | Source order within the slice is the window (WA23 dial); the stated anchors (rent day, office hours, dated beats) pin it; unsettled dates stay `U` and get a window, not a guess |
 | R3 | Over-modelling | Tiers (WA43): only principals get arcs in wave 1; role people get a schedule only |
-| R4 | The in-flight schema changes break the importer | Optional fields with defaults; L2's worksheet keeps unknown fields as pass-through |
+| R4 | Schema 1.4 and later fields break the importer | Optional fields with the defaults in section 4; L2's worksheet keeps unknown fields as pass-through |
 | R5 | Canon cast in the original branch | Avoided by D1: new continuity, new start profile |
 
 ## 6. Decisions recorded as defaults (each adjustable)
