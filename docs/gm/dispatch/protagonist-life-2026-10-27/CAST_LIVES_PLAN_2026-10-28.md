@@ -157,7 +157,7 @@ Shape per PLAN 14.5, adapted for runtime lanes. All lanes:
 | **L1 Merge and crosswalk** | Rerun the LOTM volume-1 merge with people and rules; review `overlay_proposed.json` collisions; write `crosswalk.json` (index id to runtime id) for LOTM chapters 1-24 and MoL chapter 1 to first restart; add a `--crosswalk` check that reports unmapped touched ids | `scripts/lead_run/build_crosswalk.mjs`, `tests/lead_run_crosswalk.test.js`; private outputs only | Lead-run tooling (`merge_shards.mjs` API, no edit to it unless a bug) | Sol, medium (collision review is judgment) | `node --test tests/lead_run_crosswalk.test.js` | LOTM merge report shows people and rules extras above 0; every person, place and organization present in chapters 1-24 lead scenes has a crosswalk row or a named reason | None |
 | **L2 Cast worksheet and schedule seam** | Script S2 (per-entity worksheet, private). Pure module that turns schedule rows into a location for a person at a time, using `recurringWindow` and `dayIndex`, with a forward-anchor lint | `scripts/lead_run/cast_worksheet.mjs`, `src/cast_schedule.js`, `tests/cast_schedule.test.js` | Pure leaf module; reads world calendar through `world_day_index.js`; no save field | Luna, low | `node --test tests/cast_schedule.test.js` | Given rows, returns place or "away until" with the next window; a fill that contradicts a later anchor fails the lint | L1 |
 | **L3 LOTM cast records** | Author the slice cast as pack data from worksheets and cited paragraphs: people definitions, schedule rows, relations with basis, knows by date, arc beats with dates and windows, fills labelled. New start profile and continuity per D1 | `src/book_world_lotm_cast.js` (data), one import line in `src/book_world_lotm_content.js` | LOTM pack content (WA5: world owns nouns) | Sol, medium (reading and judgment) | `node --test tests/book_world_lotm_cast.test.js` | Every row has a locator and an S/I/U label; fills name a basis; lint from L2 passes; no source text over five characters | L1, L2 |
-| **L4 Living week and arcs** | Wire schedules into the single location authority and arcs into the beat resolver. Sync point: the LOTM host's existing per-command and clock sync (as `syncMolClock` does for MoL) writes `simulation.people[id].location` from `cast_schedule`; no second location store (AR3). Commit beats to `beatLedger`. Headless null-player run for seven days | `src/book_world_lotm_cast_host.js`, `tests/lotm_cast_week.test.js`, `scripts/headless/lead_runs/lotm_week1.mjs` | LOTM host sync; `beat_records` plus `beat_ledger` (built, unwired) | Luna, medium | `node --test tests/lotm_cast_week.test.js` | Co-location gate (`simulation_resolution.js:115-127`) refuses a talk when the person is away with a return-time reason; null-player run settles the canon beats on their dates; replay gives the same result | L2, L3 |
+| **L4 Living week and arcs** | Wire schedules into the single location authority and arcs into the beat resolver. Sync point: the LOTM host's existing per-command and clock sync (as `syncMolClock` does for MoL) writes `simulation.people[id].location` from `cast_schedule`; no second location store (AR3). Commit beats to `beatLedger`. Headless null-player run for seven days, plus the gap probe on one scene per kind (night-threat fight first) writing the gap ledger (section 8, CL15-CL17) | `src/book_world_lotm_cast_host.js`, `tests/lotm_cast_week.test.js`, `scripts/headless/lead_runs/lotm_week1.mjs` | LOTM host sync; `beat_records` plus `beat_ledger` (built, unwired) | Luna, medium | `node --test tests/lotm_cast_week.test.js` | Co-location gate (`simulation_resolution.js:115-127`) refuses a talk when the person is away with a return-time reason; null-player run settles the canon beats on their dates; replay gives the same result | L2, L3 |
 | **L5 People view and floor** | Show where known people are, when they return, and heard or aftermath lines from the cast's week, through the observer-safe `people_knowledge.js` view (AR8). Run the AD43 floor in a rebuilt browser at 1920×1080 from a fresh origin, with save, reload, Export and Import | `src/cast_people_view.js` and its hook in `people_knowledge.js`; evidence under this folder | Projection only; UI rules UR1-UR75 | Luna, medium | `node --test tests/cast_people_view.test.js` | Section 3.1 done check, with screenshots and one line per check in a checkpoint | L4 |
 
 Order: L1, then L2 and L3 (L3 can start rows while L2 builds the lint), then L4, then L5. One writer per
@@ -193,3 +193,77 @@ continuity) is additive.
 | CL3 | Attitude change over time (PG8) is a merge-code fix, cheap, and makes relations into arcs of their own | LATER/DELEGATE: merge-code lane, Luna low, done when relations carry `since` from locator order |
 | CL4 | The same seams serve Harry Potter's cohort pack (GM20) and Shadow Slave's unspent people rows | LATER: after L6 proves the seam |
 | CL5 | A watch view of the lead's week (PLAN LP12) is a cheap reviewer for Weibao once L4 runs | LATER: after L5 |
+
+## 8. Round 2: finding gaps by running scenes, top down then details (2026-10-28)
+
+Weibao: "How to explore the gaps and then work on implementation? like say during a fight or something?
+consider top down design but then fillin in the little detials and more? more to consider?"
+
+### 8.1 What the index says about fights today (counted 2026-10-28)
+
+| Code | Finding | Consequence |
+| --- | --- | --- |
+| F9 | The schema has a `conflict` block (sides, stakes, means, terrain, outcome, unseen; PLAN 15.1), but readers rarely fill it: LOTM 1 of 13 merged scenes with a fight step, MoL 9 of 146 | A fight's top-down contract has to be rebuilt from the scene's steps, outcomes and cited paragraphs |
+| F10 | Fight scenes do record outcomes: MoL fight scenes carry 257 `changed`, 87 `carried` and 41 `blocked` outcome rows | The outcome, the part the world must reproduce, is already there |
+| F11 | MoL has 919 ability and spell rules rows; 9% list costs, 50% limits, 19% consequences | Numbers are the thinnest layer; schema 1.4 `costStated` tells a free action from a silent one |
+| F12 | Combat owners exist: CBR1-CBR30 (accepted), `combat_math.js`, `check_resolver.js`, `combat_log.js`, the typed outcome publisher (CBR2) | A fight lane extends these; it does not build a new combat system |
+
+### 8.2 The method: scene contract, gap probe, layered fill
+
+Explore gaps by **running** a scene, not by reading docs for what is missing. One loop per scene kind:
+
+1. **Contract (top down).** Write the scene as a contract before any detail: who (cast ids and tiers),
+   where and when (place, window), stakes per side, means (verb classes), the outcome as an assertion on
+   facts, and the player sentence (PRF2). For a fight: "the lead escapes unhurt; the attacker withdraws;
+   a witness reports it next morning". This is PLAN 15.1 WA32: record the conflict, not the choreography.
+2. **Gap probe.** Run the contract headless (lead bot, game MCP) with whatever the cast records hold.
+   Every place the run stops becomes a typed gap row with the scene's locator. The probe is the
+   exploration step: it finds exactly what this scene needs, nothing the scene does not touch (WA41).
+3. **Classify each gap by layer, cheapest first.**
+
+   | Layer | Example in a fight | Fix | Who |
+   | --- | --- | --- | --- |
+   | Noun | The attacker, the alley, the lead's revolver do not exist | Pack rows from cited paragraphs | Data lane, Luna |
+   | Number | No band for the attacker's danger or the lead's aim | Band, then calibrate against the stated outcome (PLAN 15.2 WA33) | Calibration lane, Sol |
+   | Rule | No cost or limit on the attacker's power | Rules row; `costStated` from 1.4 | Data lane after the paragraph read |
+   | Verb or mechanism | A ritual contest of will has no engine verb | Engine lane, or `blocked by mechanism` (LP9) | Engine lane, Sol, with a second world in view (AR11) |
+   | Aftermath | Who was hurt, who heard, what changes in their week | Cast schedule and knowledge rows (sections 2.1, 2.3) | This plan's lanes |
+   | Detail | Light, rain, smell, a bystander's line | Texture rows keyed by place and band | Detail lane, Luna, last |
+
+4. **Fill in that order.** A scene is playable once nouns, the outcome and the aftermath exist with
+   placeholder bands. Numbers come next, set by calibration, not by taste. Details come last and only
+   where something reads them: a description line, a perception note (PX49), a keyed ambient event
+   (WA37). Each layer reruns the same probe, so a detail never breaks the outcome.
+
+### 8.3 A fight inside the cast lives model
+
+| Code | Consideration | Default, dial and reason |
+| --- | --- | --- |
+| CL6 | **Three ways one fight happens.** (a) Off-screen: the beat settles by its outcome with no combat simulation. (b) The player is present but stays out: the engine runs it with calibrated bands; the outcome must match. (c) The player joins: the engine runs it and the result may diverge, labelled (WA15). | Default: (a) whenever the player is not at the footprint. Reason: simulating every off-screen fight costs time and adds drift; the book's outcome is the authority there (WA35 faithful) |
+| CL7 | **(a) and (b) must agree.** The calibration test runs (b) over seeded days and checks it reproduces (a) in most runs. A miss means the bands are wrong, not the book | Dial: the share of seeded runs that must match, per world. Reason: the same rule as PLAN 15.2 |
+| CL8 | **A fight is an arc beat for every side.** The attacker, the lead and the witnesses each get the beat in their own timeline; injuries, fear and new knowledge change their schedules and lines afterwards (an injured clerk misses office days) | Default: aftermath rows only where the text states or clearly implies them; the rest is a mechanism fill (wounds heal by the world's rate) |
+| CL9 | **Forward anchors hold through fights.** A fight the player joins may not kill someone the book still needs unless the player caused it; generator-side fights never do (WA24) | Dial: a world can allow canon deaths from player action; that is labelled divergence |
+| CL10 | **The footprint decides exposure.** Who is near the place and window (schedules from L2) is who can be present, affected or hear of it (PX44). The fight reads the schedules; the schedules do not read the fight | Reason: one direction of dependency keeps replay stable |
+| CL11 | **Untaken options in a fight** (flee, hide, bluff, call police) stay possible as stub actions with costs (WA28); the book's route is the replay policy, not the only route | LATER: after the first fight runs end to end |
+
+### 8.4 Little details, without drowning
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL12 | **Details attach to place and time band, then to people.** A texture row becomes a line shown when the player is at that place in that band; people details become voice tags and barks (DWF74, DWF76) | ACCOUNT FOR NOW: L3 keeps texture ids on place rows; no detail rendering in wave 1 |
+| CL13 | **A detail earns a row only if a consumer reads it** (WA41): a description, a perception note, a price, an hour, a line. Otherwise it stays in the index, where `cite_paragraphs.mjs --topic` can find it later | ACCOUNT FOR NOW: lane briefs repeat this |
+| CL14 | **Details are where reader drift hides** (PL-A46). Spot-check one detail in ten against its paragraph; drop rather than repair | ACCOUNT FOR NOW: L3 and the detail lane |
+| CL15 | **The gap ledger is the to-do list.** Every probe writes typed gap rows (scene locator, layer, missing id or verb, blocking or cosmetic). Lanes take gaps by layer, so work stays top down: no detail lane starts while a blocking noun or verb gap remains in that scene | ACCOUNT FOR NOW: L4's headless run emits the ledger as a private file plus counts in its checkpoint |
+
+### 8.5 Exploration order across the slice
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL16 | **One vertical slice per scene kind, not one system at a time.** Chapters 1-24 hold an ordinary day, a purchase, a talk that changes a fact, a police questioning, a night threat with flight and a ritual contest (PLAN 15.1). Probe one of each; together they give the gap ledger for the whole week | ACCOUNT FOR NOW: L4 picks one scene per kind for the probe |
+| CL17 | **Fight first-case default:** the night threat with flight, because it needs nouns, a danger band and an aftermath but no missing mechanism; the ritual contest waits as `blocked by mechanism` | ACCOUNT FOR NOW |
+| CL18 | **Fill the `conflict` block after the fact** for fight scenes (F9): a post-merge pass over scenes with a fight step reads the cited paragraphs and writes sides, stakes, means, terrain and unseen | LATER/DELEGATE: local Codex lane, Luna medium; done when every fight-step scene in the slice has a conflict block with locators; no API spend |
+| CL19 | **A probe inspector.** For any person or scene: which row put them here, its label (S/I/U or fill), and the gap rows blocking it. Inspection only, no mutation, never in saves | LATER/DELEGATE: Luna medium after L4; done when the headless report prints the chain for one person and one scene |
+| CL20 | **Calibration lane for the first fight.** Bands for the attacker and the lead from cited paragraphs, seeded runs of CL6(b), agreement rate recorded | LATER/DELEGATE: Sol medium after L4 and CL18; done when (b) matches (a) at the world's dial across 20 seeded runs |
+
+Suggestions (not reasons to stop): add the night-threat fight to L4's probe set now; run CL18 before
+the calibration lane so the fight contract is sourced, not guessed.
