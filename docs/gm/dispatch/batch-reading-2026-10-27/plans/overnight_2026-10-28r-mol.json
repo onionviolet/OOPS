@@ -1,6 +1,6 @@
 {
  "name": "2026-10-28r-mol",
- "approval": "PENDING: needs Weibao's go phrase.",
+ "approval": "Weibao 2026-10-28: \"Go on three\", answering \"Send the HP and MoL retries plus A Soldier's Life now, at $15 in ceilings?\" (runs 2026-10-28r-hp $3, r-mol $1, r-asl $11; caps as written; pooled stop rule; r-ss held until LOTM census measures).",
  "ceilingUsd": 1,
  "capTotal": 0.37,
  "steps": [
