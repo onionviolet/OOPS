@@ -5,7 +5,7 @@
 // Resumable: a label with a receipt is collected, not resubmitted; a label with a summary is skipped. Stops (and says why) on a failed gate, a stop rule,
 // a cap above the remaining ceiling, or an error. Repair batches are written by collect but never submitted here (they need their own go).
 // Log: <outDir>/overnight_<run name>.jsonl with labels, batch ids, counts and dollars only.
-import {readFileSync, writeFileSync, appendFileSync, existsSync} from 'node:fs';
+import {readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync} from 'node:fs';
 import {join, dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {makeClient, collect, stripMeta, glossaryFromPlan} from './batch_lib.mjs';
@@ -52,7 +52,7 @@ export function pilotCheck({summary, estimate, plan, refs, loadFn = load, knownF
 export async function runOvernight({run, runName, submitFn = submit, collectFn = collect, client = null, log = console.log, root = '.'}) {
     let spent = 0;
     const ledger = [];
-    const note = (o, outDir) => { const line = {t: new Date().toISOString(), ...o}; ledger.push(line); log(JSON.stringify(line)); if (outDir) appendFileSync(join(outDir, `overnight_${runName}.jsonl`), JSON.stringify(line) + '\n'); };
+    const note = (o, outDir) => { const line = {t: new Date().toISOString(), ...o}; ledger.push(line); log(JSON.stringify(line)); if (outDir) { mkdirSync(outDir, {recursive: true}); appendFileSync(join(outDir, `overnight_${runName}.jsonl`), JSON.stringify(line) + '\n'); } };
     let outDir = null;
     for (const step of run.steps) {
         const items = step.labels.map(l => ({...l, plan: readJson(resolve(root, l.plan))}));
