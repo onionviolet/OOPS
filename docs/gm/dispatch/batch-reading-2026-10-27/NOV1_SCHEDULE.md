@@ -126,3 +126,9 @@ Bounds can pass $100 only if every Sonnet scale-up both wins and runs at maximum
 ## 6. First go phrase
 
 > Go on batches pilot-3-census, pilot-3-census-b and pilot-3-census-high, cap $0.04, $0.04 and $0.06; v1-rules-w1, v1-rules-w2, v1-rules-w3, v1-rules-w4, v1-people-w1, v1-people-w2, v1-people-w3, v1-people-w4, v1-texture-w1, v1-texture-w2, v1-texture-w3 and v1-texture-w4, cap $0.16 each; sab-census, cap $0.77; sab-scenes, sab-rules and sab-people, cap $1.01 each.
+
+## 7. Overnight run (2026-10-28)
+
+Weibao, 01:0x EDT: "Sounds good, save idea accordingly, Build it, and then send out the batched requests overnight accordingly for all of my prime books." Taken as the go for **Go 1 and Go 2 at the caps written above**: 38 labels, caps totalling $8.78, run ceiling $12 measured. Excluded, each needs its own go: the union census (T1), Sonnet scale-ups (T2-T5), repair batches, and every book other than LOTM. LOTM volume 1 is the only prime book the runner can read tonight; Harry Potter, Mother of Learning and A Soldier's Life wait for the world profile lane (section 10 of READINESS_AND_SCOPE).
+
+Driver: `scripts/lead_run/batch_overnight.mjs --run plans/overnight_2026-10-28.json`. It submits each step, collects, applies the pilot gate after step A (experiment arms recorded, not gating) and the stop rules after B1-B4, and stops at a failed gate or the ceiling. It is resumable (receipts are collected, not resubmitted). Log: `<private batch dir>/overnight_2026-10-28.jsonl` (labels, batch ids, counts, dollars). Results are reported the next day from that log and the `<label>_summary.json` files.

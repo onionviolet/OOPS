@@ -1,0 +1,203 @@
+{
+ "name": "2026-10-28",
+ "approval": "Weibao 2026-10-28 01:0x EDT: \"Sounds good, save idea accordingly, Build it, and then send out the batched requests overnight accordingly for all of my prime books\". Taken as the go for NOV1_SCHEDULE Go 1 and Go 2 at their written caps (union census, Sonnet scale-ups, repairs and other books excluded: each needs its own go).",
+ "ceilingUsd": 12,
+ "steps": [
+  {
+   "name": "A",
+   "gate": "pilot",
+   "pilotLabel": "pilot-3-census",
+   "pilotRefs": {
+    "p15": "w1s15m",
+    "p25": "w2s25m",
+    "p36": "w3s36m"
+   },
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pilot3_census.json",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pilot3_census_b.json",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pilot3_census_high.json",
+     "cap": 0.06
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w1.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w2.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w3.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w4.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w1.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w2.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w3.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w4.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w1.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w2.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w3.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w4.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sab_census.json",
+     "cap": 0.77
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sab_scenes.json",
+     "cap": 1.01
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sab_rules.json",
+     "cap": 1.01
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sab_people.json",
+     "cap": 1.01
+    }
+   ],
+   "nonGating": [
+    "pilot-3-census-b",
+    "pilot-3-census-high",
+    "sab-census",
+    "sab-scenes",
+    "sab-rules",
+    "sab-people"
+   ]
+  },
+  {
+   "name": "B1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pilot3_scenes.json",
+     "cap": 0.06
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w1.json",
+     "cap": 0.14
+    }
+   ]
+  },
+  {
+   "name": "B2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w2.json",
+     "cap": 0.14
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w1.json",
+     "cap": 0.19
+    }
+   ]
+  },
+  {
+   "name": "B3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w3.json",
+     "cap": 0.12
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w2.json",
+     "cap": 0.19
+    }
+   ]
+  },
+  {
+   "name": "B4",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w3.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w5.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w6.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w7.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w8.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w5.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w6.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w7.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w8.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w5.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w6.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w7.json",
+     "cap": 0.16
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w8.json",
+     "cap": 0.16
+    }
+   ]
+  }
+ ]
+}
