@@ -814,3 +814,41 @@ granularity, not loss.
 | CL190 | **The book's grain is not the ceiling.** Where the game can do finer than the book (the book skips how he paid; the game asks coin or notes), that is fine: the replay asserts only what the book states | ACCOUNT FOR NOW |
 | CL191 | **L4a: implemented, below floor.** Slice bound to 4 relative days (60 bindings, all I); 34 cast bodies move with the clock through the one location store; the four existing starts are byte-identical; save, reload, Export and Import keep all positions (MCP); an away-refusal screenshot at 1920×1080. Open: travel to cast addresses (native travel knows only the original four places; L4a refused to fold the household flat into the probationer lodging), beside entry answers (the fifth start inherited church probation), and the present-talk browser journey ([L4a checkpoint](cast-lives-lanes/L4A_CHECKPOINT.md)) | Uncommitted: its start blurb, situation label and test carry canon names (AD1) |
 | CL192 | **L4c launched** (Sol, medium): the private-pack move (L3m), travel to cast places, beside entry answers and the AD43 floor in one lane, because all three touch the same files; the coordinator commits once the tracked tree is name-free ([L4c](cast-lives-lanes/L4C_PACK_TRAVEL_ENTRY_BRIEF.md)) | Running |
+
+## 20. Round 12: referable rules, detail level, and what earlier chats already settled (2026-10-28)
+
+Weibao: "other rules to make implementationms better and more comprehensive and be able to be refered
+to? Other stuff and more? TOo much detial? too little detial? More to consider? Anything we considered
+about this in prior chats? more to consider?"
+
+### 20.1 What earlier work already covers (checked, not restated)
+
+The [implementation practice audit](../../../audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md) (rounds 1-7,
+2026-10-26) and [GROUND_RULES](../../../GROUND_RULES.md) already hold most of what this session relearned:
+route kind in receipts (IPC8), build identity (IPC9), name the seam (IPC12), per-lane build output (IPC13,
+which L4a used as `BUILD_OUT`), receipt front matter (IPC27), rule line then history (IPC28), review
+scaled to change kind (IPC29), second consumer before a new construct (IPC60, FND5), ground rules first
+and detail on demand (IPC72), dependent lanes launched beside an idle producer (IPC81), status lines that
+lag their records (IPC83), and the design pre-flight PRF1-PRF8. PLAN 14.5 holds the reader-lane brief
+template. This session's lanes followed them; the rules card cites them rather than copying them.
+
+### 20.2 What is new, as referable rules
+
+[CAST_LIVES_CARD.md](CAST_LIVES_CARD.md) holds CLR1-CLR12 (proposed). New beyond the existing books:
+CLR2 data probe with named gate counts, CLR3 publication class per output (the AD1 slip in L3), CLR6
+map/fold/gap with the fold-loss test, CLR8 one record set with several drivers, CLR9 coordinator
+commits for sandboxed lanes.
+
+| Code | Disposition |
+| --- | --- |
+| CL193 | ACCOUNT FOR NOW: every later brief in this folder cites CLR codes |
+| CL194 | LATER/DELEGATE: if Weibao accepts CLR2, CLR3 and CLR9, add them as lines in GAME_IMPLEMENTER_TEMPLATE's task packet and register them in the rules index (IPC48 is the precedent); docs, Luna low |
+
+### 20.3 Detail level
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| CL195 | **Too much detail at the entry point.** This plan is 816 lines with about 290 code mentions in twelve rounds; a lane or Weibao cannot find the current state in it (IPC20, IPC28, IPC83) | ACT NOW (done): the one-page card is the entry point; the plan stays the dated record |
+| CL196 | **Too little detail where the next lanes start.** L4b (beats and the null-player run), L5r (UI replay) and the scene card have rows in tables but no player sentences (PRF2) and no expected counts; the briefs must carry them | ACCOUNT FOR NOW: write those briefs from L4c's checkpoint with PRF2 sentences and probe counts |
+| CL197 | **Too little at the human seat.** Nothing yet tells Weibao what he will see when he opens the beside start; a three-line "what you can do now" belongs in the card once L4c meets the floor | ACCOUNT FOR NOW |
+| CL198 | **Proposals pile up unaccepted.** SUI1-SUI19, CLR1-CLR12, D1-D5 and the WA42-WA47 proposals are all "proposed". The card lists them; one acceptance pass by Weibao would turn the useful ones into binding defaults | Ask Weibao once L4c lands, by name, not either/or |
