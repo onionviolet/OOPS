@@ -6762,3 +6762,12 @@ Reading recorded by that session: engine lanes launched in their own coordinator
 ## Reading pace: raise the ceiling (2026-10-27)
 
 Weibao's words: "Raise the ceiling" (answering whether volume 1 reading resumes one wave per 5-hour window or raises the AU7 ceiling; the offered option was 15 points per window for this reading task). Recorded: the AU7 ceiling for the LOTM volume 1 reading task is 15 percentage points of any usage window per window, measured from each window's starting level; other limits and stop conditions in the [reading plan](gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md) stay. Status: [reading status](gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md).
+
+## Reading rate: continue at the new rate (2026-10-27)
+
+Weibao's words: "Continue, new rate" (answering whether the remaining 33 volume 1 shards run at about 150,000 tokens each with the full-census instruction, or revert to the cheaper wave-1 prompt). Recorded: the wave estimate for waves 4-7 is 150,000 tokens per shard (about 5.0 million haiku tokens for the remaining 33 shards); the 110% stop line now applies to that estimate. [Reading status](gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md).
+
+## Cheaper reading lanes and a local-AI test (2026-10-27)
+
+Weibao's words (relayed by the Next implementation priorities session): "Let's improve accordingly, make the chat restart with cheaper lanes, send a separate chat to test how local AI can do these."
+Recorded: reading stops after the two running wave-4 shards; a fresh coordinator continues from the [reading handoff](gm/dispatch/protagonist-life-2026-10-27/READING_HANDOFF.md), which designs protocol v3 (one headless `claude -p` haiku call per shard by script, validated in code, A/B against wave 3 first). The local-AI test runs in its own chat.

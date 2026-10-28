@@ -10,7 +10,7 @@ Updated after each wave. Plan: [VOLUME1_READING_PLAN](VOLUME1_READING_PLAN.md). 
 | 1 | 25-54 | 10 of 10 | 2 / 8 / 0 (one B after a safe repair) | 1,317,219 (131,700 per shard; 43,900 per chapter; 6.2 calls) | 12% / 13% | **Done; paused at the AU7 bound** |
 | 2 | 55-84 | 10 of 10 | 0 / 10 / 0 (one B after a locator repair) | 1,340,283 (134,000 per shard; 44,700 per chapter) | 1% (window reset) / 13% | Done |
 | 3 | 85-114 | 10 of 10 | 0 / 10 / 0 | 1,501,355 (150,100 per shard; 50,000 per chapter) | 4% / 14% | Done; **stopped: 122% of the wave estimate (stop line 110%)** |
-| 4 | 115-144 | 0 of 10 (prepared) | | | | Waiting for Weibao: continue at the new rate or revert |
+| 4 | 115-144 | 2 of 10 (8 prepared) | 0 / 2 / 0 | 331,713 (165,900 per shard) | | **Paused by plan:** handed to a cheaper coordinator ([handoff](READING_HANDOFF.md)); protocol v3 A/B first |
 | 5-7 | 145-213 | 0 of 23 | | | | Waiting |
 
 **Why wave 3 cost more:** from mid-wave 2 the reader prompt requires every named entity, not only
@@ -36,4 +36,4 @@ each window's starting level: the 5-hour window reset to 1% before wave 3, so it
 the weekly window started at 12%, so its stop is 27%). Stop on a wave with more than two grade-C shards, name accuracy under 0.9 on any
 shard, or three consecutive failures of one kind.
 
-**Blockers:** the 110% wave-cost stop line (needs Weibao's call on the new rate).
+**Blockers:** none. Reading continues in a fresh coordinator per the [handoff](READING_HANDOFF.md). Wave estimate from wave 4: 150,000 tokens per shard under v2 (stop line 1.65 million per wave of 10).
