@@ -7,7 +7,7 @@ import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {join, dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {parseShard, lintScenes, lintCensus, lintFills} from './lint_lead_run.mjs';
+import {parseShard, lintScenes, lintCensus, lintFills, ACTION_CLASSES} from './lint_lead_run.mjs';
 import {extractCandidates, buildGlossary, glossaryHits, auditShard} from './shard_tools.mjs';
 import {worldProfile, languageRules, parseLocator, formatLocator, sharedWordRun} from './world_profiles.mjs';
 
@@ -127,17 +127,19 @@ const RULE_14 = obj({...RULE.properties, kind: {type: 'string', enum: RULE_KINDS
     acquire: obj({teacher: str, prerequisites: arr(str), time: str, practice: str, progressSign: str, failure: str, ceiling: str, label: lab, locator: str}, ['label', 'locator']),
     reset: obj({trigger: str, span: str, resets: arr(str), keeps: arr(str), remembers: arr(str), ends: str, label: lab, locator: str}, ['trigger', 'label', 'locator']),
     enforcement: obj({penalty: str, enforcer: str, detection: str, label: lab, locator: str}, ['label', 'locator'])}, RULE.required);
-const SLOT = PERSON.properties.routine.items, REL = PERSON.properties.relations.items;
+const SLOT = PERSON.properties.routine.items, REL = PERSON.properties.relations.items, REACT = PERSON.properties.reacts.items;
+const ACT = {type: 'string', enum: [...ACTION_CLASSES]};
 const PERSON_14 = obj({...PERSON.properties,
     routine: arr(obj({...SLOT.properties, recurrence: {type: 'string', enum: RECURRENCE}, until: str}, SLOT.required)),
-    relations: arr(obj({...REL.properties, since: str}, REL.required))}, PERSON.required);
+    relations: arr(obj({...REL.properties, since: str}, REL.required)),
+    reacts: arr(obj({...REACT.properties, class: ACT, by: str, responseClass: ACT}, REACT.required))}, PERSON.required);
 const SERVICE_14 = obj({...SERVICE.properties, kind: {type: 'string', enum: PRICE_KINDS}, priceStated: {type: 'string', enum: STATED},
     amount: num, unit: str, per: str, priceId: str}, SERVICE.required.filter(k => k !== 'price'));
 const EXTRA_SCHEMA_14 = {rules: () => obj({rules: arr(RULE_14), other: arr(OTHER)}, ['rules', 'other']), people: () => obj({people: arr(PERSON_14), other: arr(OTHER)}, ['people', 'other']),
     texture: () => obj({places: arr(PLACE), services: arr(SERVICE_14), news: arr(NEWS), customs: arr(CUSTOM), other: arr(OTHER)}, ['places', 'services', 'news', 'customs', 'other'])};
 const PASS_TEXT_14 = {
     rules: 'Schema 1.4 additions. `costStated`: "stated" when the shard gives a cost, "stated-free" when it says there is none, "not-mentioned" otherwise. For a skill, spell or ability the shard shows being learned, `acquire`: teacher id, prerequisites, time, how it is practised, the sign of progress, how learning fails, and any ceiling. A time loop, reset, checkpoint or restart is a rule of kind `reset` with `reset`: what triggers it, its span, what resets, what is kept, who remembers, and what ends it. A law or rule with consequences takes `enforcement`: penalty, enforcer, how breaches are detected. Omit any of these the shard does not state or show.',
-    people: 'Schema 1.4 additions. A routine slot takes `recurrence` (once, daily, weekdays, weekly, monthly, term, seasonal, yearly, irregular) only when the shard states or shows the pattern; an inferred pattern takes label I; omit it when the shard is silent, never default to once. `until` when the slot ends. A relation takes `since` when the shard dates the attitude. A routine slot\'s `place` is a place id from the known-names table, or a new id built from the schema card rules, never a free-text description (schedules join on it).',
+    people: 'Schema 1.4 additions. A routine slot takes `recurrence` (once, daily, weekdays, weekly, monthly, term, seasonal, yearly, irregular) only when the shard states or shows the pattern; an inferred pattern takes label I; omit it when the shard is silent, never default to once. `until` when the slot ends. A relation takes `since` when the shard dates the attitude. A routine slot\'s `place` is a place id from the known-names table, or a new id built from the schema card rules, never a free-text description (schedules join on it). A `reacts` row takes `class` (the action class of the act reacted to, from the card), `by` (id of who did that act, omitted when unnamed) and `responseClass` (the action class of the response).',
     texture: 'Schema 1.4 additions. Every price, wage, rent, fare, fee, tuition or fine the shard gives goes in `services` with `kind`, `amount` (a number; a vague amount takes its lowest reading with "approx" in `per`), `unit`, `per` (per night, per item, per hour) and `priceId` when the known-names table has a matching price id. `priceStated`: "stated", "stated-free" or "not-mentioned"; when not mentioned, omit `price`, `amount` and `unit` instead of writing "none stated".',
 };
 
@@ -445,6 +447,7 @@ export function lintExtra(rows, shardMap) {
         // Schema 1.4 enums: prompt mode has no grammar, so an unchecked enum drifts.
         if ('recurrence' in n && !RECURRENCE.includes(n.recurrence)) issues.push({code: 'recurrence', where: w});
         for (const k of ['costStated', 'priceStated']) if (k in n && !STATED.includes(n[k])) issues.push({code: k, where: w});
+        for (const k of ['class', 'responseClass']) if (k in n && 'response' in n && !ACTION_CLASSES.includes(n[k])) issues.push({code: `reacts-${k}`, where: w});
         if ('priceStated' in n && n.priceStated === 'stated' && !Number.isFinite(n.amount)) issues.push({code: 'price-amount', where: w});
         if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key)) issues.push({code: 'locator', where: w}); }
         for (const v of Object.values(n)) walk(v, w);

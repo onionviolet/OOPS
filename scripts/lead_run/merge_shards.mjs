@@ -50,12 +50,17 @@ export function loadShards(dir, {includeBatch = false, match = null} = {}) {
     return out.sort((a, b) => (parseInt(String(a.header.chapters), 10) || 0) - (parseInt(String(b.header.chapters), 10) || 0));
 }
 
-/** Redirect map from `reveals` rows (people pass: same_as) plus the overlay. Chains are followed; cycles stop. */
+/** Redirect map from the reviewed overlay only. Chains are followed; cycles stop. People-pass `reveals` (same_as) rows are proposals: some joined
+ *  two different people (cast-lives CL102, 2026-10-28), so they go to `overlay_proposed.json` for review and fold only once the overlay carries them. */
 export function buildRedirect(shards, overlay = {}) {
     const red = new Map(Object.entries(overlay.redirect || {}));
-    for (const s of shards) for (const p of s.people || []) for (const r of p.reveals || []) if (r.same_as && p.id && r.same_as !== p.id && !red.has(p.id)) red.set(p.id, r.same_as);
+    const reveals = [], seen = new Set();
+    for (const s of shards) for (const p of s.people || []) for (const r of p.reveals || []) {
+        const key = `${p.id}>${r.same_as}`;
+        if (r.same_as && p.id && r.same_as !== p.id && !red.has(p.id) && !seen.has(key)) { seen.add(key); reveals.push({from: p.id, to: r.same_as, label: r.label, locator: r.locator}); }
+    }
     const resolve = id => { const seen = new Set(); while (red.has(id) && !seen.has(id)) { seen.add(id); id = red.get(id); } return id; };
-    return {red, resolve};
+    return {red, resolve, reveals};
 }
 
 /** One registry: one row per id, one label, union of aliases, earliest mention, best rung, kind by majority (conflicts reported). */
@@ -235,20 +240,20 @@ export function resolveRate(scenes, knownIds, extraIds = new Set()) {
 }
 
 export function mergeAll(dir, {includeBatch = false, match = null, overlay = {}} = {}) {
-    const shards = loadShards(dir, {includeBatch, match}), {red, resolve} = buildRedirect(shards, overlay);
+    const shards = loadShards(dir, {includeBatch, match}), {red, resolve, reveals} = buildRedirect(shards, overlay);
     const {registry, kindConflicts, idCollisions} = buildRegistry(shards, resolve, overlay);
     const {scenes, dupBeats} = collectScenes(shards, resolve);
     const timeline = resolveTimeline(scenes);
     enrichFromScenes(registry, scenes);
     const extras = collectExtras(shards, resolve);
     const affordance = affordanceMatrix(scenes, registry, extras);
-    const proposed = proposeOverlay(idCollisions);
+    const proposed = {...proposeOverlay(idCollisions), reveals};
     const ids = new Set(registry.map(r => r.id)), beats = new Set(scenes.map(s => s.beat));
     const fillIds = new Set(shards.flatMap(s => s.fills.map(f => f.id)));
     const resolveR = resolveRate(scenes, new Set([...ids, ...beats, ...fillIds]));
     const fills = shards.flatMap(s => s.fills.map(f => ({...f, shard: s.prefix})));
     const report = {shards: shards.length, censusRowsIn: shards.reduce((n, s) => n + s.census.length, 0), registry: registry.length, redirected: red.size, kindConflicts: kindConflicts.length,
-        idCollisionsByZh: idCollisions.length, proposedRedirects: Object.keys(proposed.redirect).length, collisionsForReview: proposed.review.length,
+        idCollisionsByZh: idCollisions.length, proposedRedirects: Object.keys(proposed.redirect).length, collisionsForReview: proposed.review.length, revealsForReview: reveals.length,
         extras: Object.fromEntries(EXTRA_KINDS.map(k => [k, extras.filter(x => x.extra === k).length])), scenes: scenes.length, duplicateBeats: dupBeats.length, fills: fills.length, timeline, affordance: {classes: affordance.classes, places: affordance.places, filledCells: affordance.filledCells, possibleCells: affordance.possibleCells},
         resolve: resolveR, leadTouched: registry.filter(r => r.touchedByLead).length, withWhereabouts: registry.filter(r => r.whereabouts.length).length, multiClaimant: registry.filter(r => Object.keys(r.claimants).length > 1).length,
         labelsWithAliases: registry.filter(r => r.aliases.length).length, kindConflictIds: kindConflicts.slice(0, 20).map(k => k.id)};

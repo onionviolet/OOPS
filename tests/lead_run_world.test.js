@@ -84,6 +84,8 @@ test('Schema 1.4 is opt-in: 1.3 prompts and schemas are unchanged; 1.4 adds type
     assert.deepEqual(lintExtra({people: [{label: 'T', locator: L, routine: [{label: 'S', locator: L, recurrence: 'often'}]}]}, parseShard(EN)).map(i => i.code), ['recurrence']);
     assert.deepEqual(lintExtra({services: [{label: 'T', locator: L, priceStated: 'stated'}]}, parseShard(EN)).map(i => i.code), ['price-amount']);
     assert.deepEqual(lintExtra({rules: [{label: 'T', locator: L, costStated: 'none'}]}, parseShard(EN)).map(i => i.code), ['costStated']);
+    assert.deepEqual(lintExtra({people: [{label: 'T', locator: L, reacts: [{to: 'x', response: 'y', class: 'trade', responseClass: 'gossip', label: 'S', locator: L}]}]}, parseShard(EN)).map(i => i.code), ['reacts-responseClass']);
+    assert.ok(shardSchema('people', {version: '1.4'}).properties.people.items.properties.reacts.items.properties.by);
 });
 
 test('English shard prep: number words, EPUB members, PDF chapters across books and pages, shard text form', () => {

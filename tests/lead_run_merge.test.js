@@ -42,8 +42,16 @@ test('loadShards skips batch-route variants unless asked, in chapter order', () 
     assert.equal(loadShards(dir, {includeBatch: true}).length, 3);
 });
 
-test('merge: one row per id, one label, earliest mention, best rung, reveals fold two ids into one', () => {
+test('merge: reveals are proposals for review, not applied (CL102)', () => {
     const r = mergeAll(fixture());
+    assert.ok(r.registry.some(x => x.id === 't.person.stranger'), 'an unreviewed reveal keeps both ids');
+    assert.deepEqual(r.proposed.reveals.map(x => [x.from, x.to]), [['t.person.stranger', 't.person.mask']]);
+    assert.equal(r.report.revealsForReview, 1);
+    assert.equal(r.report.redirected, 0);
+});
+
+test('merge: one row per id, one label, earliest mention, best rung, a reviewed reveal folds two ids into one', () => {
+    const r = mergeAll(fixture(), {overlay: {redirect: {'t.person.stranger': 't.person.mask'}}});
     const ids = r.registry.map(x => x.id);
     assert.equal(new Set(ids).size, ids.length);
     const ann = r.registry.find(x => x.id === 't.person.ann');
@@ -117,7 +125,7 @@ test('proposed overlay folds proper names of one kind, sends common nouns and mi
 test('--match includes batch-route shards by prefix; texture places feed the affordance matrix; extras ids are redirected', () => {
     const dir = fixture();
     writeFileSync(join(dir, 'c3_places.jsonl'), JSON.stringify({id: 't.place.inn', affordances: [{class: 'rest', what: 'beds', needs: ['t.person.stranger']}]}) + '\n');
-    const r = mergeAll(dir, {match: /^(a1m|b2m|c3m)$/});
+    const r = mergeAll(dir, {match: /^(a1m|b2m|c3m)$/, overlay: {redirect: {'t.person.stranger': 't.person.mask'}}});
     assert.equal(r.report.shards, 3);
     assert.equal(r.affordance.cells['t.place.inn'].rest.texture, 1);
     assert.deepEqual(r.extras.find(x => x.extra === 'places').affordances[0].needs, ['t.person.mask']);
