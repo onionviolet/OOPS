@@ -149,3 +149,32 @@ test('English names match whole words ignoring case and a plural ending', () => 
     assert.ok(nameIn('the Boxes', 'box', 'en'));
     assert.ok(!nameIn('Beastly weather.', 'Beast', 'en'));
 });
+
+test('A Soldier\'s Life census: curly apostrophes match, printed coin amounts parse, a number-less price row becomes a note row', async () => {
+    const {migrateCensus, parseAmount} = await import('../scripts/lead_run/migrate_shard.mjs');
+    assert.ok(nameIn('He wore the adventurer’s medallion.', 'adventurer\'s medallion', 'en'));
+    assert.ok(nameIn('the adventurer\'s medallion', 'adventurer’s medallion', 'en'));
+    assert.deepEqual(parseAmount('a large copper'), {value: 1, unit: 'large copper'});
+    assert.deepEqual(parseAmount('two large copper'), {value: 2, unit: 'large copper'});
+    assert.deepEqual(parseAmount('40 silver'), {value: 40, unit: 'silver'});
+    assert.deepEqual(parseAmount('six thousand gold'), {value: 6000, unit: 'gold'});
+    assert.deepEqual(parseAmount('two to three gold'), {value: 2, unit: 'gold'});
+    assert.deepEqual(parseAmount('a gold an ounce'), {value: 1, unit: 'gold', per: 'ounce'});
+    assert.equal(parseAmount('a few gold'), null);
+    assert.equal(parseAmount('single room'), null);
+    const row = migrateCensus({id: 'asl.price.farmer-debt', kind: 'price', zh: 'twenty-four silver', rung: 'M0'});
+    assert.deepEqual(row.amount, {value: 24, unit: 'silver'});
+    assert.equal(row.kind, 'price');
+    const note = migrateCensus({id: 'asl.price.inn-room-night', kind: 'price', zh: 'single room', rung: 'M0'});
+    assert.equal(note.kind, 'note');
+    assert.equal(note.kindWas, 'price');
+    assert.equal(note.id, 'asl.note.inn-room-night');
+    assert.equal(note.idWas, 'asl.price.inn-room-night');
+});
+
+test('coin amounts: a hundred and a thousand are counts, not part of the unit', async () => {
+    const {parseAmount} = await import('../scripts/lead_run/migrate_shard.mjs');
+    assert.deepEqual(parseAmount('a hundred gold'), {value: 100, unit: 'gold'});
+    assert.deepEqual(parseAmount('three hundred in gold'), {value: 300, unit: 'gold'});
+    assert.deepEqual(parseAmount('a large Telhian copper'), {value: 1, unit: 'large telhian copper'});
+});

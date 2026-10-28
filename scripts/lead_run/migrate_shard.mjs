@@ -64,11 +64,16 @@ export function migrateCensus(r) {
     if (c.kind === 'duration') c.kind = 'measure';
     // A row claimed as placed with no address drops back to M0 rather than gaining an invented address.
     if (c.rung && c.rung !== 'M0' && !(c.whereabouts || []).some(w => w.place || w.era)) c.rung = 'M0';
+    // A price row without a parsed amount gets one when its printed name is a number and a known unit ("7便士", "three Galleons").
+    if (c.kind === 'price' && !(c.amount && Number.isFinite(c.amount.value) && c.amount.unit)) {
+        const a = parseAmount(c.zh) || noteAmount(c.note);
+        if (a) c.amount = a;
+        // A price row exists only when the text prints a number (prompt rule): a vague or unit-less cost ("a few gold", "single room") stays as a note row, nothing invented (A Soldier's Life census, 2026-10-28).
+        else { c.kindWas = 'price'; c.kind = 'note'; }
+    }
     // The id's kind segment follows the row's kind (`lotm.item.x` on a document row becomes `lotm.document.x`); the old id is kept in `idWas`.
     const seg = /^([a-z0-9]+)\.([a-z]+)\.(.+)$/.exec(c.id || '');
     if (seg && c.kind && seg[2] !== c.kind) { c.idWas = c.id; c.id = `${seg[1]}.${c.kind}.${seg[3]}`; }
-    // A price row without a parsed amount gets one when its printed name is a number and a known unit ("7便士", "three Galleons").
-    if (c.kind === 'price' && !(c.amount && Number.isFinite(c.amount.value) && c.amount.unit)) { const a = parseAmount(c.zh) || noteAmount(c.note); if (a) c.amount = a; }
     // Batch readers put an evidence label (S, I, U, T) in the census `label`, which is the display name (2026-10-28): the printed name stands in for English
     // sources, a title from the id slug for others; `labelFrom` marks it so the merge prefers a real label.
     if (['S', 'I', 'U', 'T'].includes(c.label)) {
@@ -112,7 +117,33 @@ export function parseAmount(name) {
     }
     const e = s.toLowerCase().match(/^(\d+(?:\.\d+)?|[a-z]+) ([a-z]+?)s?$/);
     if (e && EN_UNITS[e[2]] && (EN_WORDS[e[1]] != null || /^\d/.test(e[1]))) return {value: /^\d/.test(e[1]) ? Number(e[1]) : EN_WORDS[e[1]], unit: EN_UNITS[e[2]]};
-    return null;
+    return parseCoinAmount(s);
+}
+
+const EN_SMALL = {a: 1, an: 1, one: 1, single: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13,
+    fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90, dozen: 12};
+/** English count: digits ("40", "1,000") or number words ("ten", "twenty-four", "a hundred", "six thousand"); null when any word is not a number. */
+export function enNumber(s) {
+    const t = String(s).trim().toLowerCase();
+    if (/^\d[\d,]*(?:\.\d+)?$/.test(t)) return Number(t.replace(/,/g, ''));
+    let total = 0, cur = 0;
+    for (const w of t.split(/[\s-]+/).filter(Boolean)) {
+        if (w in EN_SMALL) cur += EN_SMALL[w];
+        else if (w === 'hundred') cur = (cur || 1) * 100;
+        else if (w === 'thousand') { total += (cur || 1) * 1000; cur = 0; }
+        else return null;
+    }
+    return total + cur || null;
+}
+const COIN_NUM = '(?:\\d[\\d,]*(?:\\.\\d+)?|[a-z]+(?:[\\s-]+[a-z]+){0,3}?)';
+const COIN = new RegExp(`^(${COIN_NUM})(?:\\s+(?:to|or)\\s+${COIN_NUM})?(?:\\s+(?:extra|more))?[\\s-]+(?:in\\s+)?((?:(?:large|small|big)\\s+)?(?:(?!(?:${Object.keys(EN_SMALL).join('|')}|hundred|thousand|few|more|extra)\\b)[a-z]+\\s+)?(?:copper|silver|gold|platinum))s?(?:\\s+(?:coin|piece)s?)?(?:\\s+in total)?(?:\\s+(?:a|an|per|each|every)\\s+([a-z]+))?$`);
+/** A printed coin amount ("40 silver", "a large copper", "two to three gold", "a gold an ounce") -> {value, unit[, per]}. A range takes its lowest reading, as the prompt rule says. Others -> null. */
+export function parseCoinAmount(s) {
+    const m = COIN.exec(String(s || '').trim().toLowerCase().replace(/[.,;]+$/, ''));
+    if (!m) return null;
+    const value = enNumber(m[1]), unit = m[2].replace(/\s+/g, ' ');
+    // "a few" and "dozens of" are not counts, and the optional word before the metal must be a size or a place name, not a number word that failed to parse.
+    return value == null ? null : {value, unit, ...(m[3] ? {per: m[3]} : {})};
 }
 
 /** With the shard text: a census row whose literal name is not at its cited paragraph (or the next two) moves its

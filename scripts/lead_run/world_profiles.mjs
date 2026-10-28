@@ -69,7 +69,10 @@ export function nameKey(name, lang = 'zh') {
 /** Does `name` occur in `text` as whole words (English) or as a substring (Chinese)? */
 export function nameIn(text, name, lang = 'zh') {
     if (lang !== 'en') return String(text).includes(name);
-    const esc = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Curly and straight apostrophes are one character here: readers write "Elaro's manor", the shard prints "Elaro’s manor" (A Soldier's Life census, 2026-10-28).
+    const plain = x => String(x).replace(/[\u2018\u2019\u02bc]/g, "'").replace(/[\u201c\u201d]/g, '"');
+    text = plain(text);
+    const esc = plain(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     // Case and a plural ending are ignored: a class name ("Beast") is printed lowercase or plural in prose (Shadow Slave pilot, 2026-10-28).
     return new RegExp(`(?:^|[^A-Za-z])${esc}(?:e?s)?(?:$|[^A-Za-z])`, 'i').test(text);
 }
