@@ -127,7 +127,8 @@ export function lintCensus(rows, shard = null) {
         if (!CENSUS_SCHEMAS.has(r.schema)) out.push({code: 'schema', where: w});
         if (seen.has(r.id)) out.push({code: 'duplicate', where: w});
         seen.add(r.id);
-        if (!KINDS.includes(r.kind)) out.push({code: 'kind', where: w, kind: r.kind});
+        // A named ability, spell or rite is a named entity too (Shadow Slave Aspects, 2026-10-28); its working goes in the rules pass.
+        if (!KINDS.includes(r.kind) && !RULE_KINDS.includes(r.kind)) out.push({code: 'kind', where: w, kind: r.kind});
         if (!new RegExp(`^[a-z0-9]+\\.${r.kind}\\.`).test(r.id || '')) out.push({code: 'id-namespace', where: w});
         if (!RUNGS.has(r.rung)) out.push({code: 'rung', where: w});
         if (!NAME_SOURCES.has(r.nameSource)) out.push({code: 'name-source', where: w});

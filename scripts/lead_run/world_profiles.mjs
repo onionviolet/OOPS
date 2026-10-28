@@ -70,7 +70,8 @@ export function nameKey(name, lang = 'zh') {
 export function nameIn(text, name, lang = 'zh') {
     if (lang !== 'en') return String(text).includes(name);
     const esc = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    return new RegExp(`(?:^|[^A-Za-z])${esc}(?:$|[^A-Za-z])`).test(text);
+    // Case and a plural ending are ignored: a class name ("Beast") is printed lowercase or plural in prose (Shadow Slave pilot, 2026-10-28).
+    return new RegExp(`(?:^|[^A-Za-z])${esc}(?:e?s)?(?:$|[^A-Za-z])`, 'i').test(text);
 }
 
 /** Longest run of consecutive words a field shares with the shard text (English quote guard: a copied sentence, not a name). */
@@ -90,6 +91,7 @@ export const WORLDS = Object.freeze({
     mol: {lang: 'en', name: 'Mother of Learning'},
     asl: {lang: 'en', name: "A Soldier's Life"},
     ss: {lang: 'en', name: 'Shadow Slave'},
+    coi: {lang: 'en', name: 'Circle of Inevitability'},
     test: {lang: 'zh', name: 'test'},
     'test-en': {lang: 'en', name: 'test'},
 });

@@ -121,3 +121,9 @@ test('Chinese locators carry the volume after volume 1; volume 1 keeps the old f
     assert.deepEqual(locatorsIn('see zh b2 第1章 p1 and zh 第2章 p3').map(l => l.book), [2, 0]);
     assert.deepEqual(volumeRuns([1, 2, 3, 1, 2, 1].map(n => ({n}))).map(r => r.length), [3, 2, 1]);
 });
+
+test('English names match whole words ignoring case and a plural ending', () => {
+    assert.ok(nameIn('Three beasts came.', 'Beast', 'en'));
+    assert.ok(nameIn('the Boxes', 'box', 'en'));
+    assert.ok(!nameIn('Beastly weather.', 'Beast', 'en'));
+});
