@@ -1,0 +1,22 @@
+# Bare reader: no tools, no skills, minimal persona. For one-prompt JSON jobs on a local model.
+- id: tool-bash
+  disabled: true
+- id: tool-pwsh
+  disabled: true
+- id: tool-fs
+  disabled: true
+- id: tool-fs-search
+  disabled: true
+- id: tool-jobs
+  disabled: true
+- id: tool-skill
+  disabled: true
+- id: tool-todo
+  disabled: true
+- id: tool-working-directory
+  disabled: true
+- id: skill
+  disabled: true
+- id: system-prompt
+  config:
+    personaPrefix: Answer the user's request directly. Output only what is asked.

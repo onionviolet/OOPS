@@ -3,12 +3,13 @@
 Status: measured test, proposals only. Nothing here changes the reading protocol; the reading coordinator decides.
 Owners: [READING_STATUS](../gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md), [reader brief](../gm/dispatch/protagonist-life-2026-10-27/READER_BRIEF_TEMPLATE.md), [schema card 1.3](../gm/dispatch/protagonist-life-2026-10-27/SCHEMA_CARD_1_3.md), [agent usage rules](../AGENT_USAGE_RULES.md) (AU5, AU15). Machine: Apple M5 Pro, 64 GB. Raw outputs are private and gitignored: `docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/localai-*`. Haiku outputs were not touched.
 
-## Answer in four lines
+## Answer in five lines
 
-1. **No local model can replace haiku on the full job.** Best result: lint pass and grade B on one shard (Qwen3.8 27B, both variants), grade C on the other; census recall 9% to 42% of haiku's rows; scenes thin (no options or choices to speak of).
-2. **A script beats every model on the mechanical part.** Known-name census rows built straight from the brief's known-names table cost zero tokens, got name accuracy 1.0 and cover 60% and 63% of haiku's census rows.
-3. **Local Qwen3.8 27B is usable for one narrow lane:** price, measure and time rows from the candidates table (sampled rows were accurate), at about 38 tokens/s. Not for scenes, not for new-entity discovery, not unattended without lint.
-4. **dsh can drive local Ollama today** (`dsh-local`, already configured), but for a one-call-per-shard job it adds an agent loop and about 3,200 tokens of system prompt per call. A plain script against Ollama's API is simpler.
+1. **Round 1 (one big prompt, whole job): no local model can replace haiku.** Best was lint pass and grade B on one shard; census recall 9% to 42%; scenes thin.
+2. **Round 2 (narrowed lane, see below) works.** Per-chapter chunks, a script for known names, schema-constrained output and deterministic repair gave **lint pass, grade B (census only), name accuracy 1.0 and census recall 87% to 93% on all 6 runs** (2 shards, 3 seeds), about 2 to 4 minutes per shard on `qwen3.8:27b`.
+3. **The Q8 abliterated model is not needed.** Under the same lane it matched the fast model (recall 87%) but needed 40 locator repairs and held 30 GB.
+4. **Scenes stay with haiku.** No local run was good enough on options, choices or motives.
+5. **dsh can run local Ollama and its overhead can be cut from about 3,160 to 170 tokens per call** with a no-tools patch; a plain script is still simpler for this job.
 
 ## Method
 
@@ -62,12 +63,50 @@ Variance is the finding: the same prompt style gave 2 of 34 and 23 of 30 known n
 
 Common failure: invalid `nameSource` values (lint `name-source`, 7 to 42 rows), early stop on the census, and notes that import outside knowledge.
 
+## Round 2: census lane v2 (items 3, 4, 5, 6 from the follow-up)
+
+Script: [local_census_lane.py](../../scripts/lead_run/local_census_lane.py) (proposal, not wired into the protocol). Changes against round 1:
+
+- **Less input (5):** one call per chapter, each with only that chapter's text, its candidates and a one-line "already listed" names list. Prompts were 2.4k to 3.7k tokens each against 11 to 14k before.
+- **Script does the known names (A):** rows for the known-names table, with exact id, label, kind, nameSource and first paragraph; duplicate ids merge as aliases.
+- **Structured output (6):** Ollama JSON schema with the `kind` enum, a locator pattern and optional amount fields. The script sets `nameSource` (always `pinyin-unconfirmed` for model rows), `rung`, and all fixed fields, and parses money amounts from the Chinese numerals (model amounts as fallback; a price with no amount becomes a `note`).
+- **Repair (3):** every model row's `zh` is checked against its cited paragraph; a wrong locator is moved to the first paragraph that contains the name, and a name found nowhere is dropped. The id is rebuilt as `lotm.<kind>.<slug>`.
+- **Recall check (4):** if more than 30% of a chapter's candidates are not covered by any row, the chapter gets one retry listing the missing ones. It never triggered in these runs (0 retries in 18 chapter calls).
+
+First draft of the lane failed lint (id-namespace 24, price-amount 11, duplicate 3); those three were fixed in the script and the six runs below used the fixed version. These are census-only results, so the "grade B" is the gate's best for a census-only file with no spot checks.
+
+| Run | Rows (haiku 57 / 46) | Recall vs haiku | Lint | Grade | Name accuracy | Wall | Out tokens | Locators repaired |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Qwen 27B, w1s16, temp 0, seed 42 | 89 | 91% | pass | B | 1.0 | 224 s | 4,509 | 0 |
+| Qwen 27B, w1s16, temp 0.3, seed 7 | 83 | 91% | pass | B | 1.0 | 139 s | 3,964 | 0 |
+| Qwen 27B, w1s16, temp 0.3, seed 99 | 81 | 93% | pass | B | 1.0 | 129 s | 3,702 | 0 |
+| Qwen 27B, w2s20, temp 0, seed 42 | 99 | 89% | pass | B | 1.0 | 168 s | 3,994 | 0 |
+| Qwen 27B, w2s20, temp 0.3, seed 7 | 92 | 91% | pass | B | 1.0 | 117 s | 3,403 | 0 |
+| Qwen 27B, w2s20, temp 0.3, seed 99 | 89 | 87% | pass | B | 1.0 | n/a | n/a | 0 |
+| Huihui Q8, w2s20, temp 0, seed 42 | 92 | 87% | pass | B | 1.0 | 215 s | 3,489 | **40** |
+
+- **Stability:** the three seeds share 74 of 96 names on w1s16 and 83 of 108 on w2s20 (about 77%); recall against haiku varied only 87% to 93%.
+- **Precision:** the model rows haiku did not list are mostly real and supported by their paragraph (12-row sample on w2s20: about 8 real names, items, documents or dates; the rest generic nouns or idioms such as 几天, 半天, 齿轮). No invented facts in that sample. Rows haiku did list but the script/model missed are in the 7% to 13% gap. Extras are noise for the glossary, so the coordinator should decide whether to keep generic nouns.
+- **What the lane cannot do:** `whereabouts`, `touchedByLead`, `claimant` and `rung` M1 stay at defaults, and the notes are short own-words labels, so the census is a name index, not the detailed haiku rows.
+
+### Why Q4 Huihui would not have helped
+
+The Q8 abliterated model (29-33 GB resident) has no advantage in the lane: same recall, 40 locator repairs, slower, and the memory it takes is the main risk on this machine. A 4-bit abliterated build (about 16-18 GB) would be the same size as the fast model with the same compression loss, so it would only add value if the official model refused source text. Neither model refused anything in these tests. Not worth downloading.
+
+### Memory (measured, with a lesson)
+
+During round 2 the Q8 run left `huihui_ai/Qwen3.8-abliterated:27b-q8_0` loaded (30.5 GB at 16k context) for the 10-minute keep-alive I had set, and **swap sat at 22.0 of 23.5 GB** at that moment (other apps and sessions also use memory, so not all of it is mine). I unloaded it with `ollama stop`; free memory went from 33% to 83%, but the swap file stays used until macOS reclaims it. Round 1 prompts at `num_ctx` 49152 also took more KV cache than the lane needs (the Qwen model showed 30 GB resident at that context against 18 GB at the model's own size). Lessons: use a small `num_ctx` (16384 is enough per chapter), keep one model at a time, and unload at the end of a batch. The script now sets `keep_alive` to 2 minutes and unloads its model when it finishes.
+
+### dsh overhead (item 2)
+
+Patch: [dsh_reader.patch.yml](../../scripts/lead_run/dsh_reader.patch.yml) disables every file, shell, todo, skill and working-directory tool and replaces the persona with one sentence. `dsh --profile headless --patch <local-work patch> --patch ~/.dsh/routes/local.yml --patch dsh_reader.patch.yml --json "Reply with the single word OK."` used **170 input tokens (against 3,160 with `dsh-local`)** and returned in 5.9 s. This is one trivial call; I did not run the reader job through dsh. The patch is applied per command, so it changes no standing dsh config.
+
 ## Recommended split for the remaining 30-odd shards
 
-1. **Script step (new, zero tokens):** generate known-name census rows from the brief's table before the reader runs; the reader then writes only scenes, fills and census rows for names not in the table, plus notes where a row needs one. Merge by id. Needs a small script in `scripts/lead_run/` (about 40 lines, the proof of concept is the scratchpad `script_census.py`, not committed) and a lint-clean alias rule for duplicate ids. This is the one change to start with.
+1. **Census lane (new, local, no haiku tokens):** run `local_census_lane.py` per shard on `qwen3.8:27b` (known names by script, the rest by the model per chapter). It produced a lint-clean census with name accuracy 1.0 and 87-93% recall in 2 to 4 minutes per shard. Haiku then writes only scenes, fills and any census detail the coordinator still wants (whereabouts, claimant). This is the one change to start with. The haiku saving is the whole census file, 55% to 57% of what haiku writes (estimate [I]), and the known-names table (29% to 35% of the brief) could shrink to a one-line list. The coordinator decides whether the lane's thinner rows are acceptable.
 2. **Haiku stays on scenes, options, choices, new entities and fills** (v3, one call per shard). All local lanes failed at these.
-3. **Optional local lane, after step 1 proves out:** Qwen3.8 27B (fast profile) for price, measure and time rows from the candidates table, run overnight or in the gaps, with a hard rule: lint pass and every candidate accounted for, else fall back to haiku for that shard. Expected saving is small (10-15% of census rows), so skip it if step 1 already meets the budget.
-4. **Do not use** Gemma, and do not use the Q8 abliterated model for readers.
+3. **Hard rule for the lane:** lint pass and candidate coverage 70% or more, else fall back to haiku for that shard.
+4. **Do not use** Gemma, and do not use the Q8 abliterated model for readers. Run one model at a time with a small `num_ctx`, and unload when done.
 5. Keep the sonnet 10% spot check on script-generated rows too: the script's id and kind come from earlier graded shards (PL-A47), so a wrong earlier row propagates.
 
 ## dsh (DeepSeek Harness) as a runner
@@ -83,11 +122,13 @@ Common failure: invalid `nameSource` values (lint `name-source`, 7 to 42 rows), 
 
 | Code | Step | Owner | Done check |
 | --- | --- | --- | --- |
-| A1 | Add `scripts/lead_run/known_census.mjs` (table-derived census rows with alias merging) and wire it into protocol v3 prep | Reading coordinator | Output of a graded shard matches `known` names with name accuracy 1.0 and lint clean; reader brief drops those rows |
+| A1 | Review `local_census_lane.py` and wire it into protocol v3 prep (census from the lane, haiku writes scenes and fills only) | Reading coordinator | A wave 4 shard: lint pass, name accuracy at least 0.98, haiku brief without the census section |
 | A2 | Re-estimate haiku tokens per shard with A1 in place | Reading coordinator | Measured on one wave 4 shard against 150,000 |
-| A3 | Decide on the optional Qwen price/time lane only if A2 misses budget | Weibao / coordinator | Two shards: lint pass, all candidates accounted, recall check |
+| A3 | Check the lane census with the 5-locator spot check on one shard (grade A path) and decide whether generic-noun rows stay | Coordinator | 5 locators match; keep/drop rule recorded |
 | A4 | Anthropic API key route for a haiku batch via script | Needs Weibao's explicit yes | Spend within the stated promo credit |
 
 ## Gaps
+
+Round 2 used the same two shards the lane was tuned on, so the 87-93% recall may be optimistic on other shards. Haiku is treated as ground truth. Memory in round 2 was not polled per run; the 30.5 GB figure is a later snapshot. The dsh patch was tested on one trivial call only. Round 1 gaps:
 
 One sample per model per shard; temperature 0, so each is a deterministic sample, not an average. No grade A attempt (no spot checks). Invented-fact rate rests on a 5-row hand sample plus an anchor check. Recall counts haiku as ground truth. The split design's haiku saving is an estimate; no v3 shard was run. Model times were measured one run at a time with other sessions active on the machine.
