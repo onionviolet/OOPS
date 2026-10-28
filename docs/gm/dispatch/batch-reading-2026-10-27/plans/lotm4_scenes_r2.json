@@ -1,7 +1,7 @@
 {
  "world": "lotm",
  "model": "claude-haiku-5-5",
- "maxTokens": 64000,
+ "maxTokens": 128000,
  "outTokensAssumed": 32000,
  "effort": "high",
  "schemaMode": "prompt",
