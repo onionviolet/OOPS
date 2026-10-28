@@ -382,3 +382,17 @@ LATER / DELEGATE:
 | SV11 | `since` on relations: 3 of 451 (books rarely date an attitude) | Keep; merge ordering by locator (PG8) carries most of the timing |
 | SV12 | Rules: `acquire` on 6 of 26 rules, with teacher, practice, progress sign and ceiling where shown. All 3 loop chapters produced a `reset` rule (trigger, resets, keeps). `costStated` on 24 of 26. `enforcement` on 1 of 5 laws | Accepted as working |
 | SV13 | Texture: 7 of 22 services carry typed prices (Diagon Alley: 5 Knuts a scoop, 17 Sickles an ounce, 21 Galleons each, a 5-Knut delivery fee); the other 15 are marked `not-mentioned` instead of "none stated" | Accepted as working |
+
+## 17. Round 13: finish LOTM, then the rest of October (2026-10-28)
+
+Weibao: "We can fix LOTM, and then do the rest? Splot accordingly? Address each of the tihng ti consider?"
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| C20 | LOTM's 48 census and 7 people cut-offs happened at medium effort with 128K, so effort is not the lever | Done: `make_split_retry.mjs` splits each cut-off shard into one-chapter shards. The first chapter keeps the old prefix and replaces the partial output; later chapters get their own chapter prefix, which the census pattern already matches. Run `2026-10-28s-lotm`: 110 requests, true bound $3.59, sent (`702bda147`). LOTM volume 1's 6 wave-plan census failures use another shard scheme and stay on the November retry list |
+| C21 | Measured spend from summaries leaves out the direct pilots ($0.57, added by hand), and the dashboard lags | The chain keeps $1 under the $100 credit (the $99 test) and $95 for runs with a ceiling below their bound |
+| C22 | Near the deadline the last book should be unable to overrun | Godclads' ceiling is set to its true bound ($13.38). It is sent only if measured spend plus that bound is at most $99 |
+| C23 | Cheap set-up checks for November: a direct Reverend Insanity Gu check (about $0.30) and a medium-census pilot (C13, about $0.30) | Next, from whatever remains after Godclads, or first thing in November |
+| C24 | November order | Circle of Inevitability, then the Shadow Slave rerun with its pilot gate waived, then the retry list: LOTM volume 1's 6 census shards, HP's 2 broken people replies and 3 census partials, A Soldier's Life's 14 census partials, all at split or medium |
+
+Chain (scratchpad `chain2.sh`, PID 35762): after the Perfect Run, the RI pilot and the LOTM split retry exit, resume `r-asl` for texture if measured spend plus $5.01 is at most $95, then send Godclads under C22. Both must go before Oct 31 noon.
