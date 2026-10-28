@@ -754,3 +754,7 @@ player commands.
 | Code | Lane | Model | Done check |
 | --- | --- | --- | --- |
 | CL169 | **L5r, UI replay audit, chapters 1-3 first** (the opening night and morning), then the rest of the slice. Step table (private), mapping file with folds and gaps (committed: ids, action ids, counts), and a replay script through the UI; starts after L4a and L3m so it runs on the private-pack cast | Sol, medium (mapping judgment); the replay script itself Luna | Chapters 1-3: every step reproducible, folded or a named gap; the replay passes its anchors through the UI; the score table is in the checkpoint; browser screenshots at 1920×1080 for three steps |
+
+| Code | Event | State |
+| --- | --- | --- |
+| CL170 | **L6b landed, AR11 holds for data:** MoL first loop, 60 schedules and 44 beats, with zero edits to `cast_schedule`, `beat_records`, core owners, registration or saves. Its seven needs (loop identity, day derivation, a late-evening band, multi-place scenes, alias resolution, dated learning, same-loop anchors) are world data or host consumer work, not seam changes ([L6b checkpoint](cast-lives-lanes/L6B_CHECKPOINT.md) F3). Not yet an integrated second-world journey | Checkpoint committed; `src/book_world_mol_cast.js` and its test **left uncommitted** so no more canon data enters history; L3m moves them into `private_packs/mol-cast/` first (CL141) |
