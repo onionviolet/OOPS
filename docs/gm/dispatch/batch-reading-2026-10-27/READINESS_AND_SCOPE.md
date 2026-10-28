@@ -138,3 +138,42 @@ Source: [LOCAL_AI_READER_TEST_2026-10-27](../../../research/LOCAL_AI_READER_TEST
 - R5 **Tuning risk applies to us too**: the batch settings were tuned on `w3s33`. The 3-shard pilot is the guard; add a 5-locator spot check per pilot shard.
 
 **Disposition:** ACT NOW: this section. ACCOUNT FOR NOW: R2 (a small collect change, not done yet), R5. LATER / DELEGATE: R1 (Sonnet batch plan after the merge; level sonnet; done when options per choice at least 2 and needs resolve above 70%), M11 to M13 in READING_STATUS (reading coordinator), noise-row `texture` tag in the merge. No Sonnet or other paid run was started.
+
+## 9. Round 5: better Haiku requests, and reading for the implementer (2026-10-28)
+
+Asked: would adjusted Haiku requests do better, how should readers serve later implementation so the implementer reads rows instead of the book, and what does implementation need that no pass collects. Proposal from the Opus reviewer; nothing here is accepted and no batch was sent. Evidence: `batch_lib.mjs` schemas and prompts, `src/dose_process.js` (`defineProcess`), `src/lotm_formula_rows.js`, `src/book_world_lotm_lives.js`, the merge run in [NOV1_SCHEDULE](NOV1_SCHEDULE.md) section 1. [S] seen, [I] inference.
+
+**Main finding.** Runtime LOTM data is built by agents reading the book into hand tables (the potion table behind `lotm_formula_rows.js`, the life profiles with `[494 p20]` cites), not from reader rows [S]. The rows we are about to pay for do not match those shapes: a runtime process has slots `{role, item, qty, unit, amount, evidence}`, `minutes`, `price.pence`, `product`, `ritual {needed, scale, text}` and evidence per field [S]; the batch `rules` row has `inputs`, `costs`, `steps` as free strings with one label and one locator per row [S]. So an implementer could not build a `defineProcess` row from a rules row without re-reading the book. Fixing the request shape costs nothing per batch; fixing it after the Stage A waves costs a re-read.
+
+**Request changes for Haiku (K-codes).** Haiku fails by omission, so the levers are focus, checklists and structure, not a bigger model.
+
+| Code | Change | Why | Cost |
+| --- | --- | --- | --- |
+| K1 | **Rules rows in runtime shape**: `inputs` as `{item id, qty, unit, role main/aux/tool/catalyst, label, locator}`; `minutes` (or band) and `place`; `product` id; `ritual {needed, scale, steps}`; per-field label and locator instead of one per row | Lets `defineProcess`, price, ritual and ability records be built from rows (N1) | Prompt and schema edit, mocked test |
+| K2 | **Coverage receipt**: each request already gets the script's candidate table (amounts, times, measures); require one entry per candidate, either a row id or `skip:<reason>` | Turns silent omission into a visible, script-checked gap; a missing receipt flags the shard | Small; checked in collect |
+| K3 | **Choice checklist** in the scenes pass: every choice lists at least two options; every option names its `needs` ids or `needs: none` explicitly | Haiku gives exactly one untaken option and mostly empty needs [S, section 8] | Prompt line; lint count |
+| K4 | **Merged registry as the glossary** (overlay applied, one label per id), plus a short state capsule (who is where, last stated date) from the previous shard | Fewer duplicate ids (88 Chinese names under two or more ids today), better dates (7 of 316 scenes absolute) | Script change in `glossaryFromPlan`; needs the overlay reviewed |
+| K5 | **Smaller shards where dense** (2 chapters instead of 3 when the agent run had 10 or more scenes) | Same tokens, more attention per scene; avoids `max_tokens` on dense shards (C8) | Plan-level; prepare_shard split |
+| K6 | **One worked example** (invented fixture text, not source) per extra pass in the cached system prefix | Shows the shape and the level of detail; cached, so about free | Prompt edit |
+| K7 | **Evidence tags aligned with runtime**: reader `S` splits into shown versus stated (runtime uses S shown, T stated, W wiki, I inferred) | An implementer copies the tag instead of re-judging it (N4) | Label enum change, merge maps it |
+| K8 | **People pass time grid**: routine slots as `{weekday or "daily", from, to, place id}` instead of a free slot string | Q1 "where is X at nine in the evening" needs a time, not "evenings" | Schema edit |
+
+What not to change: census and scenes settings (tested), and the two-pass shape. A second census run (F5) stays a pilot question.
+
+**Reading for the implementer (N-codes): what implementation needs.**
+
+| Code | Need | Today | Proposal |
+| --- | --- | --- | --- |
+| N1 | Process recipes (brewing, crafting, rites) with quantities, roles, minutes, products | Hand potion table | K1 rows, then a script that writes draft `defineProcess` rows with per-field evidence, marked as reader-made |
+| N2 | Prices and wages in one unit | Census `price` rows with free units | Merge normalizes to pence with the world's units table; canon value kept beside the scaled one (as DWF129 does) |
+| N3 | Lives: pay, rent, terms, papers, what a role permits | Hand life profiles with cites | Rules `institution` rows and texture `services` feed a life-profile packet |
+| N4 | Provenance per field so authored proposals stay distinct (WPR5) | Runtime tags S/T/W/I; readers S/I/U | K7 plus a locator converter (`zh 第494章 p20` to `[494 p20]`) in the merge |
+| N5 | **Implementation packets**: one file per topic (processes, prices, lives, places with hours and routes, people schedules, calendar, beats), generated from merged rows with locators, open questions and contradictions listed | Implementer reads the book or raw jsonl | Packet builder script after the merge; this is the interface an implementer reads, not the jsonl |
+| N6 | Contradictions across shards (a price or identity revised later) | Not detected | Merge lists same-id field conflicts by chapter; the later statement wins unless sealed |
+| N7 | Twist-bearing rows marked (F8) so sealed secrets and randomized worlds can find them | Only scenes have `sealed` | Marker on rules and people rows; the packet hides them from summaries |
+| N8 | Unknowns as fill jobs: an empty affordance cell, a price with no value, a rite with no failure result | Implicit | Packet lists them; an implementer authors a proposal or asks the reader again |
+
+**Disposition.**
+- ACT NOW (this round): this section; the main finding goes to [NOV1_SCHEDULE](NOV1_SCHEDULE.md) as a precondition note.
+- ACCOUNT FOR NOW: K1, K2, K3, K7 and K8 change the schemas and prompts of passes that have never run live; doing them **before** Go 1 means the $2.6 of Haiku rules, people and texture waves (and any Sonnet scale-up) come back in the shape the implementer needs. Estimated effort: one sonnet-level lane, about 2 to 3 hours with mocked tests, then a fresh dry run of the Stage A plans. The census and pilot labels in Go 1 do not depend on it and can go first.
+- LATER / DELEGATE: K4 after the overlay review (sonnet, 1 hour, done when a v1 wave dry-runs with the merged glossary); K5 split of dense shards (sonnet, 1 hour); N1, N2, N4, N5, N6, N8 packet builder (sonnet lane, about half a day, done when a processes packet yields at least 5 draft `defineProcess` rows that validate); N7 with the sealed-secrets owner.
