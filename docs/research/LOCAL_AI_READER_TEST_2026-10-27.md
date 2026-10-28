@@ -101,6 +101,43 @@ During round 2 the Q8 run left `huihui_ai/Qwen3.8-abliterated:27b-q8_0` loaded (
 
 Patch: [dsh_reader.patch.yml](../../scripts/lead_run/dsh_reader.patch.yml) disables every file, shell, todo, skill and working-directory tool and replaces the persona with one sentence. `dsh --profile headless --patch <local-work patch> --patch ~/.dsh/routes/local.yml --patch dsh_reader.patch.yml --json "Reply with the single word OK."` used **170 input tokens (against 3,160 with `dsh-local`)** and returned in 5.9 s. This is one trivial call; I did not run the reader job through dsh. The patch is applied per command, so it changes no standing dsh config.
 
+## Is this enough to build the protagonist's play? (gap check)
+
+**Short answer: the lane is not enough alone, and neither is haiku's current output for "play in their own style".** The lane makes the name and amount index; the spine of play (what the lead did, could have done, needed, learned) still comes from haiku scenes, and even those are light. Counts from the two haiku baselines (w1s16 / w2s20), for three chapters each:
+
+| Need for play | Where it comes from | Haiku baseline | Local lane | Gap |
+| --- | --- | --- | --- | --- |
+| Who and what exists, with exact names, ids, kinds | Census | 57 / 46 rows | 89 / 99 rows, recall 91% / 89% | Covered; extra generic nouns |
+| Prices, amounts, units | Census `amount` | 13 / 7 amounts | Parsed by script from the numerals; 24 price rows lint-clean on w1s16 | Covered. `per` and `cap` stay empty (haiku also mostly empty) |
+| Who is where, when (NPC schedules, whereabouts) | Census `whereabouts`, rung M1 | 8 / 6 M1 rows | 0 (all M0) | **Gap.** Can be derived: scenes list `present` and `place` |
+| What the lead touched | `touchedByLead` | 20 / 4 | 0 | **Gap.** Derivable from scene `touched` and `present` ids |
+| What the lead did, with costs and time | Scene `steps` | 22 / 11 steps | none | Haiku only |
+| What the lead knew and learned | Scene `knowledge` | 8 / 10 | none | Haiku only |
+| Choices and alternatives (own-style play) | Scene `options`, `choices`, `needs` | 6 / 7 options; `needs` 0 / 2 | none | **Thin even for haiku.** The needs per option are the part a different play style depends on |
+| Places a style can reach but the book skips | Fills | 4 / 3 | none | Haiku only |
+| Speech, procedure, technique of NPCs | Census `voice`, `procedure`, `tech` | 0 / 0 | 0 | **Not captured by any run** |
+| Claims versus fact | Census `claimant` | all "narration" | all "narration" | Not captured |
+| Non-lead activity | Scenes with another `pov` | none in the baselines | none | Not captured; only census whereabouts carry it |
+
+The join between lane and scenes mostly works already: 16 of the 23 ids that the haiku w1s16 scenes reference exist in the lane census (9 of 13 on w2s20); the rest are ids haiku coined for unnamed places and things. If the haiku brief lists the lane's ids instead of the known-names table, scenes reference real census rows and `touchedByLead` and `whereabouts` can be filled by script from `touched`, `present` and `place`. That recovers two of the three census gaps for free.
+
+The two deeper gaps are design questions, not reading problems: **breadth of options with real `needs`** (so players can follow other styles than the lead's) and **NPC speech, procedure and technique**. They belong to a later pass over the finished spine (a sonnet pass proposing options and generators from the scenes, census and fills, then reviewed), not to the per-shard reader. I have not tested such a pass.
+
+"Little stuff" (a coin, gears, a gas meter): the lane picks it up as `item` or `note` rows with a short cause, which is more than haiku lists (haiku's 57 rows contain 5 items). That texture is useful for everyday play; do not filter the generic nouns out blindly. Tag them (for example `texture`) and let the game pack decide, instead of dropping them.
+
+## Guidelines for local-model lanes (proposals, 2026-10-27)
+
+L1. **Narrow the task before you pick the model.** A script for what is deterministic, a local model for labelling and extraction in small chunks, haiku or stronger only for judgment (scenes, options, fills).
+L2. **One chapter per call** (2k to 4k prompt tokens), only that chapter's candidates and a one-line list of names the script already has. Round 1 with 12k to 14k prompts and a three-file output gave grade B at best.
+L3. **Constrain the output with a JSON schema** (enums for kind, a locator pattern). The script owns every fixed field, id shape and amount parse; the model owns names, kinds, short notes.
+L4. **Verify each row against its paragraph by script**: repair the locator or drop the row. Treat a model's own claim of a locator as a hint.
+L5. **Check coverage, retry once, then fall back**: candidates covered 70% or more, lint passing, else send that shard to haiku. Record the fallback.
+L6. **One model, one at a time, small context.** `qwen3.8:27b` (NVFP4, 18 GB) with `num_ctx` 16384; keep-alive of 2 minutes; unload when the batch ends (`ollama stop`); check `memory_pressure` and `sysctl vm.swapusage` before a long batch and do not start one with swap above about 80%. The Q8 model (30 GB) leaves no room for other work on 64 GB and did not score higher in the lane.
+L7. **Do not use local models for scenes, options, fills or notes that state facts** until a test shows they hold. Notes may import outside knowledge.
+L8. **Measure on shards you did not tune on**, with a seed spread, and keep haiku as the reference only for recall; spot-check precision by hand (5 locators per shard).
+L9. **dsh**: for one-prompt jobs use a script; if dsh is wanted for its tools or sessions, use `dsh_reader.patch.yml` to cut 3,160 input tokens per call to 170. Never configure Claude subscription tokens in dsh; `claude -p` is the official scripted route; an API key bills separately and needs Weibao's yes.
+L10. **Keep private outputs private**: raw model output stays in the gitignored lead-run folder under a `localai-` prefix; the public report carries counts and ids.
+
 ## Recommended split for the remaining 30-odd shards
 
 1. **Census lane (new, local, no haiku tokens):** run `local_census_lane.py` per shard on `qwen3.8:27b` (known names by script, the rest by the model per chapter). It produced a lint-clean census with name accuracy 1.0 and 87-93% recall in 2 to 4 minutes per shard. Haiku then writes only scenes, fills and any census detail the coordinator still wants (whereabouts, claimant). This is the one change to start with. The haiku saving is the whole census file, 55% to 57% of what haiku writes (estimate [I]), and the known-names table (29% to 35% of the brief) could shrink to a one-line list. The coordinator decides whether the lane's thinner rows are acceptable.
@@ -125,6 +162,7 @@ Patch: [dsh_reader.patch.yml](../../scripts/lead_run/dsh_reader.patch.yml) disab
 | A1 | Review `local_census_lane.py` and wire it into protocol v3 prep (census from the lane, haiku writes scenes and fills only) | Reading coordinator | A wave 4 shard: lint pass, name accuracy at least 0.98, haiku brief without the census section |
 | A2 | Re-estimate haiku tokens per shard with A1 in place | Reading coordinator | Measured on one wave 4 shard against 150,000 |
 | A3 | Check the lane census with the 5-locator spot check on one shard (grade A path) and decide whether generic-noun rows stay | Coordinator | 5 locators match; keep/drop rule recorded |
+| A5 | Feed the lane's census ids into the haiku brief and derive `touchedByLead` and M1 `whereabouts` from scene `touched`, `present` and `place` | Coordinator | On a wave 4 shard: at least 70% of scene-referenced ids resolve to lane rows; the derived rows pass lint |
 | A4 | Anthropic API key route for a haiku batch via script | Needs Weibao's explicit yes | Spend within the stated promo credit |
 
 ## Gaps
