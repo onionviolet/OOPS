@@ -1,6 +1,6 @@
 {
  "name": "2026-10-28r-hp",
- "approval": "Weibao 2026-10-28: \"Go on three\", answering \"Send the HP and MoL retries plus A Soldier's Life now, at $15 in ceilings?\" (runs 2026-10-28r-hp $3, r-mol $1, r-asl $11; caps as written; pooled stop rule; r-ss held until LOTM census measures).",
+ "approval": "Weibao 2026-10-28: \"Go on three\", answering \"Send the HP and MoL retries plus A Soldier's Life now, at $15 in ceilings?\" (runs 2026-10-28r-hp $3, r-mol $1, r-asl $11; caps as written; pooled stop rule; r-ss held until LOTM census measures). | Weibao 2026-10-28: \"Waive and continue\", answering \"Waive the HP retry's census gate and send its scenes and people retries?\" (census step non-gating; the 3 partial shards keep salvaged rows and go to the split list; caps as written; ceiling $3). Scenes step also non-gating so the people retries are sent, as the go asks; the $3 ceiling still bounds spend.",
  "ceilingUsd": 3,
  "capTotal": 1.97,
  "steps": [
@@ -33,6 +33,14 @@
      "cap": 0.04,
      "label": "hp7-census-r3"
     }
+   ],
+   "nonGating": [
+    "step",
+    "hp2-census-r3",
+    "hp4-census-r3",
+    "hp5-census-r3",
+    "hp6-census-r3",
+    "hp7-census-r3"
    ]
   },
   {
@@ -54,6 +62,12 @@
      "cap": 0.04,
      "label": "hp5-scenes-r3"
     }
+   ],
+   "nonGating": [
+    "step",
+    "hp1-scenes-r3",
+    "hp4-scenes-r3",
+    "hp5-scenes-r3"
    ]
   },
   {
