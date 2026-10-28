@@ -18,14 +18,21 @@ const readJson = p => JSON.parse(readFileSync(p, 'utf8'));
 /** Grade C from exactly one lint row with full name accuracy: the repair batch fixes it, so it is not a stop. */
 export const repairable = s => s.grade === 'C' && (s.lintIssues ?? s.lint) === 1 && (s.nameAccuracy ?? 1) >= 1;
 
-export function stopCheck(results) {
+/** Stop rules per label, or with `pooled` per step: a world's books in one step share the 20% failure-and-C share, so one bad shard in a small book
+ *  does not stop the others (2026-10-28, Harry Potter year 1 scenes: 2 of 8). Name accuracy and cost still apply per label. */
+export function stopCheck(results, {pooled = false} = {}) {
     const reasons = [];
+    if (pooled && results.length) {
+        const all = results.flatMap(r => r.summary.shards || []);
+        const failed = all.filter(s => s.status !== 'ok').length, gradeC = all.filter(s => s.grade === 'C' && !repairable(s)).length;
+        if ((gradeC + failed) / all.length > 0.2) reasons.push(`step: ${gradeC} grade C and ${failed} failed of ${all.length}`);
+    }
     for (const {label, summary, estimate} of results) {
         const shards = summary.shards || [];
         const failed = shards.filter(s => s.status !== 'ok').length, graded = shards.filter(s => s.grade);
         // A C shard with one lint row gets a repair request for cents (NOV1_SCHEDULE section 9); only C shards with more count against the wave.
         const gradeC = graded.filter(s => s.grade === 'C' && !repairable(s)).length, lowName = graded.filter(s => s.nameAccuracy < 0.9).length;
-        if (shards.length && (gradeC + failed) / shards.length > 0.2) reasons.push(`${label}: ${gradeC} grade C and ${failed} failed of ${shards.length}`);
+        if (!pooled && shards.length && (gradeC + failed) / shards.length > 0.2) reasons.push(`${label}: ${gradeC} grade C and ${failed} failed of ${shards.length}`);
         if (lowName) reasons.push(`${label}: ${lowName} shard(s) with name accuracy under 0.9`);
         if (estimate && summary.usd > 2 * estimate) reasons.push(`${label}: measured $${summary.usd} over 2x the estimate $${estimate}`);
     }
@@ -49,7 +56,7 @@ export function pilotCheck({summary, estimate, plan, refs, loadFn = load, knownF
     return {reasons, recall: recall == null ? null : Number(recall.toFixed(3)), fresh};
 }
 
-export async function runOvernight({run, runName, submitFn = submit, collectFn = collect, client = null, log = console.log, root = '.'}) {
+export async function runOvernight({run, runName, submitFn = submit, collectFn = collect, client = null, log = console.log, root = '.', retries = 6, retryMs = 30000}) {
     let spent = 0;
     const ledger = [];
     const note = (o, outDir) => { const line = {t: new Date().toISOString(), ...o}; ledger.push(line); log(JSON.stringify(line)); if (outDir) { mkdirSync(outDir, {recursive: true}); appendFileSync(join(outDir, `overnight_${runName}.jsonl`), JSON.stringify(line) + '\n'); } };
@@ -76,7 +83,13 @@ export async function runOvernight({run, runName, submitFn = submit, collectFn =
             note({label: it.plan.label, submitted: receipt.batchId, estimate: estimate.usdBatch, cap: it.cap}, outDir);
         }
         const collected = await Promise.all(subs.map(async ({it, batchId, estimate}) => {
-            const summary = await collectFn({client, batchId, plan: it.plan, outDir: it.plan.outDir, log: () => {}});
+            // Collect re-fetches results and rewrites the same files, so a dropped connection is retried (large result sets dropped mid-stream on
+            // 2026-10-28). Submit is never retried here: a retry after a lost reply could create a second batch.
+            let summary;
+            for (let attempt = 1; ; attempt++) {
+                try { summary = await collectFn({client, batchId, plan: it.plan, outDir: it.plan.outDir, log: () => {}}); break; }
+                catch (e) { if (attempt >= retries) throw e; note({label: it.plan.label, collectRetry: attempt, error: String(e.message || e).slice(0, 120)}, it.plan.outDir); await new Promise(r => setTimeout(r, retryMs * attempt)); }
+            }
             const repairs = (summary.repair || []).filter(r => r.request).map(r => stripMeta(r.request));
             if (repairs.length) writeFileSync(join(it.plan.outDir, `${it.plan.label}_repair_requests.jsonl`), repairs.map(r => JSON.stringify(r)).join('\n') + '\n');
             const pub = {...summary, repair: (summary.repair || []).map(r => ({id: r.id, why: r.why})), repairRequests: repairs.length};
@@ -86,7 +99,7 @@ export async function runOvernight({run, runName, submitFn = submit, collectFn =
             return {label: it.plan.label, summary: pub, estimate, plan: it.plan};
         }));
         results.push(...collected);
-        const reasons = stopCheck(results.filter(r => !r.done));
+        const reasons = stopCheck(results.filter(r => !r.done), {pooled: !!run.pooledStop});
         if (step.gate === 'pilot') {
             const p = results.find(r => r.label === step.pilotLabel);
             if (p) { const pc = pilotCheck({summary: p.summary, estimate: p.estimate, plan: p.plan, refs: step.pilotRefs}); reasons.push(...pc.reasons); note({step: step.name, pilot: {recall: pc.recall, fresh: pc.fresh}}, outDir); }
