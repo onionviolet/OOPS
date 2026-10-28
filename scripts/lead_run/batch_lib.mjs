@@ -116,6 +116,31 @@ const PLACE = obj({id: str, within: str, hours: str, access: arr(str), crowd: st
 const SERVICE = obj({place: str, what: str, price: str, hours: str, label: lab, locator: str}, ['place', 'what', 'price', 'hours', 'label', 'locator']);
 const NEWS = obj({date: str, what: str, scope: {type: 'string', enum: ['public', 'private']}, carriedBy: str, label: lab, locator: str}, ['date', 'what', 'scope', 'carriedBy', 'label', 'locator']);
 const CUSTOM = obj({what: str, applies: str, label: lab, locator: str}, ['what', 'applies', 'label', 'locator']);
+// Schema 1.4 (opt-in per plan with `schemaVersion: '1.4'`, READINESS_AND_SCOPE round 12; READING_GAP_MAP PG1-PG4, PG6, PG8, PG9): typed prices on services,
+// routine recurrence, attitude since, skill acquisition, reset rules, law enforcement and a three-way cost flag. Every new field is optional and omitted
+// when the text is silent, so "not stated" never reads as "no".
+export const RECURRENCE = Object.freeze(['once', 'daily', 'weekdays', 'weekly', 'monthly', 'term', 'seasonal', 'yearly', 'irregular']);
+export const STATED = Object.freeze(['stated', 'stated-free', 'not-mentioned']);
+export const PRICE_KINDS = Object.freeze(['price', 'wage', 'rent', 'lodging', 'food', 'transport', 'fee', 'tuition', 'fine', 'other']);
+const RULE_KINDS_14 = [...RULE.properties.kind.enum.filter(k => k !== 'other'), 'reset', 'other'];
+const RULE_14 = obj({...RULE.properties, kind: {type: 'string', enum: RULE_KINDS_14}, costStated: {type: 'string', enum: STATED},
+    acquire: obj({teacher: str, prerequisites: arr(str), time: str, practice: str, progressSign: str, failure: str, ceiling: str, label: lab, locator: str}, ['label', 'locator']),
+    reset: obj({trigger: str, span: str, resets: arr(str), keeps: arr(str), remembers: arr(str), ends: str, label: lab, locator: str}, ['trigger', 'label', 'locator']),
+    enforcement: obj({penalty: str, enforcer: str, detection: str, label: lab, locator: str}, ['label', 'locator'])}, RULE.required);
+const SLOT = PERSON.properties.routine.items, REL = PERSON.properties.relations.items;
+const PERSON_14 = obj({...PERSON.properties,
+    routine: arr(obj({...SLOT.properties, recurrence: {type: 'string', enum: RECURRENCE}, until: str}, SLOT.required)),
+    relations: arr(obj({...REL.properties, since: str}, REL.required))}, PERSON.required);
+const SERVICE_14 = obj({...SERVICE.properties, kind: {type: 'string', enum: PRICE_KINDS}, priceStated: {type: 'string', enum: STATED},
+    amount: num, unit: str, per: str, priceId: str}, SERVICE.required.filter(k => k !== 'price'));
+const EXTRA_SCHEMA_14 = {rules: () => obj({rules: arr(RULE_14), other: arr(OTHER)}, ['rules', 'other']), people: () => obj({people: arr(PERSON_14), other: arr(OTHER)}, ['people', 'other']),
+    texture: () => obj({places: arr(PLACE), services: arr(SERVICE_14), news: arr(NEWS), customs: arr(CUSTOM), other: arr(OTHER)}, ['places', 'services', 'news', 'customs', 'other'])};
+const PASS_TEXT_14 = {
+    rules: 'Schema 1.4 additions. `costStated`: "stated" when the shard gives a cost, "stated-free" when it says there is none, "not-mentioned" otherwise. For a skill, spell or ability the shard shows being learned, `acquire`: teacher id, prerequisites, time, how it is practised, the sign of progress, how learning fails, and any ceiling. A time loop, reset, checkpoint or restart is a rule of kind `reset` with `reset`: what triggers it, its span, what resets, what is kept, who remembers, and what ends it. A law or rule with consequences takes `enforcement`: penalty, enforcer, how breaches are detected. Omit any of these the shard does not state or show.',
+    people: 'Schema 1.4 additions. A routine slot takes `recurrence` (once, daily, weekdays, weekly, monthly, term, seasonal, yearly, irregular) only when the shard states or shows the pattern; an inferred pattern takes label I; omit it when the shard is silent, never default to once. `until` when the slot ends. A relation takes `since` when the shard dates the attitude.',
+    texture: 'Schema 1.4 additions. Every price, wage, rent, fare, fee, tuition or fine the shard gives goes in `services` with `kind`, `amount` (a number; a vague amount takes its lowest reading with "approx" in `per`), `unit`, `per` (per night, per item, per hour) and `priceId` when the known-names table has a matching price id. `priceStated`: "stated", "stated-free" or "not-mentioned"; when not mentioned, omit `price`, `amount` and `unit` instead of writing "none stated".',
+};
+
 /** Output keys per extra pass. */
 export const EXTRA_PASSES = Object.freeze({rules: ['rules', 'other'], people: ['people', 'other'], texture: ['places', 'services', 'news', 'customs', 'other']});
 /** Output file stem for an extra-pass key: `other` rows are per pass (`rules_other`), so two passes never write one file. */
@@ -124,7 +149,8 @@ const EXTRA_SCHEMA = {rules: () => obj({rules: arr(RULE), other: arr(OTHER)}, ['
     texture: () => obj({places: arr(PLACE), services: arr(SERVICE), news: arr(NEWS), customs: arr(CUSTOM), other: arr(OTHER)}, ['places', 'services', 'news', 'customs', 'other'])};
 
 /** Output schema per pass: 'census' (pass 1), 'scenes' (pass 2, scenes and fills), 'full' (both in one call). */
-export function shardSchema(pass) {
+export function shardSchema(pass, {version = '1.3'} = {}) {
+    if (version === '1.4' && EXTRA_SCHEMA_14[pass]) return EXTRA_SCHEMA_14[pass]();
     if (EXTRA_SCHEMA[pass]) return EXTRA_SCHEMA[pass]();
     if (pass === 'census') return obj({census: arr(CENSUS)}, ['census']);
     if (pass === 'scenes') return obj({scenes: arr(SCENE), fills: arr(FILL)}, ['scenes', 'fills']);
@@ -150,11 +176,12 @@ const PASS_TEXT = {
 const RECORD_TEXT = 'Record everything the shard states or shows for this pass, however small; completeness matters more than polish. Do not invent: no proposals, no fills, no alternatives the text does not give; gaps are handled later by the project. A fact that fits no field goes in `other` with the ids it is about. Labels: `T` stated outright, `S` shown in action, `I` implied, `U` unsettled. Every row and sub-row carries its own locator: one paragraph per locator in the exact form below, never a range or a list (several paragraphs take several locators). Keep each field to a few words and state each fact once, so the reply fits and closes as valid JSON. Own words, no source quotes.';
 
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
-export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md')} = {}) {
+export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md'), version = '1.3'} = {}) {
     const profile = worldProfile(world);
     return localize([
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
+        ...(version === '1.4' && PASS_TEXT_14[pass] ? [PASS_TEXT_14[pass]] : []),
         ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
         (EXTRA_SCHEMA[pass] ? 'Rules: labels are exactly T, S, I or U; ' : 'Rules: labels are exactly S, I or U; ') + 'locators are `zh 第N章 pM` for a paragraph inside the shard (`zh bB 第N章 pM` when the chapter header says `| book B`); copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
         `World id prefix for ids: ${world}. Beat ids are \`lr.${world}.main.NNNN\` counting up from the base given in the user message.`,
@@ -183,7 +210,7 @@ export function candidateTable(candidates) {
 
 /** One batch request. Varying parts (base, glossary, candidates, text) go in the user turn after the stable system prefix. */
 export function buildRequest({customId, prefix, base, shardText, glossary, pass, model = MODEL, effort = 'low', maxTokens = 48000,
-    schemaMode = 'format', world = 'lotm', system = systemText(pass, {world})}) {
+    schemaMode = 'format', world = 'lotm', version = '1.3', system = systemText(pass, {world, version})}) {
     if (EXTRA_SCHEMA[pass]) schemaMode = 'prompt';
     const hits = glossary ? glossaryHits(glossary, shardText) : [];
     const cands = extractCandidates(parseShard(shardText));
@@ -191,9 +218,9 @@ export function buildRequest({customId, prefix, base, shardText, glossary, pass,
     const params = {
         model, max_tokens: maxTokens,
         // Prompt mode (no strict format): the schema travels in the stable system text and the reply is parsed and linted in code.
-        system: [{type: 'text', text: schemaMode === 'format' ? system : `${system}\n\n# Output\n\nReply with only one JSON object (no code fence, no commentary) that matches this JSON schema:\n${JSON.stringify(shardSchema(pass))}`, cache_control: {type: 'ephemeral', ttl: '1h'}}],
+        system: [{type: 'text', text: schemaMode === 'format' ? system : `${system}\n\n# Output\n\nReply with only one JSON object (no code fence, no commentary) that matches this JSON schema:\n${JSON.stringify(shardSchema(pass, {version}))}`, cache_control: {type: 'ephemeral', ttl: '1h'}}],
         messages: [{role: 'user', content: [{type: 'text', text: meta}, {type: 'text', text: shardText}]}],
-        output_config: schemaMode === 'format' ? {effort, format: {type: 'json_schema', schema: shardSchema(pass)}} : {effort},
+        output_config: schemaMode === 'format' ? {effort, format: {type: 'json_schema', schema: shardSchema(pass, {version})}} : {effort},
     };
     return {custom_id: customId, params, _hits: hits.length, _candidates: cands.length};
 }
@@ -271,11 +298,11 @@ export function addMissingKnown(census, glossary, shardText) {
 
 export function requestsFromPlan(plan) {
     const glossary = glossaryFromPlan(plan);
-    const pass = plan.pass, system = systemText(pass, {world: plan.world || 'lotm'});
+    const pass = plan.pass, version = plan.schemaVersion || '1.3', system = systemText(pass, {world: plan.world || 'lotm', version});
     return plan.shards.map(s => buildRequest({
         customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
         model: plan.model || MODEL, effort: plan.effort || 'low', maxTokens: plan.maxTokens || 48000, schemaMode: plan.schemaMode || 'format',
-        world: plan.world || 'lotm', system}));
+        world: plan.world || 'lotm', version, system}));
 }
 
 export const planHash = plan => createHash('sha256').update(JSON.stringify(plan)).digest('hex').slice(0, 12);
@@ -415,6 +442,10 @@ export function lintExtra(rows, shardMap) {
         if (!n || typeof n !== 'object') return;
         const w = n.id || n.name || where;
         if ('label' in n && !['T', 'S', 'I', 'U'].includes(n.label)) issues.push({code: 'label', where: w});
+        // Schema 1.4 enums: prompt mode has no grammar, so an unchecked enum drifts.
+        if ('recurrence' in n && !RECURRENCE.includes(n.recurrence)) issues.push({code: 'recurrence', where: w});
+        for (const k of ['costStated', 'priceStated']) if (k in n && !STATED.includes(n[k])) issues.push({code: k, where: w});
+        if ('priceStated' in n && n.priceStated === 'stated' && !Number.isFinite(n.amount)) issues.push({code: 'price-amount', where: w});
         if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key)) issues.push({code: 'locator', where: w}); }
         for (const v of Object.values(n)) walk(v, w);
     };
@@ -492,7 +523,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         if (grade === 'C' || issues.length) {
             const failing = failingRows({...cur, issues});
             if (!id.endsWith('-repair') && (failing.scenes.length || failing.census.length || failing.fills.length)) {
-                const orig = {custom_id: id, params: buildRequest({customId: id, prefix: p, base: s.base, shardText, glossary: glossaryFromPlan(plan), pass: plan.pass, model: plan.model, effort: plan.effort, maxTokens: plan.maxTokens, schemaMode: plan.schemaMode, world: plan.world}).params};
+                const orig = {custom_id: id, params: buildRequest({customId: id, prefix: p, base: s.base, shardText, glossary: glossaryFromPlan(plan), pass: plan.pass, model: plan.model, effort: plan.effort, maxTokens: plan.maxTokens, schemaMode: plan.schemaMode, world: plan.world, version: plan.schemaVersion || '1.3'}).params};
                 summary.repair.push({id, why: 'lint', request: repairRequest({original: orig, failing, shardText, pass: plan.pass})});
             }
         }

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {parseLocator, formatLocator, headerOf, shardLang, nameKey, nameIn, sharedWordRun, locatorsIn} from '../scripts/lead_run/world_profiles.mjs';
 import {parseShard, lintCensus} from '../scripts/lead_run/lint_lead_run.mjs';
 import {extractCandidates, glossaryHits, auditShard} from '../scripts/lead_run/shard_tools.mjs';
-import {systemText, enQuoteIssues, lintExtra} from '../scripts/lead_run/batch_lib.mjs';
+import {systemText, shardSchema, enQuoteIssues, lintExtra} from '../scripts/lead_run/batch_lib.mjs';
 import {wordNumber, pdfChapters, epubChapterMembers, epubParagraphs, shardTextEn} from '../scripts/lead_run/prepare_shard_en.mjs';
 import {locatorKey} from '../scripts/lead_run/merge_shards.mjs';
 
@@ -62,6 +62,28 @@ test('English quote guard flags a copied sentence, not a name; extra-pass locato
     assert.deepEqual(issues.map(i => i.field), ['note']);
     assert.equal(sharedWordRun('a short note', EN), 0);
     assert.equal(lintExtra({rules: [{label: 'T', locator: 'en b2 c3 p2'}, {label: 'T', locator: 'en b2 c9 p2'}]}, parseShard(EN)).length, 1);
+});
+
+test('Schema 1.4 is opt-in: 1.3 prompts and schemas are unchanged; 1.4 adds typed prices, recurrence, acquisition and reset rules', () => {
+    for (const pass of ['census', 'scenes', 'rules', 'people', 'texture']) {
+        assert.equal(systemText(pass, {world: 'hp'}), systemText(pass, {world: 'hp', version: '1.3'}));
+        assert.deepEqual(shardSchema(pass), shardSchema(pass, {version: '1.3'}));
+    }
+    assert.doesNotMatch(systemText('people', {world: 'hp'}), /Schema 1\.4/);
+    assert.match(systemText('people', {world: 'hp', version: '1.4'}), /recurrence/);
+    const rule = shardSchema('rules', {version: '1.4'}).properties.rules.items;
+    assert.ok(rule.properties.kind.enum.includes('reset') && rule.properties.acquire && rule.properties.reset && rule.properties.enforcement);
+    assert.ok(!rule.required.includes('acquire'));
+    const svc = shardSchema('texture', {version: '1.4'}).properties.services.items;
+    assert.ok(svc.properties.amount && !svc.required.includes('price'));
+    const slot = shardSchema('people', {version: '1.4'}).properties.people.items.properties.routine.items;
+    assert.ok(slot.properties.recurrence && !slot.required.includes('recurrence'));
+    // Lint: enums checked only when present; a stated price needs a number. Old rows without the fields stay clean.
+    const L = 'en b2 c3 p2';
+    assert.equal(lintExtra({people: [{label: 'T', locator: L, routine: [{label: 'S', locator: L, days: 'Mon'}]}]}, parseShard(EN)).length, 0);
+    assert.deepEqual(lintExtra({people: [{label: 'T', locator: L, routine: [{label: 'S', locator: L, recurrence: 'often'}]}]}, parseShard(EN)).map(i => i.code), ['recurrence']);
+    assert.deepEqual(lintExtra({services: [{label: 'T', locator: L, priceStated: 'stated'}]}, parseShard(EN)).map(i => i.code), ['price-amount']);
+    assert.deepEqual(lintExtra({rules: [{label: 'T', locator: L, costStated: 'none'}]}, parseShard(EN)).map(i => i.code), ['costStated']);
 });
 
 test('English shard prep: number words, EPUB members, PDF chapters across books and pages, shard text form', () => {
