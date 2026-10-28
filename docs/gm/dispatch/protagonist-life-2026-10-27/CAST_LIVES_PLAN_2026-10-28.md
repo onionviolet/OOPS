@@ -22,7 +22,7 @@ GM1-GM3, GM15, GM20 and PG2, PG5, PG7, PG8; [engine lanes checkpoint](ENGINE_LAN
 | F1 | The index has the raw material for lives. People rows carry `routine` slots (days, place, what), `relations` (with, kind, attitude, basis), `knows`, `reacts`, `wants`, `reveals`; scenes carry `present`, `touched`, `deps`, `outcomes`, `motives`; census carries dated `whereabouts` (WA23). | Merged MoL rows; LOTM shard files |
 | F2 | **LOTM volume 1's merge has no people or rules rows.** `merged/merge_report.json` reports every extra at 0, yet 590 volume-1 people rows (383 with a routine, 1,205 relations) sit in the agent shard files. The merge must be rerun before any cast import. | `extras` all 0; `s2_people.jsonl` to `w3s36_people.jsonl` on disk |
 | F3 | **Mother of Learning is now merged** (free, local): 106 shards, 2,278 registry rows, 780 scenes (714 lead), 1,702 people rows, 1,704 rules rows. Output in the book's private `lead-run-2026-10-28/merged/`. | This session, `merge_shards.mjs --match '^molc[0-9]+m$'` |
-| F4 | **Registry ids are reader-minted, not stable.** Some MoL ids are labels ("stern woman" for Ilsa, "Kiri", "Mister Kazinski (...)" for Zorian); people rows point to each other by display name in `with`. The runtime uses its own ids (`book.mol.ilsa`, LOTM `L.*` places). An id crosswalk is the first job, before any import. | MoL `registry.jsonl`; `overlay_proposed.json` has 39 LOTM redirects unreviewed |
+| F4 | **Registry ids are reader-minted, not stable.** Some MoL ids are labels ("stern woman" for Ilsa, "Kiri", "Mister Kazinski (...)" for Zorian); some relations point to a display name in `with` (corrected in round 4: 3,786 of 4,020 MoL relations already resolve to an id; the real gap is routine places, 1,070 of 1,693 not an id). The runtime uses its own ids (`book.mol.ilsa`, LOTM `L.*` places). An id crosswalk is the first job, before any import. | MoL `registry.jsonl`; `overlay_proposed.json` has 39 LOTM redirects unreviewed |
 | F5 | **Dates are thin.** LOTM: 7 of 316 merged scenes reach an absolute date; chapters 1-24 lead scenes are 12 S, 31 I, 15 U. MoL: most lead scenes carry `L?-D?`, and source order is not time order across restarts. WA23's dial (source order as the window) holds for LOTM and inside one MoL loop only. | Merged scenes |
 | F6 | **Runtime people are one location each, set at install.** `simulation.people[id].location` comes from pack definitions (`src/simulation_resolution.js:74`, LOTM `src/book_world_lotm_host.js:64`) and only moves by player-party travel. The co-location gate already reads it (`simulation_resolution.js:115-127`): a natural FLR4 consumer. | Code |
 | F7 | **Engine pieces exist but are unwired:** `recurringWindow` (`src/world_rhythm.js`), `dayIndex` (`src/world_day_index.js`), the beat resolver with `actor` (`src/beat_records.js`) and its save slice (`src/beat_ledger.js`), `obligations_ledger.js`, `people_knowledge.js` (observer-safe person view). | ENGINE_LANES_CHECKPOINT |
@@ -375,3 +375,89 @@ chronicle and journal, the clock strip and calendar.
 Wave 1 change from this round: L2 and L3 reserve two optional fields on anchors, `weight` (default from
 CL21's dependency count) and `enforcer` (default none, PX21), and L3 records the time model as `U`. No
 lane locks a path or applies fate in wave 1.
+
+## 10. Round 4: extend the reading audits, or derive? Relationships and actions from what people do after interactions (2026-10-28)
+
+Weibao: "do we need to extend the readings audits for the batched readers or would it be considered? more
+to consider? Other subtle stuff like relationships and actions that can be built from the top down/based
+on their actions after interactions? More to consider?"
+
+### 10.1 Answer: extend the audits, not the readers (with two small exceptions)
+
+Standing direction decides most of it: readers record everything and gaps are considered afterwards
+(READINESS round 7, Weibao 2026-10-28), and implementers read the source through the index (round 8,
+accepted). So the needs from rounds 2-3 are derived after the merge from rows already paid for, and the
+place to extend is the **audit**: today's reading audits check that rows are valid (lint, grades, name
+accuracy, locators); none checks that a consumer can use them.
+
+What the merged MoL index already holds (counted 2026-10-28, 1,702 people rows, 780 scenes):
+
+| Field | Filled | Serves |
+| --- | --- | --- |
+| people `relations` | 1,612 rows, 4,020 items (3,786 `with` resolve to an id) | Relationship state and trends (CL29) |
+| people `reacts` {to, response} | 1,027 rows, 2,632 items | Reaction rules (10.2) |
+| people `knows`, `wants`, `speech` | 1,000, 789, 707 rows | Knowledge gates, goals, voice |
+| people `routine` | 998 rows, 1,693 slots; only 623 slot places are registry ids | Schedules (L2): **the weak join** |
+| scenes `choices`, `motives`, `knowledge`, `outcomes`, `deps` | 578, 757, 756, 779, 658 of 780 | Choices, after-interaction actions, causal mass (CL21) |
+| scenes `conflict` | 9 of 780 | Fights (F9); the batch schema dropped the block on purpose (`batch_lib.mjs` schema note) |
+
+| Code | Need from rounds 2-3 | Route | Why |
+| --- | --- | --- | --- |
+| CL51 | Causal mass (CL21) | Derive: count `deps` chains per anchor after the merge | Rows exist |
+| CL52 | Trends (CL29-CL32) | Derive: counts over relations, reacts, choices, knows by locator order | Rows exist; `since` is rare in text (SV11), locator order carries timing |
+| CL53 | Fight contracts (F9) | Derive with cited paragraphs (CL18), no re-read | The outcome rows exist; the implementer reads the paragraphs anyway (round 8) |
+| CL54 | Time model and fate mechanism (CL22, CL24) | Targeted implementer read per world: `cite_paragraphs.mjs --topic` over rules rows of kind law, custom, `reset`, plus the world appendix | A world-level fact, stated a few times per book; not a per-shard field |
+| CL55 | **Exception 1: routine places.** 63% of MoL routine slot places are free text | Reader prompt line for 1.4-and-later plans: "routine `place` uses a place id from the known-names table, or mint one"; for read books, L1's crosswalk maps free-text places | This is the join schedules depend on; cheap to ask, costly to repair at scale |
+| CL56 | **Exception 2: reacts lack a structured trigger.** `to` is free text ("Kirielle waking and pestering him"), with no action class or actor id | Candidate opt-in field for a later schema pilot: `reacts.class` (WA25 classes) and `reacts.by` (id). Until then, derive by classifying `to` locally | Only if the derived classification fails its test (CL60) |
+
+**Audit extension (consumer fitness), scripted, free:** for each book after the merge, print the share of
+rows a consumer can use: relations with a resolvable `with`; routine slots with a place id and a time;
+reacts whose trigger maps to an action class; scenes with an outcome and a place id; rules with
+`costStated`. A topic below its bar goes to the gap ledger (CL15), not to a re-read, unless a targeted
+re-read is cheaper than derivation (SV6, SV8). Owner: L1's crosswalk check grows this report.
+
+| Code | Disposition |
+| --- | --- |
+| CL57 | ACCOUNT FOR NOW: L1 prints the consumer-fitness report for LOTM volume 1 and MoL with the crosswalk |
+| CL58 | ACCOUNT FOR NOW: CL55's prompt line goes to the reading session as a suggestion (shared notes); it owns `batch_lib.mjs` |
+| CL59 | ACCOUNT FOR NOW: trend lanes hold out the last fifth of the slice (CL34) as the trend audit |
+
+### 10.2 Relationships and actions from what people do after interactions
+
+Top down: start from what the books show people doing **after** someone does something to them, then
+build the smallest state that produces it (the WA42 method, applied to reactions instead of choices).
+
+**The interaction loop (default for every world):**
+
+| Step | What happens | Owner |
+| --- | --- | --- |
+| 1 Act | Someone does a classed action to someone (help, ask, insult, threaten, gift, lie, pay, ignore; WA25 classes) | Commands; beats for off-screen people |
+| 2 Perceive | The target reacts to what they perceived, not to what happened (WA12, PX49) | Knowledge owner |
+| 3 React now | An immediate response from the person's reaction rules (from `reacts` rows) | Resolver, with "why" |
+| 4 Change state | Trust or fear toward the actor, a favour or debt row, a typed memory, new knowledge | Relationship rows, `obligations_ledger.js`, knowledge |
+| 5 Act later | The new state produces later actions: repay, avoid, report, seek out, confide, recruit, retaliate. These enter the person's schedule as intentions with a window | Cast schedule (L2), beats |
+| 6 Others hear | Gossip spreads along relations at the book's rumor speed (CL31) | Knowledge owner |
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL60 | **Reaction grammar from the rows.** Classify the 2,632 MoL `reacts` items by trigger class and response class; the most common pairs per person tier become the default rules, and per-person rows override them. Test: the rules reproduce held-out `reacts` rows for principals | LATER/DELEGATE: Luna medium for the classification, Sol for the rule table; done when 3 principals' held-out reacts are reproduced in most cases |
+| CL61 | **What people did next.** Mine scene sequences: after A acts on B in scene n, B's next scene with A, and its action class. That gives "after interaction" actions with the book's own rates | LATER/DELEGATE: Luna medium after L1; done when a table of after-actions per trigger class prints with locators |
+| CL62 | **Actions unlocked by relationship state.** List the actions the book shows between people (lend money, invite home, share a secret, vouch, teach, introduce) and the state each needs; the action is offered when the state is there and refused with the reason when not | LATER: after CL60; feeds UI CL37 |
+| CL63 | **Intentions are schedule rows.** A planned repay or visit is a window in the person's schedule, so it shows in "where are they" and can be missed or kept | ACCOUNT FOR NOW: L2's schedule rows allow a `source: intention` kind, unused in wave 1 |
+| CL64 | **The cast interacts with each other, not only with the player.** The same loop runs NPC to NPC: off-screen pairs settle by outcome (CL6a) at the book's rates; pairs within the player's footprint run the loop | ACCOUNT FOR NOW: L4 runs canon beats only; the NPC-to-NPC loop is LATER |
+| CL65 | **Repetition dampens.** The tenth gift moves trust less than the first, and the same apology twice reads as less sincere; rates come from the rows where the book shows repeats | LATER: with CL60 |
+| CL66 | **Groups react as groups.** A household, a team or a class shares news and an attitude toward an outsider, with members who differ | LATER: membership rows exist (organizations); after CL60 |
+| CL67 | **Memories are typed and fade by kind.** A betrayal lasts, a small kindness fades; fade rates are world dials calibrated where the book shows an old grudge or a forgotten favour | LATER: RLA3 owner |
+| CL68 | **Reputation is aggregated reactions.** What a district or institution thinks of the player is the sum of what its members perceived and passed on, not a separate meter | ACCOUNT FOR NOW: no new reputation meter in wave 1; `reputation.js` stays as is |
+
+### 10.3 More of this kind
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL69 | **Readers' row counts are a style signal, not truth.** A row-dense character may just be described often; tiering (WA43) uses presence in scenes, not row count | ACCOUNT FOR NOW: L2 worksheet |
+| CL70 | **Calibrate the rules against the lead too.** The lead is one more person under the same reaction and choice rules; if the rules cannot reproduce the lead's own stated reactions, they are wrong for everyone | LATER: with CL60 |
+| CL71 | **Untold off-page interactions.** Between canon scenes, people who share a schedule window interact; those interactions are generated by the loop with rates from CL61 and labelled fill, and must pass the anchor lint | LATER |
+
+The direct answer to "would it be considered": the current pipeline already plans gap work after
+recording (round 7), so rounds 2-4 add **consumer audits and derivation lanes**, not a new read. The two
+reader-side asks (CL55, CL56) are small and opt-in.
