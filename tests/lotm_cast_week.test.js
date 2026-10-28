@@ -471,3 +471,57 @@ test('a principal whose every schedule place is outside walkable Tingen counts a
  assert.equal(isRemoteCastPerson(pack,'a.mixed'),false);
  assert.equal(isRemoteCastPerson(pack,'a.unplaced'),false);
 });
+
+const {planLotmCastBeats,castBeatReports,castSettledPeople}=await import('../src/book_world_lotm_cast_host.js');
+const {newBeatState}=await import('../src/beat_records.js');
+const {serializeBeatLedger,restoreBeatLedger}=await import('../src/beat_ledger.js');
+test('bound scenes settle once within a day, keep actors, and do not grant private or missed reports',()=>{
+ const state=begin('beside').box.p.state;
+ const pack=structuredClone(fixture),a=pack.people[0].id,home=pack.places[0].id;
+ pack.bindings.days=[{scene:'f.1',day:1,from:0,to:10},{scene:'f.2',day:1,from:10,to:20},{scene:'f.3',day:2,from:0,to:10}];
+ pack.bindings.beats=[['b.1','f.1',1],['b.2','f.2',1],['b.3','f.3',2]].map(([id,scene,dayIndex])=>({id,scene,dayIndex,until:dayIndex,actor:a,place:home,
+  needs:{fact:'lotm.cast.window.'+scene,value:true},effects:[{fact:id+'.count',add:1}]}));
+ pack.bindings.beats.push({id:'b.blocked',scene:'f.2',dayIndex:1,until:1,actor:a,mechanism:'fixture.unbuilt',effects:[]});
+ pack.bindings.beats.push({id:'b.lapsed',scene:'f.2',dayIndex:1,until:1,actor:a,needs:{fact:'fixture.missing',value:true},effects:[]});
+ pack.reports={'b.1':{present:{text:`{ref:${a}|a neighbour} opens a window.`,places:[home]}},'b.2':{present:{text:`{ref:${a}|a neighbour} closes it.`,places:[home]}}};
+ state.simulation.people.player.location=home;
+ let out=planLotmCastBeats(state,newBeatState(),pack);assert.equal(out.results.length,1);assert.equal(out.results[0].lives[0].exposure,'involved');
+ assert.equal(out.reports[0].text,'a neighbour opens a window.');assert.equal(out.ledger.facts['b.1.count'],1);
+ const bytes=JSON.stringify(out.ledger);planLotmCastBeats(state,out.ledger,pack);assert.equal(JSON.stringify(out.ledger),bytes);
+ state.simulation.knowledge.player[`book.lotm.cast.met.${a}`]={stage:'seen',value:'A greeting.',at:0,cause:'fixture.greeting'};
+ state.clock=10;out=planLotmCastBeats(state,restoreBeatLedger(serializeBeatLedger(out.ledger)),pack);
+ assert.equal(out.ledger.done['b.blocked'].status,'blocked');assert.equal(out.ledger.done['b.lapsed'].status,'lapsed');
+ assert.equal(out.reports[0].text,'Arden Vale closes it.');assert.equal(castBeatReports(out.ledger)[0].text,'a neighbour opens a window.','later introduction cannot rewrite old names');
+ assert.equal(castSettledPeople(state,out.ledger,pack)[0].memories.length,2);
+ state.clock=1440;out=planLotmCastBeats(state,out.ledger,pack);assert.equal(out.ledger.done['b.3'].day,2);
+ assert.deepEqual(planLotmCastBeats(state,out.ledger,pack).results,[]);
+ state.clock=2000;const skipped=planLotmCastBeats(state,newBeatState(),pack);assert.equal(skipped.reports.length,0,'no retrospective co-location witness');
+ assert.deepEqual(planLotmCastBeats(state,newBeatState(),null).results,[]);
+});
+test('report routes require authored perception and keep all four witness levels separate',()=>{
+ const state=begin('beside').box.p.state,pack=structuredClone(fixture),a=pack.people[0].id,home=pack.places[0].id;
+ state.simulation.people.player.location=home;
+ pack.bindings.days=[{scene:'f',day:1,from:0,to:20}];pack.reports={};
+ pack.bindings.beats=['present','affected','aftermath','heard','private'].map((level,i)=>{
+  const id='f.'+i;if(level!=='private')pack.reports[id]={[level]:{text:level==='heard'?'A shopkeeper tells you the shutters opened.':'The shutters opened.',places:[home],...(level==='heard'?{knowledge:'fixture.speaker'}:{})}};
+  return {id,actor:a,scene:'f',dayIndex:1,until:1,effects:[]};
+ });
+ assert.deepEqual(planLotmCastBeats(state,newBeatState(),pack).reports.map(r=>r.exposure),['present','affected','aftermath']);
+ state.simulation.knowledge.player['fixture.speaker']={stage:'seen',value:'A local shopkeeper.',at:0,cause:'fixture.speaker'};
+ const out=planLotmCastBeats(state,newBeatState(),pack);assert.deepEqual(out.reports.map(r=>r.kind),['event','event','background','background']);
+ state.simulation.jobs.push({actorId:'player'});assert.equal(planLotmCastBeats(state,newBeatState(),pack).reports.length,0);
+ assert.deepEqual(castSettledPeople(state,out.ledger,pack),[],'settled truth cannot introduce an unknown person');
+});
+
+const {persistLotmCastPlan,currentCastBeatLedger}=await import('../src/book_world_lotm_cast_host.js');
+const {domainRegistry}=await import('../src/domain_registry.js');
+test('durable cast plan stages one ledger slice and does not publish on a failed save',()=>{
+ // A pack with no beat rows still exercises reset and atomic domain publication.
+ // Enroll first: since L4b's host integration, a beside enrollment resets the ledger itself.
+ const plan={state:begin('beside').box.p.state};let published=0;
+ domainRegistry.command('beatLedger','commit')({facts:{'fixture.previous':true},done:{},day:0});
+ assert.throws(()=>persistLotmCastPlan(plan,()=>{throw Error('fixture disk full');},{reset:true,publish:()=>published++}),/disk full/);
+ assert.equal(currentCastBeatLedger().facts['fixture.previous'],true);assert.equal(published,0);
+ persistLotmCastPlan(plan,p=>{assert.deepEqual(p.nativePatch.beatLedger,{schema:1,facts:{},done:{},day:0});},{reset:true});
+ assert.deepEqual(currentCastBeatLedger(),{facts:{},done:{},day:0});
+});

@@ -1,4 +1,4 @@
-import {installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBeside,syncLotmCast,castTalkCommands,castTalkPreview} from './book_world_lotm_cast_host.js';
+import {persistLotmCastPlan,castBeatsPending,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBeside,syncLotmCast,castTalkCommands,castTalkPreview} from './book_world_lotm_cast_host.js';
 // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
 // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
 // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
@@ -72,6 +72,7 @@ function benchDetail(s,c,id,{registry,asleep}){
 }
 export function createLotmHost(ports){
  const registry=ports.registry;
+ const persist=(plan,options={})=>persistLotmCastPlan(plan,ports.persist,{...options,publish:r=>ports.logMessage?.(r.text,r.kind,{safeText:true,panelId:'known-people'})});
  const state=()=>{installCast(registry);return ports.state();};
  const castState=s=>{if(!lotmBeside(s))return s;const projected=copy(s);syncLotmCast(projected);return projected;};
  const sleepJob=s=>s.simulation?.jobs?.find(j=>j.commandId===SLEEP&&j.actorId==='player');
@@ -101,7 +102,7 @@ export function createLotmHost(ports){
   for(const [owner,stock] of Object.entries(LOTM_NATIVE_STOCK))plan.gameplay[owner]={inventory:copy(stock),skills:{},reputation:{}};
   applySimulationEffects(plan,lifeEntryEffects(profileKey),{...c,actorId:'player'},registry,'book.lotm.enroll');
   plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start};
-  ports.persist(plan);return plan;
+  persist(plan,{reset:true});return plan;
  }
  // RET3: when a continuing connection can carry this life, crossing first pauses the Village life as it is (a tethered branch), then enrolls in place.
  // Without one (a non-adult host, a running challenge, no host port) it enrolls in place as before and the entry answers say there is no way back.
@@ -114,7 +115,7 @@ export function createLotmHost(ports){
   return enroll(profileKey);
  }
  // DWF127: stock for the bench is written on first need, once per row revision, so a save enrolled before the bench still sees it.
- function seedBench(){const s=state();if(!s.lotm||stockSeeded(s))return;const plan=base(s,ports.context());if(seedBenchStock(plan))ports.persist(plan);}
+ function seedBench(){const s=state();if(!s.lotm||stockSeeded(s))return;const plan=base(s,ports.context());if(seedBenchStock(plan))persist(plan);}
  function act(id){
   writable();if(id.startsWith(BENCH_PREFIX))seedBench();
   const s=castState(state()),def=registry.simulation.commands.get(id);
@@ -125,14 +126,14 @@ export function createLotmHost(ports){
    assert(quote.eligible,quote.reasons.join(' ')||'This command is hidden.');}
   const plan=commitSimulationCommand(s,registry,{id},ctx(s,def),s.sequence);
   syncLotmCast(plan.state);
-  ports.persist(plan);
+  persist(plan);
   if(id===SLEEP)ports.beginSleep();
   return plan;
  }
  function cancel(jobId){
   writable();const s=state(),job=s.simulation?.jobs.find(j=>j.id===jobId&&j.actorId==='player'&&lotmCommands.some(d=>d.id===j.commandId));
   assert(job&&['forfeit','refund'].includes(job.cancellation),'This work cannot be stopped.');
-  ports.persist(cancelSimulationJob(s,registry,job.id,ctx(s),s.sequence));
+  persist(cancelSimulationJob(s,registry,job.id,ctx(s),s.sequence));
   if(job.commandId===SLEEP&&ports.sleeping())ports.endSleep();
  }
  // A walk is a timed job (district links, real minutes). The body is placed at the destination when the walk starts, because the engine records a job's
@@ -145,12 +146,12 @@ export function createLotmHost(ports){
   const def=registry.simulation.commands.get(walkId(s,from,to));assert(def,'There is no walk from here to there.');
   const plan=commitSimulationCommand(s,registry,{id:def.id},ctx(s,def),s.sequence);
   plan.state.simulation.people.player.location=to;plan.nativeLocation=to;plan.nativePatch={'current location':to};
-  syncLotmCast(plan.state);ports.persist(plan);return plan;
+  syncLotmCast(plan.state);persist(plan);return plan;
  }
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(){const s=state();if(lotmBeside(s)&&ports.writable()){const plan=base(s,ports.context());if(syncLotmCast(plan.state))ports.persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(){const s=state();if(lotmBeside(s)&&ports.writable()){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  function view(selected=null){
   const s=castState(state()),d=s.lotm;
   if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,returnable:returnable(),profiles:Object.values(LOTM_PROFILES).filter(p=>p.key!=='beside'||castAvailable).map(({key,label,blurb})=>({key,label,blurb,answers:entryAnswers(key,{returnable:returnable()})}))};

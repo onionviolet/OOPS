@@ -150,3 +150,80 @@ export function dormantCastWalk(job){
 }
 
 onCastLoaded(deriveCast);
+
+// L4b: the host's clock is the only clock. Resolution returns a plan; previews
+// never commit the domain ledger or publish a report (CLR10, RPT8).
+import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
+import {defineBeats,resolveBeats,newBeatState} from './beat_records.js';
+import {renderRefs} from './ref_resolver.js';
+const REPORT_PREFIX='lotm.cast.report.';
+const terminalBeat=row=>row&&['carried','altered','blocked','lapsed'].includes(row.status);
+const castKnown=(state,id)=>['known','met'].some(kind=>state.simulation?.knowledge?.player?.[`book.lotm.cast.${kind}.${id}`]);
+export function castBeatReports(ledger){
+ return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderRefs(r.template,{names:r.names})}));
+}
+export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
+ if(!lotmBeside(state)||!pack)return [];
+ const reports=castBeatReports(ledger);
+ return pack.people.filter(p=>castKnown(state,p.id)).map(p=>({id:p.id,name:p.name,
+  location:'Known from your local meetings and received accounts',details:[],
+  memories:reports.filter(r=>r.actor===p.id).map(r=>({id:r.beat,at:r.at,text:r.text}))}));
+}
+export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLotmCast()){
+ if(!lotmBeside(state)||!pack?.bindings)return {ledger,results:[],reports:[]};
+ const elapsed=Math.max(0,state.clock-state.lotm.initializedAt),days=new Map(pack.bindings.days.map(r=>[r.scene,r]));
+ const actor=id=>pack.people.find(p=>p.id===id)?.sameActorAs||id;
+ const place=id=>pack.placeAliases.find(p=>p.id===id||p.indexId===id)?.place||id;
+ const due=pack.bindings.beats.filter(b=>{const d=days.get(b.scene);return d&&(d.day-1)*1440+d.from<=elapsed;});
+ due.sort((a,b)=>{const x=days.get(a.scene),y=days.get(b.scene);return x.day-y.day||x.from-y.from;});
+ const table=defineBeats(due.map((b,order)=>({...b,actor:actor(b.actor),order})));
+ let next=structuredClone(ledger);const results=[],reports=[];
+ // Reopen the resolver's current day when a later scene becomes due. Its done
+ // map remains authoritative, so each terminal result and receipt is written once.
+ for(const beat of table){
+  if(terminalBeat(next.done[beat.id]))continue;
+  const day=days.get(beat.scene),at=state.lotm.initializedAt+(day.day-1)*1440+day.from;
+  const facts={...state.worlds[I.world].facts,...next.facts};
+  for(const d of pack.bindings.days)facts[`lotm.cast.window.${d.scene}`]=d.day===day.day;
+  // Older packs used the scene suffix; bind it to the same authoritative day.
+  for(const b of pack.bindings.beats)if(b.needs?.fact?.startsWith('lotm.cast.window.'))facts[b.needs.fact]=days.get(b.scene)?.day===day.day;
+  const available=table.filter(b=>b.dayIndex<=day.day&&(b.id===beat.id||terminalBeat(next.done[b.id])));
+  const resolution=resolveBeats(available,{...next,facts,day:day.day-1},day.day,
+   {lives:[{id:beat.actor}],mechanisms:[]});
+  next={...resolution.state,day:Math.max(ledger.day,resolution.state.day)};
+  for(const result of resolution.results){
+   results.push({...result,at,actor:beat.actor,place:place(beat.place)});
+   if(!['carried','altered'].includes(result.status)||at!==state.clock)continue;
+   // Each perception route is authored in the private pack. A footprint alone
+   // does not grant access to private thoughts, dreams or remote news (RPT2).
+   const routes=pack.reports?.[beat.id]||{},knowledge=state.simulation?.knowledge?.player||{};
+   const exposure=['present','affected','aftermath','heard'].find(level=>{
+    const route=routes[level];return route?.text&&route.places?.includes(state.simulation.people.player.location)
+     &&(!route.knowledge||Object.hasOwn(knowledge,route.knowledge))&&!state.simulation.jobs?.some(j=>j.actorId==='player');
+   });
+   if(!exposure)continue;
+   const names=Object.fromEntries(pack.people.filter(p=>castKnown(state,p.id)).map(p=>[p.id,p.name]));
+   const report={beat:beat.id,actor:beat.actor,day:day.day,at,place:place(beat.place),exposure,
+    template:routes[exposure].text,names,kind:['present','affected'].includes(exposure)?'event':'background'};
+   next.facts[REPORT_PREFIX+beat.id]=report;reports.push({...report,text:renderRefs(report.template,{names})});
+  }
+ }
+ return {ledger:next,results,reports};
+}
+
+import './beat_ledger.js';
+import {domainRegistry} from './domain_registry.js';
+import {serializeBeatLedger} from './beat_ledger.js';
+export const currentCastBeatLedger=()=>domainRegistry.command('beatLedger','state')();
+export const castBeatsPending=state=>planLotmCastBeats(state,currentCastBeatLedger()).results.length>0;
+// The ledger rides the existing durable expansion envelope, then publishes to
+// its domain holder. A rejected save leaves both the holder and Reports alone.
+export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{}}={}){
+ if(!lotmBeside(plan.state))return persist(plan);
+ const out=planLotmCastBeats(plan.state,reset?newBeatState():currentCastBeatLedger());
+ plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(out.ledger)};
+ const result=persist(plan);
+ domainRegistry.command('beatLedger','commit')(out.ledger);
+ for(const report of out.reports)publish(report);
+ return result;
+}
