@@ -32,3 +32,15 @@ Lane definitions: [PLAN section 4](PLAN.md). Rules applied: AR1-AR16, AD36, AD43
 - **PL-E3 engine card E3-1**: a beat that needs a mechanism the world lacks reports `blocked`; moving a body, spending a purse and the lead's routine are not built (PLAN MS1, possible PL-E4).
 - **PL-E2 limit**: the chronicle hook renders at write time with an empty context, so names and masks need a read-time render by a caller.
 - **PL-H1 limits**: beats fall on days 2 and 3 (headless stepping is about 14 s per world day); the bot steps the clock and talks to the elder, with no engine hook to drive beats through game verbs.
+
+## Follow-ups approved by Weibao (2026-10-27)
+
+Weibao approved the three save and wiring items above. Same floor state: implemented, below floor; agent-verified, not human-reviewed.
+
+| Item | Commit | Files | Notes |
+| --- | --- | --- | --- |
+| CAE-E2 heir snapshot | 3ed02a5bb | `src/chronicle.js`, `tests/chronicle_heir_snapshot.test.js` | Additive tie `predecessorLife` (placeholder `life:gen<N>`) beside the frozen `rememberedPredecessor`; old saves render unchanged. No UI calls `heirPredecessorLabel` yet, so the label always falls back to the snapshot. |
+| PL-E1 trader opt-in | 5f4b73e71 | `src/components/trader_component.js`, `tests/trader_keyed_stock.test.js`, stub in `tests/market_life.test.js` | `worldSeed` is a runtime argument, no save field. No game code passes it yet. Non-opt-in output is byte-identical (tested). |
+| beatLedger slice | 352e91ddf | `src/beat_ledger.js`, `tests/beat_ledger.test.js`, one import line in `src/native_tool_domains.js` | Absent slice loads empty, empty ledger writes no key. Headless export, import and reload keep it. No consumer calls `commit` yet (AR10: engine-ready, not integrated). |
+
+Checks: `npm test` 3563/3563 (one earlier run showed a failure in the beatLedger copy-semantics test while that lane was mid-edit; rerun green after the lane fixed validate-before-normalize); `npm run check:arch` exit 0, no growth; `npm run check:rules` pass. Gap: no browser pass for any of the three.
