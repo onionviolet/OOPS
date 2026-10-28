@@ -4,7 +4,7 @@ Weibao: batch readers record everything the text states or shows and invent noth
 
 ## Cast lives: the lead's world lives on its own; build all of it, choose per seat later, 2026-10-28
 
-Weibao: everything the book's protagonist touches lives with its own schedule, relations, knowledge and arc; every capability and panel the lead's life needs is built, and what non-lead playthroughs get is chosen later ([direction](docs/USER_VISION.md#cast-lives-build-everything-the-leads-life-needs-choose-later-for-other-seats-2026-10-28)). Canon data stays in `private_packs/` (AD1). Entry point: [cast-lives card](docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md). First slice (LOTM "beside the lead", chapters 1-24) meets the AD43 floor, agent-verified, not human-reviewed.
+Weibao: everything the book's protagonist touches lives with its own schedule, relations, knowledge and arc; the "be the lead" playthrough is the main line (2026-10-28): every capability, panel and system the lead's life and his world need is built through it, and what non-lead playthroughs get is chosen later ([direction](docs/USER_VISION.md#cast-lives-build-everything-the-leads-life-needs-choose-later-for-other-seats-2026-10-28)). Canon data stays in `private_packs/` (AD1). Entry point: [cast-lives card](docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md). First slice (LOTM "beside the lead", chapters 1-24) meets the AD43 floor, agent-verified, not human-reviewed.
 
 ## Three worlds: Proto23, YAIR and our variant, 2026-10-27
 

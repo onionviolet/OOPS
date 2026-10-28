@@ -1073,3 +1073,18 @@ point of view, 8 time-shift cues).
 | CL265 | The day binding orders by source order today; with flashbacks it must order by date first | LATER/DELEGATE: a small fix in the binding step, Luna low; done when the slice's flashback scenes are tagged `history` and excluded from day binding |
 | CL266 | The be seat makes the lead's NPC policy and the player's seat share one body; switching who drives it must be clean (CL227) | ACCOUNT FOR NOW: B1 |
 | CL267 | "Book pack" wording in new docs and briefs (CL248) | ACCOUNT FOR NOW |
+
+## 27. Round 19: "be the lead" is the main line (2026-10-28)
+
+Weibao: "be the lead should be the main part right? Since beside the lead is missing all the features until
+we first implement being the lead and then with that every system that the world needs to be full>?"
+([USER_VISION](../../../USER_VISION.md#cast-lives-be-the-lead-is-the-main-line-2026-10-28)). Agreed: the
+beside start was built first only because it needed no lead identity; it proved the cast, schedules,
+beats and the book pack. From here the lead's own playthrough drives what gets built.
+
+| Code | Change | Disposition |
+| --- | --- | --- |
+| CL268 | **New order, replacing CL231:** (1) the seat filter S1 and the control inventory (small; they make the lead's screen his own); (2) B1, the be seat with its history pass (CL264); (3) the replay (L5r, fixed) runs **in the be seat**, so the seven seat-only gaps stop being blockers and become ordinary gaps; (4) every gap the be replay finds is built, world-general or seat-only alike, mechanisms as reusable frames (CL232); (5) the world around him is filled to full as the playthrough reaches it; (6) beside, follow and bystander are opened from the same systems by seat profile | ACCOUNT FOR NOW: the coordinator's queue |
+| CL269 | **The fidelity score is measured in the be seat** (CL230): the share of the lead's steps reproducible through his own screens, chapters 1-3 first, then the slice, then the volume | ACCOUNT FOR NOW |
+| CL270 | **Beside stays working, not extended.** It keeps its floor (regression checks and the null-player run use it) but gets new features only through the seat profile when Weibao opens them | ACCOUNT FOR NOW |
+| CL271 | **"Full world" means what the lead's life reaches, then outward** (PLAN step 6): his places, people, work, prices, laws and powers first; districts and people he never touches come after, in the layers the plan already names | ACCOUNT FOR NOW |
