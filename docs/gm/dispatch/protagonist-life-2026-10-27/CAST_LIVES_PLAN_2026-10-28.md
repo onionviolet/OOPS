@@ -638,3 +638,13 @@ UR70-UR75, AR7, AR8, PX49, PLAN 17.4) for this case; proposals until Weibao acce
 | CL133 | **The lead as a player-visible life.** Once beats run (L4b), the lead's own week is the richest test of every system; the watch view (CL5) shows it to Weibao | LATER |
 | CL134 | **Golden fixture.** Keep one saved "day 3, beside start" fixture for every later lane's regression check (games lens: a save fixture per important state) | ACCOUNT FOR NOW: L4a adds it under `tests/fixtures/` if its test needs one |
 | CL135 | **Hidden coupling with the original branch.** The beside start shares Tingen places with the original probationer branch; a later change to the original pack's places must keep the cast's place ids valid | ACCOUNT FOR NOW: L3's test checks every cast place exists in the pack or the cast data |
+
+## 16. Coordination log, continued (2026-10-28)
+
+| Code | Event | State |
+| --- | --- | --- |
+| CL136 | **L6a landed** (`d5122883b`): the worksheet tool takes `--world` and a locator range; 93 MoL first-loop worksheets; LOTM output byte-identical. MoL rows carry no loop field, so every later appearance is held as `anchorsOtherLoops`, not a forward anchor (conservative, plan F5) | Second world ready for an L3-style lane |
+| CL137 | **L3 landed** (`92af8ce99`): 8 principals, 12 recurring, 16 role records, 28 places, 77 schedule rows, 84 beats, 108 entities queued at M1; PL-A46 rejections listed by locator; `npm test` 3,666/3,666 | [L3 checkpoint](cast-lives-lanes/L3_CHECKPOINT.md) |
+| CL138 | **L3 left the day binding open, correctly.** Every canon row is `irregular` and every beat waits on a window fact, because no lane had chosen how source order maps to civil days. L4a now does it first (step 0) with a labelled source-order default, kept in its own data file so it can be replaced | L4a brief step 0 |
+| CL139 | **Runtime ids are hashed** (`lotm.person.cast-<hash>`), readable names in `indexId`. Fine for play; awkward for debugging and briefs | LATER: readable slugs when the crosswalk is next regenerated, with a redirect map |
+| CL140 | **L4a launched** (Sol, medium; Codex usage 5% of the window) | Running |
