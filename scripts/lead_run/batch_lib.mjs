@@ -13,6 +13,8 @@ import {extractCandidates, buildGlossary, glossaryHits, auditShard} from './shar
 export const MODEL = 'claude-haiku-5-5';
 // claude-api skill cached table 2026-10-06: Haiku 5.5, prompts up to 100K tokens; the Batch API is half price.
 export const PRICE = Object.freeze({inPerM: 0.10, outPerM: 0.50, batchFactor: 0.5, promptCap: 100000});
+// Per-model standard prices (same cached table): Sonnet 5.5 is $2 / $10.
+export const PRICES = Object.freeze({'claude-haiku-5-5': PRICE, 'claude-sonnet-5-5': {...PRICE, inPerM: 2, outPerM: 10}});
 const here = dirname(fileURLToPath(import.meta.url));
 const DOCS = resolve(here, '../../docs/gm/dispatch/protagonist-life-2026-10-27');
 
@@ -141,13 +143,14 @@ export function requestText(req) {
 }
 
 /** Dollars at batch price. `outTokens` is per request (thinking at low effort plus rows), an assumption until measured. */
-export function estimateCost(requests, outTokens) {
+export function estimateCost(requests, outTokens, model = MODEL) {
+    const price = PRICES[model] || PRICES[MODEL];
     const inTok = requests.map(r => estimateTokens(requestText(r)));
     const over = inTok.filter(t => t > PRICE.promptCap).length;
     const totalIn = inTok.reduce((a, b) => a + b, 0), totalOut = outTokens * requests.length;
-    const usd = (totalIn * PRICE.inPerM + totalOut * PRICE.outPerM) / 1e6 * PRICE.batchFactor;
+    const usd = (totalIn * price.inPerM + totalOut * price.outPerM) / 1e6 * price.batchFactor;
     return {requests: requests.length, inputTokens: totalIn, outputTokensAssumed: totalOut, usdBatch: Number(usd.toFixed(4)),
-        usdUncachedStandard: Number((usd / PRICE.batchFactor).toFixed(4)), requestsOverPromptCap: over, perRequestInput: Math.round(totalIn / Math.max(1, requests.length))};
+        usdUncachedStandard: Number((usd / price.batchFactor).toFixed(4)), requestsOverPromptCap: over, perRequestInput: Math.round(totalIn / Math.max(1, requests.length))};
 }
 
 // ---- plan -> requests ---------------------------------------------------------------------------------------
@@ -164,11 +167,31 @@ const readDirJsonl = (dir, re) => {
 };
 
 /** Build the request list from a plan file object. Glossary: wiki pages plus census files matching `glossary.censusMatch`. */
-export function requestsFromPlan(plan) {
+export function glossaryFromPlan(plan) {
     const g = plan.glossary || {};
     const pages = g.wiki ? JSON.parse(readFileSync(g.wiki, 'utf8')).pages : [];
     const rows = g.censusDir ? readDirJsonl(g.censusDir, new RegExp(g.censusMatch || '_census\\.jsonl$')) : [];
-    const glossary = buildGlossary({wikiPages: pages, censusRows: rows});
+    return buildGlossary({wikiPages: pages, censusRows: rows});
+}
+
+/** Known names (with ids) that occur in the shard but are missing from the model's census: add an M0 row each, claimant `script`. Nothing is invented. */
+export function addMissingKnown(census, glossary, shardText) {
+    const shardMap = parseShard(shardText), have = new Set(census.map(r => String(r.zh).replace(/[.．・]/g, '·'))), added = [];
+    for (const h of glossaryHits(glossary, shardText)) {
+        const zh = String(h.zh).replace(/[.．・]/g, '·');
+        if (!h.id || !h.kind || have.has(zh)) continue;
+        const hit = [...shardMap].find(([, t]) => t.includes(h.zh));
+        if (!hit) continue;
+        const [ch, para] = hit[0].split(':');
+        have.add(zh);
+        added.push({schema: 'census/1.3', id: h.id, label: h.label, zh: h.zh, nameSource: h.source === 'wiki' ? 'wiki' : 'repo', kind: h.kind, rung: 'M0', whereabouts: [],
+            firstMention: `zh 第${ch}章 p${para}`, firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
+    }
+    return [...census, ...added];
+}
+
+export function requestsFromPlan(plan) {
+    const glossary = glossaryFromPlan(plan);
     const pass = plan.pass, system = systemText(pass, {world: plan.world || 'lotm'});
     return plan.shards.map(s => buildRequest({
         customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
@@ -272,6 +295,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
             const prior = {scenes: readJsonl(join(plan.privateDir, `${s.prefix}_scenes.jsonl`)), census: readJsonl(join(plan.privateDir, `${s.prefix}_census.jsonl`)), fills: readJsonl(join(plan.privateDir, `${s.prefix}_fills.jsonl`))};
             rows = mergeRepair(prior, rows);
         }
+        if (plan.pass !== 'scenes' && plan.scriptFill !== false && rows.census) rows = {...rows, census: addMissingKnown(rows.census, glossaryFromPlan(plan), shardText)};
         const p = s.prefix, keys = plan.pass === 'census' ? ['census'] : plan.pass === 'scenes' ? ['scenes', 'fills'] : ['scenes', 'census', 'fills'];
         // Write only what this pass returned: a scenes pass must not blank the census an earlier pass wrote for the same prefix.
         for (const k of keys) writeJsonl(join(plan.privateDir, `${p}_${k}.jsonl`), rows[k]);

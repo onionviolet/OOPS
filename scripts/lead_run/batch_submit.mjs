@@ -16,7 +16,7 @@ export async function submit({plan, live = false, maxUsd = 0, outTokens = 25000,
     if (requestsFile) plan = {...plan, label: `${plan.label}-repair`};
     mkdirSync(plan.outDir, {recursive: true});
     const estimate = {label: plan.label, pass: plan.pass, model: plan.model || 'claude-haiku-5-5', effort: plan.effort || 'low', planHash: planHash(plan),
-        ...estimateCost(reqs, outTokens), glossaryHitsTotal: reqs.reduce((a, r) => a + r._hits, 0), candidatesTotal: reqs.reduce((a, r) => a + r._candidates, 0),
+        ...estimateCost(reqs, outTokens, plan.model), glossaryHitsTotal: reqs.reduce((a, r) => a + r._hits, 0), candidatesTotal: reqs.reduce((a, r) => a + r._candidates, 0),
         basis: 'tokens estimated by character count [I]; prices claude-api skill cached table 2026-10-06, Batch API half price; no cache hits assumed'};
     writeFileSync(join(plan.outDir, `${plan.label}_requests.jsonl`), reqs.map(r => JSON.stringify(stripMeta(r))).join('\n') + '\n');
     writeFileSync(join(plan.outDir, `${plan.label}_estimate.json`), JSON.stringify(estimate, null, 1) + '\n');

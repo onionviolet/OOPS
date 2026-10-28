@@ -179,3 +179,23 @@ test('schemas stay inside the API caps (24 optional properties, 16 unions) and n
     assert.equal(n.scenes[0].outcomes[0].value, true);
     assert.equal(n.census[0].firstVolume, null);
 });
+
+test('variant matching skips one-character and relational names; Sonnet is priced at its own rate', async () => {
+    const {compareShards} = await import('../scripts/lead_run/batch_compare.mjs');
+    const ref = {scenes: [], census: [{zh: '队长'}, {zh: '邓恩'}, {zh: '甲'}], fills: []};
+    const cand = {scenes: [], census: [{zh: '邓恩·史密斯'}, {zh: '甲乙'}, {zh: '前队长'}], fills: []};
+    assert.equal(compareShards(ref, cand).recallWithVariants, 0.333);
+    const r = buildRequest({customId: 'a', prefix: 'a', base: '1', shardText: TEXT, pass: 'census'});
+    assert.ok(estimateCost([r], 20000, 'claude-sonnet-5-5').usdBatch > 15 * estimateCost([r], 20000).usdBatch);
+});
+
+test('script fill adds known names missing from the census as M0 rows and nothing else', async () => {
+    const {addMissingKnown} = await import('../scripts/lead_run/batch_lib.mjs');
+    const g = buildGlossary({censusRows: [{zh: '约翰·史密斯', id: 'test.person.john', label: 'John', kind: 'person'}, {zh: '面包', id: 'test.item.bread', label: 'Bread', kind: 'item'}]});
+    const out = addMissingKnown([{zh: '面包', id: 'test.item.bread'}], g, TEXT);
+    assert.equal(out.length, 2);
+    assert.equal(out[1].id, 'test.person.john');
+    assert.equal(out[1].claimant, 'script');
+    assert.equal(out[1].firstMention, '"zh 第1章 p1"'.replaceAll('"', ''));
+    assert.equal(addMissingKnown(out, g, TEXT).length, 2);
+});
