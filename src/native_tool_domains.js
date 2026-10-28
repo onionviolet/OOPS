@@ -9,6 +9,7 @@ import {configureDojoTower} from './dojo_tower_domain.js';
 import {configurePersonalJournal} from './personal_journal_domain.js';
 import {favourite_items} from './runtime_state.js';
 import './material_lineage_domain.js';
+import './beat_ledger.js';
 import {configureFields} from './field_layer_domain.js';
 import {domainRegistry} from './domain_registry.js';
 import {configureGearWorkshop} from './gear_workshop_domain.js';
