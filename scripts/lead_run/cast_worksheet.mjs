@@ -1,5 +1,5 @@
 // L2b / CL94. Private, local worksheet generator; source rows stay verbatim.
-// node scripts/lead_run/cast_worksheet.mjs <mergedDir> --crosswalk <file> --slice 1-24 --out <privateDir>/cast-worksheets/
+// node scripts/lead_run/cast_worksheet.mjs <mergedDir> --crosswalk <file> --world lotm|mol --from <locator> --to <locator> --out <privateDir>/cast-worksheets/
 import {readFileSync, mkdirSync, writeFileSync, realpathSync} from 'node:fs';
 import {resolve, relative, basename} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -75,10 +75,11 @@ function scheduleRow(id, row, source) {
     };
 }
 
-export function buildWorksheets({registry, scenes, extras, crosswalk, fromChapter = 1, toChapter = 24}) {
-    if (crosswalk?.schema !== 'cast-crosswalk/1.0' || crosswalk.world !== 'lotm') throw new Error('Expected the LOTM cast-crosswalk/1.0 file from L1');
-    if (fromChapter !== 1 || toChapter !== 24) throw new Error('This worksheet lane supports only LOTM chapters 1-24');
-    const from = `zh 第${fromChapter}章 p1`, to = `zh 第${toChapter}章 p99999`;
+export function buildWorksheets({registry, scenes, extras, crosswalk, world = crosswalk?.world, from, to}) {
+    if (crosswalk?.schema !== 'cast-crosswalk/1.0' || !['lotm', 'mol'].includes(world) || crosswalk.world !== world) throw new Error('Expected a matching LOTM or MoL cast-crosswalk/1.0 file from L1');
+    if (!parse(from) || !parse(to) || cmpLoc(from, to) > 0) throw new Error('Expected ordered --from and --to locators in one source volume');
+    const fromKey = parse(from), toKey = parse(to);
+    if (fromKey[0] !== toKey[0] || fromKey[1] !== toKey[1]) throw new Error('Expected ordered --from and --to locators in one source volume');
     const sceneRows = scenes.filter(scene => scene.pov === 'lead' && inSlice(firstLocator(scene), from, to));
     const registryById = new Map(registry.map(row => [row.id, row]));
     const extrasById = new Map();
@@ -120,10 +121,17 @@ export function buildWorksheets({registry, scenes, extras, crosswalk, fromChapte
             .filter(item => inSlice(item.locator, from, to))
             .map(item => ({...item, label: item.label ?? registryRow?.label ?? null, locator: item.locator ?? registryRow?.firstMention ?? null})));
         const routine = rowValues('routine');
-        const anchors = ordered(isList(registryRow?.whereabouts)
-            .filter(item => item.locator && parse(item.locator) && cmpLoc(item.locator, to) > 0)
-            .slice().map(item => ({actor: id, place: item.place ?? null, locator: item.locator})))
-            .slice(0, 3);
+        const forward = [], anchorsOtherLoops = [];
+        for (const item of isList(registryRow?.whereabouts)) {
+            if (!item.locator || !parse(item.locator) || cmpLoc(item.locator, to) <= 0) continue;
+            const anchor = {actor: id, place: item.place ?? null, locator: item.locator};
+            // MoL's chapter sequence crosses restarts. Only explicitly same-loop
+            // rows are forward anchors; absent/other loop evidence stays separate.
+            const loop = item.loop ?? item.date?.loop ?? item.cycle ?? item.date?.cycle;
+            if (world === 'mol' && loop !== 'same' && loop !== 'first' && loop !== 1 && loop !== '1') anchorsOtherLoops.push({...anchor, loop: loop ?? null});
+            else forward.push(anchor);
+        }
+        const anchors = ordered(forward).slice(0, 3);
         const candidateRows = [
             ...routine.map(row => scheduleRow(id, row, 'routine')),
             ...whereabouts.map(row => scheduleRow(id, row, 'canon')),
@@ -146,6 +154,7 @@ export function buildWorksheets({registry, scenes, extras, crosswalk, fromChapte
             wants: rowValues('wants'),
             candidateRows: ordered(candidateRows),
             anchors,
+            ...(world === 'mol' ? {anchorsOtherLoops: ordered(anchorsOtherLoops)} : {}),
             // Preserve all source fields, including optional schema 1.4 fields, unchanged.
             sourceRows: {registry: registryRow ?? null, extras: extraRows},
         });
@@ -161,11 +170,11 @@ export function run(argv) {
     const novelsRoot = realpathSync(resolve(fileURLToPath(new URL('../../docs/research/novels/', import.meta.url))));
     const rel = relative(novelsRoot, actual);
     if (rel.startsWith('..') || !rel.split(/[\\/]/).includes('private')) throw new Error('Merged input must be under a novel private directory');
-    const crosswalkPath = value('--crosswalk'), slice = value('--slice'), outArg = value('--out');
-    if (!crosswalkPath || !outArg || slice !== '1-24') throw new Error('Expected --crosswalk <file> --slice 1-24 --out <privateDir>/cast-worksheets/');
+    const crosswalkPath = value('--crosswalk'), world = value('--world'), from = value('--from'), to = value('--to'), outArg = value('--out');
+    if (!crosswalkPath || !outArg || !['lotm', 'mol'].includes(world) || !from || !to) throw new Error('Expected --crosswalk <file> --world lotm|mol --from <locator> --to <locator> --out <privateDir>/cast-worksheets/');
     const crosswalk = JSON.parse(readFileSync(crosswalkPath, 'utf8'));
     const worksheets = buildWorksheets({registry: readJsonl(resolve(actual, 'registry.jsonl')), scenes: readJsonl(resolve(actual, 'scenes.jsonl')),
-        extras: readJsonl(resolve(actual, 'extras.jsonl')), crosswalk});
+        extras: readJsonl(resolve(actual, 'extras.jsonl')), crosswalk, world, from, to});
     const out = resolve(outArg), outRel = relative(novelsRoot, out);
     if (outRel.startsWith('..') || !outRel.split(/[\\/]/).includes('private')) throw new Error('Output must be under a novel private directory');
     mkdirSync(out, {recursive: true});
