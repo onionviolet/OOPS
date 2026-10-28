@@ -1,0 +1,229 @@
+{
+ "name": "2026-10-28x-lotm",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 35,
+ "capTotal": 58.3,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_pilot_census_r2.json",
+     "cap": 0.04,
+     "label": "lotm4-pilot-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_pilot_census_r2.json",
+     "cap": 0.04,
+     "label": "lotm7-pilot-census-r2"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_census_r2.json",
+     "cap": 4.36,
+     "label": "lotm2-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_census_r2.json",
+     "cap": 4.04,
+     "label": "lotm3-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_census_r2.json",
+     "cap": 3.45,
+     "label": "lotm4-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_census_r2.json",
+     "cap": 3.29,
+     "label": "lotm5-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_census_r2.json",
+     "cap": 1.86,
+     "label": "lotm6-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_census_r2.json",
+     "cap": 1.4,
+     "label": "lotm7-census-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_census_r2.json",
+     "cap": 0.65,
+     "label": "lotm8-census-r2"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_scenes_r2.json",
+     "cap": 2.22,
+     "label": "lotm2-scenes-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_scenes_r2.json",
+     "cap": 2.06,
+     "label": "lotm3-scenes-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_scenes_r2.json",
+     "cap": 1.76,
+     "label": "lotm4-scenes-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_scenes_r2.json",
+     "cap": 1.68,
+     "label": "lotm5-scenes-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_scenes_r2.json",
+     "cap": 0.95,
+     "label": "lotm6-scenes-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_scenes_r2.json",
+     "cap": 0.72,
+     "label": "lotm7-scenes-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_scenes_r2.json",
+     "cap": 0.34,
+     "label": "lotm8-scenes-r2"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_rules_r2.json",
+     "cap": 2.24,
+     "label": "lotm2-rules-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_rules_r2.json",
+     "cap": 2.07,
+     "label": "lotm3-rules-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_rules_r2.json",
+     "cap": 1.78,
+     "label": "lotm4-rules-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_rules_r2.json",
+     "cap": 1.69,
+     "label": "lotm5-rules-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_rules_r2.json",
+     "cap": 0.96,
+     "label": "lotm6-rules-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_rules_r2.json",
+     "cap": 0.73,
+     "label": "lotm7-rules-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_rules_r2.json",
+     "cap": 0.35,
+     "label": "lotm8-rules-r2"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_people_r2.json",
+     "cap": 2.24,
+     "label": "lotm2-people-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_people_r2.json",
+     "cap": 2.07,
+     "label": "lotm3-people-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_people_r2.json",
+     "cap": 1.77,
+     "label": "lotm4-people-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_people_r2.json",
+     "cap": 1.69,
+     "label": "lotm5-people-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_people_r2.json",
+     "cap": 0.96,
+     "label": "lotm6-people-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_people_r2.json",
+     "cap": 0.73,
+     "label": "lotm7-people-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_people_r2.json",
+     "cap": 0.35,
+     "label": "lotm8-people-r2"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_texture_r2.json",
+     "cap": 2.24,
+     "label": "lotm2-texture-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_texture_r2.json",
+     "cap": 2.07,
+     "label": "lotm3-texture-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_texture_r2.json",
+     "cap": 1.77,
+     "label": "lotm4-texture-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_texture_r2.json",
+     "cap": 1.69,
+     "label": "lotm5-texture-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm6_texture_r2.json",
+     "cap": 0.96,
+     "label": "lotm6-texture-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm7_texture_r2.json",
+     "cap": 0.73,
+     "label": "lotm7-texture-r2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm8_texture_r2.json",
+     "cap": 0.35,
+     "label": "lotm8-texture-r2"
+    }
+   ]
+  }
+ ]
+}

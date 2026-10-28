@@ -22,7 +22,8 @@ const SETTINGS = {
     en: {census: {effort: 'high'}, scenes: {effort: 'high', schemaMode: 'prompt'}},
     zh: {census: {effort: 'medium'}, scenes: {effort: 'high', schemaMode: 'prompt'}},
 };
-const settings = (lang, pass) => ({maxTokens: 64000, outTokensAssumed: 32000, ...(SETTINGS[lang][pass] || {effort: 'high', schemaMode: 'prompt'})});
+// Census gets Haiku 5.5's full 128K output: truncated census replies held 80-86 complete rows in ~20K tokens, the rest went to thinking (2026-10-28).
+const settings = (lang, pass) => ({maxTokens: pass === 'census' ? 128000 : 64000, outTokensAssumed: 32000, ...(SETTINGS[lang][pass] || {effort: 'high', schemaMode: 'prompt'})});
 
 /** Consecutive chapters grouped up to `target` size units and `max` chapters; a chapter over the target stands alone. */
 export function groupBySize(chapters, size, {target, max}) {
@@ -129,7 +130,7 @@ export function passDone(pass, prefix, files) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const a = process.argv.slice(2), flag = n => { const i = a.indexOf(n); return i >= 0 ? a[i + 1] : null; };
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
-    const keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null;
+    const keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
     const byWorld = {}, report = [];
     for (const b of registry.books.filter(x => !keys || keys.has(x.key))) {
@@ -156,8 +157,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
             const todo = shards.filter(s => !passDone(pass, s.prefix, have) && (!only || s.prefix === only) && s.prefix !== skip)
                 .map(s => ({prefix: s.prefix, shard: join(priv, s.file), base: s.base, chapters: s.chapters}));
             if (!todo.length) continue;
-            const label = `${b.key}-${suffix.replace('_', '-')}`, plan = {world: b.world, model: 'claude-haiku-5-5', ...settings(b.lang, pass), privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards: todo};
-            const name = `${b.key}_${suffix}`;
+            // `--tag r2` gives a rerun its own labels and plan files, so the driver does not collect an earlier batch by its receipt.
+            const label = `${b.key}-${suffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = {world: b.world, model: 'claude-haiku-5-5', ...settings(b.lang, pass), privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards: todo};
+            const name = `${b.key}_${suffix}${tag ? `_${tag}` : ''}`;
             writeFileSync(join(PLANS, `${name}.json`), JSON.stringify(plan, null, 1) + '\n');
             // True bound: every request at max_tokens. Rounded up to the cent.
             const bound = estimateCost(requestsFromPlan(plan), plan.maxTokens, plan.model);

@@ -137,3 +137,17 @@ test('census: an evidence label in `label` becomes the display name; a bracketed
     assert.deepEqual(migrateCensus({id: 'test.price.cash', kind: 'price', zh: '现金', label: 'S', note: 'Cash left.[5 pounds]'}).amount, {value: 5, unit: 'pound'});
     assert.equal(migrateCensus({id: 'test.price.cash', kind: 'price', zh: '现金', note: 'no number'}).amount, undefined);
 });
+
+test('English census: a full name printed only in part takes the printed part as `zh`; duration rows become measures', async () => {
+    const {migrateCensus, relocateFirstMention} = await import('../scripts/lead_run/migrate_shard.mjs');
+    const {parseShard} = await import('../scripts/lead_run/lint_lead_run.mjs');
+    // Invented shard text.
+    const map = parseShard('=== Chapter 1: A Visit | book 3\np1: Rain fell.\np2: Bill waved from the gate.');
+    const c = relocateFirstMention(migrateCensus({id: 't.person.bill-stone', kind: 'person', zh: 'Bill Stone', label: 'S', firstMention: 'en b3 c1 p2', aliases: []}), map, []);
+    assert.equal(c.zh, 'Bill');
+    assert.equal(c.label, 'Bill Stone');
+    assert.ok(c.aliases.includes('Bill Stone'));
+    const none = relocateFirstMention({id: 't.person.x', kind: 'person', zh: 'Mr Nobody', label: 'Mr Nobody', firstMention: 'en b3 c1 p2'}, map, []);
+    assert.equal(none.zh, 'Mr Nobody');
+    assert.equal(migrateCensus({id: 't.duration.week', kind: 'duration', zh: 'a week'}).id, 't.measure.week');
+});

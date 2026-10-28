@@ -59,8 +59,13 @@ export function buildGlossary({wikiPages = [], censusRows = []}) {
         // Short common nouns (bedroom, hat) name different things in different scenes; only proper names carry ids across.
         if (['place', 'item', 'event', 'note', 'creature'].includes(r.kind) && zh.length < 3 && !zh.includes('·')) continue;
         const wiki = g.get(zh)?.source === 'wiki' ? g.get(zh).label : null;
-        g.set(zh, {id: String(r.id || '').replace(/\.org\./, '.organization.'), label: wiki || r.label, kind: r.kind,
-            source: wiki ? 'census+wiki' : 'census'});
+        const entry = {id: String(r.id || '').replace(/\.org\./, '.organization.'), label: wiki || r.label, kind: r.kind, source: wiki ? 'census+wiki' : 'census'};
+        g.set(zh, entry);
+        // English proper names also match by their printed aliases ("Bill" and "Bill Weasley" are one id), 2026-10-28.
+        if (['person', 'place', 'organization', 'deity'].includes(r.kind)) for (const a of r.aliases || []) {
+            const k = normalize(a);
+            if (/^[\x20-\x7e]{3,}$/.test(k) && !EN_RELATIONAL.has(k) && !g.has(k)) g.set(k, entry);
+        }
     }
     return g;
 }

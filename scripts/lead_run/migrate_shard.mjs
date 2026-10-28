@@ -7,7 +7,7 @@ import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {MOTIVES, parseShard} from './lint_lead_run.mjs';
-import {parseLocator, formatLocator, nameIn} from './world_profiles.mjs';
+import {parseLocator, formatLocator, nameIn, EN_RELATIONAL} from './world_profiles.mjs';
 
 const LABEL = new Set(['S', 'I', 'U']);
 // Free-form tags seen in chapters 1-15 mapped onto the vocabulary; extend with a reason in the changelog.
@@ -60,6 +60,8 @@ export function migrateCensus(r) {
     c.schema = 'census/1.3';
     c.id = fixId(c.id);
     if (c.kind === 'org') c.kind = 'organization';
+    // The candidate table's `duration` is a measure row (2026-10-28, Mother of Learning census).
+    if (c.kind === 'duration') c.kind = 'measure';
     // A row claimed as placed with no address drops back to M0 rather than gaining an invented address.
     if (c.rung && c.rung !== 'M0' && !(c.whereabouts || []).some(w => w.place || w.era)) c.rung = 'M0';
     // The id's kind segment follows the row's kind (`lotm.item.x` on a document row becomes `lotm.document.x`); the old id is kept in `idWas`.
@@ -122,6 +124,14 @@ export function relocateFirstMention(c, shardMap, review) {
     for (const [key, text] of shardMap) if (nameIn(text, c.zh, lang)) {
         const [ch, p] = key.split(':');
         return {...c, firstMention: formatLocator(lang, {book: shardMap.book || 1, ch, p}), note: c.note};
+    }
+    // English readers write the full name ("Bill Weasley") where the paragraph prints part of it ("Bill"): `zh` becomes the printed part, the full name
+    // stays as label and alias (2026-10-28). Only a capitalised word of three or more letters that is not a title counts.
+    if (lang === 'en') {
+        const parts = String(c.zh).split(/\s+/).filter(w => /^[A-Z][A-Za-z'’-]{2,}$/.test(w) && !EN_RELATIONAL.has(w));
+        const at = m ? [0, 1, 2].map(d => shardMap.get(`${m.ch}:${m.p + d}`) || '') : [];
+        const part = parts.find(w => at.some(t => nameIn(t, w, 'en')));
+        if (part) return {...c, zh: part, label: c.labelFrom ? c.zh : c.label || c.zh, aliases: [...new Set([...(c.aliases || []), c.zh])]};
     }
     review.push({id: c.id, need: 'name-not-in-shard'});
     return c;
