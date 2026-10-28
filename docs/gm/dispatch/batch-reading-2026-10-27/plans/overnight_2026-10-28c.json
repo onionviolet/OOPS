@@ -1,6 +1,6 @@
 {
  "name": "2026-10-28c",
- "approval": "PENDING: needs Weibao's go phrase (NOV1_SCHEDULE section 9).",
+ "approval": "Weibao 2026-10-28: \"Go on both\", answering \"Resume both runs under the new stop rule?\" (go phrase E2, NOV1_SCHEDULE section 9: labels and caps as listed, ceiling $5, repairable-C stop rule).",
  "ceilingUsd": 5,
  "note": "Replaces the unsent part of 2026-10-28b. Census at medium (two runs, prefixes b and c, for the union); caps are true bounds at 64,000 output tokens per request.",
  "steps": [
