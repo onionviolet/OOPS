@@ -99,7 +99,8 @@ export async function runOvernight({run, runName, submitFn = submit, collectFn =
             return {label: it.plan.label, summary: pub, estimate, plan: it.plan};
         }));
         results.push(...collected);
-        const reasons = stopCheck(results.filter(r => !r.done), {pooled: !!run.pooledStop});
+        // Labels collected in an earlier run are gated too: a relaunch after a stop must not pass a step that failed (2026-10-28, Harry Potter people).
+        const reasons = stopCheck(results, {pooled: !!run.pooledStop});
         if (step.gate === 'pilot') {
             const p = results.find(r => r.label === step.pilotLabel);
             if (p) { const pc = pilotCheck({summary: p.summary, estimate: p.estimate, plan: p.plan, refs: step.pilotRefs}); reasons.push(...pc.reasons); note({step: step.name, pilot: {recall: pc.recall, fresh: pc.fresh}}, outDir); }

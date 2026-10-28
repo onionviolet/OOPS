@@ -92,3 +92,12 @@ test('a dropped connection while collecting is retried; the label is collected o
     assert.equal(calls, 3);
     assert.equal(out.stopped, null);
 });
+
+test('a relaunch re-gates a step whose labels were already collected', async () => {
+    const s = setup({g1: ['C', 'C', 'B']});
+    const run = {ceilingUsd: 1, steps: [{name: 'A', gate: 'stop', labels: [{plan: s.plans.g1, cap: 0.05}]}, {name: 'B', gate: 'stop', labels: [{plan: s.plans.g1, cap: 0.05}]}]};
+    const first = await runOvernight({run, runName: 'regate', submitFn: s.submitFn, collectFn: s.collectFn, log: () => {}, root: '/'});
+    assert.ok(first.stopped);
+    const again = await runOvernight({run, runName: 'regate', submitFn: s.submitFn, collectFn: s.collectFn, log: () => {}, root: '/'});
+    assert.ok(again.stopped, 'the second launch stops at the same step');
+});

@@ -23,7 +23,8 @@ const SETTINGS = {
     zh: {census: {effort: 'medium'}, scenes: {effort: 'high', schemaMode: 'prompt'}},
 };
 // Census gets Haiku 5.5's full 128K output: truncated census replies held 80-86 complete rows in ~20K tokens, the rest went to thinking (2026-10-28).
-const settings = (lang, pass) => ({maxTokens: pass === 'census' ? 128000 : 64000, outTokensAssumed: 32000, ...(SETTINGS[lang][pass] || {effort: 'high', schemaMode: 'prompt'})});
+// Every pass since the Harry Potter people step (41 of 179 cut off at 64K, 2026-10-28).
+const settings = (lang, pass) => ({maxTokens: 128000, outTokensAssumed: 32000, ...(SETTINGS[lang][pass] || {effort: 'high', schemaMode: 'prompt'})});
 
 /** Consecutive chapters grouped up to `target` size units and `max` chapters; a chapter over the target stands alone. */
 export function groupBySize(chapters, size, {target, max}) {
