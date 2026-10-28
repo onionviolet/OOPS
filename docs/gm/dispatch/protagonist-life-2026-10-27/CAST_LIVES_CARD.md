@@ -1,6 +1,6 @@
 # Cast lives: one-page card
 
-Read this first; the [plan](CAST_LIVES_PLAN_2026-10-28.md) is the dated record (rounds 1-12) and the
+Read this first, then [the coordinator handoff](COORDINATOR_HANDOFF_2026-10-28.md); the [plan](CAST_LIVES_PLAN_2026-10-28.md) is the dated record (rounds 1-12) and the
 lane folder [cast-lives-lanes/](cast-lives-lanes/) holds briefs and checkpoints. Updated 2026-10-28.
 Everything here is a proposal under the 2026-10-27 adoption entry unless it cites an accepted code.
 
@@ -20,7 +20,10 @@ LOTM chapters 1-24, "beside the lead" start. Second world: Mother of Learning, f
 | L4a, L4c, L4d | Beside start from the private pack: cast moves by schedule, walks to cast places, resident entry, talk gate with away reasons, remote people excluded, relative day in the header | **Meets the AD43 floor** `1cadee65e` (bundle `11cf2385`, 1920×1080, zero page errors, Save/reload/Export/Import) |
 | L7 | Reaction classes; classifier 40% to 59% (LOTM), 37% to 63% (MoL) | Landed `cdefcf80e`, partial |
 | L4b | Beats settle on their days with no player; Reports lines at witness level; gap probe (15 gaps); fold-loss ledger | Landed; FLR3 partial (person view rows) |
-| Next | Build lanes from the gap ledger (top kinds: verb 4, aftermath 4, rule 3); L5r UI replay of chapters 1-3; scene card; polish (section header, walk-list grouping, capitalized report lines) | Briefs from the L4b checkpoint |
+| L4e | Polish: capitalized report lines, district grouping, place title, person-view beat rows | Landed `1dd4f88db` |
+| L5r | Chapters 1-3 UI replay: 18 steps, 0 verified, 1 candidate fold, 17 typed gaps; combined ledger 32 | Uncommitted; browser replay running |
+| W1, G1 | Workflow runner and review script; wait-until and aftermath knowledge | Running |
+| Next | G2 concealment, G3 NPC trades, G4 obligations and law, scene card, MoL host | See the handoff queue |
 
 ## What you can do now
 
