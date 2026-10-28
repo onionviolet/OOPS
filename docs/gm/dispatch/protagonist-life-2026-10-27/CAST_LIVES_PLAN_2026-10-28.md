@@ -898,3 +898,39 @@ knowledge note.
 | CL207 | **L7 landed** (`cdefcf80e`): classifier placement LOTM 40% to 59%, MoL 37% to 63%; recommendation sent to the reading session: keep optional `reacts.class` and `reacts.by` for schema 1.5 | Partial: unclear rows not yet paragraph-reviewed |
 | CL208 | **L4c+L4d landed at the floor** (`1cadee65e`): the beside start plays from the private pack; zero page errors; Save, reload, Export, Import | [L4d checkpoint](cast-lives-lanes/L4D_CHECKPOINT.md) |
 | CL209 | **L4b landed** (this commit): 84 beats on 4 bound days, 73 settle and 11 mechanism beats block, deterministic across runs and a mid-run round trip; the first Reports line appears at the present witness level with the name masked; gap probe: 15 concrete gaps (noun 1, number 2, rule 3, verb 4, aftermath 4, detail 1); fold-loss: all 84 beats are lossy folds (they write markers, not purchases or choices), the expected first result of CL171-CL177 | [L4b checkpoint](cast-lives-lanes/L4B_CHECKPOINT.md); FLR3 partial (person view rows not screenshotted) |
+
+## 22. Round 14: build the gaps for the whole game, not only for the lead's life (2026-10-28)
+
+Weibao: "Implementing it, consider long term gameplay ramifications, since soem stuff required to
+recreate the main character's life wont definitely be needed in the main game? more to consider?"
+
+The 32-row gap ledger (L4b plus L5r) sorts into four audiences. Only the first becomes main-game work.
+
+### 22.1 Who each gap serves
+
+| Code | Audience | Gaps in the ledger (counts approximate) | Where the build lands |
+| --- | --- | --- | --- |
+| CL210 | **World-general**: any player in any world gains a real choice or consequence | Waiting until a time (UI path); metered utilities (pay the meter, then the lamp works); washing and cleaning that removes traces; hiding an item in a container that changes what others can notice; household meals that use shared food; NPCs executing trades with their own purse and goods; beat aftermath writing knowledge to the actors who learned it; offers and contracts as obligations; police notice and travel limits (about 18) | Engine and world packs, each with its second case (CL182), behind progressive disclosure (UR42) |
+| CL211 | **Seat-only**: true only when playing as the lead | Waking in his body, inherited memories, his wound, his family's requests addressed to him (7) | The "be" seat, private pack only, after Weibao's WER11 answer (CL159); never on an ordinary player's route |
+| CL212 | **World mechanism**: belongs to one world's powers | The dream confrontation and ritual contest (2) | World-local (AR12), in its own lane when the LOTM power work reaches it; stays `blocked by mechanism` until then |
+| CL213 | **Data or harness**: not gameplay | The wage anchor mismatch, the rejected source row, replay-only assertions (3) | Data fixes in the private pack and the merge; harness code stays in `scripts/` and `tests/` |
+
+### 22.2 Long-term rules for building them (proposed)
+
+| Code | Rule (default, dial and reason) |
+| --- | --- |
+| CL214 | **The second-case test is the main-game filter.** A capability enters the game only when a use outside the lead's life exists (another scene, another world, or an ordinary player's day). Otherwise it stays a fold, a seat-only rule or a world mechanism. Reason: this is exactly the line between "the lead needed it" and "the game needs it" |
+| CL215 | **The ordinary route stays simple** (IPC38): a new capability is an option, not a chore. Washing, meters and meals exist where they change something (evidence, light, hunger), and fold into routines everywhere else. Dial per world |
+| CL216 | **NPCs use the same verbs, settled by outcome off-screen** (CL6, CL8): an NPC trade uses the existing trade owner and moves stock and money, but only for people inside the player's footprint (CL48). Reason: real economies without simulating every loaf across town |
+| CL217 | **Seat-only code never runs for other seats.** It sits behind the seat check and the private pack; ordinary saves never carry its fields (CL153) |
+| CL218 | **Harness code never ships.** Replay assertions, probes and inspectors live in `scripts/`, `tests/` or a dev-only inspector (CL19), not in player commands |
+| CL219 | **Each built capability reruns the replay** (CL185) and is scored by how many ledger rows it closes across worlds, not in one scene |
+| CL220 | **Save and balance ramifications are named in the brief**: new fields, the migration or additive decision (AR6), and any economy flow (money, stock) with its sink and source |
+
+### 22.3 Dispatch from this round
+
+| Code | Lane | Model | State |
+| --- | --- | --- | --- |
+| CL221 | **W1 workflow worker**: a repo lane runner (preflight, detached launch with API keys stripped, resume, PID and receipt), a lane review script (canon-name sweep against the private pack, top-level-await check, unowned-file check), and the lane brief template with the CLR blocks | Luna, medium | Launched |
+| CL222 | **G1 first gap build**: "wait until" as a readable UI action (world-general) and beat aftermath writing knowledge to the actors who learned it (all cast, any world). Concealment (hide in a container, noticing) is G2 for the next coordinator | Sol, medium | Launched |
+| CL223 | **Hand-off to a fresh coordinator** with [the handoff](COORDINATOR_HANDOFF_2026-10-28.md) | | After launch |
