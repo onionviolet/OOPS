@@ -267,3 +267,111 @@ Explore gaps by **running** a scene, not by reading docs for what is missing. On
 
 Suggestions (not reasons to stop): add the night-threat fight to L4's probe set now; run CL18 before
 the calibration lane so the fight contract is sourced, not guessed.
+
+## 9. Round 3: fate, future powerhouses, trends from each book, and the UI (2026-10-28)
+
+Weibao: "What about the UI creation for UI? Relattionship and other subtle systems based on extrapolated
+trends from each books? More to consider? Can things be biased to occcured in certain ways and be harder
+to change, by virtue of fate and more? or if a charcter becomes an absolute powerhouse in the future, like
+at the level of trancending time and stuff, effective their path to become that will kind of be locked in
+place, thoughts? Other considerations like this?"
+
+Existing owners this extends: OD7 and OD8 in [TIMELINES_AND_DIVERGENCE](../../../TIMELINES_AND_DIVERGENCE.md)
+(canon follows its natural course; it corrects itself only through a world mechanism such as fate or
+history), PX21 and PX40 in the [canon protagonist report](../../../research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md)
+(a "must happen" beat names its enforcer; protective fate is a named mechanism per world), CBR8 (fated
+characters survive through in-world agents), "Luck and fate as gameplay" in
+[RIVALS_IDENTITIES_AND_FATE](../../../RIVALS_IDENTITIES_AND_FATE.md) (scoped fortune, anchored fate,
+reveal a protection before a decisive commit), PLAN 18.2 (WA42 relationships from choices), PLAN 17.4
+(lead playthrough surfaces). Sealed or late-volume facts appear here by kind only.
+
+### 9.1 Yes: outcomes can lean, and some lean hard
+
+Thoughts: a weighted future fits the project's rules if the weight comes from somewhere in the world and
+shows up as cost, never as a wall (AD5, AD38). Three sources, which stack:
+
+| Code | Source of weight | How it works | Default, dial and reason |
+| --- | --- | --- | --- |
+| CL21 | **Causal mass** (no metaphysics) | An anchor many later beats depend on has many people steering toward it: their plans, debts and duties converge. The beat graph's `deps` already measures this. Divert it and others step in by their own motives (role slots, PX47) | Default: every world. Reason: it is just people living their lives; it needs no fate rule and explains why history "wants" to happen |
+| CL22 | **A world mechanism** (fate, heavenly will, historical correction, a prophecy, an institution) | Named per world with what detects divergence, what it can touch, its reach and cost, who can perceive it (OD8 treatment) | Default: off until the world pass names it with a locator. Dial: from a nudge on keyed draws to active correction by agents |
+| CL23 | **A future actor's protection of their own past** | Section 9.2 | Default: only where the world's time model allows it |
+
+**How weight plays.** Weight raises the cost and effort of a change, adds agents who push back and
+shifts keyed draws (C1 determinism keeps it repeatable); it never silently cancels a player's action
+(PX40, CBR8). Reveal the observable effect before a decisive commit (RIVALS: "reveal the existence or
+observable effect of relevant protection"): the quote says "this will be hard: the household's plans all
+hinge on it" or "your divination keeps turning cloudy", never the anchor's content. A player who pays
+enough can still move it; then it is labelled divergence (WA15), and CL21's substitutes may still produce
+a similar result by other hands.
+
+### 9.2 Future powerhouses and a path that locks
+
+If someone will later act across time, their earlier path can be held in place by their own later
+agency. Whether that is true depends on the world's **time model**, which each world pass now states
+with its evidence (CL24):
+
+| Time model | What happens when the player interferes with a future powerhouse's past | Player sees |
+| --- | --- | --- |
+| Self-consistent (one history) | The attempt fails through ordinary in-world means: a delay, a rescue, an accident that happens to help. The powerhouse's later acts are already part of history | Repeated near-misses with causes the player can investigate; costs rise each try |
+| Branching | The change makes a branch where the powerhouse does not arise; the main line continues, and the main-line powerhouse may notice and act | A branch label (PC5) and a new risk |
+| Mutable with correction | The change lands, then the world's correction (CL22) works to restore it at its cost | A visible correction pressure with a clock |
+| Ordinary (no time agency) | Only causal mass (CL21) applies | Ordinary cost |
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL24 | **Each world states its time model** with locators, or it stays `U` and defaults to Ordinary. Reason: locking a path the book never locks is the commonest overreach | ACCOUNT FOR NOW: L3 records LOTM's time model as `U` for chapters 1-24; nothing in wave 1 locks a path |
+| CL25 | **Who counts as a future powerhouse is a spoiler.** The lock's existence is shown only through observable effects in the player's present. Late-volume rows stay off until the source pass reads that far (WER4); the lock's reason is held by opaque id where sealed | ACCOUNT FOR NOW: the inspector (CL19) shows `locked by id` only |
+| CL26 | **The player can become one too.** A save whose character gains time agency later anchors its own earlier life the same way; WA24 then protects the player's past, and earlier visits may show the player's own later traces | LATER: needs the time-travel owner (C1-C12); one design round, Sol, done when one world's time model and the player's own lock are written as a rule pair |
+| CL27 | **Locks need a substitute plan.** If the player does break a locked path in a branching world, the beats that depended on that person need substitutes or lapse (`lapsed`, beat_records) | ACCOUNT FOR NOW: L4's resolver already reports `lapsed`; no substitution logic in wave 1 |
+| CL28 | **Stolen destiny.** RIVALS' anchored fate and theft rules apply: a lock can be claimed, transferred or contested; a stolen lock is not duplicated by reload | LATER: after CL22 exists in one world |
+
+### 9.3 Relationships and other subtle systems from each book's trends
+
+The book shows a sample of how its people behave. Extract the rates and use them as the world's default
+dials where the book is silent (after the last read chapter, off-screen, for people it never followed).
+
+| Code | Trend from the index | Feeds | Disposition |
+| --- | --- | --- | --- |
+| CL29 | **Attitude drift:** how often and how fast relations change, by kind (family, colleague, rival), from `relations.since` (schema 1.4) ordered by locator | WA42 relationship resolver: the world's default drift rate | LATER/DELEGATE: Luna medium after L1; done when one book prints per-kind change counts per 100 chapters with locators |
+| CL30 | **Who helps strangers, who betrays, who keeps a debt:** rates from scene choices and outcomes | Role-person defaults (vendor, clerk, officer) and the resolver's priors | LATER: same lane |
+| CL31 | **Rumor and news speed:** how many scenes pass between an event and others knowing it (`knows.since`) | Heard and aftermath timing for the cast (PX49) | ACCOUNT FOR NOW: L4 uses a fixed authored delay labelled fill until CL29's lane runs |
+| CL32 | **Institutional response time:** police, church teams, the academy | Enforcement (schema 1.4 `enforcement`) and fight aftermath (CL8) | LATER |
+| CL33 | **Prices, wages and their drift** | Economy owners (GM4) | Owned by GM4, not this plan |
+| CL34 | **Trends are labelled `I` and are dials, not laws.** A trend never overrides a stated row or a forward anchor; it fills the silence. Calibrate the same way as stats: does the trend reproduce the book's own later choices it was not computed from (hold out the last fifth of the slice)? | ACCOUNT FOR NOW: rule for every trend lane |
+| CL35 | **Trajectories after the book ends:** a person's arc continues at the book's observed pace (an ambitious officer seeks the next rank on the cadence the text showed) | LATER: after L4 and CL29; Sol, done when one recurring person's post-slice week is generated from trends and passes the anchor lint |
+
+### 9.4 UI for the cast lives systems (desktop first, 1920×1080)
+
+Every element reuses an existing surface (PLAN 17.4; UR1-UR75; standing UI priority). Owner surfaces:
+`src/people_ui.js`, `src/people_knowledge.js` (observer-safe view), `src/relationship_view.js`, the
+chronicle and journal, the clock strip and calendar.
+
+| Code | What the player needs | Surface | Rule |
+| --- | --- | --- | --- |
+| CL36 | Where a known person is now, or "away, usually back by [band]", and what they were doing when last seen | People panel row | UR70-UR75 description; only what the player saw or was told (AR8) |
+| CL37 | Why they act as they do toward you: the top reasons from the resolver ("owes you a favour", "wary since the questioning") | Relationship view hover | WA42 "why"; UR47 shared hovers |
+| CL38 | What happened in their lives that you could know: heard, aftermath, present lines | Chronicle stream, filtered by person | UR44 log as a stream; PX49 |
+| CL39 | Their appointments you know of | Calendar | UR63 dependencies with the task |
+| CL40 | That something is weighted, before you commit | The action quote's cost line ("hard to change: ...") with the observable reason only | AR7 quote then revalidate; RIVALS reveal rule; never the anchor content |
+| CL41 | Book line status | The existing on-line, shifted, diverged chip (PLAN 17.4) | Overlay off by default |
+| CL42 | For Weibao or an agent: why someone is where they are, and which anchors or locks apply | Inspector (CL19), dev only, not in saves | Inspection only |
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL43 | **UI scope for wave 1:** L5 builds CL36 and CL38 only. CL37 waits on the resolver; CL39-CL41 on L4's beats being visible | ACCOUNT FOR NOW: L5 brief |
+| CL44 | **Scale:** a principal-heavy world can list dozens of people. Sort by recency of contact and presence tier; collapse crowd and role people into place rows | ACCOUNT FOR NOW: L5 |
+| CL45 | **UI for all subtle systems** follows the open "UI coverage for every system" item in USER_VISION; each system names its surface in its lane brief before code | ACCOUNT FOR NOW: lane briefs |
+
+### 9.5 Other considerations of this kind
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL46 | **Importance is earned, not assigned.** The protagonist's weight comes from CL21-CL23, not a halo flag; when the player becomes central (many beats depend on them), the same rules protect and burden the player | ACCOUNT FOR NOW: no halo field anywhere |
+| CL47 | **Divination and prophecy read weight.** In worlds with them (LOTM), divination is the player's route to learning that something is anchored, at the world's cost and reliability | LATER: LOTM divination pass after CL22 |
+| CL48 | **Butterfly radius.** Divergence spreads along relations and schedules (OD7); recompute only people within the touched footprint and their direct relations, settle the rest by outcome (CL6a). Keeps the simulation cheap and the replay stable | ACCOUNT FOR NOW: L4 recomputes only footprint people |
+| CL49 | **Weight is deterministic.** Weighted draws key on day and anchor id (C1), so reload does not reroll fate | ACCOUNT FOR NOW: L2 and L4 |
+| CL50 | **Two fates collide.** Two weighted anchors can contradict after a player change; the higher combined weight wins the draw and the other becomes `altered`, both shown in the inspector | LATER: with CL22 |
+
+Wave 1 change from this round: L2 and L3 reserve two optional fields on anchors, `weight` (default from
+CL21's dependency count) and `enforcer` (default none, PX21), and L3 records the time model as `U`. No
+lane locks a path or applies fate in wave 1.
