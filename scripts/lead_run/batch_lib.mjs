@@ -17,8 +17,10 @@ const here = dirname(fileURLToPath(import.meta.url));
 const DOCS = resolve(here, '../../docs/gm/dispatch/protagonist-life-2026-10-27');
 
 // ---- schema -------------------------------------------------------------------------------------------------
-// Strict-output rules: every object has additionalProperties:false; no min/max constraints; no recursion.
-const nul = t => ({anyOf: [{type: t}, {type: 'null'}]});
+// Strict-output rules, learned from live rejections: every object has additionalProperties:false; no min/max constraints; no recursion;
+// at most 24 optional properties and at most 16 union-typed properties (nullable or anyOf) per schema. So there are no unions: an absent
+// optional field is omitted and `normalize` restores the nulls the lint expects. Rarely used card fields (conflict, tone, open, hook,
+// estimateBy, voice, procedure, tech) are not in the batch schema; a later round can add them if a book needs them.
 const str = {type: 'string'}, num = {type: 'number'}, bool = {type: 'boolean'};
 const arr = items => ({type: 'array', items});
 const obj = (properties, required = []) => ({type: 'object', properties, required, additionalProperties: false});
@@ -27,7 +29,7 @@ const evidence = obj({label, locator: str, kind: str}, ['label', 'locator', 'kin
 
 const SCENE = obj({
     schema: {type: 'string', enum: ['lead-run/1.3']}, beat: str, order: num, pov: str,
-    date: obj({anchor: nul('string'), offsetDays: nul('number'), value: str, label, note: str}, ['value', 'label']),
+    date: obj({anchor: str, offsetDays: num, value: str, label, note: str}, ['value', 'label']),
     timeOfDay: obj({value: str, precision: {type: 'string', enum: ['day', 'band', 'hour', 'minute']}, evidence: str}, ['value', 'precision']),
     place: str,
     deps: arr(obj({id: str, kind: {type: 'string', enum: ['after', 'needs']}}, ['id', 'kind'])),
@@ -35,29 +37,26 @@ const SCENE = obj({
         gains: arr(str), requires: arr(str)}, ['verb', 'class', 'label'])),
     touched: arr(obj({kind: str, id: str, status: {type: 'string', enum: ['present', 'partial', 'missing']}}, ['kind', 'id', 'status'])),
     present: arr(str),
-    knowledge: arr(obj({fact: str, change: {type: 'string', enum: ['gained', 'lost']}, from: str, locator: str}, ['fact', 'change', 'locator'])),
+    knowledge: arr(obj({fact: str, change: {type: 'string', enum: ['gained', 'lost']}, from: str, locator: str}, ['fact', 'change', 'from', 'locator'])),
     motives: arr(obj({tag: str, locator: str}, ['tag', 'locator'])),
     choices: arr(obj({taken: str, options: arr(str), label, locator: str}, ['taken', 'options', 'label', 'locator'])),
     options: arr(obj({action: str, class: str, needs: arr(str), taken: bool, label, locator: str}, ['action', 'class', 'needs', 'taken', 'label', 'locator'])),
-    outcomes: arr(obj({fact: str, value: {anyOf: [{type: 'string'}, {type: 'number'}, {type: 'boolean'}]},
-        class: {type: 'string', enum: ['carried', 'changed', 'blocked']}}, ['fact', 'value', 'class'])),
+    outcomes: arr(obj({fact: str, value: str, class: {type: 'string', enum: ['carried', 'changed', 'blocked']}}, ['fact', 'value', 'class'])),
     anchors: arr(obj({fact: str, value: num, unit: str, scope: {type: 'string', enum: ['lead', 'household']}, locator: str, approx: bool},
         ['fact', 'value', 'unit', 'scope', 'locator'])),
     weight: {type: 'string', enum: ['great', 'routine']},
-    footprint: {anyOf: [{type: 'null'}, obj({places: arr(str), window: obj({anchor: nul('string'), fromOffsetDays: nul('number'), toOffsetDays: nul('number')}),
-        hazards: arr(str), roles: arr(str)}, ['places', 'window'])]},
-    conflict: obj({sides: arr(str), stakes: str, means: str, terrain: str, outcome: str, unseen: str}),
-    tone: str, open: arr(str), hook: bool, sealed: arr(str), evidence: arr(evidence), mechanism: nul('string'),
+    footprint: obj({places: arr(str), window: obj({anchor: str, fromOffsetDays: num, toOffsetDays: num}), hazards: arr(str), roles: arr(str)}, ['places', 'window']),
+    sealed: arr(str), evidence: arr(evidence), mechanism: str,
 }, ['schema', 'beat', 'order', 'pov', 'date', 'timeOfDay', 'place', 'deps', 'steps', 'touched', 'present', 'knowledge', 'motives',
-    'choices', 'options', 'outcomes', 'anchors', 'weight', 'footprint', 'sealed', 'evidence', 'mechanism']);
+    'choices', 'options', 'outcomes', 'anchors', 'weight', 'sealed', 'evidence']);
 
 const CENSUS = obj({
     schema: {type: 'string', enum: ['census/1.3']}, id: str, label: str, zh: str,
     nameSource: {type: 'string', enum: ['repo', 'wiki', 'pinyin-unconfirmed']}, kind: str, rung: {type: 'string', enum: ['M0', 'M1']},
     whereabouts: arr(obj({place: str, era: str, status: {type: 'string', enum: ['stated', 'claimed', 'inferred']}, locator: str},
         ['place', 'era', 'status', 'locator'])),
-    firstMention: str, firstVolume: nul('string'), touchedByLead: bool, aliases: arr(str), claimant: str,
-    amount: obj({value: num, unit: str, per: str, cap: num}), estimateBy: str, voice: str, procedure: str, tech: str, note: str,
+    firstMention: str, touchedByLead: bool, aliases: arr(str), claimant: str,
+    amount: obj({value: num, unit: str, per: str, cap: num}, ['value', 'unit']), note: str,
 }, ['schema', 'id', 'label', 'zh', 'nameSource', 'kind', 'rung', 'whereabouts', 'firstMention', 'touchedByLead', 'aliases', 'claimant', 'note']);
 
 const FILL = obj({
@@ -65,6 +64,19 @@ const FILL = obj({
     status: {type: 'string', enum: ['authored-proposal']}, layer: {type: 'string', enum: ['implied', 'period', 'invented']},
     basis: arr(str), respects: arr(str), replaceableBy: str, confidence: {type: 'string', enum: ['high', 'medium', 'low']},
 }, ['schema', 'id', 'for', 'kind', 'what', 'status', 'layer', 'basis', 'respects', 'replaceableBy', 'confidence']);
+
+/** Restore the nulls and types the lint expects for fields the schema left optional. */
+export function normalize(rows) {
+    const out = {};
+    if (rows.scenes) out.scenes = rows.scenes.map(r => {
+        const x = {...r, date: {anchor: null, offsetDays: null, ...r.date}, footprint: r.footprint ?? null, mechanism: r.mechanism ?? null};
+        x.outcomes = (r.outcomes || []).map(o => ({...o, value: o.value === 'true' ? true : o.value === 'false' ? false : o.value}));
+        return x;
+    });
+    if (rows.census) out.census = rows.census.map(r => ({firstVolume: null, ...r}));
+    if (rows.fills) out.fills = rows.fills;
+    return out;
+}
 
 /** Output schema per pass: 'census' (pass 1), 'scenes' (pass 2, scenes and fills), 'full' (both in one call). */
 export function shardSchema(pass) {
@@ -85,7 +97,7 @@ export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_
     return [
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
-        'Rules: labels are exactly S, I or U; locators are `zh 第N章 pM` for a paragraph inside the shard; copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
+        'Rules: labels are exactly S, I or U; locators are `zh 第N章 pM` for a paragraph inside the shard; copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
         `World id prefix for ids: ${world}. Beat ids are \`lr.${world}.main.NNNN\` counting up from the base given in the user message.`,
         '# Schema card\n\n' + readFileSync(cardPath, 'utf8'),
     ].join('\n\n');
@@ -108,7 +120,8 @@ export function buildRequest({customId, prefix, base, shardText, glossary, pass,
     const meta = `Shard ${prefix}. Beat ids start at lr.${world}.main.${base}.\n\n# Known names in this shard (reuse these ids and labels)\n\n${glossaryTable(hits)}\n\n# Candidates found by script\n\n${candidateTable(cands)}\n\n# Shard text\n`;
     const params = {
         model, max_tokens: maxTokens,
-        system: [{type: 'text', text: system, cache_control: {type: 'ephemeral'}}],
+        // Prompt mode (no strict format): the schema travels in the stable system text and the reply is parsed and linted in code.
+        system: [{type: 'text', text: schemaMode === 'format' ? system : `${system}\n\n# Output\n\nReply with only one JSON object (no code fence, no commentary) that matches this JSON schema:\n${JSON.stringify(shardSchema(pass))}`, cache_control: {type: 'ephemeral', ttl: '1h'}}],
         messages: [{role: 'user', content: [{type: 'text', text: meta}, {type: 'text', text: shardText}]}],
         output_config: schemaMode === 'format' ? {effort, format: {type: 'json_schema', schema: shardSchema(pass)}} : {effort},
     };
@@ -187,7 +200,7 @@ export function parseMessage(message) {
     if (message.stop_reason === 'max_tokens') return {error: 'max_tokens'};
     if (message.stop_reason === 'refusal') return {error: 'refusal'};
     const text = (message.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
-    try { return {rows: JSON.parse(text)}; } catch { return {error: 'json-parse'}; }
+    try { return {rows: normalize(JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/g, '')))}; } catch { return {error: 'json-parse'}; }
 }
 
 export function usageUsd(u = {}) {

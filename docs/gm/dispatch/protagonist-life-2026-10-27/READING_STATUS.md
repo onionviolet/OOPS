@@ -13,7 +13,7 @@ Updated after each wave. Plan: [VOLUME1_READING_PLAN](VOLUME1_READING_PLAN.md). 
 | 4 | 115-144 | 2 of 10 (8 prepared) | 0 / 2 / 0 | 331,713 (165,900 per shard) | | **Paused by plan:** handed to a cheaper coordinator ([handoff](READING_HANDOFF.md)); protocol v3 A/B first |
 | 5-7 | 145-213 | 0 of 23 | | | | Waiting |
 
-**2026-10-27, late: agent reading is paused; moving to the Message Batches API.** The remaining 31 shards (chapters 121-213) are prepared as batch requests (dry run only, about $0.43 for both passes); nothing is submitted until Weibao says go. Plan and runner: [batch reading campaign](../batch-reading-2026-10-27/PLAN.md). The v3 headless `claude -p` design in the handoff is superseded by the batch route unless the A/B fails.
+**2026-10-27, late: agent reading is paused; moving to the Message Batches API.** The remaining 31 shards (chapters 121-213) are prepared as batch requests (dry run only, about $0.43 for both passes); nothing is submitted until Weibao says go. Plan and runner: [batch reading campaign](../batch-reading-2026-10-27/PLAN.md). The v3 headless `claude -p` design in the handoff is superseded by the batch route unless the A/B fails. **A/B so far (w3s33):** census pass B at $0.0074 with recall 0.778 (gate 0.9, not met); single-call shape C, rejected. Switch not yet decided.
 
 **Why wave 3 cost more:** from mid-wave 2 the reader prompt requires every named entity, not only
 lead-relevant ones (one wave-2 reader had returned 28 census rows for three chapters). Census

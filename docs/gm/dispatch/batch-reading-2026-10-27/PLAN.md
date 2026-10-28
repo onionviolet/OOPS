@@ -167,6 +167,30 @@ About "DSH's key": I did not look for, read or use any other tool's key. If DSH 
 
 Verification (2026-10-27): `node --test tests/lead_run_batch.test.js` 12 pass (mocked client, includes a census-then-scenes collect, the graded-only glossary, repair submit and the SDK surface of the pinned 1.3.0); full `npm test` 3579 pass after the final runner edits; `check:arch` and `check:rules` pass. `npm run build` was not run: no `src` file changed. No live call was made and no key was read. Implemented and mock-tested, **unverified against the real API**.
 
+## 6a. API rules found (live rejections plus the docs, 2026-10-27)
+
+Sources: [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs), [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing), [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) [S].
+
+| Rule | Consequence here |
+| --- | --- |
+| Strict schema: at most 24 optional properties and 16 union-typed properties per request; recursive schemas, numeric and string constraints unsupported; plus undocumented grammar-size limits (each optional property roughly doubles part of the grammar). | Three live rejections: 38 optionals, then 41 unions, then "compiled grammar too large" on the combined scenes+census+fills schema. The census-only schema compiled and ran. |
+| Docs' simplification order: make fields required, flatten nesting, split work across requests. | The two-pass shape (census, then scenes and fills) fits the limit; the combined single call uses `schemaMode: "prompt"` instead. |
+| A batch is capped at 100,000 requests or 256 MB; most finish within 1 hour; expire at 24 hours; results kept 29 days; requests that expire are not billed. | One batch per pass per book fits (largest book: 620 requests). |
+| **Batches can go slightly over the workspace spend limit** (high concurrency). | The Console limit is a soft stop for batches. Keep `--max-usd` on every submit and size each batch to its cap; do not rely on the limit alone. |
+| Batch discount stacks with caching; the docs advise the 1-hour cache for shared context because a batch can outlast 5 minutes. Cache reads cost 0.1x input; 1-hour writes 2x; Haiku 5.5 minimum cacheable prefix is 512 tokens. | The system prefix now uses `ttl: "1h"` (about 3,500 tokens, a one-time $0.0004 write per batch). First live census batch already showed 2,906 cache-read tokens with the 5-minute default. |
+| Haiku 5.5 batch price: $0.05 input / $0.25 output per million (up to 100K-token prompts); over 100K it doubles. | Matches the estimate basis; keep prompts under 100K. |
+| `max_tokens: 0` is not allowed in a batch. | Not used. |
+| Batches are scoped to a Console workspace. | Use a dedicated workspace for this campaign. |
+
+**First live results (2026-10-27/28, $0.0129 spent in all, six requests, three rejected at $0):**
+
+| Batch | Shape | Result | Cost |
+| --- | --- | --- | --- |
+| B `ab-w3s33-census` | Pass 1, strict schema | Succeeded: grade B, 119 census rows (agent run 126), name accuracy 1.0, **recall 0.778** (gate 0.9), 20 names the agent run lacked; 18,685 input (2,906 cache read), 25,984 output tokens | $0.0074 |
+| A `ab-w3s33-full` | Single call, prompt-mode schema | Succeeded but **grade C**: only 35 census rows (recall 0.21), 5 scenes with **0 options and 0 choices** (agent run: 7 options), three lint issues (Chinese text copied into a `place` field and one `whereabouts`; one name off its locator); 16,997 output tokens | $0.0055 |
+
+**Conclusion:** the single combined call is rejected: with scenes to write the model spends its output on scenes and drops the census and the option rows. The two-pass shape stands (census alone gets 78% recall at $0.007 a shard). The switch rule is **not yet met**: recall 0.778 is under 0.9. Next, in order: (1) look at the 28 names pass 1 missed (kinds and why) and try a second "missed names" census pass; (2) a strict-schema scenes-and-fills batch for the same shard (new label, needs Weibao's go) to test option and choice recall; (3) only then decide whether to switch. Dollars are not the issue: one shard is under a cent, so a second pass or a Sonnet re-read is affordable.
+
 ## 7. Risks and open points
 
 | Code | Item |

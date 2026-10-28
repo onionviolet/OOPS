@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync, writeFileSync, readFileSync, existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {shardSchema, buildRequest, systemText, estimateCost, makeClient, parseMessage, collect, repairRequest, mergeRepair, requestsFromPlan} from '../scripts/lead_run/batch_lib.mjs';
+import {normalize, shardSchema, buildRequest, systemText, estimateCost, makeClient, parseMessage, collect, repairRequest, mergeRepair, requestsFromPlan} from '../scripts/lead_run/batch_lib.mjs';
 import {submit} from '../scripts/lead_run/batch_submit.mjs';
 import {buildGlossary} from '../scripts/lead_run/shard_tools.mjs';
 
@@ -40,7 +40,9 @@ test('request keeps a stable cached system prefix, the format schema and no samp
     assert.equal(a.params.output_config.format.type, 'json_schema');
     assert.equal(a._hits, 1);
     assert.ok(a.params.messages[0].content[0].text.includes('test.person.john'));
-    assert.equal(buildRequest({customId: 'c', prefix: 'c', base: '1', shardText: TEXT, pass: 'full', schemaMode: 'prompt'}).params.output_config.format, undefined);
+    const pm = buildRequest({customId: 'c', prefix: 'c', base: '1', shardText: TEXT, pass: 'full', schemaMode: 'prompt'});
+    assert.equal(pm.params.output_config.format, undefined);
+    assert.match(pm.params.system[0].text, /JSON schema/);
     assert.match(systemText('census', {world: 'test'}), /PASS 1/);
 });
 
@@ -155,4 +157,25 @@ test('the pinned SDK exposes the batch surface the runner calls', async () => {
     const {default: Anthropic} = await import('@anthropic-ai/sdk');
     const c = new Anthropic({apiKey: 'sk-test-not-real', authToken: null, baseURL: 'https://api.anthropic.com'});
     for (const m of ['create', 'retrieve', 'results']) assert.equal(typeof c.messages.batches[m], 'function', m);
+});
+
+test('schemas stay inside the API caps (24 optional properties, 16 unions) and normalize restores nulls', () => {
+    for (const pass of ['census', 'scenes', 'full']) {
+        let optional = 0, unions = 0;
+        const walk = n => {
+            if (n && typeof n === 'object') {
+                if (n.type === 'object') optional += Object.keys(n.properties).filter(k => !n.required.includes(k)).length;
+                if (n.anyOf || Array.isArray(n.type)) unions++;
+                Object.values(n).forEach(walk);
+            }
+        };
+        walk(shardSchema(pass));
+        assert.ok(optional <= 24, `${pass} optional ${optional}`);
+        assert.ok(unions <= 16, `${pass} unions ${unions}`);
+    }
+    const n = normalize({scenes: [{beat: 'x', date: {value: 'u', label: 'U'}, outcomes: [{fact: 'f', value: 'true', class: 'carried'}]}], census: [{id: 'c'}]});
+    assert.deepEqual(n.scenes[0].date, {anchor: null, offsetDays: null, value: 'u', label: 'U'});
+    assert.equal(n.scenes[0].footprint, null);
+    assert.equal(n.scenes[0].outcomes[0].value, true);
+    assert.equal(n.census[0].firstVolume, null);
 });
