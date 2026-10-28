@@ -1012,3 +1012,64 @@ the private pack (PX18 accepted with this answer); CL226 is answered.
 | CL244 | **S1 extended**: the seat filter also reads perspective tags (CL237) | S1 lane | A be-seat test life shows no `crossing` or `other-seat` control |
 | CL245 | **Be seat lane (B1)** after S1 and the inventory: the private-pack "be the lead" start, his body, purse, memories and duties as the player life, his knowledge record for naming (CL238), the lead-perspective start text (CL241); the seven seat-only gaps become reachable | Sol, medium | Fresh be life at 1920×1080: screenshots of every top-level menu show only in-world and system items; the L5r replay's seat-only steps rescored |
 | CL246 | **Ask Weibao later, not now**: which meta powers, if any, an outsider-mind premise keeps in the be seat (CL239) | When B1 lands | Recorded answer |
+
+## 26. Round 18: plain words, the opening, time jumps, faithful versus open, determinism (2026-10-28)
+
+Weibao asked: is the work now "implementing the protagonist's life"; is "private" in "private pack"
+extra and open to misreading; does the requirement mean starting from the beginning as the protagonist
+with nothing else existing; what about flashbacks and flash-forwards; is it best to implement the lead as
+nothing but themselves or to open more options; will the cast's own lives come later; are choices and
+actions deterministic. Measured 2026-10-28: the LOTM slice merge holds 429 scenes (60 from another
+point of view, 20 with dream evidence, 22 with time-shift cues); the MoL merge holds 780 (66 other
+point of view, 8 time-shift cues).
+
+### 26.1 Plain words (proposed)
+
+| Code | Default |
+| --- | --- |
+| CL247 | **What we are building:** the protagonist's life, and the lives of everyone it touches, as playable game state. Today two seats use it: "beside the lead" (built, at the floor) and "be the lead" (next, B1). The work is one thing with two ways in, not two projects |
+| CL248 | **"Private pack" means "local book pack".** It is the folder on this machine that holds the book's own people, places and text, kept out of the public repository (AD1). The player never sees the word; docs from here use "local book pack (not published)" on first mention and "book pack" after. The folder name `private_packs/` stays (renaming it would touch the loader and the rules for no gain) |
+
+### 26.2 The opening and what exists
+
+| Code | Default, dial and reason |
+| --- | --- |
+| CL249 | **The be seat starts where the book starts** (the first lead scene, chapter 1), with the lead's state at that moment: body, purse, home, family, what he knows and remembers. Dial: later chapters or arcs as start points, each a declared start (WER) |
+| CL250 | **Everything else exists, at its rung.** The world is not only the lead's touched set: the cast lives on its schedules, the places exist, the rest of Tingen exists as the existing pack plus M1 entries, and people the book never located stay M0 with the question kept (WA22). What the book never shows is filled by mechanism and labelled (CL5) |
+| CL251 | **Before the start is history, not a blank.** Anything the book states happened before chapter 1 (the lead's past, the family's history, earlier events) becomes dated records: memories, relations, knowledge, possessions, debts. The player starts with them, as the lead did |
+
+### 26.3 Flashbacks, flash-forwards and other viewpoints
+
+| Code | Default, dial and reason |
+| --- | --- |
+| CL252 | **Scenes are placed by story time, not page order.** A flashback is a scene dated before where it appears; the timeline uses its date, so it lands in history (CL251). The merge already keeps both the locator (page order) and the date block; the binding step (L4a's) must order by date where a date is known and mark flashbacks as `history` |
+| CL253 | **Flashbacks become memories, playable on request.** Default: a flashback writes the memory and its facts into the lead's record at the start. Dial: a "remember" action replays it as a read-only or playable memory scene (no change to the present unless the world's mechanism allows it) |
+| CL254 | **Flash-forwards are knowledge with uncertainty.** A vision, prophecy or dream of the future is a knowledge entry with its source and confidence, not a scheduled event; the future it shows stays a forward anchor with its weight (CL21-CL23) |
+| CL255 | **Other viewpoints are other people's beats.** The 60 LOTM and 66 MoL scenes told from someone else's view are beats in those people's timelines (already how L3 and L4b treat them); the lead learns of them only through his own routes |
+| CL256 | **Dreams are a place with rules.** The 20 LOTM scenes with dream evidence happen in a dream realm whose rules come from the world (CL232 frame); L4a already keeps dream beats from moving the body |
+
+### 26.4 Faithful versus open
+
+| Code | Default, dial and reason |
+| --- | --- |
+| CL257 | **Faithful by default, open by mechanism.** The lead's life reproduces the book when the player makes the book's choices; every other choice the mechanisms allow stays possible (WA28, AD38), with consequences from the same rules. Not a choice between the two: fidelity is what the replay checks, openness is what the mechanisms give |
+| CL258 | **Build each capability for any actor and any choice** (CL225), so the options the book did not take need no extra work beyond their nouns |
+| CL259 | **The cast's own lives are now and later.** Now: schedules, places, settled beats with what they learned (L4b, G1). Next: the interaction loop (section 10.2: reactions, intentions, gossip) and trends (CL29-CL35) so they act beyond the book's beats. Later: their own choices when the player changes their path |
+
+### 26.5 Determinism
+
+| Code | Default, dial and reason |
+| --- | --- |
+| CL260 | **Same life, same actions, same result.** Every draw is keyed by world seed, day and subject (C1, CL49); reload never rerolls. Reason: replays, the null-player run and bug reports all depend on it |
+| CL261 | **A new life may differ.** The world seed is per life; two new lives can differ in small things (a vendor's mood, the weather) while canon anchors hold by weight (CL21). Dial: a fixed seed for a faithful replay |
+| CL262 | **NPC choices come from state, with a seeded roll for close calls** (WA42): the lead as an NPC follows the book while his state still matches it; once the player has changed his state, the same resolver picks by his needs and motives, so divergence follows causes |
+| CL263 | **The player's choices are free and recorded.** Divergence from the book is labelled (WA15), never blocked; the replay's fidelity score measures how close a run stayed, not whether it was allowed |
+
+### 26.6 Implementation considerations
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL264 | B1's start state needs the pre-start history records (CL251) before the be seat is honest | ACCOUNT FOR NOW: B1 brief includes a history pass over the slice's flashback and backstory rows |
+| CL265 | The day binding orders by source order today; with flashbacks it must order by date first | LATER/DELEGATE: a small fix in the binding step, Luna low; done when the slice's flashback scenes are tagged `history` and excluded from day binding |
+| CL266 | The be seat makes the lead's NPC policy and the player's seat share one body; switching who drives it must be clean (CL227) | ACCOUNT FOR NOW: B1 |
+| CL267 | "Book pack" wording in new docs and briefs (CL248) | ACCOUNT FOR NOW |
