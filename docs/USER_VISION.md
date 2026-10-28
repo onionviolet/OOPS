@@ -6776,3 +6776,8 @@ Recorded: reading stops after the two running wave-4 shards; a fresh coordinator
 
 Weibao's words: "send new chat to plan a batch api send to cover the most important of our books to consider comprehensively? Can you use DSH's key for it? Or give me a prompt to put the key locally? More to consider?"
 Recorded: a planning chat produced the [campaign plan](gm/dispatch/batch-reading-2026-10-27/PLAN.md) (scored books, passes, estimates, A/B) and a batch runner. It is a proposal: he picks the books and says go per batch; the key stays in his Keychain and is loaded only into the child process. Agent reading of LOTM volume 1 is paused for this route.
+
+### Readers record everything, gaps come after (2026-10-28)
+
+Weibao's words: "It can record things, everytihing, but then we can consider gaps ourselves after that for implementation into the game to create a full playthough of a world?"
+Recorded: batch readers record everything a shard states or shows and invent nothing (no fills, no alternatives the text lacks); a fact that fits no field is kept in an `other` row. Gap finding, alternatives and authored fills happen afterwards, from the merged rows, toward a full playthrough of the world. The credit expires Nov 1 (his correction of Nov 10), and he wants it used on the most useful reading before then. Owners: [READINESS_AND_SCOPE](gm/dispatch/batch-reading-2026-10-27/READINESS_AND_SCOPE.md) section 11, [NOV1_SCHEDULE](gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md).

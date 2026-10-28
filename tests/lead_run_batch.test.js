@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync, writeFileSync, readFileSync, existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {normalize, shardSchema, buildRequest, systemText, estimateCost, makeClient, parseMessage, collect, repairRequest, mergeRepair, requestsFromPlan} from '../scripts/lead_run/batch_lib.mjs';
+import {normalize, shardSchema, buildRequest, systemText, estimateCost, makeClient, parseMessage, collect, repairRequest, mergeRepair, requestsFromPlan, candidateCoverage} from '../scripts/lead_run/batch_lib.mjs';
 import {submit} from '../scripts/lead_run/batch_submit.mjs';
 import {buildGlossary} from '../scripts/lead_run/shard_tools.mjs';
 
@@ -220,11 +220,37 @@ test('rules, people and texture passes build prompt-mode requests, keep the stab
     }
     const {dir, plan} = fixture();
     const p = {...plan, pass: 'rules'};
-    const rule = {id: 'test.law.bread', name: 'Bread sale', kind: 'law', conditions: [], steps: [], inputs: [], costs: [], results: [], limits: [], consequences: [], who: [], label: 'S', locator: 'zh 第1章 p2'};
-    const bad = {...rule, id: 'test.law.x', label: 'Z', locator: 'zh 第9章 p9'};
-    const sum = await collect({client: mockClient([ok('z1-rules', {rules: [rule, bad]})]), batchId: 'b', plan: p, outDir: p.outDir, sleep: async () => {}, runTools: false});
+    const rule = {id: 'test.craft.bread', name: 'Bread baking', kind: 'craft', conditions: [], steps: [], products: [{item: 'test.item.bread', qty: 1, label: 'T', locator: 'zh 第1章 p2'}],
+        inputs: [{item: 'test.item.flour', qty: 2, unit: 'lb', role: 'main', label: 'S', locator: 'zh 第1章 p2'}], costs: [], results: [], limits: [], consequences: [], who: [], label: 'T', locator: 'zh 第1章 p2'};
+    const bad = {...rule, id: 'test.law.x', label: 'Z', locator: 'zh 第9章 p9', inputs: [{item: 'test.item.salt', role: 'main', label: 'Q', locator: 'zh 第1章 p1'}]};
+    const other = {what: 'Bakers rise before dawn.', about: ['test.item.bread'], label: 'I', locator: 'zh 第1章 p1'};
+    const sum = await collect({client: mockClient([ok('z1-rules', {rules: [rule, bad], other: [other]})]), batchId: 'b', plan: p, outDir: p.outDir, sleep: async () => {}, runTools: false});
     assert.equal(sum.shards[0].counts.rules, 2);
+    assert.equal(sum.shards[0].counts.other, 1);
     assert.deepEqual(sum.shards[0].issueCodes.sort(), ['label', 'locator']);
+    assert.equal(sum.shards[0].lintIssues, 3, 'a bad label inside an input row is caught too');
     assert.equal(sum.repair.length, 0);
     assert.equal(readFileSync(join(p.privateDir, 'z1_rules.jsonl'), 'utf8').trim().split('\n').length, 2);
+    assert.ok(existsSync(join(p.privateDir, 'z1_rules_other.jsonl')), 'other rows are written per pass');
+});
+
+test('extra passes record and never invent; census and scenes prefixes are unchanged by it', () => {
+    for (const pass of ['rules', 'people', 'texture']) {
+        const t = systemText(pass, {world: 'test'});
+        assert.match(t, /Do not invent/);
+        assert.match(t, /T, S, I or U/);
+        assert.ok(shardSchema(pass).required.includes('other'));
+    }
+    for (const pass of ['census', 'scenes']) assert.doesNotMatch(systemText(pass, {world: 'test'}), /Do not invent|T, S, I or U/);
+    const inputs = shardSchema('rules').properties.rules.items.properties.inputs.items;
+    assert.deepEqual(inputs.required, ['item', 'role', 'label', 'locator']);
+    assert.ok(inputs.properties.qty && inputs.properties.unit);
+});
+
+test('candidate coverage counts script-found amounts no census row covers', () => {
+    const cands = [{kind: 'price', value: '九便士', locator: 'zh 第1章 p2'}, {kind: 'time', value: '七点钟', locator: 'zh 第1章 p1'}, {kind: 'measure', value: '三公里', locator: 'zh 第1章 p9'}];
+    const c = candidateCoverage(cands, [{zh: '九便士', firstMention: 'zh 第1章 p2'}, {zh: '约翰', firstMention: 'zh 第1章 p1', whereabouts: []}]);
+    assert.equal(c.uncovered, 1);
+    assert.deepEqual(c.uncoveredLocators, ['zh 第1章 p9']);
+    assert.equal(candidateCoverage([], []).rate, null);
 });

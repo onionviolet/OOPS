@@ -85,20 +85,29 @@ export function normalize(rows) {
 
 // Passes 3-5 (own-style coverage, READINESS_AND_SCOPE C1-C3): rules, people, texture. Prompt mode only (too large for a strict grammar); rows are linted
 // for labels and locators in code. Ids reuse the known-names table; free text is the model's own words (no source quotes).
-const lab = {type: 'string', enum: ['S', 'I', 'U']};
-const RULE = obj({id: str, name: str, kind: {type: 'string', enum: ['rite', 'potion', 'ability', 'craft', 'law', 'custom', 'institution', 'other']},
-    conditions: arr(str), steps: arr(str), inputs: arr(str), costs: arr(str),
-    results: arr(obj({when: {type: 'string', enum: ['success', 'failure', 'partial']}, what: str}, ['when', 'what'])), limits: arr(str),
-    consequences: arr(obj({trigger: str, response: str, by: str}, ['trigger', 'response', 'by'])), who: arr(str), label: lab, locator: str},
-    ['id', 'name', 'kind', 'conditions', 'steps', 'inputs', 'costs', 'results', 'limits', 'consequences', 'who', 'label', 'locator']);
+// Readers record; they do not invent (Weibao, 2026-10-28: record everything, gaps are considered afterwards). Labels: T stated outright, S shown in action,
+// I implied, U unsettled. A fact that fits no field goes in `other` so the schema never drops it. Recipe rows follow the shared process envelope
+// (`defineProcess`: slots with item, qty, unit, role; minutes; product; ritual) so an implementer can build from rows instead of the book.
+const lab = {type: 'string', enum: ['T', 'S', 'I', 'U']};
+const AMOUNT = {qty: num, unit: str};
+const RULE = obj({id: str, name: str, kind: {type: 'string', enum: ['rite', 'potion', 'ability', 'craft', 'spell', 'law', 'custom', 'institution', 'other']}, worldKind: str,
+    conditions: arr(str), steps: arr(obj({what: str, minutes: num, label: lab, locator: str}, ['what', 'label', 'locator'])),
+    inputs: arr(obj({item: str, ...AMOUNT, role: {type: 'string', enum: ['main', 'auxiliary', 'tool', 'catalyst', 'fee', 'other']}, label: lab, locator: str}, ['item', 'role', 'label', 'locator'])),
+    products: arr(obj({item: str, ...AMOUNT, label: lab, locator: str}, ['item', 'label', 'locator'])), minutes: num, place: str,
+    costs: arr(obj({what: str, amount: num, unit: str, label: lab, locator: str}, ['what', 'label', 'locator'])),
+    ritual: obj({needed: bool, scale: str, steps: arr(str), label: lab, locator: str}, ['needed', 'label', 'locator']),
+    results: arr(obj({when: {type: 'string', enum: ['success', 'failure', 'partial']}, what: str, label: lab, locator: str}, ['when', 'what', 'label', 'locator'])), limits: arr(str),
+    consequences: arr(obj({trigger: str, response: str, by: str, label: lab, locator: str}, ['trigger', 'response', 'by', 'label', 'locator'])), who: arr(str), label: lab, locator: str},
+    ['id', 'name', 'kind', 'conditions', 'steps', 'inputs', 'products', 'costs', 'results', 'limits', 'consequences', 'who', 'label', 'locator']);
 const PERSON = obj({id: str, label: lab, locator: str,
-    routine: arr(obj({slot: str, place: str, days: str, label: lab, locator: str}, ['slot', 'place', 'days', 'label', 'locator'])),
+    routine: arr(obj({days: str, from: str, to: str, place: str, what: str, label: lab, locator: str}, ['days', 'place', 'label', 'locator'])),
     relations: arr(obj({with: str, kind: str, attitude: str, basis: str, label: lab, locator: str}, ['with', 'kind', 'attitude', 'basis', 'label', 'locator'])),
     knows: arr(obj({fact: str, since: str, label: lab, locator: str}, ['fact', 'since', 'label', 'locator'])),
     reacts: arr(obj({to: str, response: str, label: lab, locator: str}, ['to', 'response', 'label', 'locator'])),
     speech: arr(str), wants: arr(str),
     reveals: arr(obj({same_as: str, label: lab, locator: str}, ['same_as', 'label', 'locator']))},
     ['id', 'label', 'locator', 'routine', 'relations', 'knows', 'reacts', 'speech', 'wants', 'reveals']);
+const OTHER = obj({what: str, about: arr(str), label: lab, locator: str}, ['what', 'about', 'label', 'locator']);
 const PLACE = obj({id: str, within: str, hours: str, access: arr(str), crowd: str, label: lab, locator: str,
     affordances: arr(obj({class: str, what: str, needs: arr(str)}, ['class', 'what', 'needs'])),
     routes: arr(obj({to: str, minutes: num, mode: str}, ['to', 'minutes', 'mode']))},
@@ -107,9 +116,11 @@ const SERVICE = obj({place: str, what: str, price: str, hours: str, label: lab, 
 const NEWS = obj({date: str, what: str, scope: {type: 'string', enum: ['public', 'private']}, carriedBy: str, label: lab, locator: str}, ['date', 'what', 'scope', 'carriedBy', 'label', 'locator']);
 const CUSTOM = obj({what: str, applies: str, label: lab, locator: str}, ['what', 'applies', 'label', 'locator']);
 /** Output keys per extra pass. */
-export const EXTRA_PASSES = Object.freeze({rules: ['rules'], people: ['people'], texture: ['places', 'services', 'news', 'customs']});
-const EXTRA_SCHEMA = {rules: () => obj({rules: arr(RULE)}, ['rules']), people: () => obj({people: arr(PERSON)}, ['people']),
-    texture: () => obj({places: arr(PLACE), services: arr(SERVICE), news: arr(NEWS), customs: arr(CUSTOM)}, ['places', 'services', 'news', 'customs'])};
+export const EXTRA_PASSES = Object.freeze({rules: ['rules', 'other'], people: ['people', 'other'], texture: ['places', 'services', 'news', 'customs', 'other']});
+/** Output file stem for an extra-pass key: `other` rows are per pass (`rules_other`), so two passes never write one file. */
+export const extraFile = (pass, key) => key === 'other' ? `${pass}_other` : key;
+const EXTRA_SCHEMA = {rules: () => obj({rules: arr(RULE), other: arr(OTHER)}, ['rules', 'other']), people: () => obj({people: arr(PERSON), other: arr(OTHER)}, ['people', 'other']),
+    texture: () => obj({places: arr(PLACE), services: arr(SERVICE), news: arr(NEWS), customs: arr(CUSTOM), other: arr(OTHER)}, ['places', 'services', 'news', 'customs', 'other'])};
 
 /** Output schema per pass: 'census' (pass 1), 'scenes' (pass 2, scenes and fills), 'full' (both in one call). */
 export function shardSchema(pass) {
@@ -124,17 +135,21 @@ const PASS_TEXT = {
     census: 'PASS 1 (census). Return only the `census` array: every named entity and every distinct amount, time and measure in the shard.',
     scenes: 'PASS 2 (scenes). Return `scenes` and `fills`. Do not return census rows; reuse the ids in the known-names table for `present`, `touched`, `needs` and `whereabouts` references. A name missing from the table gets an id built from the schema card rules.',
     full: 'Return `scenes`, `census` and `fills` in one pass.',
-    rules: 'PASS 3 (rules). Return only `rules`: every rite, potion, ability, craft, law, custom or institution whose working the shard states or shows, as conditions, ordered steps, inputs, costs, success/failure/partial results, limits, and what the world does in response (`consequences`: trigger, response, by whom). Use the ids in the known-names table. Own words, no source quotes. Label `S` only for what the shard states; `I` for what it implies.',
-    people: 'PASS 4 (people). Return only `people`: for every named person or group the shard shows, daily routine slots (slot, place, days), relations with attitude and basis, what they know and since when, how they react to kinds of actions (`reacts`), speech habits and goals, and `reveals` when the shard shows two names are one person. Use the ids in the known-names table. Own words, no source quotes.',
-    texture: 'PASS 5 (texture). Return `places`, `services`, `news`, `customs`: for each place its containing place, opening hours, who may enter, crowding, what actions (affordances: an action class from the card, what, what it needs) and routes with minutes the shard states or shows; services with price ids and hours; dated public or private news and notices; customs and etiquette. Use the ids in the known-names table. State only what the shard shows; label `I` for implied values. Own words, no source quotes.',
+    rules: 'PASS 3 (rules). Return `rules` and `other`: every rite, potion, ability, spell, craft, law, custom or institution whose working the shard states or shows: conditions, ordered steps (minutes when given), each input as item id, quantity, unit and role (main, auxiliary, tool, catalyst, fee), products, place, total minutes, costs with amount and unit, whether a ritual is needed and its steps, success/failure/partial results, limits, and what the world does in response (`consequences`: trigger, response, by whom). `worldKind` is the book\'s own name for the kind. Use the ids in the known-names table.',
+    people: 'PASS 4 (people). Return `people` and `other`: for every named person or group the shard shows, routine slots (days, from and to as clock times or day parts, place id, what they do), relations with attitude and basis, what they know and since when, how they react to kinds of actions (`reacts`), speech habits and goals, and `reveals` when the shard shows two names are one person. Use the ids in the known-names table.',
+    texture: 'PASS 5 (texture). Return `places`, `services`, `news`, `customs` and `other`: for each place its containing place, opening hours, who may enter, crowding, what actions (affordances: an action class from the card, what, what it needs) and routes with minutes the shard states or shows; services with price ids and hours; dated public or private news and notices; customs and etiquette. Use the ids in the known-names table.',
 };
+
+// Shared by passes 3-5: record, never invent.
+const RECORD_TEXT = 'Record everything the shard states or shows for this pass, however small; completeness matters more than polish. Do not invent: no proposals, no fills, no alternatives the text does not give; gaps are handled later by the project. A fact that fits no field goes in `other` with the ids it is about. Labels: `T` stated outright, `S` shown in action, `I` implied, `U` unsettled. Every row and sub-row carries its own locator. Own words, no source quotes.';
 
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
 export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md')} = {}) {
     return [
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
-        'Rules: labels are exactly S, I or U; locators are `zh 第N章 pM` for a paragraph inside the shard; copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
+        ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
+        (EXTRA_SCHEMA[pass] ? 'Rules: labels are exactly T, S, I or U; ' : 'Rules: labels are exactly S, I or U; ') + 'locators are `zh 第N章 pM` for a paragraph inside the shard; copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
         `World id prefix for ids: ${world}. Beat ids are \`lr.${world}.main.NNNN\` counting up from the base given in the user message.`,
         '# Schema card\n\n' + readFileSync(cardPath, 'utf8'),
     ].join('\n\n');
@@ -310,6 +325,17 @@ export function mergeRepair(base, fixed) {
     return out;
 }
 
+/**
+ * Script-found amounts, times and measures (the candidate table every request already carries) that no census row covers, by value or locator.
+ * Haiku fails by omission; this makes the omission countable per shard without asking the model for a receipt.
+ */
+export function candidateCoverage(candidates, census) {
+    const locs = new Set(census.flatMap(r => [r.firstMention, ...(r.whereabouts || []).map(w => w.locator)]));
+    const zh = census.map(r => String(r.zh || '')).filter(Boolean);
+    const missed = candidates.filter(c => !locs.has(c.locator) && !zh.some(z => z.includes(c.value) || c.value.includes(z)));
+    return {candidates: candidates.length, uncovered: missed.length, rate: candidates.length ? Number((1 - missed.length / candidates.length).toFixed(3)) : null, uncoveredLocators: missed.slice(0, 20).map(c => c.locator)};
+}
+
 /** Labels and locators of an extra-pass row set: every `label` must be S, I or U and every `locator` a paragraph inside the shard. */
 export function lintExtra(rows, shardMap) {
     const issues = [];
@@ -317,7 +343,7 @@ export function lintExtra(rows, shardMap) {
         if (Array.isArray(n)) return n.forEach(x => walk(x, where));
         if (!n || typeof n !== 'object') return;
         const w = n.id || n.name || where;
-        if ('label' in n && !['S', 'I', 'U'].includes(n.label)) issues.push({code: 'label', where: w});
+        if ('label' in n && !['T', 'S', 'I', 'U'].includes(n.label)) issues.push({code: 'label', where: w});
         if (typeof n.locator === 'string') { const m = /^zh 第(\d+)章 p(\d+)$/.exec(n.locator); if (!m || !shardMap.has(`${m[1]}:${m[2]}`)) issues.push({code: 'locator', where: w}); }
         for (const v of Object.values(n)) walk(v, w);
     };
@@ -358,7 +384,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         if (EXTRA_PASSES[plan.pass]) {
             // Passes 3-5 write their own files; no migrate, no audit grade, no repair (a bad row set is re-read after the consumer probe).
             const keys = EXTRA_PASSES[plan.pass], issues = lintExtra(Object.fromEntries(keys.map(k => [k, rows[k] || []])), shardMap);
-            for (const k of keys) writeJsonl(join(plan.privateDir, `${s.prefix}_${k}.jsonl`), rows[k]);
+            for (const k of keys) writeJsonl(join(plan.privateDir, `${s.prefix}_${extraFile(plan.pass, k)}.jsonl`), rows[k]);
             summary.shards.push({id, status: 'ok', pass: plan.pass, counts: Object.fromEntries(keys.map(k => [k, (rows[k] || []).length])), lintIssues: issues.length, issueCodes: [...new Set(issues.map(i => i.code))]});
             continue;
         }
@@ -380,10 +406,11 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         const issues = lintAll({...cur, shardMap});
         const audit = auditShard({...cur, shardMap});
         const grade = audit.grade;
+        const coverage = plan.pass === 'scenes' ? null : candidateCoverage(extractCandidates(shardMap), cur.census);
         writeFileSync(join(plan.privateDir, `${p}m_header.json`), JSON.stringify({schema: 'shard-header/1.3', shard: p, readerModel: plan.model || MODEL, chapters: s.chapters || 'unknown',
             sourceHash: createHash('sha256').update(shardText).digest('hex').slice(0, 16), date: new Date().toISOString().slice(0, 10), lint: audit.lintOk ? 'pass' : 'fail', grade,
-            locatorValid: audit.locatorValid, nameAccuracy: Number(audit.nameAccuracy.toFixed(3)), spotChecked: 0, counts: audit.counts, route: 'batch', pass: plan.pass}, null, 1) + '\n');
-        summary.shards.push({id, status: 'ok', grade, lintIssues: issues.length, counts: audit.counts, nameAccuracy: Number(audit.nameAccuracy.toFixed(3))});
+            locatorValid: audit.locatorValid, nameAccuracy: Number(audit.nameAccuracy.toFixed(3)), spotChecked: 0, counts: audit.counts, route: 'batch', pass: plan.pass, effort: plan.effort, ...(coverage ? {candidateCoverage: coverage.rate} : {})}, null, 1) + '\n');
+        summary.shards.push({id, status: 'ok', grade, lintIssues: issues.length, counts: audit.counts, nameAccuracy: Number(audit.nameAccuracy.toFixed(3)), ...(coverage ? {coverage} : {})});
         if (grade === 'C' || issues.length) {
             const failing = failingRows({...cur, issues});
             if (!id.endsWith('-repair') && (failing.scenes.length || failing.census.length || failing.fills.length)) {

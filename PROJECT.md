@@ -1,3 +1,7 @@
+## Batched reading: record everything, gaps after, 2026-10-28
+
+Weibao: batch readers record everything the text states or shows and invent nothing; gaps, alternatives and fills are worked out afterwards from merged rows toward a full playthrough ([direction](docs/USER_VISION.md#readers-record-everything-gaps-come-after-2026-10-28)). The promo credit expires Nov 1; the [Nov 1 schedule](docs/gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md) spends it by value, each batch on his go with a cap.
+
 ## Three worlds: Proto23, YAIR and our variant, 2026-10-27
 
 Weibao: Proto23 code may be taken for a base Proto23 world, beside a YAIR world and a variant with our ideas ([direction](docs/USER_VISION.md#three-worlds-proto23-yair-and-our-variant-2026-10-27)). This supersedes the earlier no-copied-code default for Proto23; the licence gap and its mitigations are in [round 8](docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-8-three-worlds-proto23-yair-and-our-variant-2026-10-27). The current Village stays as the variant. Proposals only; no runtime change yet, and no push of Proto23-derived files without Weibao's yes.

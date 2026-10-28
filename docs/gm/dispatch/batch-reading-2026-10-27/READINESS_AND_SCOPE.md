@@ -208,3 +208,20 @@ Asked: how the requests (passes 1-5, K1-K8, the merge, packets) work for other b
   - **LOTM part-aware locators** (X2): sonnet, a few hours. Done when chapters 214 onward shard without locator collisions.
   - **Famous-book leakage check** (X6): folded into the fact-check lane.
 - **Order beyond volume 1, unchanged in value:** HP year 1 (smallest; tests the profile), MoL (tests `loop`), LOTM volume 2 onward (needs part locators; reuses the registry), then Shadow Slave (realms) and A Soldier's Life. Circle of Inevitability after its edition is settled. With four days left, only the profile lane plus HP year 1 and MoL are realistic before Nov 1. The rest runs on the monthly credit.
+
+## 11. Round 7: record everything, consider gaps after (2026-10-28)
+
+Weibao's direction ([record](../../../USER_VISION.md#readers-record-everything-gaps-come-after-2026-10-28)): readers record everything; the project considers gaps afterwards, for implementation toward a full playthrough. Applied to the runner the same day; mocked tests 28 pass (batch and merge files); nothing sent.
+
+| Change | Where | Effect |
+| --- | --- | --- |
+| Passes 3-5 get a shared **record, never invent** instruction: completeness over polish, no proposals, fills or alternatives the text lacks; anything that fits no field goes to `other` with its ids | `batch_lib.mjs` `RECORD_TEXT`, schemas | Nothing is lost to the schema; invented rows stop entering the record |
+| **Labels T, S, I, U** in passes 3-5 (stated, shown, implied, unsettled), every sub-row with its own locator (K7) | schemas, `lintExtra` | An implementer copies provenance per field |
+| **Rules in recipe shape** (K1): inputs as item, qty, unit and role (main, auxiliary, tool, catalyst, fee); products; minutes; place; costs with amount and unit; ritual needed, scale and steps; `worldKind`; `spell` kind added | `RULE` schema | Rows map to the shared process envelope (`defineProcess`) for any world, not only LOTM (X4) |
+| **People routines as days, from, to, place, what** (K8) | `PERSON` schema | "Where is X at nine" has a time to answer from |
+| **Candidate coverage** (K2, by script, not by the model): the amounts, times and measures the script finds in each shard, checked against the census; rate in the collect summary and shard header | `candidateCoverage` in collect | Omission becomes a number per shard, free |
+| `other` rows written per pass (`<prefix>_rules_other.jsonl` …) and loaded by the merge | collect, `merge_shards.mjs` | Catch-all facts reach the merged record |
+
+Dropped from the readers: K3 (asking Haiku for two alternatives per choice). Alternatives are gap work, done afterwards from the rows (options-and-needs lane), not recorded as if the text gave them. Census and scenes are unchanged: they were tuned live and the pilot tests them as they are; scenes `fills` stay labelled `authored-proposal` and are treated as replaceable, and dropping them from the scenes pass is a pilot-round decision, not made blind.
+
+Gap work afterwards (LATER, owners as in sections 9-10): the merge, then the packet builder (N5) lists unknowns per topic (N8), the gap probe (Q1-Q20) names missing fields, and alternatives, fills and counterfactuals are authored from the record, each labelled as authored.

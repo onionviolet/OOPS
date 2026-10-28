@@ -21,7 +21,7 @@ const ID_LIKE = /^[a-z]+(\.[a-z0-9-]+){2,}$/;
 const ROLE_WORDS = new Set([...RELATIONAL, '警官', '督察', '警察']);
 const roleWord = a => ROLE_WORDS.has(String(a).replace(/\s*\([^)]*\)\s*$/, '').trim());
 const PROPER_KINDS = new Set(['person', 'place', 'organization', 'deity']);
-export const EXTRA_KINDS = ['rules', 'people', 'places', 'services', 'news', 'customs'];
+export const EXTRA_KINDS = ['rules', 'people', 'places', 'services', 'news', 'customs', 'rules_other', 'people_other', 'texture_other'];
 const ABSOLUTE_DATE = /^(\d{4})(?:-(\d\d))?(?:-(\d\d))?$/;
 
 /** Order key for locators `zh 第N章 pM` (or `B1:PDF-pN` style falls back to string order). */

@@ -15,7 +15,7 @@ Proposal from the Opus reviewer. Weibao corrected the promo credit expiry to **N
   - `--match` takes a prefix regex, so the volume 1 batch waves (`b4s42m`…) merge while the `w3s33` A/B variants stay out. Extra-pass rows (`<raw>_rules/_people/_places/_services/_news/_customs.jsonl`) load and are redirected too. Late identity relabel uses people-pass `reveals` (F3).
 - **Plans** from `scripts/lead_run/make_wave_plans.mjs`: 39 plan files, all dry-run [S]. Settings are census at medium and strict; scenes, rules, people and texture at high in prompt mode. The volume 1 remainder runs in 3 waves of 9 to 11 shards. Passes 3-5 cover all 72 volume 1 shards in 8 waves of 9.
 
-**Precondition found 2026-10-28** ([READINESS_AND_SCOPE](READINESS_AND_SCOPE.md) section 9): the rules, people and texture schemas do not match runtime record shapes (a rules row cannot become a `defineProcess` row). Apply K1, K2, K3, K7 and K8 before their waves run. Go 1 can then be split: the pilot census labels first, and the extra-pass and Sonnet labels after the schema change and a fresh dry run.
+**Precondition met 2026-10-28** ([READINESS_AND_SCOPE](READINESS_AND_SCOPE.md) sections 9 and 11): passes 3-5 now record everything and invent nothing, rules rows follow the shared process envelope, routines carry times, and collect reports candidate coverage. K3 moved to gap work afterwards. Plans re-dry-run; every cap below still bounds its batch. Go 1 stands as one phrase.
 
 ## 2. What "most useful" means here
 
