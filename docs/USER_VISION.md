@@ -6802,3 +6802,8 @@ Recorded: the default is accepted for now, which accepts PX18's WER11 rewording 
 
 Weibao's words: "be the lead should be the main part right? Since beside the lead is missing all the features until we first implement being the lead and then with that every system that the world needs to be full>?"
 Recorded: the "be the lead" playthrough is the main line. Systems are built by playing the lead's life through the game, and every system the world needs to be full comes from that. "Beside the lead" and the other seats follow, built from the same systems and opened per seat later (round 15). This replaces round 15's CL231 order (world-general capabilities before the be seat). Owner: [cast-lives plan round 19](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).
+
+### Lead-first for every world implemented from readings (2026-10-28)
+
+Weibao's words: "adjust accordingly and set this to be the goal of now and future world implementations from readings? How can we optimize and be more efficient about the implementation progress?"
+Recorded: the "be the lead" main line is the standing goal for this and every future world implemented from the readings, as [AD44](RULES_INDEX.md). The [batch reading workflow](research/BATCH_READING_WORKFLOW.md) points its "merge and use" step at it. Efficiency proposals: [cast-lives plan round 20](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).

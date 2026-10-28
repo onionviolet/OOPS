@@ -1088,3 +1088,29 @@ beats and the book pack. From here the lead's own playthrough drives what gets b
 | CL269 | **The fidelity score is measured in the be seat** (CL230): the share of the lead's steps reproducible through his own screens, chapters 1-3 first, then the slice, then the volume | ACCOUNT FOR NOW |
 | CL270 | **Beside stays working, not extended.** It keeps its floor (regression checks and the null-player run use it) but gets new features only through the seat profile when Weibao opens them | ACCOUNT FOR NOW |
 | CL271 | **"Full world" means what the lead's life reaches, then outward** (PLAN step 6): his places, people, work, prices, laws and powers first; districts and people he never touches come after, in the layers the plan already names | ACCOUNT FOR NOW |
+
+## 28. Round 20: lead-first for every world (AD44), and a faster implementation loop (2026-10-28)
+
+Weibao: "adjust accordingly and set this to be the goal of now and future world implementations from
+readings? How can we optimize and be more efficient about the implementation progress?" Done: AD44 in
+the [rules index](../../../RULES_INDEX.md) (the router's "new world or book adaptation" row cites it first),
+AGENTS.md's AD range, USER_VISION, and the reading workflow's "merge and use" step.
+
+Baseline this session: about fourteen Codex lanes; Codex usage rose from 3% to 10% of its window; most
+lost time came from briefs (wrong data assumption, missing file grant, wrong publication class) and from
+review catches; fidelity in chapters 1-3 is 0 of 18 steps, the number every change should move.
+
+### 28.1 Efficiency, ranked (proposals)
+
+| Code | Change | Model, effort | Done check |
+| --- | --- | --- | --- |
+| CL272 | **One command per book to "records-ready"**: `scripts/lead_run/world_lead_pipeline.mjs <book> --from <loc> --to <loc>` chains merge, crosswalk, worksheets and the fitness report (all exist with a world option), so a new book reaches the L3 stage without coordinator steps | Luna, medium | MoL and LOTM reproduce today's outputs byte-identically through it |
+| CL273 | **Replay-driven queue**: the be replay's gap ledger is the only backlog; a script turns its top rows into brief stubs from `LANE_BRIEF_TEMPLATE.md` (probe counts, likely files, candidate second cases from `cite_paragraphs --topic`), so the coordinator edits rather than writes briefs | Luna, medium (after B1) | A stub for G2 matches the hand-written G2 brief's required blocks |
+| CL274 | **Keep two writers busy**: a ready queue of briefs; when a lane exits, the runner (W1) launches the next ready brief whose files do not overlap a running lane | W1 extension, Luna low | Two lanes run back to back with no idle gap |
+| CL275 | **Spine before leaves** (IPC82): each capability lane ends in a step the be replay reproduces, not an engine-only module | Brief rule | Every G checkpoint names the replay steps it closed |
+| CL276 | **Grow the window by fidelity**: chapters 1-3, then 1-10, then the slice, then the volume; move on when the window's steps are reproducible, clean-folded or blocked by a named mechanism lane | Coordinator | Fidelity line per window in the card |
+| CL277 | **Right model per unit**: Luna for data, tagging, worksheets and scripts; Sol for paragraph reading, runtime integration and judgment; the Claude coordinator for review, browser floors and commits | Standing | Usage line per batch |
+| CL278 | **One-command review and floor**: `lane_review.mjs` plus a parametrized browser floor (build to `BUILD_OUT`, copy the book pack in, run a named route, write screenshots to the book's private folder, print the bundle hash and page errors) | Luna, medium | The L4b and L4e floors rerun through it |
+| CL279 | **A second world in parallel once B1 is generic**: MoL's lead playthrough through the same pipeline in its own lanes (different files), which proves AD44 for future books and doubles throughput | Coordinator | MoL be seat reaches its first replay |
+| CL280 | **Fewer documents in the loop**: the card and handoff are the working documents; the plan gains a round only when Weibao asks a question | Standing | |
+| CL281 | **Batch decisions for Weibao**: one acceptance list (SUI, CLR, RPT, D1-D5, start month, dist rebuild) asked once with defaults | Coordinator | One answer recorded |
