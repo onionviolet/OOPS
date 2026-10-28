@@ -298,3 +298,19 @@ LATER / DELEGATE:
 | L6 Pilot picks the first and the densest shard | generator change, small | Pilot plans list two shards for a new book |
 | L7 Fold the offline gate simulation into the driver (`--regrade-only`) | small | One command regrades a stopped run without the API |
 | L8 Retry step written automatically at the end of each run file for failed and truncated shards | generator change, small | Run files end with a `retry` step |
+
+### First spot-check: Mother of Learning (2026-10-28, L5 started)
+
+Weibao: "Yes, spot-check". 24 rows sampled across passes (census 6, scenes 5, rules 5, people 4, places 4; seeded), each judged by a haiku reader against its cited paragraphs only. Rows citing more than four paragraphs were re-judged with every cited paragraph. Packets and verdicts are private (`spotcheck_mol_2026-10-28*.jsonl` in the book's private folder).
+
+| Result | Count |
+| --- | --- |
+| Supported | 12 (census 4, rules 5, people 1, places 2) |
+| Partly: main claim holds, one secondary field not in the cited text | 12 (census 2, scenes 5, people 3, places 2) |
+| Unsupported | 0 |
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| SC1 | Every row's main claim matched the text; no invented events or people | Rows are a trustworthy index to the source, as round 8 assumes |
+| SC2 | The misses are secondary details without their own citation: a scene outcome or duration (all 5 scene rows), a person's trait, want or attitude, a place's containing place, an exact count where the text says "several" | Implementers treat uncited secondary fields as leads to check in the chapter, not facts. Prompt candidate (next month's runs): every step, outcome, anchor, trait and want carries its own locator, and vague amounts stay vague in the note |
+| SC3 | Rules rows (5 of 5) were fully supported | Rules rows are the most reliable pass |
