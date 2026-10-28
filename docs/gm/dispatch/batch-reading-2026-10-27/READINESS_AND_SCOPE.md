@@ -314,3 +314,32 @@ Weibao: "Yes, spot-check". 24 rows sampled across passes (census 6, scenes 5, ru
 | SC1 | Every row's main claim matched the text; no invented events or people | Rows are a trustworthy index to the source, as round 8 assumes |
 | SC2 | The misses are secondary details without their own citation: a scene outcome or duration (all 5 scene rows), a person's trait, want or attitude, a place's containing place, an exact count where the text says "several" | Implementers treat uncited secondary fields as leads to check in the chapter, not facts. Prompt candidate (next month's runs): every step, outcome, anchor, trait and want carries its own locator, and vague amounts stay vague in the note |
 | SC3 | Rules rows (5 of 5) were fully supported | Rules rows are the most reliable pass |
+
+## 15. Round 11: the other books, settings and budget (2026-10-28)
+
+Weibao: "send out the ones for other books as well, more to consider? updated rules and more? rr books? Stuff like perfect run and the others?"
+
+Evidence at 13:55 EDT. Harry Potter and Shadow Slave whole-book runs finished. HP cost $8.94: census 149 B and 19 C, scenes 155 B and 19 C. Shadow Slave cost $18.20: census 300 B and 49 C, scenes 319 B and 55 C. Failures by pass, HP then Shadow Slave: census 10 and 26, scenes 4 and 1, rules 0 and 1, people 43 and 30, texture 0 and 1. Measured spend across all `_summary.json` files is $34.62; that is a lower bound, since earlier batches may lack summaries. The r3 run files for the retries and the new books were written at 13:25 (`385c91889`): `2026-10-28r-asl` (ceiling $11), `-hp` ($3), `-mol` ($1), `-ss` ($12). All use 128K and the pooled stop rule, with people at high.
+
+ACT NOW:
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| RB1 | The LOTM ceiling went from $30 back to $35 (`d98832322`, following the handoff table). That undid the 13:25 trim. LOTM $35 plus measured spend plus all four r3 ceilings comes to about $96.6, over the $95 line | Send r-hp, r-mol and r-asl now (about $84.6). Send r-ss once LOTM census has measured spend, still before the Oct 31 noon deadline |
+| RB2 | The driver stops when spent plus a step's caps passes the ceiling. Projecting 55% measured per step, LOTM reaches people under $35 and stops before texture ($9.81 of caps) | Accepted: LOTM texture runs on November's credit. A relaunch resumes from receipts and resends nothing |
+
+ACCOUNT FOR NOW:
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| RB3 | Texture at high effort and 64K failed 0 of 179 HP shards and 1 of 375 Shadow Slave shards | No texture setting change; 128K is headroom only |
+| RB4 | r-ss puts the Shadow Slave retries (the densest shards) in the same steps as volumes 9 and 11 under the pooled rule | Acceptable: even if half of the 26 census retries fail, that is 13 of 144 shards, under 20%. A `step` waiver would also waive the new books, so do not add one there |
+| RB5 | The input-size check found the largest shard at 40K tokens and none near the 100K price step | No re-sharding. Split only shards still cut off at 128K (round 11 pilot, NOV1 WR5) |
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| RB6 Hero works for a batch index in November or later: You Are Summoned 1-5, Godclads 1-2 and Wish Upon the Stars 1-8 (Calibre EPUBs); The Perfect Run and Super Supportive (Royal Road JSON captures). All five already have full agent reads and cards, so the index adds paragraph citations, not a first read. Rough measured cost from Mother of Learning's $4.70 for about 0.7M words: about $0.7-0.8 per 100K words, about $33 for the five (Perfect Run 0.48M, You Are Summoned 0.66M, Godclads 0.46M, Wish 1.05M, Super Supportive 1.51M) | sonnet; register the EPUBs in `books.json` and run `make_book_plans --prepare` offline; convert the two JSON captures into a private EPUB or HTML copy, as A Soldier's Life book 4 was, rather than adding an adapter | The five keys have plans and true-bound caps; nothing sent |
+| RB7 Default November order: LOTM texture, Circle of Inevitability, TTKS 1-5, then the hero works. At true bounds this passes $100, but at measured rates (50-60%) the first three fit and the hero works start | Weibao's call on order only | One go per run file |
+| RB8 Retry HP and Shadow Slave texture failures (0 and 1 shards) and any r3 shards still cut off at 128K, by splitting the shard | generator, small | Retry plans list split shards |
