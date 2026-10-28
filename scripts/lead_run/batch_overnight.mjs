@@ -15,12 +15,16 @@ import {compareShards, load} from './batch_compare.mjs';
 const readJson = p => JSON.parse(readFileSync(p, 'utf8'));
 
 /** Stop rules (PLAN section 4) over one step's collect summaries; extra passes count failed shards only. */
+/** Grade C from exactly one lint row with full name accuracy: the repair batch fixes it, so it is not a stop. */
+export const repairable = s => s.grade === 'C' && (s.lintIssues ?? s.lint) === 1 && (s.nameAccuracy ?? 1) >= 1;
+
 export function stopCheck(results) {
     const reasons = [];
     for (const {label, summary, estimate} of results) {
         const shards = summary.shards || [];
         const failed = shards.filter(s => s.status !== 'ok').length, graded = shards.filter(s => s.grade);
-        const gradeC = graded.filter(s => s.grade === 'C').length, lowName = graded.filter(s => s.nameAccuracy < 0.9).length;
+        // A C shard with one lint row gets a repair request for cents (NOV1_SCHEDULE section 9); only C shards with more count against the wave.
+        const gradeC = graded.filter(s => s.grade === 'C' && !repairable(s)).length, lowName = graded.filter(s => s.nameAccuracy < 0.9).length;
         if (shards.length && (gradeC + failed) / shards.length > 0.2) reasons.push(`${label}: ${gradeC} grade C and ${failed} failed of ${shards.length}`);
         if (lowName) reasons.push(`${label}: ${lowName} shard(s) with name accuracy under 0.9`);
         if (estimate && summary.usd > 2 * estimate) reasons.push(`${label}: measured $${summary.usd} over 2x the estimate $${estimate}`);
@@ -31,7 +35,7 @@ export function stopCheck(results) {
 /** Pilot rule (G1): each pilot census shard grade A or B, pooled new-entity recall at least 0.75 against the agent run, cost within 2x. */
 export function pilotCheck({summary, estimate, plan, refs, loadFn = load, knownFn = p => new Set([...glossaryFromPlan(p).keys()])}) {
     const reasons = [];
-    for (const s of summary.shards || []) if (s.status !== 'ok' || !['A', 'B'].includes(s.grade)) reasons.push(`pilot ${s.id}: ${s.status} grade ${s.grade}`);
+    for (const s of summary.shards || []) if (s.status !== 'ok' || !(['A', 'B'].includes(s.grade) || repairable(s))) reasons.push(`pilot ${s.id}: ${s.status} grade ${s.grade}`);
     if (estimate && summary.usd > 2 * estimate) reasons.push(`pilot cost $${summary.usd} over 2x $${estimate}`);
     const known = knownFn(plan);
     let fresh = 0, found = 0;

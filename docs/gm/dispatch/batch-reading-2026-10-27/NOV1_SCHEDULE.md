@@ -151,3 +151,35 @@ The overnight run submitted all 19 Stage A labels at 01:12 EDT; all ended by 01:
 - D1 LOTM volume 1 continues with census at high effort and the stop rules as they are: "Go on run 2026-10-28b: pilot-3-scenes $0.06; v1-census-w1 $0.19, v1-census-w2 $0.19, v1-census-w3 $0.16; v1-scenes-w1 $0.19, v1-scenes-w2 $0.19, v1-scenes-w3 $0.16; v1-rules-w5 to w8, v1-people-w5 to w8, v1-texture-w5 to w8 $0.16 each; ceiling $6." (19 labels, caps $3.06.)
 - D2 English pilots: "Go on run 2026-10-28en: hp1-pilot-census, mol-pilot-census, hp1-pilot-scenes, mol-pilot-scenes, $0.02 each." Full Harry Potter year 1 and Mother of Learning waves follow on a third go after the pilots are read (about $7 for both books, all passes).
 - D3 Optional, cents: submit the pilot census repair batch (`pilot-3-census_repair_requests.jsonl`).
+
+## 9. D1 and D2 approved and launched (2026-10-28, 08:11 EDT)
+
+Weibao: "Go ahead, consider if there is any prompt improvements accordingly" (recorded in both run files' `approval`). D3 not taken.
+
+Prompt changes before launch (`batch_lib.mjs`), each tied to a Stage A finding:
+
+| Code | Change | From |
+| --- | --- | --- |
+| PI1 | Census: an id's kind segment equals the row's `kind`; a price row exists only when the text prints an amount and carries it in `amount`; a vague amount takes its lowest reading with "approx" in the note; a cost with no number goes in the item's note; notes at most 15 words. (Revised after launch: the first wording said to omit `amount`, which lint fails; it went out with run `b` wave 1 and the English census pilots.) | SA1 (`id-namespace`, `price-amount`) |
+| PI2 | Census: the known-names table is incomplete; reread each chapter for unlisted names, one-line mentions included | SA2 (new-entity recall) |
+| PI3 | Passes 3-5: one paragraph per locator, never a range or list | SA5 (53 and 57 locator lint hits) |
+| PI4 | Passes 3-5: a few words per field, each fact once, so the reply closes as valid JSON | SA3 (people truncation and one parse failure) |
+
+Checks: lead_run tests 63 pass; dry-run estimates for all 23 labels sit under their caps (largest $0.145 against $0.19); English prompts keep the `en bB cN pM` rule. Not measured yet: whether PI1-PI4 change grades or recall. Compare the resumed waves with Stage A at collect.
+
+Launch: both drivers run detached under `nohup` (PIDs 94485 for `b`, 94486 for `en`; the first attempt with `setsid` failed on macOS and sent nothing). Logs: `<outDir>/overnight_2026-10-28b.jsonl` and `overnight_2026-10-28en.jsonl`.
+
+### Outcome: both runs stopped at their first gate (spent $0.21)
+
+| Code | Finding | Evidence | Disposition |
+| --- | --- | --- | --- |
+| R1 | `b` B1 stopped: `v1-census-w1` lost 4 of 11 shards at `max_tokens` (high effort used 42,000-64,000 output tokens on 3-chapter shards; the Stage A high arm already hit 64,000 on `h25`, so this is the effort level, not PI1-PI4) and 3 shards graded C on one lint row each (`price-amount` twice, `note-length` once). `pilot-3-scenes`: 2 B, 1 C. Spent $0.19 | `v1-census-w1_usage.csv`, overnight log | Remaining census moves to **medium** (Stage A medium used 20,000-32,000), two runs for the union; the four truncated shards get a medium retry. Run `c` below replaces the unsent part of `b` |
+| R2 | `en` E1 stopped: Harry Potter census pilot **B, candidate coverage 1.0**; Mother of Learning census pilot C on one row (`price-amount`), coverage 1.0. Both used about 26,000 output tokens on one-chapter shards, so English stays at high. Spent $0.015 | overnight log | Scenes pilots (E2) not sent yet |
+| R3 | The stop rule counted any lint row as a C toward the 20% share, so one row in 100+ stopped a wave | `stopCheck` | **Proposed stop rule:** a C shard with exactly one lint row and name accuracy 1 is "repairable" (gets a repair request, does not count); `max_tokens`, parse failures and multi-row C still count. Coded and tested; applies only after Weibao's go |
+| R4 | One `npm test` failure on the first full run did not recur (3,610 pass on rerun, lead_run files untouched by it) | two full runs | Recorded as transient or another session's |
+
+### Decisions
+
+- E1 English scenes pilots under the revised stop rule (the driver collects E1 from its receipts and continues at E2; labels and caps already approved): "Go on resuming run 2026-10-28en with the repairable-C stop rule."
+- E2 LOTM run `c` (census w1 retry, census w2-w3, second census w1-w3, scenes w1-w3, rules, people and texture w5-w8; caps total $3.42; ceiling $5): "Go on run 2026-10-28c: v1-census-w1-retry $0.07; v1-census-w2 $0.19, v1-census-w3 $0.16; v1-census-b-w1 $0.19, v1-census-b-w2 $0.19, v1-census-b-w3 $0.16; v1-scenes-w1 $0.19, v1-scenes-w2 $0.19, v1-scenes-w3 $0.16; v1-rules-w5 to w8, v1-people-w5 to w8, v1-texture-w5 to w8 $0.16 each; ceiling $5; repairable-C stop rule."
+- Repairs for the one-row C shards stay with D3 (cents, separate go).

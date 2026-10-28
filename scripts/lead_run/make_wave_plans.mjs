@@ -12,8 +12,9 @@ const WIKI = join(root, 'docs/research/novels/lord-of-mysteries/wiki-api-2026-10
 // Agent-read shards plus the volume 1 batch prefixes (graded A or B only; batch_lib enforces the grade at read time).
 const ALL_CENSUS = '^(s[2-6]r?|s[7-9]vm|w[1-4]s[0-9]+m|b[4-7]s[0-9]+m)_census\\.jsonl$'.replace('s[2-6]r?', 's2m|s[2-6]rm');
 const SETTINGS = {
-    // High effort since the 2026-10-28 Stage A pilot: new-entity recall 0.74 against 0.53 at medium; 64,000 tokens because dense shards hit 48,000.
-    census: {effort: 'high', maxTokens: 64000, outTokensAssumed: 50000},
+    // Medium since v1-census-w1 (2026-10-28, NOV1_SCHEDULE section 9): high used 40,000-64,000 output tokens on 3-chapter shards and lost 4 of 11 at the
+    // 64,000 limit; medium used 20,000-32,000. Two medium runs (prefixes b and c) give the union recall (0.70 in Stage A, high 0.74).
+    census: {effort: 'medium', maxTokens: 64000, outTokensAssumed: 32000},
     scenes: {effort: 'high', maxTokens: 64000, outTokensAssumed: 45000, schemaMode: 'prompt'},
     rules: {effort: 'high', maxTokens: 64000, outTokensAssumed: 45000, schemaMode: 'prompt'},
     people: {effort: 'high', maxTokens: 64000, outTokensAssumed: 45000, schemaMode: 'prompt'},
@@ -53,7 +54,10 @@ for (const pass of ['census', 'scenes', 'rules', 'people']) {
     out.push(write(`sab_${pass}`, plan));
 }
 // Stages B-D: volume 1 census and scenes waves, then passes 3-5 over all of volume 1 in waves of about 10.
-v1Waves.forEach((w, i) => out.push(write(`v1_census_w${i + 1}`, base(`v1-census-w${i + 1}`, 'census', w))));
+// Wave 1 ran at high effort on 2026-10-28; keep its plan as run and retry its four max_tokens shards at medium.
+v1Waves.forEach((w, i) => out.push(write(`v1_census_w${i + 1}`, base(`v1-census-w${i + 1}`, 'census', w, i ? {} : {effort: 'high', outTokensAssumed: 50000}))));
+const w1Truncated = new Set(['b4s44', 'b4s47', 'b4s48', 'b4s49']);
+out.push(write('v1_census_w1_retry', base('v1-census-w1-retry', 'census', v1Waves[0].filter(s => w1Truncated.has(s.prefix)))));
 v1Waves.forEach((w, i) => out.push(write(`v1_scenes_w${i + 1}`, base(`v1-scenes-w${i + 1}`, 'scenes', w))));
 // Second census per wave for the F5 union, used only if the pilot union rule passes (NOV1_SCHEDULE). Prefix c instead of b.
 v1Waves.forEach((w, i) => out.push(write(`v1_census_b_w${i + 1}`, base(`v1-census-b-w${i + 1}`, 'census', w.map(s => ({...s, prefix: s.prefix.replace(/^b/, 'c')}))))));

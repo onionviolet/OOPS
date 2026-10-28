@@ -58,6 +58,10 @@ test('stop rules: grade C share, name accuracy and cost over 2x; extra passes co
     assert.equal(stopCheck([{label: 'x', summary: {usd: 0.05, shards: [{status: 'ok', grade: 'B', nameAccuracy: 1}]}, estimate: 0.01}]).length, 1);
     assert.equal(stopCheck([{label: 'r', summary: {usd: 0.01, shards: [{status: 'ok'}, {status: 'ok'}]}, estimate: 0.01}]).length, 0);
     assert.equal(stopCheck([{label: 'r', summary: {usd: 0.01, shards: [{status: 'max_tokens'}, {status: 'ok'}]}, estimate: 0.01}]).length, 1);
+    // One lint row with full name accuracy is repairable, not a stop; two lint rows still count.
+    const c = lint => ({status: 'ok', grade: 'C', lintIssues: lint, nameAccuracy: 1});
+    assert.equal(stopCheck([{label: 'c', summary: {usd: 0.01, shards: [c(1), c(1), {status: 'ok', grade: 'B', nameAccuracy: 1}]}, estimate: 0.01}]).length, 0);
+    assert.equal(stopCheck([{label: 'c', summary: {usd: 0.01, shards: [c(2), {status: 'ok', grade: 'B', nameAccuracy: 1}]}, estimate: 0.01}]).length, 1);
 });
 
 test('pilot gate: grades, pooled new-entity recall and too-small references; experiment arms do not gate', async () => {

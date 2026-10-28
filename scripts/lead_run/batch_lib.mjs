@@ -133,7 +133,10 @@ export function shardSchema(pass) {
 
 // ---- prompt -------------------------------------------------------------------------------------------------
 const PASS_TEXT = {
-    census: 'PASS 1 (census). Return only the `census` array: every named entity and every distinct amount, time and measure in the shard.',
+    census: 'PASS 1 (census). Return only the `census` array: every named entity and every distinct amount, time and measure in the shard. ' +
+        // Stage A (NOV1_SCHEDULE SA1, SA2): grade C came from price rows without `amount` and ids whose kind segment differed from the row; recall missed one-line names.
+        'An id\'s middle segment is exactly the row\'s `kind` (a price row is `<world>.price.<slug>`). A price row exists only when the text prints an amount, and it carries `amount` with that number; a vague amount ("several hundred") takes its lowest reading as `value` with "approx" in the note; a cost with no number goes in the note of the item or service row, not in a price row. Notes stay at most 15 words. ' +
+        'The known-names table is not complete, and the names it lacks matter most: before replying, go back through each chapter and add every named person, group, place, item, title and creature not yet in your rows, including names mentioned once in passing.',
     scenes: 'PASS 2 (scenes). Return `scenes` and `fills`. Do not return census rows; reuse the ids in the known-names table for `present`, `touched`, `needs` and `whereabouts` references. A name missing from the table gets an id built from the schema card rules.',
     full: 'Return `scenes`, `census` and `fills` in one pass.',
     rules: 'PASS 3 (rules). Return `rules` and `other`: every rite, potion, ability, spell, craft, law, custom or institution whose working the shard states or shows: conditions, ordered steps (minutes when given), each input as item id, quantity, unit and role (main, auxiliary, tool, catalyst, fee), products, place, total minutes, costs with amount and unit, whether a ritual is needed and its steps, success/failure/partial results, limits, and what the world does in response (`consequences`: trigger, response, by whom). `worldKind` is the book\'s own name for the kind. Use the ids in the known-names table.',
@@ -142,7 +145,7 @@ const PASS_TEXT = {
 };
 
 // Shared by passes 3-5: record, never invent.
-const RECORD_TEXT = 'Record everything the shard states or shows for this pass, however small; completeness matters more than polish. Do not invent: no proposals, no fills, no alternatives the text does not give; gaps are handled later by the project. A fact that fits no field goes in `other` with the ids it is about. Labels: `T` stated outright, `S` shown in action, `I` implied, `U` unsettled. Every row and sub-row carries its own locator. Own words, no source quotes.';
+const RECORD_TEXT = 'Record everything the shard states or shows for this pass, however small; completeness matters more than polish. Do not invent: no proposals, no fills, no alternatives the text does not give; gaps are handled later by the project. A fact that fits no field goes in `other` with the ids it is about. Labels: `T` stated outright, `S` shown in action, `I` implied, `U` unsettled. Every row and sub-row carries its own locator: one paragraph per locator in the exact form below, never a range or a list (several paragraphs take several locators). Keep each field to a few words and state each fact once, so the reply fits and closes as valid JSON. Own words, no source quotes.';
 
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
 export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md')} = {}) {

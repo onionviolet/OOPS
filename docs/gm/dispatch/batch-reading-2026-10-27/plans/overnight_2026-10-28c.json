@@ -1,0 +1,131 @@
+{
+ "name": "2026-10-28c",
+ "approval": "PENDING: needs Weibao's go phrase (NOV1_SCHEDULE section 9).",
+ "ceilingUsd": 5,
+ "note": "Replaces the unsent part of 2026-10-28b. Census at medium (two runs, prefixes b and c, for the union); caps are true bounds at 64,000 output tokens per request.",
+ "steps": [
+  {
+   "name": "C1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w1_retry.json",
+     "cap": 0.07,
+     "label": "v1-census-w1-retry"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w2.json",
+     "cap": 0.19,
+     "label": "v1-census-w2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w1.json",
+     "cap": 0.19,
+     "label": "v1-scenes-w1"
+    }
+   ]
+  },
+  {
+   "name": "C2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_w3.json",
+     "cap": 0.16,
+     "label": "v1-census-w3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w2.json",
+     "cap": 0.19,
+     "label": "v1-scenes-w2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_b_w1.json",
+     "cap": 0.19,
+     "label": "v1-census-b-w1"
+    }
+   ]
+  },
+  {
+   "name": "C3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_scenes_w3.json",
+     "cap": 0.16,
+     "label": "v1-scenes-w3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_b_w2.json",
+     "cap": 0.19,
+     "label": "v1-census-b-w2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_b_w3.json",
+     "cap": 0.16,
+     "label": "v1-census-b-w3"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w5.json",
+     "cap": 0.16,
+     "label": "v1-rules-w5"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w6.json",
+     "cap": 0.16,
+     "label": "v1-rules-w6"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w7.json",
+     "cap": 0.16,
+     "label": "v1-rules-w7"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_w8.json",
+     "cap": 0.16,
+     "label": "v1-rules-w8"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w5.json",
+     "cap": 0.16,
+     "label": "v1-people-w5"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w6.json",
+     "cap": 0.16,
+     "label": "v1-people-w6"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w7.json",
+     "cap": 0.16,
+     "label": "v1-people-w7"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_w8.json",
+     "cap": 0.16,
+     "label": "v1-people-w8"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w5.json",
+     "cap": 0.16,
+     "label": "v1-texture-w5"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w6.json",
+     "cap": 0.16,
+     "label": "v1-texture-w6"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w7.json",
+     "cap": 0.16,
+     "label": "v1-texture-w7"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_w8.json",
+     "cap": 0.16,
+     "label": "v1-texture-w8"
+    }
+   ]
+  }
+ ]
+}
