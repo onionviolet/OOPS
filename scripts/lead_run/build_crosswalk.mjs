@@ -32,19 +32,19 @@ export function inSlice(row, {from, to} = {}) {
 // WA25 classes. First matching expression wins; no catch-all `other` inflation.
 // These are keyword hits, not validated reaction grammar (CL60 remains separate).
 const TRIGGERS = [
-    ['fight', /\b(attack\w*|fight\w*|combat|duel\w*|ambush\w*|threat\w*|punch\w*|wrestl\w*)\b/],
+    ['fight', /\b(attack\w*|fight\w*|combat|duel\w*|ambush\w*|threat\w*|punch\w*|wrestl\w*|strangl\w*|assault\w*|shot|shoot\w*|weapon\w*|spell aimed|pounce|charging|hostile|aggress\w*)\b/],
     ['trade', /\b(buy\w*|bought|sell\w*|sold|pay\w*|paid|pric\w*|rent|money|coin\w*|bargain\w*|purchas\w*)\b/],
-    ['care', /\b(help\w*|heal\w*|injur\w*|wound\w*|sick\w*|medic\w*|crying|rescu\w*|care|caring)\b/],
+    ['care', /\b(help\w*|heal\w*|injur\w*|wound\w*|sick\w*|medic\w*|crying|rescu\w*|care|caring|comfort\w*|apolog\w*|reassur\w*|sooth\w*|clinging|sobbing|headache\w*|illness|tears)\b/],
     ['ritual', /\b(ritual\w*|pray\w*|prayer\w*|worship\w*|divin\w*|summon\w*)\b/],
-    ['craft', /\b(craft\w*|brew\w*|cook\w*|repair\w*|build\w*|forg(?:e|es|ed|ing)|manufactur\w*)\b/],
+    ['craft', /\b(craft\w*|brew\w*|cook\w*|repair\w*|build\w*|forg(?:e|es|ed|ing)|manufactur\w*|make\w*|making|bake\w*|spell forge|broken|stopping|failing|break\w*)\b/],
     ['practice', /\b(practic\w*|training|trained|trains|drill\w*|exercis\w*)\b/],
-    ['study', /\b(stud\w*|teach\w*|taught|learn\w*|lesson\w*|classroom|lecture\w*|exam\w*|reading|read|mentor\w*|homework)\b/],
-    ['research', /\b(research\w*|experiment\w*|investigat\w*|test\w*|discover\w*)\b/],
+    ['study', /\b(stud\w*|teach\w*|taught|learn\w*|lesson\w*|classroom|lecture\w*|exam\w*|reading|read|mentor\w*|homework|assignment|primer|notebook|book|knowledge|formula|decod\w*|question on|master\w*|class|school|student|teacher|homework)\b/],
+    ['research', /\b(research\w*|experiment\w*|investigat\w*|test\w*|discover\w*|evidence|mysteries|interview|case|search\w*|probe\w*|inspect\w*|check\w*|finding|identify\w*)\b/],
     ['appraise', /\b(apprais\w*|inspect\w*|assess\w*|evaluat\w*|examin\w*)\b/],
-    ['travel', /\b(travel\w*|arriv\w*|depart\w*|journey\w*|walk\w*|enter\w*|visit\w*|leav\w*|left|return\w*)\b/],
-    ['rest', /\b(rest\w*|sleep\w*|slept|wake\w*|waking|woken|breakfast|meal\w*|eat\w*|ate|fatigue|tired)\b/],
-    ['work', /\b(work\w*|job\w*|employ\w*|shift\w*|duty|duties|hired)\b/],
-    ['socialize', /\b(ask\w*|talk\w*|told|tell\w*|speak\w*|said|say\w*|greet\w*|gift\w*|insult\w*|lie|lies|lied|lying|ignore\w*|refus\w*|question\w*|pester\w*|argu\w*|invit\w*|request\w*|convers\w*)\b/],
+    ['travel', /\b(travel\w*|arriv\w*|depart\w*|journey\w*|walk\w*|enter\w*|visit\w*|leav\w*|left|return\w*|transfer\w*|moving|flight|flees|flee\w*|route|trip|goes to|going out|go out|come home|new tenant)\b/],
+    ['rest', /\b(rest\w*|sleep\w*|slept|wake\w*|waking|woken|breakfast|meal\w*|eat\w*|ate|fatigue|tired|break|nap\w*|dinner|lunch)\b/],
+    ['work', /\b(work\w*|job\w*|employ\w*|shift\w*|duty|duties|hired|payroll|overtime|layoff\w*|contract|business|office|interview|assignment|promotion|expelled|disciplin\w*)\b/],
+    ['socialize', /\b(ask\w*|talk\w*|told|tell\w*|speak\w*|said|say\w*|greet\w*|gift\w*|insult\w*|lie|lies|lied|lying|ignore\w*|refus\w*|question\w*|pester\w*|argu\w*|invit\w*|request\w*|convers\w*|teas\w*|protest\w*|demand\w*|gossip|remark|jib\w*|comparison|probing look|questions|asking|pleading|warn\w*|offer\w*|request\w*|nickname|conversation|crowd\w*|cheer\w*|applaus\w*|praise|gathering|oath|greeting|explain\w*|speech|asking|declin\w*|approval|argument|invitation)\b/],
 ];
 export function classifyAction(trigger) {
     if (typeof trigger !== 'string' || !trigger.trim()) return null;

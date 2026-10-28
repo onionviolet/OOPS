@@ -124,3 +124,14 @@ test('classifier does not mistake a train, forgetting, or a lieutenant for those
     assert.equal(classifyAction('a lieutenant nearby'), null);
     assert.equal(classifyAction('forging a tool'), 'craft');
 });
+
+test('classifier recognizes concrete reaction cues while leaving scenery unclassified', () => {
+    for (const [text, cls] of [
+        ['strangling the captain', 'fight'], ['charging into a crowd', 'fight'],
+        ['headaches from the link', 'care'], ['apologizing after the argument', 'care'],
+        ['decoding the notebook', 'study'], ['a warning about the assignment', 'study'],
+        ['the interview and case', 'research'], ['moving to a new flat', 'travel'],
+        ['overtime after layoffs', 'work'], ['a family comparison', 'socialize'],
+        ['the train station', null], ['a lieutenant nearby', null],
+    ]) assert.equal(classifyAction(text), cls, text);
+});
