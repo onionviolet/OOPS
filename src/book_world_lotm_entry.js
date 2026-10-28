@@ -31,6 +31,16 @@ export function entryAnswers(key,{returnable=false}={}){
  // With a continuing connection the Village life pauses as a whole and can be resumed (RET3); without one, nothing of it is kept.
  const paused=returnable?(entryMethodOf(key)==='in_person'?'Your Village life pauses where you left it. Resume it from Continuing connection; you travel back in person.':'Your Village life pauses where you left it, money and all. Resume it from Continuing connection; this Tingen life then pauses in turn.')
   :'Your Village life stops where you left it. This character has no way back yet, so Export first if you want to keep playing it.';
+ if(key==='beside')return [
+  ['Body','An ordinary adult Tingen resident who died in the night. You wake in their body, healthy enough to walk.'],
+  ['Memories','Yours carry whole. Local memories come in fragments: neighbours, familiar streets and the way home.'],
+  ['Base cheat','Comes with you, unchanged.'],
+  ['Money and items',`Nothing physical crosses. The money you held stays behind${returnable?' with your Village life':''}; the resident's own purse, ${pounds(p.cash)}, is yours.`],
+  ['Name and papers','The resident’s local name and papers are yours. You have lodging near the household.'],
+  ['Language','The resident’s Loenese comes with the body.'],
+  ['Who notices','Neighbours see a familiar resident who seems a little changed.'],
+  ['Your old life',paused],
+  ['What you owe','No church probation or reporting duty. You meet your ordinary living costs from your local purse.']];
  if(entryMethodOf(key)==='in_person')return [
   ['Body','Your own adult body. You arrive in person.'],
   ['Memories','Yours, whole. You carry no one else\'s.'],

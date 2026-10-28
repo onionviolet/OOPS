@@ -4,6 +4,7 @@
 // quarter and outskirts [17 p79]. The district decides who supervises, what a visitor's endorsement costs, what
 // an errand pays and who answers an incident. Teams, split and escalation are source-stated; the officers (original,
 // unnamed roles), the endorsement fees and the errand pay are authored proposals (WPR5). Pure data and pure functions.
+import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_PENCE as P} from './book_world_lotm_ids.js';
 // Merged with the primary checkout's parallel Q2 (2026-10-23 reconciliation): that lane's district text, vouch rows, shift and travel minutes are kept as data
 // under `alias` ('north','docks','university'); this lane's church, officer, endorsement and errand fields are the other half of each row.
@@ -35,7 +36,7 @@ const OWN=[
  {alias:'docks',id:'storm',label:'Tingen docks (east and south)',church:'Storm',team:'the Mandated Punishers',officerId:I.stormOfficer,officerLabel:'the Punishers\' duty officer',places:[L.docks],endorsementPence:2*P.soli,errandPence:18,errand:'Tally a sealed crate against the harbour manifest for the duty officer'},
  {alias:'university',id:'machinery',label:'Tingen university quarter',church:'Steam and Machinery',team:'the Machinery team',officerId:I.machineryOfficer,officerLabel:'the Machinery team\'s records officer',places:[L.university],endorsementPence:5*P.soli,errandPence:15,errand:'Copy a gear schedule for the records officer'}];
 export const LOTM_DISTRICTS=Object.freeze(OWN.map(d=>{const q=Q2_ROWS[d.alias];return {...d,q2team:q.team,qlabel:q.label,doseHere:q.doseHere,shift:q.shift,vouch:q.vouch,claim:q.claim,here:q.here,why:q.why};}));
-export const districtOfPlace=place=>LOTM_DISTRICTS.find(d=>d.places.includes(place))||null;
+export const districtOfPlace=place=>LOTM_DISTRICTS.find(d=>d.places.includes(place))||LOTM_DISTRICTS.find(d=>d.id===getPrivateLotmCast()?.places.find(p=>p.id===place)?.travel?.district)||null;
 export const districtById=id=>LOTM_DISTRICTS.find(d=>d.id===id)||null;
 export const homeDistrict=LOTM_DISTRICTS[0];
 export const LOTM_PLACE_KEYS=Object.freeze(Object.fromEntries(Object.entries(L).map(([k,v])=>[v,k])));

@@ -1,3 +1,5 @@
+import {castAvailable,castWalkCommands,castPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
+import {applySituationEffect} from './causal_situations.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lotm_ids.js';
 import {lotmCommands,lotmSources,lotmPowers,lotmEnergies} from './book_world_lotm_actions.js';
 import {createLotmState} from './book_world_lotm_state.js';
@@ -24,7 +26,7 @@ export const lotmPeople=[{id:I.supervisor,label:'Warden Hale (original superviso
  officer(I.machineryOfficer,'Machinery records officer (original, unnamed)',L.university,'An original Machinery team records officer in the university quarter. No canon identity; supervises visitors and errands in the Steam and Machinery district.')];
 // Opening stock lives with the supervisor (plan S3). Prehistory preparation is not debited again.
 export const LOTM_NATIVE_STOCK={[I.supervisor]:{[K.dose]:1,[K.comparator]:1,[K.sampleA]:1,[K.sampleB]:1,[K.sealed3]:1},[I.broker]:{[K.frog]:1,[K.hairs]:1,[K.ink]:1,[K.marketCc9]:1,[K.marketCc8]:1,[K.marketSv9]:1,[K.marketSv8]:1,[K.marketSa9]:1,[K.marketSa8]:1,...BENCH_STOCK,[CORE.key]:CORE.stock}};
-export const lotmDefinitions={people:[...lotmPeople,...LOTM_HOSTILES.map(h=>({id:h.id,label:h.label,revision:1,worldId:I.world,location:L.docks,inventory:'native',provision:false,description:'An original hostile Beyonder, not enrolled by default: they hold the same source and use the same ability records as the player. No canon identity.',resources:{},body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:18,max_stamina:18}}))],sites:[{id:I.site,revision:1,label:'Tingen supervised workroom bench',capacity:1}],powers:lotmPowers,energies:lotmEnergies,commands:[...lotmCommands,...hostileAbilityCommands],conditions:abilityConditions,encounters:[],controllers:[],situations:[{id:I.situation,revision:1,label:'Original Tingen probationer account',context:{worldId:I.world,instanceId:'book.lotm.tingen.main',continuityId:'book.lotm.probationer.branch',eraId:'book.lotm.early_tingen',regionId:'book.lotm.tingen'},participants:['player'],initialPhase:'present',phases:['present'],privateTruth:{role:'original_probationer'}}]};
+export const lotmDefinitions={people:[...lotmPeople,...castPeople,...LOTM_HOSTILES.map(h=>({id:h.id,label:h.label,revision:1,worldId:I.world,location:L.docks,inventory:'native',provision:false,description:'An original hostile Beyonder, not enrolled by default: they hold the same source and use the same ability records as the player. No canon identity.',resources:{},body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:18,max_stamina:18}}))],sites:[{id:I.site,revision:1,label:'Tingen supervised workroom bench',capacity:1}],powers:lotmPowers,energies:lotmEnergies,commands:[...lotmCommands,...castTalkCommands,...castWalkCommands,...hostileAbilityCommands],conditions:abilityConditions,encounters:[],controllers:[],situations:[castSituation,{id:I.situation,revision:1,label:'Original Tingen probationer account',context:{worldId:I.world,instanceId:'book.lotm.tingen.main',continuityId:'book.lotm.probationer.branch',eraId:'book.lotm.early_tingen',regionId:'book.lotm.tingen'},participants:['player'],initialPhase:'present',phases:['present'],privateTruth:{role:'original_probationer'}}]};
 export const LOTM_ITEM_SPECIFICATIONS=[
  ['Tingen prepared Seer dose','One supervised prepared dose from a pinned, authored lot. Holding it grants nothing; taking it is a separate irreversible step.'],
  ['Tingen ordinary comparator sample','An ordinary material used to compare against supported samples.'],
@@ -55,15 +57,21 @@ export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of L
 // Pure enrollment of the original probationer branch (plan S2 prototype start).
 // The caller owns the publication; this changes only the passed state.
 export function enrollLotmBranch(state,profile='probationer'){
+ if(profile==='beside'&&!castAvailable)throw Error('Cast unavailable: private pack absent.');
  const s=state.simulation;if(!s)throw Error('Enroll living-world services first.');
  if(state.actors.player.worldId===I.world)throw Error('The probationer branch is already enrolled.');
  state.worlds[I.world]||={facts:{},resources:{},completed:{}};state.actors.player.worldId=I.world;s.people.player.location=LOTM_PROFILES[profile].start;
  s.people.player.body={id:'native.player.body',form:'human',hands:2,mobile:true,ownerId:'player',controllerId:'player'};
- for(const d of lotmPeople){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
+ for(const d of [...lotmPeople,...(profile==='beside'?castPeople:[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
   Object.assign(state.actors[d.id],{worldId:d.worldId});Object.assign(state.actors[d.id].resources,d.resources);
+  if(d.inventory==='simulation')s.owners[d.id]={};
   s.people[d.id]={life:'alive',inventory:d.inventory,location:d.location,bornAt:state.clock,definitionId:d.id,definitionRevision:d.revision,vitals:{...d.vitals},
    body:{id:`native.person.${d.id}.body`,form:'human',hands:2,mobile:true,ownerId:d.id,controllerId:d.id}};}
  state.actors[I.broker].resources[STOCK_REV_KEY]=FORMULA_ROWS_REVISION;
  state.lotm=createLotmState(state.clock,LOTM_PROFILES[profile].id);
+ if(profile==='beside'){
+  applySituationEffect(state,{type:'situation',situationId:LOTM_CAST_SITUATION,operation:'begin',definition:castSituation},null,'book.lotm.enroll.beside');
+  syncLotmCast(state);
+ }
  return state;
 }

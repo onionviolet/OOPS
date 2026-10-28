@@ -84,13 +84,15 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
     button('Back to the lives','entry_back',()=>{choosing=null;signature='';render();},false,'Return to the list of Tingen lives. Nothing changes.')));
    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
   }
-  const d=v.district;bench.hidden=false;
+  const d=v.district,resident=v.resident===true;bench.hidden=resident;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;
-  if(d)status.title=d.responders;
+  if(resident)status.textContent=`${v.at} · ${v.localClock}${v.sleeping?' · asleep':''}`;
+  status.title=resident?'':d?.responders||'';
   const live=new Set();for(const m of v.meters||[]){live.add(m.id);let b=bars.get(m.id);if(!b){b=createMeterBar();bars.set(m.id,b);}b.update({...m,compact:true});if(b.node.parentNode!==meters)meters.append(b.node);}
   for(const [id,b] of bars){if(!live.has(id)){b.node.remove();bars.delete(id);}}
   // Pathway ladder (DR2): reached stages, the current one, and what the next crossing still needs.
-  const p=v.path;path.dataset.lotmPath=p.path;
+  const p=v.path;path.dataset.lotmPath=resident?'':p.path;
+  if(!resident){
   if(v.profile==='civil'){
    path.append(node('h3','Civil staff'),node('p','A civil post brings no potion or field membership.'));
    const contract=v.records.find(r=>r.id==='book.lotm.contract');
@@ -125,10 +127,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   if(p.capped)path.append(node('p','Later Sequences are not offered in this branch.'));
   }
+  }
   // RET3: the paused Village life is resumed from the connection panel, not from here.
   if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';path.append(r);}
-  if(v.cause.line)path.append(node('p',v.cause.line));
-  if(v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
+  if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
+  if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
+  if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);
   work.append(node('p',`You hold: ${held.length?held.join(', '):'nothing from the bench'}.`));
   if(v.broker){
@@ -143,9 +147,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const r of m.store){const line=row(button(`${r.label} · ${r.price} merit${r.left==null?'':` · ${r.left} left`}`,r.action.id,()=>run(()=>act(r.action.id),''),!r.action.eligible,r.reasons.join(' ')),node('span',r.eligible?r.text:r.reasons.join(' ')));line.dataset.lotmMeritRow=r.id;box.append(line);}
    work.append(box);}
   renderBench(v);
+  }
   for(const j of v.jobs)work.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[button(j.cancellation==='refund'?'Stop (reserved attention returned)':'Stop (cost not returned)','cancel',()=>run(()=>cancel(j.id),j.cancellation==='refund'?'You stopped. Reserved attention was returned.':'You stopped. What it cost is gone.'),false,j.cancellation==='refund'?'Stopping returns reserved attention; elapsed time stays spent.':'Stopping forfeits what this spent.')]:[])));
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
-  if(v.district)walks.append(node('p',`${v.district.claim}`));
+  if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
+  if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));
   if(v.places?.length){const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places)list.append(node('li',`${pl.place} · ${pl.district}, ${pl.team} (${pl.church})${pl.here?' · you are here':` · ${pl.minutes} min`}`));walks.append(node('h3','Places'),list);}
   for(const m of v.moves)walks.append(row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' '))));
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}

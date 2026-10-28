@@ -2,6 +2,7 @@
 // The optional state.lotm owner stays in book_world_lotm_state.js; this reads only what the
 // native save adds: where the body is and where the finite stock sits. Registered through the
 // domain registry so save_files needs no new line (AR1, AR2).
+import {castPlaces,castAvailable,lotmBeside,dormantCastPlace} from './book_world_lotm_cast_host.js';
 import {registerDomain} from './domain_registry.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES} from './book_world_lotm_ids.js';
 import {pathwayDoses} from './book_world_lotm_pathways.js';
@@ -9,12 +10,12 @@ import {LOTM_LOTS} from './book_world_lotm_broker.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 import {benchEnvelope} from './book_world_lotm_bench.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);};
-export const LOTM_PLACES=Object.freeze(Object.values(L));
+export const lotmPlaces=()=>[...Object.values(L),...castPlaces.map(p=>p.id)];
 const count=(save,owner,key)=>save.inventories?.person?.[owner]?.[key]?.count||0;
 // An item an active job has reserved (a sample under observation) is held by that job, not lost.
 const reserved=(state,key)=>(state.simulation?.jobs||[]).flatMap(j=>j.costs||[]).filter(c=>c.type==='item'&&c.actor==='player'&&c.key===key).reduce((n,c)=>n-c.amount,0);
 export function validateLotmEnvelope(save){
- const state=save?.expansion||{},d=state.lotm,at=save?.['current location'],here=LOTM_PLACES.includes(at);
+ const state=save?.expansion||{},d=state.lotm,at=save?.['current location'],here=lotmPlaces().includes(at)||!castAvailable&&lotmBeside(state)&&dormantCastPlace(at);
  if(!d){
   assert(!here,'This save needs its optional Tingen branch owner.');
   const held=save?.inventories?.person?.[I.supervisor]||{};

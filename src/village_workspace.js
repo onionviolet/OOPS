@@ -1,3 +1,5 @@
+import {lotmBeside,castCalendar} from './book_world_lotm_cast_host.js';
+import {TIME_BANDS} from './cast_schedule.js';
 import {retainCombatInspection} from './combat_subject.js';
 import {bindSubjectGesture} from './recipe_connections.js';
 import {createNearbyContextView} from './nearby_context_view.js';
@@ -17,6 +19,12 @@ const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=tex
 // The current world's public calendar/weather own the header. In particular,
 // an unavailable local date must not silently become the home's year/season.
 export function sceneClock(frame) {
+    if(lotmBeside(frame.history)){
+        const c=castCalendar(frame.history).calendar;
+        const minute=c.hour*60+c.minute,band=Object.keys(TIME_BANDS).find(k=>minute>=TIME_BANDS[k].from&&minute<TIME_BANDS[k].to)||'night';
+        return {date:`Day ${c.day_count}, ${band}`,season:null,phase:null,weather:frame.weatherWords||'',temperature:null,
+            description:'Local day since this life began. Civil month and year are unknown.'};
+    }
     const parts=(frame.clock||'').split(' · ');
     if(!Object.hasOwn(frame,'calendar'))return {date:parts[1]||'',season:parts[1]?.split(',')[1]?.trim(),phase:parts[2],weather:parts[3],temperature:parts[4],description:''};
     const local=frame.calendar,home=frame.worldId==='base.frontier';

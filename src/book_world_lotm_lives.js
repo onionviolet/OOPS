@@ -8,6 +8,7 @@
 // post, what the contract lets them do, the week length) is an authored proposal (WPR5). Pure data.
 import {LOTM_PENCE as P,LOTM_IDS as I,LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {eq,gte,all,af,has,no,money,know,cmd} from './book_world_lotm_kit.js';
+import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {districtById} from './book_world_lotm_districts.js';
 export const LOTM_WEEK_MINUTES=7*24*60;
 // A probationer life wakes in a local clerk's body and keeps the clerk's purse (WER9, AD11). Proposed amount.
@@ -26,7 +27,8 @@ export const LOTM_PROFILES=Object.freeze({
   opening:{fundedPence:29*P.pound,debtPence:0,passageLegs:1},
   passage:{perLegPence:4*P.pound,certificateRequired:true},
   paidBefore:{papersPence:8*P.pound,clothesAndGoodsPence:12*P.pound},
-  blurb:'An adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. The money you held before crossing stays behind. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'}});
+  blurb:'An adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. The money you held before crossing stays behind. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'},
+ get beside(){return getPrivateLotmCast()?.host?.profile||{id:'lotm.early_tingen.canon_beside@1',key:'beside',label:'Cast unavailable',beyonderTrack:false,cash:HOST_PURSE,home:null,start:L.lodging,blurb:'Private cast pack absent.'};}});
 // Opening history uses the existing knowledge owner. It records paid costs, not fresh charges or invented items.
 export const lifeEntryEffects=key=>[{
  // The workroom situation begins at report-in, after enrollment. Opening history has no situation attribution.
