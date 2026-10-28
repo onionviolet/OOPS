@@ -176,14 +176,14 @@ export function glossaryFromPlan(plan) {
 
 /** Known names (with ids) that occur in the shard but are missing from the model's census: add an M0 row each, claimant `script`. Nothing is invented. */
 export function addMissingKnown(census, glossary, shardText) {
-    const shardMap = parseShard(shardText), have = new Set(census.map(r => String(r.zh).replace(/[.．・]/g, '·'))), added = [];
+    const shardMap = parseShard(shardText), have = new Set(census.map(r => String(r.zh).replace(/[.．・]/g, '·'))), ids = new Set(census.map(r => r.id)), added = [];
     for (const h of glossaryHits(glossary, shardText)) {
         const zh = String(h.zh).replace(/[.．・]/g, '·');
-        if (!h.id || !h.kind || have.has(zh)) continue;
+        if (!h.id || !h.kind || have.has(zh) || ids.has(h.id)) continue;
         const hit = [...shardMap].find(([, t]) => t.includes(h.zh));
         if (!hit) continue;
         const [ch, para] = hit[0].split(':');
-        have.add(zh);
+        have.add(zh); ids.add(h.id);
         added.push({schema: 'census/1.3', id: h.id, label: h.label, zh: h.zh, nameSource: h.source === 'wiki' ? 'wiki' : 'repo', kind: h.kind, rung: 'M0', whereabouts: [],
             firstMention: `zh 第${ch}章 p${para}`, firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
     }
@@ -226,9 +226,10 @@ export function parseMessage(message) {
     try { return {rows: normalize(JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/g, '')))}; } catch { return {error: 'json-parse'}; }
 }
 
-export function usageUsd(u = {}) {
+export function usageUsd(u = {}, model = MODEL) {
+    const price = PRICES[model] || PRICE;
     const inTok = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) * 1.25 + (u.cache_read_input_tokens || 0) * 0.1;
-    return (inTok * PRICE.inPerM + (u.output_tokens || 0) * PRICE.outPerM) / 1e6 * PRICE.batchFactor;
+    return (inTok * price.inPerM + (u.output_tokens || 0) * price.outPerM) / 1e6 * price.batchFactor;
 }
 
 const writeJsonl = (p, rows) => writeFileSync(p, (rows || []).map(r => JSON.stringify(r)).join('\n') + (rows?.length ? '\n' : ''));
@@ -284,7 +285,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         const r = item.result;
         if (!s) { summary.shards.push({id, status: 'unknown-custom-id'}); continue; }
         if (r.type !== 'succeeded') { summary.shards.push({id, status: r.type}); summary.repair.push({id, why: r.type}); appendFileSync(ledger, `${id},${r.type},0,0,0,0,0\n`); continue; }
-        const u = r.message.usage || {}, usd = usageUsd(u);
+        const u = r.message.usage || {}, usd = usageUsd(u, plan.model || MODEL);
         summary.usd += usd;
         appendFileSync(ledger, `${id},succeeded,${u.input_tokens || 0},${u.cache_read_input_tokens || 0},${u.cache_creation_input_tokens || 0},${u.output_tokens || 0},${usd.toFixed(6)}\n`);
         const parsed = parseMessage(r.message);

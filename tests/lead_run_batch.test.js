@@ -198,4 +198,5 @@ test('script fill adds known names missing from the census as M0 rows and nothin
     assert.equal(out[1].claimant, 'script');
     assert.equal(out[1].firstMention, '"zh 第1章 p1"'.replaceAll('"', ''));
     assert.equal(addMissingKnown(out, g, TEXT).length, 2);
+    assert.equal(addMissingKnown([{zh: '约翰', id: 'test.person.john'}], g, TEXT).length, 1, 'an id the reader already used is never duplicated');
 });
