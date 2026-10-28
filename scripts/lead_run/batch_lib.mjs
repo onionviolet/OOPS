@@ -2,7 +2,7 @@
 // Pure functions plus a client factory. The SDK is imported only by `makeClient`, so tests and dry runs never need it.
 // Paid API route: see docs/TOOL_REGISTRY.md (`anthropic-batch`). Source text goes to Anthropic; outputs stay in the
 // gitignored private folder. The key is read from ANTHROPIC_API_KEY at run time and is never logged or written.
-import {readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync, copyFileSync} from 'node:fs';
+import {readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync, copyFileSync, unlinkSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {join, dirname, resolve} from 'node:path';
@@ -298,8 +298,48 @@ export async function makeClient(env = process.env) {
 
 // ---- results ------------------------------------------------------------------------------------------------
 /** Message -> {rows} or {error}. Thinking blocks are ignored; max_tokens and refusal are failures. */
+/**
+ * Complete row objects from a reply cut off at max_tokens: for each top-level array, every object that closed before the cut, minus any object
+ * over `maxRow` characters (a field that ran away into a loop, 2026-10-28: one 216,603-character row in a 128K census reply). Null when nothing closed.
+ */
+export function salvageRows(text, maxRow = 20000) {
+    const TOP = ['census', 'scenes', 'fills', 'rules', 'people', 'other', 'places', 'services', 'news', 'customs'];
+    const out = {};
+    let kept = 0, dropped = 0, from = 0;
+    const re = new RegExp(`"(${TOP.join('|')})"\\s*:\\s*\\[`, 'g');
+    for (;;) {
+        re.lastIndex = from;
+        const m = re.exec(text);
+        if (!m) break;
+        const rows = [];
+        let i = m.index + m[0].length, depth = 0, start = -1, inStr = false, esc = false;
+        for (; i < text.length; i++) {
+            const c = text[i];
+            if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === '"') inStr = false; continue; }
+            if (c === '"') { inStr = true; continue; }
+            if (c === '{') { if (depth === 0) start = i; depth++; }
+            else if (c === '}') {
+                depth--;
+                if (depth === 0 && start >= 0) {
+                    const raw = text.slice(start, i + 1);
+                    if (raw.length > maxRow) dropped++; else { try { rows.push(JSON.parse(raw)); kept++; } catch { dropped++; } }
+                    start = -1;
+                }
+            } else if (c === ']' && depth === 0) break;
+        }
+        if (start >= 0) dropped++;   // the object the cut fell inside
+        out[m[1]] ??= rows;
+        from = i + 1;                // the next top-level array starts after this one
+    }
+    return kept ? {rows: out, kept, dropped} : null;
+}
+
 export function parseMessage(message) {
-    if (message.stop_reason === 'max_tokens') return {error: 'max_tokens'};
+    if (message.stop_reason === 'max_tokens') {
+        const text = (message.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
+        const s = salvageRows(text);
+        return s ? {rows: normalize(s.rows), partial: true, kept: s.kept, dropped: s.dropped} : {error: 'max_tokens'};
+    }
     if (message.stop_reason === 'refusal') return {error: 'refusal'};
     const text = (message.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
     try { return {rows: normalize(JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/g, '')))}; } catch { return {error: 'json-parse'}; }
@@ -410,6 +450,12 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         appendFileSync(ledger, `${id},succeeded,${u.input_tokens || 0},${u.cache_read_input_tokens || 0},${u.cache_creation_input_tokens || 0},${u.output_tokens || 0},${usd.toFixed(6)}\n`);
         const parsed = parseMessage(r.message);
         if (parsed.error) { summary.shards.push({id, status: parsed.error}); summary.repair.push({id, why: parsed.error}); continue; }
+        // A cut-off reply keeps its complete rows; the shard still counts as failed for the stop rule and goes on the retry list.
+        const st = parsed.partial ? 'partial' : 'ok';
+        if (parsed.partial) summary.repair.push({id, why: 'partial', kept: parsed.kept, dropped: parsed.dropped});
+        // The marker tells the planner this pass still needs a full read; a clean read later removes it.
+        const marker = join(plan.privateDir, `${s.prefix.replace(/m$/, '')}_${plan.pass}.partial`);
+        if (parsed.partial) writeFileSync(marker, JSON.stringify({kept: parsed.kept, dropped: parsed.dropped}) + '\n'); else if (existsSync(marker)) unlinkSync(marker);
         const shardText = readFileSync(s.shard, 'utf8'), shardMap = parseShard(shardText);
         let rows = parsed.rows;
         if (EXTRA_PASSES[plan.pass]) {
@@ -417,7 +463,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
             const keys = EXTRA_PASSES[plan.pass], extraRows = Object.fromEntries(keys.map(k => [k, rows[k] || []]));
             const issues = [...lintExtra(extraRows, shardMap), ...(shardMap.lang === 'en' ? enQuoteIssues(extraRows, shardText) : [])];
             for (const k of keys) writeJsonl(join(plan.privateDir, `${s.prefix}_${extraFile(plan.pass, k)}.jsonl`), rows[k]);
-            summary.shards.push({id, status: 'ok', pass: plan.pass, counts: Object.fromEntries(keys.map(k => [k, (rows[k] || []).length])), lintIssues: issues.length, issueCodes: [...new Set(issues.map(i => i.code))]});
+            summary.shards.push({id, status: st, pass: plan.pass, counts: Object.fromEntries(keys.map(k => [k, (rows[k] || []).length])), lintIssues: issues.length, issueCodes: [...new Set(issues.map(i => i.code))]});
             continue;
         }
         if (id.endsWith('-repair')) {
@@ -442,7 +488,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         writeFileSync(join(plan.privateDir, `${p}m_header.json`), JSON.stringify({schema: 'shard-header/1.3', shard: p, readerModel: plan.model || MODEL, chapters: s.chapters || 'unknown',
             sourceHash: createHash('sha256').update(shardText).digest('hex').slice(0, 16), date: new Date().toISOString().slice(0, 10), lint: audit.lintOk ? 'pass' : 'fail', grade,
             locatorValid: audit.locatorValid, nameAccuracy: Number(audit.nameAccuracy.toFixed(3)), spotChecked: 0, counts: audit.counts, route: 'batch', pass: plan.pass, effort: plan.effort, ...(coverage ? {candidateCoverage: coverage.rate} : {})}, null, 1) + '\n');
-        summary.shards.push({id, status: 'ok', grade, lintIssues: issues.length, counts: audit.counts, nameAccuracy: Number(audit.nameAccuracy.toFixed(3)), ...(coverage ? {coverage} : {})});
+        summary.shards.push({id, status: st, grade, lintIssues: issues.length, counts: audit.counts, nameAccuracy: Number(audit.nameAccuracy.toFixed(3)), ...(coverage ? {coverage} : {})});
         if (grade === 'C' || issues.length) {
             const failing = failingRows({...cur, issues});
             if (!id.endsWith('-repair') && (failing.scenes.length || failing.census.length || failing.fills.length)) {

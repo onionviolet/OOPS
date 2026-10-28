@@ -123,6 +123,8 @@ export function bookShards(b, files) {
 
 /** Has this pass already been read for the shard (its output file exists)? Census and scenes write migrated `<prefix>m_*`, passes 3-5 `<prefix>_<key>`. */
 export function passDone(pass, prefix, files) {
+    // A reply salvaged after a cut-off kept its rows but still needs a full read.
+    if (files.has(`${prefix}_${pass}.partial`)) return false;
     if (pass === 'census' || pass === 'scenes') return files.has(`${prefix}m_${pass}.jsonl`);
     return EXTRA_PASSES[pass].some(k => files.has(`${prefix}_${extraFile(pass, k)}.jsonl`));
 }

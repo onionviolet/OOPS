@@ -61,3 +61,7 @@ test('captured Chinese chapters: renumbered title, mirror notice and a repeated 
     assert.equal(text, '=== 第1章 | member text:0001\np1: 開頭\n=== 第2章 夜雨 | member text:0002\np1: 他說：「甲 & 乙」\np2: 第二行<br>');
     assert.deepEqual(index.map(i => i.paragraphs), [1, 2]);
 });
+
+test('a pass with a partial marker is not done, so the planner re-reads it', () => {
+    assert.ok(!passDone('census', 'x2c001', new Set(['x2c001m_census.jsonl', 'x2c001_census.partial'])));
+});

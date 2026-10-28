@@ -254,3 +254,16 @@ test('candidate coverage counts script-found amounts no census row covers', () =
     assert.deepEqual(c.uncoveredLocators, ['zh 第1章 p9']);
     assert.equal(candidateCoverage([], []).rate, null);
 });
+
+test('a cut-off reply keeps its complete rows and drops a runaway row and the cut one', async () => {
+    const {salvageRows, parseMessage} = await import('../scripts/lead_run/batch_lib.mjs');
+    // Invented rows.
+    const full = JSON.stringify({census: [{id: 'a', whereabouts: [{place: 'x'}], note: 'ok'}, {id: 'b', note: 'x'.repeat(30000)}, {id: 'c', aliases: ['q']}]});
+    const cut = full.slice(0, -12);
+    assert.deepEqual(salvageRows(cut).rows.census.map(r => r.id), ['a']);
+    assert.equal(salvageRows(cut).dropped, 2);
+    assert.equal(salvageRows('{"census":[{"id":"a"'), null);
+    const p = parseMessage({stop_reason: 'max_tokens', content: [{type: 'text', text: cut}]});
+    assert.ok(p.partial);
+    assert.equal(parseMessage({stop_reason: 'max_tokens', content: [{type: 'text', text: '{"census":['}]}).error, 'max_tokens');
+});
