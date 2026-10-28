@@ -1,9 +1,7 @@
 {
  "note": "Book registry for make_book_plans.mjs (BATCH_READING_WORKFLOW.md). Sources stay outside the repo; shard and output dirs are gitignored private folders. LOTM volume 1 was read by the older wave plans (make_wave_plans.mjs) and is not listed here.",
  "gaps": [
-  "TTKS and Circle of Inevitability are registered (ttks1-ttks5, coi); what remains is Shadow Slave from chapter 3001 (not on disk) and the two other ttks captures (XXMNQ, FRJY) if wanted.",
-  "A Soldier's Life book 4 is a .mobi converted once into a private copy; its chapter headings come from that conversion.",
-  "ttks2 and ttks3 chapters 1-10 are the official Fanqie free text (simplified script); chapters 11+ are ttks.tw captures (traditional)."
+  "Missing and unverified sources: see docs/research/LIBRARY_INDEX.md (not on disk, or unverified)."
  ],
  "books": [
   {

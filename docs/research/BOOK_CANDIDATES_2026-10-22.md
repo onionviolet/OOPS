@@ -1,5 +1,7 @@
 # Book and media candidates, 2026-10-22
 
+Holdings and missing sources: the live answer is [LIBRARY_INDEX](LIBRARY_INDEX.md); this file is dated history.
+
 Acquisition receipt for the next round: [2026-10-24](BOOK_ACQUISITION_RECEIPT_2026-10-24.md).
 
 Type: RESEARCH / PROPOSAL. Audience: Weibao and acquisition lanes. Nothing here is

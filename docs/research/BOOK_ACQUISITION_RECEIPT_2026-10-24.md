@@ -1,5 +1,7 @@
 # Book acquisition receipt, 2026-10-24
 
+Holdings and missing sources: the live answer is [LIBRARY_INDEX](LIBRARY_INDEX.md); this file is dated history.
+
 Type: ACQUISITION RECEIPT. Acquisition only; nothing here is read, absorbed or
 implemented. Owner list: [book candidates](BOOK_CANDIDATES_2026-10-22.md).
 Route: Source Library CLI (`source-library --key ... download`), Bookracy via its

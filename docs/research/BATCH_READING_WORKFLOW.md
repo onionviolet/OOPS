@@ -45,7 +45,6 @@ Last safe submit before a credit lapse: noon on the last day of the month (batch
 
 ## Known gaps (2026-10-28)
 
-- Closed 2026-10-28 (sources were already in the Calibre library, catalogued 2026-10-08): Shadow Slave 1841-2260 is the "Shadow Slave Novel Vol 9" EPUB (id 35, `ss9`, 420 chapters, no gaps); volume 11 (id 37, chapters 2721-3000, `ss11`) is registered too but is beyond the 2261-2720 scope; A Soldier's Life books 1-6 are all on disk (chapters 1-384, one numbering, `asl1`-`asl6`; book 4 is the `~/Downloads` .mobi, converted once into a private copy); Circle of Inevitability is an English EPUB (id 34, `coi`, 1,178 chapters 1-1179; the edition skips the number 1026, no text is missing, and the author's afterword numbered 1180 is cut by `to`). TTKS is five books captured from ttks.tw on 2026-10-10 under `docs/research/novels/ttks-novels-2026-10-10/B1-B5` (`ttks1`-`ttks5`, Chinese, `json` type; B2 and B3 chapters 1-10 are the official Fanqie free text in simplified script). The `html` type reads the spine without an NCX.
-- Still not on disk: Shadow Slave from chapter 3001. Circle of Inevitability here is the English Light Novel World scrape; no Chinese 宿命之环 text was found in the Calibre library or the repo, so `lang` is `en`. Two more ttks captures (woyouyigexiuxianmoniqi 285 chapters, fanrencongjiyindao 44 chapters) are on disk but not registered.
-- Shadow Slave volume 9 and Circle of Inevitability come from web-scrape EPUBs (author metadata unknown); the edition and translation are unverified.
+Missing, unregistered or unverified sources are listed once, in the [library index](LIBRARY_INDEX.md#not-on-disk-or-unverified-the-one-pending-list); the 2026-10-28 gap closure is recorded in `READINESS_AND_SCOPE.md` round 9. Reader-side gaps:
+
 - Census rows read before 2026-10-28 hold an evidence label in `label`; the merge treats that as no label and uses the id or printed name.

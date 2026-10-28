@@ -258,7 +258,7 @@ LATER / DELEGATE:
 
 | Item | Level, effort | Done check |
 | --- | --- | --- |
-| L1 Source acquisition for Shadow Slave 3001+ and the two unregistered ttks captures. TTKS (five books) was already on disk (source acquisition rules). Shadow Slave 1841-2260, Circle of Inevitability and A Soldier's Life 1-6 were found in the Calibre library (done, below) | haiku lookup, then sonnet; small | Sources in the local library with receipts; registry rows added |
+| L1 Source acquisition (what is still missing is listed in [LIBRARY_INDEX](../../../research/LIBRARY_INDEX.md#not-on-disk-or-unverified-the-one-pending-list); Shadow Slave 1841-2260, Circle of Inevitability, TTKS and A Soldier's Life 1-6 were already on disk, done below) | haiku lookup, then sonnet; small | Sources in the library; rows added to the index and `books.json` |
 | L2 (done 2026-10-28) `html` and `json` adapters for EPUBs without NCX, `asl` and `coi` appendices and profiles | sonnet, small | Shards split with chapter counts matching the edition (below) |
 | L3 Second census arm (union) for LOTM volumes 2-8 on next month's credit | plan only | Recall measured against the first arm |
 | L4 Monthly pacing: each month, rerun `make_book_plans.mjs` and spend that month's credit on what is left plus repairs | GM routine | Run files dated per month |

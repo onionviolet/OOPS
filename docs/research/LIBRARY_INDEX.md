@@ -1,6 +1,6 @@
 # Library index: where each prime book is (start here)
 
-2026-10-28. One page for "do we have this book?". Check here before searching, asking Weibao or acquiring anything. Two book stores exist, each with a generated list: [Calibre](CALIBRE_CATALOGUE.md) (232 books) and the Source Library at `~/.local/share/source-platform` ([SOURCE_LIBRARY_CATALOGUE](SOURCE_LIBRARY_CATALOGUE.md), about 1,890 assets, mostly tabletop rulebooks). Loose files also sit in `~/Downloads` and `~/Downloads/Books_Reading` (80 books). Regenerate both lists with `python3 -I scripts/library_catalogue.py`. Older import evidence: [LOCAL_LIBRARY](novels/LOCAL_LIBRARY.md) (private, gitignored). Reading procedure and keys: [BATCH_READING_WORKFLOW](BATCH_READING_WORKFLOW.md). Machine-readable registry: [`books.json`](../gm/dispatch/batch-reading-2026-10-27/plans/books.json).
+2026-10-28. **The main source of truth for "do we have this book, and what is missing?"** Other documents link here and must not keep their own holdings or missing-source lists. Check here before searching, asking Weibao or acquiring anything. Two book stores exist, each with a generated list: [Calibre](CALIBRE_CATALOGUE.md) (232 books) and the Source Library at `~/.local/share/source-platform` ([SOURCE_LIBRARY_CATALOGUE](SOURCE_LIBRARY_CATALOGUE.md), about 1,890 assets, mostly tabletop rulebooks). Loose files also sit in `~/Downloads` and `~/Downloads/Books_Reading` (80 books). Regenerate both lists with `python3 -I scripts/library_catalogue.py`. Older import evidence: [LOCAL_LIBRARY](novels/LOCAL_LIBRARY.md) (private, gitignored). Reading procedure and keys: [BATCH_READING_WORKFLOW](BATCH_READING_WORKFLOW.md). Machine-readable registry: [`books.json`](../gm/dispatch/batch-reading-2026-10-27/plans/books.json).
 
 Source text stays outside tracked files. Never modify the library; convert into a gitignored private copy.
 
@@ -10,7 +10,7 @@ Source text stays outside tracked files. Never modify the library; convert into 
 |---|---|---|---|---|
 | Lord of the Mysteries 诡秘之主 (Ai Qian Shui De Wu Zei) | zh | Calibre 1, EPUB with `nav.xhtml`, 8 volumes (chapters restart per volume) | volumes 1-8 | `lotm2`-`lotm8` (volume 1 read by the older wave plans) |
 | Circle of Inevitability, "Lord of Mysteries 2" (the sequel, lead Lumian Lee) | en | Calibre 34, English web-scrape EPUB, author unknown | 1-1179 (1026 skipped by the edition; afterword cut) | `coi` |
-| Shadow Slave (Guiltythree) | en | Calibre 16 (1-1840 and 2261-2720 per the registry, NCX), 35 "Vol 9" (1841-2260), 36 Vol 10, 37 Vol 11 (2721-3000) | 1-3000 | `ss`, `ss9`, `ss10`, `ss11`. Not on disk: 3001+ |
+| Shadow Slave (Guiltythree) | en | Calibre 16 (chapters 1-1840, NCX), 35 "Vol 9" (1841-2260), 36 Vol 10 (2261-2720, NCX), 37 Vol 11 (2721-3000, no NCX, read as `html`) | 1-3000 | `ss`, `ss9`, `ss10`, `ss11`. Not on disk: 3001+ |
 | Mother of Learning (nobody103) | en | Calibre 21, EPUB | 1-106 plus epilogue | `mol` |
 | Harry Potter 1-7 (Rowling) | en | One omnibus PDF in `~/Downloads` (also Calibre author folders `J. K. Rowling`) | books 1-7 | `hp1`-`hp7` |
 | A Soldier's Life (Always RollsAOne / Erick Thiemke) | en | Calibre 55, 56, 57, 58, 112; book 4 only as a `.mobi` in `~/Downloads` (converted copy in the private folder) | 1-384 (books 1-6) | `asl1`-`asl6`. Books 7+ not on disk |
@@ -28,6 +28,19 @@ Source text stays outside tracked files. Never modify the library; convert into 
 | B5 | 废土边境检查官 | Wasteland Border Inspector | 斤斤斤 | Qidian | 668 | `ttks5` |
 
 Two further ttks captures, registered nowhere yet: 我有一个修仙模拟器 (author 不是星期天, 285 chapters, `woyouyigexiuxianmoniqi/`; not the same as 我有个修仙模拟器 by another author) and 凡人：从极阴岛开始的修仙模拟器 (44 chapters, `fanrencongjiyindao-moniqi/`). Do not confuse the simulator-cultivation books with each other.
+
+## Not on disk, or unverified (the one pending list)
+
+| Item | State | Next step |
+|---|---|---|
+| Shadow Slave chapters 3001+ (volume 12 on) | Not in either store | Source Library search, then the acquisition rules |
+| A Soldier's Life books 7+ | Not in either store; the author's draft of book 7 is Patreon-only | Check Source Library when a Kindle release exists |
+| Circle of Inevitability in Chinese (宿命之环) | Not found in Calibre, Source Library or the repo | Only if Weibao wants the Chinese text; the English scrape is registered |
+| Shadow Slave vol 9, Circle of Inevitability | Web-scrape EPUBs with unknown author metadata; edition and translation unverified | None unless a quality problem shows |
+| ttks captures woyouyigexiuxianmoniqi and fanrencongjiyindao | On disk, not registered for batch reading | Register on request |
+| Books captured 2026-10-10 are snapshots of ongoing serials | B2-B5 may have grown since | Recapture only on request, under the polite-scraper rules |
+
+Reading state (what has been read, spent or merged) lives in the run files and `BATCH_READING_WORKFLOW.md`, not here.
 
 ## Other things on disk, not batch-registered
 
