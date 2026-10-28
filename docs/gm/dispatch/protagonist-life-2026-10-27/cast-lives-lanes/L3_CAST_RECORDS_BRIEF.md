@@ -33,6 +33,12 @@ start profile, no save change. L4 wires it.
 3. **Role people** (landlady, vendors, clerks): one role record per place and role, schedule only.
 4. **Places:** every place a principal's schedule or beat uses, with a label and, where the text gives
    them, opening hours.
+Notes from the L2b review (2026-10-28): the remote gathering members (Audrey Hall, Alger Wilson) rank
+high by count but stay at M1 with dated whereabouts only (plan 3.1); take the next people by count
+instead. Some worksheet ids are raw place text ("unspecified", a dream, "school (unnamed)"): use the
+worksheet's `runtimeId` from the crosswalk, fold vague variants into the named place they describe when
+the paragraph shows it, and skip non-places (a dream, "unspecified") with a reason in the checkpoint.
+
 5. Everyone else stays at their M1 rung (no record); list them by id and count in the checkpoint.
 
 ## Timing (the main gap)
@@ -69,8 +75,9 @@ lead's cheat-space scenes become beats with `mechanism` set, which the resolver 
   nothing; every beat's actor and place exist in the data; no string over 200 characters.
 - Checkpoint: counts per tier, rows by label (S, T, I, U, fill), beats per principal, rows dropped under
   PL-A46 with their ids, one line per check.
-- `npm run check:arch` no new cycle; full `npm test` once before the commit; commit only owned paths from
-  a fresh HEAD; no stash, reset, force or push; no `Co-Authored-By` trailer.
+- `npm run check:arch` no new cycle. Do not commit: the Codex sandbox cannot write `.git`, so the
+  coordinating session runs the full `npm test` once and commits your owned paths. Never stash, reset,
+  force or push.
 
 ## Stop and report if
 
