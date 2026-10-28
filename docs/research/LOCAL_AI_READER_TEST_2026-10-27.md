@@ -82,7 +82,7 @@ First draft of the lane failed lint (id-namespace 24, price-amount 11, duplicate
 | Qwen 27B, w1s16, temp 0.3, seed 99 | 81 | 93% | pass | B | 1.0 | 129 s | 3,702 | 0 |
 | Qwen 27B, w2s20, temp 0, seed 42 | 99 | 89% | pass | B | 1.0 | 168 s | 3,994 | 0 |
 | Qwen 27B, w2s20, temp 0.3, seed 7 | 92 | 91% | pass | B | 1.0 | 117 s | 3,403 | 0 |
-| Qwen 27B, w2s20, temp 0.3, seed 99 | 89 | 87% | pass | B | 1.0 | n/a | n/a | 0 |
+| Qwen 27B, w2s20, temp 0.3, seed 99 | 89 | 87% | pass | B | 1.0 | 183 s | 3,206 | 0 |
 | Huihui Q8, w2s20, temp 0, seed 42 | 92 | 87% | pass | B | 1.0 | 215 s | 3,489 | **40** |
 
 - **Stability:** the three seeds share 74 of 96 names on w1s16 and 83 of 108 on w2s20 (about 77%); recall against haiku varied only 87% to 93%.
