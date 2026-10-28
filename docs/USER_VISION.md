@@ -6807,3 +6807,8 @@ Recorded: the "be the lead" playthrough is the main line. Systems are built by p
 
 Weibao's words: "adjust accordingly and set this to be the goal of now and future world implementations from readings? How can we optimize and be more efficient about the implementation progress?"
 Recorded: the "be the lead" main line is the standing goal for this and every future world implemented from the readings, as [AD44](RULES_INDEX.md). The [batch reading workflow](research/BATCH_READING_WORKFLOW.md) points its "merge and use" step at it. Efficiency proposals: [cast-lives plan round 20](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md).
+
+### Cast lives: batched defaults accepted (2026-10-28)
+
+Weibao's words: "Sure" (answering the coordinator's batched list, each item with its default; the list as asked is kept in the [coordinator handoff](gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md)).
+Recorded: the scene-to-UI rules SUI1-SUI19, the cast-lives implementation rules CLR1-CLR13 and the Reports rules RPT1-RPT12 are binding defaults with dials ([card](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md), [plan](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md) sections 15, 17, 18, 21). The LOTM start month is the book's own opening date. The checked-in `dist/` is rebuilt at the next commit batch. Meta powers stay hidden in the be seat, asked again only if an outsider-mind premise comes up. Pushes still wait for his explicit yes.
