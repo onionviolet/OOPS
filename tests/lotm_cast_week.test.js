@@ -486,12 +486,12 @@ test('bound scenes settle once within a day, keep actors, and do not grant priva
  pack.reports={'b.1':{present:{text:`{ref:${a}|a neighbour} opens a window.`,places:[home]}},'b.2':{present:{text:`{ref:${a}|a neighbour} closes it.`,places:[home]}}};
  state.simulation.people.player.location=home;
  let out=planLotmCastBeats(state,newBeatState(),pack);assert.equal(out.results.length,1);assert.equal(out.results[0].lives[0].exposure,'involved');
- assert.equal(out.reports[0].text,'a neighbour opens a window.');assert.equal(out.ledger.facts['b.1.count'],1);
+ assert.equal(out.reports[0].text,'A neighbour opens a window.');assert.equal(out.ledger.facts['b.1.count'],1);
  const bytes=JSON.stringify(out.ledger);planLotmCastBeats(state,out.ledger,pack);assert.equal(JSON.stringify(out.ledger),bytes);
  state.simulation.knowledge.player[`book.lotm.cast.met.${a}`]={stage:'seen',value:'A greeting.',at:0,cause:'fixture.greeting'};
  state.clock=10;out=planLotmCastBeats(state,restoreBeatLedger(serializeBeatLedger(out.ledger)),pack);
  assert.equal(out.ledger.done['b.blocked'].status,'blocked');assert.equal(out.ledger.done['b.lapsed'].status,'lapsed');
- assert.equal(out.reports[0].text,'Arden Vale closes it.');assert.equal(castBeatReports(out.ledger)[0].text,'a neighbour opens a window.','later introduction cannot rewrite old names');
+ assert.equal(out.reports[0].text,'Arden Vale closes it.');assert.equal(castBeatReports(out.ledger)[0].text,'A neighbour opens a window.','later introduction cannot rewrite old names');
  assert.equal(castSettledPeople(state,out.ledger,pack)[0].memories.length,2);
  state.clock=1440;out=planLotmCastBeats(state,out.ledger,pack);assert.equal(out.ledger.done['b.3'].day,2);
  assert.deepEqual(planLotmCastBeats(state,out.ledger,pack).results,[]);
@@ -524,4 +524,34 @@ test('durable cast plan stages one ledger slice and does not publish on a failed
  assert.equal(currentCastBeatLedger().facts['fixture.previous'],true);assert.equal(published,0);
  persistLotmCastPlan(plan,p=>{assert.deepEqual(p.nativePatch.beatLedger,{schema:1,facts:{},done:{},day:0});},{reset:true});
  assert.deepEqual(currentCastBeatLedger(),{facts:{},done:{},day:0});
+});
+
+test('cast report projection capitalizes a masked introduction without revealing its name',()=>{
+ const ledger={facts:{'lotm.cast.report.fixture':{template:'{ref:fixture.person.arden|a neighbour} opens a window.',names:{}}}};
+ assert.equal(castBeatReports(ledger)[0].text,'A neighbour opens a window.');
+});
+
+test('only the beside profile uses its current place as its panel title',async()=>{
+ const {lotmPanelTitle}=await import('../src/book_world_lotm_ui.js');
+ for(const key of Object.keys(baseline))assert.equal(lotmPanelTitle(begin(key).host.view()),'Tingen workroom',key);
+ const {host,box}=begin('beside');assert.equal(lotmPanelTitle(host.view()),host.view().at);
+ box.p.state.simulation.people.player.location=fixture.places[0].id;
+ assert.equal(lotmPanelTitle(host.view()),'Willow flat');
+});
+
+test('a meeting followed by a witnessed beat appears in the known person view',async()=>{
+ const {knownPeopleView}=await import('../src/people_knowledge.js');
+ const {host,box}=begin('beside');host.move('lotm.move.fixture.place.home');box.p=wait(box.p,2);host.tick();
+ const actor=fixture.people[0].id;host.act(castTalkCommands[0].id);
+ const pack=structuredClone(fixture),home=pack.places[0].id;
+ pack.bindings.days=[{scene:'fixture.scene',day:1,from:2,to:20}];
+ pack.bindings.beats=[{id:'fixture.beat',scene:'fixture.scene',dayIndex:1,until:1,actor,place:home,effects:[]}];
+ pack.reports={'fixture.beat':{present:{text:`{ref:${actor}|a neighbour} opens a window.`,places:[home]}}};
+ const out=planLotmCastBeats(box.p.state,newBeatState(),pack);
+ assert.equal(out.reports[0].text,'Arden Vale opens a window.');
+ domainRegistry.command('beatLedger','commit')(out.ledger);
+ const person=knownPeopleView(box.p.state).find(p=>p.id===actor);
+ assert.ok(person);assert.deepEqual(person.memories.map(m=>m.text),['Arden Vale opens a window.']);
+ assert.equal(knownPeopleView(box.p.state).some(p=>p.id===fixture.people[1].id),false);
+ domainRegistry.command('beatLedger','commit')(newBeatState());
 });

@@ -93,6 +93,18 @@ function syncShellEditing(){
 const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
 function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }
 export function workspaceOwns(node) { return !!owner && [...registry.values()].some(v => v.node === node); }
+// A panel whose subject changes can update its registered label without replacing its shell.
+export function setWorkspaceModuleTitle(id, title) {
+    const module=registry.get(id); if(!module || module.title===title) return;
+    module.title=String(title);
+    if(module.expanded) {
+        const heading=module.header.querySelector('strong'); heading.textContent=module.title; heading.title=module.title;
+        if(module.shell.hasAttribute('aria-label')) module.shell.setAttribute('aria-label',module.title);
+    } else if(module.shell && module.labelled) {
+        module.labelled=undefined; labelShell(module,true);
+    }
+    updateWorkspace();
+}
 export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason }) {
     if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
     const old = registry.get(id);
@@ -219,6 +231,7 @@ function labelShell(module, known) {
     // DL6: a header cut by a narrow box keeps its full name inspectable.
     const heading = shell.querySelector('.workspace-module-header > strong'); heading.textContent = known ? module.title : ''; heading.title = known ? module.title : '';
     module.decorateShell?.(shell, known);
+    if (known && shell.hasAttribute('aria-label')) shell.setAttribute('aria-label', module.title);
     shell.querySelector('.workspace-drag-handle').setAttribute('aria-label', `Move ${name}`);
     shell.querySelectorAll('[data-workspace-action=width],[data-workspace-action=height]').forEach(r => r.setAttribute('aria-label', `${name} ${r.dataset.workspaceAction}`));
     shell.querySelectorAll('[data-resize]').forEach(g => g.setAttribute('aria-label', `Resize ${name} ${g.dataset.resize === 'e' ? 'width' : g.dataset.resize === 's' ? 'height' : 'width and height'}`));

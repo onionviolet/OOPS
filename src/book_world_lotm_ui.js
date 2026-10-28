@@ -1,8 +1,9 @@
 import {definePanel} from './panel_kit.js';
-import {expandWorkspaceModule} from './workspace_layout.js';
+import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
 import {decorateActionComponents} from './ui_components.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
+export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
 export function createLotmPanel({read,act,cancel,move,enroll,home}){
@@ -10,7 +11,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null;const bars=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
@@ -61,7 +62,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  function syncDoor(v){const place=localActions();door.hidden=!!v.enrolled||!v.atVillage;if(place&&!door.isConnected)place.append(door);}
  let doorObserver=null;
  function render(){
-  const v=read(selected);syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
+  const v=read(selected);setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
   const next=JSON.stringify([v,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
@@ -152,8 +153,25 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));
-  if(v.places?.length){const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places)list.append(node('li',`${pl.place} · ${pl.district}, ${pl.team} (${pl.church})${pl.here?' · you are here':` · ${pl.minutes} min`}`));walks.append(node('h3','Places'),list);}
-  for(const m of v.moves)walks.append(row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' '))));
+  const placeLine=pl=>`${pl.place} · ${pl.district}, ${pl.team} (${pl.church})${pl.here?' · you are here':` · ${pl.minutes} min`}`;
+  const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' ')));
+  if(resident){
+   const here=v.places.find(pl=>pl.here)?.district;
+   if(here!==currentDistrict){districtOpen.clear();placesOpen.clear();currentDistrict=here;}
+   walks.append(node('h3','Places and walks'));
+   for(const district of new Set(v.places.map(pl=>pl.district))){
+    const group=node('details');group.dataset.lotmDistrict=district;group.open=districtOpen.get(district)??district===here;
+    group.ontoggle=()=>districtOpen.set(district,group.open);
+    const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places.filter(pl=>pl.district===district))list.append(node('li',placeLine(pl)));
+    const places=node('details');places.open=placesOpen.get(district)??false;places.ontoggle=()=>placesOpen.set(district,places.open);
+    places.append(node('summary','Places'),list);group.append(node('summary',district),places);
+    for(const m of v.moves.filter(m=>m.label.includes(` · ${district}: `)))group.append(walkRow(m));
+    walks.append(group);
+   }
+  }else{
+   if(v.places?.length){const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places)list.append(node('li',placeLine(pl)));walks.append(node('h3','Places'),list);}
+   for(const m of v.moves)walks.append(walkRow(m));
+  }
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
  }
  definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});

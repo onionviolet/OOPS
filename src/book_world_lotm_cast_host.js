@@ -159,8 +159,9 @@ import {renderRefs} from './ref_resolver.js';
 const REPORT_PREFIX='lotm.cast.report.';
 const terminalBeat=row=>row&&['carried','altered','blocked','lapsed'].includes(row.status);
 const castKnown=(state,id)=>['known','met'].some(kind=>state.simulation?.knowledge?.player?.[`book.lotm.cast.${kind}.${id}`]);
+const renderCastReport=r=>renderRefs(r.template,{names:r.names}).replace(/^(\s*\p{Ll})/u,letter=>letter.toUpperCase());
 export function castBeatReports(ledger){
- return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderRefs(r.template,{names:r.names})}));
+ return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderCastReport(r)}));
 }
 export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
  if(!lotmBeside(state)||!pack)return [];
@@ -205,7 +206,7 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
    const names=Object.fromEntries(pack.people.filter(p=>castKnown(state,p.id)).map(p=>[p.id,p.name]));
    const report={beat:beat.id,actor:beat.actor,day:day.day,at,place:place(beat.place),exposure,
     template:routes[exposure].text,names,kind:['present','affected'].includes(exposure)?'event':'background'};
-   next.facts[REPORT_PREFIX+beat.id]=report;reports.push({...report,text:renderRefs(report.template,{names})});
+   next.facts[REPORT_PREFIX+beat.id]=report;reports.push({...report,text:renderCastReport(report)});
   }
  }
  return {ledger:next,results,reports};
