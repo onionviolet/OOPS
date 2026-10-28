@@ -64,7 +64,10 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
    Can run beside B1 if it owns only the binding script and book-pack data.
 4. **Be replay**: rerun L5r in the be seat (CL269); report fidelity there. Then the be replay's ledger is the
    only backlog (CL273); G2 and other G-lanes return as it asks.
-5. **D1 determinism and divergence** (CO10) after B1, before the be replay's gap lanes multiply chance.
+5. **D1 spine** after B1: [LEAD_LIFE_SYSTEMS_DESIGN](LEAD_LIFE_SYSTEMS_DESIGN.md) LSD59 (means reader, risk and exposure quote,
+   keyed resolver for the lead and cast, divergence log; covers CO10). Later gap lanes take their scope from LSD60
+   (R1 relationships, E1 work and household, K1 witness and rumour, LW1 law, N1 needs, F1 conflict ladder) as the be
+   replay reaches them; every brief cites its LSD lines.
 6. Efficiency lanes as slots free up: CL278 parametrized floor (start from this session's floor script,
    below), CL274 runner ready-queue, CL279 MoL lead playthrough after B1 is generic.
 
@@ -90,7 +93,14 @@ that the lanes have not yet covered. Codes CO1-CO9 are this coordinator's.
 | CO9 | **Wording (CL248).** G1's and G2's briefs say "private pack"; new briefs say "local book pack (not published)" first, then "book pack" | ACCOUNT FOR NOW: done in C1, S1, P1 briefs; G2 brief updated when it returns |
 | CO10 | **Determinism has owners but no use in the cast path yet.** `seeded_streams.js`, `hash_rng.js` and `check_resolver.js` exist; cast schedules and beats are deterministic only because they contain no chance (beats settle as written). CL262 (the lead as an NPC follows the book while his state matches, otherwise the same resolver by needs and motives, with seeded close calls) and CL260 (same life, same actions, same result) have no lane. L5r's two-run comparison is the only replay check | ACCOUNT FOR NOW: B1 brief line 6 (draws keyed by life seed, day, subject; a two-run identity test). LATER/DELEGATE: D1 lane (Sol medium) for the CL262 divergence resolver and an emergence and divergence log (CL150); done when a be replay that leaves the book's path at one step shows the cast's beats that depend on it resolving by motive, identically across two runs |
 
-## Waiting on Weibao (one batched list, CL281; each has a default)
+## Accepted by Weibao (2026-10-28)
+
+Weibao answered the batched list with "Sure": SUI1-SUI19, CLR1-CLR13 and RPT1-RPT12 are binding defaults; the
+LOTM start month is the book's opening date; rebuild the checked-in `dist/` at the next commit batch; meta
+powers stay hidden in the be seat (asked again only if an outsider-mind premise comes up); pushes wait for
+his explicit yes. USER_VISION and PROJECT.md records are the owning session's to write.
+
+## Superseded: the batched list as asked (CL281)
 
 - Acceptance of SUI1-SUI19, CLR1-CLR13 and RPT1-RPT12 as binding defaults. Default: accept as written.
 - The LOTM start month. Default: the book's own opening date; until then the day counts from the life's start.

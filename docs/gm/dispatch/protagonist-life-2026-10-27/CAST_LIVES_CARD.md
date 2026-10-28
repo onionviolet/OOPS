@@ -38,7 +38,7 @@ places; the people the lead knows are where their day puts them. Talk to whoever
 says when and where they are usually back. Their story beats now happen on their days whether you are there or
 not; be at the household flat at dawn on day 1 and Reports tells you what you saw.
 
-## Rules for this work (CLR1-CLR12, proposed)
+## Rules for this work (CLR1-CLR13; accepted as binding defaults 2026-10-28)
 
 Each line restates an accepted code where one exists; only CLR2, CLR3, CLR6, CLR8 and CLR9 are new.
 
@@ -60,6 +60,8 @@ Each line restates an accepted code where one exists; only CLR2, CLR3, CLR6, CLR
 
 ## Where to look
 
+- **Top-down design of the lead's life** (actions, relationships, fights and results, knowledge, law, work, body,
+  determinism, subtle chains, lanes): [LEAD_LIFE_SYSTEMS_DESIGN.md](LEAD_LIFE_SYSTEMS_DESIGN.md) (LSD1-LSD60, proposed).
 - Method and index-to-runtime map: plan sections 2-3. Fights and gap probe: 8. Fate, time models, trends,
   UI: 9. Audits versus derivation, interaction loop: 10. Scene UI rules SUI1-SUI19: 15, 17, 18.
   Fold-loss: 19. Private pack and build order: 17. Reports text RPT1-RPT12: 21.
