@@ -75,7 +75,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (runName && world) {
         const s = passes.map(p => ({name: p, gate: 'stop', labels: steps[p]})).filter(x => x.labels.length);
         const capTotal = Number(s.flatMap(x => x.labels).reduce((t, l) => t + l.cap, 0).toFixed(2));
-        const run = {name: `${runName}-${world}`, approval: 'PENDING: needs Weibao\'s go phrase.', ceilingUsd: Number(flag('--ceiling')) || capTotal, capTotal, pooledStop: true, steps: s};
+        // The driver sums the unrounded caps, so a default ceiling equal to the rounded total can stop it; add a cent.
+        const run = {name: `${runName}-${world}`, approval: 'PENDING: needs Weibao\'s go phrase.', ceilingUsd: Number(flag('--ceiling')) || Number((capTotal + 0.01).toFixed(2)), capTotal, pooledStop: true, steps: s};
         writeFileSync(join(PLANS, `overnight_${runName}-${world}.json`), JSON.stringify(run, null, 1) + '\n');
         report.push({run: run.name, capTotal, ceilingUsd: run.ceilingUsd});
     }

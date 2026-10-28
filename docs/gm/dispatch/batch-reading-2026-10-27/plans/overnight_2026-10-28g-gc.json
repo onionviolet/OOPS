@@ -1,0 +1,25 @@
+{
+ "name": "2026-10-28g-gc",
+ "approval": "Weibao 2026-10-28: \"Go, cap $3\" (shared $3 cap with the RI Gu direct check and the medium-census direct pilot); ceiling $0.61 (true cap $0.60 plus a cent for float rounding).",
+ "ceilingUsd": 0.61,
+ "capTotal": 0.6,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc1_census_s1.json",
+     "cap": 0.33,
+     "label": "gc1-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_census_s1.json",
+     "cap": 0.27,
+     "label": "gc2-census-s1"
+    }
+   ]
+  }
+ ]
+}

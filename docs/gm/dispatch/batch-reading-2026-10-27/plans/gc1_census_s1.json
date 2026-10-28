@@ -1,0 +1,77 @@
+{
+ "world": "gc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29",
+  "censusMatch": "^(gc1|gc2)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "gc1-census-s1",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "gc1c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch010-010.txt",
+   "base": "01001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "gc1c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch011-011.txt",
+   "base": "01101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "gc1c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch036-036.txt",
+   "base": "03601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "gc1c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch037-037.txt",
+   "base": "03701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "gc1c042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch042-042.txt",
+   "base": "04201",
+   "chapters": "42-42"
+  },
+  {
+   "prefix": "gc1c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch043-043.txt",
+   "base": "04301",
+   "chapters": "43-43"
+  },
+  {
+   "prefix": "gc1c048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch048-048.txt",
+   "base": "04801",
+   "chapters": "48-48"
+  },
+  {
+   "prefix": "gc1c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch049-049.txt",
+   "base": "04901",
+   "chapters": "49-49"
+  },
+  {
+   "prefix": "gc1c060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch060-060.txt",
+   "base": "06001",
+   "chapters": "60-60"
+  },
+  {
+   "prefix": "gc1c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc1_ch061-061.txt",
+   "base": "06101",
+   "chapters": "61-61"
+  }
+ ]
+}

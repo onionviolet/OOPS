@@ -396,3 +396,17 @@ Weibao: "We can fix LOTM, and then do the rest? Splot accordingly? Address each 
 | C24 | November order | Circle of Inevitability, then the Shadow Slave rerun with its pilot gate waived, then the retry list: LOTM volume 1's 6 census shards, HP's 2 broken people replies and 3 census partials, A Soldier's Life's 14 census partials, all at split or medium |
 
 Chain (scratchpad `chain2.sh`, PID 35762): after the Perfect Run, the RI pilot and the LOTM split retry exit, resume `r-asl` for texture if measured spend plus $5.01 is at most $95, then send Godclads under C22. Both must go before Oct 31 noon.
+
+### Round 13 follow-up: last October checks (2026-10-28, Weibao: "Go, cap $3")
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| C25 | Godclads finished all five passes for $3.95 (ceiling $13.38); 9 census shards came back cut off | Split retry `2026-10-28g-gc`: 18 one-chapter requests, true cap $0.60, ceiling $0.61. The first launch stopped before sending because the driver summed $0.33 + $0.27 past a $0.60 ceiling; `make_split_retry.mjs` now defaults the ceiling to the total plus a cent |
+| C26 | Reverend Insanity Gu check (C23) | Answered from the October rows for $0 instead of a paid call. The 1.4 rules pass on chapters 1-100 gave 368 rows, 179 about Gu: refining recipes with inputs, quantities and steps (`Refining a Gu`, 6 steps), feeding upkeep (31 rows), fusion and combination recipes (10), rank gates (28), `costStated` on 145 of the 179. `acquire` is on 2 Gu rows, which fits the text: a Gu's power comes with owning and feeding the Gu, not with learning. The schema fits Gu without a change |
+| C27 | Medium-effort census (C13), direct, 6 shards (RI 2, Godclads 2, HP 2), $0.09, plus a high-effort rerun of the same 6 as a noise baseline, $0.13 | Two high runs overlap only 72% by name (lead-touched 94%), so census output varies run to run. Medium: 40% less output, 20% fewer rows, 64% overlap with the October high rows (lead-touched 85%). Medium loses about 9 points of lead-touched recall, which the cast-lives goal needs. **Keep census at high.** Matching is by normalized name and aliases, so all recall figures are lower bounds |
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| C28 Because two high runs disagree on about a quarter of rows, two medium runs merged (about 1.2x one high run) may beat one high run on recall. Test the union on the same 6 shards before any November census at scale | direct pilot, about $0.10 | Union recall against both high runs reported per shard |
