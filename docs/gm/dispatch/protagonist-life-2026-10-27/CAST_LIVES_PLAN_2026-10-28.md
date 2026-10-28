@@ -852,3 +852,40 @@ commits for sandboxed lanes.
 | CL196 | **Too little detail where the next lanes start.** L4b (beats and the null-player run), L5r (UI replay) and the scene card have rows in tables but no player sentences (PRF2) and no expected counts; the briefs must carry them | ACCOUNT FOR NOW: write those briefs from L4c's checkpoint with PRF2 sentences and probe counts |
 | CL197 | **Too little at the human seat.** Nothing yet tells Weibao what he will see when he opens the beside start; a three-line "what you can do now" belongs in the card once L4c meets the floor | ACCOUNT FOR NOW |
 | CL198 | **Proposals pile up unaccepted.** SUI1-SUI19, CLR1-CLR12, D1-D5 and the WA42-WA47 proposals are all "proposed". The card lists them; one acceptance pass by Weibao would turn the useful ones into binding defaults | Ask Weibao once L4c lands, by name, not either/or |
+
+## 21. Round 13: what the cast writes into Reports (2026-10-28)
+
+Weibao: "Also on the text and stuff in the reports section? More to consider?"
+
+Reports is the game's message log (right column; kinds unlocks, events, crafting, combat, loot,
+background; filter, follow, Latest). Its owners: UR44 (log as a readable stream), the message-condensing
+palette MC1-MC5 in [THEMATIC_UI_AND_INFORMATION_DESIGN](../../../THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#condensing-messages-independent-options-with-explicit-costs),
+SUI3 and SUI11 above. Checked 2026-10-28: L4a's location sync writes no report line; only a talk writes a
+knowledge note.
+
+### 21.1 Rules (proposed RPT1-RPT12)
+
+| Code | Rule (default, dial and reason) | Restates |
+| --- | --- | --- |
+| RPT1 | **Reuse the existing kinds.** Witnessed canon beats and talks go under events; heard news and off-screen life go under background. A new "People" kind waits for a second consumer (relationships, rumors) and then pays its one `main.js` line under AR1 | AR1, FND5 |
+| RPT2 | **Only what the player perceived, at its witness level.** Present: what you saw ("Dunn hands the clerk a sealed file."). Affected: the effect on you. Aftermath: what you find. Heard: marked as told ("Word at the market: ..."). No line about what nobody told you | SUI3, PX49, AR8 |
+| RPT3 | **Subject first, compact** (MC1): who, did what, result, place if it matters, in one line | UR44, MC1 |
+| RPT4 | **Names as the player knew them then.** Someone not yet introduced is "a tall officer" until you learn the name, and the old line keeps what you knew when it was written. Names resolve through the reference resolver at read time (PL-E2's known limit: the chronicle renders at write time with an empty context, so a read-time render is needed) | CAE-E1/E4, MC note on recorded subject |
+| RPT5 | **Movement is not news.** Cast moving by schedule writes nothing. Leaving or arriving writes a line only when the player sees it and knows the person; repeats in one band fold into one line ("Morning: Melissa left for school; the bakery opened.") | MC2, MC3 |
+| RPT6 | **Coming back gets a digest.** After idle or away time, one "While you were away" row lists what you could know, grouped by person, with the raw lines kept in the stream | MC4, NPC absence report |
+| RPT7 | **No canon labels, no future.** Reports never say what the book did or will do; the "what the book did" overlay is the only place for that | SUI4, sealed-secrets rule |
+| RPT8 | **Reports are written once, by the settling event.** Previews, syncs, reloads, re-filters and replays write nothing and never duplicate a line | MC note on re-expansion, AR3 |
+| RPT9 | **The log forgets; the person view remembers.** The stream prunes by kind, so a person's history lives in the person view and chronicle (CL38); a report row links there | UR43, CL38 |
+| RPT10 | **Book text stays out of the log by default.** The line is the receipt and is ours (SUI11); quoted book text belongs on the scene card and in descriptions (CL144-CL145). Dial: a private-pack world may show a short quoted line for a canon scene the player was present at, marked as from the book | CL144, AD1 |
+| RPT11 | **No developer text.** Evidence labels, fill notes, locators and ids never appear in Reports; they live in the inspector (CL19, CL42) | UR73 |
+| RPT12 | **Varied but deterministic wording.** Routine lines draw their wording from the world's texture rows keyed by place, band and day, so the same moment reads the same after a reload and different days read differently | CL49, WA37 |
+
+### 21.2 More to consider
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| CL199 | **Volume at scale.** 34 cast bodies with RPT5 write a handful of lines a day where the player is; the null-player run (L4b) prints a count per day so the budget is measured, not guessed | ACCOUNT FOR NOW: L4b brief |
+| CL200 | **Lines about the player.** Rumors about the player reach the player only through someone who would tell them, and read as heard (RPT2) | LATER: with the interaction loop (10.2) |
+| CL201 | **Description lint covers report lines** (IPC32): non-empty, an effect clause, no raw ids, length bound | LATER/DELEGATE: when IPC32 lands, add cast report templates to its population |
+| CL202 | **Our own receipts follow the same discipline.** Checkpoints keep IPC27's front matter (build, route, state) and plain player terms in their "what you can do now" lines; implementation notes stay below | ACCOUNT FOR NOW |
+| CL203 | **L4b and the scene card own the first report lines.** L4b writes beat settlement lines at witness levels; the card writes its receipt line (SUI11). Both cite RPT codes in their briefs | ACCOUNT FOR NOW |

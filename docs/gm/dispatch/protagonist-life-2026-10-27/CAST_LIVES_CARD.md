@@ -44,6 +44,6 @@ Each line restates an accepted code where one exists; only CLR2, CLR3, CLR6, CLR
 
 - Method and index-to-runtime map: plan sections 2-3. Fights and gap probe: 8. Fate, time models, trends,
   UI: 9. Audits versus derivation, interaction loop: 10. Scene UI rules SUI1-SUI19: 15, 17, 18.
-  Fold-loss: 19. Private pack and build order: 17.
+  Fold-loss: 19. Private pack and build order: 17. Reports text RPT1-RPT12: 21.
 - Engine: `src/cast_schedule.js`, `src/beat_records.js`, `src/beat_ledger.js`. Tools:
   `scripts/lead_run/{build_crosswalk,cast_worksheet,conflict_contracts,after_actions}.mjs`.
