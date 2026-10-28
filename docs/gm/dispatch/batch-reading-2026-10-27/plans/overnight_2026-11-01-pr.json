@@ -1,6 +1,6 @@
 {
  "name": "2026-11-01-pr",
- "approval": "PENDING: needs Weibao's go phrase.",
+ "approval": "Weibao 2026-10-28: \"Do we at least finish reading one book? Send stuff accordingly\", answering \"Send the full Perfect Run and RI volume 1 once r-ss and r-asl finish, if it stays under $95?\" (run 2026-11-01-pr; schema 1.4; caps as written; ceiling $10.2; launched only after r-ss and r-asl finish, if measured spend plus open ceilings stays under $95, before Oct 31 noon).",
  "ceilingUsd": 10.2,
  "capTotal": 13.72,
  "steps": [
