@@ -1,6 +1,6 @@
 {
  "name": "2026-10-28c",
- "approval": "Weibao 2026-10-28: \"Go on both\", answering \"Resume both runs under the new stop rule?\" (go phrase E2, NOV1_SCHEDULE section 9: labels and caps as listed, ceiling $5, repairable-C stop rule).",
+ "approval": "Weibao 2026-10-28: \"Go on both\", answering \"Resume both runs under the new stop rule?\" (go phrase E2, NOV1_SCHEDULE section 9: labels and caps as listed, ceiling $5, repairable-C stop rule). | Weibao 2026-10-28: \"Try to finish in this month's credits if possible? More to consider?\", answering \"Finish LOTM volume 1 first thing on November's credit, at 128K?\" (finish volume 1 on October credit: C1 gate waived, its C and failed shards go to the November retry list; remaining plans at 128K; pooled stop rule; ceiling $5 unchanged).",
  "ceilingUsd": 5,
  "note": "Replaces the unsent part of 2026-10-28b. Census at medium (two runs, prefixes b and c, for the union); caps are true bounds at 64,000 output tokens per request.",
  "steps": [
@@ -23,6 +23,12 @@
      "cap": 0.19,
      "label": "v1-scenes-w1"
     }
+   ],
+   "nonGating": [
+    "step",
+    "v1-census-w1-retry",
+    "v1-census-w2",
+    "v1-scenes-w1"
    ]
   },
   {
@@ -127,5 +133,6 @@
     }
    ]
   }
- ]
+ ],
+ "pooledStop": true
 }

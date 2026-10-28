@@ -2,7 +2,7 @@
  "world": "lotm",
  "model": "claude-haiku-5-5",
  "effort": "high",
- "maxTokens": 64000,
+ "maxTokens": 128000,
  "outTokensAssumed": 45000,
  "schemaMode": "prompt",
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
