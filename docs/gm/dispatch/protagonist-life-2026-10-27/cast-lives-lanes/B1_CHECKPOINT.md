@@ -1,5 +1,70 @@
 # B1 checkpoint, 2026-10-28
 
+## Round 4: perspective, kit, clock and held autosaves
+
+Coordinator reported the round-3 browser route and reload passing at 1920×1080
+on bundle `a7147d40`, with pack-absent loading read-only. This round addresses
+BF1-BF4. Its combined candidate is built and fixture-checked, but the browser
+floor has not been rerun on this build. The shared-checkout source and the
+separate integration patch must be reviewed together.
+
+- BF1: `seat_profiles.js` classifies shared, system, crossing and explicitly
+  world-owned panels, conservatively excluding unclassified panels in be. The
+  LOTM panel declares its world. `B1_INTEGRATION_2.patch` adds perspective to
+  the workspace registration seam, applies it to known lists, opening and
+  rendered shells, and labels the current-place scene from the be perspective.
+  The patch is **not applied** in the shared checkout. Its registered-panel
+  fixture excludes another world and crossing. A populated native shell still
+  needs checking for all names, routes and residual Village text.
+- BF2: fresh be enrollment clears the default native player inventory and
+  equipment; the pack's object recorded as present in a room is not treated as
+  a carried possession. The one-penny purse remains the existing labelled fill.
+  The be shell hides the native level and XP displays. Synthetic plan assertions
+  pass; native inventory and equipped slots require the browser/save check.
+- BF3: the patch makes the location scene read the existing cast calendar for
+  either cast seat. With no local weather source it supplies no weather line.
+  The synthetic clock returns `Day 1, night` and no weather placeholder.
+- BF4: the existing pack hold is exposed to the autosave path; held saves skip
+  both ordinary autosave and automatic backup attempts. The missing-pack
+  fixture proves the hold; quiet native behavior needs the browser console check.
+
+Checks on this round's inputs:
+
+- `node --test tests/lotm_be_seat.test.js tests/seat_profiles.test.js`: PASS,
+  19/19 in the primary checkout. Before the registry patch is applied, the
+  registered-list test supplies fixture perspectives; the combined candidate
+  additionally checks the registry's own returned list.
+- The same command plus `tests/village_workspace.test.js` in the scratch
+  candidate with `B1_INTEGRATION_2.patch` applied: PASS, 23/23. A separate
+  actual registry and cast-clock fixture also passed. No native browser claim.
+- `npm run check:arch`: PASS, main 10090/10115, display 6730/6767, save_files
+  310/310, 205 grandfathered cyclic edges. The combined scratch candidate also
+  passes the same architecture check.
+- `BUILD_OUT=/tmp/yairpg-b1 npm run build`: PASS in the combined scratch
+  candidate, including the compiler check; bundle SHA-256
+  `358265cf8c1b18c29ff6163824c01b8b8754fc3437dfbdbebac9a67050e2ed56`.
+- `git apply --check` for `B1_INTEGRATION_2.patch`: PASS; patch SHA-256
+  `2672d24246cfed25be810b27c4fd3342d4eb124118f77b2c13be1824d88ad8f4`.
+  `git diff --check`: PASS. Scoped `lane_review.mjs`: PASS, six source/test
+  paths, zero name hits, top-level awaits or outside-grant paths; `main.js`
+  is excluded because its two known baseline hits are recorded in round 3.
+
+FLR1: combined scratch bundle above. FLR2-FLR5: the prior browser evidence
+applies to round 3, not this new bundle; coordinator needs to apply/review the
+patch and rerun the fresh be route, panel inventory, kit, header, reload and
+missing-pack console check. FLR6: implemented, below floor, fixture-checked,
+not human-reviewed. The seven L5r rows remain open until the be replay.
+
+Known limits and expected refactors (AD45, MD1-MD3): the native combat stats
+still use the default numeric model; F1 should map this life's sourced body and
+combat abilities. The panel adapter conservatively hides unclassified panels;
+panel owners should declare actual world/system perspectives as they are
+integrated so shared capabilities can be shown without guessing. This world
+has no sourced weather projection in this slice, so the header stays silent;
+a later world/place/clock climate derive should serve both live and away-time
+consumers, and should not assume seasons. Physical room objects are not yet a
+usable possession system. No commit was made.
+
 ## Round 3: detached start guard, failure feedback, architecture
 
 Coordinator review applied `B1_INTEGRATION.patch` and found F1-F3 in the

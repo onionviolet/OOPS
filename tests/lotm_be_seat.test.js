@@ -82,6 +82,13 @@ test('independent be enrollment uses one player body and a canon run',()=>{
  assert.throws(()=>hostOver(bare()).host.enroll('be'),/fresh independent/);
 });
 
+test('independent enrollment removes the fresh shell kit from the player',()=>{
+ const p=bare();p.gameplay.player.inventory={'fixture.item':1};
+ const o=hostOver(p),plan=o.host.enroll('be',{independent:true});
+ assert.deepEqual(plan.gameplay.player.inventory,{});
+ assert.deepEqual(plan.equipment.player,{});
+});
+
 test('canon beat and actor knowledge resolve identically without player input',()=>{
  const o=hostOver(bare());o.host.enroll('be',{independent:true});
  const s=o.box.p.state,first=planLotmCastBeats(s,undefined,fixture),second=planLotmCastBeats(structuredClone(s),undefined,fixture);
@@ -114,8 +121,11 @@ test('without the pack a saved be host refuses its actions',()=>{
  const {whenCastLoaded}=await import('./src/book_world_lotm_cast_days.js');await whenCastLoaded();
  const {restoreUnavailableCast}=await import('./src/book_world_lotm_cast_host.js');
  const {validateLotmState}=await import('./src/book_world_lotm_state.js');
+ const {createFreshLifeStart}=await import('./src/fresh_life_start.js');
  assert.ok(!hostOver(bare()).host.view().profiles.some(p=>p.key==='be'));
  const p=JSON.parse(fs.readFileSync(0,'utf8'));restoreUnavailableCast(p.state,registry);validateLotmState(p.state);
+ let owned=true;const fresh=createFreshLifeStart({token:null,state:()=>p.state,setOwned:value=>{owned=value;},refresh:()=>{}});
+ fresh.onLoad({expansion:p.state});await Promise.resolve();assert.equal(fresh.isHeld(),true);assert.equal(fresh.onOwnership(true),false);assert.equal(owned,false);
  const h=hostOver(p).host;assert.ok(h.view().actions.some(a=>a.id==='book.lotm.cast_unavailable'));
  assert.throws(()=>h.move('lotm.move.lotm.place.cast-dddddddddddddddddddd'),/private pack absent/);`;
  const run=spawnSync(process.execPath,['--input-type=module','-e',script],{input:data,encoding:'utf8'});

@@ -73,3 +73,24 @@ export function seatAllows(state, request = {}) {
 export function controlForRoute(routeId) {
     return routeControls.get(routeId) ?? null;
 }
+
+// Shared shell panels are projected in the active world. Unknown registrations
+// stay unclassified until their owner supplies a perspective; a be life cannot
+// infer that an unrelated panel belongs to it.
+const currentWorldPanels=new Set(['lotm','village-scene','focus','opponents','pane-navigation','shell-character','shell-detail','shell-inventory-tools','shell-log-tools','vitals','location','time','messages','current-work','combat-controls','local-actions','preparation','belongings','condition','combat','stance','notebook','known-people','records','equipment-comparison']);
+const systemPanels=new Set(['customization','settings']);
+const crossingPanels=new Set(['continuation','optional-worlds','beginning','village-travelers']);
+export function panelPerspective(state,panel){
+ if(panel.perspective==='current-world')return state?.actors?.player?.worldId||'unclassified';
+ if(panel.perspective)return panel.perspective;
+ if(systemPanels.has(panel.id))return 'system';
+ if(crossingPanels.has(panel.id))return 'crossing';
+ if(currentWorldPanels.has(panel.id))return state?.actors?.player?.worldId||'unclassified';
+ return 'unclassified';
+}
+export function seatAllowsPanel(state,panel){
+ if(seatOf(state)!=='be')return true;
+ const perspective=panelPerspective(state,panel);
+ return perspective==='system'||perspective===state?.actors?.player?.worldId;
+}
+export const seatKnownPanels=(state,panels)=>panels.filter(panel=>seatAllowsPanel(state,panel));

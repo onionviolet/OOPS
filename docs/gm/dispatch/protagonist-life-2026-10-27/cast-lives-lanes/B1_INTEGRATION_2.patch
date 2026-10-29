@@ -1,0 +1,94 @@
+--- a/src/panel_kit.js
++++ b/src/panel_kit.js
+@@ -5,12 +5,12 @@
+ 
+ // Keep discovery, reveal and layout ownership in the workspace registry.
+ export function definePanel({id, title, role, node, home, discovered, eligible,
+-    unavailableReason, settings = [], emptyText, after, defaultDock}) {
++    unavailableReason, settings = [], emptyText, after, defaultDock, perspective}) {
+     if (!node.parentNode && home?.append) home.append(node);
+     if (!Object.hasOwn(roleIcons, role)) throw new Error(`Unknown panel role: ${role}`);
+     let settingsRegistered = false;
+     return registerWorkspaceModule({id, title, node, home, discovered, eligible,
+-        unavailableReason: unavailableReason || (() => emptyText || 'This panel has no content here'), after, defaultDock, decorateShell(shell, known) {
++        unavailableReason: unavailableReason || (() => emptyText || 'This panel has no content here'), after, defaultDock, perspective, decorateShell(shell, known) {
+             if (known && settings.length && !settingsRegistered) {
+                 settingsRegistered = true; registerPanelSettings({id, title, settings});
+             }
+--- a/src/workspace_layout.js
++++ b/src/workspace_layout.js
+@@ -1,3 +1,5 @@
++import {readPort} from './ui_ports.js';
++import {seatAllowsPanel,panelPerspective} from './seat_profiles.js';
+ import {centerModes} from './center_modes.js';
+ import {deferSimulationRender} from './simulation_render.js';
+ import {createShellResize} from './shell_resize.js';
+@@ -105,13 +107,13 @@
+     }
+     updateWorkspace();
+ }
+-export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason }) {
++export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason, perspective }) {
+     if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
+     const old = registry.get(id);
+-    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; updateWorkspace(); return old; }
++    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; old.perspective = perspective; updateWorkspace(); return old; }
+     const placeholder = null;
+     const dock = defaultDock || (typeof home === 'string' ? home : home?.dock);
+-    const module = { id, title: String(title), node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason }; registry.set(id, module);
++    const module = { id, title: String(title), node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason, perspective }; registry.set(id, module);
+     if (owner) { owner.layout = withDefaults(owner.layout); makeShell(module); updateWorkspace(); }
+     return module;
+ }
+@@ -246,6 +248,7 @@
+     return revealGesture || performance.now() - revealSettledAt >= 1200;
+ }
+ function moduleKnown(module, eligible) {
++    if (!seatAllowsPanel(readPort('expansion'),module)) return false;
+     if (module.known) return true;
+     let found; try { found = module.discovered() !== false; } catch { found = false; }
+     if (!(found || eligible)) return false;
+@@ -573,7 +576,7 @@
+ export function openWorkspaceModule(id) {
+     if(owner?.context==='play'&&id.startsWith('customization'))setWorkspaceContext('authoring');
+     if(owner?.context==='authoring'&&!id.startsWith('customization'))setWorkspaceContext('play');
+-    const module = registry.get(id); if (!module) return false;
++    const module = registry.get(id); if (!module || !seatAllowsPanel(readPort('expansion'),module)) return false;
+     if (owner) apply(id, { hidden: false, collapsed: false });
+     if (['notebook','known-routes','known-people'].includes(id)) document.getElementById('journal_show_notebook')?.click();
+     for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
+@@ -611,7 +614,7 @@
+ 
+ // Focused views borrow the original node. No layout save, clone or second UI owner.
+ export function knownWorkspaceModules() {
+-    return [...registry.values()].filter(m=>{try{return m.known||m.discovered()!==false;}catch{return false;}}).map(m=>({id:m.id,title:m.title,eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
++    const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return seatAllowsPanel(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,perspective:panelPerspective(state,m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
+ }
+ export function expandWorkspaceModule(id,{title}={}) {
+     if(id==='local-actions'){centerModes().showHere();return true;}
+--- a/src/village_workspace.js
++++ b/src/village_workspace.js
+@@ -1,4 +1,4 @@
+-import {lotmBeside,castCalendar} from './book_world_lotm_cast_host.js';
++import {lotmCastLife,lotmBe,castCalendar} from './book_world_lotm_cast_host.js';
+ import {TIME_BANDS} from './cast_schedule.js';
+ import {retainCombatInspection} from './combat_subject.js';
+ import {bindSubjectGesture} from './recipe_connections.js';
+@@ -19,7 +19,7 @@
+ // The current world's public calendar/weather own the header. In particular,
+ // an unavailable local date must not silently become the home's year/season.
+ export function sceneClock(frame) {
+-    if(lotmBeside(frame.history)){
++    if(lotmCastLife(frame.history)){
+         const c=castCalendar(frame.history).calendar;
+         const minute=c.hour*60+c.minute,band=Object.keys(TIME_BANDS).find(k=>minute>=TIME_BANDS[k].from&&minute<TIME_BANDS[k].to)||'night';
+         return {date:`Day ${c.day_count}, ${band}`,season:null,phase:null,weather:frame.weatherWords||'',temperature:null,
+@@ -177,7 +177,7 @@
+         if(line){const c=enemyCards.querySelector(`.enemy-card[data-combat-subject="${CSS.escape(line.dataset.combatSubject)}"]`);if(c){c.dataset.linked='true';line.dataset.linked='true';}}
+         else if(card){for(const l of log.querySelectorAll(`[data-combat-subject="${CSS.escape(card.dataset.combatSubject)}"]`))l.dataset.linked='true';card.dataset.linked='true';}};
+     document.addEventListener('mouseover',linkFrom);document.addEventListener('focusin',linkFrom);
+-    definePanel({id:'village-scene',title:'Village scene',role:'actions',node:scene,home,defaultDock:'center',after:'location',
++    definePanel({id:'village-scene',title:lotmBe(read().history)?'Around you':'Village scene',perspective:'current-world',role:'actions',node:scene,home,defaultDock:'center',after:'location',
+         discovered:()=>true,eligible:()=>read().inVillage||document.getElementById('main_content').dataset.parity==='r3'});
+     function choose(id){selected=id;render();}
+     const nearbyContext=createNearbyContextView({choose,act:id=>{act(id);render();}});

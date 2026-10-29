@@ -34,6 +34,10 @@ export function createFreshLifeStart(ports){
  }
  function mountMenu(){
   if(!isBe(ports.state()))return;
+  // The native level and XP describe the default hero, not this life.
+  for(const id of ['character_vitals_level','character_xp_div','character_level_div']){
+   const element=document.getElementById(id);if(element){element.hidden=true;element.style.display='none';}
+  }
   const button=document.createElement('button');button.id='be_new_life';button.className='options_button';button.type='button';button.textContent='Start a new life';
   button.addEventListener('click',()=>start(false).catch(error=>ports.report(error.message)));
   document.getElementById('hard_reset_button')?.before(button);
@@ -47,5 +51,5 @@ export function createFreshLifeStart(ports){
    ports.post({type:'save-fresh-result',token:ports.token,serialized:JSON.stringify(captured)});
   }).catch(error=>ports.post({type:'save-fresh-result',token:ports.token,error:error?.message||'The fresh life could not be prepared.'}));
  }
- return {probe,canCapture,storage,onLoad,onOwnership,start,mountMenu,postFreshProbe};
+ return {probe,canCapture,storage,onLoad,onOwnership,start,mountMenu,postFreshProbe,isHeld:()=>packHold};
 }

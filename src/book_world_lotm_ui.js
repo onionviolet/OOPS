@@ -190,6 +190,6 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
  }
- definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
+ definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};
 }

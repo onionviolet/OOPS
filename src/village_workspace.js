@@ -1,4 +1,4 @@
-import {lotmBeside,castCalendar} from './book_world_lotm_cast_host.js';
+import {lotmCastLife,lotmBe,castCalendar} from './book_world_lotm_cast_host.js';
 import {TIME_BANDS} from './cast_schedule.js';
 import {retainCombatInspection} from './combat_subject.js';
 import {bindSubjectGesture} from './recipe_connections.js';
@@ -19,7 +19,7 @@ const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=tex
 // The current world's public calendar/weather own the header. In particular,
 // an unavailable local date must not silently become the home's year/season.
 export function sceneClock(frame) {
-    if(lotmBeside(frame.history)){
+    if(lotmCastLife(frame.history)){
         const c=castCalendar(frame.history).calendar;
         const minute=c.hour*60+c.minute,band=Object.keys(TIME_BANDS).find(k=>minute>=TIME_BANDS[k].from&&minute<TIME_BANDS[k].to)||'night';
         return {date:`Day ${c.day_count}, ${band}`,season:null,phase:null,weather:frame.weatherWords||'',temperature:null,
@@ -177,7 +177,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         if(line){const c=enemyCards.querySelector(`.enemy-card[data-combat-subject="${CSS.escape(line.dataset.combatSubject)}"]`);if(c){c.dataset.linked='true';line.dataset.linked='true';}}
         else if(card){for(const l of log.querySelectorAll(`[data-combat-subject="${CSS.escape(card.dataset.combatSubject)}"]`))l.dataset.linked='true';card.dataset.linked='true';}};
     document.addEventListener('mouseover',linkFrom);document.addEventListener('focusin',linkFrom);
-    definePanel({id:'village-scene',title:'Village scene',role:'actions',node:scene,home,defaultDock:'center',after:'location',
+    definePanel({id:'village-scene',title:lotmBe(read().history)?'Around you':'Village scene',perspective:'current-world',role:'actions',node:scene,home,defaultDock:'center',after:'location',
         discovered:()=>true,eligible:()=>read().inVillage||document.getElementById('main_content').dataset.parity==='r3'});
     function choose(id){selected=id;render();}
     const nearbyContext=createNearbyContextView({choose,act:id=>{act(id);render();}});

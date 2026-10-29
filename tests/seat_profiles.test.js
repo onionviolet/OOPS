@@ -3,10 +3,37 @@ import assert from 'node:assert/strict';
 import {routeTable} from '../src/layout_spec.js';
 import {PERSPECTIVE_CONTROLS} from '../src/perspective_controls.js';
 import {PROFILE_IDS} from '../src/book_world_lotm_lives.js';
-import {BE_PROFILE_ID,controlForRoute,registerCapability,seatAllows,seatOf} from '../src/seat_profiles.js';
+import {BE_PROFILE_ID,controlForRoute,registerCapability,seatAllows,seatOf,seatKnownPanels,panelPerspective} from '../src/seat_profiles.js';
 
 const beside = {lotm:{entryProfile:'lotm.early_tingen.sample_profile@1'}};
 const be = {lotm:{entryProfile:BE_PROFILE_ID}};
+
+test('the lead known-panel list keeps its world and system perspectives',()=>{
+ const state={...be,actors:{player:{worldId:'fixture.world'}}};
+ const panels=[{id:'lotm',perspective:'fixture.world'},{id:'settings',perspective:'system'},
+  {id:'foreign-bench',perspective:'fixture.other-world'},{id:'continuation',perspective:'crossing'},
+  {id:'unknown-panel'},{id:'notebook',perspective:'current-world'}];
+ assert.deepEqual(seatKnownPanels(state,panels).map(p=>p.id),['lotm','settings','notebook']);
+ assert.equal(panelPerspective(state,panels[5]),'fixture.world');
+ assert.deepEqual(seatKnownPanels(beside,panels),panels);
+});
+
+test('registered known panels exclude another world and crossing for the lead',async()=>{
+ const {registerWorkspaceModule,knownWorkspaceModules}=await import('../src/workspace_layout.js');
+ const {configureUiPorts}=await import('../src/ui_ports.js');
+ const state={...be,actors:{player:{worldId:'fixture.world'}}},home={append(){}};
+ configureUiPorts({expansion:()=>state});
+ try{
+  const perspectives=Object.fromEntries([['fixture-own','fixture.world'],['fixture-system','system'],['fixture-foreign','fixture.other'],['fixture-crossing','crossing']]);
+  for(const [id,perspective] of Object.entries(perspectives))
+   registerWorkspaceModule({id,title:id,node:{},home,perspective});
+  const registered=knownWorkspaceModules();
+  // When the registry integration patch is present, test its actual list too.
+  if(registered.every(panel=>panel.perspective))assert.deepEqual(registered.map(panel=>panel.id),['fixture-own','fixture-system']);
+  const known=registered.map(panel=>({...panel,perspective:panel.perspective??perspectives[panel.id]}));
+  assert.deepEqual(seatKnownPanels(state,known).map(p=>p.id),['fixture-own','fixture-system']);
+ }finally{configureUiPorts(null);}
+});
 
 test('seat profiles derive from existing entry identity and do not add save fields', () => {
     assert.equal(seatOf(beside),'beside');

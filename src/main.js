@@ -6589,6 +6589,7 @@ function save_to_file() {
  */
 let stepperSaves = null;
 function save_to_localStorage({key, is_manual}) {
+    if(freshLifeStart.isHeld()) return;
     if(stepperSaves && !is_manual) {stepperSaves.add(key); return;}
     if(importProbeToken || !ownsSave || authorityOperationBusy || authorityBootError || authorityBootPending) return;
     const save = create_save();
@@ -9040,7 +9041,7 @@ function simulateTick() {
         }
         
         save_counter += 1;
-        if(save_counter >= save_period*tickrate) {
+        if(save_counter >= save_period*tickrate && !freshLifeStart.isHeld()) {
             save_counter = 0;
             if(is_on_dev()) {
                 save_to_localStorage({key: dev_save_key});
@@ -9051,7 +9052,7 @@ function simulateTick() {
         } //save in regular intervals, irl time independent from tickrate
 
         backup_counter += 1;
-        if(backup_counter >= backup_period*tickrate) {
+        if(backup_counter >= backup_period*tickrate && !freshLifeStart.isHeld()) {
             if(authorityEnrolled()){backup_counter=0;try{if(!current_combat&&!current_activity&&!current_game_action&&!nativeOccupationReason())authorityOperation(()=>nativeAuthority.capture(create_save())).catch(e=>log_message(e.message,'message_critical'));}catch(error){log_message(error.message,'message_critical');}return;}
             backup_counter = 0;
             let saved_at;

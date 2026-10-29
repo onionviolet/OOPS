@@ -108,6 +108,11 @@ export function createLotmHost(ports){
   // Money does not cross (WER9, F25): the life's own purse replaces the money held before crossing, which the entry record keeps for a later return.
   const leftBehind=Math.max(0,Math.floor(Number(plan.external?.money)||0));
   plan.external={...plan.external,money:profile.cash};if(profileKey!=='be')plan.state.lotm.entry=entryRecord(profileKey,leftBehind);
+  if(profileKey==='be'){
+   // The fresh native shell supplies a default kit. It is not this person's
+   // property; the pack's observed room objects are not carried inventory.
+   plan.gameplay.player.inventory={};plan.equipment={...plan.equipment,player:{}};
+  }
   if(profileKey!=='be')for(const [owner,stock] of Object.entries(LOTM_NATIVE_STOCK))plan.gameplay[owner]={inventory:copy(stock),skills:{},reputation:{}};
   applySimulationEffects(plan,lifeEntryEffects(profileKey),{...c,actorId:'player'},registry,'book.lotm.enroll');
   if(profileKey==='be')applySimulationEffects(plan,leadLifeEntryEffects(getPrivateLotmCast()),{...c,actorId:'player'},registry,'book.lotm.history');
