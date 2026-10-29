@@ -16,7 +16,7 @@ const sorted = rows => [...rows].sort((a,b) => json(a).localeCompare(json(b)));
 const unique = rows => [...new Map(sorted(rows).map(r => [json(r), r])).values()];
 const evidence = row => ({label: ['S','T','I','U','fill'].includes(row.label) ? row.label : 'U', locator: row.locator || row.firstMention});
 
-export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base}) {
+export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false}) {
     inSlice({locator: slice.from}, slice); // Validate even empty inputs.
     if (crosswalk.world !== book || json(crosswalk.slice) !== json(slice)) throw new Error('Crosswalk world/slice mismatch; rebuild it for this slice');
     const pack = structuredClone(base), conflicts = [], gaps = [];
@@ -31,7 +31,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         const ids = new Set([...list(scene.present), ...list(scene.touched).filter(t => ['present','partial'].includes(t.status)).map(t => t.id)]);
         for (const id of ids) counts.set(id, (counts.get(id) || 0) + 1);
     }
-    const peopleRows = extras.filter(r => ['people','people_other'].includes(r.extra) &&
+    const peopleRows = placesOnly ? [] : extras.filter(r => ['people','people_other'].includes(r.extra) &&
         (inSlice(r,slice) || [...list(r.routine),...list(r.relations)].some(item=>inSlice({locator:item.locator || r.locator},slice))));
     const existing = [...list(base.people), ...list(base.references)];
     const byIndex = new Map(existing.filter(r => r.indexId).map(r => [r.indexId, r.id]));
@@ -49,7 +49,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     // Explicit reviewed identity redirects only; aliases/common names never imply a merge.
     for (const r of registry) if (typeof r.same_as === 'string' && target(r.same_as)) idMap[personId(r.id)] = personId(r.same_as);
     const allPersonIds = new Set(existing.map(r => r.id));
-    const candidates = registry.filter(r => r.kind === 'person' && (inSlice(r,slice) || counts.has(r.id) || peopleRows.some(p=>p.id === r.id)));
+    const candidates = placesOnly ? [] : registry.filter(r => r.kind === 'person' && (inSlice(r,slice) || counts.has(r.id) || peopleRows.some(p=>p.id === r.id)));
     const relations = id => peopleRows.filter(r => r.id === id).flatMap(r => list(r.relations).filter(rel => inSlice({locator: rel.locator || r.locator}, slice)));
     const maxCount = Math.max(0,...registry.filter(r=>r.kind === 'person').map(r=>counts.get(r.id)||0));
     for (const row of sorted(candidates)) {
@@ -67,20 +67,73 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
             }
         } else {pack.people.push(generated); allPersonIds.add(id);}
     }
-    // Add source places, retaining district placement, aliases and other authored fields.
+    // Places spoken by lead scenes get exact-ID rows from M4's place worksheets.
+    // The worksheets are authoritative for containment and routes; missing facts stay missing.
     const placeIds = new Set(pack.places.map(r => r.id));
-    for (const row of sorted(registry.filter(r => r.kind === 'place' && (inSlice(r,slice) || target(r.id))))) {
-        const id = placeId(row.id);
-        if (!id || placeIds.has(id)) continue;
-        pack.places.push({id,indexId:row.id,name:row.label || row.id,openingHours:[],...evidence(row),locator:row.firstMention});placeIds.add(id);
+    pack.placeAliases = list(pack.placeAliases);
+    const normPlace = s => String(s ?? '').normalize('NFKC').trim().toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g,' ');
+    const selectedPlaceRows = selectedScenes.map(s => s.place).filter(v => typeof v === 'string' && v.trim());
+    const registryPlaces = registry.filter(r => r.kind === 'place');
+    const placeExtras = extras.filter(r => r.extra === 'places');
+    const exactNames = new Map();
+    const addName = (name,row) => { if (typeof name !== 'string' || !name.trim()) return; const key=normPlace(name), rows=exactNames.get(key)||[]; if(!rows.includes(row))rows.push(row);exactNames.set(key,rows); };
+    for (const row of registryPlaces) for (const name of [row.id,row.label,row.zh,...list(row.aliases)]) addName(name,row);
+    const referenced = new Set();
+    for (const place of selectedPlaceRows) {
+        const ids = new Set();
+        const direct = registryPlaces.find(r => r.id === place);
+        if (direct) ids.add(direct.id);
+        const exact = exactNames.get(normPlace(place)) || [];
+        for (const r of exact) ids.add(r.id);
+        if (!ids.size) for (const part of place.split(/[,;，；]/).map(s=>s.trim()).filter(Boolean)) {
+            const rows=exactNames.get(normPlace(part))||[]; if(rows.length===1) ids.add(rows[0].id);
+        }
+        for (const id of ids) referenced.add(id);
     }
-    for (const [indexId,id] of Object.entries(crosswalk.places || {})) {
-        const resolved = placeId(indexId);
-        if (!resolved || placeIds.has(resolved)) continue;
-        const locator = crosswalk.entities[indexId]?.locators?.[0] || slice.from;
-        pack.places.push({id:resolved,indexId,name:indexId,openingHours:[],label:'U',locator});placeIds.add(resolved);
+    // Preserve the source container chain for selected locations, but don't turn rooms/desks into walks.
+    const extrasById = new Map();
+    for (const row of placeExtras) { const rows=extrasById.get(row.id)||[]; rows.push(row); extrasById.set(row.id,rows); }
+    const selectedEvidence = new Map();
+    for (const id of referenced) {
+        const rows=(extrasById.get(id)||[]).filter(r=>inSlice(r,slice));
+        if(rows.length) selectedEvidence.set(id,sorted(rows));
     }
-    const hoursRows = selectedExtras.filter(r => ['services','rules','rules_other'].includes(r.extra) && typeof r.hours === 'string' && r.hours.trim() && !/^(unknown|unstated|none|null|u|\?)$/i.test(r.hours.trim()));
+    const addAncestors = id => {
+        const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith('lotm.place.'));
+        if(row && !referenced.has(row.within) && extrasById.has(row.within)) { referenced.add(row.within); selectedEvidence.set(row.within,(extrasById.get(row.within)||[]).filter(r=>inSlice(r,slice))); addAncestors(row.within); }
+    };
+    for(const id of [...referenced]) addAncestors(id);
+    const registryById = new Map(registryPlaces.map(r=>[r.id,r]));
+    const explicitDistricts = new Set(['evernight','storm','machinery','lotm.place.evernight','lotm.place.storm','lotm.place.machinery']);
+    const isSubplace = row => /(^|[ ._-])(room|bedroom|bathroom|washroom|corridor|hallway|stairwell|desk|corner|interior|living-room|kitchen|office|chamber)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
+    const byParent = id => {
+        const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith('lotm.place.'));
+        return row?.within || null;
+    };
+    const districtFor = id => {
+        const seen=new Set(); let at=id;
+        while(at && !seen.has(at)){seen.add(at);if(explicitDistricts.has(at))return at.replace(/^lotm\.place\./,'');at=byParent(at);}
+        return null;
+    };
+    for (const indexId of [...referenced].sort()) {
+        const resolved=placeId(indexId) || target(indexId) || indexId;
+        if(placeIds.has(resolved)) continue; // authored base rows win
+        const meta=registryById.get(indexId), rows=selectedEvidence.get(indexId)||[];
+        const source=rows[0]||null, parent=byParent(indexId), kind=isSubplace(meta||{id:indexId,label:''})?'sub-place':/street|road|lane|avenue|square|district/i.test(`${indexId} ${meta?.label||''}`)?'street':'building';
+        const aliases=unique([meta?.label,meta?.zh,...list(meta?.aliases)].filter(v=>typeof v==='string'&&v.trim()).map(name=>({id:name,indexId,place:resolved,label:source?.label||'U',locator:source?.locator||meta?.firstMention||slice.from})));
+        const routes=rows.flatMap(r=>list(r.routes)).filter(r=>Number.isFinite(r.minutes)&&r.minutes>0);
+        const district=districtFor(indexId);
+        const row={id:resolved,indexId,name:meta?.label||meta?.zh||indexId,openingHours:[],kind,...(parent?{parent}:{}),...(district?{district}:{}),...(aliases.length?{aliases}:{}),...evidence(source||meta||{label:'U',locator:slice.from}),locator:source?.locator||meta?.firstMention||slice.from,
+            provenance:['S','T'].includes(source?.label)?'canon':source?.label==='I'?'canon-derived':'fill'};
+        if(kind==='sub-place') row.anchorOnly=true;
+        else if(district) {
+            const route=routes[0];
+            row.travel={district,...(route?{minutes:route.minutes,provenance:'canon',basis:`M4 route to ${route.to}`}:{minutes:2,provenance:'fill',basis:'same-district default; no source route stated'})};
+        }
+        pack.places.push(row);placeIds.add(resolved);
+        for(const alias of aliases) if(!pack.placeAliases.some(a=>a.indexId===alias.indexId)) pack.placeAliases.push(alias);
+    }
+    const hoursRows = placesOnly ? [] : selectedExtras.filter(r => ['services','rules','rules_other'].includes(r.extra) && typeof r.hours === 'string' && r.hours.trim() && !/^(unknown|unstated|none|null|u|\?)$/i.test(r.hours.trim()));
     const worldHours = unique(hoursRows.map(r => ({id:`${book}.hours.${hash(r).slice(0,20)}`,place:placeId(r.place), indexPlace:r.place || null,role:r.role || null,hours:r.hours,...evidence(r)})));
     const routines = [], orderEdges = [];
     for (const row of peopleRows) for (const slot of list(row.routine)) {
@@ -131,7 +184,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     const added = [...newRows.keys()].filter(id=>!oldRows.has(id)).sort();
     const changed = [...newRows.keys()].filter(id=>oldRows.has(id) && json(oldRows.get(id)) !== json(newRows.get(id))).sort();
     const removed = [...oldRows.keys()].filter(id=>!newRows.has(id)).sort();
-    pack.revision = `${base.revision || 'cast'}.r1-${hash({book,slice,registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base}).slice(0,16)}`;
+    pack.revision = `${base.revision || 'cast'}.${placesOnly?'r2-places':'r1'}-${hash({book,slice,registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base,placesOnly}).slice(0,16)}`;
     pack.revisionNote = {from:base.revision || null,to:pack.revision,added,changed,removed,conflicts:unique(conflicts),gaps:unique(gaps)};
     pack.buildSourceIdentity = {schema:'cast-pack-build/1', book, slice,
         inputs:Object.fromEntries(Object.entries({registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base}).map(([k,v])=>[k,hash(v)]))};
@@ -156,7 +209,7 @@ export function run(argv) {
     const registry=read('registry.jsonl'),scenes=read('scenes.jsonl'),extras=read('extras.jsonl');
     const slice={from:flag('--from'),to:flag('--to')};
     const crosswalk = existsSync(resolve(dir,'crosswalk.json')) ? JSON.parse(readFileSync(resolve(dir,'crosswalk.json'),'utf8')) : buildCrosswalk({registry,scenes,extras,world:book,slice}).crosswalk;
-    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8'))});
+    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only')});
     writeFileSync(out,JSON.stringify(result.pack,null,2)+'\n');
     writeFileSync(resolve(parent,'build-report.json'),JSON.stringify(result.report,null,2)+'\n');
     console.log(JSON.stringify(result.report));return result;
