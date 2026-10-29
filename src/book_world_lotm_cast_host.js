@@ -17,6 +17,7 @@ import {waitUntilOptions} from './wait_until.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from './cast_journeys.js';
 import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
+import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
 import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports} from './place_acts.js';
 
@@ -64,6 +65,11 @@ export function castTopicOffers(state,preview,options={}){
  const known=state.simulation?.knowledge?.player||{},pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
  return quoteTopicTalks(state,castTopicCommands.filter(d=>pending.has(d.id)||known[`book.lotm.cast.known.${d.targetId}`]||known[`book.lotm.cast.met.${d.targetId}`]),preview,
   {...options,presence:(d,q)=>castTalkPreview(state,d,q),label:id=>id==='player'?'You':LOTM_CAST.people.find(p=>p.id===id)?.name||id});
+}
+export let castMakingCommands=[];
+export function castMakingOffers(state,preview,options={}){
+ if(!lotmBe(state)||!castAvailable)return [];
+ return quoteCastMaking(state,castMakingCommands,preview,options);
 }
 export let castObjectCommands=[];
 export function castObjectOffers(state,preview,options={}){
@@ -130,6 +136,8 @@ function deriveCast(pack){
  stage:'seen',value:`You spoke with ${p.name} when you were together.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
  castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castMakingCommands=defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
+  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castTopicCommands=defineTopicTalks(pack.topicTalks,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castJourneyCommands=defineJourneys(pack.journeys,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -165,8 +173,9 @@ export function castElsewhere(state){
 const installed=new WeakSet();
 export function installCast(registry){
  if(!castAvailable||installed.has(registry))return;
- const defs=createSimulationRegistry({people:castPeople,commands:[...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands],situations:[castSituation]});
+ const defs=createSimulationRegistry({people:castPeople,commands:[...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands],situations:[castSituation]});
  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
+ validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
  installed.add(registry);
 }
 export function castCalendar(state){

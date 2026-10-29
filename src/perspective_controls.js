@@ -63,6 +63,7 @@ const rows = [
     ['entry-axis', 'other-seat', 'Choices for a different Tingen start.'],
     ['entry-unwritten', 'other-seat', 'Unwritten choices for a different Tingen start.'],
     ['gap', 'in-world', 'Known gaps in the current record.'],
+    ['making', 'in-world', 'The character’s preparation and product use.'],
     ['merit', 'in-world', 'The character’s merit account.'],
     ['merit-balance', 'in-world', 'The character’s current merit balance.'],
     ['merit-row', 'in-world', 'An available merit use.'],

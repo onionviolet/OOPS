@@ -82,6 +82,18 @@ test('live or prepared integration crosses native UI and real save validator in 
  const integrationPatch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/DV1_INTEGRATION.patch');
  let integrated=false;
  try{await exec('git',['apply','-R','--check',integrationPatch],{cwd:dir});integrated=true;}catch{}
+ if(!integrated){
+  // Later making hunks share DV1's context. Check DV1 in a separate probe after
+  // reversing MK1 there; the runtime fixture retains both live integrations.
+  const makingPatch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MK1_INTEGRATION.patch');
+  try{
+   await exec('git',['apply','-R','--check',makingPatch],{cwd:dir});
+   const probe=join(dir,'dv1-integration-probe');await mkdir(join(probe,'src'),{recursive:true});
+   for(const name of ['book_world_lotm_cast_host.js','book_world_lotm_host.js','book_world_lotm_state.js','book_world_lotm_ui.js','perspective_controls.js'])await cp(join(dir,'src',name),join(probe,'src',name));
+   await exec('git',['apply','-R',makingPatch],{cwd:probe});
+   await exec('git',['apply','-R','--check',integrationPatch],{cwd:probe});integrated=true;
+  }catch{}
+ }
  if(!integrated){await exec('git',['apply','--check',integrationPatch],{cwd:dir});await exec('git',['apply',integrationPatch],{cwd:dir});}
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as dv1CastReady} from './book_world_lotm_cast_days.js';\nexport const dv1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const dv1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const dv1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
