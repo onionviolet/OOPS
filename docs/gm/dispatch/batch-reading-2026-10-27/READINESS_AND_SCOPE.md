@@ -513,3 +513,16 @@ Labeled a proposal. Only Weibao accepts; no cloud call is sent without his go ph
 ### Overnight queue status
 
 Started 2026-10-29 07:42 on `coi_census.json`, then `ri5_census.json`, tag `n1`, `--min-free 35`, process group 97531 (details and log in the [handoff](LOCAL_OVERNIGHT_HANDOFF_2026-10-29.md)). It resumes after a stop; the 294 COI shards need about 25-60 hours at the measured 5-10 minutes a shard. Rows stay in the gitignored `local-census/` folders.
+
+### Round 15 pilot result (2026-10-29, Weibao: "we have credits left, go ahead? consider that local might have missing")
+
+Weibao's go, paid, direct, Haiku 5.5 at medium effort, 6 kit shards, local `b12` rows in the brief (`touchup_pilot.mjs`; the brief tells the reader the table is incomplete and to hunt the weak kinds). Spend about $0.07 at the batch rate used in the ledger, so about $0.14 direct, against the $4.30 shown on the console.
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| C53 | **The pilot fails both bars.** Local + touch-up recall **0.747**, lead-touched **0.912** (bars 0.77 and 0.93); two merged medium runs 0.792 / 0.946; medium + local 0.727 / 0.905. Touch-up rows alone: 0.404 / 0.446 | Do not adopt as the default. Two merged medium runs stay the default (C46) |
+| C54 | **Output tokens were 1.72x a plain medium run, not 0.6x** (248.7K against 145.0K). One shard (`gc1c004`) looped to the 128K cap ($0.033, the biggest single cost); without it the ratio is 0.95 (120.7K against 127.3K). Per shard: 0.87, 0.88, 1.39, 0.55 (hp1c005, whose plain run was itself 44.8K), 1.47 | The estimate in the proposal (35-50% less output) was wrong. About half of medium output is thinking tokens (10,038 of 21,654 on `ri1c004`), which a shorter answer table does not reduce, and the reader re-derives the whole shard to find what is missing |
+| C55 | The reader did use the table as asked on some shards: 51 corrections on `hp5c012` and 16 on `gc1c003`, 0 on the RI shards. Corrections add output without adding recall by name | Corrections are a cost center for a name-recall goal; a later variant could drop them |
+| C56 | The overnight queue is far slower than planned: 4 COI shards done in about 3 hours at 45 minutes a shard, one memory pause (other sessions are running). At that rate 294 COI shards take months, not 25-60 hours | The queue keeps running because it is free, but it will not finish COI before November; the round 15 hour estimate above is superseded. Local rows will cover only the first shards |
+
+**Verdict (proposal, not accepted).** The local pass does not make the cloud passes cheaper with this design: local alone finds 0.54 of the high rows, and asking the cloud reader to add to it costs as much output as reading from scratch. Untried variants if Weibao wants one more round: touch-up at `low` effort (thinking is the cost), additions-only with no corrections, or local rows used only as a known-name list in the scenes, rules, people and texture briefs (the id-consistency use, which needs no extra reading). Each is a small, cheap direct pilot; none is run.
