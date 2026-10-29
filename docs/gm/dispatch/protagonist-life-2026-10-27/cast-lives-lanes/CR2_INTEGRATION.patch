@@ -1,0 +1,75 @@
+--- a/src/book_world_lotm_cast_host.js
++++ b/src/book_world_lotm_cast_host.js
+@@ -18,6 +18,7 @@
+ import {BE_PROFILE_ID} from './seat_profiles.js';
+ import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from './cast_journeys.js';
+ import {defineInferences,quoteInferences,pendingInferenceReports,settleInferenceReports} from './cast_inference_adapter.js';
++import {defineCards,settleCardReports} from './cast_card_runtime.js';
+ import {defineCastAbilities,quoteCastAbilities} from './cast_ability_adapter.js';
+ import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
+ import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js';
+@@ -63,6 +64,7 @@
+  return quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
+ }
+ export let castInferenceCommands=[];
++export let castCardRows=[];
+ export function castInferenceOffers(state,preview,options={}){
+  if(!lotmBe(state)||!castAvailable)return [];
+  return quoteInferences(state,castInferenceCommands,preview,options);
+@@ -161,6 +163,7 @@
+  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
+  castBodyCommands=defineBodyCare(pack.bodyCare,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
++ castCardRows=defineCards(pack.eventCards ?? null,{worldId:I.world,actorId:'player',group:'book_lotm',situationId:LOTM_CAST_SITUATION});
+  castAbilityCommands=defineCastAbilities(pack.abilityConflicts,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+@@ -442,7 +445,7 @@
+  return {...ledger,facts};
+ }
+ export function castBeatReports(ledger){
+- return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderCastReport(r)}));
++ return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:r.text||renderCastReport(r)}));
+ }
+ export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
+  if(!lotmCastLife(state)||!pack)return [];
+@@ -543,6 +546,12 @@
+  }
+  for(const w of out.knowledgeWrites||[])castWriteCode(plan.state,`knowledge:${w.effect.actor}:${w.effect.key}`,w.provenance);
+  for(const result of out.results)for(const diff of result.diffs)castWriteCode(plan.state,`fact:${diff.fact}`,diff.provenance);
++ const cardWindow={scenes:(getPrivateLotmCast()?.bindings?.days||[]).filter(d=>plan.state.clock>=plan.state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene)};
++ const cardReports=lotmBe(plan.state)?settleCardReports(plan.state,castCardRows,{window:cardWindow,decide:card=>canonActionDecision(plan.state,{effects:card.effects},getPrivateLotmCast())}):[];
++ for(const report of cardReports){
++  if(report.effects.length)applySimulationEffects(plan,report.effects,{actorId:'player',worldId:I.world,facts:{location:report.place}},null,`lotm.cast.card.${report.cardId.replace(/[^a-z0-9_.:-]/gi,'_')}`);
++  out.ledger.facts[REPORT_PREFIX+`card.${report.cardId}`]={text:report.text,at:report.at,kind:report.kind,actor:report.actor,place:report.place,threadId:report.threadId};
++ }
+  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
+  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
+  const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];
+@@ -552,6 +561,6 @@
+  const journeyReports=lotmBe(plan.state)?settleJourneyReports(plan.state,castJourneyCommands,I.world):[];
+  const result=persist(plan);
+  domainRegistry.command('beatLedger','commit')(saved);
+- for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports])publish(report);
++ for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);
+  return result;
+ }
+--- a/src/book_world_lotm_state.js
++++ b/src/book_world_lotm_state.js
+@@ -1,7 +1,7 @@
+ // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
+ // inert: no Tingen presence, job, means or knowledge may exist without it. The
+ // only activation path is enrollLotmBranch (book_world_lotm_content.js).
+-import {castAbilityCommands,castBodyCommands,castExchangeCommands,castInferenceCommands,castMakingCommands,castDivinationCommands,castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
++import {castAbilityCommands,castBodyCommands,castCardRows,castExchangeCommands,castInferenceCommands,castMakingCommands,castDivinationCommands,castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
+ import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
+ import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
+ import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
+@@ -36,6 +36,7 @@
+   return true;
+  }
+  jsonData(d);
++ if(d.entryProfile===BE_PROFILE_ID&&castCardRows.length){const facts=state.worlds?.[I.world]?.facts||{},cards=new Map(castCardRows.map(r=>[r.id.replace(/[^a-z0-9_.:-]/gi,'_'),r]));for(const [key,value] of Object.entries(facts)){const match=/^lotm\.cast\.card\.(.+)\.(settled|due|applied)$/.exec(key),card=match&&cards.get(match[1]);if(match&&card){assert(typeof value==='boolean','Invalid saved card state.');if(match[2]==='applied'&&value){const actorFacts=state.actors?.player?.facts||{},knowledge=state.simulation?.knowledge?.player||{};for(const effect of card.effects){if(effect.type==='fact')assert(JSON.stringify(actorFacts[effect.key])===JSON.stringify(effect.value),'Saved card effect differs from its authored definition.');else assert(knowledge[effect.key]?.value===effect.value,'Saved card knowledge differs from its authored definition.');}}}}}
+  // `entry` (how this life got in, WER2-WER9) is optional: saves enrolled before it hold none and stay valid.
+  assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'||k==='runMode'||k==='packRevision'||k==='castProvenance'),'Unsupported Tingen branch fields.');
+  // Additive compatibility: missing revision/codes denotes an older save. Keep

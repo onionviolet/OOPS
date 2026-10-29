@@ -36,7 +36,8 @@ test('settles due cards once and leaves effects available to the native effect o
  assert.equal(reports.length,1);
  assert.equal(reports[0].actor,'fixture.other');
  assert.equal(reports[0].effects.length,2);
- assert.equal(s.worlds[binding.worldId].facts[`lotm.cast.card.${card.id}.settled`],true);
+ assert.equal(s.worlds[binding.worldId].facts[`lotm.cast.card.${card.id.replace(/[^a-z0-9_.:-]/gi,'_')}.settled`],true);
+ assert.equal(s.worlds[binding.worldId].facts[`lotm.cast.card.${card.id.replace(/[^a-z0-9_.:-]/gi,'_')}.applied`],true);
  assert.deepEqual(settleCardReports(s,[card],{window:{day:2}}),[]);
 });
 

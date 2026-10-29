@@ -4,6 +4,8 @@ const id = value => typeof value === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(va
 const text = value => typeof value === 'string' && value.trim().length > 0;
 const rowId = value => typeof value === 'string' && /^[a-z][a-z0-9_.:#-]*$/i.test(value) && !['__proto__','constructor','prototype'].includes(value);
 const own = (value, key) => Object.hasOwn(value, key);
+const savedCardId = value => value.replace(/[^a-z0-9_.:-]/gi, '_');
+const cardMarker = (card, status) => `lotm.cast.card.${savedCardId(card.id)}.${status}`;
 const CARD_FIELDS = new Set(['schema','id','stepId','scene','threadId','verb','object','class','kind','kindWeak','actor','place','packPlaceId','present','time','order','inputs','outputs','gains','requires','effects','choices','lockedOptions','evidence','source']);
 const EFFECT_FIELDS = {fact:new Set(['type','key','value','class']), knowledge:new Set(['type','fact','change','from','locator'])};
 const check = (ok, message) => { if (!ok) throw Error(message); };
@@ -28,7 +30,7 @@ export function defineCards(data, binding = {}) {
         return {type:'fact',scope:'actor',actor:binding.actorId,key:effect.key,value:structuredClone(effect.value),provenance:'canon'};
       }
       check(id(effect.fact) && text(effect.change), 'Knowledge effect needs a fact and authored change.');
-      return {type:'knowledge',actor:binding.actorId,key:`canon.${row.id}.${effect.fact}`,stage:'seen',value:effect.change,
+      return {type:'knowledge',actor:binding.actorId,key:`canon.${savedCardId(row.id)}.${effect.fact}`,stage:'seen',value:effect.change,
         basis:{kind:'observation',attributedTo:binding.actorId,situationId:binding.situationId,provenance:'canon',fact:effect.fact,...(effect.from?{from:effect.from}:{}),...(effect.locator?{locator:effect.locator}:{})}};
     });
     return {...structuredClone(row), actorId:binding.actorId, worldId:binding.worldId, group:binding.group,
@@ -44,8 +46,8 @@ const dateReached = (time, window) => {
 export function dueCards(state, cards, window = {}) {
   const reached = new Set([...(window.scenes || []), ...(window.scene ? [window.scene] : [])]);
   return cards.filter(card => (reached.has(card.scene) || dateReached(card.time, window)) &&
-    state?.worlds?.[card.worldId]?.facts?.[`lotm.cast.card.${card.id}.settled`] !== true &&
-    state?.worlds?.[card.worldId]?.facts?.[`lotm.cast.card.${card.id}.due`] !== true)
+    state?.worlds?.[card.worldId]?.facts?.[cardMarker(card,'settled')] !== true &&
+    state?.worlds?.[card.worldId]?.facts?.[cardMarker(card,'due')] !== true)
     .slice().sort((a,b) => (a.order.sceneOrder ?? 0) - (b.order.sceneOrder ?? 0) || a.order.step - b.order.step || a.id.localeCompare(b.id));
 }
 
@@ -59,8 +61,8 @@ export function quoteCards(cards, {attemptedOption} = {}) {
     ...(attemptedOption && card.lockedOptions?.includes(attemptedOption) ? {refusal:'Not how it happened'} : {}),effects:structuredClone(card.effects)}));
 }
 export function pendingCardReports(state, cards) {
-  return cards.some(card => state?.worlds?.[card.worldId]?.facts?.[`lotm.cast.card.${card.id}.settled`] !== true &&
-    state?.worlds?.[card.worldId]?.facts?.[`lotm.cast.card.${card.id}.due`] === true);
+  return cards.some(card => state?.worlds?.[card.worldId]?.facts?.[cardMarker(card,'settled')] !== true &&
+    state?.worlds?.[card.worldId]?.facts?.[cardMarker(card,'due')] === true);
 }
 export function settleCardReports(state, cards, {window = {}, decide = () => ({allowed:true}), attemptedOptions = {}} = {}) {
   const facts = state?.worlds?.[cards[0]?.worldId]?.facts;
@@ -68,14 +70,15 @@ export function settleCardReports(state, cards, {window = {}, decide = () => ({a
   const due = dueCards(state,cards,window);
   const reports=[];
   for (const card of due) {
-    const marker=`lotm.cast.card.${card.id}.settled`;
+    const marker=cardMarker(card,'settled');
     if (facts[marker] === true) continue;
     const attempted = attemptedOptions[card.id];
     const decision = attempted && card.lockedOptions?.includes(attempted)
       ? {allowed:false,reason:'Not how it happened'} : decide(card);
     facts[marker] = true;
+    if (decision.allowed && card.effects.length) facts[`lotm.cast.card.${savedCardId(card.id)}.applied`] = true;
     const refusal=decision.reason && decision.reason!=='Not how it happened'?` · ${decision.reason}`:'';
-    reports.push({text:decision.allowed?renderCardLine(card):`${renderCardLine(card)}${refusal}`,at:state.clock,kind:'events',actor:card.actorId,place:card.place,threadId:card.threadId || null,
+    reports.push({cardId:card.id,text:decision.allowed?renderCardLine(card):`${renderCardLine(card)}${refusal}`,at:state.clock,kind:'events',actor:card.actorId,place:card.place,threadId:card.threadId || null,
       effects:decision.allowed?structuredClone(card.effects):[]});
   }
   return reports;
