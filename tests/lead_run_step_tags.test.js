@@ -91,3 +91,32 @@ test('card building keeps to volume one chapters up to the limit and lead scenes
   const out=buildEventCards([cardScene,late],[{rows:[...rowsFor([]).values()]}],{maxChapter:24});
   assert.ok(out.cards.every(c=>c.scene==='c1')); assert.equal(out.summary.scenes,1);
 });
+
+import {buildThreads, threadReport} from '../scripts/lead_run/build_event_threads.mjs';
+const tScene = (beat, order, touched, extra = {}) => ({beat, order, pov:'lead', touched:touched.map(([id,kind])=>({id,kind})), present:[], steps:[{verb:'act',object:'x'}], date:{anchor:'a',offsetDays:order}, ...extra});
+
+test('threads chain by needs, continues and rare shared ids, not by after deps or world-state ids',()=>{
+  const scenes = [tScene('b1',1,[['i.key','item'],['d.god','deity']]), tScene('b2',2,[['i.key','item'],['d.god','deity']],{deps:[{id:'b1',kind:'after'}]}),
+    tScene('b3',3,[['d.god','deity']],{deps:[{id:'b2',kind:'after'}]}), tScene('b4',4,[],{deps:[{id:'b1',kind:'needs'}]}), tScene('b5',5,[],{continues:'b3'})];
+  scenes.push(...Array.from({length:12},(_,i)=>tScene(`f${i}`,10+i,[])));
+  const {threads, threadOfScene} = buildThreads(scenes);
+  assert.equal(threadOfScene.get('b1'), threadOfScene.get('b2'), 'shared item links');
+  assert.equal(threadOfScene.get('b1'), threadOfScene.get('b4'), 'needs links');
+  assert.equal(threadOfScene.get('b3'), threadOfScene.get('b5'), 'continues links');
+  assert.notEqual(threadOfScene.get('b2'), threadOfScene.get('b3'), 'after deps and a deity do not chain');
+  assert.ok(threads.every(t=>t.beats.length>=1) && threadOfScene.size===scenes.length);
+});
+
+test('a thread is a gap when a carried id has no home in its cards, and counts as reachable only when every step is',()=>{
+  const scenes=[tScene('t1',1,[['i.key','item']]),tScene('t2',2,[['i.key','item']])];
+  scenes.push(...Array.from({length:10},(_,i)=>tScene(`g${i}`,20+i,[])));
+  const {threads}=buildThreads(scenes), tid=threads.find(t=>t.beats.includes('t1')).id;
+  const card=(step,extra={})=>({stepId:step,threadId:tid,effects:[],inputs:[],outputs:[],gains:[],requires:[],...extra});
+  const status=()=>'gap';
+  const lost=threadReport(threads,scenes,[card('t1#1'),card('t2#1')],status,new Set(['t1#1','t2#1']));
+  assert.equal(lost.threadFoldLossGaps,1); assert.deepEqual(lost.rows.find(r=>r.id===tid).homeless,['i.key']);
+  const homed=threadReport(threads,scenes,[card('t1#1',{outputs:['key found']}),card('t2#1')],status,new Set(['t1#1','t2#1']));
+  assert.equal(homed.threadFoldLossGaps,0); assert.equal(homed.rows.find(r=>r.id===tid).missingSteps,0); assert.equal(homed.multiBeatCarriedStateSurvives,1);
+  const missing=threadReport(threads,scenes,[card('t1#1',{outputs:['key found']})],status,new Set(['t1#1']));
+  assert.equal(missing.multiBeatFullyReachableInOrder,0);
+});

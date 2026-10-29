@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {inVolumeOneChapters} from './build_event_cards.mjs';
+import {threadReport} from './build_event_threads.mjs';
 
 const share = (n, d) => d ? Math.round(1000 * n / d) / 1000 : null;
 const REACHED = new Set(['clean_fold']);
@@ -63,11 +64,20 @@ function main(args) {
   const scenesFile = get('--scenes', false);
   const scenes = scenesFile ? fs.readFileSync(scenesFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)) : [];
   const censusFile = get('--census', false);
-  const cardsFile = get('--cards', false), maxChapter = get('--max-chapter', false);
+  const threadsFile = get('--threads', false), cardsFile = get('--cards', false), maxChapter = get('--max-chapter', false);
   const readIds = f => new Set(fs.readFileSync(f, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)).map(r => r.stepId));
   const gapsFile = cardsFile && cardsFile.replace(/\.jsonl$/, '_gaps.jsonl');
   const report = {metrics: replayMetrics(files.map(f => JSON.parse(fs.readFileSync(f, 'utf8'))), scenes, {cardStepIds: cardsFile ? readIds(cardsFile) : null, gapStepIds: gapsFile && fs.existsSync(gapsFile) ? readIds(gapsFile) : null, maxChapter: maxChapter ? Number(maxChapter) : null}), familyByVolume: censusFile ? familyByVolume(JSON.parse(fs.readFileSync(censusFile, 'utf8'))) : null};
+  if (threadsFile && cardsFile) {
+    const readAll = f => fs.readFileSync(f, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l));
+    const threads = readAll(threadsFile), cards = readAll(cardsFile), beats = new Set(threads.flatMap(t => t.beats));
+    const status = new Map(); for (const f of files) for (const r of JSON.parse(fs.readFileSync(f, 'utf8')).rows || []) if (!status.has(r.id)) status.set(r.id, r.status);
+    const rep = threadReport(threads, scenes.filter(s => beats.has(s.beat)), cards, id => status.get(id), new Set(cards.map(c => c.stepId)));
+    report.threads = {...rep, rows: undefined, largest: rep.rows.filter(r => r.size > 1).sort((a, b) => b.size - a.size).slice(0, 5).map(r => ({size: r.size, steps: r.steps, missingSteps: r.missingSteps, homeless: r.homeless.length}))};
+    report.threadRows = rep.rows;
+  }
   const out = get('--out', false); if (out) { fs.mkdirSync(path.dirname(out), {recursive: true}); fs.writeFileSync(out, JSON.stringify(report, null, 2) + '\n'); }
-  const m = report.metrics; console.log(JSON.stringify({steps: m.steps, reachableShare: m.reachableShare, playableShareGreatBeats: m.playableShareGreatBeats, greatBeatsFullyReached: `${m.greatBeatsFullyReached}/${m.greatBeats}`, foldLossCount: m.foldLossCount, distinctControlKinds: m.distinctControlKinds, controlKinds: m.controlKinds, cardSteps: m.cardSteps, reachableWithCardsShare: m.reachableWithCardsShare, reachableWithCardsGreatShare: m.reachableWithCardsGreatShare, cardGapSteps: m.cardGapSteps, stepsWithNeitherControlNorCard: m.stepsWithNeitherControlNorCard, notMeasured: m.notMeasured}));
+  const m = report.metrics; if (report.threads) console.log(JSON.stringify({threads: report.threads}));
+  console.log(JSON.stringify({steps: m.steps, reachableShare: m.reachableShare, playableShareGreatBeats: m.playableShareGreatBeats, greatBeatsFullyReached: `${m.greatBeatsFullyReached}/${m.greatBeats}`, foldLossCount: m.foldLossCount, distinctControlKinds: m.distinctControlKinds, controlKinds: m.controlKinds, cardSteps: m.cardSteps, reachableWithCardsShare: m.reachableWithCardsShare, reachableWithCardsGreatShare: m.reachableWithCardsGreatShare, cardGapSteps: m.cardGapSteps, stepsWithNeitherControlNorCard: m.stepsWithNeitherControlNorCard, notMeasured: m.notMeasured}));
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main(process.argv.slice(2));

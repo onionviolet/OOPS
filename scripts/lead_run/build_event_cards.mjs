@@ -8,6 +8,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseLocator} from './world_profiles.mjs';
 import {kindOf} from './derive_step_tags.mjs';
+import {buildThreads} from './build_event_threads.mjs';
 
 const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'into', 'his', 'her', 'its', 'lead', 'self', 'fact', 'lotm', 'person', 'item', 'place', 'null']);
 const tokens = v => new Set(String(v ?? '').toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 2 && !STOP.has(t)));
@@ -41,7 +42,7 @@ export function assignScene(scene, eligibleIndexes) {
 const hasTime = scene => !!(scene.timeOfDay?.value || scene.date?.value || (scene.date?.anchor && scene.date?.offsetDays != null));
 
 /** One scene's gap steps to cards or gaps. `rowsByStep` maps step id to its mapping row (status, lockedOptions, packPlaceId). */
-export function buildSceneCards(scene, rowsByStep) {
+export function buildSceneCards(scene, rowsByStep, threadId = null) {
   const steps = scene.steps || [], eligible = new Set();
   steps.forEach((s, i) => { const r = rowsByStep.get(`${scene.beat}#${i + 1}`); if (r && r.status !== 'clean_fold') eligible.add(i); });
   const {per, orphan} = assignScene(scene, eligible);
@@ -55,7 +56,7 @@ export function buildSceneCards(scene, rowsByStep) {
     if (!hasTime(scene)) reasons.push('missing time');
     if (reasons.length) { gaps.push({stepId: id, scene: scene.beat, reasons}); continue; }
     const k = kindOf(step);
-    cards.push({schema: 'event-card/1', id: `card:${id}`, stepId: id, scene: scene.beat, verb: step.verb, object: step.object ?? null, class: step.class ?? null,
+    cards.push({schema: 'event-card/1', id: `card:${id}`, stepId: id, scene: scene.beat, threadId, verb: step.verb, object: step.object ?? null, class: step.class ?? null,
       kind: k.kind, kindWeak: k.weak || undefined, actor: scene.pov && scene.pov !== 'lead' ? scene.pov : 'lead',
       place: scene.place, packPlaceId: row?.packPlaceId ?? null, present: scene.present || [],
       time: {date: scene.date ? {anchor: scene.date.anchor ?? null, offsetDays: scene.date.offsetDays ?? null, value: scene.date.value ?? null, label: scene.date.label ?? null} : null,
@@ -72,13 +73,14 @@ export function buildSceneCards(scene, rowsByStep) {
 export function buildEventCards(scenes, mappings, {maxChapter = 24} = {}) {
   const rows = new Map(); for (const m of mappings) for (const r of m.rows || []) if (!rows.has(r.id)) rows.set(r.id, r);
   const cards = [], gaps = [], orphans = []; let scenesSeen = 0;
-  for (const scene of scenes) {
-    if (!inVolumeOneChapters(scene, maxChapter) || scene.pov !== 'lead') continue;
-    const r = buildSceneCards(scene, rows); if (!r.cards.length && !r.gaps.length) continue;
+  const inScope = scenes.filter(s => inVolumeOneChapters(s, maxChapter) && s.pov === 'lead');
+  const {threads, threadOfScene, edges} = buildThreads(inScope);
+  for (const scene of inScope) {
+    const r = buildSceneCards(scene, rows, threadOfScene.get(scene.beat)); if (!r.cards.length && !r.gaps.length) continue;
     scenesSeen++; cards.push(...r.cards); gaps.push(...r.gaps); if (r.orphan) orphans.push(r.orphan);
   }
   const reasons = {}; for (const g of gaps) for (const x of g.reasons) reasons[x] = (reasons[x] || 0) + 1;
-  return {cards, gaps, orphans, summary: {scenes: scenesSeen, cards: cards.length, gaps: gaps.length, gapReasons: reasons, scenesWithOrphanedSceneData: orphans.length}};
+  return {cards, gaps, orphans, threads, inScope, summary: {scenes: scenesSeen, cards: cards.length, gaps: gaps.length, gapReasons: reasons, scenesWithOrphanedSceneData: orphans.length, threads: threads.length, multiBeatThreads: threads.filter(t => t.size > 1).length, threadLinks: edges}};
 }
 
 const readJsonl = f => fs.readFileSync(f, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l));
@@ -89,6 +91,7 @@ function main(args) {
   const result = buildEventCards(readJsonl(get('--scenes')), mappings, {maxChapter: Number(get('--max-chapter', false) || 24)});
   const out = get('--out'); fs.mkdirSync(path.dirname(out), {recursive: true});
   fs.writeFileSync(out, result.cards.map(c => JSON.stringify(c)).join('\n') + '\n');
+  fs.writeFileSync(out.replace(/\.jsonl$/, '_threads.jsonl'), result.threads.map(t => JSON.stringify(t)).join('\n') + '\n');
   fs.writeFileSync(out.replace(/\.jsonl$/, '_gaps.jsonl'), result.gaps.map(g => JSON.stringify(g)).join('\n') + '\n');
   console.log(JSON.stringify(result.summary));
 }

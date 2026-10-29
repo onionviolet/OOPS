@@ -357,6 +357,18 @@ build order below is a proposal. Mechanisms first is accepted.
   | Steps with neither control nor card | 215 | 58 (all "missing outcomes"; none missing place or time) |
 
   The jump is an upper bound: cards are data, and no card runtime reads them yet, so nothing is shown in the game. What the runtime step needs (no shared runtime file was edited): a reader that lists a scene's cards in order in the lead's Reports or journal at the card's time window, applies each card's `effects` through the existing effect operations (facts and knowledge with a `basis`, as the divination and inference adapters do), shows locked options with "Not how it happened", and passes the focused fixture plus Save, reload, Export and Import (FLR5). Known limits: outcome-to-step assignment is by shared words, so a fact can land on a neighbouring step; 58 gaps need an outcome from a paragraph (the paragraph review lanes) or a rule that lets a step with only a verb be a journal line.
+- **Threads over the cards, chapters 1-24 (LSD257-LSD259, LSD263; follow-up from the book-indexing session after Weibao asked "Cannon events arent so short term are they?"; script only, no schema field).** New: `scripts/lead_run/build_event_threads.mjs`; every card now carries a `threadId`; `replay_metrics.mjs` takes `--threads`. Scenes chain by `needs` deps, `continues`, rare recurring touched ids within 6 scenes (items, documents, notes, creatures, events weigh 1; people and organisations 0.5) and overlapping footprint windows. `after` deps do not chain (they link consecutive scenes), and world-state ids (deities, laws, languages, prices, clocks) do not link: a first pass that let deities link produced one 37-beat thread across the early book. Output is private (`cards-ch1-24_threads.jsonl`, with `participants`, `carriedIds`, window and motives).
+
+  | Chapters 1-24 | Count |
+  | --- | --- |
+  | Lead scenes / threads / multi-beat threads / largest | 93 / 51 / 14 / 15 beats (54 steps) |
+  | Links used: needs / continues / shared ids / footprint | 1 / 2 / 38 / 1 |
+  | Threads with every step reachable in order (control or card) | 27 of 51 (4 of 14 multi-beat) |
+  | Threads whose carried state survives (every carried id named by a card) | 26 of 51 (3 of 14 multi-beat) |
+  | Threads carrying state / thread fold-loss gaps (a carried id with no home) | 13 / 7 |
+  | For comparison: step reachable with cards / playable on great beats | 79.6% / 10.8% |
+
+  So the step number flatters: only 4 of the 14 multi-beat threads are reachable end to end, and 3 keep what they carry. **Clustering is shaky and I say so.** No thread ground truth exists, so I scored pair agreement against a rough proxy (scenes the reader dated against the same anchor beat; 14 groups, largest 8): at the chosen setting pair precision 0.27 and recall 0.49; looser settings give 0.16 and 0.61, stricter 0.38 and 0.09. The proxy is coarse, so this shows the clusters are not stable rather than that they are wrong. No schema field was added (LSD258): the next check is a human or Luna spot-check of the 14 multi-beat threads, then a decision whether a reader-stated `thread` field is worth buying. Runtime (processes between beats, the journal of open threads, LSD260-LSD264) is out of scope here.
 - **Not done.** The code-per-covered-step meter (LSD166, needs per-lane covered-step counts); wiring the sidecar into the mapper rerun (LSD180), which would not change coverage because tags did not clear gaps.
 
 **Working practices** that apply to every step above (all proposals unless noted):
