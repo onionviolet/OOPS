@@ -178,6 +178,14 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const a of v.objectActs)objects.append(row(node('p',a.description),button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
    actions.append(objects);
   }
+  const talkPeople=new Map();
+  for(const a of v.topicTalks||[]){
+   let person=talkPeople.get(a.personId);
+   if(!person){person=node('details');person.dataset.lotmTopicPerson=a.personId;person.dataset.perspective='player';person.append(node('summary',`Talk to ${a.personLabel} · ${a.perspective}`));talkPeople.set(a.personId,person);actions.append(person);}
+   let topic=[...person.children].find(n=>n.dataset?.lotmTopic===a.topicId);
+   if(!topic){topic=node('details');topic.dataset.lotmTopic=a.topicId;topic.append(node('summary',a.topicLabel));person.append(topic);}
+   topic.append(node('p',a.description),node('p',`${a.costText} ${a.effectText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+  }
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));

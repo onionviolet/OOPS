@@ -85,7 +85,7 @@ test('be-seat native pending and settled acts survive save, reload, export and i
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
  const stateFile=join(dir,'src/book_world_lotm_state.js'),stateSource=await readFile(stateFile,'utf8');
- if(!stateSource.includes('...castWalkCommands,...castObjectCommands].find')){
+ if(!/\[[^\]]*\.\.\.castObjectCommands\b[^\]]*\]\.find\s*\(/.test(stateSource)){
   const patch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/H1_SAVE_INTEGRATION.patch');
   await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});
  }

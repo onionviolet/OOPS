@@ -74,6 +74,8 @@ const rows = [
     ['rite', 'in-world', 'The character’s preparation preview.'],
     ['rite-condition', 'in-world', 'A preparation condition for this character.'],
     ['slots', 'in-world', 'Materials held for the character’s formula.'],
+    ['topic-person', 'in-world', 'Conversations with a person in this character’s life.'],
+    ['topic', 'in-world', 'A topic and its available conversation choices.'],
   ].map(([token, tag, basis]) => ({id: `lotm.data-${token}`, kind: 'panel-block', anchor: `[data-lotm-${token}]`, tag, basis})),
   {id: 'lotm.data-command-control', kind: 'panel-block', anchor: '[data-lotm]', tag: 'in-world', basis: 'A command or formula selector for the current character.'},
 

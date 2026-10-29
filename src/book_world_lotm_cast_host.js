@@ -15,6 +15,7 @@ import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {cmd,eq} from './book_world_lotm_kit.js';
 import {waitUntilOptions} from './wait_until.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
+import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports} from './place_acts.js';
 
 export const LOTM_BESIDE_PROFILE='lotm.early_tingen.canon_beside@1';
@@ -36,6 +37,13 @@ export const resolveCastPlace=id=>aliases.get(id)||id;
 export let CAST_PLACE_LABELS={};
 const actorId=id=>LOTM_CAST.people.find(p=>p.id===id)?.sameActorAs||id;
 export let castSchedule=[],castPeople=[],castTalkCommands=[],castPlaces=[],castMoves={},castWalkCommands=[];
+export let castTopicCommands=[];
+export function castTopicOffers(state,preview,options={}){
+ if(!lotmBe(state)||!castAvailable)return [];
+ const known=state.simulation?.knowledge?.player||{};
+ return quoteTopicTalks(state,castTopicCommands.filter(d=>known[`book.lotm.cast.known.${d.targetId}`]||known[`book.lotm.cast.met.${d.targetId}`]),preview,
+  {...options,presence:(d,q)=>castTalkPreview(state,d,q),label:id=>id==='player'?'You':LOTM_CAST.people.find(p=>p.id===id)?.name||id});
+}
 export let castObjectCommands=[];
 export function castObjectOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
@@ -75,6 +83,9 @@ function deriveCast(pack){
  requires:eq('lotm.profile.beside'),effects:[{type:'knowledge',actor:'player',key:`book.lotm.cast.met.${p.id}`,
  stage:'seen',value:`You spoke with ${p.name} when you were together.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
+ castTopicCommands=defineTopicTalks(pack.topicTalks,{worldId:I.world,group:'book_lotm',
+  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castTalkCommands.push(...castTopicCommands);
  talkIds=new Set(castTalkCommands.map(d=>d.id));
  castPlaces=pack.places.filter(p=>p.travel&&!p.anchorOnly);
  castMoves=Object.fromEntries(castPlaces.map(p=>[`lotm.move.${p.id}`,p.id]));
@@ -139,7 +150,7 @@ function projectCastWakes(state){
 }
 export function castSyncDue(state){
  if(!lotmCastLife(state)||!castAvailable)return false;
- if(lotmBe(state)&&pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world))return true;
+ if(lotmBe(state)&&(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)))return true;
  if(lotmBe(state)&&LOTM_CAST.householdActs?.objects?.some(r=>!state.worlds[I.world].facts[`place.act.seed.${r.id}`]))return true;
  if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
  const day=castCalendar(state).calendar.day_count,facts=state.worlds[I.world].facts;
@@ -152,7 +163,7 @@ export function castSyncDue(state){
 // retried at the same clock, without marking its unsaved projection as committed.
 export function syncLotmCast(state){
  if(!(lotmBeside(state)||lotmBe(state))||!castAvailable)return false;
- const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world));
+ const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)));
  for(const person of castPeople){if(roleIds.has(person.id)&&!projectedRoles.has(person.id))continue;const body=state.simulation.people[person.id];if(!body)continue;
   // In a be life the pack-selected person is driven by the player, never by
   // the NPC schedule. The native player body remains the location authority.
@@ -423,8 +434,9 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
  const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];
+ const topicReports=lotmBe(plan.state)?settleTopicTalkReports(plan.state,castTopicCommands,I.world):[];
  const result=persist(plan);
  domainRegistry.command('beatLedger','commit')(saved);
- for(const report of [...out.reports,...objectReports])publish(report);
+ for(const report of [...out.reports,...objectReports,...topicReports])publish(report);
  return result;
 }
