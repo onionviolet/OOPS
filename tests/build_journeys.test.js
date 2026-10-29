@@ -73,3 +73,11 @@ test('journey origin uses source volume order before shard-local scene order',()
   assert.equal(result.rows[0].from,'pack.place.a'); assert.equal(result.rows[0].to,'pack.place.b');
   assert.match(result.rows[0].originBasis,/inference/);
 });
+
+
+test('rejects same-place steps after resolving place aliases and reports the gap',()=>{
+ const scenes=[{beat:'same',order:1,pov:'lead',place:'Old Town',evidence:[{locator:'zh 第1章 p2'}],steps:[{verb:'travel to Old Town',from:'reader.place.a',to:'Old Town'}]}];
+ const result=buildJourneys({scenes,crosswalk,registry,pack,paragraphIndex});
+ assert.deepEqual(result.rows,[]);assert.equal(result.rejected.sameEndpoint,1);
+ assert.deepEqual(result.rejectedRows.map(({stepId,reason})=>({stepId,reason})),[{stepId:'same#1',reason:'sameEndpoint'}]);
+});

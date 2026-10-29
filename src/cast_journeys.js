@@ -13,6 +13,9 @@ export function defineJourneys(data,{worldId,actorId='player',group,situationId,
   ids.add(row.id);
   const support={all:[...(requires?[requires]:[]),...(row.requires?[structuredClone(row.requires)]:[])]};
   const gates=[support],fare=row.fare??null;
+  // A same-place row cannot provide a movement destination. Keep it visible
+  // so existing packs explain the gap, but refuse admission before reserving work.
+  if(row.from===row.to)gates.push({not:{fact:'actor.location',op:'eq',value:row.to},reason:'Already at this destination. This journey needs a different destination.'});
   if(row.hours){const [from,to]=row.hours,reason=`Service runs ${from}:00–${to}:00.`,lo={fact:hourFact,op:'gte',value:from,reason},hi={fact:hourFact,op:'lte',value:to-1,reason};gates.push(from<to?{all:[lo,hi]}:{any:[lo,hi],reason});}
   if(fare>0)gates.push(actorId==='player'?{fact:moneyFact,op:'gte',value:fare,reason:`You need ${fare} money for the fare.`}:{fact:'actor.life',op:'eq',value:'unpaid',reason:'Unpaid fill: this actor needs a purse owner before paid travel.'});
   const receiptKey=`journey.arrived.${row.id}`;

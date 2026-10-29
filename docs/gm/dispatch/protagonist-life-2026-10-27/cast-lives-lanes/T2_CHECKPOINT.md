@@ -171,3 +171,74 @@ Input identity: shared HEAD `e3d933e8032bf4f181e1a02042bd14077d205b9a` plus
 current owned T2 edits; `tests/cast_topic_talk.test.js` SHA-256
 `032284b331306d598019c4d99c336313dae7f11b8912aba5e3c2eb1dfe38b6c0`.
 No commit; ownership released to the coordinator.
+
+## Resume 2: same-place journey admission and save investigation
+
+Status: **implemented, below floor**; synthetic and real-pack Node fixtures are
+agent-verified, not human-reviewed. No Chrome, player save, private-pack write or
+commit. Rules: AR3, AR7, AR10, AR14, AD36, AD38, AD43, AD45, CLR3, CLR4,
+CLR9-CLR12; lead-life rules A, “The lead's life is the main line” and “Results
+follow the book's chain through our systems.” The existing place panel at
+1920×1080 remains the target; this change adds a blocked reason to its existing
+journey disclosure. Mobile stays deferred.
+
+The named reviewed4 backup and the live private cast pack were byte-identical
+when read (SHA-256 `9fe7cf49def248e3b54531ffb5a0e2149103258e36dd309d9af309a83c8d52d9`).
+Both currently have the named row with **distinct** origin and destination. Its
+fare, hours and requires fields are absent, its means is `unspecified`, and its
+duration is one minute. Therefore the reported equal-endpoint row could not be
+recovered verbatim from those files at this check. No source text or private
+pack content was copied into tracked files.
+
+For the reported shape, a disposable copy of that real pack was changed only
+in the named row's destination, to match the reported origin. Before the fix,
+`previewSimulationCommand` admitted it, native commit created a pending JSON
+job, the exact definition lookup in `validateLotmState` accepted it, and the real
+`validateSaveEnvelope` accepted it. In the full-game Node fixture, clicking its
+control, `simulationTestHooks.snapshot()`, pending Save/reload and literal
+Export/Import all passed with saving unblocked and no captured errors. Thus equal
+endpoints alone did **not** reproduce the reported failure in this setup. The
+row's absent fare, hours and requires, and `unspecified` means were accepted in
+that pending job; no other row field was shown to be rejected. This does not
+establish why the coordinator's earlier browser replay blocked saving, or that
+its prior state and original input bytes were identical to the fixture.
+
+The adapter now retains a same-place row as a visible disabled quote and rejects
+commit at native admission with no job or cost; the place panel gives the reason
+“Already at this destination. This journey needs a different destination.” This
+is a movement-data gap, not a claim the underlying source action did not happen.
+Existing pending jobs and the owning validator are unchanged. The generator
+already rejected equal endpoints after place resolution and recorded
+`sameEndpoint`; a new test pins that behavior. Source review or a place-level
+mechanism can later represent a supported same-place action without inventing a
+journey.
+
+The regression fixture uses synthetic IDs and the generated row shape, including
+source-step metadata, omitted fare, omitted hours/requires, unspecified means and
+one-minute duration. It tests a blocked same-place attempt and Save/reload and
+Export/Import with no pending job, then starts a distinct-endpoint generated row
+and checks its pending Save/reload and literal Export/Import through the native
+save-envelope validator. The fixture preserves the existing paid journey checks.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/cast_journeys.test.js tests/build_journeys.test.js` | PASS 17/17 | Synthetic native/headless fixture; no browser. |
+| `node /tmp/t2-real-probe-setup.mjs` and `node probe.mjs` in disposable whole-book copies | PASS before fix: altered-to-equal real row admitted by preview/commit and both validators; PASS after fix: preview and commit refuse it. | Only the named row was altered in the temporary copy; real pack read-only. The reported original equal-row bytes were unavailable. |
+| `node actual-probe.mjs` in the pre-fix altered-row full-game copy | PASS: click, snapshot, pending save, reload and literal Export/Import; save unblocked; no captured errors | This fixture did not reproduce the earlier browser failure or its replay history. |
+| `node actual-probe.mjs` in the fixed full-game copy using the unmodified live pack row | PASS: distinct-endpoint control starts, pending save, reload and literal Export/Import; save unblocked; no captured errors | Direct fixture at the row's origin, not the coordinator's full replay. |
+| `BUILD_OUT=/tmp/yairpg-t2-resume2-build npm run build` | PASS | Isolated bundle only; no browser exercise. |
+| `npm run check:arch` | PASS: main -51, display -37, save writer 0 growth; 6 grandfathered imports, 205 cycle edges | Existing baseline retained. |
+| `git diff --check -- src/cast_journeys.js tests/cast_journeys.test.js tests/build_journeys.test.js` | PASS | Tracked source/test whitespace only. |
+| `node scripts/lane_review.mjs` with the three exact changed source/test paths | Raw scanner FAIL: two name-hit files; zero top-level await and outside-grant paths | Added-line scan finds one hit on an existing synthetic place label reused by the generator fixture; no new canon data. The raw result remains FAIL. |
+
+Input: shared HEAD `f3109cc3bde1493c0bd6ce96ee716c1a19aea621`, plus the three
+owned edits. Source SHA-256 `dfeff56d63935f4cd8d40bbebb6aec903acf03057dc8109d96572b17f47fb9d4`;
+journey-test SHA-256 `91b026a2df8d974788f3f0fec3aaf057c861b951b6a7d5d2457795b12644f210`;
+generator-test SHA-256 `873f16869dde1d70278aa36c51ada6ef06dd7f09c23dc1f73e96fd016a44c4c1`;
+isolated bundle SHA-256 `1bcbdcec34a8b73718631c3d9b665bfd444d41937782a6ac48e793a1043c7826`.
+The reconstructed equal-row private fixture SHA-256 is
+`3fe3d43147fcf0304384a7fa2a4fbbb4e99b1b5235892c054457bf1718d2bd66`.
+No generator or validator source edit was needed. Ownership released to the
+coordinator. The remaining gameplay gate is its rebuilt fresh-origin 1920×1080
+browser replay and persistence check on the combined candidate; if the failure
+recurs, preserve that exact input and state for diagnosis.

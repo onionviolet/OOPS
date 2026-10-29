@@ -70,6 +70,15 @@ test('missing fare stays unknown and actors without a purse owner quote unpaid f
  for(const change of [r=>r.minutes=0,r=>r.fare=-1,r=>r.hours=[5,5],r=>r.hours=[-1,25],r=>r.to='__proto__']){const bad=structuredClone(data);change(bad.journeys[0]);assert.throws(()=>defineJourneys(bad,binding));}
 });
 
+test('same-place rows disclose a blocked reason and cannot start a job',()=>{
+ const row={id:'fixture.same',from:a,to:a,means:'unspecified',label:'Travel locally',minutes:1,report:'You arrive.'};
+ const command=defineJourneys([row],binding)[0];registry.simulation.commands.set(command.id,createSimulationRegistry({commands:[command]}).commands.get(command.id));
+ const p=setup(),before=JSON.stringify(p),q=preview(p,command,0);
+ const offer=quoteJourneys(p.state,[command],()=>q,{facts:d=>simulationFacts(p.state,context(p,0),registry,[d.requires])})[0];
+ assert.equal(offer.eligible,false);assert.match(offer.reasons.join(' '),/Already at this destination/);
+ assert.throws(()=>start(p,command,0));assert.equal(JSON.stringify(p),before);
+});
+
 test('generator-shaped journey with no fare passes the native registry JSON check',()=>{
  const row={id:'fixture.generated',sourceStepId:'scene#1',sourceStepIds:['scene#1'],from:a,to:b,means:'on_foot',label:'Walk to B',
   description:'Walk to B.',minutes:1,minutesBasis:'fill: one minute',report:'You arrive.',source:{label:'S',locator:'fixture p1'}};
@@ -108,6 +117,8 @@ test('native place-panel journey validates pending Save/reload, arrival and lite
   journeys:{journeys:[
    {id:'fixture.journey.carriage',from:'fixture.place.other',to:'fixture.place.second',means:'carriage',label:'Take the carriage',minutes:3,fare:2,hours:[0,18],report:'You arrive by carriage.'},
    {id:'fixture.journey.return',from:'fixture.place.second',to:'fixture.place.other',means:'walk',label:'Return home',minutes:2,fare:0,report:'You return home.'},
+   {id:'fixture.journey.same',sourceStepId:'fixture.scene#3',sourceStepIds:['fixture.scene#3'],sourceStepOrigins:{'fixture.scene#3':'step origin'},from:'fixture.place.other',to:'fixture.place.other',means:'unspecified',originBasis:'step origin',label:'Travel locally',description:'Travel locally.',minutes:1,minutesBasis:'fill: one minute',report:'You arrive.',source:evidence},
+   {id:'fixture.journey.generated',sourceStepId:'fixture.scene#4',sourceStepIds:['fixture.scene#4'],sourceStepOrigins:{'fixture.scene#4':'step origin'},from:'fixture.place.other',to:'fixture.place.third',means:'unspecified',originBasis:'step origin',label:'Travel onward',description:'Travel onward.',minutes:1,minutesBasis:'fill: one minute',report:'You arrive.',source:evidence},
    {id:'fixture.journey.closed',from:'fixture.place.other',to:'fixture.place.third',means:'boat',label:'Take the boat',minutes:4,fare:10,hours:[6,18],report:'You arrive by boat.'}
   ]}};
  for(const id of ['second','third'])pack.places.push({id:`fixture.place.${id}`,indexId:`fixture.place.${id}`,name:id,openingHours:[],travel:{district:'evernight',basis:'fixture'},...evidence});
@@ -127,6 +138,14 @@ try {
  assert.equal(document.querySelector('[data-lotm-journeys]').dataset.perspective,'player');
  assert.equal(button('fixture.journey.closed').disabled,true);assert.match(button('fixture.journey.closed').title,/fare/);assert.match(button('fixture.journey.closed').title,/Service runs/);
  assert.equal(button('fixture.journey.return'),null); // Remote origins are quoted after arrival.
+ assert.equal(button('fixture.journey.same').disabled,true);assert.match(button('fixture.journey.same').title,/Already at this destination/);
+ g.module.t2Act('fixture.journey.same');assert.equal(g.internals.foundationSaveBlocked,false);
+ let untouched=await g.save();assert.ok(!untouched.expansion.simulation.jobs.some(j=>j.commandId==='fixture.journey.same'));
+ await g.reload();const blockedExport=await g.exportFile();await g.importFile(blockedExport);untouched=await g.save();assert.equal(untouched['current location'],'fixture.place.other');
+ g.module.t2Act('fixture.journey.generated');assert.equal(g.internals.foundationSaveBlocked,false);
+ let generated=await g.save();assert.ok(generated.expansion.simulation.jobs.some(j=>j.commandId==='fixture.journey.generated'));g.module.t2Validate(generated);
+ await g.reload();const generatedExport=await g.exportFile();await g.importFile(generatedExport);generated=await g.save();assert.ok(generated.expansion.simulation.jobs.some(j=>j.commandId==='fixture.journey.generated'));
+ await g.load(initial);
  g.module.t2Act('fixture.journey.carriage');
  assert.equal(g.internals.foundationSaveBlocked,false);
  let saved=await g.save();assert.equal(saved.character.money,3);
