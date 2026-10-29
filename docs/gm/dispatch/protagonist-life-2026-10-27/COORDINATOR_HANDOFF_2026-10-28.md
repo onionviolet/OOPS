@@ -166,6 +166,20 @@ carries 36 people for chapters 1-24 in 388 KB; `dist/bundle.js` is 7.3 MB and ho
 | RF5 | **Every checkpoint names its known limits and expected refactor** (template line), so the next lane starts from them instead of rediscovering | Done in template; B1, T1, P2 apply it |
 | RF6 | **Proposals stay replaceable too.** LSD lines are a dated proposal; when accepted they move to a standing rulebook (LSD155) and keep codes, so later revisions are dated amendments, not rewrites | No change |
 
+## Modularity, past code earns no weight (Weibao 2026-10-28; AD45 extended, codes MD1-MD9 proposed)
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| MD1 | **The module seam already exists and works.** `registerDomain` plus a ports object let B1 move its fresh-life route into `src/fresh_life_start.js` with one registration line; `main.js` went from +11 over baseline to 26 under | Pattern for every new cross-cutting feature |
+| MD2 | **Fat port bags are the next smell.** `configureLotm` receives 20+ ports from `main.js` in one call; group them by concern (clock, save, body, UI, world) so a module asks only for what it uses and a replacement can be wired without reading all of `main.js` | LATER/DELEGATE: with RF3's clock extraction (Sol medium); done when LOTM and MoL hosts take grouped ports and `main.js` lines drop |
+| MD3 | **Contract tests at every seam.** A replacement implementation passes the same tests as the old one (wake queue, save envelope validators, seat filter, constraint store). Tests pin behavior at the port, not internals, so rewriting a module does not mean rewriting its tests | ACCOUNT FOR NOW: brief template line on contract tests |
+| MD4 | **Replace rather than patch when special cases pile up.** When a module gathers world-only branches or flags, rewrite it behind the same port and prove it with the golden run and floor budgets (LSD146, LSD147) | ACCOUNT FOR NOW |
+| MD5 | **Delete freely.** Dead routes, superseded helpers and tests that pin an old shape go in the same change as their replacement (lean tests rule, 2026-10-22) | No change |
+| MD6 | **Side by side during a swap.** A large replacement runs behind a dial (old and new implementation, same save) until the floor and golden run agree, then the old one is removed; no big-bang rewrites of systems a life depends on | ACCOUNT FOR NOW |
+| MD7 | **Data over code.** Worlds are packs and rows on generic verbs; world code only for world mechanisms (LSD148, FND5). The less world-specific code, the less there is to refactor per world | No change |
+| MD8 | **Upstream code is not prized either.** The original game's code in `main.js` is the fork's base; AR1/AR15 extraction continues, and a better implementation may replace upstream systems, keeping attribution and LICENSE | No change |
+| MD9 | **The cost of rewrites is lost subtle behavior.** Guard it with the golden run, floor budgets, save versioning (LSD142) and the checkpoint's known-limits line, so a rewrite shows what it changed | ACCOUNT FOR NOW |
+
 ## Accepted by Weibao (2026-10-28)
 
 Weibao answered the batched list with "Sure": SUI1-SUI19, CLR1-CLR13 and RPT1-RPT12 are binding defaults; the
