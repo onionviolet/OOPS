@@ -425,3 +425,15 @@ LATER / DELEGATE:
 | Item | Level, effort | Done check |
 | --- | --- | --- |
 | C31 Sonnet relabel pass: Sonnet re-judges only `touchedByLead` and option class and needs over Haiku's rows (small input), first on 3-5 more shards against `w3s33`'s result | direct pilot, about $0.30 | Lead-touched marks and option classes compared per shard with cost per shard |
+
+### Last October runs (2026-10-28 evening, Weibao: "Send next stuff for the rest of the moneey left"; "Send the rereads and other stuff accordingly", passing $95 approved)
+
+Measured October total after these: **$95.53** (summaries plus $1.06 of direct pilots and the Sonnet A/B).
+
+| Code | Run | Result |
+| --- | --- | --- |
+| C32 | Retries `2026-10-29h-hp`, `2026-10-29a-asl`, `2026-10-29v1-lotm` | $0.42. HP 5 of 5 ok; LOTM volume 1 chapters 154-156 and 178-180, 6 of 6; A Soldier's Life 37 of 38 (one still cut off) |
+| C33 | Reverend Insanity volumes 2-4 (chapters about 101-400), `2026-10-29-ri234` then `2026-10-29-ri234t` | $4.35 for census, scenes, rules and people (390 ok, 7 cut off); the pooled ceiling stopped texture as predicted, which ran alone afterwards for $0.77 (98 ok). RI is read through about chapter 400 |
+| C34 | LOTM volume 1 schema 1.4 re-read `2026-10-29sv14-lotm`: people chapters 25-213, rules and texture for all 72 shards, and a second medium census of 31 shards (prefixes suffixed `x2`, C28) | $2.60; 232 ok, 2 cut off. Old rows backed up to `pre-sv14/` |
+
+November retry list adds: `gc2c007` census (already one chapter), RI volumes 2-4's 7 cut-off shards, A Soldier's Life's 1, LOTM sv14's 2.
