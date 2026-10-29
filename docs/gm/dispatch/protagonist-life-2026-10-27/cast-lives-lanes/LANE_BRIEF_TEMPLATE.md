@@ -18,6 +18,7 @@ Model: `<model>`, `<effort>`. Publication class: public code (name-free) / priva
 - Seam and location authority (CLR10): <owner, call site, clock/record authority>
 - Save fields, compatibility or migration, economy source and sink: <none or details>
 - Design lines (LSD): cast, clock, save, pack or draw work cites the LSD lines it applies from [LEAD_LIFE_SYSTEMS_DESIGN](../LEAD_LIFE_SYSTEMS_DESIGN.md) (tiers LSD126-LSD137, engine LSD138-LSD147); cast draws are keyed, never ordinal (LSD139).
+- Known limits and refactor hooks (AD45): the checkpoint lists what this slice leaves simple on purpose and the refactor it expects (for example "lift to a world-neutral module at the second world").
 - Actor parametrization (CL225): parametrize by actor; lead-specific parts are book-pack data (local book pack, not published). Review greps the diff for lead-only branching.
 - Disclosure (CL228): each new panel or block names its disclosure group and its perspective tag (CL243), and gets a 1920×1080 screenshot.
 - Out-of-grant rule (CLR9): do every fix possible inside the grant; for a needed hunk outside it, write a prepared patch and continue.

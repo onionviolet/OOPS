@@ -13,6 +13,7 @@ prose rules without a check recur.
 - Weibao's words are direction; agent text is proposal until he accepts it. Never write "accepted" without his quote or an AD code. (AD32)
 - Anything is possible, reasonably; things work by how they work. Constraints are a default, a dial and an in-world reason, never "never/always/only". (AD5, AD38)
 - One authority per fact; truth, knowledge and display stay separate; sealed secrets stay sealed outside play. (AD6-AD8, AR3)
+- Everything built is the current best, open to refactor and improvement with a reason; structural rounds change no gameplay; checkpoints name known limits and the expected refactor. (AD45, AR9)
 
 ## Design pre-flight, PRF1-PRF8 (proposed, [round 3](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-3-2026-10-26-design-practice-the-mistakes-agents-make-before-code))
 

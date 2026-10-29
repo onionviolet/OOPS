@@ -29,7 +29,7 @@ affected active instructions, and preserve superseded wording as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
 Start every task at the [rules index](docs/RULES_INDEX.md) (2026-10-16): its
-router names the rule codes that apply to the task, and AD1–AD44 restate the
+router names the rule codes that apply to the task, and AD1–AD45 restate the
 accepted direction for aspects without their own rulebook. Cite codes in task
 records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
