@@ -12,6 +12,9 @@ import {createHash} from 'node:crypto';
 import {defineDivinations} from '../src/cast_divination_adapter.js';
 import {defineCastMaking} from '../src/cast_making_adapter.js';
 import {defineInferences} from '../src/cast_inference_adapter.js';
+import {defineCastExchanges} from '../src/cast_exchange_adapter.js';
+import {defineBodyCare} from '../src/cast_body_adapter.js';
+import {defineCastAbilities} from '../src/cast_ability_adapter.js';
 
 test('uses a reviewed wait with a valid bound scene window, and rejects missing review or malformed windows',()=>{
   const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Room',steps:[{verb:'wait'}]}];
@@ -86,6 +89,20 @@ test('reviewed divination, making and inference routes use actual adapter comman
  }
  const noPlace=buildReplayMapping({...args,crosswalk:{places:{}}}).rows[2];
  assert.equal(noPlace.status,'gap');assert.equal(noPlace.canonicalControl,null);
+});
+
+test('reviewed exchange, body and ability routes use actual adapter command IDs',()=>{
+ const exchange={id:'fixture.exchange',revision:1,kind:'wear',place:'fixture.room',minutes:1,label:'Wear',description:'Wear the coat.',report:'You wear it.',key:'{"id":"fixture.coat","quality":0}',slot:'outer'};
+ const body={id:'fixture.body',kind:'wake',label:'Wake',description:'Wake up.',report:'You wake.'};
+ const ability={id:'fixture.encounter',label:'Encounter',description:'A bounded encounter.',moves:[{id:'release',label:'Release',description:'Release the target.',minutes:1,report:'Released.'}]};
+ const binding={worldId:'fixture.context',group:'fixture.set',situationId:'fixture.situation'};
+ const expected=[defineCastExchanges({schema:1,rows:[exchange]},binding),defineBodyCare({acts:[body]},binding),defineCastAbilities({encounters:[ability]},binding)];
+ const reviewed=[exchange,body,ability].map((row,i)=>({stepId:`sample#${i+1}`,verdict:'row',kind:['exchange','body','ability'][i],row}));
+ const result=buildReplayMapping({scenes:[{beat:'sample',pov:'lead',evidence:[{locator:'第1章'}],place:'Room',steps:[{verb:'wear'},{verb:'wake'},{verb:'release'}]}],crosswalk:{places:{Room:'fixture.room'}},fromChapter:1,toChapter:1,reviewed});
+ for(const [i,row] of result.rows.entries()){
+  assert.equal(row.canonicalControl,expected[i].at(-1).id);
+  assert.deepEqual(row.route.map(leg=>leg.actionId),expected[i].map(command=>command.id));
+ }
 });
 
 test('CLI reviewed overlay preserves every selected source step and binds the source file',()=>{

@@ -149,9 +149,9 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
         row.route=[{actionId:row.canonicalControl,place:reviewedRow.place || placeId || null,personId:reviewedRow.personId,controlBuilder:row.controlBuilder}];
         row.anchors={...row.anchors,...(reviewedRow.place?{place:reviewedRow.place}:{}),person:reviewedRow.personId};
         row.reviewedChoiceId=choice?.id || null;
-      } else if (['divination','making','inference'].includes(reviewedLine.kind)) {
+      } else if (['divination','making','inference','exchange','body','ability'].includes(reviewedLine.kind)) {
         const kind=reviewedLine.kind, anchor=reviewedRow.place || placeId || null;
-        const commandIds=kind==='making' ? [reviewedRow.id] : (reviewedRow.steps || []).map(item=>`${reviewedRow.id}.${item.id}`);
+        const commandIds=['making','exchange','body'].includes(kind) ? [reviewedRow.id] : (kind==='ability' ? reviewedRow.moves : reviewedRow.steps || []).map(item=>`${reviewedRow.id}.${item.id}`);
         row.controlKind=kind; row.controlBuilder=`private pack ${kind}; src/cast_${kind}_adapter.js`;
         if (!anchor || !commandIds.length || commandIds.some(id=>!id || id.endsWith('.undefined'))) {
           row.status='gap'; row.gapKind='missing UI path'; row.reason='Reviewed control lacks a resolved replay place or ordered command.';
