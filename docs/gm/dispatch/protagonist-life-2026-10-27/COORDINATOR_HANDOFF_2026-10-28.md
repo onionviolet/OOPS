@@ -31,6 +31,8 @@ This handoff grants no new scope.
 | P2 | Measure per-minute cost, wake queue ([brief](cast-lives-lanes/P2_WAKE_QUEUE_BRIEF.md)) | Committed `edb88a929` (module, test, checkpoint, patch). **Finding:** one game minute is about 1.8-2.2 s in the Node harness; 46% `simulationFacts` (673 calls), 37% `simulationNativeContexts`, 9% `lotmFacts`; cast schedules are negligible. The wake-queue patch cuts about 20%. `P2_INTEGRATION.patch` (LOTM cast host, host, UI, cast-week tests) waits until B1 round 4 lands; recheck `git apply --check`, then the browser floor |
 | P3 | Facts and contexts once per unchanged input ([brief](cast-lives-lanes/P3_FACTS_FRAME_BRIEF.md)) | **Running** (Sol medium); side by side with an equivalence test, `main.js` hunks through `P3_INTEGRATION.patch` |
 | M2 | Union every row kind across schema versions ([brief](cast-lives-lanes/M2_ALL_KINDS_UNION_BRIEF.md)) | Committed `96be7cb18`. Older-only rows now kept: LOTM rules +888, places +300 (2,800 fields filled), MoL rules +1,029 (6,128 fields), places +247. MoL lead slice fitness: relations 149/170, reacts 76/133, routines 15/96 (timing stays thinnest). Outputs `/tmp/m2-lotm`, `/tmp/m2-mol`. MoL people have backups for only 4 of 106 files |
+| P4 | Clock out of `main.js`, batched idle spans ([brief](cast-lives-lanes/P4_CLOCK_BRIEF.md)) | **Running** (Sol medium; AR15 reservation on `main.js`). Baseline after P2+P3 (`db9c7609`): 1,157 ms per game minute, 349-minute wait 34.8 s |
+| D1 | Canon as constraints, conditioned keyed draws, provenance, reservations, pack revision ([brief](cast-lives-lanes/D1_CONSTRAINT_STORE_BRIEF.md)) | **Running** (Sol medium) |
 | G2 | Concealment | **Held** until the be replay asks for it (brief kept: `G2_CONCEALMENT_BRIEF.md`) |
 
 Coordinator fixes made in review this session (each lane's checkpoint records them): L5r snapshot paths
@@ -181,6 +183,22 @@ carries 36 people for chapters 1-24 in 388 KB; `dist/bundle.js` is 7.3 MB and ho
 | MD7 | **Data over code.** Worlds are packs and rows on generic verbs; world code only for world mechanisms (LSD148, FND5). The less world-specific code, the less there is to refactor per world | No change |
 | MD8 | **Upstream code is not prized either.** The original game's code in `main.js` is the fork's base; AR1/AR15 extraction continues, and a better implementation may replace upstream systems, keeping attribution and LICENSE | No change |
 | MD9 | **The cost of rewrites is lost subtle behavior.** Guard it with the golden run, floor budgets, save versioning (LSD142) and the checkpoint's known-limits line, so a rewrite shows what it changed | ACCOUNT FOR NOW |
+
+## Local agents (Weibao asked 2026-10-28; proposal, codes LA1-LA8)
+
+Evidence: [local reader test](../../../research/LOCAL_AI_READER_TEST_2026-10-27.md) (Qwen3.8 27B, Gemma4 31B, an
+abliterated Q8 on this 64 GB Mac). No local model has been tried on code in this repo yet.
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| LA1 | **Reading: narrow lanes only.** Whole-shard reading failed (recall 9-42%); the narrowed census lane (one chapter per call, script-owned fields, schema output, lint and a recall check) passed with 87-93% recall. Scenes, options, fills and inner life stay with cloud readers | Standing (memory `local-model-lanes`) |
+| LA2 | **Best next local reading jobs are row-level and checkable:** filling routine times (the thinnest layer: MoL 15/96 usable), confirming price and measure rows, tagging texture, labelling provenance on fills, classifying panels and controls by perspective (C1-style). Each has a lint and a known-answer sample | LATER/DELEGATE: pilot the routine-time fill on 3 MoL shards (Qwen 27B, census-lane harness); done when usable routines rise with zero lint errors on a hand-checked sample of 20 |
+| LA3 | **Code: only small modules with contract tests.** Context is about 16k tokens per call; `main.js` (10,090 lines) does not fit, a module plus its test does. AD45's modularity (small modules behind ports, MD1-MD3) is what makes local coding possible at all | LATER/DELEGATE: one pilot task, a pure module with an existing contract test (for example a budget or union helper); done when the pass rate over 5 attempts is recorded |
+| LA4 | **Not a fit locally:** design synthesis, multi-file integration, browser floors, review of lane returns, anything that needs the whole rule set in context. Those stay with Codex Sol/Luna and the coordinator | No change |
+| LA5 | **Same gates as any lane.** Local output passes the same lint, recall check, focused tests, `lane_review` and coordinator review; a local lane never commits | ACCOUNT FOR NOW |
+| LA6 | **Memory is the binding limit.** Qwen 27B holds 18-21 GB; at this check swap was 14.4 of 15.4 GB used with builds and headless Chrome running. One local model at a time, never beside a browser floor or a build; check `sysctl vm.swapusage` first and `ollama stop` after | ACCOUNT FOR NOW |
+| LA7 | **Variance needs retries.** The same prompt gave 2/34 and 23/30 known names; a local lane retries per item against its check and records seeds, so results stay reproducible (LSD139 spirit) | ACCOUNT FOR NOW |
+| LA8 | **Cost trade.** Local runs spend wall time and memory instead of subscription usage; worth it for bulk row work across many books (MW1), not for one-off runtime lanes | No change |
 
 ## Accepted by Weibao (2026-10-28)
 
