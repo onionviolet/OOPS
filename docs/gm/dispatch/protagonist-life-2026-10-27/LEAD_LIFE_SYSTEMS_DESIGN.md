@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD277 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD290 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -764,3 +764,47 @@ outside it. Reviewed rows already merge by `stepId` (`merge_reviewed_rows.mjs`).
 | LSD275 | **Card confidence.** Outcome-to-step assignment by shared words is weak; each card carries a confidence (words matched, outcome kind, distance from the step), and low-confidence cards go to the ranked review queue ahead of other gaps | ACCOUNT FOR NOW: card builder field |
 | LSD276 | **Thread clusterer fixes from the spot-check.** Common items stop linking (weight by how rarely an id recurs across the book), clusters split where place and day both jump, and chains have a maximum span so links do not run transitively through long clusters. Rescore against the 14 verdicts | LATER/DELEGATE: guide session; done when the four "split" threads split and the eight "hold" threads still hold |
 | LSD277 | **Prove the pipeline on a second book.** Run the cards and threads stages on a second read book (Mother of Learning, English locators) before any more LOTM-only stage is added; anything that breaks is LOTM-shaped (LSD214 for the pipeline, not only mechanisms) | LATER/DELEGATE: after LSD265 |
+
+## 28. Abstraction: one resolution ladder, prose into bands, attacks and tempo (Weibao 2026-10-29; proposal)
+
+Weibao: "What about abstracting things? attacks? Move intervals? Converting prose into Stats? Combat system?
+relationships? Crafting? Divination and more?" Already settled and not repeated: moves as rows (LSD73, LSD85), named
+inputs (LSD86), conflict frame for non-violent contests (LSD87), turn-based life fights (LSD90), relative bands and
+few stats (LSD97), stat claims collected by FD1 (LSD100, LSD101), bonds (LSD26-LSD29), results beyond health
+(LSD34), calibration (LSD96). Code checked 2026-10-29: the upstream auto-battler times attacks by cooldown from
+`attack_speed` (`src/models/combat.js`, `attack_cooldowns = 1/attack_speed`, subtick planning); native and party
+battles are ordered moves through the conflict frame (`src/native_battle.js`); checks are keyed dice
+(`src/check_resolver.js`, address of world, life, game time and event).
+
+### 28.1 One ladder for every system
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD278 | **Three resolutions of the same event.** *Outcome* (one draw settles it: a card, an off-screen fight, a montage evening), *exchange* (a few choices: moves, offers, ritual stages), *detail* (each blow, each ingredient, each word). Grain (LSD209) and attention pick the level; every system (conflict, talk, craft, rite, divination) offers the same three. Reason: one pattern to build and test, not one per system | ACCOUNT FOR NOW: mechanism briefs name which levels they build |
+| LSD279 | **Levels must agree.** An event settled at outcome level gives the same distribution of results as playing it at exchange level with the "as the lead would" policy (LSD93). The outcome-level odds are calibrated from seeded exchange-level runs (LSD220), never set separately. Test: 1,000 keyed runs at each level, results within a stated tolerance | ACCOUNT FOR NOW: done check for any system with two levels |
+| LSD280 | **Zooming in keeps the draws.** Draw keys name the event and the step inside it, so zooming from outcome into exchange mid-day does not reroll what was already settled, and zooming out settles only what remains (LSD55, LSD244) | ACCOUNT FOR NOW |
+
+### 28.2 Attacks and move intervals
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD281 | **Tempo, one stat for both engines.** Each move has a time cost in tempo units; `attack_speed` sets the cost of a strike, so the auto-battler's cooldown and the turn-based runner read the same stat. Turn order is "whoever's accumulated time is lowest acts next" (a timeline), so a fast fighter acts more often in a life fight exactly as he attacks more often in an idle zone | LATER/DELEGATE: F1 runner; done when one fighter pair gives the same action ratio in both engines over 100 seeds |
+| LSD282 | **An attack is a row with five parts**: means (fist, knife, revolver, a power), reach band, tempo cost, check profile, and harm as effects. Supernatural attacks are the same row with a power as means and side effects (loss of control, exposure); no separate attack system | ACCOUNT FOR NOW |
+| LSD283 | **Harm as a ladder with an HP adapter.** Life fights read harm as rungs (shaken, bruised, wounded with a place and recovery time, maimed, dying) per LSD34; an adapter maps rungs to native HP and back, so idle-zone combat keeps HP and the two never contradict | ACCOUNT FOR NOW: F1 |
+
+### 28.3 Prose into stats
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD284 | **Prose gives evidence, not numbers.** Each stat is a band with an evidence list: claims ("a trained officer"), feats (outran a carriage, lifted a crate), and contests (who beat whom). Numbers exist only where a move reads them, derived from the bands by calibration | ACCOUNT FOR NOW |
+| LSD285 | **Fit bands from canon contests.** Who beat whom across the book is a set of pairwise results; a ranking fit (pairwise comparison, Elo-like) over them places people on each stat's scale, and claims and feats set the priors. People with no evidence take their role's prior (a constable's typical band), labelled `fill`. Local compute, no tokens | LATER/DELEGATE: C2 calibration lane; done when volume 1's contests give a ranking that reproduces each canon contest's winner at pull 0 in most seeds |
+| LSD286 | **Bands carry dates.** A stat changes with training, injury and advancement, so a band is a history (value from a date), and a contest is fitted against the bands at its date. Advancement on canon days is a constraint (LSD253) | ACCOUNT FOR NOW |
+| LSD287 | **The same fit serves skills, crafts and bonds.** Craft quality bands from recorded successes and failures, skill bands from what a person manages, bond strengths from what people do for each other (LSD28) all use the evidence-to-band fit. One tool, its own tests | ACCOUNT FOR NOW: build it once in the C2 lane |
+
+### 28.4 Per system
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD288 | **Relationships on the ladder.** Outcome: a montage evening moves warmth by a small band. Exchange: a conversation through the conflict frame (persuade, haggle, confide, refuse) with moves read from bonds. Detail: the dialogue tree where one exists. Canon turning points are facts with pull; the evidence-to-band fit sets starting bonds from the book's behaviour | ACCOUNT FOR NOW: R1 brief |
+| LSD289 | **Crafting on the ladder.** Outcome: the book says it worked. Exchange: stages with a check each (prepare, combine, wait, finish). Detail: every ingredient and quantity. Book recipes are often partial; missing quantities and times come from role and world priors labelled `fill`, never invented as canon | ACCOUNT FOR NOW: MK1 follow-up |
+| LSD290 | **Divination on the ladder.** Outcome: an answer with an accuracy band. Exchange: choose method, phrase the question, pay the cost, interpret. Detail: the symbols. The answer is generated from true world state (including pull and strain, LSD240) through keyed noise at the method's accuracy, and writes knowledge with a basis and confidence; it can be wrong, vague or blocked by interference, and never shows a sealed truth beyond its means | ACCOUNT FOR NOW: DV1 follow-up |
