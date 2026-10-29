@@ -23,7 +23,8 @@ This handoff grants no new scope.
 | C1 | Perspective tags for 64 controls (`src/perspective_controls.js`) | Committed `5832a1f8b` |
 | S1 | Seat filter (`src/seat_profiles.js`), shell hunk, LOTM panel hunk | Committed `5832a1f8b`; coordinator fixed two defects (below) |
 | P1 | `world_lead_pipeline.mjs`, one command per book to records-ready (CL272) | Committed `569616c90` |
-| B1 | Be the lead ([brief](cast-lives-lanes/B1_BE_SEAT_BRIEF.md)) | **Running** (Sol medium, pid 25335, launched 2026-10-28 ~20:00); review with the loop, then the be-seat browser check and the L5r replay in the be seat |
+| B1 | Be the lead ([brief](cast-lives-lanes/B1_BE_SEAT_BRIEF.md)) | **Running round 2** ([message](cast-lives-lanes/B1_RESUME_2_MESSAGE.md): grant widened to `book_world_lotm_content.js`, canon-run default LSD103/105/116, null-player check; codex pid 74005). The runner's shell wrapper was stopped, so no task notice arrives: check `codex_lane.mjs status`. Review with the loop, then the be-seat browser check and the L5r replay in the be seat |
+| M1 | Schema 1.4 and census union stage ([brief](cast-lives-lanes/M1_SCHEMA_UNION_BRIEF.md)) | **Running** (Luna low, launched 2026-10-28) |
 | G2 | Concealment | **Held** until the be replay asks for it (brief kept: `G2_CONCEALMENT_BRIEF.md`) |
 
 Coordinator fixes made in review this session (each lane's checkpoint records them): L5r snapshot paths
@@ -116,6 +117,22 @@ that the lanes have not yet covered. Codes CO1-CO9 are this coordinator's.
 | CO8 | **Fidelity is still measured in beside** (1/18). Until B1 lands the number cannot move by CL269's definition; do not report beside fidelity as progress | ACCOUNT FOR NOW: card wording |
 | CO9 | **Wording (CL248).** G1's and G2's briefs say "private pack"; new briefs say "local book pack (not published)" first, then "book pack" | ACCOUNT FOR NOW: done in C1, S1, P1 briefs; G2 brief updated when it returns |
 | CO10 | **Determinism has owners but no use in the cast path yet.** `seeded_streams.js`, `hash_rng.js` and `check_resolver.js` exist; cast schedules and beats are deterministic only because they contain no chance (beats settle as written). CL262 (the lead as an NPC follows the book while his state matches, otherwise the same resolver by needs and motives, with seeded close calls) and CL260 (same life, same actions, same result) have no lane. L5r's two-run comparison is the only replay check | ACCOUNT FOR NOW: B1 brief line 6 (draws keyed by life seed, day, subject; a two-run identity test). LATER/DELEGATE: D1 lane (Sol medium) for the CL262 divergence resolver and an emergence and divergence log (CL150); done when a be replay that leaves the book's path at one step shows the cast's beats that depend on it resolving by motive, identically across two runs |
+
+## Several worlds at once (Weibao asked 2026-10-28; proposal, codes MW1-MW8)
+
+Yes, by layer. Data work for other books runs in parallel now; runtime work for a second world follows each
+generic seam LOTM proves, so no seam is built twice.
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| MW1 | **Data layer is already parallel.** Batch reading covers RI, HP, A Soldier's Life and MoL; P1 and M1 are book-parametrized (`world_profiles.mjs`). Running the pipeline for MoL and RI costs scripts, not writers | ACCOUNT FOR NOW: after M1, run P1+M1 for MoL and RI into their private folders (coordinator, no lane) |
+| MW2 | **Runtime: LOTM is the reference, a second world is the proof.** Seats, wait, beat knowledge, perspective tags, the constraint store (D1) and the saved-battle family are world-generic seams. Each is real only once a second world uses it unchanged | ACCOUNT FOR NOW: every runtime brief adds a "second-world check" line: a synthetic second-world fixture test, no world-named branch (CL225) |
+| MW3 | **MoL is the right second world.** It has a pack, a host and state, short chapters, and its time loop stresses canon-as-constraints: canon facts are per-loop, the loop reset is a world mechanism not an external factor, and knowledge carries over by the world's rule | LATER/DELEGATE: CL279 MoL be seat after B1 lands (Sol medium); done when a MoL be life starts in canon mode and one loop reset keeps the lead's knowledge and resets the cast's |
+| MW4 | **RI tests the canon run against a ruthless lead.** Canon outcomes the player may find distasteful stay locked in the canon run; the open run unlocks them. No new rule, a good fidelity test | LATER: after MoL |
+| MW5 | **Writer cap is usage, not design.** Two Codex writers keeps usage inside the included plan (AU rules). A third slot is possible for scripts-only or data lanes that touch no `src/` | ACCOUNT FOR NOW: cap 2 runtime writers plus 1 scripts/data lane when preflight allows |
+| MW6 | **File collisions.** Per-world files (`book_world_<world>_*`, `private_packs/<world>-*`) split cleanly; shared ones (`seat_profiles.js`, `perspective_controls.js`, `main.js`, the combat family) need one owner at a time | ACCOUNT FOR NOW: briefs list shared files as integration patches unless the lane owns them |
+| MW7 | **Determinism across worlds.** Draw keys include the world id, so two worlds in one save never share a stream, and adding a world never rerolls another | ACCOUNT FOR NOW: D1 brief line |
+| MW8 | **One player, one seat at a time.** Several worlds in progress means several lives in the save; switching is a Menu action, and crossings stay deferred in the be seat (CL227, CL239) | No change |
 
 ## Accepted by Weibao (2026-10-28)
 
