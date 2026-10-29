@@ -18,6 +18,7 @@ import {waitUntilOptions} from './wait_until.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from './cast_journeys.js';
 import {defineInferences,quoteInferences,pendingInferenceReports,settleInferenceReports} from './cast_inference_adapter.js';
+import {defineCastAbilities,quoteCastAbilities} from './cast_ability_adapter.js';
 import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
 import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js';
 import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
@@ -65,6 +66,11 @@ export let castInferenceCommands=[];
 export function castInferenceOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  return quoteInferences(state,castInferenceCommands,preview,options);
+}
+export let castAbilityCommands=[];
+export function castAbilityOffers(state,preview,options={}){
+ if(!lotmBe(state)||!castAvailable)return [];
+ return quoteCastAbilities(state,castAbilityCommands,preview,options);
 }
 export let castDivinationCommands=[];
 export function castDivinationOffers(state,preview,options={}){
@@ -155,6 +161,7 @@ function deriveCast(pack){
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
  castBodyCommands=defineBodyCare(pack.bodyCare,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castAbilityCommands=defineCastAbilities(pack.abilityConflicts,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castMakingCommands=defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
@@ -194,7 +201,7 @@ export function castElsewhere(state){
 const installed=new WeakSet();
 export function installCast(registry){
  if(!castAvailable||installed.has(registry))return;
- const defs=createSimulationRegistry({people:castPeople,commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands],situations:[castSituation]});
+ const defs=createSimulationRegistry({people:castPeople,commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands],situations:[castSituation]});
  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
  validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
  installed.add(registry);

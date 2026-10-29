@@ -78,6 +78,7 @@ const rows = [
     ['rite-condition', 'in-world', 'A preparation condition for this character.'],
     ['slots', 'in-world', 'Materials held for the character’s formula.'],
     ['inferences', 'in-world', 'Disclosure group: this character’s evidence and intentions.'],
+    ['ability-conflicts', 'in-world', 'Disclosure group: this character’s encounters and held methods.'],
     ['divinations', 'in-world', 'Disclosure group: this character’s rites and questions.'],
     ['journeys', 'in-world', 'Available journeys, means, fares and travel time in this life.'],
     ['topic-person', 'in-world', 'Conversations with a person in this character’s life.'],
