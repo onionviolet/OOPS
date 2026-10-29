@@ -1,0 +1,4 @@
+# AB1 resume 1: rebase on BD1 and keep tests patch-free
+
+BD1 is committed (it touches `src/book_world_lotm_cast_host.js`, `_domain.js`, `_host.js`, `_state.js`, `_ui.js`, `src/main.js` (small), `src/perspective_controls.js`, `tests/perspective_controls.test.js`). Your `AB1_INTEGRATION.patch` (see `git apply --check`) probably no longer applies. Regenerate it against the current HEAD (prove it on a disposable copy; do not edit shared host files yourself), keep host hunks minimal and
+`src/main.js` untouched if you can. Tests must follow the TH1 pattern (no patch-applying fixtures; run against the live integration when present). Include the perspective tag hunks. Run `node --test tests/cast_ability_adapter.test.js tests/cast_body_adapter.test.js tests/cast_exchange_adapter.test.js tests/perspective_controls.test.js` and append "Resume 1" to your checkpoint. Do not commit.
