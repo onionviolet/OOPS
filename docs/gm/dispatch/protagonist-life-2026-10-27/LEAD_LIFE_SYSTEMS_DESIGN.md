@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD245 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD256 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -679,3 +679,27 @@ mass, CL22 world fate mechanisms, LSD104 (hard, weighted, none) and LSD107 condi
 | LSD243 | **Fragile and robust facts.** Redundancy decides how far a butterfly travels: a fact with one route (one person, one day) is fragile and moves with a small push; a fact many people steer toward is robust. The pull inputs (LSD234) carry this, and fate-sensitive characters can sense fragility (LSD240) | ACCOUNT FOR NOW |
 | LSD244 | **Keep the technical butterfly out** (LSD221): a different pull changes only that fact's draw, never the key of any other draw, so divergence spreads by causes, not by random-number drift | No change |
 | LSD245 | **Pull is derived, never saved.** The save holds disturbance and divergence records; pull is computed from the pack and those records (LSD143). Changing a world's canon pressure dial therefore changes future draws without migrating saves | ACCOUNT FOR NOW |
+
+## 25. Systems that hang on canon pull and the readings (Weibao 2026-10-29; proposal)
+
+Weibao: "Also stuff like relashionship stuff, crafting, time travel and more that all could depend on this and can be
+implemented from the readings? More to consider?" Each row names what the reading already holds (schema 1.3/1.4/1.5
+fields and passes 3-5), how canon pull (LSD233) applies, and the owner it plugs into. The reconciliation into one
+guide book is a separate session's job; this table is its input.
+
+| Code | System | From the readings | Under canon pull | Owner to extend |
+| --- | --- | --- | --- | --- |
+| LSD246 | **Relationships** | People pass: relations with attitude, basis and `since` (1.4), reacts by action class; scene `knowledge` and `present` | Canon bond changes are facts with pull; the cause between them is free, so who helped whom can vary while the book's turning points hold. LSD237's decision tests check attitudes too | R1 bond record (LSD26-LSD29); companions audit |
+| LSD247 | **Crafting, brewing, making** | Rules pass: inputs with role, ordered steps, minutes, products, costs, `acquire` (1.4); steps with `using` (1.5) | The canon product and whether it worked hold; quality, waste and time are free within the band. A recipe is a row, so an off-canon brew uses the same rules | MK1, `book_world_lotm_brew.js`, MR1-MR36 |
+| LSD248 | **Divination and ritual** | Rules pass `ritual` and conditions; ritual and divination step families (MF1) | Reads pull and strain (LSD240); a rite's success is a fact with pull, its preparation free | DV1, `book_world_lotm_ritual.js` |
+| LSD249 | **Time travel, loops and restarts** | Scene `date`, `deps`, windows; reset rules (1.4 `reset`) | A return to the past restores a beat checkpoint (LSD224) with the traveller's knowledge kept: the natural course replays at its pulls, and the traveller's knowledge is disturbance (TIMELINES T1-T5). Loop worlds tighten timing (LSD164) and record what each loop changed | TIMELINES_AND_DIVERGENCE, WER1-WER17 for crossings |
+| LSD250 | **Economy and work** | Price, wage, rent and service rows (1.4 typed prices), money anchors | Canon balances on canon days are reservations (LSD109); spending between them is free | E1 household lane (LSD30, LSD40) |
+| LSD251 | **Knowledge, rumour and secrets** | Scene `knowledge`, evidence kinds, `witnesses` (1.5), sealed ids | Canon learning holds on canon time (LSD119); who else hears is free unless a later fact needs it | K1 witness lane (LSD144), sealed-secrets rule |
+| LSD252 | **Law and institutions** | Rules pass law rows with `enforcement` (1.4) | A canon arrest or ruling holds; detection draws elsewhere are free and feed disturbance | LW1 lane (LSD39) |
+| LSD253 | **Abilities and progression** | Rules pass abilities with `acquire`; ability family (MF1) | Advancement on canon days holds; how practice went is free; off-canon advancement uses the same rows (LSD171) | Pathways and abilities files, ABR seam |
+| LSD254 | **Fights and conflicts** | Scene `conflict` block, conflict family; FD1 detail pass | LSD218-LSD220, LSD233-LSD235 | F1, C2 |
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD255 | **One field-to-system matrix.** Every reading field names the systems that read it, and every system names the fields it needs (READINESS L10). A field nothing reads is not collected; a system missing a field names the schema change. The guide book should carry this matrix as its spine | ACCOUNT FOR NOW: guide book input |
+| LSD256 | **Shared order for these systems.** Each new system needs the same four joins before it is real: a pull-aware resolve (LSD233), a failure path (LSD227), a non-lead fixture (LSD226) and a beat checkpoint test (LSD224). Building those joins once in the constraint store and test kit makes every later system cheaper | ACCOUNT FOR NOW: D1/D2 and test kit |
