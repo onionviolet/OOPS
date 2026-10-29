@@ -56,6 +56,30 @@ export function scoreRows(rows, verified = new Set()) {
     };
     return {overall:score(rows), scenes:Object.fromEntries([...new Set(rows.map(r => r.scene))].map(s => [s,score(rows.filter(r => r.scene === s))]))};
 }
+export function scoreReplay(rows, outcomes = []) {
+    const byId = new Map(outcomes.map(o => [o.id, o]));
+    let lastReached = -1, reachedInOrder = 0;
+    const scored = rows.map((row, index) => {
+        const outcome = byId.get(row.id) || {kind:'gap', reason:row.reason || row.gapKind || 'No route recorded'};
+        assert.ok(['control','wait','blocked','gap'].includes(outcome.kind), `unknown outcome for ${row.id}`);
+        if (outcome.kind === 'blocked') assert.ok(outcome.reason, `blocked row needs displayed reason: ${row.id}`);
+        const reached = outcome.kind === 'control' || outcome.kind === 'wait';
+        const inWindow = reached && outcome.inWindow !== false;
+        const inOrder = inWindow && (outcome.orderIndex ?? index) > lastReached;
+        if (inOrder) { reachedInOrder++; lastReached = outcome.orderIndex ?? index; }
+        return {id:row.id,kind:outcome.kind,reason:outcome.reason || null,inWindow,inOrder};
+    });
+    const counts = Object.fromEntries(['control','wait','blocked','gap'].map(k => [k,scored.filter(x => x.kind === k).length]));
+    return {counts,steps:rows.length,reachedInOrder,fidelity:rows.length ? reachedInOrder / rows.length : 0,rows:scored};
+}
+function withoutNaturalClock(value) {
+    if (Array.isArray(value)) return value.map(withoutNaturalClock);
+    if (!value || typeof value !== 'object') return value;
+    return Object.fromEntries(Object.keys(value).sort().filter(key => key !== 'clock').map(key => [key,withoutNaturalClock(value[key])]));
+}
+export function stateHashWithoutNaturalClock(snapshot) {
+    return hash(JSON.stringify(withoutNaturalClock(snapshot)));
+}
 export function mergeGapLedger(rows, existing) {
     const added = rows.filter(r => r.status === 'gap' || r.status === 'lossy_fold').map(r => ({
         scene:r.scene, step:r.id, kind:'UI replay', layer:LAYERS[r.gapKind], gapKind:r.gapKind,
@@ -66,20 +90,29 @@ export function mergeGapLedger(rows, existing) {
     const counts = Object.fromEntries([...new Set(merged.map(r => r.layer))].sort().map(k => [k,merged.filter(r => r.layer === k).length]));
     return {rows:merged.sort((a,b) => counts[b.layer]-counts[a.layer] || a.layer.localeCompare(b.layer) || a.scene.localeCompare(b.scene)), counts};
 }
-export async function executeRows(page, rows, io) {
-    const verified = new Set(), receipts = [];
+export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
+    const verified = new Set(), receipts = [], outcomes = [];
     for (const row of rows) {
         if (row.status === 'gap' || row.status === 'lossy_fold') {
-            receipts.push({id:row.id,status:'gap',gapKind:row.gapKind}); continue;
+            const reason = row.reason || row.gapKind || 'No route recorded';
+            receipts.push({id:row.id,status:'gap',gapKind:row.gapKind,reason});
+            outcomes.push({id:row.id,kind:'gap',reason}); continue;
         }
         // Missing earlier steps remain named gaps. The row's explicit supporting route is not book proof.
-        for (const leg of row.setup || []) await io.move(page, leg, null);
+        if (!canonOnly) for (const leg of row.setup || []) await io.move(page, leg, null);
         await io.waitBand(page, row.time);
         const before = await io.read(page);
         await io.screenshot(page,`${row.id.replace(/[^a-z0-9]/gi,'_')}-before.png`);
+        let blocked = null;
         for (const [i,leg] of row.route.entries()) {
-            await io.move(page,leg,row.time);
+            const result = await io.move(page,leg,row.time);
+            if (result?.blocked) { blocked = result.blocked; break; }
             await io.screenshot(page,`${row.id.replace(/[^a-z0-9]/gi,'_')}-${i+1}.png`);
+        }
+        if (blocked) {
+            receipts.push({id:row.id,status:'blocked',reason:blocked});
+            outcomes.push({id:row.id,kind:'blocked',reason:blocked});
+            continue;
         }
         const after = await io.read(page);
         assert.equal(after.place,row.anchors.place);
@@ -87,10 +120,11 @@ export async function executeRows(page, rows, io) {
         for (const key of row.anchors.knowledge || []) assert.ok(after.knowledge[key], 'required knowledge note');
         verified.add(row.id);
         receipts.push({id:row.id,status:row.status,place:after.place,purseDelta:after.cash-before.cash,knowledge:(row.anchors.knowledge || []).map(key => ({key,present:!!after.knowledge[key]}))});
+        outcomes.push({id:row.id,kind:(row.routeMode === 'wait' || row.method === 'wait' || row.verb === 'wait') ? 'wait' : 'control',inWindow:true,orderIndex:outcomes.length});
     }
-    return {receipts,score:scoreRows(rows,verified)};
+    return {receipts,score:scoreRows(rows,verified),replayScore:scoreReplay(rows,outcomes)};
 }
-async function browserRun(mapping, build, out, run) {
+async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer = false) {
     const require = createRequire(import.meta.url), {launchChrome} = require('../../ui_helpers.cjs');
     const browser = await launchChrome();
     try {
@@ -105,10 +139,12 @@ async function browserRun(mapping, build, out, run) {
         });
         const page = await context.newPage(), errors = [];
         page.on('pageerror',e => errors.push(e.message));
-        const read = () => page.evaluate(() => {
-            const s = window.simulationTestHooks.snapshot(), e = s.expansion;
-            return {place:e.simulation.people.player.location,cash:s.character.money,knowledge:e.simulation.knowledge?.player || {},elapsed:e.clock-e.lotm.initializedAt};
-        });
+        const snapshot = () => page.evaluate(() => window.simulationTestHooks.snapshot());
+        const read = async () => {
+            const s = await snapshot(), e = s.expansion;
+            return {place:e.simulation.people.player.location,cash:s.character.money,knowledge:e.simulation.knowledge?.player || {},elapsed:e.clock-s.lotm.initializedAt,
+                entryProfile:s.lotm?.entryProfile};
+        };
         const until = async (predicate,what) => {
             const deadline = Date.now()+12*60*1000;
             while (!await predicate()) {
@@ -124,20 +160,46 @@ async function browserRun(mapping, build, out, run) {
         const panel = page.locator('#lotm_panel');
         const click = async id => {
             const control = panel.locator(`[data-lotm="${id}"]`);
-            await control.waitFor({state:'visible'}); assert.ok(await control.isEnabled(),'required control disabled');
+            await control.waitFor({state:'visible'});
+            if (!await control.isEnabled()) {
+                const reason = (await control.getAttribute('title')) || (await control.getAttribute('aria-label')) || (await control.innerText());
+                assert.ok(reason?.trim(),'disabled control has no displayed reason');
+                return {blocked:reason.trim()};
+            }
             await control.scrollIntoViewIfNeeded(); await control.click();
+            return null;
         };
-        await click(mapping.entry.pick); await click(mapping.entry.enroll);
-        await until(async () => {try {return (await read()).place === mapping.entry.place;} catch {return false;}},'entry');
+        if (seat === 'be') {
+            await click('pick_be');
+            await click('enroll_be');
+            await until(async () => {try {return (await read()).entryProfile === 'book.lead.be@1';} catch {return false;}},'be-life reload');
+        } else {
+            await click(mapping.entry.pick); await click(mapping.entry.enroll);
+            await until(async () => {try {return (await read()).place === mapping.entry.place;} catch {return false;}},'beside entry');
+        }
         const io = {
             read,
             waitBand:async (_,time) => {
                 const start = (time.day-1)*1440+time.from;
+                if (seat === 'be' && (await read()).elapsed < start) {
+                    const buttons = panel.locator('button[data-lotm]');
+                    for (const button of await buttons.all()) {
+                        const label = (await button.innerText()).trim();
+                        const minutes = /Wait until\b.*?·\s*(\d+)\s*min\b/i.exec(label)?.[1];
+                        if (!minutes || !await button.isEnabled()) continue;
+                        const arrival = (await read()).elapsed + Number(minutes);
+                        if (arrival < start || arrival >= (time.day-1)*1440+time.to) continue;
+                        await button.scrollIntoViewIfNeeded();
+                        await button.click();
+                        break;
+                    }
+                }
                 await until(async () => (await read()).elapsed>=start,'source band');
                 assert.ok((await read()).elapsed<(time.day-1)*1440+time.to,'missed source time band');
             },
             move:async (_,leg,time) => {
-                await click(leg.actionId);
+                const blocked = await click(leg.actionId);
+                if (blocked) return blocked;
                 await until(async () => (await read()).place===leg.place,'walk leg');
                 if (leg.label) assert.ok((await panel.innerText()).includes(leg.label),'arrival must be shown in the real panel');
                 if (time) assert.ok((await read()).elapsed<(time.day-1)*1440+time.to,'walk finished outside source band');
@@ -145,13 +207,15 @@ async function browserRun(mapping, build, out, run) {
             screenshot:async (_,name) => page.screenshot({path:path.join(out,`run${run}-${name}`)})
         };
         await page.screenshot({path:path.join(out,`run${run}-entry.png`)});
-        const result = await executeRows(page,mapping.rows,io);
+        const result = await executeRows(page,mapping.rows,io,{canonOnly:nullPlayer});
         assert.deepEqual(errors,[],'page errors belong to this run until proven otherwise');
-        return {...result,pageErrors:errors};
+        return {...result,stateHash:stateHashWithoutNaturalClock(await snapshot()),pageErrors:errors};
     } finally {await browser.close();}
 }
 async function main() {
     const args = Object.fromEntries(process.argv.slice(2).reduce((a,v,i,all) => v.startsWith('--') ? [...a,[v.slice(2),all[i+1]?.startsWith('--') ? true : all[i+1] || true]] : a,[]));
+    const seat = args.seat || 'beside';
+    assert.ok(['be','beside'].includes(seat),'--seat must be be or beside');
     for (const name of ['mapping','scenes','l4b-gaps','out']) assert.equal(typeof args[name],'string',`--${name} required`);
     const out = path.resolve(args.out), mapping = JSON.parse(fs.readFileSync(args.mapping));
     fs.mkdirSync(out,{recursive:true});
@@ -159,7 +223,7 @@ async function main() {
     const probe = validateMapping(mapping,jsonl(args.scenes));
     const ledger = mergeGapLedger(mapping.rows,jsonl(args['l4b-gaps']));
     fs.writeFileSync(path.join(out,'combined_gaps.jsonl'),ledger.rows.map(r => JSON.stringify(r)).join('\n')+'\n');
-    const audit = {probe,score:scoreRows(mapping.rows),combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping))};
+    const audit = {seat,probe,score:scoreRows(mapping.rows),combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping))};
     fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
     if (args['audit-only']) {console.log(JSON.stringify(audit)); return;}
     assert.equal(typeof args.build,'string','--build required for UI proof');
@@ -167,11 +231,12 @@ async function main() {
     const runs = [];
     try {
         for (const run of [1,2]) {
-            const result = await browserRun(mapping,args.build,out,run); runs.push(result);
+            const result = await browserRun(mapping,args.build,out,run,seat,!!args['null-player']); runs.push(result);
             fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify(result,null,2)+'\n');
         }
+        if (args['null-player']) assert.equal(runs[0].stateHash,runs[1].stateHash,'null-player state hashes must match without natural clock');
         assert.deepEqual(runs[0],runs[1],'fresh UI runs must agree');
-        const result = {...audit,bundleHash,score:runs[0].score,identical:true,pageErrors:[],state:'agent-verified, not human-reviewed',route:'fresh beside life; visible clicks; natural clock; explicit supporting walks; prior gaps remain unexecuted'};
+        const result = {...audit,bundleHash,score:runs[0].score,replayScore:runs[0].replayScore,stateHash:runs[0].stateHash,nullPlayer:!!args['null-player'],identical:true,pageErrors:[],state:'agent-verified, not human-reviewed',route:`fresh ${seat} life; visible clicks; natural clock; explicit supporting walks; prior gaps remain unexecuted`};
         fs.writeFileSync(path.join(out,'proof.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify(result));
     } catch (error) {
