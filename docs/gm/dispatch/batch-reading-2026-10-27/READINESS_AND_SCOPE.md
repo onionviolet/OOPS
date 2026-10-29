@@ -470,3 +470,9 @@ LATER / DELEGATE:
 | --- | --- | --- |
 | C44 Local as the free second reader for C28: union one medium batch census with one local census pass and compare against two merged medium runs on the same 6 shards. If the union comes close, November's census saves one medium run per shard | local pilot, 30-45 minutes of Mac time, $0 | Union recall per shard against the high rows, beside the two-medium figure |
 | C45 Local tagging pilot on reacts classes (`reacts_classified.jsonl` keyword baseline), 50 rows through `dsh local` or the Ollama API | local pilot, 15 minutes, $0 | Agreement rate with the baseline; disagreements read |
+
+C44 result (2026-10-29, Weibao: "Run C44"):
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| C46 | Local census (`qwen3.8:27b`, seed 7, temperature 0.3) on the 6 C28 shards, with briefs taken from the original batch requests (nothing leaked), $0, 4.5-5.5 minutes a shard. Recall of the October high rows, all 6 shards: local alone **0.48** (lead-touched 0.66); one medium run 0.64 (0.85); **medium + local 0.73-0.78 (0.89-0.93)** over the two medium runs; two medium runs merged **0.79 (0.95)**; one high rerun 0.73 (0.94). `gc1c003` hit the lane's 8,000-token output cap and kept 17 rows | Medium + local roughly matches one high run on recall but trails it and the two-medium merge on lead-touched rows, which the cast-lives import keys on. The saving is one medium run, about $0.013 a shard (about $8 across RI's remaining 650 shards), for about 50 hours of Mac time. **Two merged medium runs stay the proposed default**; medium + local is the fallback when credit runs short |
