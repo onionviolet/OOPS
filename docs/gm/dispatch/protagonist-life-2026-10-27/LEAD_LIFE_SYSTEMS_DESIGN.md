@@ -369,3 +369,47 @@ this section says what each tier simulates and how a person moves between them.
 | LSD135 | **Emergent stories come from the mechanical layer.** Cheap lives for many people make the town feel alive (who moved, who argued, who is short of money) without inner monologue for each; the journal and Reports surface only what the lead could perceive (CL31 rumor speed) | ACCOUNT FOR NOW |
 | LSD136 | **Cost check per tier.** Budget: principal and recurring, full both layers (about 30-50 in LOTM volume 1); role, mechanical only (most of the 270); crowd, drawn per hour. Done check for the pack regeneration: a book week with all tiers loaded stays under today's per-minute cost after the CO3 fix, and the save grows only by deltas | ACCOUNT FOR NOW: SZ2, SZ6 |
 | LSD137 | **Is everyone at full depth optimal?** No, by default. It costs time and save size, and with little text it mostly produces confident filler that later chapters contradict. Dial: a world with rich ensemble text (or a player who seats many people) can raise more people to full depth; the tier rules make that a per-world setting, not a rewrite | Default proposed |
+
+## 17. Engine implications and the long term (Weibao asked 2026-10-28; proposal)
+
+Grounded in the engine as it stands on 2026-10-28: the clock is `update_timer` inside the 10,085-line
+`src/main.js`; native NPC bodies come from upstream `NPC`/`NPCRegistry`; the LOTM cast host is 287 lines in
+`src/book_world_lotm_cast_host.js`, with a separate MoL host; draws go through `src/seeded_streams.js` (a frozen
+`STREAMS` list, keyed `unitDecision`/`streamSeed`, and ordinal `nextOrdinal`); a LOTM save asserts `schema===1`,
+the EPUB source hash and a fixed profile list (`src/book_world_lotm_state.js`). Direction check: AD44 asks that
+everyone the lead touches lives their schedule and arc; AD33 deprioritizes NPC-heavy work. Section 16's tiers
+satisfy both: everyone lives at the mechanical layer, and inner lives stay few.
+
+### 17.1 Engine
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD138 | **One scheduler of wake times.** Replace "every system every minute" for cast people with a queue of next-wake times per actor (schedule boundary, beat window, need threshold, constraint window). G1's `nextBoundary` is the precursor; natural play, waiting and sleeping all advance to the next wake. This is the fix for CO3 and SZ6 and the precondition for 270 people | LATER/DELEGATE: Sol medium after B1, before the pack rebuild; done when a 349-minute wait runs under 3 s with the full volume 1 cast loaded and natural play keeps its rate |
+| LSD139 | **Keyed draws only for cast and generated detail; never ordinal.** `nextOrdinal` depends on evaluation order, so with lazy generation (LSD131) and a wake queue, ordinal draws would change with play order. Every cast and on-contact draw uses `unitDecision`/`streamSeed` keyed by world, actor, date, subject and pack revision | ACCOUNT FOR NOW: B1 (in flight), D1 brief line; a review grep for `nextOrdinal` in cast code |
+| LSD140 | **One body per person, materialized on promotion.** Cast people above crowd tier map to native `NPC` bodies only when they are where the lead can meet them; otherwise they are pack facts plus a save delta. Promotion builds the body from pack plus delta; demotion writes the delta back and drops the body. No second body store (B1's stop condition) | ACCOUNT FOR NOW: B1 one-body rule; D1 tier field |
+| LSD141 | **A generic cast engine, extracted at the second consumer.** Today the cast host is LOTM-named and MoL has its own. When MoL becomes the second be-seat world (MW3), lift scheduler, constraint store, tiers and generation into world-neutral modules, with world packs and world mechanisms as inputs (AR rules: a seam once two consumers exist). Nothing new goes into `main.js` beyond the call site | LATER: with the MoL be lane |
+| LSD142 | **Pack revisions are save-visible.** The LOTM save pins the EPUB hash and schema but not the pack revision, yet every rebuild changes ids, fills and constraints. Saves record the pack revision; a rebuild keeps ids stable (crosswalk ids, never row order) and ships an id map for renamed or merged people; on load, a save from an older pack keeps its deltas, and contradicted fills go to the strain report rather than being rewritten (LSD134). Old-save compatibility is otherwise deferred (Saves router row) | ACCOUNT FOR NOW: pack regeneration brief and D1; done check: a save from the current pack loads after the M1 rebuild with no lost deltas |
+| LSD143 | **Canon is never stored in the save, only derived.** Constraints come from the pack; the save holds deltas, provenance codes for written facts, and the run mode. Provenance is a short code, not text, to keep saves small (SZ2) | ACCOUNT FOR NOW: D1 |
+| LSD144 | **Knowledge stays sparse.** `people_knowledge.js` per person for 270 people grows fast if every rumour is copied; store who-knows-what as events with audiences (CL31) and derive per-person views on demand | ACCOUNT FOR NOW: K1 witness and rumour lane |
+| LSD145 | **The inspector reads all of this** (CL19): for any person, their tier, next wake, the constraint that pins them, the provenance of each fact, and why a free action was refused. Inspection only, never in the save, never in Reports (RPT11) | LATER/DELEGATE: Luna medium after D1 |
+| LSD146 | **Golden runs as the regression.** The null-player canon run (LSD123) per pack revision, headless through the lead-run driver and the game MCP, compared by state hash, becomes a required check for any lane that touches cast, clock or packs; a pack rebuild records its new golden hash | ACCOUNT FOR NOW: L5r driver is the base; D1 adds the hash |
+| LSD147 | **Performance budgets are tests.** Per-minute cost, wait time, save size after one book week and pack load time get thresholds in a focused test or the floor script (CL278), so a growing cast cannot silently slow the game | ACCOUNT FOR NOW: CL278 floor lane |
+
+### 17.2 Long term
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD148 | **The chain is the product: read, pipeline, pack, engine.** Each new book costs reading and a pipeline run; the engine stays. World-specific code is reserved for world mechanisms (fate, loops, powers, institutions), each a plug-in with a locator (CL22) | ACCOUNT FOR NOW |
+| LSD149 | **Original worlds are canon density zero.** The same machinery with no constraints is a fully open world: fills by role, emergent stories, no reservations. Weibao's own worlds and the Village need no second engine | ACCOUNT FOR NOW |
+| LSD150 | **Volumes chain.** A pack per volume (or arc window, SZ4) with carry-over facts at the boundary: who is alive, where, what they know. The lead's state at the end of volume 1 is checked against volume 2's opening constraints, and the strain report shows mismatches | LATER: when volume 2 is read |
+| LSD151 | **Reader schemas will keep changing.** M1's union handles 1.3 and 1.4; future versions use the same rule (newest present field wins, older survives where newer is silent) with backup folders named by version, so readers can improve without rereading everything | ACCOUNT FOR NOW: keep `pre-sv<version>/` naming |
+| LSD152 | **Editions and translations differ.** Locators are tied to one source snapshot (the EPUB hash); a second edition or translation is a new source with a locator map, never a silent swap | ACCOUNT FOR NOW |
+| LSD153 | **The publication boundary scales with the packs.** As packs reach hundreds of people and thousands of facts, canon stays in local packs and private research only; public code, tests and docs stay name-free (CLR3, AD1). Review scripts keep scanning every lane | No change |
+| LSD154 | **The open run reuses everything.** Untaken options, weights and the conditioned-draw strain table are recorded now, so the open run is a mode switch plus D2's perturbation handling, not a re-read | No change |
+| LSD155 | **Design owner after acceptance.** This file is a dated dispatch proposal. When Weibao accepts a set of LSD lines, they move to a standing rulebook (proposed `docs/LEAD_LIFE_RULES.md`, keeping LSD codes) with a register row, and this file becomes history | ACCOUNT FOR NOW |
+
+### 17.3 How future runs find this
+
+The RULES_INDEX register row and the "new world or book adaptation" router row cite LSD1-LSD155; the NPCs and
+Saves router rows now cite the tier and save lines; the lane brief template asks every cast, clock, save or pack
+brief to cite its LSD lines; the coordinator handoff lists this file under "Read first".

@@ -11,7 +11,9 @@ This handoff grants no new scope.
 2. This file.
 3. [Plan](CAST_LIVES_PLAN_2026-10-28.md) sections 23-28 (rounds 15-20). Earlier sections only when a brief
    cites them.
-4. `AGENTS.md` (AD44), `docs/GROUND_RULES.md`.
+4. [LEAD_LIFE_SYSTEMS_DESIGN.md](LEAD_LIFE_SYSTEMS_DESIGN.md) (LSD1-LSD155, proposed): sections 15-17 for the canon run,
+   tiers, engine and long term; every cast, clock, save or pack brief cites its LSD lines.
+5. `AGENTS.md` (AD44), `docs/GROUND_RULES.md`.
 
 ## Lanes (runner: `node scripts/codex_lane.mjs status`; records in `~/.codex/lanes/protagonist-life-2026-10-27/`)
 
