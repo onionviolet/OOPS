@@ -233,6 +233,8 @@ function main(args) {
   const reviewedFiles=[]; for(let i=0;i<args.length;i++) if(args[i]==='--reviewed'){if(!args[i+1])throw Error('Missing path after --reviewed');reviewedFiles.push(args[++i]);}
   const reviewed=reviewedFiles.flatMap(readJsonl);
   const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack,waitEvidence,reviewed});
+  // The replay driver verifies the actual source file before validating step IDs.
+  mapping.inputHashes['scenes.jsonl']=hash(fs.readFileSync(inputScenes));
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
   const counts={walk:0,journey:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
   for(const r of mapping.rows){if(r.journeyId)counts.journey++;else if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}

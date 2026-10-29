@@ -57,3 +57,43 @@ Private mapping outputs:
 The broad `git diff --check` also encountered a trailing-whitespace warning in
 the already modified, unowned `dist/bundle.js`; that file was not changed by
 this lane. No build, browser replay, save/import proof, commit or push was run.
+
+## Resume 1: replay source-step validation, 2026-10-29
+
+The original RV5 regeneration used `merged-cast-2026-10-28/scenes.jsonl`, a
+429-scene input, instead of the 4,899-scene M4 merge used by the replay driver.
+This caused the source-step assertion to fail. The earlier table's 18 and 161
+step counts describe the smaller input and do not describe the M4 chapter
+ranges. The reviewed overlay itself did not remove steps: the old and the
+original reviewed 1–24 mapping differed by 1,330 old-only IDs and 0 new-only
+IDs, matching the smaller input's coverage.
+
+Regenerated both private mappings with `/tmp/m4-lotm/merged/scenes.jsonl` and
+its crosswalk and registry. The M4 scene file SHA-256 is
+`27540d66f80aeec3301aab50bc00a297e07ab99e55ade4dabdfc6eb46bc3735b`.
+The CLI now records the raw scene-file hash in the existing driver-recognized
+`inputHashes.scenes.jsonl` field. A synthetic CLI regression verifies that
+adding reviewed dispositions preserves the selected IDs and untouched rows.
+
+| Mapping | Source scenes | Source steps | Exact mapped controls | Retained gaps |
+|---|---:|---:|---:|---:|
+| Chapters 1–3 reviewed | 57 | 175 | 24 | 151 |
+| Chapters 1–24 reviewed | 418 | 1,491 | 153 | 1,338 |
+
+The regenerated 1–24 and prior unreviewed 1–24 mappings have identical ID sets:
+0 old-only and 0 new-only. All 12 reviewed rows and six reviewed gaps from RV4
+remain represented in the 1–3 range; RV2 contributes 54 further reviewed gaps
+within 1–24. These mappings describe candidate controls, not settled gameplay.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node scripts/lead_run/build_replay_mapping.mjs` with M4 scenes, crosswalk and registry, candidate pack, RV4 and RV2, for ranges 1–3 and 1–24 | PASS, 175 and 1,491 steps | Private offline outputs |
+| `node scripts/headless/lead_runs/lotm_ui_replay.mjs --seat be --mapping <1-3-reviewed> --scenes /tmp/m4-lotm/merged/scenes.jsonl --l4b-gaps <gaps.jsonl> --chapters 1-3 --audit-only --out /tmp/rv5-resume1-audit-1-3` | PASS, validates 175 source steps and selects 175 | Audit path, no browser execution |
+| Same driver command with `<1-24-reviewed>` and `/tmp/rv5-resume1-audit-1-24` | PASS, validates 1,491 source steps and selects 175 | Audit path, no browser execution |
+| `node --test tests/merge_reviewed_rows.test.js tests/build_replay_mapping.test.js tests/lead_replay_score.test.js tests/build_place_acts.test.js` | PASS, 35 tests | Synthetic tests, plus driver audits above |
+| `node scripts/lane_review.mjs` with the mapper, its test and this checkpoint granted | 0 outside-grant and 0 top-level-await hits; one pre-existing test-file name hit | HEAD and current test each match three private names; 0 new matches |
+| `node --check scripts/lead_run/build_replay_mapping.mjs`, `node --check tests/build_replay_mapping.test.js`, scoped `git diff --check` | PASS | Syntax and whitespace scope |
+| `node scripts/check_doc_slips.mjs` | RV5 checkpoint has 0 findings | Seven existing findings remain in other documents |
+
+No browser replay, command settlement, persistence proof, commit or push was
+performed in this resume. Agent-verified, not human-reviewed.

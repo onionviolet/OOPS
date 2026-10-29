@@ -3,6 +3,12 @@ import assert from 'node:assert/strict';
 import {buildReplayMapping} from '../scripts/lead_run/build_replay_mapping.mjs';
 import {buildPackJoin} from '../scripts/lead_run/build_crosswalk.mjs';
 import {buildGapCensus} from '../scripts/lead_run/gap_census.mjs';
+import {validateMapping} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+import {mkdtempSync,writeFileSync,readFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 
 test('uses a reviewed wait with a valid bound scene window, and rejects missing review or malformed windows',()=>{
   const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Room',steps:[{verb:'wait'}]}];
@@ -55,6 +61,34 @@ test('reviewed rows override generated controls and reviewed gaps retain typed r
  assert.equal(result.rows[1].status,'gap');assert.equal(result.rows[1].reviewedGapReason,'not an action');
  assert.equal(result.rows[1].excludedCandidate,true);
  assert.equal(result.rows[2].reviewedGapReason,'no mechanism');
+});
+
+test('CLI reviewed overlay preserves every selected source step and binds the source file',()=>{
+ const dir=mkdtempSync(join(tmpdir(),'mapping-overlay-'));
+ try {
+  const scenes=[
+   {beat:'opening',order:1,pov:'lead',evidence:[{locator:'第1章'}],place:'Room',steps:[{verb:'inspect'},{verb:'wait'}]},
+   {beat:'later-family',order:2,pov:'lead',evidence:[{locator:'第2章'}],place:'Room',steps:[{verb:'read'},{verb:'listen'}]}
+  ];
+  const files={scenes:join(dir,'scenes.jsonl'),crosswalk:join(dir,'crosswalk.json'),controls:join(dir,'controls.json'),registry:join(dir,'registry.jsonl'),pack:join(dir,'pack.json'),reviewed:join(dir,'reviewed.jsonl')};
+  writeFileSync(files.scenes,scenes.map(x=>JSON.stringify(x)).join('\n')+'\n');
+  for(const key of ['crosswalk','controls','pack'])writeFileSync(files[key],JSON.stringify(key==='crosswalk'?{places:{}}:{}));
+  writeFileSync(files.registry,'');
+  writeFileSync(files.reviewed,[{stepId:'opening#1',verdict:'row',kind:'act',row:{id:'fixture.act',place:'fixture.room'}},{stepId:'opening#2',verdict:'gap',gapReason:'not an action'}].map(x=>JSON.stringify(x)).join('\n')+'\n');
+  const run=(name,review)=>{
+   const out=join(dir,name),args=['scripts/lead_run/build_replay_mapping.mjs','--scenes',files.scenes,'--crosswalk',files.crosswalk,'--controls',files.controls,'--registry',files.registry,'--pack',files.pack,'--from','1','--to','2','--out',out];
+   if(review)args.push('--reviewed',files.reviewed);
+   const result=spawnSync(process.execPath,args,{encoding:'utf8'});assert.equal(result.status,0,result.stderr);
+   return JSON.parse(readFileSync(out,'utf8'));
+  };
+  const plain=run('plain.json',false),reviewed=run('reviewed.json',true);
+  assert.deepEqual(reviewed.rows.map(r=>r.id),plain.rows.map(r=>r.id));
+  assert.deepEqual(reviewed.rows.slice(2),plain.rows.slice(2));
+  assert.equal(reviewed.rows[0].canonicalControl,'fixture.act');
+  assert.equal(reviewed.rows[1].reviewedGapReason,'not an action');
+  assert.equal(reviewed.inputHashes['scenes.jsonl'],createHash('sha256').update(readFileSync(files.scenes)).digest('hex'));
+  assert.deepEqual(validateMapping(reviewed,scenes),{scenes:2,steps:4});
+ } finally {rmSync(dir,{recursive:true,force:true});}
 });
 
 test('volume-aware locator bounds distinguish repeated chapter numbers and implicit volume one',()=>{
