@@ -1,0 +1,53 @@
+{
+ "name": "2026-10-29sv14-lotm",
+ "approval": "Weibao 2026-10-29: \"Send the rereads and other stuff accordingly\", answering \"Go LOTM rereads, ceiling $5\": LOTM volume 1 schema 1.4 re-read (people ch 25+, rules, texture) and a second medium census merged with the first (C28; prefixes suffixed x2). Ceiling $5 against true cap 7.82; chained after RI 2-4; passing the $95 line is approved, kept under $100. Old rows backed up to pre-sv14/.",
+ "ceilingUsd": 5,
+ "capTotal": 7.82,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_people_sv14.json",
+     "cap": 2.07,
+     "label": "v1-people-sv14"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_rules_sv14.json",
+     "cap": 2.37,
+     "label": "v1-rules-sv14"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_texture_sv14.json",
+     "cap": 2.36,
+     "label": "v1-texture-sv14"
+    }
+   ]
+  },
+  {
+   "name": "census2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_x2.json",
+     "cap": 1.02,
+     "label": "v1-census-x2"
+    }
+   ]
+  }
+ ]
+}
