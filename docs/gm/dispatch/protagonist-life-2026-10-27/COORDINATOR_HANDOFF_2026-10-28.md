@@ -220,3 +220,38 @@ his explicit yes. USER_VISION and PROJECT.md records are the owning session's to
   `npm run desktop` already rebuilds.
 - After B1 lands (CL246): which meta powers, if any, an outsider-mind premise keeps. Default: none.
 - Any push of the local commits. Default: hold until he says yes.
+
+## Overnight loop (2026-10-29, codes ON1-ON12)
+
+Weibao 2026-10-29 ([record](../../../USER_VISION.md#cast-lives-automate-finishing-lotm-overnight-from-one-session-2026-10-29)):
+run from one session, one checkout, few cross-chat messages; finish the LOTM lead's playthrough so he can follow
+his options to the end. **Coordinator from 00:40 on 2026-10-29: the vision-doc session** (`local_bf0faa81`
+transcript); the earlier coordinator session stops launching, resuming, reviewing and committing.
+
+- **ON1 Done means** the be-seat canon-run replay (V1) over the chapters the readings cover (volume 1, ch1-213
+  read; the beat ledger covers ch1-24) with fidelity = events reached in the book's order inside their windows
+  (LSD156). Chapters past volume 1 need readings first (a batch-reading decision, not this loop's).
+- **ON2 Options** under the forced canon run: each canon step reachable through the game's own controls; the
+  replay ledger lists what the screen offers at each step, untaken ones locked (LSD103-LSD125). Open run later.
+- **ON3 Loop.** Replay -> scored ledger -> top gaps by chapter order -> brief from the template with LSD lines ->
+  preflight and launch (at most two writers, disjoint grants) -> on exit: checkpoint, diff, focused tests,
+  `lane_review` plus a hand canon sweep of untracked and `scripts/` files -> one full `npm test`, `check:arch`,
+  headless 1920×1080 floor per batch -> commit own paths -> replay again.
+- **ON4 Wakeups.** Lanes are watched by a background wait on their pids (scratch `wait_lanes.sh`), which
+  re-invokes the coordinator on exit. No polling.
+- **ON5 Window ladder.** ch1-3, then ch1-24 (existing beat ledger), then volume 1 in arcs as R1's pack and the
+  day binding cover them. Advance when the window's ordered-event fidelity stops rising on its own gaps.
+- **ON6 Data gaps first** (pack rows, crosswalk ids, day binding), mechanism gaps second (LSD60 lanes as the
+  replay reaches them: relationships, work, witness, law, needs, conflict), UI-path gaps third.
+- **ON7 Stop** on: preflight fail or a usage window at 100% (never API keys); the same gap failing twice; a save
+  shape change needing a compatibility decision; a sealed secret's text; any push.
+- **ON8 Browser** checks stay with the coordinator (Chrome cannot start in the Codex sandbox).
+- **ON9 Patches** are cut against HEAD at lane exit; check with `git apply --check` and reverse check before
+  applying; a reverse-clean patch is already in.
+- **ON10 Morning note** here: lanes run, commits, fidelity per window, open gaps, each check's verification state.
+- **ON11 Out of scope tonight:** pushes, new readings, the open run, other worlds, deleting the stale
+  `~/.codex/worktrees/q*` checkouts from 2026-10-26 (a cleanup Weibao can approve).
+- **ON12 Model routing** stays: Luna for scripts and data, Sol for engine and UI, browser and commits here.
+
+### Overnight log
+- 00:45 Handover accepted by the earlier coordinator (last commit `d8d865c8c`). Applied patches: B1_INTEGRATION, B1_INTEGRATION_2, P2, P3, S1 (by hand). Open: P5_INTEGRATION.patch, R1 (unreviewed, `/tmp/r1-pack/`, 92 people, 13 unresolved routine actor ids; do not overwrite `private_packs/lotm-cast/cast.json` before a browser check), F1 and V1 running. Floors: `scripts/floor/run_floor.cjs` (beside), be floor `b1_floor.cjs` (build in `/tmp/yairpg-b1`, pack symlinked). Baseline on `34b15ea0`: 1,240 ms per game minute, 349-minute wait 50.1 s; suite 3763/3763 on `df87df058`. Nit: pack-absent console "Something went wrong on saving the game!" (BF4).
