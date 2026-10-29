@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD290 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD306 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -808,3 +808,75 @@ battles are ordered moves through the conflict frame (`src/native_battle.js`); c
 | LSD288 | **Relationships on the ladder.** Outcome: a montage evening moves warmth by a small band. Exchange: a conversation through the conflict frame (persuade, haggle, confide, refuse) with moves read from bonds. Detail: the dialogue tree where one exists. Canon turning points are facts with pull; the evidence-to-band fit sets starting bonds from the book's behaviour | ACCOUNT FOR NOW: R1 brief |
 | LSD289 | **Crafting on the ladder.** Outcome: the book says it worked. Exchange: stages with a check each (prepare, combine, wait, finish). Detail: every ingredient and quantity. Book recipes are often partial; missing quantities and times come from role and world priors labelled `fill`, never invented as canon | ACCOUNT FOR NOW: MK1 follow-up |
 | LSD290 | **Divination on the ladder.** Outcome: an answer with an accuracy band. Exchange: choose method, phrase the question, pay the cost, interpret. Detail: the symbols. The answer is generated from true world state (including pull and strain, LSD240) through keyed noise at the method's accuracy, and writes knowledge with a basis and confidence; it can be wrong, vague or blocked by interference, and never shows a sealed truth beyond its means | ACCOUNT FOR NOW: DV1 follow-up |
+
+## 29. Fight modes, policies, harm and healing, saves, and abilities that travel (Weibao 2026-10-29; proposal)
+
+Weibao: "maybe we can set up a seperate combat system for 'non idle' fights? where idle attack on attack is used to
+farm and stuff, but there is an option for a more indepth fighting system? should it be turn by turn instead? how
+does other games handle it? Maybe we can choose to have an more active style fight or more iddle fight? be able to
+setup fight stuff and more? like if x then y styles? ... With types of harm, then we would then need to consider
+types of healing? Need to also leave things open in case implementations and gaps in future worlds can help fill or
+expand on pror worlds too ... How will we save stuff like relationship systems and more? Can can stuff like that be
+determinsitc but still conform to cannon/results? ... give each ability comprehensive implementations and more, and
+of course, make things modular".
+
+Owners that already decide much of this (accepted 2026-10-18 unless noted), linked, not restated:
+[DOMAIN_RULES](../../../DOMAIN_RULES.md) combat CBR1-CBR30 (one outcome publisher CBR2, idle fights on a stated
+policy paid from real stock CBR26, away combat stops at downed or new-enemy states CBR27, conflict wider than combat
+CBR30) and body and health BHR1-BHR30 (harm on its carrier BHR2, repair kind per body BHR4, HP versus injury versus
+illness BHR5, separate healing milestones BHR19, medicine is making BHR20, healing declares its cost and where harm
+goes BHR22, one interaction authority BHR23); [ABILITY_RULES](../../../ABILITY_RULES.md) (ABR codes; saves hold
+`powers[actor][id]` with revision, ABM7).
+
+### 29.1 How other games split idle and active fights (recollection, not re-verified)
+
+Text games: MUDs fight automatically each round, and players script triggers and aliases ("if hp < 30 then quaff");
+Kingdom of Loathing is turn by turn with a combat macro language; Fallen London has no blow-by-blow at all, only
+quality checks (an outcome-level design); roguelikes (Angband, Sil) are turn based with an energy or speed clock;
+Dwarf Fortress resolves hits on body parts and tissue layers. Non-text games: Final Fantasy XII gambits and Dragon
+Age tactics are ordered if-then rules the player edits; Pillars of Eternity is real time with pause; Darkest
+Dungeon is turn based with stress as a second harm track; Battle Brothers has lasting injuries by hit location;
+Slay the Spire and Into the Breach show enemy intent before the player acts; idle games such as Melvor Idle fight on
+their own with thresholds (auto-eat below a health line). The common pattern: one rules engine, several ways to
+drive it, and player-written policies for the automated mode.
+
+### 29.2 One engine, three ways to drive it
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD291 | **Not a second combat system: one rules engine, three drives.** *Idle* (real-time cooldowns, a policy decides, for farming and away time, CBR26), *assisted* (the policy runs and pauses on stated triggers: low health, a new enemy, a lasting-harm risk, a canon beat), *active* (the tempo timeline of LSD281, the player picks each move). Same moves, inputs, draws and outcome publisher (CBR2); only who chooses differs. Reason: two engines would drift (LSD71's lesson) and the levels must agree (LSD279) | ACCOUNT FOR NOW: F1 brief |
+| LSD292 | **The player chooses the drive per fight, with defaults by stakes.** Farming defaults to idle; a fight with a person, lasting-harm risk or a canon beat defaults to assisted; any fight can switch to active at the next move. Dial per world and per player setting; a forced-run canon fight may default to active so its choices are felt | ACCOUNT FOR NOW |
+| LSD293 | **Active is turn-based on a tempo clock, by default.** Turn by turn suits a text game (time to read, savable mid-fight, LSD90) and a tempo clock keeps speed meaningful (fast fighters act more often, as in roguelike energy systems). Real time with pause is the dial for players who want it; it reads the same tempo costs | ACCOUNT FOR NOW |
+| LSD294 | **Show intent where the fighter could read it.** A visible windup ("he draws back to swing") is shown at the player's perception and appraisal level (CBR13, CBR14), so active play has decisions rather than guesses | ACCOUNT FOR NOW |
+
+### 29.3 If-then policies
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD295 | **A policy is an ordered list of if-then rules over named conditions** (own harm rung, stock of a remedy, enemy kind or intent, an ally down, enemy yielding or fleeing, a canon beat present) and actions (a move, a remedy, retreat, accept surrender, switch drive). First matching rule acts; a fallback rule always exists. Policies are data, saved per character, copyable between characters and worlds | LATER/DELEGATE: F1 step after the runner; done when one policy drives idle, assisted and NPC play in a test |
+| LSD296 | **One policy format for the player, NPCs and the lead.** NPC fighting styles, the lead-as-NPC policy ("as the lead would", LSD93) and the player's automation are the same format. Fitting the lead's policy to his canon fights (LSD237) gives a playable default that fights like him | ACCOUNT FOR NOW |
+| LSD297 | **Policies extend past fights.** The same if-then format serves routines (eat when hungry below a band), trade limits, and away play (BHR28 reroutes around injury through the chosen policy). Conditions and actions are registries, so a new system adds both | ACCOUNT FOR NOW |
+
+### 29.4 Harm and healing types
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD298 | **Every harm row names its carrier, and healing reads the carrier.** An attack's harm (LSD282) declares flesh, mind, soul, channels, a power instance, a held item, or a social standing; healing options come from the carrier's repair kind (BHR2, BHR4). So adding a harm kind automatically asks "what heals it, at what cost, where does it go" (BHR22) | ACCOUNT FOR NOW |
+| LSD299 | **Non-body harm counts.** Fear and shaken nerve (mind, LSD34), loss of control or corruption (a power carrier), reputation and trust (social carrier, healed by apology, restitution or time, LSD27). Darkest Dungeon's stress shows a second track works when its recovery is as visible as the harm | ACCOUNT FOR NOW |
+| LSD300 | **Healing is a ladder too** (LSD278): outcome (rest a week), exchange (treatment stages with checks, BHR20 making rules), detail (each remedy and dose). Milestones stay separate (BHR19) | ACCOUNT FOR NOW |
+
+### 29.5 Saving bonds and other life state, deterministically and true to canon
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD301 | **Save the events, derive the values.** A bond (and a skill, a reputation, craft quality) is saved as cause-dated deltas the player's life produced (LSD27); the current value is derived as the canon baseline at that date (from the pack, never saved, LSD143) plus those deltas. Canon conformance is then structural: a reload recomputes the same value, and a canon turning point is a constraint with pull (LSD233), recorded as strain if the deltas fight it | ACCOUNT FOR NOW: R1 brief |
+| LSD302 | **Compaction keeps saves small.** Old deltas fold into a dated snapshot with its hash; the snapshot is a cache that can be rebuilt from the log while the log is kept, and becomes the record once the log is trimmed. Provenance codes survive compaction (SZ2) | LATER: when save size measures it |
+| LSD303 | **Reactions are keyed draws on the bond's derived value**, keyed by person, other, situation and date, so the same history gives the same reaction and a changed history changes only what it reaches (LSD244) | ACCOUNT FOR NOW |
+
+### 29.6 Abilities as complete modules that travel between worlds
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD304 | **A whole system per ability family is fine; each is a module with a full life.** Divination, crafting, a pathway's powers each get a world-neutral core and a thin world adapter (LSD225), and every ability in it covers: how it is learned and advanced (ABR acquire), the three resolution levels (LSD278), costs and side effects, counters and who can detect it, failure and refused paths (LSD227), interaction tags (BHR23), what it does when idle or away, how it is shown, its save fields with revision (ABM7), and its tests (non-lead fixture, failure, level agreement). An ability missing a part is listed as partial, not done | ACCOUNT FOR NOW: mechanism done check |
+| LSD305 | **Registries open both ways.** Carriers, harm rungs, move rows, policy conditions, ability families and repair kinds are registries a world extends. A later world's addition (a cultivation world's meridian harm, a new repair kind) applies to earlier worlds where the mechanism exists there, and is absent, not "no", where it does not (CLR4). A world never forks a registry | ACCOUNT FOR NOW |
+| LSD306 | **Back-porting follows AD38.** When a later world fills a gap an earlier world left (a better appraisal method, a healing kind, a policy condition), the earlier world gains it only where its own mechanisms support it, with a revision bump on affected rows and save fields defaulting to absent. Cross-world carried abilities work wherever their mechanism works (BHR30) | ACCOUNT FOR NOW |
