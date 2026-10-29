@@ -99,6 +99,8 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
             outcomes.push({id:row.id,kind:'gap',reason}); continue;
         }
         // Missing earlier steps remain named gaps. The row's explicit supporting route is not book proof.
+        // A missing control, missed window or wrong anchor is a scored gap for this row, not the end of the run.
+        try {
         if (!canonOnly) for (const leg of row.setup || []) await io.move(page, leg, null);
         await io.waitBand(page, row.time);
         const before = await io.read(page);
@@ -107,6 +109,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
         for (const [i,leg] of row.route.entries()) {
             const result = await io.move(page,leg,row.time);
             if (result?.blocked) { blocked = result.blocked; break; }
+            if (result?.gap) throw new Error(result.gap);
             await io.screenshot(page,`${row.id.replace(/[^a-z0-9]/gi,'_')}-${i+1}.png`);
         }
         if (blocked) {
@@ -121,6 +124,11 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
         verified.add(row.id);
         receipts.push({id:row.id,status:row.status,place:after.place,purseDelta:after.cash-before.cash,knowledge:(row.anchors.knowledge || []).map(key => ({key,present:!!after.knowledge[key]}))});
         outcomes.push({id:row.id,kind:(row.routeMode === 'wait' || row.method === 'wait' || row.verb === 'wait') ? 'wait' : 'control',inWindow:true,orderIndex:outcomes.length});
+        } catch (error) {
+            const reason = `replay: ${String(error?.message || error).split('\n')[0].slice(0,200)}`;
+            receipts.push({id:row.id,status:'gap',gapKind:'missing UI path',reason});
+            outcomes.push({id:row.id,kind:'gap',reason});
+        }
     }
     return {receipts,score:scoreRows(rows,verified),replayScore:scoreReplay(rows,outcomes)};
 }
@@ -141,9 +149,9 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         page.on('pageerror',e => errors.push(e.message));
         const snapshot = () => page.evaluate(() => window.simulationTestHooks.snapshot());
         const read = async () => {
-            const s = await snapshot(), e = s.expansion;
-            return {place:e.simulation.people.player.location,cash:s.character.money,knowledge:e.simulation.knowledge?.player || {},elapsed:e.clock-s.lotm.initializedAt,
-                entryProfile:s.lotm?.entryProfile};
+            const s = await snapshot(), e = s.expansion, lotm = s.lotm || e?.lotm || {};
+            return {place:e.simulation.people.player.location,cash:s.character.money,knowledge:e.simulation.knowledge?.player || {},elapsed:e.clock-(lotm.initializedAt ?? 0),
+                entryProfile:lotm.entryProfile};
         };
         const until = async (predicate,what) => {
             const deadline = Date.now()+12*60*1000;
@@ -159,7 +167,11 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm');
         const panel = page.locator('#lotm_panel');
         const click = async id => {
-            const control = panel.locator(`[data-lotm="${id}"]`);
+            const control = panel.locator(`[data-lotm="${id}"]`).first();
+            // Walks sit in collapsed district groups (UR42): open the enclosing groups first.
+            await control.waitFor({state:'attached',timeout:30000}).catch(() => {});
+            if (!await control.count()) return {gap:`no control ${id} in this seat`};
+            await control.evaluate(e => {for (let d = e.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;});
             await control.waitFor({state:'visible'});
             if (!await control.isEnabled()) {
                 const reason = (await control.getAttribute('title')) || (await control.getAttribute('aria-label')) || (await control.innerText());
@@ -171,7 +183,12 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         };
         if (seat === 'be') {
             await click('pick_be');
-            await click('enroll_be');
+            // The new life starts through a page reload; press Play again on the fresh page.
+            await Promise.all([page.waitForEvent('load',{timeout:90000}), click('enroll_be')]);
+            await page.locator('#loading_screen_play_button').waitFor({state:'visible'});
+            await page.locator('#loading_screen_play_button').click();
+            if (await confirm.isVisible()) await confirm.click();
+            await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm').catch(() => {});
             await until(async () => {try {return (await read()).entryProfile === 'book.lead.be@1';} catch {return false;}},'be-life reload');
         } else {
             await click(mapping.entry.pick); await click(mapping.entry.enroll);
