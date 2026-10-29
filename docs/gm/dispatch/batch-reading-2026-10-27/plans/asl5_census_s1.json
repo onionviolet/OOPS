@@ -1,0 +1,35 @@
+{
+ "world": "asl",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28",
+  "censusMatch": "^(asl1|asl2|asl3|asl4|asl5|asl6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "asl5-census-s1",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "asl5c252",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/split/shard_asl5_ch252-252.txt",
+   "base": "25201",
+   "chapters": "252-252"
+  },
+  {
+   "prefix": "asl5c253",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/split/shard_asl5_ch253-253.txt",
+   "base": "25301",
+   "chapters": "253-253"
+  },
+  {
+   "prefix": "asl5c254",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/soldiers-life/private/lead-run-2026-10-28/split/shard_asl5_ch254-254.txt",
+   "base": "25401",
+   "chapters": "254-254"
+  }
+ ]
+}

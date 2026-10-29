@@ -1,0 +1,20 @@
+{
+ "name": "2026-10-29v1-lotm",
+ "approval": "Weibao 2026-10-29: \"Send next stuff for the rest of the moneey left\"; November retry list sent early. Ceiling = true cap plus a cent.",
+ "ceilingUsd": 0.21,
+ "capTotal": 0.2,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/v1_census_s1.json",
+     "cap": 0.2,
+     "label": "v1-census-s1"
+    }
+   ]
+  }
+ ]
+}

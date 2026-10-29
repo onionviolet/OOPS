@@ -1,0 +1,45 @@
+{
+ "name": "2026-10-29a-asl",
+ "approval": "Weibao 2026-10-29: \"Send next stuff for the rest of the moneey left\"; November retry list sent early. Ceiling = true cap plus a cent.",
+ "ceilingUsd": 1.27,
+ "capTotal": 1.26,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl1_census_s1.json",
+     "cap": 0.2,
+     "label": "asl1-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl2_census_s1.json",
+     "cap": 0.2,
+     "label": "asl2-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl3_census_s1.json",
+     "cap": 0.36,
+     "label": "asl3-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl4_census_s1.json",
+     "cap": 0.23,
+     "label": "asl4-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl5_census_s1.json",
+     "cap": 0.1,
+     "label": "asl5-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl6_census_s1.json",
+     "cap": 0.17,
+     "label": "asl6-census-s1"
+    }
+   ]
+  }
+ ]
+}

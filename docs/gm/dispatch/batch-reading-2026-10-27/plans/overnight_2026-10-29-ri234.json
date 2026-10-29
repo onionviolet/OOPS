@@ -1,0 +1,150 @@
+{
+ "name": "2026-10-29-ri234",
+ "approval": "Weibao 2026-10-29: \"Send next stuff for the rest of the moneey left\"; RI volumes 2-4 (chapters about 101-400), launched only after the retries exit and if measured spend plus the $6.60 ceiling stays at most $95 before Oct 31 noon. Ceiling $6.60 against true cap 16.58; RI volume 1 measured $1.32 of a $4.66 cap.",
+ "ceilingUsd": 6.6,
+ "capTotal": 16.58,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_pilot_census.json",
+     "cap": 0.04,
+     "label": "ri2-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "ri2-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_pilot_census.json",
+     "cap": 0.04,
+     "label": "ri3-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "ri3-pilot-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_pilot_census.json",
+     "cap": 0.04,
+     "label": "ri4-pilot-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_pilot_scenes.json",
+     "cap": 0.04,
+     "label": "ri4-pilot-scenes"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_census.json",
+     "cap": 1.09,
+     "label": "ri2-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_census.json",
+     "cap": 1.09,
+     "label": "ri3-census"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_census.json",
+     "cap": 1.03,
+     "label": "ri4-census"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_scenes.json",
+     "cap": 1.09,
+     "label": "ri2-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_scenes.json",
+     "cap": 1.09,
+     "label": "ri3-scenes"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_scenes.json",
+     "cap": 1.03,
+     "label": "ri4-scenes"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_rules.json",
+     "cap": 1.13,
+     "label": "ri2-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_rules.json",
+     "cap": 1.13,
+     "label": "ri3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_rules.json",
+     "cap": 1.06,
+     "label": "ri4-rules"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_people.json",
+     "cap": 1.12,
+     "label": "ri2-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_people.json",
+     "cap": 1.12,
+     "label": "ri3-people"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_people.json",
+     "cap": 1.06,
+     "label": "ri4-people"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_texture.json",
+     "cap": 1.12,
+     "label": "ri2-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_texture.json",
+     "cap": 1.12,
+     "label": "ri3-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_texture.json",
+     "cap": 1.06,
+     "label": "ri4-texture"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "world": "hp",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+  "censusMatch": "^(hp1|hp2|hp3|hp4|hp5|hp6|hp7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "hp7-census-s1",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "hp7c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp7_b7_ch017-017.txt",
+   "base": "701701",
+   "chapters": "17-17"
+  }
+ ]
+}

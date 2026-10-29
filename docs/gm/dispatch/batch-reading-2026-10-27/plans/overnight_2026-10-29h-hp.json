@@ -1,0 +1,46 @@
+{
+ "name": "2026-10-29h-hp",
+ "approval": "Weibao 2026-10-29: \"Send next stuff for the rest of the moneey left\"; November retry list sent early. Ceiling = true cap plus a cent.",
+ "ceilingUsd": 0.21,
+ "capTotal": 0.2,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp2_census_s1.json",
+     "cap": 0.04,
+     "label": "hp2-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp6_census_s1.json",
+     "cap": 0.04,
+     "label": "hp6-census-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp7_census_s1.json",
+     "cap": 0.04,
+     "label": "hp7-census-s1"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp3_people_s1.json",
+     "cap": 0.04,
+     "label": "hp3-people-s1"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp5_people_s1.json",
+     "cap": 0.04,
+     "label": "hp5-people-s1"
+    }
+   ]
+  }
+ ]
+}
