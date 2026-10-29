@@ -1,4 +1,4 @@
-import {castAvailable,castWalkCommands,castPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
+import {castAvailable,castWalkCommands,castPeople,castEnrollmentPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
 import {applySituationEffect} from './causal_situations.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lotm_ids.js';
 import {lotmCommands,lotmSources,lotmPowers,lotmEnergies} from './book_world_lotm_actions.js';
@@ -65,7 +65,7 @@ export function enrollLotmBranch(state,profile='probationer'){
  if(state.actors.player.worldId===I.world)throw Error('The probationer branch is already enrolled.');
  state.worlds[I.world]||={facts:{},resources:{},completed:{}};state.actors.player.worldId=I.world;s.people.player.location=LOTM_PROFILES[profile].start;
  s.people.player.body={id:'native.player.body',form:'human',hands:2,mobile:true,ownerId:'player',controllerId:'player'};
- for(const d of [...(profile==='be'?[]:lotmPeople),...(profile==='beside'?castPeople:profile==='be'?castPeople.filter(p=>p.id!==lead.actorId):[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
+ for(const d of [...(profile==='be'?[]:lotmPeople),...(profile==='beside'?castEnrollmentPeople():profile==='be'?castEnrollmentPeople().filter(p=>p.id!==lead.actorId):[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
   Object.assign(state.actors[d.id],{worldId:d.worldId});Object.assign(state.actors[d.id].resources,d.resources);
   if(d.inventory==='simulation')s.owners[d.id]={};
   s.people[d.id]={life:'alive',inventory:d.inventory,location:d.location,bornAt:state.clock,definitionId:d.id,definitionRevision:d.revision,vitals:{...d.vitals},

@@ -1,0 +1,112 @@
+--- a/src/book_world_lotm_host.js
++++ b/src/book_world_lotm_host.js
+@@ -1,6 +1,6 @@
+ import {runWaitUntil} from './wait_until.js';
+ import {castJourneyCommands,castJourneyOffers,castJourneyContext,castTopicOffers,castObjectOffers,castObjectCommands,castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
+-import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision,castWriteCode,castRevisionReport} from './book_world_lotm_cast_host.js';
++import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,installCastWalk,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision,castWriteCode,castRevisionReport} from './book_world_lotm_cast_host.js';
+ // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
+ // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
+ // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
+@@ -134,7 +134,7 @@
+    for(const e of opening)castWriteCode(plan.state,`knowledge:player:${e.key}`,'canon');
+    castWriteCode(plan.state,'location:player','canon');castWriteCode(plan.state,'resource:player:money','canon');
+   }
+-  plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start,...(profileKey==='be'?{'character/name':getPrivateLotmCast().people.find(p=>p.id===getPrivateLotmCast().leadLife.actorId).name}:{})};
++  ports.ensureCastLocation?.(profile.start);plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start,...(profileKey==='be'?{'character/name':getPrivateLotmCast().people.find(p=>p.id===getPrivateLotmCast().leadLife.actorId).name}:{})};
+   persist(plan,{reset:true});return plan;
+  }
+  // RET3: when a continuing connection can carry this life, crossing first pauses the Village life as it is (a tethered branch), then enrolls in place.
+@@ -192,8 +192,9 @@
+   writable();const s=castState(state()),to=(lotmCastLife(s)?{...MOVES,...castMoves}:MOVES)[id];assert(s.lotm&&to,'No such walk.');
+   assert(!s.simulation.jobs.length&&!ports.sleeping()&&!ports.busy(),'Finish or stop your current work first.');
+   const from=s.simulation.people.player.location;assert(from!==to,'You are already there.');
+-  const def=registry.simulation.commands.get(walkId(s,from,to));assert(def,'There is no walk from here to there.');
++  const def=installCastWalk(registry,from,to)||registry.simulation.commands.get(walkId(s,from,to));assert(def,'There is no walk from here to there.');
+   const canon=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());assert(canon.allowed,canon.reason);
++  ports.ensureCastLocation?.(to);
+   const plan=commitSimulationCommand(s,registry,{id:def.id},ctx(s,def),s.sequence);
+   recordEmergent(plan,def);
+   plan.state.simulation.people.player.location=to;castWriteCode(plan.state,'location:player','emergent');plan.nativeLocation=to;plan.nativePatch={'current location':to};
+@@ -211,7 +212,7 @@
+    const loaded=getPrivateLotmCast(),ready=validLeadLife(loaded),pack=ready?loaded:null,life=pack?.leadLife,elapsed=s.clock-s.lotm.initializedAt;
+    const allowed=new Set([at,...(life?.knownPlaces||[]),...Object.keys(know).filter(k=>k.startsWith('book.lotm.cast.place.known.')).map(k=>k.slice('book.lotm.cast.place.known.'.length))]);
+    const places=castPlaces.filter(p=>allowed.has(p.id)).map(p=>{const dd=districtOfPlace(p.id);return {place:castPlaceLabel(p.id),district:dd.qlabel,team:dd.q2team,church:dd.church,here:p.id===at,minutes:p.id===at?0:lotmWalkMinutes(at,p.id)};});
+-   const moves=Object.entries(castMoves).filter(([,to])=>allowed.has(to)&&to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to),def=registry.simulation.commands.get(walkId(s,at,to)),decision=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());return {id,label:`Walk to ${castPlaceLabel(to)} · ${m} min · ${dd.qlabel}: nearby`,eligible:decision.allowed&&castAvailable&&!s.simulation.jobs.length&&!ports.sleeping(),reasons:castAvailable?(decision.allowed?[]:[decision.reason]):['Restore the book pack to resume.']};});
++   const moves=Object.entries(castMoves).filter(([,to])=>allowed.has(to)&&to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to),def=installCastWalk(registry,at,to)||registry.simulation.commands.get(walkId(s,at,to)),decision=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());return {id,label:`Walk to ${castPlaceLabel(to)} · ${m} min · ${dd.qlabel}: nearby`,eligible:decision.allowed&&castAvailable&&!s.simulation.jobs.length&&!ports.sleeping(),reasons:castAvailable?(decision.allowed?[]:[decision.reason]):['Restore the book pack to resume.']};});
+    const actions=castTalkCommands.filter(def=>!def.topicTalk).filter(def=>s.simulation.people[def.targetId]&&(know[`book.lotm.cast.known.${def.targetId}`]||know[`book.lotm.cast.met.${def.targetId}`])).flatMap(def=>{const q=castTalkPreview(s,def,previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId})),decision=canonActionDecision(s,def,getPrivateLotmCast(),ports.context()),p=decision.allowed?q:{...q,eligible:false,reasons:[...q.reasons,decision.reason]};return p.visible?[{id:def.id,label:def.label,eligible:p.eligible&&castAvailable&&!ports.sleeping(),reasons:!castAvailable?['Restore the book pack to resume.']:p.reasons,duration:p.duration}]:[];});
+    for(const choice of life?.untakenChoices||[]){const day=pack.bindings.days.find(r=>r.scene===choice.scene),begin=day&&((day.day-1)*1440+day.from),end=day&&((day.day-1)*1440+day.to);
+     if(day&&elapsed>=begin&&elapsed<end)actions.push({id:`book.lotm.untaken.${choice.id}`,label:choice.label,eligible:false,reasons:['Not how it happened'],duration:0});}
+--- a/src/book_world_lotm_state.js
++++ b/src/book_world_lotm_state.js
+@@ -1,7 +1,7 @@
+ // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
+ // inert: no Tingen presence, job, means or knowledge may exist without it. The
+ // only activation path is enrollLotmBranch (book_world_lotm_content.js).
+-import {castWalkCommands,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
++import {castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
+ import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
+ import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
+ import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
+@@ -53,7 +53,7 @@
+  if(d.entryProfile!==BE_PROFILE_ID)assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
+  for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||castJourneyCommands.some(c=>c.id===j.commandId))){
+   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
+-  const def=[...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands].find(c=>c.id===j.commandId);
++  const def=castWalkDefinitionById(j.commandId)||[...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands].find(c=>c.id===j.commandId);
+   assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
+   if(def.journey)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:true,location:def.location,failure:'refund'}),'Journey support differs from its exact admitted definition.');
+  }
+--- a/src/book_world_lotm_content.js
++++ b/src/book_world_lotm_content.js
+@@ -1,4 +1,4 @@
+-import {castAvailable,castWalkCommands,castPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
++import {castAvailable,castWalkCommands,castPeople,castEnrollmentPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
+ import {applySituationEffect} from './causal_situations.js';
+ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lotm_ids.js';
+ import {lotmCommands,lotmSources,lotmPowers,lotmEnergies} from './book_world_lotm_actions.js';
+@@ -65,7 +65,7 @@
+  if(state.actors.player.worldId===I.world)throw Error('The probationer branch is already enrolled.');
+  state.worlds[I.world]||={facts:{},resources:{},completed:{}};state.actors.player.worldId=I.world;s.people.player.location=LOTM_PROFILES[profile].start;
+  s.people.player.body={id:'native.player.body',form:'human',hands:2,mobile:true,ownerId:'player',controllerId:'player'};
+- for(const d of [...(profile==='be'?[]:lotmPeople),...(profile==='beside'?castPeople:profile==='be'?castPeople.filter(p=>p.id!==lead.actorId):[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
++ for(const d of [...(profile==='be'?[]:lotmPeople),...(profile==='beside'?castEnrollmentPeople():profile==='be'?castEnrollmentPeople().filter(p=>p.id!==lead.actorId):[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
+   Object.assign(state.actors[d.id],{worldId:d.worldId});Object.assign(state.actors[d.id].resources,d.resources);
+   if(d.inventory==='simulation')s.owners[d.id]={};
+   s.people[d.id]={life:'alive',inventory:d.inventory,location:d.location,bornAt:state.clock,definitionId:d.id,definitionRevision:d.revision,vitals:{...d.vitals},
+--- a/src/book_world_lotm_domain.js
++++ b/src/book_world_lotm_domain.js
+@@ -1,7 +1,7 @@
+ // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
+ // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
+ // and the panel mounts with the other domains. main.js makes one configureLotm call.
+-import {castNeedsFullContext,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
++import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
+ import {registerDomain} from './domain_registry.js';
+ import {lotmFacts} from './book_world_lotm_actions.js';
+ import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
+@@ -15,16 +15,21 @@
+  for(const {id,name} of [...Object.values(L).map(id=>({id,name:id})),...castPlaces])locations[id]=new SafeLocation({id,name,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,is_temperature_static:true,static_temperature:20,light_level:'normal',
+   tags:{book_world_lotm:true},entrance_rewards:{},description:'Tingen probationer branch. Use the Tingen workroom panel for the supervisor, the bench and your lodging.'});
+ }
++function ensureCastLocation(id){
++ const row=castPlaces.find(p=>p.id===id);if(!row||!ports||ports.locations[id])return;
++ ports.locations[id]=new ports.SafeLocation({id,name:row.name,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,is_temperature_static:true,static_temperature:20,light_level:'normal',tags:{book_world_lotm:true},entrance_rewards:{},description:'A place in Tingen.'});
++}
+ export function configureLotm(p){
+  ports=p;register(p);
+- import('./book_world_lotm_cast_days.js').then(({whenCastLoaded})=>whenCastLoaded()).then(pack=>{if(!pack)return;installCast(p.registry);for(const {id,name} of castPlaces)if(!p.locations[id])p.locations[id]=new p.SafeLocation({id,name,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,is_temperature_static:true,static_temperature:20,light_level:'normal',tags:{book_world_lotm:true},entrance_rewards:{},description:'A place in Tingen.'});panel?.render();});
+- host=createLotmHost(p);
++ import('./book_world_lotm_cast_days.js').then(({whenCastLoaded})=>whenCastLoaded()).then(pack=>{if(!pack)return;installCast(p.registry);if(pack.people.length<=CAST_EAGER_PEOPLE_LIMIT)for(const {id} of castPlaces)ensureCastLocation(id);else ensureCastLocation(pack.host.profile.start);panel?.render();});
++ host=createLotmHost({...p,ensureCastLocation});
+ }
+ function restoreMissingCast(envelope){
+- if(!ports||castAvailable||!lotmCastLife(envelope.expansion))return;
++ if(!ports||!lotmCastLife(envelope.expansion))return;
+  const place=id=>{ports.locations[id]??=new ports.SafeLocation({id,name:'Cast place unavailable',is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,
+   tags:{book_world_lotm:true},entrance_rewards:{},description:'Restore the private cast pack to resume this place.'});};
+  restoreUnavailableCast(envelope.expansion,ports.registry,place);
++ if(castAvailable){ensureCastLocation(envelope.expansion.simulation?.people?.player?.location);for(const id of Object.keys(envelope.locations||{}))ensureCastLocation(id);return;}
+  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
+ }
+ registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),

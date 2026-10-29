@@ -36,7 +36,8 @@ export const castSituation={id:LOTM_CAST_SITUATION,revision:1,label:'Cast unavai
 let aliases=new Map();
 export const resolveCastPlace=id=>aliases.get(id)||id;
 export let CAST_PLACE_LABELS={};
-const actorId=id=>LOTM_CAST.people.find(p=>p.id===id)?.sameActorAs||id;
+let peopleById=new Map(),placesById=new Map();
+const actorId=id=>peopleById.get(id)?.sameActorAs||id;
 export let castSchedule=[],castPeople=[],castTalkCommands=[],castPlaces=[],castMoves={},castWalkCommands=[];
 export let castJourneyCommands=[];
 // Bind the existing native relocation capability to this world's authored routes.
@@ -76,16 +77,41 @@ export function castNeedsFullContext(state,id){
   ||(state.pending||[]).some(j=>j.context?.actorId===id);
 }
 
+// Retain the previously shipped small-pack enrollment byte contract. Larger
+// packs keep remote role definitions in the registry until a real consumer wakes them.
+export const CAST_EAGER_PEOPLE_LIMIT=256;
+export function castEnrollmentPeople(){return LOTM_CAST.people.length<=CAST_EAGER_PEOPLE_LIMIT?castPeople:castPeople.filter(p=>!roleIds.has(p.id));}
+function enrollCastBody(state,def){
+ const sim=state.simulation;if(sim.people[def.id]||lotmBe(state)&&def.id===LOTM_CAST.leadLife?.actorId)return false;
+ state.actors[def.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:def.worldId};
+ Object.assign(state.actors[def.id],{worldId:def.worldId});Object.assign(state.actors[def.id].resources,def.resources);
+ if(def.inventory==='simulation')sim.owners[def.id]||={};
+ sim.people[def.id]={life:'alive',inventory:def.inventory,location:def.location,bornAt:state.lotm.initializedAt,definitionId:def.id,definitionRevision:def.revision,vitals:{...def.vitals},
+  body:{id:`native.person.${def.id}.body`,form:'human',hands:2,mobile:true,ownerId:def.id,controllerId:def.id}};
+ return true;
+}
+function referencedCastPeople(state){
+ const ids=new Set(),add=id=>{if(id)ids.add(lotmBe(state)&&actorId(id)===LOTM_CAST.leadLife?.actorId?'player':actorId(id));};
+ for(const j of state.simulation.jobs||[]){add(j.actorId);add(j.targetId);for(const id of j.participants||[])add(id);}
+ for(const [id,s] of Object.entries(state.simulation.sessions||{})){add(id);for(const p of s.participants||[])add(p);}
+ for(const c of Object.values(state.simulation.controllers||{}))add(c.actorId);
+ for(const id of Object.keys(state.simulation.programs||{}))add(id);
+ for(const id of Object.keys(state.simulation.workPlans?.cursors||{}))add(id);
+ for(const p of Object.values(state.simulation.pursuits||{})){add(p.actorId);add(p.targetId);}
+ for(const j of state.pending||[]) {add(j.context?.actorId);add(j.context?.targetId);}
+ return ids;
+}
 function deriveCast(pack){
- LOTM_CAST=pack; castWakes=null;roleIds=new Set(pack.people.filter(p=>p.tier==='role').map(p=>p.id));
+ LOTM_CAST=pack;peopleById=new Map(pack.people.map(p=>[p.id,p]));placesById=new Map(pack.places.map(p=>[p.id,p]));castWakes=null;roleIds=new Set(pack.people.filter(p=>p.tier==='role').map(p=>p.id));
  castSituation.label=pack.host.situation.label;
  aliases=new Map(pack.placeAliases.flatMap(a=>[[a.id,a.place],[a.indexId,a.place]]));
  CAST_PLACE_LABELS=Object.fromEntries(pack.places.filter(p=>!p.anchorOnly).map(p=>[p.id,p.name]));
  castSchedule=lotmCastSchedule().map(r=>({...r,actor:actorId(r.actor),place:resolveCastPlace(r.place)}));
  scheduleIndex=compileCastSchedule(castSchedule);
+ const firstPlaces=new Map();for(const r of castSchedule)if(!firstPlaces.has(r.actor))firstPlaces.set(r.actor,r.place);
  castPeople=pack.people.filter(p=>!p.sameActorAs&&p.status!=='historical-reference').map(p=>({
  id:p.id,revision:1,label:p.name,worldId:I.world,inventory:'simulation',provision:false,
- location:castSchedule.find(r=>r.actor===p.id)?.place||'Whereabouts unplaced',resources:{},
+ location:firstPlaces.get(p.id)||'Whereabouts unplaced',resources:{},
  description:`${p.name}, ${p.tier} cast record. Location follows the bounded source-order schedule.`,
  body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:18,max_stamina:18}}));
  castTalkCommands=pack.people.filter(p=>p.tier==='principal'&&!remoteCastPerson(p.id)).map(p=>cmd(
@@ -97,12 +123,12 @@ function deriveCast(pack){
  castTopicCommands=defineTopicTalks(pack.topicTalks,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castJourneyCommands=defineJourneys(pack.journeys,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
- for(const d of castJourneyCommands)if(!pack.places.some(p=>p.id===d.journey.from)||!pack.places.some(p=>p.id===d.journey.to))throw Error('Journey needs pack places.');
+ for(const d of castJourneyCommands)if(!placesById.has(d.journey.from)||!placesById.has(d.journey.to))throw Error('Journey needs pack places.');
  castTalkCommands.push(...castTopicCommands);
  talkIds=new Set(castTalkCommands.map(d=>d.id));
  castPlaces=pack.places.filter(p=>p.travel&&!p.anchorOnly);
  castMoves=Object.fromEntries(castPlaces.map(p=>[`lotm.move.${p.id}`,p.id]));
- castWalkCommands=makeCastWalkCommands();
+ castWalkCommands=[];walksById.clear();walkPlaces=new Map([...Object.values(L),...castPlaces.map(p=>p.id)].map(id=>[walkPart(id),id]));
  castObjectCommands=definePlaceActs(pack.householdActs,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castAvailable=true;
@@ -161,11 +187,12 @@ function projectCastWakes(state){
  projectedClock=state.clock;
  return at;
 }
+function missingCastBodies(state){return LOTM_CAST.people.length>CAST_EAGER_PEOPLE_LIMIT&&[...new Set([...referencedCastPeople(state),...[...projectedPlaces].filter(([,place])=>place!=null).map(([id])=>id)])].some(id=>peopleById.has(id)&&!(lotmBe(state)&&id===LOTM_CAST.leadLife?.actorId)&&!state.simulation.people[id]);}
 export function castSyncDue(state){
  if(!lotmCastLife(state)||!castAvailable)return false;
  if(lotmBe(state)&&(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)))return true;
  if(lotmBe(state)&&LOTM_CAST.householdActs?.objects?.some(r=>!state.worlds[I.world].facts[`place.act.seed.${r.id}`]))return true;
- if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
+ if(missingCastBodies(state)||!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
  const day=castCalendar(state).calendar.day_count,facts=state.worlds[I.world].facts;
  return castPeople.some(p=>!roleIds.has(p.id)&&!(lotmBe(state)&&p.id===LOTM_CAST.leadLife?.actorId)&&projectedPlaces.get(p.id)!=null&&state.simulation.people[p.id]&&state.simulation.people[p.id].location!==projectedPlaces.get(p.id))||
   lotmCastDays().some(row=>facts[`lotm.cast.window.${row.scene}`]!== (row.day===day));
@@ -177,7 +204,9 @@ export function castSyncDue(state){
 export function syncLotmCast(state){
  if(!(lotmBeside(state)||lotmBe(state))||!castAvailable)return false;
  const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)));
- for(const person of castPeople){if(roleIds.has(person.id)&&!projectedRoles.has(person.id))continue;const body=state.simulation.people[person.id];if(!body)continue;
+ const referenced=referencedCastPeople(state);
+ for(const person of castPeople){if(!state.simulation.people[person.id]&&(projectedPlaces.get(person.id)!=null||referenced.has(person.id)))changed=enrollCastBody(state,person)||changed;
+  if(roleIds.has(person.id)&&!projectedRoles.has(person.id))continue;const body=state.simulation.people[person.id];if(!body)continue;
   // In a be life the pack-selected person is driven by the player, never by
   // the NPC schedule. The native player body remains the location authority.
   if(lotmBe(state)&&person.id===LOTM_CAST.leadLife?.actorId)continue;
@@ -206,22 +235,44 @@ export function castTalkPreview(state,def,preview){
 // existing same-district default is 2 minutes (authored, adjustable).
 export const castPlaceLabel=id=>CAST_PLACE_LABELS[id]||(!castAvailable&&dormantCastPlace(id)?'Cast place unavailable':id);
 export const castWalkId=(from,to)=>`book.lotm.cast_walk_${from.replaceAll(/[^a-z0-9]/gi,'_')}_${to.replaceAll(/[^a-z0-9]/gi,'_')}`;
-const makeCastWalkCommands=()=>[...Object.values(L),...castPlaces.map(p=>p.id)].flatMap(from=>
- [...Object.values(L),...castPlaces.map(p=>p.id)].filter(to=>from!==to&&(castMoves[`lotm.move.${from}`]||castMoves[`lotm.move.${to}`])).map(to=>{
- const minutes=lotmWalkMinutes(from,to),district=districtOfPlace(to);
- return cmd(castWalkId(from,to).replace('book.lotm.',''),`Walk to ${castPlaceLabel(to)} · ${minutes} min`,from,
+const walkPart=id=>id.replaceAll(/[^a-z0-9]/gi,'_');
+let walkPlaces=new Map();const walksById=new Map();
+// Walks are quoted by address, rather than registering every pair of addresses.
+// The exact incumbent ID/effects are retained for in-flight saved jobs.
+export function castWalkDefinition(from,to){
+ if(from===to||!walkPlaces.has(walkPart(from))||!walkPlaces.has(walkPart(to))||!(castMoves[`lotm.move.${from}`]||castMoves[`lotm.move.${to}`]))return null;
+ const id=castWalkId(from,to);if(walksById.has(id))return walksById.get(id);
+ const minutes=lotmWalkMinutes(from,to),district=districtOfPlace(to);if(minutes==null||!district)return null;
+ const def=cmd(id.replace('book.lotm.',''),`Walk to ${castPlaceLabel(to)} · ${minutes} min`,from,
  {alone:true,once:false,duration:minutes,cancellation:'none',requires:eq('lotm.profile.beside'),
  effects:[{type:'knowledge',actor:'player',key:'book.lotm.arrived',stage:'seen',
  value:`You reach ${castPlaceLabel(to)} in ${district.qlabel}. The walk took ${minutes} minutes.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]});
- }));
+ walksById.set(id,def);castWalkCommands.push(def);return def;
+}
+export function castWalkDefinitionById(id){
+ if(walksById.has(id))return walksById.get(id);
+ if(typeof id!=='string'||!id.startsWith('book.lotm.cast_walk_'))return null;
+ const tail=id.slice('book.lotm.cast_walk_'.length);
+ for(const [key,from] of walkPlaces)if(tail.startsWith(key+'_')){const to=walkPlaces.get(tail.slice(key.length+1));if(to)return castWalkDefinition(from,to);}
+ return null;
+}
+const walkDestination=def=>{const tail=def.id.slice(('book.lotm.cast_walk_'+walkPart(def.location)+'_').length);return walkPlaces.get(tail);};
+export function installCastWalk(registry,from,to){
+ const def=castWalkDefinition(from,to);if(!def)return null;
+ if(!registry.simulation.commands.has(def.id)){
+  const checked=createSimulationRegistry({commands:[def]});registry.simulation.commands.set(def.id,checked.commands.get(def.id));
+ }
+ return registry.simulation.commands.get(def.id);
+}
 
 // Missing-pack saves keep their bodies and knowledge. Name-free dormant
 // definitions let the normal validators retain those exact identities; no
 // schedule, meeting or new start is granted by these placeholders.
 export const dormantCastPlace=id=>typeof id==='string'&&/^lotm\.place\.cast-[a-f0-9]{20}$/.test(id);
 export function restoreUnavailableCast(state,registry,place=()=>{}){
- if(castAvailable||!lotmCastLife(state))return;
+ if(!lotmCastLife(state))return;
+ if(castAvailable){for(const job of state.simulation?.jobs||[]){const def=castWalkDefinitionById(job.commandId);if(def)installCastWalk(registry,def.location,walkDestination(def));}return;}
  for(const [id,body] of Object.entries(state.simulation?.people||{})){
   if(!/^lotm\.(?:person\.cast-[a-f0-9]{20}|role\.[a-z][a-z0-9-]*)$/.test(id)||registry.simulation.people.has(id))continue;
   registry.simulation.people.set(id,{id,revision:body.definitionRevision||1,label:'Cast unavailable',worldId:I.world,

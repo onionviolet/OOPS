@@ -98,7 +98,8 @@ test('the lead is "carried" for its own beats and replaying from day 0 reproduce
 
 test('check 3 + 7: bot route reaches all five dates twice identically; HEADLESS save/export/import/reload keeps the line', async () => {
     // The runner installs process globals, so the second boot runs in a fresh child process, in parallel.
-    const childRun = promisify(execFile)(process.execPath, ['--input-type=module', '-e', CHILD], {cwd: ROOT, encoding: 'utf8', timeout: 110000, env: {...process.env, NODE_TEST_CONTEXT: ''}});
+    // The child takes about 93 s alone; allow headroom for concurrent full-suite load.
+    const childRun = promisify(execFile)(process.execPath, ['--input-type=module', '-e', CHILD], {cwd: ROOT, encoding: 'utf8', timeout: 240000, env: {...process.env, NODE_TEST_CONTEXT: ''}});
     const a = await runVillageLeadLine();
     try {
         assert.deepEqual(a.minutes.map(m => Math.floor(m / 1440)), [1, ...DATES]);
