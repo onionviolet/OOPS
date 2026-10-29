@@ -20,6 +20,10 @@ export function defineTopicTalks(data,{worldId,actorId='player',group,situationI
    // Restrict this adapter to effects with an existing social owner and a clear
    // pre-commit quote. Other mechanisms belong in their owning command adapter.
    if(effects.some(e=>!['knowledge','relationship','reputation','event'].includes(e.type)||e.type==='knowledge'&&!e.basis))throw Error('Topic effects need an existing owner and knowledge basis.');
+   // Pack evidence may identify the observer and source locator without the
+   // runtime situation. Bind that missing context at the host seam; preserve
+   // an explicit attribution and every authored basis field.
+   for(const effect of effects)if(effect.type==='knowledge'&&effect.basis.situationId===undefined)effect.basis.situationId=situationId;
    const receiptKey=`topic.talk.${id}`;
    effects.push({type:'knowledge',actor:actorId,key:receiptKey,stage:'seen',value:choice.report,
     basis:{kind:'observation',attributedTo:actorId,situationId,personId:row.personId,topicId:row.topicId,

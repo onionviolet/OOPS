@@ -61,6 +61,18 @@ test('lost participant cancels supported work, returns reserved costs, grants no
 test('bad rows cannot silently omit unsupported effects, attribution or duplicate choices',()=>{
  for(const change of [r=>r.choices[0].effects.push({type:'fact',key:'fixture.x',value:true}),r=>delete r.choices[0].effects[0].basis,r=>r.choices.push(r.choices[0]),r=>r.minutes=-1,r=>r.hour=24]){const bad=structuredClone(data);change(bad.talks[0]);assert.throws(()=>defineTopicTalks(bad,binding));}
 });
+test('generator-shaped source attribution binds the host situation through native registry validation',()=>{
+ const row=structuredClone(data.talks[0]);
+ row.choices[0].effects=[{type:'knowledge',actor:person,key:'fixture.source.result',value:'A source-qualified result.',stage:'seen',basis:{kind:'observation',at:'fixture p1',attributedTo:person}}];
+ const original=structuredClone(row),defs=defineTopicTalks({talks:[row]},binding);
+ assert.deepEqual(row,original,'binding does not mutate pack data');
+ assert.deepEqual(defs[0].effects[0].basis,{...original.choices[0].effects[0].basis,situationId:I.situation});
+ assert.doesNotThrow(()=>createSimulationRegistry({commands:defs}));
+ const explicit=structuredClone(row);explicit.choices[0].effects[0].basis.situationId='fixture.other.situation';
+ assert.equal(defineTopicTalks({talks:[explicit]},binding)[0].effects[0].basis.situationId,'fixture.other.situation');
+ const invalid=structuredClone(row);invalid.choices[0].effects[0].basis.kind='invalid';
+ assert.throws(()=>createSimulationRegistry({commands:defineTopicTalks({talks:[invalid]},binding)}),/Invalid knowledge attribution/);
+});
 
 test('prepared host and save patches round-trip native topic jobs, choices and receipts', {timeout:180000}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
@@ -76,13 +88,13 @@ test('prepared host and save patches round-trip native topic jobs, choices and r
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
- for(const name of ['D2_INTEGRATION.patch','D2_SAVE_INTEGRATION.patch']){
+ for(const name of ['D2_INTEGRATION.patch','D2_SAVE_INTEGRATION.patch','D2_LOAD_INTEGRATION.patch']){
   const patch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes',name);
   let integrated=false;try{await exec('git',['apply','--reverse','--check',patch],{cwd:dir});integrated=true;}catch{}
   if(!integrated){await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});}
  }
  const mainFile=join(dir,'src/main.js');
- await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as d2CastReady} from './book_world_lotm_cast_days.js';\nimport {castTalkPreview as d2Presence} from './book_world_lotm_cast_host.js';\nexport const d2AwayPreview=()=>{const s=structuredClone(expansionState);s.clock=s.lotm.initializedAt+101;return d2Presence(s,{id:'book.lotm.fixture_offer.agree',targetId:'fixture.person.relative'},{visible:true,eligible:true,reasons:[]});};\nexport const d2EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const d2Validate=save=>validateSaveEnvelope(save,game_version);\nexport const d2Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
+ await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as d2CastReady} from './book_world_lotm_cast_days.js';\nexport {castAvailable as d2CastAvailable} from './book_world_lotm_cast_host.js';\nimport {LOTM_PROFILES as d2Profiles} from './book_world_lotm_lives.js';\nexport const d2BeProfile=()=>d2Profiles.be;\nimport {castTalkPreview as d2Presence} from './book_world_lotm_cast_host.js';\nexport const d2AwayPreview=()=>{const s=structuredClone(expansionState);s.clock=s.lotm.initializedAt+101;return d2Presence(s,{id:'book.lotm.fixture_offer.agree',targetId:'fixture.person.relative'},{visible:true,eligible:true,reasons:[]});};\nexport const d2EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const d2Validate=save=>validateSaveEnvelope(save,game_version);\nexport const d2Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
  const evidence={label:'I',locator:'fixture p1'},people=['lead','relative'].map(id=>({id:`fixture.person.${id}`,indexId:`fixture.person.${id}`,name:id,tier:'principal',relations:[],knows:[],wants:[],...evidence}));
  const schedule=[{id:'fixture.slot',actor:people[1].id,place:'fixture.place.other',day:1,until:1,from:0,to:100,recurrence:'once',...evidence}];
  const beat={id:'fixture.beat',scene:'fixture.scene',actor:people[0].id,place:'fixture.place.other',dayIndex:1,until:1,needs:{fact:'fixture.unmet',value:true},effects:[{fact:'fixture.canon',value:true}],...evidence};
@@ -93,7 +105,7 @@ test('prepared host and save patches round-trip native topic jobs, choices and r
   leadLife:{actorId:people[0].id,profile:{id:'book.lead.be@1',key:'be',label:'Be a person',beyonderTrack:false,cash:1,home:null,start:'fixture.place.other',blurb:'Begin at home.'},knownPlaces:['fixture.place.other'],history:[],relations:[],intentions:[],untakenChoices:[]},
   topicTalks:{talks:[
    {id:'book.lotm.fixture_offer',personId:people[1].id,topicId:'fixture.help',label:'An offer',description:'Discuss helping with a task.',minutes:2,choices:[
-    {id:'agree',label:'Agree to help',report:'You agreed to help.',effects:[{type:'knowledge',actor:people[1].id,key:'fixture.answer',stage:'seen',value:'Help was offered.',basis:{kind:'observation',attributedTo:'player',situationId:'book.lotm.tingen.canon_beside'}},{type:'relationship',actor:people[1].id,target:'player',axis:'trust',amount:1,text:'Help was offered.'}]},
+    {id:'agree',label:'Agree to help',report:'You agreed to help.',effects:[{type:'knowledge',actor:people[1].id,key:'fixture.answer',stage:'seen',value:'Help was offered.',basis:{kind:'observation',at:'fixture p1',attributedTo:people[1].id}},{type:'relationship',actor:people[1].id,target:'player',axis:'trust',amount:1,text:'Help was offered.'}]},
     {id:'refuse',label:'Refuse politely',report:'You refused politely.',effects:[]}]},
    {id:'book.lotm.fixture_question',personId:people[1].id,topicId:'fixture.route',label:'Ask directions',description:'Ask where to help.',minutes:1,knowledgeKey:'topic.talk.book.lotm.fixture_offer.agree',hour:0,choices:[{id:'ask',label:'Ask for directions',report:'You learned the way.',effects:[]}]},
    {id:'book.lotm.fixture_away',personId:people[1].id,topicId:'fixture.later',label:'Ask later',description:'Discuss another visit.',minutes:1,place:'fixture.place.away',choices:[{id:'ask',label:'Ask later',report:'You discussed a visit.',effects:[]}]}
@@ -129,6 +141,8 @@ try {
  job.effects[0].value='Altered';assert.throws(()=>g.module.d2Validate(changed),/exact admitted definition/);
  await g.reload();assert.equal(g.internals.foundationSaveBlocked,false);await g.step(3);saved=await g.save();
  assert.equal(saved.expansion.simulation.knowledge['fixture.person.relative']['fixture.answer'].value,'Help was offered.');
+ assert.equal(saved.expansion.simulation.knowledge['fixture.person.relative']['fixture.answer'].basis.situationId,'book.lotm.tingen.canon_beside');
+ assert.equal(saved.expansion.simulation.knowledge['fixture.person.relative']['fixture.answer'].basis.at,'fixture p1');
  assert.equal(saved.expansion.simulation.relationships['fixture.person.relative'].player.axes.trust,1);
  assert.equal(saved.expansion.simulation.knowledge.player['topic.talk.book.lotm.fixture_offer.agree'].value,'You agreed to help.');
  assert.equal(button('book.lotm.fixture_question.ask').disabled,false,'settled knowledge opens the next topic');
@@ -144,4 +158,24 @@ try {
 `);
  try{await exec(process.execPath,[worker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
+ // A malformed basis must take the existing missing-pack route before any
+ // registry installation, rather than leaving boot rejected or half-loaded.
+ pack.topicTalks.talks[0].choices[0].effects[0].basis.kind='invalid';
+ await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
+ const invalidWorker=join(dir,'d2-invalid-worker.mjs');
+ await writeFile(invalidWorker,`
+import assert from 'node:assert/strict';
+import {boot} from './scripts/headless/runner.mjs';
+const g=await boot(null,{seed:37,heroName:null});
+try {
+ assert.equal(await g.module.d2CastReady(),null);
+ assert.equal(g.module.d2CastAvailable,false);
+ assert.equal(g.module.d2BeProfile().label,'Cast unavailable');
+ assert.match(g.module.d2BeProfile().blurb,/private cast pack absent/i);
+ assert.throws(()=>g.module.d2EnrollBe(),/available Tingen starts/);
+ assert.deepEqual(g.errors,[]);
+} finally {g.close();}
+`);
+ try{await exec(process.execPath,[invalidWorker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
+ catch(error){assert.fail(`Invalid-pack fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

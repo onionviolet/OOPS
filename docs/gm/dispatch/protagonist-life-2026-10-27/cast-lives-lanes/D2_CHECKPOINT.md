@@ -191,3 +191,77 @@ Test input hashes: `src/perspective_controls.js` SHA-256
 `src/book_world_lotm_state.js` `9981fb4a44fb1a289658aa8bad6448e2cae070c8468c944c8d99aa397c4729cf`.
 The full pre-commit suite and rebuilt desktop browser gate remain with the
 coordinator. This resume does not claim browser or human review.
+
+## Resume 2: generated attribution and invalid-pack loading
+
+Status: adapter fix implemented and agent-verified in synthetic and real-pack
+Node/native headless fixtures. Loader recovery is a prepared patch, not applied
+to the shared loader. No browser proof, commit, private-pack edit or player-save
+access. Rules: AR3, AR7, AR8, AR10, AR16, AD36, AD43, CLR3, CLR4, CLR9, CLR11.
+
+The candidate's 13 topic rows passed the existing cast-pack validator, but two
+knowledge effects (rows 5 and 6 by array order) failed the **actual**
+`createSimulationRegistry` path used by `installCast`. Their `basis` has
+`kind`, `attributedTo`, and source locator `at`, but no `situationId`.
+`src/causal_situations.js:55` requires a stable `situationId` along with a
+valid kind and stable attribution. The actor and attributed person IDs in these
+rows resolve to people in this candidate. With the host situation supplied, all
+13 command definitions pass native registry validation.
+
+The adapter already receives `situationId` as its host binding and supplies it
+for its own observation receipt. It now fills that same missing runtime context
+on authored knowledge effects, preserving the source locator, attribution,
+explicit situation and other basis fields; it does not mutate the pack. An
+explicit invalid situation or other malformed attribution is still rejected by
+the native validator. This is a host-context default, not evidence that the
+source actually supports the generated knowledge or the named receiver. D3/R3
+still owns source review and the generator. No generator file was edited.
+
+The prior shared load path does **not** reject this bad row cleanly: pack
+validation does not validate topic commands, while the later `installCast`
+registry call can throw `Invalid knowledge attribution.` The coordinator's
+browser reproduction hung at loading. [D2_LOAD_INTEGRATION.patch](D2_LOAD_INTEGRATION.patch)
+preflights authored topic commands through `defineTopicTalks` and the actual
+`createSimulationRegistry` inside the loader's existing catch boundary. The
+existing missing-pack route returns `null`, marks cast unavailable and supplies
+its missing-pack profile; this is the existing availability state, not a new
+typed error object. A synthetic malformed-basis headless fixture boots through
+that prepared patch, observes the unavailable profile and captures no errors.
+The patch is unapplied in the shared checkout. It covers command-definition
+and adapter errors caught at that seam; it does not establish that every
+semantically invalid cross-reference or a missing-pack pending save recovers.
+The coordinator must reconcile it with concurrent loader changes and verify
+browser behavior.
+
+**Additional integration finding:** all 13 candidate row IDs start with
+`topic.`, so their command IDs do not start with `book.lotm.`. The Tingen exact
+admitted-job check in `src/book_world_lotm_state.js:54-57` filters on the latter
+prefix before looking up `castTopicCommands`. Consequently these generated jobs
+skip that exact-effects check, despite general simulation job validation. The
+original synthetic test uses a `book.lotm.` command and does not cover this
+candidate mismatch. Before adopting these rows, R3/coordinator should assign
+stable Tingen-prefixed generated command IDs or change the validator's ownership
+filter, with a pending-job tamper and save/reload regression. This finding is not
+fixed by the attribution or loader patch.
+
+| Check | Result and gap |
+| --- | --- |
+| Per-row Node probe: real candidate -> `defineTopicTalks` -> `createSimulationRegistry` | Before fix: 2/13 rejected for missing basis situation; adding host context: 13/13 accepted. Registry validity only, not content/source review. |
+| Real candidate Node probe -> `whenCastLoaded` -> actual `installCast(expeditionRegistry)` | PASS: 13/13 topic commands installed, cast available. No player journey. |
+| `node --test tests/cast_topic_talk.test.js` | PASS 7/7. Generator-shaped basis passes native registry and real native install, settles with attribution and locator retained; invalid basis takes the missing-pack path with prepared loader patch; Save/reload/Export/Import fixture passes. Synthetic headless, not browser. |
+| `node d2-real-pack-check.mjs` in `/tmp/yairpg-d2-r2-rbaq6pg0` | PASS: real candidate boots in disposable headless native harness, 13 topic commands installed, no captured errors. Fixture-only exports; no browser or real save. |
+| `npm run check:arch` in patched disposable candidate | PASS: main -59, display -37, saves 0 growth; 6 grandfathered imports, 205 cycle edges. |
+| `BUILD_OUT=/tmp/yairpg-d2-r2-build npm run build` in patched disposable candidate | PASS after removing test-only exports; bundle SHA-256 `98bdbae98f28a697bf20d93923cd4934e73b097c6ef5813bef27bfe9a09fb509`. Not browser-exercised. |
+| `git apply --check --whitespace=error D2_LOAD_INTEGRATION.patch` | PASS against current shared loader; patch remains unapplied. |
+| `git diff --check -- src/cast_topic_talk.js tests/cast_topic_talk.test.js` | PASS for tracked source/test edits. |
+| `node scripts/lane_review.mjs` with four explicit grants | FAIL: one private-name match in the test file, already present in committed HEAD; adapter has none. Separate same-rule scan of newly added source/test lines: 0 matches among 325 current private names. This is an inherited scanner hit, not a clean whole-file lane-review pass. |
+
+Input SHA-256: adapter `338adb17c2a592b12144aad48310dadb264cf8d410802fde7c0bae54b3d045be`;
+test `f9121edb760329134954f006e7da0250850fb0242bd23c311e4e5659d0bf2e2f`;
+prepared patch `11ba88581e26295d9cd957afa10bf8d0d384e8b5d604199ac356dc9e8569b064`;
+private candidate `8d000a138e268cb3149038baf04abd7dcb12be2f5262f405d2cedac8162eed79`.
+HEAD observed: `79f081eb3af49c4e21dbe2353acfa4d4a51bd49e`. FLR1 built fixture
+bundle; FLR2 fixture route only; FLR3 browser pending; FLR4 native registry and
+synthetic settlement exercised, real generated content not played; FLR5
+synthetic native persistence exercised; FLR6 agent-verified, not human-reviewed,
+below floor. Coordinator owns the combined full suite and rebuilt desktop gate.
