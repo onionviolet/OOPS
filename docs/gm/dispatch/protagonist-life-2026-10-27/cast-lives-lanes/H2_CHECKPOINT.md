@@ -95,3 +95,78 @@ Changed files: `src/place_acts.js`, new `src/place_act_operations.js`,
 `scripts/lead_run/build_place_acts.mjs`, `tests/place_acts.test.js`, new
 `tests/place_act_operations.test.js`, `tests/build_place_acts.test.js`,
 `tests/merge_reviewed_rows.test.js`, and this checkpoint.
+
+## Resume 1: reviewed act save investigation
+
+Input: live pack SHA-256 `9fe7cf49def248e3b54531ffb5a0e2149103258e36dd309d9af309a83c8d52d9`, HEAD `3e1acddd944bc164ea2190534fd54273f39aed17`, dirty lane changes. AR3, AR7, AR10, AD36, AD43, CLR3 and CLR12. Node/headless only; Chrome was unavailable by instruction.
+
+The fact-effect validator and expansion-domain save validator both accept strings. Both fact keys in the reported row are seeded by its object. A registry scan of 52 reviewed rows found **0 invalid fact-effect rows** (IDs: none); it checked JSON safety and the actual simulation registry/effect contract. The checked fact effects comprised 12 booleans and 9 strings. The exact row, copied verbatim with its object from the live pack into a disposable synthetic native fixture, started, settled, saved, reloaded, exported and imported successfully. That fixture seeded its precondition and started at the row's real place; it is not the coordinator's replay state.
+
+A separate validator lookup defect was found: before this change, the following **52 reviewed IDs** did not enter the Tingen exact-admitted-definition check because they lacked its usual prefix. The lookup now recognizes registered place-act commands, including when the Tingen owner is absent. The original settled-save failure has not yet been attributed to this lookup. IDs:
+
+- `rv7.lr.lotm.main.302.1`
+- `rv7.lr.lotm.main.303.1`
+- `rv7.lr.lotm.main.304.1`
+- `rv7.lr.lotm.main.306.1`
+- `rv7.lr.lotm.main.308.1`
+- `rv7.lr.lotm.main.404.1`
+- `rv7.lr.lotm.main.405.2`
+- `rv7.lr.lotm.main.405.3`
+- `rv7.lr.lotm.main.408.1`
+- `rv7.lr.lotm.main.503.2`
+- `rv7.lr.lotm.main.702.1`
+- `rv7.lr.lotm.main.703.1`
+- `rv4.lr.lotm.main.001.2`
+- `rv4.lr.lotm.main.001.3`
+- `rv4.lr.lotm.main.002.1`
+- `rv4.lr.lotm.main.002.2`
+- `rv4.lr.lotm.main.002.3`
+- `rv4.lr.lotm.main.003.2`
+- `rv4.lr.lotm.main.003.3`
+- `rv4.lr.lotm.main.003.4`
+- `rv4.lr.lotm.main.005.4`
+- `rv4.lr.lotm.main.005.5`
+- `rv6.lr.lotm.main.102.3`
+- `rv6.lr.lotm.main.102.5`
+- `rv6.lr.lotm.main.105.1`
+- `rv6.lr.lotm.main.106.2`
+- `rv6.lr.lotm.main.106.3`
+- `rv6.lr.lotm.main.106.4`
+- `rv6.lr.lotm.main.106.5`
+- `rv6.lr.lotm.main.110.2`
+- `rv6.lr.lotm.main.111.2`
+- `rv8.lr.lotm.main.704.2`
+- `rv8.lr.lotm.main.804.1`
+- `rv8.lr.lotm.main.903.1`
+- `rv9.lr.lotm.main.1004.1`
+- `rv9.lr.lotm.main.1101.3`
+- `rv9.lr.lotm.main.1108.2`
+- `rv9.lr.lotm.main.1201.1`
+- `rv9.lr.lotm.main.1204.1`
+- `rv9.lr.lotm.main.1213.1`
+- `rv9.lr.lotm.main.1214.3`
+- `rv9.lr.lotm.main.1304.2`
+- `rv9.lr.lotm.main.1403.3`
+- `rv9.lr.lotm.main.1406.3`
+- `rv9.lr.lotm.main.1506.1`
+- `rv9.lr.lotm.main.1604.4`
+- `review.rv10.lr.lotm.main.2504.2`
+- `review.rv10.lr.lotm.main.2507.2`
+- `review.rv10.lr.lotm.main.2704.1`
+- `review.rv10.lr.lotm.main.2804.2`
+- `review.rv10.lr.lotm.main.2805.2`
+- `review.rv10.lr.lotm.main.2906.3`
+
+The full live pack was also copied read-only into the disposable Node fixture. At its original starting place, with the row's required precondition explicitly set, the real row started, settled, saved, reloaded, exported and imported. Its fact values survived the real validator and both persistence cycles. This fixture did not recreate the coordinator's preceding replay actions or timing, so the coordinator's reported failure remains **unreproduced and unresolved**; the lookup correction is independently verified, not established as its cause.
+
+| Check / input | Result | Gap |
+|---|---|---|
+| `H2_REAL_FULL=1 H2_REAL_ACT_ID=<reported ID> node --test --test-name-pattern='be-seat native pending' tests/place_acts.test.js` | PASS, 1 test, 97.2s; full live pack, real row, real native validator, Save/reload/Export/Import | Fixture-supplied precondition, not the prior replay. An earlier 160s full-pack attempt timed out with no stage evidence; timed rerun passed. |
+| `H2_REAL_ACT_ID=<reported ID> node --test --test-name-pattern='be-seat native pending' tests/place_acts.test.js` | PASS, 1 test, 147.8s; exact row and object with synthetic surrounding pack | Fixture route; not the full replay. |
+| `node --test --test-name-pattern='^(?!be-seat native)' tests/place_acts.test.js tests/place_act_operations.test.js tests/build_place_acts.test.js tests/merge_reviewed_rows.test.js` | PASS, 23/23, including native fixture and non-prefixed pending-job tamper rejection | Focused suite only; the pattern also ran the native test in this Node version. |
+| `npm run check:arch` | PASS; main -51, display -37, save writer 0; 205 grandfathered cycle edges | No architecture growth. |
+| `BUILD_OUT=/tmp/yairpg-h2-resume-build npm run build` | PASS; bundle SHA-256 `bd95ce00728ca46caef2ff3ca0881a3504a350e2d49b7ad3ff8971a0de74f652` | Isolated build only; not browser-proven. |
+| `node scripts/lane_review.mjs` with three explicit changed-path grants | Scope and await checks pass; two files flagged | Manual comparison found only pre-existing generic/private-name collisions; no new canon content. |
+| `git diff --check` on three owned paths | PASS | Whitespace only. |
+
+No save slice or migration changed. The coordinator needs the original pre-click save or an equivalent replay-state capture plus the underlying `persistExpansion` exception to diagnose the remaining failure. No Chrome run, private-pack edit, commit or push. Highest state: agent-verified native fixtures, not human-reviewed; the replay-specific failure remains below floor. Files released: `src/book_world_lotm_state.js`, `tests/place_acts.test.js`, this checkpoint.
