@@ -273,3 +273,33 @@ transcript); the earlier coordinator session stops launching, resuming, reviewin
 - 01:40 M3 `88beade60`, M4 `558aae1f1` (whole book: 8 volumes, 3,444 lead rows incl. 346 persona rows; outputs copied to private `m4-whole-book-2026-10-29/`). First be replay ch1-3: 0/18 (8 missing verbs, 7 stale `needs seat: be`, 1 walk id, 1 dawn wait, 1 CLR1 rejection); null-player hashes differ (compare at a fixed game time next). P5 `c2e199776` and F1 `0e6dd6928` committed after suite 3914/3915 (the one failure was the replay test, updated) and floors on bundle `b273a71d`: be start, canon run, reload keeps state, no page errors before pack-absent; beside floor pageErrors none, Save/reload/Export/Import PASS, 349-minute wait 18.7-21.7 s (was 50.1 s), 1,062-1,095 ms per game minute (was 1,240). Gaps: F1 battle journeys not browser-compared (126 unit replay cases with save bytes); be wait timing not browser-measured. X1 `1257d88c2`: generator, ch1-24 1,491 steps, 0 walk/talk matches. H1 (everyday acts, Sol) and X2 (place/person resolution, Luna) running. R1's pack swap waits for H1's pack rows; rerun `build_cast_pack.mjs` with the new base, then swap after a browser check. Codex weekly 23%.
 - 02:20 Replay ch1-3 on X1's be mapping: 1/18 reached in order (the dawn wait), fidelity 0.056. X2 `42c0d87ab` (place 21%, person 36% resolved, ch1-24). Generator walks to each scene place `(next commit)`: walks 6 to 29. R2 `36d9546a0` places stage (+41 places, resolution 0.30) resumed: new places lack `travel`, so they are not walk targets. H1 applied in the tree (not committed): Things at hand renders eight acts with minutes, costs and blocked reasons at 1920×1080, zero errors before an act; **after the first act, autosave fails and saving locks** ("Saving disabled after a loading error"); H1 resumed with the repro. V2 (generated-mapping replay adapter, fixed-minute null-player compare) launched. Codex weekly 25%.
 - 03:10 H1 `1379cad59` (save validator fixed; act runs in the browser with zero errors; suite 3931/3932, the one failure a missing perspective tag, fixed). V2 `5ab5d1072`. Generator walks 53, talks 117 (ch1-24, candidate pack). Combined R1+R2 pack (204 people, 89 places, 52 walkable) valid and passes the beside floor but is 4x slower (4,258 ms per game minute, 349-minute wait 90.7 s); live pack restored, candidate kept in private `pack-backups/`; P6 (role-tier cost, Sol) launched. Codex weekly 26%.
+
+### Handoff to the Sonnet coordinator (2026-10-29 03:15; Weibao: "hand off and then transition to having sonnet work through this overnight and coordinating them, work until entire lotm absorbtion, no need to message between chats")
+
+The overnight coordinator is a new Sonnet session; the vision-doc session stops coordinating. No cross-chat messages.
+Scratch tools (copies) are in the shared notes folder `cast-lives-tools/`: `wait_lanes.sh NAME=PID` (background wait
+that re-invokes you), `canon_sweep.py <files>` (capitalized-token canon check; common words such as Observed, Known,
+Gate are false positives; Tingen and Seer are public terms already in `src/`), `b1_floor.cjs` / `h1_floor.cjs` (be-seat
+floor; edit `root` to the build dir; `h1_floor` probes Things at hand but does not press Play after its own reload
+step, so its act click can hit the loading screen), `scripts/floor/run_floor.cjs --build-out <dir>` (beside floor:
+Save/reload/Export/Import, timings). Build: `BUILD_OUT=/tmp/<lane> npm run build`, then
+`ln -sfn $PWD/private_packs /tmp/<lane>/private_packs`. Launch with `CODEX_LANE_MAX_USED=45` (raise to at most 85
+after 07:10 on 2026-10-29 if work remains; never let a window fill: paid credits sit behind it).
+
+Queue, in order (ON3 loop; one line per check in each lane's checkpoint; commit own paths; never push):
+1. **P6 running** (pid 92865, Sol): role-tier cost. On exit: review, apply its patch, full `npm test` once, rebuild,
+   swap the combined pack (`private/.../pack-backups/cast-r1r2-candidate-2026-10-29.json`; backup of live is
+   `cast-before-r1r2-2026-10-29.json`), run both floors. Swap only if ms per game minute is within 1.5x of about 1,100.
+2. **Generator: household acts.** Map step verbs (look over, pay, light, wash/clean, check, eat, put away/take) to
+   H1's act ids (`book.lotm.household_*`, from the pack's `householdActs`) in `build_replay_mapping.mjs` (Luna lane).
+3. **Replays** (coordinator, Chrome): chapters 1-3 (`x1-be-mapping-2026-10-29/chapters-1-3.json`) and chapters 1-24
+   generated (V2 checkpoint command; regenerate the mapping with `--pack`), in `--max-steps` batches. Record fidelity
+   per chapter here.
+4. **Gap lanes from the replay ledger**, biggest verb class first (ch1-24 gaps: other 227, socialize 182, travel 117,
+   study 109, unknown 107, trade 105, ritual 102, research 82, appraise 73, fight 51): one Sol lane per mechanism
+   family (LSD60 order: relationships R1-bonds, work and household E1, witness K1, law LW1, needs N1, conflict F1 step 2),
+   at most two `src/` writers with disjoint grants; Luna for data and scripts.
+5. **Ladder** (ON5): when chapters 1-24 stop rising on their own gaps, generate and replay volume 1 in arcs
+   (ch25-213), then volumes 2-8 (M4 output; review the 706 persona candidates privately first).
+Out of scope: pushes, paid reading (November retry list: 47 census partials and 7 people parse failures in volumes
+2-8, and a 1.4 re-read of volumes 2-8, are Weibao's call), deleting `~/.codex/worktrees/q*`.
