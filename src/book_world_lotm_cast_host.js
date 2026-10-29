@@ -10,11 +10,14 @@ import {lotmWalkMinutes,districtOfPlace} from './book_world_lotm_districts.js';
 import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {cmd,eq} from './book_world_lotm_kit.js';
 import {waitUntilOptions} from './wait_until.js';
+import {BE_PROFILE_ID} from './seat_profiles.js';
 
 export const LOTM_BESIDE_PROFILE='lotm.early_tingen.canon_beside@1';
 export const lotmBeside=state=>state?.lotm?.entryProfile===LOTM_BESIDE_PROFILE;
+export const lotmBe=state=>state?.lotm?.entryProfile===BE_PROFILE_ID;
+export const lotmCastLife=state=>lotmBeside(state)||lotmBe(state);
 export function castWaitOptions(state,{appointments=[],reason=''}={}){
- if(!lotmBeside(state)||!castAvailable)return [];
+ if(!lotmCastLife(state)||!castAvailable)return [];
  return waitUntilOptions(state.clock,{epoch:state.lotm.initializedAt,appointments})
   .map(q=>({...q,eligible:!reason,reasons:reason?[reason]:[]}));
 }
@@ -88,9 +91,12 @@ export function castCalendar(state){
 // Mutates a caller-owned plan/copy only. Availability is projected, not saved in a
 // second location field. An inactive row leaves the last physical location alone.
 export function syncLotmCast(state){
- if(!lotmBeside(state)||!castAvailable)return false;
+ if(!(lotmBeside(state)||lotmBe(state))||!castAvailable)return false;
  const at=castCalendar(state);let changed=false;
  for(const person of castPeople){const body=state.simulation.people[person.id];if(!body)continue;
+  // In a be life the pack-selected person is driven by the player, never by
+  // the NPC schedule. The native player body remains the location authority.
+  if(lotmBe(state)&&person.id===LOTM_CAST.leadLife?.actorId)continue;
   const result=whereabouts(castSchedule,person.id,at);
   if(result.place!=null&&body.location!==result.place){body.location=result.place;changed=true;}
  }
@@ -101,7 +107,7 @@ export function syncLotmCast(state){
 }
 // Same quote is used by the action list and immediately before commit (AR7).
 export function castTalkPreview(state,def,preview){
- if(!lotmBeside(state)||!talkIds.has(def?.id))return preview;
+ if(!lotmCastLife(state)||!talkIds.has(def?.id))return preview;
  const at=castCalendar(state),result=whereabouts(castSchedule,def.targetId,at);
  const playerPlace=state.simulation.people.player.location;
  if(result.place!=null&&result.place===playerPlace)return preview;
@@ -131,7 +137,7 @@ const makeCastWalkCommands=()=>[...Object.values(L),...castPlaces.map(p=>p.id)].
 // schedule, meeting or new start is granted by these placeholders.
 export const dormantCastPlace=id=>typeof id==='string'&&/^lotm\.place\.cast-[a-f0-9]{20}$/.test(id);
 export function restoreUnavailableCast(state,registry,place=()=>{}){
- if(castAvailable||!lotmBeside(state))return;
+ if(castAvailable||!lotmCastLife(state))return;
  for(const [id,body] of Object.entries(state.simulation?.people||{})){
   if(!/^lotm\.(?:person\.cast-[a-f0-9]{20}|role\.[a-z][a-z0-9-]*)$/.test(id)||registry.simulation.people.has(id))continue;
   registry.simulation.people.set(id,{id,revision:body.definitionRevision||1,label:'Cast unavailable',worldId:I.world,
@@ -169,7 +175,7 @@ const terminalBeat=row=>row&&['carried','altered','blocked','lapsed'].includes(r
 // The same authored day/minute projection used by settlement, without exposing
 // the underlying beat or maintaining a second clock.
 export function nextCastBeatTime(state,through,ledger,pack=getPrivateLotmCast()){
- if(!lotmBeside(state)||!pack?.bindings)return null;
+ if(!lotmCastLife(state)||!pack?.bindings)return null;
  const days=new Map(pack.bindings.days.map(d=>[d.scene,d]));let next=null;
  for(const b of pack.bindings.beats){
   if(terminalBeat(ledger?.done?.[b.id]))continue;
@@ -181,11 +187,26 @@ export function nextCastBeatTime(state,through,ledger,pack=getPrivateLotmCast())
 }
 const castKnown=(state,id)=>['known','met'].some(kind=>state.simulation?.knowledge?.player?.[`book.lotm.cast.${kind}.${id}`]);
 const renderCastReport=r=>renderRefs(r.template,{names:r.names}).replace(/^(\s*\p{Ll})/u,letter=>letter.toUpperCase());
+// D1 may replace this projection with conditioned constraints. The source beat
+// remains authoritative; this lane does not introduce a constraint store.
+export function canonBeatForLife(beat,isLead,mode){
+ if(!isLead||mode!=='canon')return beat;
+ return {...beat,needs:null,mechanism:null,deps:[],altered:[]};
+}
+// D1 replaces this narrow explicit-fact check with reservations over the
+// effects of a command and the full set of canon constraints.
+export function canonActionDecision(state,def,pack=getPrivateLotmCast()){
+ if(!lotmBe(state)||state.lotm.runMode!=='canon')return {allowed:true};
+ const fixed=new Map((pack?.bindings?.beats||[]).flatMap(b=>(b.effects||[]).filter(e=>Object.hasOwn(e,'value')).map(e=>[e.fact,e.value])));
+ for(const effect of [...(def?.costs||[]),...(def?.effects||[])])
+  if(effect.type==='fact'&&fixed.has(effect.key)&&(!Object.hasOwn(effect,'value')||effect.value!==fixed.get(effect.key)))return {allowed:false,reason:'Not how it happened'};
+ return {allowed:true};
+}
 export function castBeatReports(ledger){
  return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderCastReport(r)}));
 }
 export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
- if(!lotmBeside(state)||!pack)return [];
+ if(!lotmCastLife(state)||!pack)return [];
  const reports=castBeatReports(ledger);
  return pack.people.filter(p=>castKnown(state,p.id)).map(p=>({id:p.id,name:p.name,
   location:'Known from your local meetings and received accounts',
@@ -193,13 +214,13 @@ export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
   memories:reports.filter(r=>r.actor===p.id).map(r=>({id:r.beat,at:r.at,text:r.text}))}));
 }
 export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLotmCast()){
- if(!lotmBeside(state)||!pack?.bindings)return {ledger,results:[],reports:[]};
+ if(!lotmCastLife(state)||!pack?.bindings)return {ledger,results:[],reports:[]};
  const elapsed=Math.max(0,state.clock-state.lotm.initializedAt),days=new Map(pack.bindings.days.map(r=>[r.scene,r]));
- const actor=id=>pack.people.find(p=>p.id===id)?.sameActorAs||id;
+ const actor=id=>{const resolved=pack.people.find(p=>p.id===id)?.sameActorAs||id;return lotmBe(state)&&resolved===pack.leadLife?.actorId?'player':resolved;};
  const place=id=>pack.placeAliases.find(p=>p.id===id||p.indexId===id)?.place||id;
  const due=pack.bindings.beats.filter(b=>{const d=days.get(b.scene);return d&&(d.day-1)*1440+d.from<=elapsed;});
  due.sort((a,b)=>{const x=days.get(a.scene),y=days.get(b.scene);return x.day-y.day||x.from-y.from;});
- const table=defineBeats(due.map((b,order)=>({...b,actor:actor(b.actor),order})));
+ const table=defineBeats(due.map((b,order)=>({...canonBeatForLife(b,lotmBe(state)&&actor(b.actor)==='player',state.lotm.runMode),actor:actor(b.actor),order})));
  let next=structuredClone(ledger);const results=[],reports=[],knowledgeWrites=[];
  // Reopen the resolver's current day when a later scene becomes due. Its done
  // map remains authoritative, so each terminal result and receipt is written once.
@@ -220,6 +241,11 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
    const schedule=(pack.bindings.schedule||[]).map(r=>({...r,actor:actor(r.actor),place:place(r.place)}));
    const present=[...new Set(schedule.map(r=>r.actor))].filter(id=>whereabouts(schedule,id,castCalendar(eventState)).place===place(beat.place));
    knowledgeWrites.push(...beatKnowledgeWrites(beat,result,{at,present,actor}));
+   if(lotmBe(state)&&beat.actor==='player'&&result.status==='carried'){
+    for(const k of beat.knows||[])if((k.audience==='actor'||(!k.audience&&!k.actor))&&k.key&&k.value)
+     knowledgeWrites.push({at,cause:beat.id,effect:{type:'knowledge',actor:'player',key:k.key,stage:k.stage||'seen',value:k.value}});
+    continue;
+   }
    if(!['carried','altered'].includes(result.status)||at!==state.clock)continue;
    // Each perception route is authored in the private pack. A footprint alone
    // does not grant access to private thoughts, dreams or remote news (RPT2).
@@ -248,7 +274,7 @@ export const castBeatsPending=state=>planLotmCastBeats(state,currentCastBeatLedg
 // The ledger rides the existing durable expansion envelope, then publishes to
 // its domain holder. A rejected save leaves both the holder and Reports alone.
 export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},writeKnowledge=(p,e,c)=>applySimulationEffects(p,e,{actorId:'player'},null,c)}={}){
- if(!lotmBeside(plan.state))return persist(plan);
+ if(!lotmCastLife(plan.state))return persist(plan);
  const out=planLotmCastBeats(plan.state,reset?newBeatState():currentCastBeatLedger());
  if(out.knowledgeWrites?.length){
   applyBeatKnowledge(plan,out.knowledgeWrites,writeKnowledge);

@@ -4,7 +4,8 @@ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lot
 import {lotmCommands,lotmSources,lotmPowers,lotmEnergies} from './book_world_lotm_actions.js';
 import {createLotmState} from './book_world_lotm_state.js';
 import {LOTM_HOSTILES,hostileAbilityCommands,abilityConditions} from './book_world_lotm_abilities.js';
-import {LOTM_PROFILES} from './book_world_lotm_lives.js';
+import {LOTM_PROFILES,validLeadLife} from './book_world_lotm_lives.js';
+import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BENCH_STOCK,STOCK_REV_KEY,LOTM_CHARACTERISTIC as CORE} from './book_world_lotm_bench.js';
 import {LOTM_BENCH_ITEMS,FORMULA_ROWS_REVISION} from './lotm_formula_rows.js';
 import {RITE_ITEMS} from './book_world_lotm_ritual.js';
@@ -57,19 +58,21 @@ export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of L
 // Pure enrollment of the original probationer branch (plan S2 prototype start).
 // The caller owns the publication; this changes only the passed state.
 export function enrollLotmBranch(state,profile='probationer'){
- if(profile==='beside'&&!castAvailable)throw Error('Cast unavailable: private pack absent.');
+ if((profile==='beside'||profile==='be')&&!castAvailable)throw Error('Cast unavailable: private pack absent.');
+ const lead=profile==='be'?getPrivateLotmCast()?.leadLife:null;
+ if(profile==='be'&&(!validLeadLife(getPrivateLotmCast())||!castPeople.some(p=>p.id===lead.actorId)))throw Error('The book life needs its lead person.');
  const s=state.simulation;if(!s)throw Error('Enroll living-world services first.');
  if(state.actors.player.worldId===I.world)throw Error('The probationer branch is already enrolled.');
  state.worlds[I.world]||={facts:{},resources:{},completed:{}};state.actors.player.worldId=I.world;s.people.player.location=LOTM_PROFILES[profile].start;
  s.people.player.body={id:'native.player.body',form:'human',hands:2,mobile:true,ownerId:'player',controllerId:'player'};
- for(const d of [...lotmPeople,...(profile==='beside'?castPeople:[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
+ for(const d of [...(profile==='be'?[]:lotmPeople),...(profile==='beside'?castPeople:profile==='be'?castPeople.filter(p=>p.id!==lead.actorId):[])]){state.actors[d.id]||={facts:{},resources:{},completed:{},sources:{},techniques:{},worldId:d.worldId};
   Object.assign(state.actors[d.id],{worldId:d.worldId});Object.assign(state.actors[d.id].resources,d.resources);
   if(d.inventory==='simulation')s.owners[d.id]={};
   s.people[d.id]={life:'alive',inventory:d.inventory,location:d.location,bornAt:state.clock,definitionId:d.id,definitionRevision:d.revision,vitals:{...d.vitals},
    body:{id:`native.person.${d.id}.body`,form:'human',hands:2,mobile:true,ownerId:d.id,controllerId:d.id}};}
- state.actors[I.broker].resources[STOCK_REV_KEY]=FORMULA_ROWS_REVISION;
+ if(profile!=='be')state.actors[I.broker].resources[STOCK_REV_KEY]=FORMULA_ROWS_REVISION;
  state.lotm=createLotmState(state.clock,LOTM_PROFILES[profile].id);
- if(profile==='beside'){
+ if(profile==='beside'||profile==='be'){
   applySituationEffect(state,{type:'situation',situationId:LOTM_CAST_SITUATION,operation:'begin',definition:castSituation},null,'book.lotm.enroll.beside');
   syncLotmCast(state);
  }

@@ -29,6 +29,7 @@ const rows = [
   {id: 'menu.save', kind: 'menu', anchor: '#save_button', tag: 'system', basis: 'Saving preserves the current game state.'},
   {id: 'menu.export', kind: 'menu', anchor: '#save_to_file_button', tag: 'system', basis: 'Export is a game data operation.'},
   {id: 'menu.import', kind: 'menu', anchor: '#load_from_file_button', tag: 'system', basis: 'Import is a game data operation.'},
+  {id: 'menu.new-life', kind: 'menu', anchor: '#be_new_life', tag: 'system', basis: 'Starting another life is a game data operation.'},
   {id: 'menu.game-menu', kind: 'menu', anchor: '#game-bar-menu', tag: 'system', basis: 'The Menu contains interface and life-management controls.'},
   {id: 'control.start-picker', kind: 'panel-block', anchor: '[data-lotm^="pick_"]', tag: 'other-seat', basis: 'Each picker starts a different Tingen seat.'},
   {id: 'control.start-confirm', kind: 'panel-block', anchor: '[data-lotm^="enroll"]', tag: 'other-seat', basis: 'This confirmation starts a different Tingen seat.'},

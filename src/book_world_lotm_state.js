@@ -1,7 +1,7 @@
 // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
 // inert: no Tingen presence, job, means or knowledge may exist without it. The
 // only activation path is enrollLotmBranch (book_world_lotm_content.js).
-import {castWalkCommands,dormantCastWalk,lotmBeside} from './book_world_lotm_cast_host.js';
+import {castWalkCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
 import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
 import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
@@ -15,13 +15,14 @@ import {pathwayRows} from './book_world_lotm_rows.js';
 import {generatedRows} from './book_world_lotm_generated.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
+import {BE_PROFILE_ID} from './seat_profiles.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
 export const LOTM_ENTRY_PROFILE='lotm.early_tingen.local_probationer@1';
 export const lotmEnvelopeFields=['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','entryProfile'];
-export function createLotmState(clock,entryProfile=LOTM_ENTRY_PROFILE){return {schema:1,definitionRevision:1,sourceSnapshot:LOTM_SOURCE_SNAPSHOT,sourceHash:LOTM_SOURCE_HASH,initializedAt:clock,entryProfile};}
+export function createLotmState(clock,entryProfile=LOTM_ENTRY_PROFILE){return {schema:1,definitionRevision:1,sourceSnapshot:LOTM_SOURCE_SNAPSHOT,sourceHash:LOTM_SOURCE_HASH,initializedAt:clock,entryProfile,...(entryProfile===BE_PROFILE_ID?{runMode:'canon'}:{})};}
 export function validateLotmState(state){
  const d=state.lotm,s=state.simulation,a=state.actors||{};
  if(d==null){
@@ -33,16 +34,18 @@ export function validateLotmState(state){
  }
  jsonData(d);
  // `entry` (how this life got in, WER2-WER9) is optional: saves enrolled before it hold none and stay valid.
- assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'),'Unsupported Tingen branch fields.');
+ assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'||k==='runMode'),'Unsupported Tingen branch fields.');
  assert(!Object.hasOwn(d,'entry')||validEntryRecord(d.entry),'Unsupported Tingen entry record.');
  assert(d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===LOTM_SOURCE_SNAPSHOT&&d.sourceHash===LOTM_SOURCE_HASH&&PROFILE_IDS.includes(d.entryProfile),'Unsupported Tingen source or entry profile. Preserve this save for its matching reader.');
+ assert(d.entryProfile===BE_PROFILE_ID?d.runMode==='canon':!Object.hasOwn(d,'runMode'),'Unsupported life run mode. Preserve this save for its matching reader.');
+ assert(d.entryProfile!==BE_PROFILE_ID||!Object.hasOwn(d,'entry'),'A lead life has no crossing entry. Preserve this save for its matching reader.');
  assert(natural(d.initializedAt)&&d.initializedAt<=state.clock,'Invalid Tingen activation time.');
  assert(s&&a.player?.worldId===I.world&&state.worlds?.[I.world]&&s.people?.player?.life!=null&&s.people.player.body?.id==='native.player.body'&&s.people.player.body.form==='human','The Tingen branch needs its one actual native player body.');
  for(const owner of [state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village,state.mistglassRealm])assert(owner?.activeVisitId==null,'One controlled native body cannot be in the Tingen branch and another retained world.');
  const sup=s.people[I.supervisor];
- assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
+ if(d.entryProfile!==BE_PROFILE_ID)assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
  for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId))){
-  if(lotmBeside(state)&&dormantCastWalk(j))continue;
+  if(lotmCastLife(state)&&dormantCastWalk(j))continue;
   const def=[...lotmCommands,...castWalkCommands].find(c=>c.id===j.commandId);
   assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
  }

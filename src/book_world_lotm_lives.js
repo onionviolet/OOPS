@@ -10,9 +10,15 @@ import {LOTM_PENCE as P,LOTM_IDS as I,LOTM_LOCATIONS as L} from './book_world_lo
 import {eq,gte,all,af,has,no,money,know,cmd} from './book_world_lotm_kit.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {districtById} from './book_world_lotm_districts.js';
+import {BE_PROFILE_ID} from './seat_profiles.js';
 export const LOTM_WEEK_MINUTES=7*24*60;
 // A probationer life wakes in a local clerk's body and keeps the clerk's purse (WER9, AD11). Proposed amount.
 const HOST_PURSE=2*P.pound;
+export function validLeadLife(pack){
+ const life=pack?.leadLife,p=life?.profile;
+ return !!(p?.id===BE_PROFILE_ID&&p.key==='be'&&typeof p.start==='string'&&Number.isSafeInteger(p.cash)&&p.cash>=0&&
+  pack.people?.some(x=>x.id===life.actorId)&&pack.places?.some(x=>x.id===p.start)&&Array.isArray(life.history)&&Array.isArray(life.relations));
+}
 export const LOTM_PROFILES=Object.freeze({
  probationer:{id:'lotm.early_tingen.local_probationer@1',key:'probationer',label:'Begin as a Nighthawk probationer',beyonderTrack:true,cash:HOST_PURSE,home:'evernight',start:L.workroom,
   blurb:'You are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. The clerk\'s own purse of 2 pounds is yours; the money you held before crossing stays behind.'},
@@ -28,12 +34,32 @@ export const LOTM_PROFILES=Object.freeze({
   passage:{perLegPence:4*P.pound,certificateRequired:true},
   paidBefore:{papersPence:8*P.pound,clothesAndGoodsPence:12*P.pound},
   blurb:'An adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. The money you held before crossing stays behind. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'},
- get beside(){return getPrivateLotmCast()?.host?.profile||{id:'lotm.early_tingen.canon_beside@1',key:'beside',label:'Cast unavailable',beyonderTrack:false,cash:HOST_PURSE,home:null,start:L.lodging,blurb:'Private cast pack absent.'};}});
+ get beside(){return getPrivateLotmCast()?.host?.profile||{id:'lotm.early_tingen.canon_beside@1',key:'beside',label:'Cast unavailable',beyonderTrack:false,cash:HOST_PURSE,home:null,start:L.lodging,blurb:'Private cast pack absent.'};},
+ get be(){const pack=getPrivateLotmCast();return validLeadLife(pack)?pack.leadLife.profile:{id:BE_PROFILE_ID,key:'be',label:'Cast unavailable',beyonderTrack:false,home:null,start:L.lodging,blurb:'Private cast pack absent.'};}});
 // Opening history uses the existing knowledge owner. It records paid costs, not fresh charges or invented items.
 export const lifeEntryEffects=key=>[{
  // The workroom situation begins at report-in, after enrollment. Opening history has no situation attribution.
  type:'knowledge',actor:'player',key:'book.lotm.entry',stage:'understood',value:LOTM_PROFILES[key].blurb
 }];
+// The pack owns the identity and content. The caller installs these effects in
+// the existing player's knowledge store after the cast situation begins.
+// Dates and locators remain on the attribution, not on a second memory store.
+export function leadLifeEntryEffects(pack){
+ const life=pack?.leadLife;if(!life)return [];
+ const people=new Map((pack.people||[]).map(p=>[p.id,p]));
+ if(!people.has(life.actorId)||!Array.isArray(life.history)||!Array.isArray(life.relations))throw Error('The book life needs its person and opening records.');
+ const basis=(date,locator)=>({kind:'recollection',attributedTo:'player',situationId:'book.lotm.tingen.canon_beside',date,locator});
+ const memories=life.history.map(row=>{
+  if(!row.id||!row.value||!row.date||!row.locator)throw Error('An opening memory needs its date and source.');
+  return {type:'knowledge',actor:'player',key:`book.lotm.history.${row.id}`,stage:'understood',value:row.value,basis:basis(row.date,row.locator)};
+ });
+ const known=life.relations.map(row=>{
+  const person=people.get(row.person);
+  if(!person?.name||!row.date||!row.locator)throw Error('An opening relation needs a person, date and source.');
+  return {type:'knowledge',actor:'player',key:`book.lotm.cast.known.${row.person}`,stage:'understood',value:person.name,basis:basis(row.date,row.locator)};
+ });
+ return [...memories,...known];
+}
 export const PROFILE_IDS=Object.freeze(Object.values(LOTM_PROFILES).map(p=>p.id));
 export const profileKeyOf=state=>Object.values(LOTM_PROFILES).find(p=>p.id===state.lotm?.entryProfile)?.key||null;
 // Weeks of salary earned since the contract was signed and not yet collected. The signing time is the contract note's own timestamp.

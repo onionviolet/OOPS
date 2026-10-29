@@ -59,12 +59,12 @@ export function installImportProbe(token, load) {
 }
 
 // Creates a genuine native fresh beginning in a disposable, non-saving instance.
-export function freshNativeSave() {
+export function freshNativeSave({be=false}={}) {
     return new Promise((resolve,reject)=>{
         const token=crypto.randomUUID(),frame=document.createElement('iframe'),url=new URL(window.location.href);
-        frame.hidden=true;frame.title='Fresh native beginning check';url.searchParams.set('import_probe',token);url.searchParams.set('authority_fresh','1');frame.src=url.href;
+        frame.hidden=true;frame.title='Fresh native beginning check';url.searchParams.set('import_probe',token);url.searchParams.set('authority_fresh','1');if(be)url.searchParams.set('be_fresh','1');frame.src=url.href;
         const finish=(error,bytes)=>{clearTimeout(timer);window.removeEventListener('message',receive);frame.remove();if(error)reject(error);else resolve(bytes);};
-        const receive=event=>{if(event.origin===window.location.origin&&event.source===frame.contentWindow&&event.data?.token===token&&event.data.type==='save-fresh-result')finish(typeof event.data.serialized==='string'?null:new Error('Fresh beginning could not be created.'),event.data.serialized);};
+        const receive=event=>{if(event.origin===window.location.origin&&event.source===frame.contentWindow&&event.data?.token===token&&event.data.type==='save-fresh-result')finish(typeof event.data.serialized==='string'?null:new Error(`The new life could not start: ${event.data.error||'the fresh beginning could not be created'}. Your current save is kept.`),event.data.serialized);};
         const timer=setTimeout(()=>finish(new Error('Fresh beginning check timed out; current authority kept.')),60000);window.addEventListener('message',receive);document.body.append(frame);
     });
 }

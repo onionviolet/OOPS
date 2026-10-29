@@ -457,6 +457,8 @@ import {createNativeAuthority, nativeAuthorityKey} from "./absorb_p23/save_time_
 const freshAuthorityProbe = new URL(window.location.href).searchParams.has("authority_fresh");
 let authorityOperationBusy=false, authorityBootError=null;
 const importProbeToken = new URL(window.location.href).searchParams.get("import_probe");
+import {createFreshLifeStart} from './fresh_life_start.js';
+const freshLifeStart=createFreshLifeStart({token:importProbeToken,freshProbe:freshAuthorityProbe,beRequested:new URL(window.location.href).searchParams.has('be_fresh'),state:()=>expansionState,setOwned:value=>{ownsSave=value;},refresh:()=>{domainRegistry.refresh();updateWorkspace();},canWrite:()=>continuationCanWrite(),busy:()=>authorityOperationBusy||continuationOccupied(),freeze:()=>{const release=suspendEngine();authorityOperationBusy=true;return release;},thaw:release=>{authorityOperationBusy=false;release();},revision:()=>activeNativeBytes(is_on_dev()?dev_save_key:save_key),fresh:options=>freshNativeSave(options),preflight:preflightImport,publish:publishContinuation,blockOldRuntime:()=>{foundationSaveBlocked=true;},reload:()=>window.location.reload(),report:message=>log_message(message,'message_critical'),createSave:create_save,enrollBe:()=>domainRegistry.command('lotm','enrollBeFresh')(),post:message=>window.parent.postMessage(message,window.location.origin)});
 let importInProgress = false;
 let loadingReputationTotals = null;
 let restoringNativeSave = false;
@@ -1112,7 +1114,7 @@ const paradiseNative=createParadiseNativeBindings({NPC,NPCRegistry,SafeLocation,
 }});
 paradiseNative.register();
 const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
-molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
+molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
 const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
 proto23Native.register();
 item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
@@ -1795,7 +1797,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     reconcileStructuredLifePlan(plan,optionalPackState.structured,{deaths:game_stats.total_deaths});
     const nextLocalCalendar = resolveWorldCalendar(plan.state, plan.calendar ?? current_game_time);
     const previousNight = is_night(current_game_time);
-    if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
+    if(!freshLifeStart.canCapture(plan) && (!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error)) throw new Error(expansionError || "This tab cannot commit expeditions.");
     for(const actor of Object.values(plan.state.actors)) {
         const active = activePractice(actor);
         if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
@@ -1849,7 +1851,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
     readFrame?.invalidate(); // Life observations publish through the durable owner.
-    try {persistExpansionPlan(plan, {createSave: create_save, storage: lifeSaveStorage, bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
+    try {persistExpansionPlan(plan, {createSave: create_save, storage: freshLifeStart.storage(lifeSaveStorage,plan), bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
         lifeStorageFailure = error.code === 'SAVE_STORAGE_FULL';
@@ -6613,6 +6615,7 @@ setNativeObservedDropReader(name=>Object.entries(p23DropObservations?.creatures?
 
 //core function for loading
 function load(save_data) {
+    freshLifeStart.onLoad(save_data);
     nativeDiscoveryFeedback?.reset();titlesPanel?.resetFeedback();
     hasLoadedNativeSave=true;
     // Restore validated native reading/sleep/activity before the new document
@@ -9390,7 +9393,7 @@ window.run = run;
 
 // Do not suspend the legacy initialization before its onload UI has elements.
 const saveOwnership = acquireSaveOwnership().then(owned => {
-    ownsSave = owned;
+    ownsSave=freshLifeStart.onOwnership(owned);
     if(authorityBootPending)return owned;
     if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
     expeditionPanel?.render(true);
@@ -9981,8 +9984,9 @@ if((game_options.skip_play_button || continuationState?.loop.enabled) && !import
     play_button.click();
 }
 
+freshLifeStart.mountMenu();
 mountAuthorityUI();
-if(importProbeToken&&freshAuthorityProbe)window.parent.postMessage({type:'save-fresh-result',token:importProbeToken,serialized:create_save()},window.location.origin);
+freshLifeStart.postFreshProbe();
 if(importProbeToken&&!freshAuthorityProbe) installImportProbe(importProbeToken, data => {
     const result = load(data);
     if(config.use_racial_bonuses) character.addRaceBonus();

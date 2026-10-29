@@ -39,8 +39,9 @@ test('lead controls keep only in-world and Menu system controls', () => {
 test('ordinary and original book entry profiles preserve all existing routes', () => {
     const routeIds=routeTable().map(route=>route.id);
     assert.equal(routeIds.length,20);
-    assert.equal(PROFILE_IDS.length,5);
-    const states=[{}, ...PROFILE_IDS.map(entryProfile=>({lotm:{entryProfile}}))];
+    assert.equal(PROFILE_IDS.length,6);
+    // The be seat filters crossing and other-seat routes by design; every other profile keeps them all.
+    const states=[{}, ...PROFILE_IDS.filter(id=>id!==BE_PROFILE_ID).map(entryProfile=>({lotm:{entryProfile}}))];
     for(const state of states) for(const routeId of routeIds) {
         const controlId=controlForRoute(routeId);
         assert.ok(controlId,`route ${routeId} has a perspective control`);

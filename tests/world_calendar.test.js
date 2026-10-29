@@ -100,7 +100,7 @@ test('W33.T6 actual host publication seam emits only after storage success and b
     const context = {plan: {state: {clock: 1080}}, create_save() {}, lifeSaveStorage: {}, stagedGameplay: {bindings: {}},
         ownershipBindings: {}, unlockPublication: {}, equipmentPublication: {}, nativePublication: {},
         validateSaveEnvelope() {}, game_version: 'test', is_on_dev: () => true, dev_save_key: 'dev', save_key: 'save',
-        current_combat: null, expansionState: {clock: 0}, nextLocalCalendar: next, localDateLog: log,
+        current_combat: null, expansionState: {clock: 0}, nextLocalCalendar: next, localDateLog: log, freshLifeStart: {storage: storage => storage},
         readFrame: {invalidate() {invalidations++;assert.equal(context.expansionState.clock, 0);}},
         persistExpansionPlan() {throw Error('storage failed');}};
     assert.throws(() => vm.runInNewContext(`(function(){${seam}})()`, context), /storage failed/);

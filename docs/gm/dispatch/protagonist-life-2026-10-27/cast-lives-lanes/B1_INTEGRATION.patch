@@ -1,0 +1,180 @@
+--- a/src/book_world_lotm_envelope.js
++++ b/src/book_world_lotm_envelope.js
+@@ -2,7 +2,7 @@
+ // The optional state.lotm owner stays in book_world_lotm_state.js; this reads only what the
+ // native save adds: where the body is and where the finite stock sits. Registered through the
+ // domain registry so save_files needs no new line (AR1, AR2).
+-import {castPlaces,castAvailable,lotmBeside,dormantCastPlace} from './book_world_lotm_cast_host.js';
++import {castPlaces,castAvailable,lotmCastLife,lotmBe,dormantCastPlace} from './book_world_lotm_cast_host.js';
+ import {registerDomain} from './domain_registry.js';
+ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES} from './book_world_lotm_ids.js';
+ import {pathwayDoses} from './book_world_lotm_pathways.js';
+@@ -15,7 +15,7 @@
+ // An item an active job has reserved (a sample under observation) is held by that job, not lost.
+ const reserved=(state,key)=>(state.simulation?.jobs||[]).flatMap(j=>j.costs||[]).filter(c=>c.type==='item'&&c.actor==='player'&&c.key===key).reduce((n,c)=>n-c.amount,0);
+ export function validateLotmEnvelope(save){
+- const state=save?.expansion||{},d=state.lotm,at=save?.['current location'],here=lotmPlaces().includes(at)||!castAvailable&&lotmBeside(state)&&dormantCastPlace(at);
++ const state=save?.expansion||{},d=state.lotm,at=save?.['current location'],here=lotmPlaces().includes(at)||!castAvailable&&lotmCastLife(state)&&dormantCastPlace(at);
+  if(!d){
+   assert(!here,'This save needs its optional Tingen branch owner.');
+   const held=save?.inventories?.person?.[I.supervisor]||{};
+@@ -23,6 +23,7 @@
+   return true;
+  }
+  assert(here&&at===state.simulation?.people?.player?.location,'The saved place and the Tingen branch body disagree.');
++ if(lotmBe(state))return true; // The lead life owns no probationer stock.
+  const f=state.actors?.player?.facts||{},ingested=f['book.lotm.ingested']===true;
+  const dose=count(save,'main_character',K.dose)+count(save,I.supervisor,K.dose)+reserved(state,K.dose);
+  assert(dose===(ingested?0:1),'The prepared dose must be held exactly once until it is taken.');
+--- a/src/book_world_lotm_domain.js
++++ b/src/book_world_lotm_domain.js
+@@ -1,7 +1,7 @@
+ // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
+ // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
+ // and the panel mounts with the other domains. main.js makes one configureLotm call.
+-import {castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmBeside,dormantCastPlace} from './book_world_lotm_cast_host.js';
++import {castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
+ import {registerDomain} from './domain_registry.js';
+ import {lotmFacts} from './book_world_lotm_actions.js';
+ import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
+@@ -21,13 +21,13 @@
+  host=createLotmHost(p);
+ }
+ function restoreMissingCast(envelope){
+- if(!ports||castAvailable||!lotmBeside(envelope.expansion))return;
++ if(!ports||castAvailable||!lotmCastLife(envelope.expansion))return;
+  const place=id=>{ports.locations[id]??=new ports.SafeLocation({id,name:'Cast place unavailable',is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,
+   tags:{book_world_lotm:true},entrance_rewards:{},description:'Restore the private cast pack to resume this place.'});};
+  restoreUnavailableCast(envelope.expansion,ports.registry,place);
+  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
+ }
+ registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),
+- commands:{wake:()=>host?.wake()},
++ commands:{wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
+  projection:(kind,...args)=>kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
+  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});
+--- a/src/import_probe.js
++++ b/src/import_probe.js
+@@ -59,10 +59,10 @@
+ }
+ 
+ // Creates a genuine native fresh beginning in a disposable, non-saving instance.
+-export function freshNativeSave() {
++export function freshNativeSave({be=false}={}) {
+     return new Promise((resolve,reject)=>{
+         const token=crypto.randomUUID(),frame=document.createElement('iframe'),url=new URL(window.location.href);
+-        frame.hidden=true;frame.title='Fresh native beginning check';url.searchParams.set('import_probe',token);url.searchParams.set('authority_fresh','1');frame.src=url.href;
++        frame.hidden=true;frame.title='Fresh native beginning check';url.searchParams.set('import_probe',token);url.searchParams.set('authority_fresh','1');if(be)url.searchParams.set('be_fresh','1');frame.src=url.href;
+         const finish=(error,bytes)=>{clearTimeout(timer);window.removeEventListener('message',receive);frame.remove();if(error)reject(error);else resolve(bytes);};
+         const receive=event=>{if(event.origin===window.location.origin&&event.source===frame.contentWindow&&event.data?.token===token&&event.data.type==='save-fresh-result')finish(typeof event.data.serialized==='string'?null:new Error('Fresh beginning could not be created.'),event.data.serialized);};
+         const timer=setTimeout(()=>finish(new Error('Fresh beginning check timed out; current authority kept.')),60000);window.addEventListener('message',receive);document.body.append(frame);
+--- a/src/main.js
++++ b/src/main.js
+@@ -457,6 +457,8 @@
+ const freshAuthorityProbe = new URL(window.location.href).searchParams.has("authority_fresh");
+ let authorityOperationBusy=false, authorityBootError=null;
+ const importProbeToken = new URL(window.location.href).searchParams.get("import_probe");
++const beFreshProbe=!!importProbeToken&&freshAuthorityProbe&&new URL(window.location.href).searchParams.has('be_fresh');
++let beFreshEnvelope=null;
+ let importInProgress = false;
+ let loadingReputationTotals = null;
+ let restoringNativeSave = false;
+@@ -1112,7 +1114,7 @@
+ }});
+ paradiseNative.register();
+ const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
+-molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
++molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>beFreshProbe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,startBe:()=>startFreshLife(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
+ const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
+ proto23Native.register();
+ item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
+@@ -1200,7 +1202,7 @@
+ }
+ // One writer owns the entire envelope, including legacy autosave. Import probes
+ // never acquire a lock or write. A second tab remains a read-only preview.
+-let ownsSave = !!importProbeToken;
++let ownsSave = !!importProbeToken, saveLockOwned=ownsSave, bePackHold=false;
+ async function acquireSaveOwnership() {return importProbeToken ? true : new Promise(resolve => {
+     if(!navigator.locks) {resolve(false); return;}
+     navigator.locks.request(`yairpg-save:${is_on_dev() ? dev_save_key : save_key}`, {ifAvailable: true}, lock => {
+@@ -1849,7 +1851,7 @@
+     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
+     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
+     readFrame?.invalidate(); // Life observations publish through the durable owner.
+-    try {persistExpansionPlan(plan, {createSave: create_save, storage: lifeSaveStorage, bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
++    try {persistExpansionPlan(plan, {createSave: create_save, storage: beFreshProbe?{setEnvelope:(_key,envelope)=>{beFreshEnvelope=structuredClone(envelope);}}:lifeSaveStorage, bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
+         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
+     catch(error) {
+         lifeStorageFailure = error.code === 'SAVE_STORAGE_FULL';
+@@ -6220,6 +6222,20 @@
+         window.location.reload();
+     }
+ });
++// A fresh, detached native probe builds the entire be life before replacing the
++// active authority. The old live runtime cannot publish after the guarded switch.
++async function startFreshLife(be) {
++    if(!continuationCanWrite()||authorityOperationBusy||continuationOccupied())throw Error('Finish current work and use the writable game tab.');
++    const release=suspendEngine();authorityOperationBusy=true;
++    try {
++        const key=is_on_dev()?dev_save_key:save_key,before=activeNativeBytes(key);
++        const next=JSON.parse(await freshNativeSave({be}));
++        if(next.continuation||(be&&(next.expansion?.lotm?.entry||next.expansion?.lotm?.runMode!=='canon')))throw Error('The independent life was not prepared. Current save kept.');
++        await preflightImport(next);
++        if(!continuationCanWrite()||activeNativeBytes(key)!==before)throw Error('The active save changed. Current save kept.');
++        publishContinuation(next);foundationSaveBlocked=true;window.location.reload();
++    } finally {authorityOperationBusy=false;release();}
++}
+ async function commandContinuation(action) {
+     if(!continuationCanWrite())throw Error('Use the writable game tab.');
+     if(action==='enroll') {
+@@ -6613,6 +6629,19 @@
+ 
+ //core function for loading
+ function load(save_data) {
++    // Hold native writes while the book data for this life is loading. If it
++    // is absent, keep the save read-only; an import probe cannot affect its parent.
++    bePackHold=save_data?.expansion?.lotm?.entryProfile==='book.lead.be@1';
++    if(bePackHold){
++        ownsSave=false;
++        Promise.all([import('./book_world_lotm_cast_days.js'),import('./book_world_lotm_lives.js')]).then(async ([cast,lives])=>{
++            const pack=await cast.whenCastLoaded();
++            if(expansionState?.lotm?.entryProfile!=='book.lead.be@1')return;
++            bePackHold=!lives.validLeadLife(pack);ownsSave=saveLockOwned&&!bePackHold;
++            domainRegistry.refresh();updateWorkspace();
++        });
++    } else ownsSave=saveLockOwned;
++
+     nativeDiscoveryFeedback?.reset();titlesPanel?.resetFeedback();
+     hasLoadedNativeSave=true;
+     // Restore validated native reading/sleep/activity before the new document
+@@ -9390,7 +9419,7 @@
+ 
+ // Do not suspend the legacy initialization before its onload UI has elements.
+ const saveOwnership = acquireSaveOwnership().then(owned => {
+-    ownsSave = owned;
++    saveLockOwned=owned;ownsSave=owned&&!bePackHold;
+     if(authorityBootPending)return owned;
+     if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
+     expeditionPanel?.render(true);
+@@ -9981,8 +10010,20 @@
+     play_button.click();
+ }
+ 
++if(expansionState.lotm?.entryProfile==='book.lead.be@1'){
++    const button=document.createElement('button');button.id='be_new_life';button.className='options_button';button.type='button';button.textContent='Start a new life';
++    button.addEventListener('click',()=>startFreshLife(false).catch(error=>log_message(error.message,'message_critical')));
++    document.getElementById('hard_reset_button')?.before(button);
++}
+ mountAuthorityUI();
+-if(importProbeToken&&freshAuthorityProbe)window.parent.postMessage({type:'save-fresh-result',token:importProbeToken,serialized:create_save()},window.location.origin);
++if(importProbeToken&&freshAuthorityProbe){
++    if(beFreshProbe)import('./book_world_lotm_cast_days.js').then(m=>m.whenCastLoaded()).then(()=>{
++        domainRegistry.command('lotm','enrollBeFresh')();
++        if(!beFreshEnvelope)throw Error('Fresh book life was not captured.');
++        window.parent.postMessage({type:'save-fresh-result',token:importProbeToken,serialized:JSON.stringify(beFreshEnvelope)},window.location.origin);
++    }).catch(error=>{console.error('Fresh book life probe failed',error);window.parent.postMessage({type:'save-fresh-result',token:importProbeToken},window.location.origin);});
++    else window.parent.postMessage({type:'save-fresh-result',token:importProbeToken,serialized:create_save()},window.location.origin);
++}
+ if(importProbeToken&&!freshAuthorityProbe) installImportProbe(importProbeToken, data => {
+     const result = load(data);
+     if(config.use_racial_bonuses) character.addRaceBonus();
