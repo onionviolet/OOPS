@@ -149,6 +149,18 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
         row.route=[{actionId:row.canonicalControl,place:reviewedRow.place || placeId || null,personId:reviewedRow.personId,controlBuilder:row.controlBuilder}];
         row.anchors={...row.anchors,...(reviewedRow.place?{place:reviewedRow.place}:{}),person:reviewedRow.personId};
         row.reviewedChoiceId=choice?.id || null;
+      } else if (['divination','making','inference'].includes(reviewedLine.kind)) {
+        const kind=reviewedLine.kind, anchor=reviewedRow.place || placeId || null;
+        const commandIds=kind==='making' ? [reviewedRow.id] : (reviewedRow.steps || []).map(item=>`${reviewedRow.id}.${item.id}`);
+        row.controlKind=kind; row.controlBuilder=`private pack ${kind}; src/cast_${kind}_adapter.js`;
+        if (!anchor || !commandIds.length || commandIds.some(id=>!id || id.endsWith('.undefined'))) {
+          row.status='gap'; row.gapKind='missing UI path'; row.reason='Reviewed control lacks a resolved replay place or ordered command.';
+          row.canonicalControl=null; row.route=[];
+        } else {
+          row.canonicalControl=commandIds.at(-1);
+          row.route=commandIds.map(actionId=>({actionId,place:anchor,controlBuilder:row.controlBuilder}));
+          row.anchors={...row.anchors,place:anchor};
+        }
       } else throw Error(`Unsupported reviewed row kind ${reviewedLine.kind} for ${row.id}`);
     } else if (householdActsByStep[row.id] || (householdAct && !topicValid && !journeys[row.id])) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=householdAct.id;
@@ -231,8 +243,8 @@ function main(args) {
   // The replay driver verifies the actual source file before validating step IDs.
   mapping.inputHashes['scenes.jsonl']=hash(fs.readFileSync(inputScenes));
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
-  const counts={walk:0,journey:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
-  for(const r of mapping.rows){if(r.journeyId)counts.journey++;else if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
+  const counts={walk:0,journey:0,wait:0,talk:0,divination:0,making:0,inference:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
+  for(const r of mapping.rows){if(r.status==='clean_fold'&&['divination','making','inference'].includes(r.controlKind))counts[r.controlKind]++;else if(r.journeyId)counts.journey++;else if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.topicTalkId||r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
   const totals={placeStepRefs:0,placeResolvedStepRefs:0,personStepRefs:0,personResolvedStepRefs:0}, unresolvedPlaces=new Map(), unresolvedPeople=new Map();
   for(const r of mapping.rows){if(r.place){totals.placeStepRefs++;if(r.packPlaceId)totals.placeResolvedStepRefs++;else unresolvedPlaces.set(r.place,(unresolvedPlaces.get(r.place)||0)+1)}for(const p of r.peopleResolved||[]){totals.personStepRefs++;if(p.packId)totals.personResolvedStepRefs++;else unresolvedPeople.set(p.readerId,(unresolvedPeople.get(p.readerId)||0)+1)}}
   const talkCandidateSteps=mapping.rows.filter(r=>/talk|speak|ask|tell|answer|discuss/i.test(r.verb)&&r.peopleResolved?.some(p=>p.packId)).length;

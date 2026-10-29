@@ -9,6 +9,9 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {defineDivinations} from '../src/cast_divination_adapter.js';
+import {defineCastMaking} from '../src/cast_making_adapter.js';
+import {defineInferences} from '../src/cast_inference_adapter.js';
 
 test('uses a reviewed wait with a valid bound scene window, and rejects missing review or malformed windows',()=>{
   const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Room',steps:[{verb:'wait'}]}];
@@ -63,6 +66,26 @@ test('reviewed rows override generated controls and reviewed gaps retain typed r
  assert.equal(result.rows[1].status,'gap');assert.equal(result.rows[1].reviewedGapReason,'not an action');
  assert.equal(result.rows[1].excludedCandidate,true);
  assert.equal(result.rows[2].reviewedGapReason,'no mechanism');
+});
+
+test('reviewed divination, making and inference routes use actual adapter command IDs and places',()=>{
+ const query={id:'fixture.query',targetId:'fixture.target',question:'Which sample?',method:'Pointer',label:'Ask',description:'Ask with a pointer.',place:'fixture.room',means:{fact:'actor.fixture.pointer',op:'eq',value:true},contact:{fact:'actor.fixture.contact',op:'eq',value:true},steps:[
+  {id:'prepare',kind:'prepare',label:'Prepare',description:'Prepare the pointer.',minutes:1,report:'You prepared.'},
+  {id:'ask',kind:'attempt',label:'Ask',description:'Observe the pointer.',minutes:1,report:'You watched.',status:'unanswered',signal:'No clear signal.'}]};
+ const making={id:'fixture.making',revision:1,kind:'document',operation:'write',place:'fixture.room',minutes:1,label:'Write',description:'Write a note.',report:'You wrote.',object:{key:'fixture.note',value:true}};
+ const thought={id:'fixture.thought',label:'X',description:'X',steps:[{id:'think',kind:'infer',label:'X',description:'X',minutes:1,report:'X',uncertainty:'X',observation:{actor:'player',basis:'recalled',value:'X'}}]};
+ const binding={worldId:'fixture.context',group:'fixture.set',situationId:'fixture.situation'};
+ const expected=[defineDivinations({queries:[query]},binding),defineCastMaking({schema:1,rows:[making]},binding),defineInferences({chains:[thought]},binding)];
+ const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'第1章'}],place:'Room',steps:[{verb:'ask'},{verb:'write'},{verb:'think'}]}];
+ const reviewed=[query,making,thought].map((row,i)=>({stepId:`sample#${i+1}`,verdict:'row',kind:['divination','making','inference'][i],row}));
+ const args={scenes,crosswalk:{places:{Room:'fixture.room'}},fromChapter:1,toChapter:1,reviewed};
+ const result=buildReplayMapping(args);
+ for(const [i,row] of result.rows.entries()){
+  assert.deepEqual(row.route.map(leg=>leg.actionId),expected[i].map(command=>command.id));
+  assert.equal(row.canonicalControl,expected[i].at(-1).id);assert.equal(row.anchors.place,'fixture.room');
+ }
+ const noPlace=buildReplayMapping({...args,crosswalk:{places:{}}}).rows[2];
+ assert.equal(noPlace.status,'gap');assert.equal(noPlace.canonicalControl,null);
 });
 
 test('CLI reviewed overlay preserves every selected source step and binds the source file',()=>{

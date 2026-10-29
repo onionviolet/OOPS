@@ -158,3 +158,67 @@ recorded in Resume 1.
 The driver owner needs volume-aware source selection before the true volume 1
 ladder can pass audit against the full M4 file. Browser replay, persistence,
 commit and push were not performed. Agent-verified, not human-reviewed.
+
+## Resume 3: divination, making and inference, 2026-10-29
+
+The live pack matched the reviewed2 candidate by SHA-256. RV2, RV4, RV6, RV7,
+RV8, RV9, RV10, RW4, RW5 and RW6 were merged in that order into a new private
+candidate. The shared resolver keeps a row over a gap and uses the later shard
+for equal verdicts. The 54 conflicts are the earlier RV2/RV7 overlap. No row
+was rejected and no ID collision occurred; RW4 supplied 150 gap verdicts and
+no rows. The native place, topic, journey, divination, making and inference
+adapters validate their own data and command definitions.
+
+| Shard | Acts | Topics | Journeys | Divinations | Making | Inferences | Identical rows skipped | Rejected |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| RV2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| RV4 | 0 | 0 | 0 | 0 | 0 | 0 | 12 | 0 |
+| RV6 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 0 |
+| RV7 | 0 | 0 | 0 | 0 | 0 | 0 | 25 | 0 |
+| RV8 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 0 |
+| RV9 | 0 | 0 | 0 | 0 | 0 | 0 | 35 | 0 |
+| RV10 | 6 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
+| RW4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| RW5 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 0 |
+| RW6 | 0 | 0 | 0 | 0 | 0 | 56 | 0 | 0 |
+| Total | 6 | 1 | 1 | 0 | 9 | 56 | 94 | 0 |
+
+The private candidate is `pack-backups/cast-whole-book-reviewed3-candidate-2026-10-29.json`
+under the lead-run private directory; SHA-256
+`09c971e95889d9f80bc6f9f15b423547f54cf9bfbd8aa3fa1197e65c80c28e61`.
+Live pack and source data were read without modification.
+
+| Range | Steps | Controls before | Controls after | New-kind rows mapped |
+|---|---:|---:|---:|---:|
+| Chapters 1–3 | 175 | 24 | 26 | 2 inference |
+| Chapters 1–24 | 1,491 | 200 | 208 | 7 inference, 1 making |
+| Volume 1, chapters 1–100 | 1,130 | 262 | 278 | 7 inference, 1 making |
+
+The before/after ID sets match for each range. The chapter-number mappings
+include matching chapters across volumes; the driver selects 41 and 285 volume
+1 steps for the first two audits, respectively. The ladder audit selects all
+1,130 volume 1 steps. RW5's nine rows and RW6's 56 rows all have M4 source
+scenes; most fall outside these requested ranges.
+
+Making maps to its row command. Divination and inference map to their ordered
+adapter step commands, using the reviewed place or a resolved source-scene
+place. A missing route place remains a gap. Every mapped new-kind command ID
+in these ranges was found in the candidate's adapter output. Counts indicate
+candidate mapping, not completed actions.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node scripts/lead_run/merge_reviewed_rows.mjs` with live pack and all ten reviewed shards | PASS, 73 rows added, 94 identical rows skipped; pack validator and native registry validated 102 topic, 531 journey, 542 act, 0 divination, 9 making and 56 inference definitions | Private candidate; command settlement remains untested |
+| `node scripts/lead_run/build_replay_mapping.mjs` with full M4 inputs, reviewed3 candidate and ten shards, for each requested range | PASS, 175 / 1,491 / 1,130 rows; source ID sets unchanged | Offline mappings |
+| Driver audit mode with full M4 scenes, chapter 1–3 mapping, `--chapters 1-3 --volume 1` | PASS, validates 175 and selects 41 | Browser replay remains untested |
+| Driver audit mode with full M4 scenes, chapter 1–24 mapping, `--chapters 1-24 --volume 1` | PASS, validates 1,491 and selects 285 | Browser replay remains untested |
+| Driver audit mode with full M4 scenes, volume 1 ladder, `--volume 1 --locator-range` for chapters 1–100 | PASS, validates and selects 1,130 | Browser replay remains untested |
+| Adapter command-ID comparison for all three mappings | PASS, 0 missing mapped new-kind command IDs | Definition comparison, not runtime execution |
+| `node --test tests/merge_reviewed_rows.test.js tests/build_replay_mapping.test.js tests/lead_replay_score.test.js tests/build_place_acts.test.js` | PASS, 41 tests | Synthetic fixtures |
+| `node scripts/lane_review.mjs` with the five owned paths | 0 outside-grant and 0 top-level-await hits; two existing test-file name hits | Baseline and added-line comparison recorded in lane report |
+| `node --check` on changed mapper and test; scoped `git diff --check` | PASS | Syntax and whitespace scope |
+| `node scripts/check_doc_slips.mjs` | RV5 checkpoint has 0 findings | 18 findings remain in other documents |
+
+The Resume 2 driver limitation was resolved by the later volume-aware driver.
+No browser replay, persistence proof, commit or push was performed in Resume 3.
+Agent-verified, not human-reviewed.
