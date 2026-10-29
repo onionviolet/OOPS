@@ -99,6 +99,57 @@ function unionPeople(currentRows, previousRows) {
     return {rows: output};
 }
 
+function rowKey(row, kind) {
+    if (row.id !== undefined && row.id !== null && String(row.id).trim()) return `id:${row.id}`;
+    return `name:${kind}:${normalizeName(row.name || row.zh || row.label || '')}`;
+}
+
+function unionRows(sources, kind) {
+    const rowsByKey = new Map();
+    const ordered = [...sources].reverse(); // oldest first so newer present fields replace them
+    for (const {version, rows} of ordered) {
+        for (const source of rows) {
+            const key = rowKey(source, kind);
+            if (key.endsWith(':')) continue;
+            const existing = rowsByKey.get(key);
+            if (!existing) {
+                const row = {...source, _from: {}};
+                for (const field of Object.keys(source)) if (field !== '_from') row._from[field] = version;
+                rowsByKey.set(key, row);
+                continue;
+            }
+            const from = {...existing._from};
+            for (const [field, value] of Object.entries(source)) {
+                if (field === '_from' || value === undefined || value === null || value === '') continue;
+                const oldValue = existing[field];
+                if (Array.isArray(value) && Array.isArray(oldValue)) {
+                    const merged = [...oldValue];
+                    const seen = new Set(merged.map(item => item?.locator ? `loc:${item.locator}` : JSON.stringify(item)));
+                    for (const item of value) {
+                        const itemKey = item?.locator ? `loc:${item.locator}` : JSON.stringify(item);
+                        if (!seen.has(itemKey)) merged.push(item);
+                    }
+                    existing[field] = merged;
+                    const parts = new Set([...(from[field] || '').split('+').filter(Boolean), version]);
+                    from[field] = [...parts].sort().join('+');
+                } else {
+                    existing[field] = value;
+                    from[field] = version;
+                }
+            }
+            existing._from = from;
+        }
+    }
+    return [...rowsByKey.values()].sort((a, b) => rowKey(a, kind).localeCompare(rowKey(b, kind)));
+}
+
+const VERSION_DIR = /^pre-sv(\d+)$/;
+function versionsOf(input) {
+    return readdirSync(input, {withFileTypes: true}).filter(entry => entry.isDirectory() && VERSION_DIR.test(entry.name))
+        .map(entry => ({name: entry.name, number: Number(entry.name.match(VERSION_DIR)[1])}))
+        .sort((a, b) => b.number - a.number);
+}
+
 function mergeCensus(first, second) {
     const namesOf = row => [...new Set([row.zh, ...(Array.isArray(row.aliases) ? row.aliases : [])].map(normalizeName).filter(Boolean))];
     const asEntity = (row, version) => ({...row, aliases: [...new Set([...(row.aliases || []), row.zh, row.label].filter(Boolean))], _sources: [{version, locator: row.firstMention || null}], _names: new Set(namesOf(row)), _version: version});
@@ -131,9 +182,13 @@ export function run(inputArg, outArg, matchText = null) {
     if (!existsSync(input)) throw new Error(`Source directory does not exist: ${input}`);
     if (out === input) throw new Error('--out must not be the source directory');
     mkdirSync(out, {recursive: true});
-    const peopleReport = [], missingBackups = [];
-    const changedFiles = new Set(readdirSync(input).filter(file => /_people\.jsonl$/.test(file) && (!match || match.test(`${file.replace(/_people\.jsonl$/, '')}m`))
-        && ['pre-sv14', 'pre-sv8'].some(dir => existsSync(join(input, dir, file)))));
+    const peopleReport = [], missingBackups = [], kindTotals = new Map(), kindsReport = [];
+    const versionDirs = versionsOf(input);
+    const changedFiles = new Set();
+    for (const file of readdirSync(input).filter(name => name.endsWith('.jsonl'))) {
+        const candidates = versionDirs.map(version => join(input, version.name, file)).filter(existsSync);
+        if (candidates.length && !file.endsWith('_census.jsonl')) changedFiles.add(file);
+    }
     for (const file of readdirSync(input).filter(name => /x2m_census\.jsonl$/.test(name))) changedFiles.add(file.replace(/x2m_census\.jsonl$/, 'm_census.jsonl'));
     changedFiles.add('schema_union_report.json');
     linkInputTree(input, out, changedFiles);
@@ -145,6 +200,41 @@ export function run(inputArg, outArg, matchText = null) {
         const merged = unionPeople(current, previous);
         writeJsonl(join(out, file), merged.rows);
         peopleReport.push({file, backup: relative(input, backupPath), rows14: current.length, rows13: previous.length, rowsUnion: merged.rows.length});
+    }
+    for (const file of readdirSync(input).filter(name => /^[a-z][a-z0-9]*_[a-z0-9_]+\.jsonl$/.test(name) && !/_people\.jsonl$/.test(name) && !/_census\.jsonl$/.test(name)
+        && versionDirs.some(version => existsSync(join(input, version.name, name)))).sort()) {
+        const shard = file.replace(/_[^_]+\.jsonl$/, '').replace(/m?$/, 'm');
+        if (match && !match.test(shard)) continue;
+        const kind = file.match(/_(.+)\.jsonl$/)?.[1] || 'unknown';
+        const sources = [{version: 'current', rows: readJsonl(join(input, file))}];
+        for (const version of versionDirs) {
+            const backup = join(input, version.name, file);
+            if (existsSync(backup)) sources.push({version: version.name, rows: readJsonl(backup)});
+        }
+        if (sources.length === 1) continue;
+        const currentCount = sources[0].rows.length;
+        const backupRows = sources.slice(1).flatMap(source => source.rows);
+        const union = unionRows(sources, kind);
+        writeJsonl(join(out, file), union);
+        const currentKeys = new Set(sources[0].rows.map(row => rowKey(row, kind)));
+        const backupKeys = new Set(backupRows.map(row => rowKey(row, kind)));
+        const onlyBackup = [...backupKeys].filter(key => !currentKeys.has(key)).length;
+        let filled = 0;
+        for (const row of union) {
+            if (!currentKeys.has(rowKey(row, kind))) continue;
+            for (const [field, version] of Object.entries(row._from || {})) {
+                if (version !== 'current' && !version.includes('+current')) filled++;
+            }
+        }
+        const total = kindTotals.get(kind) || {kind, files: 0, currentRows: 0, backupRows: 0, keptOnlyFromBackup: 0, fieldsFilledFromBackup: 0};
+        total.files++;
+        total.currentRows += currentCount;
+        total.backupRows += backupRows.length;
+        total.keptOnlyFromBackup += onlyBackup;
+        total.fieldsFilledFromBackup += filled;
+        kindTotals.set(kind, total);
+        // Per-file detail stays in the pipeline output; the checkpoint can use the compact kind summary.
+        kindsReport.push({file, kind, current: currentCount, backup: backupRows.length, keptOnlyFromBackup: onlyBackup, fieldsFilledFromBackup: filled});
     }
     const censusPairs = [];
     for (const file of readdirSync(input).filter(name => /x2m_census\.jsonl$/.test(name)).sort()) {
@@ -160,7 +250,7 @@ export function run(inputArg, outArg, matchText = null) {
         const target = join(out, file);
         if (existsSync(target) && lstatSync(target).isSymbolicLink()) throw new Error(`Refusing to overwrite linked union target: ${file}`);
     }
-    const report = {schema: 'schema-union/1.0', input, output: out, people: peopleReport, missingBackups, census: censusPairs};
+    const report = {schema: 'schema-union/1.1', input, output: out, people: peopleReport, kinds: [...kindTotals.values()].sort((a, b) => a.kind.localeCompare(b.kind)), kindFiles: kindsReport, missingBackups, census: censusPairs};
     writeFileSync(join(out, 'schema_union_report.json'), `${JSON.stringify(report, null, 2)}\n`);
     return report;
 }

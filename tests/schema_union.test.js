@@ -52,3 +52,36 @@ test('schema union prefers present 1.4 fields, fills silent fields, and retains 
         assert.equal(readFileSync(join(out1, 'toym_census.jsonl'), 'utf8'), readFileSync(join(out2, 'toym_census.jsonl'), 'utf8'));
     } finally { rmSync(base, {recursive: true, force: true}); }
 });
+
+test('schema union covers every row kind, keeps backup-only rows, and resolves versions newest first', () => {
+    const base = mkdtempSync(join(tmpdir(), 'schema-union-kinds-'));
+    try {
+        const input = join(base, 'input'), out = join(base, 'out');
+        mkdirSync(join(input, 'pre-sv8'), {recursive: true});
+        mkdirSync(join(input, 'pre-sv14'), {recursive: true});
+        writeJsonl(join(input, 'toym_rules.jsonl'), [{id: 'rule.same', name: 'Rule One', effect: 'new'}]);
+        writeJsonl(join(input, 'pre-sv14', 'toym_rules.jsonl'), [
+            {id: 'rule.same', name: 'Rule One', effect: 'old', detail: 'restored'},
+            {id: 'rule.backup', name: 'Backup only', effect: 'kept'},
+        ]);
+        writeJsonl(join(input, 'pre-sv8', 'toym_rules.jsonl'), [{id: 'rule.same', name: 'Rule One', effect: 'oldest', ancient: true}]);
+        writeJsonl(join(input, 'toym_places.jsonl'), [{name: '  The Old Hall! ', value: 'current'}]);
+        writeJsonl(join(input, 'pre-sv14', 'toym_places.jsonl'), [
+            {name: 'the-old hall', value: 'older', extra: 'silent'},
+            {name: 'Another Place', value: 'backup'},
+        ]);
+        const report = run(input, out);
+        const rules = readJsonl(join(out, 'toym_rules.jsonl'));
+        assert.equal(rules.find(row => row.id === 'rule.same').effect, 'new');
+        assert.equal(rules.find(row => row.id === 'rule.same').detail, 'restored');
+        assert.equal(rules.find(row => row.id === 'rule.same').ancient, true);
+        assert.equal(rules.find(row => row.id === 'rule.same')._from.ancient, 'pre-sv8');
+        assert.equal(rules.some(row => row.id === 'rule.backup'), true);
+        const places = readJsonl(join(out, 'toym_places.jsonl'));
+        assert.equal(places.length, 2, 'id-less name rows use normalized kind/name identity');
+        assert.equal(places.find(row => row.name.includes('Old')).value, 'current');
+        assert.equal(places.find(row => row.name.includes('Old')).extra, 'silent');
+        assert.equal(report.kinds.some(row => row.kind === 'rules' && row.keptOnlyFromBackup === 1), true);
+        assert.equal(report.kinds.some(row => row.kind === 'places' && row.keptOnlyFromBackup === 1), true);
+    } finally { rmSync(base, {recursive: true, force: true}); }
+});
