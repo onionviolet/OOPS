@@ -3,6 +3,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {defineDivinations} from '../../src/cast_divination_adapter.js';
+import {defineCastMaking} from '../../src/cast_making_adapter.js';
+import {defineInferences} from '../../src/cast_inference_adapter.js';
 import {defineTopicTalks} from '../../src/cast_topic_talk.js';
 import {defineJourneys} from '../../src/cast_journeys.js';
 import {definePlaceActs} from '../../src/place_acts.js';
@@ -39,6 +42,9 @@ function collection(pack,kind) {
   if (kind==='topic') return pack.topicTalks ||= {talks:[]}, pack.topicTalks.talks;
   if (kind==='journey') return Array.isArray(pack.journeys) ? pack.journeys : (pack.journeys ||= {journeys:[]}).journeys;
   if (kind==='act') return pack.householdActs ||= {objects:[],acts:[]}, pack.householdActs.acts;
+  if (kind==='divination') return (pack.divinations ||= {queries:[]}).queries;
+  if (kind==='making') return (pack.making ||= {schema:1,rows:[]}).rows;
+  if (kind==='inference') return (pack.inferences ||= {chains:[]}).chains;
   throw Error(`Unsupported reviewed row kind: ${kind}`);
 }
 function validate(pack) {
@@ -48,20 +54,21 @@ function validate(pack) {
   const talks=defineTopicTalks(pack.topicTalks,binding);
   const journeys=defineJourneys(pack.journeys,binding);
   const acts=definePlaceActs(pack.householdActs,binding);
-  const definitions=[...talks,...journeys,...acts];
+  const divinations=defineDivinations(pack.divinations,binding),making=defineCastMaking(pack.making,binding),inferences=defineInferences(pack.inferences,binding);
+  const definitions=[...talks,...journeys,...acts,...divinations,...making,...inferences];
   for(const definition of definitions){jsonData(definition);validatePredicate(definition.requires);}
   createSimulationRegistry({commands:definitions});
-  return {talks:talks.length,journeys:journeys.length,acts:acts.length};
+  return {talks:talks.length,journeys:journeys.length,acts:acts.length,divinations:divinations.length,making:making.length,inferences:inferences.length};
 }
 export function mergeReviewedRows(packInput, reviewedSets) {
-  const pack=clone(packInput), added={topic:0,journey:0,act:0}, byShard=reviewedSets.map(()=>({topic:0,journey:0,act:0,skipped:0}));
+  const pack=clone(packInput), added={topic:0,journey:0,act:0,divination:0,making:0,inference:0}, byShard=reviewedSets.map(()=>({topic:0,journey:0,act:0,divination:0,making:0,inference:0,skipped:0}));
   const resolved=resolveReviewedRows(reviewedSets);
   for (const {line,shard} of resolved.entries) {
     if (line.verdict!=='row') continue;
     const rows=collection(pack,line.kind), row=clone(line.row);
     if (!row || typeof row.id!=='string') throw Error(`Reviewed row lacks an id for step ${line.stepId}`);
     if (row.fare===undefined && line.kind==='journey') row.fare=null;
-    const allRows=[...pack.topicTalks?.talks||[],...(Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[]),...pack.householdActs?.acts||[],...pack.householdActs?.objects||[]];
+    const allRows=[...pack.topicTalks?.talks||[],...(Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[]),...pack.householdActs?.acts||[],...pack.householdActs?.objects||[],...pack.divinations?.queries||[],...pack.making?.rows||[],...pack.inferences?.chains||[]];
     const sameId=allRows.find(existing=>existing.id===row.id);
     if (sameId) {
       if (JSON.stringify(sameId)!==JSON.stringify(row)) throw Error(`ID collision with different content: ${row.id}`);
@@ -70,7 +77,7 @@ export function mergeReviewedRows(packInput, reviewedSets) {
     }
     // A paragraph-reviewed disposition supersedes a prior generated row for the
     // same step, including a prior row stored under another kind or ID.
-    for (const priorRows of [pack.topicTalks?.talks||[],Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[],pack.householdActs?.acts||[]]) {
+    for (const priorRows of [pack.topicTalks?.talks||[],Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[],pack.householdActs?.acts||[],pack.divinations?.queries||[],pack.making?.rows||[],pack.inferences?.chains||[]]) {
       for (let i=priorRows.length-1;i>=0;i--) if (priorRows[i].sourceStepId===line.stepId) priorRows.splice(i,1);
     }
     assertJsonSafe(row,`row.${row.id}`);

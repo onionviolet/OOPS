@@ -18,13 +18,47 @@ const eq=(fact,value,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 // effects:[<simulation effect>]}}]}. All quantities and outputs must be authored.
 // One output inventory unit represents the entire resolved batch. A dose may
 // omit `use` when product.consumer names an existing ingestion command.
+// Timed source acts retain physical/object receipts without claiming recipe,
+// equipment or delivery behavior. Optional inputs spend existing native stock;
+// this adapter creates no inventory seeds, material laws or products for them.
+function timedMaking(row,{worldId,actorId,group,situationId,requires}){
+ const fields=['id','revision','kind','operation','label','description','report','place','minutes','knowledgeKey','requires','inputs','object','sourceStepId','locator'];
+ if(Object.keys(row).some(k=>!fields.includes(k))||!id(row.id)||!pos(row.revision)||!id(row.place)||
+  ![row.label,row.description,row.report].every(text)||!pos(row.minutes)||row.knowledgeKey!=null&&!id(row.knowledgeKey))throw Error('Invalid timed making act.');
+ if(!['preparation','document'].includes(row.kind))throw Error('Equipment and fixtures need their existing act owner.');
+ if(row.kind==='document'&&(!['write','read','inscribe','destroy','handle'].includes(row.operation)||!row.object))throw Error('Document handling needs an object fact and operation, without delivery.');
+ const inputs=row.inputs||[],keys=new Set();
+ if(!Array.isArray(inputs))throw Error('Timed making inputs need native stock bindings.');
+ const costs=inputs.map(x=>{
+  if(Object.keys(x).some(k=>!['key','qty'].includes(k))||!pos(x.qty)||keys.has(x.key))throw Error('Invalid timed making stock.');
+  validateItemKey(x.key);keys.add(x.key);return {type:'item',actor:actorId,key:x.key,amount:-x.qty};
+ });
+ const effects=[];
+ if(row.object){
+  const o=row.object;
+  if(Object.keys(o).some(k=>!['key','value'].includes(k))||!id(o.key)||!['boolean','string','number'].includes(typeof o.value)||typeof o.value==='number'&&!Number.isFinite(o.value))throw Error('Object action needs a native fact.');
+  effects.push({type:'fact',scope:'actor',actor:actorId,key:o.key,value:o.value});
+ }
+ const receipt=`making.${row.id}`,support={all:[...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),
+  ...(row.knowledgeKey?[eq(`knowledge.${row.knowledgeKey}.seen`,true,'Learn the preparation first.')]:[])]};
+ effects.push({type:'knowledge',actor:actorId,key:receipt,stage:'seen',value:row.report,
+  basis:{kind:'observation',attributedTo:actorId,situationId}});
+ return {id:row.id,revision:row.revision,label:row.label,description:row.description,group,actorId,worldId,location:row.place,once:false,
+  duration:row.minutes,cancellation:'refund',visibleWhen:requires||eq('actor.life','alive'),requires:support,completionRequires:support,
+  completionCoLocated:true,completionFailure:'refund',costs,effects,
+  making:{rowId:row.id,stage:row.kind,costText:costs.map(c=>`${-c.amount} ${c.key}`).join('; ')||'Time; stock cost not recorded.',receiptKey:receipt}};
+}
 export function defineCastMaking(data,{worldId,actorId='player',group,situationId,requires=null}={}){
  if(![worldId,actorId,group,situationId].every(id))throw Error('Invalid making binding.');
  if(data==null)return [];
- if(data.schema!==1||!Array.isArray(data.rows)||!Array.isArray(data.laws))throw Error('Invalid making pack.');
- const catalogue=defineCatalogue(data.catalogue),laws=new Map(),seen=new Set(),commands=[];
- for(const spec of data.laws){const law=defineCraftLaw({...spec,catalogue});if(laws.has(law.ref))throw Error('Duplicate making law.');laws.set(law.ref,law);}
+ if(data.schema!==1||!Array.isArray(data.rows)||data.laws!=null&&!Array.isArray(data.laws))throw Error('Invalid making pack.');
+ const catalogue=data.catalogue!=null||data.rows.some(r=>r.kind==null)?defineCatalogue(data.catalogue):null,laws=new Map(),seen=new Set(),commands=[];
+ for(const spec of data.laws||[]){const law=defineCraftLaw({...spec,catalogue});if(laws.has(law.ref))throw Error('Duplicate making law.');laws.set(law.ref,law);}
  for(const row of data.rows){
+  if(row.kind!=null){
+   if(seen.has(row.id))throw Error('Duplicate making row.');
+   commands.push(timedMaking(row,{worldId,actorId,group,situationId,requires}));seen.add(row.id);continue;
+  }
   if(!id(row.id)||seen.has(row.id)||!pos(row.revision)||!id(row.place)||!id(row.knowledgeKey)||
    ![row.label,row.description,row.report,row.product?.key,row.product?.label].every(text)||!pos(row.minutes)||
    !Array.isArray(row.inputs)||!row.inputs.length||!Array.isArray(row.process)||!Array.isArray(row.stations)||
@@ -87,6 +121,7 @@ export function defineCastMaking(data,{worldId,actorId='player',group,situationI
  }
  const physical=new Map(),products=new Map(),commandIds=new Set();
  for(const row of data.rows){
+  if(row.kind!=null)continue;
   for(const input of row.inputs){const prior=physical.get(input.key);if(prior&&prior!==input.material)throw Error('Making item key has conflicting material bindings.');physical.set(input.key,input.material);}
   const product=commands.find(d=>d.id===row.id).making.productId,prior=products.get(row.product.key);
   if(prior&&prior!==product)throw Error('Making product key has conflicting batch identities.');products.set(row.product.key,product);

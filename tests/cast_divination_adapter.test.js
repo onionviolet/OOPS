@@ -63,12 +63,48 @@ test('obscured attempt pays without an answer; stale means and interrupted suppo
  p=prepared();p=start(p,'fixture.query.ask');p={...p,...cancelSimulationJob(p.state,registry,p.state.simulation.jobs.at(-1).id,ctx(p),p.state.sequence)};assert.equal(p.external.money,5);
  p=setup();delete p.state.actors.player.facts['fixture.still'];assert.equal(preview(p,'fixture.query.prepare').eligible,false);p.state.actors.player.facts['fixture.clamp']=true;assert.equal(preview(p,'fixture.query.prepare').eligible,true);
 });
-test('row validation rejects missing means, unsupported effects, stages and unpaid attempts',()=>{
- for(const change of [r=>delete r.means,r=>delete r.contact,r=>r.steps[1].kind='relocate',r=>r.steps[3].costs=[],r=>delete r.steps[3].signal,r=>r.steps[1].id='prepare',r=>r.steps[0].minutes=0,r=>r.steps[1].effects=[{type:'relocate'}],r=>r.recipients=['fixture.other'],r=>r.steps[3].costs[0].amount=1]){const r=structuredClone(exampleQuery);change(r);assert.throws(()=>defineDivinations({queries:[r]},binding));}
+test('row validation rejects missing means, unsupported effects, stages and invalid costs',()=>{
+ for(const change of [r=>delete r.means,r=>delete r.contact,r=>r.steps[1].kind='relocate',r=>delete r.steps[3].signal,r=>r.steps[1].id='prepare',r=>r.steps[0].minutes=0,r=>r.steps[1].effects=[{type:'relocate'}],r=>r.recipients=['fixture.other'],r=>r.steps[3].costs[0].amount=1]){const r=structuredClone(exampleQuery);change(r);assert.throws(()=>defineDivinations({queries:[r]},binding));}
  const before=structuredClone(exampleQuery);defineDivinations({queries:[exampleQuery]},binding);assert.deepEqual(exampleQuery,before);
 });
 
-test('live or prepared integration crosses native UI and real save validator in a disposable copy',{timeout:180000},async t=>{
+// A partial, unpaid rite still has a real timed job and observer receipt.
+const partialQuery=structuredClone(exampleQuery);
+partialQuery.id='fixture.partial';delete partialQuery.ritual;delete partialQuery.dial;
+partialQuery.steps=[{...exampleQuery.steps[0],id:'unknown',kind:'unknown',report:'The earlier stage is not recorded.'},
+ {...exampleQuery.steps[3],costs:[],effects:[
+  {type:'fact',scope:'actor',key:'fixture.rite.object',value:true},
+  {type:'knowledge',key:'fixture.rite.noticed',stage:'seen',value:'You noticed a mark.'},
+  {type:'owner-needed',owner:'fixture.protection',key:'fixture.rite.unbound',value:'A protective change is described.'}]}];
+test('partial rites accept unknown cost and native side effects without fabricating missing stages',()=>{
+ const ds=defineDivinations({queries:[partialQuery]},binding);
+ for(const [id,d] of createSimulationRegistry({commands:ds}).commands)registry.simulation.commands.set(id,d);
+ let p=setup();assert.equal(ds.length,2);assert.equal(ds[1].divination.cost,null);
+ assert.match(quoteDivinations(p.state,ds,d=>preview(p,d.id))[1].costText,/cost not recorded/);
+ assert.equal(preview(p,ds[1].id).eligible,false);
+ p=doStep(p,ds[0].id);p=start(p,ds[1].id);const job=p.state.simulation.jobs.at(-1);
+ assert.equal(p.external.money,5);assert.ok(job.id);assert.equal(p.state.actors.player.facts['fixture.rite.object'],undefined);
+ p=wait(p,2);assert.equal(p.external.money,5);assert.equal(p.state.actors.player.facts['fixture.rite.object'],true);
+ assert.match(p.state.actors.player.facts['fixture.rite.unbound'],/owner needed: fixture.protection/);
+ assert.equal(p.state.simulation.knowledge.player['fixture.rite.noticed'].value,'You noticed a mark.');
+ assert.equal(p.state.simulation.knowledge.player['divination.fixture.partial.interpretation'],undefined);
+ const move=structuredClone(partialQuery);move.steps[1].effects=[{type:'relocate',location:'fixture.elsewhere'}];
+ const moving=defineDivinations({queries:[move]},binding);createSimulationRegistry({commands:moving});
+ const marked=structuredClone(partialQuery);marked.steps[1].effects=[{type:'condition',id:'fixture.rite.mark',operation:'apply',duration:3}];
+ createSimulationRegistry({commands:defineDivinations({queries:[marked]},binding)});
+ const ownerless=structuredClone(partialQuery);ownerless.steps[1].effects=[{type:'fixture.protection',key:'fixture.unbound.protection',value:'Protection is described.'}];
+ assert.match(defineDivinations({queries:[ownerless]},binding)[1].effects.at(-1).value,/owner needed: fixture.protection/);
+ for(const cost of [null,undefined]){
+  const noCost=structuredClone(partialQuery);if(cost===undefined)delete noCost.steps[1].costs;else noCost.steps[1].costs=cost;
+  assert.equal(defineDivinations({queries:[noCost]},binding)[1].divination.cost,null);
+ }
+ const bad=structuredClone(partialQuery);bad.steps[1].effects=[{type:'owner-needed',key:'fixture.missing',value:'Unknown.'}];
+ assert.throws(()=>defineDivinations({queries:[bad]},binding),/missing rite effect owner/);
+ const reordered=structuredClone(partialQuery);reordered.steps.push({...exampleQuery.steps[0]});
+ assert.throws(()=>defineDivinations({queries:[reordered]},binding),/ordered known stages/);
+});
+
+test('live integration crosses native UI and real save validator in a disposable copy',{timeout:180000},async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -90,7 +126,7 @@ test('live or prepared integration crosses native UI and real save validator in 
   bindings:{days:[{scene:'fixture.scene',day:1,from:0,to:100}],schedule,beats:[beat]},
   leadLife:{actorId:people[0].id,profile:{id:'book.lead.be@1',key:'be',label:'Be a person',beyonderTrack:false,cash:1,home:null,start:'fixture.place.other',blurb:'Begin at home.'},knownPlaces:['fixture.place.other'],history:[],relations:[],intentions:[],untakenChoices:[]},
   topicTalks:{talks:[{id:'fixture.consumer',personId:people[1].id,topicId:'fixture.use',label:'Use the reading',description:'Ask where to set the sample aside after interpreting.',minutes:1,requires:{all:[eq('actor.divination.fixture.query.phase','interpret'),eq('knowledge.divination.fixture.query.interpretation.value',exampleQuery.steps[4].belief)]},choices:[{id:'ask',label:'Discuss the reading',report:'You used the reading to ask a further question.',effects:[]}]}]}};
- const row=structuredClone(exampleQuery);row.place='fixture.place.other';pack.divinations={queries:[row]};
+ const row=structuredClone(exampleQuery);row.place='fixture.place.other';const partial=structuredClone(partialQuery);partial.place=row.place;pack.divinations={queries:[row,partial]};
 
 
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
@@ -140,6 +176,17 @@ try {
  assert.equal(after.expansion.simulation.knowledge.player['topic.talk.fixture.consumer.ask'].value,'You used the reading to ask a further question.');
  assert.equal(after.expansion.simulation.knowledge['fixture.person.relative']?.['divination.fixture.query.signal'],undefined,'other actor did not receive private signal');
  assert.equal(after.character.money,money-1,'no refund or second charge on reload/import');
+ g.module.dv1Act('fixture.partial.unknown');await g.step(2);
+ const cashBefore=(await g.save()).character.money;
+ g.module.dv1Act('fixture.partial.ask');let unpaid=await g.save();
+ const unpaidJob=unpaid.expansion.simulation.jobs.find(j=>j.commandId==='fixture.partial.ask');assert.ok(unpaidJob,'pending unpaid job must pass the real save validator: '+g.internals.foundationSaveBlocked);
+ const tampered=structuredClone(unpaid);tampered.expansion.simulation.jobs.find(j=>j.id===unpaidJob.id).effects[0].value='changed';
+ assert.throws(()=>g.module.dv1Validate(tampered),/exact admitted definition/);
+ await g.reload();const partialExport=await g.exportFile();await g.importFile(partialExport);await g.step(3);
+ unpaid=await g.save();assert.equal(unpaid.character.money,cashBefore);
+ assert.equal(unpaid.expansion.actors.player.facts['fixture.rite.object'],true);
+ assert.match(unpaid.expansion.actors.player.facts['fixture.rite.unbound'],/owner needed: fixture.protection/);
+ await g.reload();assert.equal((await g.save()).expansion.simulation.knowledge.player['divination.fixture.partial.ask'].cause,unpaidJob.id);
  assert.deepEqual(g.errors,[]);
  process.stdout.write('native ordered rite, paid attempt, pending/settled Save/reload/Export/Import, support/effect tamper: PASS');
 } finally {g.close();}

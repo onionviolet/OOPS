@@ -18,32 +18,37 @@ export function defineInferences(data,{worldId,actorId='player',group,situationI
  jsonSafe(data);check(Array.isArray(data.chains),'Expected inference chains.');
  const commands=[],ids=new Set(),rows=new Set();
  for(const row of data.chains){
-  check(Object.keys(row).every(k=>['id','label','description','place','requires','steps','locator'].includes(k)),'Unsupported inference field needs its owner.');
-  check(id(row.id)&&!rows.has(row.id)&&text(row.label)&&text(row.description)&&(!row.place||id(row.place))&&Array.isArray(row.steps)&&row.steps.length>=3,'Invalid inference chain.');rows.add(row.id);
+  check(Object.keys(row).every(k=>['id','label','description','place','requires','steps','locator','sourceStepId'].includes(k)),'Unsupported inference field needs its owner.');
+  check(id(row.id)&&!rows.has(row.id)&&text(row.label)&&text(row.description)&&(!row.place||id(row.place))&&Array.isArray(row.steps)&&row.steps.length>=1,'Invalid inference chain.');rows.add(row.id);
   const statusKey=`inference.${row.id}.intention`,phaseKey=`inference.${row.id}.phase`;
   let previous,hasEvidence=false,hasInference=false,hasIntention=false;
   for(const step of row.steps){
-   check(Object.keys(step).every(k=>['id','kind','label','description','minutes','report','evidence','requires','sourceId','uncertainty'].includes(k)),'Unsupported inference effect needs its owner.');
+   check(Object.keys(step).every(k=>['id','kind','label','description','minutes','report','evidence','requires','sourceId','uncertainty','observation'].includes(k)),'Unsupported inference effect needs its owner.');
    const commandId=`${row.id}.${step.id}`,control=['postpone','resume','cancel'].includes(step.kind);
    check(id(step.id)&&!ids.has(commandId)&&text(step.label)&&text(step.description)&&text(step.report)&&Number.isSafeInteger(step.minutes)&&step.minutes>0,'Invalid inference step.');ids.add(commandId);
    check(['recall','testimony','read','infer','intend','postpone','resume','cancel'].includes(step.kind),'Unsupported inference kind.');
+   const observation=step.observation;
+   if(observation)check(['recall','infer','intend','postpone'].includes(step.kind)&&Object.keys(observation).every(k=>['basis','value','actor'].includes(k))&&
+    ['recalled','witnessed'].includes(observation.basis)&&text(observation.value)&&observation.actor===actorId,
+    'Observation must state this observer’s witnessed perception or recollection.');
+   const direct=!!observation&&!hasEvidence&&!hasInference&&!hasIntention;
    if(!control){
-    check(Array.isArray(step.evidence)&&step.evidence.length>0&&step.evidence.every(e=>Object.keys(e).every(k=>['key','value'].includes(k))&&id(e.key)&&text(e.value)),'A mental step needs held observer evidence.');
+    check(direct&&step.evidence==null||Array.isArray(step.evidence)&&step.evidence.length>0&&step.evidence.every(e=>Object.keys(e).every(k=>['key','value'].includes(k))&&id(e.key)&&text(e.value)),'A mental step needs held observer evidence.');
     if(['recall','testimony','read'].includes(step.kind)){
      check(!hasInference&&!hasIntention,'Receive evidence before drawing this chain\'s inference.');hasEvidence=true;
      if(step.kind==='read')check(id(step.sourceId)&&step.requires,'Reading needs an identified text and access/comprehension support.');
     }
-    if(step.kind==='infer'){check(hasEvidence&&!hasIntention&&text(step.uncertainty),'Inference needs prior evidence and stated uncertainty.');hasInference=true;}
-    if(step.kind==='intend'){check(hasInference&&!hasIntention,'Intention needs a preceding inference.');hasIntention=true;}
-   }else check(hasIntention&&!step.evidence,'Plan controls follow the intention.');
+    if(step.kind==='infer'){check((hasEvidence||direct)&&!hasIntention&&text(step.uncertainty),'Inference needs prior evidence and stated uncertainty.');hasInference=true;}
+    if(step.kind==='intend'){check((hasInference||direct)&&!hasIntention,'Intention needs a preceding inference.');hasIntention=true;}
+   }else {check((hasIntention||direct&&step.kind==='postpone')&&!step.evidence,'Plan controls follow the intention.');if(direct)hasIntention=true;}
    const status=step.kind==='intend'||step.kind==='resume'?'active':step.kind==='postpone'?'postponed':step.kind==='cancel'?'cancelled':'considering';
    const evidence=(step.evidence||[]).map(e=>eq(`knowledge.${e.key}.value`,e.value,'Recall or receive the supporting evidence first.'));
-   const phase=control?(step.kind==='cancel'?{any:['active','postponed'].map(value=>eq(`actor.${statusKey}`,value,'Choose a current intention first.'))}:eq(`actor.${statusKey}`,step.kind==='resume'?'postponed':'active','The current intention does not support this change.')):
+   const phase=control&&!direct?(step.kind==='cancel'?{any:['active','postponed'].map(value=>eq(`actor.${statusKey}`,value,'Choose a current intention first.'))}:eq(`actor.${statusKey}`,step.kind==='resume'?'postponed':'active','The current intention does not support this change.')):
     previous?eq(`actor.${phaseKey}`,previous,'Complete the preceding thought first.'):null;
    const support=all(requires,row.requires,phase,...evidence,step.requires);
    const receiptKey=`inference.${commandId}`;
    const basis={kind:step.kind==='recall'?'recollection':step.kind==='testimony'||step.kind==='read'?'instruction':'inference',attributedTo:actorId,situationId,
-    evidence:(step.evidence||[]).map(e=>e.key),...(step.sourceId?{sourceId:step.sourceId}:{}),...(step.uncertainty?{uncertainty:step.uncertainty}:{}),...(row.locator?{at:row.locator}:{})};
+    evidence:(step.evidence||[]).map(e=>e.key),...(step.sourceId?{sourceId:step.sourceId}:{}),...(step.uncertainty?{uncertainty:step.uncertainty}:{}),...(row.locator?{at:row.locator}:{}),...(observation?{observation:observation.basis,perception:observation.value}:{})};
    const effects=[{type:'fact',scope:'actor',actor:actorId,key:statusKey,value:status},
     ...(!control?[{type:'fact',scope:'actor',actor:actorId,key:phaseKey,value:step.id}]:[]),
     {type:'knowledge',actor:actorId,key:receiptKey,stage:['recall','read','testimony'].includes(step.kind)?'seen':'interpreted',value:step.report,basis}];
@@ -53,7 +58,7 @@ export function defineInferences(data,{worldId,actorId='player',group,situationI
     inference:{chainId:row.id,label:row.label,kind:step.kind,receiptKey,statusKey}});
    if(!control)previous=step.id;
   }
-  check(hasEvidence&&hasInference&&hasIntention,'Chain needs evidence, inference and intention.');
+  check(hasEvidence||hasInference||hasIntention,'Chain needs an observer-owned thought.');
  }
  return commands;
 }

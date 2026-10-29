@@ -1,5 +1,6 @@
 // Pack-authored, source-pinned queries over native jobs. The simulation owns
 // payment, attempt identity, support, time and knowledge. No accuracy RNG here.
+import {validateSimulationEffect} from './simulation_contracts.js';
 import {defineRitual,ritualDial,fitScore,gradeRitual} from './ritual_conditions.js';
 const id=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
@@ -8,14 +9,19 @@ const all=(...rules)=>({all:rules.filter(Boolean)});
 export function defineDivinations(data,{worldId,actorId='player',group,situationId,requires}={}){
  if(![worldId,actorId,group,situationId].every(id))throw Error('Invalid divination binding.');
  const commands=[],ids=new Set();
- const rowFields=new Set(['id','targetId','question','method','label','description','means','contact','requires','place','steps','ritual','dial','locator']);
- const stepFields=new Set(['id','kind','label','description','minutes','report','costs','requires','status','signal','belief']);
+ const rowFields=new Set(['id','targetId','question','method','label','description','means','contact','requires','place','steps','ritual','dial','locator','sourceStepId']);
+ const stepFields=new Set(['id','kind','label','description','minutes','report','costs','requires','status','signal','belief','effects']);
  for(const row of data?.queries||[]){
   if(Object.keys(row).some(k=>!rowFields.has(k)))throw Error('Unsupported query field needs its owning mechanism.');
   if(!id(row.id)||!id(row.targetId)||!text(row.question)||!text(row.method)||!text(row.label)||!text(row.description)||
-   !row.means||!row.contact||row.place!=null&&!id(row.place)||!Array.isArray(row.steps)||row.steps.length<3)throw Error('Invalid query: declare target, question, held means, contact and ordered steps.');
+   !row.means||!row.contact||row.place!=null&&!id(row.place)||!Array.isArray(row.steps)||!row.steps.length)throw Error('Invalid query: declare target, question, held means, contact and ordered steps.');
   const kinds=row.steps.map(s=>s.kind);
-  if(kinds[0]!=='prepare'||kinds.filter(k=>k==='attempt').length!==1||kinds.at(-1)!=='interpret'||kinds.indexOf('attempt')!==kinds.length-2||kinds.slice(1,-2).some(k=>k!=='rite'))throw Error('Query needs preparation, optional ordered rite, attempt, interpretation.');
+  // Known stages retain their order; an explicitly unknown stage carries no
+  // signal, interpretation or invented work. Omitted stages stay silent.
+  const rank={prepare:0,rite:1,attempt:2,interpret:3};
+  const known=kinds.filter(k=>k!=='unknown');
+  if(kinds.some(k=>k!=='unknown'&&!Object.hasOwn(rank,k))||known.some((k,i)=>i&&rank[k]<rank[known[i-1]])||
+   ['prepare','attempt','interpret'].some(k=>known.filter(x=>x===k).length>1))throw Error('Query needs ordered known stages or explicit unknown stages.');
   const ritual=row.ritual?defineRitual(row.ritual):null,dial=ritual?ritualDial(worldId,row.dial):null;
   // Compile the existing grader's supported exact/substitute cases into native
   // predicates. World laws can replace this first-slice support policy later.
@@ -29,7 +35,6 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
    ids.add(commandId);
    const costs=structuredClone(step.costs||[]);
    if(!Array.isArray(costs)||costs.some(c=>!['resource','item','vital'].includes(c.type)||!Number.isFinite(c.amount)||c.amount>=0))throw Error('Declare explicit spent stock through a native cost.');
-   if(step.kind==='attempt'&&!costs.length)throw Error('An attempt needs its supported paid cost.');
    const phase=previous&&eq(`actor.${phaseKey}`,previous,'Complete the preceding rite step first.');
    const effects=[{type:'fact',scope:'actor',actor:actorId,key:phaseKey,value:step.id}];
    const basis={kind:step.kind==='interpret'?'inference':'observation',attributedTo:actorId,situationId,
@@ -44,12 +49,26 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
     if(!text(step.belief))throw Error('Interpretation needs a stated belief, not hidden truth.');
     effects.push({type:'knowledge',actor:actorId,key:`divination.${row.id}.interpretation`,stage:'interpreted',value:step.belief,basis:{...basis,evidence:[`divination.${row.id}.signal`]}});
    }
+   if(step.effects!=null&&!Array.isArray(step.effects))throw Error('Rite effects need a list.');
+   for(const [index,spec] of (step.effects||[]).entries()){
+    let effect=structuredClone(spec);
+    if(!['fact','knowledge','condition','relocate'].includes(effect.type)){
+     if(effect.type!=='owner-needed')effect.owner??=effect.type;
+     effect.key??=`divination.${row.id}.${step.id}.owner_needed.${index}`;
+     if(!id(effect.key)||!id(effect.owner))throw Error('Name the missing rite effect owner and fact.');
+     effect={type:'fact',scope:'actor',actor:actorId,key:effect.key,value:`owner needed: ${effect.owner}; ${text(effect.value)?effect.value:JSON.stringify(spec)}`};
+    }else{
+     effect.actor??=actorId;
+     if(effect.type==='knowledge')effect.basis??=structuredClone(basis);
+    }
+    validateSimulationEffect(effect);effects.push(effect);
+   }
    commands.push({id:commandId,revision:1,label:step.label,description:step.description,worldId,actorId,group,
     ...(row.place?{location:row.place}:{}),once:false,duration:step.minutes,cancellation:'refund',
     visibleWhen:requires||eq('actor.life','alive'),requires:all(support,phase,step.requires),
     completionRequires:all(support,phase,step.requires),completionCoLocated:!!row.place,completionFailure:'refund',costs,effects,
     divination:{queryId:row.id,question:row.question,targetId:row.targetId,method:row.method,label:row.label,
-     kind:step.kind,receiptKey,phaseKey,ritual,dial}});
+     kind:step.kind,receiptKey,phaseKey,ritual,dial,...(step.kind==='attempt'&&!costs.length?{cost:null}:{})}});
    previous=step.id;
   }
  }
@@ -66,7 +85,7 @@ export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>(
   const known=state.simulation?.knowledge?.[d.actorId]||{};
   return [{id:d.id,queryId:m.queryId,queryLabel:m.label,question:m.question,method:m.method,perspective:'Your rite',
    label:`${d.label} · ${q.duration??d.duration} min`,description:d.description,duration:q.duration??d.duration,
-   costs:structuredClone(costs),costText:costs.map(e=>`${e.key||e.type}: ${e.amount}`).join('; ')||'No stock spent.',
+   costs:structuredClone(costs),...(m.cost===null?{cost:null}:{}),costText:costs.map(e=>`${e.key||e.type}: ${e.amount}`).join('; ')||(m.cost===null?'cost not recorded':'No stock spent.'),
    effectText:d.description,...(k?{record:k.value}:{}),
    ...(m.kind==='attempt'&&known[`divination.${m.queryId}.signal`]?{signal:known[`divination.${m.queryId}.signal`].value}:{}),
    ...(m.kind==='interpret'&&known[`divination.${m.queryId}.interpretation`]?{belief:known[`divination.${m.queryId}.interpretation`].value}:{}),

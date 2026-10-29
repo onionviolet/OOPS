@@ -60,7 +60,30 @@ test('same mechanism carries a second product, stable identity, silent absence a
  const blocked=quoteCastMaking(setup().state,commands,()=>({visible:true,eligible:true,reasons:[]}),{blocked:'Saving paused.'});assert.equal(blocked[0].eligible,false);
 });
 
-test('live or prepared joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:180000}, async t=>{
+const timedRows=[
+ {id:'fixture.prep.unbound',revision:1,kind:'preparation',place:'fixture.room',minutes:2,label:'Arrange the materials',description:'Arrange materials without a recorded recipe.',report:'You arranged the materials.',object:{key:'fixture.materials.arranged',value:true}},
+ {id:'fixture.prep.stock',revision:1,kind:'preparation',place:'fixture.room',minutes:1,label:'Prepare the leaf',description:'Spend a held leaf in preparation.',report:'You prepared the leaf.',inputs:[{key:key('fixture.leaf'),qty:1}]},
+ ...['write','read','inscribe','destroy','handle'].map(operation=>({id:`fixture.document.${operation}`,revision:1,kind:'document',operation,place:'fixture.room',minutes:1,label:'Handle a document',description:'Handle the held document.',report:`You performed the ${operation} action.`,object:{key:`fixture.document.${operation}`,value:true}}))];
+test('timed preparation and document handling retain action/object facts without inventing recipes or delivery',()=>{
+ const ds=defineCastMaking({schema:1,rows:timedRows},binding);
+ for(const [id,d] of createSimulationRegistry({commands:ds}).commands)registry.simulation.commands.set(id,d);
+ let p=setup();p=wait(start(p,'fixture.prep.unbound'),2);
+ assert.equal(p.state.actors.player.facts['fixture.materials.arranged'],true);
+ assert.equal(p.gameplay.player.inventory[key('fixture.liquid')],undefined);
+ for(const operation of ['write','read','inscribe','destroy','handle']){
+  p=wait(start(p,`fixture.document.${operation}`),1);assert.equal(p.state.actors.player.facts[`fixture.document.${operation}`],true);
+ }
+ assert.equal(p.state.simulation.knowledge['fixture.other']?.['making.fixture.document.write'],undefined);
+ p=wait(start(p,'fixture.prep.stock'),1);assert.equal(p.gameplay.player.inventory[key('fixture.leaf')],1);
+ const empty=setup();delete empty.gameplay.player.inventory[key('fixture.leaf')];assert.throws(()=>start(empty,'fixture.prep.stock'));
+ let interrupted=start(setup(),'fixture.prep.stock');interrupted.state.simulation.people.player.location='fixture.elsewhere';interrupted=wait(interrupted,1);
+ assert.equal(interrupted.gameplay.player.inventory[key('fixture.leaf')],2);assert.equal(interrupted.state.simulation.knowledge.player['making.fixture.prep.stock'],undefined);
+ for(const mutate of [r=>r.kind='equipment',r=>r.delivery={to:'fixture.other'},r=>r.inputs=[{key:key('fixture.leaf'),qty:0}],r=>delete r.object]){
+  const row=structuredClone(timedRows[2]);mutate(row);assert.throws(()=>defineCastMaking({schema:1,rows:[row]},binding));
+ }
+});
+
+test('live joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:180000}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -87,14 +110,14 @@ export const mkAct=id=>{domainRegistry.refresh();document.querySelector('[data-l
  places:[{id:'fixture.room',indexId:'fixture.room',name:'Room',openingHours:[],travel:{district:'evernight',basis:'fixture'},...evidence}],
  host:{profile:{id:'lotm.early_tingen.canon_beside@1',key:'beside',blurb:'Fixture'},situation:{label:'Fixture'}},
  bindings:{days:[{scene:'fixture.scene',day:1,from:0,to:100}],schedule:[],beats:[beat]},
- leadLife:{actorId:people[0].id,profile:{id:'book.lead.be@1',key:'be',label:'Be a person',beyonderTrack:false,cash:1,home:null,start:'fixture.room',blurb:'Begin at home.'},knownPlaces:['fixture.room'],history:[],relations:[],intentions:[],untakenChoices:[]},making:data};
+ leadLife:{actorId:people[0].id,profile:{id:'book.lead.be@1',key:'be',label:'Be a person',beyonderTrack:false,cash:1,home:null,start:'fixture.room',blurb:'Begin at home.'},knownPlaces:['fixture.room'],history:[],relations:[],intentions:[],untakenChoices:[]},making:{...data,rows:[...data.rows,...timedRows]}};
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
  const buildOut=join(dir,'mk1-build');
  await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');
- t.diagnostic('Patched disposable build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
+ t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'mk1-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
@@ -134,6 +157,18 @@ try {
  const after=await g.save();assert.equal(after.expansion.simulation.knowledge.player['making.fixture.make.used'].value,'You drank the liquid.');
  assert.equal(after.inventories.person.main_character[key('fixture.leaf')].count,1);
  assert.equal(after.inventories.person.main_character[key('fixture.liquid')],undefined);
+ g.module.mkAct('fixture.prep.unbound');let timed=await g.save();
+ const timedJob=timed.expansion.simulation.jobs.find(j=>j.commandId==='fixture.prep.unbound');assert.ok(timedJob);
+ const badTimed=structuredClone(timed);badTimed.expansion.simulation.jobs.find(j=>j.id===timedJob.id).effects[0].value=false;
+ assert.throws(()=>g.module.mkValidate(badTimed),/exact admitted definition/);
+ await g.reload();const timedExport=await g.exportFile();await g.importFile(timedExport);await g.step(3);
+ assert.equal((await g.save()).expansion.actors.player.facts['fixture.materials.arranged'],true);
+ g.module.mkAct('fixture.document.write');await g.step(2);await g.reload();
+ const writtenExport=await g.exportFile();await g.importFile(writtenExport);
+ timed=await g.save();assert.equal(timed.expansion.actors.player.facts['fixture.document.write'],true);
+ assert.equal(timed.expansion.simulation.knowledge.player['making.fixture.document.write'].value,'You performed the write action.');
+ g.module.mkAct('fixture.prep.stock');await g.step(2);
+ assert.equal((await g.save()).inventories.person.main_character[key('fixture.leaf')],undefined);
  assert.deepEqual(g.errors,[]);assert.equal(g.internals.foundationSaveBlocked,false);
 } finally {g.close();}
 `);
