@@ -324,6 +324,17 @@ build order below is a proposal. Mechanisms first is accepted.
   | The same 361 or 60 on Sonnet 5.5 | 361 / 60 | $62.69 / $10.43 | not recommended |
 
   The making and divination families are not selective: 415 of the lead-run shards (361 in volumes 2-8) hold at least one such step. Volume 1 has no scenes plan I could reuse, and most of the reviewed ground truth (24 of the 26 shards holding reviewed steps) sits there, so a pilot needs a volume 1 plan built from the shard text first (about 24 shards, roughly $0.25 on average per-shard cost; its text files are only partly present under the expected names). Nothing is known yet about how well Haiku tags actor and kind at 1.5, so the proposed order is: build that pilot, score it against the 54 "actor not the lead" and 62 "not an action" reviewed steps (done when its recall clears about half of them with under 10% false rows), and only then buy the 60-shard slice. The local model costs no credits but needs free machine nights (LA6).
+- **Codex pilot TG1 (2026-10-29): a model reading the cited paragraph, blind, 140 steps.** Run through the Codex lane runner on the included ChatGPT subscription (preflight passed, 24% window used, API keys stripped), not the paid API. Caveat: the first launch stopped at its data gate because my brief used a paragraph tool that selects by person and place, not step; after I put each step's paragraphs in the input and resumed the lane, its checkpoint says the pass ran as `gpt-6.1-terra`, not the `gpt-6-luna` the brief named (the resume command takes no model option). Treat the result as one model's, not Luna's. Scored against the reviewed verdicts (answer key held outside the repo):
+
+  | Signal | Reviewed "actor not the lead" (40) | Reviewed "not an action" (40) | Reviewed good rows (40) |
+  | --- | --- | --- | --- |
+  | Actor is not the lead (named or unknown) | 39 | 20 | 28 |
+  | Actor is a named other person | 19 | 3 | 8 |
+  | Paragraph does not show the step (`shown` = no) | 21 | 33 | 14 |
+  | Either "no" or a named other person | 29 | 33 | 18 |
+  | Both "no" and not the lead | 21 | 19 | 8 |
+
+  The pass bar (recall over about half, under 10% false rows) is not met: the strictest flag keeps 52% and 48% recall but wrongly flags 20% of good rows; looser flags flag 35-45% of them. Part of that is disagreement with an earlier single-pass review, not necessarily a tagging error. Reading: a paragraph-level pass is informative as a **triage flag** (about 83% of the steps flagged by the strict rule were reviewed faults) and is not reliable enough to replace review or a reread outright. A cheaper Haiku reread is unlikely to beat it, so the $0.65 slice is not recommended on this evidence. Cheapest next step: use the strict flag to rank the unreviewed gaps for the Luna review lanes, then rerun the pilot with Luna named in a fresh launch (not a resume) if the model matters.
 - **Not done.** The code-per-covered-step meter (LSD166, needs per-lane covered-step counts); wiring the sidecar into the mapper rerun (LSD180), which would not change coverage because tags did not clear gaps.
 
 **Working practices** that apply to every step above (all proposals unless noted):
