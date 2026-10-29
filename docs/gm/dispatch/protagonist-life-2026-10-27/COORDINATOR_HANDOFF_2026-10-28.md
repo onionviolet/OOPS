@@ -134,6 +134,23 @@ generic seam LOTM proves, so no seam is built twice.
 | MW7 | **Determinism across worlds.** Draw keys include the world id, so two worlds in one save never share a stream, and adding a world never rerolls another | ACCOUNT FOR NOW: D1 brief line |
 | MW8 | **One player, one seat at a time.** Several worlds in progress means several lives in the save; switching is a Menu action, and crossings stay deferred in the be seat (CL227, CL239) | No change |
 
+## Size and scale (Weibao asked 2026-10-28; proposal, codes SZ1-SZ7)
+
+Measured after M1: the LOTM volume 1 registry has **270 distinct people** (plus items, prices, places and other
+kinds, 2,680 entities in all). M1's 1,574 counts person rows per shard (one person read in 72 shards is 72
+rows); the 4,085 census entities are every named thing the readers listed, not characters. The pack today
+carries 36 people for chapters 1-24 in 388 KB; `dist/bundle.js` is 7.3 MB and holds no book data.
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| SZ1 | **Install size does not grow.** Book packs are local files fetched at runtime (`content_packs.js`, `book_world_lotm_cast_days.js`), never bundled or published. A full volume 1 pack scales to an estimated 3-4 MB | No change |
+| SZ2 | **Save size is the real risk.** If every pack person becomes a live body with full state in the save, saves grow with the cast. Saves should hold only deltas from the pack (what changed, keyed by id), and the pack stays the source | ACCOUNT FOR NOW: D1 and the pack regeneration brief; done check: a save after one book week stays within 2x today's |
+| SZ3 | **Depth tiers.** About 30-50 recurring people get full lives (schedule, needs, relations); the rest are role records that wake to full depth when the lead meets them; census mentions stay reference rows | ACCOUNT FOR NOW: pack regeneration brief (tier from crosswalk lead-scene counts, not `touchedByLead`) |
+| SZ4 | **Load by window.** Load the pack slice for the current chapter window plus the next, not the whole volume, so start time and memory stay flat as more volumes arrive | LATER/DELEGATE: Luna medium after B1; done when a be start loads one window and crossing into the next loads it without a reload |
+| SZ5 | **Pipeline disk use.** The union stage copies the whole 401 MB private input per run; five M1 attempts used 2.2 GB of `/tmp` (the coordinator removed the four earlier ones; `/tmp/m1-lotm-final4` kept). Copy only changed shard files and link the rest | LATER/DELEGATE: Luna low; done when a run's output is under 50 MB |
+| SZ6 | **Per-tick cost.** CO3 already measures 0.77 s per game minute with 36 people; 270 people would multiply it unless off-screen people advance only at their schedule boundaries (the same trick G1 used for waiting) | ACCOUNT FOR NOW: fold into the CO3 profiling lane |
+| SZ7 | **Several worlds multiply all of the above** (MW1-MW8): per-world windows and delta saves keep the cost per active world, not per installed world | ACCOUNT FOR NOW: same lanes |
+
 ## Accepted by Weibao (2026-10-28)
 
 Weibao answered the batched list with "Sure": SUI1-SUI19, CLR1-CLR13 and RPT1-RPT12 are binding defaults; the
