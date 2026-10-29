@@ -1,0 +1,173 @@
+--- a/src/book_world_lotm_cast_host.js
++++ b/src/book_world_lotm_cast_host.js
+@@ -1,2 +1,3 @@
++import {createWakeQueue} from './wake_queue.js';
+ // L4a host seam: one location store, relative clock projection, no beat resolver.
+ import {onCastLoaded,lotmCastDays,lotmCastSchedule} from './book_world_lotm_cast_days.js';
+@@ -34,5 +35,5 @@
+ let talkIds=new Set();
+ function deriveCast(pack){
+- LOTM_CAST=pack;
++ LOTM_CAST=pack; castWakes=null;
+  castSituation.label=pack.host.situation.label;
+  aliases=new Map(pack.placeAliases.flatMap(a=>[[a.id,a.place],[a.indexId,a.place]]));
+@@ -89,15 +90,55 @@
+   day:(day-1)%30+1,day_count:day,hour:Math.floor(minute/60),minute:minute%60}};
+ }
++// Projection cache only: physical locations remain in simulation.people. A
++// rewind or a newly loaded pack rebuilds it; no wake or projection is saved.
++let castWakes=null, wakeEpoch=null, projectedClock=-1;
++const projectedPlaces=new Map();
++function projectCastWakes(state){
++ const elapsed=Math.max(0,state.clock-state.lotm.initializedAt);
++ if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock){
++  castWakes=createWakeQueue();projectedPlaces.clear();wakeEpoch=state.lotm.initializedAt;
++  for(const person of castPeople)castWakes.register(person.id,state.clock);
++ }
++ const at=castCalendar(state);
++ for(const {id} of castWakes.due(state.clock)){
++  projectedPlaces.set(id,whereabouts(castSchedule,id,at).place);
++  let next=Infinity;
++  for(const row of castSchedule){
++   if(row.actor!==id||row.recurrence==='irregular')continue;
++   if(typeof row.from!=='number'||typeof row.to!=='number'){next=Math.min(next,elapsed+1);continue;}
++   if(row.recurrence==='daily'){
++    const first=((row.day??1)-1)*1440;
++    for(const edge of [row.from,row.to]){
++     const base=Math.max(first,Math.floor(elapsed/1440)*1440);
++     const candidate=base+edge+(base+edge<=elapsed?1440:0);
++     if(row.until==null||Math.floor(candidate/1440)+1<=row.until)next=Math.min(next,candidate);
++    }
++   }else if(row.recurrence==null||row.recurrence==='once'){
++    for(const edge of [row.from,row.to]){const candidate=(row.day-1)*1440+edge;if(candidate>elapsed)next=Math.min(next,candidate);}
++   }else next=Math.min(next,elapsed+1); // Other recurrence dials retain minute evaluation.
++  }
++  if(Number.isFinite(next))castWakes.register(id,wakeEpoch+next);
++ }
++ projectedClock=state.clock;
++ return at;
++}
++export function castSyncDue(state){
++ if(!lotmCastLife(state)||!castAvailable)return false;
++ if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
++ const day=castCalendar(state).calendar.day_count,facts=state.worlds[I.world].facts;
++ return castPeople.some(p=>!(lotmBe(state)&&p.id===LOTM_CAST.leadLife?.actorId)&&projectedPlaces.get(p.id)!=null&&state.simulation.people[p.id]&&state.simulation.people[p.id].location!==projectedPlaces.get(p.id))||
++  lotmCastDays().some(row=>facts[`lotm.cast.window.${row.scene}`]!== (row.day===day));
++}
+ // Mutates a caller-owned plan/copy only. Availability is projected, not saved in a
+ // second location field. An inactive row leaves the last physical location alone.
+ export function syncLotmCast(state){
+  if(!(lotmBeside(state)||lotmBe(state))||!castAvailable)return false;
+- const at=castCalendar(state);let changed=false;
++ const at=projectCastWakes(state);let changed=false;
+  for(const person of castPeople){const body=state.simulation.people[person.id];if(!body)continue;
+   // In a be life the pack-selected person is driven by the player, never by
+   // the NPC schedule. The native player body remains the location authority.
+   if(lotmBe(state)&&person.id===LOTM_CAST.leadLife?.actorId)continue;
+-  const result=whereabouts(castSchedule,person.id,at);
+-  if(result.place!=null&&body.location!==result.place){body.location=result.place;changed=true;}
++  const place=projectedPlaces.get(person.id);
++  if(place!=null&&body.location!==place){body.location=place;changed=true;}
+  }
+  const facts=state.worlds[I.world].facts;
+--- a/src/book_world_lotm_host.js
++++ b/src/book_world_lotm_host.js
+@@ -1,5 +1,5 @@
+ import {runWaitUntil} from './wait_until.js';
+ import {castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
+-import {persistLotmCastPlan,castBeatsPending,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision} from './book_world_lotm_cast_host.js';
++import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision} from './book_world_lotm_cast_host.js';
+ // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
+ // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
+@@ -8,5 +8,5 @@
+ import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
+ import {applySimulationEffects} from './simulation_effects.js';
+-import {lotmCommands,lotmContext} from './book_world_lotm_actions.js';
++import {lotmCommands,lotmContext,lotmFacts} from './book_world_lotm_actions.js';
+ import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
+ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
+@@ -42,5 +42,13 @@
+ export function lotmSimulationContexts(state,contexts){
+  if(!state.lotm)return contexts;
+- return Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,lotmContext(state,{...c,actorId:id})]));
++ // Facts depend on this state, gameplay and native stock, not the actor id.
++ // Share that pure read within this call only; every recipient owns its facts.
++ const reads=new Map();
++ return Object.fromEntries(Object.entries(contexts).map(([id,c])=>{
++  let stocks=reads.get(c.gameplay);if(!stocks)reads.set(c.gameplay,stocks=new Map());
++  const stock=c.lotmNative?.stock;
++  if(!stocks.has(stock))stocks.set(stock,lotmFacts(state,c));
++  return [id,{...c,actorId:id,facts:{...c.facts,...stocks.get(stock)}}];
++ }));
+ }
+ const acceptIds=new Set(['book.lotm.accept_allocation',...pathwayRows.map(r=>`book.lotm.${r.ids.accept}`)]);
+@@ -180,5 +188,5 @@
+  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
+  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
+- function tick(){const s=state();if(lotmCastLife(s)&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
++ function tick(){const s=state();if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+  function view(selected=null){
+   const s=castState(state()),d=s.lotm;
+--- a/src/book_world_lotm_ui.js
++++ b/src/book_world_lotm_ui.js
+@@ -15,4 +15,5 @@
+  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
+  let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
++ const waitButtons=new Map();
+  const applySeatFilter=()=>{
+   const state={lotm:{entryProfile:read(selected)?.entryProfile}};
+@@ -76,5 +77,11 @@
+  function render(){
+   const v=read(selected);setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
+-  const next=JSON.stringify([v,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
++  // Countdown-only changes update the existing control so pointer/focus stays
++  // on it. Eligibility, reasons, target times and the rest of the view still
++  // participate in the signature; execution requotes through the host.
++  for(const a of v.waits||[]){const b=waitButtons.get(a.id);if(b&&b.textContent!==a.label)b.textContent=a.label;}
++  const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
++  const next=JSON.stringify([signatureView,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
++  waitButtons.clear();
+   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
+   if(!v.enrolled){
+@@ -165,5 +172,5 @@
+   if(v.waits?.length){
+    actions.append(node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
+-   for(const a of v.waits)actions.append(row(button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
++   for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);actions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
+   }
+   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+--- a/tests/lotm_cast_week.test.js
++++ b/tests/lotm_cast_week.test.js
+@@ -556,2 +556,32 @@
+  domainRegistry.command('beatLedger','commit')(newBeatState());
+ });
++
++test('derived cast wakes retain boundary, rewind, reload and body repair behavior',async()=>{
++ const {castSyncDue}=await import('../src/book_world_lotm_cast_host.js');
++ const {box}=begin('beside'),s=box.p.state,epoch=s.lotm.initializedAt,id=fixture.people[0].id;
++ assert.equal(castSyncDue(s),false);
++ s.clock=epoch+99;assert.equal(castSyncDue(s),false);
++ s.clock=epoch+100;assert.equal(castSyncDue(s),true);syncLotmCast(s);
++ assert.equal(s.simulation.people[id].location,fixture.places[1].id);
++ const reloaded=JSON.parse(JSON.stringify(s));syncLotmCast(reloaded);assert.deepEqual(reloaded,s);
++ s.clock=epoch+99;assert.equal(castSyncDue(s),true);syncLotmCast(s);
++ assert.equal(s.simulation.people[id].location,fixture.places[0].id);
++ s.simulation.people[id].location=fixture.places[1].id;
++ assert.equal(castSyncDue(s),true);syncLotmCast(s);
++ assert.equal(s.simulation.people[id].location,fixture.places[0].id);
++});
++
++test('context fact sharing keeps inventory and native-stock inputs distinct',async()=>{
++ const {lotmSimulationContexts}=await import('../src/book_world_lotm_host.js');
++ const {lotmContext}=await import('../src/book_world_lotm_actions.js');
++ const {LOTM_IDS:I,LOTM_KEYS:K}=await import('../src/book_world_lotm_ids.js');
++ const {box}=begin('beside'),s=box.p.state;
++ const shared={player:{inventory:{[K.dose]:1}}};
++ const contexts={a:{gameplay:shared,facts:{fixture:1}},b:{gameplay:shared,facts:{fixture:2}},
++  c:{gameplay:{player:{inventory:{[K.dose]:2}}},facts:{}},
++  d:{gameplay:shared,lotmNative:{stock:{[I.lot]:{[K.dose]:7}}},facts:{}}};
++ const expected=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,lotmContext(s,{...c,actorId:id})]));
++ const actual=lotmSimulationContexts(s,contexts);assert.deepEqual(actual,expected);
++ assert.equal(actual.c.facts['lotm.holds.dose'],2);assert.equal(actual.d.facts['lotm.supplierDoses'],7);
++ actual.a.facts['lotm.holds.dose']=99;assert.equal(actual.b.facts['lotm.holds.dose'],1);
++});
