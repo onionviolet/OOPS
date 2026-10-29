@@ -16,7 +16,7 @@ const sorted = rows => [...rows].sort((a,b) => json(a).localeCompare(json(b)));
 const unique = rows => [...new Map(sorted(rows).map(r => [json(r), r])).values()];
 const evidence = row => ({label: ['S','T','I','U','fill'].includes(row.label) ? row.label : 'U', locator: row.locator || row.firstMention});
 
-export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false}) {
+export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false, placeSeed = null}) {
     inSlice({locator: slice.from}, slice); // Validate even empty inputs.
     if (crosswalk.world !== book || json(crosswalk.slice) !== json(slice)) throw new Error('Crosswalk world/slice mismatch; rebuild it for this slice');
     const pack = structuredClone(base), conflicts = [], gaps = [];
@@ -37,6 +37,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     const byIndex = new Map(existing.filter(r => r.indexId).map(r => [r.indexId, r.id]));
     const byPlace = new Map(list(base.places).filter(r => r.indexId).map(r => [r.indexId,r.id]));
     for (const a of list(base.placeAliases)) byPlace.set(a.indexId,a.place);
+    for (const p of list(placeSeed?.places)) if(p.indexId && !byPlace.has(p.indexId)) byPlace.set(p.indexId,p.id);
     const personId = id => byIndex.get(id) || target(id) || id;
     const placeId = id => {
         if (byPlace.has(id)) return byPlace.get(id);
@@ -90,7 +91,10 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         }
         for (const id of ids) referenced.add(id);
     }
-    // Preserve the source container chain for selected locations, but don't turn rooms/desks into walks.
+    // An R1 output can supply its previously selected place rows without replacing the live base.
+    const seedByIndex = new Map(list(placeSeed?.places).filter(p=>p.indexId).map(p=>[p.indexId,p]));
+    for(const indexId of seedByIndex.keys()) referenced.add(indexId);
+    // Preserve the source container chain; enterable rooms are walk targets, fixtures are not.
     const extrasById = new Map();
     for (const row of placeExtras) { const rows=extrasById.get(row.id)||[]; rows.push(row); extrasById.set(row.id,rows); }
     const selectedEvidence = new Map();
@@ -105,30 +109,40 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     for(const id of [...referenced]) addAncestors(id);
     const registryById = new Map(registryPlaces.map(r=>[r.id,r]));
     const explicitDistricts = new Set(['evernight','storm','machinery','lotm.place.evernight','lotm.place.storm','lotm.place.machinery']);
-    const isSubplace = row => /(^|[ ._-])(room|bedroom|bathroom|washroom|corridor|hallway|stairwell|desk|corner|interior|living-room|kitchen|office|chamber)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
+    const isSubplace = row => /(^|[ ._-])(desk|corner|tabletop|shelf|drawer)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
+    const isRegion = row => /(^|[ ._-])(city|county|continent|realm|world|district|province|kingdom|land|ocean)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
     const byParent = id => {
         const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith('lotm.place.'));
         return row?.within || null;
     };
     const districtFor = id => {
         const seen=new Set(); let at=id;
-        while(at && !seen.has(at)){seen.add(at);if(explicitDistricts.has(at))return at.replace(/^lotm\.place\./,'');at=byParent(at);}
+        while(at && !seen.has(at)){
+            seen.add(at);
+            if(explicitDistricts.has(at))return at.replace(/^lotm\.place\./,'');
+            const authored=base.places.find(p=>p.id===at||p.indexId===at);
+            if(authored?.travel?.district) return authored.travel.district;
+            at=byParent(at);
+        }
         return null;
     };
+    const fallbackDistrict = base.places.find(p=>p.travel?.district)?.travel.district || 'evernight';
     for (const indexId of [...referenced].sort()) {
         const resolved=placeId(indexId) || target(indexId) || indexId;
         if(placeIds.has(resolved)) continue; // authored base rows win
-        const meta=registryById.get(indexId), rows=selectedEvidence.get(indexId)||[];
-        const source=rows[0]||null, parent=byParent(indexId), kind=isSubplace(meta||{id:indexId,label:''})?'sub-place':/street|road|lane|avenue|square|district/i.test(`${indexId} ${meta?.label||''}`)?'street':'building';
+        const seed=seedByIndex.get(indexId), meta=registryById.get(indexId), rows=selectedEvidence.get(indexId)||[];
+        const source=rows[0]||null, parent=byParent(indexId), subject=meta||{id:indexId,label:seed?.name||''}, kind=isSubplace(subject)?'sub-place':isRegion(subject)?'region':/street|road|lane|avenue|square/i.test(`${indexId} ${subject.label||''}`)?'street':/room|corridor|hallway|stairwell|kitchen|office|chamber/i.test(`${indexId} ${subject.label||''}`)?'room':'building';
         const aliases=unique([meta?.label,meta?.zh,...list(meta?.aliases)].filter(v=>typeof v==='string'&&v.trim()).map(name=>({id:name,indexId,place:resolved,label:source?.label||'U',locator:source?.locator||meta?.firstMention||slice.from})));
-        const routes=rows.flatMap(r=>list(r.routes)).filter(r=>Number.isFinite(r.minutes)&&r.minutes>0);
+        const routes=rows.flatMap(r=>list(r.routes).map(route=>({...route,locator:r.locator,label:r.label}))).filter(r=>Number.isFinite(r.minutes)&&r.minutes>0);
         const district=districtFor(indexId);
-        const row={id:resolved,indexId,name:meta?.label||meta?.zh||indexId,openingHours:[],kind,...(parent?{parent}:{}),...(district?{district}:{}),...(aliases.length?{aliases}:{}),...evidence(source||meta||{label:'U',locator:slice.from}),locator:source?.locator||meta?.firstMention||slice.from,
+        const row={...seed,id:resolved,indexId,name:seed?.name||meta?.label||meta?.zh||indexId,openingHours:seed?.openingHours||[],kind,...(parent?{parent:placeId(parent)||parent}:{}),...(district?{district}:{}),...(aliases.length?{aliases}:{}),...evidence(source||seed||meta||{label:'U',locator:slice.from}),locator:source?.locator||seed?.locator||meta?.firstMention||slice.from,
             provenance:['S','T'].includes(source?.label)?'canon':source?.label==='I'?'canon-derived':'fill'};
         if(kind==='sub-place') row.anchorOnly=true;
-        else if(district) {
+        else if(kind!=='region') {
             const route=routes[0];
-            row.travel={district,...(route?{minutes:route.minutes,provenance:'canon',basis:`M4 route to ${route.to}`}:{minutes:2,provenance:'fill',basis:'same-district default; no source route stated'})};
+            const placement=district || fallbackDistrict;
+            row.travel={district:placement,provenance:'fill',basis:district?'District inherited from the containing place; district links supply walk time.':'Provisional home-district placement; source district unresolved. District links supply walk time.',
+                ...(route?{minutes:route.minutes,minutesProvenance:['S','T'].includes(route.label)?'canon':route.label==='I'?'canon-derived':'fill',routeTo:route.to,routeLocator:route.locator}:{minutes:2,minutesProvenance:'fill'})};
         }
         pack.places.push(row);placeIds.add(resolved);
         for(const alias of aliases) if(!pack.placeAliases.some(a=>a.indexId===alias.indexId)) pack.placeAliases.push(alias);
@@ -184,10 +198,10 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     const added = [...newRows.keys()].filter(id=>!oldRows.has(id)).sort();
     const changed = [...newRows.keys()].filter(id=>oldRows.has(id) && json(oldRows.get(id)) !== json(newRows.get(id))).sort();
     const removed = [...oldRows.keys()].filter(id=>!newRows.has(id)).sort();
-    pack.revision = `${base.revision || 'cast'}.${placesOnly?'r2-places':'r1'}-${hash({book,slice,registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base,placesOnly}).slice(0,16)}`;
+    pack.revision = `${base.revision || 'cast'}.${placesOnly?'r2-places':'r1'}-${hash({book,slice,registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base,placesOnly,placeSeed}).slice(0,16)}`;
     pack.revisionNote = {from:base.revision || null,to:pack.revision,added,changed,removed,conflicts:unique(conflicts),gaps:unique(gaps)};
     pack.buildSourceIdentity = {schema:'cast-pack-build/1', book, slice,
-        inputs:Object.fromEntries(Object.entries({registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base}).map(([k,v])=>[k,hash(v)]))};
+        inputs:Object.fromEntries(Object.entries({registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base,...(placeSeed?{placeSeed}: {})}).map(([k,v])=>[k,hash(v)]))};
     const oldUsable = routines.filter(r => r.place && hasTime(r.sourceTiming)).length;
     return {pack:canonical(pack),report:{people:pack.people.length,tiers:pack.people.reduce((m,p)=>(m[p.tier]=(m[p.tier]||0)+1,m),{}),routines:{total:routines.length,oldUsable,newUsable:routines.filter(r=>r.usable).length},orderEdges:orderEdges.length,worldHours:worldHours.length,added:added.length,changed:changed.length,removed:removed.length,conflicts:conflicts.length,gaps:gaps.length}};
 }
@@ -209,7 +223,7 @@ export function run(argv) {
     const registry=read('registry.jsonl'),scenes=read('scenes.jsonl'),extras=read('extras.jsonl');
     const slice={from:flag('--from'),to:flag('--to')};
     const crosswalk = existsSync(resolve(dir,'crosswalk.json')) ? JSON.parse(readFileSync(resolve(dir,'crosswalk.json'),'utf8')) : buildCrosswalk({registry,scenes,extras,world:book,slice}).crosswalk;
-    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only')});
+    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only'),placeSeed:argv.includes('--place-seed')?JSON.parse(readFileSync(flag('--place-seed'),'utf8')):null});
     writeFileSync(out,JSON.stringify(result.pack,null,2)+'\n');
     writeFileSync(resolve(parent,'build-report.json'),JSON.stringify(result.report,null,2)+'\n');
     console.log(JSON.stringify(result.report));return result;

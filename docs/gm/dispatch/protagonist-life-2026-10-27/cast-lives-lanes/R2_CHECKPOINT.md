@@ -3,6 +3,40 @@
 Status: place compiler and private candidate generated; agent-verified, not human-reviewed. No `src/` or
 `private_packs/` edits, commit or runtime adoption. Rules: AD36, AD44, CLR1–CLR4, CLR12, SR1–SR24, LSD108, LSD151.
 
+## Resume 1: travel rows, 2026-10-29
+
+The first candidate gave new places no usable walk records. The resumed generator gives streets, buildings and
+enterable rooms a `travel` row; desk and corner locations attach to their parent and are not walk targets. Existing
+base rows win. An R1 place seed retains the earlier generated place addresses without importing its people or
+overwriting the live base. The live pack's `householdActs` field and all its original place rows compare deeply
+equal in the candidate. Applied AD1, AD36, AD44, CLR1–CLR4, CLR12, SR1–SR24 and LSD108.
+
+The live base has 45 places; the candidate has 89, including 31 additional walk targets and 13 additional region
+records. Three added walk records retain a source route's minutes, destination and locator; 28 use a two-minute
+same-district fill. The host currently calculates durations from district links, so the source route minute field
+does not itself change runtime duration. Where containment cannot identify a supported district, the generator
+uses the existing home district as a provisional placement, labelled `fill` with a basis. This may place a distant
+location in the wrong district; the coordinator must reconcile it with a broader geography and travel bridge.
+
+The updated X2 mapper reports **53 walks** and **446/1,491 place references resolved**, across 418 scenes and
+1,491 steps. This is an offline mapping result; it does not establish travel execution or browser behavior.
+Candidate: `/tmp/r2-pack/cast.json`, SHA-256 `17a6b102a4a7d8fd019ee2201f5dd09df4c9418d31dbf48ec29097bc8e704d65`.
+Live base SHA-256 before and after: `2d29bf4ae70a6a79b0fafaab494fa72e05b0c30f99eb250bf48dd42e49e32a55`.
+R1 place seed: `/tmp/r2-pack/r1-candidate.json`, SHA-256 `c9a2545137af515fc766c06e367b69013e5ad6b1cfa5c97f46e729075950432b`.
+The seed is the reconstructed R1-style candidate discussed below, not the byte-identical historical R1 candidate.
+Private receipt: [resume 1 report](../../../../../docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/r2-places-2026-10-29/resume1-report.json).
+
+| Command | Result | Gap |
+|---|---|---|
+| `node --test tests/build_cast_pack.test.js` | PASS, 12/12 | Compiler fixtures; no game execution |
+| `node scripts/lead_run/build_cast_pack.mjs lotm --from 'zh 第1章 p1' --to 'zh 第24章 p99999' --merged /tmp/r2-input --base private_packs/lotm-cast/cast.json --place-seed /tmp/r2-pack/r1-candidate.json --out /tmp/r2-pack/cast.json --places-only` | PASS; 44 added, zero changed or removed | Reason for the stage flag: preserve live people and timing; `/tmp/r2-input` uses M4 merged files and a slice-scoped crosswalk |
+| `node scripts/check_private_cast.mjs` in `/tmp/r2-pack/validation` with the candidate copied into scratch | PASS for LOTM; MoL absent | Pack schema check |
+| `node scripts/lead_run/build_replay_mapping.mjs --scenes <M4>/scenes.jsonl --crosswalk <M4>/crosswalk.json --controls <X1>/controls.json --registry <M4>/registry.jsonl --pack /tmp/r2-pack/cast.json --from 1 --to 24 --out /tmp/r2-pack/chapters-1-24-resume1.json` | PASS; 53 walks | Mapping, not gameplay proof |
+| `git diff --check -- scripts/lead_run/build_cast_pack.mjs tests/build_cast_pack.test.js docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/R2_CHECKPOINT.md` | PASS | Scoped diff |
+| `npm run check:docs` | FAIL on four findings in the source acquisition receipt and H1 checkpoint | No R2 finding on the final scan; those files are outside the lane |
+
+## Initial pass, historical
+
 ## Probe (CLR2)
 
 | Input | Expected | Observed | Result |

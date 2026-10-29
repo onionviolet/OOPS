@@ -85,16 +85,19 @@ test('per-item locators retain early routines inside a later people record',()=>
     const {pack}=buildCastPack(f);assert.equal(pack.routines.length,1);assert.equal(pack.routines[0].locator,loc);
 });
 
-test('place worksheets attach sub-places to their exact container and keep them off walk routes',()=>{
-    const f=fixture(), parent='lotm.place.fixture-building', room='lotm.place.fixture-room';
+test('enterable rooms get walks and a desk corner attaches without a walk',()=>{
+    const f=fixture(), parent='lotm.place.fixture-building', room='lotm.place.fixture-room', desk='lotm.place.fixture-desk-corner';
     f.registry.push({id:parent,kind:'place',label:'Fixture building',firstMention:loc},
-        {id:room,kind:'place',label:'Fixture room',firstMention:loc});
-    f.scenes[0].place=room;
+        {id:room,kind:'place',label:'Fixture room',firstMention:loc},
+        {id:desk,kind:'place',label:'Fixture desk corner',firstMention:loc});
+    f.scenes[0].place=room;f.scenes[1].place=desk;
     f.extras.push({extra:'places',id:parent,within:'lotm.place.fixture-district',label:'S',locator:loc,routes:[]},
-        {extra:'places',id:room,within:parent,label:'S',locator:loc,routes:[]});
-    const {pack}=buildCastPack(f),place=pack.places.find(p=>p.indexId===room);
-    assert.equal(place.parent,parent);assert.equal(place.kind,'sub-place');assert.equal(place.anchorOnly,true);
-    assert.equal(place.travel,undefined);assert.equal(place.provenance,'canon');
+        {extra:'places',id:room,within:parent,label:'S',locator:loc,routes:[]},
+        {extra:'places',id:desk,within:room,label:'S',locator:loc,routes:[]});
+    const {pack}=buildCastPack(f),place=pack.places.find(p=>p.indexId===room),corner=pack.places.find(p=>p.indexId===desk);
+    assert.equal(place.parent,parent);assert.equal(place.kind,'room');assert.equal(place.travel.district,'evernight');
+    assert.equal(place.travel.provenance,'fill');assert.match(place.travel.basis,/unresolved/);
+    assert.equal(corner.parent,place.id);assert.equal(corner.kind,'sub-place');assert.equal(corner.anchorOnly,true);assert.equal(corner.travel,undefined);
 });
 
 test('new street gets a district and an explicitly labelled fill travel default',()=>{
@@ -105,7 +108,7 @@ test('new street gets a district and an explicitly labelled fill travel default'
     const {pack}=buildCastPack(f),place=pack.places.find(p=>p.indexId===street);
     assert.equal(place.district,'evernight');
     assert.equal(place.travel.district,'evernight');assert.equal(place.travel.minutes,2);
-    assert.equal(place.travel.provenance,'fill');
+    assert.equal(place.travel.provenance,'fill');assert.equal(place.travel.minutesProvenance,'fill');
 });
 
 test('an authored base place wins over a generated conflict',()=>{
@@ -120,9 +123,28 @@ test('places-only regeneration retains the prior pack systems and adds only plac
     const f=fixture(),street='lotm.place.fixture-street';
     f.registry.push({id:street,kind:'place',label:'Fixture street',firstMention:loc});f.scenes[0].place=street;
     f.base.people=[{id:'kept-person',name:'Kept'}];f.base.routines=[{id:'kept-routine',actor:'kept-person'}];
-    f.base.worldHours=[{id:'kept-hours'}];f.base.buildSourceIdentity={schema:'cast-pack-build/1'};
+    f.base.worldHours=[{id:'kept-hours'}];f.base.householdActs=[{id:'fixture-household-act',options:['keep']}];f.base.buildSourceIdentity={schema:'cast-pack-build/1'};
     const {pack,report}=buildCastPack({...f,placesOnly:true});
-    assert.deepEqual(pack.people,f.base.people);assert.deepEqual(pack.routines,f.base.routines);assert.deepEqual(pack.worldHours,f.base.worldHours);
+    assert.deepEqual(pack.people,f.base.people);assert.deepEqual(pack.routines,f.base.routines);assert.deepEqual(pack.worldHours,f.base.worldHours);assert.deepEqual(pack.householdActs,f.base.householdActs);
     assert.ok(pack.places.some(p=>p.indexId===street));assert.equal(report.people,1);assert.equal(report.routines.total,0);
     assert.match(pack.revision,/\.r2-places-/);
+});
+
+test('source route minutes keep their destination and locator',()=>{
+    const f=fixture(),street='lotm.place.fixture-street';f.registry.push({id:street,kind:'place',label:'Fixture street',firstMention:loc});f.scenes[0].place=street;
+    f.extras.push({extra:'places',id:street,within:'lotm.place.evernight',label:'S',locator:loc,routes:[{to:'lotm.place.fixture-hall',minutes:12}]});
+    const place=buildCastPack(f).pack.places.find(p=>p.indexId===street);
+    assert.equal(place.travel.minutes,12);assert.equal(place.travel.minutesProvenance,'canon');assert.equal(place.travel.routeTo,'lotm.place.fixture-hall');assert.equal(place.travel.routeLocator,loc);
+});
+
+test('place seed keeps prior generated addresses while live base wins and household acts stay intact',()=>{
+    const f=fixture(),street='lotm.place.fixture-street';
+    f.base.places=[{id:'authored-hall',indexId:f.registry[3].id,name:'Live hall',openingHours:[],label:'S',locator:loc}];
+    f.base.householdActs=[{id:'live-act'}];
+    const placeSeed={places:[{id:'seed-hall',indexId:f.registry[3].id,name:'Older hall',openingHours:[],label:'S',locator:loc},
+        {id:'seed-street',indexId:street,name:'Fixture street',openingHours:[],label:'S',locator:loc}]};
+    const {pack}=buildCastPack({...f,placeSeed,placesOnly:true});
+    assert.deepEqual(pack.places.find(p=>p.id==='authored-hall'),f.base.places[0]);
+    assert.equal(pack.places.find(p=>p.id==='seed-street').travel.provenance,'fill');
+    assert.deepEqual(pack.householdActs,f.base.householdActs);
 });
