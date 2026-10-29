@@ -25,8 +25,10 @@ This handoff grants no new scope.
 | C1 | Perspective tags for 64 controls (`src/perspective_controls.js`) | Committed `5832a1f8b` |
 | S1 | Seat filter (`src/seat_profiles.js`), shell hunk, LOTM panel hunk | Committed `5832a1f8b`; coordinator fixed two defects (below) |
 | P1 | `world_lead_pipeline.mjs`, one command per book to records-ready (CL272) | Committed `569616c90` |
-| B1 | Be the lead ([brief](cast-lives-lanes/B1_BE_SEAT_BRIEF.md)) | **Running round 2** ([message](cast-lives-lanes/B1_RESUME_2_MESSAGE.md): grant widened to `book_world_lotm_content.js`, canon-run default LSD103/105/116, null-player check; codex pid 74005). The runner's shell wrapper was stopped, so no task notice arrives: check `codex_lane.mjs status`. Review with the loop, then the be-seat browser check and the L5r replay in the be seat |
+| B1 | Be the lead ([brief](cast-lives-lanes/B1_BE_SEAT_BRIEF.md)) | **Round 3 running** ([message](cast-lives-lanes/B1_RESUME_3_MESSAGE.md)). Round 2 review: focused 35/35 after the coordinator updated `tests/seat_profiles.test.js` (sixth profile), scans clean, `B1_INTEGRATION.patch` applied (B1 now owns those hunks in `main.js`, `import_probe.js`, LOTM envelope and domain). Floor at 1920×1080 failed: F1 the fresh be start is refused by the general persist guard, F2 silently, F3 `check:arch` `main.js` +11 over baseline. Floor script: scratchpad `b1_floor.cjs`, build `/tmp/yairpg-b1`, private screenshots `cast-evidence-2026-10-28/b1/` |
 | M1 | Schema 1.4 and census union stage ([brief](cast-lives-lanes/M1_SCHEMA_UNION_BRIEF.md)) | Committed `c822b8bc1` (coordinator updated the P1 test to seven stages). LOTM v1: 1,462 to 1,574 people rows, +700 routine slots, +1,022 reactions, census 3,431 + 3,832 to 4,085; lead-scene cast 134 (was 107, older snapshot). Three shards lack a pre-1.4 backup (w1s18, w3s33, w3s35), kept as 1.4. Output in `/tmp/m1-lotm-final4`. Full suite 3714/3715 with B1's in-flight `src/` edits; the one failure is `seat_profiles.test.js`, B1's area, recheck at B1 review |
+| T1 | Lean union disk use, reusable floor with budgets ([brief](cast-lives-lanes/T1_TOOLING_BRIEF.md)) | **Running** (Luna medium, scripts only) |
+| P2 | Measure per-minute cost, wake queue ([brief](cast-lives-lanes/P2_WAKE_QUEUE_BRIEF.md)) | **Running** (Sol medium; B1-owned files only through `P2_INTEGRATION.patch`) |
 | G2 | Concealment | **Held** until the be replay asks for it (brief kept: `G2_CONCEALMENT_BRIEF.md`) |
 
 Coordinator fixes made in review this session (each lane's checkpoint records them): L5r snapshot paths
@@ -152,6 +154,17 @@ carries 36 people for chapters 1-24 in 388 KB; `dist/bundle.js` is 7.3 MB and ho
 | SZ5 | **Pipeline disk use.** The union stage copies the whole 401 MB private input per run; five M1 attempts used 2.2 GB of `/tmp` (the coordinator removed the four earlier ones; `/tmp/m1-lotm-final4` kept). Copy only changed shard files and link the rest | LATER/DELEGATE: Luna low; done when a run's output is under 50 MB |
 | SZ6 | **Per-tick cost.** CO3 already measures 0.77 s per game minute with 36 people; 270 people would multiply it unless off-screen people advance only at their schedule boundaries (the same trick G1 used for waiting) | ACCOUNT FOR NOW: fold into the CO3 profiling lane |
 | SZ7 | **Several worlds multiply all of the above** (MW1-MW8): per-world windows and delta saves keep the cost per active world, not per installed world | ACCOUNT FOR NOW: same lanes |
+
+## Open to refactor (Weibao 2026-10-28; AD45 recorded, codes RF1-RF6 proposed)
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| RF1 | **AD45 is in the rules index, ground rules, the runtime router row and the brief template.** Everything built is the current best; change needs a reason, not permission | Done (`5ac0c3efd`) |
+| RF2 | **Refactors are only cheap with safety nets.** Golden null-player runs per pack revision (LSD146) and the budget receipt (T1, LSD147) let a later lane replace a system and prove nothing changed (AR9) | ACCOUNT FOR NOW: T1 running; D1 adds the state hash |
+| RF3 | **`main.js` pressure is the first refactor.** B1 hit AR1 (+11 lines) on its first cross-cutting feature; the clock (`update_timer`) and fresh-life routes live there. An AR15 extraction round that lifts the clock into a module would also give P2's wake queue one place to plug in | LATER/DELEGATE: Sol medium after B1 and P2 land, with an AR15 writer reservation; done when `main.js` drops by the moved lines and the same journey passes before and after |
+| RF4 | **Versions make refactors safe for saves.** Pack revision in the save (LSD142), reader schema versions (LSD151) and stable crosswalk ids let data shapes change without breaking lives in progress | ACCOUNT FOR NOW: pack regeneration brief |
+| RF5 | **Every checkpoint names its known limits and expected refactor** (template line), so the next lane starts from them instead of rediscovering | Done in template; B1, T1, P2 apply it |
+| RF6 | **Proposals stay replaceable too.** LSD lines are a dated proposal; when accepted they move to a standing rulebook (LSD155) and keep codes, so later revisions are dated amendments, not rewrites | No change |
 
 ## Accepted by Weibao (2026-10-28)
 
