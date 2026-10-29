@@ -1,10 +1,10 @@
 // Synthetic only: no source text, names or private ledger data.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {scoreReplay,stateHashWithoutNaturalClock,executeRows} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
 
 test('fidelity counts reached events in order inside their windows and keeps typed misses',()=>{
-    const rows=['a','b','c','d'].map(id=>({id}));
+    const rows=['a','b','c','d'].map((id,i)=>({id,locator:`zh 第${i<2?1:2}章 p1`}));
     const score=scoreReplay(rows,[
         {id:'a',kind:'control',orderIndex:0},
         {id:'b',kind:'wait',orderIndex:1},
@@ -15,6 +15,14 @@ test('fidelity counts reached events in order inside their windows and keeps typ
     assert.equal(score.reachedInOrder,2);
     assert.equal(score.fidelity,0.5);
     assert.equal(score.rows[2].reason,'The visible control explains the condition.');
+    assert.deepEqual(score.byChapter,{1:{steps:2,reachedInOrder:2,fidelity:1},2:{steps:2,reachedInOrder:0,fidelity:0}});
+});
+test('snapshot mismatch is recorded as paths without throwing or exposing values',()=>{
+    const result=compareRunSnapshots({clock:2,life:{cash:4}},{clock:9,life:{cash:5}});
+    assert.equal(result.identical,false);
+    assert.deepEqual(result.differingPaths,['clock','life.cash']);
+    assert.deepEqual(result.mismatch.run1.differingPaths,['clock','life.cash']);
+    assert.equal(JSON.stringify(result.mismatch).includes('cash":4'),false);
 });
 
 test('out-of-order or out-of-window events do not earn fidelity; blocked outcomes need shown reasons',()=>{
