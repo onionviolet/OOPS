@@ -9,6 +9,7 @@ import {createHash, randomInt} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {TIME_BANDS} from '../../../src/cast_schedule.js';
+const DEFAULT_READY_TIMEOUT_MS = 180000;
 const hash = x => createHash('sha256').update(x).digest('hex');
 const jsonl = file => fs.readFileSync(file, 'utf8').trim().split('\n').filter(Boolean).map(JSON.parse);
 export const GAP_KINDS = ['missing verb', 'missing UI path', 'hidden by disclosure', 'missing knowledge', 'blocked by mechanism', 'needs seat: be'];
@@ -203,7 +204,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
     }
     return {receipts,score:scoreRows(rows,verified),replayScore:scoreReplay(rows,outcomes)};
 }
-async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer = false) {
+async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer = false, readyTimeoutMs = DEFAULT_READY_TIMEOUT_MS, recordPackLoad = () => {}) {
     const require = createRequire(import.meta.url), {launchChrome} = require('../../ui_helpers.cjs');
     const browser = await launchChrome();
     try {
@@ -231,8 +232,14 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
                 await page.waitForTimeout(250);
             }
         };
-        await page.goto(origin+'/?test_hooks=1');
-        await page.locator('#loading_screen_play_button').click();
+        const packLoadMs = {};
+        const playButton = page.locator('#loading_screen_play_button');
+        let navigationStarted = Date.now();
+        await page.goto(origin+'/?test_hooks=1',{timeout:readyTimeoutMs});
+        await playButton.waitFor({state:'visible',timeout:readyTimeoutMs});
+        packLoadMs.initial = Date.now()-navigationStarted;
+        recordPackLoad('initial',packLoadMs.initial);
+        await playButton.click();
         const confirm = page.locator('#hero_creation_panel_confirmation');
         if (await confirm.isVisible()) await confirm.click();
         await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm');
@@ -255,9 +262,12 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         if (seat === 'be') {
             await click('pick_be');
             // The new life starts through a page reload; press Play again on the fresh page.
-            await Promise.all([page.waitForEvent('load',{timeout:90000}), click('enroll_be')]);
-            await page.locator('#loading_screen_play_button').waitFor({state:'visible'});
-            await page.locator('#loading_screen_play_button').click();
+            navigationStarted = Date.now();
+            await Promise.all([page.waitForEvent('load',{timeout:readyTimeoutMs}), click('enroll_be')]);
+            await playButton.waitFor({state:'visible',timeout:readyTimeoutMs});
+            packLoadMs.reload = Date.now()-navigationStarted;
+            recordPackLoad('reload',packLoadMs.reload);
+            await playButton.click();
             if (await confirm.isVisible()) await confirm.click();
             await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm').catch(() => {});
             await until(async () => {try {return (await read()).entryProfile === 'book.lead.be@1';} catch {return false;}},'be-life reload');
@@ -299,7 +309,7 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         assert.deepEqual(errors,[],'page errors belong to this run until proven otherwise');
         if (nullPlayer) await page.evaluate(() => window.simulationTestHooks.pause());
         const finalSnapshot=await snapshot();
-        return {...result,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors};
+        return {...result,packLoadMs,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors};
     } finally {await browser.close();}
 }
 async function main() {
@@ -324,7 +334,9 @@ async function main() {
     fs.writeFileSync(path.join(out,'combined_gaps.jsonl'),ledger.rows.map(r => JSON.stringify(r)).join('\n')+'\n');
     const kindOf=r=>r.routeMode==='wait'||r.method==='wait'?'wait':r.status==='gap'||r.status==='lossy_fold'?'gap':r.route?.some(x=>x.actionId?.startsWith('lotm.move.'))?'walk':r.route?.length?'control':'gap';
     const rowKinds = Object.fromEntries([...new Set(replayRows.map(kindOf))].sort().map(kind=>[kind,replayRows.filter(r=>kindOf(r)===kind).length]));
-    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping))};
+    const readyTimeoutMs = args['ready-timeout-ms'] === undefined ? DEFAULT_READY_TIMEOUT_MS : Number(args['ready-timeout-ms']);
+    assert.ok((args['ready-timeout-ms'] === undefined || typeof args['ready-timeout-ms'] === 'string') && Number.isSafeInteger(readyTimeoutMs) && readyTimeoutMs>0, '--ready-timeout-ms must be a positive integer');
+    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[]};
     fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
     if (args['audit-only']) {console.log(JSON.stringify(audit)); return;}
     assert.equal(typeof args.build,'string','--build required for UI proof');
@@ -333,7 +345,13 @@ async function main() {
     try {
         for (const run of [1,2]) {
             const runMapping={...mapping,rows:replayRows};
-            const result = await browserRun(runMapping,args.build,out,run,seat,!!args['null-player']); runs.push(result);
+            const recordPackLoad = (phase,ms) => {
+                let entry = audit.packLoadMs.find(item=>item.run===run);
+                if (!entry) { entry={run}; audit.packLoadMs.push(entry); }
+                entry[phase]=ms;
+                fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
+            };
+            const result = await browserRun(runMapping,args.build,out,run,seat,!!args['null-player'],readyTimeoutMs,recordPackLoad); runs.push(result);
             fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify(result,null,2)+'\n');
         }
         const comparison=compareRunSnapshots(withoutNaturalClock(runs[0]._snapshot),withoutNaturalClock(runs[1]._snapshot));

@@ -65,3 +65,16 @@ Build `/tmp/yairpg-v2` from the coordinator's reviewed combined candidate. For a
 `--offset` by the prior batch's selected step count and use a fresh output directory; each browser batch is a fresh life,
 so later offsets are accounting/replay samples, not a continuous persisted session. Chrome/browser and bundle proof
 remain unverified in this lane.
+
+## Resume 1: page readiness, 2026-10-29
+
+The initial navigation, reload and play-button visibility waits use a 180,000 ms default, adjustable with
+`--ready-timeout-ms`. Each run records `packLoadMs.initial` and, for the be-seat reload, `packLoadMs.reload` in its
+receipt and the audit as each play button becomes visible. Other timeouts are unchanged.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 5 tests | Focused scoring coverage; browser behavior not exercised |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Script whitespace only |
+| Browser replay | Not run | Coordinator must verify readiness and load timings with the whole-book pack |
