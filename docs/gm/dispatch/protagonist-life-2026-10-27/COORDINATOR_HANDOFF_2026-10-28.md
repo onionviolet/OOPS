@@ -254,7 +254,15 @@ transcript); the earlier coordinator session stops launching, resuming, reviewin
 - **ON11 Out of scope tonight:** pushes, new readings, the open run, other worlds, deleting the stale
   `~/.codex/worktrees/q*` checkouts from 2026-10-26 (a cleanup Weibao can approve).
 - **ON12 Model routing** stays: Luna for scripts and data, Sol for engine and UI, browser and commits here.
+- **ON13 Codex weekly budget** (Weibao asked 2026-10-29). Plan `prolite`, one weekly window (10,080 min), 23% used at
+  00:50 on 2026-10-29, resets 2026-11-04 07:10. The account also holds paid credits, so a full window could fall
+  through to them: launch only with `CODEX_LANE_MAX_USED=45` overnight (about +22 points), and keep the rest of
+  the week under 85%. Record the used percent at each launch and exit to price lanes. Spend Codex on what only a
+  model can do (engine and UI code, mapping judgement); the coordinator runs deterministic pipelines, browser
+  floors, test fixes and small driver fixes itself. Luna for scripts and data, Sol medium only for `src/`;
+  sharp briefs to avoid resumes; at most two writers.
 
 ### Overnight log
 - 00:45 Handover accepted by the earlier coordinator (last commit `d8d865c8c`). Applied patches: B1_INTEGRATION, B1_INTEGRATION_2, P2, P3, S1 (by hand). Open: P5_INTEGRATION.patch, R1 (unreviewed, `/tmp/r1-pack/`, 92 people, 13 unresolved routine actor ids; do not overwrite `private_packs/lotm-cast/cast.json` before a browser check), F1 and V1 running. Floors: `scripts/floor/run_floor.cjs` (beside), be floor `b1_floor.cjs` (build in `/tmp/yairpg-b1`, pack symlinked). Baseline on `34b15ea0`: 1,240 ms per game minute, 349-minute wait 50.1 s; suite 3763/3763 on `df87df058`. Nit: pack-absent console "Something went wrong on saving the game!" (BF4).
 - 00:55 R1 committed `64adcb976` (runtime patch waits for P5). V1 committed `612fa9c56` (audit: 18 steps, 7 need be routes). M3 (whole-book merge, Luna medium) launched, pid 53428.
+- 01:00 Suite on P5+F1 3906/3908; P5 resumed for a held-stock release regression and a story-budget test. V1 driver fixed here twice (be state path and reload Play; collapsed walk groups, per-row gaps). Weekly Codex window 23%.
