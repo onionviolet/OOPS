@@ -67,13 +67,14 @@ function stepActorRole(step, packJoin, leadActorId, knownActors) {
   return !resolved ? 'unknown' : resolved === leadActorId ? 'lead' : 'non-lead';
 }
 
-export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, fromLocator, toLocator, controlIndex = {}, registry = [], pack = null}) {
+export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, fromLocator, toLocator, controlIndex = {}, registry = [], pack = null, waitEvidence = {}}) {
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
   const knownActors = new Set((pack?.people || []).map(person=>person.id));
   const householdActs = pack?.householdActs?.acts || [];
   const householdActsByStep = Object.fromEntries(householdActs.filter(a=>a?.sourceStepId).map(a=>[a.sourceStepId,a]));
   const topicTalks = Object.fromEntries((pack?.topicTalks?.talks || []).map(t => [t.sourceStepId, t]));
   const journeys = Object.fromEntries((pack?.journeys?.journeys || pack?.journeys || []).filter(j => j?.id).flatMap(j => (j.sourceStepIds || [j.sourceStepId]).filter(Boolean).map(stepId => [stepId, j])));
+  const days = new Map((pack?.bindings?.days || []).map(day=>[day.scene,day]));
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
   // Principals the lead knows can be talked to (cast host castTalkCommands: `cast_talk_<last indexId segment>`).
   const talks = {...Object.fromEntries((pack?.people || []).filter(p => p?.id && p.tier === 'principal' && p.indexId).map(p => [p.id, `cast_talk_${p.indexId.split('.').at(-1)}`])), ...(controlIndex.talks || {})};
@@ -156,6 +157,16 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
       row.controlBuilder='src/book_world_lotm_cast_host.js:castTalkCommands';
       row.route=[{actionId:presentId, place:placeId || null, controlBuilder:row.controlBuilder}]; if (placeId) row.anchors.place=placeId;
       row.controlKind='greeting';
+    } else if (/^wait\b/i.test(step.verb || '') && controlIndex.waitPrefix && waitEvidence[row.id]?.locator &&
+      scene.evidence?.some(e=>e.locator===waitEvidence[row.id].locator) &&
+      Number.isSafeInteger(days.get(scene.beat)?.day) && Number.isSafeInteger(days.get(scene.beat)?.from) &&
+      Number.isSafeInteger(days.get(scene.beat)?.to) && days.get(scene.beat).day>0 &&
+      days.get(scene.beat).from>=0 && days.get(scene.beat).to<=1440 && days.get(scene.beat).from<days.get(scene.beat).to) {
+      const binding=days.get(scene.beat);
+      row.time={...row.time,day:binding.day,from:binding.from,to:binding.to,basis:'reviewed wait; authored scene day binding',locator:waitEvidence[row.id].locator};
+      row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=`${controlIndex.waitPrefix}{at}`;
+      row.controlKind='wait'; row.controlBuilder='src/wait_until.js:waitUntilOptions'; row.routeMode='wait'; row.method='wait';
+      row.waitIntent=timeKey || 'bound scene window'; row.route=[]; if(placeId)row.anchors.place=placeId;
     } else if (isTimeGap && controlIndex.waitPrefix) {
       row.status='gap'; row.gapKind='missing UI path';
       row.reason='A wait intention is identified, but M4 has no numeric replay window for the be driver.';
@@ -185,7 +196,8 @@ function main(args) {
   const registry=readJsonl(get('--registry'));
   const pack=JSON.parse(fs.readFileSync(get('--pack'),'utf8'));
   if (!fromLocator && (!Number.isFinite(fromChapter) || !Number.isFinite(toChapter))) throw Error('Provide --from/--to or --from-locator/--to-locator');
-  const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack});
+  const waitEvidence=args.includes('--wait-evidence') ? JSON.parse(fs.readFileSync(get('--wait-evidence'),'utf8')) : {};
+  const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack,waitEvidence});
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
   const counts={walk:0,journey:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
   for(const r of mapping.rows){if(r.journeyId)counts.journey++;else if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}

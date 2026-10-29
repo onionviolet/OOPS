@@ -36,7 +36,12 @@ function familyOf(row) {
   // An explicit proper-name subject can prefix the action; it never establishes actor identity.
   const stripped=FAMILY_RULES.some(rule=>rule.head.test(verb)) ? verb : verb.replace(/^(?:[A-Z][a-z'-]+\s+){1,3}(?=[a-z])/,'');
   const text=`${stripped} ${row.object||''}`;
-  return FAMILY_RULES.find(rule=>rule.head.test(stripped)&&(!rule.object||rule.object.test(text))) || null;
+  const match=FAMILY_RULES.find(rule=>rule.head.test(stripped)&&(!rule.object||rule.object.test(text)));
+  if (match) return match;
+  // Reader class is a triage hint, not a claim that a new mechanism is proven.
+  const classes=new Set(['ritual','socialize','unknown','craft','other','travel','study','rest','trade','research','care','appraise','fight','work','practice']);
+  const category=classes.has(row.class)?row.class:'unknown';
+  return {family:`needs mechanism review: ${category}`,cause:'no matching control established'};
 }
 function causeOf(row,rule) {
   if (rule?.family==='wait for a time or event' && row.availableControls?.wait) return 'control exists but time unresolved';
@@ -104,7 +109,7 @@ export function buildGapCensus(mappings,failures=[],diagnostics=[]) {
     const cheap=cheapCandidate(row);if(cheap)s.cheapMisses.push({id:row.id,scene:row.scene,verb:row.verb,object:row.object,volume:row.sourceVolume,kind:cheap,cause,reason:row.reason,controls:row.availableControls});
   }
   for(const s of Object.values(segments)) {
-    s.clustered=s.gaps-(s.families.unclustered||0);s.clusteredShare=s.gaps?s.clustered/s.gaps:0;
+    s.clustered=s.gaps-Object.entries(s.families).filter(([family])=>family==='unclustered'||family.startsWith('needs mechanism review:')).reduce((sum,[,count])=>sum+count,0);s.clusteredShare=s.gaps?s.clustered/s.gaps:0;
     s.families=Object.entries(s.families).map(([family,steps])=>({family,steps,share:s.gaps?steps/s.gaps:0})).sort((a,b)=>b.steps-a.steps||a.family.localeCompare(b.family));
     s.topVerbPhrases=Object.fromEntries(Object.entries(s.phrases).map(([key,phrases])=>[key,Object.entries(phrases).map(([phrase,count])=>({phrase,count})).sort((a,b)=>b.count-a.count||a.phrase.localeCompare(b.phrase)).slice(0,40)]));delete s.phrases;
   }

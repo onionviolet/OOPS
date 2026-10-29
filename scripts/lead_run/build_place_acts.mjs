@@ -9,7 +9,8 @@ import {FAMILY_RULES} from './gap_census.mjs';
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
 const safe = s => String(s).replace(/[^a-zA-Z0-9_.-]+/g, '-').replace(/^-|-$/g, '').toLowerCase();
 const human = s => typeof s === 'string' && s.trim() && !/^(unknown|unstated|unspecified|none|null|u|\?)$/i.test(s.trim());
-const TARGET_FAMILIES = new Set(['observe or listen','inspect or investigate','handle or move an item','read a text','rest or personal care','make or write an item','change or maintain state']);
+const TARGET_FAMILIES = new Set(['observe or listen','inspect or investigate','handle or move an item','read a text','rest or personal care','make or write an item','change or maintain state','reason or plan','agree or refuse a proposal']);
+const KNOWLEDGE_ONLY = new Set(['observe or listen','inspect or investigate','reason or plan','agree or refuse a proposal']);
 const operationFor = (family, text) => {
  if (family === 'handle or move an item') return /\b(put|place|store|hide|pack|close|lock|wear)\w*\b/i.test(text) ? 'store' : 'take';
  if (family === 'rest or personal care') return /\b(wash|bathe|clean)\w*\b/i.test(text) ? 'wash' : 'use';
@@ -40,7 +41,7 @@ function classify(step) {
  const matched=FAMILY_RULES.find(rule=>rule.head.test(stripped)&&(!rule.object||rule.object.test(text)))?.family;
  return TARGET_FAMILIES.has(matched)?matched:null;
 }
-export function buildPlaceActs({scenes,crosswalk,registry,pack}) {
+export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence={}}) {
  const join=buildPackJoin({crosswalk,registry,pack});
  const baseObjects=pack.householdActs?.objects||[], baseActs=pack.householdActs?.acts||[];
  const objects=[...baseObjects], acts=[...baseActs], objectIds=new Map(), actByStep={}, rejectedRows=[],
@@ -51,6 +52,19 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack}) {
   const volume=volumeOf(scene); familyStepsByVolume[family]=(familyStepsByVolume[family]||0)+1;
   familyStepsByVolume[`${family} · volume ${volume}`]=(familyStepsByVolume[`${family} · volume ${volume}`]||0)+1;
   const stepId=`${scene.beat}#${i+1}`, place=placeRef(scene.place,join,pack), raw=objectText(step);
+  const review=knowledgeEvidence[stepId];
+  if(KNOWLEDGE_ONLY.has(family) && review && place && typeof review.report==='string' && review.report.trim() &&
+    scene.evidence?.some(e=>e.locator===review.locator) && !acts.some(a=>a.sourceStepId===stepId)) {
+   const d=duration(step), label=String(step.verb||family).trim().replace(/\s+/g,' ');
+   const row={id:`place.act.${safe(stepId)}`,sourceStepId:stepId,operation:'inspect',place,minutes:d.minutes,minutesBasis:d.basis,
+    label,description:'Consider what is known here.',report:review.report.trim(),knowledgeKey:`place.act.${safe(stepId)}.result`,
+    source:{label:'S',locator:review.locator}};
+   acts.push(row);actByStep[stepId]=row.id;
+   rowsByFamily[family]=(rowsByFamily[family]||0)+1;rowsByVolume[volume]=(rowsByVolume[volume]||0)+1;
+   rowsByFamilyAndVolume[family]||={};rowsByFamilyAndVolume[family][volume]=(rowsByFamilyAndVolume[family][volume]||0)+1;
+   continue;
+  }
+  if(family==='reason or plan'||family==='agree or refuse a proposal'){rejected.notFamily++;continue;}
   const ambiguous=raw && /\b(or|and|various|several|things|something|items)\b/i.test(raw);
   if(!place){rejected.unresolvedPlace++;rejectedRows.push({stepId,reason:'unresolvedPlace',missing:[{kind:'place',value:scene.place||null},...(!raw?[{kind:'object',value:null}]:[])],otherBlockers:ambiguous?['multiple or ambiguous objects']:[]});continue;}
   if(!raw){rejected.missingObject++;rejectedRows.push({stepId,reason:'missingObject',missing:[{kind:'object',value:null}]});continue;}
@@ -83,7 +97,8 @@ function main(args){
  const scenes=readJsonl(get('--scenes')),registry=readJsonl(get('--registry'));
  const crosswalk=JSON.parse(fs.readFileSync(get('--crosswalk'),'utf8'));
  const input=JSON.parse(fs.readFileSync(get('--pack'),'utf8'));
- const result=buildPlaceActs({scenes,crosswalk,registry,pack:input});
+ const knowledgeEvidence=args.includes('--knowledge-evidence')?JSON.parse(fs.readFileSync(get('--knowledge-evidence'),'utf8')):{};
+ const result=buildPlaceActs({scenes,crosswalk,registry,pack:input,knowledgeEvidence});
  const candidate=structuredClone(input); candidate.householdActs=result.data;
  const out=get('--out'),report=get('--report');fs.mkdirSync(path.dirname(out),{recursive:true});
  fs.writeFileSync(out,JSON.stringify(candidate,null,2)+'\n');

@@ -4,6 +4,17 @@ import {buildReplayMapping} from '../scripts/lead_run/build_replay_mapping.mjs';
 import {buildPackJoin} from '../scripts/lead_run/build_crosswalk.mjs';
 import {buildGapCensus} from '../scripts/lead_run/gap_census.mjs';
 
+test('uses a reviewed wait with a valid bound scene window, and rejects missing review or malformed windows',()=>{
+  const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Room',steps:[{verb:'wait'}]}];
+  const args={scenes,crosswalk:{places:{}},fromChapter:1,toChapter:1,controlIndex:{waitPrefix:'wait.until.'},
+    pack:{bindings:{days:[{scene:'sample',day:2,from:600,to:660}]}},waitEvidence:{'sample#1':{locator:'zh 第1章 p2'}}};
+  const row=buildReplayMapping(args).rows[0];
+  assert.equal(row.controlKind,'wait'); assert.deepEqual([row.time.day,row.time.from,row.time.to],[2,600,660]);
+  assert.equal(buildReplayMapping({...args,waitEvidence:{}}).rows[0].status,'gap');
+  assert.equal(buildReplayMapping({...args,waitEvidence:{'sample#1':{locator:'zh 第1章 p3'}}}).rows[0].status,'gap');
+  assert.equal(buildReplayMapping({...args,pack:{bindings:{days:[{scene:'sample',day:2,from:660,to:600}]}}}).rows[0].status,'gap');
+});
+
 test('builds deterministic place, time, talk and typed gap rows with option IDs',()=>{
   const scenes=[{beat:'s1',order:1,pov:'lead',evidence:[{locator:'第1章'}],place:'Flat',timeOfDay:{value:'dawn'},date:{label:'I'},
     present:[{kind:'person',id:'person.a'}],choices:[{options:[{id:'opt.taken',taken:true},{id:'opt.locked',taken:false}]}],
@@ -137,7 +148,7 @@ test('family classification requires a supported object type for reading and abi
     {id:'c',actorRole:'lead',status:'gap',verb:'read a diary'},
     {id:'d',actorRole:'lead',status:'gap',verb:'read a facial expression'}];
   const s=buildGapCensus([{rows}]).segments.lead;
-  assert.deepEqual(Object.fromEntries(s.families.map(x=>[x.family,x.steps])),{'unclustered':2,'read a text':1,'use an ability':1});
+  assert.deepEqual(Object.fromEntries(s.families.map(x=>[x.family,x.steps])),{'needs mechanism review: unknown':2,'read a text':1,'use an ability':1});
 });
 
 test('coverage counts exact controls by family and volume and groups only single missing resolutions',()=>{

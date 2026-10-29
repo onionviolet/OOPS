@@ -211,3 +211,79 @@ The largest named family without a builder diagnosis is reason or plan (813), fo
 | Added-line comparison against the same private-name set | PASS, 0 added-line hits in the granted scripts and tests | Scoped publication check; does not turn the raw lane-review result into a pass |
 
 No commit or push. Browser replay, actual command settlement, persistence and human review are not established by this offline lane.
+
+## Resume 3: evidence-gated partial regeneration
+
+Status: partial. The candidate and 19 range mappings were regenerated. This does not complete the requested whole-book paragraph review, place-alias proposals or large-family unlock. Rules: AD36, CLR1–CLR3, CLR6–CLR7, CLR12, ON6.
+
+The final private candidate SHA-256 is `2fe5794e16c47d3ef3134901a447a66bbe56e22e629608c9c994f24ffe713285`. The previous candidate and ladder are retained privately. It contains 64 topic rows, 522 journeys and 504 acts. One additional knowledge-only act has a reviewed source paragraph, a place, an `inspect` operation, a knowledge key and a labelled one-minute fill. Its report preserves one supported observation, not every possible consequence. The new builder path requires an explicit private review record and matching scene citation; it does not infer paragraph support from a scene-level citation.
+
+One of 162 wait-family gaps has a reviewed source paragraph and a numeric bound window. Five of the 162 have a same-scene day binding; the remaining 157 lack one. Four bound steps remain unconverted: one has a time-band conflict, one has a citation that does not establish the wait, one combines actions, and one has a window boundary that does not match the stated band. The one accepted window is an authored source-order proposal, not an exact source time. Actor attribution remains unknown for all 11,159 steps.
+
+Place triage across all remaining gap rows found 6 unknown places, 56 ambiguous exact names and 4,804 with no exact or existing explicit component match; this is a broader population than the prior 2,177 builder diagnoses. The ten largest groups contain 34, 31, 28, 28, 23, 22, 22, 22, 19 and 19 steps. No new alias was applied; containment proposals and per-rule unlock counts remain open. The private triage identifies the values.
+
+The former unclustered steps are assigned provisional mechanism-review buckets by their existing M4 class. These are triage hints, not proof of a missing mechanism. The family table below compares the same revised classifier before and after; the two additions do not establish gameplay coverage.
+
+| Family | Steps | Controls before | Controls after |
+|---|---:|---:|---:|
+| speak or ask | 1203 | 59 | 59 |
+| travel or move | 1110 | 452 | 452 |
+| handle or move an item | 898 | 91 | 91 |
+| reason or plan | 832 | 1 | 2 |
+| needs mechanism review: other | 678 | 0 | 0 |
+| observe or listen | 555 | 128 | 128 |
+| inspect or investigate | 530 | 92 | 92 |
+| needs mechanism review: ritual | 438 | 0 | 0 |
+| needs mechanism review: socialize | 435 | 4 | 4 |
+| needs mechanism review: fight | 374 | 0 | 0 |
+| make or write an item | 366 | 70 | 70 |
+| rest or personal care | 348 | 64 | 64 |
+| agree or refuse a proposal | 311 | 5 | 5 |
+| change or maintain state | 284 | 2 | 2 |
+| divination or ritual | 232 | 0 | 0 |
+| needs mechanism review: travel | 227 | 0 | 0 |
+| exchange a message | 175 | 1 | 1 |
+| trade or pay | 165 | 1 | 1 |
+| wait for a time or event | 162 | 0 | 1 |
+| fight or evade | 161 | 0 | 0 |
+| paid transport | 161 | 95 | 95 |
+| use an ability | 160 | 0 | 0 |
+| needs mechanism review: study | 140 | 0 | 0 |
+| read a text | 128 | 46 | 46 |
+| direct another actor | 127 | 0 | 0 |
+| needs mechanism review: work | 120 | 0 | 0 |
+| needs mechanism review: appraise | 118 | 0 | 0 |
+| needs mechanism review: research | 118 | 0 | 0 |
+| needs mechanism review: trade | 115 | 0 | 0 |
+| needs mechanism review: rest | 110 | 0 | 0 |
+| obtain or learn information | 104 | 0 | 0 |
+| needs mechanism review: practice | 95 | 0 | 0 |
+| needs mechanism review: craft | 80 | 0 | 0 |
+| needs mechanism review: care | 68 | 0 | 0 |
+| needs mechanism review: unknown | 31 | 0 | 0 |
+
+| Volume | Steps | Controls before | Controls after |
+|---:|---:|---:|---:|
+| 1 | 2752 | 359 | 361 |
+| 2 | 2137 | 241 | 241 |
+| 3 | 1965 | 148 | 148 |
+| 4 | 1631 | 149 | 149 |
+| 5 | 1291 | 120 | 120 |
+| 6 | 682 | 43 | 43 |
+| 7 | 380 | 33 | 33 |
+| 8 | 321 | 18 | 18 |
+
+Total controls: 1,111 before, 1,113 after. These are candidate assignments; all actors remain unknown, and the inherited inferred journey origins and unreviewed existing act rows remain open.
+
+### Resume 3 checks
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/build_topic_talks.test.js tests/build_journeys.test.js tests/build_place_acts.test.js tests/build_replay_mapping.test.js tests/replay_mapping_household.test.js tests/lead_replay_score.test.js` | PASS, 49 tests | Synthetic tooling, not browser replay |
+| `node /private/tmp/x4-resume3-run.mjs` | PASS, three builders, 19 ranges, 11,159 steps, 1,113 candidate controls | One reviewed new act and one wait; remaining requested source review incomplete |
+| `node /private/tmp/x4-resume3-validate.mjs` | PASS, 64 + 522 + 504 adapter definitions, 1,090 registered commands, zero pack and reference errors | Node registry checks only; browser and settlement not exercised |
+| `node /private/tmp/x4-resume3-place.mjs` | PASS, private gap-place triage | Alias proposals and per-rule unlocks incomplete |
+| `node --check` on changed scripts and scoped `git diff --check` | PASS | Syntax and whitespace only |
+| `node scripts/lane_review.mjs` with Resume 3 grants | FAIL, two pre-existing test-file private-name hits, zero outside-grant or top-level-await files | Whole-file scan; baseline fixtures also match, no publication clearance claimed |
+
+No commit, push or live private-pack change. Coordinator browser replay, real settlement and cost measurement remain open.

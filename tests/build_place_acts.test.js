@@ -10,6 +10,18 @@ const crosswalk={places:{}};
 const pack={leadLife:{actorId:'actor.lead'},places:[{id:'pack.place.room',indexId:'reader.place.room',name:'Study'}],
  householdActs:{objects:[{id:'old.object',place:'pack.place.room',label:'old',facts:{old:true}}],acts:[{id:'old.act',operation:'inspect',place:'pack.place.room',minutes:2,label:'Old',description:'Old act',report:'Old report',knowledgeKey:'old.knowledge'}]}};
 
+test('objectless knowledge acts require a reviewed cited paragraph and a resolved place',()=>{
+ const scenes=[{beat:'thought',pov:'lead',place:'reader.place.room',evidence:[{label:'S',locator:'zh 第1章 p2'}],steps:[{verb:'recall',object:'a memory'}]}];
+ const args={scenes,crosswalk,registry,pack};
+ assert.equal(buildPlaceActs(args).data.acts.length,1);
+ const knowledgeEvidence={'thought#1':{locator:'zh 第1章 p2',report:'You recall a prior meeting.'}};
+ const result=buildPlaceActs({...args,knowledgeEvidence});
+ const row=result.data.acts[1];assert.equal(row.operation,'inspect');assert.equal(row.source.locator,knowledgeEvidence['thought#1'].locator);
+ assert.equal(row.minutes,1);assert.match(row.minutesBasis,/fill/);assert.equal(result.data.objects.length,1);
+ assert.equal(definePlaceActs(result.data,{worldId:'world.test',group:'group.test',situationId:'situation.test'}).length,2);
+ assert.equal(buildPlaceActs({...args,knowledgeEvidence:{'thought#1':{...knowledgeEvidence['thought#1'],locator:'zh 第1章 p3'}}}).data.acts.length,1);
+});
+
 test('compiles fixed local object steps, preserves H1 rows first, and maps exact source controls',()=>{
  const scenes=[{beat:'sample',order:1,pov:'lead',place:'reader.place.room',evidence:[{label:'S',locator:'zh 第1章 p2'}],steps:[
   {class:'observe or listen',verb:'look at',object:'the brass key'},
