@@ -38,15 +38,32 @@ export function replayWindow(row) {
     if (Number.isFinite(time.minute)) return {day,from:time.minute,to:time.minute+1};
     return null;
 }
-const rowChapter = row => Number.isFinite(row.chapter) ? row.chapter : Number(/第(\d+)章/.exec(row.locator || '')?.[1] ?? Infinity);
-export function adaptReplayRows(rows, {chapters = null, maxSteps = Infinity, offset = 0, scenes = []} = {}) {
+export function replayLocatorKey(locator) {
+    const match=/(?:\bb(\d+)\s+)?第(\d+)章/.exec(locator || '');
+    if (!match) return null;
+    const volume=Number(match[1] || 1),chapter=Number(match[2]);
+    return Number.isSafeInteger(volume)&&volume>0&&Number.isSafeInteger(chapter)&&chapter>0 ? {volume,chapter} : null;
+}
+const compareLocatorKeys=(a,b)=>a.volume-b.volume || a.chapter-b.chapter;
+export function parseReplayLocatorRange(value) {
+    const parts=typeof value==='string' ? value.split('..') : [];
+    const from=replayLocatorKey(parts[0]),to=replayLocatorKey(parts[1]);
+    assert.ok(parts.length===2 && from && to && compareLocatorKeys(from,to)<=0, '--locator-range must be an ordered pair of chapter locators separated by ..');
+    return {from,to};
+}
+const inReplayRange=(key,range)=>!range || (compareLocatorKeys(key,range.from)>=0 && compareLocatorKeys(key,range.to)<=0);
+const rowChapter = row => Number.isFinite(row.chapter) ? row.chapter : (replayLocatorKey(row.locator)?.chapter ?? Infinity);
+export function adaptReplayRows(rows, {chapters = null, volume = 1, locatorRange = null, maxSteps = Infinity, offset = 0, scenes = []} = {}) {
     const sceneById=new Map(scenes.map(scene=>[scene.beat,scene]));
     const enriched=rows.map(row=>{
         const source=sceneById.get(row.scene);
-        const found=[...new Set((source?.evidence||[]).map(e=>Number(/第(\d+)章/.exec(e.locator)?.[1]??Infinity)).filter(Number.isFinite))].sort((a,b)=>a-b);
-        return {...row,chapter:found.length===1?found[0]:null,chapterAmbiguous:found.length>1,chapters:found,locator:row.locator || (found.length===1?source?.evidence?.find(e=>Number(/第(\d+)章/.exec(e.locator)?.[1])===found[0])?.locator:null)};
+        const locators=(source?.evidence||[]).map(e=>e.locator).filter(x=>replayLocatorKey(x));
+        if (!locators.length && row.locator && replayLocatorKey(row.locator)) locators.push(row.locator);
+        const keys=locators.map(replayLocatorKey).filter(key=>(volume==null||key.volume===volume)&&(!chapters||(key.chapter>=chapters[0]&&key.chapter<=chapters[1]))&&inReplayRange(key,locatorRange));
+        const unique=[...new Map(keys.map(key=>[`${key.volume}:${key.chapter}`,key])).values()].sort(compareLocatorKeys);
+        return {...row,chapter:unique.length===1?unique[0].chapter:null,volume:unique.length===1?unique[0].volume:null,chapterAmbiguous:unique.length>1,chapters:unique.map(key=>key.chapter),locator:unique.length===1?locators.find(locator=>compareLocatorKeys(replayLocatorKey(locator),unique[0])===0):null,selectedLocatorCount:keys.length};
     });
-    let selected = enriched.filter(row => !chapters || row.chapters.some(chapter=>chapter>=chapters[0]&&chapter<=chapters[1]) || (rowChapter(row) >= chapters[0] && rowChapter(row) <= chapters[1]));
+    const selected = enriched.filter(row=>row.selectedLocatorCount>0);
     return selected.slice(offset, offset + maxSteps).map((row,index) => {
         const adapted={...row,sourceTime:row.time,time:replayWindow(row),replayOrder:index};
         const isWait=row.routeMode==='wait'||row.method==='wait';
@@ -92,9 +109,12 @@ export function validateMapping(mapping, scenes) {
     const generated = mapping.schema === 'lead-ui-replay/2';
     const from = generated ? Number(mapping.scope?.fromChapter) : 1;
     const to = generated ? Number(mapping.scope?.toChapter) : 3;
+    const fromLocator=mapping.scope?.fromLocator,toLocator=mapping.scope?.toLocator;
+    assert.ok(!generated || Boolean(fromLocator)===Boolean(toLocator), 'mapping locator bounds must be paired');
+    const mappingRange=generated && fromLocator ? parseReplayLocatorRange(`${fromLocator}..${toLocator}`) : null;
     const selected = scenes.filter(s => s.pov === 'lead' && s.evidence?.length && s.evidence.some(e => {
-        const chapter = Number(/第(\d+)章/.exec(e.locator)?.[1] ?? Infinity);
-        return chapter >= from && chapter <= to;
+        const key=replayLocatorKey(e.locator);
+        return key && (mappingRange ? inReplayRange(key,mappingRange) : key.chapter >= from && key.chapter <= to);
     })).sort((a,b) => a.order-b.order);
     const expected = selected.flatMap(s => s.steps.map((_, i) => `${s.beat}#${i + 1}`));
     if (!generated) assert.ok(selected.length >= 5 && expected.length >= 16.25, 'CLR2: under half the expected midpoint');
@@ -434,14 +454,17 @@ async function main() {
     fs.mkdirSync(out,{recursive:true});
     if (mapping.inputHashes?.['scenes.jsonl']) assert.equal(hash(fs.readFileSync(args.scenes)),mapping.inputHashes['scenes.jsonl'],'scene inputs changed since mapping');
     const chapterRange = args.chapters ? String(args.chapters).split('-').map(Number) : null;
-    if (chapterRange) assert.ok(chapterRange.length===2 && chapterRange.every(Number.isFinite) && chapterRange[0]<=chapterRange[1], '--chapters must be a-b');
+    if (chapterRange) assert.ok(chapterRange.length===2 && chapterRange.every(n=>Number.isSafeInteger(n)&&n>0) && chapterRange[0]<=chapterRange[1], '--chapters must be a-b');
+    const locatorRange=args['locator-range'] === undefined ? null : parseReplayLocatorRange(args['locator-range']);
+    const volume=args.volume === undefined ? (locatorRange ? null : 1) : Number(args.volume);
+    assert.ok(volume===null || (typeof args.volume!=='boolean' && Number.isSafeInteger(volume)&&volume>0), '--volume must be a positive integer');
     const scenes=jsonl(args.scenes);
     const probe = validateMapping(mapping,scenes);
     const maxSteps=args['max-steps'] ? Number(args['max-steps']) : Infinity;
     assert.ok(maxSteps===Infinity || (Number.isInteger(maxSteps)&&maxSteps>0), '--max-steps must be a positive integer');
     const offset=args.offset ? Number(args.offset) : 0;
     assert.ok(Number.isInteger(offset)&&offset>=0, '--offset must be a non-negative integer');
-    const replayRows = adaptReplayRows(mapping.rows,{chapters:chapterRange,maxSteps,offset,scenes});
+    const replayRows = adaptReplayRows(mapping.rows,{chapters:chapterRange,volume,locatorRange,maxSteps,offset,scenes});
     assert.ok(replayRows.length, 'no rows selected for replay');
     const ledger = mergeGapLedger(replayRows,jsonl(args['l4b-gaps']));
     fs.writeFileSync(path.join(out,'combined_gaps.jsonl'),ledger.rows.map(r => JSON.stringify(r)).join('\n')+'\n');
@@ -449,7 +472,7 @@ async function main() {
     const rowKinds = Object.fromEntries([...new Set(replayRows.map(kindOf))].sort().map(kind=>[kind,replayRows.filter(r=>kindOf(r)===kind).length]));
     const readyTimeoutMs = args['ready-timeout-ms'] === undefined ? DEFAULT_READY_TIMEOUT_MS : Number(args['ready-timeout-ms']);
     assert.ok((args['ready-timeout-ms'] === undefined || typeof args['ready-timeout-ms'] === 'string') && Number.isSafeInteger(readyTimeoutMs) && readyTimeoutMs>0, '--ready-timeout-ms must be a positive integer');
-    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],replayClock:{mode:'paused; explicit job and wait advancement',startClocks:[]},comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',clockAlignment:{mode:'pending',excludedPaths:[]},replaySeed:seat==='be'?REPLAY_SEED:null};
+    const audit = {seat,probe,selectedSteps:replayRows.length,selection:{volume,chapters:chapterRange,locatorRange},offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],replayClock:{mode:'paused; explicit job and wait advancement',startClocks:[]},comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',clockAlignment:{mode:'pending',excludedPaths:[]},replaySeed:seat==='be'?REPLAY_SEED:null};
     fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
     if (args['audit-only']) {console.log(JSON.stringify(audit)); return;}
     assert.equal(typeof args.build,'string','--build required for UI proof');

@@ -165,3 +165,27 @@ No new integration patch is needed for the existing hooks.
 | Driver `--seat be --null-player --chapters 1-24 --max-steps 150 --offset 0 --audit-only` on `/tmp/v2-generated-replay-mapping.json` | PASS; audit records paused replay mode | Earlier mapping input, not the whole-book acts candidate; no browser execution |
 | `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js` | PASS | Scoped whitespace only |
 | Browser replay | Not run | Coordinator must exercise both lives and check actual act timestamps, control scores and page errors |
+
+## Resume 6: volume-aware replay ranges, 2026-10-29
+
+The driver validates generated mappings against their own locator bounds, using the mapper's inclusive volume/chapter
+semantics. `--volume n` and `--chapters a-b` select a volume-specific range; with no explicit locator range, volume 1
+is the default. `--locator-range 'zh 第25章..zh 第60章'` accepts the mapper's bounds, including `zh bN 第N章`;
+without an explicit `--volume`, the locator bounds determine the volumes. When both options are supplied their
+constraints intersect. A scene is selected when any of its evidence locators matches, as in the mapper. Offset and
+maximum steps apply after selection. Audit records the chosen bounds.
+
+The real audits used `/tmp/m4-lotm/merged/scenes.jsonl`, `l4b-probe-2026-10-28/gaps.jsonl`, and mappings under
+`x4-whole-book-mapping-2026-10-29/ladder/` within the private lead-run directory.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 11 tests, including repeated chapters across two volumes | Synthetic selection and score coverage |
+| `node --test tests/lotm_ui_replay.test.js` | PASS, 5 tests | Legacy and generated replay unit coverage |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| Driver `--mapping .../v1-ch1-100.json --volume 1 --locator-range 'zh 第25章..zh 第60章' --audit-only` | PASS; mapping 1,130 steps, selected 317 | Accounting only |
+| Driver `--mapping .../v2-ch1-100.json --volume 2 --chapters 1-40 --locator-range 'zh b2 第1章..zh b2 第40章' --audit-only` | PASS; mapping 902 steps, selected 363 | Accounting only |
+| Source coverage comparison with `node --input-type=module` for both selected ranges | PASS; 317/317 and 363/363, zero missing, extra or duplicate IDs | No browser execution |
+| Driver `--mapping .../v1-ch101-200.json --chapters 101-103 --max-steps 2 --offset 1 --audit-only` | PASS; default volume 1, 2 selected after offset | Bounded accounting only |
+| `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/V2_CHECKPOINT.md` | PASS | Scoped whitespace only |
+| Browser replay | Not run | Coordinator owns the candidate browser replay |

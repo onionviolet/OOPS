@@ -1,7 +1,26 @@
 // Synthetic only: no source text, names or private ledger data.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS,performReplayControl} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS,performReplayControl,adaptReplayRows,validateMapping,parseReplayLocatorRange} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+
+test('volume and locator bounds select the right repeated chapter numbers and validate mapper scope',()=>{
+    const scenes=[1,2].flatMap(volume=>[1,2].map(chapter=>({pov:'lead',beat:`s${volume}-${chapter}`,order:chapter,
+        evidence:[{locator:`zh ${volume===1?'':`b${volume} `}第${chapter}章 p1`}],steps:[{verb:'inspect'}]})));
+    const rows=scenes.map(s=>({id:`${s.beat}#1`,scene:s.beat,time:{value:'unknown'},status:'gap',gapKind:'missing verb',codes:[]}));
+    const ids=items=>items.map(row=>row.id);
+    assert.deepEqual(ids(adaptReplayRows(rows,{scenes,chapters:[1,1]})),['s1-1#1']);
+    assert.deepEqual(ids(adaptReplayRows(rows,{scenes,volume:2,chapters:[1,1]})),['s2-1#1']);
+    const range=parseReplayLocatorRange('zh b2 第1章..zh b2 第2章');
+    assert.deepEqual(ids(adaptReplayRows(rows,{scenes,volume:null,locatorRange:range,offset:1,maxSteps:1})),['s2-2#1']);
+    assert.deepEqual(ids(adaptReplayRows(rows,{scenes,volume:1,locatorRange:range})),[]);
+    for(const volume of [1,2]) {
+        const prefix=volume===1?'zh ':'zh b2 ';
+        const mapping={schema:'lead-ui-replay/2',scope:{fromLocator:`${prefix}第1章`,toLocator:`${prefix}第2章`},rows:rows.filter(row=>row.scene.startsWith(`s${volume}-`)).map(row=>({...row}))};
+        assert.deepEqual(validateMapping(mapping,scenes),{scenes:2,steps:2});
+        assert.throws(()=>validateMapping({...mapping,rows:mapping.rows.slice(1)},scenes),/every source step/);
+    }
+    assert.throws(()=>parseReplayLocatorRange('zh b2 第2章..zh 第1章'),/ordered pair/);
+});
 
 test('fidelity counts reached events in order inside their windows and keeps typed misses',()=>{
     const rows=['a','b','c','d'].map((id,i)=>({id,locator:`zh 第${i<2?1:2}章 p1`}));
