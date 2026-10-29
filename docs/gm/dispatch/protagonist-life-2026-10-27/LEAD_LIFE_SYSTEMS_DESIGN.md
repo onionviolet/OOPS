@@ -9,6 +9,8 @@ the life of a book's protagonist. It links the owners that already exist and doe
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
 a reason (AD5, AD38). Owner map checked 2026-10-28 against `docs/RULES_INDEX.md` and `src/`.
 
+**Accepted lines (2026-10-29):** [LEAD_LIFE_RULES](../../../LEAD_LIFE_RULES.md) now holds the lines Weibao has accepted, as LSD155 proposed. This doc stays the dated history and the home of proposals; when he accepts a line it moves to that file and this line stays as history.
+
 **Reading guide (2026-10-29):** [LEAD_LIFE_GUIDE](../../../LEAD_LIFE_GUIDE.md) reconciles these lines with the vision, timeline and absorption owners, holds the field-to-system matrix (LSD255), an implementation order and the open contradictions. It is a reading aid, not the accepted-lines rulebook LSD155 proposes.
 
 How it is used: each gap lane brief cites the LSD lines it builds; the be replay (CL269) scores against them;

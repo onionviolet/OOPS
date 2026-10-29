@@ -11,10 +11,9 @@ schemas and Weibao's own entries in [USER_VISION](USER_VISION.md). It summarizes
 links; the owners keep their tables. Where this guide and an owner disagree, the owner wins
 and this guide is corrected.
 
-**Not the rulebook.** LSD155 proposed `docs/LEAD_LIFE_RULES.md` for LSD lines Weibao has
-accepted, keeping LSD codes. That file does not exist yet and this guide does not replace it.
-This guide is a reading aid with an implementation order; the rulebook, when made, holds
-accepted lines only. Add no LSD codes here (LSD216: planning text is outrunning playable change).
+**Not the rulebook.** [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) (made 2026-10-29, as LSD155 proposed)
+holds the lines Weibao has accepted. This guide is a reading aid with an implementation order
+and does not replace it. Add no LSD codes here (LSD216: planning text is outrunning playable change).
 
 ## Contents
 
@@ -347,7 +346,7 @@ pick. Items 1-5 were the open ones; Weibao answered them on 2026-10-29 (record i
 | 10 | LSD71 (two engines) versus LSD81 (grow the saved-battle family) | **LSD81** (the doc says it supersedes) | Later, checked against existing code |
 | 11 | LSD61-LSD70 first draft proposed disabling untaken moves | Already corrected inside the doc (section 12) | Recorded |
 | 12 | ON13 (Codex weekly budget) versus ON14 (Codex does the implementing) | **ON14**, per its own text | Weibao's clarification 2026-10-29 |
-| 13 | LSD155 proposes `LEAD_LIFE_RULES.md`; this guide exists beside it | Both; rulebook holds accepted lines only | Stated in the opening |
+| 13 | LSD155 proposed `LEAD_LIFE_RULES.md`; this guide exists beside it | Both; the rulebook (made 2026-10-29) holds accepted lines only | Stated in the opening |
 | 14 | OD2 and OD5 (memory carries; crossing does not reset history) versus LSD249 (return restores a checkpoint) | **Per-world dial** (TIMELINES mutability: restore, branch, closed loop) | LSD249 states one default, not a rule |
 | 15 | AD33 (NPC-heavy work deprioritized) versus a 1,500-person pack and tiers | **AD33.** LSD137 already sets full depth for few people; the pack size is data, not simulation | Weibao's own direction |
 | 16 | LSD99 ("keep the batch readers and schema as they are") versus LSD204/LSD206 (schema 1.5 moved tags to the step) | **LSD204/LSD206 and the code win** | They are later and implemented opt-in; LSD99 was about fight detail, which still needs FD1 |
@@ -383,7 +382,7 @@ by ID. Desktop-first applies; no mobile claims appear in these lanes.
 | --- | --- |
 | Dr1 | ACCOUNT FOR NOW: the section 6 step 2 metrics (reachable share, playable share over great beats, fold-loss count, distinct verbs, emergent canon rate) are the headline of the ON10 morning note |
 | Dr2 | ACCOUNT FOR NOW: a mechanism is reported as general only with a second-world fixture and a harvest-ledger row (LSD230); a done-check line in the brief template |
-| Dr3 | ACCOUNT FOR NOW: no new LSD lines unless a brief or check reads them. LATER/DELEGATE: when enough lines are accepted, write `docs/LEAD_LIFE_RULES.md` (accepted lines only, LSD codes kept, the LSD doc frozen as history); read `scripts/check_rules_index.mjs` first so a second register row does not trip its highest-code check. Luna medium; done when every accepted line in USER_VISION and PROJECT has a rulebook row and `check:rules` passes |
+| Dr3 | ACCOUNT FOR NOW: no new LSD lines unless a brief or check reads them. Done 2026-10-29: `docs/LEAD_LIFE_RULES.md` exists with a register row (no new codes). LATER: move each newly accepted line into it with his words and date; done when every accepted line in USER_VISION and PROJECT has a rulebook row |
 | Dr5 | ACCOUNT FOR NOW: a brief line asking for a failure path plus its recovery (OD12 forgiving by default) |
 | Cross-doc dedupe | LATER/DELEGATE: TIMELINES, CL21/CL22, WA and LSD restate canon and fate in four places. Build a concept-to-owner table, replace restatements with links, keep a zero-loss check. Luna medium; done when each concept has one owner section and the old text is reachable from history. No renumbering or deletion of LSD codes (briefs and checkpoints cite them) |
 | Recurrence | ACCOUNT FOR NOW: rerun this drift check at each wave checkpoint as a new round here, without restarting codes |

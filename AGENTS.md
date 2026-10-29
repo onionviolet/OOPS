@@ -45,6 +45,8 @@ Runtime code: follow `.claude/rules/runtime-code.md` and [architecture rules](do
 
 World audits, expansion and exploration passes, source dives and reviews: follow [world pass rules](docs/WORLD_PASS_RULES.md) WPR1-WPR32. Lane briefs for such passes name the WPR codes they apply.
 
+Book lives (a protagonist's playthrough from the readings): follow [lead-life rules](docs/LEAD_LIFE_RULES.md), accepted lines only, with the [guide](docs/LEAD_LIFE_GUIDE.md) for the matrix and order; these are defaults and a better idea with a reason can change them.
+
 Sites, ruins, maps and exploration: follow `.claude/rules/sites-exploration.md` and [site/exploration rules](docs/SITE_AND_EXPLORATION_RULES.md) SR1-SR24.
 
 World entry, starts, crossings between worlds and transmigration: follow [world entry rules](docs/WORLD_ENTRY_RULES.md) WER1-WER17. Every world pass settles each start's WER answers or names the gap.
