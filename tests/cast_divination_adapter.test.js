@@ -68,7 +68,7 @@ test('row validation rejects missing means, unsupported effects, stages and unpa
  const before=structuredClone(exampleQuery);defineDivinations({queries:[exampleQuery]},binding);assert.deepEqual(exampleQuery,before);
 });
 
-test('prepared integration patch crosses native UI and real save validator in a disposable copy',{timeout:180000},async t=>{
+test('live or prepared integration crosses native UI and real save validator in a disposable copy',{timeout:180000},async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -79,7 +79,10 @@ test('prepared integration patch crosses native UI and real save validator in a 
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
- await exec('patch',['-p1','-i',join(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/DV1_INTEGRATION.patch')],{cwd:dir});
+ const integrationPatch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/DV1_INTEGRATION.patch');
+ let integrated=false;
+ try{await exec('git',['apply','-R','--check',integrationPatch],{cwd:dir});integrated=true;}catch{}
+ if(!integrated){await exec('git',['apply','--check',integrationPatch],{cwd:dir});await exec('git',['apply',integrationPatch],{cwd:dir});}
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as dv1CastReady} from './book_world_lotm_cast_days.js';\nexport const dv1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const dv1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const dv1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
  const evidence={label:'I',locator:'fixture p1'},people=['lead','relative'].map(id=>({id:`fixture.person.${id}`,indexId:`fixture.person.${id}`,name:id,tier:'principal',relations:[],knows:[],wants:[],...evidence}));
@@ -99,7 +102,7 @@ test('prepared integration patch crosses native UI and real save validator in a 
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
 
  await exec('npm',['run','build'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000,maxBuffer:1024*1024});
- const {createHash}=await import('node:crypto');t.diagnostic('Disposable patched build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
+ const {createHash}=await import('node:crypto');t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
  const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:60000,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
  const worker=join(dir,'dv1-save-worker.mjs');
  await writeFile(worker,`
