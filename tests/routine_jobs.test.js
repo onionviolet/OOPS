@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createExpansionState,loadExpansionState,advanceSimulation} from '../src/expansion_engine.js';
+import {createExpansionState,loadExpansionState,advanceSimulation,setControllerWakeModeForTests} from '../src/expansion_engine.js';
 import {initializeExpedition,expeditionRegistry as registry} from '../src/expedition_content.js';
 import {beginBodyRecord} from '../src/body_progression.js';
 import {beginFeatureObjects,commitFeatureObjectCommand} from '../src/feature_expansion_objects_host.js';
@@ -43,6 +43,24 @@ test('SOURCE reserve 4 and held 3 reserve nothing and add no polling; released 2
  assert.equal(cursor(p).stockHold,false);assert.equal(cursor(p).stockAcceptedBatches,1);assert.equal(p.state.simulation.jobs.filter(j=>j.actorId==='player').length,1);
  assert.equal(stock(p,K.resin),stock(before,K.resin)-1);assert.equal(stock(p,K.sound),stock(before,K.sound)-2);assert.equal(p.native.staminaToFull,100-before.vitals.player.stamina+1);
  assert.equal(cursor(p).accepted.due-cursor(p).accepted.startedAt,3);p=advance(reload(p),3);assert.equal(stock(p,K.kit),4);assert.equal(cursor(p).stockHold,true);
+});
+test('held stock rechecks changed inventory and support at the same original controller boundary',()=>{
+ const initial=reserve(opened(4));
+ const compare=(input,minutes,extra={})=>{
+  let polled,queued;const previous=setControllerWakeModeForTests(false);
+  try {polled=advance(structuredClone(input),minutes,extra);setControllerWakeModeForTests(true);queued=advance(structuredClone(input),minutes,extra);}
+  finally {setControllerWakeModeForTests(previous);}
+  assert.deepEqual(queued,polled);return queued;
+ };
+ initial.gameplay.player.inventory[K.kit]=3;
+ const held=compare(initial,1);assert.equal(cursor(held).stockHold,true);assert.match(cursor(held).reason,/3 available/);
+ held.gameplay.player.inventory[K.kit]=2;
+ const released=compare(held,1);assert.equal(cursor(released).stockHold,false);assert.equal(cursor(released).accepted.startedAt,held.state.clock+1);
+ assert.equal(cursor(released).stockAcceptedBatches,1);
+ const unsupported=compare(initial,1,{facts:{location:'Shack'}});assert.equal(cursor(unsupported).status,'paused');
+ // Without an existing controller boundary, the new path does not invent one.
+ const alone=structuredClone(initial);alone.state.simulation.controllers={};
+ const noPoll=compare(alone,1);assert.equal(cursor(noPoll).stockHold,true);assert.equal(cursor(noPoll).updatedAt,cursor(alone).updatedAt);
 });
 test('K1 re-fit: the cursor view shows the latest settled step beside current work, from the common log',()=>{
  const last=p=>workPlanView(p.state,registry,registry.workPlans,ctx(p)).lastResult;

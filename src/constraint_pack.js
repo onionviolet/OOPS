@@ -4,14 +4,17 @@ import {hashStreamSeed} from './hash_rng.js';
 import {createConstraintStore,constraintProvenance} from './constraint_store.js';
 export const packRevision=pack=>String(pack?.revision??'unversioned');
 export function constraintsFromPack(pack,{actor=id=>id,place=id=>id}={}){
- const days=new Map((pack.bindings?.days||[]).map(r=>[r.scene,r])),rows=[],gaps=[];
+ const days=new Map((pack.bindings?.days||[]).map(r=>[r.scene,r])),rows=[],gaps=[],people=new Map(),anchorIds=new Set();
+ // Match find's first-row semantics, including duplicate IDs in loose inputs.
+ for(const p of pack.people||[])if(!people.has(p.id))people.set(p.id,p);
  const window=(day,from=0,to=1440,until=day)=>Number.isFinite(day)?{from:(day-1)*1440+from,to:(until-1)*1440+to}:null;
  const add=(r,what,w,id)=>{
   if(!w){gaps.push({id,what,missing:'window',locator:r.locator});return;}
-  if(what==='anchor'&&!r.id&&rows.some(row=>row.id===id))return;
+  if(what==='anchor'&&!r.id&&anchorIds.has(id))return;
+  anchorIds.add(id);
   rows.push({id,actor:actor(r.actor),what,window:w,where:place(r.place),needs:r.needs||null,
    produces:(r.produces||r.effects||[]).map(e=>({...e,key:e.key||e.fact})),locator:r.locator,
-   provenance:constraintProvenance(r),tier:pack.people?.find(p=>p.id===r.actor)?.tier||'role',
+   provenance:constraintProvenance(r),tier:people.get(r.actor)?.tier||'role',
    ...(r.reason?{reason:r.reason}:{}),...(r.recurrence?{recurrence:r.recurrence}:{}),...(r.from!=null?{from:r.from,to:r.to}:{})});
  };
  for(const r of pack.bindings?.beats||pack.beats||[]){const d=days.get(r.scene);add(r,'beat',d?window(d.day,d.from,d.to):window(r.dayIndex),r.id);}

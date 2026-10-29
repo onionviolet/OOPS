@@ -267,11 +267,12 @@ export function canonActionDecision(state,def,pack=getPrivateLotmCast(),context=
   if(c.type==='knowledge')return state.simulation?.knowledge?.[id]?.[c.key]?.value;
   return (c.scope==='actor'?state.actors?.[id]?.facts:state.worlds?.[I.world]?.facts)?.[c.key];
  };
+ let settledLedger;
  const changed=[...changes.values()];
  // Include duration-only actions in time reservations without inventing an effect.
  if(!changed.length)changed.push({actor:lead,type:'time',key:'busy'});
  return reservationDecision(data.store,{changes:changed,at,through:at+(def?.duration||0),read,
-  settled:id=>terminalBeat(currentCastBeatLedger().done[id])});
+  settled:id=>terminalBeat((settledLedger??=currentCastBeatLedger()).done[id])});
 }
 // Inspection-only compatibility report. The saved revision and fill values are
 // retained unchanged; no source truth or strain table is written into the save.
@@ -325,7 +326,7 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
   const pinned=lotmBe(state)&&state.lotm.runMode==='canon'&&constraintProvenance(b)!=='fill';
   let effects=b.effects;
   if(pinned&&!terminalBeat(ledger.done[b.id])){
-   const constraint=constraints.store.rows.find(r=>r.id===b.id),expected=constraint.produces;
+   const constraint=constraints.store.byId.get(b.id),expected=constraint.produces;
    // A supplied model table can have several outcomes. The current pack's
    // event model is deterministic; no unsupported failure odds are invented.
    const roll=conditionedDraw(state.streams||createStreams(state.rng??0),{world:I.world,actor:constraint.actor,

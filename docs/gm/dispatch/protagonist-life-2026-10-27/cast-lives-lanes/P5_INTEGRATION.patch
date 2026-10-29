@@ -1,0 +1,39 @@
+--- a/src/book_world_lotm_cast_host.js
++++ b/src/book_world_lotm_cast_host.js
+@@ -267,11 +267,12 @@
+   if(c.type==='knowledge')return state.simulation?.knowledge?.[id]?.[c.key]?.value;
+   return (c.scope==='actor'?state.actors?.[id]?.facts:state.worlds?.[I.world]?.facts)?.[c.key];
+  };
++ let settledLedger;
+  const changed=[...changes.values()];
+  // Include duration-only actions in time reservations without inventing an effect.
+  if(!changed.length)changed.push({actor:lead,type:'time',key:'busy'});
+  return reservationDecision(data.store,{changes:changed,at,through:at+(def?.duration||0),read,
+-  settled:id=>terminalBeat(currentCastBeatLedger().done[id])});
++  settled:id=>terminalBeat((settledLedger??=currentCastBeatLedger()).done[id])});
+ }
+ // Inspection-only compatibility report. The saved revision and fill values are
+ // retained unchanged; no source truth or strain table is written into the save.
+@@ -325,7 +326,7 @@
+   const pinned=lotmBe(state)&&state.lotm.runMode==='canon'&&constraintProvenance(b)!=='fill';
+   let effects=b.effects;
+   if(pinned&&!terminalBeat(ledger.done[b.id])){
+-   const constraint=constraints.store.rows.find(r=>r.id===b.id),expected=constraint.produces;
++   const constraint=constraints.store.byId.get(b.id),expected=constraint.produces;
+    // A supplied model table can have several outcomes. The current pack's
+    // event model is deterministic; no unsupported failure odds are invented.
+    const roll=conditionedDraw(state.streams||createStreams(state.rng??0),{world:I.world,actor:constraint.actor,
+--- a/tests/simulation.test.js
++++ b/tests/simulation.test.js
+@@ -190,8 +190,9 @@
+     const quiet = sandbox({events:[{...event,mode:"ambient",chance:0}]}); const no = advance(start(quiet),10,quiet); assert.deepEqual(no.state.simulation.events,{});
+ });
+ test("bounded catch-up returns remaining work rather than skipping controller/event boundaries", () => {
+-    const p = advance(begin(),1000); assert.equal(p.budgetExhausted,true); assert.ok(p.remaining > 0);
+-    const rest = advance(p,p.remaining); let ticks=begin(); for(let i=0;i<1000;i++) ticks=advance(ticks,1);
++    const registry = sandbox({events:[{id:'fixture.minute_director',revision:1,label:'Quiet minute checks',interval:1,lifetime:0,mode:'ambient',automatic:true,public:false,chance:0,effects:[]}]});
++    const p = advance(start(registry),1000,registry); assert.equal(p.budgetExhausted,true); assert.ok(p.remaining > 0);
++    const rest = advance(p,p.remaining,registry); let ticks=start(registry); for(let i=0;i<1000;i++) ticks=advance(ticks,1,registry);
+     assert.deepEqual(rest.state,ticks.state);
+ });
+ test("failed durable write publishes no actors, claims, native transfers, resources or unlocks", () => {

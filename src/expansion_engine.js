@@ -65,7 +65,7 @@ import {validateGameplaySnapshot, validateGameplayEffect, applyGameplayEffect} f
 import {validateChronicle, advanceChronicle, nextChronicleBoundary, recordArchiveDuty} from "./chronicle.js";
 import {validateSchedule, recurringWindow} from "./world_rhythm.js";
 import {validateSimulationState, createSimulationRegistry} from "./simulation_contracts.js";
-import {nextSimulationBoundary, advanceSimulationBoundary, waitingSimulationChoice, simulationOccupiesActor} from "./simulation.js";
+import {controllerWakeTimes, settleDeferredControllerWakes, nextSimulationBoundary, advanceSimulationBoundary, waitingSimulationChoice, simulationOccupiesActor} from "./simulation.js";
 
 // Definitions are immutable content; only this JSON namespace is persisted.
 export const ENGINE_SCHEMA = 5;
@@ -636,6 +636,10 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
 // About two million game years. An advance may not end past it, so a corrupt
 // duration cannot leave a clock with no safe-integer room to advance again.
 export const MAX_SIMULATION_CLOCK = 2 ** 40;
+let controllerWakeMode = true;
+export function setControllerWakeModeForTests(enabled) {
+    const previous=controllerWakeMode; controllerWakeMode=!!enabled; return previous;
+}
 export function advanceSimulation(state, registry, minutes, external = {}, gameplay = {}, simulationContexts = {}) {
     check(integer(minutes) && state.clock + minutes <= MAX_SIMULATION_CLOCK, "Invalid simulation duration.");
     validateBudget(external);
@@ -658,11 +662,13 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
         let times = Infinity;
         for(const job of next.pending) times = Math.min(times, job.due);
         for(const o of Object.values(next.opportunities)) if(o.status === "scheduled" || o.status === "available") times = Math.min(times, o.status === "scheduled" ? o.due : o.expires);
-        const boundary = Math.min(nextContainerBoundary(next,registry,{...simulationContexts,player:{...simulationContexts.player,inventoryOwners:{...simulationContexts.player?.inventoryOwners,...simulationPlan.ownership}}}),times, nextChronicleBoundary(next.chronicle), nextSimulationBoundary(next,{skipLoreJobs:!lorePracticeTimersSupported(next,loreContexts()),skipCompletionJobs:!worldCompletionTimersSupported(next,loreContexts()),skipCompletionCropChecks:!worldCompletionCropClockSupported(next,loreContexts().player)}), nextLorePracticeBoundary(next,loreContexts()), nextWorldCompletionBoundary(next,loreContexts()), nextCausalStoryBoundary(next), nextRealmActivityBoundary(next), nextTidemarkBoundary(next), nextNestedCampaignBoundary(next), nextParadiseBoundary(next), nextMolBoundary(next),nextProto23Boundary(next), workPlanNextBoundary(next));
+        const controllerWakes = controllerWakeMode ? controllerWakeTimes(next,registry,simulationContexts) : null;
+        const boundary = Math.min(nextContainerBoundary(next,registry,{...simulationContexts,player:{...simulationContexts.player,inventoryOwners:{...simulationContexts.player?.inventoryOwners,...simulationPlan.ownership}}}),times, nextChronicleBoundary(next.chronicle), nextSimulationBoundary(next,{controllerWakes,skipLoreJobs:!lorePracticeTimersSupported(next,loreContexts()),skipCompletionJobs:!worldCompletionTimersSupported(next,loreContexts()),skipCompletionCropChecks:!worldCompletionCropClockSupported(next,loreContexts().player)}), nextLorePracticeBoundary(next,loreContexts()), nextWorldCompletionBoundary(next,loreContexts()), nextCausalStoryBoundary(next), nextRealmActivityBoundary(next), nextTidemarkBoundary(next), nextNestedCampaignBoundary(next), nextParadiseBoundary(next), nextMolBoundary(next),nextProto23Boundary(next), workPlanNextBoundary(next));
         const clockBoundary = Number.isFinite(boundary)?Math.max(next.clock,boundary):null;
-        if(boundary > target) {retainOriginalFrontierWindow(next,next.clock,target);retainRepositoryAbsorptionWindows(next,next.clock,target);retainAuditRemainderWindows(next,next.clock,target);retainLorePracticeWindows(next,next.clock,target,loreContexts());retainWorldCompletionWindows(next,next.clock,target,loreContexts()); enterAuditRemainderMinute(next,nonceWindow,target); next.clock = target; syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next); expireRealmObservation(next); next.chronicle = advanceChronicle(next.chronicle, next.clock); break;}
+        if(boundary > target) {if(controllerWakes) settleDeferredControllerWakes(next,controllerWakes,target,true);retainOriginalFrontierWindow(next,next.clock,target);retainRepositoryAbsorptionWindows(next,next.clock,target);retainAuditRemainderWindows(next,next.clock,target);retainLorePracticeWindows(next,next.clock,target,loreContexts());retainWorldCompletionWindows(next,next.clock,target,loreContexts()); enterAuditRemainderMinute(next,nonceWindow,target); next.clock = target; syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next); expireRealmObservation(next); next.chronicle = advanceChronicle(next.chronicle, next.clock); break;}
         retainOriginalFrontierWindow(next,next.clock,Math.max(next.clock,boundary));retainRepositoryAbsorptionWindows(next,next.clock,Math.max(next.clock,boundary));retainAuditRemainderWindows(next,next.clock,Math.max(next.clock,boundary));retainLorePracticeWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());retainWorldCompletionWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());
         enterAuditRemainderMinute(next,nonceWindow,boundary);
+        if(controllerWakes) settleDeferredControllerWakes(next,controllerWakes,Math.max(next.clock,boundary));
         next.clock = Math.max(next.clock, boundary);
         syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next);
         expireRealmObservation(next);

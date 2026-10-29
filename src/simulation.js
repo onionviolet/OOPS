@@ -1,4 +1,5 @@
 import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
+import {createWakeQueue} from './wake_queue.js';
 import {AFTERMATH_ID,aftermathPersonPresent} from './story_aftermath.js';
 import {recordStoryletOutcome} from './lore_history_state.js';
 import {initializeStoryletDecks,nextStoryletBoundary,advanceStoryletDecks,validateStoryletState} from './storylet_deck.js';
@@ -488,16 +489,104 @@ export function previewSimulationResponse(state, registry, choice, context) {
 // One pass, no intermediate arrays. Math.min per value keeps the exact result of
 // the former spread (NaN and -0 included) and the same filters.
 const lorePendingJob = /^lore\.(?:work|warning)\./;
-export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false}={}) {
+export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false,controllerWakes=null}={}) {
     const s = state.simulation; if(!s) return Infinity;
     let at = Math.min(nextConstructBoundary(state),nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state));
     for(const j of s.jobs) if((!skipLoreJobs||!lorePendingJob.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))) at = Math.min(at, j.due);
     for(const c of Object.values(s.checks)) if(!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)) at = Math.min(at, c.due);
-    for(const c of Object.values(s.controllers)) if(s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")) at = Math.min(at, c.due);
+    const queue=controllerWakes?createWakeQueue():null;
+    for(const [id,c] of Object.entries(s.controllers)) if(s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")) {
+        const due=controllerWakes?.get(id) ?? c.due;
+        if(queue) {if(Number.isSafeInteger(due)) queue.register(id,due);}
+        else at=Math.min(at,due);
+    }
+    if(queue) at=Math.min(at,queue.nextWake(state.clock)??Infinity);
     for(const e of Object.values(s.events)) if(e.status === "open" && e.expiresAt != null && (e.nonBlocking === true || e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player"))) at = Math.min(at, e.expiresAt);
     for(const cs of Object.values(s.conditions)) for(const c of Object.values(cs)) at = Math.min(at, c.expiresAt != null && c.expiresAt > state.clock ? c.expiresAt : Infinity, c.nextTick ?? Infinity);
     for(const p of Object.values(s.people)) if(p.life === "alive" && p.lifePolicy) at = Math.min(at, p.bornAt + p.lifePolicy.lifespan);
     return at;
+}
+// The queue is disposable planning data, rebuilt after every kernel boundary.
+// Stored actor facts with authored writers cannot change between boundaries.
+// Derived facts (including unowned actor.* names) retain interval stepping.
+const controllerFactKeys = new WeakMap();
+function storedControllerFacts(registry) {
+    let keys = controllerFactKeys.get(registry);
+    if(!keys) {
+        keys = new Set();
+        for(const d of registry.simulation.commands.values()) for(const e of [...(d.costs || []), ...(d.effects || [])])
+            if(e.type === 'fact' && e.scope === 'actor') keys.add(e.key);
+        controllerFactKeys.set(registry, keys);
+    }
+    return keys;
+}
+function controllerGuard(rule, state, actorId, keys, context) {
+    if(!rule) return null;
+    if(rule.all || rule.any) {
+        const children = (rule.all || rule.any).map(r => controllerGuard(r,state,actorId,keys,context));
+        const deciding = children.filter(r => r && r.met === !rule.all);
+        if(deciding.length) return {met:!rule.all, at:Math.min(...deciding.map(r => r.at))};
+        if(children.some(r => !r)) return null;
+        return {met:!!rule.all, at:Math.min(...children.map(r => r.at))};
+    }
+    if(rule.not) {
+        // Unknown facts under negation have special semantics in evaluateRule.
+        // Keep the ordinary scan rather than guessing that knownness.
+        return null;
+    }
+    if(rule.fact === 'clock') {
+        const value=rule.value, now=state.clock;
+        if(!Number.isFinite(value)) return null;
+        const met=meets(rule,{clock:now});
+        const at=rule.op==='gte' ? (met?Infinity:Math.ceil(value))
+            : rule.op==='lte' ? (met?Math.floor(value)+1:Infinity)
+            : rule.op==='eq' ? (met?now+1:Number.isInteger(value)&&value>now?value:Infinity) : null;
+        return at===null?null:{met,at};
+    }
+    if(!rule.fact?.startsWith('actor.')) return null;
+    const key=rule.fact.slice(6);
+    if(['life','world','location','busyOrder'].includes(key) || !keys.has(key)) return null;
+    const facts=state.actors[actorId]?.facts;
+    if(!Object.hasOwn(facts||{},key) && Object.hasOwn(context?.facts||{},rule.fact)) return null;
+    return {met:meets(rule,Object.hasOwn(facts||{},key)?{[rule.fact]:facts[key]}:{}),at:Infinity};
+}
+export function controllerWakeTimes(state, registry, contexts = {}) {
+    const wakes=new Map();
+    if(!state.simulation) return wakes;
+    // The first ordinary boundary also initializes existing lazy kernel state.
+    // Preserve that boundary rather than introducing a second initializer here.
+    if(!state.simulation.constructs) return wakes;
+    // A running stock plan rechecks inventory, custody and native support at
+    // existing boundaries. Those inputs can change outside actor-fact effects,
+    // so retain the original controller polls while the plan has no job due.
+    // An empty map restores existing due times; it creates no new timer when no
+    // controller exists and accepted jobs retain their own completion boundary.
+    if(Object.values(state.simulation.workPlans?.cursors || {}).some(c => c.status === 'running' && c.stockPolicy && !c.accepted)) return wakes;
+    const keys=storedControllerFacts(registry);
+    for(const [id,c] of Object.entries(state.simulation.controllers)) {
+        if(c.interval!==1 || state.simulation.people[c.actorId]?.life!=='alive') continue;
+        const d=registry.simulation.controllers.get(c.definitionId||id);
+        if(!d) continue;
+        let at=Infinity;
+        for(const a of d.actions) {
+            const guard=controllerGuard(a.when,state,c.actorId,keys,contexts[c.actorId]);
+            if(!guard || guard.met) {at=c.due;break;}
+            at=Math.min(at,guard.at);
+        }
+        // Keep the original polling phase, including overdue input handling.
+        at=Math.max(c.due,at);
+        wakes.set(id,at);
+    }
+    return wakes;
+}
+export function settleDeferredControllerWakes(state,wakes,at,inclusive=false) {
+    for(const [id,wake] of wakes) {
+        const c=state.simulation.controllers[id];
+        if(wake<=c.due || c.due>at) continue;
+        // No action was possible at the omitted polls. Preserve saved due bytes
+        // and allow mutations earlier in this boundary to enable its due scan.
+        c.due+=Math.max(0,Math.ceil((at-c.due+(inclusive?1:0))/c.interval))*c.interval;
+    }
 }
 // previewCommand adds these reasons from state alone, so the quote is ineligible
 // whatever the facts say. Controllers read only eligibility and skip the facts

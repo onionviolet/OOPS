@@ -8,6 +8,9 @@ const stateKey=r=>{
  const type=r.type||'fact',scope=type==='fact'&&r.scope!=='actor'?'':r.scope||'';
  return JSON.stringify([type==='fact'&&scope===''?'*':r.actor,type,scope,r.key||r.fact]);
 };
+// Compiled selectors share the store's existing immutable row/index lifetime.
+// They contain no actor values, current time or settlement result.
+const compiledRows=new WeakMap();
 export function neededState(rule){
  if(!rule)return [];
  if(Array.isArray(rule))return rule.flatMap(neededState);
@@ -17,19 +20,21 @@ export function neededState(rule){
  return [{...rule,key:rule.key||rule.fact}];
 }
 export function createConstraintStore(records){
- const rows=structuredClone(records),byActor=new Map(),byNeed=new Map(),byProduced=new Map(),ids=new Set();
+ const rows=structuredClone(records),byActor=new Map(),byNeed=new Map(),byProduced=new Map(),ids=new Set(),byId=new Map();
  const add=(index,key,row)=>{if(!index.has(key))index.set(key,[]);index.get(key).push(row);};
  for(const r of rows){
   if(!r.id||ids.has(r.id)||!r.actor||!Number.isFinite(r.window?.from)||!Number.isFinite(r.window?.to)||r.window.to<r.window.from)throw Error('Invalid constraint identity or window.');
-  ids.add(r.id);r.provenance=constraintProvenance(r);
+  ids.add(r.id);byId.set(r.id,r);r.provenance=constraintProvenance(r);
   if(!PROVENANCE_CODES.includes(r.provenance))throw Error('Invalid constraint provenance.');
   add(byActor,r.actor,r);
-  for(const need of neededState(r.needs))add(byNeed,stateKey({...need,actor:need.actor||r.actor}),r);
-  for(const e of r.produces||[])add(byProduced,stateKey({...e,actor:e.actor||r.actor}),r);
+  const needs=new Map(),produces=new Map();
+  for(const need of neededState(r.needs)){const key=stateKey({...need,actor:need.actor||r.actor});add(byNeed,key,r);add(needs,key,need);}
+  for(const e of r.produces||[]){const key=stateKey({...e,actor:e.actor||r.actor});add(byProduced,key,r);add(produces,key,e);}
+  compiledRows.set(r,{needs,produces});
  }
  const byWindow=[...rows].sort((a,b)=>a.window.from-b.window.from||a.id.localeCompare(b.id));
  const select=({actor,from=-Infinity,to=Infinity}={})=>(actor?byActor.get(actor)||[]:byWindow).filter(r=>r.window.from<=to&&r.window.to>=from);
- return {rows,byActor,byNeed,byProduced,byWindow,select,
+ return {rows,byId,byActor,byNeed,byProduced,byWindow,select,
   reservations:change=>byNeed.get(stateKey(change))||[],producing:change=>byProduced.get(stateKey(change))||[]};
 }
 // Outcome weights describe the unconditioned model. Filtering precedes one keyed
@@ -57,15 +62,16 @@ function passes(need,value){
 // authored observer-safe intentions, never a hidden locator or future event name.
 export function reservationDecision(store,{changes,at,through=at,settled=()=>false,read=()=>undefined}){
  for(const change of changes){
+  const key=stateKey(change);
   const next=Object.hasOwn(change,'value')?change.value:typeof read(change)==='number'?read(change)+(change.amount||0):undefined;
   for(const row of store.reservations(change)){
    if(row.provenance==='fill'||row.window.to<at||settled(row.id))continue;
-   for(const need of neededState(row.needs).filter(n=>stateKey({...n,actor:n.actor||row.actor})===stateKey(change)))
+   for(const need of compiledRows.get(row)?.needs.get(key)||neededState(row.needs).filter(n=>stateKey({...n,actor:n.actor||row.actor})===key))
     if(!passes(need,next))return {allowed:false,reason:row.reason||'You are keeping this for an obligation you still need to meet.'};
   }
   for(const row of store.producing(change)){
    if(row.provenance==='fill'||row.window.to<at)continue;
-   if((row.produces||[]).some(e=>stateKey({...e,actor:e.actor||row.actor})===stateKey(change)&&Object.hasOwn(e,'value')&&!same(next,e.value)))return {allowed:false,reason:'Not how it happened'};
+   if((compiledRows.get(row)?.produces.get(key)||(row.produces||[]).filter(e=>stateKey({...e,actor:e.actor||row.actor})===key)).some(e=>Object.hasOwn(e,'value')&&!same(next,e.value)))return {allowed:false,reason:'Not how it happened'};
   }
  }
  // A timed action must leave the actor free for an upcoming constrained step.

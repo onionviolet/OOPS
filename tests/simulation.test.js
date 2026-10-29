@@ -190,8 +190,9 @@ test("decisions retain unspent time; hidden occurrences require discovery and qu
     const quiet = sandbox({events:[{...event,mode:"ambient",chance:0}]}); const no = advance(start(quiet),10,quiet); assert.deepEqual(no.state.simulation.events,{});
 });
 test("bounded catch-up returns remaining work rather than skipping controller/event boundaries", () => {
-    const p = advance(begin(),1000); assert.equal(p.budgetExhausted,true); assert.ok(p.remaining > 0);
-    const rest = advance(p,p.remaining); let ticks=begin(); for(let i=0;i<1000;i++) ticks=advance(ticks,1);
+    const registry = sandbox({events:[{id:'fixture.minute_director',revision:1,label:'Quiet minute checks',interval:1,lifetime:0,mode:'ambient',automatic:true,public:false,chance:0,effects:[]}]});
+    const p = advance(start(registry),1000,registry); assert.equal(p.budgetExhausted,true); assert.ok(p.remaining > 0);
+    const rest = advance(p,p.remaining,registry); let ticks=start(registry); for(let i=0;i<1000;i++) ticks=advance(ticks,1,registry);
     assert.deepEqual(rest.state,ticks.state);
 });
 test("failed durable write publishes no actors, claims, native transfers, resources or unlocks", () => {
