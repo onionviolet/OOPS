@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Census lane v2: per-chapter chunks, schema-constrained output, script rows for known names, deterministic locator repair,
-candidate-coverage retry. usage: lane.py <model> <tag> <key> <seed> <temp>"""
+candidate-coverage retry. usage: lane.py <model> <tag> <key> <seed> <temp>
+Env: LEADRUN_DIR (briefs, shards, outputs), LOCAL_WORLD (id prefix, default lotm), LOCAL_NUM_PREDICT (default 8000),
+LOCAL_THINK=1 turns on the model's thinking, LOCAL_KEEP=1 keeps the model loaded between calls (the overnight driver unloads it). Chapter headers may be Chinese or English."""
 import json,sys,time,urllib.request,os,re
 model,tag,key,seed,temp=sys.argv[1],sys.argv[2],sys.argv[3],int(sys.argv[4]),float(sys.argv[5])
 P=os.environ.get('LEADRUN_DIR','/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/')
@@ -8,8 +10,8 @@ brief=open(P+f'brief_{key}.md').read()
 shardf=P+[f for f in sorted(os.listdir(P)) if f.startswith(f'shard_{key}_')][0]
 chap={};ch=None
 for line in open(shardf):
-    h=re.match(r'^=== .*?第(\d+)章',line)
-    if h: ch=int(h.group(1));chap[ch]=[];continue
+    h=re.match(r'^=== (?:.*?第(\d+)章|Chapter (\d+))',line)
+    if h: ch=int(h.group(1) or h.group(2));chap[ch]=[];continue
     m=re.match(r'^p(\d+): (.*)$',line)
     if m: chap[ch].append((int(m.group(1)),m.group(2)))
 known=[]
@@ -27,7 +29,7 @@ SCHEMA={"type":"object","properties":{"rows":{"type":"array","items":{"type":"ob
  "firstMention":{"type":"string","pattern":"^zh 第\\d+章 p\\d+$"},"note":{"type":"string"},"amountValue":{"type":"number"},"amountUnit":{"type":"string","enum":["penny","soli","pound","lb","none"]}},
  "required":["id","label","zh","kind","firstMention","note"]}}},"required":["rows"]}
 def call(prompt):
-    body={"model":model,"stream":False,"think":False,"format":SCHEMA,"keep_alive":"2m","options":{"num_ctx":16384,"temperature":temp,"seed":seed,"num_predict":8000},"messages":[{"role":"user","content":prompt}]}
+    body={"model":model,"stream":False,"think":os.environ.get('LOCAL_THINK')=='1',"format":SCHEMA,"keep_alive":"2m","options":{"num_ctx":16384,"temperature":temp,"seed":seed,"num_predict":int(os.environ.get('LOCAL_NUM_PREDICT','8000'))},"messages":[{"role":"user","content":prompt}]}
     req=urllib.request.Request('http://localhost:11434/api/chat',json.dumps(body).encode(),{'Content-Type':'application/json'})
     d=json.load(urllib.request.urlopen(req,timeout=3600))
     try: rows=json.loads(d['message']['content']).get('rows',[])
@@ -68,7 +70,7 @@ for c,ps in chap.items():
     listed=', '.join(k[0] for k in inch)
     def prompt(missing=None):
         cl='\n'.join(f'- {k} {v} ({loc})' for k,v,loc in (missing if missing is not None else cc))
-        return f"""Census task for one chapter of a Chinese novel. List rows for (a) the candidates below that are real prices, measures, clock times or durations and (b) every other named person, place, organization, deity, item, creature, document or event in the text that is NOT in the already-listed names. Each row: id `lotm.<kind>.<english-slug>`, label (English), zh copied exactly from the text, kind, firstMention `zh 第N章 pM` for the paragraph that contains that exact zh, note of at most 15 words using only facts in that paragraph. Skip pronouns, kinship words and generic nouns.
+        return f"""Census task for one chapter of a novel. List rows for (a) the candidates below that are real prices, measures, clock times or durations and (b) every other named person, place, organization, deity, item, creature, document or event in the text that is NOT in the already-listed names. Each row: id `lotm.<kind>.<english-slug>`, label (English), zh copied exactly from the text, kind, firstMention `zh 第N章 pM` for the paragraph that contains that exact zh, note of at most 15 words using only facts in that paragraph. Skip pronouns, kinship words and generic nouns.
 Already listed (skip): {listed}
 Candidates:
 {cl}
@@ -91,7 +93,7 @@ Chapter {c}:
             if hit is None: dropped+=1;continue
             r['firstMention']=f'zh 第{c}章 p{hit}';fixed+=1
         slug=re.sub(r'[^a-z0-9]+','-',r['id'].lower().split('.')[-1]).strip('-') or 'x'
-        r['id']=f"lotm.{r['kind']}.{slug}"
+        r['id']=f"{os.environ.get('LOCAL_WORLD','lotm')}.{r['kind']}.{slug}"
         while r['id'] in idset: r['id']+='-x'
         idset.add(r['id']);seen_zh.add(zh)
         row_amt=amount(zh,r)
@@ -102,4 +104,4 @@ open(base+'_census.jsonl','w').write('\n'.join(json.dumps(x,ensure_ascii=False) 
 info={"model":model,"key":key,"seed":seed,"temp":temp,"wall_s":round(time.time()-t0,1),"calls":calls,"retries":retries,"prompt_tokens":pt,"out_tokens":ot,"rows":len(out),"locator_fixed":fixed,"dropped_not_in_text":dropped}
 json.dump(info,open(base+'_run.json','w'),indent=1);print(json.dumps(info))
 # Free the model's memory (the weights stay resident for the keep-alive otherwise, and a second model adds to swap).
-urllib.request.urlopen(urllib.request.Request('http://localhost:11434/api/generate',json.dumps({'model':model,'keep_alive':0}).encode(),{'Content-Type':'application/json'}))
+if os.environ.get('LOCAL_KEEP')!='1': urllib.request.urlopen(urllib.request.Request('http://localhost:11434/api/generate',json.dumps({'model':model,'keep_alive':0}).encode(),{'Content-Type':'application/json'}))
