@@ -14,6 +14,8 @@ const rangeOf = rows => rows.flatMap(s => (s.evidence || []).map(e => chapter(e.
 
 export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, controlIndex = {}, registry = [], pack = null}) {
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
+  // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
+  const walks = {...Object.fromEntries((pack?.places || []).filter(p => p?.id && p.travel && !p.anchorOnly).map(p => [p.id, `lotm.move.${p.id}`])), ...(controlIndex.walks || {})};
   const selected = scenes.filter(s => s.pov === 'lead' && s.evidence?.length && rangeOf([s]).some(n => n >= fromChapter && n <= toChapter))
     .sort((a,b) => a.order-b.order);
   const rows = []; let lastPlace = null, lastTimeKey = null;
@@ -28,7 +30,8 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, c
     const placeId = joinedPlace?.id || crosswalk.places?.[scene.place];
     if (joinedPlace) { row.placeResolution = joinedPlace.rule; row.packPlaceId = joinedPlace.id; }
     row.peopleResolved = row.peoplePresent.map(id => ({readerId:id, packId:packJoin?.resolvePerson(id) || null}));
-    const moveId = placeId && placeId !== lastPlace && /walk|travel|move|go to|arrive/i.test(step.verb) && controlIndex.walks?.[placeId];
+    // The lead is at the scene's place: the first step at a new place is reached by walking there.
+    const moveId = placeId && placeId !== lastPlace && (i === 0 || /walk|travel|move|go to|arrive/i.test(step.verb)) && walks[placeId];
     const presentId = row.peoplePresent.map(id => controlIndex.talks?.[id] || controlIndex.talks?.[packJoin?.resolvePerson(id)]).find(Boolean);
     const timeKey=scene.timeOfDay?.value && !/unknown|unstated|unspecified|^u$/i.test(scene.timeOfDay.value) ? scene.timeOfDay.value : null;
     const isTimeGap=i===0&&timeKey&&timeKey!==lastTimeKey;
