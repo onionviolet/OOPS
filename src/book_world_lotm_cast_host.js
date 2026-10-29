@@ -18,6 +18,7 @@ import {waitUntilOptions} from './wait_until.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from './cast_journeys.js';
 import {defineInferences,quoteInferences,pendingInferenceReports,settleInferenceReports} from './cast_inference_adapter.js';
+import {defineCards,settleCardReports} from './cast_card_runtime.js';
 import {defineCastAbilities,quoteCastAbilities} from './cast_ability_adapter.js';
 import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
 import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js';
@@ -63,6 +64,7 @@ export function castJourneyOffers(state,preview,options={}){
  return quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
 }
 export let castInferenceCommands=[];
+export let castCardRows=[];
 export function castInferenceOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  return quoteInferences(state,castInferenceCommands,preview,options);
@@ -161,6 +163,7 @@ function deriveCast(pack){
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
  castBodyCommands=defineBodyCare(pack.bodyCare,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castCardRows=defineCards(pack.eventCards ?? null,{worldId:I.world,actorId:'player',group:'book_lotm',situationId:LOTM_CAST_SITUATION});
  castAbilityCommands=defineCastAbilities(pack.abilityConflicts,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -441,7 +444,7 @@ export function compactCastLedger(ledger,pack){
  return {...ledger,facts};
 }
 export function castBeatReports(ledger){
- return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderCastReport(r)}));
+ return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:r.text||renderCastReport(r)}));
 }
 export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
  if(!lotmCastLife(state)||!pack)return [];
@@ -542,6 +545,12 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  }
  for(const w of out.knowledgeWrites||[])castWriteCode(plan.state,`knowledge:${w.effect.actor}:${w.effect.key}`,w.provenance);
  for(const result of out.results)for(const diff of result.diffs)castWriteCode(plan.state,`fact:${diff.fact}`,diff.provenance);
+ const cardWindow={scenes:(getPrivateLotmCast()?.bindings?.days||[]).filter(d=>plan.state.clock>=plan.state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene)};
+ const cardReports=lotmBe(plan.state)?settleCardReports(plan.state,castCardRows,{window:cardWindow,decide:card=>canonActionDecision(plan.state,{effects:card.effects},getPrivateLotmCast())}):[];
+ for(const report of cardReports){
+  if(report.effects.length)applySimulationEffects(plan,report.effects,{actorId:'player',worldId:I.world,facts:{location:report.place}},null,`lotm.cast.card.${report.cardId.replace(/[^a-z0-9_.:-]/gi,'_')}`);
+  out.ledger.facts[REPORT_PREFIX+`card.${report.cardId}`]={text:report.text,at:report.at,kind:report.kind,actor:report.actor,place:report.place,threadId:report.threadId};
+ }
  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
  const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];
@@ -551,6 +560,6 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  const journeyReports=lotmBe(plan.state)?settleJourneyReports(plan.state,castJourneyCommands,I.world):[];
  const result=persist(plan);
  domainRegistry.command('beatLedger','commit')(saved);
- for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports])publish(report);
+ for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);
  return result;
 }

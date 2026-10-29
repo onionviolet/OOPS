@@ -1,7 +1,7 @@
 // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
 // inert: no Tingen presence, job, means or knowledge may exist without it. The
 // only activation path is enrollLotmBranch (book_world_lotm_content.js).
-import {castAbilityCommands,castBodyCommands,castExchangeCommands,castInferenceCommands,castMakingCommands,castDivinationCommands,castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
+import {castAbilityCommands,castBodyCommands,castCardRows,castExchangeCommands,castInferenceCommands,castMakingCommands,castDivinationCommands,castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
 import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
 import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
@@ -36,6 +36,7 @@ export function validateLotmState(state){
   return true;
  }
  jsonData(d);
+ if(d.entryProfile===BE_PROFILE_ID&&castCardRows.length){const facts=state.worlds?.[I.world]?.facts||{},cards=new Map(castCardRows.map(r=>[r.id.replace(/[^a-z0-9_.:-]/gi,'_'),r]));for(const [key,value] of Object.entries(facts)){const match=/^lotm\.cast\.card\.(.+)\.(settled|due|applied)$/.exec(key),card=match&&cards.get(match[1]);if(match&&card){assert(typeof value==='boolean','Invalid saved card state.');if(match[2]==='applied'&&value){const actorFacts=state.actors?.player?.facts||{},knowledge=state.simulation?.knowledge?.player||{};for(const effect of card.effects){if(effect.type==='fact')assert(JSON.stringify(actorFacts[effect.key])===JSON.stringify(effect.value),'Saved card effect differs from its authored definition.');else assert(knowledge[effect.key]?.value===effect.value,'Saved card knowledge differs from its authored definition.');}}}}}
  // `entry` (how this life got in, WER2-WER9) is optional: saves enrolled before it hold none and stay valid.
  assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'||k==='runMode'||k==='packRevision'||k==='castProvenance'),'Unsupported Tingen branch fields.');
  // Additive compatibility: missing revision/codes denotes an older save. Keep
