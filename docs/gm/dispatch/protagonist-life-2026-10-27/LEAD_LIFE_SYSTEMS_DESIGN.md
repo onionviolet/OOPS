@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD217 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD232 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -579,3 +579,57 @@ does not need every paragraph's movement as a separate control.
 
 Suggestions outside this round: a one-page "what you can play today" card for the be seat, regenerated after each
 integration, would make LSD212's check quick.
+
+## 23. Variance inside canon, the butterfly effect, and leaving the lead's seat (Weibao 2026-10-29; proposal)
+
+Weibao: "consider stuff like future fine tuning in the future, iterating through combats with deterministic system
+to allow for variance but still somehow following cannon unless external interference? Butterfly effect? ...
+Efficientcy? modularity? what matters when transfering from no longer being the protaginsit, since the protag life
+playthrough is for the sake of implementing all the features and stuff?"
+
+Already settled and not repeated: conditioned keyed draws and strain (LSD107, LSD64), calibration by seed sweep
+(LSD96), keyed fight draws (LSD83), perturbation records and contested constraints (LSD110, LSD111, D2 deferred),
+seat promotion (LSD129) and tiers (LSD126-LSD137). Lines below are only the new angles, each with a reader.
+
+### 23.1 Variance that keeps canon
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD218 | **Canon fixes the outcome tier; play moves the cost.** In the canon run, how the player fights or argues changes what it costs (wounds, time, money, who saw, what broke) inside the band the book allows, not who wins. Clumsy play wins the book's fight at a higher price; careful play wins it cheaply. Reason: player skill matters in a forced run without breaking it | ACCOUNT FOR NOW: F1 result screen (LSD94) shows the cost, not a win/loss |
+| LSD219 | **Each canon conflict lists its locked facts.** Winner, survival, items taken and anything a later constraint needs are locked; rounds, order of blows, wound places, words exchanged are free. The lock list comes from the forward-anchor lint (LSD63), not by hand | ACCOUNT FOR NOW: FD1 row field |
+| LSD220 | **Iterate fights headless across seeds.** A development command runs one canon conflict over N seeds and prints the spread of free details, the cost band and the strain, so a combat change is judged on a distribution, not on one replay. Same runner and keys as play (LSD83) | LATER/DELEGATE: with C2 (LSD96); done when one fight prints a 100-seed spread in under a minute |
+
+### 23.2 The butterfly effect
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD221 | **Two butterflies, treated oppositely.** A *technical* butterfly (one extra roll reshuffling every later roll) is a bug and is prevented by subject-keyed draws (LSD55, LSD139). A *story* butterfly (a saved stranger later matters) is the point and spreads only along causal links (LSD111). Test: add one unrelated action early; every draw not causally linked must match the base run | ACCOUNT FOR NOW: a golden-run variant in LSD146 |
+| LSD222 | **Divergence damps unless a link carries it.** An external change reaches what its causal links reach and stops; constraints whose needs it does not touch still happen on time. Strong canon (CL21 causal mass, the world's fate dial) pulls back toward the book; weak canon drifts. Dial per world | ACCOUNT FOR NOW: D2 design input |
+| LSD223 | **Show the divergence.** A divergence view lists facts that now differ from the book, their source and what they reach next, for the player at his knowledge level and in full in the inspector. Reason: a changed world should feel caused, not random | LATER: with D2 |
+
+### 23.3 Efficiency and modularity
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD224 | **Checkpoints per beat.** The replay and golden runs save a state snapshot at each great beat, so work on chapter 40 starts from chapter 39's snapshot instead of replaying the book. A snapshot is valid for one pack revision and engine hash; a mismatch replays from the nearest valid one | LATER/DELEGATE: V2 driver, Luna medium; done when a ch20 replay starts from a snapshot and matches the full replay's hash |
+| LSD225 | **Mechanisms are world modules with a pack adapter.** Each mechanism (DV1, MK1, the conflict frame) has a world-neutral core, a thin per-world adapter and its own tests; LOTM-named code holds only adapters. This is LSD141 applied per mechanism, not only to the cast engine | ACCOUNT FOR NOW: mechanism briefs |
+
+### 23.4 Leaving the lead's seat
+
+The lead's life is the harness that forces features into existence; what the game keeps is the features. What
+must hold when someone else is played:
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD226 | **No feature may read "is the lead".** Actions read the actor's means, knowledge, relations and place; the seat only chooses who the player controls. Done check per mechanism: its tests run once with a non-lead actor fixture | ACCOUNT FOR NOW: mechanism done check |
+| LSD227 | **The canon run only tests success paths.** The book's lead passes the interview, survives the fight, finds the clue. Other seats and the open run will fail, refuse, run out of money and be caught. Each mechanism ships one failure path and one refused path with a consequence, or it is incomplete for other seats | ACCOUNT FOR NOW: mechanism done check |
+| LSD228 | **Plot armour is not a mechanic.** The lead survives because the book says so (a constraint), not because his numbers are special. A seat without his constraints faces the same systems at face value; his powers come from rows anyone with the same means could have (LSD171) | ACCOUNT FOR NOW |
+| LSD229 | **Data is densest around the lead and thin elsewhere.** Other seats live mostly on fills (LSD127, LSD133), so role fills, the hours table and place affordances matter more for them than any extra lead detail. Default: once the lead's volume-1 beats play, new data spending goes to fills and places, not to more lead steps | ACCOUNT FOR NOW |
+| LSD230 | **A harvest ledger.** One table of the features the lead's run produced, each with seat-neutral (LSD226), failure path (LSD227) and second-world (LSD214) marks. A feature with all three is part of the game; otherwise it is a LOTM feature still. This replaces step counts as the answer to "what did the protagonist run buy us" | LATER/DELEGATE: Luna low over existing checkpoints; done when DV1, MK1, H2 and the journey mechanism have rows |
+
+### 23.5 Fine-tuning later
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD231 | **Two kinds of fine-tuning.** *Game tuning* (bands to the text) is calibration, already LSD96. *Model fine-tuning* trains a local reader on our reviewed rows so later books cost less. Only reviewed or golden rows (READINESS L2) with their paragraphs are training data; fills, script guesses and unreviewed rows are not. Inferred: a mid-size local model is more practical to tune on this machine than the 27B one (LA6 memory) | LATER: after enough reviewed rows exist; not a credit cost |
+| LSD232 | **Keep the data tune-ready now.** Reviewed rows keep their paragraph locator, schema version and reviewer source (LSD202 `source`), so a training set can be cut later with no rework. Private like all canon (LSD153) | ACCOUNT FOR NOW |
