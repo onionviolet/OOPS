@@ -73,15 +73,21 @@ export function run(argv) {
     const outputRel = relative(NOVELS, output);
     if (!outputRel.startsWith('..') && outputRel.split(/[\\/]/).includes('private')) throw new Error('--out must be outside the private source tree');
     const scratch = mkdtempSync(join(input, '.world-lead-pipeline-'));
+    const unionedInput = join(scratch, 'schema-union-input');
     const merged = join(scratch, 'merged');
     const worksheets = join(scratch, 'cast-worksheets');
     const report = {schema: 'world-lead-pipeline/1.0', book: options.book, world: profile.world, slice: {from: options.from, to: options.to}, input: relative(ROOT, input), output, stages: []};
     try {
+        const unionScript = join(ROOT, 'scripts/lead_run/schema_union.mjs');
+        const unionArgs = [unionScript, input, '--out', unionedInput];
+        if (match) unionArgs.push('--match', match);
+        const unionInputs = [unionScript, ...filesUnder(input).filter(p => /_people(?:_other)?\.jsonl$/.test(p) || /(?:pre-sv14|pre-sv8)\/.*_people(?:_other)?\.jsonl$/.test(p) || /x2m_census\.jsonl$/.test(p) || /m_census\.jsonl$/.test(p))];
+        report.stages.push(runStage('schema_union', process.execPath, unionArgs, unionInputs, [unionedInput]));
         const mergeScript = join(ROOT, 'scripts/lead_run/merge_shards.mjs');
-        const mergeArgs = [mergeScript, input, '--out', merged, '--overlay', overlay];
+        const mergeArgs = [mergeScript, unionedInput, '--out', merged, '--overlay', overlay];
         if (match) mergeArgs.push('--match', match);
         const mergeOutputs = ['registry.jsonl', 'scenes.jsonl', 'fills.jsonl', 'extras.jsonl', 'affordance.json', 'overlay_proposed.json', 'merge_report.json'].map(n => join(merged, n));
-        const sourceInputs = filesUnder(input).filter(p => /_m_(?:header\.json|census\.jsonl|scenes\.jsonl|fills\.jsonl)$/.test(p) || /_(?:rules|people|places|services|news|customs|rules_other|people_other|texture_other)\.jsonl$/.test(p));
+        const sourceInputs = filesUnder(unionedInput).filter(p => /_m_(?:header\.json|census\.jsonl|scenes\.jsonl|fills\.jsonl)$/.test(p) || /_(?:rules|people|places|services|news|customs|rules_other|people_other|texture_other)\.jsonl$/.test(p));
         report.stages.push(runStage('merge_shards', process.execPath, mergeArgs, [mergeScript, overlay, ...sourceInputs], mergeOutputs));
 
         const crossScript = join(ROOT, 'scripts/lead_run/build_crosswalk.mjs');
@@ -104,6 +110,7 @@ export function run(argv) {
         report.stages.push({stage: 'fitness_report', command: ['read generated consumer_fitness.json'], inputs: {[relative(ROOT, fitness)]: hashPath(fitness)}, outputs: {[relative(ROOT, fitness)]: hashPath(fitness)}, seconds: 0});
 
         mkdirSync(output, {recursive: true});
+        cpSync(unionedInput, join(output, 'schema-union-input'), {recursive: true});
         cpSync(merged, join(output, 'merged'), {recursive: true});
         cpSync(worksheets, join(output, 'cast-worksheets'), {recursive: true});
         report.outputs = hashesUnder(output);

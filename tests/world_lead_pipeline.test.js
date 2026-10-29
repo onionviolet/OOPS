@@ -20,14 +20,14 @@ function fixture() {
 }
 const argsFor = (input, out, extra = []) => ['lotm', '--input', input, '--match', '^a1m$', '--from', 'zh 第1章 p1', '--to', 'zh 第2章 p999', '--out', out, ...extra];
 
-test('pipeline runs every stage in order and writes a six-stage receipt on a synthetic two-chapter fixture', () => {
+test('pipeline runs every stage in order and writes a seven-stage receipt on a synthetic two-chapter fixture', () => {
     mkdirSync(fixtureRoot, {recursive: true});
     const input = fixture(), out = mkdtempSync(join(tmpdir(), 'lead-pipeline-out-'));
     try {
         const report = run(argsFor(input, join(out, 'result')));
-        assert.deepEqual(report.stages.map(s => s.stage), ['merge_shards', 'build_crosswalk', 'cast_worksheet', 'conflict_contracts', 'after_actions', 'fitness_report']);
+        assert.deepEqual(report.stages.map(s => s.stage), ['schema_union', 'merge_shards', 'build_crosswalk', 'cast_worksheet', 'conflict_contracts', 'after_actions', 'fitness_report']);
         const receipt = JSON.parse(readFileSync(join(out, 'result/pipeline_receipt.json'), 'utf8'));
-        assert.equal(receipt.stages.length, 6);
+        assert.equal(receipt.stages.length, 7);
         assert.ok(receipt.stages.every(stage => Object.keys(stage.inputs).length && Object.keys(stage.outputs).length));
     } finally { rmSync(input, {recursive: true, force: true}); rmSync(out, {recursive: true, force: true}); }
 });
