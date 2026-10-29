@@ -74,6 +74,7 @@ const rows = [
     ['rite', 'in-world', 'The character’s preparation preview.'],
     ['rite-condition', 'in-world', 'A preparation condition for this character.'],
     ['slots', 'in-world', 'Materials held for the character’s formula.'],
+    ['divinations', 'in-world', 'Disclosure group: this character’s rites and questions.'],
     ['journeys', 'in-world', 'Available journeys, means, fares and travel time in this life.'],
     ['topic-person', 'in-world', 'Conversations with a person in this character’s life.'],
     ['topic', 'in-world', 'A topic and its available conversation choices.'],

@@ -16,6 +16,7 @@ import {cmd,eq} from './book_world_lotm_kit.js';
 import {waitUntilOptions} from './wait_until.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from './cast_journeys.js';
+import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
 import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports} from './place_acts.js';
 
@@ -50,6 +51,11 @@ export function castJourneyOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
  return quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
+}
+export let castDivinationCommands=[];
+export function castDivinationOffers(state,preview,options={}){
+ if(!lotmBe(state)||!castAvailable)return [];
+ return quoteDivinations(state,castDivinationCommands,preview,options);
 }
 export let castTopicCommands=[];
 export function castTopicOffers(state,preview,options={}){
@@ -123,6 +129,7 @@ function deriveCast(pack){
  requires:eq('lotm.profile.beside'),effects:[{type:'knowledge',actor:'player',key:`book.lotm.cast.met.${p.id}`,
  stage:'seen',value:`You spoke with ${p.name} when you were together.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
+ castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castTopicCommands=defineTopicTalks(pack.topicTalks,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castJourneyCommands=defineJourneys(pack.journeys,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -158,7 +165,7 @@ export function castElsewhere(state){
 const installed=new WeakSet();
 export function installCast(registry){
  if(!castAvailable||installed.has(registry))return;
- const defs=createSimulationRegistry({people:castPeople,commands:[...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands],situations:[castSituation]});
+ const defs=createSimulationRegistry({people:castPeople,commands:[...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands],situations:[castSituation]});
  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
  installed.add(registry);
 }
@@ -193,7 +200,7 @@ function projectCastWakes(state){
 function missingCastBodies(state){return LOTM_CAST.people.length>CAST_EAGER_PEOPLE_LIMIT&&[...new Set([...referencedCastPeople(state),...[...projectedPlaces].filter(([,place])=>place!=null).map(([id])=>id)])].some(id=>peopleById.has(id)&&!(lotmBe(state)&&id===LOTM_CAST.leadLife?.actorId)&&!state.simulation.people[id]);}
 export function castSyncDue(state){
  if(!lotmCastLife(state)||!castAvailable)return false;
- if(lotmBe(state)&&(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)))return true;
+ if(lotmBe(state)&&(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)||pendingDivinationReports(state,castDivinationCommands,I.world)))return true;
  if(lotmBe(state)&&LOTM_CAST.householdActs?.objects?.some(r=>!state.worlds[I.world].facts[`place.act.seed.${r.id}`]))return true;
  if(missingCastBodies(state)||!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
  const day=castCalendar(state).calendar.day_count,facts=state.worlds[I.world].facts;
@@ -206,7 +213,7 @@ export function castSyncDue(state){
 // retried at the same clock, without marking its unsaved projection as committed.
 export function syncLotmCast(state){
  if(!(lotmBeside(state)||lotmBe(state))||!castAvailable)return false;
- const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)));
+ const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)||pendingDivinationReports(state,castDivinationCommands,I.world)));
  const referenced=referencedCastPeople(state);
  for(const person of castPeople){if(!state.simulation.people[person.id]&&(projectedPlaces.get(person.id)!=null||referenced.has(person.id)))changed=enrollCastBody(state,person)||changed;
   if(roleIds.has(person.id)&&!projectedRoles.has(person.id))continue;const body=state.simulation.people[person.id];if(!body)continue;
@@ -501,10 +508,11 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
  const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];
+ const divinationReports=lotmBe(plan.state)?settleDivinationReports(plan.state,castDivinationCommands,I.world):[];
  const topicReports=lotmBe(plan.state)?settleTopicTalkReports(plan.state,castTopicCommands,I.world):[];
  const journeyReports=lotmBe(plan.state)?settleJourneyReports(plan.state,castJourneyCommands,I.world):[];
  const result=persist(plan);
  domainRegistry.command('beatLedger','commit')(saved);
- for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports])publish(report);
+ for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports,...divinationReports])publish(report);
  return result;
 }
