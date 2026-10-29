@@ -69,6 +69,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
   const knownActors = new Set((pack?.people || []).map(person=>person.id));
   const householdActs = pack?.householdActs?.acts || [];
+  const topicTalks = Object.fromEntries((pack?.topicTalks?.talks || []).map(t => [t.sourceStepId, t]));
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
   // Principals the lead knows can be talked to (cast host castTalkCommands: `cast_talk_<last indexId segment>`).
   const talks = {...Object.fromEntries((pack?.people || []).filter(p => p?.id && p.tier === 'principal' && p.indexId).map(p => [p.id, `cast_talk_${p.indexId.split('.').at(-1)}`])), ...(controlIndex.talks || {})};
@@ -129,6 +130,15 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
       row.controlBuilder='src/book_world_lotm_cast_host.js:castMoves; src/book_world_lotm_host.js:lotmMoveLabels';
       row.route=[{actionId:moveId, place:placeId, controlBuilder:row.controlBuilder}]; row.anchors.place=placeId;
       lastPlace=placeId;
+    } else if (topicTalks[row.id]) {
+      const talk = topicTalks[row.id];
+      const choice = talk.choices?.[0];
+      if (talk.personId && choice?.id) {
+        row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=`${talk.id}.${choice.id}`;
+        row.controlBuilder='private pack topicTalks; src/cast_topic_talk.js';
+        row.route=[{actionId:row.canonicalControl, place:talk.place || placeId || null, personId:talk.personId, controlBuilder:row.controlBuilder}];
+        row.anchors={...row.anchors, ...(talk.place?{place:talk.place}:{}), person:talk.personId}; row.topicTalkId=talk.id;
+      }
     } else if (presentId && GREETING_VERB.test(step.verb || '') && !/\b(about|regarding|concerning|explain|ask|tell|warn|persuad\w*|promis\w*|and then)\b/i.test(step.verb || '')) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=presentId;
       row.controlBuilder='src/book_world_lotm_cast_host.js:castTalkCommands';
