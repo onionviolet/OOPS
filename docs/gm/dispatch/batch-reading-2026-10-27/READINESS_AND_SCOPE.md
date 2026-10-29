@@ -437,3 +437,4 @@ Measured October total after these: **$95.53** (summaries plus $1.06 of direct p
 | C34 | LOTM volume 1 schema 1.4 re-read `2026-10-29sv14-lotm`: people chapters 25-213, rules and texture for all 72 shards, and a second medium census of 31 shards (prefixes suffixed `x2`, C28) | $2.60; 232 ok, 2 cut off. Old rows backed up to `pre-sv14/` |
 
 November retry list adds: `gc2c007` census (already one chapter), RI volumes 2-4's 7 cut-off shards, A Soldier's Life's 1, LOTM sv14's 2.
+| C35 | Mother of Learning rules and texture at schema 1.4, 64K max output, `2026-10-29sv14-mol` (Weibao: "send next stuff accordingly") | $1.57; 212 of 212 ok, none cut off at 64K. Old rows backed up to `pre-sv14/`. October measured total **$97.09**; the credit is spent |
