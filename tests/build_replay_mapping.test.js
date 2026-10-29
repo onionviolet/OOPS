@@ -50,7 +50,9 @@ test('filters by lead POV and chapter range without inventing a control',()=>{
 test('reviewed rows override generated controls and reviewed gaps retain typed reasons',()=>{
  const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'第1章'}],place:'Flat',steps:[{verb:'walk to Flat',class:'travel'},{verb:'read',class:'study'},{verb:'remember',class:'other'}]}];
  const reviewed=[
+  {stepId:'sample#1',verdict:'gap',gapReason:'no mechanism'},
   {stepId:'sample#1',verdict:'row',kind:'journey',row:{id:'journey.reviewed',from:'place.a',to:'place.b'}},
+  {stepId:'sample#1',verdict:'gap',gapReason:'not an action'},
   {stepId:'sample#2',verdict:'gap',gapReason:'not an action'},
   {stepId:'sample#3',verdict:'gap',gapReason:'no mechanism'}
  ];

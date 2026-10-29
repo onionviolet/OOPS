@@ -97,3 +97,64 @@ within 1–24. These mappings describe candidate controls, not settled gameplay.
 
 No browser replay, command settlement, persistence proof, commit or push was
 performed in this resume. Agent-verified, not human-reviewed.
+
+## Resume 2: all reviewed shards, 2026-10-29
+
+The RV2, RV4, RV6, RV7, RV8 and RV9 ledgers were applied in that order to a
+copy of the live pack. A row verdict beats a gap verdict; the later shard wins
+when verdicts have the same kind. The mapper and merger share that resolution.
+RV7 overlaps RV2 on 54 steps: 25 later rows replace gaps and 29 later gaps
+replace earlier gaps. There were 54 differing-record conflicts, no identical
+duplicates, no ID collisions and no rejected rows.
+
+| Shard | Acts added | Topics added | Journeys added | Rejected |
+|---|---:|---:|---:|---:|
+| RV2 | 0 | 0 | 0 | 0 |
+| RV4 | 10 | 1 | 1 | 0 |
+| RV6 | 9 | 3 | 2 | 0 |
+| RV7 | 12 | 9 | 4 | 0 |
+| RV8 | 3 | 4 | 1 | 0 |
+| RV9 | 12 | 20 | 3 | 0 |
+| Total | 46 | 37 | 11 | 0 |
+
+The private candidate is `pack-backups/cast-whole-book-reviewed2-candidate-2026-10-29.json`
+under the lead-run private directory; SHA-256
+`abb1eb1ea73226b2be5ba0facfc50de84e3d83f4e1a9fea77a5ea9e6c0db0d6f`.
+The live pack was read without modification. H2 operations use the actual
+`definePlaceActs` adapter and operation registry, including their stock,
+custody and clock checks.
+
+| Range | Steps | Controls before | Controls after | Exclusion candidates: non-lead / not an action |
+|---|---:|---:|---:|---:|
+| Chapters 1–3 | 175 | 24 | 24 | 1 / 1 |
+| Chapters 1–24 | 1,491 | 153 | 200 | 16 / 4 |
+| Volume 1, chapters 1–100 | 1,130 | 201 | 262 | 33 / 5 |
+
+All three before/after ID sets match exactly. The first two comparisons use
+the Resume 1 reviewed mappings; the volume 1 comparison uses the prior ladder
+mapping. Exclusion candidates remain typed gaps in the current scorer, so they
+still enter its denominator. Counts measure candidate mappings, not successful
+command execution.
+
+The private mapping outputs are `x1-be-mapping-2026-10-29/chapters-1-3-reviewed.json`
+(`42b7f7f2bca3…`), `x1-be-mapping-2026-10-29/chapters-1-24-reviewed.json`
+(`0831911962e4…`) and `x4-whole-book-mapping-2026-10-29/ladder/v1-ch1-100.json`
+(`a490620216da…`). All were generated from the full M4 source whose SHA-256 is
+recorded in Resume 1.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node scripts/lead_run/merge_reviewed_rows.mjs` with live pack and all six shards | PASS, 94 rows added; `validateLotmCast`, JSON/predicate checks and combined native registry validated 101 topic, 530 journey and 536 act definitions | Candidate data; no command settlement |
+| `node scripts/lead_run/build_replay_mapping.mjs` with full M4 inputs, candidate pack and all six shards for each requested range | PASS, 175 / 1,491 / 1,130 rows, unchanged ID sets | Offline mappings |
+| Driver audit mode, full M4 scenes, chapter 1–3 reviewed mapping, `--chapters 1-3` | PASS, validates and selects 175 steps | No browser replay |
+| Driver audit mode, full M4 scenes, chapter 1–24 reviewed mapping, `--chapters 1-3` | PASS, validates 1,491 steps and selects 175 | No browser replay |
+| Driver audit mode, full M4 scenes, volume 1 ladder, `--chapters 1-100` | FAIL, source-step assertion | Driver selects chapters across volumes and does not use mapping locator bounds; driver is outside this lane's grant |
+| Driver audit mode with a temporary volume-filtered M4 scene file and temporary mapping copy with its matching file hash | PASS, validates and selects 1,130 steps | Supplemental check; does not establish full-input driver compatibility |
+| `node --test tests/merge_reviewed_rows.test.js tests/build_replay_mapping.test.js tests/lead_replay_score.test.js tests/build_place_acts.test.js` | PASS, 38 tests | Synthetic coverage and adapter checks |
+| `node scripts/lane_review.mjs` with the five owned paths | 0 outside-grant and 0 top-level-await hits; two test files have pre-existing private-name matches | HEAD and current matches are unchanged, 0 new matches |
+| `node --check` on both scripts and both test files; scoped `git diff --check` | PASS | Syntax and whitespace scope |
+| `node scripts/check_doc_slips.mjs` | RV5 checkpoint has 0 findings | Ten findings remain in other documents |
+
+The driver owner needs volume-aware source selection before the true volume 1
+ladder can pass audit against the full M4 file. Browser replay, persistence,
+commit and push were not performed. Agent-verified, not human-reviewed.

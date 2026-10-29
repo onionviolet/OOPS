@@ -15,7 +15,25 @@ function assertJsonSafe(value, at='$') {
   if (value === undefined) throw Error(`Undefined value at ${at}`);
   if (typeof value === 'number' && !Number.isFinite(value)) throw Error(`Non-finite number at ${at}`);
   if (Array.isArray(value)) value.forEach((item,index)=>assertJsonSafe(item,`${at}[${index}]`));
-  else if (value && typeof value === 'object') for (const [key,item] of Object.entries(value)) assertJsonSafe(item,`${at}.${key}`);
+  else if (value && typeof value === 'object') for (const [key,item] of Object.entries(value)) {
+    if (key==='requires' && Array.isArray(item) && !item.length) throw Error(`Empty requires at ${at}`);
+    assertJsonSafe(item,`${at}.${key}`);
+  }
+}
+// Row evidence wins over a gap; equal verdicts use the later input file.
+export function resolveReviewedRows(reviewedSets) {
+  const byStep=new Map(); let conflicts=0, duplicates=0;
+  for (const [shard,lines] of reviewedSets.entries()) for (const line of lines) {
+    if (!line?.stepId || !['row','gap'].includes(line.verdict)) throw Error('Malformed reviewed line: verdict and stepId are required.');
+    const prior=byStep.get(line.stepId);
+    if (prior) {
+      if (JSON.stringify(prior.line)===JSON.stringify(line)) duplicates++;
+      else conflicts++;
+      if (prior.line.verdict==='row' && line.verdict==='gap') continue;
+    }
+    byStep.set(line.stepId,{line,shard});
+  }
+  return {entries:[...byStep.values()],conflicts,duplicates};
 }
 function collection(pack,kind) {
   if (kind==='topic') return pack.topicTalks ||= {talks:[]}, pack.topicTalks.talks;
@@ -36,17 +54,18 @@ function validate(pack) {
   return {talks:talks.length,journeys:journeys.length,acts:acts.length};
 }
 export function mergeReviewedRows(packInput, reviewedSets) {
-  const pack=clone(packInput), added={topic:0,journey:0,act:0}, seenSteps=new Map();
-  for (const lines of reviewedSets) for (const line of lines) {
-    if (!line || !line.stepId || !['row','gap'].includes(line.verdict)) throw Error('Malformed reviewed line: verdict and stepId are required.');
-    if (seenSteps.has(line.stepId) && JSON.stringify(seenSteps.get(line.stepId))!==JSON.stringify(line)) throw Error(`Conflicting reviewed verdicts for step ${line.stepId}`);
-    seenSteps.set(line.stepId,line);
+  const pack=clone(packInput), added={topic:0,journey:0,act:0}, byShard=reviewedSets.map(()=>({topic:0,journey:0,act:0,skipped:0}));
+  const resolved=resolveReviewedRows(reviewedSets);
+  for (const {line,shard} of resolved.entries) {
     if (line.verdict!=='row') continue;
-    const rows=collection(pack,line.kind), row=line.row;
+    const rows=collection(pack,line.kind), row=clone(line.row);
     if (!row || typeof row.id!=='string') throw Error(`Reviewed row lacks an id for step ${line.stepId}`);
-    const sameId=rows.find(existing=>existing.id===row.id);
+    if (row.fare===undefined && line.kind==='journey') row.fare=null;
+    const allRows=[...pack.topicTalks?.talks||[],...(Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[]),...pack.householdActs?.acts||[],...pack.householdActs?.objects||[]];
+    const sameId=allRows.find(existing=>existing.id===row.id);
     if (sameId) {
       if (JSON.stringify(sameId)!==JSON.stringify(row)) throw Error(`ID collision with different content: ${row.id}`);
+      byShard[shard].skipped++;
       continue;
     }
     // A paragraph-reviewed disposition supersedes a prior generated row for the
@@ -54,13 +73,10 @@ export function mergeReviewedRows(packInput, reviewedSets) {
     for (const priorRows of [pack.topicTalks?.talks||[],Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[],pack.householdActs?.acts||[]]) {
       for (let i=priorRows.length-1;i>=0;i--) if (priorRows[i].sourceStepId===line.stepId) priorRows.splice(i,1);
     }
-    if (row.requires && Array.isArray(row.requires) && row.requires.length===0) throw Error(`Empty requires at ${row.id}`);
-    if (row.fare===undefined && line.kind==='journey') row.fare=null;
     assertJsonSafe(row,`row.${row.id}`);
-    rows.push(clone(row)); added[line.kind]++;
+    rows.push(row); added[line.kind]++; byShard[shard][line.kind]++;
   }
-  validate(pack);
-  return {pack,added,validated:validate(pack)};
+  return {pack,added,byShard,conflicts:resolved.conflicts,duplicates:resolved.duplicates,validated:validate(pack)};
 }
 function main(args) {
   const get=key=>{const i=args.indexOf(key);if(i<0||!args[i+1])throw Error(`Missing ${key}`);return args[i+1];};
@@ -70,6 +86,6 @@ function main(args) {
   if(!files.length)throw Error('Provide at least one --reviewed file');
   const result=mergeReviewedRows(input,files.map(readJsonl));
   fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(result.pack,null,2)+'\n');
-  console.log(JSON.stringify({added:result.added,validated:result.validated,reviewedFiles:files.length},null,2));
+  console.log(JSON.stringify({added:result.added,byShard:Object.fromEntries(files.map((file,i)=>[path.basename(file),result.byShard[i]])),conflicts:result.conflicts,duplicates:result.duplicates,validated:result.validated},null,2));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) main(process.argv.slice(2));

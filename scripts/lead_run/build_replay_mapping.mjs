@@ -8,17 +8,12 @@ import {GAP_KINDS} from '../headless/lead_runs/lotm_ui_replay.mjs';
 import {buildPackJoin} from './build_crosswalk.mjs';
 import {compareLocators} from './merge_shards.mjs';
 import {parseLocator} from './world_profiles.mjs';
+import {resolveReviewedRows} from './merge_reviewed_rows.mjs';
 
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
 const reviewedIndex = lines => {
-  const index = new Map();
-  for (const line of lines || []) {
-    if (!line?.stepId || !['row','gap'].includes(line.verdict)) throw Error('Malformed reviewed mapping input.');
-    if (index.has(line.stepId) && JSON.stringify(index.get(line.stepId)) !== JSON.stringify(line)) throw Error(`Conflicting reviewed verdicts for ${line.stepId}`);
-    index.set(line.stepId,line);
-  }
-  return index;
+  return new Map(resolveReviewedRows([lines || []]).entries.map(({line})=>[line.stepId,line]));
 };
 const chapter = locator => Number(/第(\d+)章/.exec(locator || '')?.[1] || Infinity);
 const locatorKey = locator => {
