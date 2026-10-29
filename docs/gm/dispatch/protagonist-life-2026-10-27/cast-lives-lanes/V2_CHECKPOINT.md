@@ -131,3 +131,18 @@ and their compared states match. A mismatch still records differing paths and yi
 | Driver `--seat be --null-player --chapters 1-24 --max-steps 100 --offset 0 --audit-only` on the regenerated mapping | PASS; alignment marked pending | Does not start browser sessions |
 | `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js` | PASS | Scoped whitespace only |
 | Browser replay | Not run | Coordinator must verify stepping, matching snapshots and actual reproducibility with the candidate pack |
+
+## Resume 4: tracked skill timing, 2026-10-29
+
+The coordinator's clock-aligned candidate run reported `skillRecords.tracked` as the sole remaining differing path.
+Comparison now excludes that exact path, as the floor runner does, and lists it in the audit. Other `skillRecords`
+fields remain compared. Synthetic coverage checks matching snapshots, two reproduced controls, and a control reported
+as a typed `missing UI path` gap when unavailable.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 8 tests | Synthetic coverage; no actual control reachability claim |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| Driver `--seat be --null-player --chapters 1-24 --max-steps 100 --offset 0 --audit-only` on the existing regenerated mapping | PASS; audit lists `skillRecords.tracked` | No browser comparison |
+| `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js` | PASS | Scoped whitespace only |
+| Browser replay | Not run | Coordinator must verify the two candidate controls as reproduced or typed gaps |

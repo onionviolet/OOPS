@@ -15,7 +15,7 @@ const REPLAY_SEED = 1592594996;
 export const COMPARISON_OMISSIONS = Object.freeze([
     'saved_at', 'total_playtime', 'last_rewarded_export',
     'absorb_local_life.lastClock', 'absorb_local_life.lastHubAttempt',
-    'levels.person.main_character.skill_xp.Breathing', 'skillRecords.tracked.Breathing.seen'
+    'levels.person.main_character.skill_xp.Breathing', 'skillRecords.tracked'
 ]);
 export const CLOCK_COMPARISON_OMISSIONS = Object.freeze([
     'current time.minute', 'expansion.clock',

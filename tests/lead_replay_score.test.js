@@ -40,7 +40,7 @@ test('comparison removes only named wall and tracking fields while keeping game 
     const snapshot=(wall,minute,rng)=>({saved_at:wall,total_playtime:wall,last_rewarded_export:wall,
         absorb_local_life:{lastClock:wall,lastHubAttempt:wall,other:7},
         levels:{person:{main_character:{skill_xp:{Breathing:wall,Other:5}}}},
-        skillRecords:{tracked:{Breathing:{seen:wall,other:3}}},
+        skillRecords:{tracked:{Breathing:{seen:wall,other:wall},Other:{seen:wall}},revision:1},
         'current time':{minute},expansion:{clock:20,rng,streams:{root:44}}});
     const first=snapshot(10,30,55),second=snapshot(99,30,55);
     assert.equal(stateHashWithoutNaturalClock(first),stateHashWithoutNaturalClock(second));
@@ -48,6 +48,8 @@ test('comparison removes only named wall and tracking fields while keeping game 
     assert.deepEqual(compareRunSnapshots(first,snapshot(99,31,56)).differingPaths,['current time.minute','expansion.rng']);
     const changed=snapshot(99,30,55);changed.expansion.clock=21;
     assert.deepEqual(compareRunSnapshots(first,changed).differingPaths,['expansion.clock']);
+    changed.expansion.clock=20;changed.skillRecords.revision=2;
+    assert.deepEqual(compareRunSnapshots(first,changed).differingPaths,['skillRecords.revision']);
 });
 
 test('paused runs align at the later minute and credit only steps reached in both',async()=>{
@@ -56,9 +58,20 @@ test('paused runs align at the later minute and credit only steps reached in bot
     assert.equal(aligned.target,11);assert.equal(aligned.mode,'exact');assert.equal(aligned.comparison.identical,true);
     const score=scoreReplay([{id:'a'},{id:'b'}],[{id:'a',kind:'control'},{id:'b',kind:'gap'}]);
     assert.deepEqual(scoreReproducibleReplay(score,score,aligned.comparison.identical),{steps:2,reproduced:1,fidelity:0.5});
+    const controls=scoreReplay([{id:'a'},{id:'b'}],[{id:'a',kind:'control'},{id:'b',kind:'control'}]);
+    assert.deepEqual(scoreReproducibleReplay(controls,controls,aligned.comparison.identical),{steps:2,reproduced:2,fidelity:1});
     const different=await compareAtGameMinute([state(10),state(11,6)],async (_,target)=>state(target));
     assert.deepEqual(different.comparison.differingPaths,['cash']);
     assert.equal(scoreReproducibleReplay(score,score,different.comparison.identical).reproduced,0);
+});
+
+test('a control that cannot be reached records a typed gap instead of reproducibility credit',async()=>{
+    const rows=['a','b'].map(id=>({id,status:'mapped',route:[{actionId:id,place:'target'}],anchors:{place:'target',purseDelta:0}}));
+    const io={read:async()=>({place:'target',cash:10,knowledge:{}}),screenshot:async()=>{},move:async(_,leg)=>leg.actionId==='b'?{gap:'Control unavailable'}:null};
+    const first=await executeRows({},rows,io),second=await executeRows({},rows,io);
+    assert.equal(first.receipts[1].gapKind,'missing UI path');
+    assert.equal(second.receipts[1].gapKind,'missing UI path');
+    assert.deepEqual(scoreReproducibleReplay(first.replayScore,second.replayScore,true),{steps:2,reproduced:1,fidelity:0.5});
 });
 
 test('an inexact step uses the documented clock exclusions and retains other mismatches',async()=>{
