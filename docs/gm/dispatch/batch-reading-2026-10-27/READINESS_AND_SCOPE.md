@@ -438,3 +438,4 @@ Measured October total after these: **$95.53** (summaries plus $1.06 of direct p
 
 November retry list adds: `gc2c007` census (already one chapter), RI volumes 2-4's 7 cut-off shards, A Soldier's Life's 1, LOTM sv14's 2.
 | C35 | Mother of Learning rules and texture at schema 1.4, 64K max output, `2026-10-29sv14-mol` (Weibao: "send next stuff accordingly") | $1.57; 212 of 212 ok, none cut off at 64K. Old rows backed up to `pre-sv14/`. October measured total **$97.09**; the credit is spent |
+| C36 | Last retries `2026-10-29r2-retries`: RI volumes 2-4's 7 cut-off census shards split to one chapter, `asl6c352` and `gc2c007`, all at medium effort (Weibao: "send accordingly") | $0.12; 23 of 24 ok, including both single chapters that had cut off at high, so medium effort fixed them. `ri2c105` is still cut off. LOTM's two `x2` partials were left out (duplicate census). October measured total about **$97.21** |
