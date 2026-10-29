@@ -1,0 +1,6 @@
+# BD1 resume 1: two failing tests after applying your patch
+
+The coordinator applied `BD1_INTEGRATION.patch`. Two focused tests fail:
+1. `tests/cast_body_adapter.test.js` test 6 "native sleep, waking, meals and real validator Save/reload/Export/Import": read the failure (`node --test tests/cast_body_adapter.test.js`) and fix it; the fixture must run against the live integration (not apply the patch when it is reverse-clean; see `TH1_CHECKPOINT.md`).
+2. `tests/cast_exchange_adapter.test.js` test 16 "live or prepared joins preserve pending and settled exchange through native Save, reload, Export and Import": CU1's fixture applies its own patch to a disposable copy whenever it is not reverse-clean against the current tree; your patch moved the hunk context so CU1's patch no longer applies. You may edit this test file only: apply the TH1 pattern (run against the live integration; do not apply patches at all, since CU1's integration is live in HEAD `8fc6cb700`).
+Also add the perspective tags and `tests/perspective_controls.test.js` expectation if not already in your patch. Re-run `node --test tests/cast_body_adapter.test.js tests/cast_exchange_adapter.test.js tests/perspective_controls.test.js tests/place_acts.test.js`. Append "Resume 1" to MF_BODY_CHECKPOINT.md. Do not commit.
