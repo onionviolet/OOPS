@@ -69,6 +69,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
   const knownActors = new Set((pack?.people || []).map(person=>person.id));
   const householdActs = pack?.householdActs?.acts || [];
+  const householdActsByStep = Object.fromEntries(householdActs.filter(a=>a?.sourceStepId).map(a=>[a.sourceStepId,a]));
   const topicTalks = Object.fromEntries((pack?.topicTalks?.talks || []).map(t => [t.sourceStepId, t]));
   const journeys = Object.fromEntries((pack?.journeys?.journeys || pack?.journeys || []).filter(j => j?.id).flatMap(j => (j.sourceStepIds || [j.sourceStepId]).filter(Boolean).map(stepId => [stepId, j])));
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
@@ -112,8 +113,8 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
       resolvedNonLeadPeople:row.peopleResolved.filter(person=>person.packId && person.packId!==pack?.leadLife?.actorId).length,
       wait:controlIndex.waitPrefix || null, pay:actsHere.filter(act=>act.operation==='pay').map(act=>act.id)};
     const householdVerb = actsHere.length ? householdOperation(step) : null;
-    const householdAct = householdVerb ? bestHouseholdAct(step, actsHere) : null;
-    if (journeys[row.id]) {
+    const householdAct = householdActsByStep[row.id] || (householdVerb ? bestHouseholdAct(step, actsHere) : null);
+    if (journeys[row.id] && !householdActsByStep[row.id]) {
       const journey=journeys[row.id];
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=journey.id;
       row.controlBuilder='private pack journeys; src/cast_journeys.js';
