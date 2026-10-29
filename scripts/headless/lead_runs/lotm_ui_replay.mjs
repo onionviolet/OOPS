@@ -95,6 +95,7 @@ export async function compareAtGameMinute(snapshots,advance) {
             if (aligned[i]?.expansion?.clock!==target) throw new Error('Stepper did not reach the exact target minute.');
         }
     } catch (error) {
+        if (error?.snapshotFailure) throw error;
         aligned=snapshots; mode='clock-excluded'; exclusions=[...CLOCK_COMPARISON_OMISSIONS];
         reason=String(error?.message || error);
     }
@@ -226,6 +227,23 @@ export function mergeGapLedger(rows, existing) {
     const counts = Object.fromEntries([...new Set(merged.map(r => r.layer))].sort().map(k => [k,merged.filter(r => r.layer === k).length]));
     return {rows:merged.sort((a,b) => counts[b.layer]-counts[a.layer] || a.layer.localeCompare(b.layer) || a.scene.localeCompare(b.scene)), counts};
 }
+export function createReplayDiagnostics(run) {
+    const data={run,consoleMessages:[],pageErrors:[],lastExecutedStepId:null,lastControlId:null,firstSnapshotFailureAfter:null,snapshotFailureObserved:false};
+    let currentStep=null;
+    return {data,beginStep:id=>{currentStep=id;},controlClicked:id=>{if(currentStep!==null){data.lastExecutedStepId=currentStep;data.lastControlId=id;}},
+        snapshotFailure:error=>{
+            if (!data.snapshotFailureObserved) {data.firstSnapshotFailureAfter=data.lastExecutedStepId;data.snapshotFailureObserved=true;}
+            const marked=error instanceof Error ? error : new Error(String(error));
+            marked.snapshotFailure=true;marked.replayRun=run;return marked;
+        }};
+}
+export function makeBlockedReceipt({bundleHash=null,completedRuns=0,error,diagnostics={},visibleLines=[]}) {
+    return {bundleHash,completedRuns,error:String(error),state:'UI proof incomplete',run:diagnostics.run ?? null,
+        consoleMessages:(diagnostics.consoleMessages || []).slice(-40),pageErrors:diagnostics.pageErrors || [],
+        lastExecutedStepId:diagnostics.lastExecutedStepId ?? null,lastControlId:diagnostics.lastControlId ?? null,
+        firstSnapshotFailureAfter:diagnostics.firstSnapshotFailureAfter ?? null,snapshotFailureObserved:!!diagnostics.snapshotFailureObserved,
+        visibleSaveErrorLines:visibleLines.filter(line=>/save|saving|error|went wrong|disabled/i.test(line)).slice(0,20)};
+}
 export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
     const verified = new Set(), receipts = [], outcomes = [];
     for (const row of rows) {
@@ -236,6 +254,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
         }
         // Missing earlier steps remain named gaps. The row's explicit supporting route is not book proof.
         // A missing control, missed window or wrong anchor is a scored gap for this row, not the end of the run.
+        io.beginStep?.(row.id);
         try {
         if (!canonOnly) for (const leg of row.setup || []) await io.move(page, leg, null);
         if (row.time) await io.waitBand(page, row.time);
@@ -261,6 +280,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
         receipts.push({id:row.id,status:row.status,place:after.place,purseDelta:after.cash-before.cash,knowledge:(row.anchors.knowledge || []).map(key => ({key,present:!!after.knowledge[key]}))});
         outcomes.push({id:row.id,kind:(row.routeMode === 'wait' || row.method === 'wait' || row.verb === 'wait') ? 'wait' : 'control',inWindow:true,orderIndex:outcomes.length});
         } catch (error) {
+            if (error?.snapshotFailure) throw error;
             const reason = `replay: ${String(error?.message || error).split('\n')[0].slice(0,200)}`;
             receipts.push({id:row.id,status:'gap',gapKind:'missing UI path',reason});
             outcomes.push({id:row.id,kind:'gap',reason});
@@ -297,7 +317,13 @@ export async function performReplayControl(io,leg) {
 async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer = false, readyTimeoutMs = DEFAULT_READY_TIMEOUT_MS, recordPackLoad = () => {}) {
     const require = createRequire(import.meta.url), {launchChrome} = require('../../ui_helpers.cjs');
     const browser = await launchChrome();
-    let retained=false;
+    const diagnostics=createReplayDiagnostics(run);
+    let retained=false,page=null;
+    const collectDiagnostics=async()=>{
+        let visibleLines=[];
+        try {if(page) visibleLines=await page.evaluate(()=>(document.body?.innerText || '').split(/\r?\n/).map(line=>line.trim()).filter(Boolean));} catch {}
+        return {diagnostics:diagnostics.data,visibleLines};
+    };
     try {
         const context = await browser.newContext({viewport:{width:1920,height:1080}});
         const origin = `http://127.0.0.1:${randomInt(20000,60000)}`;
@@ -308,9 +334,18 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             try {await route.fulfill({path:file,contentType:({'.js':'text/javascript','.json':'application/json','.css':'text/css','.html':'text/html','.svg':'image/svg+xml'})[path.extname(file)] || 'application/octet-stream'});}
             catch {await route.fulfill({status:404,body:''});}
         });
-        const page = await context.newPage(), errors = [];
+        page = await context.newPage();
+        const errors=diagnostics.data.pageErrors;
+        page.on('console',message=>diagnostics.data.consoleMessages.push({type:message.type(),text:message.text()}));
         page.on('pageerror',e => errors.push(e.message));
-        const snapshot = () => page.evaluate(() => window.simulationTestHooks.snapshot());
+        const snapshot = async () => {
+            try {return await page.evaluate(() => window.simulationTestHooks.snapshot());}
+            catch(error) {throw diagnostics.snapshotFailure(error);}
+        };
+        const evaluateWithSnapshots=async(fn,arg)=>{
+            try {return await page.evaluate(fn,arg);}
+            catch(error) {if (String(error).includes('REPLAY_SNAPSHOT_FAILURE:')) throw diagnostics.snapshotFailure(error);throw error;}
+        };
         const read = async () => {
             const s = await snapshot(), e = s.expansion, lotm = s.lotm || e?.lotm || {};
             return {place:e.simulation.people.player.location,cash:s.character.money,knowledge:e.simulation.knowledge?.player || {},elapsed:e.clock-(lotm.initializedAt ?? 0),
@@ -352,7 +387,8 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             }
             const label=await control.innerText();
             const quoted=/\b(\d+)\s*(?:min|minutes?)\b/i.exec(label);
-            await control.scrollIntoViewIfNeeded(); await control.click();
+            await control.scrollIntoViewIfNeeded(); await snapshot(); await control.click();
+            diagnostics.controlClicked(id);
             return {quotedMinutes:quoted ? Number(quoted[1]) : null};
         };
         if (seat === 'be') {
@@ -368,22 +404,23 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             await playButton.click();
             if (await confirm.isVisible()) await confirm.click();
             await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm').catch(() => {});
-            await until(async () => {try {return (await read()).entryProfile === 'book.lead.be@1';} catch {return false;}},'be-life reload');
+            await until(async () => {try {return (await read()).entryProfile === 'book.lead.be@1';} catch(error) {if(error?.snapshotFailure)throw error;return false;}},'be-life reload');
             if (replaySeed !== null) assert.equal((await snapshot()).expansion?.streams?.root,createStreams(replaySeed).root,'fixed replay seed was not applied to the fresh be life; apply V2_INTEGRATION.patch and rebuild');
         } else {
             await click(mapping.entry.pick); await click(mapping.entry.enroll);
-            await until(async () => {try {return (await read()).place === mapping.entry.place;} catch {return false;}},'beside entry');
+            await until(async () => {try {return (await read()).place === mapping.entry.place;} catch(error) {if(error?.snapshotFailure)throw error;return false;}},'beside entry');
         }
         const replayStartClock=(await snapshot()).expansion.clock;
-        const advanceReplayTo = target => page.evaluate(target => {
+        const advanceReplayTo = target => evaluateWithSnapshots(target => {
             if (typeof window.advanceTicks!=='function') throw new Error('Paused tick stepper is unavailable.');
             window.simulationTestHooks.pause();
-            let state=window.simulationTestHooks.snapshot(),clock=state.expansion?.clock,stalled=0;
+            const readSnapshot=()=>{try{return window.simulationTestHooks.snapshot();}catch(error){throw new Error(`REPLAY_SNAPSHOT_FAILURE: ${String(error)}`);}};
+            let state=readSnapshot(),clock=state.expansion?.clock,stalled=0;
             if (!Number.isSafeInteger(target) || !Number.isSafeInteger(clock) || target<clock || target-clock>20000) throw new Error('Invalid or over-budget replay clock target.');
             for (let ticks=0;clock<target;ticks++) {
                 if (ticks>=20000) throw new Error('Replay clock exceeded the tick budget.');
                 window.advanceTicks(1);
-                state=window.simulationTestHooks.snapshot();
+                state=readSnapshot();
                 const next=state.expansion?.clock;
                 if (!Number.isSafeInteger(next) || next<clock || next>target) throw new Error('Replay clock did not land on the exact target minute.');
                 stalled=next===clock ? stalled+1 : 0;
@@ -393,7 +430,7 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             return state;
         },target);
         const io = {
-            read,
+            read,beginStep:diagnostics.beginStep,
             waitBand:async (_,time) => {
                 const start = (time.day-1)*1440+time.from;
                 if (seat === 'be' && (await read()).elapsed < start) {
@@ -405,7 +442,10 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
                         const arrival = (await read()).elapsed + Number(minutes);
                         if (arrival < start || arrival >= (time.day-1)*1440+time.to) continue;
                         await button.scrollIntoViewIfNeeded();
+                        const controlId=await button.getAttribute('data-lotm');
+                        await snapshot();
                         await button.click();
+                        diagnostics.controlClicked(controlId);
                         if ((await read()).elapsed<arrival) throw new Error('Wait stopped before its quoted target.');
                         break;
                     }
@@ -425,16 +465,18 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         await page.screenshot({path:path.join(out,`run${run}-entry.png`)});
         const result = await executeRows(page,mapping.rows,io,{canonOnly:nullPlayer});
         assert.deepEqual(errors,[],'page errors belong to this run until proven otherwise');
-        const finalSnapshot=await page.evaluate(() => {window.simulationTestHooks.pause(); return window.simulationTestHooks.snapshot();});
-        const advanceTo = target => page.evaluate(target => {
+        await page.evaluate(() => window.simulationTestHooks.pause());
+        const finalSnapshot=await snapshot();
+        const advanceTo = target => evaluateWithSnapshots(target => {
             if (typeof window.advanceTicks!=='function') throw new Error('Paused tick stepper is unavailable.');
             window.simulationTestHooks.pause();
-            let state=window.simulationTestHooks.snapshot(), clock=state.expansion?.clock;
+            const readSnapshot=()=>{try{return window.simulationTestHooks.snapshot();}catch(error){throw new Error(`REPLAY_SNAPSHOT_FAILURE: ${String(error)}`);}};
+            let state=readSnapshot(), clock=state.expansion?.clock;
             if (!Number.isSafeInteger(clock) || target-clock>1000) throw new Error('Clock cannot be aligned within the step budget.');
             for (let ticks=0;clock<target;ticks++) {
                 if (ticks>=1000) throw new Error('Clock did not reach the target within the step budget.');
                 window.advanceTicks(1);
-                state=window.simulationTestHooks.snapshot();
+                state=readSnapshot();
                 const next=state.expansion?.clock;
                 if (!Number.isSafeInteger(next) || next<clock || next>target) throw new Error('Tick stepper cannot reach the exact target minute.');
                 clock=next;
@@ -442,7 +484,13 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             return state;
         },target);
         retained=true;
-        return {result:{...result,packLoadMs,replayStartClock,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors},advanceTo,close:()=>browser.close(),errors};
+        return {result:{...result,packLoadMs,replayStartClock,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,consoleMessages:diagnostics.data.consoleMessages,pageErrors:errors,firstSnapshotFailureAfter:diagnostics.data.firstSnapshotFailureAfter},advanceTo,close:()=>browser.close(),errors,collectDiagnostics,run};
+    } catch(cause) {
+        const captured=await collectDiagnostics();
+        const error=cause instanceof Error ? cause : new Error(String(cause));
+        fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify({...captured.diagnostics,error:String(error),state:'UI proof incomplete'},null,2)+'\n');
+        error.replayDiagnostics=captured;
+        throw error;
     } finally {if (!retained) await browser.close();}
 }
 async function main() {
@@ -495,7 +543,10 @@ async function main() {
             fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify(result,null,2)+'\n');
         }
         const alignment=await compareAtGameMinute(runs.map(run=>run._snapshot),(index,target)=>sessions[index].advanceTo(target));
-        for (const session of sessions) assert.deepEqual(session.errors,[],'page errors belong to this run until proven otherwise');
+        for (const session of sessions) {
+            try {assert.deepEqual(session.errors,[],'page errors belong to this run until proven otherwise');}
+            catch(error) {error.replayRun=session.run;throw error;}
+        }
         audit.clockAlignment={mode:alignment.mode,runClocks:alignment.clocks,target:alignment.target,excludedPaths:alignment.exclusions,reason:alignment.reason};
         fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
         for (let i=0;i<runs.length;i++) {
@@ -514,8 +565,24 @@ async function main() {
         fs.writeFileSync(path.join(out,'proof.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify(result));
     } catch (error) {
-        fs.writeFileSync(path.join(out,'blocked.json'),JSON.stringify({bundleHash,completedRuns:runs.length,error:String(error),state:'UI proof incomplete'},null,2)+'\n');
+        const session=sessions.find(item=>item.run===error?.replayRun) || sessions.at(-1);
+        const captured=error?.replayDiagnostics || (session ? await session.collectDiagnostics() : {});
+        if (captured.diagnostics) {
+            const failedSession=sessions.find(item=>item.run===captured.diagnostics.run);
+            fs.writeFileSync(path.join(out,`run${captured.diagnostics.run}.json`),JSON.stringify({...failedSession?.result,...captured.diagnostics,error:String(error),state:'UI proof incomplete'},null,2)+'\n');
+        }
+        fs.writeFileSync(path.join(out,'blocked.json'),JSON.stringify(makeBlockedReceipt({bundleHash,completedRuns:runs.length,error,...captured}),null,2)+'\n');
         throw error;
-    } finally {await Promise.allSettled(sessions.map(session=>session.close()));}
+    } finally {
+        await Promise.allSettled(sessions.map(session=>session.close()));
+        for (const session of sessions) {
+            const file=path.join(out,`run${session.run}.json`);
+            if (!fs.existsSync(file)) continue;
+            const receipt=JSON.parse(fs.readFileSync(file));
+            receipt.consoleMessages=session.result.consoleMessages;
+            receipt.pageErrors=session.errors;
+            fs.writeFileSync(file,JSON.stringify(receipt,null,2)+'\n');
+        }
+    }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch(e => {console.error(e);process.exitCode=1;});

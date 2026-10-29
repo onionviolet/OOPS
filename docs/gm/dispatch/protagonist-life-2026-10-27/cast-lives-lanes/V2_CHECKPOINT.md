@@ -189,3 +189,19 @@ The real audits used `/tmp/m4-lotm/merged/scenes.jsonl`, `l4b-probe-2026-10-28/g
 | Driver `--mapping .../v1-ch101-200.json --chapters 101-103 --max-steps 2 --offset 1 --audit-only` | PASS; default volume 1, 2 selected after offset | Bounded accounting only |
 | `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/V2_CHECKPOINT.md` | PASS | Scoped whitespace only |
 | Browser replay | Not run | Coordinator owns the candidate browser replay |
+
+## Resume 7: blocked snapshot diagnostics, 2026-10-29
+
+The reported replay stopped when the snapshot could not parse the native save text. The driver now captures every
+console message with its type and text and all page errors in each private run receipt. Before each replay control
+click it reads the snapshot; the first failed snapshot records the last executed step as `firstSnapshotFailureAfter`.
+A snapshot failure propagates to `blocked.json`, which records the last 40 console messages, page errors, last executed
+step and control, and up to 20 visible save/error lines. Other per-row failures retain their existing typed-gap behavior.
+Rules: AD36, AD44, CLR8, CLR13.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 12 tests; synthetic blocked receipt covers bounded console/banner lines, step/control and first snapshot failure | No real page failure exercised |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/V2_CHECKPOINT.md` | PASS | Scoped whitespace only |
+| Browser replay | Not run | Coordinator must reproduce the blocked save and inspect the private receipts |

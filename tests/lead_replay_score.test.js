@@ -1,7 +1,26 @@
 // Synthetic only: no source text, names or private ledger data.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS,performReplayControl,adaptReplayRows,validateMapping,parseReplayLocatorRange} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS,performReplayControl,adaptReplayRows,validateMapping,parseReplayLocatorRange,createReplayDiagnostics,makeBlockedReceipt} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+
+test('blocked receipt preserves the first snapshot failure, last control and bounded page diagnostics',async()=>{
+    const trace=createReplayDiagnostics(2);
+    for(let i=0;i<45;i++) trace.data.consoleMessages.push({type:i%2?'warn':'log',text:`message ${i}`});
+    trace.data.pageErrors.push('synthetic page error');
+    trace.beginStep('step-a');trace.controlClicked('control-a');
+    trace.beginStep('step-b');
+    const failure=trace.snapshotFailure(new SyntaxError('snapshot failed'));
+    trace.controlClicked('control-b');trace.snapshotFailure(new Error('another failure'));
+    const visibleLines=['unrelated',...Array.from({length:25},(_,i)=>`Saving message ${i}`)];
+    const receipt=makeBlockedReceipt({bundleHash:'abc',completedRuns:1,error:failure,diagnostics:trace.data,visibleLines});
+    assert.equal(receipt.run,2);assert.equal(receipt.consoleMessages.length,40);assert.equal(receipt.consoleMessages[0].text,'message 5');
+    assert.deepEqual(receipt.pageErrors,['synthetic page error']);assert.equal(receipt.lastExecutedStepId,'step-b');assert.equal(receipt.lastControlId,'control-b');
+    assert.equal(receipt.firstSnapshotFailureAfter,'step-a');assert.equal(receipt.snapshotFailureObserved,true);
+    assert.equal(receipt.visibleSaveErrorLines.length,20);assert.equal(receipt.visibleSaveErrorLines[0],'Saving message 0');
+    const row={id:'step-c',status:'mapped',route:[{actionId:'control-c'}],anchors:{place:'room',purseDelta:0}};
+    await assert.rejects(()=>executeRows({},[row],{read:async()=>{throw failure;}},{canonOnly:true}),/snapshot failed/);
+    await assert.rejects(()=>compareAtGameMinute([{expansion:{clock:1}},{expansion:{clock:2}}],async()=>{throw failure;}),/snapshot failed/);
+});
 
 test('volume and locator bounds select the right repeated chapter numbers and validate mapper scope',()=>{
     const scenes=[1,2].flatMap(volume=>[1,2].map(chapter=>({pov:'lead',beat:`s${volume}-${chapter}`,order:chapter,
