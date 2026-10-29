@@ -1,0 +1,22 @@
+diff --git a/src/perspective_controls.js b/src/perspective_controls.js
+index 000000000..111111111 100644
+--- a/src/perspective_controls.js
++++ b/src/perspective_controls.js
+@@ -64,4 +64,5 @@
+     ['entry-unwritten', 'other-seat', 'Unwritten choices for a different Tingen start.'],
+     ['gap', 'in-world', 'Known gaps in the current record.'],
+     ['body-care', 'in-world', 'Rest, waking and meals in this character’s life.'],
++    ['cards', 'in-world', 'Canon events recorded in this character’s Reports.'],
+     ['exchanges', 'in-world', 'The character exchanges existing stock and wears carried belongings.'],
+     ['making', 'in-world', 'The character’s preparation and product use.'],
+diff --git a/tests/perspective_controls.test.js b/tests/perspective_controls.test.js
+index 000000000..111111111 100644
+--- a/tests/perspective_controls.test.js
++++ b/tests/perspective_controls.test.js
+@@ -25,4 +25,4 @@
+   const families = new Set([...panel.matchAll(/dataset\.(lotm[A-Z]\w*)/g)].map(match => match[1].replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`).replace(/^-/, '')));
+   for (const family of families) assert.ok(rows.some(row => row.anchor === `[data-${family}]`), `LOTM data family data-${family} is tagged`);
+-  for (const family of ['topic-person', 'topic', 'journeys', 'inferences', 'exchanges', 'ability-conflicts', 'body-care']) {
++  for (const family of ['topic-person', 'topic', 'journeys', 'inferences', 'exchanges', 'ability-conflicts', 'body-care', 'cards']) {
+     assert.equal(rows.find(row => row.anchor === `[data-lotm-${family}]`)?.tag, 'in-world', `${family} belongs to this life`);
+   }
