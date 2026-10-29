@@ -68,7 +68,15 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
    keyed resolver for the lead and cast, divergence log; covers CO10). Later gap lanes take their scope from LSD60
    (R1 relationships, E1 work and household, K1 witness and rumour, LW1 law, N1 needs, F1 conflict ladder) as the be
    replay reaches them; every brief cites its LSD lines.
-6. Efficiency lanes as slots free up: CL278 parametrized floor (start from this session's floor script,
+6. **Schema 1.4 merge input** (relay 2026-10-28, batch-reading commit `ce199eb41`, READINESS_AND_SCOPE C29/C30):
+   LOTM ch1-24 (prefixes s2..s9v) and MoL ch1-4 (molc001-004) people rows were replaced in place by schema 1.4
+   (routine recurrence, reacts class/by/responseClass); the 1.3 rows sit in each book's private `pre-sv8/`.
+   Before the next merge, union 1.4 and 1.3 by person and slot, taking 1.4 fields where present, as a stage in
+   `world_lead_pipeline.mjs` (P1 follow-up, Luna low; scripts only, so it can run beside B1). Then rerun the
+   pipeline so worksheets and book-pack rows gain recurrence; the L7 classifier becomes the fallback for reacts
+   (CL56). Do not use `touchedByLead` alone as the cast list (Haiku under-marks it); presence in lead scenes via
+   the crosswalk stays the source. Book-pack regeneration waits until B1 has landed (B1 edits the pack).
+7. Efficiency lanes as slots free up: CL278 parametrized floor (start from this session's floor script,
    below), CL274 runner ready-queue, CL279 MoL lead playthrough after B1 is generic.
 
 Browser floor script used this session (scratch, worth turning into CL278):
