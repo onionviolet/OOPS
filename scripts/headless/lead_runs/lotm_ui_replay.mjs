@@ -1,7 +1,7 @@
 // CL161-CL190 / CLR3: public driver; source text, IDs and screenshots come from private inputs.
 // node .../lotm_ui_replay.mjs --mapping <private.json> --scenes <private.jsonl>
 //   --l4b-gaps <private.jsonl> --out <private-dir> [--audit-only | --build <isolated-build>]
-// UI clicks and natural clock only. Test hooks are used solely to READ snapshots.
+// UI clicks and natural clock; test hooks supply snapshots, pause and the fresh-probe seed.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,7 +9,14 @@ import {createHash, randomInt} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {TIME_BANDS} from '../../../src/cast_schedule.js';
+import {createStreams} from '../../../src/seeded_streams.js';
 const DEFAULT_READY_TIMEOUT_MS = 180000;
+const REPLAY_SEED = 1592594996;
+export const COMPARISON_OMISSIONS = Object.freeze([
+    'saved_at', 'total_playtime', 'last_rewarded_export',
+    'absorb_local_life.lastClock', 'absorb_local_life.lastHubAttempt',
+    'levels.person.main_character.skill_xp.Breathing', 'skillRecords.tracked.Breathing.seen'
+]);
 const hash = x => createHash('sha256').update(x).digest('hex');
 const jsonl = file => fs.readFileSync(file, 'utf8').trim().split('\n').filter(Boolean).map(JSON.parse);
 export const GAP_KINDS = ['missing verb', 'missing UI path', 'hidden by disclosure', 'missing knowledge', 'blocked by mechanism', 'needs seat: be'];
@@ -52,7 +59,7 @@ export function diffPaths(a,b,prefix='') {
     return keys.flatMap(key=>diffPaths(a[key],b[key],prefix ? `${prefix}.${key}` : key));
 }
 export function compareRunSnapshots(first,second) {
-    const paths=diffPaths(first,second);
+    const paths=diffPaths(canonicalReplaySnapshot(first),canonicalReplaySnapshot(second));
     return {identical:paths.length===0,differingPaths:paths,mismatch:paths.length?{run1:{differingPaths:paths},run2:{differingPaths:paths},state:'mismatch recorded'}:null};
 }
 export function validateMapping(mapping, scenes) {
@@ -144,13 +151,24 @@ export function scoreReplay(rows, outcomes = []) {
     }));
     return {counts,steps:rows.length,reachedInOrder,fidelity:rows.length ? reachedInOrder / rows.length : 0,byChapter,ambiguousChapterSteps:rows.filter(row=>row.chapterAmbiguous).length,rows:scored};
 }
-function withoutNaturalClock(value) {
-    if (Array.isArray(value)) return value.map(withoutNaturalClock);
+function canonical(value) {
+    if (Array.isArray(value)) return value.map(canonical);
     if (!value || typeof value !== 'object') return value;
-    return Object.fromEntries(Object.keys(value).sort().filter(key => key !== 'clock').map(key => [key,withoutNaturalClock(value[key])]));
+    return Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])]).filter(([,x])=>
+        !(x===0 || x===false || x===null || (Array.isArray(x)?!x.length:typeof x==='object'&&!Object.keys(x).length))));
+}
+export function canonicalReplaySnapshot(snapshot) {
+    const copy=structuredClone(snapshot);
+    for (const field of COMPARISON_OMISSIONS) {
+        const path=field.split('.'), key=path.pop();
+        let parent=copy;
+        for (const part of path) parent=parent?.[part];
+        if (parent && typeof parent==='object') delete parent[key];
+    }
+    return canonical(copy);
 }
 export function stateHashWithoutNaturalClock(snapshot) {
-    return hash(JSON.stringify(withoutNaturalClock(snapshot)));
+    return hash(JSON.stringify(canonicalReplaySnapshot(snapshot)));
 }
 export function mergeGapLedger(rows, existing) {
     const added = rows.filter(r => r.status === 'gap' || r.status === 'lossy_fold').map(r => ({
@@ -235,7 +253,8 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         const packLoadMs = {};
         const playButton = page.locator('#loading_screen_play_button');
         let navigationStarted = Date.now();
-        await page.goto(origin+'/?test_hooks=1',{timeout:readyTimeoutMs});
+        const replaySeed = seat === 'be' ? REPLAY_SEED : null;
+        await page.goto(origin+`/?test_hooks=1${replaySeed === null ? '' : `&replay_seed=${replaySeed}`}`,{timeout:readyTimeoutMs});
         await playButton.waitFor({state:'visible',timeout:readyTimeoutMs});
         packLoadMs.initial = Date.now()-navigationStarted;
         recordPackLoad('initial',packLoadMs.initial);
@@ -271,6 +290,7 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             if (await confirm.isVisible()) await confirm.click();
             await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm').catch(() => {});
             await until(async () => {try {return (await read()).entryProfile === 'book.lead.be@1';} catch {return false;}},'be-life reload');
+            if (replaySeed !== null) assert.equal((await snapshot()).expansion?.streams?.root,createStreams(replaySeed).root,'fixed replay seed was not applied to the fresh be life; apply V2_INTEGRATION.patch and rebuild');
         } else {
             await click(mapping.entry.pick); await click(mapping.entry.enroll);
             await until(async () => {try {return (await read()).place === mapping.entry.place;} catch {return false;}},'beside entry');
@@ -336,7 +356,7 @@ async function main() {
     const rowKinds = Object.fromEntries([...new Set(replayRows.map(kindOf))].sort().map(kind=>[kind,replayRows.filter(r=>kindOf(r)===kind).length]));
     const readyTimeoutMs = args['ready-timeout-ms'] === undefined ? DEFAULT_READY_TIMEOUT_MS : Number(args['ready-timeout-ms']);
     assert.ok((args['ready-timeout-ms'] === undefined || typeof args['ready-timeout-ms'] === 'string') && Number.isSafeInteger(readyTimeoutMs) && readyTimeoutMs>0, '--ready-timeout-ms must be a positive integer');
-    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[]};
+    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',replaySeed:seat==='be'?REPLAY_SEED:null};
     fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
     if (args['audit-only']) {console.log(JSON.stringify(audit)); return;}
     assert.equal(typeof args.build,'string','--build required for UI proof');
@@ -354,7 +374,7 @@ async function main() {
             const result = await browserRun(runMapping,args.build,out,run,seat,!!args['null-player'],readyTimeoutMs,recordPackLoad); runs.push(result);
             fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify(result,null,2)+'\n');
         }
-        const comparison=compareRunSnapshots(withoutNaturalClock(runs[0]._snapshot),withoutNaturalClock(runs[1]._snapshot));
+        const comparison=compareRunSnapshots(runs[0]._snapshot,runs[1]._snapshot);
         const differences=comparison.differingPaths;
         for (const run of runs) { delete run._snapshot; }
         const result = {...audit,bundleHash,score:runs[0].score,replayScore:runs[0].replayScore,stateHash:runs[0].stateHash,nullPlayer:!!args['null-player'],identical:comparison.identical,differingPaths:differences,pageErrors:[],state:'agent-verified, not human-reviewed',route:`fresh ${seat} life; visible clicks; natural clock; explicit supporting walks; prior gaps remain unexecuted`};

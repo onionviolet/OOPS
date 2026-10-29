@@ -36,9 +36,18 @@ test('out-of-order or out-of-window events do not earn fidelity; blocked outcome
     assert.throws(()=>scoreReplay(rows,[{id:'a',kind:'blocked'},{id:'b',kind:'gap'}]),/displayed reason/);
 });
 
-test('null-player state hashes ignore natural clock fields but retain other state',()=>{
-    assert.equal(stateHashWithoutNaturalClock({clock:10,life:{clock:11,cash:5}}),stateHashWithoutNaturalClock({clock:99,life:{clock:42,cash:5}}));
-    assert.notEqual(stateHashWithoutNaturalClock({clock:10,cash:5}),stateHashWithoutNaturalClock({clock:10,cash:6}));
+test('comparison removes only named wall and tracking fields while keeping game time and random state',()=>{
+    const snapshot=(wall,minute,rng)=>({saved_at:wall,total_playtime:wall,last_rewarded_export:wall,
+        absorb_local_life:{lastClock:wall,lastHubAttempt:wall,other:7},
+        levels:{person:{main_character:{skill_xp:{Breathing:wall,Other:5}}}},
+        skillRecords:{tracked:{Breathing:{seen:wall,other:3}}},
+        'current time':{minute},expansion:{clock:20,rng,streams:{root:44}}});
+    const first=snapshot(10,30,55),second=snapshot(99,30,55);
+    assert.equal(stateHashWithoutNaturalClock(first),stateHashWithoutNaturalClock(second));
+    assert.equal(compareRunSnapshots(first,second).identical,true);
+    assert.deepEqual(compareRunSnapshots(first,snapshot(99,31,56)).differingPaths,['current time.minute','expansion.rng']);
+    const changed=snapshot(99,30,55);changed.expansion.clock=21;
+    assert.deepEqual(compareRunSnapshots(first,changed).differingPaths,['expansion.clock']);
 });
 
 test('canon-only execution skips setup input and uses only the recorded step route',async()=>{

@@ -616,7 +616,15 @@ const lifeSaveStorage = {
 // Display-only panels that follow each durable save.
 function renderSavedPanels(){workLedgerPanel?.render();optionalPackPanel?.render();villageCareerControls?.render();lifeRecordPanel?.render();villageLivesPanel?.render();}
 
-let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
+// A loopback test may fix only the disposable fresh be-life probe's root seed.
+const replaySeedParams = typeof location === 'undefined' ? null : new URLSearchParams(location.search);
+const replaySeed = testHooksEnabled && replaySeedParams && ['localhost','127.0.0.1'].includes(location.hostname) &&
+    replaySeedParams.get('test_hooks') === '1' && replaySeedParams.get('authority_fresh') === '1' &&
+    replaySeedParams.get('be_fresh') === '1' && replaySeedParams.has('replay_seed')
+    ? Number(replaySeedParams.get('replay_seed')) : null;
+if (replaySeed !== null && (!Number.isInteger(replaySeed) || replaySeed < 1 || replaySeed > 0xffffffff))
+    throw new Error('Invalid fresh replay seed.');
+let expansionState = initializeExpedition(createExpansionState(replaySeed ?? crypto.getRandomValues(new Uint32Array(1))[0]));
 registerLayoutSignal('travel',()=>expansionState.actors.player.facts['original_frontier.travel.remaining']>0); // UIL4: a native journey in progress selects the travel layout context
 ensureStreams(expansionState);
 bindGameStreams(() => expansionState);

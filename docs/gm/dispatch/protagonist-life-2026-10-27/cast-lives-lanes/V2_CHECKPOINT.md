@@ -78,3 +78,35 @@ receipt and the audit as each play button becomes visible. Other timeouts are un
 | `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
 | `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Script whitespace only |
 | Browser replay | Not run | Coordinator must verify readiness and load timings with the whole-book pack |
+
+## Resume 2: comparison and fresh-life seed, 2026-10-29
+
+The comparison removes the seven named wall-time and tracking paths in `comparisonOmissions` and uses the floor
+runner's sorted, empty/default-pruning canonical form; the audit records both the list and policy. Game clocks and
+random state remain comparable. Both the hash and differing-path report use the same normalized snapshot.
+
+The be fresh-life probe inherits its parent URL, but `src/main.js` initializes its expansion with a new crypto seed.
+Seeded draws therefore start from different roots. The prepared [V2 integration patch](V2_INTEGRATION.patch) accepts
+`replay_seed` only in a loopback `test_hooks=1`, `authority_fresh=1`, `be_fresh=1` probe. Other starts retain the
+crypto seed. The driver passes seed `1592594996` in the be seat and checks the resulting stream root after reload;
+if the patch is absent or ineffective, it stops with an explicit integration error. Coordinator: apply the patch to
+the reviewed candidate, rebuild, then rerun the prior browser command. The patch has not been applied to `src/` here.
+
+Rechecking the two **pre-patch** saved snapshots after normalization leaves these paths. Post-patch differences are
+unknown until the coordinator reruns both lives:
+
+- `current time.minute`, `expansion.clock`: natural game clock and replay timing. Pausing after each run does not by
+  itself establish the same elapsed game minute.
+- `expansion.rng`, `expansion.streams.root`: expansion initialization and seeded streams; the patch targets their root.
+- `expansion.simulation.seed`, `expansion.simulation.events.occurrence:3.roll`,
+  `expansion.simulation.controllers.village.craftsman_controller.due`: simulation seed, event and controller owners;
+  seed and elapsed game time may both affect them.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 5 tests, including wall-field normalization and retained game-time/RNG differences | Synthetic coverage only |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| `git apply --check docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/V2_INTEGRATION.patch` | PASS against current source | Patch applicability only; no runtime proof |
+| Driver `--seat be --null-player --chapters 1-24 --max-steps 100 --offset 0 --audit-only` on the regenerated mapping | PASS; audit prints omissions, canonical policy and fixed seed | No browser or seeded fresh-life execution |
+| `node --input-type=module` comparison of the two prior private run snapshots | PASS; seven remaining paths listed above | Old unseeded runs, not a post-patch replay |
+| Browser replay | Not run | Fixed-seed integration, equal game minute and any remaining mismatch need coordinator proof |
