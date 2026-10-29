@@ -384,7 +384,7 @@ by ID. Desktop-first applies; no mobile claims appear in these lanes.
 | Dr2 | ACCOUNT FOR NOW: a mechanism is reported as general only with a second-world fixture and a harvest-ledger row (LSD230); a done-check line in the brief template |
 | Dr3 | ACCOUNT FOR NOW: no new LSD lines unless a brief or check reads them. Done 2026-10-29: `docs/LEAD_LIFE_RULES.md` exists with a register row (no new codes). LATER: move each newly accepted line into it with his words and date; done when every accepted line in USER_VISION and PROJECT has a rulebook row |
 | Dr5 | ACCOUNT FOR NOW: a brief line asking for a failure path plus its recovery (OD12 forgiving by default) |
-| Cross-doc dedupe | LATER/DELEGATE: TIMELINES, CL21/CL22, WA and LSD restate canon and fate in four places. Build a concept-to-owner table, replace restatements with links, keep a zero-loss check. Luna medium; done when each concept has one owner section and the old text is reachable from history. No renumbering or deletion of LSD codes (briefs and checkpoints cite them) |
+| Cross-doc dedupe | Done 2026-10-29 for canon, fate and pressure: [owner map](TIMELINES_AND_DIVERGENCE.md#canon-fate-and-pressure-one-owner-per-concept-2026-10-29). Authority was deduped rather than text: restating docs are dated or accepted history and keep their wording. LATER: other concepts get a map only if they cause a real conflict |
 | Recurrence | ACCOUNT FOR NOW: rerun this drift check at each wave checkpoint as a new round here, without restarting codes |
 
 **Adjacent ideas outside this guide's authority (suggestions, not dispositions):**

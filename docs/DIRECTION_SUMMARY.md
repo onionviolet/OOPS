@@ -1,6 +1,6 @@
 # Current game direction
 
-Updated 2026-10-18. Navigation summary of accepted direction, not a new
+Updated 2026-10-29. Navigation summary of accepted direction, not a new
 specification or proof of implemented gameplay. [USER_VISION](USER_VISION.md)
 preserves original requests; [PROJECT](../PROJECT.md#accepted-decisions)
 summarizes accepted decisions. Detailed owners retain their mechanics and evidence.
@@ -73,6 +73,20 @@ Runtime execution of CP1–CP7 is assigned to cheat chat
 `01a13e1b-6f99-79a2-8172-b0b5940e78a6`, subject to actual live reservations. Canonical
 reconciliation stays here; no worker or inter-chat message is launched by this fold.
 Authorization is not gameplay/save/UI/human acceptance evidence.
+
+## Book and cast lives, 2026-10-28 to 2026-10-29
+
+Navigation only; these rows add no rules and no IDs. Rules for a protagonist's life are
+in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) (accepted lines, defaults open to change); the
+reading aid is the [guide](LEAD_LIFE_GUIDE.md); proposals and history are in the
+[lead-life design](gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md).
+
+- A book world is built by playing its protagonist's life ([AD44](RULES_INDEX.md), [record](USER_VISION.md#lead-first-for-every-world-implemented-from-readings-2026-10-28)); what is built stays open to improvement ([AD45](RULES_INDEX.md)).
+- The canon run is forced by default for the lead and the lead as NPC; the open run comes later ([record](USER_VISION.md#cast-lives-canon-holding-is-a-default-for-the-lead-widened-later-into-emergent-play-and-fate-2026-10-29)).
+- Timings are windows and order, not exact hours ([record](USER_VISION.md#cast-lives-timings-need-not-be-exact-to-the-hour-2026-10-29)); mechanisms come before bulk review ([record](USER_VISION.md#cast-lives-mechanisms-first-tags-derived-cheaply-2026-10-29)).
+- Qualifies OD24: a world can offer an optional main goal the player chooses to pursue; "no compulsory main quest" is unchanged ([record](USER_VISION.md#cast-lives-guide-book-decisions-pull-curves-pressure-dial-15-rereads-main-goal-2026-10-29)).
+- Qualifies OD7 and OD8: no universal canon pressure; pressure is causal mass plus a named world mechanism, and canon, fate and pressure have one owner each ([owner map](TIMELINES_AND_DIVERGENCE.md#canon-fate-and-pressure-one-owner-per-concept-2026-10-29)).
+- Others' lives are not all full ([record](USER_VISION.md#cast-lives-how-deep-everyone-elses-life-goes-2026-10-28)).
 
 ## Standing boundaries
 

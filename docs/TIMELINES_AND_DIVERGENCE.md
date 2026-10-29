@@ -17,6 +17,24 @@ powerful; arbitrary restoration to preserve an author's planned scene is differe
 Knowledge of the mechanism remains means-dependent; player interference need not
 immediately expose it. No specific franchise rule was newly verified here.
 
+## Canon, fate and pressure: one owner per concept (2026-10-29)
+
+Navigation, not new direction. Canon, fate and pressure are restated in several places
+(this file, `RULES_INDEX` AD2, the cast-lives plan, `RULES_FROM_SCRATCH`, the lead-life
+design). Each concept below has one owner; the other places keep their text as dated
+history and are read through the owner. Nothing was deleted or reworded.
+
+| Concept | Owner | Status | Also stated in (read through the owner) |
+| --- | --- | --- | --- |
+| Natural course: canon follows its course unless changed | [OD7 below](#od7-natural-course-direction-2026-10-15), [answer](USER_VISION.md#overarching-direction-discussion-od7-2026-10-15) | Accepted | AD2 in [RULES_INDEX](RULES_INDEX.md); WA15 (canon events are causal); the standard above; LSD doc |
+| Correction only through a mechanism the world has (fate, heavenly will, historical correction) | [OD8 above](#od8-clarification-causal-canon-correction-2026-10-15), [answer](USER_VISION.md#overarching-direction-discussion-od8-2026-10-15) | Accepted | CL22 in the [cast-lives plan](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md) (off until a world pass names it); [fate by book](RULES_FROM_SCRATCH.md#fate-how-the-books-do-it); CBR8 in [DOMAIN_RULES](DOMAIN_RULES.md); WER12; LSD239 (proposal) |
+| Causal mass: many later beats steer toward an anchor | CL21 in the [plan](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md) | Default in every world (cast-lives plan) | The inertia input "redundancy" below; LSD234 and LSD243 (proposals) |
+| Canon pressure as a dial | No universal pressure is selected (the OD7 answer). In practice it is CL21 plus CL22 where a world names one | Accepted 2026-10-29: "pressure dial should have been addressed already"; row in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) | The per-world dials table below (qualified there); LSD234 |
+| Shape of resistance (threshold or probability) | Open design for the deferred D2 lane | Per-world variation accepted ("sure, maybe different implementations for different worlds"); the curve design is a proposal | C2 below (threshold); LSD233 (probability); [guide](LEAD_LIFE_GUIDE.md) section 7 item 2 |
+| Play dial "book fidelity" and the route pin in the lead's run | USER_VISION 2026-10-28 records; WA32 | Accepted for the lead's run; not an in-world fate claim | LSD62 |
+| Forward anchors, divergence log | WA24, WA15, CL150 in the [plan](gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md) | Accepted (WA25-WA41 range) and plan defaults | LSD63, LSD57 |
+| Butterfly effect: a downstream change needs a plausible dependency | OD7 below ("not blanket butterfly effects everywhere") | Accepted | LSD221, LSD222, LSD244 (proposals) |
+
 ## OD7 natural-course direction, 2026-10-15
 
 [Accepted answer](USER_VISION.md#overarching-direction-discussion-od7-2026-10-15):
@@ -290,6 +308,8 @@ Small disturbances decay (canon pressure heals them). Big ones stay.
 | Healing rate | How fast small disturbances fade | Weeks |
 | Off-rails mode | Motive-driven generation; freeze into a quiet world; a new author's arc | Motive-driven |
 | Who notices | Nobody; perceptive people; a fate entity; time police | Perceptive people |
+
+*Dated note 2026-10-29: the "Canon pressure: Medium" default above is a stale proposal. The OD7 answer selects no universal canon pressure; pressure is causal mass (CL21) plus a named world mechanism (CL22). See the [owner map](#canon-fate-and-pressure-one-owner-per-concept-2026-10-29). The table cell is left as written.*
 
 ## What the player sees
 
