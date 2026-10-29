@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD102 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD125 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -188,7 +188,7 @@ occur in certain ways and be harder to change, by virtue of fate?" (cast-lives r
 | LSD62 | **The canon result holds in three layers**: our bands are calibrated until they reproduce it (WA33); people steer toward what their plans depend on (CL21 causal mass); and in the lead's run, while the inputs the result depends on match the book, the run returns the canon tier as a play dial named **book fidelity**. It is not an in-world fate claim; a world's own fate mechanism stays CL22's job | WA33, CL21, CL22; resolution through `check_resolver.js`, settlement through `beat_records.js` (`carried` when needs match) | The book-fidelity dial is new |
 | LSD63 | Variance only in what the book leaves open, bounded by forward anchors; add injuries and items to the anchor lint | WA24, WA37, CL9, GR2, CL49 | Same idea; lint extension new |
 | LSD64 | **Fidelity strain**: for each pinned result, how often the unpinned model reaches the canon tier. High strain means the bands are wrong; fix them (WA33), never hide it | WA33, WA45 calibration (book's option wins k of N), CL7 | Same test; the logged table is new |
-| LSD65 | **Untaken options stay possible** (corrected): the moves the book did not take are offered at their WA28 rung (a stub with cost, requirement and a plain result, or a gap row). Choosing one changes the inputs, so the pin releases and our model resolves it, with CL21's causal mass still pulling the cast's plans; the run logs it as divergence (WA15, CL150). Reason: OD7, the player's own choice is "we change things", not outside interference | WA28, CL11, CBR30, CL263 | Same idea (replaces the first draft's "disabled") |
+| LSD65 | *(Narrowed for the canon run by LSD103, Weibao 2026-10-28: locked there, playable in the open run.)* **Untaken options stay possible** (corrected): the moves the book did not take are offered at their WA28 rung (a stub with cost, requirement and a plain result, or a gap row). Choosing one changes the inputs, so the pin releases and our model resolves it, with CL21's causal mass still pulling the cast's plans; the run logs it as divergence (WA15, CL150). Reason: OD7, the player's own choice is "we change things", not outside interference | WA28, CL11, CBR30, CL263 | Same idea (replaces the first draft's "disabled") |
 | LSD66 | The same pin covers every canon result: a questioning, an interview, an argument's outcome, a recorded purchase | WA32 (fights, chases, standoffs, questioning, contests), WA35, CL257 | Same idea |
 | LSD67 | Off-screen canon fights settle by contract outcome on their days | CL6a, CL8, CL216, L2c data | Same idea; the settle step is new build |
 | LSD68 | Results never leak sealed truths; each witness gets their level | AGENTS sealed secrets, RPT2, SUI3 | Same idea |
@@ -284,3 +284,66 @@ F1 becomes: generalize the saved-battle runner and port the three battles unchan
 rows, range bands, morale and the situation card for the first canon fight the be replay reaches (LSD85-LSD95).
 New: FD1 fight-detail pass (LSD100), C2 calibration script (LSD96). D1 keeps the book-fidelity pin and the
 strain table. Order under CL268: B1, D1, FD1, F1, C2, as the be replay reaches each.
+
+## 15. The canon run is forced; a representation for it (Weibao, 2026-10-28)
+
+Weibao: "For the cannon run it should be forced to run the cannon way unless external factors influence it in some
+way, thoughts? Should we implement a new way of representing stuff and more? ... we can finetune to text. but we
+should condsider everything comprehensively". This sets the run's mode: in the canon run the lead's own choices are
+the book's, and only factors from outside his canon life can bend it. It narrows LSD65 for the canon run; WA28's
+untaken options stay recorded and become playable in a later open run (LSD104).
+
+### 15.1 Run modes as one dial
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD103 | **Canon run (default for the be seat)**: the lead's decisions are the book's; canon results hold; the book's untaken options are shown locked with the reason "Not how it happened" (they exist as WA28 records, so the open run needs no new data). Only an external factor (LSD110) can change a canon fact | ACT NOW: direction recorded; B1, D1 and F1 briefs carry it |
+| LSD104 | **Open run (later)**: the same records with the locks off; the book's pull becomes a weight (CL21 causal mass, CL22 where a world names fate) instead of a hard constraint. One representation, three settings: hard (canon run), weighted (fate), none (free) | LATER: after the canon run reaches chapter 24 |
+| LSD105 | **The mode is a property of the life**, chosen at the start and shown in the life's header; switching starts a new life (CL227). Save: one additive field beside `entryProfile` | ACCOUNT FOR NOW: B1 |
+
+### 15.2 A new representation: canon as constraints over the life, not a script
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD106 | **Each canon fact is a constraint**: who, what, when (a window, not an instant), where, and the state it needs and produces, with its locator. The engine runs freely and is conditioned on the constraints: where nothing is constrained, our systems decide; where a constraint applies, the outcome is the canon one. Reason: a script breaks on every unplanned minute; constraints let the world live between the book's moments | ACCOUNT FOR NOW: D1 builds the constraint store over existing beats, anchors and contracts (no second store, AR3) |
+| LSD107 | **Conditioned draws, not forced results**: a constrained roll draws only from the outcomes consistent with canon (a keyed draw mapped into the canon range), so details still vary and every result is one our model could produce. The unconditioned chance of the canon outcome is the strain (LSD64). Deterministic by key, no retry loops | ACCOUNT FOR NOW: D1 |
+| LSD108 | **Every fact carries its provenance**: `canon` (stated with a locator), `canon-derived` (follows by rule), `fill` (by role, with basis), `emergent` (the world did it), `divergent` (an external factor caused it). The person view, Reports and the inspector can show where anything came from, and fine-tuning to the text starts from the `fill` and high-strain rows | ACCOUNT FOR NOW: D1 field on knowledge, beat and fact writes |
+| LSD109 | **Canon needs are reservations**: what a later constraint needs (the rent money on the day, the revolver in the drawer, being at the office by eight) is reserved, so a free action in between that would spend it is refused with the reason ("You need this for the rent on the 3rd" in his voice, or "Not how it happened"). Reason: free time between the book's moments is the player's, but cannot quietly break the book | ACCOUNT FOR NOW: D1, with the action loop's quote stage (LSD9) |
+
+### 15.3 External factors
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD110 | **What counts as external**: an action by another seat's player or a traveller from a crossing, a world event or mechanism the book never shows (CL22 fate, a power), a cheat or debug write, and a world rule the engine models that the book contradicts (logged, not applied, in the canon run). Not external: our own dice (they are conditioned), the cast's off-book filler actions (they are constrained by the same reservations), the player's pace, attention and flavour choices | ACCOUNT FOR NOW |
+| LSD111 | **An external change is a perturbation record** with its source, and it follows causal links: every constraint whose needs it touches becomes `contested`. A contested constraint resolves by mechanism (D2: the motive resolver, CL262, and the world's fate dial); the rest of canon holds. Reason: one outside push should bend what it reaches, not unpin the whole book | LATER/DELEGATE: D2 (deferred by Weibao) |
+
+### 15.4 What the player does in a forced run
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD112 | **Pace and attention**: when to step, wait or skip to his next moment; which of the cast's days to follow in Reports | ACCOUNT FOR NOW |
+| LSD113 | **Free time between constraints**: anything his day allows that keeps the reservations (eat, read, walk, talk, small purchases). This is where the life-sim lives in a canon run | ACCOUNT FOR NOW |
+| LSD114 | **Flavour inside canon**: word choices, small courtesies, which canon-consistent way a step is done (two routes that both arrive on time). Recorded, never contradicting a canon fact | ACCOUNT FOR NOW |
+| LSD115 | **Canon steps run by "as the lead would"** (LSD93) or one click per step, with the book's own text for the step in his Reports (local book pack, private) | ACCOUNT FOR NOW: F1 and the be replay |
+| LSD116 | **His plans show as his intentions, not as the book's future**: he knows he plans to go to the market tomorrow; he does not know what happens there. Reason: the canon run should not read like a spoiler list, and his knowledge record is the limit (CL238) | ACCOUNT FOR NOW: B1 |
+
+### 15.5 More subtleties
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD117 | **Windows, not instants**: the book rarely gives exact times; constraints hold a window and the engine picks the moment by keyed draw inside it, so two runs of the same life agree and two lives may differ in minutes (CL260, CL261) | ACCOUNT FOR NOW |
+| LSD118 | **Inner life is canon too**: what he thinks, fears and decides (the book's inner monologue) becomes dated knowledge and intention entries, shown to the player as his thoughts; this is how the canon run feels like being him | ACCOUNT FOR NOW: B1 history and D1 |
+| LSD119 | **Knowledge arrives on canon time**: what he learns, he learns when the book says, through the step that taught it; filler cannot teach him a canon fact early | ACCOUNT FOR NOW |
+| LSD120 | **Off-screen canon holds for everyone**: the cast's book beats are constraints too; their filler lives fit around them under the same reservations (LSD109) | ACCOUNT FOR NOW |
+| LSD121 | **Gaps between the book's facts are filled by mechanism and labelled `fill`** (CL5); a fill can never contradict a later constraint (the forward-anchor lint grows to cover reservations) | ACCOUNT FOR NOW |
+| LSD122 | **Fine-tune to the text, in order of strain**: the strain table and the `fill` rows rank where text detail is missing; FD1-style narrow passes (LSD100) go there first. Reason: comprehensive without rereading everything | ACCOUNT FOR NOW |
+| LSD123 | **The null-player canon run is the regression**: "as the lead would" for every step, no input, must reproduce every canon fact in two identical runs; a canon run with player input must agree on every canon fact and may differ only in `fill`, `emergent` and flavour | ACCOUNT FOR NOW: be replay receipt |
+| LSD124 | **Contradictions inside the book** (a date that does not fit, an amount that changes) are recorded with both locators and one chosen reading; the canon run uses the chosen reading and logs it (the L5r replay already found one ordering conflict) | ACCOUNT FOR NOW |
+| LSD125 | **Scale**: a volume holds hundreds of constraints; the store indexes them by actor, window and needed state so a free action checks only the reservations it touches | ACCOUNT FOR NOW: D1 |
+
+### 15.6 Lane changes
+
+D1 now builds: the constraint store over existing beats, anchors and contracts (LSD106), conditioned keyed draws and
+the strain table (LSD107), provenance on writes (LSD108), reservations with refusal reasons (LSD109), and the
+life's run mode field (LSD105). B1 gains the run-mode default and intentions as his plans (LSD103, LSD116). D2 holds
+perturbations and contested constraints (LSD111), still deferred.

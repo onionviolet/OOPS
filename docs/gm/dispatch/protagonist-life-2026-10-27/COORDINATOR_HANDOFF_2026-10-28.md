@@ -74,6 +74,9 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
    the strain table; F1 generalizes the existing saved-battle runner into the conflict frame, porting the three battles unchanged first
    (LSD81-LSD95); FD1 is a narrow fight-detail reader pass (LSD100); C2 calibrates bands by script (LSD96); D2 (outside
    interference) is deferred. Order: B1, D1, FD1, F1, C2, as the be replay reaches each.
+   **The canon run is forced** (Weibao 2026-10-28, LSD103-LSD125): the lead's choices are the book's; only external
+   factors bend canon. D1 builds canon as constraints with conditioned keyed draws, provenance on every write,
+   reservations that refuse free actions which would break a later canon fact, and the run-mode field.
 6. **Schema 1.4 merge input** (relay 2026-10-28, batch-reading commit `ce199eb41`, READINESS_AND_SCOPE C29/C30):
    LOTM ch1-24 (prefixes s2..s9v) and MoL ch1-4 (molc001-004) people rows were replaced in place by schema 1.4
    (routine recurrence, reacts class/by/responseClass); the 1.3 rows sit in each book's private `pre-sv8/`.
