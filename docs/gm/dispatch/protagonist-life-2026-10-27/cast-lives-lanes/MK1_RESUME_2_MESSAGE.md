@@ -1,0 +1,6 @@
+# MK1 resume 2: three failures after applying the rebased patch to the shared tree
+
+The coordinator applied `MK1_INTEGRATION.patch` (rebased on DV1) to the shared tree. Focused tests now fail:
+1. `tests/cast_making_adapter.test.js` test 5 "live or prepared integration crosses native UI and real save validator in a disposable copy" and test 16 "prepared joins preserve pending and used batches through native Save, reload, Export and Import": the disposable-copy fixtures must use the live integration when the patch is reverse-clean (`git apply -R --check`), as DV1's fixed fixture does (`tests/cast_divination_adapter.test.js`); apply the patch only when it is not already in. Keep coverage.
+2. `tests/perspective_controls.test.js` "perspective control inventory covers shell routes and LOTM block families": a new MK1 data family is untagged; add the right perspective tag (CL243) in `src/perspective_controls.js` (you may edit this file for the tag only; DV1 added its tags there already).
+Run `node --test tests/cast_making_adapter.test.js tests/cast_divination_adapter.test.js tests/perspective_controls.test.js tests/place_acts.test.js tests/cast_topic_talk.test.js tests/cast_journeys.test.js`; append "Resume 2" to MK1_CHECKPOINT.md. Do not commit.
