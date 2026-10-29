@@ -48,7 +48,7 @@ export function leadLifeEntryEffects(pack){
  const life=pack?.leadLife;if(!life)return [];
  const people=new Map((pack.people||[]).map(p=>[p.id,p]));
  if(!people.has(life.actorId)||!Array.isArray(life.history)||!Array.isArray(life.relations))throw Error('The book life needs its person and opening records.');
- const basis=(date,locator)=>({kind:'recollection',attributedTo:'player',situationId:'book.lotm.tingen.canon_beside',date,locator});
+ const basis=(date,locator)=>({kind:'recollection',attributedTo:'player',situationId:'book.lotm.tingen.canon_beside',provenance:'canon',date,locator});
  const memories=life.history.map(row=>{
   if(!row.id||!row.value||!row.date||!row.locator)throw Error('An opening memory needs its date and source.');
   return {type:'knowledge',actor:'player',key:`book.lotm.history.${row.id}`,stage:'understood',value:row.value,basis:basis(row.date,row.locator)};

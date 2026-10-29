@@ -1,6 +1,6 @@
 import {runWaitUntil} from './wait_until.js';
 import {castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
-import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision} from './book_world_lotm_cast_host.js';
+import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision,castWriteCode,castRevisionReport} from './book_world_lotm_cast_host.js';
 // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
 // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
 // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
@@ -92,7 +92,12 @@ export function createLotmHost(ports){
  const base=(s,c)=>({state:copy(s),external:copy(c.external||{}),gameplay:copy(c.gameplay||{}),gameplayBefore:copy(c.gameplay||{}),vitals:copy(c.vitals||{}),equipment:copy(c.equipment||{}),acquisitions:[],unlocks:[]});
  function writable(){assert(ports.writable(),'Saving is paused, so the branch cannot change now.');assert(!lotmBe(state())||validLeadLife(getPrivateLotmCast()),'Cast unavailable: private pack absent. This life is read-only.');}
  function recordEmergent(plan,def){
-  if(!lotmBe(plan.state))return;
+  if(!lotmCastLife(plan.state))return;
+  for(const e of [...(def.costs||[]),...(def.effects||[])]){
+   castWriteCode(plan.state,`${e.type}:${e.actor||'player'}:${e.key||e.situationId||def.id}`,'emergent');
+   const knowledge=e.type==='knowledge'&&plan.state.simulation.knowledge?.[e.actor||'player']?.[e.key];
+   if(knowledge)knowledge.basis={kind:'observation',attributedTo:e.actor||'player',situationId:'book.lotm.tingen.canon_beside',...knowledge.basis,provenance:'emergent'};
+  }
   applySimulationEffects(plan,[{type:'knowledge',actor:'player',key:`book.lotm.emergent.${plan.state.sequence}`,stage:'seen',value:def.label,
    basis:{kind:'observation',attributedTo:'player',situationId:'book.lotm.tingen.canon_beside',provenance:'emergent'}}],{actorId:'player'},registry,'book.lotm.emergent');
  }
@@ -123,7 +128,12 @@ export function createLotmHost(ports){
   }
   if(profileKey!=='be')for(const [owner,stock] of Object.entries(LOTM_NATIVE_STOCK))plan.gameplay[owner]={inventory:copy(stock),skills:{},reputation:{}};
   applySimulationEffects(plan,lifeEntryEffects(profileKey),{...c,actorId:'player'},registry,'book.lotm.enroll');
-  if(profileKey==='be')applySimulationEffects(plan,leadLifeEntryEffects(getPrivateLotmCast()),{...c,actorId:'player'},registry,'book.lotm.history');
+  if(profileKey==='be'){
+   const opening=leadLifeEntryEffects(getPrivateLotmCast());
+   applySimulationEffects(plan,opening,{...c,actorId:'player'},registry,'book.lotm.history');
+   for(const e of opening)castWriteCode(plan.state,`knowledge:player:${e.key}`,'canon');
+   castWriteCode(plan.state,'location:player','canon');castWriteCode(plan.state,'resource:player:money','canon');
+  }
   plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start,...(profileKey==='be'?{'character/name':getPrivateLotmCast().people.find(p=>p.id===getPrivateLotmCast().leadLife.actorId).name}:{})};
   persist(plan,{reset:true});return plan;
  }
@@ -157,7 +167,7 @@ export function createLotmHost(ports){
   writable();if(id.startsWith(BENCH_PREFIX))seedBench();
   const s=castState(state()),def=registry.simulation.commands.get(id);
   assert(s.lotm&&def?.group==='book_lotm','Choose an action from the Tingen branch.');
-  const canon=canonActionDecision(s,def);assert(canon.allowed,canon.reason);
+  const canon=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());assert(canon.allowed,canon.reason);
   assert(!ports.sleeping(),'Wake first: you are asleep.');
   assert(!ctx(s,def).facts['lotm.lostControl'],'You have lost control. Nothing you do here changes it.');
   if(lotmCastLife(s)){const quote=castTalkPreview(s,def,previewSimulationCommand(s,registry,id,ctx(s,def)));
@@ -183,10 +193,10 @@ export function createLotmHost(ports){
   assert(!s.simulation.jobs.length&&!ports.sleeping()&&!ports.busy(),'Finish or stop your current work first.');
   const from=s.simulation.people.player.location;assert(from!==to,'You are already there.');
   const def=registry.simulation.commands.get(walkId(s,from,to));assert(def,'There is no walk from here to there.');
-  const canon=canonActionDecision(s,def);assert(canon.allowed,canon.reason);
+  const canon=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());assert(canon.allowed,canon.reason);
   const plan=commitSimulationCommand(s,registry,{id:def.id},ctx(s,def),s.sequence);
   recordEmergent(plan,def);
-  plan.state.simulation.people.player.location=to;plan.nativeLocation=to;plan.nativePatch={'current location':to};
+  plan.state.simulation.people.player.location=to;castWriteCode(plan.state,'location:player','emergent');plan.nativeLocation=to;plan.nativePatch={'current location':to};
   syncLotmCast(plan.state);persist(plan);return plan;
  }
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
@@ -201,8 +211,8 @@ export function createLotmHost(ports){
    const loaded=getPrivateLotmCast(),ready=validLeadLife(loaded),pack=ready?loaded:null,life=pack?.leadLife,elapsed=s.clock-s.lotm.initializedAt;
    const allowed=new Set([at,...(life?.knownPlaces||[]),...Object.keys(know).filter(k=>k.startsWith('book.lotm.cast.place.known.')).map(k=>k.slice('book.lotm.cast.place.known.'.length))]);
    const places=castPlaces.filter(p=>allowed.has(p.id)).map(p=>{const dd=districtOfPlace(p.id);return {place:castPlaceLabel(p.id),district:dd.qlabel,team:dd.q2team,church:dd.church,here:p.id===at,minutes:p.id===at?0:lotmWalkMinutes(at,p.id)};});
-   const moves=Object.entries(castMoves).filter(([,to])=>allowed.has(to)&&to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to);return {id,label:`Walk to ${castPlaceLabel(to)} · ${m} min · ${dd.qlabel}: nearby`,eligible:castAvailable&&!s.simulation.jobs.length&&!ports.sleeping(),reasons:castAvailable?[]:['Restore the book pack to resume.']};});
-   const actions=castTalkCommands.filter(def=>s.simulation.people[def.targetId]&&(know[`book.lotm.cast.known.${def.targetId}`]||know[`book.lotm.cast.met.${def.targetId}`])).flatMap(def=>{const p=castTalkPreview(s,def,previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId}));return p.visible?[{id:def.id,label:def.label,eligible:p.eligible&&castAvailable&&!ports.sleeping(),reasons:!castAvailable?['Restore the book pack to resume.']:p.reasons,duration:p.duration}]:[];});
+   const moves=Object.entries(castMoves).filter(([,to])=>allowed.has(to)&&to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to),def=registry.simulation.commands.get(walkId(s,at,to)),decision=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());return {id,label:`Walk to ${castPlaceLabel(to)} · ${m} min · ${dd.qlabel}: nearby`,eligible:decision.allowed&&castAvailable&&!s.simulation.jobs.length&&!ports.sleeping(),reasons:castAvailable?(decision.allowed?[]:[decision.reason]):['Restore the book pack to resume.']};});
+   const actions=castTalkCommands.filter(def=>s.simulation.people[def.targetId]&&(know[`book.lotm.cast.known.${def.targetId}`]||know[`book.lotm.cast.met.${def.targetId}`])).flatMap(def=>{const q=castTalkPreview(s,def,previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId})),decision=canonActionDecision(s,def,getPrivateLotmCast(),ports.context()),p=decision.allowed?q:{...q,eligible:false,reasons:[...q.reasons,decision.reason]};return p.visible?[{id:def.id,label:def.label,eligible:p.eligible&&castAvailable&&!ports.sleeping(),reasons:!castAvailable?['Restore the book pack to resume.']:p.reasons,duration:p.duration}]:[];});
    for(const choice of life?.untakenChoices||[]){const day=pack.bindings.days.find(r=>r.scene===choice.scene),begin=day&&((day.day-1)*1440+day.from),end=day&&((day.day-1)*1440+day.to);
     if(day&&elapsed>=begin&&elapsed<end)actions.push({id:`book.lotm.untaken.${choice.id}`,label:choice.label,eligible:false,reasons:['Not how it happened'],duration:0});}
    if(!ready)actions.push({id:'book.lotm.cast_unavailable',label:'Cast unavailable: private pack absent',eligible:false,reasons:['Restore the book pack to resume this read-only life.'],duration:0});
@@ -243,7 +253,7 @@ export function createLotmHost(ports){
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
- return {enroll,cross,act,cancel,move,wake,tick,view,startable};
+ return {enroll,cross,act,cancel,move,wake,tick,view,startable,inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){const c=castCalendar(s).calendar;return `Day ${c.day_count}, ${c.hour<6?'night':c.hour<12?'morning':c.hour<18?'afternoon':'evening'}`;}

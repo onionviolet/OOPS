@@ -15,6 +15,9 @@ import {pathwayRows} from './book_world_lotm_rows.js';
 import {generatedRows} from './book_world_lotm_generated.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
+import {packRevision} from './constraint_pack.js';
+import {PROVENANCE_CODES} from './constraint_store.js';
+import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
@@ -22,7 +25,7 @@ const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
 export const LOTM_ENTRY_PROFILE='lotm.early_tingen.local_probationer@1';
 export const lotmEnvelopeFields=['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','entryProfile'];
-export function createLotmState(clock,entryProfile=LOTM_ENTRY_PROFILE){return {schema:1,definitionRevision:1,sourceSnapshot:LOTM_SOURCE_SNAPSHOT,sourceHash:LOTM_SOURCE_HASH,initializedAt:clock,entryProfile,...(entryProfile===BE_PROFILE_ID?{runMode:'canon'}:{})};}
+export function createLotmState(clock,entryProfile=LOTM_ENTRY_PROFILE){return {schema:1,definitionRevision:1,sourceSnapshot:LOTM_SOURCE_SNAPSHOT,sourceHash:LOTM_SOURCE_HASH,initializedAt:clock,entryProfile,...(entryProfile===BE_PROFILE_ID?{runMode:'canon',packRevision:packRevision(getPrivateLotmCast())}:{})};}
 export function validateLotmState(state){
  const d=state.lotm,s=state.simulation,a=state.actors||{};
  if(d==null){
@@ -34,7 +37,11 @@ export function validateLotmState(state){
  }
  jsonData(d);
  // `entry` (how this life got in, WER2-WER9) is optional: saves enrolled before it hold none and stay valid.
- assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'||k==='runMode'),'Unsupported Tingen branch fields.');
+ assert(d&&typeof d==='object'&&!Array.isArray(d)&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k))&&Object.keys(d).every(k=>lotmEnvelopeFields.includes(k)||k==='entry'||k==='runMode'||k==='packRevision'||k==='castProvenance'),'Unsupported Tingen branch fields.');
+ // Additive compatibility: missing revision/codes denotes an older save. Keep
+ // its deltas and source revision; inspection reports conflicts without rewriting.
+ assert(!Object.hasOwn(d,'packRevision')||d.entryProfile===BE_PROFILE_ID&&typeof d.packRevision==='string'&&d.packRevision.length>0&&d.packRevision.length<=160,'Invalid cast pack revision.');
+ assert(!Object.hasOwn(d,'castProvenance')||d.castProvenance&&typeof d.castProvenance==='object'&&!Array.isArray(d.castProvenance)&&Object.entries(d.castProvenance).every(([key,code])=>key.length>0&&PROVENANCE_CODES.includes(code)),'Invalid cast provenance.');
  assert(!Object.hasOwn(d,'entry')||validEntryRecord(d.entry),'Unsupported Tingen entry record.');
  assert(d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===LOTM_SOURCE_SNAPSHOT&&d.sourceHash===LOTM_SOURCE_HASH&&PROFILE_IDS.includes(d.entryProfile),'Unsupported Tingen source or entry profile. Preserve this save for its matching reader.');
  assert(d.entryProfile===BE_PROFILE_ID?d.runMode==='canon':!Object.hasOwn(d,'runMode'),'Unsupported life run mode. Preserve this save for its matching reader.');

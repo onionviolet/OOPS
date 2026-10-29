@@ -1,3 +1,6 @@
+import {constraintsFromPack} from './constraint_pack.js';
+import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
+import {createStreams} from './seeded_streams.js';
 import {createWakeQueue} from './wake_queue.js';
 // L4a host seam: one location store, relative clock projection, no beat resolver.
 import {onCastLoaded,lotmCastDays,lotmCastSchedule} from './book_world_lotm_cast_days.js';
@@ -139,11 +142,11 @@ export function syncLotmCast(state){
   // the NPC schedule. The native player body remains the location authority.
   if(lotmBe(state)&&person.id===LOTM_CAST.leadLife?.actorId)continue;
   const place=projectedPlaces.get(person.id);
-  if(place!=null&&body.location!==place){body.location=place;changed=true;}
+  if(place!=null&&body.location!==place){body.location=place;castWriteCode(state,`location:${person.id}`,constraintProvenance(whereabouts(castSchedule,person.id,at).row||{}));changed=true;}
  }
  const facts=state.worlds[I.world].facts;
  for(const row of lotmCastDays()){const key=`lotm.cast.window.${row.scene}`,value=row.day===at.calendar.day_count;
-  if(facts[key]!==value){facts[key]=value;changed=true;}}
+  if(facts[key]!==value){facts[key]=value;castWriteCode(state,`fact:${key}`,'canon-derived');changed=true;}}
  return changed;
 }
 // Same quote is used by the action list and immediately before commit (AR7).
@@ -228,20 +231,75 @@ export function nextCastBeatTime(state,through,ledger,pack=getPrivateLotmCast())
 }
 const castKnown=(state,id)=>['known','met'].some(kind=>state.simulation?.knowledge?.player?.[`book.lotm.cast.${kind}.${id}`]);
 const renderCastReport=r=>renderRefs(r.template,{names:r.names}).replace(/^(\s*\p{Ll})/u,letter=>letter.toUpperCase());
-// D1 may replace this projection with conditioned constraints. The source beat
-// remains authoritative; this lane does not introduce a constraint store.
-export function canonBeatForLife(beat,isLead,mode){
- if(!isLead||mode!=='canon')return beat;
+// Pack constraints are cached projections. They share the actor alias and place
+// resolver with schedules; neither a second canon store nor a saved source table.
+const constraintCache=new WeakMap();
+export function castConstraints(pack=getPrivateLotmCast()){
+ if(!pack)return null;
+ if(!constraintCache.has(pack))constraintCache.set(pack,constraintsFromPack(pack,{
+  actor:id=>pack.people.find(p=>p.id===id)?.sameActorAs||id,
+  place:id=>pack.placeAliases.find(p=>p.id===id||p.indexId===id)?.place||id}));
+ return constraintCache.get(pack);
+}
+export function canonBeatForLife(beat,constrained,mode){
+ if(!constrained||mode!=='canon')return beat;
  return {...beat,needs:null,mechanism:null,deps:[],altered:[]};
 }
-// D1 replaces this narrow explicit-fact check with reservations over the
-// effects of a command and the full set of canon constraints.
-export function canonActionDecision(state,def,pack=getPrivateLotmCast()){
- if(!lotmBe(state)||state.lotm.runMode!=='canon')return {allowed:true};
- const fixed=new Map((pack?.bindings?.beats||[]).flatMap(b=>(b.effects||[]).filter(e=>Object.hasOwn(e,'value')).map(e=>[e.fact,e.value])));
- for(const effect of [...(def?.costs||[]),...(def?.effects||[])])
-  if(effect.type==='fact'&&fixed.has(effect.key)&&(!Object.hasOwn(effect,'value')||effect.value!==fixed.get(effect.key)))return {allowed:false,reason:'Not how it happened'};
- return {allowed:true};
+export function castWriteCode(state,key,code){
+ if(!PROVENANCE_CODES.includes(code))throw Error('Unknown cast provenance.');
+ (state.lotm.castProvenance??={})[key]=code;
+}
+export function canonActionDecision(state,def,pack=getPrivateLotmCast(),context={}){
+ if(!lotmBe(state)||state.lotm.runMode!=='canon'||!pack)return {allowed:true};
+ const data=castConstraints(pack),lead=pack.leadLife?.actorId,who=id=>!id||id==='player'?lead:id;
+ const changes=new Map();
+ for(const e of [...(def?.costs||[]),...(def?.effects||[])]){
+  if(!['fact','resource','item','knowledge'].includes(e.type))continue;
+  const c={actor:who(e.actor),type:e.type,scope:e.scope||'',key:e.key,native:!!e.native};
+  const key=JSON.stringify(c),prior=changes.get(key);
+  changes.set(key,Object.hasOwn(e,'value')?{...c,value:e.value}:{...c,amount:(prior?.amount||0)+(e.amount||0)});
+ }
+ const at=Math.max(0,state.clock-state.lotm.initializedAt);
+ const read=c=>{
+  const id=c.actor===lead?'player':c.actor;
+  if(c.type==='resource')return c.native?context.external?.[c.key]:state.actors?.[id]?.resources?.[c.key];
+  if(c.type==='item')return context.gameplay?.[id]?.inventory?.[c.key]??state.simulation?.people?.[id]?.inventory?.[c.key];
+  if(c.type==='knowledge')return state.simulation?.knowledge?.[id]?.[c.key]?.value;
+  return (c.scope==='actor'?state.actors?.[id]?.facts:state.worlds?.[I.world]?.facts)?.[c.key];
+ };
+ const changed=[...changes.values()];
+ // Include duration-only actions in time reservations without inventing an effect.
+ if(!changed.length)changed.push({actor:lead,type:'time',key:'busy'});
+ return reservationDecision(data.store,{changes:changed,at,through:at+(def?.duration||0),read,
+  settled:id=>terminalBeat(currentCastBeatLedger().done[id])});
+}
+// Inspection-only compatibility report. The saved revision and fill values are
+// retained unchanged; no source truth or strain table is written into the save.
+export function castRevisionReport(state,pack=getPrivateLotmCast()){
+ const data=castConstraints(pack);if(!data)return {unavailable:true};
+ const fills=[];
+ for(const [key,code] of Object.entries(state.lotm?.castProvenance||{})){
+  if(code!=='fill'||!key.startsWith('fact:'))continue;
+  const fact=key.slice(5),value=state.worlds?.[I.world]?.facts?.[fact];
+  fills.push({actor:pack.leadLife?.actorId,key:fact,value,provenance:code});
+ }
+ return {savedRevision:state.lotm?.packRevision??'unversioned',revision:data.revision,
+  strain:contradictedFills(data.store,fills),draws:planLotmCastBeats(state,newBeatState(),pack).strain||[],gaps:data.gaps};
+}
+// Canon effect facts are reconstructed from the pack and terminal receipts.
+// Legacy saves with such facts keep their exact values as deltas on first read.
+export function deriveCastLedger(ledger,pack){
+ const facts={},days=new Map((pack?.bindings?.days||[]).map(d=>[d.scene,d]));
+ const ordered=[...(pack?.bindings?.beats||[])].sort((a,b)=>{const x=days.get(a.scene),y=days.get(b.scene);return (x?.day??a.dayIndex)-(y?.day??b.dayIndex)||(x?.from??0)-(y?.from??0);});
+ for(const b of ordered)if(ledger.done[b.id]?.status==='carried')
+  for(const e of b.effects||[])facts[e.fact]=Object.hasOwn(e,'value')?e.value:(facts[e.fact]||0)+e.add;
+ return {...ledger,facts:{...facts,...ledger.facts}};
+}
+export function compactCastLedger(ledger,pack){
+ const baseline=deriveCastLedger({...ledger,facts:{}},pack).facts,facts={...ledger.facts};
+ for(const [key,value] of Object.entries(baseline))if(JSON.stringify(facts[key])===JSON.stringify(value))delete facts[key];
+ for(const key of Object.keys(facts))if(key.startsWith('lotm.cast.window.'))delete facts[key];
+ return {...ledger,facts};
 }
 export function castBeatReports(ledger){
  return Object.entries(ledger?.facts||{}).filter(([key])=>key.startsWith(REPORT_PREFIX)).map(([,r])=>({...r,text:renderCastReport(r)}));
@@ -256,12 +314,27 @@ export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
 }
 export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLotmCast()){
  if(!lotmCastLife(state)||!pack?.bindings)return {ledger,results:[],reports:[]};
+ ledger=deriveCastLedger(ledger,pack);
  const elapsed=Math.max(0,state.clock-state.lotm.initializedAt),days=new Map(pack.bindings.days.map(r=>[r.scene,r]));
+ const constraints=castConstraints(pack),strain=[];
  const actor=id=>{const resolved=pack.people.find(p=>p.id===id)?.sameActorAs||id;return lotmBe(state)&&resolved===pack.leadLife?.actorId?'player':resolved;};
  const place=id=>pack.placeAliases.find(p=>p.id===id||p.indexId===id)?.place||id;
  const due=pack.bindings.beats.filter(b=>{const d=days.get(b.scene);return d&&(d.day-1)*1440+d.from<=elapsed;});
  due.sort((a,b)=>{const x=days.get(a.scene),y=days.get(b.scene);return x.day-y.day||x.from-y.from;});
- const table=defineBeats(due.map((b,order)=>({...canonBeatForLife(b,lotmBe(state)&&actor(b.actor)==='player',state.lotm.runMode),actor:actor(b.actor),order})));
+ const table=defineBeats(due.map((b,order)=>{
+  const pinned=lotmBe(state)&&state.lotm.runMode==='canon'&&constraintProvenance(b)!=='fill';
+  let effects=b.effects;
+  if(pinned&&!terminalBeat(ledger.done[b.id])){
+   const constraint=constraints.store.rows.find(r=>r.id===b.id),expected=constraint.produces;
+   // A supplied model table can have several outcomes. The current pack's
+   // event model is deterministic; no unsupported failure odds are invented.
+   const roll=conditionedDraw(state.streams||createStreams(state.rng??0),{world:I.world,actor:constraint.actor,
+    date:days.get(b.scene).day,subject:b.id,revision:constraints.revision,
+    outcomes:b.outcomes||[{effects:b.effects||[],weight:1}],consistent:o=>(o.effects||[]).length===expected.length&&expected.every(e=>(o.effects||[]).some(x=>x.fact===e.key&&JSON.stringify(x.value)===JSON.stringify(e.value)&&x.add===e.add))});
+   effects=roll.outcome.effects;strain.push({...roll.strain,constraint:b.id});
+  }
+  return {...canonBeatForLife(b,pinned,state.lotm.runMode),effects,actor:actor(b.actor),order};
+ }));
  let next=structuredClone(ledger);const results=[],reports=[],knowledgeWrites=[];
  // Reopen the resolver's current day when a later scene becomes due. Its done
  // map remains authoritative, so each terminal result and receipt is written once.
@@ -277,6 +350,9 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
    {lives:[{id:beat.actor}],mechanisms:[]});
   next={...resolution.state,day:Math.max(ledger.day,resolution.state.day)};
   for(const result of resolution.results){
+   const provenance=constraintProvenance(beat);
+   result.provenance=provenance;
+   for(const diff of result.diffs)diff.provenance=provenance;
    results.push({...result,at,actor:beat.actor,place:place(beat.place)});
    const eventState={...state,clock:at};
    const schedule=(pack.bindings.schedule||[]).map(r=>({...r,actor:actor(r.actor),place:place(r.place)}));
@@ -299,12 +375,17 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
    knowledgeWrites.push(...beatKnowledgeWrites(beat,result,{at,playerExposure:exposure,actor}).filter(w=>w.effect.actor==='player'));
    const names=Object.fromEntries(pack.people.filter(p=>castKnown(state,p.id)).map(p=>[p.id,p.name]));
    for(const w of knowledgeWrites.filter(w=>w.cause===beat.id&&w.effect.actor==='player'))w.effect.value=renderRefs(w.effect.value,{names}).replace(/^(\s*\p{Ll})/u,c=>c.toUpperCase());
-   const report={beat:beat.id,actor:beat.actor,day:day.day,at,place:place(beat.place),exposure,
+   const report={provenance,beat:beat.id,actor:beat.actor,day:day.day,at,place:place(beat.place),exposure,
     template:routes[exposure].text,names,kind:['present','affected'].includes(exposure)?'event':'background'};
    next.facts[REPORT_PREFIX+beat.id]=report;reports.push({...report,text:renderCastReport(report)});
   }
  }
- return {ledger:next,results,reports,knowledgeWrites};
+ for(const w of knowledgeWrites){
+  const b=pack.bindings.beats.find(b=>b.id===w.cause),provenance=constraintProvenance(b||{});
+  w.provenance=provenance;w.effect.basis={kind:'observation',attributedTo:w.effect.actor,
+   situationId:LOTM_CAST_SITUATION,provenance,...(b?.locator?{locator:b.locator}:{})};
+ }
+ return {ledger:next,results,reports,knowledgeWrites,strain};
 }
 
 import './beat_ledger.js';
@@ -320,9 +401,12 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  if(out.knowledgeWrites?.length){
   applyBeatKnowledge(plan,out.knowledgeWrites,writeKnowledge);
  }
- plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(out.ledger)};
+ for(const w of out.knowledgeWrites||[])castWriteCode(plan.state,`knowledge:${w.effect.actor}:${w.effect.key}`,w.provenance);
+ for(const result of out.results)for(const diff of result.diffs)castWriteCode(plan.state,`fact:${diff.fact}`,diff.provenance);
+ const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
+ plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
  const result=persist(plan);
- domainRegistry.command('beatLedger','commit')(out.ledger);
+ domainRegistry.command('beatLedger','commit')(saved);
  for(const report of out.reports)publish(report);
  return result;
 }
