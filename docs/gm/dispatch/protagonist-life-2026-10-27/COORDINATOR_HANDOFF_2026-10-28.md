@@ -85,6 +85,13 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
    pipeline so worksheets and book-pack rows gain recurrence; the L7 classifier becomes the fallback for reacts
    (CL56). Do not use `touchedByLead` alone as the cast list (Haiku under-marks it); presence in lead scenes via
    the crosswalk stays the source. Book-pack regeneration waits until B1 has landed (B1 edits the pack).
+   **Update (relay, later 2026-10-28):** all 72 LOTM volume 1 shards now carry 1.4 rows (people ch25-213,
+   rules, texture); the replaced rows are in the private `lead-run-2026-10-27/pre-sv14/` (not `pre-sv8/` for
+   this batch). Merge per READINESS_AND_SCOPE C34, same as SV8. A second medium census covers 31 volume 1
+   shards (`*x2_census.jsonl`); union it with the first by normalized name and aliases per C28 (about +7
+   points of recall). The merge stage therefore unions three inputs: 1.4 over 1.3 by person and slot, and
+   census x1 with x2. Ready to dispatch now (scripts only, beside B1). Also available: Reverend Insanity read
+   through about ch400 (volumes 2-4), and retry gap fills in HP, A Soldier's Life and LOTM v1.
 7. Efficiency lanes as slots free up: CL278 parametrized floor (start from this session's floor script,
    below), CL274 runner ready-queue, CL279 MoL lead playthrough after B1 is generic.
 
