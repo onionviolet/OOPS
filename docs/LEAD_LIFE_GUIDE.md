@@ -90,16 +90,17 @@ The arc, from Weibao's own entries (USER_VISION; dates are entry dates):
 | Date | What he said or accepted | Effect |
 | --- | --- | --- |
 | 2026-09-29 to 10-07 | A text life sim ("like bitlife"), many worlds, the YAIRPG expansion continues it ([north star](LIFE_SIM_NORTH_STAR.md)) | The test: does it make one life feel lived |
-| 2026-10-15 | OD7 natural course; OD8 fate only by real mechanism; OD24 no compulsory main quest | Canon is a default course, not a script |
+| 2026-10-15 | OD7 natural course; OD8 fate only by real mechanism; OD24 no compulsory main quest (a world can still offer an optional main goal) | Canon is a default course, not a script |
 | 2026-10-28 | Build everything the lead's life needs; "be the lead" is the main line (AD44) | Lead-first for every book world |
 | 2026-10-28 | "Sure" to the batched defaults | CLR1-CLR13, SUI1-SUI19, RPT1-RPT12 binding |
 | 2026-10-28 | Fights and results follow the book in the lead's run; the canon run is forced, open run later | Canon as constraints; untaken options locked, not removed |
 | 2026-10-28 | People besides the lead "don't quite need full lives" | Depth by tier (his views are direction; the design answers are proposals) |
 | 2026-10-29 | Timings need not be exact to the hour, "as long as all the features and events happens" | Order and windows, not minutes (LSD156-LSD164 are proposals) |
 | 2026-10-29 | "Sure" to mechanisms before bulk review | **LSD168 accepted**, with LSD179-LSD183 as working defaults |
+| 2026-10-29 | Answers on the guide: per-world variation in how canon resists, the pressure dial already covered by CL21/CL22, 1.5 reread later, main goal optional; asks the advisor to decide grains versus reachable steps | See section 7 |
 | 2026-10-29 | LSD218 "isn't absolute"; wants emergent behaviour, wider probabilities, fate, with the butterfly effect considered | Canon-holding narrowed to a default; canon pull proposed |
 
-**Accepted (Weibao's yes or an AD code):** AD44, AD45; CLR/SUI/RPT; the canon run is forced
+**Accepted (Weibao's yes or an AD code):** AD44, AD45; the 2026-10-29 answers on the guide's open contradictions (section 7 items 2-5; item 1 decided under his delegation); CLR/SUI/RPT; the canon run is forced
 by default for the lead and lead as NPC, with an open run later; windows over exact hours as
 direction; mechanisms first (LSD168); WA25-WA41 as accepted, adjustable defaults; AD1-AD9,
 AD38 and AD5's design framing.
@@ -141,7 +142,7 @@ Systems: **Rel** relationships, **Mk** crafting and brewing, **Dv** divination a
 | `sealed` |  |  | x |  |  | x |  |  |  | sealed-secrets lint (owner doc) |
 | `evidence` | x | x | x | x | x | x | x | x | x | all (locators, CLR1) |
 | `mechanism` |  | x | x |  |  |  |  | x |  | none found beyond the reader prompt |
-| `conflict` block (a card field; the batch readers do not emit it, 7 item 11) | x |  |  |  |  |  | x |  | x | `scripts/lead_run/conflict_contracts.mjs` derives it from merged rows |
+| `conflict` block (a card field; the batch readers do not emit it, 7 item 8) | x |  |  |  |  |  | x |  | x | `scripts/lead_run/conflict_contracts.mjs` derives it from merged rows |
 
 ### 3.2 Step fields (1.3 base and the eight 1.5 additions)
 
@@ -299,11 +300,11 @@ build order below is a proposal. Mechanisms first is accepted.
 
 | Step | Work | Cost class | Done check |
 | --- | --- | --- | --- |
-| 1 | **Free tags and measures.** Derive actor, kind, family, habit by script into a per-step sidecar with `source` (LSD190-LSD192, LSD194, LSD202). Rerun the mapper over the old gaps (LSD180). Print code lines per newly covered step (LSD166) and a family-by-volume table (LSD170) | script | Counts printed; the "32% are tagging faults" claim measured (LSD205) and either confirmed or the join is fixed |
-| 2 | **Measures that match the aim.** Replay driver reports beats reached in order, days whose outcomes hold, distinct usable verbs (LSD210) and emergent canon rate at pull 0 (LSD236), headless (LSD185) | script (driver mode) | One report prints all four beside step fidelity |
-| 3 | **Reachable cards.** Build canon-event cards from scene outcomes (LSD167, LSD182) | script, Luna low for the builder | Every gap step in chapters 1-24 is a card or listed as missing outcomes |
-| 4 | **The four joins once.** Add a `pull` input to the keyed resolve with default 1 (no behaviour change), a shared non-lead fixture, a failure and refused path helper, and beat checkpoints (LSD224) | Luna medium | Same state hash as before at default pull; ch20 starts from a snapshot and matches the full replay hash; pull 0.5 gives the stated chance over 1,000 keys |
-| 5 | **Land what is paid for.** Six MF1 lanes exist as adapters at "implemented, below floor": exchange (L2), making (MK1), divination (DV1), ability (AB1), body-care and inference (KN1), each with its own `MF_*_CHECKPOINT.md` and an integration patch or live integration noted there. Settle each at its stated state, run the rebuilt desktop journey for those that need it, then add a second-world fixture (LSD214) | coordinator time; browser | AD43 floor met or "below floor" restated per receipt; one MoL or HP row set runs unchanged |
+| 1 | LSD209/LSD210 (only beats need step controls; measure beats and verbs) versus the accepted reading in USER_VISION 2026-10-29 ("every step the lead takes is reachable through the game's own controls") | **Decided by the advisor under Weibao's delegation ("We need advisor to decide #1 contradiction"), 2026-10-29; he can override.** Both lines stay. Floor: every canon step is reachable in the canon run as a playable step, a card or part of a montage day, with untaken options locked. Depth: beats get step controls first (LSD209). A card or montage counts only if it passes CLR6's fold-loss test (keeps choices, inputs and outputs, time and order, who was there, place, outcomes, what was noticed); a lossy fold is a gap. The day-zoom dial is how a player follows all options. Metrics: reachable share over all steps, playable share over great beats, fold-loss count, distinct verbs, emergent canon rate; step-order fidelity is a diagnostic | CLR6 is accepted and already defines what a fold may lose |
+| 2 | TIMELINES C2 (a threshold: an event shifts only when disturbance beats inertia) versus LSD233 (a probability: canon chance `pull + (1 - pull) x p`) for the same job | **Weibao: "sure, maybe different implementations for different worlds".** Proposal to implement it: one resolver with the `pull` input, and a per-world curve from disturbance against inertia to pull. A step curve (C2) holds pull at the ceiling until disturbance beats inertia; a smooth curve falls gradually (LSD233). A world with a truly different mechanism (a fate actor, a loop reset) supplies a world module (LSD225, CL22). Book-world default, proposed: step-shaped, since AD2 says "sufficiently disturbed"; calibrate each world's curve from its emergent canon rate (LSD236) rather than by hand | His "sure" accepts per-world variation; the curve design is a proposal for D2 |
+| 3 | LSD62 "book fidelity is a play dial, not fate" versus LSD239 (fate is an actor spending on pull) and LSD234 (pull from "the world's canon pressure dial") | **Resolved with Weibao's "pressure dial should have been addressed already".** It is: CL21 causal mass is the default in every world; CL22's dial (a nudge on draws up to active correction) is off until a world pass names a mechanism; the 2026-10-15 OD7 answer "does not select universal canon pressure". So read LSD234's "world canon-pressure dial" input as CL21 redundancy plus CL22 where a world names one. Book fidelity is the play dial at pull 1 (the canon run). The TIMELINES per-world table's "canon pressure: medium" default is a stale proposal against CL22 and USER_VISION | CL21, CL22 and USER_VISION win
+| 4 | **Keep or drop the unread 1.5 fields** (`target`, `using`, `habit`, `results`, `witnesses`) versus READINESS L10 and WA41 | **Deferred by Weibao: "we can do that in the future".** Is a reread to 1.5 worth it? Proposal: not now. Script derivation covers actor, kind, habit, results and witnesses at no token cost (LSD190-LSD196), no reader exists yet (L10), and credits are low; the union rule (LSD151, LSD202) means nothing is lost by waiting. Revisit after step 1 if a family that a mechanism needs keeps an unknown-actor share above the threshold that mechanism's brief names, and then reread only those shards, pricing it first from an unsent plan. New books (Mother of Learning, Reverend Insanity) read at 1.5 on the first pass once a mapper reads the fields | His direction is "later"; the trigger is a proposal |
+| 5 | **OD24 versus AD44.** OD24 says no compulsory global main quest; AD44 makes the lead's life the build main line | **Weibao: different scopes**, and no need to say there is no main goal: a world can offer a main goal that the player chooses whether to pursue. OD24 says "no *compulsory* main quest" and "optional campaigns"; AD44 is build order, not a player obligation. New angle (proposal): in the open run the book's arc can be that optional main goal, with canon facts at pull below 1 as milestones the player may steer toward or away from | OD24 and AD44, as he read them |
 | 6 | **Residue tagging.** Family and inner-step tags on the `unknown` residue overnight (LSD184, LSD203) | local model | 500 tagged steps agree with a 50-step Sol spot check at or above 90% |
 | 7 | **Systems not yet built, in the live queue's order.** MF1 D2 and CL268 already rank the lanes and run them as the be replay reaches each; this guide adds no competing order. Remaining after step 5: Relationships (R1), Economy (E1), Knowledge and rumour (K1), Law (LW1), Conflicts (FD1, F1, C2), Time and loops. Deviations from MF1's order are listed in 7 items 16-17 | Luna for E1, Sol for the rest (waits for the window) | Each system's chapter 4 slice plus its joins from section 5 |
 | 8 | **Pull proper.** Lazy recompute from disturbance, the divergence view, fate as an actor, resist-fate scenario (LSD241-LSD245, LSD223, LSD239) | Sol | Seeded scenario where one push fails and a larger push succeeds; a changed world dial changes future draws with no save migration |
@@ -330,7 +331,7 @@ minutes of Weibao playing chapters 1-3 in the be seat (LSD212).
 ## 7. Contradictions and superseded lines
 
 Each row names the owner that wins and why. Where two proposals disagree I flag it and do not
-pick. Items 1-5 are the open ones; later rows have a winner.
+pick. Items 1-5 were the open ones; Weibao answered them on 2026-10-29 (record in USER_VISION) and each row now shows its status. Later rows have a winner.
 
 | # | Conflict | Winner or status | Why |
 | --- | --- | --- | --- |
@@ -348,9 +349,9 @@ pick. Items 1-5 are the open ones; later rows have a winner.
 | 12 | ON13 (Codex weekly budget) versus ON14 (Codex does the implementing) | **ON14**, per its own text | Weibao's clarification 2026-10-29 |
 | 13 | LSD155 proposes `LEAD_LIFE_RULES.md`; this guide exists beside it | Both; rulebook holds accepted lines only | Stated in the opening |
 | 14 | OD2 and OD5 (memory carries; crossing does not reset history) versus LSD249 (return restores a checkpoint) | **Per-world dial** (TIMELINES mutability: restore, branch, closed loop) | LSD249 states one default, not a rule |
+| 15 | AD33 (NPC-heavy work deprioritized) versus a 1,500-person pack and tiers | **AD33.** LSD137 already sets full depth for few people; the pack size is data, not simulation | Weibao's own direction |
 | 16 | LSD99 ("keep the batch readers and schema as they are") versus LSD204/LSD206 (schema 1.5 moved tags to the step) | **LSD204/LSD206 and the code win** | They are later and implemented opt-in; LSD99 was about fight detail, which still needs FD1 |
 | 17 | MF1 D2's ranked lane order versus this guide's section 6 | **MF1 D2 and CL268 win**; the guide lists only what step 5 settles first and adds the free script steps 1-4 ahead of Sol lanes because credits are low (LSD200) | The live queue is the coordinator's; the guide adds no order of its own |
-| 15 | AD33 (NPC-heavy work deprioritized) versus a 1,500-person pack and tiers | **AD33.** LSD137 already sets full depth for few people; the pack size is data, not simulation | Weibao's own direction |
 
 ## 8. Drift check and a more-to-consider round
 
@@ -375,6 +376,17 @@ by ID. Desktop-first applies; no mobile claims appear in these lanes.
 | Dr8 | **OD24 versus AD44** (moved to 7 item 5) | OD24, AD44 | Flag only |
 | Dr9 | **Original worlds.** LSD149 says canon-density zero needs no second engine, but nothing here tests it | LSD149 | LATER/DELEGATE: Luna medium, one original-world fixture (no constraints) on the same store; done when it runs with fills only and two identical runs match |
 | Dr10 | **Persistence of new state.** Pull is derived, not saved (LSD245); save deltas and provenance codes are (LSD143). Persistence rules (AR6, FLR5) still need Save, reload, Export, Import for each new state | AGENTS | ACCOUNT FOR NOW: each slice names its save delta or says none |
+
+**Round 2 (2026-10-29, after Weibao asked how to reconcile drift long term).** Turn each drift into a check or a place a check reads, because prose rules without a check recur (GROUND_RULES). Proposals; the coordinator owns the lane brief template, so these are changes to propose to it, not edits made here.
+
+| Round | Disposition |
+| --- | --- |
+| Dr1 | ACCOUNT FOR NOW: the section 6 step 2 metrics (reachable share, playable share over great beats, fold-loss count, distinct verbs, emergent canon rate) are the headline of the ON10 morning note |
+| Dr2 | ACCOUNT FOR NOW: a mechanism is reported as general only with a second-world fixture and a harvest-ledger row (LSD230); a done-check line in the brief template |
+| Dr3 | ACCOUNT FOR NOW: no new LSD lines unless a brief or check reads them. LATER/DELEGATE: when enough lines are accepted, write `docs/LEAD_LIFE_RULES.md` (accepted lines only, LSD codes kept, the LSD doc frozen as history); read `scripts/check_rules_index.mjs` first so a second register row does not trip its highest-code check. Luna medium; done when every accepted line in USER_VISION and PROJECT has a rulebook row and `check:rules` passes |
+| Dr5 | ACCOUNT FOR NOW: a brief line asking for a failure path plus its recovery (OD12 forgiving by default) |
+| Cross-doc dedupe | LATER/DELEGATE: TIMELINES, CL21/CL22, WA and LSD restate canon and fate in four places. Build a concept-to-owner table, replace restatements with links, keep a zero-loss check. Luna medium; done when each concept has one owner section and the old text is reachable from history. No renumbering or deletion of LSD codes (briefs and checkpoints cite them) |
+| Recurrence | ACCOUNT FOR NOW: rerun this drift check at each wave checkpoint as a new round here, without restarting codes |
 
 **Adjacent ideas outside this guide's authority (suggestions, not dispositions):**
 a one-page "what you can play today" card per integration (LSD212 suggestion); a one-page
