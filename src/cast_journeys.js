@@ -12,7 +12,7 @@ export function defineJourneys(data,{worldId,actorId='player',group,situationId,
   if(![row.id,row.from,row.to,row.means].every(validId)||ids.has(row.id)||!row.label||!row.report||!natural(row.minutes)||row.minutes<1||row.fare!=null&&!natural(row.fare)||row.hours!=null&&(!Array.isArray(row.hours)||row.hours.length!==2||row.hours.some(h=>!Number.isInteger(h)||h<0||h>24)||row.hours[0]>=24||row.hours[0]===row.hours[1]))throw Error('Invalid journey.');
   ids.add(row.id);
   const support={all:[...(requires?[requires]:[]),...(row.requires?[structuredClone(row.requires)]:[])]};
-  const gates=[support],fare=row.fare;
+  const gates=[support],fare=row.fare??null;
   if(row.hours){const [from,to]=row.hours,reason=`Service runs ${from}:00–${to}:00.`,lo={fact:hourFact,op:'gte',value:from,reason},hi={fact:hourFact,op:'lte',value:to-1,reason};gates.push(from<to?{all:[lo,hi]}:{any:[lo,hi],reason});}
   if(fare>0)gates.push(actorId==='player'?{fact:moneyFact,op:'gte',value:fare,reason:`You need ${fare} money for the fare.`}:{fact:'actor.life',op:'eq',value:'unpaid',reason:'Unpaid fill: this actor needs a purse owner before paid travel.'});
   const receiptKey=`journey.arrived.${row.id}`;

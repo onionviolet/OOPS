@@ -70,6 +70,20 @@ test('missing fare stays unknown and actors without a purse owner quote unpaid f
  for(const change of [r=>r.minutes=0,r=>r.fare=-1,r=>r.hours=[5,5],r=>r.hours=[-1,25],r=>r.to='__proto__']){const bad=structuredClone(data);change(bad.journeys[0]);assert.throws(()=>defineJourneys(bad,binding));}
 });
 
+test('generator-shaped journey with no fare passes the native registry JSON check',()=>{
+ const row={id:'fixture.generated',sourceStepId:'scene#1',sourceStepIds:['scene#1'],from:a,to:b,means:'on_foot',label:'Walk to B',
+  description:'Walk to B.',minutes:1,minutesBasis:'fill: one minute',report:'You arrive.',source:{label:'S',locator:'fixture p1'}};
+ const command=defineJourneys({journeys:[row]},binding)[0];
+ assert.equal(command.journey.fare,null);
+ assert.equal(createSimulationRegistry({commands:[command]}).commands.get(row.id).journey.fare,null);
+ assert.equal(quoteJourneys({},[command],()=>({visible:true,eligible:true,reasons:[]}))[0].costText,'Fare not recorded.');
+ for(const fare of [0,2]){
+  const paid=defineJourneys({journeys:[{...row,fare}]},binding)[0];
+  assert.equal(createSimulationRegistry({commands:[paid]}).commands.get(row.id).journey.fare,fare);
+ }
+ for(const fare of [NaN,Infinity,-1])assert.throws(()=>defineJourneys({journeys:[{...row,fare}]},binding),/Invalid journey/);
+});
+
 test('native place-panel journey validates pending Save/reload, arrival and literal Export/Import', {timeout:180000}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
