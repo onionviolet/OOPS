@@ -15,6 +15,8 @@ const rangeOf = rows => rows.flatMap(s => (s.evidence || []).map(e => chapter(e.
 export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, controlIndex = {}, registry = [], pack = null}) {
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
+  // Principals the lead knows can be talked to (cast host castTalkCommands: `cast_talk_<last indexId segment>`).
+  const talks = {...Object.fromEntries((pack?.people || []).filter(p => p?.id && p.tier === 'principal' && p.indexId).map(p => [p.id, `cast_talk_${p.indexId.split('.').at(-1)}`])), ...(controlIndex.talks || {})};
   const walks = {...Object.fromEntries((pack?.places || []).filter(p => p?.id && p.travel && !p.anchorOnly).map(p => [p.id, `lotm.move.${p.id}`])), ...(controlIndex.walks || {})};
   const selected = scenes.filter(s => s.pov === 'lead' && s.evidence?.length && rangeOf([s]).some(n => n >= fromChapter && n <= toChapter))
     .sort((a,b) => a.order-b.order);
@@ -32,7 +34,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, c
     row.peopleResolved = row.peoplePresent.map(id => ({readerId:id, packId:packJoin?.resolvePerson(id) || null}));
     // The lead is at the scene's place: the first step at a new place is reached by walking there.
     const moveId = placeId && placeId !== lastPlace && (i === 0 || /walk|travel|move|go to|arrive/i.test(step.verb)) && walks[placeId];
-    const presentId = row.peoplePresent.map(id => controlIndex.talks?.[id] || controlIndex.talks?.[packJoin?.resolvePerson(id)]).find(Boolean);
+    const presentId = row.peoplePresent.map(id => talks[id] || talks[packJoin?.resolvePerson(id)]).find(Boolean);
     const timeKey=scene.timeOfDay?.value && !/unknown|unstated|unspecified|^u$/i.test(scene.timeOfDay.value) ? scene.timeOfDay.value : null;
     const isTimeGap=i===0&&timeKey&&timeKey!==lastTimeKey;
     if (moveId) {
@@ -72,7 +74,7 @@ function main(args) {
   const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,controlIndex,registry,pack});
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
   const counts={walk:0,wait:0,talk:0,gapByVerbClass:{}};
-  for(const r of mapping.rows){if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.peoplePresent.some(p=>controlIndex.talks?.[p]===r.canonicalControl))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
+  for(const r of mapping.rows){if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
   const totals={placeStepRefs:0,placeResolvedStepRefs:0,personStepRefs:0,personResolvedStepRefs:0}, unresolvedPlaces=new Map(), unresolvedPeople=new Map();
   for(const r of mapping.rows){if(r.place){totals.placeStepRefs++;if(r.packPlaceId)totals.placeResolvedStepRefs++;else unresolvedPlaces.set(r.place,(unresolvedPlaces.get(r.place)||0)+1)}for(const p of r.peopleResolved||[]){totals.personStepRefs++;if(p.packId)totals.personResolvedStepRefs++;else unresolvedPeople.set(p.readerId,(unresolvedPeople.get(p.readerId)||0)+1)}}
   const talkCandidateSteps=mapping.rows.filter(r=>/talk|speak|ask|tell|answer|discuss/i.test(r.verb)&&r.peopleResolved?.some(p=>p.packId)).length;
