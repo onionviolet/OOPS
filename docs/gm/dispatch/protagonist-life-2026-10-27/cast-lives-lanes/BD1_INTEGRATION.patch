@@ -1,0 +1,207 @@
+--- a/src/book_world_lotm_cast_host.js
++++ b/src/book_world_lotm_cast_host.js
+@@ -1,3 +1,4 @@
++import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
+ import {constraintsFromPack} from './constraint_pack.js';
+ import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
+ import {createStreams} from './seeded_streams.js';
+@@ -43,6 +44,11 @@
+ let peopleById=new Map(),placesById=new Map();
+ const actorId=id=>peopleById.get(id)?.sameActorAs||id;
+ export let castSchedule=[],castPeople=[],castTalkCommands=[],castPlaces=[],castMoves={},castWalkCommands=[];
++export let castBodyCommands=[];
++export function castBodyOffers(state,preview,options={}){
++ if(!lotmBe(state)||!castAvailable)return [];
++ return quoteBodyCare(state,castBodyCommands,preview,options);
++}
+ export let castJourneyCommands=[];
+ // Bind the existing native relocation capability to this world's authored routes.
+ export function castJourneyContext(state,context){
+@@ -147,6 +153,7 @@
+  requires:eq('lotm.profile.beside'),effects:[{type:'knowledge',actor:'player',key:`book.lotm.cast.met.${p.id}`,
+  stage:'seen',value:`You spoke with ${p.name} when you were together.`,
+  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
++ castBodyCommands=defineBodyCare(pack.bodyCare,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+@@ -187,7 +194,7 @@
+ const installed=new WeakSet();
+ export function installCast(registry){
+  if(!castAvailable||installed.has(registry))return;
+- const defs=createSimulationRegistry({people:castPeople,commands:[...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands],situations:[castSituation]});
++ const defs=createSimulationRegistry({people:castPeople,commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands],situations:[castSituation]});
+  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
+  validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
+  installed.add(registry);
+--- a/src/book_world_lotm_domain.js
++++ b/src/book_world_lotm_domain.js
+@@ -33,6 +33,6 @@
+  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
+ }
+ registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),
+- commands:{wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
++ commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
+  projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
+  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});
+--- a/src/book_world_lotm_host.js
++++ b/src/book_world_lotm_host.js
+@@ -1,5 +1,5 @@
+ import {runWaitUntil} from './wait_until.js';
+-import {castExchangeCommands,castExchangeOffers,castInferenceCommands,castInferenceOffers,castMakingCommands,castMakingOffers,castDivinationCommands,castDivinationOffers,castJourneyCommands,castJourneyOffers,castJourneyContext,castTopicOffers,castObjectOffers,castObjectCommands,castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
++import {castBodyCommands,castBodyOffers,castExchangeCommands,castExchangeOffers,castInferenceCommands,castInferenceOffers,castMakingCommands,castMakingOffers,castDivinationCommands,castDivinationOffers,castJourneyCommands,castJourneyOffers,castJourneyContext,castTopicOffers,castObjectOffers,castObjectCommands,castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
+ import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,installCastWalk,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision,castWriteCode,castRevisionReport} from './book_world_lotm_cast_host.js';
+ // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
+ // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
+@@ -87,9 +87,9 @@
+  const persist=(plan,options={})=>persistLotmCastPlan(plan,ports.persist,{...options,publish:r=>ports.logMessage?.(r.text,r.kind,{safeText:true,panelId:'known-people'})});
+  const state=()=>{installCast(registry);return ports.state();};
+  const castState=s=>{if(!lotmCastLife(s))return s;const projected=copy(s);syncLotmCast(projected);return projected;};
+- const sleepJob=s=>s.simulation?.jobs?.find(j=>j.commandId===SLEEP&&j.actorId==='player');
++ const sleepJob=s=>s.simulation?.jobs?.find(j=>(j.commandId===SLEEP||castBodyCommands.some(d=>d.id===j.commandId&&d.bodyCare.kind==='sleep'))&&j.actorId==='player');
+  function ctx(s,def){const c=ports.context(),vitals=c.vitals||{};
+-  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,out);}
++  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,out);}
+  const base=(s,c)=>({state:copy(s),external:copy(c.external||{}),gameplay:copy(c.gameplay||{}),gameplayBefore:copy(c.gameplay||{}),vitals:copy(c.vitals||{}),equipment:copy(c.equipment||{}),acquisitions:[],unlocks:[]});
+  function writable(){assert(ports.writable(),'Saving is paused, so the branch cannot change now.');assert(!lotmBe(state())||validLeadLife(getPrivateLotmCast()),'Cast unavailable: private pack absent. This life is read-only.');}
+  function recordEmergent(plan,def){
+@@ -169,6 +169,12 @@
+   const s=castState(state()),def=registry.simulation.commands.get(id);
+   assert(s.lotm&&def?.group==='book_lotm','Choose an action from the Tingen branch.');
+   const canon=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());assert(canon.allowed,canon.reason);
++  if(def.bodyCare?.kind==='wake'){
++   assert(ports.sleeping(),'You are already awake.');
++   const context=ctx(s,def),job=sleepJob(s),stopped=job?cancelSimulationJob(s,registry,job.id,context,s.sequence):{state:s};
++   const plan=commitSimulationCommand(stopped.state,registry,{id},{...context,busy:false},stopped.state.sequence);
++   recordEmergent(plan,def);persist(plan);ports.endSleep();return plan;
++  }
+   assert(!ports.sleeping(),'Wake first: you are asleep.');
+   assert(!ctx(s,def).facts['lotm.lostControl'],'You have lost control. Nothing you do here changes it.');
+   if(lotmCastLife(s)){const quote=castTalkPreview(s,def,previewSimulationCommand(s,registry,id,ctx(s,def)));
+@@ -177,14 +183,14 @@
+   recordEmergent(plan,def);
+   syncLotmCast(plan.state);
+   persist(plan);
+-  if(id===SLEEP)ports.beginSleep();
++  if(id===SLEEP||def.bodyCare?.kind==='sleep')ports.beginSleep();
+   return plan;
+  }
+  function cancel(jobId){
+-  writable();const s=state(),job=s.simulation?.jobs.find(j=>j.id===jobId&&j.actorId==='player'&&[...lotmCommands,...castMakingCommands,...castExchangeCommands].some(d=>d.id===j.commandId));
++  writable();const s=state(),job=s.simulation?.jobs.find(j=>j.id===jobId&&j.actorId==='player'&&[...lotmCommands,...castBodyCommands,...castMakingCommands,...castExchangeCommands].some(d=>d.id===j.commandId));
+   assert(job&&['forfeit','refund'].includes(job.cancellation),'This work cannot be stopped.');
+   persist(cancelSimulationJob(s,registry,job.id,ctx(s),s.sequence));
+-  if(job.commandId===SLEEP&&ports.sleeping())ports.endSleep();
++  if((job.commandId===SLEEP||castBodyCommands.some(d=>d.id===job.commandId&&d.bodyCare.kind==='sleep'))&&ports.sleeping())ports.endSleep();
+  }
+  // A walk is a timed job (district links, real minutes). The body is placed at the destination when the walk starts, because the engine records a job's
+  // place at start; the job occupies the player until the arrival record is written. Machinery and Storm lives use their own life-neutral walk set.
+@@ -227,11 +233,16 @@
+    const divinations=withFactsFrame(s,()=>castDivinationOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{facts:def=>simulationFacts(s,journeyContext,registry,[def.requires]),blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
+    const inferences=withFactsFrame(s,()=>castInferenceOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
+    const exchanges=withFactsFrame(s,()=>castExchangeOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def)),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
++   const bodyCare=withFactsFrame(s,()=>castBodyOffers(s,def=>{
++    const job=def.bodyCare.kind==='wake'&&sleepJob(s),c=ctx(s,def);
++    const ready=job?cancelSimulationJob(s,registry,job.id,c,s.sequence).state:s;
++    return previewSimulationCommand(ready,registry,def.id,def.bodyCare.kind==='wake'?{...c,busy:false}:c);
++   },{blocked:!ports.writable()?'Saving is paused.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),ports.context())}));
+    const making=withFactsFrame(s,()=>castMakingOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
+    const objectActs=withFactsFrame(s,()=>castObjectOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
+-   const jobs=s.simulation.jobs.filter(j=>[...castWalkCommands,...castObjectCommands,...castTalkCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId)?.label||'Saved walk',due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:[...castMakingCommands,...castExchangeCommands].some(d=>d.id===j.commandId)&&['refund','forfeit'].includes(j.cancellation)}));
++   const jobs=s.simulation.jobs.filter(j=>[...castBodyCommands,...castWalkCommands,...castObjectCommands,...castTalkCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId)?.label||'Saved walk',due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:[...castBodyCommands,...castMakingCommands,...castExchangeCommands].some(d=>d.id===j.commandId)&&['refund','forfeit'].includes(j.cancellation)}));
+    const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at}));
+-   return {enrolled:true,resident:true,runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,making,exchanges,divinations,inferences,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
++   return {enrolled:true,resident:true,runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,exchanges,divinations,inferences,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   }
+   const actions=[],actingGuidance=[];
+   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
+@@ -266,7 +277,8 @@
+   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
+   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
+  }
+- return {enroll,cross,act,cancel,move,wake,tick,view,startable,inspectConstraints:()=>castRevisionReport(state())};
++ function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!castBodyCommands.some(d=>d.id===job.commandId&&d.bodyCare.kind==='sleep'))return false;ports.beginSleep();return true;}
++ return {enroll,cross,act,cancel,move,wake,tick,view,startable,restoreSleep,inspectConstraints:()=>castRevisionReport(state())};
+ }
+ 
+ export function castClockLine(s){const c=castCalendar(s).calendar;return `Day ${c.day_count}, ${c.hour<6?'night':c.hour<12?'morning':c.hour<18?'afternoon':'evening'}`;}
+--- a/src/book_world_lotm_state.js
++++ b/src/book_world_lotm_state.js
+@@ -1,7 +1,7 @@
+ // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
+ // inert: no Tingen presence, job, means or knowledge may exist without it. The
+ // only activation path is enrollLotmBranch (book_world_lotm_content.js).
+-import {castExchangeCommands,castInferenceCommands,castMakingCommands,castDivinationCommands,castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
++import {castBodyCommands,castExchangeCommands,castInferenceCommands,castMakingCommands,castDivinationCommands,castWalkCommands,castWalkDefinitionById,castObjectCommands,castTopicCommands,castJourneyCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
+ import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
+ import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
+ import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
+@@ -30,7 +30,7 @@
+  const d=state.lotm,s=state.simulation,a=state.actors||{};
+  if(d==null){
+   assert(!state.worlds?.[I.world]&&!a[I.supervisor]&&!s?.people?.[I.supervisor]&&a.player?.worldId!==I.world,'Tingen presence needs its explicit optional owner.');
+-  assert(!(s?.jobs||[]).some(j=>prefix(j.commandId)||[...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].some(c=>c.id===j.commandId)),'Tingen work cannot outlive its owner.');
++  assert(!(s?.jobs||[]).some(j=>prefix(j.commandId)||[...castBodyCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].some(c=>c.id===j.commandId)),'Tingen work cannot outlive its owner.');
+   for(const actor of Object.values(a))assert(!Object.keys(actor.resources||{}).some(prefix)&&!Object.keys(actor.sources||{}).some(prefix)&&!Object.keys(actor.facts||{}).some(prefix)&&!Object.keys(actor.completed||{}).some(prefix),'Tingen means require the matching optional owner.');
+   assert(!s?.powers?.player?.[I.method]&&!s?.energies?.player?.[I.energy]&&!Object.keys(s?.knowledge?.player||{}).some(prefix)&&!Object.keys(s?.knowledge?.[I.supervisor]||{}).some(prefix),'Tingen knowledge and powers require the matching optional owner.');
+   return true;
+@@ -51,10 +51,11 @@
+  for(const owner of [state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village,state.mistglassRealm])assert(owner?.activeVisitId==null,'One controlled native body cannot be in the Tingen branch and another retained world.');
+  const sup=s.people[I.supervisor];
+  if(d.entryProfile!==BE_PROFILE_ID)assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
+- for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].some(c=>c.id===j.commandId))){
++ for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castBodyCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].some(c=>c.id===j.commandId))){
+   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
+-  const def=castWalkDefinitionById(j.commandId)||[...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].find(c=>c.id===j.commandId);
++  const def=castWalkDefinitionById(j.commandId)||[...castBodyCommands,...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands].find(c=>c.id===j.commandId);
+   assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
++  if(def.bodyCare&&def.duration>0)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:true,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Body support differs from its exact admitted definition.');
+   if(def.inference)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Thought support differs from its exact admitted definition.');
+   if(def.divination)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Rite support differs from its exact admitted definition.');
+   if(def.exchange)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:true,location:def.location,failure:'refund'}),'Exchange support differs from its exact admitted definition.');
+--- a/src/book_world_lotm_ui.js
++++ b/src/book_world_lotm_ui.js
+@@ -206,6 +206,11 @@
+    if(!topic){topic=node('details');topic.dataset.lotmTopic=a.topicId;topic.append(node('summary',a.topicLabel));person.append(topic);}
+    topic.append(node('p',a.description),node('p',`${a.costText} ${a.effectText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   }
++  if(v.bodyCare?.length){
++   const care=node('details');care.dataset.lotmBodyCare='';care.dataset.perspective='player';care.append(node('summary','Rest and meals · Your body'));
++   for(const a of v.bodyCare)care.append(node('p',`${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
++   actions.append(care);
++  }
+   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+   if(v.journeys?.length){
+    const journeys=node('details');journeys.dataset.lotmJourneys='';journeys.dataset.perspective='player';journeys.append(node('summary','Journeys · Your journey'));
+--- a/src/main.js
++++ b/src/main.js
+@@ -8412,7 +8412,7 @@
+         }
+ 
+         if(save_data.is_sleeping) {
+-            start_sleeping();
++            if(!domainRegistry.command('lotm','restoreSleep')())start_sleeping();
+         }
+         if(save_data.is_reading && save_data.is_reading!==ANTHOLOGY) {
+             start_reading(save_data.is_reading);
+--- a/src/perspective_controls.js
++++ b/src/perspective_controls.js
+@@ -63,6 +63,7 @@
+     ['entry-axis', 'other-seat', 'Choices for a different Tingen start.'],
+     ['entry-unwritten', 'other-seat', 'Unwritten choices for a different Tingen start.'],
+     ['gap', 'in-world', 'Known gaps in the current record.'],
++    ['body-care', 'in-world', 'Rest, waking and meals in this character’s life.'],
+     ['exchanges', 'in-world', 'The character exchanges existing stock and wears carried belongings.'],
+     ['making', 'in-world', 'The character’s preparation and product use.'],
+     ['merit', 'in-world', 'The character’s merit account.'],
+--- a/tests/perspective_controls.test.js
++++ b/tests/perspective_controls.test.js
+@@ -22,7 +22,7 @@
+   const panel = await read('../src/book_world_lotm_ui.js');
+   const families = new Set([...panel.matchAll(/dataset\.(lotm[A-Z]\w*)/g)].map(match => match[1].replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`).replace(/^-/, '')));
+   for (const family of families) assert.ok(rows.some(row => row.anchor === `[data-${family}]`), `LOTM data family data-${family} is tagged`);
+-  for (const family of ['topic-person', 'topic', 'journeys', 'inferences', 'exchanges']) {
++  for (const family of ['topic-person', 'topic', 'journeys', 'inferences', 'exchanges', 'body-care']) {
+     assert.equal(rows.find(row => row.anchor === `[data-lotm-${family}]`)?.tag, 'in-world', `${family} belongs to this life`);
+   }
+   assert.ok(rows.some(row => row.anchor === '[data-lotm]'), 'dynamic LOTM command controls are tagged');

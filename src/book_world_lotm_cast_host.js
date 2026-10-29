@@ -1,3 +1,4 @@
+import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
 import {constraintsFromPack} from './constraint_pack.js';
 import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
 import {createStreams} from './seeded_streams.js';
@@ -43,6 +44,11 @@ export let CAST_PLACE_LABELS={};
 let peopleById=new Map(),placesById=new Map();
 const actorId=id=>peopleById.get(id)?.sameActorAs||id;
 export let castSchedule=[],castPeople=[],castTalkCommands=[],castPlaces=[],castMoves={},castWalkCommands=[];
+export let castBodyCommands=[];
+export function castBodyOffers(state,preview,options={}){
+ if(!lotmBe(state)||!castAvailable)return [];
+ return quoteBodyCare(state,castBodyCommands,preview,options);
+}
 export let castJourneyCommands=[];
 // Bind the existing native relocation capability to this world's authored routes.
 export function castJourneyContext(state,context){
@@ -147,6 +153,7 @@ function deriveCast(pack){
  requires:eq('lotm.profile.beside'),effects:[{type:'knowledge',actor:'player',key:`book.lotm.cast.met.${p.id}`,
  stage:'seen',value:`You spoke with ${p.name} when you were together.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
+ castBodyCommands=defineBodyCare(pack.bodyCare,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -187,7 +194,7 @@ export function castElsewhere(state){
 const installed=new WeakSet();
 export function installCast(registry){
  if(!castAvailable||installed.has(registry))return;
- const defs=createSimulationRegistry({people:castPeople,commands:[...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands],situations:[castSituation]});
+ const defs=createSimulationRegistry({people:castPeople,commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands],situations:[castSituation]});
  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
  validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
  installed.add(registry);

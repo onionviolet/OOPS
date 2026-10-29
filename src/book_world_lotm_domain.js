@@ -33,6 +33,6 @@ function restoreMissingCast(envelope){
  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
 }
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),
- commands:{wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
+ commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
  projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});

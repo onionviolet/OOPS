@@ -8412,7 +8412,7 @@ function load(save_data) {
         }
 
         if(save_data.is_sleeping) {
-            start_sleeping();
+            if(!domainRegistry.command('lotm','restoreSleep')())start_sleeping();
         }
         if(save_data.is_reading && save_data.is_reading!==ANTHOLOGY) {
             start_reading(save_data.is_reading);

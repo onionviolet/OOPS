@@ -53,7 +53,7 @@ test('native registry accepts JSON roundtrip; unknown total is silent and unsupp
  const blocked=quoteCastExchanges(setup().state,commands,()=>({visible:true,eligible:true}),{blocked:'Saving paused.'});assert.equal(blocked[0].eligible,false);
 });
 
-test('live or prepared joins preserve pending and settled exchange through native Save, reload, Export and Import', {timeout:180000}, async t=>{
+test('live joins preserve pending and settled exchange through native Save, reload, Export and Import', {timeout:180000}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -66,11 +66,7 @@ test('live or prepared joins preserve pending and settled exchange through nativ
  }
 
  await mkdir(join(dir,'tests'));await cp(join(root,'tests/perspective_controls.test.js'),join(dir,'tests/perspective_controls.test.js'));
- const patch=join(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/CU1_INTEGRATION.patch');
- let integrated=false;
- try{await exec('git',['apply','-R','--check',patch],{cwd:dir});integrated=true;}catch{}
- if(!integrated){await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});}
- t.diagnostic(integrated?'CU1 integration already present; tested live source.':'CU1 integration absent; applied prepared patch in disposable copy.');
+ t.diagnostic('CU1 fixture tests the live integrated source.');
  await exec(process.execPath,['--test','tests/perspective_controls.test.js'],{cwd:dir,timeout:30000});
  const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:30000});t.diagnostic(arch.stdout.trim());
  const mainFile=join(dir,'src/main.js');
@@ -97,7 +93,7 @@ export const cuAct=id=>{domainRegistry.refresh();document.querySelector('[data-l
  const buildOut=join(dir,'cu1-build');
  await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');
- t.diagnostic('Patched disposable build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
+ t.diagnostic('Live-source disposable build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'cu1-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
