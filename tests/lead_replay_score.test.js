@@ -1,7 +1,7 @@
 // Synthetic only: no source text, names or private ledger data.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS,performReplayControl} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
 
 test('fidelity counts reached events in order inside their windows and keeps typed misses',()=>{
     const rows=['a','b','c','d'].map((id,i)=>({id,locator:`zh 第${i<2?1:2}章 p1`}));
@@ -89,4 +89,42 @@ test('canon-only execution skips setup input and uses only the recorded step rou
     const io={read:async()=>({place:'target',cash:10,knowledge:{}}),waitBand:async()=>{},screenshot:async()=>{},move:async(_,leg)=>calls.push(leg.actionId)};
     await executeRows({},[row],io,{canonOnly:true});
     assert.deepEqual(calls,['canon']);
+});
+
+test('paused replay steps each quoted job, reproduces act times and detects a one-minute delay',async()=>{
+    async function replay(delaySecond=0) {
+        const state={expansion:{clock:10,simulation:{people:{player:{location:'room'}},jobs:[],knowledge:{player:{}},log:[]}}};
+        const snapshot=async()=>structuredClone(state);
+        const port={snapshot,click:async id=>{
+            assert.equal(state.expansion.simulation.jobs.length,0,'previous job must finish first');
+            if (id==='b') state.expansion.clock+=delaySecond;
+            const now=state.expansion.clock;
+            state.expansion.simulation.knowledge.player[id]={at:now};
+            state.expansion.simulation.log.push({at:now});
+            state.expansion.simulation.jobs.push({id,actorId:'player',due:now+2});
+            return {quotedMinutes:2};
+        },advanceTo:async target=>{
+            state.expansion.clock=target;
+            for(const job of state.expansion.simulation.jobs) state.expansion.simulation.knowledge.player[job.id].result={at:target};
+            state.expansion.simulation.jobs=[];
+            return snapshot();
+        }};
+        const rows=['a','b'].map(id=>({id,status:'mapped',route:[{actionId:id,place:'room'}],anchors:{place:'room',purseDelta:0}}));
+        const io={read:async()=>({place:'room',cash:0,knowledge:{}}),screenshot:async()=>{},move:async(_,leg)=>performReplayControl(port,leg)};
+        const run=await executeRows({},rows,io);return {run,state:await snapshot()};
+    }
+    const first=await replay(),second=await replay(),late=await replay(1);
+    assert.equal(compareRunSnapshots(first.state,second.state).identical,true);
+    assert.equal(scoreReproducibleReplay(first.run.replayScore,second.run.replayScore,true).reproduced,2);
+    const mismatch=compareRunSnapshots(first.state,late.state);
+    assert.equal(mismatch.identical,false);
+    assert.ok(mismatch.differingPaths.includes('expansion.simulation.knowledge.player.b.at'));
+    assert.equal(scoreReproducibleReplay(first.run.replayScore,late.run.replayScore,mismatch.identical).reproduced,0);
+});
+
+test('synchronous timed controls are not advanced a second time',async()=>{
+    const state={expansion:{clock:7,simulation:{jobs:[],people:{player:{location:'room'}}}}};let steps=0;
+    const io={snapshot:async()=>structuredClone(state),click:async()=>{state.expansion.clock+=3;return {quotedMinutes:3};},advanceTo:async()=>{steps++;}};
+    assert.equal(await performReplayControl(io,{actionId:'wait',place:'room'}),null);
+    assert.equal(state.expansion.clock,10);assert.equal(steps,0);
 });

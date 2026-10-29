@@ -1,7 +1,7 @@
 // CL161-CL190 / CLR3: public driver; source text, IDs and screenshots come from private inputs.
 // node .../lotm_ui_replay.mjs --mapping <private.json> --scenes <private.jsonl>
 //   --l4b-gaps <private.jsonl> --out <private-dir> [--audit-only | --build <isolated-build>]
-// UI clicks and natural clock; test hooks supply snapshots, pause and the fresh-probe seed.
+// UI clicks with the engine paused; explicit test-hook ticks advance replay time.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -234,7 +234,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
             continue;
         }
         const after = await io.read(page);
-        if (row.anchors?.place) assert.equal(after.place,row.anchors.place);
+        if (row.anchors?.destination || row.anchors?.place) assert.equal(after.place,row.anchors.destination || row.anchors.place);
         if (row.anchors.purseDelta !== undefined) assert.equal(after.cash-before.cash,row.anchors.purseDelta);
         for (const key of row.anchors.knowledge || []) assert.ok(after.knowledge[key], 'required knowledge note');
         verified.add(row.id);
@@ -247,6 +247,32 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
         }
     }
     return {receipts,score:scoreRows(rows,verified),replayScore:scoreReplay(rows,outcomes)};
+}
+// The UI may commit a timed job or consume its time synchronously (waits).
+// Step only a newly committed player job, and verify its actual deadline.
+export async function performReplayControl(io,leg) {
+    const before=await io.snapshot();
+    const result=await io.click(leg.actionId);
+    if (result?.blocked || result?.gap) return result;
+    const after=await io.snapshot();
+    const oldIds=new Set((before.expansion?.simulation?.jobs || []).map(job=>job.id));
+    const jobs=(after.expansion?.simulation?.jobs || []).filter(job=>job.actorId==='player'&&!oldIds.has(job.id));
+    if (jobs.length>1) return {gap:'Control started multiple player jobs; completion is ambiguous.'};
+    let finished=after;
+    if (jobs.length===1) {
+        const due=jobs[0].due, clock=after.expansion.clock;
+        if (!Number.isSafeInteger(due) || due<=clock) return {gap:'Control did not produce a valid future job deadline.'};
+        if (result?.quotedMinutes != null && due-clock!==result.quotedMinutes) return {gap:'Control job duration differs from the visible quote.'};
+        finished=await io.advanceTo(due);
+        if ((finished.expansion?.simulation?.jobs || []).some(job=>job.id===jobs[0].id)) return {gap:'Control job did not finish at its deadline.'};
+    } else if (result?.quotedMinutes>0 && after.expansion.clock-before.expansion.clock!==result.quotedMinutes) {
+        return {gap:'Timed control did not consume its visible quote.'};
+    } else if (after.expansion.clock===before.expansion.clock && compareRunSnapshots(before,after).identical) {
+        return {gap:'Control produced no observable state change.'};
+    }
+    const destination=leg.destination || leg.place;
+    if (destination && finished.expansion?.simulation?.people?.player?.location!==destination) return {gap:'Control did not reach its expected place.'};
+    return null;
 }
 async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer = false, readyTimeoutMs = DEFAULT_READY_TIMEOUT_MS, recordPackLoad = () => {}) {
     const require = createRequire(import.meta.url), {launchChrome} = require('../../ui_helpers.cjs');
@@ -273,7 +299,7 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         const until = async (predicate,what) => {
             const deadline = Date.now()+12*60*1000;
             while (!await predicate()) {
-                if (Date.now()>=deadline) assert.fail(`natural clock stalled or route failed: ${what}; last ${JSON.stringify(await read().catch(e => String(e)))}`);
+                if (Date.now()>=deadline) assert.fail(`page readiness or route failed: ${what}; last ${JSON.stringify(await read().catch(e => String(e)))}`);
                 await page.waitForTimeout(250);
             }
         };
@@ -285,6 +311,8 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         await playButton.waitFor({state:'visible',timeout:readyTimeoutMs});
         packLoadMs.initial = Date.now()-navigationStarted;
         recordPackLoad('initial',packLoadMs.initial);
+        await page.waitForFunction(() => !!window.simulationTestHooks && typeof window.advanceTicks==='function',null,{timeout:readyTimeoutMs});
+        await page.evaluate(() => window.simulationTestHooks.pause());
         await playButton.click();
         const confirm = page.locator('#hero_creation_panel_confirmation');
         if (await confirm.isVisible()) await confirm.click();
@@ -302,8 +330,10 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
                 assert.ok(reason?.trim(),'disabled control has no displayed reason');
                 return {blocked:reason.trim()};
             }
+            const label=await control.innerText();
+            const quoted=/\b(\d+)\s*(?:min|minutes?)\b/i.exec(label);
             await control.scrollIntoViewIfNeeded(); await control.click();
-            return null;
+            return {quotedMinutes:quoted ? Number(quoted[1]) : null};
         };
         if (seat === 'be') {
             await click('pick_be');
@@ -313,6 +343,8 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             await playButton.waitFor({state:'visible',timeout:readyTimeoutMs});
             packLoadMs.reload = Date.now()-navigationStarted;
             recordPackLoad('reload',packLoadMs.reload);
+            await page.waitForFunction(() => !!window.simulationTestHooks && typeof window.advanceTicks==='function',null,{timeout:readyTimeoutMs});
+            await page.evaluate(() => window.simulationTestHooks.pause());
             await playButton.click();
             if (await confirm.isVisible()) await confirm.click();
             await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm').catch(() => {});
@@ -322,6 +354,24 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             await click(mapping.entry.pick); await click(mapping.entry.enroll);
             await until(async () => {try {return (await read()).place === mapping.entry.place;} catch {return false;}},'beside entry');
         }
+        const replayStartClock=(await snapshot()).expansion.clock;
+        const advanceReplayTo = target => page.evaluate(target => {
+            if (typeof window.advanceTicks!=='function') throw new Error('Paused tick stepper is unavailable.');
+            window.simulationTestHooks.pause();
+            let state=window.simulationTestHooks.snapshot(),clock=state.expansion?.clock,stalled=0;
+            if (!Number.isSafeInteger(target) || !Number.isSafeInteger(clock) || target<clock || target-clock>20000) throw new Error('Invalid or over-budget replay clock target.');
+            for (let ticks=0;clock<target;ticks++) {
+                if (ticks>=20000) throw new Error('Replay clock exceeded the tick budget.');
+                window.advanceTicks(1);
+                state=window.simulationTestHooks.snapshot();
+                const next=state.expansion?.clock;
+                if (!Number.isSafeInteger(next) || next<clock || next>target) throw new Error('Replay clock did not land on the exact target minute.');
+                stalled=next===clock ? stalled+1 : 0;
+                if (stalled>=10) throw new Error('Replay clock is blocked.');
+                clock=next;
+            }
+            return state;
+        },target);
         const io = {
             read,
             waitBand:async (_,time) => {
@@ -336,16 +386,17 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
                         if (arrival < start || arrival >= (time.day-1)*1440+time.to) continue;
                         await button.scrollIntoViewIfNeeded();
                         await button.click();
+                        if ((await read()).elapsed<arrival) throw new Error('Wait stopped before its quoted target.');
                         break;
                     }
                 }
-                await until(async () => (await read()).elapsed>=start,'source band');
+                const state=await snapshot();
+                if ((await read()).elapsed<start) await advanceReplayTo((state.lotm || state.expansion?.lotm).initializedAt+start);
                 assert.ok((await read()).elapsed<(time.day-1)*1440+time.to,'missed source time band');
             },
             move:async (_,leg,time) => {
-                const blocked = await click(leg.actionId);
-                if (blocked) return blocked;
-                await until(async () => (await read()).place===leg.place,'walk leg');
+                const result=await performReplayControl({snapshot,click,advanceTo:advanceReplayTo},leg);
+                if (result) return result;
                 if (leg.label) assert.ok((await panel.innerText()).includes(leg.label),'arrival must be shown in the real panel');
                 if (time) assert.ok((await read()).elapsed<(time.day-1)*1440+time.to,'walk finished outside source band');
             },
@@ -371,7 +422,7 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
             return state;
         },target);
         retained=true;
-        return {result:{...result,packLoadMs,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors},advanceTo,close:()=>browser.close(),errors};
+        return {result:{...result,packLoadMs,replayStartClock,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors},advanceTo,close:()=>browser.close(),errors};
     } finally {if (!retained) await browser.close();}
 }
 async function main() {
@@ -398,7 +449,7 @@ async function main() {
     const rowKinds = Object.fromEntries([...new Set(replayRows.map(kindOf))].sort().map(kind=>[kind,replayRows.filter(r=>kindOf(r)===kind).length]));
     const readyTimeoutMs = args['ready-timeout-ms'] === undefined ? DEFAULT_READY_TIMEOUT_MS : Number(args['ready-timeout-ms']);
     assert.ok((args['ready-timeout-ms'] === undefined || typeof args['ready-timeout-ms'] === 'string') && Number.isSafeInteger(readyTimeoutMs) && readyTimeoutMs>0, '--ready-timeout-ms must be a positive integer');
-    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',clockAlignment:{mode:'pending',excludedPaths:[]},replaySeed:seat==='be'?REPLAY_SEED:null};
+    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],replayClock:{mode:'paused; explicit job and wait advancement',startClocks:[]},comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',clockAlignment:{mode:'pending',excludedPaths:[]},replaySeed:seat==='be'?REPLAY_SEED:null};
     fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
     if (args['audit-only']) {console.log(JSON.stringify(audit)); return;}
     assert.equal(typeof args.build,'string','--build required for UI proof');
@@ -416,6 +467,8 @@ async function main() {
             const session = await browserRun(runMapping,args.build,out,run,seat,!!args['null-player'],readyTimeoutMs,recordPackLoad);
             sessions.push(session);
             const result=session.result; runs.push(result);
+            audit.replayClock.startClocks.push(result.replayStartClock);
+            fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
             fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify(result,null,2)+'\n');
         }
         const alignment=await compareAtGameMinute(runs.map(run=>run._snapshot),(index,target)=>sessions[index].advanceTo(target));
@@ -433,7 +486,7 @@ async function main() {
         const differences=comparison.differingPaths;
         const reproducibility=scoreReproducibleReplay(runs[0].replayScore,runs[1].replayScore,comparison.identical);
         for (const run of runs) { delete run._snapshot; }
-        const result = {...audit,bundleHash,score:runs[0].score,replayScore:runs[0].replayScore,reproducibility,stateHash:runs[0].stateHash,nullPlayer:!!args['null-player'],identical:comparison.identical,differingPaths:differences,pageErrors:[],state:'agent-verified, not human-reviewed',route:`fresh ${seat} life; visible clicks; natural clock; explicit supporting walks; prior gaps remain unexecuted`};
+        const result = {...audit,bundleHash,score:runs[0].score,replayScore:runs[0].replayScore,reproducibility,stateHash:runs[0].stateHash,nullPlayer:!!args['null-player'],identical:comparison.identical,differingPaths:differences,pageErrors:[],state:'agent-verified, not human-reviewed',route:`fresh ${seat} life; visible clicks; paused engine and explicit game-time advancement; prior gaps remain unexecuted`};
         if (comparison.mismatch) fs.writeFileSync(path.join(out,'mismatch.json'),JSON.stringify(comparison.mismatch,null,2)+'\n');
         fs.writeFileSync(path.join(out,'proof.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify(result));

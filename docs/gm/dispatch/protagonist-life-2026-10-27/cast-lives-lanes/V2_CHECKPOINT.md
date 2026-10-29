@@ -146,3 +146,22 @@ as a typed `missing UI path` gap when unavailable.
 | Driver `--seat be --null-player --chapters 1-24 --max-steps 100 --offset 0 --audit-only` on the existing regenerated mapping | PASS; audit lists `skillRecords.tracked` | No browser comparison |
 | `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js` | PASS | Scoped whitespace only |
 | Browser replay | Not run | Coordinator must verify the two candidate controls as reproduced or typed gaps |
+
+## Resume 5: explicit replay time, 2026-10-29
+
+The coordinator reported that act timestamps differed when the natural clock ran between clicks. The driver now pauses
+the engine before each life starts and keeps it paused through replay. It uses the existing loopback test hooks:
+`simulationTestHooks.pause()` and `window.advanceTicks(1)`. A newly committed player job advances to its actual deadline,
+checked against the visible duration when present. A synchronous wait uses the game's own quoted wait action and is not
+advanced a second time. Window alignment with no suitable wait control uses explicit ticks. Interrupted or mismatched
+timing and controls without an observable result become typed gaps. Journey destination anchors are checked after the job.
+The audit records the replay clock mode and each run's start clock. Resume 3's end-clock alignment and fallback remain.
+No new integration patch is needed for the existing hooks.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 10 tests; identical synthetic acts match and a one-minute-late act differs | Synthetic ports, not browser proof |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| Driver `--seat be --null-player --chapters 1-24 --max-steps 150 --offset 0 --audit-only` on `/tmp/v2-generated-replay-mapping.json` | PASS; audit records paused replay mode | Earlier mapping input, not the whole-book acts candidate; no browser execution |
+| `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js` | PASS | Scoped whitespace only |
+| Browser replay | Not run | Coordinator must exercise both lives and check actual act timestamps, control scores and page errors |
