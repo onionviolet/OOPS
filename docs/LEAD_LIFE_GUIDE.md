@@ -334,7 +334,18 @@ build order below is a proposal. Mechanisms first is accepted.
   | Either "no" or a named other person | 29 | 33 | 18 |
   | Both "no" and not the lead | 21 | 19 | 8 |
 
-  The pass bar (recall over about half, under 10% false rows) is not met: the strictest flag keeps 52% and 48% recall but wrongly flags 20% of good rows; looser flags flag 35-45% of them. Part of that is disagreement with an earlier single-pass review, not necessarily a tagging error. Reading: a paragraph-level pass is informative as a **triage flag** (about 83% of the steps flagged by the strict rule were reviewed faults) and is not reliable enough to replace review or a reread outright. A cheaper Haiku reread is unlikely to beat it, so the $0.65 slice is not recommended on this evidence. Cheapest next step: use the strict flag to rank the unreviewed gaps for the Luna review lanes, then rerun the pilot with Luna named in a fresh launch (not a resume) if the model matters.
+  The pass bar (recall over about half, under 10% false rows) is not met: the strictest flag keeps 52% and 48% recall but wrongly flags 20% of good rows; looser flags flag 35-45% of them. Part of that is disagreement with an earlier single-pass review, not necessarily a tagging error. Reading: a paragraph-level pass is informative as a **triage flag** (about 83% of the steps flagged by the strict rule were reviewed faults) and is not reliable enough to replace review or a reread outright. A cheaper Haiku reread is unlikely to beat it, so the $0.65 slice is not recommended on this evidence. Next step taken: the script ranking and the Luna rerun below.
+- **Codex pilot TG2 (2026-10-29): the same 140 steps, a fresh launch naming Luna.** The lane record and the Codex session file both show `gpt-6-luna` for TG2 (the session calls itself only "GPT-6", so I checked the file); TG1's resumed pass is the one that ran on a different model. Same table, Luna:
+
+  | Signal | Actor faults (40) | "Not an action" (40) | Good rows (40) |
+  | --- | --- | --- | --- |
+  | Named other person | 21 | 6 | 13 |
+  | Paragraph does not show the step | 23 | 36 | 16 |
+  | Both "no" and not the lead | 17 | 15 | 8 |
+  | Either "no" or named other | 33 | 36 | 24 |
+
+  Luna misses the bar too: the strict flag keeps 42% and 38% recall at 20% false rows; the loose flag keeps 82% and 90% recall but flags 60% of good rows. The two passes agree on the actor for only 83 of 140 steps (59%) and on `shown` for 104 (74%); requiring both to flag the same step drops recall to 28-35% (strict). Two models disagreeing this much means the labels are partly judgement calls, so neither reviewed verdicts nor model tags are ground truth for the cases at the margin. Decision for now (a proposal): keep the earlier verdicts as the reference, do not buy the Haiku reread, and use tags only to order review work, not to replace it.
+- **Review queue by script.** `scripts/lead_run/rank_review_queue.mjs` orders the 9,737 unreviewed gap steps by how likely a reviewer finds an actor or not-an-action fault, from step class, people present, verb length, dialogue in the scene and a missing object, trained on the 342 reviewed verdicts. Seeded split-half AUC is 0.69 (0.5 is chance), so the order is a mild signal only. It leaves out the shard, which looked better (0.8) but only tells which review lane read the step. Output is private (`step-tags-2026-10-29/review_queue.jsonl`); test in `tests/lead_run_step_tags.test.js`.
 - **Not done.** The code-per-covered-step meter (LSD166, needs per-lane covered-step counts); wiring the sidecar into the mapper rerun (LSD180), which would not change coverage because tags did not clear gaps.
 
 **Working practices** that apply to every step above (all proposals unless noted):

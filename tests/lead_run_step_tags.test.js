@@ -48,3 +48,13 @@ test('replay metrics count reachable share, great beats, fold loss and control k
   const table = familyByVolume({segments:{lead:{volumes:{1:{families:{a:2}},2:{families:{a:1,b:4}}}}}});
   assert.deepEqual(table.map(r=>[r.family,r.total]),[['b',4],['a',3]]);
 });
+
+import {featuresOf, train, score, splitHalfAuc} from '../scripts/lead_run/rank_review_queue.mjs';
+test('the review ranker scores a learnable pattern above chance and is deterministic',()=>{
+  const rows=[];
+  for(let i=0;i<40;i++) rows.push({x:featuresOf({present:Array(i%2?4:0),evidence:[{kind:'narration'}]},{class:'other',verb:i%2?'one two three four':'go',object:'x'}),y:Boolean(i%2)});
+  const m=train(rows);
+  assert.ok(score(m,rows[1].x)>score(m,rows[0].x));
+  assert.equal(splitHalfAuc(rows),splitHalfAuc(rows));
+  assert.ok(splitHalfAuc(rows)>0.9);
+});
