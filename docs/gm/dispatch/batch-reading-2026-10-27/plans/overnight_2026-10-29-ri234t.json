@@ -1,0 +1,30 @@
+{
+ "name": "2026-10-29-ri234t",
+ "approval": "Weibao 2026-10-29: RI volumes 2-4 approved (\"Send next stuff for the rest of the moneey left\"; \"Send the rereads and other stuff accordingly\", passing $95 approved). Texture only, after the pooled ceiling stopped it in ri234; sent after the LOTM reread if measured + $3.31 <= $99.5 before Oct 31 noon.",
+ "ceilingUsd": 3.31,
+ "capTotal": 3.3,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_texture.json",
+     "cap": 1.12,
+     "label": "ri2-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_texture.json",
+     "cap": 1.12,
+     "label": "ri3-texture"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_texture.json",
+     "cap": 1.06,
+     "label": "ri4-texture"
+    }
+   ]
+  }
+ ]
+}
