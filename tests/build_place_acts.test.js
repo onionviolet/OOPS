@@ -95,3 +95,19 @@ test('a generated act is not reused for a different source step merely because w
  const row=buildReplayMapping({scenes,crosswalk,registry,pack:{...pack,householdActs:{objects:[],acts:[generated]}},fromChapter:1,toChapter:1}).rows[0];
  assert.equal(row.status,'gap'); assert.equal(row.canonicalControl,null);
 });
+
+test('maps expanded operation families and retains missing mechanisms as explicit gaps',()=>{
+ const seeded=structuredClone(pack);
+ seeded.householdActs.objects.push({id:'fixture.stock',resources:[{actor:'player',key:'fixture.grain',amount:1},{actor:'player',key:'fixture.meal',amount:0}],actorFacts:[{actor:'player',key:'fixture.owned',value:true}]});
+ const steps=[{verb:'read',object:'a book'},{verb:'cook',object:'a meal',placeAct:{costs:[{type:'resource',actor:'player',key:'fixture.grain',amount:-1}],effects:[{type:'resource',actor:'player',key:'fixture.meal',amount:1}]}},
+  {verb:'wake'},{verb:'check',object:'a clock',placeAct:{clock:{fact:'fixture.clock',value:'07:15'}}},{verb:'sit'},
+  {verb:'hide',object:'a key',placeAct:{objectId:'fixture.stock',secure:{ownedFact:'fixture.owned',custodyFact:'fixture.custody',concealedFact:'fixture.concealed',container:'fixture.drawer'}}},
+  {verb:'wait',minutes:3},{verb:'cook',object:'a meal'},{verb:'check',object:'a clock'},{verb:'wait'}];
+ const scenes=[{beat:'operations',pov:'lead',place:'reader.place.room',steps}];
+ const result=buildPlaceActs({scenes,crosswalk,registry,pack:seeded});
+ assert.deepEqual(result.data.acts.slice(1).map(r=>r.operation),['read','prepare','wake','check time','sit','secure','wait here']);
+ assert.equal(result.rejected.missingMechanism,3);
+ assert.deepEqual(result.data.acts[0],pack.householdActs.acts[0]);
+ assert.equal(createSimulationRegistry({commands:definePlaceActs(result.data,{worldId:'fixture.world',group:'fixture.group',situationId:'fixture.situation'})}).commands.size,8);
+ assert.equal(JSON.stringify(seeded.householdActs.objects).includes('fixture.grain'),true);
+});

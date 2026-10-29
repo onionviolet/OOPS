@@ -1,21 +1,22 @@
 // Ordinary work on objects at a place, expressed through simulation commands.
 // Definitions carry world-specific facts/text; simulation owns time, cost and effects.
-const operations=new Set(['inspect','pay','use','wash','clean','consume','store','take']);
+import {compilePlaceActOperation} from './place_act_operations.js';
 const validId=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 export function definePlaceActs(data,{worldId,actorId='player',group,situationId,requires=null}={}){
  if(!validId(worldId)||!validId(actorId)||!validId(group)||!validId(situationId))throw Error('Invalid place act binding.');
  const ids=new Set();
  return (data?.acts||[]).map(row=>{
-  if(!validId(row.id)||ids.has(row.id)||!operations.has(row.operation)||!validId(row.place)||
+  if(!validId(row.id)||ids.has(row.id)||!validId(row.place)||
    !Number.isSafeInteger(row.minutes)||row.minutes<1||!row.label||!row.description||!row.report||!validId(row.knowledgeKey))throw Error('Invalid place act.');
   ids.add(row.id);
-  const guard={all:[...(requires?[requires]:[]),...(row.requires?[row.requires]:[])]};
+  const operation=compilePlaceActOperation(row,{data,worldId,actorId,situationId});
+  const guard={all:[...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...operation.requires]};
   return {id:row.id,revision:1,label:row.label,description:row.description,group,actorId,worldId,location:row.place,
    once:false,duration:row.minutes,cancellation:'refund',requires:guard,
    // Keep a blocked local affordance visible, including missing means/order.
    visibleWhen:requires||{fact:'actor.life',op:'eq',value:'alive'},
    completionRequires:guard,completionCoLocated:true,completionFailure:'refund',
-   costs:structuredClone(row.costs||[]),effects:[...structuredClone(row.effects||[]),
+   costs:structuredClone(row.costs||[]),effects:[...structuredClone(row.effects||[]),...operation.effects,
     {type:'knowledge',actor:actorId,key:row.knowledgeKey,stage:'seen',value:row.report,
      basis:{kind:'observation',attributedTo:actorId,situationId}}]};
  });

@@ -100,6 +100,10 @@ test('be-seat native pending and settled acts survive save, reload, export and i
   bindings:{days:[{scene:'fixture.scene',day:1,from:0,to:100}],schedule,beats:[beat]},
   leadLife:{actorId:people[0].id,profile:{id:'book.lead.be@1',key:'be',label:'Be a person',beyonderTrack:false,cash:1,home:null,start:'fixture.place.other',blurb:'Begin at home.'},knownPlaces:['fixture.place.other'],history:[],relations:[],intentions:[],untakenChoices:[]},
   householdActs:{schema:1,objects:[{id:'fixture.box',facts:{'fixture.box.seen':false,'fixture.existing':7}}],acts:[{id:'book.lotm.fixture_inspect',operation:'inspect',place:'fixture.place.other',minutes:1,label:'Inspect the box',description:'Look over the box.',report:'You inspect the box.',knowledgeKey:'fixture.inspection',requires:{fact:'world.fixture.box.seen',op:'eq',value:false,reason:'Already inspected.'},effects:[{type:'fact',scope:'world',key:'fixture.box.seen',value:true}],costs:[],costLabel:'no stock spent'}]}};
+ // H2: the same native validator/save route admits every new operation.
+ pack.householdActs.objects.push({id:'fixture.stock',resources:[{actor:'player',key:'fixture.grain',amount:2},{actor:'player',key:'fixture.meal',amount:0}],facts:{'fixture.clock':'07:15'},actorFacts:[{actor:'player',key:'fixture.owned',value:true},{actor:'player',key:'fixture.awake',value:false}]});
+ const operations=[['read',{}],['prepare',{costs:[{type:'resource',actor:'player',key:'fixture.grain',amount:-1}],effects:[{type:'resource',actor:'player',key:'fixture.meal',amount:1}]}],['wake',{awakeFact:'fixture.awake'}],['check time',{clock:{fact:'fixture.clock',value:'07:15'}}],['sit',{}],['secure',{objectId:'fixture.stock',secure:{ownedFact:'fixture.owned',custodyFact:'fixture.custody',concealedFact:'fixture.concealed',container:'fixture.drawer'}}],['wait here',{}]];
+ pack.householdActs.acts.push(...operations.map(([operation,extra],i)=>({id:`book.lotm.fixture_operation_${i}`,operation,place:'fixture.place.other',minutes:1,label:operation,description:`${operation} at home.`,report:`You finish ${operation}.`,knowledgeKey:`fixture.operation.${i}`,...extra})));
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
@@ -127,6 +131,27 @@ try {
  assert.equal(after.expansion.worlds['book.lotm.tingen'].facts['fixture.box.seen'],true);
  assert.equal(after.expansion.simulation.knowledge.player['fixture.inspection'].value,'You inspect the box.');
  assert.equal(g.internals.foundationSaveBlocked,false);assert.deepEqual(g.errors,[]);
+ // H2: pending and completed commands cross real Save/reload/Export/Import.
+ for(let i=0;i<7;i++){
+  const id='book.lotm.fixture_operation_'+i;g.module.h1Act(id);
+  saved=await g.save();assert.ok(saved.expansion.simulation.jobs.some(j=>j.commandId===id));
+  const tampered=structuredClone(saved),pending=tampered.expansion.simulation.jobs.find(j=>j.commandId===id);
+  pending.effects.at(-1).value='altered';assert.throws(()=>g.module.h1Validate(tampered),/exact admitted definition/);
+  if(i===1){const pendingExport=await g.exportFile();await g.importFile(pendingExport);
+   assert.ok((await g.save()).expansion.simulation.jobs.some(j=>j.commandId===id));}
+  await g.step(2);saved=await g.save();
+  assert.equal(saved.expansion.simulation.knowledge.player['fixture.operation.'+i].stage,'seen');
+  process.stdout.write('settled operation '+i+'\\n');
+  assert.equal(g.internals.foundationSaveBlocked,false);
+ }
+ const operationExport=await g.exportFile();await g.importFile(operationExport);saved=await g.save();
+ for(let i=0;i<7;i++)assert.equal(saved.expansion.simulation.knowledge.player['fixture.operation.'+i].stage,'seen');
+ assert.equal(saved.expansion.actors.player.resources['fixture.grain'],1);
+ assert.equal(saved.expansion.actors.player.resources['fixture.meal'],1);
+ assert.equal(saved.expansion.actors.player.facts['fixture.awake'],true);
+ assert.equal(saved.expansion.worlds['book.lotm.tingen'].facts['fixture.concealed'],true);
+ assert.equal(saved.expansion.simulation.knowledge.player['fixture.operation.3.display'].value,'07:15');
+ assert.deepEqual(g.errors,[]);
  // Simulate a pre-H1 save: no markers/act facts. Additive seeding preserves any
  // pre-existing world fact and does not invent a completed action or receipt.
  const old=structuredClone(initial),facts=old.expansion.worlds['book.lotm.tingen'].facts;

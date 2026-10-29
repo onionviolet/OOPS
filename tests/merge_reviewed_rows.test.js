@@ -23,3 +23,13 @@ test('reviewed source disposition replaces an older control for the same step',(
  const result=mergeReviewedRows({...pack(),householdActs:{objects:[],acts:[existing]}},[[{stepId:'scene#1',verdict:'row',kind:'act',row:act}]]);
  assert.deepEqual(result.pack.householdActs.acts.map(row=>row.id),['fixture.act']);
 });
+
+test('reviewed operations use the same stock, custody and clock validators as runtime',()=>{
+ const input=pack();input.householdActs.objects=[{id:'fixture.stock',resources:[{actor:'player',key:'fixture.grain',amount:1}],actorFacts:[{actor:'player',key:'fixture.owned',value:true}]}];
+ const variants=[['read',{}],['prepare',{costs:[{type:'resource',actor:'player',key:'fixture.grain',amount:-1}],effects:[{type:'fact',scope:'world',key:'fixture.prepared',value:true}]}],['wake',{}],['check time',{clock:{fact:'fixture.clock',value:'07:15'}}],['sit',{}],['secure',{objectId:'fixture.stock',secure:{ownedFact:'fixture.owned',custodyFact:'fixture.custody',concealedFact:'fixture.concealed',container:'fixture.drawer'}}],['wait here',{}]];
+ const lines=variants.map(([operation,extra],i)=>({stepId:`scene#${i+1}`,kind:'act',verdict:'row',row:{...act,...extra,id:`fixture.act.${i}`,sourceStepId:`scene#${i+1}`,operation}}));
+ const result=mergeReviewedRows(input,[lines]);assert.equal(result.validated.acts,7);
+ assert.deepEqual(mergeReviewedRows(result.pack,[lines]).pack,result.pack);
+ const broken=structuredClone(input);broken.householdActs.objects=[];
+ assert.throws(()=>mergeReviewedRows(broken,[[lines[1]]]),/seeded resource/);
+});

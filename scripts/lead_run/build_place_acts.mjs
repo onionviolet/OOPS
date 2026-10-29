@@ -4,14 +4,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildPackJoin} from './build_crosswalk.mjs';
+import {compilePlaceActOperation} from '../../src/place_act_operations.js';
 import {FAMILY_RULES} from './gap_census.mjs';
 
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
 const safe = s => String(s).replace(/[^a-zA-Z0-9_.-]+/g, '-').replace(/^-|-$/g, '').toLowerCase();
 const human = s => typeof s === 'string' && s.trim() && !/^(unknown|unstated|unspecified|none|null|u|\?)$/i.test(s.trim());
-const TARGET_FAMILIES = new Set(['observe or listen','inspect or investigate','handle or move an item','read a text','rest or personal care','make or write an item','change or maintain state','reason or plan','agree or refuse a proposal']);
+const TARGET_FAMILIES = new Set(['observe or listen','inspect or investigate','handle or move an item','read a text','rest or personal care','make or write an item','change or maintain state','reason or plan','agree or refuse a proposal','wait for a time or event']);
 const KNOWLEDGE_ONLY = new Set(['observe or listen','inspect or investigate','reason or plan','agree or refuse a proposal']);
 const operationFor = (family, text) => {
+ if (family === 'read a text') return 'read';
+ if (/^\s*(wake|awaken)\w*\b/i.test(text)) return 'wake';
+ if (/^\s*(sit|settle|rest)\w*\b/i.test(text)) return 'sit';
+ if (/^\s*(check|look|glance)\b.*\b(clock|watch|time)\b/i.test(text)) return 'check time';
+ if (/^\s*(cook|prepare|make|brew)\w*\b.*\b(meal|breakfast|lunch|dinner|food|tea|coffee|drink|soup)\b/i.test(text)) return 'prepare';
+ if (/^\s*(hide|lock|secure|conceal)\w*\b/i.test(text)) return 'secure';
+ if (family === 'wait for a time or event') return 'wait here';
  if (family === 'handle or move an item') return /\b(put|place|store|hide|pack|close|lock|wear)\w*\b/i.test(text) ? 'store' : 'take';
  if (family === 'rest or personal care') return /\b(wash|bathe|clean)\w*\b/i.test(text) ? 'wash' : 'use';
  if (family === 'make or write an item') return 'use';
@@ -36,6 +44,8 @@ const duration = step => {
 };
 function classify(step) {
  const verb=String(step.verb||'').trim();
+ if(/^(sit|settle)\w*\b/i.test(verb))return 'rest or personal care';
+ if(/^(secure|conceal)\w*\b/i.test(verb))return 'handle or move an item';
  const stripped=FAMILY_RULES.some(rule=>rule.head.test(verb))?verb:verb.replace(/^(?:[A-Z][a-z'-]+\s+){1,3}(?=[a-z])/,'');
  const text=`${stripped} ${step.object||''}`;
  const matched=FAMILY_RULES.find(rule=>rule.head.test(stripped)&&(!rule.object||rule.object.test(text)))?.family;
@@ -45,7 +55,7 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence
  const join=buildPackJoin({crosswalk,registry,pack});
  const baseObjects=pack.householdActs?.objects||[], baseActs=pack.householdActs?.acts||[];
  const objects=[...baseObjects], acts=[...baseActs], objectIds=new Map(), actByStep={}, rejectedRows=[],
-   rejected={notFamily:0,unresolvedPlace:0,missingObject:0,ambiguousObject:0,unsupportedOperation:0}, familyStepsByVolume={}, rowsByFamily={}, rowsByVolume={}, rowsByFamilyAndVolume={};
+   rejected={notFamily:0,unresolvedPlace:0,missingObject:0,ambiguousObject:0,unsupportedOperation:0,missingMechanism:0}, familyStepsByVolume={}, rowsByFamily={}, rowsByVolume={}, rowsByFamilyAndVolume={};
  const ordered=scenes.filter(s=>s.pov==='lead').sort((a,b)=>(a.order||0)-(b.order||0));
  for(const scene of ordered) for(const [i,step] of (scene.steps||[]).entries()) {
   const family=classify(step); if(!family){rejected.notFamily++;continue;}
@@ -53,9 +63,10 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence
   familyStepsByVolume[`${family} · volume ${volume}`]=(familyStepsByVolume[`${family} · volume ${volume}`]||0)+1;
   const stepId=`${scene.beat}#${i+1}`, place=placeRef(scene.place,join,pack), raw=objectText(step);
   const review=knowledgeEvidence[stepId];
-  if(KNOWLEDGE_ONLY.has(family) && review && place && typeof review.report==='string' && review.report.trim() &&
+  if(KNOWLEDGE_ONLY.has(family) && operationFor(family,`${step.verb||''} ${step.object||''}`)!=='check time' && review && place && typeof review.report==='string' && review.report.trim() &&
     scene.evidence?.some(e=>e.locator===review.locator) && !acts.some(a=>a.sourceStepId===stepId)) {
-   const d=duration(step), label=String(step.verb||family).trim().replace(/\s+/g,' ');
+   const label=String(step.verb||family).trim().replace(/\s+/g,' ');
+   const d=duration(step);
    const row={id:`place.act.${safe(stepId)}`,sourceStepId:stepId,operation:'inspect',place,minutes:d.minutes,minutesBasis:d.basis,
     label,description:'Consider what is known here.',report:review.report.trim(),knowledgeKey:`place.act.${safe(stepId)}.result`,
     source:{label:'S',locator:review.locator}};
@@ -65,27 +76,33 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence
    continue;
   }
   if(family==='reason or plan'||family==='agree or refuse a proposal'){rejected.notFamily++;continue;}
+  const operation=operationFor(family,`${step.verb||''} ${raw||''}`);
+  const objectless=['wake','sit','wait here'].includes(operation);
   const ambiguous=raw && /\b(or|and|various|several|things|something|items)\b/i.test(raw);
   if(!place){rejected.unresolvedPlace++;rejectedRows.push({stepId,reason:'unresolvedPlace',missing:[{kind:'place',value:scene.place||null},...(!raw?[{kind:'object',value:null}]:[])],otherBlockers:ambiguous?['multiple or ambiguous objects']:[]});continue;}
-  if(!raw){rejected.missingObject++;rejectedRows.push({stepId,reason:'missingObject',missing:[{kind:'object',value:null}]});continue;}
+  if(!raw&&!objectless){rejected.missingObject++;rejectedRows.push({stepId,reason:'missingObject',missing:[{kind:'object',value:null}]});continue;}
   // A step must name one concrete object; alternatives and broad collections stay gaps.
   if(ambiguous){rejected.ambiguousObject++;rejectedRows.push({stepId,reason:'ambiguousObject',missing:[{kind:'object',value:raw}],otherBlockers:['multiple or ambiguous objects']});continue;}
-  const operation=operationFor(family,`${step.verb||''} ${raw}`); if(!operation){rejected.unsupportedOperation++;continue;}
-  const objectKey=`${place}\0${raw.toLowerCase()}`;
-  let objectId=objectIds.get(objectKey);
+  if(!operation){rejected.unsupportedOperation++;continue;}
+  const mechanism=step.placeAct||{};
+  const d=duration(step);
+  if(operation==='wait here'&&d.basis!=='step duration'){rejected.missingMechanism++;rejectedRows.push({stepId,reason:'missingMechanism',missing:[{kind:'duration',value:null}]});continue;}
+  try{compilePlaceActOperation({...mechanism,operation},{data:{objects},actorId:'player',situationId:'situation.place'});}catch{rejected.missingMechanism++;rejectedRows.push({stepId,reason:'missingMechanism',missing:[{kind:operation,value:null}]});continue;}
+  const objectKey=`${place}\0${(raw||operation).toLowerCase()}`;
+  let objectId=mechanism.objectId||objectIds.get(objectKey);
   if(!objectId){
-   objectId=`place.object.${safe(place)}.${safe(raw)}`;
+   objectId=`place.object.${safe(place)}.${safe(raw||operation)}`;
    let row=objects.find(o=>o.id===objectId);
-   if(!row){row={id:objectId,place,label:raw,facts:{[`place.object.${safe(objectId)}.present`]:true}};objects.push(row);}
+   if(!row){row={id:objectId,place,label:raw||operation,facts:{[`place.object.${safe(objectId)}.present`]:true}};objects.push(row);}
    objectIds.set(objectKey,objectId);
   }
   const id=`place.act.${safe(stepId)}`;
   if(acts.some(a=>a.id===id)){rejected.ambiguousObject++;continue;}
-  const d=duration(step), label=String(step.verb||family).trim().replace(/\s+/g,' ');
+  const label=String(step.verb||family).trim().replace(/\s+/g,' ');
   const source=scene.evidence?.[0]||{};
-  const report=`You ${label.toLowerCase()} ${raw}.`;
-  const row={id,sourceStepId:stepId,objectId,operation,place,minutes:d.minutes,minutesBasis:d.basis,label,
-   description:`${label} ${raw} at this place.`,report,knowledgeKey:`place.act.${safe(stepId)}.result`};
+  const report=`You ${label.toLowerCase()} ${raw||operation}.`;
+  const row={...mechanism,id,sourceStepId:stepId,objectId,operation,place,minutes:d.minutes,minutesBasis:d.basis,label,
+   description:`${label} ${raw||operation} at this place.`,report,knowledgeKey:`place.act.${safe(stepId)}.result`};
   acts.push(row); actByStep[stepId]=id;
   rowsByFamily[family]=(rowsByFamily[family]||0)+1; rowsByVolume[volume]=(rowsByVolume[volume]||0)+1;
   rowsByFamilyAndVolume[family]||={}; rowsByFamilyAndVolume[family][volume]=(rowsByFamilyAndVolume[family][volume]||0)+1;
