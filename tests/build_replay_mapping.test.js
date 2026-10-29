@@ -7,7 +7,7 @@ import {buildGapCensus} from '../scripts/lead_run/gap_census.mjs';
 test('builds deterministic place, time, talk and typed gap rows with option IDs',()=>{
   const scenes=[{beat:'s1',order:1,pov:'lead',evidence:[{locator:'第1章'}],place:'Flat',timeOfDay:{value:'dawn'},date:{label:'I'},
     present:[{kind:'person',id:'person.a'}],choices:[{options:[{id:'opt.taken',taken:true},{id:'opt.locked',taken:false}]}],
-    steps:[{verb:'walk',class:'travel'},{verb:'talk to person',class:'social'},{verb:'hide an object',class:'other'}]},
+    steps:[{verb:'walk to Flat',class:'travel'},{verb:'talk to person',class:'social'},{verb:'hide an object',class:'other'}]},
     {beat:'s2',order:2,pov:'lead',evidence:[{locator:'第1章'}],place:'Flat',timeOfDay:{value:'evening'},date:{label:'I'},
       present:[],choices:[],steps:[{verb:'wait for the next scene',class:'rest'}]}];
   const crosswalk={places:{Flat:'lotm.place.flat'}};
@@ -45,7 +45,7 @@ test('maps existing talk and movement controls from clear generic-class verbs on
   const scenes=[
     {beat:'talk',order:1,pov:'lead',evidence:[{locator:'zh 第1章 p1'}],place:'Flat',present:['p1'],steps:[{verb:'greet the guest',class:'other'}]},
     {beat:'talk-plural',order:2,pov:'lead',evidence:[{locator:'zh 第1章 p1'}],place:'Flat',present:['p1'],steps:[{verb:'speaks to the guest',class:'other'}]},
-    {beat:'walk',order:3,pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Market',present:[],steps:[{verb:'walk back to the market',class:'unknown'}]},
+    {beat:'walk',order:3,pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Market',present:[],steps:[{verb:'walk back to Market',class:'unknown'}]},
     {beat:'unknown-person',order:4,pov:'lead',evidence:[{locator:'zh 第1章 p3'}],place:'Flat',present:[],steps:[{verb:'chat',class:'other'}]},
     {beat:'unknown-place',order:5,pov:'lead',evidence:[{locator:'zh 第1章 p4'}],place:'Unmapped',present:[],steps:[{verb:'walk to an unknown place',class:'other'}]}
   ];
@@ -76,27 +76,44 @@ test('joins explicit reader IDs, aliases, containing-place components, and leave
 });
 
 test('maps M4 string people and packs canonical containing-place ids on each step',()=>{
-  const scenes=[{beat:'s1',order:1,pov:'lead',evidence:[{locator:'第1章'}],place:'Bedroom, Flat',present:['reader.person.a'],steps:[{verb:'walk to room',class:'travel'}]}];
+  const scenes=[{beat:'s1',order:1,pov:'lead',evidence:[{locator:'第1章'}],place:'Bedroom, Flat',present:['reader.person.a'],steps:[{verb:'walk to Flat',class:'travel'}]}];
   const mapping=buildReplayMapping({scenes,crosswalk:{places:{}},fromChapter:1,toChapter:1,controlIndex:{walks:{'pack.place.home':'move.home'}},registry:[{id:'reader.person.a',kind:'person',label:'A'},{id:'reader.place.home',kind:'place',label:'Flat'}],pack:{people:[{id:'pack.person.a',indexId:'reader.person.a'}],places:[{id:'pack.place.home',indexId:'reader.place.home',name:'Flat'}],placeAliases:[]}});
   assert.equal(mapping.rows[0].canonicalControl,'move.home');
   assert.equal(mapping.rows[0].peopleResolved[0].packId,'pack.person.a');
   assert.equal(mapping.rows[0].placeResolution,'contained-component');
 });
 
-test('censuses only gaps, ranks classes, normalizes phrases and keeps range failures visible',()=>{
+test('censuses gaps by actor, family and volume while preserving unknown actors and failures',()=>{
   const census=buildGapCensus([{rows:[
-    {status:'gap',class:'travel',sourceVolume:2,verb:'Walk to the door!',packPlaceId:null},
-    {status:'gap',class:'travel',sourceVolume:2,verb:'walk-to the door',packPlaceId:null},
-    {status:'gap',class:'socialize',sourceVolume:3,verb:'',peopleResolved:[]},
-    {status:'clean_fold',class:'socialize',sourceVolume:3,verb:'talk with someone'}
+    {id:'a',actorRole:'lead',status:'gap',class:'travel',sourceVolume:2,verb:'Walk to the door!',packPlaceId:null,availableControls:{walkInventory:true}},
+    {id:'b',actorRole:'lead',status:'gap',class:'travel',sourceVolume:2,verb:'walk-to the door',packPlaceId:null,availableControls:{walkInventory:true}},
+    {id:'c',actorRole:'non-lead',status:'gap',class:'socialize',sourceVolume:3,verb:'',peopleResolved:[]},
+    {id:'d',status:'clean_fold',class:'socialize',sourceVolume:3,verb:'talk with someone'}
   ]}],[{range:'volume-two',reason:'synthetic failure'}]);
   assert.equal(census.totalSteps,4); assert.equal(census.totalGaps,3);
   assert.equal(census.duplicateRowsOmitted,0);
-  assert.deepEqual(census.gapsByClass.map(c=>[c.class,c.steps]),[['travel',2],['socialize',1]]);
-  assert.deepEqual(census.gapsByClass[0].topVerbPhrases,[{phrase:'walk to the door',count:2}]);
-  assert.deepEqual(census.reasonSplit,{'missing verb':1,'missing place/person':2,'missing UI path':0});
-  assert.equal(census.gapsByVolume.find(v=>v.volume===3).gaps,1);
+  assert.equal(census.segments.lead.gaps,2); assert.equal(census.segments['non-lead'].gaps,1); assert.equal(census.segments.unknown.steps,1);
+  assert.deepEqual(census.segments.lead.topVerbPhrases.travel,[{phrase:'walk to the door',count:2}]);
+  assert.equal(census.segments.lead.families[0].family,'travel or move');
+  assert.equal(census.segments.lead.reasons['control exists but place/person/item unresolved'],2);
+  assert.equal(census.segments['non-lead'].volumes['3'].gaps,1);
   assert.equal(census.rangeFailures.length,1);
+});
+
+test('step actor is distinct from scene POV and missing actor stays unknown',()=>{
+  const scenes=[{beat:'s',order:1,pov:'lead',evidence:[{locator:'第1章'}],steps:[
+    {actor:'lead',verb:'read'}, {actor:'non-lead',verb:'read'}, {pov:'lead',verb:'read'}, {actor:'person.unresolved',verb:'read'}]}];
+  const mapping=buildReplayMapping({scenes,crosswalk:{places:{}},fromChapter:1,toChapter:1});
+  assert.deepEqual(mapping.rows.map(row=>row.actorRole),['lead','non-lead','unknown','unknown']);
+});
+
+test('does not fold an unrelated first action into a walk or a topic into a greeting',()=>{
+  const scenes=[{beat:'s',order:1,pov:'lead',evidence:[{locator:'第1章'}],place:'Flat',present:['p1','p2'],steps:[
+    {verb:'read a note',class:'study'}, {verb:'talk to a guest about a contract',class:'socialize'},
+    {verb:'greet a guest',class:'socialize'}]}];
+  const mapping=buildReplayMapping({scenes,crosswalk:{places:{Flat:'place.flat'}},fromChapter:1,toChapter:1,
+    controlIndex:{walks:{'place.flat':'walk.flat'},talks:{p1:'talk.p1',p2:'talk.p2'}}});
+  assert.deepEqual(mapping.rows.map(row=>row.status),['gap','gap','gap']);
 });
 
 test('census counts a source step once when chapter ranges overlap',()=>{
@@ -105,4 +122,13 @@ test('census counts a source step once when chapter ranges overlap',()=>{
   assert.equal(census.totalSteps,1);
   assert.equal(census.totalGaps,1);
   assert.equal(census.duplicateRowsOmitted,1);
+});
+
+test('family classification requires a supported object type for reading and abilities',()=>{
+  const rows=[{id:'a',actorRole:'lead',status:'gap',verb:'use a door'},
+    {id:'b',actorRole:'lead',status:'gap',verb:'use a charm'},
+    {id:'c',actorRole:'lead',status:'gap',verb:'read a diary'},
+    {id:'d',actorRole:'lead',status:'gap',verb:'read a facial expression'}];
+  const s=buildGapCensus([{rows}]).segments.lead;
+  assert.deepEqual(Object.fromEntries(s.families.map(x=>[x.family,x.steps])),{'unclustered':2,'read a text':1,'use an ability':1});
 });

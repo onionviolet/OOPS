@@ -23,6 +23,28 @@ test('leaves unmatched household-looking steps typed and without a control',()=>
   assert.match(mapping.rows[0].reason,/No pack act supports/);
 });
 
+test('does not substitute an unrelated payment for the only pay act at a place',()=>{
+  const row=buildReplayMapping(inputs('pay','carriage fare')).rows[0];
+  assert.equal(row.status,'gap');
+  assert.equal(row.householdGap,'object does not disambiguate act');
+  assert.equal(row.canonicalControl,null);
+});
+
+test('returns map only when the named destination resolves to the scene place',()=>{
+  const scenes=scene('pay','carriage fare');
+  scenes[0].steps.push({verb:'return to Home',class:'travel'},{verb:'return to Elsewhere',class:'travel'});
+  const mapping=buildReplayMapping({...inputs('pay','carriage fare'),scenes,controlIndex:{walks:{'pack.home':'walk.home'}}});
+  assert.equal(mapping.rows[1].canonicalControl,'walk.home');
+  assert.equal(mapping.rows[2].status,'gap');
+});
+
+test('a walk with a resolved place object can use the matching existing walk control',()=>{
+  const scenes=scene('pay','carriage fare');
+  scenes[0].steps.push({verb:'walk',object:'reader.home',class:'travel'});
+  const mapping=buildReplayMapping({...inputs('pay','carriage fare'),scenes,controlIndex:{walks:{'pack.home':'walk.home'}}});
+  assert.equal(mapping.rows[1].canonicalControl,'walk.home');
+});
+
 test('a pack without household acts preserves prior mapping output',()=>{
   const mapping=buildReplayMapping({...inputs('pay','gas-meter'),pack:{...pack,householdActs:undefined}});
   const row=mapping.rows[0];

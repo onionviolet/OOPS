@@ -34,8 +34,10 @@ const householdOperation = step => {
   return null;
 };
 const tokens = value => new Set(String(value || '').toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 2));
+const genericActWords = new Set(['the','and','for','with','from','into','pay','light','wash','clean','check','eat','take','use','put','away','look','over','inspect']);
 const TALK_VERB = /\b(talk\w*|speak\w*|ask\w*|tell\w*|answer\w*|discuss\w*|greet\w*|repl\w*|say\w*|said|chat\w*|convers\w*|meet\w*)\b/i;
 const TRAVEL_VERB = /\b(walk\w*|stroll\w*|wander\w*|travel\w*|move\w*|go to|arrive\w*)\b/i;
+const GREETING_VERB = /^(?:greet\w*\b|(?:talk|speak|chat|convers)\w*(?:\s+(?:to|with)\b|$)|say\s+hello\s+to\b)/i;
 const inferredClass = (step, current) => {
   if (!['other','unknown',undefined,null,''].includes(current)) return current;
   if (TALK_VERB.test(step.verb || '')) return 'socialize';
@@ -46,16 +48,26 @@ function bestHouseholdAct(step, acts) {
   const operation = householdOperation(step);
   const candidates = (acts || []).filter(act => act?.id && act.operation === operation);
   if (!operation || !candidates.length) return null;
-  if (candidates.length === 1) return candidates[0];
-  const sourceTokens = tokens(`${step.object || ''} ${step.verb || ''}`);
+  const sourceTokens = new Set([...tokens(`${step.object || ''} ${step.verb || ''}`)].filter(t => !genericActWords.has(t)));
   const ranked = candidates.map(act => ({act, score:[...tokens(`${act.label} ${act.description}`)].filter(t => sourceTokens.has(t)).length}))
     .sort((a,b)=>b.score-a.score);
-  if (ranked[0].score === 0 || ranked[0].score === ranked[1].score) return null;
+  if (ranked[0].score === 0 || (ranked[1] && ranked[0].score === ranked[1].score)) return null;
   return ranked[0].act;
+}
+
+function stepActorRole(step, packJoin, leadActorId, knownActors) {
+  const actor = typeof step.actor === 'string' ? step.actor : step.actor?.id;
+  if (!actor || /^(unknown|unstated|unspecified)$/i.test(actor)) return 'unknown';
+  if (actor === 'lead') return 'lead';
+  if (actor === 'non-lead') return 'non-lead';
+  if (!leadActorId) return 'unknown';
+  const resolved = actor === leadActorId || knownActors.has(actor) ? actor : packJoin?.resolvePerson(actor);
+  return !resolved ? 'unknown' : resolved === leadActorId ? 'lead' : 'non-lead';
 }
 
 export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, fromLocator, toLocator, controlIndex = {}, registry = [], pack = null}) {
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
+  const knownActors = new Set((pack?.people || []).map(person=>person.id));
   const householdActs = pack?.householdActs?.acts || [];
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
   // Principals the lead knows can be talked to (cast host castTalkCommands: `cast_talk_<last indexId segment>`).
@@ -68,6 +80,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
   const rows = []; let lastPlace = null, lastTimeKey = null;
   for (const scene of selected) for (const [i, step] of scene.steps.entries()) {
     const row = {id:`${scene.beat}#${i+1}`, scene:scene.beat, sourceVolume:locatorKey(scene.evidence?.[0]?.locator)?.volume || null, verb:step.verb, object:step.object || step.verb, class:inferredClass(step,step.class),
+      actorRole:stepActorRole(step,packJoin,pack?.leadLife?.actorId,knownActors), actorBasis:step.actor ? 'step actor' : 'actor not supplied', scenePov:scene.pov,
       classBasis:'M4 step class', place:scene.place, time:{value:scene.timeOfDay?.value || null, date:scene.date || null},
       peoplePresent:(scene.present || []).map(p => typeof p === 'string' ? p : p?.kind === 'person' ? p.id : null).filter(Boolean),
       canonicalControl:null, lockedOptions:(scene.choices || []).flatMap(c => (c.options || []).filter(o => !o.taken).map(o => o.id)).filter(Boolean),
@@ -78,12 +91,24 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
     if (joinedPlace) { row.placeResolution = joinedPlace.rule; row.packPlaceId = joinedPlace.id; }
     else if (placeId) row.packPlaceId = placeId;
     row.peopleResolved = row.peoplePresent.map(id => ({readerId:id, packId:packJoin?.resolvePerson(id) || null}));
-    // The lead is at the scene's place: the first step at a new place is reached by walking there.
-    const moveId = placeId && placeId !== lastPlace && (i === 0 || TRAVEL_VERB.test(step.verb)) && walks[placeId];
-    const presentId = row.peoplePresent.map(id => talks[id] || talks[packJoin?.resolvePerson(id)]).find(Boolean);
+    // A scene location is not by itself the destination of an unrelated action.
+    const destination = /^(?:return(?:s|ed)?|walk(?:s|ed)?|stroll(?:s|ed)?|wander(?:s|ed)?)(?:\s+back|\s+over)?\s+to\s+(.+?)[.!]?$/i.exec(step.verb || '')?.[1]
+      || (/^walk(?:s|ed)?$/i.test(step.verb || '') && typeof step.object==='string' ? step.object : null);
+    const destinationId = destination && (packJoin?.resolvePlace(destination)?.id || crosswalk.places?.[destination]);
+    const moveId = placeId && destinationId === placeId && placeId !== lastPlace && walks[placeId];
+    const possiblePeople = row.peoplePresent.filter(id => (packJoin?.resolvePerson(id) || id) !== pack?.leadLife?.actorId);
+    const presentIds = [...new Set(possiblePeople.map(id => {
+      const resolved=packJoin?.resolvePerson(id) || id;
+      return talks[id] || talks[resolved];
+    }).filter(Boolean))];
+    const presentId = presentIds.length === 1 && possiblePeople.length === 1 ? presentIds[0] : null;
     const timeKey=scene.timeOfDay?.value && !/unknown|unstated|unspecified|^u$/i.test(scene.timeOfDay.value) ? scene.timeOfDay.value : null;
     const isTimeGap=i===0&&timeKey&&timeKey!==lastTimeKey;
     const actsHere = householdActs.filter(act => act.place === placeId);
+    row.availableControls = {walk:walks[placeId] || null, walkInventory:Object.keys(walks).length>0, destinationResolved:!!destinationId && destinationId===placeId,
+      talk:presentId || null, talkInventory:Object.keys(talks).length>0, talkCandidates:presentIds.length,
+      resolvedNonLeadPeople:row.peopleResolved.filter(person=>person.packId && person.packId!==pack?.leadLife?.actorId).length,
+      wait:controlIndex.waitPrefix || null, pay:actsHere.filter(act=>act.operation==='pay').map(act=>act.id)};
     const householdVerb = actsHere.length ? householdOperation(step) : null;
     const householdAct = householdVerb ? bestHouseholdAct(step, actsHere) : null;
     if (householdAct) {
@@ -104,7 +129,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
       row.controlBuilder='src/book_world_lotm_cast_host.js:castMoves; src/book_world_lotm_host.js:lotmMoveLabels';
       row.route=[{actionId:moveId, place:placeId, controlBuilder:row.controlBuilder}]; row.anchors.place=placeId;
       lastPlace=placeId;
-    } else if (presentId && TALK_VERB.test(step.verb)) {
+    } else if (presentId && GREETING_VERB.test(step.verb || '') && !/\b(about|regarding|concerning|explain|ask|tell|warn|persuad\w*|promis\w*|and then)\b/i.test(step.verb || '')) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=presentId;
       row.controlBuilder='src/book_world_lotm_cast_host.js:castTalkCommands';
       row.route=[{actionId:presentId, place:placeId || null, controlBuilder:row.controlBuilder}]; if (placeId) row.anchors.place=placeId;
