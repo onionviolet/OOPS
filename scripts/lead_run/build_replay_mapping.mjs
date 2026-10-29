@@ -10,7 +10,16 @@ import {buildPackJoin} from './build_crosswalk.mjs';
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
 const chapter = locator => Number(/第(\d+)章/.exec(locator || '')?.[1] || Infinity);
-const rangeOf = rows => rows.flatMap(s => (s.evidence || []).map(e => chapter(e.locator))).filter(Number.isFinite);
+const locatorKey = locator => {
+  const match = /(?:\bb(\d+)\s+)?第(\d+)章/.exec(locator || '');
+  return match ? {volume:Number(match[1] || 1), chapter:Number(match[2])} : null;
+};
+const inLocatorRange = (locator, from, to) => {
+  const key = locatorKey(locator);
+  if (!key || !from || !to) return false;
+  const compare = (a,b) => a.volume-b.volume || a.chapter-b.chapter;
+  return compare(key, from) >= 0 && compare(key, to) <= 0;
+};
 const householdOperation = step => {
   const text = `${step.verb || ''} ${step.object || ''}`.toLowerCase();
   if (/\blook over\b/.test(text)) return 'inspect';
@@ -25,6 +34,14 @@ const householdOperation = step => {
   return null;
 };
 const tokens = value => new Set(String(value || '').toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 2));
+const TALK_VERB = /\b(talk\w*|speak\w*|ask\w*|tell\w*|answer\w*|discuss\w*|greet\w*|repl\w*|say\w*|said|chat\w*|convers\w*|meet\w*)\b/i;
+const TRAVEL_VERB = /\b(walk\w*|stroll\w*|wander\w*|travel\w*|move\w*|go to|arrive\w*)\b/i;
+const inferredClass = (step, current) => {
+  if (!['other','unknown',undefined,null,''].includes(current)) return current;
+  if (TALK_VERB.test(step.verb || '')) return 'socialize';
+  if (TRAVEL_VERB.test(step.verb || '')) return 'travel';
+  return current || 'unknown';
+};
 function bestHouseholdAct(step, acts) {
   const operation = householdOperation(step);
   const candidates = (acts || []).filter(act => act?.id && act.operation === operation);
@@ -37,18 +54,20 @@ function bestHouseholdAct(step, acts) {
   return ranked[0].act;
 }
 
-export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, controlIndex = {}, registry = [], pack = null}) {
+export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, fromLocator, toLocator, controlIndex = {}, registry = [], pack = null}) {
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
   const householdActs = pack?.householdActs?.acts || [];
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
   // Principals the lead knows can be talked to (cast host castTalkCommands: `cast_talk_<last indexId segment>`).
   const talks = {...Object.fromEntries((pack?.people || []).filter(p => p?.id && p.tier === 'principal' && p.indexId).map(p => [p.id, `cast_talk_${p.indexId.split('.').at(-1)}`])), ...(controlIndex.talks || {})};
   const walks = {...Object.fromEntries((pack?.places || []).filter(p => p?.id && p.travel && !p.anchorOnly).map(p => [p.id, `lotm.move.${p.id}`])), ...(controlIndex.walks || {})};
-  const selected = scenes.filter(s => s.pov === 'lead' && s.evidence?.length && rangeOf([s]).some(n => n >= fromChapter && n <= toChapter))
+  const selected = scenes.filter(s => s.pov === 'lead' && s.evidence?.length && s.evidence.some(e => fromLocator && toLocator
+      ? inLocatorRange(e.locator, locatorKey(fromLocator), locatorKey(toLocator))
+      : Number.isFinite(chapter(e.locator)) && chapter(e.locator) >= fromChapter && chapter(e.locator) <= toChapter))
     .sort((a,b) => a.order-b.order);
   const rows = []; let lastPlace = null, lastTimeKey = null;
   for (const scene of selected) for (const [i, step] of scene.steps.entries()) {
-    const row = {id:`${scene.beat}#${i+1}`, scene:scene.beat, verb:step.verb, object:step.object || step.verb, class:step.class,
+    const row = {id:`${scene.beat}#${i+1}`, scene:scene.beat, sourceVolume:locatorKey(scene.evidence?.[0]?.locator)?.volume || null, verb:step.verb, object:step.object || step.verb, class:inferredClass(step,step.class),
       classBasis:'M4 step class', place:scene.place, time:{value:scene.timeOfDay?.value || null, date:scene.date || null},
       peoplePresent:(scene.present || []).map(p => typeof p === 'string' ? p : p?.kind === 'person' ? p.id : null).filter(Boolean),
       canonicalControl:null, lockedOptions:(scene.choices || []).flatMap(c => (c.options || []).filter(o => !o.taken).map(o => o.id)).filter(Boolean),
@@ -57,9 +76,10 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, c
     const joinedPlace = packJoin?.resolvePlace(scene.place);
     const placeId = joinedPlace?.id || crosswalk.places?.[scene.place];
     if (joinedPlace) { row.placeResolution = joinedPlace.rule; row.packPlaceId = joinedPlace.id; }
+    else if (placeId) row.packPlaceId = placeId;
     row.peopleResolved = row.peoplePresent.map(id => ({readerId:id, packId:packJoin?.resolvePerson(id) || null}));
     // The lead is at the scene's place: the first step at a new place is reached by walking there.
-    const moveId = placeId && placeId !== lastPlace && (i === 0 || /walk|travel|move|go to|arrive/i.test(step.verb)) && walks[placeId];
+    const moveId = placeId && placeId !== lastPlace && (i === 0 || TRAVEL_VERB.test(step.verb)) && walks[placeId];
     const presentId = row.peoplePresent.map(id => talks[id] || talks[packJoin?.resolvePerson(id)]).find(Boolean);
     const timeKey=scene.timeOfDay?.value && !/unknown|unstated|unspecified|^u$/i.test(scene.timeOfDay.value) ? scene.timeOfDay.value : null;
     const isTimeGap=i===0&&timeKey&&timeKey!==lastTimeKey;
@@ -84,7 +104,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, c
       row.controlBuilder='src/book_world_lotm_cast_host.js:castMoves; src/book_world_lotm_host.js:lotmMoveLabels';
       row.route=[{actionId:moveId, place:placeId, controlBuilder:row.controlBuilder}]; row.anchors.place=placeId;
       lastPlace=placeId;
-    } else if (presentId && /talk|speak|ask|tell|answer|discuss/i.test(step.verb)) {
+    } else if (presentId && TALK_VERB.test(step.verb)) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=presentId;
       row.controlBuilder='src/book_world_lotm_cast_host.js:castTalkCommands';
       row.route=[{actionId:presentId, place:placeId || null, controlBuilder:row.controlBuilder}]; if (placeId) row.anchors.place=placeId;
@@ -101,19 +121,23 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, c
     rows.push(row);
     if(i===scene.steps.length-1)lastTimeKey=timeKey;
   }
-  return {schema:'lead-ui-replay/2', scope:{fromChapter,toChapter,sceneCount:selected.length,stepCount:rows.length},
+  return {schema:'lead-ui-replay/2', scope:{fromChapter,toChapter,fromLocator:fromLocator || null,toLocator:toLocator || null,sceneCount:selected.length,stepCount:rows.length},
     inputHashes:{scenes:hash(JSON.stringify(scenes)),crosswalk:hash(JSON.stringify(crosswalk))}, rows};
 }
 
 function main(args) {
   const get = key => { const i=args.indexOf(key); if(i<0||!args[i+1]) throw Error(`Missing ${key}`); return args[i+1]; };
   const inputScenes=get('--scenes'), inputCrosswalk=get('--crosswalk'), output=get('--out');
-  const fromChapter=Number(get('--from')),toChapter=Number(get('--to'));
+  const fromLocator=args.includes('--from-locator') ? get('--from-locator') : null;
+  const toLocator=args.includes('--to-locator') ? get('--to-locator') : null;
+  if (Boolean(fromLocator) !== Boolean(toLocator)) throw Error('--from-locator and --to-locator must be provided together');
+  const fromChapter=Number(args.includes('--from') ? get('--from') : NaN),toChapter=Number(args.includes('--to') ? get('--to') : NaN);
   const scenes=readJsonl(inputScenes),crosswalk=JSON.parse(fs.readFileSync(inputCrosswalk,'utf8'));
   const controlIndex=JSON.parse(fs.readFileSync(get('--controls'),'utf8'));
   const registry=readJsonl(get('--registry'));
   const pack=JSON.parse(fs.readFileSync(get('--pack'),'utf8'));
-  const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,controlIndex,registry,pack});
+  if (!fromLocator && (!Number.isFinite(fromChapter) || !Number.isFinite(toChapter))) throw Error('Provide --from/--to or --from-locator/--to-locator');
+  const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack});
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
   const counts={walk:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
   for(const r of mapping.rows){if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
