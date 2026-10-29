@@ -66,6 +66,7 @@ const rows = [
     ['merit', 'in-world', 'The character’s merit account.'],
     ['merit-balance', 'in-world', 'The character’s current merit balance.'],
     ['merit-row', 'in-world', 'An available merit use.'],
+    ['object-acts', 'in-world', 'Things at hand the character can act on here.'],
     ['path', 'in-world', 'Current pathway information.'],
     ['paused-life', 'crossing', 'This line exposes a connection to another life.'],
     ['places', 'in-world', 'Places in the current world.'],

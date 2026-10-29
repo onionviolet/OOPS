@@ -173,6 +173,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    actions.append(node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
    for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);actions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
   }
+  if(v.objectActs?.length){
+   const objects=node('details');objects.open=true;objects.dataset.lotmObjectActs='';objects.append(node('summary','Things at hand'));
+   for(const a of v.objectActs)objects.append(row(node('p',a.description),button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
+   actions.append(objects);
+  }
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));

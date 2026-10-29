@@ -1,7 +1,7 @@
 // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
 // inert: no Tingen presence, job, means or knowledge may exist without it. The
 // only activation path is enrollLotmBranch (book_world_lotm_content.js).
-import {castWalkCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
+import {castWalkCommands,castObjectCommands,dormantCastWalk,lotmCastLife} from './book_world_lotm_cast_host.js';
 import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
 import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
@@ -53,7 +53,7 @@ export function validateLotmState(state){
  if(d.entryProfile!==BE_PROFILE_ID)assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
  for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId))){
   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
-  const def=[...lotmCommands,...castWalkCommands].find(c=>c.id===j.commandId);
+  const def=[...lotmCommands,...castWalkCommands,...castObjectCommands].find(c=>c.id===j.commandId);
   assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
  }
  const f=a.player.facts||{},has=k=>f[`book.lotm.${k}`]===true,src=a.player.sources?.[I.source],power=s.powers?.player?.[I.method];
