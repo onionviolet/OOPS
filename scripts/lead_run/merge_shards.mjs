@@ -31,6 +31,19 @@ export function locatorKey(loc) {
     return m ? m.book * 1e8 + m.ch * 10000 + m.p : Infinity;
 }
 
+const compareLocators = (left, right) => {
+    const a = parseLocator(left), b = parseLocator(right);
+    if (!a || !b) return a ? -1 : b ? 1 : String(left || '').localeCompare(String(right || ''));
+    return a.book - b.book || a.ch - b.ch || a.p - b.p;
+};
+const firstShardLocator = shard => {
+    const locators = [
+        ...shard.census.map(row => row.firstMention),
+        ...shard.scenes.flatMap(row => (row.evidence || []).map(item => item.locator)),
+    ].filter(Boolean);
+    return locators.sort(compareLocators)[0] || null;
+};
+
 /** "Benson, Klein's older brother" and "Tingen (city)" are descriptions of one label: keep the name part. */
 export function cleanLabel(label) {
     return String(label || '').replace(/\s*\([^)]*\)\s*$/, '').split(',')[0].trim();
@@ -46,8 +59,9 @@ export function loadShards(dir, {includeBatch = false, match = null} = {}) {
         out.push({prefix, header, census: readJsonl(join(dir, `${prefix}_census.jsonl`)), scenes: readJsonl(join(dir, `${prefix}_scenes.jsonl`)), fills: readJsonl(join(dir, `${prefix}_fills.jsonl`)),
             ...extras});
     }
-    // Chapter order, not name order: first shard whose chapters start lowest.
-    return out.sort((a, b) => (parseInt(String(a.header.chapters), 10) || 0) - (parseInt(String(b.header.chapters), 10) || 0));
+    // Locator order carries the volume. Chapter numbers restart in each volume,
+    // so header chapter ranges alone interleave whole-book batches incorrectly.
+    return out.sort((a, b) => compareLocators(firstShardLocator(a), firstShardLocator(b)) || a.prefix.localeCompare(b.prefix));
 }
 
 /** Redirect map from the reviewed overlay only. Chains are followed; cycles stop. People-pass `reveals` (same_as) rows are proposals: some joined
