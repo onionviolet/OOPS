@@ -13,7 +13,7 @@ const pack={leadLife:{actorId:'actor.lead'},places:[{id:'pack.place.room',indexI
 test('compiles fixed local object steps, preserves H1 rows first, and maps exact source controls',()=>{
  const scenes=[{beat:'sample',order:1,pov:'lead',place:'reader.place.room',evidence:[{label:'S',locator:'zh 第1章 p2'}],steps:[
   {class:'observe or listen',verb:'look at',object:'the brass key'},
-  {class:'read a text',verb:'read',object:'the letter',minutes:4},
+  {class:'read a text',verb:'read',object:'the book',minutes:4},
   {class:'rest or personal care',verb:'wash',object:'hands'},
   {class:'trade or pay',verb:'pay',object:'rent'}
  ]}];
@@ -35,6 +35,14 @@ test('compiles fixed local object steps, preserves H1 rows first, and maps exact
  assert.equal(mapped.rows[1].canonicalControl,result.actByStep['sample#2']);
  assert.equal(mapped.rows[2].canonicalControl,result.actByStep['sample#3']);
  assert.notEqual(mapped.rows[3].canonicalControl,result.actByStep['sample#3']);
+});
+
+test('does not turn transport or message actions into fixed place acts',()=>{
+ const scenes=[{beat:'separate',order:1,pov:'lead',place:'reader.place.room',evidence:[{locator:'zh 第1章 p2'}],steps:[
+  {verb:'take a carriage to the station'}, {verb:'send a letter'}]}];
+ const result=buildPlaceActs({scenes,crosswalk,registry,pack});
+ assert.equal(result.data.acts.length,1);
+ assert.equal(result.rejected.notFamily,2);
 });
 
 test('installs generated acts through the real registry with the host guard',()=>{
@@ -65,4 +73,13 @@ test('leaves unresolved places, missing objects, and ambiguous objects as gaps',
  assert.equal(result.rejected.unresolvedPlace,1);
  assert.equal(result.rejected.missingObject,1);
  assert.equal(result.rejected.ambiguousObject,1);
+ assert.equal(result.rejectedRows.find(row=>row.reason==='unresolvedPlace').missing[0].kind,'place');
+ assert.ok(result.rejectedRows.find(row=>row.reason==='ambiguousObject').otherBlockers.length);
+});
+
+test('a generated act is not reused for a different source step merely because words match',()=>{
+ const scenes=[{beat:'unrelated',order:1,pov:'lead',place:'reader.place.room',evidence:[{locator:'zh 第1章 p1'}],steps:[{verb:'take the key',object:'key'}]}];
+ const generated={id:'place.act.other',sourceStepId:'other#1',operation:'take',place:'pack.place.room',label:'Take key',description:'Take the key'};
+ const row=buildReplayMapping({scenes,crosswalk,registry,pack:{...pack,householdActs:{objects:[],acts:[generated]}},fromChapter:1,toChapter:1}).rows[0];
+ assert.equal(row.status,'gap'); assert.equal(row.canonicalControl,null);
 });

@@ -37,22 +37,25 @@ function classify(step) {
  const verb=String(step.verb||'').trim();
  const stripped=FAMILY_RULES.some(rule=>rule.head.test(verb))?verb:verb.replace(/^(?:[A-Z][a-z'-]+\s+){1,3}(?=[a-z])/,'');
  const text=`${stripped} ${step.object||''}`;
- return FAMILY_RULES.find(rule=>TARGET_FAMILIES.has(rule.family)&&rule.head.test(stripped)&&(!rule.object||rule.object.test(text)))?.family||null;
+ const matched=FAMILY_RULES.find(rule=>rule.head.test(stripped)&&(!rule.object||rule.object.test(text)))?.family;
+ return TARGET_FAMILIES.has(matched)?matched:null;
 }
 export function buildPlaceActs({scenes,crosswalk,registry,pack}) {
  const join=buildPackJoin({crosswalk,registry,pack});
  const baseObjects=pack.householdActs?.objects||[], baseActs=pack.householdActs?.acts||[];
- const objects=[...baseObjects], acts=[...baseActs], objectIds=new Map(), actByStep={},
+ const objects=[...baseObjects], acts=[...baseActs], objectIds=new Map(), actByStep={}, rejectedRows=[],
    rejected={notFamily:0,unresolvedPlace:0,missingObject:0,ambiguousObject:0,unsupportedOperation:0}, familyStepsByVolume={}, rowsByFamily={}, rowsByVolume={}, rowsByFamilyAndVolume={};
  const ordered=scenes.filter(s=>s.pov==='lead').sort((a,b)=>(a.order||0)-(b.order||0));
  for(const scene of ordered) for(const [i,step] of (scene.steps||[]).entries()) {
   const family=classify(step); if(!family){rejected.notFamily++;continue;}
   const volume=volumeOf(scene); familyStepsByVolume[family]=(familyStepsByVolume[family]||0)+1;
   familyStepsByVolume[`${family} · volume ${volume}`]=(familyStepsByVolume[`${family} · volume ${volume}`]||0)+1;
-  const place=placeRef(scene.place,join,pack); if(!place){rejected.unresolvedPlace++;continue;}
-  const raw=objectText(step); if(!raw){rejected.missingObject++;continue;}
+  const stepId=`${scene.beat}#${i+1}`, place=placeRef(scene.place,join,pack), raw=objectText(step);
+  const ambiguous=raw && /\b(or|and|various|several|things|something|items)\b/i.test(raw);
+  if(!place){rejected.unresolvedPlace++;rejectedRows.push({stepId,reason:'unresolvedPlace',missing:[{kind:'place',value:scene.place||null},...(!raw?[{kind:'object',value:null}]:[])],otherBlockers:ambiguous?['multiple or ambiguous objects']:[]});continue;}
+  if(!raw){rejected.missingObject++;rejectedRows.push({stepId,reason:'missingObject',missing:[{kind:'object',value:null}]});continue;}
   // A step must name one concrete object; alternatives and broad collections stay gaps.
-  if(/\b(or|and|various|several|things|something|items)\b/i.test(raw)){rejected.ambiguousObject++;continue;}
+  if(ambiguous){rejected.ambiguousObject++;rejectedRows.push({stepId,reason:'ambiguousObject',missing:[{kind:'object',value:raw}],otherBlockers:['multiple or ambiguous objects']});continue;}
   const operation=operationFor(family,`${step.verb||''} ${raw}`); if(!operation){rejected.unsupportedOperation++;continue;}
   const objectKey=`${place}\0${raw.toLowerCase()}`;
   let objectId=objectIds.get(objectKey);
@@ -62,7 +65,7 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack}) {
    if(!row){row={id:objectId,place,label:raw,facts:{[`place.object.${safe(objectId)}.present`]:true}};objects.push(row);}
    objectIds.set(objectKey,objectId);
   }
-  const stepId=`${scene.beat}#${i+1}`, id=`place.act.${safe(stepId)}`;
+  const id=`place.act.${safe(stepId)}`;
   if(acts.some(a=>a.id===id)){rejected.ambiguousObject++;continue;}
   const d=duration(step), label=String(step.verb||family).trim().replace(/\s+/g,' ');
   const source=scene.evidence?.[0]||{};
@@ -73,7 +76,7 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack}) {
   rowsByFamily[family]=(rowsByFamily[family]||0)+1; rowsByVolume[volume]=(rowsByVolume[volume]||0)+1;
   rowsByFamilyAndVolume[family]||={}; rowsByFamilyAndVolume[family][volume]=(rowsByFamilyAndVolume[family][volume]||0)+1;
  }
- return {data:{objects,acts},actByStep,rejected,familyStepsByVolume,rowsByFamily,rowsByVolume,rowsByFamilyAndVolume};
+ return {data:{objects,acts},actByStep,rejected,rejectedRows,familyStepsByVolume,rowsByFamily,rowsByVolume,rowsByFamilyAndVolume};
 }
 function main(args){
  const get=k=>{const i=args.indexOf(k);if(i<0||!args[i+1])throw Error(`Missing ${k}`);return args[i+1];};
@@ -84,7 +87,7 @@ function main(args){
  const candidate=structuredClone(input); candidate.householdActs=result.data;
  const out=get('--out'),report=get('--report');fs.mkdirSync(path.dirname(out),{recursive:true});
  fs.writeFileSync(out,JSON.stringify(candidate,null,2)+'\n');
- fs.writeFileSync(report,JSON.stringify({schema:'place-act-build-report/1',rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rowsByFamilyAndVolume:result.rowsByFamilyAndVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected},null,2)+'\n');
+ fs.writeFileSync(report,JSON.stringify({schema:'place-act-build-report/2',rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rowsByFamilyAndVolume:result.rowsByFamilyAndVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected,rejectedRows:result.rejectedRows},null,2)+'\n');
  console.log(JSON.stringify({rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rejected:result.rejected}));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main(process.argv.slice(2));

@@ -26,10 +26,20 @@ test('maps a topic row to its exact canon choice control',()=>{
  assert.equal(result.rows[0].canonicalControl,'topic.s-1.canon'); assert.equal(result.rows[0].topicTalkId,'topic.s-1');
 });
 
+test('an exact topic row is not hidden by an unrelated household verb',()=>{
+ const scenes=[{beat:'s',order:1,pov:'lead',evidence:[{locator:'zh 第1章'}],place:'Room',present:['reader.person.a','reader.person.b'],steps:[{verb:'ask Person B to check the route',class:'socialize'}]}];
+ const talk={id:'topic.s-1',sourceStepId:'s#1',personId:'pack.person.b',place:'pack.room',choices:[{id:'canon'}]};
+ const act={id:'act.local',operation:'inspect',place:'pack.room',label:'Inspect a clock',description:'Check the clock'};
+ const mapped=buildReplayMapping({scenes,crosswalk,registry,pack:{...pack,topicTalks:{talks:[talk]},householdActs:{acts:[act]}},fromChapter:1,toChapter:1});
+ assert.equal(mapped.rows[0].controlKind,'talk topic'); assert.equal(mapped.rows[0].canonicalControl,'topic.s-1.canon');
+});
+
 test('leaves unresolved people and places as typed gaps',()=>{
  const scenes=[{beat:'s',order:1,pov:'lead',evidence:[{locator:'zh 第1章'}],place:'Unknown',present:['reader.person.a'],steps:[{verb:'ask the visitor'}]}];
  const result=buildTopicTalks({scenes,crosswalk,registry,pack}); assert.equal(result.rows.length,0);
  assert.equal(result.rejected.unresolvedPerson,1);
+ assert.deepEqual(result.rejectedRows[0].missing.map(x=>x.kind),['person','place']);
+ assert.ok(result.rejectedRows[0].otherBlockers.includes('speaker attribution not checked'));
 });
 
 test('uses an explicit paragraph speech cue and keeps duplicate aliases ambiguous',()=>{

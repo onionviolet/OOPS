@@ -41,6 +41,13 @@ test('volume-aware locator bounds distinguish repeated chapter numbers and impli
   assert.equal(result.rows[0].sourceVolume,2);
 });
 
+test('replay order follows volume and chapter before shard-local order',()=>{
+  const scenes=[{beat:'later',order:1,pov:'lead',evidence:[{locator:'zh b2 第1章 p1'}],steps:[{verb:'wait'}]},
+    {beat:'earlier',order:9,pov:'lead',evidence:[{locator:'zh 第8章 p1'}],steps:[{verb:'wait'}]}];
+  const result=buildReplayMapping({scenes,crosswalk:{places:{}},fromLocator:'zh 第1章',toLocator:'zh b2 第2章'});
+  assert.deepEqual(result.rows.map(row=>row.id),['earlier#1','later#1']);
+});
+
 test('maps existing talk and movement controls from clear generic-class verbs only with resolvable anchors',()=>{
   const scenes=[
     {beat:'talk',order:1,pov:'lead',evidence:[{locator:'zh 第1章 p1'}],place:'Flat',present:['p1'],steps:[{verb:'greet the guest',class:'other'}]},
@@ -131,4 +138,18 @@ test('family classification requires a supported object type for reading and abi
     {id:'d',actorRole:'lead',status:'gap',verb:'read a facial expression'}];
   const s=buildGapCensus([{rows}]).segments.lead;
   assert.deepEqual(Object.fromEntries(s.families.map(x=>[x.family,x.steps])),{'unclustered':2,'read a text':1,'use an ability':1});
+});
+
+test('coverage counts exact controls by family and volume and groups only single missing resolutions',()=>{
+  const rows=[{id:'a',actorRole:'unknown',status:'clean_fold',canonicalControl:'act.a',controlKind:'place act',sourceVolume:2,verb:'read a diary'},
+    {id:'b',actorRole:'unknown',status:'gap',sourceVolume:2,verb:'read a diary'},
+    {id:'c',actorRole:'lead',status:'gap',sourceVolume:3,verb:'read a diary'}];
+  const reports=[{builder:'acts',rejectedRows:[{stepId:'b',missing:[{kind:'place',value:'Unknown room'}]},
+    {stepId:'c',missing:[{kind:'place',value:'Unknown room'},{kind:'object',value:null}]}]}];
+  const census=buildGapCensus([{rows}],[],reports),family=census.coverage.families.find(x=>x.family==='read a text');
+  assert.equal(family.steps,3);assert.equal(family.exactControls,1);assert.equal(family.byControl['place act'],1);
+  assert.equal(family.byVolume['2'].steps,2);assert.equal(family.byVolume['2'].exactControls,1);
+  assert.deepEqual(census.missingResolution.stepCounts,{person:0,place:2,object:1});
+  assert.deepEqual(census.missingResolution.byFamily['read a text'],{place:2,object:1});
+  assert.equal(census.missingResolution.top30[0].steps,1);
 });

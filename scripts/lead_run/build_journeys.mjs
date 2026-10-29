@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {buildPackJoin} from './build_crosswalk.mjs';
 import {shardIndex} from './cite_paragraphs.mjs';
 import {parseLocator} from './world_profiles.mjs';
+import {compareLocators} from './merge_shards.mjs';
 import {FAMILY_RULES} from './gap_census.mjs';
 
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
@@ -15,7 +16,7 @@ const locatorKey = locator => {
   const p = parseLocator(locator || '');
   return p ? `${p.book}:${p.ch}:${p.p}` : null;
 };
-const locate = scene => scene.evidence?.find(e => locatorKey(e.locator))?.locator || null;
+const locate = scene => (scene.evidence || []).map(e=>e.locator).filter(locatorKey).sort(compareLocators)[0] || null;
 const integer = n => Number.isSafeInteger(n) && n > 0;
 function travelFamily(step) {
   const verb=String(step.verb || '').trim();
@@ -51,10 +52,16 @@ function explicitDestination(step, join, pack) {
   for (const value of [...(step.outputs || []), ...(step.destinations || []), step.to, step.destination]) {
     const id = placeRef(value, join, pack); if (id) return id;
   }
-  const text = `${step.verb || ''} ${step.object || ''}`;
-  const match = /\b(?:to|into|toward|towards|through|across|from)\s+(.+?)(?:[,.;]|\s+(?:by|with|while|and)\b|$)/i.exec(text);
-  if (match) { const id = placeRef(match[1].trim(), join, pack); if (id) return id; }
+  for (const text of [step.verb || '',step.object || '']) {
+    const match = /\b(?:to|into|toward|towards|through|across)\s+(.+?)(?:[,.;]|\s+(?:by|with|while|and)\b|$)/i.exec(text);
+    if (match) { const id = placeRef(match[1].trim(), join, pack); if (id) return id; }
+  }
   return null;
+}
+function explicitOrigin(step, join, pack) {
+  for (const value of [step.from,step.origin]) { const id=placeRef(value,join,pack); if(id)return id; }
+  const match=/\bfrom\s+(.+?)\s+to\b/i.exec(String(step.verb||''));
+  return match ? placeRef(match[1].trim(),join,pack) : null;
 }
 function sourceFor(scene, step, index) {
   const locator = locate(scene), key = locator && locatorKey(locator);
@@ -62,9 +69,9 @@ function sourceFor(scene, step, index) {
 }
 export function buildJourneys({scenes, crosswalk, registry, pack, paragraphIndex = new Map()}) {
   const join = buildPackJoin({crosswalk, registry, pack});
-  const rows = [], rejected = {notTravel:0, unresolvedSource:0, unclearOrigin:0, unresolvedOrigin:0, unclearDestination:0, unresolvedDestination:0, sameEndpoint:0, duplicate:0};
+  const rows = [], rejectedRows = [], rejected = {notTravel:0, unresolvedSource:0, unclearOrigin:0, unresolvedOrigin:0, unclearDestination:0, unresolvedDestination:0, sameEndpoint:0, duplicate:0};
   const perVolume = {}, familyByVolume = {}, travelSteps = new Set(), stepRows = new Map();
-  const ordered = scenes.filter(s => s.pov === 'lead').sort((a,b)=>(a.order||0)-(b.order||0));
+  const ordered = scenes.filter(s => s.pov === 'lead').sort((a,b)=>compareLocators(locate(a),locate(b)) || (a.order||0)-(b.order||0) || String(a.beat).localeCompare(String(b.beat)));
   let previousPlace = null;
   for (const scene of ordered) {
     const scenePlace = placeRef(scene.place, join, pack);
@@ -72,37 +79,40 @@ export function buildJourneys({scenes, crosswalk, registry, pack, paragraphIndex
       const family=travelFamily(step);
       if (!['travel or move','paid transport'].includes(family)) { rejected.notTravel++; continue; }
       const stepId = `${scene.beat}#${i+1}`;
+      const reject=(reason,missing=[],otherBlockers=[])=>{rejected[reason]++;rejectedRows.push({stepId,reason,missing,otherBlockers});};
       const vol = Number(/\bb(\d+)\b/.exec(locate(scene) || '')?.[1] || 1);
       familyByVolume[vol] = (familyByVolume[vol] || 0) + 1; travelSteps.add(stepId);
       const source = sourceFor(scene, step, paragraphIndex);
-      if (!source) { rejected.unresolvedSource++; continue; }
+      if (!source) { reject('unresolvedSource',[],['source paragraph']); continue; }
       const to = explicitDestination(step, join, pack) || scenePlace;
-      const from = previousPlace || scenePlace;
-      if (!from) { rejected.unclearOrigin++; continue; }
-      if (!placeRef(from, join, pack)) { rejected.unresolvedOrigin++; continue; }
-      if (!to) { rejected.unclearDestination++; continue; }
-      if (!placeRef(to, join, pack)) { rejected.unresolvedDestination++; continue; }
-      if (from === to) { rejected.sameEndpoint++; previousPlace = scenePlace || previousPlace; continue; }
-      const means = meansFor(step), key = `${from}\0${to}\0${means}`;
+      const statedOrigin = explicitOrigin(step,join,pack);
+      const from = statedOrigin || previousPlace || scenePlace;
+      if (!from) { reject('unclearOrigin',[{kind:'place',value:scene.place||null}],!to?['destination also unresolved']:[]); continue; }
+      if (!placeRef(from, join, pack)) { reject('unresolvedOrigin',[{kind:'place',value:from}]); continue; }
+      if (!to) { reject('unclearDestination',[{kind:'place',value:scene.place||null}]); continue; }
+      if (!placeRef(to, join, pack)) { reject('unresolvedDestination',[{kind:'place',value:to}]); continue; }
+      if (from === to) { reject('sameEndpoint',[],['distinct endpoints']); previousPlace = scenePlace || previousPlace; continue; }
+      const means = meansFor(step), duration = [step.minutes, step.durationMinutes, step.duration?.minutes].find(integer);
+      const fare = explicitFare(step), hours = Array.isArray(step.hours) && step.hours.length === 2 && step.hours.every(Number.isInteger) ? step.hours : null;
+      const originBasis=statedOrigin?'step origin':previousPlace?'inference: prior scene place':'inference: current scene place';
+      const key = JSON.stringify([from,to,means,duration||1,fare??null,hours]);
       const id = `journey.${safe(stepId)}`;
       if (stepRows.has(stepId)) { rejected.duplicate++; previousPlace = to; continue; }
       const existing=rows.find(r=>r._key===key);
-      if (existing) { existing.sourceStepIds.push(stepId); stepRows.set(stepId,existing); rejected.duplicate++; previousPlace = to; continue; }
-      const duration = [step.minutes, step.durationMinutes, step.duration?.minutes].find(integer);
-      const fare = explicitFare(step);
+      if (existing) { existing.sourceStepIds.push(stepId); existing.sourceStepOrigins[stepId]=originBasis; stepRows.set(stepId,existing); rejected.duplicate++; previousPlace = to; continue; }
       const fromName=placeName(from,pack), toName=placeName(to,pack), meansLabel=means.replaceAll('_',' ');
-      const row = {id, sourceStepId:stepId, sourceStepIds:[stepId], from, to, means, label:`Travel from ${fromName} to ${toName} by ${meansLabel}`,
+      const row = {id, sourceStepId:stepId, sourceStepIds:[stepId], sourceStepOrigins:{[stepId]:originBasis}, from, to, means, originBasis, label:`Travel from ${fromName} to ${toName} by ${meansLabel}`,
         description:`Travel by ${meansLabel} to ${toName}.`, minutes:duration || 1,
         minutesBasis:duration ? 'step duration' : 'fill: one minute because the source gives no duration',
         report:`You arrive at ${toName} by ${meansLabel}.`, source, _key:key};
       if (fare !== undefined) row.fare = fare;
-      if (Array.isArray(step.hours) && step.hours.length === 2 && step.hours.every(Number.isInteger)) row.hours = step.hours;
+      if (hours) row.hours = hours;
       rows.push(row); stepRows.set(stepId, row); perVolume[vol] = (perVolume[vol] || 0) + 1; previousPlace = to;
     }
     if (scenePlace) previousPlace = scenePlace;
   }
   for (const row of rows) delete row._key;
-  return {rows, rejected, perVolume, familyByVolume, travelSteps:travelSteps.size, mappedSteps:stepRows.size};
+  return {rows, rejected, rejectedRows, perVolume, familyByVolume, travelSteps:travelSteps.size, mappedSteps:stepRows.size};
 }
 
 function main(args) {

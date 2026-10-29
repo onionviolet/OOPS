@@ -64,15 +64,38 @@ function cheapCandidate(row) {
 }
 const freshSegment=()=>({steps:0,gaps:0,classes:{},families:{},familyReasons:{},familyRows:{},volumes:{},reasons:{},phrases:{},cheapMisses:[]});
 
-export function buildGapCensus(mappings,failures=[]) {
+const freshCoverage=()=>({steps:0,exactControls:0,byControl:{},actorUnknown:0,journeyOriginBasis:{}});
+const coverageRow=(summary,row)=>{
+  summary.steps++;
+  if(row.actorRole!=='lead' && row.actorRole!=='non-lead')summary.actorUnknown++;
+  if(row.status==='clean_fold' && row.canonicalControl){summary.exactControls++;inc(summary.byControl,row.controlKind||'other');if(row.controlKind==='journey')inc(summary.journeyOriginBasis,row.journeyOriginBasis||'unknown');}
+};
+
+export function buildGapCensus(mappings,failures=[],diagnostics=[]) {
   const segments={lead:freshSegment(),'non-lead':freshSegment(),unknown:freshSegment()};
+  const byStep=new Map();for(const report of diagnostics)for(const entry of report.rejectedRows||[]){const rows=byStep.get(entry.stepId)||[];rows.push({...entry,builder:report.builder});byStep.set(entry.stepId,rows);}
+  const coverageByFamily={},coverageByVolume={},missingCounts={person:0,place:0,object:0},missingByFamily={},missingGroups=new Map(),remainingFamilies={},otherBuilderBlockers={},noBuilderDiagnosticByFamily={};
   const seen=new Set();let totalSteps=0,totalGaps=0,duplicateRowsOmitted=0;
   for(const mapping of mappings) for(const row of mapping.rows||[]) {
     const identity=row.id||`${row.scene||''}#${row.verb||''}#${row.sourceVolume||''}`;
     if(seen.has(identity)){duplicateRowsOmitted++;continue;}seen.add(identity);totalSteps++;
     const actor=['lead','non-lead'].includes(row.actorRole)?row.actorRole:'unknown';const s=segments[actor];s.steps++;
+    const rule=familyOf(row),family=rule?.family||'unclustered',volume=String(row.sourceVolume??'unknown');
+    const familyCoverage=coverageByFamily[family]||={...freshCoverage(),byVolume:{}};
+    coverageRow(familyCoverage,row);coverageRow(familyCoverage.byVolume[volume]||=freshCoverage(),row);
+    coverageRow(coverageByVolume[volume]||=freshCoverage(),row);
     if(row.status!=='gap'&&row.status!=='lossy_fold')continue;
-    totalGaps++;s.gaps++;const rule=familyOf(row), family=rule?.family||'unclustered',cause=causeOf(row,rule),volume=String(row.sourceVolume??'unknown');
+    totalGaps++;s.gaps++;const cause=causeOf(row,rule), diagnosticsForStep=byStep.get(row.id)||[];
+    const kinds=new Set(diagnosticsForStep.flatMap(entry=>(entry.missing||[]).map(m=>m.kind)).filter(kind=>Object.hasOwn(missingCounts,kind)));
+    for(const kind of kinds){missingCounts[kind]++;inc(missingByFamily[family]||={},kind);}
+    if(!kinds.size){inc(remainingFamilies,family);if(!diagnosticsForStep.length)inc(noBuilderDiagnosticByFamily,family);}
+    for(const reason of new Set(diagnosticsForStep.flatMap(entry=>entry.otherBlockers||[])))inc(otherBuilderBlockers,reason);
+    for(const entry of diagnosticsForStep) {
+      if(entry.missing?.length!==1 || entry.otherBlockers?.length)continue;
+      const {kind,value}=entry.missing[0];if(!Object.hasOwn(missingCounts,kind)||typeof value!=='string'||!value.trim()||/^(unknown|unstated|unspecified|none|null|u|\?)$/i.test(value.trim()))continue;
+      const key=`${kind}\0${value.normalize('NFKC').trim().toLowerCase()}`;
+      const group=missingGroups.get(key)||{kind,value,stepIds:new Set(),builders:new Set()};group.stepIds.add(row.id);group.builders.add(entry.builder);missingGroups.set(key,group);
+    }
     inc(s.classes,row.class||'unknown');inc(s.families,family);inc(s.reasons,cause);
     inc(s.familyReasons[family]||={},cause);
     (s.familyRows[family]||=[]).push({id:row.id,scene:row.scene,verb:row.verb,object:row.object,volume:row.sourceVolume,cause});
@@ -85,7 +108,9 @@ export function buildGapCensus(mappings,failures=[]) {
     s.families=Object.entries(s.families).map(([family,steps])=>({family,steps,share:s.gaps?steps/s.gaps:0})).sort((a,b)=>b.steps-a.steps||a.family.localeCompare(b.family));
     s.topVerbPhrases=Object.fromEntries(Object.entries(s.phrases).map(([key,phrases])=>[key,Object.entries(phrases).map(([phrase,count])=>({phrase,count})).sort((a,b)=>b.count-a.count||a.phrase.localeCompare(b.phrase)).slice(0,40)]));delete s.phrases;
   }
-  return {schema:'lead-gap-census/2',totalSteps,totalGaps,duplicateRowsOmitted,segments,rangeFailures:failures,
+  const coverage={families:Object.entries(coverageByFamily).map(([family,data])=>({family,...data,share:data.steps?data.exactControls/data.steps:0})).sort((a,b)=>b.steps-a.steps||a.family.localeCompare(b.family)),byVolume:coverageByVolume};
+  const missingResolution={stepCounts:missingCounts,byFamily:missingByFamily,overlap:true,top30:[...missingGroups.values()].map(g=>({kind:g.kind,value:g.value,steps:g.stepIds.size,stepIds:[...g.stepIds],builders:[...g.builders]})).sort((a,b)=>b.steps-a.steps||a.kind.localeCompare(b.kind)||a.value.localeCompare(b.value)).slice(0,30)};
+  return {schema:'lead-gap-census/3',totalSteps,totalGaps,duplicateRowsOmitted,segments,coverage,missingResolution,remainingFamilies,noBuilderDiagnosticByFamily,otherBuilderBlockers,rangeFailures:failures,
     rules:FAMILY_RULES.map(({family,head,object,objectType,cause})=>({family,head:head.source,object:object?.source||null,objectType,cause}))};
 }
 
@@ -94,7 +119,8 @@ function main(args) {
   const dir=arg('--mappings'),output=arg('--out');if(!dir||!output)throw Error('Usage: gap_census.mjs --mappings <private-dir> --out <private-census.json> [--failures <json>]');
   const files=fs.readdirSync(dir).filter(file=>/^v\d+-ch\d+-\d+\.json$/.test(file)).sort().map(file=>path.join(dir,file));if(!files.length)throw Error(`No mapping JSON files found in ${dir}`);
   const failures=arg('--failures')?JSON.parse(fs.readFileSync(arg('--failures'),'utf8')):[];
-  const census=buildGapCensus(files.map(file=>JSON.parse(fs.readFileSync(file,'utf8'))),failures);
+  const diagnostics=['topic','journey','acts'].flatMap(builder=>{const file=arg(`--${builder}-report`);return file?[{...JSON.parse(fs.readFileSync(file,'utf8')),builder}]:[]});
+  const census=buildGapCensus(files.map(file=>JSON.parse(fs.readFileSync(file,'utf8'))),failures,diagnostics);
   fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(census,null,2)+'\n');
   console.log(JSON.stringify({totalSteps:census.totalSteps,totalGaps:census.totalGaps,duplicateRowsOmitted:census.duplicateRowsOmitted,rangeFailures:failures.length,
     segments:Object.fromEntries(Object.entries(census.segments).map(([key,s])=>[key,{steps:s.steps,gaps:s.gaps,clustered:s.clustered,clusteredShare:s.clusteredShare,families:s.families,reasons:s.reasons,cheapMisses:s.cheapMisses.length,volumes:s.volumes}]))},null,2));

@@ -6,6 +6,8 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {GAP_KINDS} from '../headless/lead_runs/lotm_ui_replay.mjs';
 import {buildPackJoin} from './build_crosswalk.mjs';
+import {compareLocators} from './merge_shards.mjs';
+import {parseLocator} from './world_profiles.mjs';
 
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
@@ -78,8 +80,9 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
   const walks = {...Object.fromEntries((pack?.places || []).filter(p => p?.id && p.travel && !p.anchorOnly).map(p => [p.id, `lotm.move.${p.id}`])), ...(controlIndex.walks || {})};
   const selected = scenes.filter(s => s.pov === 'lead' && s.evidence?.length && s.evidence.some(e => fromLocator && toLocator
       ? inLocatorRange(e.locator, locatorKey(fromLocator), locatorKey(toLocator))
-      : Number.isFinite(chapter(e.locator)) && chapter(e.locator) >= fromChapter && chapter(e.locator) <= toChapter))
-    .sort((a,b) => a.order-b.order);
+      : Number.isFinite(chapter(e.locator)) && chapter(e.locator) >= fromChapter && chapter(e.locator) <= toChapter));
+  const sourceLocators=new Map(selected.map(s=>[s,(s.evidence||[]).map(e=>e.locator).filter(x=>parseLocator(x)).sort(compareLocators)[0]||null]));
+  selected.sort((a,b)=>compareLocators(sourceLocators.get(a),sourceLocators.get(b)) || (a.order||0)-(b.order||0) || String(a.beat).localeCompare(String(b.beat)));
   const rows = []; let lastPlace = null, lastTimeKey = null;
   for (const scene of selected) for (const [i, step] of scene.steps.entries()) {
     const row = {id:`${scene.beat}#${i+1}`, scene:scene.beat, sourceVolume:locatorKey(scene.evidence?.[0]?.locator)?.volume || null, verb:step.verb, object:step.object || step.verb, class:inferredClass(step,step.class),
@@ -108,26 +111,36 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
     const timeKey=scene.timeOfDay?.value && !/unknown|unstated|unspecified|^u$/i.test(scene.timeOfDay.value) ? scene.timeOfDay.value : null;
     const isTimeGap=i===0&&timeKey&&timeKey!==lastTimeKey;
     const actsHere = householdActs.filter(act => act.place === placeId);
-    row.availableControls = {walk:walks[placeId] || null, walkInventory:Object.keys(walks).length>0, journey:journeys[row.id]?.id || null, destinationResolved:!!destinationId && destinationId===placeId,
+    const legacyActsHere = actsHere.filter(act => !act.sourceStepId);
+    row.availableControls = {walk:walks[placeId] || null, walkInventory:Object.keys(walks).length>0, journey:journeys[row.id]?.id || null,
+      topic:topicTalks[row.id]?.id || null, placeAct:householdActsByStep[row.id]?.id || null, destinationResolved:!!destinationId && destinationId===placeId,
       talk:presentId || null, talkInventory:Object.keys(talks).length>0, talkCandidates:presentIds.length,
       resolvedNonLeadPeople:row.peopleResolved.filter(person=>person.packId && person.packId!==pack?.leadLife?.actorId).length,
       wait:controlIndex.waitPrefix || null, pay:actsHere.filter(act=>act.operation==='pay').map(act=>act.id)};
-    const householdVerb = actsHere.length ? householdOperation(step) : null;
-    const householdAct = householdActsByStep[row.id] || (householdVerb ? bestHouseholdAct(step, actsHere) : null);
-    if (journeys[row.id] && !householdActsByStep[row.id]) {
+    const householdVerb = legacyActsHere.length ? householdOperation(step) : null;
+    const householdAct = householdActsByStep[row.id] || (householdVerb ? bestHouseholdAct(step, legacyActsHere) : null);
+    const topic = topicTalks[row.id], topicChoice = topic?.choices?.[0];
+    const topicValid = topic?.personId && topicChoice?.id;
+    if (householdActsByStep[row.id] || (householdAct && !topicValid && !journeys[row.id])) {
+      row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=householdAct.id;
+      row.controlBuilder='private pack householdActs; H1 be-seat inventory';
+      row.route=[{actionId:householdAct.id, place:householdAct.place, object:step.object || null}];
+      row.anchors={...row.anchors,place:householdAct.place};
+      row.householdActId=householdAct.id; row.controlKind=householdAct.sourceStepId ? 'place act' : 'household';
+    } else if (topicValid) {
+      row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=`${topic.id}.${topicChoice.id}`;
+      row.controlBuilder='private pack topicTalks; src/cast_topic_talk.js';
+      row.route=[{actionId:row.canonicalControl, place:topic.place || placeId || null, personId:topic.personId, controlBuilder:row.controlBuilder}];
+      row.anchors={...row.anchors, ...(topic.place?{place:topic.place}:{}), person:topic.personId}; row.topicTalkId=topic.id; row.controlKind='talk topic';
+    } else if (journeys[row.id]) {
       const journey=journeys[row.id];
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=journey.id;
       row.controlBuilder='private pack journeys; src/cast_journeys.js';
       row.route=[{actionId:journey.id, place:journey.from, destination:journey.to, controlBuilder:row.controlBuilder}];
-      row.anchors={...row.anchors,place:journey.from,destination:journey.to}; row.journeyId=journey.id;
-    } else if (householdAct) {
-      row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=householdAct.id;
-      row.controlBuilder='private pack householdActs; H1 be-seat inventory';
-      row.route=[{actionId:householdAct.id, place:placeId, object:step.object || null}];
-      row.anchors={...row.anchors,place:placeId};
-      row.householdActId=householdAct.id;
+      row.anchors={...row.anchors,place:journey.from,destination:journey.to}; row.journeyId=journey.id; row.controlKind='journey';
+      row.journeyOriginBasis=journey.sourceStepOrigins?.[row.id] || journey.originBasis || 'unknown';
     } else if (householdVerb) {
-      const matchingActs=actsHere.filter(act=>act.operation===householdVerb);
+      const matchingActs=legacyActsHere.filter(act=>act.operation===householdVerb);
       row.reason=matchingActs.length
         ? 'Household verb and place match, but the step object does not distinguish a pack act.'
         : 'No pack act supports this household verb at the step place.';
@@ -137,20 +150,12 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=moveId;
       row.controlBuilder='src/book_world_lotm_cast_host.js:castMoves; src/book_world_lotm_host.js:lotmMoveLabels';
       row.route=[{actionId:moveId, place:placeId, controlBuilder:row.controlBuilder}]; row.anchors.place=placeId;
-      lastPlace=placeId;
-    } else if (topicTalks[row.id]) {
-      const talk = topicTalks[row.id];
-      const choice = talk.choices?.[0];
-      if (talk.personId && choice?.id) {
-        row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=`${talk.id}.${choice.id}`;
-        row.controlBuilder='private pack topicTalks; src/cast_topic_talk.js';
-        row.route=[{actionId:row.canonicalControl, place:talk.place || placeId || null, personId:talk.personId, controlBuilder:row.controlBuilder}];
-        row.anchors={...row.anchors, ...(talk.place?{place:talk.place}:{}), person:talk.personId}; row.topicTalkId=talk.id;
-      }
+      row.controlKind='walk'; lastPlace=placeId;
     } else if (presentId && GREETING_VERB.test(step.verb || '') && !/\b(about|regarding|concerning|explain|ask|tell|warn|persuad\w*|promis\w*|and then)\b/i.test(step.verb || '')) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=presentId;
       row.controlBuilder='src/book_world_lotm_cast_host.js:castTalkCommands';
       row.route=[{actionId:presentId, place:placeId || null, controlBuilder:row.controlBuilder}]; if (placeId) row.anchors.place=placeId;
+      row.controlKind='greeting';
     } else if (isTimeGap && controlIndex.waitPrefix) {
       row.status='gap'; row.gapKind='missing UI path';
       row.reason='A wait intention is identified, but M4 has no numeric replay window for the be driver.';

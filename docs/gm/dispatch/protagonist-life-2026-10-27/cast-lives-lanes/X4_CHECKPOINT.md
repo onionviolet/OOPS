@@ -110,3 +110,104 @@ Actor-unknown gaps by volume: 2,734; 2,137; 1,965; 1,631; 1,291; 682; 380; 321. 
 | `node --check scripts/lead_run/build_replay_mapping.mjs` and `node --check scripts/lead_run/gap_census.mjs` | PASS | Syntax only |
 | `git diff --check` on granted tracked paths | PASS | Whitespace only |
 | `node scripts/lane_review.mjs` with the X4 grants and touched tests | PASS | Static publication and scope review only |
+
+## Resume 2: combined rows and next families
+
+Status: private candidate and mapping ladder regenerated; adapters and registry verified, actor attribution and gameplay unverified. Rules: AD36, AD44, CLR1–CLR3, CLR6–CLR7, CLR12. The supplied candidate and live private pack had identical input bytes: 1,500 people, 1,516 places, 64 topic rows, 616 journey rows and 551 place acts.
+
+**Correction before measuring.** The journey builder sorted by shard-local scene order, which interleaved volumes 533 times. It now sorts by source volume, chapter and paragraph before local order; the mapper uses the same source ordering. Against the supplied candidate, the regenerated routes retain 94 step routes, change 431, omit 117 and add 20; the new candidate has 522 journey rows. Only four of its 545 linked source steps state an origin that the builder resolves; 541 use a prior-place inference. Among the 544 journey steps in the ranged ladder, four have a stated origin and 540 have an inferred origin. These origins need paragraph review before they can be treated as exact routes.
+
+The place-act builder now applies the ordered family rules before choosing a supported family. The earlier version made four transport actions into item-handling acts and also selected message-family steps through later rules. The regenerated candidate has 503 acts, including the original nine. The mapper no longer reuses generated acts for unrelated source steps, and exact topic rows are not suppressed by unrelated household gaps. Exact source-linked controls remain candidate mappings: the source steps have unknown actors, and a row ID does not prove that an adapter preserves every source input or outcome.
+
+The regenerated private candidate is `pack-backups/cast-whole-book-all-candidate-2026-10-29.json`, SHA-256 `f02cc1fe6b7cce74810b581911005b5a8286050bfa4798c91ebf7ed71c022ced`. It retains 1,500 people, 1,516 places and 64 topic rows, and has 522 journeys and 503 place acts. The live private pack was not rewritten. The topic, journey and place-act builders ran in that order, starting from the supplied pack with its original nine household acts restored before regeneration. Nineteen range mappings and the private census, per-family/per-volume matrix, rejection diagnostics, top 30 resolution candidates and validation receipt are in `x4-whole-book-mapping-2026-10-29/ladder/` and its adjacent private reports.
+
+### Coverage and resolution
+
+The table counts mapping assignments, not confirmed playable coverage. **T** topic, **J** journey, **A** source-linked place act, **W** walk, **V** wait, **H** household act, **G** brief greeting. No V control has an exact numeric target in this input. The last column counts gaps with a builder diagnosis of unresolved **person/place/object**; categories can overlap, and an object diagnosis can mean an absent or ambiguous noun rather than an unresolved item identity.
+
+| Family | Steps | Control | Share | Control kinds | Person/place/object |
+|---|---:|---:|---:|---|---|
+| unclustered | 3,147 | 4 | 0.13% | T 4 | 16/33/0 |
+| speak or ask | 1,203 | 59 | 4.90% | T 52, G 7 | 41/278/0 |
+| travel or move | 1,110 | 452 | 40.72% | J 449, W 2, T 1 | 3/426/0 |
+| handle or move an item | 898 | 91 | 10.13% | A 91 | 1/428/689 |
+| reason or plan | 832 | 1 | 0.12% | T 1 | 8/11/0 |
+| observe or listen | 555 | 128 | 23.06% | A 128 | 1/232/320 |
+| inspect or investigate | 530 | 92 | 17.36% | A 92 | 3/208/355 |
+| make or write an item | 366 | 70 | 19.13% | A 69, H 1 | 2/142/220 |
+| rest or personal care | 348 | 64 | 18.39% | A 63, H 1 | 1/127/239 |
+| agree or refuse a proposal | 311 | 5 | 1.61% | T 5 | 6/47/0 |
+| change or maintain state | 284 | 2 | 0.70% | A 2 | 0/128/282 |
+| divination or ritual | 232 | 0 | 0.00% | 0 | 0/1/0 |
+| exchange a message | 175 | 1 | 0.57% | T 1 | 3/6/0 |
+| trade or pay | 165 | 1 | 0.61% | H 1 | 1/1/0 |
+| wait for a time or event | 162 | 0 | 0.00% | 0 | 0/2/0 |
+| fight or evade | 161 | 0 | 0.00% | 0 | 1/1/0 |
+| paid transport | 161 | 95 | 59.01% | J 95 | 0/48/0 |
+| use an ability | 160 | 0 | 0.00% | 0 | 2/1/0 |
+| read a text | 128 | 46 | 35.94% | A 46 | 1/57/31 |
+| direct another actor | 127 | 0 | 0.00% | 0 | 0/0/0 |
+| obtain or learn information | 104 | 0 | 0.00% | 0 | 0/0/0 |
+
+Totals: 11,159 steps, 1,111 mapped controls and 10,048 gaps. Control split: T 64, J 544, A 491, W 2, V 0, H 3, G 7. All 11,159 step actors are unknown; that condition overlaps both mapped and gap rows. Builder diagnoses among gaps: person 90, place 2,177, object 2,136; these are overlapping step counts, not an additive partition. Other recorded blockers include speaker attribution 628, speaker not yet checked 90, ambiguous objects 399, indistinct endpoints 231 and missing source paragraph 19, also overlapping.
+
+| Volume | Steps | Control | Share | Control kinds |
+|---:|---:|---:|---:|---|
+| 1 | 2,752 | 359 | 13.05% | A 158, H 3, J 181, T 10, G 7 |
+| 2 | 2,137 | 241 | 11.28% | J 123, A 105, T 13 |
+| 3 | 1,965 | 148 | 7.53% | A 69, J 70, W 1, T 8 |
+| 4 | 1,631 | 149 | 9.14% | J 74, A 64, T 11 |
+| 5 | 1,291 | 120 | 9.30% | A 52, J 53, T 14, W 1 |
+| 6 | 682 | 43 | 6.30% | J 17, T 5, A 21 |
+| 7 | 380 | 33 | 8.68% | J 14, A 17, T 2 |
+| 8 | 321 | 18 | 5.61% | J 12, A 5, T 1 |
+
+The top 30 single-resolution candidates are all places. Their step counts, in descending order, are 7, 6, 5, 5, ten groups of 4 and sixteen groups of 3. The private census names the individual values and source-step IDs. These are potential row-builder unlocks if the one named resolution is established; actor and source-fidelity review still apply. Exact person and place alias probes found zero unambiguous new matches; 56 scene-step references and 22 destination references had ambiguous exact place names. No aliases were forced. A stated `from` place is now resolved as an origin rather than accidentally parsed as a destination.
+
+### Remaining families and mechanism fit
+
+Counts below are remaining mapping gaps, ordered by frequency. They include the overlapping resolution and unknown-actor conditions above. The separate `noBuilderDiagnosticByFamily` in the private census counts gaps without a rejection from these three builders; it does not prove that no native control exists. “Rows alone” means the entire listed family can be faithfully carried by adding data to the named existing mechanism.
+
+| Family | Gaps | Nearest mechanism | Rows alone? |
+|---|---:|---|---|
+| unclustered | 3,143 | Unresolved | No; the source action and target need classification first. |
+| speak or ask | 1,144 | Topic talk | No; some exchanges need additional dialogue effects, targets and attribution. |
+| reason or plan | 831 | Topic talk / knowledge | No; reasoning and decisions need a consumer for the resulting state. |
+| handle or move an item | 807 | H1 place act | No; fixed local actions fit, while general custody needs an item mechanism. |
+| travel or move | 658 | Journey | No; some routes need an established origin, destination or crossing mechanism. |
+| inspect or investigate | 438 | H1 place act | No; changing evidence and investigation outcomes need their owning mechanisms. |
+| observe or listen | 427 | H1 place act | No; changing events and observers require perception and knowledge logic. |
+| agree or refuse a proposal | 306 | Topic talk | No; commitments and consequences need supported state effects. |
+| make or write an item | 296 | H1 place act | No; variable materials, created items and writing need their own consumers. |
+| rest or personal care | 284 | H1 place act | No; fixed local acts fit, but body and sleep state need their existing owners. |
+| change or maintain state | 282 | H1 place act | No; each affected state needs the correct mechanism and effect. |
+| divination or ritual | 232 | Native ritual | No; means, targeting and result semantics differ by rite. |
+| exchange a message | 174 | Topic talk / place act | No; delivery, recipient and message state need a messaging mechanism. |
+| trade or pay | 164 | Native trade | No; counterparties, stock, prices and settlement need generalization. |
+| wait for a time or event | 162 | Native wait | No; existing wait needs an established offered game minute or event. |
+| fight or evade | 161 | Native combat | No; opponents, ordered moves and consequences need conflict bindings. |
+| use an ability | 160 | Native abilities | No; each ability needs its means, target and actual effects. |
+| direct another actor | 127 | Topic talk / schedule | No; a request needs actor response and task state. |
+| obtain or learn information | 104 | Knowledge / place act | No; facts and their acquisition need a knowledge consumer. |
+| read a text | 82 | H1 place act | No; reusable text and its learned content need a reading consumer. |
+| paid transport | 66 | Journey | No; unresolved routes or fares need evidence and supported service state. |
+
+The largest named family without a builder diagnosis is reason or plan (813), followed by speak or ask (638); unclustered has 3,060. These are prioritization leads, not verified lead-only demand. Actor extraction and source review remain the prerequisite for a defensible lead-only ranking.
+
+### Resume 2 checks
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/build_topic_talks.test.js tests/build_journeys.test.js tests/build_place_acts.test.js tests/build_replay_mapping.test.js tests/replay_mapping_household.test.js tests/lead_replay_score.test.js` | PASS, 47 tests | Synthetic tooling and scoring; no gameplay proof |
+| `node scripts/lead_run/build_topic_talks.mjs`, then `build_journeys.mjs`, then `build_place_acts.mjs` with M4 inputs and the private candidate | PASS, 64 topics / 522 journeys / 503 acts | Actor and inferred-route provenance remain open |
+| Whole-book mapping runner with the final candidate | PASS, 19 range files, 11,159 steps, 0 failed ranges | Literal lead-POV scenes; actor fields absent |
+| `node scripts/lead_run/gap_census.mjs --mappings <ladder> --topic-report <topic-report> --journey-report <journey-report> --acts-report <acts-report> --failures <range-failures> --out <ladder>/census.json` | PASS, 1,111 candidate controls / 10,048 gaps | Lexical family and builder diagnoses require source review |
+| Real adapter / `jsonData` / `validatePredicate` / combined `createSimulationRegistry` probe | PASS, 64 + 522 + 503 definitions and 1,089 registered commands; 0 invalid references | Node definition and registry checks only |
+| Ladder control-ID comparison against the three adapter outputs | PASS, 1,102 mapped topic, journey and act controls found; 0 missing | Excludes walk and greeting IDs; does not establish eligibility or source fidelity |
+| `validateLotmCast` on final candidate | PASS, 0 errors | Pack validation only; no rebuilt browser load |
+| Exact person, scene-place and route-place alias probes | PASS, 0 unambiguous additional aliases | Unresolved and ambiguous names require review; no aliases added |
+| Scoped `node --check` and `git diff --check` | PASS | Syntax and whitespace only |
+| `node scripts/lane_review.mjs` with X4 plus three builder grants | FAIL: three pre-existing test-file name hits; 0 outside-grant or top-level-await hits | The scanner examines whole tests against the enlarged live pack; the same three files match at HEAD |
+| Added-line comparison against the same private-name set | PASS, 0 added-line hits in the granted scripts and tests | Scoped publication check; does not turn the raw lane-review result into a pass |
+
+No commit or push. Browser replay, actual command settlement, persistence and human review are not established by this offline lane.

@@ -24,6 +24,7 @@ test('omits unknown fare, rejects ambiguous endpoints, and maps the exact row id
   assert.equal(Object.hasOwn(journey,'fare'),false);
   const mapping=buildReplayMapping({scenes,crosswalk,registry,pack:{...pack,journeys:{journeys:[journey]}},fromChapter:1,toChapter:1});
   assert.equal(mapping.rows[0].canonicalControl,journey.id); assert.equal(mapping.rows[0].journeyId,journey.id);
+  assert.match(mapping.rows[0].journeyOriginBasis,/inference/);
   const unclear=buildJourneys({scenes:[{...scenes[0],place:'Unknown'}],crosswalk,registry,pack,paragraphIndex});
   assert.equal(unclear.rows.length,0); assert.ok(unclear.rejected.unclearOrigin || unclear.rejected.unresolvedOrigin || unclear.rejected.unclearDestination || unclear.rejected.unresolvedDestination);
 });
@@ -36,9 +37,18 @@ test('uses a fare only when the source step states a numeric penny fare',()=>{
   assert.equal(Object.hasOwn(unstated.rows[0],'fare'),false);
 });
 
+test('a stated origin overrides an earlier scene and is not parsed as the destination',()=>{
+  const scenes=[{beat:'earlier',order:1,pov:'lead',place:pack.places[1].name,evidence:[{locator:'zh 第1章 p1'}],steps:[{verb:'wait'}]},
+    {beat:'route',order:2,pov:'lead',place:pack.places[1].name,evidence:[{locator:'zh 第1章 p2'}],steps:[{verb:`travel from ${pack.places[0].name} to ${pack.places[1].name}`,object:'ticket'}]}];
+  const result=buildJourneys({scenes,crosswalk,registry,pack,paragraphIndex:new Map([['0:1:2','source']])});
+  assert.equal(result.rows.length,1);assert.equal(result.rows[0].from,'pack.place.a');assert.equal(result.rows[0].to,'pack.place.b');
+  assert.equal(result.rows[0].sourceStepOrigins['route#1'],'step origin');
+});
+
 test('keeps a step without a cited source paragraph out of the pack',()=>{
   const result=buildJourneys({scenes:[{beat:'move',order:1,pov:'lead',place:'Old Town',evidence:[{label:'S',locator:'zh 第1章 p9'}],steps:[{verb:'walk to Harbor',class:'travel'}]}],crosswalk,registry,pack,paragraphIndex});
   assert.equal(result.rows.length,0); assert.equal(result.rejected.unresolvedSource,1);
+  assert.deepEqual(result.rejectedRows[0].otherBlockers,['source paragraph']);
 });
 
 test('deduplicates route rows while mapping each source step to that route id',()=>{
@@ -47,4 +57,19 @@ test('deduplicates route rows while mapping each source step to that route id',(
   assert.equal(result.rows.length,1); assert.deepEqual(result.rows[0].sourceStepIds,['move-1#1','move-2#1']);
   const mapped=buildReplayMapping({scenes,crosswalk,registry,pack:{...pack,journeys:{journeys:result.rows}},fromChapter:1,toChapter:1});
   assert.deepEqual(mapped.rows.map(row=>row.canonicalControl),[result.rows[0].id,result.rows[0].id]);
+});
+
+test('does not merge otherwise identical routes with different stated fares',()=>{
+  const scenes=[0,4].map((fare,i)=>({beat:`fare-${i}`,order:i+1,pov:'lead',place:pack.places[0].name,evidence:[{label:'S',locator:'zh 第1章 p2'}],steps:[{verb:`travel to ${pack.places[1].name}`,fare}]}));
+  const result=buildJourneys({scenes,crosswalk,registry,pack,paragraphIndex});
+  assert.equal(result.rows.length,2);assert.deepEqual(result.rows.map(row=>row.fare),[0,4]);
+});
+
+test('journey origin uses source volume order before shard-local scene order',()=>{
+  const scenes=[{beat:'later',order:1,pov:'lead',place:pack.places[1].name,evidence:[{locator:'zh b2 第1章 p2'}],steps:[{verb:`travel to ${pack.places[1].name}`}]},
+    {beat:'earlier',order:9,pov:'lead',place:pack.places[0].name,evidence:[{locator:'zh 第1章 p2'}],steps:[{verb:'wait'}]}];
+  const result=buildJourneys({scenes,crosswalk,registry,pack,paragraphIndex:new Map([['2:1:2','source'],['0:1:2','source']])});
+  assert.equal(result.rows.length,1);
+  assert.equal(result.rows[0].from,'pack.place.a'); assert.equal(result.rows[0].to,'pack.place.b');
+  assert.match(result.rows[0].originBasis,/inference/);
 });

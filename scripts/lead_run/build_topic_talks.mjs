@@ -62,7 +62,7 @@ export function buildTopicTalks({scenes, crosswalk, registry, pack, paragraphInd
   for (const r of registry.filter(x => x.kind === 'person')) for (const v of [r.id,r.label,r.zh,...(r.aliases||[])]) if (human(v)) {
     const resolved = join.resolvePerson(r.id); if (resolved) addName(v,resolved);
   }
-  const rows = [], rejected = {notFamily:0, unresolvedPerson:0, unresolvedPlace:0, ambiguousPerson:0, unclearSpeaker:0};
+  const rows = [], rejectedRows = [], rejected = {notFamily:0, unresolvedPerson:0, unresolvedPlace:0, ambiguousPerson:0, unclearSpeaker:0};
   const perVolume = {}, familyStepsByVolume = {};
   for (const scene of scenes.filter(s => s.pov === 'lead').sort((a,b)=>(a.order||0)-(b.order||0))) {
     const locator = scene.evidence?.[0]?.locator || null;
@@ -76,7 +76,12 @@ export function buildTopicTalks({scenes, crosswalk, registry, pack, paragraphInd
       const people = [...new Set((scene.present||[]).filter(human).map(id=>join.resolvePerson(id)).filter(id=>id && id!==pack.leadLife?.actorId))];
       const mentioned = people.filter(id => [...names].some(([n,ids])=>ids.size===1 && ids.has(id) && n.length>2 && (` ${text} `).includes(` ${n} `)));
       const ambiguousMention = [...names].some(([n,ids])=>ids.size>1 && n.length>2 && (` ${text} `).includes(` ${n} `));
-      if (!people.length) { rejected.unresolvedPerson++; continue; }
+      if (!people.length) {
+        rejected.unresolvedPerson++;
+        const unresolved=(scene.present||[]).filter(human).filter(id=>!join.resolvePerson(id) && id!==pack.leadLife?.actorId);
+        rejectedRows.push({stepId,reason:'unresolvedPerson',missing:[{kind:'person',value:unresolved.length===1?unresolved[0]:null},...(!place?[{kind:'place',value:scene.place||null}]:[])],otherBlockers:['speaker attribution not checked']});
+        continue;
+      }
       let speaker = mentioned.length === 1 && people.length === 1 ? {id:mentioned[0],locator:null} : null;
       if (!speaker && paragraphIndex) {
         const paragraphs = (scene.evidence || []).flatMap(ev => {
@@ -87,8 +92,8 @@ export function buildTopicTalks({scenes, crosswalk, registry, pack, paragraphInd
         });
         speaker = namedSpeaker(paragraphs, people, namesById, names);
       }
-      if (!speaker) { rejected[ambiguousMention || mentioned.length > 1 || people.length > 1 ? 'ambiguousPerson' : 'unclearSpeaker']++; continue; }
-      if (!place) { rejected.unresolvedPlace++; continue; }
+      if (!speaker) { const reason=ambiguousMention || mentioned.length > 1 || people.length > 1 ? 'ambiguousPerson' : 'unclearSpeaker';rejected[reason]++;rejectedRows.push({stepId,reason,missing:!place?[{kind:'place',value:scene.place||null}]:[],otherBlockers:['speaker attribution']});continue; }
+      if (!place) { rejected.unresolvedPlace++; rejectedRows.push({stepId,reason:'unresolvedPlace',missing:[{kind:'place',value:scene.place||null}]}); continue; }
       const personId = speaker.id, d = duration(original), label = topicLabel(original);
       const row = {id:`topic.${key(stepId)}`, sourceStepId:stepId, personId, topicId:`topic.${key(stepId)}`, label,
         description:`Discuss ${label.charAt(0).toLowerCase()+label.slice(1)} with ${labelOf(personId,registry,pack)}.`, minutes:d.minutes, minutesBasis:d.basis,
@@ -99,7 +104,7 @@ export function buildTopicTalks({scenes, crosswalk, registry, pack, paragraphInd
       rows.push(row); perVolume[volume]=(perVolume[volume]||0)+1;
     }
   }
-  return {rows, rejected, perVolume, familyStepsByVolume};
+  return {rows, rejected, rejectedRows, perVolume, familyStepsByVolume};
 }
 
 function main(args) {
@@ -112,7 +117,7 @@ function main(args) {
   const pack=structuredClone(input); pack.topicTalks={talks:result.rows};
   const out=get('--out'), report=get('--report'); fs.mkdirSync(path.dirname(out),{recursive:true});
   fs.writeFileSync(out,JSON.stringify(pack,null,2)+'\n');
-  fs.writeFileSync(report,JSON.stringify({schema:'topic-talk-build-report/1',rows:result.rows.length,perVolume:result.perVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected},null,2)+'\n');
+  fs.writeFileSync(report,JSON.stringify({schema:'topic-talk-build-report/2',rows:result.rows.length,perVolume:result.perVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected,rejectedRows:result.rejectedRows},null,2)+'\n');
   console.log(JSON.stringify({rows:result.rows.length,perVolume:result.perVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected}));
 }
 if (process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) main(process.argv.slice(2));
