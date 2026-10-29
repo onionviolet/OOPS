@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD256 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD264 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -707,3 +707,22 @@ guide book is a separate session's job; this table is its input.
 | --- | --- | --- |
 | LSD255 | **One field-to-system matrix.** Every reading field names the systems that read it, and every system names the fields it needs (READINESS L10). A field nothing reads is not collected; a system missing a field names the schema change. The guide book should carry this matrix as its spine | ACCOUNT FOR NOW: guide book input |
 | LSD256 | **Shared order for these systems.** Each new system needs the same four joins before it is real: a pull-aware resolve (LSD233), a failure path (LSD227), a non-lead fixture (LSD226) and a beat checkpoint test (LSD224). Building those joins once in the constraint store and test kit makes every later system cheaper | ACCOUNT FOR NOW: D1/D2 and test kit |
+
+## 26. Canon events are threads, not moments (Weibao 2026-10-29; proposal)
+
+Weibao, while the card lane (guide section 6 step 3) was running: "Cannon events arent so short term are they? More
+to consider? How would this interact with implementation?" Right: most canon events span days or weeks (an
+investigation, a training period, a job, an illness, a courtship, a debt), and a scene is one sample of them. Cards
+per step would reach each moment and lose what carries between them. Lines below are only those the card lane or the
+next brief reads (Dr3).
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD257 | **A thread is the unit of a canon event.** A thread has an id, its beats in order, a window (first and last day), its participants, a goal or open question, and the state carried between beats (clues held, money owed, wound healing, skill progress). Scenes and their steps are samples; a card is a step inside a thread | ACCOUNT FOR NOW: card lane emits thread ids |
+| LSD258 | **Threads come from data we have, by script.** Chain scenes by `deps` (`after`, `needs`), `continues`, shared touched ids (the same item, person or place recurring), and footprint windows; a cluster is a candidate thread. No reader field is bought for it; a `thread` field joins the schema only if clustering proves unreliable on the reviewed ground truth | ACCOUNT FOR NOW: card lane; schema change LATER |
+| LSD259 | **Fold loss is checked per thread too.** A set of cards loses information if the state carried between two beats has no home (a clue found in one scene and used in the next). Such a thread stays a gap even when each card passes CLR6 alone | ACCOUNT FOR NOW: card lane report |
+| LSD260 | **Between beats, threads progress as processes.** Healing, learning, saving, a rumour spreading and a search narrowing have rates in the mechanical layer (LSD126) and run on montage days (LSD209) and while idle. Canon gives checkpoints (healed by the book's day); pull applies to the checkpoint, and the rate is calibrated so the rules reach it on their own (LSD236) | LATER/DELEGATE: with the four joins (guide step 4) |
+| LSD261 | **Threads interleave.** The lead runs several at once; the wake queue (LSD138) wakes at each thread's next deadline, and his free time (LSD113) is spent across them. Reservations (LSD109) are held by the thread that needs them, so the refusal reason names it ("you need this for the rent") | ACCOUNT FOR NOW |
+| LSD262 | **Long threads are where butterflies live.** The longer a thread runs, the more disturbance can reach it, so a later beat's pull reads the thread's state, not only its own inputs (LSD234, LSD243). An item set up early and used much later is one thread with a long reservation, and the forward-anchor lint follows it across chapters and volumes (LSD150) | ACCOUNT FOR NOW |
+| LSD263 | **Reachable is reported by thread as well as step.** Headline: threads whose every beat is reachable in order, and threads whose carried state survives (LSD259); step reachable share stays a diagnostic (LSD210) | ACCOUNT FOR NOW: card lane report |
+| LSD264 | **The player sees threads as his open matters.** The journal lists open threads at his knowledge level ("looking into the notebook", "rent due on the 3rd") with what he knows, not what comes next (LSD116). Thread progress is a save delta; canon thread structure stays derived from the pack (LSD143) | LATER: runtime and UI after the card data lands |
