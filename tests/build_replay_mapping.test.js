@@ -41,6 +41,22 @@ test('filters by lead POV and chapter range without inventing a control',()=>{
   assert.deepEqual(result.rows.map(r=>r.id),['s1#1']); assert.equal(result.rows[0].status,'gap');
 });
 
+test('reviewed rows override generated controls and reviewed gaps retain typed reasons',()=>{
+ const scenes=[{beat:'sample',pov:'lead',evidence:[{locator:'第1章'}],place:'Flat',steps:[{verb:'walk to Flat',class:'travel'},{verb:'read',class:'study'},{verb:'remember',class:'other'}]}];
+ const reviewed=[
+  {stepId:'sample#1',verdict:'row',kind:'journey',row:{id:'journey.reviewed',from:'place.a',to:'place.b'}},
+  {stepId:'sample#2',verdict:'gap',gapReason:'not an action'},
+  {stepId:'sample#3',verdict:'gap',gapReason:'no mechanism'}
+ ];
+ const result=buildReplayMapping({scenes,crosswalk:{places:{Flat:'place.flat'}},fromChapter:1,toChapter:1,
+  controlIndex:{walks:{'place.flat':'generated.walk'}},pack:{},reviewed});
+ assert.equal(result.rows[0].canonicalControl,'journey.reviewed');
+ assert.equal(result.rows[0].anchors.destination,'place.b');
+ assert.equal(result.rows[1].status,'gap');assert.equal(result.rows[1].reviewedGapReason,'not an action');
+ assert.equal(result.rows[1].excludedCandidate,true);
+ assert.equal(result.rows[2].reviewedGapReason,'no mechanism');
+});
+
 test('volume-aware locator bounds distinguish repeated chapter numbers and implicit volume one',()=>{
   const scenes=[
     {beat:'v1',order:1,pov:'lead',evidence:[{locator:'zh 第1章 p1'}],steps:[{verb:'start',class:'other'}]},

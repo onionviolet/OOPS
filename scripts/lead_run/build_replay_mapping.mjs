@@ -11,6 +11,15 @@ import {parseLocator} from './world_profiles.mjs';
 
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
+const reviewedIndex = lines => {
+  const index = new Map();
+  for (const line of lines || []) {
+    if (!line?.stepId || !['row','gap'].includes(line.verdict)) throw Error('Malformed reviewed mapping input.');
+    if (index.has(line.stepId) && JSON.stringify(index.get(line.stepId)) !== JSON.stringify(line)) throw Error(`Conflicting reviewed verdicts for ${line.stepId}`);
+    index.set(line.stepId,line);
+  }
+  return index;
+};
 const chapter = locator => Number(/第(\d+)章/.exec(locator || '')?.[1] || Infinity);
 const locatorKey = locator => {
   const match = /(?:\bb(\d+)\s+)?第(\d+)章/.exec(locator || '');
@@ -67,7 +76,8 @@ function stepActorRole(step, packJoin, leadActorId, knownActors) {
   return !resolved ? 'unknown' : resolved === leadActorId ? 'lead' : 'non-lead';
 }
 
-export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, fromLocator, toLocator, controlIndex = {}, registry = [], pack = null, waitEvidence = {}}) {
+export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, fromLocator, toLocator, controlIndex = {}, registry = [], pack = null, waitEvidence = {}, reviewed = []}) {
+  const reviewedByStep=reviewedIndex(reviewed);
   const packJoin = pack ? buildPackJoin({crosswalk, registry, pack}) : null;
   const knownActors = new Set((pack?.people || []).map(person=>person.id));
   const householdActs = pack?.householdActs?.acts || [];
@@ -122,7 +132,30 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
     const householdAct = householdActsByStep[row.id] || (householdVerb ? bestHouseholdAct(step, legacyActsHere) : null);
     const topic = topicTalks[row.id], topicChoice = topic?.choices?.[0];
     const topicValid = topic?.personId && topicChoice?.id;
-    if (householdActsByStep[row.id] || (householdAct && !topicValid && !journeys[row.id])) {
+    const reviewedLine=reviewedByStep.get(row.id);
+    if (reviewedLine?.verdict==='gap') {
+      row.status='gap'; row.gapKind='reviewed gap'; row.reason=reviewedLine.gapReason || 'Paragraph review retained this step as a gap.';
+      row.reviewedGapReason=reviewedLine.gapReason || null;
+      if(['actor not the lead','not an action'].includes(reviewedLine.gapReason)) row.excludedCandidate=true;
+      if (placeId) row.anchors.place=placeId;
+    } else if (reviewedLine?.verdict==='row') {
+      const reviewedRow=reviewedLine.row;
+      row.status='clean_fold'; row.gapKind=null; row.reason=null; row.reviewedKind=reviewedLine.kind;
+      row.canonicalControl=reviewedLine.kind==='topic' ? `${reviewedRow.id}.${reviewedRow.choices?.[0]?.id}` : reviewedRow.id;
+      if (reviewedLine.kind==='act') {
+        row.controlKind='place act'; row.controlBuilder='private pack householdActs; H1 be-seat inventory'; row.householdActId=reviewedRow.id;
+        row.route=[{actionId:reviewedRow.id,place:reviewedRow.place,object:step.object || null}]; row.anchors={...row.anchors,place:reviewedRow.place};
+      } else if (reviewedLine.kind==='journey') {
+        row.controlKind='journey'; row.controlBuilder='private pack journeys; src/cast_journeys.js'; row.journeyId=reviewedRow.id;
+        row.route=[{actionId:reviewedRow.id,place:reviewedRow.from,destination:reviewedRow.to,controlBuilder:row.controlBuilder}];
+        row.anchors={...row.anchors,place:reviewedRow.from,destination:reviewedRow.to};
+      } else if (reviewedLine.kind==='topic') {
+        const choice=reviewedRow.choices?.[0]; row.controlKind='talk topic'; row.controlBuilder='private pack topicTalks; src/cast_topic_talk.js'; row.topicTalkId=reviewedRow.id;
+        row.route=[{actionId:row.canonicalControl,place:reviewedRow.place || placeId || null,personId:reviewedRow.personId,controlBuilder:row.controlBuilder}];
+        row.anchors={...row.anchors,...(reviewedRow.place?{place:reviewedRow.place}:{}),person:reviewedRow.personId};
+        row.reviewedChoiceId=choice?.id || null;
+      } else throw Error(`Unsupported reviewed row kind ${reviewedLine.kind} for ${row.id}`);
+    } else if (householdActsByStep[row.id] || (householdAct && !topicValid && !journeys[row.id])) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=householdAct.id;
       row.controlBuilder='private pack householdActs; H1 be-seat inventory';
       row.route=[{actionId:householdAct.id, place:householdAct.place, object:step.object || null}];
@@ -197,7 +230,9 @@ function main(args) {
   const pack=JSON.parse(fs.readFileSync(get('--pack'),'utf8'));
   if (!fromLocator && (!Number.isFinite(fromChapter) || !Number.isFinite(toChapter))) throw Error('Provide --from/--to or --from-locator/--to-locator');
   const waitEvidence=args.includes('--wait-evidence') ? JSON.parse(fs.readFileSync(get('--wait-evidence'),'utf8')) : {};
-  const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack,waitEvidence});
+  const reviewedFiles=[]; for(let i=0;i<args.length;i++) if(args[i]==='--reviewed'){if(!args[i+1])throw Error('Missing path after --reviewed');reviewedFiles.push(args[++i]);}
+  const reviewed=reviewedFiles.flatMap(readJsonl);
+  const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack,waitEvidence,reviewed});
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
   const counts={walk:0,journey:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
   for(const r of mapping.rows){if(r.journeyId)counts.journey++;else if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
