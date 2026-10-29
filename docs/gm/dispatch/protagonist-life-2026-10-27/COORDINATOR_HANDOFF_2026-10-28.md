@@ -24,7 +24,7 @@ This handoff grants no new scope.
 | S1 | Seat filter (`src/seat_profiles.js`), shell hunk, LOTM panel hunk | Committed `5832a1f8b`; coordinator fixed two defects (below) |
 | P1 | `world_lead_pipeline.mjs`, one command per book to records-ready (CL272) | Committed `569616c90` |
 | B1 | Be the lead ([brief](cast-lives-lanes/B1_BE_SEAT_BRIEF.md)) | **Running round 2** ([message](cast-lives-lanes/B1_RESUME_2_MESSAGE.md): grant widened to `book_world_lotm_content.js`, canon-run default LSD103/105/116, null-player check; codex pid 74005). The runner's shell wrapper was stopped, so no task notice arrives: check `codex_lane.mjs status`. Review with the loop, then the be-seat browser check and the L5r replay in the be seat |
-| M1 | Schema 1.4 and census union stage ([brief](cast-lives-lanes/M1_SCHEMA_UNION_BRIEF.md)) | **Running** (Luna low, launched 2026-10-28) |
+| M1 | Schema 1.4 and census union stage ([brief](cast-lives-lanes/M1_SCHEMA_UNION_BRIEF.md)) | Committed `c822b8bc1` (coordinator updated the P1 test to seven stages). LOTM v1: 1,462 to 1,574 people rows, +700 routine slots, +1,022 reactions, census 3,431 + 3,832 to 4,085; lead-scene cast 134 (was 107, older snapshot). Three shards lack a pre-1.4 backup (w1s18, w3s33, w3s35), kept as 1.4. Output in `/tmp/m1-lotm-final4`. Full suite 3714/3715 with B1's in-flight `src/` edits; the one failure is `seat_profiles.test.js`, B1's area, recheck at B1 review |
 | G2 | Concealment | **Held** until the be replay asks for it (brief kept: `G2_CONCEALMENT_BRIEF.md`) |
 
 Coordinator fixes made in review this session (each lane's checkpoint records them): L5r snapshot paths
