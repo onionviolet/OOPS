@@ -222,3 +222,66 @@ candidate mapping, not completed actions.
 The Resume 2 driver limitation was resolved by the later volume-aware driver.
 No browser replay, persistence proof, commit or push was performed in Resume 3.
 Agent-verified, not human-reviewed.
+
+## Resume 4: body, ability and exchange, 2026-10-29
+
+The live pack matched reviewed3 by SHA-256. The 13 requested shards were merged
+in order into a new private candidate. The existing resolver prefers a row to
+a gap and the later shard for equal verdicts. It reported 54 differing-record
+conflicts, the RV2/RV7 overlap, and zero identical duplicate verdicts. There
+were no ID collisions or rejected rows. RW9 has 100 gaps and no exchange rows.
+
+| Shard | Body added | Ability added | Other kinds added | Identical rows skipped | Rejected |
+|---|---:|---:|---:|---:|---:|
+| RV2 | 0 | 0 | 0 | 0 | 0 |
+| RV4 | 0 | 0 | 0 | 12 | 0 |
+| RV6 | 0 | 0 | 0 | 14 | 0 |
+| RV7 | 0 | 0 | 0 | 25 | 0 |
+| RV8 | 0 | 0 | 0 | 8 | 0 |
+| RV9 | 0 | 0 | 0 | 35 | 0 |
+| RV10 | 0 | 0 | 0 | 8 | 0 |
+| RW4 | 0 | 0 | 0 | 0 | 0 |
+| RW5 | 0 | 0 | 0 | 9 | 0 |
+| RW6 | 0 | 0 | 0 | 56 | 0 |
+| RW7 | 31 | 0 | 0 | 0 | 0 |
+| RW8 | 0 | 2 | 0 | 0 | 0 |
+| RW9 | 0 | 0 | 0 | 0 | 0 |
+| Total | 31 | 2 | 0 | 167 | 0 |
+
+The private candidate is `pack-backups/cast-whole-book-reviewed4-candidate-2026-10-29.json`
+under the lead-run private directory; SHA-256
+`9fe7cf49def248e3b54531ffb5a0e2149103258e36dd309d9af309a83c8d52d9`.
+The live pack and M4 inputs were read without modification.
+
+| Range | Steps | Controls before | Controls after | New-kind mapped rows |
+|---|---:|---:|---:|---:|
+| Chapters 1–3 | 175 | 26 | 26 | 0 |
+| Chapters 1–24 | 1,491 | 208 | 210 | 2 body |
+| Volume 1, chapters 1–100 | 1,130 | 278 | 285 | 6 body, 1 ability |
+
+All three before/after source-step ID sets match. The chapter-number mappings
+include matching chapters across volumes; the audits select 41 and 285 volume
+1 steps, respectively. The ladder selects 1,130 volume 1 steps. Mapped body
+and ability route IDs match the candidate adapter outputs. These are candidate
+controls, with runtime eligibility and settlement still untested.
+
+Private mapping outputs are `x1-be-mapping-2026-10-29/chapters-1-3-reviewed.json`
+(`41de393c2809…`), `x1-be-mapping-2026-10-29/chapters-1-24-reviewed.json`
+(`25a17344a220…`) and `x4-whole-book-mapping-2026-10-29/ladder/v1-ch1-100.json`
+(`6126ec119641…`).
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node scripts/lead_run/merge_reviewed_rows.mjs` with live pack and all 13 shards | PASS, 33 added, 167 identical skipped; pack validator, JSON/predicate and registry checks validated 102 topic, 531 journey, 542 act, 0 divination, 9 making, 56 inference, 0 exchange, 31 body and 2 ability commands | Candidate data; settlement untested |
+| `node scripts/lead_run/build_replay_mapping.mjs` with full M4 inputs, reviewed4 candidate and 13 shards for each range | PASS, 175 / 1,491 / 1,130 rows; unchanged source-step ID sets | Offline mappings |
+| Driver audit mode with full M4 scenes, chapter 1–3 mapping, `--chapters 1-3 --volume 1` | PASS, validates 175 and selects 41 | Browser replay untested |
+| Driver audit mode with full M4 scenes, chapter 1–24 mapping, `--chapters 1-24 --volume 1` | PASS, validates 1,491 and selects 285 | Browser replay untested |
+| Driver audit mode with full M4 scenes, volume 1 ladder, `--volume 1 --locator-range` for chapters 1–100 | PASS, validates and selects 1,130 | Browser replay untested |
+| Candidate adapter ID comparison for all three mappings | PASS, 0 missing body, ability or exchange route IDs | Definition comparison; no gameplay claim |
+| `node --test tests/merge_reviewed_rows.test.js tests/build_replay_mapping.test.js tests/lead_replay_score.test.js tests/build_place_acts.test.js` | PASS, 43 tests | Synthetic fixtures |
+| `node scripts/lane_review.mjs` with the five owned paths | 0 outside-grant and 0 top-level-await hits; two existing test-file name hits | HEAD and current files match the same private names, 0 new matches |
+| `node --check` on both scripts; scoped `git diff --check` | PASS | Syntax and whitespace scope |
+| `node scripts/check_doc_slips.mjs` | RV5 checkpoint has 0 findings | 27 findings remain in other documents |
+
+No browser replay, persistence proof, commit or push was performed in Resume 4.
+Agent-verified, not human-reviewed.
