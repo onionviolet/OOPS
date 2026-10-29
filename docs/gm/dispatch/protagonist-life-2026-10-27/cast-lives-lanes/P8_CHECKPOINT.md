@@ -114,3 +114,40 @@ Remaining authoritative combined gate: **coordinator applies the prepared integr
 Known limits and expected next refactor: the 256-person compatibility default is deliberate; all definitions and schedule rows still load eagerly and all-role cheap filters remain linear. Compiled schedule indexing stays with P6's owner. Command caches grow with actually quoted routes during a process lifetime, rather than retaining all pairs at startup. Future pack-window loading and a universal small-pack lazy contract remain separate work, not gates added by this lane.
 
 Final integrity: PASS owned-file hashes, original pack hashes, new-file whitespace, receipt links, prepared-patch applicability and changed-line whitespace. The production source map confirms no scratch harness exports. All lane fixture, profile, test and build processes have exited. **Ownership released to the coordinator for the seven delivered paths.**
+
+## Resume 1: whole-book be enrollment, 2026-10-29
+
+Status: **implemented, below floor; Node be enrollment and reload pass; Chrome crash fix unconfirmed**. Agent-verified, not human-reviewed. The original P8 receipt above is historical: the coordinator committed P8 as `f35fa6d4c`, subsequently exercised beside in Chrome, and reverted the live pack to the 204-person candidate after the be failure. The [handoff](../COORDINATOR_HANDOFF_2026-10-28.md) records that browser beside load and persistence passed while its 349-minute wait was 1.85× the 36-person pack, above the 1.5× timing target. This resume does not claim that timing gap is closed.
+
+**F1, measured cause:** The whole-book journeys pack has 1,500 people, 1,516 places and 616 journey commands, of which 12 start at the lead's opening place. The existing large-pack lazy-body path is active: the be state had **24 total simulation bodies**, including the player and other residents. The be panel nevertheless quoted all 616 journeys. For each route it rebuilt `ports.context()` and `lotmContext`, including the native world projections, then built simulation facts again for requirements and repeatedly read the context for the canon decision. In a scratch-only instrumented baseline, just the first **50 previews took 12,251.69 ms**, with 24 bodies, 326,647,840 bytes heap used and 773,668,864 bytes RSS at that sample. The baseline was interrupted after this measurement, so it has no completed enrollment/reload time. This establishes a costly eager path; it does not independently prove which browser allocation caused the reported Chrome target crash.
+
+**F2, change:** `src/book_world_lotm_host.js` now lazily builds a single journey context and read-only facts frame per be view. Journey definitions all have the player actor and no target. Each route still runs its ordinary preview, requirement-reason evaluation and canon reservation check; eligible routes still run the existing counterfactual trial and execution revalidates normally. Facts-frame mutation and invalidation remain owned by `facts_frame.js`; nothing is persisted or reused across views. The 616 offers are retained, including unavailable remote routes and their reasons. No save schema, body enrollment, pack content, location authority, event clock or UI copy changed. Core-owner lines and registrations added: zero; architecture reports no new cycle edges. Rules AR1–AR16, AD36/43/45, CLR2/10/12 and the P8 scale brief apply.
+
+**F3, Node measurement:** Whole-book journeys candidate copied to scratch, SHA-256 `0d6c513fb6755f1322e3e7ae83abc99ef1e21695ed553aab3e9ffec7e0b57ec2`, 3,119,578 bytes. The P8 full-game fixture uses seed 37, `enrollBeFresh`, real simulation/display code, a 1,024 MiB Node old-space limit, then Save and reload. These are endpoint samples, not heap peaks. Memory includes the Node DOM runner and build infrastructure, not Chrome memory.
+
+| Phase | Time ms | Heap used bytes | RSS bytes | Bodies |
+|---|---:|---:|---:|---:|
+| Boot | 8,326.56 | 255,154,568 | 936,755,200 | 0 |
+| Pack-ready settle | 141.38 | 271,174,208 | 938,491,904 | 0 |
+| Be enrollment and settle | 10,771.17 | 308,397,248 | 940,589,056 | 24 |
+| Save | 400.97 | 342,472,624 | 944,865,280 | 24 |
+| Reload and settle | 27,685.58 | 454,005,840 | 861,732,864 | 24 |
+
+The after run retains exact expansion state across reload, records zero page errors, and asserts that all 616 pack journey IDs appear in the be panel. A separate frozen-source differential with the same whole-book pack reduced to six scratch-only routes, three local and three remote, returns **identical full be view, expansion state and save bytes** before/after. That verifies blocked and available route presentation on that fixture; it does not prove every possible future command or changing context. The actual private candidate and live pack were not edited.
+
+Files changed for Resume 1: `src/book_world_lotm_host.js`, `tests/headless/cast_scale_fixture.mjs`, `tests/headless/cast_scale_equivalence.test.js`, and this checkpoint. The new scale case exercises full be enrollment, Save/reload, body count and all journeys, and uses a bounded child timeout. It leaves the previous 150-person and optional small-pack differential checks in place.
+
+| Check | Result | Gap |
+|---|---|---|
+| `node --test tests/cast_journeys.test.js tests/lotm_be_seat.test.js tests/cast_whole_book_scale.test.js` | PASS 23/23 | Includes local and remote routes, service/fare refusals, revalidation and the native journey Save/reload/Export/Import fixture; focused only |
+| `node --test --test-name-pattern='whole-book journeys permit' tests/headless/cast_scale_equivalence.test.js` | PASS 1/1 | Actual private whole-book journeys candidate; full-game Node DOM fixture, not Chrome. Metrics above |
+| `node --test tests/headless/cast_scale_equivalence.test.js` | PASS 2, SKIP 1 | Whole-book 150-person sample and be start pass; the historical pre-P8 differential skips without its baseline environment |
+| `node /tmp/p8-resume1-diff.mjs /tmp/yairpg-p8-resume1-diff-before ...` and matching after invocation, then JSON comparisons | PASS | Six-route scratch subset; all view, state and save fields equal; no full 616-route baseline completion |
+| `npm run check:arch` | PASS | main 10056/10115, display 6730/6767, saves 310/310, 6 grandfathered main imports and 205 cyclic edges; no growth/new cycles |
+| `BUILD_OUT=/tmp/yairpg-p8-resume1-build npm run build` in `/tmp/yairpg-p8-resume1-production` | PASS | Production source without scratch test exports; bundle SHA-256 `8ff88debf260a26db6e96c8103cacea882e764728d5a056ae98ee6ea46857421`; browser not exercised |
+| `node scripts/lane_review.mjs` with the three source/test paths as grants and candidates | Zero outside-grant and top-level-await hits; 2 generic-word matches | Manual review: host comment uses ordinary `world`, scale test contains inherited `I.world`; no private name literal introduced |
+| `git diff --check -- src/book_world_lotm_host.js tests/headless/cast_scale_fixture.mjs tests/headless/cast_scale_equivalence.test.js` | PASS | Owned paths only |
+
+**Chrome still must confirm:** rebuild the combined current candidate, use a fresh scratch origin with the named whole-book journeys pack, open the Tingen panel, select `pick_be` and `enroll_be` through the actual fresh-life/probe/reload route, and verify the page stays open, reaches a readable first be snapshot, retains 616 journey offers as applicable, reports zero page errors, and survives Save/reload/Export/Import. The direct Node fixture starts through `enrollBeFresh`; it does not exercise the browser's detached fresh-life probe or establish its peak memory. Coordinator owns that browser floor and full suite. No commit, push, private-pack swap or normal-profile access in this resume.
+
+Resume 1 final integrity: owned source/test hashes and receipt links checked; the named source pack hash is unchanged. All lane processes have exited. **Ownership released to the coordinator.**

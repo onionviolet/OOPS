@@ -58,3 +58,18 @@ test('frozen small packs retain exact full-game state and save bytes',async t=>{
  });
  t.diagnostic('Frozen private fixture outputs: '+temp);
 });
+
+test('whole-book journeys permit a be-seat enrollment and save/reload without eagerly creating cast bodies', {timeout:240000},async t=>{
+ const pack=process.env.YAIRPG_SCALE_BE_PACK||join(root,packs,'cast-whole-book-journeys-candidate-2026-10-29.json');
+ try{await readFile(pack);}catch(e){if(e.code==='ENOENT'){t.skip('Private whole-book journeys fixture absent');return;}throw e;}
+ const temp=await mkdtemp(join(tmpdir(),'yairpg-scale-be-')),dir=join(temp,'game');
+ await snapshot(root,dir,pack);
+ const out=join(temp,'result.json');
+ const child=await exec(process.execPath,['--max-old-space-size=1024',join(root,'tests/headless/cast_scale_fixture.mjs'),dir,'be',out,'span','true','be-reload'],{timeout:220000,maxBuffer:1024*1024});
+ const result=JSON.parse(await readFile(out,'utf8'));
+ assert.deepEqual(result.errors,[]);assert.ok(result.journeyOffers>500);
+ assert.deepEqual(result.phases.map(p=>p.phase),['boot','pack-ready','enroll-and-settle','save','reload-and-settle']);
+ assert.ok(result.phases.find(p=>p.phase==='enroll-and-settle').bodies<100);
+ assert.ok(result.phases.find(p=>p.phase==='reload-and-settle').bodies<100);
+ t.diagnostic(`Be fixture phase metrics: ${child.stdout.trim()}`);
+});

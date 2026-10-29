@@ -1,13 +1,28 @@
 import assert from 'node:assert/strict';import {readFile,writeFile} from 'node:fs/promises';import {pathToFileURL} from 'node:url';
 const [dir,kind,out,mode='span',wakeMode='true',probe='normal']=process.argv.slice(2),{boot}=await import(pathToFileURL(dir+'/scripts/headless/runner.mjs').href);
-const loadStart=performance.now();const g=await boot(null,{heroName:null,seed:37});let result;
+const loadStart=performance.now(),phases=[];
+const mark=(name,start=loadStart,game=null)=>{const m=process.memoryUsage();const row={phase:name,ms:performance.now()-start,heapUsed:m.heapUsed,heapTotal:m.heapTotal,rss:m.rss,bodies:game?Object.keys(game.internals.expansionState.simulation?.people||{}).length:null};phases.push(row);if(probe==='be-reload')process.stderr.write(JSON.stringify(row)+'\n');};
+const g=await boot(null,{heroName:null,seed:37});let result;mark('boot',loadStart,g);
 try{
- await g.module.p5CastReady();await g.settle();
+ let phaseStart=performance.now();await g.module.p5CastReady();await g.settle();mark('pack-ready',phaseStart,g);
+ phaseStart=performance.now();
  if(kind==='beside'||kind==='be'){
   if(kind==='beside'){await g.fill('[aria-label="Other known panels"]','lotm');await g.click('[data-lotm="pick_beside"]');await g.click('[data-lotm="enroll_beside"]');}
   else {g.module.p5EnrollBe();}
   await g.settle();assert.ok(g.internals.expansionState.lotm);assert.ok(Object.keys(g.internals.expansionState.simulation.people).length>10);
  }
+ mark('enroll-and-settle',phaseStart,g);
+ if(probe==='be-reload'){
+  assert.equal(kind,'be');phaseStart=performance.now();const before=JSON.stringify(g.internals.expansionState);await g.save();mark('save',phaseStart,g);
+  phaseStart=performance.now();await g.reload();await g.module.p5CastReady();await g.settle();mark('reload-and-settle',phaseStart,g);
+  assert.equal(JSON.stringify(g.internals.expansionState),before);assert.deepEqual(g.errors,[]);
+  const pack=JSON.parse(await readFile(dir+'/private_packs/lotm-cast/cast.json','utf8'));
+  const journeys=Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[];
+  const offered=g.$$('[data-lotm-journeys] button').map(button=>button.dataset.lotm).sort();
+  assert.deepEqual(offered,journeys.map(row=>row.id).sort());
+  result={kind,phases,journeyOffers:offered.length,errors:[...g.errors],state:JSON.stringify(g.internals.expansionState),save:g.internals.create_save()};
+  await writeFile(out,JSON.stringify(result));process.stdout.write(JSON.stringify({...result,state:undefined,save:undefined})+'\n');
+ }else{
  if(kind==='reading'){g.internals.character.addToInventory([{item_id:'Old combat manual',count:1}]);await g.call('update_displayed_character_inventory');await g.call('start_reading','Old combat manual');assert.equal(g.internals.is_reading,'Old combat manual');}
  g.module.p5SetWakeMode?.(wakeMode==='true');
  g.module.setClockSpanModeForTests(mode);let close;
@@ -32,5 +47,6 @@ try{
   assert.equal(g.internals.expansionState.simulation.people.player.location,target.id);
   assert.deepEqual(g.errors,[]);result.persistence={saved:true,reloaded:true,exported:true,imported:true,exactState:true,activeWalk:true};
  }
+}
 }finally{g.close();}
-await writeFile(out,JSON.stringify(result));console.log(JSON.stringify({...result,state:undefined,save:undefined}));
+if(probe!=='be-reload'){await writeFile(out,JSON.stringify(result));console.log(JSON.stringify({...result,state:undefined,save:undefined}));}

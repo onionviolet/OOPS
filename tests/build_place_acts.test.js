@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {buildPlaceActs} from '../scripts/lead_run/build_place_acts.mjs';
 import {buildReplayMapping} from '../scripts/lead_run/build_replay_mapping.mjs';
 import {definePlaceActs} from '../src/place_acts.js';
+import {createSimulationRegistry} from '../src/simulation_contracts.js';
 
 const registry=[{id:'reader.place.room',kind:'place',label:'Study'}];
 const crosswalk={places:{}};
@@ -34,6 +35,21 @@ test('compiles fixed local object steps, preserves H1 rows first, and maps exact
  assert.equal(mapped.rows[1].canonicalControl,result.actByStep['sample#2']);
  assert.equal(mapped.rows[2].canonicalControl,result.actByStep['sample#3']);
  assert.notEqual(mapped.rows[3].canonicalControl,result.actByStep['sample#3']);
+});
+
+test('installs generated acts through the real registry with the host guard',()=>{
+ const scenes=[{beat:'install',order:1,pov:'lead',place:'reader.place.room',evidence:[{label:'S',locator:'zh 第1章 p2'}],steps:[{verb:'inspect',object:'the key'}]}];
+ const result=buildPlaceActs({scenes,crosswalk,registry,pack});
+ const generated=result.data.acts.find(row=>row.sourceStepId==='install#1');
+ assert.ok(generated);
+ assert.equal(Object.hasOwn(generated,'requires'),false);
+ const binding={worldId:'world.test',group:'book_lotm',situationId:'situation.test',requires:{fact:'world.profile.be',op:'eq',value:true}};
+ const commands=definePlaceActs(result.data,binding);
+ const installed=createSimulationRegistry({commands});
+ assert.equal(installed.commands.size,result.data.acts.length);
+ assert.deepEqual(installed.commands.get(generated.id).requires.all,[binding.requires]);
+ const invalid=definePlaceActs({acts:[{...generated,requires:[]}]},binding);
+ assert.throws(()=>createSimulationRegistry({commands:invalid}),/Invalid simulation requirement/);
 });
 
 test('leaves unresolved places, missing objects, and ambiguous objects as gaps',()=>{

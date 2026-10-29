@@ -1,0 +1,14 @@
+diff --git a/src/place_acts.js b/src/place_acts.js
+--- a/src/place_acts.js
++++ b/src/place_acts.js
+@@ -9,6 +9,10 @@ export function definePlaceActs(data,{worldId,actorId='player',group,situationId,
+   if(!validId(row.id)||ids.has(row.id)||!operations.has(row.operation)||!validId(row.place)||
+    !Number.isSafeInteger(row.minutes)||row.minutes<1||!row.label||!row.description||!row.report||!validId(row.knowledgeKey))throw Error('Invalid place act.');
+   ids.add(row.id);
++  if(row.requires!=null&&(typeof row.requires!=='object'||Array.isArray(row.requires))){
++   const error=new TypeError('Place act requirement must be a predicate object.');
++   error.code='PLACE_ACT_INVALID_REQUIREMENT';throw error;
++  }
+   const guard={all:[...(requires?[requires]:[]),...(row.requires?[row.requires]:[])]};
+   return {id:row.id,revision:1,label:row.label,description:row.description,group,actorId,worldId,location:row.place,
+    once:false,duration:row.minutes,cancellation:'refund',requires:guard,

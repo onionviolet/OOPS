@@ -7,6 +7,7 @@ import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhe
 // this file imports no main.js and publishes only through the one expansion publisher.
 import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {simulationFacts,applySimulationEffects} from './simulation_effects.js';
+import {withFactsFrame} from './facts_frame.js';
 import {lotmCommands,lotmContext,lotmFacts} from './book_world_lotm_actions.js';
 import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
@@ -217,7 +218,10 @@ export function createLotmHost(ports){
    for(const choice of life?.untakenChoices||[]){const day=pack.bindings.days.find(r=>r.scene===choice.scene),begin=day&&((day.day-1)*1440+day.from),end=day&&((day.day-1)*1440+day.to);
     if(day&&elapsed>=begin&&elapsed<end)actions.push({id:`book.lotm.untaken.${choice.id}`,label:choice.label,eligible:false,reasons:['Not how it happened'],duration:0});}
    if(!ready)actions.push({id:'book.lotm.cast_unavailable',label:'Cast unavailable: private pack absent',eligible:false,reasons:['Restore the book pack to resume this read-only life.'],duration:0});
-   const journeys=castJourneyOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def)),{facts:def=>simulationFacts(s,ctx(s,def),registry,[def.requires]),blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),ports.context())});
+   // Journey definitions have the same actor and no target. Quote them against
+   // one read-only context/frame rather than rebuilding the entire native world
+   // for every route; each command still runs the normal quote and canon checks.
+   const journeyContext=ctx(s),journeys=withFactsFrame(s,()=>castJourneyOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{facts:def=>simulationFacts(s,journeyContext,registry,[def.requires]),blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
    const topicTalks=castTopicOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def)),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),ports.context())});
    const objectActs=castObjectOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def)),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),ports.context())});
    const jobs=s.simulation.jobs.filter(j=>[...castWalkCommands,...castObjectCommands,...castTalkCommands,...castJourneyCommands].some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId)?.label||'Saved walk',due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:false}));

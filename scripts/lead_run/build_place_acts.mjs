@@ -68,7 +68,7 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack}) {
   const source=scene.evidence?.[0]||{};
   const report=`You ${label.toLowerCase()} ${raw}.`;
   const row={id,sourceStepId:stepId,objectId,operation,place,minutes:d.minutes,minutesBasis:d.basis,label,
-   description:`${label} ${raw} at this place.`,report,knowledgeKey:`place.act.${safe(stepId)}.result`,requires:[]};
+   description:`${label} ${raw} at this place.`,report,knowledgeKey:`place.act.${safe(stepId)}.result`};
   acts.push(row); actByStep[stepId]=id;
   rowsByFamily[family]=(rowsByFamily[family]||0)+1; rowsByVolume[volume]=(rowsByVolume[volume]||0)+1;
   rowsByFamilyAndVolume[family]||={}; rowsByFamilyAndVolume[family][volume]=(rowsByFamilyAndVolume[family][volume]||0)+1;

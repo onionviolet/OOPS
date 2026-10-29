@@ -63,3 +63,41 @@ Private outputs:
 No runtime UI or persistence changed, so build/browser and Save/Export/Import
 checks do not apply. Pack remains private and unadopted. No file in
 `private_packs/` was changed.
+
+## Resume 1: registry rejects generated requirements
+
+The coordinator's rebuilt desktop repro found that the acts candidate failed at
+load. The registry check on the previous candidate reproduced the failure for
+all 542 generated acts: each supplied `requires: []`, and `definePlaceActs`
+inserted that array as an `all` child. `validatePredicate` requires a predicate
+object there. The nine H1 commands installed successfully. The earlier adapter
+and JSON checks missed this registry contract.
+
+The generator now omits `requires` when there is no stated prerequisite. The
+regenerated candidate has SHA-256
+`b22d6829d74755187b7ec0db4729018ee062a843bdb1d49b62f036d23918393a`.
+Comparing it to the previous candidate after removing those 542 empty arrays
+shows no other changes. The synthetic test installs generated commands with the
+host's be-seat guard through `createSimulationRegistry` and demonstrates that
+the old array shape fails.
+
+[A3_INTEGRATION.patch](A3_INTEGRATION.patch) is an optional, unapplied adapter
+diagnostic for the coordinator: it rejects a non-object or array top-level act
+requirement with a `TypeError` and code `PLACE_ACT_INVALID_REQUIREMENT`. The
+registry remains responsible for validating nested predicates. The generator
+fix does not depend on applying this patch.
+
+| Check | Result | Gap |
+|---|---|---|
+| `node --test tests/build_place_acts.test.js tests/build_replay_mapping.test.js tests/build_journeys.test.js tests/lead_replay_score.test.js` | PASS, 24 tests | Synthetic tests; no browser load or gameplay |
+| `node scripts/lead_run/build_place_acts.mjs` with M4 scenes/crosswalk/registry and the whole-book journeys candidate | PASS, regenerated 542 acts with prior family and volume counts | Private candidate, no adoption |
+| Node `definePlaceActs` with the host's world, situation, group and be-seat guard, followed by `createSimulationRegistry({commands})` | PASS, all 551 candidate commands installed; completion predicates and JSON round trips passed | Node registry only; rebuilt browser load remains coordinator's gate |
+| Node comparison of previous and regenerated candidates | PASS, only 542 empty `requires` fields removed | Structural comparison, not source or gameplay review |
+| `git apply --check .../A3_INTEGRATION.patch` and disposable patched-adapter Node probe | PASS, valid synthetic row accepted and array rejected with typed code | Patch prepared only; nested validation remains in registry |
+| `node scripts/lane_review.mjs` with A3 resume grants | PASS, 0 outside-grant paths or top-level-await files; 1 expected private-name hit in the private candidate | Static scope/publication review only |
+| `node --check scripts/lead_run/build_place_acts.mjs` and scoped `git diff --check` | PASS | Syntax and whitespace only |
+
+Status: candidate registry-verified, not browser-verified or human-reviewed.
+Coordinator's remaining gate is to rebuild the combined candidate and repeat
+the desktop load and relevant gameplay checks. No commit or `private_packs/`
+write was made.
