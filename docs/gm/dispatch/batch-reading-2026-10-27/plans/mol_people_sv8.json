@@ -1,0 +1,43 @@
+{
+ "world": "mol",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28",
+  "censusMatch": "^(mol)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mol-people-sv8",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "molc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch001-001.txt",
+   "base": "00101",
+   "chapters": "1-1"
+  },
+  {
+   "prefix": "molc002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch002-002.txt",
+   "base": "00201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "molc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch003-003.txt",
+   "base": "00301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "molc004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/lead-run-2026-10-28/shard_mol_b1_ch004-004.txt",
+   "base": "00401",
+   "chapters": "4-4"
+  }
+ ],
+ "schemaVersion": "1.4"
+}

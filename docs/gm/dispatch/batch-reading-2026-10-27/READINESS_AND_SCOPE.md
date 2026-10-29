@@ -410,3 +410,18 @@ LATER / DELEGATE:
 | Item | Level, effort | Done check |
 | --- | --- | --- |
 | C28 Because two high runs disagree on about a quarter of rows, two medium runs merged (about 1.2x one high run) may beat one high run on recall. Test the union on the same 6 shards before any November census at scale | direct pilot, about $0.10 | Union recall against both high runs reported per shard |
+
+### Round 13 follow-up 2 (2026-10-28, Weibao: "send accordingly")
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| C25a | Godclads split retry `2026-10-28g-gc` spent $0.16. 17 of 18 one-chapter shards came back whole; `gc2c007` is still cut off as one chapter | `gc2c007` joins the November retry list (next lever: lower effort or a half-chapter split) |
+| C28r | C28 run: a second medium census arm on the same 6 shards, $0.08. One medium run: recall 0.64-0.73 against the October high rows, lead-touched 0.85-0.91. Two medium runs merged: **0.79**, lead-touched **0.95**. One high rerun: 0.72 and 0.94. The merged pair costs about 1.25x one high run | Proposed November default: census as two merged medium runs on the books the gameplay session imports first (LOTM, MoL, RI, COI); a single high run elsewhere. Merge must dedupe by normalized name and aliases |
+| C29 | Sonnet A/B on `w3s33`, batch, $0.20 (Haiku about $0.01-0.02 a pass on the same shard). Census: 135 rows against Haiku's 126, 85% overlap both ways; Sonnet marks 39 rows touched by the lead against Haiku's 10. Scenes: 7 scenes, 5 options, 3 choices against Haiku's 6, 7, 6; Sonnet's options carry a class and needs (`ritual`, needs the Fool) where Haiku's say `other` | No blanket Sonnet. Haiku under-marks `touchedByLead`, which the cast-lives goal keys on. One shard is a thin sample |
+| C30 | SV8 targeted 1.4 people re-read, run `2026-10-28sv8`, $0.16: LOTM chapters 1-24 (9 shards) and MoL chapters 1-4, all 13 ok. Against the 1.3 rows: 197 people (was 166), `recurrence` on 65 of 132 routine slots, a reacts class on 172 of 181 reacts. But fewer raw rows: 132 routine slots (was 205), 181 reacts (was 295) | The 1.3 rows are kept in each book's `pre-sv8/`. The gameplay merge should union the two by person and slot, taking 1.4 fields where present |
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| C31 Sonnet relabel pass: Sonnet re-judges only `touchedByLead` and option class and needs over Haiku's rows (small input), first on 3-5 more shards against `w3s33`'s result | direct pilot, about $0.30 | Lead-touched marks and option classes compared per shard with cost per shard |
