@@ -1,0 +1,11 @@
+--- a/src/main.js
++++ b/src/main.js
+@@ -39,7 +39,7 @@
+ import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
+ import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks,suspendEngine} from './simulation_clock.js';
+ import {createPlanningReadFrame} from './planning_read_frame.js';
+-import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,withSimulationFrame,deferWhileHidden} from './simulation_render.js';
++import {withFactsFrame as withSimulationFrame} from './facts_frame.js';import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,deferWhileHidden} from './simulation_render.js';
+ import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
+ import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
+ import {readingPresentation} from './absorb_p23/reading/presentation.js';

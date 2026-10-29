@@ -1,3 +1,4 @@
+import {readFactsFrame,invalidateFactsInput,withFactsMutation} from './facts_frame.js';
 import {domainRegistry} from './domain_registry.js';
 import {hpFacts} from './book_world_hp_facts.js';
 import {generatedPeoplePresenceFacts} from './story_aftermath.js';
@@ -105,6 +106,7 @@ export function inventory(plan, id) {
     assert(owned, `No inventory binding for ${id}.`); return owned;
 }
 export function writeInventory(plan, id, value) {
+    invalidateFactsInput(plan.state); invalidateFactsInput(plan.gameplay);
     if(person(plan.state, id).inventory === "native") plan.gameplay[id].inventory = value;
     else plan.state.simulation.owners[id] = value;
 }
@@ -125,11 +127,19 @@ export function resolveSimulationCostKeys(plan,costs,context) {
     });
 }
 export function simulationFacts(state, context, registry, predicates = null) {
-    // A predicate-limited read is partial, so it never shares the frame's cached full facts.
-    if (predicates) return buildSimulationFacts(state, context, registry, predicates);
-    return framedSimulationFacts(state, context, registry, () => buildSimulationFacts(state, context, registry));
+    // The expensive projection is independent of the selected predicate. Absent
+    // inventory requirements are added to a caller-owned copy after reuse, so a
+    // zero requested by one command cannot leak into another command's facts.
+    const build = () => buildSimulationFacts(state, context, registry);
+    const facts = readFactsFrame(state, context, registry, build, () => predicates
+        ? build() : framedSimulationFacts(state, context, registry, build));
+    const people = state.simulation.people, target = people[context.targetId];
+    return addInventoryRequirementFacts(facts, predicates, {
+        'item.': people[context.actorId]?.inventory === 'native' ? context.gameplay?.[context.actorId]?.inventory : state.simulation.owners[context.actorId],
+        'target.item.': target?.inventory === 'native' ? context.gameplay?.[context.targetId]?.inventory : target ? state.simulation.owners[context.targetId] : null,
+    });
 }
-function buildSimulationFacts(state, context, registry, predicates = null) {
+function buildSimulationFacts(state, context, registry) {
     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
     assert(s && a, "Enroll the living-world services first.");
     const referenceFacts = referenceGameplayFacts(state, context, registry);
@@ -217,11 +227,7 @@ function buildSimulationFacts(state, context, registry, predicates = null) {
         facts[`pursuit.${id}.contact`]=p.status === "waiting" && (p.request.expiresAt == null || p.request.expiresAt > state.clock) && pursuitContact(state,p,context);
         facts[`pursuit.${id}.declared`]=true;
     }
-    const target = s.people[context.targetId];
-    return addInventoryRequirementFacts(facts, predicates, {
-        'item.': owned,
-        'target.item.': target?.inventory === 'native' ? context.gameplay?.[context.targetId]?.inventory : target ? s.owners[context.targetId] : null,
-    });
+    return facts;
 }
 export function effectContext(e, context) {
     const out = copy(e);
@@ -238,7 +244,10 @@ function effectFacts(plan, effects, context, registry) {
     if(context.targetId) person(state, context.targetId);
     return {};
 }
-export function applySimulationEffects(plan, effects, context, registry, cause, {spending = false} = {}) {
+export function applySimulationEffects(plan, effects, context, registry, cause, options = {}) {
+    return withFactsMutation([plan.state,plan.gameplay], () => applyEffects(plan,effects,context,registry,cause,options));
+}
+function applyEffects(plan, effects, context, registry, cause, {spending = false} = {}) {
     assert(stableId(cause), "Effects need a durable cause.");
     const state = plan.state, s = state.simulation;
     const expanded = [];
