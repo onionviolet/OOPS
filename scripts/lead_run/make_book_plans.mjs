@@ -1,8 +1,9 @@
 // Whole-book batch plans from one registry (plans/books.json, docs/research/BATCH_READING_WORKFLOW.md): prepares size-grouped shards when a book has none, writes one
 // plan per pass per book that skips shards already read, and writes one run file per world with true-bound caps (every request at max_tokens).
 //   Book types: pdf, epub (numbered members), ncx (`Chapter N:` labels), html (spine blocks split at `Chapter N: Title`), zh-nav (Chinese nav.xhtml), json (browser-captured `NNNN: [title, text]` files, Chinese).
-//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4]
+//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4|1.5]
 //   --schema 1.4 stamps `schemaVersion: '1.4'` on every plan written (READINESS_AND_SCOPE round 12); without it plans carry no field and read as 1.3.
+//   --schema 1.5 adds step-level actor, kind, locator, target, using, habit, results and witnesses on scenes (LSD204); it includes 1.4's extras.
 // Plans and run files only: nothing is sent. Each run file starts `approval: PENDING` and needs Weibao's go before batch_overnight.mjs runs it.
 import {execFileSync} from 'node:child_process';
 import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync} from 'node:fs';
@@ -140,7 +141,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const a = process.argv.slice(2), flag = n => { const i = a.indexOf(n); return i >= 0 ? a[i + 1] : null; };
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
     const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
-    if (schema && schema !== '1.4') throw new Error(`--schema supports 1.4 only, got ${schema}`);
+    if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
     const byWorld = {}, report = [];
     for (const b of registry.books.filter(x => !keys || keys.has(x.key))) {

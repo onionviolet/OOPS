@@ -143,6 +143,24 @@ const PASS_TEXT_14 = {
     texture: 'Schema 1.4 additions. Every price, wage, rent, fare, fee, tuition or fine the shard gives goes in `services` with `kind`, `amount` (a number; a vague amount takes its lowest reading with "approx" in `per`), `unit`, `per` (per night, per item, per hour) and `priceId` when the known-names table has a matching price id. `priceStated`: "stated", "stated-free" or "not-mentioned"; when not mentioned, omit `price`, `amount` and `unit` instead of writing "none stated".',
 };
 
+// Schema 1.5 (opt-in per plan with `schemaVersion: '1.5'`; LEAD_LIFE_SYSTEMS_DESIGN LSD190-LSD196, LSD204, LSD206): the step carries what 1.3 left on
+// the scene, so mappers stop guessing who acted and review stops reopening paragraphs. Every field is optional and omitted when the text is silent.
+// The scene's `schema` value stays 'lead-run/1.3' so lint and merge consumers are unchanged; the plan header records 1.5. 1.5 includes 1.4's extras.
+export const STEP_KINDS = Object.freeze(['act', 'perceive', 'think', 'speak', 'report', 'narration']);
+export const STEP_HABITS = Object.freeze(['once', 'repeated', 'routine']);
+const STEP_13 = SCENE.properties.steps.items;
+const STEP_15 = obj({...STEP_13.properties, locator: str, actor: str, kind: {type: 'string', enum: [...STEP_KINDS]}, target: arr(str), using: arr(str),
+    habit: {type: 'string', enum: [...STEP_HABITS]}, results: arr(str), witnesses: arr(str)}, STEP_13.required);
+const SCENE_15 = obj({...SCENE.properties, steps: arr(STEP_15)}, SCENE.required);
+const SCENES_TEXT_15 = 'Schema 1.5 step additions, each omitted when the shard is silent. `locator`: the paragraph where the step happens. `actor`: the id of who does it ' +
+    '(the lead\'s id when he does; omit when the text does not say). `kind`: act (does something), perceive (notices), think (deduces, recalls, decides), speak, ' +
+    'report (someone tells of an event) or narration (the narrator states it). `target`: ids acted on or spoken to. `using`: item ids used. `habit`: once, ' +
+    'repeated (several times in the shard) or routine (the text says it is habitual, for example every morning). `results`: the `fact` keys from the scene\'s ' +
+    '`outcomes` this step causes. `witnesses`: ids present who see or hear it, only when the text shows it. Do not split steps more finely than before; ' +
+    'a step is still one action a player could take or watch.';
+const STEPS_15 = version => version === '1.5';
+const EXTRAS_14 = version => version === '1.4' || version === '1.5';
+
 /** Output keys per extra pass. */
 export const EXTRA_PASSES = Object.freeze({rules: ['rules', 'other'], people: ['people', 'other'], texture: ['places', 'services', 'news', 'customs', 'other']});
 /** Output file stem for an extra-pass key: `other` rows are per pass (`rules_other`), so two passes never write one file. */
@@ -152,7 +170,9 @@ const EXTRA_SCHEMA = {rules: () => obj({rules: arr(RULE), other: arr(OTHER)}, ['
 
 /** Output schema per pass: 'census' (pass 1), 'scenes' (pass 2, scenes and fills), 'full' (both in one call). */
 export function shardSchema(pass, {version = '1.3'} = {}) {
-    if (version === '1.4' && EXTRA_SCHEMA_14[pass]) return EXTRA_SCHEMA_14[pass]();
+    if (EXTRAS_14(version) && EXTRA_SCHEMA_14[pass]) return EXTRA_SCHEMA_14[pass]();
+    if (STEPS_15(version) && pass === 'scenes') return obj({scenes: arr(SCENE_15), fills: arr(FILL)}, ['scenes', 'fills']);
+    if (STEPS_15(version) && pass === 'full') return obj({scenes: arr(SCENE_15), census: arr(CENSUS), fills: arr(FILL)}, ['scenes', 'census', 'fills']);
     if (EXTRA_SCHEMA[pass]) return EXTRA_SCHEMA[pass]();
     if (pass === 'census') return obj({census: arr(CENSUS)}, ['census']);
     if (pass === 'scenes') return obj({scenes: arr(SCENE), fills: arr(FILL)}, ['scenes', 'fills']);
@@ -183,7 +203,8 @@ export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_
     return localize([
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
-        ...(version === '1.4' && PASS_TEXT_14[pass] ? [PASS_TEXT_14[pass]] : []),
+        ...(EXTRAS_14(version) && PASS_TEXT_14[pass] ? [PASS_TEXT_14[pass]] : []),
+        ...(STEPS_15(version) && (pass === 'scenes' || pass === 'full') ? [SCENES_TEXT_15] : []),
         ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
         (EXTRA_SCHEMA[pass] ? 'Rules: labels are exactly T, S, I or U; ' : 'Rules: labels are exactly S, I or U; ') + 'locators are `zh 第N章 pM` for a paragraph inside the shard (`zh bB 第N章 pM` when the chapter header says `| book B`); copy `zh` exactly as printed; every `deps` entry is an object `{id, kind}` naming a beat id in your output; a date `anchor` is a beat id in your output or null; a census row at rung M1 needs a `whereabouts` row (otherwise use M0); motives come only from the vocabulary in the card; never copy more than five source characters outside `zh` and `aliases`; notes are at most 15 words in your own words. Omit any optional field you have nothing for (never write null), and omit `footprint` unless the scene weight is `great`. Every money, time, duration, measure and dotted-name candidate in the user message must end up as a census row, an anchor, a step cost, a `timeOfDay`, or be skipped. Census is every mention, not only lead-relevant ones.',
         `World id prefix for ids: ${world}. Beat ids are \`lr.${world}.main.NNNN\` counting up from the base given in the user message.`,

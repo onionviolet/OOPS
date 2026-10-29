@@ -51,6 +51,20 @@ test('every schema object forbids extra properties', () => {
     for (const p of ['census', 'scenes', 'full']) walk(shardSchema(p));
 });
 
+test('schema 1.5 adds optional step fields on scenes only and keeps 1.4 extras', () => {
+    const step = v => shardSchema('scenes', {version: v}).properties.scenes.items.properties.steps.items;
+    const added = ['locator', 'actor', 'kind', 'target', 'using', 'habit', 'results', 'witnesses'];
+    for (const k of added) { assert.ok(step('1.5').properties[k], k); assert.equal(step('1.3').properties[k], undefined); }
+    assert.deepEqual(step('1.5').required, step('1.3').required);
+    assert.ok(Object.keys(step('1.5').properties).length - step('1.5').required.length <= 24);
+    assert.ok(shardSchema('full', {version: '1.5'}).properties.scenes.items.properties.steps.items.properties.actor);
+    assert.deepEqual(shardSchema('people', {version: '1.5'}), shardSchema('people', {version: '1.4'}));
+    assert.match(systemText('scenes', {world: 'test', version: '1.5'}), /Schema 1\.5 step additions/);
+    assert.doesNotMatch(systemText('scenes', {world: 'test'}), /Schema 1\.5/);
+    const walk = n => { if (n && typeof n === 'object') { if (n.type === 'object') assert.equal(n.additionalProperties, false); Object.values(n).forEach(walk); } };
+    walk(shardSchema('full', {version: '1.5'}));
+});
+
 test('cost estimate is positive, halved for batch, and flags requests over the price tier', () => {
     const r = buildRequest({customId: 'a', prefix: 'a', base: '1', shardText: TEXT, pass: 'full'});
     const e = estimateCost([r], 20000);

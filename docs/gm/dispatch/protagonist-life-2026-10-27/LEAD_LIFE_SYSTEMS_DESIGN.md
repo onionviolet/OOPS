@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD205 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD217 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -536,5 +536,46 @@ Sol lanes until the window resets, and spend the gap on free work: tag derivatio
 | LSD201 | **Tag on demand, by family.** Tag the families the next mechanism needs first (making and divination now), not the whole book at once. Mechanisms first makes tagging cheaper, because each mechanism says which tags it reads | ACCOUNT FOR NOW |
 | LSD202 | **Tags are a sidecar, not a re-read.** Derived tags go in a per-step sidecar file keyed by step id with a `source` field (`script`, `local`, `reviewed`) and the schema union rule (LSD151): a later 1.4 re-read, when credits return, overwrites only fields it actually states. Nothing already read is discarded | ACCOUNT FOR NOW: sidecar beside the X4 census in private research |
 | LSD203 | **Local runs as overnight queues, gated by memory.** One model, chapters in a queue that resumes after interruption, `sysctl vm.swapusage` checked before start, no build or browser beside it (LA6). Output passes the same lexicon and name gates as LA2 before it enters the sidecar | LATER/DELEGATE: the existing local overnight flow; done when one night's queue resumes cleanly and its output passes the gates |
-| LSD204 | **Fix the reader schema for later books now.** The next schema card moves actor, kind, habit, step outcomes and witnesses to the step, so MoL, RI and later books get them on the first reading. A schema edit is a text change, not a credit cost | LATER/DELEGATE: Luna low, one schema card revision; done when the card lists the five fields with examples |
+| LSD204 | **Fix the reader schema for later books now.** The next schema card moves actor, kind, habit, step outcomes and witnesses to the step, so MoL, RI and later books get them on the first reading. A schema edit is a text change, not a credit cost | ACT NOW (done 2026-10-29): schema 1.5 opt-in, see LSD206 |
 | LSD205 | **Measure the 32% claim.** After LSD190-LSD192 run, rerun the mapper and count how many earlier "another actor" and "not an action" gaps clear with no review. If they do not, the tags or the mapper join are wrong, and the review numbers above were misread | ACCOUNT FOR NOW: done check for the tag lane |
+
+## 22. Schema 1.5, and how much detail the lead's life needs (Weibao 2026-10-29; proposal)
+
+Weibao: "Adjust future schemas accordingly and more, consider implications of recreating the protaginist's life,
+do we need so much fine detail? are we focusing too much on certain thngs?"
+
+### 22.1 Schema 1.5 (done)
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD206 | **Schema 1.5 puts the missing tags on the step**, opt-in per plan (`make_book_plans.mjs --schema 1.5`): `locator`, `actor`, `kind` (act, perceive, think, speak, report, narration), `target`, `using`, `habit` (once, repeated, routine), `results` (fact keys from the scene's outcomes) and `witnesses`. All optional and omitted when the text is silent (CLR4). The scene `schema` value stays `lead-run/1.3` so lint, union and merge need no change; 1.5 includes 1.4's extra-pass fields. The prompt tells readers not to split steps more finely. Owner: `scripts/lead_run/batch_lib.mjs`; test in `tests/lead_run_batch.test.js` | ACT NOW (done); no batch sent |
+| LSD207 | **Consumers read 1.5 before anyone pays for it.** The X4 census and mappers prefer a step's own `actor`, `kind` and `locator` over the LSD190-LSD192 script guesses; the LSD202 sidecar uses the same field names, so script tags and 1.5 readings merge by the union rule (LSD151). Until a mapper reads them, no reading should be bought at 1.5 (READINESS L10: a field needs a consumer) | LATER/DELEGATE: with the tag lane; done when the mapper test shows a 1.5 step's actor overriding the guess |
+| LSD208 | **Witnesses, agency and secrecy stay out of the schema for now.** Witnesses are in 1.5 because they are cheap for a reader and costly to derive; agency comes from the scene's `choices`, and secrecy and risk (LSD198) wait for a consumer | ACCOUNT FOR NOW |
+
+### 22.2 Do we need this much fine detail?
+
+Mostly no. Evidence: after a day of pipeline work the deterministic replay reaches 2 of 150 steps in order (fidelity
+0.013) and 7 of 175 on the reviewed pack (0.04); the live pack holds 1,500 people and 1,516 places; the be seat is
+agent-verified, not human-played. The measure (steps reproduced in order) rewards per-step work, so the work has
+drifted toward step accounting. A life sim needs the book's events, its choices, its people and its texture; it
+does not need every paragraph's movement as a separate control.
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD209 | **Three grains for a book life.** *Beats* (weight `great`: an interview, a rite, a death, a promotion) are played step by step with real choices. *Days* (routine scenes) run as a montage: the day's schedule, costs and one or two choices, settled by outcome (CL216). *Narration* (thinking, reported events, description) becomes journal, knowledge and texture. Only beats need step-level controls. Dial: the player can zoom any day into steps when a mechanism exists | ACCOUNT FOR NOW: proposed default |
+| LSD210 | **Measure beats and verbs, not steps.** Fidelity becomes: share of great beats reached in order, share of days whose outcomes hold, and the count of distinct verbs the player can actually use. Step counts stay as a diagnostic. Reason: the step metric drove the review and bulk-row work that MF1 then had to reclassify | ACCOUNT FOR NOW: replay driver reports both |
+| LSD211 | **Detail follows attention.** Like people (LSD130), chapters get step detail when the player plays them closely; the rest stays at beat and day grain with cards (LSD167). Reading detail can stay where it is; spending on mapping and review should follow the chapters actually being played | ACCOUNT FOR NOW |
+| LSD212 | **A human play check before the next pipeline wave.** Fifteen minutes of Weibao in the be seat, chapters 1-3, answers what no replay can: is it fun, legible, and does it feel like his life. Optional under AD42, but the cheapest evidence available while credits are low | Suggest; his call |
+
+### 22.3 Where focus may be lopsided
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD213 | **Canon fidelity over own-style play.** Section 15 forces the canon run, and nearly all recent lanes serve it. The open run (playing the lead differently, READINESS "own style") is where the game differs from rereading the book; it needs consequences and options more than step fidelity. Default: each mechanism lane names one open-run choice it enables beyond the canon step | ACCOUNT FOR NOW: mechanism briefs |
+| LSD214 | **One book's data over portable systems.** LOTM has a whole-book pack, census and replay; MoL, RI and the Village use none of the newest mechanisms yet. LSD177 asks for reuse; until a second world uses DV1 or MK1 unchanged, they are LOTM features. Default: after MK1 integrates, the next mechanism lane includes a second-world fixture | ACCOUNT FOR NOW |
+| LSD215 | **Data breadth over performance.** The whole-book pack loads in about 15 s and runs at 1.5-3.2 s per game minute (P8, X4 logs); 1,500 people is far past what the player meets in volume 1. Load by window (SZ4) and tiers (LSD126-LSD137) matter more than more rows | ACCOUNT FOR NOW: SZ4 before the next pack growth |
+| LSD216 | **Planning text over playable change.** This doc alone has grown from LSD1 to LSD216 in two days; most lines are proposals no lane consumes yet. Default: a new round adds lines only where a lane brief or check will read them, and folds the rest into a short suggestion list | ACCOUNT FOR NOW |
+| LSD217 | **What stays fine-grained on purpose.** Money, prices and time windows where people meet (LSD157), rite and potion steps (they are mechanics), and the lead's knowledge (what he knows when). These drive consequences; keep them exact | No change |
+
+Suggestions outside this round: a one-page "what you can play today" card for the be seat, regenerated after each
+integration, would make LSD212's check quick.
