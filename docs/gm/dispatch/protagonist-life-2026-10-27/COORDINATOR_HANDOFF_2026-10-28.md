@@ -71,7 +71,9 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
    Canon results (Weibao 2026-10-28, reconciled with WA28, WA32, WA33, CL21-CL22 in LSD61-LSD70): the lead's run
    pins the book's route (WA32's dial) and holds the canon result while inputs match (a "book fidelity" play dial);
    untaken options stay possible (WA28) and resolve by our model with divergence logged. D1 adds the fidelity dial and
-   the strain table; F1 builds the step-based conflict frame (LSD71-LSD80); D2 (outside interference) is deferred.
+   the strain table; F1 generalizes the existing saved-battle runner into the conflict frame, porting the three battles unchanged first
+   (LSD81-LSD95); FD1 is a narrow fight-detail reader pass (LSD100); C2 calibrates bands by script (LSD96); D2 (outside
+   interference) is deferred. Order: B1, D1, FD1, F1, C2, as the be replay reaches each.
 6. **Schema 1.4 merge input** (relay 2026-10-28, batch-reading commit `ce199eb41`, READINESS_AND_SCOPE C29/C30):
    LOTM ch1-24 (prefixes s2..s9v) and MoL ch1-4 (molc001-004) people rows were replaced in place by schema 1.4
    (routine recurrence, reacts class/by/responseClass); the 1.3 rows sit in each book's private `pre-sv8/`.

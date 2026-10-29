@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD80 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD102 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -205,7 +205,7 @@ contracts in LOTM chapters 1-24 after P1's selector fix), and the steps live in 
 
 | Code | Proposal (default, dial, reason) |
 | --- | --- |
-| LSD71 | **Two engines, one damage core.** Keep the auto-battler for idle and grinding content; add a step-based conflict frame for life and book fights. Both call `combat_math.js` for damage and mitigation, so numbers agree. Reason: rewriting upstream combat risks every existing world; the life fights need steps the auto-battler cannot express |
+| LSD71 | *(Superseded by LSD81: adjust the saved-battle family instead.)* **Two engines, one damage core.** Keep the auto-battler for idle and grinding content; add a step-based conflict frame for life and book fights. Both call `combat_math.js` for damage and mitigation, so numbers agree. Reason: rewriting upstream combat risks every existing world; the life fights need steps the auto-battler cannot express |
 | LSD72 | **Seed every draw in the frame** through `seeded_streams.js` keys (LSD55); `combat_math.js` already lets the caller pass the random source, so the frame passes a keyed one |
 | LSD73 | **A small move vocabulary over means**: approach, keep distance, strike, shoot, block, dodge, grapple, disarm, use an item, use the surroundings, use a power (ABR seam), call out, threaten, yield, flee, hide, finish. Each move reads its means (LSD8) and writes the LSD34 results. Dial: a world adds moves through rows (CL232 frame) |
 | LSD74 | **Range bands and position, not a grid**: touching, close, across the room, out of sight; cover and light as place facts. Reason: enough to express a revolver against a knife and a dark alley, cheap to show at 1920×1080 |
@@ -215,3 +215,72 @@ contracts in LOTM chapters 1-24 after P1's selector fix), and the steps live in 
 | LSD78 | **Time inside a fight is seconds**, outside it minutes: a fight runs as its own short sub-clock and charges the game clock once at the end (no second clock in the save, AR3) |
 | LSD79 | **What the lead knows about the opponent** comes from appraisal levels (MEANS_AND_APPRAISAL); unknown powers show as effects, not names (sealed secrets) |
 | LSD80 | **F1 lane scope** (Sol, medium, after D1): the conflict frame with LSD71-LSD79 for the first canon fight the be replay reaches, its narrated-step folds counted, two identical runs, strain logged. Done when that fight replays through ordinary controls to the canon result and every narrated step is in the gap ledger |
+
+## 14. More to consider: adjust the combat we have, stay adaptable, an intuitive screen, tuning, readers (2026-10-28)
+
+Weibao: "Consider considerations on how to adjust the combat system instead? There will be mroe gaps in the future
+... we might need the system to be adaptable and changable for the future too? ... How to design an intuitive UI
+for such possibilities ... it might be hard to tune, do we need to change the Dispatch script/readers or can we
+work with what we have got". Evidence read: [C1 owners and engine](../combat-2026-10-18/C1_OWNERS_AND_ENGINE.md)
+(seams C1-E1 to C1-E21), `src/native_battle.js`, `src/defeat_domain.js`, [schema card](SCHEMA_CARD_1_3.md).
+
+### 14.1 Adjust, not add (supersedes LSD71's "two engines")
+
+The game already has two combat paths. The real-time auto-battler (`models/combat.js`) has an exchange host
+(`runP23CombatExchange`), a tactics hook (`combatOptions`) and a defeat hook (`encounterHooks.planDefeat`). Beside
+it sits a family of **saved battles**: the road duel (`native_battle.js`), the party battle (`party_battle.js`) and
+the sluice battle (`feature_expansion_battle.js`). These are turn-based, plan-based (pure plan, effects through
+`simulation_effects.js`), seeded, validated by contracts, and end in won, lost, withdrew, yielded, escaped or
+objective. `defeat_domain.js` is the shared outcome publisher the C1 audit proposed (C1-S1).
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| LSD81 | **Grow the saved-battle family into the conflict frame**; do not write a second engine. The three hand-built battles become three data definitions over one runner (sides, objective, moves, stop rules, results), and canon fights are more definitions. The auto-battler stays for idle zones and later borrows moves through its existing tactics hook. Reason: everything the frame needs (plans, seeds, contracts, outcome publisher) exists in the saved battles; only their per-encounter code is the obstacle | ACCOUNT FOR NOW: F1's scope (LSD80) becomes "generalize the saved-battle runner, then port the road duel as its first definition with identical results" |
+| LSD82 | **Port before extending.** The first F1 commit changes no behavior: the road duel, party battle and sluice battle replay to byte-identical results through the general runner. Only then do moves, ranges and morale arrive | ACCOUNT FOR NOW: F1 done check |
+| LSD83 | **Keyed draws in the runner.** Saved battles seed one stream from the save's seed and sequence; the runner keys each draw by battle, round, actor and move (LSD55), so adding a move to a fight does not reshuffle every later roll in it | ACCOUNT FOR NOW |
+| LSD84 | **Close the C1 audit's open steps through the runner** (C1-S3 to C1-S8: wear on swings and blocks, flee with a cost, pursuit after flight, a subdue option, opponent display by what you know). They were sized for this exact seam | LATER/DELEGATE: after LSD82, in ranked order S3, S2, S8, S4, S7, S5, S6 |
+
+### 14.2 Built to change: future gaps should mostly be data
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| LSD85 | **Moves are rows, not code**: id, means needed, range bands allowed, cost, check profile for `check_resolver.js`, effects as existing `simulation_effects.js` operations, results it can publish, and its perspective and audience tags (C1, S1). A new move from a new gap is a row when existing effect operations cover it; code only when it needs a new operation, and that operation enters only with a second consumer (FND5) | ACCOUNT FOR NOW: F1's move format |
+| LSD86 | **Everything a fight reads is a named input**: bands, gear, wounds, morale, light, cover, appraisal level, relations (a friend pulls punches). The runner never reads a global, so a new system adds an input and a rule instead of patching the fight (AR3, AR14) | ACCOUNT FOR NOW |
+| LSD87 | **Conflict, not combat**: the same runner serves a chase, a standoff, a questioning, a haggle or a contest of wills, which differ in moves and stop rules (WA32 already names them all). Reason: future gaps will mostly be non-violent conflicts in a clerk's life | ACCOUNT FOR NOW |
+| LSD88 | **Gap rows point at the frame**: each new conflict gap in the ledger records whether it needs a move row, a new input, a new effect operation or a new stop rule, so its cost is known before a lane is briefed (CL273 stubs read it) | ACCOUNT FOR NOW: gap ledger field |
+| LSD89 | **A frame registry entry in SYSTEMS_REGISTER** (CL235): the conflict frame, its fields, the worlds using it and its tags, so later worlds extend it instead of building their own | LATER/DELEGATE: with F1 |
+
+### 14.3 An intuitive screen for many possibilities (target 1920×1080; UR1-UR75, SUI1-SUI19)
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| LSD90 | **Turn-based by default in life fights**: the fight waits for the player between steps; the auto-battler's real-time loop stays for idle zones. Reason: a life fight is a few decisive choices, not a damage race, and a waiting fight is also trivially savable mid-step | ACCOUNT FOR NOW |
+| LSD91 | **A situation card first**: where everyone is (range band), cover and light, what you can see of each opponent at your appraisal level (effects, not hidden names), your body and nerve, and what is at stake. Everything else is secondary | ACCOUNT FOR NOW: F1 UI |
+| LSD92 | **Few choices up front, all choices one step away** (UR42): show the three to five moves that make sense now, grouped as Act, Move, Use, Talk, Leave; the rest sit in a "More" group and the command palette. Each shows its effect first, its cost and a risk band (likely, even, unlikely) rather than raw percentages; exact odds sit behind the appraisal level that would know them | ACCOUNT FOR NOW |
+| LSD93 | **"As the lead would" is one button**: the lead-as-NPC policy (CL262) plays the next step or the whole fight. It serves players who do not want tactics, the idle game's away time, and the replay; in the be seat it plays the book's route. Dial: whether the book's next move is marked in the list, off by default because it spoils the book for anyone who has not read it | ACCOUNT FOR NOW; the marker dial is Weibao's later call |
+| LSD94 | **A result screen that explains**: what happened, why (the inputs that decided it), what it cost, who saw it, and what follows (injury days, a summons, a relation change), with each line in the Reports at its witness level | ACCOUNT FOR NOW |
+| LSD95 | **One screenshot per new panel or state** (CL228) and the populated fight screen in the real app before F1 is done (PRF7, AD34) | ACCOUNT FOR NOW |
+
+### 14.4 Tuning without hand-tuning
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| LSD96 | **Calibrate, do not tune by hand.** A calibration script runs each canon conflict N seeded times unpinned and searches the people's band offsets, within each band's allowed width (WA33), until the canon tier wins in k of N and flipping the input the text names flips it (WA45). It prints the offsets it chose and their evidence; a human only reviews outliers | LATER/DELEGATE: C2 lane (Luna medium) after F1; done when the road duel and the first canon fight calibrate inside their bands |
+| LSD97 | **Relative bands, few stats**: fights compare bands between the people involved (trained against untrained, armed against unarmed), not absolute numbers, and read only the stats a move uses. Qualities no move reads stay words (WA33). Reason: fewer knobs, and a world's scale does not leak into another's (CX guardrails) | ACCOUNT FOR NOW |
+| LSD98 | **The book-fidelity pin buys time.** While calibration is incomplete, the pinned canon result keeps the lead's run correct and the strain table (LSD64) shows which fights still need calibration, worst first | ACCOUNT FOR NOW |
+
+### 14.5 Readers and the dispatch: keep them, add one narrow pass
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| LSD99 | **Keep the batch readers and schema as they are.** Schema 1.4 already gives steps with verb, class, inputs and outputs, the conflict block (sides, stakes, means, terrain, outcome, unseen), and taken and untaken options with needs, which is what the frame consumes. Fights are rare in a clerk's chapters (5 candidate contracts in LOTM chapters 1-24), so widening every reader prompt would spend tokens on every chapter for a few scenes | ACCOUNT FOR NOW |
+| LSD100 | **One targeted fight-detail pass** over conflict scenes only (Sonnet, a few scenes per book): per step, who acts on whom with what, range and cover cues, wound locations, morale cues, and each participant's stated strength or skill claims as evidence for bands. It reads paragraphs through `cite_paragraphs.mjs`, writes rows to the book pack, and passes CLR1 (implement from the paragraph). Reason: calibration (LSD96) needs claims the batch readers do not extract, and only for these scenes | LATER/DELEGATE: FD1 lane before F1's first canon fight; done when the first canon fight's steps each have a move-level row with a locator |
+| LSD101 | **Stat claims across the whole slice** (not only fights: "a strong dock worker", "a trained officer") would help every system's calibration. Default: collect them in the same FD1 pass for the people who appear in conflict scenes; widen to everyone only if calibration shows the gap | LATER/DELEGATE |
+| LSD102 | **No dispatch change for MoL or later books until FD1 proves the row shape on LOTM**; then the pass joins `world_lead_pipeline.mjs` as an optional stage | LATER/DELEGATE |
+
+### 14.6 Lane changes
+
+F1 becomes: generalize the saved-battle runner and port the three battles unchanged (LSD81-LSD83), then moves as
+rows, range bands, morale and the situation card for the first canon fight the be replay reaches (LSD85-LSD95).
+New: FD1 fight-detail pass (LSD100), C2 calibration script (LSD96). D1 keeps the book-fidelity pin and the
+strain table. Order under CL268: B1, D1, FD1, F1, C2, as the be replay reaches each.

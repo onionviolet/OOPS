@@ -61,7 +61,7 @@ Each line restates an accepted code where one exists; only CLR2, CLR3, CLR6, CLR
 ## Where to look
 
 - **Top-down design of the lead's life** (actions, relationships, fights and results, knowledge, law, work, body,
-  determinism, subtle chains, lanes): [LEAD_LIFE_SYSTEMS_DESIGN.md](LEAD_LIFE_SYSTEMS_DESIGN.md) (LSD1-LSD80, proposed).
+  determinism, subtle chains, lanes): [LEAD_LIFE_SYSTEMS_DESIGN.md](LEAD_LIFE_SYSTEMS_DESIGN.md) (LSD1-LSD102, proposed).
 - Method and index-to-runtime map: plan sections 2-3. Fights and gap probe: 8. Fate, time models, trends,
   UI: 9. Audits versus derivation, interaction loop: 10. Scene UI rules SUI1-SUI19: 15, 17, 18.
   Fold-loss: 19. Private pack and build order: 17. Reports text RPT1-RPT12: 21.
