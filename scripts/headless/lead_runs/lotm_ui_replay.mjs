@@ -32,8 +32,10 @@ export function validateMapping(mapping, scenes) {
             if (r.status === 'lossy_fold') assert.ok(r.loses.length, 'lossy folds list losses');
             if (r.status === 'mapped' || r.status === 'clean_fold') {
                 assert.equal(r.loses.length, 0, 'executable folds must be lossless');
-                assert.ok(r.route?.length && r.anchors?.place && r.anchors?.purseDelta !== undefined);
-                assert.ok(r.route.every(a => a.actionId && a.place), 'real action ids and place anchors required');
+                // A wait row is reached by the time stage alone (an intention wait in the be seat); it has no walk legs.
+                const waitRow = r.routeMode === 'wait' || r.method === 'wait';
+                assert.ok((waitRow || r.route?.length) && r.anchors?.place && r.anchors?.purseDelta !== undefined);
+                assert.ok((r.route || []).every(a => a.actionId && a.place), 'real action ids and place anchors required');
             }
         }
     }
@@ -106,7 +108,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
         const before = await io.read(page);
         await io.screenshot(page,`${row.id.replace(/[^a-z0-9]/gi,'_')}-before.png`);
         let blocked = null;
-        for (const [i,leg] of row.route.entries()) {
+        for (const [i,leg] of (row.routeMode === 'wait' || row.method === 'wait' ? [] : row.route || []).entries()) {
             const result = await io.move(page,leg,row.time);
             if (result?.blocked) { blocked = result.blocked; break; }
             if (result?.gap) throw new Error(result.gap);
