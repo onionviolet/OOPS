@@ -64,7 +64,8 @@ writes, or it is not built. Reason: a verb without aftermath is the "renamed met
 
 ## 3. Relationships
 
-Owners: [relationships palette](../../../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md) RLA-RLI (its F1
+Owners: [WA42](../../../WORLD_ABSORPTION_RULES.md) (relationships from the choices the source shows, Weibao's
+"top down" request of 2026-10-27; LSD26-LSD32 apply it), [relationships palette](../../../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md) RLA-RLI (its F1
 finds five separate relationship stores), PIR1-PIR25, `relationship_view.js` (read point),
 `obligations_ledger.js` (record shape, not wired), `peer_standing.js`, `reputation.js`, `household_fortunes.js`.
 
