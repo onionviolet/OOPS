@@ -1,3 +1,4 @@
+import {createClockOwner} from './clock_owner.js';
 import {rebaseFurnaceSave} from './patient_furnace.js';
 import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
 import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
@@ -8527,77 +8528,42 @@ async function hard_reset() {
     }
 }
 
-//update game time
-function update_timer(time_in_minutes, source = null) {
-    if(authorityOperationBusy||authorityBootError)return 0;
-    if(nativeLifeEnded())return 0;
-    if(optionalPackState.pendingStructured&&!optionalPackState.structured)return 0;
-    if(Object.values(optionalPackState.packs).some(r=>r.active)) {
-        if(importProbeToken||!ownsSave||foundationSaveBlocked||is_loading_error||lifeStorageFailure)return 0;
-        const minutes=time_in_minutes??1;
-        try {
-            // Use the same joined clock and durable boundary as native played
-            // time. World-scoped consumers retain their existing absence policy.
-            const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes);
-            const consumed=plan.state.clock-expansionState.clock;
-            if(!consumed)return 0;
-            const {state:next,pay,settled}=advancePackSettlement(optionalPackState,optionalPacks,consumed);
-            plan.external.money+=pay;
-            plan.nativePatch={...plan.nativePatch,content_packs:packSaveState(next,optionalPacks)};
-            persistExpansion(plan);
-            optionalPackState=next;optionalPackPanel?.render();update_displayed_time();
-            for(const s of settled)log_message(`${s.label} finished${s.pay?`; earned ${s.pay} wood coins`:''}.`,'notification');
-            return consumed;
-        }catch(error){log_message('Optional work paused: '+error.message,'notification');return 0;}
-    }
-    if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();return 0;}
-    const was_night = is_night(current_game_time);
-    let minutes = time_in_minutes ?? (expansionState.p23Reading?.current?.kind==='rest' ? longRestClockRequest(expansionState.p23Reading,studyContext()) : is_sleeping ? config.time_speedup_when_sleeping : 1);
-    if(p23Leisure?.pending&&p23Leisure.pending.due>expansionState.clock)minutes=Math.min(minutes,p23Leisure.pending.due-expansionState.clock);
-    if(p23Leisure?.pending&&p23Leisure.pending.due<=expansionState.clock){try{persistExpansion(p23Plan());}catch(error){log_message(error.message,'notification');return 0;}}
-    minutes=mistglassNextBoundary(expansionState,expansionState.clock+minutes)-expansionState.clock;
-    if(minutes === 0) return 0;
-    if(usesJoinedClock()) {
-        if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || nativeLifeEnded()) return 0;
-        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); return 0;}
-        if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
-        try {
-            const response = expansionState.chronicle && automaticResponse(expansionState.chronicle);
-            const pendingJourney=expansionState.actors.player.facts['original_frontier.travel.remaining']>0;
-            const readFrame=stepperRenderSuppressed&&!response&&!pendingJourney?createPlanningReadFrame():null;
-            const plan = response ? makeChroniclePlan({type: "respond", action: response}) : pendingJourney ? advanceFrontierJourney({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes) : advanceChroniclePlan({state: expansionState, external: {money: character.money}, gameplay: gameplaySnapshot()}, minutes, source === "travel",readFrame);
-            const consumed = plan.state.clock - expansionState.clock;
-            persistExpansion(plan,{}, {},readFrame);
-            domainRegistry.tick(consumed);
-            if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
-            if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
-            if(!deferWhileHidden(renderClockPanels,renderClockPanels))renderClockPanels();
-            return consumed;
-        } catch(error) {
-            console.error("Joined clock paused:", error); log_message(`Progress paused: ${error.message}`, "notification");
-            if(expansionState.chronicle?.session && !foundationSaveBlocked) {
-                persistExpansion(makeChroniclePlan({type: "policy", policy: "manual"}));
-                chroniclePauseReason = `Prepared plan stopped: ${error.message} Withdraw or choose a supported response.`;
-            } else expansionError ||= error.message;
-            chroniclePanel?.render(true); return 0;
-        }
-    }
-    if(importProbeToken||!ownsSave||foundationSaveBlocked||expansionError||is_loading_error)return 0;
-    const readFrame=stepperRenderSuppressed?createPlanningReadFrame():null;
-    try{persistExpansion(advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,source==='travel',readFrame),{}, {},readFrame);}
-    catch(error){console.error('Native clock paused:',error);log_message(error.message,'notification');return 0;}
-    refreshCustomization();
-
-    //character.updateStatsAndDisplay(); //done every second, probably only used for day-night cycle at this point
-    const daynight_change = was_night !== is_night(current_game_time);
-    if(daynight_change) {
-        character.updateStatsAndDisplay();
-    }
-    
-    update_displayed_time();
-    awakenOptionalStart();
-    return minutes;
-}
+const update_timer = createClockOwner({
+    clock: {
+        get authorityOperationBusy(){return authorityOperationBusy;}, get authorityBootError(){return authorityBootError;}, get expansionState(){return expansionState;},
+        get current_game_time(){return current_game_time;}, get stepperRenderSuppressed(){return stepperRenderSuppressed;}, get chroniclePauseReason(){return chroniclePauseReason;}, set chroniclePauseReason(value){chroniclePauseReason=value;},
+        get expansionError(){return expansionError;}, set expansionError(value){expansionError=value;}, usesJoinedClock, is_night,
+        longRestClockRequest, studyContext, mistglassNextBoundary,
+        automaticResponse, makeChroniclePlan, advanceFrontierJourney,
+        advanceChroniclePlan, createPlanningReadFrame, p23Plan,
+        waitingSimulationChoice,
+    },
+    save: {
+        get importProbeToken(){return importProbeToken;}, get ownsSave(){return ownsSave;}, get foundationSaveBlocked(){return foundationSaveBlocked;},
+        get is_loading_error(){return is_loading_error;}, get lifeStorageFailure(){return lifeStorageFailure;}, persistExpansion,
+        gameplaySnapshot,
+    },
+    body: {
+        get character(){return character;}, get is_sleeping(){return is_sleeping;}, get current_combat(){return current_combat;},
+        nativeLifeEnded, end_combat,
+    },
+    world: {
+        get optionalPackState(){return optionalPackState;}, set optionalPackState(value){optionalPackState=value;}, get optionalPacks(){return optionalPacks;}, get p23Leisure(){return p23Leisure;},
+        advancePackSettlement, packSaveState, backlogNativeClockPaused,
+        domainRegistry, config,
+    },
+    ui: {
+        get optionalPackPanel(){return optionalPackPanel;}, get backlogPanel(){return backlogPanel;}, get replacementRecognitionPanel(){return replacementRecognitionPanel;},
+        get backlogOpeningPanel(){return backlogOpeningPanel;}, get knownRoutesPanel(){return knownRoutesPanel;}, get adventureNotebook(){return adventureNotebook;},
+        get livingGearPanel(){return livingGearPanel;}, get combatOptionsPanel(){return combatOptionsPanel;}, get frontierCampaignPanel(){return frontierCampaignPanel;},
+        get featureExpansionPanel(){return featureExpansionPanel;}, get foundationInteractionPanel(){return foundationInteractionPanel;}, get causalStoryPanel(){return causalStoryPanel;},
+        get simulationPanel(){return simulationPanel;}, get pursuitPanel(){return pursuitPanel;}, get fieldPanel(){return fieldPanel;},
+        get promisePanel(){return promisePanel;}, get crushSocialPanel(){return crushSocialPanel;}, get managementPanel(){return managementPanel;},
+        get chroniclePanel(){return chroniclePanel;}, update_displayed_time, log_message,
+        deferWhileHidden, renderClockPanels, refreshCustomization,
+        awakenOptionalStart,
+    },
+});
 
 function progress_time({value = 0, source}) {
     const consumed = update_timer(value, source);
