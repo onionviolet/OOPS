@@ -446,3 +446,27 @@ November retry list adds: `gc2c007` census (already one chapter), RI volumes 2-4
 | --- | --- | --- |
 | C37 | Pilot: `local_census_lane.py` (scratch copy patched for English chapter headers) on `qwen3.8:27b` through Ollama, RI chapters 104 and 105, seed 7, temperature 0.3. 42 s and 84 s per chapter, free memory 83% to 81%, swap flat; $0. Rows: 36 against batch 40 (35 shared) and 73 against the cut-off batch reply's 51 (48 shared). But the brief's known-name table is built from the existing census files, which include these chapters' own batch rows, so the overlap is inflated and is not a recall measure. The model's own rows are thin: notes read "Mentioned by name.", and 21 of 73 rows on chapter 105 are Gu ranks filed as `measure` | Quality on RI stays unmeasured; the independent figure remains the LOTM reader test (87-93% census recall, census lane only) |
 | C38 | Reading the rest locally is not the better route. The local lane covers census only; scenes, options, fills, rules, people and texture stay out of reach (reader test, capacity doc LA13). Census is about a fifth of batch spend: for RI chapters 401-2334 that is about $5 of the about $25 cloud bill, for about 30 hours of Mac time at about one minute a chapter, with an 18-19 GB model resident and a cloud audit still needed | Default: November batch reads at measured rates (RI about $1.3 per 100 chapters, covered by the monthly credit). Local lanes take post-processing on batch rows, which the capacity doc already routes: LA9 routine-time fill, LA12 tagging with a known-answer sample, and a free first pass on a cut-off chapter (`ri2c105` gave 73 rows) before a paid retry |
+
+### Round 14: clean recompare and how far local models go (2026-10-29, Weibao: "recompare? more to consider? We can change the DSH profile for local Ai, consider how much we can use the local ai?")
+
+ACT NOW (done):
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| C39 | Clean recompare. Briefs rebuilt with known names from RI volume 1 only (`censusMatch ^ri1c…m_census`), the realistic setting for reading forward, so no answer leaks in. 6 three-chapter shards across volumes 2-4, `qwen3.8:27b`, seed 7, temperature 0.3. **Recall of the batch high rows 0.43** (per shard 0.35-0.65), **lead-touched 0.55**; 85% of local rows match a batch row and 95% have their label in the text; 23% of notes are "Mentioned by name." By kind: person 69%, item 57%, organization 46%, creature 33%, place 31%, measure 7%, calendar 6%, law 0 of 6. 3-7 minutes a shard (about 1.5 minutes a chapter), 318 rows against the batch's 941 | C37's overlap was the leak. On RI the local census lane is a partial reader, well under the LOTM reader test's 87-93% (that test scored against a narrower reference) |
+| C40 | New dsh profile `local` (`~/.dsh/profiles/local`, copied from `headless`): the agent and subagents default to `ollama-local / qwen3.8:27b` with reasoning off; cloud models stay selectable; `headless` and `web` are unchanged. Smoke test `dsh local "Reply with exactly the word OK"`: OK in 33 s | Use it for single-shot extraction or tagging tasks with a schema; a 27B model with a 16-32K context is weak at multi-step tool use (capacity doc LA13), so it is not an agent default for repo work |
+
+ACCOUNT FOR NOW:
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| C41 | Auditing local reads costs about what reading costs: a cloud check has to read the same chapter text, which is most of the input, and the batch output it would replace is cheap ($1.3 per 100 RI chapters) | No local-first-then-audit route for the main five-pass read |
+| C42 | Memory is shared with the other lanes. Free memory fell from 84% to 48% while the coordinator's wave ran; the model holds 18-19 GB | LA11 gate per batch (start at about 40% free or more, abort under 15%), one model, no local run beside a build or browser floor |
+| C43 | Where local helps, in order: free first pass on a cut-off chapter before a paid retry; tagging or classifying existing rows against a known-answer sample (LA12); routine-time fill after the script step (LA9); a candidate list for a cloud reviewer. All work on rows the batch already wrote | These stay the local routes |
+
+LATER / DELEGATE:
+
+| Item | Level, effort | Done check |
+| --- | --- | --- |
+| C44 Local as the free second reader for C28: union one medium batch census with one local census pass and compare against two merged medium runs on the same 6 shards. If the union comes close, November's census saves one medium run per shard | local pilot, 30-45 minutes of Mac time, $0 | Union recall per shard against the high rows, beside the two-medium figure |
+| C45 Local tagging pilot on reacts classes (`reacts_classified.jsonl` keyword baseline), 50 rows through `dsh local` or the Ollama API | local pilot, 15 minutes, $0 | Agreement rate with the baseline; disagreements read |
