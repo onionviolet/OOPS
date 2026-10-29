@@ -83,7 +83,7 @@ test('changed context fields and explicit invalidation of nested inputs refresh 
     });
 });
 
-// Exercise the delivered integration patch in an isolated source snapshot. This
+// Exercise the live integration in an isolated source snapshot. This
 // builds the real main.js with the existing Node DOM harness; it changes neither
 // the shared composition root nor player storage. Browser floor is separate.
 async function candidate() {
@@ -94,13 +94,8 @@ async function candidate() {
         if(['src','scripts'].includes(entry.name))await cp(from,to,{recursive:true});
         else await symlink(from,to,entry.isDirectory()?'dir':'file');
     }
-    const patch=await readFile(join(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P3_INTEGRATION.patch'),'utf8');
-    const removed=patch.split('\n').filter(s=>s.startsWith('-')&&!s.startsWith('---')).map(s=>s.slice(1)).join('\n');
-    const added=patch.split('\n').filter(s=>s.startsWith('+')&&!s.startsWith('+++')).map(s=>s.slice(1)).join('\n');
     let source=await readFile(join(temp,'src/main.js'),'utf8');
-    // The patch is applied in the live checkout now; accept either shape.
-    assert.ok(added&&(source.includes(added)||source.includes(removed)),'integration patch matches live main input');
-    source=(source.includes(added)?source:source.replace(removed,added))+"\nexport {simulationNativeContexts};\nexport {withFactsFrame,setFactsFrameEnabledForTests} from './facts_frame.js';\nexport {simulationFacts} from './simulation_effects.js';\n";
+    source += "\nexport {simulationNativeContexts};\nexport {withFactsFrame,setFactsFrameEnabledForTests} from './facts_frame.js';\nexport {simulationFacts} from './simulation_effects.js';\n";
     await writeFile(join(temp,'src/main.js'),source);
     return import(pathToFileURL(join(temp,'scripts/headless/runner.mjs')).href);
 }

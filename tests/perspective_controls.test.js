@@ -22,7 +22,7 @@ test('perspective control inventory covers shell routes and LOTM block families'
   const panel = await read('../src/book_world_lotm_ui.js');
   const families = new Set([...panel.matchAll(/dataset\.(lotm[A-Z]\w*)/g)].map(match => match[1].replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`).replace(/^-/, '')));
   for (const family of families) assert.ok(rows.some(row => row.anchor === `[data-${family}]`), `LOTM data family data-${family} is tagged`);
-  for (const family of ['topic-person', 'topic', 'journeys']) {
+  for (const family of ['topic-person', 'topic', 'journeys', 'inferences']) {
     assert.equal(rows.find(row => row.anchor === `[data-lotm-${family}]`)?.tag, 'in-world', `${family} belongs to this life`);
   }
   assert.ok(rows.some(row => row.anchor === '[data-lotm]'), 'dynamic LOTM command controls are tagged');

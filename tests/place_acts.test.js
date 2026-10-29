@@ -72,8 +72,6 @@ test('checking contents preserves the stock and records what this actor actually
 
 test('be-seat native pending and settled acts survive save, reload, export and import', {timeout:180000}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
- // The state validator is outside H1's grant, so include the coordinator patch in
- // this candidate; once integrated, the same test uses the existing validator.
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -83,11 +81,6 @@ test('be-seat native pending and settled acts survive save, reload, export and i
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
- }
- const stateFile=join(dir,'src/book_world_lotm_state.js'),stateSource=await readFile(stateFile,'utf8');
- if(!/\[[^\]]*\.\.\.castObjectCommands\b[^\]]*\]\.find\s*\(/.test(stateSource)){
-  const patch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/H1_SAVE_INTEGRATION.patch');
-  await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});
  }
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as h1CastReady} from './book_world_lotm_cast_days.js';\nexport const h1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const h1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const h1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);

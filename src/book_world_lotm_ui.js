@@ -178,6 +178,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const a of v.objectActs)objects.append(row(node('p',a.description),button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
    actions.append(objects);
   }
+  if(v.inferences?.length){
+   const thoughts=node('details');thoughts.dataset.lotmInferences='';thoughts.dataset.perspective='player';thoughts.append(node('summary','Thoughts and intentions · Your thoughts'));
+   for(const a of v.inferences)thoughts.append(node('p',`${a.chainLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(a.status?[node('p',`Your intention: ${a.status}`)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   actions.append(thoughts);
+  }
   if(v.divinations?.length){
    const rites=node('details');rites.dataset.lotmDivinations='';rites.dataset.perspective='player';rites.append(node('summary','Rites and questions · Your rite'));
    for(const a of v.divinations)rites.append(node('p',`${a.queryLabel}: ${a.question} ${a.method}. ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(a.signal?[node('p',a.signal)]:[]),...(a.belief?[node('p',`Your interpretation: ${a.belief}`)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));

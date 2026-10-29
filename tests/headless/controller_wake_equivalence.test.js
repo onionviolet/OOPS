@@ -16,12 +16,6 @@ async function snapshot(source,dir,candidate,packRoot,supportRoot) {
  await cp(join(supportRoot,'tests'),join(dir,'tests'),{recursive:true});
  for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await symlink(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
  await symlink(packRoot,join(dir,'private_packs'),'dir');
- if(candidate) {
-  const patch=join(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P5_INTEGRATION.patch');
-  // Accept both the prepared-patch and already-integrated shared input.
-  try {await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});}
-  catch(error) {await exec('git',['apply','--reverse','--check',patch],{cwd:dir});}
- }
  let main=await readFile(join(dir,'src/main.js'),'utf8');
  if(!main.includes('as p5CastReady'))main+="\nexport {whenCastLoaded as p5CastReady} from './book_world_lotm_cast_days.js';\n";
  if(!main.includes('export {openStepperBatch}'))main+='\nexport {openStepperBatch};\n';
@@ -42,7 +36,7 @@ test('four full-game fixtures preserve state/save bytes in both existing clock m
  const frozen=join(temp,'frozen');await mkdir(frozen);
  for(const name of ['src','scripts','tests'])await cp(join(root,name),join(frozen,name),{recursive:true});
  const packRoot=join(temp,'private_packs');await cp(join(root,'private_packs'),packRoot,{recursive:true});
- await snapshot(process.env.YAIRPG_WAKE_BASELINE||frozen,before,false,packRoot,frozen);await snapshot(frozen,after,true,packRoot,frozen);
+ await snapshot(process.env.YAIRPG_WAKE_BASELINE||frozen,before,false,packRoot,frozen);await snapshot(root,after,true,packRoot,frozen);
  let pack=false;try{await readFile(join(root,'private_packs/lotm-cast/cast.json'));pack=true;}catch{}
  const receipts=[];
  for(const kind of ['fresh','beside','reading','be'])await t.test(kind,async sub=>{

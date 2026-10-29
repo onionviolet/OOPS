@@ -72,10 +72,6 @@ test('live or prepared joins preserve pending and used batches through native Sa
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
 
- const patch=join(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MK1_INTEGRATION.patch');
- let integrated=false;
- try{await exec('git',['apply','-R','--check',patch],{cwd:dir});integrated=true;}catch{}
- if(!integrated){await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});}
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`
 export {whenCastLoaded as mkReady} from './book_world_lotm_cast_days.js';

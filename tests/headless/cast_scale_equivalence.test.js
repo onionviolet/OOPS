@@ -6,7 +6,6 @@ import {tmpdir} from 'node:os';import {join,resolve} from 'node:path';import {fi
 import {execFile} from 'node:child_process';import {promisify} from 'node:util';
 import {whereabouts} from '../../src/cast_schedule.js';
 const root=resolve(fileURLToPath(new URL('../..',import.meta.url))),exec=promisify(execFile);
-const lane='docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/';
 const packs='docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/pack-backups/';
 const whole=process.env.YAIRPG_SCALE_PACK||join(root,packs,'cast-whole-book-candidate-2026-10-29.json');
 test('150 whole-book people match eager locations through sampled boundaries',async t=>{
@@ -46,11 +45,7 @@ test('frozen small packs retain exact full-game state and save bytes',async t=>{
  for(const [kind,pack] of Object.entries(inputs))await t.test(kind,async()=>{
   const results=[];
   for(const phase of ['before','after']){
-   const dir=join(temp,phase+'-'+kind);await snapshot(baseline,dir,pack);
-   if(phase==='after'){
-    await cp(join(root,'src/book_world_lotm_cast_host.js'),join(dir,'src/book_world_lotm_cast_host.js'));
-    await exec('git',['apply',join(root,lane,'P8_INTEGRATION.patch')],{cwd:dir});
-   }
+   const dir=join(temp,phase+'-'+kind);await snapshot(phase==='before'?baseline:root,dir,pack);
    const out=join(temp,phase+'-'+kind+'.json');await exec(process.execPath,[join(root,'tests/headless/cast_scale_fixture.mjs'),dir,'beside',out],{timeout:300000,maxBuffer:1024*1024});
    results.push(JSON.parse(await readFile(out,'utf8')));
   }

@@ -11,7 +11,6 @@ import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {compileCastSchedule,whereabouts} from '../../src/cast_schedule.js';
 const exec=promisify(execFile),root=resolve(fileURLToPath(new URL('../..',import.meta.url)));
-const lane='docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/';
 const at=minute=>({calendar:{year:Math.floor(minute/(360*1440)),month:Math.floor(minute/1440%360/30)+1,day:Math.floor(minute/1440)%30+1,day_count:Math.floor(minute/1440)+1,hour:Math.floor(minute%1440/60),minute:minute%60}});
 async function snapshot(source,dir,pack){
  for(const name of ['src','scripts','tests','private_packs'])await cp(join(source,name),join(dir,name),{recursive:true});
@@ -78,7 +77,6 @@ test('frozen before/after preserve full-game state and exact saves for both pack
   const outputs=[];
   for(const phase of ['before','after']){
    const dir=join(temp,`${phase}-${pack}`);await snapshot(phase==='before'?process.env.YAIRPG_TIER_BASELINE:root,dir,pack==='candidate'?candidatePack:null);
-   if(phase==='after')await exec('git',['apply',join(root,lane,'P6_INTEGRATION.patch')],{cwd:dir});
    const out=join(temp,`${phase}-${pack}.json`);
    await exec(process.execPath,[join(root,'tests/headless/cast_tier_fixture.mjs'),dir,'beside',out],{timeout:240000,maxBuffer:1024*1024});
    outputs.push(JSON.parse(await readFile(out,'utf8')));
