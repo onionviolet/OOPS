@@ -74,10 +74,9 @@ test('generator-shaped source attribution binds the host situation through nativ
  assert.throws(()=>createSimulationRegistry({commands:defineTopicTalks({talks:[invalid]},binding)}),/Invalid knowledge attribution/);
 });
 
-test('prepared host and save patches round-trip native topic jobs, choices and receipts', {timeout:180000}, async t=>{
+test('live host and save validator round-trip native topic jobs, choices and receipts', {timeout:180000}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
- // The state validator is outside D2's grant, so include the coordinator patch in
- // this candidate; once integrated, the same test uses the existing validator.
+ // Host and save integration are already in the live source. Exercise that copy.
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -87,11 +86,6 @@ test('prepared host and save patches round-trip native topic jobs, choices and r
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
- }
- for(const name of ['D2_INTEGRATION.patch','D2_SAVE_INTEGRATION.patch','D2_LOAD_INTEGRATION.patch']){
-  const patch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes',name);
-  let integrated=false;try{await exec('git',['apply','--reverse','--check',patch],{cwd:dir});integrated=true;}catch{}
-  if(!integrated){await exec('git',['apply','--check',patch],{cwd:dir});await exec('git',['apply',patch],{cwd:dir});}
  }
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as d2CastReady} from './book_world_lotm_cast_days.js';\nexport {castAvailable as d2CastAvailable} from './book_world_lotm_cast_host.js';\nimport {LOTM_PROFILES as d2Profiles} from './book_world_lotm_lives.js';\nexport const d2BeProfile=()=>d2Profiles.be;\nimport {castTalkPreview as d2Presence} from './book_world_lotm_cast_host.js';\nexport const d2AwayPreview=()=>{const s=structuredClone(expansionState);s.clock=s.lotm.initializedAt+101;return d2Presence(s,{id:'book.lotm.fixture_offer.agree',targetId:'fixture.person.relative'},{visible:true,eligible:true,reasons:[]});};\nexport const d2EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const d2Validate=save=>validateSaveEnvelope(save,game_version);\nexport const d2Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
@@ -158,6 +152,11 @@ try {
 `);
  try{await exec(process.execPath,[worker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
+ // Loader preflight is still a prepared patch. Apply it only after the live-source
+ // fixture has finished, for the separate malformed-pack recovery scenario.
+ const loaderPatch=resolve(root,'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/D2_LOAD_INTEGRATION.patch');
+ let loaderIntegrated=false;try{await exec('git',['apply','--reverse','--check',loaderPatch],{cwd:dir});loaderIntegrated=true;}catch{}
+ if(!loaderIntegrated){await exec('git',['apply','--check',loaderPatch],{cwd:dir});await exec('git',['apply',loaderPatch],{cwd:dir});}
  // A malformed basis must take the existing missing-pack route before any
  // registry installation, rather than leaving boot rejected or half-loaded.
  pack.topicTalks.talks[0].choices[0].effects[0].basis.kind='invalid';
