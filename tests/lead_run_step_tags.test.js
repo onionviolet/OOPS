@@ -58,3 +58,36 @@ test('the review ranker scores a learnable pattern above chance and is determini
   assert.equal(splitHalfAuc(rows),splitHalfAuc(rows));
   assert.ok(splitHalfAuc(rows)>0.9);
 });
+
+import {buildSceneCards, buildEventCards, sceneVolumeChapter} from '../scripts/lead_run/build_event_cards.mjs';
+const cardScene = {beat:'c1',order:1,pov:'lead',place:'p.flat',present:['p.other'],date:{anchor:'a1',offsetDays:1,value:null},timeOfDay:{value:'morning'},
+  evidence:[{locator:'zh 第3章 p10'}],
+  steps:[{verb:'eat',object:'bread'},{verb:'plan',object:'shopping-list'},{verb:'hide',object:'revolver-in-drawer'}],
+  outcomes:[{fact:'revolver hidden in drawer',value:'true',class:'changed'}],
+  knowledge:[{fact:'shopping list agreed',change:'gained',from:'p.other',locator:'zh 第3章 p58'}],
+  choices:[{taken:'hide revolver',options:['keep it','hide revolver']}]};
+const rowsFor = (statuses) => new Map(cardScene.steps.map((s,i)=>[`c1#${i+1}`,{id:`c1#${i+1}`,status:statuses[i]||'gap',lockedOptions:['keep it']}]));
+
+test('assigns scene outcomes to the step that names them and leftovers to the last eligible step',()=>{
+  const {cards,gaps}=buildSceneCards(cardScene,rowsFor([]));
+  const by=Object.fromEntries(cards.map(c=>[c.stepId,c]));
+  assert.deepEqual(by['c1#3'].effects.filter(e=>e.type==='fact').map(e=>e.key),['revolver hidden in drawer']);
+  assert.ok(by['c1#2'].effects.some(e=>e.type==='knowledge'),'knowledge naming the list lands on the planning step');
+  assert.equal(by['c1#3'].choices.length,1);
+  assert.deepEqual(by['c1#3'].lockedOptions,['keep it']);
+  assert.deepEqual(gaps.map(g=>[g.stepId,g.reasons]),[['c1#1',['missing outcomes']]]);
+});
+
+test('a step with a control gets no card, and a scene with no time or place stays a gap with the reason',()=>{
+  assert.equal(buildSceneCards(cardScene,rowsFor(['clean_fold'])).cards.some(c=>c.stepId==='c1#1'),false);
+  const bare={...cardScene,place:null,date:null,timeOfDay:null};
+  const r=buildSceneCards(bare,rowsFor([]));
+  assert.equal(r.cards.length,0); assert.ok(r.gaps.every(g=>g.reasons.includes('missing place')&&g.reasons.includes('missing time')));
+});
+
+test('card building keeps to volume one chapters up to the limit and lead scenes',()=>{
+  assert.deepEqual(sceneVolumeChapter(cardScene),{book:0,ch:3});
+  const late={...cardScene,beat:'c2',evidence:[{locator:'zh 第30章 p1'}]};
+  const out=buildEventCards([cardScene,late],[{rows:[...rowsFor([]).values()]}],{maxChapter:24});
+  assert.ok(out.cards.every(c=>c.scene==='c1')); assert.equal(out.summary.scenes,1);
+});
