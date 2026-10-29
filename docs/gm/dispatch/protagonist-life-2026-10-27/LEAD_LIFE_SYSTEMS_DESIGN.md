@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD232 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD245 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -595,7 +595,7 @@ seat promotion (LSD129) and tiers (LSD126-LSD137). Lines below are only the new 
 
 | Code | Line | Disposition |
 | --- | --- | --- |
-| LSD218 | **Canon fixes the outcome tier; play moves the cost.** In the canon run, how the player fights or argues changes what it costs (wounds, time, money, who saw, what broke) inside the band the book allows, not who wins. Clumsy play wins the book's fight at a higher price; careful play wins it cheaply. Reason: player skill matters in a forced run without breaking it | ACCOUNT FOR NOW: F1 result screen (LSD94) shows the cost, not a win/loss |
+| LSD218 | *(Narrowed by Weibao 2026-10-29, section 24: a default for the canon run and the lead as NPC, not a rule for every run; LSD233 sets it as a dial.)* **Canon fixes the outcome tier; play moves the cost.** In the canon run, how the player fights or argues changes what it costs (wounds, time, money, who saw, what broke) inside the band the book allows, not who wins. Clumsy play wins the book's fight at a higher price; careful play wins it cheaply. Reason: player skill matters in a forced run without breaking it | ACCOUNT FOR NOW: F1 result screen (LSD94) shows the cost, not a win/loss |
 | LSD219 | **Each canon conflict lists its locked facts.** Winner, survival, items taken and anything a later constraint needs are locked; rounds, order of blows, wound places, words exchanged are free. The lock list comes from the forward-anchor lint (LSD63), not by hand | ACCOUNT FOR NOW: FD1 row field |
 | LSD220 | **Iterate fights headless across seeds.** A development command runs one canon conflict over N seeds and prints the spread of free details, the cost band and the strain, so a combat change is judged on a distribution, not on one replay. Same runner and keys as play (LSD83) | LATER/DELEGATE: with C2 (LSD96); done when one fight prints a 100-seed spread in under a minute |
 
@@ -633,3 +633,49 @@ must hold when someone else is played:
 | --- | --- | --- |
 | LSD231 | **Two kinds of fine-tuning.** *Game tuning* (bands to the text) is calibration, already LSD96. *Model fine-tuning* trains a local reader on our reviewed rows so later books cost less. Only reviewed or golden rows (READINESS L2) with their paragraphs are training data; fills, script guesses and unreviewed rows are not. Inferred: a mid-size local model is more practical to tune on this machine than the 27B one (LA6 memory) | LATER: after enough reviewed rows exist; not a credit cost |
 | LSD232 | **Keep the data tune-ready now.** Reviewed rows keep their paragraph locator, schema version and reviewer source (LSD202 `source`), so a training set can be cut later with no rework. Private like all canon (LSD153) | ACCOUNT FOR NOW |
+
+## 24. Canon pull: from a recreated story to emergent play, and fate (Weibao 2026-10-29; proposal)
+
+Weibao: LSD218 "isnt absolute, for protag playthough maybe, and for maybe default life as NPC, but how can we decide
+varience, or going against cannon in the future? I just want that idea to help with implementing deterministic and
+other systems while still recreating the story, and kind of basically turning the story into a playable, at least
+for the main character? But then extending the possbility by extending the range of possbiltities, probablities,
+and create emergent behavior from rules and more? ... we can use that to implement 'fate' and other stuff like that
+in the future? but then consider butterfly affects".
+
+Owners this builds on, not restated: [TIMELINES_AND_DIVERGENCE](../../TIMELINES_AND_DIVERGENCE.md) (natural course,
+inertia and disturbance C2, lazy resolution C3, motives outlive scripts C6, per-world dials, OD7, OD8), CL21 causal
+mass, CL22 world fate mechanisms, LSD104 (hard, weighted, none) and LSD107 conditioned draws.
+
+### 24.1 One number per canon fact
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD233 | **Canon pull.** Every canon fact has a pull from 0 to 1 at the moment it resolves. A keyed draw for that fact gives the canon outcome with chance `pull + (1 - pull) × p`, where `p` is what our rules alone give; otherwise it draws from the rest of the rules' outcomes. Pull 1 is the canon run's pin (LSD107), pull 0 is free play, anything between is a weighted run. Deterministic by key, so the same life gives the same result | ACCOUNT FOR NOW: D1/D2 design input; one formula serves every mode |
+| LSD234 | **Pull comes from named inputs, not a hand setting.** Run mode sets the ceiling (canon run 1; the lead as NPC near 1 by default; open run lower); then plot weight, redundancy (how many `deps` routes lead to it, CL21), the world's canon pressure dial, a fixed-point flag, and the disturbance already applied (C2) set where it sits. LSD218's "play moves the cost" is what pull 1 looks like; at lower pull, play can move the outcome too | ACCOUNT FOR NOW |
+| LSD235 | **Variance is decided per fact by what depends on it.** Facts nothing later needs get pull 0 even in the canon run (the order of blows, words said, which route home); facts later scenes need get the full ceiling. The forward-anchor lint already finds these dependencies (LSD63, LSD219), so variance is computed, not argued case by case | ACCOUNT FOR NOW |
+
+### 24.2 The pin is scaffolding; the rules should earn the story
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD236 | **Emergent canon rate is the real target.** Run the canon life at pull 0 across seeds and count how many canon facts our rules reach on their own. Strain (LSD64) is the per-fact view of the same number. As rules improve, the rate rises and the pins matter less. A world whose rules reproduce most of its book at pull 0 is one where going off canon is believable, because the same rules then drive the new story | ACCOUNT FOR NOW: replay report field beside fidelity |
+| LSD237 | **The book is a set of decision tests.** Every canon choice (take the job, hide the find, refuse the offer) is a test case for the people's motive model: given their state at that moment, would our resolver choose it? Agreement rate per person and per kind of choice ranks where the motive model is wrong, and fixing those makes the cast behave like themselves after a divergence | LATER/DELEGATE: after D2's motive resolver; done when 20 lead choices from volume 1 report agree or disagree with reasons |
+| LSD238 | **Widening possibility is lowering pull, not new content.** The open run reuses the same records: untaken options (WA28) become available, mechanism lanes add verbs with their own failure paths (LSD227), and probability bands come from calibration (LSD96). Nothing is authored twice | ACCOUNT FOR NOW |
+
+### 24.3 Fate as a mechanism
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD239 | **Fate is an actor that spends on pull.** Where a world names fate (CL22, OD8), it is an in-world agent with a budget: it raises pull on threatened facts it cares about, through in-world means (a coincidence draw, a substitute with motive, an omen, a delay), with reach, cost and traces. Without a named world mechanism, only causal mass applies (CL21), and the book-fidelity dial stays a play setting, not fate (LSD62) | LATER: with the world pass that names it |
+| LSD240 | **Fate leaves readable traces.** Where fate or high pull acts, it shows as signs a perceptive or divining character can read: divination (DV1) can read the pull and strain field of the questions it asks, at its own accuracy, never the sealed truth beyond its means. This gives divination a mechanical job in every world that has it | ACCOUNT FOR NOW: DV1 follow-up design input |
+| LSD241 | **Resisting fate costs and can win.** Disturbance above inertia (C2) beats a fact's pull; fate can spend more, and the player can spend more. Neither side is guaranteed (AD5). Done check later: a seeded scenario where one push fails and a larger push succeeds | LATER |
+
+### 24.4 Butterfly effects under canon pull
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD242 | **Pull is recomputed lazily.** A fact's pull is computed when it is about to resolve or someone observes it (C3), from the disturbance that has reached it along causal links. A change upstream never recomputes the whole future at once. Reason: cost stays proportional to what the player touches | ACCOUNT FOR NOW |
+| LSD243 | **Fragile and robust facts.** Redundancy decides how far a butterfly travels: a fact with one route (one person, one day) is fragile and moves with a small push; a fact many people steer toward is robust. The pull inputs (LSD234) carry this, and fate-sensitive characters can sense fragility (LSD240) | ACCOUNT FOR NOW |
+| LSD244 | **Keep the technical butterfly out** (LSD221): a different pull changes only that fact's draw, never the key of any other draw, so divergence spreads by causes, not by random-number drift | No change |
+| LSD245 | **Pull is derived, never saved.** The save holds disturbance and divergence records; pull is computed from the pack and those records (LSD143). Changing a world's canon pressure dial therefore changes future draws without migrating saves | ACCOUNT FOR NOW |
