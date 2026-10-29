@@ -56,7 +56,12 @@ function rpcPreflight() {
       if (limits?.ordinaryUsageAllowed !== true || limits?.rateLimitReachedType) return reject(new Error('ordinary Codex usage is unavailable'));
       if (!windows.length) return reject(new Error('Codex usage windows were not returned'));
       if (windows.some((used) => used >= 100)) return reject(new Error('a Codex usage window is at 100%'));
-      resolve(`PASS account=chatgpt ordinary-usage=allowed windows-under-100=${windows.length}`);
+      // Optional lower ceiling (CODEX_LANE_MAX_USED, percent): stop launching well before the window fills,
+      // because a full window can fall through to paid credits on accounts that hold them.
+      const ceiling = Number(process.env.CODEX_LANE_MAX_USED);
+      const highest = Math.max(...windows);
+      if (Number.isFinite(ceiling) && highest >= ceiling) return reject(new Error(`a Codex usage window is at ${highest}%, at or over the ${ceiling}% ceiling`));
+      resolve(`PASS account=chatgpt ordinary-usage=allowed windows-under-100=${windows.length} highest-used=${highest}%`);
     };
     proc.on('error', (e) => { clearTimeout(timer); reject(e); });
     proc.stderr.on('data', (d) => { stderr += d.toString(); });
