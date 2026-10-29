@@ -228,9 +228,11 @@ run from one session, one checkout, few cross-chat messages; finish the LOTM lea
 his options to the end. **Coordinator from 00:40 on 2026-10-29: the vision-doc session** (`local_bf0faa81`
 transcript); the earlier coordinator session stops launching, resuming, reviewing and committing.
 
-- **ON1 Done means** the be-seat canon-run replay (V1) over the chapters the readings cover (volume 1, ch1-213
-  read; the beat ledger covers ch1-24) with fidelity = events reached in the book's order inside their windows
-  (LSD156). Chapters past volume 1 need readings first (a batch-reading decision, not this loop's).
+- **ON1 Done means** the be-seat canon-run replay (V1) over the whole book, scored as events reached in the book's
+  order inside their windows (LSD156). The whole book is read: volume 1 at schema 1.4, volumes 2-8 at 1.3
+  (`overnight_2026-10-28x-lotm`, 592 shards, 47 census partials, 7 people parse failures). Correction 2026-10-29:
+  the first draft said only volume 1 was read; the gameplay merge, not the reading, stopped at volume 1. M3 merges
+  volumes 2-8. Paid retries and a 1.4 re-read of volumes 2-8 are November credit, Weibao's call.
 - **ON2 Options** under the forced canon run: each canon step reachable through the game's own controls; the
   replay ledger lists what the screen offers at each step, untaken ones locked (LSD103-LSD125). Open run later.
 - **ON3 Loop.** Replay -> scored ledger -> top gaps by chapter order -> brief from the template with LSD lines ->
@@ -255,3 +257,4 @@ transcript); the earlier coordinator session stops launching, resuming, reviewin
 
 ### Overnight log
 - 00:45 Handover accepted by the earlier coordinator (last commit `d8d865c8c`). Applied patches: B1_INTEGRATION, B1_INTEGRATION_2, P2, P3, S1 (by hand). Open: P5_INTEGRATION.patch, R1 (unreviewed, `/tmp/r1-pack/`, 92 people, 13 unresolved routine actor ids; do not overwrite `private_packs/lotm-cast/cast.json` before a browser check), F1 and V1 running. Floors: `scripts/floor/run_floor.cjs` (beside), be floor `b1_floor.cjs` (build in `/tmp/yairpg-b1`, pack symlinked). Baseline on `34b15ea0`: 1,240 ms per game minute, 349-minute wait 50.1 s; suite 3763/3763 on `df87df058`. Nit: pack-absent console "Something went wrong on saving the game!" (BF4).
+- 00:55 R1 committed `64adcb976` (runtime patch waits for P5). V1 committed `612fa9c56` (audit: 18 steps, 7 need be routes). M3 (whole-book merge, Luna medium) launched, pid 53428.
