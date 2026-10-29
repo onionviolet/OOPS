@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD70 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD80 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -166,26 +166,51 @@ Under CL268 the be replay decides when each runs; this list gives each a ready s
 | LSD59 | **D1 spine**: means reader (LSD8), quote risk and exposure (LSD9), keyed resolver for the lead and cast (LSD55, LSD56), divergence log (LSD57) | Sol, medium | Paying rent late runs all nine stages for the player and settles identically off screen; a one-step divergence resolves dependent beats by motive, identically in two runs |
 | LSD60 | **Then, as the be replay reaches them**: R1 one bond record and cause-dated changes (LSD26-LSD29, absorbing the five stores); E1 wage, rent and household (LSD30, LSD40); K1 witness scale and rumour (LSD34, LSD37); LW1 incidents, cases and institutions (LSD39); N1 hunger and fatigue clocks (LSD45); F1 conflict ladder and results (LSD33-LSD35); G2 concealment | Sol for R1, K1, LW1, F1; Luna for E1, N1 | Each closes named be-replay steps (CL275) and passes its chain in section 9 |
 
-## 12. Canon-anchored results for the lead's run (Weibao, 2026-10-28)
+## 12. Canon results in the lead's run, reconciled (Weibao, 2026-10-28)
 
 Weibao: "For fights and results, we can implement the chain of events as it happens in the book, but adapt it to
-our systems? but then even with variance and more, the result should match cannon, but there is the possibility
-for it not to with external interferecne or something, but then that is a whole nother can of worms ... Just
-implement accordingly to book for the main character run". This section refines LSD10, LSD33-LSD35 and LSD56
-for the be seat; the general loop stays as written for everything outside a canon beat.
+our systems? ... the result should match cannon, but there is the possibility for it not to with external
+interferecne ... Just implement accordingly to book for the main character run" (recorded in
+[USER_VISION](../../../USER_VISION.md), "Cast lives: fights and results follow the book in the lead's run").
+He then noted this was already designed. **Reconciled 2026-10-28 against the owners**: most of it is existing
+direction, and this section now points at them. A first draft of this section (commit `bc9f2fba3`) proposed
+disabling the book's untaken moves and forcing the canon tier as a new rule; both were wrong against accepted
+owners and are corrected below.
 
-| Code | Rule (default, dial, reason) | Disposition |
-| --- | --- | --- |
-| LSD61 | **A canon fight is the book's chain of steps run through our systems**: each step (who moves, by what means, what it costs, what it does) maps to our combat and conflict stages (CBR, `combat_math.js`, the conflict ladder LSD33), so the player sees and drives it with ordinary controls | ACT NOW for briefs: F1 builds this |
-| LSD62 | **The outcome is anchored to canon.** When the state the book's result depends on matches the book (who is present, what they carry, their injuries), resolution returns the canon tier. Our rolls still run, keyed (LSD55), and choose only what the book leaves open | ACCOUNT FOR NOW: D1 resolver gains an anchored mode |
-| LSD63 | **Variance lives in the details, bounded by forward anchors**: round count, exact blows, minor bruises, the words said and how long it takes vary by keyed draw. Anything a later chapter depends on (an injury the book mentions later, a lost item, who saw it) is pinned by its forward anchor (CL21-CL23) | ACCOUNT FOR NOW |
-| LSD64 | **Anchor strain is a calibration signal.** For each anchored result, record how far our unanchored simulation would have landed from canon (for example "a 20% chance of the canon tier"). High strain means our stats or rules misdescribe the book's people; tune them (WA45) and never hide it. Reason: anchoring must not mask a broken model | ACCOUNT FOR NOW: D1 logs it beside the divergence log |
-| LSD65 | **The player's options in a canon fight** default to the book's moves, enabled, plus the moves the book did not take, shown and disabled with the reason "Leaves the book's path; not yet modelled" until the divergence lane opens them. Dial: Weibao can enable them earlier. Reason: honest about what exists (FLR3) without blocking the book run | Proposal, labelled; ACCOUNT FOR NOW in F1 |
-| LSD66 | **The same anchoring covers every canon result**, not only fights: a job interview, an argument's outcome, a purchase the book records. The chain runs through our systems; the result holds while the state matches | ACCOUNT FOR NOW |
-| LSD67 | **Off-screen canon fights for the cast** use the same anchoring through L2c contracts and after-actions, so their results (injuries, absences) land on the right days whether or not the player sees them | ACCOUNT FOR NOW |
-| LSD68 | **Results never leak sealed truths.** A fight caused by a hidden power reports at each witness's level (RPT2); the be seat sees what the lead perceived | ACCOUNT FOR NOW |
-| LSD69 | **Mismatched state is detected and logged now, resolved later.** If the state no longer matches the book (the player brought help, earlier choices changed gear), the run records "divergence pending" with the differing inputs and, for now, still resolves to canon, labelled. External interference (other seats, crossings, earlier divergence) is the deferred "can of worms": a later D2 divergence lane uses the CL262 motive resolver and the logged cases as its test set | LATER/DELEGATE: D2 (Sol, medium) after the be replay reaches chapter 24; done when each logged case resolves by mechanism, identically in two runs |
-| LSD70 | **The replay checks anchoring**: every canon result in the be replay matches the book in two identical runs, and the strain table (LSD64) is printed with the fidelity score | ACCOUNT FOR NOW: be replay receipt |
+Earlier words this rests on: "Canon should follow its natural course unless we change things?" (OD7,
+2026-10-15); "Cannon might have a reason to fix itself, like heavenly will, fate" (OD8); "Can things be biased to
+occur in certain ways and be harder to change, by virtue of fate?" (cast-lives round 3, CL21-CL23).
 
-Effect on lanes: F1 (conflict ladder and results) builds LSD61, LSD63, LSD65 and LSD67; D1 adds the anchored mode
-(LSD62), the strain log (LSD64) and the divergence-pending log (LSD69); D2 is new and deferred.
+| Code | Line | Owner it applies | Status |
+| --- | --- | --- | --- |
+| LSD61 | **The lead's run pins the book's route.** A canon fight or result runs the book's chain of steps through our systems, step by step, with ordinary controls | [WA32](../../../WORLD_ABSORPTION_RULES.md)'s own dial ("a world may pin a route when the source makes the route itself the point"), set by the 10-28 direction for the be seat | Applies WA32; the step runner is new build (section 13) |
+| LSD62 | **The canon result holds in three layers**: our bands are calibrated until they reproduce it (WA33); people steer toward what their plans depend on (CL21 causal mass); and in the lead's run, while the inputs the result depends on match the book, the run returns the canon tier as a play dial named **book fidelity**. It is not an in-world fate claim; a world's own fate mechanism stays CL22's job | WA33, CL21, CL22; resolution through `check_resolver.js`, settlement through `beat_records.js` (`carried` when needs match) | The book-fidelity dial is new |
+| LSD63 | Variance only in what the book leaves open, bounded by forward anchors; add injuries and items to the anchor lint | WA24, WA37, CL9, GR2, CL49 | Same idea; lint extension new |
+| LSD64 | **Fidelity strain**: for each pinned result, how often the unpinned model reaches the canon tier. High strain means the bands are wrong; fix them (WA33), never hide it | WA33, WA45 calibration (book's option wins k of N), CL7 | Same test; the logged table is new |
+| LSD65 | **Untaken options stay possible** (corrected): the moves the book did not take are offered at their WA28 rung (a stub with cost, requirement and a plain result, or a gap row). Choosing one changes the inputs, so the pin releases and our model resolves it, with CL21's causal mass still pulling the cast's plans; the run logs it as divergence (WA15, CL150). Reason: OD7, the player's own choice is "we change things", not outside interference | WA28, CL11, CBR30, CL263 | Same idea (replaces the first draft's "disabled") |
+| LSD66 | The same pin covers every canon result: a questioning, an interview, an argument's outcome, a recorded purchase | WA32 (fights, chases, standoffs, questioning, contests), WA35, CL257 | Same idea |
+| LSD67 | Off-screen canon fights settle by contract outcome on their days | CL6a, CL8, CL216, L2c data | Same idea; the settle step is new build |
+| LSD68 | Results never leak sealed truths; each witness gets their level | AGENTS sealed secrets, RPT2, SUI3 | Same idea |
+| LSD69 | **External interference is deferred.** Changes that reach the lead's run from outside it (another seat, a crossing) are logged as "divergence pending" with the differing inputs; a later D2 lane resolves them by mechanism (CL22, CL262) | WA15, CL150, CL262 | New log; the resolution is deferred by Weibao's words |
+| LSD70 | The be replay asserts canon results in two identical runs and prints the strain table with the fidelity score | CL165, CL169, CL179, CL260 | Same idea plus the table |
+
+## 13. Combat for book fights: what to improve, and what not to abstract
+
+Today's combat core is the original idle auto-battler: `combat_math.js` (hit chance from attack against evasion,
+damage rolls whose random source defaults to unseeded, attack timing), `combat_stances.js`, `defeat_domain.js`
+(outcomes such as yielded, captured, escaped), `pursuit.js`. It has no moves, ranges, means or positions. The
+book's data is outcome-level: L2c contracts hold sides, stakes, means, terrain and outcome facts (5 candidate
+contracts in LOTM chapters 1-24 after P1's selector fix), and the steps live in the merged scenes.
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| LSD71 | **Two engines, one damage core.** Keep the auto-battler for idle and grinding content; add a step-based conflict frame for life and book fights. Both call `combat_math.js` for damage and mitigation, so numbers agree. Reason: rewriting upstream combat risks every existing world; the life fights need steps the auto-battler cannot express |
+| LSD72 | **Seed every draw in the frame** through `seeded_streams.js` keys (LSD55); `combat_math.js` already lets the caller pass the random source, so the frame passes a keyed one |
+| LSD73 | **A small move vocabulary over means**: approach, keep distance, strike, shoot, block, dodge, grapple, disarm, use an item, use the surroundings, use a power (ABR seam), call out, threaten, yield, flee, hide, finish. Each move reads its means (LSD8) and writes the LSD34 results. Dial: a world adds moves through rows (CL232 frame) |
+| LSD74 | **Range bands and position, not a grid**: touching, close, across the room, out of sight; cover and light as place facts. Reason: enough to express a revolver against a knife and a dark alley, cheap to show at 1920×1080 |
+| LSD75 | **Morale and fear are the first results**, before health: a clerk's fights mostly end by fear, flight or yielding (CBR2 outcomes already list these) |
+| LSD76 | **Three detail tiers; abstract only the first two.** Structural (who, means, order, outcome) is always modelled. Tactical (range, cover, surprise, wound location) is modelled where the move vocabulary reaches. Texture (exact words, sensations, the book's choreography beyond the moves) is not abstracted: it shows as the book pack's text for that step in the lead's Reports, private, never in public code |
+| LSD77 | **A step the vocabulary cannot express is a narrated step**, played as the book's step with its effects and a "narrated" label, and run through the fold-loss test (CLR6): if it loses a choice, an input, a witness or an outcome, it is a gap row and becomes build work. Reason: Weibao's worry that much detail is hard to abstract; this keeps the book run playable now and turns each hard detail into a measured gap instead of a guess |
+| LSD78 | **Time inside a fight is seconds**, outside it minutes: a fight runs as its own short sub-clock and charges the game clock once at the end (no second clock in the save, AR3) |
+| LSD79 | **What the lead knows about the opponent** comes from appraisal levels (MEANS_AND_APPRAISAL); unknown powers show as effects, not names (sealed secrets) |
+| LSD80 | **F1 lane scope** (Sol, medium, after D1): the conflict frame with LSD71-LSD79 for the first canon fight the be replay reaches, its narrated-step folds counted, two identical runs, strain logged. Done when that fight replays through ordinary controls to the canon result and every narrated step is in the gap ledger |

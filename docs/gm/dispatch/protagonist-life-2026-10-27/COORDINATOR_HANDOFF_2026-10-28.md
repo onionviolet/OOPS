@@ -68,10 +68,10 @@ crossing or other-seat ones; S1's known-panel filter warned for every panel.
    keyed resolver for the lead and cast, divergence log; covers CO10). Later gap lanes take their scope from LSD60
    (R1 relationships, E1 work and household, K1 witness and rumour, LW1 law, N1 needs, F1 conflict ladder) as the be
    replay reaches them; every brief cites its LSD lines.
-   Canon-anchored results (Weibao 2026-10-28, LSD61-LSD70): in the lead's run every canon result, fights first,
-   runs the book's chain through our systems and lands on canon while the state matches; D1 adds the anchored
-   mode, anchor-strain log and divergence-pending log; F1 builds the fight chain; D2 (external interference,
-   divergence by mechanism) is deferred until the be replay reaches chapter 24.
+   Canon results (Weibao 2026-10-28, reconciled with WA28, WA32, WA33, CL21-CL22 in LSD61-LSD70): the lead's run
+   pins the book's route (WA32's dial) and holds the canon result while inputs match (a "book fidelity" play dial);
+   untaken options stay possible (WA28) and resolve by our model with divergence logged. D1 adds the fidelity dial and
+   the strain table; F1 builds the step-based conflict frame (LSD71-LSD80); D2 (outside interference) is deferred.
 6. **Schema 1.4 merge input** (relay 2026-10-28, batch-reading commit `ce199eb41`, READINESS_AND_SCOPE C29/C30):
    LOTM ch1-24 (prefixes s2..s9v) and MoL ch1-4 (molc001-004) people rows were replaced in place by schema 1.4
    (routine recurrence, reacts class/by/responseClass); the 1.3 rows sit in each book's private `pre-sv8/`.
