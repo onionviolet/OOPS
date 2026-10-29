@@ -21,6 +21,59 @@ const list = v => Array.isArray(v) ? v : [];
 const nonempty = v => typeof v === 'string' ? !!v.trim() : typeof v === 'number' ? Number.isFinite(v) : false;
 const fields = row => [row?.locator, row?.firstMention, ...list(row?.evidence).map(e => e.locator)].filter(Boolean);
 const key = loc => { const p = parseLocator(loc); return p ? [p.lang, p.book, p.ch, p.p] : null; };
+
+// X2 joins reader identities to the selected private pack using explicit IDs,
+// redirects, and authored aliases only. It never guesses from similar names.
+export function buildPackJoin({crosswalk, registry, pack}) {
+    const byReaderId = new Map(registry.map(row => [row.id, row]));
+    const peopleByIndex = new Map((pack.people || []).map(row => [row.indexId, row.id]));
+    const placesByIndex = new Map((pack.places || []).map(row => [row.indexId, row.id]));
+    const placeRedirects = new Map((pack.placeAliases || []).map(row => [row.indexId, row.place]));
+    const idMap = pack.idMap || {};
+    const redirect = id => {
+        const seen = new Set();
+        while (idMap[id] && !seen.has(id)) { seen.add(id); id = idMap[id]; }
+        return id;
+    };
+    const placeNames = new Map();
+    const addPlaceName = (name, id) => {
+        if (!nonempty(name)) return;
+        const k = norm(name), values = placeNames.get(k) || new Set(); values.add(id); placeNames.set(k, values);
+    };
+    for (const row of registry.filter(row => row.kind === 'place')) {
+        const target = placesByIndex.get(redirect(row.id)) || placesByIndex.get(row.id) || placeRedirects.get(row.id);
+        if (!target) continue;
+        for (const name of [row.id, row.label, row.zh, ...list(row.aliases)]) addPlaceName(name, target);
+    }
+    for (const row of pack.places || []) for (const name of [row.id, row.indexId, row.name, row.label]) addPlaceName(name, row.id);
+    for (const row of pack.placeAliases || []) {
+        const target = placesByIndex.get(row.place) || row.place;
+        for (const name of [row.id, row.indexId, row.label]) addPlaceName(name, target);
+    }
+    const resolvePerson = readerId => {
+        const row = byReaderId.get(readerId);
+        if (row?.kind !== 'person') return null;
+        const target = peopleByIndex.get(redirect(readerId)) || peopleByIndex.get(readerId);
+        return target || null;
+    };
+    const resolvePlace = readerText => {
+        if (!nonempty(readerText)) return {id:null, rule:'unresolved'};
+        const direct = crosswalk.places?.[readerText];
+        const directId = placesByIndex.get(redirect(direct)) || placesByIndex.get(direct) || placeRedirects.get(direct);
+        if (directId) return {id:directId, rule:'crosswalk-id'};
+        const exact = placeNames.get(norm(readerText));
+        if (exact?.size === 1) return {id:[...exact][0], rule:'exact-alias'};
+        // M4 uses comma/semicolon-separated nested place descriptions. Resolve
+        // only an explicit component present in registry/pack alias data.
+        const parts = String(readerText).split(/[,;，；]/).map(part => part.trim()).filter(Boolean).reverse();
+        for (const part of parts) {
+            const matches = placeNames.get(norm(part));
+            if (matches?.size === 1) return {id:[...matches][0], rule:'contained-component'};
+        }
+        return {id:null, rule:'unresolved'};
+    };
+    return {resolvePerson, resolvePlace};
+}
 export function inSlice(row, {from, to} = {}) {
     const lo = key(from), hi = key(to);
     if (!lo || !hi || lo[0] !== hi[0] || compareLocators(from, to) > 0) throw new Error('Provide ordered --from and --to locators in the same source language');
