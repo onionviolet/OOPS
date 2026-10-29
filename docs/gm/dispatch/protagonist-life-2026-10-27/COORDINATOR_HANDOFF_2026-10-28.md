@@ -11,7 +11,7 @@ This handoff grants no new scope.
 2. This file.
 3. [Plan](CAST_LIVES_PLAN_2026-10-28.md) sections 23-28 (rounds 15-20). Earlier sections only when a brief
    cites them.
-4. [LEAD_LIFE_SYSTEMS_DESIGN.md](LEAD_LIFE_SYSTEMS_DESIGN.md) (LSD1-LSD155, proposed): sections 15-17 for the canon run,
+4. [LEAD_LIFE_SYSTEMS_DESIGN.md](LEAD_LIFE_SYSTEMS_DESIGN.md) (LSD1-LSD164, proposed): sections 15-17 for the canon run,
    tiers, engine and long term; every cast, clock, save or pack brief cites its LSD lines.
 5. `AGENTS.md` (AD44), `docs/GROUND_RULES.md`.
 
@@ -31,8 +31,10 @@ This handoff grants no new scope.
 | P2 | Measure per-minute cost, wake queue ([brief](cast-lives-lanes/P2_WAKE_QUEUE_BRIEF.md)) | Committed `edb88a929` (module, test, checkpoint, patch). **Finding:** one game minute is about 1.8-2.2 s in the Node harness; 46% `simulationFacts` (673 calls), 37% `simulationNativeContexts`, 9% `lotmFacts`; cast schedules are negligible. The wake-queue patch cuts about 20%. `P2_INTEGRATION.patch` (LOTM cast host, host, UI, cast-week tests) waits until B1 round 4 lands; recheck `git apply --check`, then the browser floor |
 | P3 | Facts and contexts once per unchanged input ([brief](cast-lives-lanes/P3_FACTS_FRAME_BRIEF.md)) | **Running** (Sol medium); side by side with an equivalence test, `main.js` hunks through `P3_INTEGRATION.patch` |
 | M2 | Union every row kind across schema versions ([brief](cast-lives-lanes/M2_ALL_KINDS_UNION_BRIEF.md)) | Committed `96be7cb18`. Older-only rows now kept: LOTM rules +888, places +300 (2,800 fields filled), MoL rules +1,029 (6,128 fields), places +247. MoL lead slice fitness: relations 149/170, reacts 76/133, routines 15/96 (timing stays thinnest). Outputs `/tmp/m2-lotm`, `/tmp/m2-mol`. MoL people have backups for only 4 of 106 files |
-| P4 | Clock out of `main.js`, batched idle spans ([brief](cast-lives-lanes/P4_CLOCK_BRIEF.md)) | **Running** (Sol medium; AR15 reservation on `main.js`). Baseline after P2+P3 (`db9c7609`): 1,157 ms per game minute, 349-minute wait 34.8 s |
-| D1 | Canon as constraints, conditioned keyed draws, provenance, reservations, pack revision ([brief](cast-lives-lanes/D1_CONSTRAINT_STORE_BRIEF.md)) | **Exited, reviewed, uncommitted.** 199 constraints from the pack, null-player replay byte-identical, reservations via `canonActionDecision`, provenance codes, `packRevision` pinned; no `main.js` patch. Coordinator: focused 59/59, no canon terms in added lines, no `nextOrdinal`. Waits for P4 so the browser floor and full suite run on one tree, then commit. Known limits R1-R4 in its checkpoint (pack lacks resource-amount needs and fight contracts) |
+| P4 | Clock out of `main.js` ([brief](cast-lives-lanes/P4_CLOCK_BRIEF.md)) | Committed `df87df058`: `src/clock_owner.js`, `main.js` 10,056 (59 under baseline), no behavior change. Batching stopped: the expensive loop is `advanceSimulation` boundaries (a one-minute controller), and local-life publication is not span-equivalent (F4). Its F3 enrollment error came from a mixed scratch copy; the combined tree passes in the browser |
+| R1 | Cast pack generator from merged readings, tiers, order edges, timing metric ([brief](cast-lives-lanes/R1_PACK_GENERATOR_BRIEF.md)) | **Running** (Sol medium); output to `/tmp/r1-pack/`, the coordinator swaps the pack in after a browser check |
+| P5 | Per-boundary cost of idle spans: minute controllers on wakes, D1 cost ([brief](cast-lives-lanes/P5_SPEED_BRIEF.md)) | **Running** (Sol medium) |
+| D1 | Canon as constraints ([brief](cast-lives-lanes/D1_CONSTRAINT_STORE_BRIEF.md)) | Committed `da377b25f`. Floor on combined tree `34b15ea0`: be start, history, reload, pack-absent PASS; beside save/reload/Export/Import PASS; full suite 3763/3763. Cost: wait per game minute rose from 82 to 111 ms (P5 target). Known limits R1-R4 in its checkpoint |
 | G2 | Concealment | **Held** until the be replay asks for it (brief kept: `G2_CONCEALMENT_BRIEF.md`) |
 
 Coordinator fixes made in review this session (each lane's checkpoint records them): L5r snapshot paths

@@ -413,3 +413,21 @@ satisfy both: everyone lives at the mechanical layer, and inner lives stay few.
 The RULES_INDEX register row and the "new world or book adaptation" router row cite LSD1-LSD155; the NPCs and
 Saves router rows now cite the tier and save lines; the lane brief template asks every cast, clock, save or pack
 brief to cite its LSD lines; the coordinator handoff lists this file under "Read first".
+
+## 18. Timing: order and windows, not hours (Weibao 2026-10-29; proposal)
+
+Weibao: timings "dont have to be accurate to the hour, as long as all the features and events happens". The local
+routine-time pilot agrees from the other side: most routines in the text never state an hour, and the model correctly
+answered "none" (LOCAL_AGENT_CAPACITY_2026-10-28). D1 already stores windows (LSD117).
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD156 | **Fidelity is events, order and windows.** A canon run is faithful when every canon event and feature happens, in the book's order, inside its window (day and band). The exact minute inside the window is a keyed draw (LSD117) | ACCOUNT FOR NOW |
+| LSD157 | **Precision only where things interact.** Hours matter when two people must meet (their windows must overlap), when a place is open or closed, when daylight or darkness changes what works, for deadlines, and for travel feasibility (cannot be in two places). The store tightens a window only when a lint finds two constraints that cannot both hold; otherwise it stays loose | ACCOUNT FOR NOW: forward-anchor lint grows a co-presence check |
+| LSD158 | **Relative timing beats absolute.** "After lunch", "before the meeting", "the next morning" become order edges between constraints; the store keeps an order graph, and a reader records the relation instead of guessing an hour | ACCOUNT FOR NOW: pack rebuild |
+| LSD159 | **Routine usability counts band, order or role hours.** The consumer-fitness metric counts a routine usable with a place plus any of: a band, an order edge, or the role's hours from the world hours table (CL109). Reader and local lanes stop chasing hours the text does not give | ACCOUNT FOR NOW: R1 lane changes the metric |
+| LSD160 | **Coverage replaces clock accuracy as the measure.** Progress is how many canon steps the be replay reaches (CL269) and how few constraints needed forcing (strain), not how close each minute is | No change |
+| LSD161 | **Show time the way he knows it.** The UI speaks in phrases ("this evening", "tomorrow morning", "the day of your interview"), with an hour only where he knows one (an appointment, a clock striking) | ACCOUNT FOR NOW |
+| LSD162 | **Loose windows are cheaper to run.** Cast beats fire anywhere in their window, so the clock can wake at window edges instead of minutes (LSD138); idle cost falls with looser data | ACCOUNT FOR NOW: P5 |
+| LSD163 | **Keep stated precision.** When the book gives an exact time (a clock strikes, a timetable, a midnight rite), it stays exact; those are often plot | No change |
+| LSD164 | **Loop worlds need more precision (dial).** In a time loop (MoL), events recur at the same times each loop and the protagonist exploits exact timing, so loop worlds set a tighter default and record observed times per loop. Per-world dial, not a global rule | ACCOUNT FOR NOW: MoL lane (MW3) |
