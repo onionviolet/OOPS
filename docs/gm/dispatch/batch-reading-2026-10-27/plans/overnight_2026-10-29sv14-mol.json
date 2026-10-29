@@ -1,0 +1,31 @@
+{
+ "name": "2026-10-29sv14-mol",
+ "approval": "Weibao 2026-10-29: \"send next stuff accordingly\", answering \"Go MoL 1.4, ceiling $3.60\" (about $4.30 of October credit left): Mother of Learning rules and texture at schema 1.4, 64K max output. Ceiling $3.60 against true cap 3.66; old rows backed up to pre-sv14/.",
+ "ceilingUsd": 3.6,
+ "capTotal": 3.66,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mol_rules_sv14.json",
+     "cap": 1.83,
+     "label": "mol-rules-sv14"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mol_texture_sv14.json",
+     "cap": 1.83,
+     "label": "mol-texture-sv14"
+    }
+   ]
+  }
+ ]
+}
