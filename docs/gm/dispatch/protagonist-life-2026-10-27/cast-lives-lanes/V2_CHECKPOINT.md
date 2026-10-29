@@ -110,3 +110,24 @@ unknown until the coordinator reruns both lives:
 | Driver `--seat be --null-player --chapters 1-24 --max-steps 100 --offset 0 --audit-only` on the regenerated mapping | PASS; audit prints omissions, canonical policy and fixed seed | No browser or seeded fresh-life execution |
 | `node --input-type=module` comparison of the two prior private run snapshots | PASS; seven remaining paths listed above | Old unseeded runs, not a post-patch replay |
 | Browser replay | Not run | Fixed-seed integration, equal game minute and any remaining mismatch need coordinator proof |
+
+## Resume 3: compare at a game minute, 2026-10-29
+
+Each run pauses the engine and reads its snapshot in one browser evaluation after replay. Both browser sessions remain
+paused until their clocks are known. The earlier run advances through the existing `window.advanceTicks(1)` hook while
+paused, with an exact-target check and a 1,000-tick budget. The audit records the original run clocks, target, mode,
+and any exclusions. The existing hook is available, so no integration patch is needed.
+
+If stepping is unavailable, overshoots, stalls or exceeds the budget, comparison uses the original paused snapshots
+and excludes `current time.minute`, `expansion.clock`, and
+`expansion.simulation.controllers.village.craftsman_controller.due`; the audit records those paths and the reason.
+The paired reproducibility score credits a reached, in-order step only when both runs reached the same kind of step
+and their compared states match. A mismatch still records differing paths and yields zero paired credit.
+
+| Command | Result | Gaps |
+|---|---|---|
+| `node --test tests/lead_replay_score.test.js` | PASS, 7 tests; covers exact alignment, inexact fallback, paired credit and a genuine mismatch | Synthetic stepping only |
+| `node --check scripts/headless/lead_runs/lotm_ui_replay.mjs` | PASS | Syntax only |
+| Driver `--seat be --null-player --chapters 1-24 --max-steps 100 --offset 0 --audit-only` on the regenerated mapping | PASS; alignment marked pending | Does not start browser sessions |
+| `git diff --check -- scripts/headless/lead_runs/lotm_ui_replay.mjs tests/lead_replay_score.test.js` | PASS | Scoped whitespace only |
+| Browser replay | Not run | Coordinator must verify stepping, matching snapshots and actual reproducibility with the candidate pack |

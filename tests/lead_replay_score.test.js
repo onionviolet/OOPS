@@ -1,7 +1,7 @@
 // Synthetic only: no source text, names or private ledger data.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
+import {scoreReplay,stateHashWithoutNaturalClock,executeRows,compareRunSnapshots,compareAtGameMinute,scoreReproducibleReplay,CLOCK_COMPARISON_OMISSIONS} from '../scripts/headless/lead_runs/lotm_ui_replay.mjs';
 
 test('fidelity counts reached events in order inside their windows and keeps typed misses',()=>{
     const rows=['a','b','c','d'].map((id,i)=>({id,locator:`zh 第${i<2?1:2}章 p1`}));
@@ -48,6 +48,26 @@ test('comparison removes only named wall and tracking fields while keeping game 
     assert.deepEqual(compareRunSnapshots(first,snapshot(99,31,56)).differingPaths,['current time.minute','expansion.rng']);
     const changed=snapshot(99,30,55);changed.expansion.clock=21;
     assert.deepEqual(compareRunSnapshots(first,changed).differingPaths,['expansion.clock']);
+});
+
+test('paused runs align at the later minute and credit only steps reached in both',async()=>{
+    const state=(clock,cash=5)=>({'current time':{minute:clock},expansion:{clock,simulation:{controllers:{village:{craftsman_controller:{due:clock+2}}}}},cash});
+    const aligned=await compareAtGameMinute([state(10),state(11)],async (index,target)=>{assert.equal(index,0);return state(target);});
+    assert.equal(aligned.target,11);assert.equal(aligned.mode,'exact');assert.equal(aligned.comparison.identical,true);
+    const score=scoreReplay([{id:'a'},{id:'b'}],[{id:'a',kind:'control'},{id:'b',kind:'gap'}]);
+    assert.deepEqual(scoreReproducibleReplay(score,score,aligned.comparison.identical),{steps:2,reproduced:1,fidelity:0.5});
+    const different=await compareAtGameMinute([state(10),state(11,6)],async (_,target)=>state(target));
+    assert.deepEqual(different.comparison.differingPaths,['cash']);
+    assert.equal(scoreReproducibleReplay(score,score,different.comparison.identical).reproduced,0);
+});
+
+test('an inexact step uses the documented clock exclusions and retains other mismatches',async()=>{
+    const state=(clock,cash)=>({'current time':{minute:clock},expansion:{clock,simulation:{controllers:{village:{craftsman_controller:{due:clock+3}}}}},cash});
+    const fallback=await compareAtGameMinute([state(10,5),state(11,5)],async ()=>state(12,5));
+    assert.equal(fallback.mode,'clock-excluded');assert.deepEqual(fallback.exclusions,[...CLOCK_COMPARISON_OMISSIONS]);
+    assert.deepEqual(fallback.clocks,[10,11]);assert.equal(fallback.comparison.identical,true);
+    const different=await compareAtGameMinute([state(10,5),state(11,6)],async ()=>{throw Error('step unavailable');});
+    assert.deepEqual(different.comparison.differingPaths,['cash']);
 });
 
 test('canon-only execution skips setup input and uses only the recorded step route',async()=>{

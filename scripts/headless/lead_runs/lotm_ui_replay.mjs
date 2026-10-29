@@ -17,6 +17,10 @@ export const COMPARISON_OMISSIONS = Object.freeze([
     'absorb_local_life.lastClock', 'absorb_local_life.lastHubAttempt',
     'levels.person.main_character.skill_xp.Breathing', 'skillRecords.tracked.Breathing.seen'
 ]);
+export const CLOCK_COMPARISON_OMISSIONS = Object.freeze([
+    'current time.minute', 'expansion.clock',
+    'expansion.simulation.controllers.village.craftsman_controller.due'
+]);
 const hash = x => createHash('sha256').update(x).digest('hex');
 const jsonl = file => fs.readFileSync(file, 'utf8').trim().split('\n').filter(Boolean).map(JSON.parse);
 export const GAP_KINDS = ['missing verb', 'missing UI path', 'hidden by disclosure', 'missing knowledge', 'blocked by mechanism', 'needs seat: be'];
@@ -58,9 +62,31 @@ export function diffPaths(a,b,prefix='') {
     const keys=[...new Set([...Object.keys(a),...Object.keys(b)])].sort();
     return keys.flatMap(key=>diffPaths(a[key],b[key],prefix ? `${prefix}.${key}` : key));
 }
-export function compareRunSnapshots(first,second) {
-    const paths=diffPaths(canonicalReplaySnapshot(first),canonicalReplaySnapshot(second));
+export function compareRunSnapshots(first,second,extraOmissions=[]) {
+    const paths=diffPaths(canonicalReplaySnapshot(first,extraOmissions),canonicalReplaySnapshot(second,extraOmissions));
     return {identical:paths.length===0,differingPaths:paths,mismatch:paths.length?{run1:{differingPaths:paths},run2:{differingPaths:paths},state:'mismatch recorded'}:null};
+}
+export async function compareAtGameMinute(snapshots,advance) {
+    const clocks=snapshots.map(s=>s.expansion?.clock);
+    let aligned=snapshots, target=null, mode='exact', reason=null, exclusions=[];
+    try {
+        if (!clocks.every(Number.isSafeInteger)) throw new Error('A paused expansion clock is unavailable.');
+        target=Math.max(...clocks);
+        aligned=[...snapshots];
+        for (let i=0;i<aligned.length;i++) if (clocks[i]<target) {
+            aligned[i]=await advance(i,target);
+            if (aligned[i]?.expansion?.clock!==target) throw new Error('Stepper did not reach the exact target minute.');
+        }
+    } catch (error) {
+        aligned=snapshots; mode='clock-excluded'; exclusions=[...CLOCK_COMPARISON_OMISSIONS];
+        reason=String(error?.message || error);
+    }
+    return {snapshots:aligned,clocks,target,mode,exclusions,reason,comparison:compareRunSnapshots(aligned[0],aligned[1],exclusions)};
+}
+export function scoreReproducibleReplay(first,second,identical) {
+    const other=new Map(second.rows.map(row=>[row.id,row]));
+    const reproduced=identical ? first.rows.filter(row=>row.inOrder && other.get(row.id)?.inOrder && other.get(row.id)?.kind===row.kind).length : 0;
+    return {steps:first.steps,reproduced,fidelity:first.steps ? reproduced/first.steps : 0};
 }
 export function validateMapping(mapping, scenes) {
     const generated = mapping.schema === 'lead-ui-replay/2';
@@ -157,9 +183,9 @@ function canonical(value) {
     return Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])]).filter(([,x])=>
         !(x===0 || x===false || x===null || (Array.isArray(x)?!x.length:typeof x==='object'&&!Object.keys(x).length))));
 }
-export function canonicalReplaySnapshot(snapshot) {
+export function canonicalReplaySnapshot(snapshot,extraOmissions=[]) {
     const copy=structuredClone(snapshot);
-    for (const field of COMPARISON_OMISSIONS) {
+    for (const field of [...COMPARISON_OMISSIONS,...extraOmissions]) {
         const path=field.split('.'), key=path.pop();
         let parent=copy;
         for (const part of path) parent=parent?.[part];
@@ -167,8 +193,8 @@ export function canonicalReplaySnapshot(snapshot) {
     }
     return canonical(copy);
 }
-export function stateHashWithoutNaturalClock(snapshot) {
-    return hash(JSON.stringify(canonicalReplaySnapshot(snapshot)));
+export function stateHashWithoutNaturalClock(snapshot,extraOmissions=[]) {
+    return hash(JSON.stringify(canonicalReplaySnapshot(snapshot,extraOmissions)));
 }
 export function mergeGapLedger(rows, existing) {
     const added = rows.filter(r => r.status === 'gap' || r.status === 'lossy_fold').map(r => ({
@@ -225,6 +251,7 @@ export async function executeRows(page, rows, io, {canonOnly = false} = {}) {
 async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer = false, readyTimeoutMs = DEFAULT_READY_TIMEOUT_MS, recordPackLoad = () => {}) {
     const require = createRequire(import.meta.url), {launchChrome} = require('../../ui_helpers.cjs');
     const browser = await launchChrome();
+    let retained=false;
     try {
         const context = await browser.newContext({viewport:{width:1920,height:1080}});
         const origin = `http://127.0.0.1:${randomInt(20000,60000)}`;
@@ -327,10 +354,25 @@ async function browserRun(mapping, build, out, run, seat = 'beside', nullPlayer 
         await page.screenshot({path:path.join(out,`run${run}-entry.png`)});
         const result = await executeRows(page,mapping.rows,io,{canonOnly:nullPlayer});
         assert.deepEqual(errors,[],'page errors belong to this run until proven otherwise');
-        if (nullPlayer) await page.evaluate(() => window.simulationTestHooks.pause());
-        const finalSnapshot=await snapshot();
-        return {...result,packLoadMs,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors};
-    } finally {await browser.close();}
+        const finalSnapshot=await page.evaluate(() => {window.simulationTestHooks.pause(); return window.simulationTestHooks.snapshot();});
+        const advanceTo = target => page.evaluate(target => {
+            if (typeof window.advanceTicks!=='function') throw new Error('Paused tick stepper is unavailable.');
+            window.simulationTestHooks.pause();
+            let state=window.simulationTestHooks.snapshot(), clock=state.expansion?.clock;
+            if (!Number.isSafeInteger(clock) || target-clock>1000) throw new Error('Clock cannot be aligned within the step budget.');
+            for (let ticks=0;clock<target;ticks++) {
+                if (ticks>=1000) throw new Error('Clock did not reach the target within the step budget.');
+                window.advanceTicks(1);
+                state=window.simulationTestHooks.snapshot();
+                const next=state.expansion?.clock;
+                if (!Number.isSafeInteger(next) || next<clock || next>target) throw new Error('Tick stepper cannot reach the exact target minute.');
+                clock=next;
+            }
+            return state;
+        },target);
+        retained=true;
+        return {result:{...result,packLoadMs,stateHash:stateHashWithoutNaturalClock(finalSnapshot),_snapshot:finalSnapshot,pageErrors:errors},advanceTo,close:()=>browser.close(),errors};
+    } finally {if (!retained) await browser.close();}
 }
 async function main() {
     const args = Object.fromEntries(process.argv.slice(2).reduce((a,v,i,all) => v.startsWith('--') ? [...a,[v.slice(2),all[i+1]?.startsWith('--') ? true : all[i+1] || true]] : a,[]));
@@ -356,12 +398,12 @@ async function main() {
     const rowKinds = Object.fromEntries([...new Set(replayRows.map(kindOf))].sort().map(kind=>[kind,replayRows.filter(r=>kindOf(r)===kind).length]));
     const readyTimeoutMs = args['ready-timeout-ms'] === undefined ? DEFAULT_READY_TIMEOUT_MS : Number(args['ready-timeout-ms']);
     assert.ok((args['ready-timeout-ms'] === undefined || typeof args['ready-timeout-ms'] === 'string') && Number.isSafeInteger(readyTimeoutMs) && readyTimeoutMs>0, '--ready-timeout-ms must be a positive integer');
-    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',replaySeed:seat==='be'?REPLAY_SEED:null};
+    const audit = {seat,probe,selectedSteps:replayRows.length,offset,windowed:replayRows.filter(r=>r.time).length,orderOnly:replayRows.filter(r=>!r.time).length,rowKinds,score:scoreRows(replayRows).overall,combinedGapLayers:ledger.counts,inputHash:hash(fs.readFileSync(args.mapping)),readyTimeoutMs,packLoadMs:[],comparisonOmissions:COMPARISON_OMISSIONS,comparisonCanonicalization:'sorted keys; omit zero, false, null and empty object/array properties as in floor canonical',clockAlignment:{mode:'pending',excludedPaths:[]},replaySeed:seat==='be'?REPLAY_SEED:null};
     fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
     if (args['audit-only']) {console.log(JSON.stringify(audit)); return;}
     assert.equal(typeof args.build,'string','--build required for UI proof');
     const bundleHash = hash(fs.readFileSync(path.join(args.build,'dist/bundle.js')));
-    const runs = [];
+    const runs = [], sessions = [];
     try {
         for (const run of [1,2]) {
             const runMapping={...mapping,rows:replayRows};
@@ -371,19 +413,33 @@ async function main() {
                 entry[phase]=ms;
                 fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
             };
-            const result = await browserRun(runMapping,args.build,out,run,seat,!!args['null-player'],readyTimeoutMs,recordPackLoad); runs.push(result);
+            const session = await browserRun(runMapping,args.build,out,run,seat,!!args['null-player'],readyTimeoutMs,recordPackLoad);
+            sessions.push(session);
+            const result=session.result; runs.push(result);
             fs.writeFileSync(path.join(out,`run${run}.json`),JSON.stringify(result,null,2)+'\n');
         }
-        const comparison=compareRunSnapshots(runs[0]._snapshot,runs[1]._snapshot);
+        const alignment=await compareAtGameMinute(runs.map(run=>run._snapshot),(index,target)=>sessions[index].advanceTo(target));
+        for (const session of sessions) assert.deepEqual(session.errors,[],'page errors belong to this run until proven otherwise');
+        audit.clockAlignment={mode:alignment.mode,runClocks:alignment.clocks,target:alignment.target,excludedPaths:alignment.exclusions,reason:alignment.reason};
+        fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(audit,null,2)+'\n');
+        for (let i=0;i<runs.length;i++) {
+            runs[i]._snapshot=alignment.snapshots[i];
+            runs[i].snapshotClock=alignment.clocks[i];
+            runs[i].comparisonClock=alignment.snapshots[i].expansion?.clock ?? null;
+            runs[i].stateHash=stateHashWithoutNaturalClock(alignment.snapshots[i],alignment.exclusions);
+            fs.writeFileSync(path.join(out,`run${i+1}.json`),JSON.stringify(runs[i],null,2)+'\n');
+        }
+        const comparison=alignment.comparison;
         const differences=comparison.differingPaths;
+        const reproducibility=scoreReproducibleReplay(runs[0].replayScore,runs[1].replayScore,comparison.identical);
         for (const run of runs) { delete run._snapshot; }
-        const result = {...audit,bundleHash,score:runs[0].score,replayScore:runs[0].replayScore,stateHash:runs[0].stateHash,nullPlayer:!!args['null-player'],identical:comparison.identical,differingPaths:differences,pageErrors:[],state:'agent-verified, not human-reviewed',route:`fresh ${seat} life; visible clicks; natural clock; explicit supporting walks; prior gaps remain unexecuted`};
+        const result = {...audit,bundleHash,score:runs[0].score,replayScore:runs[0].replayScore,reproducibility,stateHash:runs[0].stateHash,nullPlayer:!!args['null-player'],identical:comparison.identical,differingPaths:differences,pageErrors:[],state:'agent-verified, not human-reviewed',route:`fresh ${seat} life; visible clicks; natural clock; explicit supporting walks; prior gaps remain unexecuted`};
         if (comparison.mismatch) fs.writeFileSync(path.join(out,'mismatch.json'),JSON.stringify(comparison.mismatch,null,2)+'\n');
         fs.writeFileSync(path.join(out,'proof.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify(result));
     } catch (error) {
         fs.writeFileSync(path.join(out,'blocked.json'),JSON.stringify({bundleHash,completedRuns:runs.length,error:String(error),state:'UI proof incomplete'},null,2)+'\n');
         throw error;
-    }
+    } finally {await Promise.allSettled(sessions.map(session=>session.close()));}
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch(e => {console.error(e);process.exitCode=1;});
