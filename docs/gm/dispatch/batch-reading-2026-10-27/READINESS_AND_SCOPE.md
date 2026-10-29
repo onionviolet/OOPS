@@ -476,3 +476,40 @@ C44 result (2026-10-29, Weibao: "Run C44"):
 | Code | Finding | Disposition |
 | --- | --- | --- |
 | C46 | Local census (`qwen3.8:27b`, seed 7, temperature 0.3) on the 6 C28 shards, with briefs taken from the original batch requests (nothing leaked), $0, 4.5-5.5 minutes a shard. Recall of the October high rows, all 6 shards: local alone **0.48** (lead-touched 0.66); one medium run 0.64 (0.85); **medium + local 0.73-0.78 (0.89-0.93)** over the two medium runs; two medium runs merged **0.79 (0.95)**; one high rerun 0.73 (0.94). `gc1c003` hit the lane's 8,000-token output cap and kept 17 rows | Medium + local roughly matches one high run on recall but trails it and the two-medium merge on lead-touched rows, which the cast-lives import keys on. The saving is one medium run, about $0.013 a shard (about $8 across RI's remaining 650 shards), for about 50 hours of Mac time. **Two merged medium runs stay the proposed default**; medium + local is the fallback when credit runs short |
+
+## 18. Round 15: local settings sweep and the November touch-up pass (2026-10-29, Weibao: "consider various settings too", "consider if multiple passes could be effective too")
+
+Sweep: `qwen3.8:27b`, the 6 C28 shards, briefs from the original batch requests, $0, scored by `_local-eval/c45.mjs` against the October high rows (554 rows, 148 lead-touched). Recall is the share of high rows whose zh or label a local row matches. Mac time is the sum of shard wall times, with other lanes running and the memory gate pausing twice, so treat hours as upper-ish bounds.
+
+| Code | Arm | Recall (lead-touched) | With one medium run | Out tokens, rows | Mac time |
+| --- | --- | --- | --- | --- | --- |
+| C47 | `c44`: seed 7, temp 0.3, think off, cap 8K (C46 arm) | 0.482 (0.662) | 0.727 (0.892) | 41.2K, 408 | 30 min |
+| C47 | `b12`: same, cap 12K | **0.536 (0.736)** | 0.727 (0.905) | 41.3K, 503 | 58 min |
+| C47 | `s2`: seed 11, temp 0.5, cap 12K | 0.500 (0.703) | 0.731 (0.919) | 37.3K, 432 | 53 min |
+| C47 | `t1`: thinking on, cap 12K | 0.227 (0.365) | 0.675 (0.865) | 145.1K, 154 | 204 min |
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| C48 | **Thinking on is a loss.** Recall drops from 0.54 to 0.23 at 3.5x the time and 3.5x the tokens; the reasoning eats the output budget and leaves 154 rows against 503 | Keep thinking off. Do not retry with a bigger cap |
+| C49 | **Cap 12K beats 8K by +0.05 recall (+0.07 lead-touched)**, mostly on the dense shards (`gc1c003` no longer truncates). The wall-time gap (30 vs 58 min) mixes the cap with machine load, since the 8K arm ran with fewer other lanes; per-shard time at the same load is not measured | Keep 12K, the driver default |
+| C50 | **Multiple local passes do not pay off.** `b12+s2` (two readers) gives 0.570 (0.791), +0.034 and +0.055 over `b12` alone, for double the hours. Three readers (`b12+s2+t1`) reach 0.581 (0.791). With a medium batch run underneath, a second local pass adds +0.017 recall and +0.027 lead-touched (0.727 to 0.744; 0.905 to 0.932), and a third adds +0.007 more | One local pass. A second local pass is the weakest use of Mac time; a cloud touch-up (C51) targets the same misses directly |
+| C51 | **Settings winner: seed 7, temperature 0.3, thinking off, `--predict 12000`.** Medium + local is 0.727 (0.905), level with C46's 0.727 (0.892): the extra cap mainly raises local-alone recall, not the union | The overnight queue runs these settings under tag `n1` |
+| C52 | A numbers-only second pass (measures, prices, calendar, clock) was not built. C39 found these kinds the weakest (measure 7%, calendar 6%), but the lane's candidate list already seeds them, so a second prompt likely re-finds the same candidates; the fix is a prompt rewrite, not a settings change | LATER: try on the 6 kit shards in a scratch lane copy after the queue; done check is measure and calendar recall on the kit against C39's 7% and 6% |
+
+### Proposal (not accepted): November cloud "touch-up" census pass
+
+Labeled a proposal. Only Weibao accepts; no cloud call is sent without his go phrase.
+
+**Shape.** For each shard with local rows, one batch request on Haiku (medium effort) whose brief adds a section "Rows already found (do not repeat)": the local rows as a compact table (id, zh, kind, locator, note, about 25 tokens a row). The model returns only (a) rows the table misses and (b) corrections to table rows, each marked `fix:<id>` with the corrected fields. Everything else it leaves out. The merge script applies local rows, then additions, then fixes, and rewrites ids to one scheme.
+
+**Why it saves.** Output is about 97% of batch spend (round 3 caching analysis). A full medium census returns roughly the whole row set; the local pass already holds about half of the high rows and 74% of the lead-touched ones. If the touch-up returns only the other half plus corrections, output falls by an estimated 35-50% per census shard [I, not measured]. Input rises by the local table (about 400 rows x 25 tokens = 10K for a dense shard), billed at input rates and cached across the shard's passes if the table sits in the shared prefix, so net saving is below the output saving. Rough figure: census is about a fifth of batch spend, so the touch-up saves about 7-10% of a book's total, not more [I].
+
+**Risks to price in.** (1) Anchoring: seeing local rows may make the model skip rows near them, lowering recall of the union below two merged medium runs (0.79, lead-touched 0.95). (2) 23% of local notes are "Mentioned by name." and 15% of local rows are not in the batch rows; the touch-up should replace such notes, not repeat them. (3) The local ids use the lane's slug scheme, not batch ids; the merge must renumber. (4) Local rows with `nameSource: pinyin-unconfirmed` must stay flagged.
+
+**November pilot (named, small).** Six kit shards, medium effort, one request each, about $0.08 total at the C46 rate [I]; run after Weibao's go. Compare the union (local `b12` + touch-up) against two merged medium runs (0.79 / 0.95) on recall and lead-touched recall, and record output tokens per shard against a plain medium run (the C13 replies). **Pass:** union recall at least 0.77 and lead-touched at least 0.93 with output tokens at most 60% of a plain medium run. **Fail:** keep two medium runs as the default (C46).
+
+**Other passes.** Scenes, rules, people and texture pass 2 get the local census table as the known-name list, so ids stay consistent without waiting on the batch census. This replaces the batch census rows in those briefs only after the pilot passes; until then the batch census stays the id source.
+
+### Overnight queue status
+
+Started 2026-10-29 07:42 on `coi_census.json`, then `ri5_census.json`, tag `n1`, `--min-free 35`, process group 97531 (details and log in the [handoff](LOCAL_OVERNIGHT_HANDOFF_2026-10-29.md)). It resumes after a stop; the 294 COI shards need about 25-60 hours at the measured 5-10 minutes a shard. Rows stay in the gitignored `local-census/` folders.
