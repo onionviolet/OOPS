@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD264 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD277 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -726,3 +726,41 @@ next brief reads (Dr3).
 | LSD262 | **Long threads are where butterflies live.** The longer a thread runs, the more disturbance can reach it, so a later beat's pull reads the thread's state, not only its own inputs (LSD234, LSD243). An item set up early and used much later is one thread with a long reservation, and the forward-anchor lint follows it across chapters and volumes (LSD150) | ACCOUNT FOR NOW |
 | LSD263 | **Reachable is reported by thread as well as step.** Headline: threads whose every beat is reachable in order, and threads whose carried state survives (LSD259); step reachable share stays a diagnostic (LSD210) | ACCOUNT FOR NOW: card lane report |
 | LSD264 | **The player sees threads as his open matters.** The journal lists open threads at his knowledge level ("looking into the notebook", "rent due on the 3rd") with what he knows, not what comes next (LSD116). Thread progress is a save delta; canon thread structure stays derived from the pack (LSD143) | LATER: runtime and UI after the card data lands |
+
+## 27. The book-to-play pipeline: implementation, optimization, improvement (Weibao 2026-10-29; proposal)
+
+Weibao: "Implementation stuff and more? More to consider? optimizations and more? Improvable stuff and more?" after
+the workflow was summarized as read, merge, build the course, map, card or gap, mechanisms, rerun, runtime, measure.
+Evidence checked 2026-10-29: `scripts/lead_run/world_lead_pipeline.mjs` (P1) runs six stages with a hash receipt
+(schema_union, merge_shards, build_crosswalk, cast_worksheet, after_actions, conflict_contracts); the later stages
+(`build_journeys`, `build_place_acts`, `build_topic_talks`, `build_cast_pack`, `build_replay_mapping`,
+`merge_reviewed_rows`, `derive_step_tags`, `build_event_cards`, `build_event_threads`, `replay_metrics`) run by hand
+outside it. Reviewed rows already merge by `stepId` (`merge_reviewed_rows.mjs`).
+
+### 27.1 Implementation
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD265 | **One pipeline, every stage.** Extend P1 to the later stages in order, each with its input and output hashes and script version in the receipt, so a pack can be rebuilt exactly and a stale stage is visible. Today half the chain is hand-run, so "rerun after each mechanism" can mix old and new outputs | LATER/DELEGATE: Luna medium; done when one command rebuilds the chapters 1-24 pack, cards and metrics and a second run gives identical hashes |
+| LSD266 | **Corrections are inputs, never edits.** Reviewed verdicts already key by `stepId`; extend the same rule to every hand or review fix (a thread split, an outcome assignment, an identity merge): one override file per kind, applied by its stage on every rerun, each line with its source and date. Generated files are never edited | ACCOUNT FOR NOW: card and thread builders read an override file |
+| LSD267 | **One representation per step, fixed precedence.** Control, then card, then gap; ties by step id, never file or row order; thread order by a stable topological sort. A lint fails when a step has two representations | ACCOUNT FOR NOW: replay_metrics lint |
+| LSD268 | **A card keeps its id when it becomes a control.** When a mechanism lands and a card's step maps to a control, the control takes the card's step id, so a save that recorded the card as done stays valid, and the run diff shows "upgraded" rather than removed and added | ACCOUNT FOR NOW: CR2 and mechanism briefs |
+| LSD269 | **Card effects apply once.** A card's effects are keyed by life and card id and recorded as applied in the save delta, so reload, replay and offline settlement never apply them twice | ACCOUNT FOR NOW: CR2 persistence fixture |
+| LSD270 | **A synthetic mini-book through the whole pipeline.** A public, name-free three-chapter book (a few scenes, a thread, a fight, a craft, a missing outcome) runs every stage in `npm test`, so the pipeline is regression-tested without canon. Private book runs stay private | LATER/DELEGATE: Luna medium; done when the mini-book produces controls, cards, a thread, a gap and metrics in one test |
+
+### 27.2 Optimization
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD271 | **Incremental reruns by hash.** A stage reruns only when an input hash changed, and the mapper and card builder rerun only the families a new mechanism touches. Cost of a rerun then follows the change, not the book | LATER: after LSD265 |
+| LSD272 | **The card reader indexes by window.** The runtime looks cards up by scene and day window, never by scanning all cards each game minute (the P5 lesson about per-minute cost); cards load with the pack window (SZ4) | ACCOUNT FOR NOW: CR2 |
+| LSD273 | **A run diff after every pipeline run.** Per family: steps that moved control to card, card to gap, gap to card and card to control, with a sample of each. A mechanism that steals steps wrongly shows up as a drop elsewhere. The diff and the metrics are one report, the morning note's headline (Dr1) | LATER/DELEGATE: Luna low with LSD265 |
+
+### 27.3 Improvable now
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD274 | **Missing outcomes from state differences.** For the 58 missing-outcome gaps, compare the scene's state with the next scene that touches the same ids (an item appears, money changes, a person now knows): a difference is a candidate outcome with label `I` and a `basis`, reviewed before use. Script only | LATER/DELEGATE: guide session; done when the share of the 58 that gain a candidate is printed and 10 are checked against paragraphs |
+| LSD275 | **Card confidence.** Outcome-to-step assignment by shared words is weak; each card carries a confidence (words matched, outcome kind, distance from the step), and low-confidence cards go to the ranked review queue ahead of other gaps | ACCOUNT FOR NOW: card builder field |
+| LSD276 | **Thread clusterer fixes from the spot-check.** Common items stop linking (weight by how rarely an id recurs across the book), clusters split where place and day both jump, and chains have a maximum span so links do not run transitively through long clusters. Rescore against the 14 verdicts | LATER/DELEGATE: guide session; done when the four "split" threads split and the eight "hold" threads still hold |
+| LSD277 | **Prove the pipeline on a second book.** Run the cards and threads stages on a second read book (Mother of Learning, English locators) before any more LOTM-only stage is added; anything that breaks is LOTM-shaped (LSD214 for the pipeline, not only mechanisms) | LATER/DELEGATE: after LSD265 |
