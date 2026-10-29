@@ -3,24 +3,22 @@
 import {readFileSync, mkdirSync, writeFileSync, realpathSync} from 'node:fs';
 import {resolve, relative, basename} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 import {parseLocator} from './world_profiles.mjs';
+import {compareLocators} from './merge_shards.mjs';
 
 const KINDS = new Set(['person', 'place', 'organization']);
+export const worksheetFilename = id => `${String(id).replace(/[^a-zA-Z0-9._-]/g, '_')}-${createHash('sha256').update(String(id)).digest('hex').slice(0, 12)}.json`;
 const isList = value => Array.isArray(value) ? value : [];
 const parse = locator => {
     const value = parseLocator(locator);
     return value ? [value.lang, value.book, value.ch, value.p] : null;
 };
-const cmpLoc = (a, b) => {
-    const x = parse(a), y = parse(b);
-    if (!x || !y) return String(a ?? '').localeCompare(String(b ?? ''));
-    return x[0].localeCompare(y[0]) || x[1] - y[1] || x[2] - y[2] || x[3] - y[3];
-};
+const cmpLoc = compareLocators;
 function inSlice(locator, from, to) {
     const v = parse(locator), lo = parse(from), hi = parse(to);
-    if (!v || !lo || !hi || v[0] !== lo[0] || v[0] !== hi[0] || v[1] !== lo[1] || v[1] !== hi[1]) return false;
-    const compare = (a, b) => a[2] - b[2] || a[3] - b[3];
-    return compare(v, lo) >= 0 && compare(v, hi) <= 0;
+    if (!v || !lo || !hi || v[0] !== lo[0] || v[0] !== hi[0]) return false;
+    return cmpLoc(locator, from) >= 0 && cmpLoc(locator, to) <= 0;
 }
 function firstLocator(row) {
     const values = [row?.locator, row?.firstMention, ...isList(row?.evidence).map(e => e?.locator)].filter(Boolean);
@@ -77,10 +75,8 @@ function scheduleRow(id, row, source) {
 
 export function buildWorksheets({registry, scenes, extras, crosswalk, world = crosswalk?.world, from, to}) {
     if (crosswalk?.schema !== 'cast-crosswalk/1.0' || !['lotm', 'mol'].includes(world) || crosswalk.world !== world) throw new Error('Expected a matching LOTM or MoL cast-crosswalk/1.0 file from L1');
-    if (!parse(from) || !parse(to) || cmpLoc(from, to) > 0) throw new Error('Expected ordered --from and --to locators in one source volume');
-    const fromKey = parse(from), toKey = parse(to);
-    if (fromKey[0] !== toKey[0] || fromKey[1] !== toKey[1]) throw new Error('Expected ordered --from and --to locators in one source volume');
-    const sceneRows = scenes.filter(scene => scene.pov === 'lead' && inSlice(firstLocator(scene), from, to));
+    if (!parse(from) || !parse(to) || parse(from)[0] !== parse(to)[0] || cmpLoc(from, to) > 0) throw new Error('Expected ordered --from and --to locators in one source language');
+    const sceneRows = scenes.filter(scene => (scene.pov === 'lead' || crosswalk.leadPovIds?.includes(scene.pov)) && inSlice(firstLocator(scene), from, to));
     const registryById = new Map(registry.map(row => [row.id, row]));
     const extrasById = new Map();
     for (const row of extras) if (['people', 'people_other'].includes(row.extra)) {
@@ -105,6 +101,7 @@ export function buildWorksheets({registry, scenes, extras, crosswalk, world = cr
         const partial = presence.filter(x => x.touched?.status === 'partial').length;
         const scenesForEntity = ordered(entityScenes.map(scene => ({
             beat: scene.beat,
+            ...(scene.shard ? {shard: scene.shard} : {}),
             locator: firstLocator(scene),
             place: scene.place ?? null,
             date: scene.date ?? null,
@@ -115,8 +112,8 @@ export function buildWorksheets({registry, scenes, extras, crosswalk, world = cr
         const rowValues = field => ordered(extraRows.flatMap(row => isList(row[field])
             .filter(item => inSlice(item?.locator ?? row.locator, from, to))
             .map(item => item && typeof item === 'object'
-                ? {...item, label: item.label ?? row.label ?? null, locator: item.locator ?? row.locator ?? null}
-                : {value: item, label: row.label ?? null, locator: row.locator ?? null})));
+                ? {...item, label: item.label ?? row.label ?? null, locator: item.locator ?? row.locator ?? null, ...((item.shard ?? row.shard) ? {shard: item.shard ?? row.shard} : {})}
+                : {value: item, label: row.label ?? null, locator: row.locator ?? null, ...(row.shard ? {shard: row.shard} : {})})));
         const whereabouts = ordered(isList(registryRow?.whereabouts)
             .filter(item => inSlice(item.locator, from, to))
             .map(item => ({...item, label: item.label ?? registryRow?.label ?? null, locator: item.locator ?? registryRow?.firstMention ?? null})));
@@ -180,7 +177,7 @@ export function run(argv) {
     mkdirSync(out, {recursive: true});
     let rows = 0, usable = 0;
     for (const sheet of worksheets) {
-        const name = `${sheet.id.replace(/[^a-zA-Z0-9._-]/g, '_')}.json`;
+        const name = worksheetFilename(sheet.id);
         writeFileSync(resolve(out, name), `${JSON.stringify(sheet, null, 2)}\n`);
         rows += sheet.candidateRows.length;
         usable += sheet.candidateRows.filter(row => row.from != null && row.to != null).length;

@@ -9,6 +9,7 @@ import {resolve, relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {parseLocator} from './world_profiles.mjs';
+import {compareLocators} from './merge_shards.mjs';
 import {LOTM_IDS, LOTM_LOCATIONS, LOTM_KEYS} from '../../src/book_world_lotm_ids.js';
 import {MOL_IDS, MOL_LOCATIONS, MOL_KEYS} from '../../src/book_world_mol_ids.js';
 import molPack from '../../src/world_packs/book_mol_pack.js';
@@ -20,13 +21,38 @@ const list = v => Array.isArray(v) ? v : [];
 const nonempty = v => typeof v === 'string' ? !!v.trim() : typeof v === 'number' ? Number.isFinite(v) : false;
 const fields = row => [row?.locator, row?.firstMention, ...list(row?.evidence).map(e => e.locator)].filter(Boolean);
 const key = loc => { const p = parseLocator(loc); return p ? [p.lang, p.book, p.ch, p.p] : null; };
-const compare = (a, b) => a[0].localeCompare(b[0]) || a[1] - b[1] || a[2] - b[2] || a[3] - b[3];
 export function inSlice(row, {from, to} = {}) {
     const lo = key(from), hi = key(to);
-    if (!lo || !hi || lo[0] !== hi[0] || lo[1] !== hi[1] || compare(lo, hi) > 0) throw new Error('Provide ordered --from and --to locators in the same source volume');
-    const locs = fields(row).map(key).filter(Boolean).sort(compare);
+    if (!lo || !hi || lo[0] !== hi[0] || compareLocators(from, to) > 0) throw new Error('Provide ordered --from and --to locators in the same source language');
+    const locs = fields(row).filter(loc => key(loc)).sort(compareLocators);
     // Assign a scene by its earliest evidence, not any late mention in a spanning row.
-    return !!locs.length && locs[0][0] === lo[0] && locs[0][1] === lo[1] && compare(locs[0], lo) >= 0 && compare(locs[0], hi) <= 0;
+    return !!locs.length && key(locs[0])[0] === lo[0] && compareLocators(locs[0], from) >= 0 && compareLocators(locs[0], to) <= 0;
+}
+
+export function discoverLeadPersonas(extras, {leadId, review = {}} = {}) {
+    if (!leadId) return {leadPovIds: [], unresolved: []};
+    const resolve = id => {
+        const seen = new Set();
+        while (review.redirect?.[id] && !seen.has(id)) { seen.add(id); id = review.redirect[id]; }
+        return id;
+    };
+    const reviewed = new Set(Object.keys(review.redirect || {}).filter(id => resolve(id) === leadId));
+    const leadPovIds = new Set([leadId]);
+    const unresolved = new Map();
+    for (const row of extras.filter(r => ['people', 'people_other'].includes(r.extra))) {
+        for (const reveal of list(row.reveals)) {
+            const from = resolve(row.id), to = resolve(reveal.same_as);
+            if (from !== leadId && to !== leadId) continue;
+            const candidate = from === leadId ? reveal.same_as : row.id;
+            if (!nonempty(candidate) || candidate === leadId) continue;
+            leadPovIds.add(candidate);
+            if (!reviewed.has(candidate) && resolve(candidate) !== leadId) {
+                const key = `${candidate}\0${reveal.locator || row.locator || ''}`;
+                unresolved.set(key, {id: candidate, locator: reveal.locator || row.locator || null});
+            }
+        }
+    }
+    return {leadPovIds: [...leadPovIds].sort(), unresolved: [...unresolved.values()].sort((a, b) => a.id.localeCompare(b.id) || String(a.locator).localeCompare(String(b.locator)))};
 }
 
 // WA25 classes. First matching expression wins; no catch-all `other` inflation.
@@ -73,9 +99,10 @@ function indexNames(registry) {
 }
 const proposed = (world, kind, id) => `new:${world}.${kind}.cast-${hash(`${kind}:${id}`).slice(0, 20)}`;
 
-export function buildCrosswalk({registry, scenes, extras, world, slice, runtime = runtimeCatalogue(world), review = {}}) {
+export function buildCrosswalk({registry, scenes, extras, world, slice, runtime = runtimeCatalogue(world), review = {}, leadPovIds = []}) {
     const byId = new Map(registry.map(r => [r.id, r])), names = indexNames(registry);
-    const selected = scenes.filter(s => s.pov === 'lead' && inSlice(s, slice));
+    const leadPovs = new Set(['lead', ...leadPovIds]);
+    const selected = scenes.filter(s => leadPovs.has(s.pov) && inSlice(s, slice));
     const mapping = {}, entities = {}, places = {}, ambiguousPlaces = new Set();
     const find = (value, kind) => {
         if (byId.get(value)?.kind === kind) return value;
@@ -83,6 +110,8 @@ export function buildCrosswalk({registry, scenes, extras, world, slice, runtime 
         return candidates?.size === 1 ? [...candidates][0] : null;
     };
     function add(id, kind, locator = null, reason = 'lead-scene') {
+        // The merged registry owns entity kind; POV/touched rows can disagree in source data.
+        kind = byId.get(id)?.kind || kind;
         if (!nonempty(id) || !KINDS.has(kind)) return;
         if (entities[id] && entities[id].kind !== kind) throw new Error(`Conflicting entity kinds for ${id}`);
         if (!entities[id]) {
@@ -120,7 +149,8 @@ export function buildCrosswalk({registry, scenes, extras, world, slice, runtime 
         return {id, registry: byId.get(id)?.kind === 'place', ambiguous: ambiguousPlaces.has(value)};
     }
     for (const sc of selected) {
-        const locator = fields(sc).map(l => [l, key(l)]).filter(([, k]) => k).sort((a, b) => compare(a[1], b[1]))[0]?.[0];
+        const locator = fields(sc).filter(l => key(l)).sort(compareLocators)[0];
+        if (sc.pov !== 'lead') add(sc.pov, byId.get(sc.pov)?.kind || /\.(person|place|organization|item)\./.exec(sc.pov)?.[1], locator, 'lead-persona-pov');
         for (const t of list(sc.touched)) if (['present', 'partial'].includes(t.status)) add(t.id, t.kind, locator);
         for (const id of list(sc.present)) add(id, byId.get(id)?.kind || (/\.(person|place|organization|item)\./.exec(id)?.[1]), locator);
         place(sc.place, locator, true);
@@ -158,7 +188,7 @@ export function buildCrosswalk({registry, scenes, extras, world, slice, runtime 
                 if (['stated', 'stated-free'].includes(row.costStated)) rulesKnown++;
             }
         }
-        for (const sc of scenes) if (sc.pov === 'lead' && (scope === 'all' || inSlice(sc, slice))) {
+        for (const sc of scenes) if (leadPovs.has(sc.pov) && (scope === 'all' || inSlice(sc, slice))) {
             sceneTotal++;
             const p = place(sc.place, fields(sc)[0], scope === 'slice');
             const outcome = list(sc.outcomes).some(o => nonempty(o.fact) && o.value != null && (typeof o.value !== 'string' || o.value.trim()));
@@ -195,7 +225,7 @@ export function buildCrosswalk({registry, scenes, extras, world, slice, runtime 
         counts[target.startsWith('new:') ? 'proposed' : target.startsWith('skip:') ? 'skipped' : 'runtime']++;
         counts.byKind[entities[id].kind] = (counts.byKind[entities[id].kind] || 0) + 1;
     }
-    return {crosswalk: {schema: 'cast-crosswalk/1.0', world, slice, mapping, entities, places, ambiguousPlaces: [...ambiguousPlaces].sort(), counts},
+    return {crosswalk: {schema: 'cast-crosswalk/1.0', world, slice, leadPovIds: [...leadPovs].sort(), mapping, entities, places, ambiguousPlaces: [...ambiguousPlaces].sort(), counts},
         report: {schema: 'consumer-fitness/1.0', world, slice, leadScenes: selected.length, missingCoverage, counts, sliceFitness, allFitness}};
 }
 
@@ -242,11 +272,15 @@ export function run(argv) {
     if (rel.startsWith('..') || !rel.split(/[\\/]/).includes('private')) throw new Error('Output must be under a novel private directory');
     const reviewPath = flag('--review') ? resolve(flag('--review')) : null;
     const registry = readRows(actual, 'registry.jsonl'), scenes = readRows(actual, 'scenes.jsonl'), extras = readRows(actual, 'extras.jsonl');
-    const result = buildCrosswalk({registry, scenes, extras, world: flag('--world'), slice: {from: flag('--from'), to: flag('--to')}, review: reviewPath ? JSON.parse(readFileSync(reviewPath, 'utf8')) : {}});
+    const world = flag('--world'), review = reviewPath ? JSON.parse(readFileSync(reviewPath, 'utf8')) : {};
+    const personas = discoverLeadPersonas(extras, {leadId: world === 'lotm' ? 'lotm.person.klein-moretti' : null, review});
+    const result = buildCrosswalk({registry, scenes, extras, world, slice: {from: flag('--from'), to: flag('--to')}, review, leadPovIds: personas.leadPovIds});
+    result.crosswalk.personaReview = personas.unresolved;
     result.report.inputs = Object.fromEntries(['registry.jsonl', 'scenes.jsonl', 'extras.jsonl', ...(reviewPath ? [reviewPath] : [])].map(p => [p, hash(readFileSync(resolve(actual, p)))]));
     result.report.runtimeInputs = Object.fromEntries(['src/book_world_lotm_ids.js', 'src/book_world_mol_ids.js', 'src/world_packs/book_mol_pack.js', 'scripts/lead_run/build_crosswalk.mjs'].map(p => [p, hash(readFileSync(new URL(`../../${p}`, import.meta.url)))]));
     result.crosswalk.inputs = {...result.report.inputs, ...result.report.runtimeInputs};
     for (const [name, value] of [['crosswalk.json', result.crosswalk], ['consumer_fitness.json', result.report]]) writeFileSync(resolve(actual, name), JSON.stringify(value, null, 2) + '\n');
+    writeFileSync(resolve(actual, 'persona_review.json'), JSON.stringify({schema: 'lead-persona-review/1.0', candidates: personas.unresolved}, null, 2) + '\n');
     if (argv.includes('--report')) console.log(JSON.stringify(result.report, null, 2));
     return result;
 }

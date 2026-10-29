@@ -95,7 +95,7 @@ export function run(argv) {
         const crossScript = join(ROOT, 'scripts/lead_run/build_crosswalk.mjs');
         const crossArgs = [crossScript, merged, '--world', options.book, '--from', options.from, '--to', options.to, '--report'];
         if (existsSync(review)) crossArgs.push('--review', review);
-        report.stages.push(runStage('build_crosswalk', process.execPath, crossArgs, [crossScript, ...mergeOutputs, ...(existsSync(review) ? [review] : [])], [join(merged, 'crosswalk.json'), join(merged, 'consumer_fitness.json')]));
+        report.stages.push(runStage('build_crosswalk', process.execPath, crossArgs, [crossScript, ...mergeOutputs, ...(existsSync(review) ? [review] : [])], [join(merged, 'crosswalk.json'), join(merged, 'consumer_fitness.json'), join(merged, 'persona_review.json')]));
 
         const crosswalk = join(merged, 'crosswalk.json');
         const worksheetScript = join(ROOT, 'scripts/lead_run/cast_worksheet.mjs');
@@ -112,6 +112,11 @@ export function run(argv) {
         report.stages.push({stage: 'fitness_report', command: ['read generated consumer_fitness.json'], inputs: {[relative(ROOT, fitness)]: hashPath(fitness)}, outputs: {[relative(ROOT, fitness)]: hashPath(fitness)}, seconds: 0});
 
         mkdirSync(output, {recursive: true});
+        // Replace only the pipeline-owned output trees so reruns cannot retain stale worksheets.
+        for (const name of ['schema-union-input', 'merged', 'cast-worksheets']) {
+            const target = join(output, name);
+            if (existsSync(target)) rmSync(target, {recursive: true, force: true});
+        }
         cpSync(unionedInput, join(output, 'schema-union-input'), {recursive: true});
         cpSync(merged, join(output, 'merged'), {recursive: true});
         cpSync(worksheets, join(output, 'cast-worksheets'), {recursive: true});

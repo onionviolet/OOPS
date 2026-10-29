@@ -31,7 +31,7 @@ export function locatorKey(loc) {
     return m ? m.book * 1e8 + m.ch * 10000 + m.p : Infinity;
 }
 
-const compareLocators = (left, right) => {
+export const compareLocators = (left, right) => {
     const a = parseLocator(left), b = parseLocator(right);
     if (!a || !b) return a ? -1 : b ? 1 : String(left || '').localeCompare(String(right || ''));
     return a.book - b.book || a.ch - b.ch || a.p - b.p;

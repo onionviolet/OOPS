@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildWorksheets, run} from '../scripts/lead_run/cast_worksheet.mjs';
+import {buildWorksheets, run, worksheetFilename} from '../scripts/lead_run/cast_worksheet.mjs';
 
 const crosswalk = {schema: 'cast-crosswalk/1.0', world: 'lotm', mapping: {
     'lotm.person.ada': 'new:lotm.person.ada',
@@ -53,6 +53,20 @@ test('LOTM worksheets include mapped entities and slice evidence in locator orde
     assert.match(ada.candidateRows.find(row => row.locator === 'zh 第3章 p8').gap, /no usable time/);
     assert.deepEqual(ada.wants[0], {value: 'keep the shop', label: 'I', locator: 'zh 第1章 p4'});
     assert.deepEqual(ada.anchors, [{actor: 'lotm.person.ada', place: 'lotm.place.guild', locator: 'zh 第25章 p2'}]);
+});
+test('whole-book worksheets include evidence-linked persona POV scenes across volumes', () => {
+    const persona = 'lotm.person.cover';
+    const scene = {...scenes[0], pov: persona, beat: 'beat-cover', evidence: [{locator: 'zh b2 第1章 p8'}], touched: [...scenes[0].touched, {id: persona, kind: 'person', status: 'present'}]};
+    const mapping = {...crosswalk.mapping, [persona]: 'new:lotm.person.cover'};
+    const entities = {...crosswalk.entities, [persona]: {kind: 'person', locators: ['zh b2 第1章 p8']}};
+    const sheets = buildWorksheets({registry: [...registry, {id: persona, kind: 'person', label: 'Cover', whereabouts: []}],
+        scenes: [scene], extras: [], crosswalk: {...crosswalk, mapping, entities, leadPovIds: [persona]}, world: 'lotm',
+        from: 'zh 第1章 p1', to: 'zh b8 第99999章 p99999'});
+    assert.equal(sheets.find(row => row.id === 'lotm.person.ada').scenes.length, 1);
+    assert.equal(sheets.find(row => row.id === persona).scenes[0].beat, 'beat-cover');
+});
+test('worksheet filenames remain unique after sanitizing source ids', () => {
+    assert.notEqual(worksheetFilename('lotm.person.月'), worksheetFilename('lotm.person.日'));
 });
 
 test('rejects wrong world and malformed locator ranges; CLI enforces private roots', () => {

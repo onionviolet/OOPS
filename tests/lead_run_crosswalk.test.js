@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildCrosswalk, classifyAction, hasTime, inSlice, runtimeCatalogue, run} from '../scripts/lead_run/build_crosswalk.mjs';
+import {buildCrosswalk, classifyAction, discoverLeadPersonas, hasTime, inSlice, runtimeCatalogue, run} from '../scripts/lead_run/build_crosswalk.mjs';
 const slice = {from: 'en b1 c1 p1', to: 'en b1 c4 p9999'};
 const registry = [
     {id: 'mol.person.iris', kind: 'person', label: 'Iris Vale'},
@@ -51,6 +51,26 @@ test('slice uses source volume, earliest locator, lead POV, inclusive boundaries
     const result = make({scenes: [scene, {...scene, pov: 'mol.person.iris'}, {...scene, evidence: [{locator: 'en b1 c5 p1'}]}]});
     assert.equal(result.report.leadScenes, 1);
     assert.throws(() => inSlice(scene, {from: slice.to, to: slice.from}), /ordered/);
+});
+test('whole-book slice crosses volume boundaries and counts an evidence-linked lead persona', () => {
+    const whole = {from: 'zh 第1章 p1', to: 'zh b8 第99999章 p99999'};
+    const cover = {...scene, beat: 'lr.fixture.cover', pov: 'mol.person.cover', evidence: [{locator: 'zh b2 第1章 p1'}]};
+    assert.equal(inSlice(cover, whole), true);
+    assert.equal(inSlice({...cover, evidence: [{locator: 'zh b9 第1章 p1'}]}, whole), false);
+    const result = make({scenes: [{...scene, evidence: [{locator: 'zh 第2章 p1'}]}, cover], slice: whole, leadPovIds: ['mol.person.cover']});
+    assert.equal(result.report.leadScenes, 2);
+    assert.match(result.crosswalk.mapping['mol.person.cover'], /^new:mol\.person\./);
+});
+test('lead persona discovery uses reveal evidence and leaves unreviewed candidates for private review', () => {
+    const extras = [{extra: 'people', id: 'mol.person.cover', locator: 'zh b2 第1章 p1', reveals: [{same_as: 'mol.person.lead', locator: 'zh b2 第1章 p2'}]}];
+    const found = discoverLeadPersonas(extras, {leadId: 'mol.person.lead'});
+    assert.deepEqual(found.leadPovIds, ['mol.person.cover', 'mol.person.lead']);
+    assert.deepEqual(found.unresolved, [{id: 'mol.person.cover', locator: 'zh b2 第1章 p2'}]);
+    assert.deepEqual(discoverLeadPersonas(extras, {leadId: 'mol.person.lead', review: {redirect: {'mol.person.cover': 'mol.person.lead'}}}).unresolved, []);
+});
+test('registry kind remains authoritative when selected scene rows disagree', () => {
+    const result = make({scenes: [{...scene, touched: [{id: 'mol.person.iris', kind: 'place', status: 'present'}]}]});
+    assert.equal(result.crosswalk.entities['mol.person.iris'].kind, 'person');
 });
 test('fitness requires resolvable relations, actual time, outcome, and explicit known costs', () => {
     const loc = 'en b1 c2 p5';
