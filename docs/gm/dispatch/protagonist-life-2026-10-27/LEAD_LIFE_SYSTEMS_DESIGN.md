@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD189 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD205 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -450,7 +450,7 @@ content kept in code. The 27 `src/book_world_lotm_*` files are 2,857 lines; the 
 | LSD165 | **Code grows with mechanisms, content grows with steps.** The 11,159 steps collapse into verb families, families into effect operations (`simulation_effects.js`) and frames (LSD85-LSD87). A step costs a row; only a new operation, input or stop rule costs code. Reason: LSD148 at the step level; the RV7 jump is the proof | ACCOUNT FOR NOW |
 | LSD166 | **Per-step code is a smell, with a meter.** The gap census records, per covered step, which operation it uses; a report prints code lines added per newly covered step for each lane. The figure should fall lane over lane; a lane whose figure rises is building one-offs and gets reviewed before merge | LATER/DELEGATE: Luna low, a field in the X4 census output plus a printed ratio; done when two lanes' ratios are printed |
 | LSD167 | **Two tiers of coverage: reachable, then playable.** A step with no mechanism still becomes reachable through a generic canon-event act: the book's action shown as a card with its recorded outcomes (WA28 facts, LSD103 canon results), applied through existing effect operations. A mechanism later upgrades the card to a playable action with choices and checks. Fidelity counts reachable; depth counts playable. Reason: the canon run is forced (section 15), so a faithful run needs every step to happen, not every step to be a system. Dial: per weight; plot steps get mechanisms first, routine steps can stay cards | ACCOUNT FOR NOW: decide with MF1's output; the replay driver scores both tiers |
-| LSD168 | **Mechanisms before bulk review.** Review yield depends on how many operations exist, so bulk paragraph review waits until MF1's top families land; small RV sample shards (about 50 steps) run after each mechanism to measure the new yield. Reason: reviewing 10,000 steps against today's vocabulary would be redone after each mechanism | ACCOUNT FOR NOW: coordinator order, pending Weibao's yes |
+| LSD168 | **Mechanisms before bulk review.** Review yield depends on how many operations exist, so bulk paragraph review waits until MF1's top families land; small RV sample shards (about 50 steps) run after each mechanism to measure the new yield. Reason: reviewing 10,000 steps against today's vocabulary would be redone after each mechanism | **Accepted by Weibao 2026-10-29** ("Sure" to mechanisms first with LSD179-LSD183); the coordinator was already running MF1, DV1 and MK1 in this order |
 | LSD169 | **Expect a long tail; let cards hold it.** Family sizes are skewed (make or write 366, divination or ritual 232, ability 160, travel 1,272 steps). The top families earn mechanisms; one-off events (a single ceremony, a unique accident) stay LSD167 cards unless a later world reuses the shape. Reason: building a system for a step that occurs once is the per-step code LSD166 measures | ACCOUNT FOR NOW |
 | LSD170 | **Plan by volume, not by the first week.** Sections 2-8 are drawn from a clerk's week in volume 1; later volumes change scale (wider travel, higher powers, organisations, other places). Before mechanism lanes are ranked, MF1 or a Luna census prints family counts per volume, so a mechanism designed for volume 1 has parameters for the later ones (sequence, reach, cost) instead of a rewrite | LATER/DELEGATE: Luna low over the existing census; done when a family-by-volume table is saved beside the X4 census |
 | LSD171 | **Powers are a table over one mechanism.** "Use an ability" (160 steps) should be ability rows (id, pathway and sequence, means, cost, check profile, effects as operations, side effects such as loss of control) read by one use-a-power move (LSD73's ABR seam). Advancing a sequence adds rows; it never adds code unless an ability needs a new operation | ACCOUNT FOR NOW: brief line for the ability lane |
@@ -485,3 +485,56 @@ review lanes RV6 14 of 52 and RV7 26 of 54 steps to rows.
 | LSD187 | **Affected-family tests.** Per-family golden slices (LSD176) run in a lane when its changed files touch that family's operations; the committer's full `npm test` still covers everything once (lean tests, 2026-10-22) | ACCOUNT FOR NOW |
 | LSD188 | **Every optimization prints before and after.** A speed or cost change records the measured figure on the same input in the coordinator log, or it is labelled unmeasured. Reason: several earlier speed lanes found the cost elsewhere than expected (P4's batching stop) | ACCOUNT FOR NOW |
 | LSD189 | **Decisions in one morning list.** Open questions for Weibao (LSD168's order, MF1's ranking, new systems) collect in the coordinator handoff's decision list and arrive together, so lanes keep running on defaults overnight instead of waiting | ACCOUNT FOR NOW |
+
+## 21. Tags the first reading should have carried, on almost no paid budget (Weibao 2026-10-29; proposal)
+
+Weibao: "consider other aspects that needs to be tagged too, that should have been tagged the first time around,
+but consider the fact that we are almost out of credits this month, and Local ai's slowness? ... Is mechanism
+first better?" He accepted mechanisms first (LSD168) in the same exchange.
+
+Evidence. MF1's review table ([MF1_AUDIT.md](cast-lives-lanes/MF1_AUDIT.md), F2) has 155 gap verdicts over RV2-RV9
+(file records, not deduplicated): 105 no mechanism (68%), 30 another actor acts (19%), 14 not an action (9%),
+6 unresolved identity (4%). Review alone cannot close the 68%; the other 32% are tagging faults that neither review
+nor a mechanism should pay for. MF1 also notes that every step actor in the X4 census is unknown. Schema 1.3
+([card](SCHEMA_CARD_1_3.md)) puts place, present people, outcomes, choices and evidence kind on the scene, and only
+verb, class, label, time, inputs, outputs, gains and requires on the step. Local capacity
+([LOCAL_AGENT_CAPACITY](../../../research/LOCAL_AGENT_CAPACITY_2026-10-28.md)): about 30-60 s wall per chapter for a
+row-level lane, tagging judged good for about 40-60% of such tasks (inferred, not run), 18-21 GB resident, one
+model at a time and never beside a build or browser floor (LA6). Inferred: a whole-book local pass is one to two
+nights of a free machine, so the limit is free machine time and memory, not speed.
+
+### 21.1 Is mechanism first better?
+
+Yes, and more so when credits are short. A mechanism lane turns a whole family's steps into rows for one paid
+lane (RV7's 0 to 26 of 54 after H2); a review lane can only label what exists, and 68% of its gaps say "no
+mechanism". The caveat is that mechanism lanes are the paid items: MF1 D3 estimates 9-9.5 weekly-window points for
+its ranked program, possibly double on overrun. With little budget left, finish what is already paid for (DV1
+landed in `3ece3baf2`; MK1's integration patch is prepared and costs only coordinator time), hold the remaining
+Sol lanes until the window resets, and spend the gap on free work: tag derivation by script, cards by script
+(LSD182), headless replay (LSD185).
+
+### 21.2 Tags, ranked, with the cheapest route for each
+
+| Code | Tag (step level) | Why it matters | Cheapest route | Disposition |
+| --- | --- | --- | --- | --- |
+| LSD190 | **Actor**: who does the step | 19% of review gaps; no step has one today; the cast runner, perception and the be seat all need it | Script: lead by default in `pov:'lead'` scenes; another person when the label's subject matches a census name or alias; else `unknown` for the local residue | ACCOUNT FOR NOW: first free lane |
+| LSD191 | **Step kind**: act, perceive, think, speak, report, narration | 9% of gaps are "not an action"; inner steps (LSD172) need routing to knowledge, not buttons | Script from the scene's evidence kind (`thought:`, `dream:`, `dialogue:`, `narration`) plus a verb lexicon; local for mixed steps | ACCOUNT FOR NOW: with LSD190 |
+| LSD192 | **Family**: the mechanism family (MF1's set) | Shards by family (LSD179), stop rules (LSD183), cost per control (LSD174) | Script: a verb-and-class table; local model only for `other` (LSD184) | ACCOUNT FOR NOW |
+| LSD193 | **Step outcomes and costs** | Cards (LSD182) and rows need effects per step; outcomes and money anchors sit on the scene | Script: assign each scene outcome to the step whose outputs or gains name it; leftovers stay scene-level and go to the last step | ACCOUNT FOR NOW: card builder input |
+| LSD194 | **Habit**: one-off, repeated, or routine ("every morning") | Routine steps become schedule rows, not acts; this also feeds the thinnest layer, routine times (LA2) | Script: a Chinese frequency lexicon (每天, 每次, 总是, 常常, 照例, 又) over the cited paragraph; local for the rest | ACCOUNT FOR NOW |
+| LSD195 | **Target and instrument**: on whom, with what | Rows need a target id and an item; identity faults are 4% of gaps | Script: intersect the label with the scene's `present` and `touched` ids; local residue | LATER/DELEGATE: when a mechanism needs it |
+| LSD196 | **Witnesses**: who saw or heard | Knowledge and rumour (LSD144, CL31) and the perspective tags | Script: the scene's `present` list, minus anyone the step marks as absent or hidden | LATER/DELEGATE: with the K1 witness lane |
+| LSD197 | **Agency**: chosen, forced, reacting | The canon run shows locked options only at choice points (LSD103); forced steps are cards | Script: link to the scene's `choices` and `options` by locator; untagged defaults to forced | LATER/DELEGATE |
+| LSD198 | **Secrecy and risk**: done in secret, dangerous, illegal | Law, witness and fight systems; a sealed id stays opaque (sealed-secrets rule) | Local model over the paragraph; sealed ids are copied as ids, never as text | LATER/DELEGATE |
+| LSD199 | **What the lead knows then** versus what the narrator tells | Spoiler-safe UI (LSD161, LSD93) and the be seat's perception | Script from evidence kind; local for narration that reveals more than the lead knows | LATER/DELEGATE |
+
+### 21.3 How to run it on almost no budget
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD200 | **Order of routes: script, then local, then paid.** Every tag above has a deterministic first pass that costs minutes and zero tokens. The local model takes only the `unknown` residue. A paid model only spot-checks 50 steps per tag (agreement at or above 90% to keep the local output) and handles plot-weight steps singly | ACCOUNT FOR NOW |
+| LSD201 | **Tag on demand, by family.** Tag the families the next mechanism needs first (making and divination now), not the whole book at once. Mechanisms first makes tagging cheaper, because each mechanism says which tags it reads | ACCOUNT FOR NOW |
+| LSD202 | **Tags are a sidecar, not a re-read.** Derived tags go in a per-step sidecar file keyed by step id with a `source` field (`script`, `local`, `reviewed`) and the schema union rule (LSD151): a later 1.4 re-read, when credits return, overwrites only fields it actually states. Nothing already read is discarded | ACCOUNT FOR NOW: sidecar beside the X4 census in private research |
+| LSD203 | **Local runs as overnight queues, gated by memory.** One model, chapters in a queue that resumes after interruption, `sysctl vm.swapusage` checked before start, no build or browser beside it (LA6). Output passes the same lexicon and name gates as LA2 before it enters the sidecar | LATER/DELEGATE: the existing local overnight flow; done when one night's queue resumes cleanly and its output passes the gates |
+| LSD204 | **Fix the reader schema for later books now.** The next schema card moves actor, kind, habit, step outcomes and witnesses to the step, so MoL, RI and later books get them on the first reading. A schema edit is a text change, not a credit cost | LATER/DELEGATE: Luna low, one schema card revision; done when the card lists the five fields with examples |
+| LSD205 | **Measure the 32% claim.** After LSD190-LSD192 run, rerun the mapper and count how many earlier "another actor" and "not an action" gaps clear with no review. If they do not, the tags or the mapper join are wrong, and the review numbers above were misread | ACCOUNT FOR NOW: done check for the tag lane |
