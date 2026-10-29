@@ -129,8 +129,10 @@ function compare(a, b) {
 export function whereabouts(rows, actor, at) {
     check(Array.isArray(rows), 'Cast schedule rows must be a list.');
     check(typeof actor === 'string' && actor.length > 0, 'A cast actor is required.');
-    const current = readAt(at);
-    const candidates = rows.map(normalizeRow).filter(spec => spec.row.actor === actor);
+    return projectWhereabouts(rows.map(normalizeRow).filter(spec => spec.row.actor === actor), readAt(at));
+}
+
+function projectWhereabouts(candidates, current) {
     const active = candidates.filter(spec => isActive(spec, current)).sort(compare);
     if (active.length) return {place: active[0].row.place, row: active[0].row};
     const upcoming = candidates.flatMap(spec => {
@@ -143,6 +145,32 @@ export function whereabouts(rows, actor, at) {
             : {place: null, nextAt: null, nextPlace: null};
     }
     return {place: null, nextAt: upcoming[0].next.minute, nextPlace: upcoming[0].spec.row.place};
+}
+
+// Compile immutable pack rows once. The ordinary API still validates mutable
+// callers on every read; a host replaces this index when its pack changes.
+export function compileCastSchedule(rows) {
+    check(Array.isArray(rows), 'Cast schedule rows must be a list.');
+    const byActor = new Map();
+    for(const spec of rows.map(normalizeRow)) {
+        if(!byActor.has(spec.row.actor)) byActor.set(spec.row.actor, []);
+        byActor.get(spec.row.actor).push(spec);
+    }
+    return {
+        whereabouts: (actor, at) => projectWhereabouts(byActor.get(actor) || [], readAt(at)),
+        nextBoundary(actor, at) {
+            const current = readAt(at); let next = Infinity;
+            for(const spec of byActor.get(actor) || []) {
+                if(spec.row.until != null && current.day > spec.row.until) continue;
+                if(isActive(spec, current)) next = Math.min(next, current.minute - current.minuteOfDay + spec.to);
+                else {
+                    const occurrence = nextOccurrence(spec, current);
+                    if(occurrence) next = Math.min(next, occurrence.minute);
+                }
+            }
+            return Number.isFinite(next) ? next : null;
+        },
+    };
 }
 
 export function lintAnchors(rows, anchors) {

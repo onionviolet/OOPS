@@ -1,7 +1,7 @@
 // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
 // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
 // and the panel mounts with the other domains. main.js makes one configureLotm call.
-import {castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
+import {castNeedsFullContext,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
 import {registerDomain} from './domain_registry.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
 import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
@@ -29,5 +29,5 @@ function restoreMissingCast(envelope){
 }
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),
  commands:{wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
- projection:(kind,...args)=>kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
+ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});

@@ -1,0 +1,29 @@
+--- a/src/main.js
++++ b/src/main.js
+@@ -1660,7 +1660,7 @@
+ function buildSimulationNativeContexts(readFrame) {
+     const contexts=tidemarkSimulationContexts(expansionState,realmSimulationContexts(expansionState,nativeGameplay.contexts(expansionState,!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()))));
+     const evidence=frontierNativeEvidence(),causalFrame=causalNative.read(expansionState);
+-    for(const id of Object.keys(expansionState.simulation?.people || {player:true})) contexts[id]={...contexts[id],nativeSkillLevels:evidence.nativeSkillLevels,nativeZoneCounts:evidence.nativeZoneCounts,destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalFrame,...nativeCampaignLocationOwners(),
++    for(const id of Object.keys(expansionState.simulation?.people || {player:true}).filter(id=>domainRegistry.project('lotm','castContext',expansionState,id)!==false)) contexts[id]={...contexts[id],nativeSkillLevels:evidence.nativeSkillLevels,nativeZoneCounts:evidence.nativeZoneCounts,destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalFrame,...nativeCampaignLocationOwners(),
+         facts:{...contexts[id]?.facts,...evidence.facts,...(id==='player'?{location:current_location?.id,strength:character.getFullStats().strength,agility:character.getFullStats().agility}: {})}};
+     for(const [id,ctx] of Object.entries(contexts))ctx.facts=featurePowerContext(expansionState,{...ctx,actorId:id,vitals:{[id]:ctx.vitals},equipment:{[id]:ctx.equipment}}).facts;
+     Object.assign(contexts.player.facts,structuredEquipmentView().facts);
+--- a/src/book_world_lotm_domain.js
++++ b/src/book_world_lotm_domain.js
+@@ -1,7 +1,7 @@
+ // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
+ // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
+ // and the panel mounts with the other domains. main.js makes one configureLotm call.
+-import {castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
++import {castNeedsFullContext,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
+ import {registerDomain} from './domain_registry.js';
+ import {lotmFacts} from './book_world_lotm_actions.js';
+ import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
+@@ -29,5 +29,5 @@
+ }
+ registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),
+  commands:{wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
+- projection:(kind,...args)=>kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
++ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
+  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});

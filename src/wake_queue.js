@@ -47,6 +47,7 @@ export function createWakeQueue() {
             positions.set(id, heap.length); heap.push({id, at}); up(heap.length - 1);
         },
         cancel,
+        hasDue(id, now) { minute(now); const index = positions.get(id); return index !== undefined && heap[index].at <= now; },
         // An overdue actor wakes now. Reading does not consume registrations.
         nextWake(now) { minute(now); return heap.length ? Math.max(now, heap[0].at) : null; },
         // Drain due actors before invoking them, so a callback can register its

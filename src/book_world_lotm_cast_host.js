@@ -7,7 +7,7 @@ import {onCastLoaded,lotmCastDays,lotmCastSchedule} from './book_world_lotm_cast
 import {createSimulationRegistry} from './simulation_contracts.js';
 let LOTM_CAST={people:[],places:[],placeAliases:[]};
 export let castAvailable=false;
-import {whereabouts,awayReason} from './cast_schedule.js';
+import {whereabouts,awayReason,compileCastSchedule} from './cast_schedule.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
 import {lotmWalkMinutes,districtOfPlace} from './book_world_lotm_districts.js';
@@ -41,13 +41,29 @@ export function castObjectOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  return quotePlaceActs(state,castObjectCommands,LOTM_CAST.householdActs,preview,options);
 }
-let talkIds=new Set();
+let talkIds=new Set(),roleIds=new Set(),scheduleIndex=compileCastSchedule([]);
+// Role records have no autonomous inner life. Explicit work or an observer
+// promotes the read for this frame; no context or promotion flag is saved.
+export function castNeedsFullContext(state,id){
+ if(!lotmCastLife(state)||!roleIds.has(id))return true;
+ const sim=state.simulation,p=sim?.people?.[id];
+ if(!p)return false;
+ if(p.inventory==='native'||p.location===sim.people.player?.location)return true;
+ if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.hasDue(id,state.clock))return true;
+ return !!sim.programs?.[id]||!!sim.workPlans?.cursors?.[id]||Object.values(sim.pursuits||{}).some(p=>p.actorId===id||p.targetId===id)
+  ||Object.values(sim.controllers||{}).some(c=>c.actorId===id)
+  ||(sim.jobs||[]).some(j=>(j.participants||[j.actorId]).includes(id))
+  ||Object.entries(sim.sessions||{}).some(([actor,s])=>(s.participants||[actor]).includes(id))
+  ||(state.pending||[]).some(j=>j.context?.actorId===id);
+}
+
 function deriveCast(pack){
- LOTM_CAST=pack; castWakes=null;
+ LOTM_CAST=pack; castWakes=null;roleIds=new Set(pack.people.filter(p=>p.tier==='role').map(p=>p.id));
  castSituation.label=pack.host.situation.label;
  aliases=new Map(pack.placeAliases.flatMap(a=>[[a.id,a.place],[a.indexId,a.place]]));
  CAST_PLACE_LABELS=Object.fromEntries(pack.places.filter(p=>!p.anchorOnly).map(p=>[p.id,p.name]));
  castSchedule=lotmCastSchedule().map(r=>({...r,actor:actorId(r.actor),place:resolveCastPlace(r.place)}));
+ scheduleIndex=compileCastSchedule(castSchedule);
  castPeople=pack.people.filter(p=>!p.sameActorAs&&p.status!=='historical-reference').map(p=>({
  id:p.id,revision:1,label:p.name,worldId:I.world,inventory:'simulation',provision:false,
  location:castSchedule.find(r=>r.actor===p.id)?.place||'Whereabouts unplaced',resources:{},
@@ -103,32 +119,20 @@ export function castCalendar(state){
 // Projection cache only: physical locations remain in simulation.people. A
 // rewind or a newly loaded pack rebuilds it; no wake or projection is saved.
 let castWakes=null, wakeEpoch=null, projectedClock=-1;
-const projectedPlaces=new Map();
+const projectedPlaces=new Map(),projectedRoles=new Set();
 function projectCastWakes(state){
- const elapsed=Math.max(0,state.clock-state.lotm.initializedAt);
+ if(state.clock!==projectedClock)projectedRoles.clear();
  if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock){
-  castWakes=createWakeQueue();projectedPlaces.clear();wakeEpoch=state.lotm.initializedAt;
+  castWakes=createWakeQueue();projectedPlaces.clear();projectedRoles.clear();wakeEpoch=state.lotm.initializedAt;
   for(const person of castPeople)castWakes.register(person.id,state.clock);
  }
  const at=castCalendar(state);
  for(const {id} of castWakes.due(state.clock)){
-  projectedPlaces.set(id,whereabouts(castSchedule,id,at).place);
-  let next=Infinity;
-  for(const row of castSchedule){
-   if(row.actor!==id||row.recurrence==='irregular')continue;
-   if(typeof row.from!=='number'||typeof row.to!=='number'){next=Math.min(next,elapsed+1);continue;}
-   if(row.recurrence==='daily'){
-    const first=((row.day??1)-1)*1440;
-    for(const edge of [row.from,row.to]){
-     const base=Math.max(first,Math.floor(elapsed/1440)*1440);
-     const candidate=base+edge+(base+edge<=elapsed?1440:0);
-     if(row.until==null||Math.floor(candidate/1440)+1<=row.until)next=Math.min(next,candidate);
-    }
-   }else if(row.recurrence==null||row.recurrence==='once'){
-    for(const edge of [row.from,row.to]){const candidate=(row.day-1)*1440+edge;if(candidate>elapsed)next=Math.min(next,candidate);}
-   }else next=Math.min(next,elapsed+1); // Other recurrence dials retain minute evaluation.
-  }
-  if(Number.isFinite(next))castWakes.register(id,wakeEpoch+next);
+  if(roleIds.has(id))projectedRoles.add(id);
+  projectedPlaces.set(id,scheduleIndex.whereabouts(id,at).place);
+  const next=scheduleIndex.nextBoundary(id,at);
+  if(next!=null)castWakes.register(id,wakeEpoch+next);
+
  }
  projectedClock=state.clock;
  return at;
@@ -139,20 +143,22 @@ export function castSyncDue(state){
  if(lotmBe(state)&&LOTM_CAST.householdActs?.objects?.some(r=>!state.worlds[I.world].facts[`place.act.seed.${r.id}`]))return true;
  if(!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
  const day=castCalendar(state).calendar.day_count,facts=state.worlds[I.world].facts;
- return castPeople.some(p=>!(lotmBe(state)&&p.id===LOTM_CAST.leadLife?.actorId)&&projectedPlaces.get(p.id)!=null&&state.simulation.people[p.id]&&state.simulation.people[p.id].location!==projectedPlaces.get(p.id))||
+ return castPeople.some(p=>!roleIds.has(p.id)&&!(lotmBe(state)&&p.id===LOTM_CAST.leadLife?.actorId)&&projectedPlaces.get(p.id)!=null&&state.simulation.people[p.id]&&state.simulation.people[p.id].location!==projectedPlaces.get(p.id))||
   lotmCastDays().some(row=>facts[`lotm.cast.window.${row.scene}`]!== (row.day===day));
 }
 // Mutates a caller-owned plan/copy only. Availability is projected, not saved in a
 // second location field. An inactive row leaves the last physical location alone.
+// Role repairs occur on their wakes; keep the same due set for a rejected plan
+// retried at the same clock, without marking its unsaved projection as committed.
 export function syncLotmCast(state){
  if(!(lotmBeside(state)||lotmBe(state))||!castAvailable)return false;
  const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world));
- for(const person of castPeople){const body=state.simulation.people[person.id];if(!body)continue;
+ for(const person of castPeople){if(roleIds.has(person.id)&&!projectedRoles.has(person.id))continue;const body=state.simulation.people[person.id];if(!body)continue;
   // In a be life the pack-selected person is driven by the player, never by
   // the NPC schedule. The native player body remains the location authority.
   if(lotmBe(state)&&person.id===LOTM_CAST.leadLife?.actorId)continue;
   const place=projectedPlaces.get(person.id);
-  if(place!=null&&body.location!==place){body.location=place;castWriteCode(state,`location:${person.id}`,constraintProvenance(whereabouts(castSchedule,person.id,at).row||{}));changed=true;}
+  if(place!=null&&body.location!==place){body.location=place;castWriteCode(state,`location:${person.id}`,constraintProvenance(scheduleIndex.whereabouts(person.id,at).row||{}));changed=true;}
  }
  const facts=state.worlds[I.world].facts;
  for(const row of lotmCastDays()){const key=`lotm.cast.window.${row.scene}`,value=row.day===at.calendar.day_count;
@@ -162,7 +168,7 @@ export function syncLotmCast(state){
 // Same quote is used by the action list and immediately before commit (AR7).
 export function castTalkPreview(state,def,preview){
  if(!lotmCastLife(state)||!talkIds.has(def?.id))return preview;
- const at=castCalendar(state),result=whereabouts(castSchedule,def.targetId,at);
+ const at=castCalendar(state),result=scheduleIndex.whereabouts(def.targetId,at);
  const playerPlace=state.simulation.people.player.location;
  if(result.place!=null&&result.place===playerPlace)return preview;
  // If already at another place, use its current band. Otherwise the schedule
@@ -318,7 +324,7 @@ export function castBeatReports(ledger){
 export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
  if(!lotmCastLife(state)||!pack)return [];
  const reports=castBeatReports(ledger);
- return pack.people.filter(p=>castKnown(state,p.id)).map(p=>({id:p.id,name:p.name,
+ return pack.people.filter(p=>castKnown(state,p.id)&&(!roleIds.has(p.id)||state.simulation?.people?.[p.id]?.location===state.simulation?.people?.player?.location)).map(p=>({id:p.id,name:p.name,
   location:'Known from your local meetings and received accounts',
   details:Object.values(state.simulation?.knowledge?.player||{}).filter(k=>reports.some(r=>r.actor===p.id&&r.beat===k.cause)).map(k=>k.value),
   memories:reports.filter(r=>r.actor===p.id).map(r=>({id:r.beat,at:r.at,text:r.text}))}));
