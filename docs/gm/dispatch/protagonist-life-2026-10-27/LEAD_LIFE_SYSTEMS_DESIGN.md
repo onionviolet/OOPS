@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD178 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD189 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -464,3 +464,24 @@ content kept in code. The 27 `src/book_world_lotm_*` files are 2,857 lines; the 
 
 Suggestions outside this round (not dispositions): a one-page family map showing family, step count, mechanism,
 tier and owner lane would let Weibao see the whole life at a glance once MF1 reports.
+
+## 20. Optimizations: tokens, wall time and the engine (Weibao 2026-10-29; proposal)
+
+Weibao: "consider optimizations and more". Already recorded elsewhere and not repeated here: load by window (SZ4),
+per-minute cost and wake queue (CO3, SZ6, P5, LSD138, LSD162), lazy generation (LSD131), local model limits (LA1-LA6).
+Measured inputs: whole-book candidate pack 2.66 MB loads in 14.9 s at 2,164 ms per game minute (P8, 04:50 log);
+review lanes RV6 14 of 52 and RV7 26 of 54 steps to rows.
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD179 | **Shard by family, not by chapter.** A review or mechanism lane takes one family's steps across the book, so one context (the family's operations, row shape and examples) serves the whole shard. Chapter shards make each lane load every system a chapter touches. Reason: smaller prompts, steadier rows, and yield is measured per family (LSD168) | ACCOUNT FOR NOW: next RV briefs |
+| LSD180 | **Rerun the mapper before any review.** When a mechanism lands, the deterministic mapper runs over its family's steps first (zero model tokens); only steps it still cannot place go to a Sol shard | ACCOUNT FOR NOW: coordinator order after each mechanism |
+| LSD181 | **Paragraph packets.** The shard file carries the cited paragraphs for its steps (pulled once by `cite_paragraphs.mjs`), so a review lane reads one file instead of opening the book through tool calls. Packets stay in private research paths (LSD153) | ACCOUNT FOR NOW: shard builder field |
+| LSD182 | **Cards are built by script.** LSD167 canon-event cards come from fields the readings already hold (action, outcomes, place, people); a script builds them with no model call. Only steps whose reading lacks outcomes go to a reader | LATER/DELEGATE: Luna low after MF1; done when every gap step in chapters 1-24 is a card or listed as missing outcomes |
+| LSD183 | **A stop rule per family.** If a sample shard turns under about 15% of steps into rows, bulk review for that family stops and its steps route to a mechanism (when MF1 ranks one) or stay cards. Dial: the threshold per family; plot-weight steps can still be reviewed singly | ACCOUNT FOR NOW |
+| LSD184 | **Family tagging is a local-model job.** Classifying gap steps into families, inner steps (LSD172) and weight is row-level and checkable, so it joins the LA2 list for the local model, under LA6's memory limit (one model, no browser or build beside it) | LATER/DELEGATE: local lane; done when 500 tagged steps agree with a Sol spot check of 50 at or above 90% |
+| LSD185 | **Score the replay headless; use the browser only for UI claims.** Fidelity counts (reachable, playable, order) come from the headless engine (the lead-run driver or the game MCP); the browser floor runs once per commit batch for UI and persistence. Reason: replay batches cost minutes of wall time each in Chrome | ACCOUNT FOR NOW: V2 driver mode |
+| LSD186 | **Prebuilt pack indexes.** The pack build writes its lookup tables (steps by day, place and person; constraints by window) beside the pack, so load reads them instead of rebuilding maps. Measure against P8's 14.9 s before keeping it | LATER/DELEGATE: Sol low after P5 lands; done when load time is printed before and after on the same pack |
+| LSD187 | **Affected-family tests.** Per-family golden slices (LSD176) run in a lane when its changed files touch that family's operations; the committer's full `npm test` still covers everything once (lean tests, 2026-10-22) | ACCOUNT FOR NOW |
+| LSD188 | **Every optimization prints before and after.** A speed or cost change records the measured figure on the same input in the coordinator log, or it is labelled unmeasured. Reason: several earlier speed lanes found the cost elsewhere than expected (P4's batching stop) | ACCOUNT FOR NOW |
+| LSD189 | **Decisions in one morning list.** Open questions for Weibao (LSD168's order, MF1's ranking, new systems) collect in the coordinator handoff's decision list and arrive together, so lanes keep running on defaults overnight instead of waiting | ACCOUNT FOR NOW |
