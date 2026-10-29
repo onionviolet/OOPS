@@ -70,6 +70,7 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
   const knownActors = new Set((pack?.people || []).map(person=>person.id));
   const householdActs = pack?.householdActs?.acts || [];
   const topicTalks = Object.fromEntries((pack?.topicTalks?.talks || []).map(t => [t.sourceStepId, t]));
+  const journeys = Object.fromEntries((pack?.journeys?.journeys || pack?.journeys || []).filter(j => j?.id).flatMap(j => (j.sourceStepIds || [j.sourceStepId]).filter(Boolean).map(stepId => [stepId, j])));
   // Every travelling pack place is a walk target in the be seat (cast host castMoves: `lotm.move.<placeId>`).
   // Principals the lead knows can be talked to (cast host castTalkCommands: `cast_talk_<last indexId segment>`).
   const talks = {...Object.fromEntries((pack?.people || []).filter(p => p?.id && p.tier === 'principal' && p.indexId).map(p => [p.id, `cast_talk_${p.indexId.split('.').at(-1)}`])), ...(controlIndex.talks || {})};
@@ -106,13 +107,19 @@ export function buildReplayMapping({scenes, crosswalk, fromChapter, toChapter, f
     const timeKey=scene.timeOfDay?.value && !/unknown|unstated|unspecified|^u$/i.test(scene.timeOfDay.value) ? scene.timeOfDay.value : null;
     const isTimeGap=i===0&&timeKey&&timeKey!==lastTimeKey;
     const actsHere = householdActs.filter(act => act.place === placeId);
-    row.availableControls = {walk:walks[placeId] || null, walkInventory:Object.keys(walks).length>0, destinationResolved:!!destinationId && destinationId===placeId,
+    row.availableControls = {walk:walks[placeId] || null, walkInventory:Object.keys(walks).length>0, journey:journeys[row.id]?.id || null, destinationResolved:!!destinationId && destinationId===placeId,
       talk:presentId || null, talkInventory:Object.keys(talks).length>0, talkCandidates:presentIds.length,
       resolvedNonLeadPeople:row.peopleResolved.filter(person=>person.packId && person.packId!==pack?.leadLife?.actorId).length,
       wait:controlIndex.waitPrefix || null, pay:actsHere.filter(act=>act.operation==='pay').map(act=>act.id)};
     const householdVerb = actsHere.length ? householdOperation(step) : null;
     const householdAct = householdVerb ? bestHouseholdAct(step, actsHere) : null;
-    if (householdAct) {
+    if (journeys[row.id]) {
+      const journey=journeys[row.id];
+      row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=journey.id;
+      row.controlBuilder='private pack journeys; src/cast_journeys.js';
+      row.route=[{actionId:journey.id, place:journey.from, destination:journey.to, controlBuilder:row.controlBuilder}];
+      row.anchors={...row.anchors,place:journey.from,destination:journey.to}; row.journeyId=journey.id;
+    } else if (householdAct) {
       row.status='clean_fold'; row.gapKind=null; row.reason=null; row.canonicalControl=householdAct.id;
       row.controlBuilder='private pack householdActs; H1 be-seat inventory';
       row.route=[{actionId:householdAct.id, place:placeId, object:step.object || null}];
@@ -174,8 +181,8 @@ function main(args) {
   if (!fromLocator && (!Number.isFinite(fromChapter) || !Number.isFinite(toChapter))) throw Error('Provide --from/--to or --from-locator/--to-locator');
   const mapping=buildReplayMapping({scenes,crosswalk,fromChapter,toChapter,fromLocator,toLocator,controlIndex,registry,pack});
   fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,JSON.stringify(mapping,null,2)+'\n');
-  const counts={walk:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
-  for(const r of mapping.rows){if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
+  const counts={walk:0,journey:0,wait:0,talk:0,householdActs:{},householdGapsByReason:{},gapByVerbClass:{}};
+  for(const r of mapping.rows){if(r.journeyId)counts.journey++;else if(r.householdActId)counts.householdActs[r.householdActId]=(counts.householdActs[r.householdActId]||0)+1;else if(r.householdGap)counts.householdGapsByReason[r.householdGap]=(counts.householdGapsByReason[r.householdGap]||0)+1;else if(r.canonicalControl?.startsWith('lotm.move.'))counts.walk++;else if(r.waitIntent)counts.wait++;else if(r.canonicalControl?.startsWith('cast_talk_'))counts.talk++;else counts.gapByVerbClass[r.class||'unknown']=(counts.gapByVerbClass[r.class||'unknown']||0)+1;}
   const totals={placeStepRefs:0,placeResolvedStepRefs:0,personStepRefs:0,personResolvedStepRefs:0}, unresolvedPlaces=new Map(), unresolvedPeople=new Map();
   for(const r of mapping.rows){if(r.place){totals.placeStepRefs++;if(r.packPlaceId)totals.placeResolvedStepRefs++;else unresolvedPlaces.set(r.place,(unresolvedPlaces.get(r.place)||0)+1)}for(const p of r.peopleResolved||[]){totals.personStepRefs++;if(p.packId)totals.personResolvedStepRefs++;else unresolvedPeople.set(p.readerId,(unresolvedPeople.get(p.readerId)||0)+1)}}
   const talkCandidateSteps=mapping.rows.filter(r=>/talk|speak|ask|tell|answer|discuss/i.test(r.verb)&&r.peopleResolved?.some(p=>p.packId)).length;
