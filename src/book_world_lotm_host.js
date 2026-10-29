@@ -1,13 +1,13 @@
 import {runWaitUntil} from './wait_until.js';
 import {castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
-import {persistLotmCastPlan,castBeatsPending,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision} from './book_world_lotm_cast_host.js';
+import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision} from './book_world_lotm_cast_host.js';
 // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
 // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
 // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
 // this file imports no main.js and publishes only through the one expansion publisher.
 import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {applySimulationEffects} from './simulation_effects.js';
-import {lotmCommands,lotmContext} from './book_world_lotm_actions.js';
+import {lotmCommands,lotmContext,lotmFacts} from './book_world_lotm_actions.js';
 import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {lotmPathView} from './book_world_lotm_path.js';
@@ -41,7 +41,15 @@ export function lotmMeters(e){
 }
 export function lotmSimulationContexts(state,contexts){
  if(!state.lotm)return contexts;
- return Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,lotmContext(state,{...c,actorId:id})]));
+ // Facts depend on this state, gameplay and native stock, not the actor id.
+ // Share that pure read within this call only; every recipient owns its facts.
+ const reads=new Map();
+ return Object.fromEntries(Object.entries(contexts).map(([id,c])=>{
+  let stocks=reads.get(c.gameplay);if(!stocks)reads.set(c.gameplay,stocks=new Map());
+  const stock=c.lotmNative?.stock;
+  if(!stocks.has(stock))stocks.set(stock,lotmFacts(state,c));
+  return [id,{...c,actorId:id,facts:{...c.facts,...stocks.get(stock)}}];
+ }));
 }
 const acceptIds=new Set(['book.lotm.accept_allocation',...pathwayRows.map(r=>`book.lotm.${r.ids.accept}`)]);
 const acceptFlag=Object.fromEntries([['book.lotm.accept_allocation','allocated'],...pathwayRows.map(r=>[`book.lotm.${r.ids.accept}`,flagOf(r,'allocated')])]);
@@ -184,7 +192,7 @@ export function createLotmHost(ports){
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(){const s=state();if(lotmCastLife(s)&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(){const s=state();if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  function view(selected=null){
   const s=castState(state()),d=s.lotm;
   if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,returnable:returnable(),profiles:Object.values(LOTM_PROFILES).filter(p=>p.key==='be'?validLeadLife(getPrivateLotmCast()):p.key!=='beside'||castAvailable).map(({key,label,blurb})=>({key,label,blurb,answers:key==='be'?[['Beginning',blurb]]:entryAnswers(key,{returnable:returnable()}),...(key==='be'?{independent:true,available:!!ports.startBe}: {})}))};

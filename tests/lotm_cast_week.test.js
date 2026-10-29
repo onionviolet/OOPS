@@ -555,3 +555,33 @@ test('a meeting followed by a witnessed beat appears in the known person view',a
  assert.equal(knownPeopleView(box.p.state).some(p=>p.id===fixture.people[1].id),false);
  domainRegistry.command('beatLedger','commit')(newBeatState());
 });
+
+test('derived cast wakes retain boundary, rewind, reload and body repair behavior',async()=>{
+ const {castSyncDue}=await import('../src/book_world_lotm_cast_host.js');
+ const {box}=begin('beside'),s=box.p.state,epoch=s.lotm.initializedAt,id=fixture.people[0].id;
+ assert.equal(castSyncDue(s),false);
+ s.clock=epoch+99;assert.equal(castSyncDue(s),false);
+ s.clock=epoch+100;assert.equal(castSyncDue(s),true);syncLotmCast(s);
+ assert.equal(s.simulation.people[id].location,fixture.places[1].id);
+ const reloaded=JSON.parse(JSON.stringify(s));syncLotmCast(reloaded);assert.deepEqual(reloaded,s);
+ s.clock=epoch+99;assert.equal(castSyncDue(s),true);syncLotmCast(s);
+ assert.equal(s.simulation.people[id].location,fixture.places[0].id);
+ s.simulation.people[id].location=fixture.places[1].id;
+ assert.equal(castSyncDue(s),true);syncLotmCast(s);
+ assert.equal(s.simulation.people[id].location,fixture.places[0].id);
+});
+
+test('context fact sharing keeps inventory and native-stock inputs distinct',async()=>{
+ const {lotmSimulationContexts}=await import('../src/book_world_lotm_host.js');
+ const {lotmContext}=await import('../src/book_world_lotm_actions.js');
+ const {LOTM_IDS:I,LOTM_KEYS:K}=await import('../src/book_world_lotm_ids.js');
+ const {box}=begin('beside'),s=box.p.state;
+ const shared={player:{inventory:{[K.dose]:1}}};
+ const contexts={a:{gameplay:shared,facts:{fixture:1}},b:{gameplay:shared,facts:{fixture:2}},
+  c:{gameplay:{player:{inventory:{[K.dose]:2}}},facts:{}},
+  d:{gameplay:shared,lotmNative:{stock:{[I.lot]:{[K.dose]:7}}},facts:{}}};
+ const expected=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,lotmContext(s,{...c,actorId:id})]));
+ const actual=lotmSimulationContexts(s,contexts);assert.deepEqual(actual,expected);
+ assert.equal(actual.c.facts['lotm.holds.dose'],2);assert.equal(actual.d.facts['lotm.supplierDoses'],7);
+ actual.a.facts['lotm.holds.dose']=99;assert.equal(actual.b.facts['lotm.holds.dose'],1);
+});

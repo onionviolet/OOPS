@@ -14,6 +14,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
  let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ const waitButtons=new Map();
  const applySeatFilter=()=>{
   const state={lotm:{entryProfile:read(selected)?.entryProfile}};
   for(const item of PERSPECTIVE_CONTROLS){
@@ -75,7 +76,13 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  let doorObserver=null;
  function render(){
   const v=read(selected);setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
-  const next=JSON.stringify([v,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
+  // Countdown-only changes update the existing control so pointer/focus stays
+  // on it. Eligibility, reasons, target times and the rest of the view still
+  // participate in the signature; execution requotes through the host.
+  for(const a of v.waits||[]){const b=waitButtons.get(a.id);if(b&&b.textContent!==a.label)b.textContent=a.label;}
+  const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
+  const next=JSON.stringify([signatureView,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
+  waitButtons.clear();
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
    for(const b of bars.values())b.node.remove();bars.clear();
@@ -164,7 +171,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   for(const j of v.jobs)work.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[button(j.cancellation==='refund'?'Stop (reserved attention returned)':'Stop (cost not returned)','cancel',()=>run(()=>cancel(j.id),j.cancellation==='refund'?'You stopped. Reserved attention was returned.':'You stopped. What it cost is gone.'),false,j.cancellation==='refund'?'Stopping returns reserved attention; elapsed time stays spent.':'Stopping forfeits what this spent.')]:[])));
   if(v.waits?.length){
    actions.append(node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
-   for(const a of v.waits)actions.append(row(button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
+   for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);actions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
   }
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
