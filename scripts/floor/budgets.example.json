@@ -1,0 +1,6 @@
+{
+  "schema": "yairpg-floor-budget/1.0",
+  "baseline": "Coordinator run 2026-10-28, bundle 11520d97 (B1 round 2 candidate), LOTM beside, 1920x1080 headless, measured while three Codex lanes ran on the same machine. Replace with an uncontended run after P2.",
+  "measured": {"packLoadMs": 6406, "msPerGameMinute": 1716, "wait349Ms": 45101, "saveBytes": 369902},
+  "max": {"wait349Ms": 3000}
+}

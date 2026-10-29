@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {lstatSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {run} from '../scripts/lead_run/schema_union.mjs';
@@ -24,9 +24,14 @@ test('schema union prefers present 1.4 fields, fills silent fields, and retains 
         ]);
         writeJsonl(join(input, 'toym_census.jsonl'), [{id: 'person.a', zh: 'Test Entity', label: 'Test Entity', aliases: ['Alias A'], firstMention: 'ch1 p1', kind: 'person'}]);
         writeJsonl(join(input, 'toyx2m_census.jsonl'), [{id: 'different.id', zh: 'Dr. Test-Entity!', label: 'Test Entity', aliases: ['Alias B'], firstMention: 'ch2 p4', kind: 'person'}]);
+        writeFileSync(join(input, 'toy_fills.jsonl'), '');
 
         const first = run(input, out1), second = run(input, out2);
         const people = readJsonl(join(out1, 'toy_people.jsonl'));
+        assert.equal(lstatSync(join(out1, 'toy_people.jsonl')).isSymbolicLink(), false, 'union output is a real transformed file');
+        assert.equal(lstatSync(join(out1, 'pre-sv14/toy_people.jsonl')).isSymbolicLink(), true, 'untouched backup is linked');
+        assert.equal(lstatSync(join(out1, 'toy_fills.jsonl')).isSymbolicLink(), true, 'untouched shard data is linked');
+        assert.equal(readFileSync(join(out1, 'toy_fills.jsonl'), 'utf8'), '');
         const same = people.filter(row => row.id === 'person.a');
         assert.equal(same.length, 1);
         assert.equal(same[0]._from.reacts, '1.4');

@@ -72,7 +72,9 @@ export function run(argv) {
     const output = resolve(options.out || join(input, `pipeline-${Date.now()}`));
     const outputRel = relative(NOVELS, output);
     if (!outputRel.startsWith('..') && outputRel.split(/[\\/]/).includes('private')) throw new Error('--out must be outside the private source tree');
-    const scratch = mkdtempSync(join(input, '.world-lead-pipeline-'));
+    // Keep scratch beside the selected pack, not inside its 400 MB input tree.
+    // build_crosswalk requires its own generated files to live under a novel private directory.
+    const scratch = mkdtempSync(join(dirname(input), '.world-lead-pipeline-'));
     const unionedInput = join(scratch, 'schema-union-input');
     const merged = join(scratch, 'merged');
     const worksheets = join(scratch, 'cast-worksheets');

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync} from 'node:fs';
+import {lstatSync, mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 import {run} from '../scripts/lead_run/world_lead_pipeline.mjs';
@@ -29,6 +29,7 @@ test('pipeline runs every stage in order and writes a seven-stage receipt on a s
         const receipt = JSON.parse(readFileSync(join(out, 'result/pipeline_receipt.json'), 'utf8'));
         assert.equal(receipt.stages.length, 7);
         assert.ok(receipt.stages.every(stage => Object.keys(stage.inputs).length && Object.keys(stage.outputs).length));
+        assert.equal(lstatSync(join(out, 'result/schema-union-input/a1m_scenes.jsonl')).isSymbolicLink(), true, 'pipeline preserves linked unchanged input files');
     } finally { rmSync(input, {recursive: true, force: true}); rmSync(out, {recursive: true, force: true}); }
 });
 

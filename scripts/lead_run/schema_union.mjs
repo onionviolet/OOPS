@@ -1,19 +1,22 @@
 // M1: union schema 1.4 people fields with pre-1.4 backups and first/second census reads.
 // Input is copied to --out; source folders are never modified.
-import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
+import {existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, symlinkSync, writeFileSync} from 'node:fs';
 import {join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const readJsonl = path => existsSync(path) ? readFileSync(path, 'utf8').split(/\r?\n/).filter(line => line.trim()).map(line => JSON.parse(line)) : [];
 const writeJsonl = (path, rows) => writeFileSync(path, rows.map(row => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''));
-function copyInputTree(input, out, relativePath = '') {
+function linkInputTree(input, out, changedFiles, relativePath = '') {
     const sourceDir = join(input, relativePath), outputDir = join(out, relativePath);
     mkdirSync(outputDir, {recursive: true});
     for (const entry of readdirSync(sourceDir, {withFileTypes: true}).sort((a, b) => a.name.localeCompare(b.name))) {
         const child = join(relativePath, entry.name), source = join(input, child), target = join(out, child);
         if (source === out || out.startsWith(`${source}/`)) continue;
-        if (entry.isDirectory()) copyInputTree(input, out, child);
-        else if (entry.isFile()) copyFileSync(source, target);
+        if (entry.isDirectory()) linkInputTree(input, out, changedFiles, child);
+        else if (entry.isFile()) {
+            if (changedFiles.has(child)) continue;
+            symlinkSync(source, target, 'file');
+        }
     }
 }
 
@@ -128,8 +131,12 @@ export function run(inputArg, outArg, matchText = null) {
     if (!existsSync(input)) throw new Error(`Source directory does not exist: ${input}`);
     if (out === input) throw new Error('--out must not be the source directory');
     mkdirSync(out, {recursive: true});
-    copyInputTree(input, out);
     const peopleReport = [], missingBackups = [];
+    const changedFiles = new Set(readdirSync(input).filter(file => /_people\.jsonl$/.test(file) && (!match || match.test(`${file.replace(/_people\.jsonl$/, '')}m`))
+        && ['pre-sv14', 'pre-sv8'].some(dir => existsSync(join(input, dir, file)))));
+    for (const file of readdirSync(input).filter(name => /x2m_census\.jsonl$/.test(name))) changedFiles.add(file.replace(/x2m_census\.jsonl$/, 'm_census.jsonl'));
+    changedFiles.add('schema_union_report.json');
+    linkInputTree(input, out, changedFiles);
     const rootFiles = readdirSync(input).filter(file => /_people\.jsonl$/.test(file) && (!match || match.test(`${file.replace(/_people\.jsonl$/, '')}m`))).sort();
     for (const file of rootFiles) {
         const backupPath = ['pre-sv14', 'pre-sv8'].map(dir => join(input, dir, file)).find(existsSync);
@@ -147,6 +154,11 @@ export function run(inputArg, outArg, matchText = null) {
         const merged = mergeCensus(first, second);
         writeJsonl(join(out, firstFile), merged.rows);
         censusPairs.push({firstFile, secondFile: file, x1: first.length, x2: second.length, union: merged.rows.length, ambiguous: merged.ambiguous});
+    }
+    // Inputs are linked read-only; only the union targets and report occupy new disk space.
+    for (const file of [...peopleReport.map(row => row.file), ...censusPairs.map(row => row.firstFile)]) {
+        const target = join(out, file);
+        if (existsSync(target) && lstatSync(target).isSymbolicLink()) throw new Error(`Refusing to overwrite linked union target: ${file}`);
     }
     const report = {schema: 'schema-union/1.0', input, output: out, people: peopleReport, missingBackups, census: censusPairs};
     writeFileSync(join(out, 'schema_union_report.json'), `${JSON.stringify(report, null, 2)}\n`);
