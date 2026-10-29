@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+// LSD210, LSD170, LSD185 and the 2026-10-29 reachability decision (LEAD_LIFE_RULES section C): report what the aim measures, from mapping files and scenes,
+// with no model call and no browser. Step-order fidelity stays a diagnostic. Two measures need a replay or a pull-0 run and print as not measured.
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+
+const share = (n, d) => d ? Math.round(1000 * n / d) / 1000 : null;
+const REACHED = new Set(['clean_fold']);
+
+export function replayMetrics(mappings, scenes = []) {
+  const weight = new Map(scenes.map(s => [s.beat, s.weight || 'unknown']));
+  const seen = new Set(), rows = [];
+  for (const m of mappings) for (const r of m.rows || []) { const id = r.id || `${r.scene}#${r.verb}`; if (!seen.has(id)) { seen.add(id); rows.push(r); } }
+  const great = rows.filter(r => weight.get(r.scene) === 'great');
+  const reached = rows.filter(r => REACHED.has(r.status));
+  const sceneState = new Map();
+  for (const r of rows) { const s = sceneState.get(r.scene) || {steps: 0, reached: 0}; s.steps++; if (REACHED.has(r.status)) s.reached++; sceneState.set(r.scene, s); }
+  const greatScenes = [...sceneState.entries()].filter(([id]) => weight.get(id) === 'great');
+  const byVolume = {};
+  for (const r of rows) { const v = byVolume[r.sourceVolume ?? 'unknown'] ||= {steps: 0, reached: 0, greatSteps: 0, greatReached: 0}; v.steps++; if (REACHED.has(r.status)) v.reached++; if (weight.get(r.scene) === 'great') { v.greatSteps++; if (REACHED.has(r.status)) v.greatReached++; } }
+  for (const v of Object.values(byVolume)) { v.reachableShare = share(v.reached, v.steps); v.playableShareGreat = share(v.greatReached, v.greatSteps); }
+  const verbs = new Set(reached.map(r => r.canonicalControl).filter(Boolean));
+  const kinds = {}; for (const r of reached) kinds[r.controlKind || 'unlabelled'] = (kinds[r.controlKind || 'unlabelled'] || 0) + 1;
+  return {
+    steps: rows.length,
+    reachableShare: share(reached.length, rows.length),
+    // Cards (LSD182) are not built, so a reachable step is a playable one today.
+    playableShareGreatBeats: share(great.filter(r => REACHED.has(r.status)).length, great.length), greatSteps: great.length,
+    greatBeatsFullyReached: greatScenes.filter(([, s]) => s.reached === s.steps).length, greatBeats: greatScenes.length,
+    foldLossCount: rows.filter(r => r.status === 'lossy_fold').length,
+    distinctControlKinds: Object.keys(kinds).length, controlKinds: kinds, distinctControlIds: verbs.size,
+    byVolume,
+    notMeasured: {beatsReachedInOrder: 'needs the replay driver run (LSD185)', emergentCanonRate: 'needs a pull-0 run across seeds (LSD236); no pull input exists yet'},
+  };
+}
+
+/** LSD170: family counts per volume from a gap census (all segments). */
+export function familyByVolume(census) {
+  const table = {};
+  for (const seg of Object.values(census.segments || {})) for (const [vol, v] of Object.entries(seg.volumes || {})) for (const [family, n] of Object.entries(v.families || {})) { (table[family] ||= {})[vol] = (table[family][vol] || 0) + n; }
+  return Object.entries(table).map(([family, vols]) => ({family, total: Object.values(vols).reduce((a, b) => a + b, 0), volumes: vols})).sort((a, b) => b.total - a.total);
+}
+
+function main(args) {
+  const get = (k, req = true) => { const i = args.indexOf(k); if (i < 0 || !args[i + 1]) { if (req) throw Error(`Missing ${k}`); return null; } return args[i + 1]; };
+  const dir = get('--mappings');
+  const files = fs.readdirSync(dir).filter(f => /^v\d+-ch\d+-\d+\.json$/.test(f)).sort().map(f => path.join(dir, f));
+  if (!files.length) throw Error(`No mapping files in ${dir}`);
+  const scenesFile = get('--scenes', false);
+  const scenes = scenesFile ? fs.readFileSync(scenesFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)) : [];
+  const censusFile = get('--census', false);
+  const report = {metrics: replayMetrics(files.map(f => JSON.parse(fs.readFileSync(f, 'utf8'))), scenes), familyByVolume: censusFile ? familyByVolume(JSON.parse(fs.readFileSync(censusFile, 'utf8'))) : null};
+  const out = get('--out', false); if (out) { fs.mkdirSync(path.dirname(out), {recursive: true}); fs.writeFileSync(out, JSON.stringify(report, null, 2) + '\n'); }
+  const m = report.metrics; console.log(JSON.stringify({steps: m.steps, reachableShare: m.reachableShare, playableShareGreatBeats: m.playableShareGreatBeats, greatBeatsFullyReached: `${m.greatBeatsFullyReached}/${m.greatBeats}`, foldLossCount: m.foldLossCount, distinctControlKinds: m.distinctControlKinds, controlKinds: m.controlKinds, notMeasured: m.notMeasured}));
+}
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main(process.argv.slice(2));

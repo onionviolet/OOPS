@@ -31,7 +31,7 @@ export const FAMILY_RULES = [
 
 const inc=(record,key,n=1)=>{record[key]=(record[key]||0)+n;};
 const normalized=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ')||'(missing verb)';
-function familyOf(row) {
+export function familyOf(row) {
   const verb=String(row.verb||'').trim();
   // An explicit proper-name subject can prefix the action; it never establishes actor identity.
   const stripped=FAMILY_RULES.some(rule=>rule.head.test(verb)) ? verb : verb.replace(/^(?:[A-Z][a-z'-]+\s+){1,3}(?=[a-z])/,'');
