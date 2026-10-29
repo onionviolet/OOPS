@@ -3,6 +3,8 @@
 Status: measured test, proposals only. Nothing here changes the reading protocol; the reading coordinator decides.
 Owners: [READING_STATUS](../gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md), [reader brief](../gm/dispatch/protagonist-life-2026-10-27/READER_BRIEF_TEMPLATE.md), [schema card 1.3](../gm/dispatch/protagonist-life-2026-10-27/SCHEMA_CARD_1_3.md), [agent usage rules](../AGENT_USAGE_RULES.md) (AU5, AU15). Machine: Apple M5 Pro, 64 GB. Raw outputs are private and gitignored: `docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/localai-*`. Haiku outputs were not touched.
 
+Follow-up (2026-10-28): [routine-time pilot, code pilot and local-agent capacity estimate](LOCAL_AGENT_CAPACITY_2026-10-28.md).
+
 ## Answer in five lines
 
 1. **Round 1 (one big prompt, whole job): no local model can replace haiku.** Best was lint pass and grade B on one shard; census recall 9% to 42%; scenes thin.
