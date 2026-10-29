@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildPackJoin} from './build_crosswalk.mjs';
+import {shardIndex} from './cite_paragraphs.mjs';
+import {parseLocator} from './world_profiles.mjs';
 
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
 const family = /\b(speak\w*|ask\w*|agree\w*|agreed|refus\w*|direct\w*|inform\w*|tell\w*|said|say\w*|answer\w*|discuss\w*)\b/i;
@@ -35,12 +37,30 @@ function effectsFor(step, personId, locator, registry) {
   return effects;
 }
 
-export function buildTopicTalks({scenes, crosswalk, registry, pack}) {
+const escapeRe = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function namedSpeaker(paragraphs, people, namesById, nameIds) {
+  const found = new Map(); let ambiguous = false;
+  for (const paragraph of paragraphs) for (const id of people) for (const name of namesById.get(id) || []) {
+    if (name.length < 2) continue;
+    const n = escapeRe(name);
+    const cue = new RegExp(`(?:${n})[^。！？!?;；\\n]{0,18}(?:说(?:道)?|问(?:道)?|回答|答道|表示|said|asked|replied|answered|told)`, 'i');
+    if (!cue.test(paragraph.text)) continue;
+    if ((nameIds.get(norm(name))?.size || 0) > 1) { ambiguous = true; continue; }
+    found.set(id, paragraph.locator);
+  }
+  return !ambiguous && found.size === 1 ? {id:[...found.keys()][0],locator:[...found.values()][0]} : null;
+}
+export function buildTopicTalks({scenes, crosswalk, registry, pack, paragraphIndex = null}) {
   const join = buildPackJoin({crosswalk, registry, pack});
-  const names = new Map();
-  for (const p of pack.people || []) for (const v of [p.id,p.indexId,p.name,p.label]) if (human(v)) names.set(norm(v), p.id);
+  const names = new Map(), namesById = new Map();
+  const addName = (value, id) => {
+    if (!human(value)) return;
+    const normalized = norm(value), ids = names.get(normalized) || new Set(); ids.add(id); names.set(normalized, ids);
+    const values = namesById.get(id) || new Set(); values.add(String(value).normalize('NFKC')); namesById.set(id, values);
+  };
+  for (const p of pack.people || []) for (const v of [p.id,p.indexId,p.name,p.label,...(p.aliases||[])]) addName(v,p.id);
   for (const r of registry.filter(x => x.kind === 'person')) for (const v of [r.id,r.label,r.zh,...(r.aliases||[])]) if (human(v)) {
-    const resolved = join.resolvePerson(r.id); if (resolved) names.set(norm(v), resolved);
+    const resolved = join.resolvePerson(r.id); if (resolved) addName(v,resolved);
   }
   const rows = [], rejected = {notFamily:0, unresolvedPerson:0, unresolvedPlace:0, ambiguousPerson:0, unclearSpeaker:0};
   const perVolume = {}, familyStepsByVolume = {};
@@ -54,18 +74,27 @@ export function buildTopicTalks({scenes, crosswalk, registry, pack}) {
       familyStepsByVolume[volume]=(familyStepsByVolume[volume]||0)+1;
       const text = norm(`${original.verb||''} ${original.object||''}`);
       const people = [...new Set((scene.present||[]).filter(human).map(id=>join.resolvePerson(id)).filter(id=>id && id!==pack.leadLife?.actorId))];
-      const mentioned = people.filter(id => {
-        const candidate = [...names].filter(([,pid])=>pid===id).map(([n])=>n).sort((a,b)=>b.length-a.length).find(n=>n.length>2 && (` ${text} `).includes(` ${n} `));
-        return !!candidate;
-      });
+      const mentioned = people.filter(id => [...names].some(([n,ids])=>ids.size===1 && ids.has(id) && n.length>2 && (` ${text} `).includes(` ${n} `)));
+      const ambiguousMention = [...names].some(([n,ids])=>ids.size>1 && n.length>2 && (` ${text} `).includes(` ${n} `));
       if (!people.length) { rejected.unresolvedPerson++; continue; }
-      if (mentioned.length !== 1 || people.length !== 1) { rejected[mentioned.length > 1 || people.length > 1 ? 'ambiguousPerson' : 'unclearSpeaker']++; continue; }
+      let speaker = mentioned.length === 1 && people.length === 1 ? {id:mentioned[0],locator:null} : null;
+      if (!speaker && paragraphIndex) {
+        const paragraphs = (scene.evidence || []).flatMap(ev => {
+          const parsed = parseLocator(ev.locator || '');
+          if (!parsed) return [];
+          const paragraph = paragraphIndex.get(`${parsed.book}:${parsed.ch}:${parsed.p}`);
+          return paragraph ? [{text:paragraph,locator:ev.locator}] : [];
+        });
+        speaker = namedSpeaker(paragraphs, people, namesById, names);
+      }
+      if (!speaker) { rejected[ambiguousMention || mentioned.length > 1 || people.length > 1 ? 'ambiguousPerson' : 'unclearSpeaker']++; continue; }
       if (!place) { rejected.unresolvedPlace++; continue; }
-      const personId = mentioned[0], d = duration(original), label = topicLabel(original);
+      const personId = speaker.id, d = duration(original), label = topicLabel(original);
       const row = {id:`topic.${key(stepId)}`, sourceStepId:stepId, personId, topicId:`topic.${key(stepId)}`, label,
         description:`Discuss ${label.charAt(0).toLowerCase()+label.slice(1)} with ${labelOf(personId,registry,pack)}.`, minutes:d.minutes, minutesBasis:d.basis,
         place, choices:[{id:'canon',label:'Follow the recorded exchange',report:`You ${String(original.verb||'discuss the matter').toLowerCase()} with ${labelOf(personId,registry,pack)}.`,
           effects:effectsFor({...original,id:stepId},personId,locator,registry), source:{label:original.label||'U',locator}}], source:{label:original.label||'U',locator}};
+      if (speaker.locator) row.speakerEvidence={basis:'paragraph-explicit-speaker-cue',label:scene.evidence.find(e=>e.locator===speaker.locator)?.label||'S',locator:speaker.locator};
       if (Number.isInteger(scene.timeOfDay?.hour) && scene.timeOfDay.hour>=0 && scene.timeOfDay.hour<24) row.hour=scene.timeOfDay.hour;
       rows.push(row); perVolume[volume]=(perVolume[volume]||0)+1;
     }
@@ -78,7 +107,8 @@ function main(args) {
   const scenes=readJsonl(get('--scenes')), registry=readJsonl(get('--registry'));
   const crosswalk=JSON.parse(fs.readFileSync(get('--crosswalk'),'utf8'));
   const input=JSON.parse(fs.readFileSync(get('--pack'),'utf8'));
-  const result=buildTopicTalks({scenes,crosswalk,registry,pack:input});
+  const sourceDir=args.includes('--source-dir') ? args[args.indexOf('--source-dir')+1] : null;
+  const result=buildTopicTalks({scenes,crosswalk,registry,pack:input,paragraphIndex:sourceDir?shardIndex(sourceDir):null});
   const pack=structuredClone(input); pack.topicTalks={talks:result.rows};
   const out=get('--out'), report=get('--report'); fs.mkdirSync(path.dirname(out),{recursive:true});
   fs.writeFileSync(out,JSON.stringify(pack,null,2)+'\n');

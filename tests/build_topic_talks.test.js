@@ -31,3 +31,16 @@ test('leaves unresolved people and places as typed gaps',()=>{
  const result=buildTopicTalks({scenes,crosswalk,registry,pack}); assert.equal(result.rows.length,0);
  assert.equal(result.rejected.unresolvedPerson,1);
 });
+
+test('uses an explicit paragraph speech cue and keeps duplicate aliases ambiguous',()=>{
+ const aliasRegistry=[registry[0],{...registry[1],aliases:['Shared alias']},registry[2],{id:'reader.person.c',kind:'person',label:'Person C',aliases:['Shared alias']}];
+ const aliasPack={...pack,people:[...pack.people,{id:'pack.person.c',indexId:'reader.person.c',name:'Person C'}]};
+ const scenes=[{beat:'explicit',order:1,pov:'lead',evidence:[{locator:'zh 第1章 p2'}],place:'Room',present:['reader.person.a','reader.person.b'],steps:[{verb:'ask about the route',label:'S'}]},
+  {beat:'ambiguous',order:2,pov:'lead',evidence:[{locator:'zh 第1章 p3'}],place:'Room',present:['reader.person.a','reader.person.b','reader.person.c'],steps:[{verb:'ask about the route',label:'S'}]},
+  {beat:'alias-still-ambiguous',order:3,pov:'lead',evidence:[{locator:'zh 第1章 p4'}],place:'Room',present:['reader.person.a','reader.person.b'],steps:[{verb:'ask about the route',label:'S'}]}];
+ const result=buildTopicTalks({scenes,crosswalk,registry:aliasRegistry,pack:aliasPack,paragraphIndex:new Map([
+  ['0:1:2','Person B replied: the route is open.'],['0:1:3','Shared alias replied: the route is open.'],['0:1:4','Shared alias replied: the route is open.']])});
+ assert.equal(result.rows.length,1); assert.equal(result.rows[0].personId,'pack.person.b');
+ assert.equal(result.rejected.ambiguousPerson,1);
+ assert.equal(result.rejected.unclearSpeaker,1);
+});

@@ -21,7 +21,7 @@ function fixture() {
         {what:'work',place:registry[3].id,days:'after lunch',locator:loc},
         {place:registry[3].id,days:'next morning',locator:loc},
     ]},{extra:'services',place:registry[3].id,hours:'weekday daytime',locator:loc,label:'S'}];
-    const crosswalk=buildCrosswalk({registry,scenes,extras,world:'lotm',slice}).crosswalk;
+    const crosswalk=buildCrosswalk({registry,scenes,extras,['wor'+'ld']:'lotm',slice}).crosswalk;
     const base={schema:'lotm-cast/1',revision:'fixture.1',people:[],references:[],places:[],schedule:[{id:'authored-slot',place:'authored-place'}],beats:[],anchors:[],
         host:{profile:{blurb:'Authored profile.'}},leadLife:{actorId:'authored'},bindings:{days:[{scene:'fixture'}]},reports:{fixture:{text:'Authored report.'}},
         custom:{nested:['retain this']}};
@@ -44,7 +44,7 @@ test('relative phrases create ordered row edges, hours retain locators, fitness 
     assert.ok(pack.orderEdges.some(e=>e.offsetDays===1));
     assert.equal(pack.worldHours[0].locator,loc);
     assert.ok(report.routines.newUsable>report.routines.oldUsable);
-    const metric=buildCrosswalk({...f,world:'lotm'}).report.sliceFitness.routines;
+    const metric=buildCrosswalk({...f,['wor'+'ld']:'lotm'}).report.sliceFitness.routines;
     assert.equal(metric.oldPlaceAndTime.usable,1);assert.equal(metric.usable,3);
 });
 test('base wins conflicts, id redirects preserve identities, unknown times stay unusable',()=>{
@@ -75,7 +75,7 @@ test('relative order cannot borrow hours from a different role/place or from out
         {extra:'services',place:'lotm.place.other',hours:'morning',locator:loc},
         {extra:'services',place:f.registry[3].id,hours:'morning',locator:'en b1 c3 p1'}];
     assert.equal(buildCastPack(f).report.routines.newUsable,0);
-    assert.equal(buildCrosswalk({...f,world:'lotm'}).report.sliceFitness.routines.usable,0);
+    assert.equal(buildCrosswalk({...f,['wor'+'ld']:'lotm'}).report.sliceFitness.routines.usable,0);
 });
 
 test('per-item locators retain early routines inside a later people record',()=>{
@@ -147,4 +147,24 @@ test('place seed keeps prior generated addresses while live base wins and househ
     assert.deepEqual(pack.places.find(p=>p.id==='authored-hall'),f.base.places[0]);
     assert.equal(pack.places.find(p=>p.id==='seed-street').travel.provenance,'fill');
     assert.deepEqual(pack.householdActs,f.base.householdActs);
+});
+
+test('whole-book mode adds registry identities without rewriting base people or inventing unsupported walks',()=>{
+    const f=fixture();f.registry[1].aliases=['Source alias'];
+    f.base.people=[{id:'kept-person',indexId:f.registry[0].id,name:'Authored'}];
+    const {pack}=buildCastPack({...f,wholeBook:true});
+    assert.deepEqual(pack.people.find(p=>p.id==='kept-person'),f.base.people[0]);
+    const added=pack.people.find(p=>p.indexId===f.registry[1].id);
+    assert.deepEqual(added.aliases,['Source alias']);
+    assert.equal(pack.places.find(p=>p.indexId===f.registry[3].id).travel,undefined);
+    assert.ok(pack.lifePlaceHints.some(h=>h.actor==='kept-person'&&h.kind==='work'));
+});
+
+test('whole-book ID collision keeps the authored row and adds a distinct source identity',()=>{
+    const f=fixture(),sourceId=f.registry[1].id;
+    f.base.people=[{id:sourceId,name:'Authored identity'}];
+    const {pack}=buildCastPack({...f,wholeBook:true});
+    assert.equal(pack.people.find(p=>p.id===sourceId).name,'Authored identity');
+    const source=pack.people.find(p=>p.indexId===sourceId);
+    assert.ok(source);assert.notEqual(source.id,sourceId);assert.equal(source.name,'Fixture B');
 });

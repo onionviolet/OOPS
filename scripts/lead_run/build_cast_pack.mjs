@@ -16,7 +16,7 @@ const sorted = rows => [...rows].sort((a,b) => json(a).localeCompare(json(b)));
 const unique = rows => [...new Map(sorted(rows).map(r => [json(r), r])).values()];
 const evidence = row => ({label: ['S','T','I','U','fill'].includes(row.label) ? row.label : 'U', locator: row.locator || row.firstMention});
 
-export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false, placeSeed = null}) {
+export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false, placeSeed = null, wholeBook = false}) {
     inSlice({locator: slice.from}, slice); // Validate even empty inputs.
     if (crosswalk.world !== book || json(crosswalk.slice) !== json(slice)) throw new Error('Crosswalk world/slice mismatch; rebuild it for this slice');
     const pack = structuredClone(base), conflicts = [], gaps = [];
@@ -25,42 +25,61 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         return v?.startsWith('skip:') ? null : v?.replace(/^new:/, '') || null;
     };
     const selectedScenes = scenes.filter(s => s.pov === 'lead' && inSlice(s, slice));
-    const selectedExtras = extras.filter(r => inSlice(r, slice));
+    const selectedExtras = wholeBook ? [] : extras.filter(r => inSlice(r, slice));
     const counts = new Map();
     for (const scene of selectedScenes) {
         const ids = new Set([...list(scene.present), ...list(scene.touched).filter(t => ['present','partial'].includes(t.status)).map(t => t.id)]);
         for (const id of ids) counts.set(id, (counts.get(id) || 0) + 1);
     }
-    const peopleRows = placesOnly ? [] : extras.filter(r => ['people','people_other'].includes(r.extra) &&
+    const peopleRows = placesOnly ? [] : wholeBook ? extras.filter(r => r.extra === 'people') : extras.filter(r => ['people','people_other'].includes(r.extra) &&
         (inSlice(r,slice) || [...list(r.routine),...list(r.relations)].some(item=>inSlice({locator:item.locator || r.locator},slice))));
     const existing = [...list(base.people), ...list(base.references)];
     const byIndex = new Map(existing.filter(r => r.indexId).map(r => [r.indexId, r.id]));
     const byPlace = new Map(list(base.places).filter(r => r.indexId).map(r => [r.indexId,r.id]));
     for (const a of list(base.placeAliases)) byPlace.set(a.indexId,a.place);
     for (const p of list(placeSeed?.places)) if(p.indexId && !byPlace.has(p.indexId)) byPlace.set(p.indexId,p.id);
+    const registryById = new Map(registry.map(r => [r.id,r]));
     const personId = id => byIndex.get(id) || target(id) || id;
     const placeId = id => {
         if (byPlace.has(id)) return byPlace.get(id);
         const mapped = crosswalk.places?.[id];
         if (mapped) return byPlace.get(mapped) || target(mapped) || mapped;
-        return registry.some(r=>r.id === id && r.kind === 'place') ? target(id) : null;
+        return registryById.get(id)?.kind === 'place' ? target(id) : null;
     };
     const idMap = {...base.idMap};
     for (const r of existing) if (r.indexId && target(r.indexId) && target(r.indexId) !== r.id) idMap[target(r.indexId)] = r.id;
     // Explicit reviewed identity redirects only; aliases/common names never imply a merge.
     for (const r of registry) if (typeof r.same_as === 'string' && target(r.same_as)) idMap[personId(r.id)] = personId(r.same_as);
     const allPersonIds = new Set(existing.map(r => r.id));
-    const candidates = placesOnly ? [] : registry.filter(r => r.kind === 'person' && (inSlice(r,slice) || counts.has(r.id) || peopleRows.some(p=>p.id === r.id)));
-    const relations = id => peopleRows.filter(r => r.id === id).flatMap(r => list(r.relations).filter(rel => inSlice({locator: rel.locator || r.locator}, slice)));
+    const candidates = placesOnly ? [] : registry.filter(r => r.kind === 'person' && (wholeBook || inSlice(r,slice) || counts.has(r.id) || peopleRows.some(p=>p.id === r.id)));
+    const relationsById = new Map();
+    for (const row of peopleRows) for (const rel of list(row.relations)) {
+        if (!inSlice({locator: rel.locator || row.locator}, slice)) continue;
+        const rows = relationsById.get(row.id) || []; rows.push(rel); relationsById.set(row.id, rows);
+    }
+    const relations = id => relationsById.get(id) || [];
+    const lifePlaceHints = new Map();
+    if (wholeBook) for (const row of peopleRows) for (const slot of list(row.routine)) {
+        const what = String(slot.what || '').normalize('NFKC').trim().toLowerCase();
+        const kind = /^(?:at )?work(?:place)?$/.test(what) ? 'workPlace' : /^(?:at )?home$/.test(what) ? 'homePlace' : null;
+        if (!kind || !slot.place || !inSlice({locator:slot.locator || row.locator},slice)) continue;
+        const hints = lifePlaceHints.get(row.id) || {};
+        if (!hints[kind]) hints[kind] = {indexPlace:slot.place,label:evidence(slot).label,locator:slot.locator || row.locator};
+        lifePlaceHints.set(row.id,hints);
+    }
     const maxCount = Math.max(0,...registry.filter(r=>r.kind === 'person').map(r=>counts.get(r.id)||0));
     for (const row of sorted(candidates)) {
-        const id = personId(row.id);
+        let id = personId(row.id);
+        const idOwner = existing.find(p => p.id === id);
+        if (wholeBook && idOwner && idOwner.indexId !== row.id) id = `${book}.registry-person.${hash(row.id).slice(0,20)}`;
         if (crosswalk.mapping[row.id]?.startsWith('skip:')) continue;
         const n = counts.get(row.id) || 0, rels = relations(row.id);
-        const tier = n === maxCount && n >= 10 ? 'principal' : n >= 3 || rels.length >= 2 && n >= 1 ? 'recurring' : n || rels.length || !(row.collective === true || /crowd|group|collective/i.test(row.rung || '')) ? 'role' : 'crowd';
-        const generated = {id, indexId: row.id, name: row.label || row.id, tier, leadSceneCount: n, ...evidence(row), locator: row.firstMention || crosswalk.entities[row.id]?.locators?.[0]};
+        const tier = wholeBook ? 'role' : n === maxCount && n >= 10 ? 'principal' : n >= 3 || rels.length >= 2 && n >= 1 ? 'recurring' : n || rels.length || !(row.collective === true || /crowd|group|collective/i.test(row.rung || '')) ? 'role' : 'crowd';
+        const generated = {id, indexId: row.id, name: row.label || row.zh || row.id, ...(list(row.aliases).length ? {aliases:list(row.aliases)} : {}),
+            tier, leadSceneCount: n, ...evidence(row), locator: row.firstMention || crosswalk.entities[row.id]?.locators?.[0]};
         const old = existing.find(p => p.id === id);
         if (old) {
+            if (wholeBook) continue; // Whole-book regeneration adds rows without rewriting any R1/R2 row.
             const dest = pack.people.find(p => p.id === id) || pack.references.find(p => p.id === id);
             for (const [k,v] of Object.entries(generated)) {
                 if (dest[k] === undefined) {if (pack.people.some(p=>p.id === id)) dest[k] = v;}
@@ -76,13 +95,16 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     const selectedPlaceRows = selectedScenes.map(s => s.place).filter(v => typeof v === 'string' && v.trim());
     const registryPlaces = registry.filter(r => r.kind === 'place');
     const placeExtras = extras.filter(r => r.extra === 'places');
+    const placeExtrasById = new Map();
+    for (const row of placeExtras) { const rows = placeExtrasById.get(row.id) || []; rows.push(row); placeExtrasById.set(row.id, rows); }
     const exactNames = new Map();
     const addName = (name,row) => { if (typeof name !== 'string' || !name.trim()) return; const key=normPlace(name), rows=exactNames.get(key)||[]; if(!rows.includes(row))rows.push(row);exactNames.set(key,rows); };
     for (const row of registryPlaces) for (const name of [row.id,row.label,row.zh,...list(row.aliases)]) addName(name,row);
     const referenced = new Set();
+    if (wholeBook) for (const row of registryPlaces) referenced.add(row.id);
     for (const place of selectedPlaceRows) {
         const ids = new Set();
-        const direct = registryPlaces.find(r => r.id === place);
+        const direct = registryById.get(place)?.kind === 'place' ? registryById.get(place) : null;
         if (direct) ids.add(direct.id);
         const exact = exactNames.get(normPlace(place)) || [];
         for (const r of exact) ids.add(r.id);
@@ -99,7 +121,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     for (const row of placeExtras) { const rows=extrasById.get(row.id)||[]; rows.push(row); extrasById.set(row.id,rows); }
     const selectedEvidence = new Map();
     for (const id of referenced) {
-        const rows=(extrasById.get(id)||[]).filter(r=>inSlice(r,slice));
+        const rows=(placeExtrasById.get(id)||[]).filter(r=>wholeBook || inSlice(r,slice));
         if(rows.length) selectedEvidence.set(id,sorted(rows));
     }
     const addAncestors = id => {
@@ -107,7 +129,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         if(row && !referenced.has(row.within) && extrasById.has(row.within)) { referenced.add(row.within); selectedEvidence.set(row.within,(extrasById.get(row.within)||[]).filter(r=>inSlice(r,slice))); addAncestors(row.within); }
     };
     for(const id of [...referenced]) addAncestors(id);
-    const registryById = new Map(registryPlaces.map(r=>[r.id,r]));
+    const registryPlaceById = new Map(registryPlaces.map(r=>[r.id,r]));
     const explicitDistricts = new Set(['evernight','storm','machinery','lotm.place.evernight','lotm.place.storm','lotm.place.machinery']);
     const isSubplace = row => /(^|[ ._-])(desk|corner|tabletop|shelf|drawer)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
     const isRegion = row => /(^|[ ._-])(city|county|continent|realm|world|district|province|kingdom|land|ocean)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
@@ -126,11 +148,11 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         }
         return null;
     };
-    const fallbackDistrict = base.places.find(p=>p.travel?.district)?.travel.district || 'evernight';
+    const fallbackDistrict = wholeBook ? null : (base.places.find(p=>p.travel?.district)?.travel.district || 'evernight');
     for (const indexId of [...referenced].sort()) {
         const resolved=placeId(indexId) || target(indexId) || indexId;
         if(placeIds.has(resolved)) continue; // authored base rows win
-        const seed=seedByIndex.get(indexId), meta=registryById.get(indexId), rows=selectedEvidence.get(indexId)||[];
+        const seed=seedByIndex.get(indexId), meta=registryPlaceById.get(indexId), rows=selectedEvidence.get(indexId)||[];
         const source=rows[0]||null, parent=byParent(indexId), subject=meta||{id:indexId,label:seed?.name||''}, kind=isSubplace(subject)?'sub-place':isRegion(subject)?'region':/street|road|lane|avenue|square/i.test(`${indexId} ${subject.label||''}`)?'street':/room|corridor|hallway|stairwell|kitchen|office|chamber/i.test(`${indexId} ${subject.label||''}`)?'room':'building';
         const aliases=unique([meta?.label,meta?.zh,...list(meta?.aliases)].filter(v=>typeof v==='string'&&v.trim()).map(name=>({id:name,indexId,place:resolved,label:source?.label||'U',locator:source?.locator||meta?.firstMention||slice.from})));
         const routes=rows.flatMap(r=>list(r.routes).map(route=>({...route,locator:r.locator,label:r.label}))).filter(r=>Number.isFinite(r.minutes)&&r.minutes>0);
@@ -141,16 +163,26 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         else if(kind!=='region') {
             const route=routes[0];
             const placement=district || fallbackDistrict;
-            row.travel={district:placement,provenance:'fill',basis:district?'District inherited from the containing place; district links supply walk time.':'Provisional home-district placement; source district unresolved. District links supply walk time.',
+            if (placement) row.travel={district:placement,provenance:wholeBook&&district?'canon-derived':'fill',basis:district?'District inherited from the containing place; district links supply walk time.':'Provisional home-district placement; source district unresolved. District links supply walk time.',
                 ...(route?{minutes:route.minutes,minutesProvenance:['S','T'].includes(route.label)?'canon':route.label==='I'?'canon-derived':'fill',routeTo:route.to,routeLocator:route.locator}:{minutes:2,minutesProvenance:'fill'})};
         }
         pack.places.push(row);placeIds.add(resolved);
         for(const alias of aliases) if(!pack.placeAliases.some(a=>a.indexId===alias.indexId)) pack.placeAliases.push(alias);
     }
-    const hoursRows = placesOnly ? [] : selectedExtras.filter(r => ['services','rules','rules_other'].includes(r.extra) && typeof r.hours === 'string' && r.hours.trim() && !/^(unknown|unstated|none|null|u|\?)$/i.test(r.hours.trim()));
+    if (wholeBook) {
+        const hints = list(base.lifePlaceHints), ids = new Set(hints.map(row=>row.id));
+        for (const [indexId, fields] of lifePlaceHints) for (const [kind, hint] of Object.entries(fields)) {
+            const actor = personId(indexId), place = placeId(hint.indexPlace);
+            const id = `${book}.life-place.${hash([indexId,kind,hint]).slice(0,20)}`;
+            if (!place || !allPersonIds.has(actor) || ids.has(id)) continue;
+            hints.push({id,actor,kind:kind==='workPlace'?'work':'home',place,indexPlace:hint.indexPlace,label:hint.label,locator:hint.locator}); ids.add(id);
+        }
+        pack.lifePlaceHints = hints;
+    }
+    const hoursRows = placesOnly || wholeBook ? [] : selectedExtras.filter(r => ['services','rules','rules_other'].includes(r.extra) && typeof r.hours === 'string' && r.hours.trim() && !/^(unknown|unstated|none|null|u|\?)$/i.test(r.hours.trim()));
     const worldHours = unique(hoursRows.map(r => ({id:`${book}.hours.${hash(r).slice(0,20)}`,place:placeId(r.place), indexPlace:r.place || null,role:r.role || null,hours:r.hours,...evidence(r)})));
     const routines = [], orderEdges = [];
-    for (const row of peopleRows) for (const slot of list(row.routine)) {
+    for (const row of (wholeBook ? [] : peopleRows)) for (const slot of list(row.routine)) {
         const locator = slot.locator || row.locator;
         if (!inSlice({locator},slice)) continue;
         if (!allPersonIds.has(personId(row.id))) {gaps.push({id:row.id,reason:'unresolved-routine-actor',locator});continue;}
@@ -186,7 +218,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     };
     mergeSection('worldHours',worldHours);mergeSection('routines',routines);mergeSection('orderEdges',orderEdges);
     // Link relations only when both exact identities are present. Unknown remains a gap.
-    for (const row of candidates) {
+    for (const row of (wholeBook ? [] : candidates)) {
         const p = pack.people.find(p => p.id === personId(row.id));
         if (!p || existing.some(o=>o.id === p.id)) continue;
         p.relations = unique(relations(row.id).filter(r => allPersonIds.has(personId(r.with))).map(r => ({withId:personId(r.with),kind:r.kind || 'unknown',...evidence(r)})));
@@ -200,8 +232,9 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     const removed = [...oldRows.keys()].filter(id=>!newRows.has(id)).sort();
     pack.revision = `${base.revision || 'cast'}.${placesOnly?'r2-places':'r1'}-${hash({book,slice,registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base,placesOnly,placeSeed}).slice(0,16)}`;
     pack.revisionNote = {from:base.revision || null,to:pack.revision,added,changed,removed,conflicts:unique(conflicts),gaps:unique(gaps)};
+    const sourceInputs = {registry:wholeBook?registry:sorted(registry),scenes:wholeBook?scenes:sorted(scenes),extras:wholeBook?extras:sorted(extras),crosswalk,base,...(placeSeed?{placeSeed}: {})};
     pack.buildSourceIdentity = {schema:'cast-pack-build/1', book, slice,
-        inputs:Object.fromEntries(Object.entries({registry:sorted(registry),scenes:sorted(scenes),extras:sorted(extras),crosswalk,base,...(placeSeed?{placeSeed}: {})}).map(([k,v])=>[k,hash(v)]))};
+        inputs:Object.fromEntries(Object.entries(sourceInputs).map(([k,v])=>[k,hash(v)]))};
     const oldUsable = routines.filter(r => r.place && hasTime(r.sourceTiming)).length;
     return {pack:canonical(pack),report:{people:pack.people.length,tiers:pack.people.reduce((m,p)=>(m[p.tier]=(m[p.tier]||0)+1,m),{}),routines:{total:routines.length,oldUsable,newUsable:routines.filter(r=>r.usable).length},orderEdges:orderEdges.length,worldHours:worldHours.length,added:added.length,changed:changed.length,removed:removed.length,conflicts:conflicts.length,gaps:gaps.length}};
 }
@@ -216,14 +249,15 @@ export function run(argv) {
     const rel = relative(root,actual);
     if (existsSync(out) && realpathSync(out) !== actual) throw new Error('Output symlink is not allowed');
     const tempRel = relative(realpathSync(tmpdir()),actual);
-    if ((tempRel.startsWith('..') || tempRel === '' || tempRel.startsWith('/')) && !actual.startsWith('/private/tmp/') && !actual.startsWith('/tmp/') && !(rel.startsWith('private_packs/') && !rel.split('/').includes('..'))) throw new Error('Output must be private_packs or temporary storage');
+    const privatePackBackup = rel.startsWith('docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/pack-backups/') && !rel.split('/').includes('..');
+    if ((tempRel.startsWith('..') || tempRel === '' || tempRel.startsWith('/')) && !actual.startsWith('/private/tmp/') && !actual.startsWith('/tmp/') && !(rel.startsWith('private_packs/') && !rel.split('/').includes('..')) && !privatePackBackup) throw new Error('Output must be private pack backup or temporary storage');
     if (actual === resolve(realpathSync(dirname(flag('--base'))),resolve(flag('--base')).split('/').at(-1))) throw new Error('Output cannot overwrite base pack');
     const dir = resolve(flag('--merged'));
     const read = name => readFileSync(resolve(dir,name),'utf8').split('\n').filter(l=>l.trim()).map(JSON.parse);
     const registry=read('registry.jsonl'),scenes=read('scenes.jsonl'),extras=read('extras.jsonl');
     const slice={from:flag('--from'),to:flag('--to')};
     const crosswalk = existsSync(resolve(dir,'crosswalk.json')) ? JSON.parse(readFileSync(resolve(dir,'crosswalk.json'),'utf8')) : buildCrosswalk({registry,scenes,extras,world:book,slice}).crosswalk;
-    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only'),placeSeed:argv.includes('--place-seed')?JSON.parse(readFileSync(flag('--place-seed'),'utf8')):null});
+    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only'),wholeBook:argv.includes('--whole-book'),placeSeed:argv.includes('--place-seed')?JSON.parse(readFileSync(flag('--place-seed'),'utf8')):null});
     writeFileSync(out,JSON.stringify(result.pack,null,2)+'\n');
     writeFileSync(resolve(parent,'build-report.json'),JSON.stringify(result.report,null,2)+'\n');
     console.log(JSON.stringify(result.report));return result;
