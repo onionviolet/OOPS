@@ -1,0 +1,53 @@
+{
+ "world": "ri",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "medium",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+  "censusMatch": "^(ri1|ri2|ri3|ri4|ri5|ri6|ri7|ri8|ri9|ri10|ri11|ri12|ri13|ri14|ri15|ri16|ri17|ri18|ri19|ri20|ri21|ri22|ri23|ri24)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ri3-census-s2",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "ri3c225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri3_ch225-225.txt",
+   "base": "322501",
+   "chapters": "225-225"
+  },
+  {
+   "prefix": "ri3c226",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri3_ch226-226.txt",
+   "base": "322601",
+   "chapters": "226-226"
+  },
+  {
+   "prefix": "ri3c227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri3_ch227-227.txt",
+   "base": "322701",
+   "chapters": "227-227"
+  },
+  {
+   "prefix": "ri3c249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri3_ch249-249.txt",
+   "base": "324901",
+   "chapters": "249-249"
+  },
+  {
+   "prefix": "ri3c250",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri3_ch250-250.txt",
+   "base": "325001",
+   "chapters": "250-250"
+  },
+  {
+   "prefix": "ri3c251",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri3_ch251-251.txt",
+   "base": "325101",
+   "chapters": "251-251"
+  }
+ ]
+}

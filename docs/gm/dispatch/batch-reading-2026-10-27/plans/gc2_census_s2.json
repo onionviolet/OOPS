@@ -1,0 +1,23 @@
+{
+ "world": "gc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "medium",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29",
+  "censusMatch": "^(gc1|gc2)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "gc2-census-s2",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "gc2c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/godclads/private/lead-run-2026-10-29/split/shard_gc2_ch007-007.txt",
+   "base": "200701",
+   "chapters": "7-7"
+  }
+ ]
+}

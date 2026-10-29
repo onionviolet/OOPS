@@ -1,0 +1,40 @@
+{
+ "name": "2026-10-29r2-retries",
+ "approval": "Weibao 2026-10-29: \"send accordingly\", answering \"Go retries\": cut-off census shards of RI volumes 2-4 (split to one chapter), A Soldier's Life asl6c352 and Godclads gc2c007, all at medium effort, 128K. LOTM x2 partials left out (a duplicate census; the first census is whole). Ceiling = true cap plus a cent.",
+ "ceilingUsd": 0.81,
+ "capTotal": 0.8,
+ "pooledStop": true,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_census_s2.json",
+     "cap": 0.39,
+     "label": "ri2-census-s2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_census_s2.json",
+     "cap": 0.2,
+     "label": "ri3-census-s2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri4_census_s2.json",
+     "cap": 0.13,
+     "label": "ri4-census-s2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/asl6_census_s2.json",
+     "cap": 0.04,
+     "label": "asl6-census-s2"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/gc2_census_s2.json",
+     "cap": 0.04,
+     "label": "gc2-census-s2"
+    }
+   ]
+  }
+ ]
+}

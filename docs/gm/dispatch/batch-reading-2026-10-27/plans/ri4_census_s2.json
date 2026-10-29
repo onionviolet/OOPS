@@ -1,0 +1,41 @@
+{
+ "world": "ri",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "medium",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29",
+  "censusMatch": "^(ri1|ri2|ri3|ri4|ri5|ri6|ri7|ri8|ri9|ri10|ri11|ri12|ri13|ri14|ri15|ri16|ri17|ri18|ri19|ri20|ri21|ri22|ri23|ri24)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ri4-census-s2",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "ri4c319",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri4_ch319-319.txt",
+   "base": "431901",
+   "chapters": "319-319"
+  },
+  {
+   "prefix": "ri4c320",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri4_ch320-320.txt",
+   "base": "432001",
+   "chapters": "320-320"
+  },
+  {
+   "prefix": "ri4c321",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri4_ch321-321.txt",
+   "base": "432101",
+   "chapters": "321-321"
+  },
+  {
+   "prefix": "ri4c322",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/split/shard_ri4_ch322-322.txt",
+   "base": "432201",
+   "chapters": "322-322"
+  }
+ ]
+}
