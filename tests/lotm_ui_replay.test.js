@@ -37,5 +37,7 @@ test('replay calls UI ports in order, logs every gap and asserts actual place, p
  const result=await executeRows({},rows,io);assert.equal(result.receipts.length,18);assert.equal(result.score.overall.cleanFold,1);
  assert.deepEqual(events,['move.start','wait','screenshot','move.room','screenshot']);
  state={place:'place.start',cash:10,knowledge:{}};io.move=async()=>{};
- await assert.rejects(executeRows({},rows,io));
+ // A wrong anchor after the route is a scored gap for that row, not the end of the run.
+ const failed=await executeRows({},rows,io),row=failed.receipts.find(r=>r.id===rows[1].id);
+ assert.equal(row.status,'gap');assert.match(row.reason,/^replay: /);assert.equal(failed.score.overall.cleanFold,0);
 });

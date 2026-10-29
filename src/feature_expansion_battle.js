@@ -2,7 +2,7 @@ import {quoteCohortAction,commitCohortAction,cohortNativeAction,cohortBattleView
 import {nativeFighterOwnership} from './cohort_battle_facts.js';
 import {savedBattleLoss} from './defeat_domain.js';
 import {FEATURE_SHIELD,FEATURE_HOOK,FEATURE_BATTLE_FOES,featureBattleFacts} from './feature_battle_facts.js';
-import {xorshift32} from './hash_rng.js';
+import {conflictResult,legacyConflictRandom,runConflictFrame} from './conflict_frame.js';
 import {all, check, eq, natural} from './basics.js';
 import {validateFeatureBattle} from './world_completion_battle_validation.js';
 export {validateFeatureBattle};
@@ -265,95 +265,108 @@ function finish(plan,registry,result,context={}) {
     finishFieldCareWatch(state,session.id);
     s.log.push({at:state.clock,cause,text:`Sluice claim: ${result}.`});s.log=s.log.slice(-100);delete s.sessions.player;
 }
+const sluiceConflict={id:FEATURE_BATTLE_ID,revision:1,sides:['attackers','defenders'],objective:['gate','escape','yield'],results:{won:finish,lost:finish,withdrawn:finish,objective:finish,escaped:finish},random:legacyConflictRandom,createPlan:planFor,validate:validateExpansionState,
+    prepare({state,registry,command:c,context,bindings,quote,plan,session,battle:b,random,publishResult}) {
+        const s=plan.state.simulation;
+        const hp=id=>id==='player'?plan.vitals.player:s.people[id].vitals;
+        const name=id=>id==='player'?'You':id===FEATURE_HELPER?'Lio':id===FEATURE_SHIELD?'Nera':'Oren';
+        const role=b.fighters[c.actorId],hadStamina=hp(c.actorId).stamina>0;hp(c.actorId).stamina-=quote.cost;
+        let result=null,targets=quote.targets,outcomes=[],fieldOutcomes=[],opportunityReceipt=null;
+        const fitReceipts=[];
+        beforeRemainderCombatObjectivesBattleAction(plan,c,context);
+        const optionalResult=applyRemainderCombatObjectivesBattleAction(plan,c,context);
+        if(optionalResult.effects?.length)applySimulationEffects(plan,optionalResult.effects,{actorId:'player'},registry,`feature-action:${state.sequence+1}`);
+        const reference=b.schema>=FEATURE_REFERENCE_BATTLE_SCHEMA;
+        if(reference&&c.actorId==='player'&&b.opportunity)opportunityReceipt=closeOpportunity(b,c.opportunity==='retreat'?'used_retreat':c.opportunity==='counter'?'used_counter':'expired_choice',b.actions+1);
+        return {moves:[
+            {id:'optional',when:()=>optionalResult.handled,apply(){b.last=optionalResult.text;if(optionalResult.escapeGain)b.escape.progress=Math.min(b.escape.required,b.escape.progress+optionalResult.escapeGain);}},
+            {id:'withdraw',types:['withdraw'],apply(){b.last='You withdraw before another blow. Spent supplies and injuries remain.';result='withdrawn';}},
+            {id:'release',types:['release'],apply(){removeFighter(plan,c.actorId,'released');b.last='Lio steps out by agreement; his own condition and equipment remain.';}},
+            {id:'guard',types:['guard', 'interpose', 'redirect', 'lash'],apply(){
+                if(c.actorId===FEATURE_HELPER){plan.state.actors[FEATURE_HELPER].resources.brace_effort--;b.signal=false;}
+                if(c.type==='lash')applySimulationEffects(plan,[{type:'item',key:FEATURE_KIT,amount:-1}],{actorId:'player'},registry,`feature-action:${state.sequence+1}`,{spending:true});
+                for(const target of targets)b.guards.push({by:c.actorId,target,mode:c.type==='guard'?'ordinary':c.type});
+                b.last=`${name(c.actorId)} prepared ${c.type} for ${targets.map(name).join(' and ')}; spent ${quote.cost} stamina${c.actorId===FEATURE_HELPER?' and one guard effort':''}${c.type==='lash'?' and one kit':''}.`;
+            }},
+            {id:'track',types:['track'],apply(){b.focused=[...targets];b.last=`You tracked ${targets.map(name).join(' and ')}. The next corresponding native strike uses the actual opening.`;}},
+            {id:'read',types:['read'],apply(){
+                const id=targets[0];b.guards=b.guards.filter(g=>g.by!==id);b.exposed[id]=method(state,SKILL_IDS.inquiry,'inquiry','read',context,6)?2:1;
+                b.last=`You compared ${name(id)}’s visible response and interrupted the held frame. ${b.exposed[id]} native strike opening${b.exposed[id]===1?'':'s'} remain.`;
+            }},
+            {id:'wedge',types:['wedge'],apply(){
+                applySimulationEffects(plan,[{type:'item',key:FEATURE_LOG,amount:-1}],{actorId:'player'},registry,`feature-action:${state.sequence+1}`,{spending:true});b.wedge=true;
+                b.guards=b.guards.filter(g=>g.by!==FEATURE_SHIELD);b.objective.progress=Math.min(3,b.objective.progress+(method(state,SKILL_IDS.timber,'timber','wedge',context,6)?2:1));
+                b.last='Your real log split the shield support. Anchoring ended, and the gate gained actual progress.';
+            }},
+            {id:'signal',types:['signal'],apply(){b.signal=true;b.last='Lio acknowledges the learned release signal. His next guard spends one stamina and one of his own guard efforts.';}},
+            {id:'objective',types:['objective'],apply(){b.objective.progress++;b.last=`You raised the gate: ${b.objective.progress}/3. The tollkeepers can still strike until passage is secured.`;}},
+            {id:'escape',types:['escape'],apply(){
+                const gain=quote.escapeGain??(c.opportunity==='retreat'&&reference?2:method(state,SKILL_IDS.trail,'trail','exit',context,6)?2:1);b.escape.progress=Math.min(b.escape.required,b.escape.progress+gain);
+                b.last=`You advanced the retreat line: ${b.escape.progress}/${b.escape.required}${c.opportunity==='retreat'&&reference?' using the defense-earned opening (1 stamina)':''}. A landed shield rush can close one step.`;
+            }},
+            {id:'strike',types:['strike'],apply(){
+                const attacker=bindings[c.actorId].snapshot,lines=[];
+                for(const requested of targets) {
+                    let targetId=requested,g=b.guards.find(g=>g.target===requested);
+                    if(g?.by===FEATURE_HELPER&&!(b.schema===5?remainderCombatFitLioSupported(plan.state):featurePowerFacts(plan.state,context)['skills.lioSupported'])){removeFighter(plan,FEATURE_HELPER,'unsupported');g=null;}
+                    const prepared=b.schema===5?prepareRemainderCombatObjectivesIncomingGuard(plan,c,requested,context):null;
+                    if(prepared)g=prepared.guard;
+                    if(g&&b.fighters[g.by]?.status==='active'&&hp(g.by).health>1){targetId=g.by;if(!prepared)b.guards=b.guards.filter(x=>x!==g);b.guardsTaken++;}
+                    const victim=bindings[targetId].snapshot,focused=b.focused.includes(requested),exposed=(b.exposed[requested]||0)>0;
+                    const stats={...victim.stats},temporaryShield=prepared?.temporaryShield??(g?.mode==='lash'?4:0);
+                    if(b.schema===5)stats.stamina=hp(targetId).stamina;
+                    if(g)stats.defense+=prepared?.defenseBonus??(g.mode==='interpose'?3:g.mode==='redirect'?1:2);
+                    if(temporaryShield)stats.block_chance=Math.max(stats.block_chance||0,.65);
+                    const hookAftermath=b.schema===5?remainderCombatFitHookAftermath(plan.state,b,targetId):null;
+                    const strike=rollCombatStrike({attackPower:attacker.attackPower*(hadStamina&&hp(c.actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:stats,shield:Math.max(victim.shield,temporaryShield),shieldSkill:victim.shieldSkill,
+                        hitModifier:(focused?1.25:1)*(exposed?1.2:1)*(reference&&c.opportunity==='counter'?1.2:1),damageModifier:targets.length>1?.65:reference&&c.opportunity==='counter'?1.2:1,random});
+                    const previousHealth=hp(targetId).health;
+                    const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,stats,0,attacker.stats.armor_penetration??0):0;hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
+                    fieldOutcomes.push({targetId,kind:strike.kind,damage:previousHealth-hp(targetId).health,guarded:!!g});
+                    if(focused)b.focused=b.focused.filter(id=>id!==requested);if(exposed)b.exposed[requested]--;
+                    const anchored=foes.includes(c.actorId)&&liveIds(b).includes(FEATURE_SHIELD)&&featureOwnedGear(plan.state,FEATURE_SHIELD,'field_frame',FEATURE_HARNESS)&&!b.wedge;
+                    if(g&&strike.kind!=='evaded'&&(g.mode==='redirect'||g.by===FEATURE_HELPER&&featurePowerFacts(state,context)['feature.party.drills']>=4)&&!anchored)hp(c.actorId).stamina=Math.max(0,hp(c.actorId).stamina-2);
+                    if(c.actorId===FEATURE_SHIELD&&(!reference||c.technique==='rush')&&strike.kind==='hit'&&requested==='player')b.escape.progress=Math.max(0,b.escape.progress-1);
+                    if(c.actorId===FEATURE_HOOK&&(!reference||c.technique==='hook')&&featureOwnedGear(plan.state,FEATURE_HOOK,'hook_pole',FEATURE_HOOK_POLE)&&strike.kind==='hit'){hp(targetId).stamina=Math.max(0,hp(targetId).stamina-(hookAftermath?.extraStaminaLoss??1));b.guards=b.guards.filter(x=>x.by!==targetId);if(hookAftermath){const r=remainderCombatFitHookReceipt(targetId,hookAftermath,{action:b.actions+1,sequence:state.sequence+1});if(r)fitReceipts.push(r);}}
+                    const defended=!!g&&foes.includes(c.actorId)&&requested==='player'&&hp(targetId).health>1&&(strike.kind==='blocked'||strike.kind==='hit'&&damage<mitigateCombatDamageFromStats(strike.values,victim.stats,0,attacker.stats.armor_penetration??0));
+                    outcomes.push({targetId,kind:strike.kind,damage,defended});
+                    if(reference&&defended&&!b.opportunity) {
+                        b.opportunity={earnedAction:b.actions+1,attackerId:c.actorId,defenderId:targetId,playerMove:b.fighters.player.moves};
+                        lines.push('The held defense earned one next-choice opening: retreat for 1 stamina or counter for 2; any other player choice lets it expire.');
+                    }
+                    lines.push(`${reference&&c.technique==='hook'?name(c.actorId)+' committed a pole pull. ':reference&&c.technique==='rush'?name(c.actorId)+' rushed with the frame. ':reference&&c.technique==='jab'?name(c.actorId)+' used a short bodily jab. ':''}${name(c.actorId)} ${strike.kind==='hit'?`hit ${name(targetId)} for ${Math.round(damage*10)/10}${strike.critted?' (critical)':''}`:strike.kind==='blocked'?`met ${name(targetId)}’s full block`:`missed ${name(targetId)}`}${g&&anchored?' [anchored: fatigue counter resisted]':''}.`);
+                    if(hp(targetId).health===1){if(targetId==='player')result='lost';else removeFighter(plan,targetId,'yielded');}
+                    if(result)break;
+                }
+                b.last=lines.join(' ').slice(0,500);
+            }}
+        ],settle(){
+            b.actions++;role.moves++;plan.state.sequence++;
+            recordFieldCareStrike(plan,registry,session,c,fieldOutcomes,context,featureOwnedGear(plan.state,FEATURE_HOOK,'hook_pole',FEATURE_HOOK_POLE));
+            if(b.schema===5){const fit=settleRemainderCombatFitAction(plan.state,session,c,quote.fitQuote,{action:b.actions,sequence:plan.state.sequence});b.combatFit=retainRemainderCombatFitHookReceipts(fit.combatFit,fitReceipts);if(fit.module!=null)plan.state.auditRemainder.modules.combat_fit=fit.module;fitReceipts.unshift(...fit.receipt);}
+            if(reference&&b.opportunity&&b.fighters[b.opportunity.attackerId]?.status!=='active')opportunityReceipt=closeOpportunity(b,'expired_target',b.actions);
+            const receipt={action:b.actions,type:c.type,actorId:c.actorId,targets:[...targets],text:b.last,...(b.schema===5?{combatFit:fitReceipts,technique:c.technique??null}:{}),...(reference?{nonce:{sessionId:session.id,sequence:state.sequence,action:c.action,seed:c.seed},outcomes}: {})};
+            b.receipts.push(receipt);b.receipts=b.receipts.slice(-16);
+            // Parent consumes this actual staged result even when finish removes session.
+            plan.referenceBattleAction={sessionId:session.id,action:b.actions,actorId:c.actorId,type:c.type};
+            plan.featureBattleReceipt={...structuredClone(receipt),sessionId:session.id,sequence:plan.state.sequence,schema:b.schema,opportunity:opportunityReceipt};
+            result=conflictResult([
+                {result:'objective',when:()=>b.objective.progress>=3},
+                {result:'escaped',when:()=>b.escape.progress>=b.escape.required},
+                {result:'won',when:()=>!liveIds(b,'defenders').length}
+            ],result);
+            if(result){if(result==='lost')plan.defeat=savedBattleLoss(foes.filter(id=>b.fighters[id]?.status==='active').map(name));publishResult(result);plan.featureBattleReceipt.result=result;if(reference)plan.featureBattleReceipt.opportunity=b.opportunityReceipts.at(-1)||null;}
+            else if(reference)validateFeatureBattle(b,session,plan.state);
+            plan.native={hpToFull:hp('player').max_health-hp('player').health,staminaToFull:hp('player').max_stamina-hp('player').stamina};
+        }};
+    }
+};
 export function commitFeatureBattleAction(state,registry,c,context,bindings={}) {
     if(state.simulation?.sessions.player?.nativeBattle?.schema===6){const plan=commitCohortAction(state,registry,c,context,bindings);validateExpansionState(plan.state,registry);return plan;}
     const quote=previewFeatureBattleAction(state,registry,c,context,bindings);check(quote.eligible,quote.reasons.join(' '));
-    const plan=planFor(state,context),s=plan.state.simulation,session=s.sessions.player,b=session.nativeBattle;
-    const hp=id=>id==='player'?plan.vitals.player:s.people[id].vitals;
-    const name=id=>id==='player'?'You':id===FEATURE_HELPER?'Lio':id===FEATURE_SHIELD?'Nera':'Oren';
-    const random=()=>{b.seed=xorshift32(b.seed);return b.seed/0x100000000;};
-    const role=b.fighters[c.actorId],hadStamina=hp(c.actorId).stamina>0;hp(c.actorId).stamina-=quote.cost;
-    let result=null,targets=quote.targets,outcomes=[],fieldOutcomes=[],opportunityReceipt=null;
-    const fitReceipts=[];
-    beforeRemainderCombatObjectivesBattleAction(plan,c,context);
-    const optionalResult=applyRemainderCombatObjectivesBattleAction(plan,c,context);
-    if(optionalResult.effects?.length)applySimulationEffects(plan,optionalResult.effects,{actorId:'player'},registry,`feature-action:${state.sequence+1}`);
-    const reference=b.schema>=FEATURE_REFERENCE_BATTLE_SCHEMA;
-    if(reference&&c.actorId==='player'&&b.opportunity)opportunityReceipt=closeOpportunity(b,c.opportunity==='retreat'?'used_retreat':c.opportunity==='counter'?'used_counter':'expired_choice',b.actions+1);
-    if(optionalResult.handled){b.last=optionalResult.text;if(optionalResult.escapeGain)b.escape.progress=Math.min(b.escape.required,b.escape.progress+optionalResult.escapeGain);}
-    else if(c.type==='withdraw'){b.last='You withdraw before another blow. Spent supplies and injuries remain.';result='withdrawn';}
-    else if(c.type==='release'){removeFighter(plan,c.actorId,'released');b.last='Lio steps out by agreement; his own condition and equipment remain.';}
-    else if(['guard','interpose','redirect','lash'].includes(c.type)) {
-        if(c.actorId===FEATURE_HELPER){plan.state.actors[FEATURE_HELPER].resources.brace_effort--;b.signal=false;}
-        if(c.type==='lash')applySimulationEffects(plan,[{type:'item',key:FEATURE_KIT,amount:-1}],{actorId:'player'},registry,`feature-action:${state.sequence+1}`,{spending:true});
-        for(const target of targets)b.guards.push({by:c.actorId,target,mode:c.type==='guard'?'ordinary':c.type});
-        b.last=`${name(c.actorId)} prepared ${c.type} for ${targets.map(name).join(' and ')}; spent ${quote.cost} stamina${c.actorId===FEATURE_HELPER?' and one guard effort':''}${c.type==='lash'?' and one kit':''}.`;
-    }else if(c.type==='track'){b.focused=[...targets];b.last=`You tracked ${targets.map(name).join(' and ')}. The next corresponding native strike uses the actual opening.`;}
-    else if(c.type==='read') {
-        const id=targets[0];b.guards=b.guards.filter(g=>g.by!==id);b.exposed[id]=method(state,SKILL_IDS.inquiry,'inquiry','read',context,6)?2:1;
-        b.last=`You compared ${name(id)}’s visible response and interrupted the held frame. ${b.exposed[id]} native strike opening${b.exposed[id]===1?'':'s'} remain.`;
-    }else if(c.type==='wedge') {
-        applySimulationEffects(plan,[{type:'item',key:FEATURE_LOG,amount:-1}],{actorId:'player'},registry,`feature-action:${state.sequence+1}`,{spending:true});b.wedge=true;
-        b.guards=b.guards.filter(g=>g.by!==FEATURE_SHIELD);b.objective.progress=Math.min(3,b.objective.progress+(method(state,SKILL_IDS.timber,'timber','wedge',context,6)?2:1));
-        b.last='Your real log split the shield support. Anchoring ended, and the gate gained actual progress.';
-    }else if(c.type==='signal'){b.signal=true;b.last='Lio acknowledges the learned release signal. His next guard spends one stamina and one of his own guard efforts.';}
-    else if(c.type==='objective'){b.objective.progress++;b.last=`You raised the gate: ${b.objective.progress}/3. The tollkeepers can still strike until passage is secured.`;}
-    else if(c.type==='escape') {
-        const gain=quote.escapeGain??(c.opportunity==='retreat'&&reference?2:method(state,SKILL_IDS.trail,'trail','exit',context,6)?2:1);b.escape.progress=Math.min(b.escape.required,b.escape.progress+gain);
-        b.last=`You advanced the retreat line: ${b.escape.progress}/${b.escape.required}${c.opportunity==='retreat'&&reference?' using the defense-earned opening (1 stamina)':''}. A landed shield rush can close one step.`;
-    }else if(c.type==='strike') {
-        const attacker=bindings[c.actorId].snapshot,lines=[];
-        for(const requested of targets) {
-            let targetId=requested,g=b.guards.find(g=>g.target===requested);
-            if(g?.by===FEATURE_HELPER&&!(b.schema===5?remainderCombatFitLioSupported(plan.state):featurePowerFacts(plan.state,context)['skills.lioSupported'])){removeFighter(plan,FEATURE_HELPER,'unsupported');g=null;}
-            const prepared=b.schema===5?prepareRemainderCombatObjectivesIncomingGuard(plan,c,requested,context):null;
-            if(prepared)g=prepared.guard;
-            if(g&&b.fighters[g.by]?.status==='active'&&hp(g.by).health>1){targetId=g.by;if(!prepared)b.guards=b.guards.filter(x=>x!==g);b.guardsTaken++;}
-            const victim=bindings[targetId].snapshot,focused=b.focused.includes(requested),exposed=(b.exposed[requested]||0)>0;
-            const stats={...victim.stats},temporaryShield=prepared?.temporaryShield??(g?.mode==='lash'?4:0);
-            if(b.schema===5)stats.stamina=hp(targetId).stamina;
-            if(g)stats.defense+=prepared?.defenseBonus??(g.mode==='interpose'?3:g.mode==='redirect'?1:2);
-            if(temporaryShield)stats.block_chance=Math.max(stats.block_chance||0,.65);
-            const hookAftermath=b.schema===5?remainderCombatFitHookAftermath(plan.state,b,targetId):null;
-            const strike=rollCombatStrike({attackPower:attacker.attackPower*(hadStamina&&hp(c.actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:stats,shield:Math.max(victim.shield,temporaryShield),shieldSkill:victim.shieldSkill,
-                hitModifier:(focused?1.25:1)*(exposed?1.2:1)*(reference&&c.opportunity==='counter'?1.2:1),damageModifier:targets.length>1?.65:reference&&c.opportunity==='counter'?1.2:1,random});
-            const previousHealth=hp(targetId).health;
-            const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,stats,0,attacker.stats.armor_penetration??0):0;hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
-            fieldOutcomes.push({targetId,kind:strike.kind,damage:previousHealth-hp(targetId).health,guarded:!!g});
-            if(focused)b.focused=b.focused.filter(id=>id!==requested);if(exposed)b.exposed[requested]--;
-            const anchored=foes.includes(c.actorId)&&liveIds(b).includes(FEATURE_SHIELD)&&featureOwnedGear(plan.state,FEATURE_SHIELD,'field_frame',FEATURE_HARNESS)&&!b.wedge;
-            if(g&&strike.kind!=='evaded'&&(g.mode==='redirect'||g.by===FEATURE_HELPER&&featurePowerFacts(state,context)['feature.party.drills']>=4)&&!anchored)hp(c.actorId).stamina=Math.max(0,hp(c.actorId).stamina-2);
-            if(c.actorId===FEATURE_SHIELD&&(!reference||c.technique==='rush')&&strike.kind==='hit'&&requested==='player')b.escape.progress=Math.max(0,b.escape.progress-1);
-            if(c.actorId===FEATURE_HOOK&&(!reference||c.technique==='hook')&&featureOwnedGear(plan.state,FEATURE_HOOK,'hook_pole',FEATURE_HOOK_POLE)&&strike.kind==='hit'){hp(targetId).stamina=Math.max(0,hp(targetId).stamina-(hookAftermath?.extraStaminaLoss??1));b.guards=b.guards.filter(x=>x.by!==targetId);if(hookAftermath){const r=remainderCombatFitHookReceipt(targetId,hookAftermath,{action:b.actions+1,sequence:state.sequence+1});if(r)fitReceipts.push(r);}}
-            const defended=!!g&&foes.includes(c.actorId)&&requested==='player'&&hp(targetId).health>1&&(strike.kind==='blocked'||strike.kind==='hit'&&damage<mitigateCombatDamageFromStats(strike.values,victim.stats,0,attacker.stats.armor_penetration??0));
-            outcomes.push({targetId,kind:strike.kind,damage,defended});
-            if(reference&&defended&&!b.opportunity) {
-                b.opportunity={earnedAction:b.actions+1,attackerId:c.actorId,defenderId:targetId,playerMove:b.fighters.player.moves};
-                lines.push('The held defense earned one next-choice opening: retreat for 1 stamina or counter for 2; any other player choice lets it expire.');
-            }
-            lines.push(`${reference&&c.technique==='hook'?name(c.actorId)+' committed a pole pull. ':reference&&c.technique==='rush'?name(c.actorId)+' rushed with the frame. ':reference&&c.technique==='jab'?name(c.actorId)+' used a short bodily jab. ':''}${name(c.actorId)} ${strike.kind==='hit'?`hit ${name(targetId)} for ${Math.round(damage*10)/10}${strike.critted?' (critical)':''}`:strike.kind==='blocked'?`met ${name(targetId)}’s full block`:`missed ${name(targetId)}`}${g&&anchored?' [anchored: fatigue counter resisted]':''}.`);
-            if(hp(targetId).health===1){if(targetId==='player')result='lost';else removeFighter(plan,targetId,'yielded');}
-            if(result)break;
-        }
-        b.last=lines.join(' ').slice(0,500);
-    }
-    b.actions++;role.moves++;plan.state.sequence++;
-    recordFieldCareStrike(plan,registry,session,c,fieldOutcomes,context,featureOwnedGear(plan.state,FEATURE_HOOK,'hook_pole',FEATURE_HOOK_POLE));
-    if(b.schema===5){const fit=settleRemainderCombatFitAction(plan.state,session,c,quote.fitQuote,{action:b.actions,sequence:plan.state.sequence});b.combatFit=retainRemainderCombatFitHookReceipts(fit.combatFit,fitReceipts);if(fit.module!=null)plan.state.auditRemainder.modules.combat_fit=fit.module;fitReceipts.unshift(...fit.receipt);}
-    if(reference&&b.opportunity&&b.fighters[b.opportunity.attackerId]?.status!=='active')opportunityReceipt=closeOpportunity(b,'expired_target',b.actions);
-    const receipt={action:b.actions,type:c.type,actorId:c.actorId,targets:[...targets],text:b.last,...(b.schema===5?{combatFit:fitReceipts,technique:c.technique??null}:{}),...(reference?{nonce:{sessionId:session.id,sequence:state.sequence,action:c.action,seed:c.seed},outcomes}: {})};
-    b.receipts.push(receipt);b.receipts=b.receipts.slice(-16);
-    // Parent consumes this actual staged result even when finish removes session.
-    plan.referenceBattleAction={sessionId:session.id,action:b.actions,actorId:c.actorId,type:c.type};
-    plan.featureBattleReceipt={...structuredClone(receipt),sessionId:session.id,sequence:plan.state.sequence,schema:b.schema,opportunity:opportunityReceipt};
-    if(!result&&b.objective.progress>=3)result='objective';
-    if(!result&&b.escape.progress>=b.escape.required)result='escaped';
-    if(!result&&!liveIds(b,'defenders').length)result='won';
-    if(result){if(result==='lost')plan.defeat=savedBattleLoss(foes.filter(id=>b.fighters[id]?.status==='active').map(name));finish(plan,registry,result,context);plan.featureBattleReceipt.result=result;if(reference)plan.featureBattleReceipt.opportunity=b.opportunityReceipts.at(-1)||null;}
-    else if(reference)validateFeatureBattle(b,session,plan.state);
-    plan.native={hpToFull:hp('player').max_health-hp('player').health,staminaToFull:hp('player').max_stamina-hp('player').stamina};
-    validateExpansionState(plan.state,registry);return plan;
+    return runConflictFrame(sluiceConflict,{state,registry,command:c,context,bindings,quote});
 }
+
 export function withdrawFeatureBattle(state,registry,context,token) {
     return commitFeatureBattleAction(state,registry,{...token,type:'withdraw',actorId:'player'},context);
 }

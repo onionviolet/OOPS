@@ -1,6 +1,6 @@
 import {ensureRehearsedFoe,rehearseOpening} from './rehearsed_foe.js';
 import {savedBattleLoss} from './defeat_domain.js';
-import {xorshift32} from './hash_rng.js';
+import {legacyConflictRandom,runConflictFrame} from './conflict_frame.js';
 import {check} from './basics.js';
 import {validateNativeBattle,PARTY_HELPER,PARTY_METHOD} from './native_battle_contracts.js';
 import {commitSimulationCommand,simulationOccupiesActor} from './simulation.js';
@@ -44,7 +44,7 @@ export function initializePartyBattle(state,registry,command,context,expectedSeq
     applySimulationEffects(plan,[{type:'resource',native:true,key:'money',amount:-1},{type:'resource',actor:PARTY_HELPER,key:'coins',amount:1}],{actorId:'player'},registry,session.id,{spending:false});
     validateExpansionState(plan.state,registry);return plan;
 }
-function planFor(state,context){return {state:structuredClone(state),external:structuredClone(context.external),gameplay:structuredClone(context.gameplay),vitals:structuredClone(context.vitals),acquisitions:[],unlocks:[]};}
+
 function helperLeaves(plan,status) {
     const session=plan.state.simulation.sessions.player,b=session.nativeBattle;
     b.fighters[PARTY_HELPER].status=status;b.guard=null;
@@ -63,48 +63,59 @@ function finish(plan,registry,result) {
     state.actors.player.completed[session.commandId]=(state.actors.player.completed[session.commandId]||0)+1;
     s.log.push({at:state.clock,text:`Party road contest: ${result}. Lio took ${b.guardsTaken} guarded attempts.`,cause});s.log=s.log.slice(-100);delete s.sessions.player;
 }
+const partyConflict={id:'party.braced_contest',revision:1,sides:[['player',PARTY_HELPER],[ROAD_RIVAL]],objective:'yield',results:{won:finish,lost:finish,withdrawn:finish},random:legacyConflictRandom,validate:validateExpansionState,
+    prepare({state,registry,command,context,plan,session,battle:b,random,publishResult}) {
+        const s=plan.state.simulation,actorId=command.actorId;
+        const hp=id=>id==='player'?plan.vitals.player:s.people[id].vitals;
+        return {moves:[
+            {id:'withdraw',types:['withdraw'],apply:()=>publishResult('withdrawn')},
+            {id:'release',types:['release'],apply(){
+                check(actorId===PARTY_HELPER,'Only Lio can be released separately.');helperLeaves(plan,'released');b.last='Lio steps out by agreement. The player may continue alone.';
+            }},
+            {id:'guard',when:()=>actorId===PARTY_HELPER,apply(){
+                check(command.type==='guard'&&command.targetId==='player','Lio guards the player; he does not attack or guard an enemy.');
+                check(!b.guard,'The existing guard is still held.');
+                const unsupported=supportReasons(plan.state);
+                if(unsupported.length){helperLeaves(plan,hp(PARTY_HELPER).health<=1?'yielded':'unsupported');b.last=unsupported.join(' ')+' Lio steps out.';}
+                else if(hp(PARTY_HELPER).stamina<2||plan.state.actors[PARTY_HELPER].resources.brace_effort<1){helperLeaves(plan,'exhausted');b.last='Lio has no guard effort left and steps out.';}
+                else{hp(PARTY_HELPER).stamina-=2;plan.state.actors[PARTY_HELPER].resources.brace_effort--;b.guard=PARTY_HELPER;b.guardsPrepared++;b.last='Lio spends 2 stamina and 1 effort to brace for the next attempted blow against you.';}
+            }},
+            {id:'strike',apply(){
+                check(command.type==='strike'&&command.targetId===(actorId==='player'?ROAD_RIVAL:'player'),'Unsupported party action or target.');
+                let targetId=command.targetId;
+                if(actorId===ROAD_RIVAL&&b.guard){
+                    if(supportReasons(plan.state).length)helperLeaves(plan,hp(PARTY_HELPER).health<=1?'yielded':'unsupported');
+                    else{targetId=PARTY_HELPER;b.guard=null;b.guardsTaken++;}
+                }
+                const attacker=command.fighters?.[actorId],target=command.fighters?.[targetId];
+                check(attacker&&target&&Number.isFinite(attacker.attackPower)&&attacker.attackPower>=0,'Missing actual native fighter binding.');
+                check(hp(actorId).health>1&&hp(targetId).health>1,'A fighter has already yielded.');
+                const before=hp(actorId).stamina;hp(actorId).stamina=Math.max(0,before-Math.min(before,1/(attacker.stats.stamina_efficiency||1)));
+                const rehearsal=rehearseOpening(plan.state,registry,{actorId,targetId,sessionId:session.id,attacker});
+                if(rehearsal.tell)applySimulationEffects(plan,[{type:'knowledge',key:'cheat.rf1.tell',stage:'seen',value:rehearsal.tell}],{actorId},registry,session.id);
+                const strike=rollCombatStrike({attackPower:rehearsal.scale*attacker.attackPower*(hp(actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
+                const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,target.stats,0,attacker.stats.armor_penetration??0):0;
+                hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
+                b.last=`${actorId==='player'?'You':'Mara'} ${strike.kind==='hit'?`hit ${targetId===PARTY_HELPER?'Lio':targetId==='player'?'you':'Mara'} for ${Math.round(damage*10)/10}`:strike.kind==='blocked'?'met a full block':'missed'}.`;
+                if(targetId===PARTY_HELPER&&(hp(PARTY_HELPER).health===1||plan.state.actors[PARTY_HELPER].resources.brace_effort===0||hp(PARTY_HELPER).stamina<2))helperLeaves(plan,hp(PARTY_HELPER).health===1?'yielded':'exhausted');
+                if(hp(targetId).health===1&&targetId!==PARTY_HELPER){publishResult(targetId===ROAD_RIVAL?'won':'lost');if(targetId==='player')plan.defeat=savedBattleLoss(['Mara']);}
+            }}
+        ],settle(){
+            if(command.type==='withdraw')return;
+            b.actions++;b.fighters[actorId].moves++;plan.state.sequence++;
+            plan.native={hpToFull:hp('player').max_health-hp('player').health,staminaToFull:hp('player').max_stamina-hp('player').stamina};
+        }};
+    }
+};
 export function commitPartyBattleAction(state,registry,command,context) {
     const saved=state.simulation?.sessions.player;validateNativeBattle(saved?.nativeBattle,saved,state);
     check(saved.nativeBattle.schema===2&&command.sessionId===saved.id&&command.sequence===state.sequence&&command.action===saved.nativeBattle.actions,'This party action is stale or already settled.');
     const actorId=command.actorId,role=saved.nativeBattle.fighters[actorId];check(role?.status==='active','That fighter has already left the contest.');
-    const plan=planFor(state,context),s=plan.state.simulation,session=s.sessions.player,b=session.nativeBattle;
-    const hp=id=>id==='player'?plan.vitals.player:s.people[id].vitals;
-    if(command.type==='release') {
-        check(actorId===PARTY_HELPER,'Only Lio can be released separately.');helperLeaves(plan,'released');b.last='Lio steps out by agreement. The player may continue alone.';
-    }else if(actorId===PARTY_HELPER) {
-        check(command.type==='guard'&&command.targetId==='player','Lio guards the player; he does not attack or guard an enemy.');
-        check(!b.guard,'The existing guard is still held.');
-        const unsupported=supportReasons(plan.state);
-        if(unsupported.length){helperLeaves(plan,hp(PARTY_HELPER).health<=1?'yielded':'unsupported');b.last=unsupported.join(' ')+' Lio steps out.';}
-        else if(hp(PARTY_HELPER).stamina<2||plan.state.actors[PARTY_HELPER].resources.brace_effort<1){helperLeaves(plan,'exhausted');b.last='Lio has no guard effort left and steps out.';}
-        else{hp(PARTY_HELPER).stamina-=2;plan.state.actors[PARTY_HELPER].resources.brace_effort--;b.guard=PARTY_HELPER;b.guardsPrepared++;b.last='Lio spends 2 stamina and 1 effort to brace for the next attempted blow against you.';}
-    }else {
-        check(command.type==='strike'&&command.targetId===(actorId==='player'?ROAD_RIVAL:'player'),'Unsupported party action or target.');
-        let targetId=command.targetId;
-        if(actorId===ROAD_RIVAL&&b.guard){
-            if(supportReasons(plan.state).length)helperLeaves(plan,hp(PARTY_HELPER).health<=1?'yielded':'unsupported');
-            else{targetId=PARTY_HELPER;b.guard=null;b.guardsTaken++;}
-        }
-        const attacker=command.fighters?.[actorId],target=command.fighters?.[targetId];
-        check(attacker&&target&&Number.isFinite(attacker.attackPower)&&attacker.attackPower>=0,'Missing actual native fighter binding.');
-        check(hp(actorId).health>1&&hp(targetId).health>1,'A fighter has already yielded.');
-        const before=hp(actorId).stamina;hp(actorId).stamina=Math.max(0,before-Math.min(before,1/(attacker.stats.stamina_efficiency||1)));
-        const random=()=>{b.seed=xorshift32(b.seed);return b.seed/0x100000000;};
-        const rehearsal=rehearseOpening(plan.state,registry,{actorId,targetId,sessionId:session.id,attacker});
-        if(rehearsal.tell)applySimulationEffects(plan,[{type:'knowledge',key:'cheat.rf1.tell',stage:'seen',value:rehearsal.tell}],{actorId},registry,session.id);
-        const strike=rollCombatStrike({attackPower:rehearsal.scale*attacker.attackPower*(hp(actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
-        const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,target.stats,0,attacker.stats.armor_penetration??0):0;
-        hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
-        b.last=`${actorId==='player'?'You':'Mara'} ${strike.kind==='hit'?`hit ${targetId===PARTY_HELPER?'Lio':targetId==='player'?'you':'Mara'} for ${Math.round(damage*10)/10}`:strike.kind==='blocked'?'met a full block':'missed'}.`;
-        if(targetId===PARTY_HELPER&&(hp(PARTY_HELPER).health===1||plan.state.actors[PARTY_HELPER].resources.brace_effort===0||hp(PARTY_HELPER).stamina<2))helperLeaves(plan,hp(PARTY_HELPER).health===1?'yielded':'exhausted');
-        if(hp(targetId).health===1&&targetId!==PARTY_HELPER){finish(plan,registry,targetId===ROAD_RIVAL?'won':'lost');if(targetId==='player')plan.defeat=savedBattleLoss(['Mara']);}
-    }
-    b.actions++;b.fighters[actorId].moves++;plan.state.sequence++;
-    plan.native={hpToFull:hp('player').max_health-hp('player').health,staminaToFull:hp('player').max_stamina-hp('player').stamina};
-    validateExpansionState(plan.state,registry);return plan;
+    return runConflictFrame(partyConflict,{state,registry,context,command});
 }
+
 export function withdrawPartyBattle(state,registry,context,expectedSequence=state.sequence) {
     check(state.sequence===expectedSequence,'This party withdrawal is stale.');validateNativeBattle(state.simulation?.sessions.player?.nativeBattle,state.simulation?.sessions.player,state);
-    const plan=planFor(state,context);finish(plan,registry,'withdrawn');validateExpansionState(plan.state,registry);return plan;
+    return runConflictFrame(partyConflict,{state,registry,context,command:{type:'withdraw'}});
 }
 export function partyBattleView(state){const session=state.simulation?.sessions.player;return session?.nativeBattle?.schema===2?{sessionId:session.id,...session.nativeBattle}:null;}
