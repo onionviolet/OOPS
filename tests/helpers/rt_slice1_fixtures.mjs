@@ -15,13 +15,14 @@ export const fixtureNames = ['old-before-slice', 'crafted-low', 'crafted-high', 
 export async function rtSlice1Game() {
     const source = await readFile(new URL('src/main.js', root), 'utf8');
     assert.ok(source.includes('function update() {'));
-    assert.ok(source.includes('createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0])'));
+    const seedExpression = 'createExpansionState(replaySeed ?? crypto.getRandomValues(new Uint32Array(1))[0])';
+    assert.ok(source.includes(seedExpression));
     const bundle = await build({entryPoints: [fileURLToPath(new URL('src/main.js', root))], bundle: true,
         write: false, format: 'esm', platform: 'browser', target: 'es2022', plugins: [{name: 'rt-slice1-test-access', setup(b) {
             b.onLoad({filter: /[/\\]src[/\\]main\.js$/}, () => ({loader: 'js', resolveDir: fileURLToPath(new URL('src/', root)),
                 // Deterministic seed at construction, manual native clock instead of wall-time ticks.
                 contents: source.replace('function update() {', 'function update() { return;')
-                    .replace('createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0])', 'createExpansionState(17)') + `
+                    .replace(seedExpression, 'createExpansionState(17)') + `
                 globalThis.__rtSlice1 = {
                     save: create_save, load, encode: encodeSaveFile,
                     reward: process_rewards, advance: update_timer,

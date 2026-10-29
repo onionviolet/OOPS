@@ -151,3 +151,83 @@ Files changed for Resume 1: `src/book_world_lotm_host.js`, `tests/headless/cast_
 **Chrome still must confirm:** rebuild the combined current candidate, use a fresh scratch origin with the named whole-book journeys pack, open the Tingen panel, select `pick_be` and `enroll_be` through the actual fresh-life/probe/reload route, and verify the page stays open, reaches a readable first be snapshot, retains 616 journey offers as applicable, reports zero page errors, and survives Save/reload/Export/Import. The direct Node fixture starts through `enrollBeFresh`; it does not exercise the browser's detached fresh-life probe or establish its peak memory. Coordinator owns that browser floor and full suite. No commit, push, private-pack swap or normal-profile access in this resume.
 
 Resume 1 final integrity: owned source/test hashes and receipt links checked; the named source pack hash is unchanged. All lane processes have exited. **Ownership released to the coordinator.**
+
+## Resume 2: be-seat natural-minute cost with the whole-book acts pack, 2026-10-29
+
+Status: **implemented, below floor; Node 60-minute scale target measured; rebuilt Chrome confirmation remains**. Agent-verified, not human-reviewed. This resume follows the coordinator's report that the committed Resume 1 be start reaches a snapshot but natural play stalls with the acts candidate. This section supersedes Resume 1's requirement to show every remote journey: Weibao's Resume 2 explicitly requests quoting a control only at its place/origin or while it is a pending job.
+
+Seam and authority: the existing be-seat host's command projections, `quotePlaceActs`, facts frames, simulation registry, physical player location and native jobs remain the owners. Applicable rules AR1–AR16, AD36/43/45, CLR2/10/12, UR35/42/47/52 and scale considerations SZ1–SZ7, LSD126/138. Target viewport for the coordinator's remaining UI check is 1920×1080 desktop; local available controls retain their labels, costs, durations and refusal reasons, remote controls appear when their place is reached, and an outstanding job remains addressable. Mobile optimization remains deferred. No saved schema, clock, body, content or transaction owner changed.
+
+**F1, source data:** The 204-person candidate has 89 places, no journey rows and nine acts, eight at the opening place. The whole-book acts candidate has 1,500 people, 1,516 places, 616 journeys and 551 acts, with 12 journeys and 38 acts at the opening place. Pack SHA-256: 204-person `2ac83f4a7aa827f17ba5b67f338388fc271d2838e9de6897632dba613780946a`; acts candidate `b22d6829d74755187b7ec0db4729018ee062a843bdb1d49b62f036d23918393a`. Private packs were copied to scratch and not edited.
+
+**F2, cause and change:** The committed be projection still quoted every journey on every render, despite only 12 originating at the player's opening place. In the full-game Node fixture this contributed to 1,028 command previews and 1,809 simulation-facts calls per whole-book minute. The acts adapter already filtered by place, but recreated a full context for each of 38 local acts and searched all 551 source rows for each local result. The be host now admits journey origins, ordinary known greetings, and topic locations only at the player's actual place, or for a pending job. Place acts admit that same pending-job exception, index their source rows per quote, and share one read-only facts frame and context for local act quotes. Commands still use the existing preview, reason, canon and transaction paths. Topic talks without an authored place use their target's actual location. These are derived read models and retain no new state.
+
+**F3, before/after measurement:** Each sample is a full-game Node DOM fixture, seed 37, `enrollBeFresh`, followed by 60 successive `update_timer(1)` calls, each settled separately. Frozen copies of the same dependencies were used for both phases; scratch-only marks measure inclusive and exclusive time. Other lane processes and the four profile runs overlapped, so these elapsed-time comparisons are diagnostic under contention, not controlled Chrome pacing or a stable machine benchmark. The player state and `create_save()` bytes after all 60 minutes match exactly before and after for **both** packs. Each sample advances 60 game minutes without page errors.
+
+| Pack | Before mean ms/min | After mean ms/min | After/before |
+|---|---:|---:|---:|
+| 204 people | 2,742.95 | 2,378.98 | 0.867× |
+| Whole-book acts | 6,228.64 | 3,049.19 | 0.490× |
+
+The whole-book/204 ratio is **2.271× before and 1.282× after**, within the 1.5× Node target for these contended runs. The independent test below has a 3× regression budget and runs the two packs sequentially from one frozen dependency tree.
+
+**F4, per-minute phase attribution:** Cells are calls / inclusive milliseconds / exclusive milliseconds per minute. Inclusive timings overlap and cannot be summed. `simulationFacts` includes fact construction and cache hits; exclusive time excludes separately marked descendants. Some normal simulation work is unmarked, so these are attribution samples rather than a complete partition of elapsed time.
+
+| Phase | 204 before | Acts before | 204 after | Acts after |
+|---|---:|---:|---:|---:|
+| `previewSimulationCommand` | 381 / 679.2 / 30.3 | 1,028 / 2,693.1 / 174.5 | 380 / 525.0 / 26.4 | 422 / 1,010.8 / 142.9 |
+| `simulationFacts` | 546 / 844.0 / 821.9 | 1,809 / 4,000.6 / 3,953.6 | 545 / 677.3 / 663.5 | 599 / 1,176.7 / 1,161.4 |
+| `lotmFacts` | 45 / 40.7 / 40.7 | 108 / 89.1 / 89.1 | 29 / 25.3 / 25.3 | 30 / 27.1 / 27.1 |
+| `knownPeopleView` | 4 / 2.8 / 1.4 | 4 / 13.0 / 2.8 | 4 / 2.3 / 1.0 | 4 / 13.4 / 3.2 |
+| `castSettledPeople` | 4 / 1.4 / 1.4 | 4 / 10.2 / 10.2 | 4 / 1.3 / 1.3 | 4 / 10.2 / 10.2 |
+| Be panel `view` | 1 / 178.4 / 4.5 | 1 / 3,267.6 / 5.1 | 1 / 56.7 / 4.7 | 1 / 317.3 / 5.3 |
+| Panel `render` | 1 / 178.6 / 0.2 | 1 / 3,270.0 / 2.3 | 1 / 56.9 / 0.2 | 1 / 318.1 / 0.8 |
+| `quoteJourneys` | 1 / 0.0 / 0.0 | 1 / 2,510.1 / 42.6 | 1 / 0.0 / 0.0 | 1 / 101.4 / 1.4 |
+| `quotePlaceActs` | 1 / 141.2 / 6.6 | 1 / 701.6 / 42.7 | 1 / 35.6 / 0.6 | 1 / 190.5 / 2.4 |
+| `quoteTopicTalks` | 1 / 0.0 / 0.0 | 1 / 17.5 / 1.0 | 1 / 0.0 / 0.0 | 1 / 0.0 / 0.0 |
+| Pending place-act reports | 2 / 0.0 / 0.0 | 2 / 0.7 / 0.7 | 2 / 0.0 / 0.0 | 2 / 0.8 / 0.8 |
+| Pending topic reports | 2 / 0.0 / 0.0 | 2 / 0.1 / 0.1 | 2 / 0.0 / 0.0 | 2 / 0.1 / 0.1 |
+| Pending journey reports | 2 / 0.0 / 0.0 | 2 / 0.5 / 0.5 | 2 / 0.0 / 0.0 | 2 / 0.5 / 0.5 |
+
+The profile does not justify changing report settlement, people knowledge, or the UI renderer. The 60-minute fixture does not claim to reproduce the Chrome main-thread stall or its screenshot timeout.
+
+Files changed: `src/book_world_lotm_cast_host.js`, `src/book_world_lotm_host.js`, `src/place_acts.js`, `tests/cast_journeys.test.js`, `tests/cast_whole_book_scale.test.js`, `tests/headless/cast_scale_fixture.mjs`, `tests/headless/cast_scale_equivalence.test.js`, and this checkpoint. Other sessions changed `src/main.js`; it was not edited by this lane. Both profile phases used the same frozen copy of that concurrent input. The isolated build uses that copy without scratch-only profiling exports.
+
+| Check | Result | Gap |
+|---|---|---|
+| `node --test tests/cast_journeys.test.js tests/place_acts.test.js tests/lotm_be_seat.test.js tests/cast_whole_book_scale.test.js` | PASS 28/28 | Includes actual local journey, remote-origin removal, arrival, stale quote and save/reload/export/import on the earlier synthetic test version |
+| `node --test tests/cast_whole_book_scale.test.js` | PASS 5/5 | Final synthetic version exercises local, remote, pending-job and moved-player admissions across journey, act and topic offers |
+| Four `node --max-old-space-size=1024 tests/headless/cast_scale_fixture.mjs <scratch> be <output> span true be-natural` profile runs | PASS 60 minutes each; exact before/after state and save for both packs | Contended instrumented Node DOM; no Chrome timing claim. Outputs and profiles under `/tmp/p8r2-{before,after}-{small,whole}.json` |
+| `node /tmp/p8r2-view.mjs <before-root> <output>` and matching after invocation, then JSON comparisons | PASS | Actual acts pack opening: all 12 local journeys and 38 local acts have identical view objects; no opening topics/greetings in this fixture; full state and save also match. Synthetic test covers topic/pending/move cases |
+| `node --test --test-name-pattern='be natural minutes stay' tests/headless/cast_scale_equivalence.test.js` | PASS 1/1 | Independent sequential 60-minute comparison: 204-person 1,120.34 ms/min, whole-book 1,289.85 ms/min, **1.151×**, under both 3× regression budget and 1.5× Node target; Node DOM, not Chrome |
+| `node --test --test-name-pattern='whole-book journeys permit' tests/headless/cast_scale_equivalence.test.js` | PASS 1/1 | Journeys candidate be enrollment and Save/reload; checks all locally available journey IDs; no browser proof |
+| `npm run check:arch` | PASS | main 10064/10115, display 6730/6767, saves 310/310; 6 grandfathered main imports, 205 cyclic edges. Main included another session's existing changes; this lane adds no core-owner lines or cycles |
+| `BUILD_OUT=/tmp/yairpg-p8r2-build-final npm run build` in `/tmp/yairpg-p8r2-build-source` | PASS | Frozen combined source, bundle SHA-256 `5d419b208a93e637b0b3da3c05ad1dc57100708f6b19f4a94be172560bc0c5fb`; browser not exercised |
+| `node scripts/lane_review.mjs` with all seven source/test paths as grants and candidates | Zero outside-grant and top-level-await hits; six files match generic words | All matches also exist in the frozen before versions, including ordinary `world` and `audience` identifiers/comments; no new private source names |
+| `git diff --check` on owned paths | PASS | Other sessions' edits excluded |
+
+The first focused pass exposed an absent `householdActs` fixture case after the index was introduced; optional absent acts now produce an empty index and the focused rerun passes. The first after-small scratch launch raced its own setup and produced no measurement; it was restarted after setup finished. An early budget run was interrupted while performance runs overlapped, and is discarded.
+
+**Remaining coordinator Chrome gate:** rebuild the combined source, use the acts candidate in a fresh scratch origin, start `pick_be`/`enroll_be`, and verify natural minutes and a screenshot remain responsive at 1920×1080 with zero page errors. Compare natural minute cost against the 204-person pack under the same load; confirm local, remote-after-moving and pending controls, plus Save/reload/Export/Import. The Node fixture uses direct `enrollBeFresh`, not the detached browser fresh-life route. Full suite, installed-app behavior, human review and publication are not claimed. No commit or push.
+
+Resume 2 final integrity: owned source/test hashes, original pack hashes, receipt links and changed-line whitespace checked. Profiling, tests and builds used scratch copies; source changes remain uncommitted. **Ownership released to the coordinator.**
+
+## Resume 3: known-person away topics and seed fixture, 2026-10-29
+
+Status: **implemented, below floor; focused Node checks pass; CN11 Chrome fixture blocked by sandbox networking**. Agent-verified, not human-reviewed. The coordinator reports that the Resume 2 acts candidate be seat reached a snapshot and ran 31 game minutes in 20 seconds in Chrome. This resume changes topic disclosure after that browser result; it does not claim a rebuilt browser check of the changed topic behavior. Target remains the existing 1920×1080 desktop panel; mobile remains deferred. Applicable AR1–AR16, AD36/43, CLR2/10/12 and UR35/42/47/52; D2's person/topic disclosure remains the existing UI owner.
+
+**F1:** Resume 2 filtered known people's topics by location, so the existing D2 away topic vanished instead of showing its disabled away reason. `castTopicOffers` again quotes all topics for known/met people, plus pending jobs, regardless of topic place. The existing preview and `castTalkPreview` provide the unchanged local eligibility and away reason. Unknown people remain gated; journey origins and place acts remain local or pending as in Resume 2. The existing D2 test was not changed. The Resume 2 synthetic scale test was corrected to assert both known topics, a disabled away reason, local/pending journeys and acts, moving places, and unknown-person suppression. The known-person topic rule is restored, not deliberately changed.
+
+**F2:** CN11's seed source assertion and its deterministic source replacement live in `tests/helpers/rt_slice1_fixtures.mjs`. Both now use `createExpansionState(replaySeed ?? crypto.getRandomValues(new Uint32Array(1))[0])`, retaining the production crypto default and the fixture's deterministic `17` substitution. No runtime seed code changed.
+
+Files changed in Resume 3: `src/book_world_lotm_cast_host.js`, `tests/cast_whole_book_scale.test.js`, `tests/helpers/rt_slice1_fixtures.mjs`, and this checkpoint. The cast host, scale test and checkpoint already held the uncommitted Resume 2 lane changes; they were preserved. No saved schema, private pack or player save changed. Core-owner registration growth: zero; new cycles: zero.
+
+| Check | Result | Gap |
+|---|---|---|
+| `node --test tests/cast_topic_talk.test.js tests/native_save_fixtures.test.js tests/cast_whole_book_scale.test.js tests/place_acts.test.js tests/cast_journeys.test.js` | 24 PASS, 1 FAIL | D2's native topic job/choice/receipt test and the changed scale regression pass. CN11 gets past the fixed source assertion and build, then its browser harness fails at `listen EPERM: operation not permitted 127.0.0.1`; Chrome fixture assertions were not run. Log `/tmp/p8r3-tests.log` |
+| `node /tmp/p8r3-cn11-headless.mjs` | PASS 4/4 | The Node DOM runner decodes and loads all four CN11 fixtures and checks saved actor, level, inventory and crafting fields. It does not replace the Chrome harness or its complete town/skill assertions. Log `/tmp/p8r3-cn11-headless.log` |
+| `npm run check:arch` | PASS | main 10064/10115, display 6730/6767, saves 310/310; 6 grandfathered main imports, 205 cyclic edges |
+| `BUILD_OUT=/tmp/yairpg-p8r3-build npm run build` | PASS | Bundle SHA-256 `c667e4799edd06297810e58c2abcb24a7e655009c8f6046a690acd46e2c0f948`; combined shared-tree inputs, no browser exercise |
+| `git diff --check -- src/book_world_lotm_cast_host.js tests/helpers/rt_slice1_fixtures.mjs tests/cast_whole_book_scale.test.js docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P8_CHECKPOINT.md` | PASS | Owned paths only |
+
+Remaining coordinator check: rerun the requested five-file command in an environment that permits the CN11 loopback server; the prior full-suite result does not verify this new candidate. At 1920×1080 on the rebuilt combined browser candidate, confirm a known person's away topic appears disabled with its reason, and confirm local/pending journeys and acts remain responsive. Resume 2's prior Chrome timing is not a measurement of this changed candidate. No commit or push. **Ownership released to the coordinator.**

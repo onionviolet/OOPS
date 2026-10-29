@@ -47,13 +47,16 @@ export function castJourneyContext(state,context){
   facts:{...context.facts,'journey.hour':castCalendar(state).calendar.hour,'journey.money':context.external?.money||0}};
 }
 export function castJourneyOffers(state,preview,options={}){
- return lotmBe(state)&&castAvailable?quoteJourneys(state,castJourneyCommands,preview,{...options,label:castPlaceLabel}):[];
+ if(!lotmBe(state)||!castAvailable)return [];
+ const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
+ return quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
 }
 export let castTopicCommands=[];
 export function castTopicOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
- const known=state.simulation?.knowledge?.player||{};
- return quoteTopicTalks(state,castTopicCommands.filter(d=>known[`book.lotm.cast.known.${d.targetId}`]||known[`book.lotm.cast.met.${d.targetId}`]),preview,
+ // A known person's topics remain visible with their normal away reason.
+ const known=state.simulation?.knowledge?.player||{},pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
+ return quoteTopicTalks(state,castTopicCommands.filter(d=>pending.has(d.id)||known[`book.lotm.cast.known.${d.targetId}`]||known[`book.lotm.cast.met.${d.targetId}`]),preview,
   {...options,presence:(d,q)=>castTalkPreview(state,d,q),label:id=>id==='player'?'You':LOTM_CAST.people.find(p=>p.id===id)?.name||id});
 }
 export let castObjectCommands=[];

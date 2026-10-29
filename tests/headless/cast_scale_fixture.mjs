@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';import {readFile,writeFile} from 'node:f
 const [dir,kind,out,mode='span',wakeMode='true',probe='normal']=process.argv.slice(2),{boot}=await import(pathToFileURL(dir+'/scripts/headless/runner.mjs').href);
 const loadStart=performance.now(),phases=[];
 const mark=(name,start=loadStart,game=null)=>{const m=process.memoryUsage();const row={phase:name,ms:performance.now()-start,heapUsed:m.heapUsed,heapTotal:m.heapTotal,rss:m.rss,bodies:game?Object.keys(game.internals.expansionState.simulation?.people||{}).length:null};phases.push(row);if(probe==='be-reload')process.stderr.write(JSON.stringify(row)+'\n');};
+const traceStack=[];globalThis.__p8r2stats={};
+globalThis.__p8r2measure=(name,run)=>{const f={name,start:performance.now(),child:0};traceStack.push(f);try{return run();}finally{const ms=performance.now()-f.start;traceStack.pop();if(traceStack.length)traceStack.at(-1).child+=ms;const r=globalThis.__p8r2stats[name]||={calls:0,ms:0,self:0};r.calls++;r.ms+=ms;r.self+=ms-f.child;}};
 const g=await boot(null,{heroName:null,seed:37});let result;mark('boot',loadStart,g);
 try{
  let phaseStart=performance.now();await g.module.p5CastReady();await g.settle();mark('pack-ready',phaseStart,g);
@@ -12,14 +14,24 @@ try{
   await g.settle();assert.ok(g.internals.expansionState.lotm);assert.ok(Object.keys(g.internals.expansionState.simulation.people).length>10);
  }
  mark('enroll-and-settle',phaseStart,g);
- if(probe==='be-reload'){
+ if(probe==='be-natural'){
+  assert.equal(kind,'be');const start=g.internals.expansionState.clock,minutes=[];globalThis.__p8r2stats={};
+  for(let n=0;n<60;n++){
+   const before=g.internals.expansionState.clock,t=performance.now();g.internals.update_timer(1);await g.settle();
+   assert.equal(g.internals.expansionState.clock,before+1);minutes.push(performance.now()-t);assert.deepEqual(g.errors,[]);
+   const partial={kind,completed:n+1,delta:g.internals.expansionState.clock-start,minutes,stats:globalThis.__p8r2stats,heapUsed:process.memoryUsage().heapUsed};
+   await writeFile(out,JSON.stringify(partial));process.stderr.write(JSON.stringify({minute:n+1,ms:minutes.at(-1)})+'\n');
+  }
+  result={kind,completed:60,delta:g.internals.expansionState.clock-start,minutes,stats:globalThis.__p8r2stats,heapUsed:process.memoryUsage().heapUsed,state:JSON.stringify(g.internals.expansionState),save:g.internals.create_save(),errors:[...g.errors]};
+ }else if(probe==='be-reload'){
   assert.equal(kind,'be');phaseStart=performance.now();const before=JSON.stringify(g.internals.expansionState);await g.save();mark('save',phaseStart,g);
   phaseStart=performance.now();await g.reload();await g.module.p5CastReady();await g.settle();mark('reload-and-settle',phaseStart,g);
   assert.equal(JSON.stringify(g.internals.expansionState),before);assert.deepEqual(g.errors,[]);
   const pack=JSON.parse(await readFile(dir+'/private_packs/lotm-cast/cast.json','utf8'));
   const journeys=Array.isArray(pack.journeys)?pack.journeys:pack.journeys?.journeys||[];
   const offered=g.$$('[data-lotm-journeys] button').map(button=>button.dataset.lotm).sort();
-  assert.deepEqual(offered,journeys.map(row=>row.id).sort());
+  const at=g.internals.expansionState.simulation.people.player.location;
+  assert.deepEqual(offered,journeys.filter(row=>row.from===at).map(row=>row.id).sort());
   result={kind,phases,journeyOffers:offered.length,errors:[...g.errors],state:JSON.stringify(g.internals.expansionState),save:g.internals.create_save()};
   await writeFile(out,JSON.stringify(result));process.stdout.write(JSON.stringify({...result,state:undefined,save:undefined})+'\n');
  }else{

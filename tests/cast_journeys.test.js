@@ -126,7 +126,7 @@ try {
  assert.ok(button('fixture.journey.carriage'));assert.equal(button('fixture.journey.carriage').disabled,false);
  assert.equal(document.querySelector('[data-lotm-journeys]').dataset.perspective,'player');
  assert.equal(button('fixture.journey.closed').disabled,true);assert.match(button('fixture.journey.closed').title,/fare/);assert.match(button('fixture.journey.closed').title,/Service runs/);
- assert.equal(button('fixture.journey.return').disabled,true);
+ assert.equal(button('fixture.journey.return'),null); // Remote origins are quoted after arrival.
  g.module.t2Act('fixture.journey.carriage');
  assert.equal(g.internals.foundationSaveBlocked,false);
  let saved=await g.save();assert.equal(saved.character.money,3);

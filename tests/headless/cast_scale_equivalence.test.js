@@ -67,9 +67,27 @@ test('whole-book journeys permit a be-seat enrollment and save/reload without ea
  const out=join(temp,'result.json');
  const child=await exec(process.execPath,['--max-old-space-size=1024',join(root,'tests/headless/cast_scale_fixture.mjs'),dir,'be',out,'span','true','be-reload'],{timeout:220000,maxBuffer:1024*1024});
  const result=JSON.parse(await readFile(out,'utf8'));
- assert.deepEqual(result.errors,[]);assert.ok(result.journeyOffers>500);
+ assert.deepEqual(result.errors,[]);assert.ok(result.journeyOffers>0&&result.journeyOffers<100);
  assert.deepEqual(result.phases.map(p=>p.phase),['boot','pack-ready','enroll-and-settle','save','reload-and-settle']);
  assert.ok(result.phases.find(p=>p.phase==='enroll-and-settle').bodies<100);
  assert.ok(result.phases.find(p=>p.phase==='reload-and-settle').bodies<100);
  t.diagnostic(`Be fixture phase metrics: ${child.stdout.trim()}`);
+});
+
+test('be natural minutes stay within the whole-book scale budget', {timeout:720000},async t=>{
+ const small=join(root,packs,'cast-r1r2-candidate-2026-10-29.json');
+ const large=process.env.YAIRPG_SCALE_ACTS_PACK||join(root,packs,'cast-whole-book-acts-candidate-2026-10-29.json');
+ try{await Promise.all([readFile(small),readFile(large)]);}catch(e){if(e.code==='ENOENT'){t.skip('Private scale fixtures absent');return;}throw e;}
+ const temp=await mkdtemp(join(tmpdir(),'yairpg-scale-natural-')),samples=[];
+ // Freeze one dependency tree for both packs, including any concurrent source work.
+ let source=root;
+ for(const [name,pack] of [['small',small],['whole',large]]){
+  const dir=join(temp,name);await snapshot(source,dir,pack);source=dir;const out=join(temp,name+'.json');
+  await exec(process.execPath,['--max-old-space-size=1024',join(root,'tests/headless/cast_scale_fixture.mjs'),dir,'be',out,'span','true','be-natural'],{timeout:360000,maxBuffer:1024*1024});
+  const result=JSON.parse(await readFile(out,'utf8'));assert.equal(result.completed,60);assert.equal(result.delta,60);assert.deepEqual(result.errors,[]);
+  const mean=result.minutes.reduce((sum,n)=>sum+n,0)/result.minutes.length;samples.push({pack:name,meanMs:mean});
+ }
+ const ratio=samples[1].meanMs/samples[0].meanMs;
+ t.diagnostic(`60 natural minutes per pack, mean ms: ${JSON.stringify(samples)}, ratio: ${ratio.toFixed(3)}`);
+ assert.ok(ratio<3,`Whole-book natural-minute cost is ${ratio.toFixed(3)} times the 204-person candidate`);
 });

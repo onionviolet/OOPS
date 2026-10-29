@@ -47,9 +47,10 @@ export function objectNoticeability(state,worldId,object,{searching=false}={}){
   searchable:searching&&!!inside};
 }
 export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()=>({allowed:true})}={}){
- const place=state.simulation?.people?.player?.location;
- return commands.filter(d=>d.location===place).map(d=>{
-  const row=data.acts.find(r=>r.id===d.id),q=preview(d),decision=decide(d);
+ const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
+ const rows=new Map((data?.acts||[]).map(row=>[row.id,row]));
+ return commands.filter(d=>d.location===place||pending.has(d.id)).map(d=>{
+  const row=rows.get(d.id),q=preview(d),decision=decide(d);
   const reasons=[...(q.reasons||[]).map(r=>r.startsWith('Insufficient ')&&row.costReason?row.costReason:r),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
   return {id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}`,
    description:row.description,eligible:q.visible&&q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration};

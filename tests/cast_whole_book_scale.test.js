@@ -12,11 +12,14 @@ const fixture={schema:'lotm-cast/1',people:[person('fixture.person.arden','Arden
  bindings:{days:[{scene:'fixture.scene.1',day:1,from:0,to:300,label:'I',basis:'Authored test day.'}],clocks:[],schedule:[],beats:[]}};
 fixture.schedule.push({...row('fixture.row.role-visit','fixture.person.vela','fixture.place.home',100,200),source:'canon'});fixture.people[1].tier='role';fixture.people[2].tier='recurring';fixture.bindings.schedule=fixture.schedule;
 
+fixture.journeys={journeys:['home','shop'].map((place,n)=>({id:`fixture.journey.${place}`,from:`fixture.place.${place}`,to:`fixture.place.${n?'home':'shop'}`,means:'walk',label:'Travel',minutes:2,report:'Arrived.'}))};
+fixture.householdActs={objects:[],acts:['home','shop'].map(place=>({id:`fixture.act.${place}`,place:`fixture.place.${place}`,operation:'inspect',label:'Inspect',description:'Look carefully.',minutes:1,knowledgeKey:`fixture.seen.${place}`,report:'Inspected.'}))};
+fixture.topicTalks={talks:['home','shop'].map(place=>({id:`fixture.topic.${place}`,personId:'fixture.person.vela',topicId:`fixture.subject.${place}`,place:`fixture.place.${place}`,label:'Topic',description:'Discuss.',minutes:1,choices:[{id:'ask',label:'Ask',report:'Discussed.'}]}))};
 fixture.leadLife={actorId:'fixture.person.arden'};
 for(let n=0;n<1497;n++)fixture.people.push({...person('fixture.person.role'+n,'Role '+n),tier:'role'});
 const actualFetch=globalThis.fetch;
 globalThis.fetch=async path=>({ok:true,json:async()=>path.endsWith('manifest.json')?{schema:1,supplements:['lotm-cast/cast.json']}:structuredClone(fixture)});
-const {castNeedsFullContext,syncLotmCast,castSettledPeople,castEnrollmentPeople,castPeople,castWalkCommands,castWalkDefinition,castWalkDefinitionById,installCastWalk,castSyncDue,restoreUnavailableCast}=await import('../src/book_world_lotm_cast_host.js');
+const {castNeedsFullContext,syncLotmCast,castSettledPeople,castEnrollmentPeople,castPeople,castWalkCommands,castWalkDefinition,castWalkDefinitionById,installCastWalk,castSyncDue,restoreUnavailableCast,castJourneyOffers,castObjectOffers,castTopicOffers}=await import('../src/book_world_lotm_cast_host.js');
 const {whenCastLoaded}=await import('../src/book_world_lotm_cast_days.js');
 await whenCastLoaded();globalThis.fetch=actualFetch;
 const role=fixture.people[1].id;
@@ -64,4 +67,21 @@ test('a saved lazy walk installs its exact definition in a fresh registry before
  const {createSimulationRegistry}=await import('../src/simulation_contracts.js');
  const registry={simulation:createSimulationRegistry()},s=state();s.simulation.jobs=[{commandId:def.id}];
  restoreUnavailableCast(s,registry);assert.deepEqual(registry.simulation.commands.get(def.id),def);
+});
+
+test('journeys and acts quote locally or when pending; known people retain away topics',()=>{
+ const s=state();s.lotm.entryProfile='book.lead.be@1';s.simulation.people.player.location='fixture.place.home';
+ s.simulation.knowledge.player[`book.lotm.cast.known.${role}`]={value:'known'};
+ const calls=[],preview=d=>{calls.push(d.id);return {visible:true,eligible:true,reasons:[],duration:d.duration,costs:d.costs,effects:d.effects};};
+ const read=()=>[...castJourneyOffers(s,preview),...castObjectOffers(s,preview),...castTopicOffers(s,preview)];
+ let offers=read();assert.deepEqual(calls.sort(),['fixture.act.home','fixture.journey.home','fixture.topic.home.ask','fixture.topic.shop.ask']);
+ assert.deepEqual(offers.map(o=>o.id).sort(),calls);assert.ok(offers.every(o=>o.label&&Array.isArray(o.reasons)));
+ assert.equal(offers.find(o=>o.id==='fixture.topic.shop.ask').eligible,false);
+ assert.match(offers.find(o=>o.id==='fixture.topic.shop.ask').reasons.join(' '),/Away|away|return/);
+ calls.length=0;s.simulation.jobs=[{commandId:'fixture.journey.shop'},{commandId:'fixture.act.shop'},{commandId:'fixture.topic.shop.ask'}];
+ offers=read();assert.equal(offers.length,6);assert.equal(calls.length,6);
+ calls.length=0;s.simulation.jobs=[];s.simulation.people.player.location='fixture.place.shop';
+ offers=read();assert.deepEqual(calls.sort(),['fixture.act.shop','fixture.journey.shop','fixture.topic.home.ask','fixture.topic.shop.ask']);assert.equal(offers.length,4);
+ calls.length=0;delete s.simulation.knowledge.player[`book.lotm.cast.known.${role}`];read();
+ assert.deepEqual(calls.sort(),['fixture.act.shop','fixture.journey.shop']);
 });
