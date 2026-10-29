@@ -6832,3 +6832,8 @@ Recorded: those views are his direction. The design answers are the coordinator'
 
 Weibao's words (relayed by the cast-lives coordinator): "Make sure rules know that things are up for refactor/improvement in the future".
 Recorded as [AD45](RULES_INDEX.md#accepted-direction-rules-ad): what is built is the current best and open to refactor or improvement when there is a reason; "it is built this way" is never a reason by itself. Refactors follow AR9 and AR6, and checkpoints name known limits and the refactor they expect. Wired into GROUND_RULES, the runtime router row and the lane brief template.
+
+### Cast lives: timings need not be exact to the hour (2026-10-29)
+
+Weibao's words (relayed by the cast-lives coordinator): timings "dont have to be accurate to the hour, as long as all the features and events happens".
+Recorded: fidelity to the book means every event and feature happens; exact hours are not required where the text does not need them. The coordinator's proposals, not accepted, are in [lead-life systems design](gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md) section 18 (LSD156-LSD164): every event in the book's order inside its window; hours only where things interact (meetings, opening hours, daylight, deadlines, travel); relative phrases as order edges; a routine is usable with a place plus a band, an order edge or the role's hours; loop worlds such as MoL get a tighter default. Readers record bands and order rather than chasing unstated hours.
