@@ -1,0 +1,17 @@
+--- a/src/constraint_pack.js
++++ b/src/constraint_pack.js
+@@ -19,5 +19,13 @@
+  for(const r of pack.anchors||[])add(r,'anchor',window(r.dayWindow?.[0],0,1440,r.dayWindow?.[1]),r.id||`anchor:${r.actor}:${r.place}:${r.dayWindow?.join(':')||'unknown'}:${hashStreamSeed(0,JSON.stringify([r.locator,r.label,r.dateLabel]))}`);
+  for(const r of pack.contracts||[])add(r,'contract',r.window||window(r.day,r.from,r.to),r.id);
+  if(!pack.contracts?.length)gaps.push({what:'contracts',missing:'structured fight contracts'});
+- return {store:createConstraintStore(rows),gaps,revision:packRevision(pack)};
++ // R1 loose timing is a source graph, not an invented dated schedule. Expose
++ // it for inspectors and the scheduler adapter; unresolved days stay gaps.
++ const timing={
++  routines:(pack.routines||[]).map(r=>({...r,actor:actor(r.actor),place:place(r.place)})),
++  orderEdges:structuredClone(pack.orderEdges||[]),
++  worldHours:(pack.worldHours||[]).map(r=>({...r,place:place(r.place)}))
++ };
++ for(const r of timing.routines)gaps.push({id:r.id,what:'routine',missing:'dated-window',locator:r.locator});
++ return {store:createConstraintStore(rows),gaps,revision:packRevision(pack),timing};
+ }

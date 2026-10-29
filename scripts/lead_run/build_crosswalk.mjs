@@ -132,17 +132,19 @@ export function buildCrosswalk({registry, scenes, extras, world, slice, runtime 
     const metric = (usable, total) => ({usable, total, rate: total ? Math.round(10000 * usable / total) / 10000 : null});
     function fitness(scope) {
         const include = (item, row) => scope === 'all' || inSlice({locator: item?.locator || row?.locator}, slice);
-        let relationTotal = 0, relationOk = 0, routineTotal = 0, routineOk = 0, routineRegistry = 0;
+        let relationTotal = 0, relationOk = 0, routineTotal = 0, routineOk = 0, routineRegistry = 0, routineOld = 0;
         let reactsTotal = 0, reactsOk = 0, rulesTotal = 0, rulesField = 0, rulesKnown = 0;
         let sceneTotal = 0, sceneOk = 0, sceneRegistry = 0;
         const classes = {};
+        const hours = extras.filter(r => ['services', 'rules', 'rules_other'].includes(r.extra) && include(r, r));
         for (const row of extras) {
             if (['people', 'people_other'].includes(row.extra)) {
                 for (const rel of list(row.relations)) if (include(rel, row)) { relationTotal++; if (find(rel.with, 'person')) relationOk++; }
                 for (const slot of list(row.routine)) if (include(slot, row)) {
                     routineTotal++;
                     const p = place(slot.place, slot.locator || row.locator, scope === 'slice');
-                    const time = hasTime(slot);
+                    const time = hasTime(slot) || !!routineBand(slot) || hasRelativeTime(slot) || hours.some(r => matchesRoleHours(slot, row, r));
+                    if (p?.registry && hasTime(slot)) routineOld++;
                     if (p && time) { routineOk++; if (p.registry) routineRegistry++; }
                 }
                 for (const react of list(row.reacts)) if (include(react, row)) {
@@ -162,7 +164,7 @@ export function buildCrosswalk({registry, scenes, extras, world, slice, runtime 
             const outcome = list(sc.outcomes).some(o => nonempty(o.fact) && o.value != null && (typeof o.value !== 'string' || o.value.trim()));
             if (p && outcome) { sceneOk++; if (p.registry) sceneRegistry++; }
         }
-        return {relations: metric(relationOk, relationTotal), routines: {...metric(routineOk, routineTotal), registryPlaceAndTime: routineRegistry, proposedPlaceAndTime: routineOk - routineRegistry},
+        return {relations: metric(relationOk, relationTotal), routines: {...metric(routineOk, routineTotal), oldPlaceAndTime: metric(routineOld, routineTotal), timingBasis: 'band-or-order-or-role-hours', registryPlaceAndTime: routineRegistry, proposedPlaceAndTime: routineOk - routineRegistry},
             reacts: {...metric(reactsOk, reactsTotal), classes}, scenes: {...metric(sceneOk, sceneTotal), registryPlaceAndOutcome: sceneRegistry, proposedPlaceAndOutcome: sceneOk - sceneRegistry},
             rules: {...metric(rulesKnown, rulesTotal), costStatedField: rulesField}};
     }
@@ -204,6 +206,30 @@ export function hasTime(slot) {
     if (slot.window && ['from', 'to', 'start', 'end'].some(k => validTime(slot.window[k]))) return true;
     // A weekday/repeat interval alone is not an hour or time band.
     return /\b(mornings?|afternoons?|evenings?|nights?|dawn|dusk|noon|midnight|breakfast|lunchtime|dinner|\d{1,2}:\d{2}|\d{1,2}\s*(?:am|pm))\b/i.test(String(slot.days || ''));
+}
+
+// Metric helpers preserve source phrases; they do not invent clock hours or joins.
+export function routineBand(slot) {
+    const values = [slot.band, slot.timeOfDay?.value, slot.timeOfDay, slot.time, slot.days];
+    for (const value of values) if (typeof value === 'string') {
+        const match = /\b(morning|afternoon|evening|night|dawn|dusk|noon|midnight|daytime)s?\b/i.exec(value);
+        if (match) return match[1].toLowerCase();
+    }
+    return null;
+}
+export function relativeTiming(slot) {
+    for (const text of [slot.time, slot.timeOfDay, slot.days, slot.what].filter(v => typeof v === 'string')) {
+        const match = /\b(after|before)\s+([^,;.]+)/i.exec(text);
+        if (match) return {relation: match[1].toLowerCase(), target: match[2].trim()};
+        if (/\b(?:the )?next morning\b/i.test(text)) return {relation: 'after', target: 'previous-day', offsetDays: 1, band: 'morning'};
+    }
+    return null;
+}
+export function hasRelativeTime(slot) { return !!relativeTiming(slot) || !!slot.orderEdge; }
+export function matchesRoleHours(slot, person, row) {
+    const hours = row.hours;
+    if (typeof hours !== 'string' || !hours.trim() || /^(unknown|unstated|unspecified|not[- ](?:stated|mentioned|specified)|none|null|u|\?)$/i.test(hours.trim())) return false;
+    return !!(slot.place && row.place === slot.place || person?.role && row.role === person.role);
 }
 
 function readRows(dir, name) { return readFileSync(resolve(dir, name), 'utf8').split('\n').filter(l => l.trim()).map(JSON.parse); }
