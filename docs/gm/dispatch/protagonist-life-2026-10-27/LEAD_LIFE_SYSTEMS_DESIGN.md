@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD125 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD178 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -431,3 +431,36 @@ answered "none" (LOCAL_AGENT_CAPACITY_2026-10-28). D1 already stores windows (LS
 | LSD162 | **Loose windows are cheaper to run.** Cast beats fire anywhere in their window, so the clock can wake at window edges instead of minutes (LSD138); idle cost falls with looser data | ACCOUNT FOR NOW: P5 |
 | LSD163 | **Keep stated precision.** When the book gives an exact time (a clock strikes, a timetable, a midnight rite), it stays exact; those are often plot | No change |
 | LSD164 | **Loop worlds need more precision (dial).** In a time loop (MoL), events recur at the same times each loop and the protagonist exploits exact timing, so loop worlds set a tighter default and record observed times per loop. Per-world dial, not a global rule | ACCOUNT FOR NOW: MoL lane (MW3) |
+
+## 19. Everything the lead goes through: content scales, code does not (Weibao 2026-10-29; proposal)
+
+Weibao: "it feels like we could have millions and millions of lines, but like, less than 100k lines of code" and
+"How to implement everything it takes for the protagonist to go through their own life? more to consider?"
+
+Measured 2026-10-29 (`src/**/*.js`, 991 files, string literals counted by a regex pass): 158,912 lines, of which
+7,930 blank and 8,456 comment lines; 29% of bytes are string literals. 95 files are over half strings and hold
+29,635 lines (largest: `src/world_packs/book_mol_pack.js` 13,150 lines, `src/feature_expansion_book_roster.js`
+3,154, `src/feature_expansion_book_recognition.js` 3,022). So roughly 110-115k lines are logic and about 30k are
+content kept in code. The 27 `src/book_world_lotm_*` files are 2,857 lines; the LOTM book itself lives in
+`private_packs/lotm-cast/`. Replay evidence for the scaling claim: chapters 9-16 went from 0 of 54 steps to a row
+(before H2) to 26 of 54 (RV7, after H2's place-act operations); one mechanism lane moved yield more than review.
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD165 | **Code grows with mechanisms, content grows with steps.** The 11,159 steps collapse into verb families, families into effect operations (`simulation_effects.js`) and frames (LSD85-LSD87). A step costs a row; only a new operation, input or stop rule costs code. Reason: LSD148 at the step level; the RV7 jump is the proof | ACCOUNT FOR NOW |
+| LSD166 | **Per-step code is a smell, with a meter.** The gap census records, per covered step, which operation it uses; a report prints code lines added per newly covered step for each lane. The figure should fall lane over lane; a lane whose figure rises is building one-offs and gets reviewed before merge | LATER/DELEGATE: Luna low, a field in the X4 census output plus a printed ratio; done when two lanes' ratios are printed |
+| LSD167 | **Two tiers of coverage: reachable, then playable.** A step with no mechanism still becomes reachable through a generic canon-event act: the book's action shown as a card with its recorded outcomes (WA28 facts, LSD103 canon results), applied through existing effect operations. A mechanism later upgrades the card to a playable action with choices and checks. Fidelity counts reachable; depth counts playable. Reason: the canon run is forced (section 15), so a faithful run needs every step to happen, not every step to be a system. Dial: per weight; plot steps get mechanisms first, routine steps can stay cards | ACCOUNT FOR NOW: decide with MF1's output; the replay driver scores both tiers |
+| LSD168 | **Mechanisms before bulk review.** Review yield depends on how many operations exist, so bulk paragraph review waits until MF1's top families land; small RV sample shards (about 50 steps) run after each mechanism to measure the new yield. Reason: reviewing 10,000 steps against today's vocabulary would be redone after each mechanism | ACCOUNT FOR NOW: coordinator order, pending Weibao's yes |
+| LSD169 | **Expect a long tail; let cards hold it.** Family sizes are skewed (make or write 366, divination or ritual 232, ability 160, travel 1,272 steps). The top families earn mechanisms; one-off events (a single ceremony, a unique accident) stay LSD167 cards unless a later world reuses the shape. Reason: building a system for a step that occurs once is the per-step code LSD166 measures | ACCOUNT FOR NOW |
+| LSD170 | **Plan by volume, not by the first week.** Sections 2-8 are drawn from a clerk's week in volume 1; later volumes change scale (wider travel, higher powers, organisations, other places). Before mechanism lanes are ranked, MF1 or a Luna census prints family counts per volume, so a mechanism designed for volume 1 has parameters for the later ones (sequence, reach, cost) instead of a rewrite | LATER/DELEGATE: Luna low over the existing census; done when a family-by-volume table is saved beside the X4 census |
+| LSD171 | **Powers are a table over one mechanism.** "Use an ability" (160 steps) should be ability rows (id, pathway and sequence, means, cost, check profile, effects as operations, side effects such as loss of control) read by one use-a-power move (LSD73's ABR seam). Advancing a sequence adds rows; it never adds code unless an ability needs a new operation | ACCOUNT FOR NOW: brief line for the ability lane |
+| LSD172 | **Inner steps are knowledge changes, not buttons.** Many steps are thinking: deducing, recalling, planning, reading notes, dreaming, deciding to hide something. They write facts and beliefs (section 5, `people_knowledge.js`) and journal lines, and unlock or lock later actions. Default: an inner step runs as part of the act that prompts it (reading the notes yields the deduction); a "think it over" act exists for deductions the book gives no trigger for | ACCOUNT FOR NOW: MF1 classifies inner steps as their own family |
+| LSD173 | **Content out of `src/` over time.** About 30k lines of `src/` are content in code. New book and world content goes to data packs (public name-free data under `src/world_packs/` or `data/`, canon in `private_packs/`), so engine size tracks mechanisms. Existing files move only when a lane already touches them (AD45, no cleanup lane) | ACCOUNT FOR NOW |
+| LSD174 | **Token cost follows the residue, not the book.** Reading the book once is a fixed cost already paid (volume 1 at 1.4, volumes 2-8 at 1.3). Mapping is deterministic local code. Model judgment is spent only on steps that no operation covers, so cost per remaining step falls as mechanisms land. Track Codex window points per new control for each lane type (review, mechanism, mapper); RV6 and RV7 give the first review figures | ACCOUNT FOR NOW: coordinator log line per lane |
+| LSD175 | **A step inspector for whoever reviews.** For any step: its paragraph (through `cite_paragraphs.mjs`), family, mapped control or card, the operation it uses, and why it is a gap. Review lanes and Weibao read this instead of raw JSON; inspection only, never in saves (LSD145's sibling for steps) | LATER/DELEGATE: Luna medium after MF1; done when one gap step and one covered step render with all five fields |
+| LSD176 | **Per-family golden slices.** Each mechanism lane ships with a short replay slice of the steps it claims (seeded, headless, state hash) added to the LSD146 golden runs, so a later lane cannot silently break an earlier family | ACCOUNT FOR NOW |
+| LSD177 | **Reuse across worlds is the payoff test.** A mechanism counts as general when a second book's census (MoL or a later pack, `OTHER_BOOKS_READINESS.md`) maps steps to it with rows only. MF1's ranking prefers mechanisms whose families also appear in other books' readings | ACCOUNT FOR NOW: MF1 ranking factor |
+| LSD178 | **Done is a fidelity curve, not a date.** Progress reports give reachable share, playable share and strain per volume (LSD160), not lines written or steps reviewed | No change |
+
+Suggestions outside this round (not dispositions): a one-page family map showing family, step count, mechanism,
+tier and owner lane would let Weibao see the whole life at a glance once MF1 reports.
