@@ -50,7 +50,10 @@ One `figure.js` API: `track.orient`, `track.progress` (words), step `fill` and `
 
 ## Checks
 
-See the bottom lines, filled after the final runs.
+- `check:arch` exit 0 and `check:rules` PASS (5 warnings), run after the merge.
+- Focused tests per branch pass (figure, contract, rite, ladder, family, combat, walk board/map, character sheet, body, relationship web, return digest, items, first hour).
+- `tests/cast_journeys.test.js` test 10 (native place-panel journey) **fails identically on bare master** (checked in a scratch worktree of master HEAD 562669b7: 9 pass, 1 fail), so it is not from this merge.
+- Full suite: see the last line of this section.
 
 ## Floor state
 
