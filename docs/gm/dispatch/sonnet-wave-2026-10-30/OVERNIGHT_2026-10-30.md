@@ -25,7 +25,7 @@ UI coordinator state (02:40): ui-integrator merges the eighteen finished rep-* b
 
 Reading coordinator state (02:50): p3c-memory (P3c), p4-fights (P4 then P5, P7, P6, P8) and lead-readings (Circle of Inevitability, 12 shards in 4 Luna lanes) run; ownership is in LEAD_LIFE_GUIDE section 6. Committed tonight: MR3 traits `432afe7b1` (browser floor met) and the workshop clutter fix `d5f48d5f6`.
 
-**Watch item W1:** at machine load 100+, the full `npm test` cannot run clean. Nine cast disposable-copy integration tests hit the 270 s worker limit and pass when run alone at lower load. A clean full-suite gate needs a quieter window (or the slot limiter holding other gates), so overnight full-suite failures of only those tests are load, not regressions, until rerun quietly.
+**Watch item W1:** at machine load 100+, the full `npm test` cannot run clean. Nine cast disposable-copy integration tests hit the 270 s worker limit and pass when run alone at lower load. A clean full-suite gate needs a quieter window (or the slot limiter holding other gates), so overnight full-suite failures of only those tests are load, not regressions, until rerun quietly. Fix (sw-slots, committed): run the full gate as `YAIRPG_SLOT_MAX_LOAD=40 node scripts/slot_run.mjs --kind suite --slots 1 -- npm test`. It waits until the 1-minute load is at or below 40, then takes the single suite slot. Every overnight nudge carries this command.
 
 ## Supervisor tick
 
