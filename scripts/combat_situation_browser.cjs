@@ -23,7 +23,7 @@ const base=process.env.PROOF_BASE||'http://127.0.0.1:19477/',out=process.env.PRO
  const card=page.locator('#fight_situation');await card.waitFor({state:'visible'});
  await card.scrollIntoViewIfNeeded();
  const read=()=>page.evaluate(()=>{const s=document.getElementById('fight_situation');const r=s.getBoundingClientRect();
-  return {lines:[...s.querySelectorAll('.fight-situation-lines li')].map(n=>n.textContent),nativeLeaveVisible:!!document.querySelector('#location_actions_div .action_travel[data-travel]')?.checkVisibility(),text:s.querySelector('.fig-text')?.textContent||'',stakes:s.querySelector('.scene-card-stakes')?.textContent||'',option:s.querySelector('[data-fight-option]')?.textContent||'',
+  return {lines:[...s.querySelectorAll('.fight-situation-lines li')].map(n=>n.textContent),nativeLeaveVisible:!!document.querySelector('#location_actions_div .action_travel[data-travel]')?.checkVisibility(),text:s.innerText,cards:[...s.querySelectorAll('.versus-card')].map(c=>({threat:c.dataset.threat,label:c.getAttribute('aria-label')})),stakes:s.querySelector('.scene-card-stakes')?.textContent||'',option:s.querySelector('[data-fight-option]')?.textContent||'',
    blocked:s.querySelector('[data-scene-blocked]')?.textContent||'',box:{x:r.x,y:r.y,w:r.width,h:r.height},
    log:(()=>{const l=document.getElementById('message_log_div');const b=l?.getBoundingClientRect();return b?{w:b.width,h:b.height,visible:l.checkVisibility()}:null;})()};});
  const first=await read();
@@ -42,10 +42,13 @@ const base=process.env.PROOF_BASE||'http://127.0.0.1:19477/',out=process.env.PRO
  // Gallery fixtures.
  const g=await context.newPage();g.on('pageerror',e=>errors.push(e.message));await g.goto(base+'figure-gallery.html');
  const fixtures=await g.evaluate(()=>[...document.querySelectorAll('[data-fixture]')].map(n=>n.dataset.fixture));
- for(const id of ['fight-duel','fight-brawl','chase-fixture.tollman']){const s=g.locator(`[data-fixture="${id}"]`);await s.scrollIntoViewIfNeeded();await s.screenshot({path:`${out}/gallery-${id.replace(/\W+/g,'-')}.png`});}
+ for(const id of ['fight-duel','fight-brawl','chase-fixture.tollman','versus-row']){const s=g.locator(`[data-fixture="${id}"]`);await s.scrollIntoViewIfNeeded();await s.screenshot({path:`${out}/gallery-${id.replace(/\W+/g,'-')}.png`});}
+ // Effects off: the versus row still reads (UR38). Root font-size does not scale this page, so this is not 21 px evidence.
+ await g.evaluate(()=>{document.documentElement.style.fontSize='21px';document.documentElement.dataset.effects='off';});
+ {const s=g.locator('[data-fixture="versus-row"]');if(await s.count()){await s.scrollIntoViewIfNeeded();await s.screenshot({path:`${out}/gallery-versus-row-effects-off.png`});}}
  const report={viewport:'1920x1080',route:'fresh life -> Village Elder lines -> Infested field (earned steps)',bundle,first,stable,changed,later:{text:later.text,stakes:later.stakes,lines:later.lines},withdrew,hiddenAfter,fixtures,errors,missing};
  fs.writeFileSync(`${out}/journey.json`,JSON.stringify(report,null,1)+'\n');
- assert.ok(first.text.includes('Fight situation'),'text form shown');assert.ok(changed,'text form changed over live ticks');assert.ok(stable,'Withdraw button survived the change');assert.ok(fixtures.includes('fight-duel'));assert.deepEqual(errors,[]);
+ assert.ok(first.cards.length>0&&first.text.includes('Withdraw'),'versus row and Withdraw shown');assert.ok(changed,'text form changed over live ticks');assert.ok(stable,'Withdraw button survived the change');assert.ok(fixtures.includes('fight-duel'));assert.deepEqual(errors,[]);
  console.log('PASS',JSON.stringify({bundle,withdrew,hiddenAfter,stable,fixtures:fixtures.length,box:first.box,log:first.log}));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

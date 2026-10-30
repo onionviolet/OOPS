@@ -28,3 +28,40 @@ export const CHASE_FIXTURE = chaseSituation(CHASE_VIEW);
 
 export const COMBAT_FIXTURES = [DUEL_FIXTURE, BRAWL_FIXTURE, CHASE_FIXTURE];
 FIGURE_FIXTURES.push(...COMBAT_FIXTURES);
+
+// Versus-row gallery section: the same fixtures drawn by src/ui/combat_versus.js in both themes, with the text form.
+// figure_gallery.js renders FIGURE_FIXTURES in its module body after this module loads, so DOM work is deferred.
+const DUEL_VERSUS = fightSituation(DUEL_BOARD, you(14), {place: 'Reed causeway'}).versus;
+const BRAWL_VERSUS = fightSituation(BRAWL_BOARD, you(5), {place: 'Sunken lane'}).versus;
+export const VERSUS_FIXTURES = [DUEL_VERSUS, BRAWL_VERSUS];
+
+if (typeof document !== 'undefined') {
+    queueMicrotask(async () => {
+        const main = document.getElementById('fig_gallery');
+        if (!main) return;
+        const {renderVersusRow, versusText} = await import('../../combat_versus.js');
+        const {applyCustomizationProfile, defaultCustomizationState, neutralPresentationSettings} = await import('../../../customization_profiles.js');
+        const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
+        const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};
+        states.neutral.profiles.Default.settings = neutralPresentationSettings();
+        delete states.neutral.profiles.Default.modules.messages;
+        const section = el('section', {class: 'fig-gallery-section', 'data-fixture': 'versus-row'});
+        section.append(el('h2', {}, 'Versus row: duel and brawl'));
+        const pair = el('div', {class: 'fig-gallery-pair'});
+        for (const theme of ['luminous', 'neutral']) {
+            const cell = el('div', {class: 'fig-gallery-cell'});
+            const host = el('div', {class: 'theme-preview'}), module = el('div', {'data-theme-cell': theme});
+            host.append(module); cell.append(el('h3', {}, theme === 'luminous' ? 'Luminous Gothic' : 'Neutral'), host);
+            pair.append(cell);
+            applyCustomizationProfile(states[theme], {moduleNodes: {vitals: module}});
+            for (const versus of VERSUS_FIXTURES) {
+                const row = el('div', {class: 'fig-gallery-versus'});
+                module.append(row);
+                renderVersusRow(row, versus);
+                module.append(el('pre', {class: 'fig-text'}, versusText(versus)));
+            }
+        }
+        section.append(pair);
+        main.append(section);
+    });
+}

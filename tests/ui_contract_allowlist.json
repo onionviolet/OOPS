@@ -1353,6 +1353,14 @@
       "count": 1
     },
     {
+      "key": "src/ui/preview/fixtures/combat.js|foreign-host|4eee68675c99fd36",
+      "path": "src/ui/preview/fixtures/combat.js",
+      "rule": "foreign-host",
+      "snippet": "main.append(section);",
+      "count": 1,
+      "reason": "Gallery-only fixture adds its versus-row section to the figure gallery page (preview, not a game panel); figure_gallery.js takes figure specs only."
+    },
+    {
       "key": "src/village_career_ui.js|foreign-host|014fcc038441c310",
       "path": "src/village_career_ui.js",
       "rule": "foreign-host",

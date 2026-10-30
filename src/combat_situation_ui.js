@@ -1,4 +1,4 @@
-// LTU7 fight situation card. Home: the Here center view during a fight, directly under the Local
+// LTU7 fight situation card (round 2: versus row, docs/representations/COMBAT.md R2-S1). Home: the Here center view during a fight, directly under the Local
 // actions list that holds the leave choice (M15's fight center mode; in the parity shell the native
 // #combat_div is hidden and opponents have their own panels). It follows #location_actions_div and
 // hides whenever that list is hidden (another center mode, no fight). Reads the observer-safe 'combat-opponents'
@@ -8,7 +8,8 @@
 import {domainRegistry} from './domain_registry.js';
 import {fromCombatOpponentsProjection} from './opponent_board.js';
 import {fightSituation, pickLeaveChoice} from './ui/combat_situation.js';
-import {renderFigure, figureText, FIGURE_STATES} from './ui/figure.js';
+import {figureText, FIGURE_STATES} from './ui/figure.js';
+import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
 
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
@@ -40,19 +41,23 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
                 options: [{id: 'leave', label: leaveText ? `Withdraw: ${leaveText}` : 'Withdraw', affects: 'Leaves this fight', attrs: {fightOption: 'leave'},
                     blocked: leave ? '' : 'No way out is shown from here.', onChoose: () => leaveChoice()?.click()}]});
             stakes = card.querySelector('.scene-card-stakes');
-            // Text first (LTU7): lethal, odds, tempo and intent lines sit above the drawing.
+            // Text first (LTU7): lines the chips cannot carry sit above the versus row (round 2, R2-S1).
             lines = document.createElement('ul'); lines.className = 'fight-situation-lines'; stakes.after(lines);
-            figure = document.createElement('div'); card.append(figure);
+            figure = document.createElement('div'); figure.className = 'fight-situation-versus'; card.append(figure);
         }
         const next = figureText(situation.spec);
         if (next === textKey) return;
         textKey = next;
         if (stakes.textContent !== situation.summary) stakes.textContent = situation.summary;
-        lines.replaceChildren(...situation.spec.notes.map(note => {
+        // Chips carry intent and one-on-one odds; the lines keep the numbers behind threat, the odds
+        // explanation when chances are not shown, and tempo.
+        const notes = [...situation.lethal.map(l => ({state: l.level === 'lethal' ? 'strained' : undefined, text: l.text})),
+            ...(situation.odds.shown ? [] : [{state: 'unknown', text: situation.odds.text}]), {text: situation.tempo}];
+        lines.replaceChildren(...notes.map(note => {
             const li = document.createElement('li'); li.className = `fig-note${note.state ? ` fig-state--${note.state}` : ''}`;
             li.textContent = `${note.state ? `${FIGURE_STATES[note.state]} ` : ''}${note.text}`; return li;
         }));
-        renderFigure(figure, {...situation.spec, notes: []}, {idPrefix: 'fight-situation', text: true});
+        renderVersusRow(figure, situation.versus);
     }
     const timer = setInterval(render, every);
     return {render, stop: () => clearInterval(timer), node: section};

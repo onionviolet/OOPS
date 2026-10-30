@@ -1,23 +1,27 @@
 {
  "viewport": "1920x1080",
  "route": "fresh life -> Village Elder lines -> Infested field (earned steps)",
- "bundle": "v0.6-e20ff4c1a672",
+ "bundle": "v0.6-01428795c89a",
  "first": {
   "lines": [
-   "◆ Odds: you hit usually (82%); Wolf rat hits you sometimes (32%).",
-   "Tempo: you and Wolf rat strike at about the same pace.",
-   "? Intent: no windups read yet; what each opponent plans next is unassessed."
+   "Tempo: you and Wolf rat strike at about the same pace."
   ],
   "nativeLeaveVisible": true,
-  "text": "Fight situation\nInfested field: 1 of 1 opponent standing; you have 44 of 60 hp.\nRing In this fight (no range data), 1 places: 1. Wolf rat · 24/30 hp.\nNodes: You 44/60 hp (active).\nWolf rat · 24/30 hp to You 44/60 hp: strikes.\nKey: ◆ active means you.\nKey: ! strained means could down you.\nKey: ✕ broken means down.\nKey: ? unknown means not assessed.\nKey: strikes means who strikes whom.",
-  "stakes": "Infested field: 1 of 1 opponent standing; you have 44 of 60 hp.",
+  "text": "Infested field · Fight\n\nInfested field: 1 of 1 opponent standing; you have 51 of 60 hp.\n\nTempo: you and Wolf rat strike at about the same pace.\nWithdraw: Go back to [Village] [15m]\nLeaves this fight\nYou\n\n51/60 hp\n\nvs\nWolf rat\n\n25/30 hp\n\n○ Light\n? Intent unread\nYou hit usually 82% · It hits you sometimes 32%",
+  "cards": [
+   {
+    "threat": "light",
+    "label": "Wolf rat. 25/30 hp. Light. Intent unread. You hit usually 82% · It hits you sometimes 32%."
+   }
+  ],
+  "stakes": "Infested field: 1 of 1 opponent standing; you have 51 of 60 hp.",
   "option": "Withdraw: Go back to [Village] [15m]",
   "blocked": "",
   "box": {
    "x": 371,
-   "y": 466.1875,
+   "y": 499.1875,
    "w": 588.609375,
-   "h": 846.1875
+   "h": 297.1875
   },
   "log": {
    "w": 497.390625,
@@ -28,12 +32,10 @@
  "stable": true,
  "changed": true,
  "later": {
-  "text": "Fight situation\nInfested field: 1 of 1 opponent standing; you have 44 of 60 hp.\nRing In this fight (no range data), 1 places: 1. Wolf rat · 16/30 hp.\nNodes: You 44/60 hp (active).\nWolf rat · 16/30 hp to You 44/60 hp: strikes.\nKey: ◆ active means you.\nKey: ! strained means could down you.\nKey: ✕ broken means down.\nKey: ? unknown means not assessed.\nKey: strikes means who strikes whom.",
-  "stakes": "Infested field: 1 of 1 opponent standing; you have 44 of 60 hp.",
+  "text": "Infested field · Fight\n\nInfested field: 1 of 1 opponent standing; you have 47 of 60 hp.\n\nTempo: you and Wolf rat strike at about the same pace.\nWithdraw: Go back to [Village] [15m]\nLeaves this fight\nYou\n\n47/60 hp\n\nvs\nWolf rat\n\n16/30 hp\n\n○ Light\n? Intent unread\nYou hit usually 82% · It hits you sometimes 28%",
+  "stakes": "Infested field: 1 of 1 opponent standing; you have 47 of 60 hp.",
   "lines": [
-   "◆ Odds: you hit usually (82%); Wolf rat hits you sometimes (28%).",
-   "Tempo: you and Wolf rat strike at about the same pace.",
-   "? Intent: no windups read yet; what each opponent plans next is unassessed."
+   "Tempo: you and Wolf rat strike at about the same pace."
   ]
  },
  "withdrew": true,
@@ -43,7 +45,8 @@
   "web-lanternside",
   "fight-duel",
   "fight-brawl",
-  "chase-fixture.tollman"
+  "chase-fixture.tollman",
+  "versus-row"
  ],
  "errors": [],
  "missing": [

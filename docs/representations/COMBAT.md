@@ -132,3 +132,178 @@ Known limits and next slice:
 - Lethal excludes crits by design; a world with heavy crits should switch the dial on.
 - The card sits below the native leave choice, so on a short Local actions list it starts at
   about y 466; the figure is the first thing to drop below the fold, the text lines are not.
+
+## Round 2 (2026-10-30): review, restructure and next steps
+
+Brief: [ROUND2_BRIEF](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md) items 1-21.
+Everything here, round 1 included, is a draft and the current best, open to refactor or
+replacement with a reason (AD45). Codes R2-xx are new; round 1 codes O1-O5 and D1-D8 keep their
+meaning.
+
+### How other games do it (item 1)
+
+Patterns are adapted, not looks or content. "Known" is from play or public docs; "inferred" is
+reasoning about why it works.
+
+| Code | Game | What the player sees | Makes easy | Costs | Idea taken |
+|---|---|---|---|---|---|
+| R2-G1 | Slay the Spire | An intent icon and number above each enemy: attack and damage, block, buff, unknown (known) | Planning the next turn at a glance; the threat is on the enemy, not in a log | Needs a real intent model; icons need learning (inferred) | **Intent chip on each opponent card**, with an honest "Intent unread" until CBR14 supplies intent |
+| R2-G2 | Into the Breach | Every enemy's next attack drawn on the board as tiles and arrows, with exact damage (known) | Perfect-information puzzles; no surprise deaths | Only works with full enemy knowledge (inferred) | **Telegraph before lethal**, shown as a bound we can honestly state, never a guess |
+| R2-G3 | Darkest Dungeon | Heroes and enemies in two facing rows of ranked positions; stress bars; affliction pop-ups (known) | Who is in front, who can be hit, how close to breaking (inferred) | Positions only matter when skills read them | **Two facing sides as the layout**; morale and stress later as a ladder when modelled |
+| R2-G4 | Melvor Idle; Proto23 | Player and enemy panels side by side with attack bars, hit chances and a scrolling combat log (known) | Idle watching; numbers players expect (UR12) | Text-heavy; little sense of danger (inferred) | **Keep the native panels and full log**; the situation card adds readings, not a second stat block |
+| R2-G5 | Battle Brothers | Per-unit morale states (confident, steady, wavering, breaking, fleeing) shown as icons and words (known) | Reading who is about to break or rout | Needs a morale model | **Stage ladders in words** (threat now; morale and wounds when modelled) |
+| R2-G6 | Our own: Proto23 mirror (PX10, RP4) and opponent board (R20-R22) | You against the current opponent in two equal panels; list plus inspector for several (known, in repo) | Comparison | Two panels already used | **Do not duplicate raw stats**; the card only adds what the panels cannot say |
+
+### Restructure (items 18, 21)
+
+- **R2-S1 Versus row replaces the ring as the default form. ACT NOW.** A ring around "you" implies
+  positions we do not model, and it spends a 380-560 px drawing on "who is here". Two facing sides
+  (your side, then one card per opponent) answer the same question in a quarter of the space and
+  give each opponent a home for its chips. The radial figure stays as the gallery alternative and
+  for later crowd fights (many fighters, no ranks), where a ring scales better than a card grid.
+- **R2-S2 Split by question.** The Opponent and Opponents panels answer "what are its stats"; the
+  situation card answers "what does that mean for me". The card shows only derived readings
+  (threat, odds in words, intent, target, tempo), never raw stats twice.
+- Forms per part: sides as **cards** (things you act on and compare); threat, odds and intent as
+  **chips** (one value at a glance); tempo and the together line as **plain prose**; a chase as a
+  **track** (ordered stages); a duel's back-and-forth later as a short **timeline** of exchanges.
+  Circles fit worse for all of these: no cycle and no placed components.
+
+### Fresh-player test (item 2)
+
+Route: fresh life, Village Elder lines, Infested field. Findings and fixes:
+- R2-F1 "unassessed", "ordinary blow", "no range data" are developer words. **Fixed:** "you have
+  not sized this opponent up yet", "hardest normal hit", the ring label is now "In this fight".
+- R2-F2 The lethal line was one long sentence. **Fixed:** it leads with "Could down you:" and the
+  exclusions are a separate short sentence ("Crits, armor piercing or elements can add more.").
+- R2-F3 "Odds: not shown as chances with 4 opponents" read as a bug. **Fixed:** "no hit chances in a
+  fight with 4 opponents, only attack and evasion ratings, which are not chances."
+- R2-F4 Numbers without meaning: the threat chip now carries a word stage (Light, Heavy, Could down
+  you, Not sized up, Down) before any number.
+- Left open: "Tempo" is a game word; acceptable with its sentence beside it.
+
+### Space and density at 1920×1080 (item 3)
+
+- Glance: the versus row (one line per side, chips). Looked at every few seconds, so compact.
+- Detail one click away: the Opponent panel's facts (existing), the card's text form (in the card).
+- The row sits in the Here view under the leave choice, where round 1 found about 570 px of empty
+  height during a fight; the cards use the width instead of the ring's square.
+
+### Small signals, flourish, pop-outs, cheats (items 4-6, 13)
+
+- R2-B1 Threat chip and hp bar are the bars here; words beside every colour (UR37).
+- R2-B2 Flourish: the lethal chip uses the existing `fig-fx--pulse` class, so effects off and
+  reduced switch it off (UR38). Hit flashes stay with the native fighter rows. ACCOUNT FOR NOW: a
+  one-shot settle glow on a card when its threat stage changes (bind to the change, not the tick).
+- R2-P1 No pop-out for the card (it belongs beside the leave choice). LATER: a detachable combat
+  feed (NB8) belongs to the log owner. An Electron notification when away combat stops on a
+  lethal risk (CBR27) is the right desktop hook; owner: time and chronicle digest.
+- R2-C1 Cheats: an insight or appraisal cheat fills the intent and hidden-stat chips with a marked
+  source glyph ("◈ insight: winds up a heavy swing"), read through `observerView`; enemy cheats show
+  only as observed effects (CS7). Sealed secrets stay in their route. LATER (sonnet, M, done when a
+  fixture cheat fills the intent chip with a marked source and a test proves no unmarked reveal).
+
+### Alternative style (item 7)
+
+The gallery shows the versus row (default) beside the round 1 radial figure (alternative), both in
+Luminous Gothic and Neutral. The row reads better at 14 px and 21 px because it is text with chips;
+the ring's labels crowd past four opponents.
+
+### Use what we have (item 8)
+
+Reused: `opponent_board.js` projection, `combat_readout.js`, `combat_math.js`, `scene_card.js`
+(header, stakes, option row), `figure.js` (marks, pulse class, alternative view), the native leave
+choice. New: one renderer, `src/ui/combat_versus.js`, with one consumer today. Proposed UR79 wants
+two consumers for a new primitive: the second is the planned debate and negotiation card (CBR30),
+which has the same sides-and-chips shape. Until then it is a combat-local renderer, not a shared
+primitive.
+
+### Unconventional option (item 9)
+
+R2-U1 **The fight reads the room.** Instead of a meter, the place's prose line changes with the
+fight's state ("The field goes quiet but for the rat's breathing" when you are winning, "Your vision
+narrows" when a lethal line is up), drawn from threat and hp stages, in the Here header. Diegetic,
+cheap in data (a few lines per world and stage), and it makes danger felt without a number. Needs
+a prose table per world and a rule that it never replaces the factual chip. Worth a later slice
+(sonnet, S, done when three stages swap the header line in a fixture fight and effects-off keeps
+the chips).
+
+### Levels and depth (item 19)
+
+Shown now: threat stages (Light, Heavy, Could down you, Not sized up, Down); odds word ladder
+(almost never to almost always, seven steps). ACCOUNT FOR NOW in the model shape: `intent` is an
+object with `known`, so learned intent adds a word and a source without a shape change. LATER
+(each a row in the model, not new code): morale stages (steady, shaken, wavering, breaking, fleeing,
+CBR12 yielding and fleeing means); wound severity per BHR (graze, wound, maimed, critical) on your
+side and theirs; appraisal grade on each card (how well you have sized it up, CBR14).
+
+### Reports and center (item 14)
+
+The log column is untouched (UR11). Proposal for the Reports owner (time and chronicle), not built:
+one grouped fight line at the end, subject first: "⚔ Wolf rat driven off · 14 exchanges · you took
+18 · closest call 9 hp", expandable to the exchanges, linking to the place. Center density: the card
+puts the action (Withdraw) and four short lines first, cards second, no prose paragraph.
+
+### Folding into existing UI (item 16)
+
+No panel moved. The card lives in the Here view; the native `#combat_div` stays hidden in the
+parity shell as it already is. Larger proposal for the coordinator: when a fight starts, the Here
+tab's label could read "Here · fighting" so the player knows where the card is (UR13).
+
+### Later volumes and worlds (item 17)
+
+Checked against the model, not canon: larger casts (the row wraps into a grid; past about eight
+opponents the ring alternative or grouped cards by kind, as the opponent board already groups);
+new power kinds (a threat stage can come from any damage source the readout exposes); duels with
+rules (a duel adds a "terms" line to the scene card); non-violent conflict (CBR30: debate,
+negotiation and trial reuse the same sides-and-chips shape with "position" instead of hp). Open:
+mass battles and sieges (a map form, owner: maps), and the lead's later sequences where opponents
+outclass the player by tiers (needs appraisal grade to say "far beyond you" honestly).
+
+### Flair later (item 20)
+
+Specs name roles, not looks: `threat`, `intent`, `odds`, `target`, `down`, `you`. In a gaslit
+city-mystery world the cards could be calling-card stock with a wax-seal threat mark and intent as
+a handwritten aside; in a cultivation world the sides could face across a scroll with threat as
+qi-pressure brush strokes. Neither touches the adapter or the text form.
+
+### Audit gaps (item 10)
+
+- Other seats: the card reads the controlled actor's own readout and the observer-safe projection,
+  so a weaker or less knowing seat sees less, never more. Not yet exercised on a non-lead seat.
+- Empty and error states: no fight hides the card; no leave choice blocks Withdraw with a reason.
+- Performance: the card rebuilds only on a text change; DOM nodes per opponent about 12.
+- Accessibility: chips are text; Withdraw is a real button; at 21 px the cards wrap. Keyboard order
+  is header, Withdraw, cards. Not yet exercised at 21 px in the browser (gap).
+- Persistence: none (derived view).
+
+### Round 2 receipt
+
+Delegation: one Sonnet subagent built `src/ui/combat_versus.js`, `styles/combat_versus.css`,
+`tests/combat_versus.test.js` and the gallery section against the `versus` model contract I wrote;
+I reviewed the diff and replaced its workaround for the UI contract's foreign-host rule with a reviewed
+allowlist entry (gallery-only fixture, reason recorded). No other session started.
+
+Files this round: `src/ui/combat_situation.js` (versus model, plainer wording), `src/combat_situation_ui.js`
+(versus row in game, lines only for what chips cannot carry), `src/ui/combat_versus.js`, `styles/combat_versus.css`
+(tokens only; linked in `index.html` and `figure-gallery.html` after figure.css), `src/ui/preview/fixtures/combat.js`
+(versus gallery section), `tests/combat_versus.test.js`, `tests/combat_situation.test.js`,
+`tests/ui_contract_allowlist.json` (one entry), `scripts/combat_situation_browser.cjs`, evidence.
+
+Checks:
+- `node --test tests/combat_versus.test.js tests/combat_situation.test.js tests/ui_contract.test.js`: 24 pass.
+- `npm run build`: bundle `v0.6-01428795c89a`; `npm run build:figures`: `gameCore: false`.
+- `node scripts/combat_situation_browser.cjs` (headless 1920x1080, fresh life, earned route): PASS. The card
+  is now 297 px tall (846 px in round 1); the Withdraw button survives live hp changes; Withdraw leaves;
+  the log column is 987 px. Evidence: `fight-1920x1080.png`, `fight-card.png`, `gallery-versus-row.png`,
+  `gallery-versus-row-effects-off.png`, `journey.json`.
+- `check:arch` PASS (no new cycles), `check:rules` PASS.
+- Full `npm test`: the round 1 run was stopped once round 2 edits began (it would have tested mixed code);
+  one fresh run on the round 2 commit is recorded below when it lands.
+
+Gaps: 21 px text not verified (the gallery page does not scale with the root font size; the in-game
+text-size setting was not exercised); non-lead seat not exercised; the threat-change settle glow
+(R2-B2) and the Reports fight line (item 14) are proposals only.
+
+AD43 floor: unchanged from round 1 (bundle named, earned route, shown with text, Withdraw consumer,
+no persistence, agent-verified, not human-reviewed); done at the floor for the native fight slice.

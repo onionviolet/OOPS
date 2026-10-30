@@ -50,7 +50,8 @@ const nameOf = (opp, kin) => kin > 1 ? `${opp.name} ${opp.letter}` : opp.name;
  * you:   {name, health: {current, max}, speed, defense, minDamageShare, damageTaken, sideSize}
  *        own exact numbers; sideSize is how many fighters stand on your side (allies change targeting).
  * place: words for the header.
- * Returns {active, spec, odds, lethal, tempo, summary}; spec is a figure spec (src/ui/figure.js).
+ * Returns {active, spec, odds, lethal, tempo, intent, summary, versus}; spec is a figure spec (src/ui/figure.js),
+ * versus is the versus-row model drawn by src/ui/combat_versus.js.
  */
 export function fightSituation(board, you = {}, {place = ''} = {}) {
     const opponents = board?.opponents || [];
@@ -67,9 +68,9 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
         if (Number.isFinite(yours)) parts.push(`you hit ${chanceWord(yours)} (${fmt(yours)}%)`);
         if (Number.isFinite(theirs)) parts.push(`${label(o)} hits you ${chanceWord(theirs)} (${fmt(theirs)}%)`);
         else if (Number.isFinite(evade)) parts.push(`${label(o)} evades you ${chanceWord(evade)} (${fmt(evade)}%)`);
-        odds = parts.length ? {shown: true, text: `Odds: ${parts.join('; ')}.`} : {shown: false, text: 'Odds: not assessed for this opponent yet.'};
+        odds = parts.length ? {shown: true, text: `Odds: ${parts.join('; ')}.`, you: Number.isFinite(yours) ? yours : null, them: Number.isFinite(theirs) ? theirs : null} : {shown: false, text: 'Odds: you have not sized this opponent up yet.'};
     } else {
-        odds = {shown: false, text: `Odds: not shown as chances with ${opponents.length} opponents; the attack and evasion ratings are not chances.`};
+        odds = {shown: false, text: `Odds: no hit chances in a fight with ${opponents.length} opponents, only attack and evasion ratings, which are not chances.`};
     }
 
     // Lethal telegraph: a stated bound from shown attack and your exact health and defense.
@@ -79,12 +80,12 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
         const blow = hardestBlow(attackOf(o), you);
         if (blow === null) { combinedKnown = false; continue; }
         combined += blow;
-        if (Number.isFinite(hp.current) && blow >= hp.current) lethal.push({id: o.id, level: 'lethal', text: `Lethal: ${label(o)}'s hardest ordinary blow could take ${fmt(blow)} hp after your defense, and you have ${fmt(hp.current)} (before crits, armor piercing or element).`});
-        else if (Number.isFinite(hp.current) && blow * 2 >= hp.current) lethal.push({id: o.id, level: 'heavy', text: `Heavy: ${label(o)}'s hardest ordinary blow could take ${fmt(blow)} of your ${fmt(hp.current)} hp (before crits, armor piercing or element).`});
+        if (Number.isFinite(hp.current) && blow >= hp.current) lethal.push({id: o.id, level: 'lethal', blow, text: `Could down you: ${label(o)}'s hardest normal hit takes up to ${fmt(blow)} hp after your defense, and you have ${fmt(hp.current)}. Crits, armor piercing or elements can add more.`});
+        else if (Number.isFinite(hp.current) && blow * 2 >= hp.current) lethal.push({id: o.id, level: 'heavy', blow, text: `Heavy: ${label(o)}'s hardest normal hit takes up to ${fmt(blow)} of your ${fmt(hp.current)} hp. Crits, armor piercing or elements can add more.`});
     }
     // Together: only shown attacks count; an unassessed opponent makes it a lower bound.
     if (standing.length > 1 && combined > 0 && Number.isFinite(hp.current) && combined >= hp.current && !lethal.some(l => l.level === 'lethal'))
-        lethal.push({id: null, level: 'lethal', text: `Lethal together: if ${combinedKnown ? `all ${standing.length}` : 'the assessed ones'} land their hardest ordinary blows before you recover, that is ${combinedKnown ? '' : 'at least '}${fmt(combined)} hp against your ${fmt(hp.current)}.`});
+        lethal.push({id: null, level: 'lethal', text: `Could down you together: if ${combinedKnown ? `all ${standing.length}` : 'the ones you have sized up'} land their hardest normal hits before you recover, that is ${combinedKnown ? '' : 'at least '}${fmt(combined)} hp against your ${fmt(hp.current)}.`});
 
     // Text-first tempo: shown speeds against yours.
     const speeds = standing.map(o => ({o, s: perSecond(factOf(o, 'Speed'))})).filter(x => Number.isFinite(x.s) && x.s > 0);
@@ -94,11 +95,11 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
         tempo = ratio >= 1.15 ? `Tempo: ${label(fastest.o)} strikes about ${fmt(Math.round(ratio * 10) / 10)} times for each of your blows.`
             : ratio <= 1 / 1.15 ? `Tempo: you strike about ${fmt(Math.round(10 / ratio) / 10)} times for each of ${label(fastest.o)}'s blows.`
             : `Tempo: you and ${label(fastest.o)} strike at about the same pace.`;
-    } else tempo = 'Tempo: not assessed yet.';
-    const intent = 'Intent: no windups read yet; what each opponent plans next is unassessed.';
+    } else tempo = 'Tempo: you have not sized up their pace yet.';
+    const intent = 'Intent: you cannot read what they will do next yet (unassessed).';
 
     const lethalIds = new Set(lethal.filter(l => l.level === 'lethal').map(l => l.id));
-    const ring = {id: 'fight', label: 'In this fight (no range data)', radius: .82, count: opponents.length};
+    const ring = {id: 'fight', label: 'In this fight', radius: .82, count: opponents.length};
     const nodes = [{id: 'you', label: `${you.name || 'You'} ${Number.isFinite(hp.current) ? `${fmt(hp.current)}/${fmt(hp.max)} hp` : ''}`.trim(), glyph: 'Y', at: 'center', state: 'active'}];
     const edges = [];
     opponents.forEach((o, i) => {
@@ -123,7 +124,25 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
             {state: 'unknown', label: 'not assessed'}, {kind: 'strikes', label: 'who strikes whom'},
         ],
     };
-    return {active: true, spec, odds, lethal, tempo, intent, summary};
+    // Versus row (round 2 default): your side, then one card per opponent with derived chips only.
+    // Raw stats stay in the Opponent panel; these are readings. Roles, not looks (round 13 motifs).
+    const byId = new Map(lethal.filter(l => l.id).map(l => [l.id, l]));
+    const versus = {
+        you: {name: you.name || 'You', hp: Number.isFinite(hp.current) ? {current: hp.current, max: hp.max, text: `${fmt(hp.current)}/${fmt(hp.max)} hp`} : null, allies: Math.max(0, (you.sideSize ?? 1) - 1)},
+        together: lethal.find(l => l.id === null) || null,
+        opponents: opponents.map(o => {
+            const known = knowledgeOf(o), seen = o.health && factShown({knowledge: o.health.knowledge, value: o.health.text}), l = byId.get(o.id);
+            const threat = o.defeated ? {level: 'down', word: 'Down'} : known === 'unknown' || !attackOf(o) ? {level: 'unknown', word: 'Not sized up'}
+                : l ? {level: l.level, word: l.level === 'lethal' ? 'Could down you' : 'Heavy', blow: l.blow} : {level: 'light', word: 'Light'};
+            const duel = odds.shown && opponents.length === 1;
+            return {id: o.id, letter: o.letter || letterFor(o.slot ?? 0), name: label(o), down: !!o.defeated, known,
+                hp: o.defeated ? {text: 'Down', fraction: 0} : seen ? {text: o.health.text, fraction: o.health.progress == null ? null : o.health.progress / 100} : {text: '??? hp', fraction: null},
+                threat, intent: o.defeated ? null : {known: false, word: 'Intent unread'},
+                odds: duel && !o.defeated ? {you: odds.you, them: odds.them, youWord: odds.you == null ? null : chanceWord(odds.you), themWord: odds.them == null ? null : chanceWord(odds.them)} : null,
+                target: o.defeated ? null : alone ? 'you' : 'unread'};
+        }),
+    };
+    return {active: true, spec, odds, lethal, tempo, intent, summary, versus};
 }
 
 // Chase as stages (pursuit.js pursuitView). The pursuit model has stages, not distance, so the

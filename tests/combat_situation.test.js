@@ -36,7 +36,7 @@ test('lethal line is a stated bound: hardest ordinary roll after own defense, cr
     assert.equal(hardestBlow({power: 9, count: 2}, {defense: 2}), 17.6);
     const low = fightSituation(DUEL_BOARD, you(14));
     assert.equal(low.lethal[0].level, 'lethal');
-    assert.match(low.lethal[0].text, /hardest ordinary blow could take 17\.6 hp after your defense, and you have 14/);
+    assert.match(low.lethal[0].text, /hardest normal hit takes up to 17\.6 hp after your defense, and you have 14/);
     assert.equal(low.spec.nodes.find(n => n.id === 'opp-0').state, 'strained');
     assert.deepEqual(fightSituation(DUEL_BOARD, you(40)).lethal, []);
 });
@@ -47,7 +47,7 @@ test('unknown facts stay unknown: no hidden value reaches health, lethal or temp
         facts: [{label: 'Attack', value: '99 dmg', knowledge: 'unknown'}, {label: 'Speed', value: '9 /s', knowledge: 'unknown'}]}]};
     const s = fightSituation(hidden, you(5));
     assert.deepEqual(s.lethal, []);
-    assert.match(s.tempo, /not assessed/);
+    assert.match(s.tempo, /not sized up/);
     const node = s.spec.nodes.find(n => n.id === 'opp-0');
     assert.equal(node.state, 'unknown');
     assert.match(node.label, /\?\?\? hp/);
@@ -63,7 +63,7 @@ test('with allies on your side the target is unread; a defeated opponent draws n
 
 test('an unassessed opponent turns the together line into a lower bound', () => {
     const s = fightSituation(BRAWL_BOARD, you(5));
-    assert.ok(s.lethal.some(l => /Lethal together: if the assessed ones .* at least 5\.6 hp/.test(l.text)));
+    assert.ok(s.lethal.some(l => /Could down you together: if the ones you have sized up .* at least 5\.6 hp/.test(l.text)));
 });
 
 test('the real projection path: projectOpponents -> board -> situation', () => {
@@ -102,5 +102,20 @@ test('only a lethal line carries the could-down-you mark; every bound names what
     const heavy = fightSituation(DUEL_BOARD, you(30));
     assert.equal(heavy.lethal[0].level, 'heavy');
     assert.equal(heavy.spec.notes.find(n => /^Heavy/.test(n.text)).state, undefined);
-    for (const l of [...heavy.lethal, ...fightSituation(DUEL_BOARD, you(14)).lethal]) assert.match(l.text, /before crits, armor piercing or element/);
+    for (const l of [...heavy.lethal, ...fightSituation(DUEL_BOARD, you(14)).lethal]) assert.match(l.text, /Crits, armor piercing or elements can add more/);
+});
+
+test('versus model: derived chips only, threat levels, odds only one on one, unknown stays unknown', () => {
+    const duel = fightSituation(DUEL_BOARD, you(14)).versus;
+    assert.equal(duel.you.hp.text, '14/40 hp');
+    assert.equal(duel.opponents[0].threat.level, 'lethal');
+    assert.equal(duel.opponents[0].odds.youWord, 'usually');
+    assert.equal(duel.opponents[0].intent.known, false);
+    const brawl = fightSituation(BRAWL_BOARD, you(30)).versus;
+    assert.deepEqual(brawl.opponents.map(o => o.threat.level), ['down', 'light', 'light', 'unknown']);
+    assert.ok(brawl.opponents.every(o => o.odds === null));
+    assert.equal(brawl.opponents[3].hp.text, '??? hp');
+    assert.equal(brawl.opponents[3].hp.fraction, null);
+    assert.equal(brawl.opponents[0].intent, null);
+    assert.ok(brawl.opponents.every(o => !('facts' in o)));
 });

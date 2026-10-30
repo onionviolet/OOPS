@@ -1,0 +1,44 @@
+/* Versus row (src/ui/combat_versus.js): tokens only (UR6). Threat is always a word; colour and marks repeat it (UR37). */
+.versus-row {
+    --versus-ink: var(--theme-text, var(--ui-text));
+    --versus-muted: var(--theme-muted, var(--ui-hairline));
+    --versus-line: var(--theme-border, var(--ui-hairline));
+    --versus-surface: var(--theme-surface, var(--ui-navy));
+    --versus-accent: var(--theme-accent, var(--ui-accent));
+    --versus-warn: var(--theme-warning, var(--ui-meter-warn));
+    --versus-danger: var(--theme-danger, var(--ui-meter-limit));
+    --versus-track: var(--ui-meter-track-bg);
+    --versus-pulse-time: var(--fig-pulse-time, var(--ui-motion-normal));
+    display: grid; grid-template-columns: minmax(10em, 14em) auto minmax(0, 1fr); gap: var(--ui-space-4); align-items: start;
+    min-width: 0; color: var(--versus-ink); font-size: var(--ui-type-body); line-height: var(--ui-line-body); overflow-wrap: anywhere;
+}
+.versus-side {display: grid; gap: var(--ui-space-2); min-width: 0; align-content: start;}
+.versus-side--them {grid-template-columns: repeat(auto-fill, minmax(14em, 1fr)); gap: var(--ui-space-3);}
+.versus-sep {align-self: center; color: var(--versus-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.versus-name {margin: 0; font-size: var(--ui-type-body); font-weight: var(--ui-weight-strong); line-height: var(--ui-line-body);}
+.versus-hp, .versus-allies {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--versus-muted);}
+.versus-side--you, .versus-card {padding: var(--ui-space-3); border: var(--ui-space-hairline) solid var(--versus-line); background: var(--versus-surface);}
+.versus-side--them {padding: 0; border: 0; background: none;}
+.versus-card {display: grid; gap: var(--ui-space-2); min-width: 0; align-content: start;}
+
+.versus-bar {height: var(--ui-space-2); background: var(--versus-track); overflow: hidden;}
+.versus-bar-fill {display: block; height: 100%; width: var(--versus-fill, 0%); background: var(--versus-accent);}
+.versus-card[data-threat="lethal"] .versus-bar-fill {background: var(--versus-warn);}
+.versus-card[data-down="true"] .versus-bar-fill {background: var(--versus-danger);}
+
+.versus-chips {display: flex; flex-wrap: wrap; gap: var(--ui-space-2);}
+.versus-chip {display: inline-block; padding: var(--ui-space-1) var(--ui-space-2); border: var(--ui-space-hairline) solid var(--versus-line); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.versus-chip--intent, .versus-chip--target {color: var(--versus-muted); border-style: dashed;}
+.versus-chip--threat {font-weight: var(--ui-weight-strong);}
+.versus-card[data-threat="lethal"] .versus-chip--threat {border-color: var(--versus-warn); border-width: var(--ui-space-1); color: var(--versus-warn);}
+.versus-card[data-threat="heavy"] .versus-chip--threat {border-color: var(--versus-warn);}
+.versus-card[data-threat="unknown"] .versus-chip--threat {border-style: dashed; color: var(--versus-muted);}
+.versus-card[data-threat="down"] .versus-chip--threat {border-color: var(--versus-danger); color: var(--versus-danger);}
+.versus-card[data-down="true"] {opacity: .8;}
+
+/* Effects: opacity only, no layout movement. Off and reduced leave the words and marks. */
+.versus-row .fig-fx--pulse {animation: versus-pulse var(--versus-pulse-time) ease-in-out infinite alternate;}
+@keyframes versus-pulse {from {opacity: .6;} to {opacity: 1;}}
+:root:is([data-effects="off"], [data-effects="reduced"]) .versus-row .fig-fx--pulse {animation: none;}
+@media (prefers-reduced-motion: reduce) {.versus-row .fig-fx--pulse {animation: none;}}
+@media (max-width: 40em) {.versus-row {grid-template-columns: minmax(0, 1fr);} .versus-sep {justify-self: center;}}
