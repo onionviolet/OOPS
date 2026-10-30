@@ -6,7 +6,7 @@ import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
-import {riteFigureSpec} from './ui/rite_figure.js';
+import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -48,6 +48,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   bench.append(node('h3',`${d.name} · Sequence ${d.seq} · ${d.pathway}`));
   bench.append(node('p',`${d.status==='brewable'?'Brewable':'Inspect-only (the notes do not name every material)'}${d.price?` · formula copy ${d.price.pence} pence (canon ${d.price.canon.pounds} pounds, scaled)`:''} · ${d.minutes} minutes at the bench · formula ${d.formulaKnown?'held':'not held'}`));
   if(d.via)bench.append(node('p',d.via));
+  // RPX1/RPX2 glance before the reference lines (UR42): the rite circle beside its risk ledger, then the making tracks.
+  // The lines below stay the full text form (UR37) and keep the buy buttons.
+  const circle=riteCircleSpec(d),ledger=riskLedger(d),making=makingSpec(d);
+  if(circle){const r=node('div');r.className='fig-row';r.dataset.lotmFigure=circle.id;const fig=node('div');renderFigure(fig,circle,{idPrefix:`lotm-${circle.id}`});
+   const l=node('div');l.className='fig-ledger';l.dataset.lotmLedger=ledger.grade;l.append(node('p',ledger.headline),node('p',ledger.advice));
+   for(const x of ledger.rows){const row=node('div');row.className=`fig-ledger-row fig-state--${x.status==='met'?'filled':x.status==='substituted'?'strained':'empty'}`;
+    const m=node('meter');m.min=0;m.max=100;m.low=25;m.high=60;m.optimum=0;m.value=x.share;m.setAttribute('aria-label',`${x.label}: ${x.share}% of the added risk`);
+    row.append(node('strong',`${x.label} · ${x.share}% of the added risk`),m,node('small',x.text));l.append(row);}
+   r.append(fig,l);bench.append(r);}
+  if(making){const fig=node('div');fig.dataset.lotmFigure=making.id;renderFigure(fig,making,{idPrefix:`lotm-${making.id}`});bench.append(fig);}
   const list=node('ul');list.dataset.lotmSlots='';
   for(const s of d.slots){
    const li=node('li',`${s.held>=s.need&&d.status==='brewable'?'✓':'○'} ${s.role}: ${s.name}${s.amount?` (${s.amount})`:''}${d.status==='brewable'&&!d.via?` · hold ${s.held}/${s.need}`:''}${s.evidence?` [${s.evidence}]`:''}`);
@@ -62,8 +72,6 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    box.append(node('p',`${r.label} if drunk now: ${r.grade} · stated loss-of-control odds ${r.odds} percent (pre-signs stay reversible about ${r.recoveryDays} days). Seq ${d.seq} doses cannot be drunk yet, so this is a preview.`));
    for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}. Principle: ${c.principle}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
    bench.append(box);}
-  // RPX1/RPX2 figure of the same detail: rite conditions and materials as slots, the brew as a track; the lines above stay the text form (UR37).
-  const spec=riteFigureSpec(d);if(spec){const fig=node('div');fig.dataset.lotmFigure=spec.id;renderFigure(fig,spec,{idPrefix:`lotm-${spec.id}`});bench.append(fig);}
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
   if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));
   if(d.doses)bench.append(node('p',`You hold ${d.doses} ${d.product?.name||'dose'}.`));

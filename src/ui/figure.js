@@ -199,6 +199,7 @@ export function renderFigure(node, input, options = {}) {
     const tracksH = spec.tracks.reduce((sum, track) => sum + trackHeight(track, S), 0);
     const height = radialH + tracksH + spec.notes.reduce((sum, note) => sum + wrap(note.text, noteWidth).length * NOTE_H, 0) + (spec.notes.length ? NOTE_H : 0);
     const svg = make('svg', {class: 'fig-svg', xmlns: SVG_NS, viewBox: `0 0 ${S} ${height}`, width: S, height, role: 'img', 'aria-labelledby': `${prefix}-title ${prefix}-desc`, focusable: 'false'});
+    svg.style.setProperty('--fig-units', String(round1(S / 12))); // styles/figure.css scales the drawing with the small type size
     svg.append(make('title', {id: `${prefix}-title`}, spec.title), make('desc', {id: `${prefix}-desc`}, text));
 
     const ringMap = new Map(spec.rings.map(ring => [ring.id, ring]));

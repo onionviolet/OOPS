@@ -1,48 +1,297 @@
 {
- "bundle": "02810e8444d5a124",
- "port": 62010,
+ "bundle": "4088bcd44c683ae8",
+ "port": 55607,
  "viewport": "1920x1080",
  "route": "fresh life, Village door, earned steps; no save edits",
  "errors": [],
  "log": [
   "fresh life: Village place action \"Cross to another world: Tingen\" opened the panel (no probe parameter)",
   "probationer enrolled and reported in",
-  "Sequence 5 formula with a rite: both conditions empty, odds at the centre, materials ring, brew track at Formula; 612x968 px",
-  "bought ordinary ice (2 soli from the fresh purse), walked to the lodging: both conditions are stand-ins (strained), odds note names each",
-  "effects off: same text form, figure still drawn"
+  "Sequence 5 formula with a rite: both conditions empty, odds at the centre, ledger beside it, materials track and brew track at Formula; rite 514x514 px",
+  "bought ordinary ice (2 soli from the fresh purse), walked to the lodging: both conditions are stand-ins (strained), odds note names each; ledger advice starts \"Fix first:\"; making desc names Materials \"of 6 held\"",
+  "effects off by attribute: same text form, figures still drawn",
+  "21 px text: {\"bench-sun_5-rite\":{\"labels\":3,\"overlaps\":[]},\"bench-sun_5-making\":{\"labels\":11,\"overlaps\":[]}}; page overflow false",
+  "effects off via Settings: <html data-effects> mirrored \"off\"; rite and making desc identical to effects full (setting before this run: reduced)",
+  "brewing NOT reached: the starting purse or place did not allow formula, materials and start (see figures.brewing.tried)"
  ],
  "figures": {
   "absent": {
-   "id": "bench-sun_5",
-   "desc": "Priest of Light · Sequence 5\nPriest of Light rite: 2 conditions, graded absent.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (empty); 2. In pure darkness (empty).\nNodes: Drink now · 90% odds (empty).\nTrack Materials, 0 of 6 done: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 1440 min (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nStrained: Rite absent: stated loss-of-control odds 90 percent if drunk now. Pre-signs stay reversible about 7 days.\nEmpty: Buried in non-melting ice: still needed. Wanted: you hold a block of non-melting ice.\nEmpty: In pure darkness: still needed. Wanted: you hold blackout canvas.\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
-   "width": 612,
-   "height": 968,
+   "id": "bench-sun_5-rite",
+   "desc": "Priest of Light rite\n2 conditions, no condition met: 90% chance of losing control if drunk now.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (empty); 2. In pure darkness (empty).\nNodes: 90% risk (empty).\nKey: ○ empty means missing.",
+   "width": 514,
+   "height": 514,
    "styled": true,
    "glow": 0,
    "legend": [
-    "○still needed",
-    "▶step now",
-    "·step to come"
+    "○missing"
    ],
-   "pageOverflow": false
+   "pageOverflow": false,
+   "ledger": {
+    "grade": "absent",
+    "headline": "90% chance of losing control if drunk now (no condition met). Pre-signs stay reversible about 7 days.",
+    "advice": "Fix first: Buried in non-melting ice, about 50% of the added risk.",
+    "rows": [
+     {
+      "text": "Buried in non-melting ice · 50% of the added risk",
+      "meter": 50
+     },
+     {
+      "text": "In pure darkness · 50% of the added risk",
+      "meter": 50
+     }
+    ]
+   },
+   "making": {
+    "id": "bench-sun_5-making",
+    "desc": "Priest of Light · Sequence 5\nWhat to gather, then the brew from formula to drinking.\nTrack Materials, 0 of 6 held: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 24 h (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
+    "width": 675,
+    "height": 238,
+    "styled": true,
+    "glow": 0,
+    "legend": [
+     "○still needed",
+     "▶step now",
+     "·step to come"
+    ],
+    "pageOverflow": false
+   }
   },
   "absentFilterFull": "none",
   "substituted": {
-   "id": "bench-sun_5",
-   "desc": "Priest of Light · Sequence 5\nPriest of Light rite: 2 conditions, graded substituted.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (strained); 2. In pure darkness (strained).\nNodes: Drink now · 48% odds (strained).\nTrack Materials, 0 of 6 done: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 1440 min (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nStrained: Rite substituted: stated loss-of-control odds 48 percent if drunk now. Pre-signs stay reversible about 7 days.\nStrained: Buried in non-melting ice: stand-in ordinary ice, which melts over the hours of the rite, fit 0.5.\nStrained: In pure darkness: stand-in your shuttered lodging room by day, fit 0.5.\nKey: ! strained means a stand-in, raises the odds.\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
-   "width": 612,
-   "height": 968,
+   "id": "bench-sun_5-rite",
+   "desc": "Priest of Light rite\n2 conditions, met with stand-ins: 48% chance of losing control if drunk now.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (strained); 2. In pure darkness (strained).\nNodes: 48% risk (strained).\nKey: ! strained means a stand-in, raises the risk.",
+   "width": 514,
+   "height": 514,
    "styled": true,
    "glow": 0,
    "legend": [
-    "!a stand-in, raises the odds",
-    "○still needed",
-    "▶step now",
-    "·step to come"
+    "!a stand-in, raises the risk"
    ],
-   "pageOverflow": false
+   "pageOverflow": false,
+   "ledger": {
+    "grade": "substituted",
+    "headline": "48% chance of losing control if drunk now (met with stand-ins). Pre-signs stay reversible about 7 days.",
+    "advice": "Fix first: Buried in non-melting ice, about 50% of the added risk.",
+    "rows": [
+     {
+      "text": "Buried in non-melting ice · 50% of the added risk",
+      "meter": 50
+     },
+     {
+      "text": "In pure darkness · 50% of the added risk",
+      "meter": 50
+     }
+    ]
+   },
+   "making": {
+    "id": "bench-sun_5-making",
+    "desc": "Priest of Light · Sequence 5\nWhat to gather, then the brew from formula to drinking.\nTrack Materials, 0 of 6 held: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 24 h (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
+    "width": 675,
+    "height": 238,
+    "styled": true,
+    "glow": 0,
+    "legend": [
+     "○still needed",
+     "▶step now",
+     "·step to come"
+    ],
+    "pageOverflow": false
+   }
   },
   "subFilterFull": "none",
-  "subFilterOff": "none"
+  "subFilterOff": "none",
+  "font21": {
+   "figures": {
+    "bench-sun_5-rite": {
+     "labels": 3,
+     "overlaps": []
+    },
+    "bench-sun_5-making": {
+     "labels": 11,
+     "overlaps": []
+    }
+   },
+   "pageOverflow": false,
+   "scrollWidth": 1920,
+   "innerWidth": 1920,
+   "fontPx": 21,
+   "prevSize": "14"
+  },
+  "realOff": {
+   "riteGlow": 0,
+   "descSame": true,
+   "prevEffects": "reduced"
+  },
+  "brewing": {
+   "reached": false,
+   "tried": [
+    {
+     "id": "fool_9",
+     "formulaBuy": {
+      "disabled": true,
+      "title": "Insufficient money.",
+      "text": "Buy a copy of the Seer formula from the broker's desk · 1200 pence (a scaled proposal; canon 230 pounds)"
+     },
+     "slots": [
+      {
+       "text": "○ main: Lavatan octopus blood (10 ml) · hold 0/1 [S 0031 (qty W game guide, medium)]",
+       "buy": {
+        "disabled": true,
+        "title": "Insufficient money.",
+        "text": "Buy · 522 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ main: Star crystal (50 g) · hold 0/1 [S 0031 (qty W game guide, medium)]",
+       "buy": {
+        "disabled": true,
+        "title": "Insufficient money.",
+        "text": "Buy · 522 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Purified water · hold 0/1 [S 0031]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy purified water at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Night-vanilla juice · hold 0/1 [S 0031]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy night-vanilla juice at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Golden mint leaves · hold 0/1 [S 0031]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy golden mint leaves at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Poison hemlock juice · hold 0/1 [S 0031]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy poison hemlock juice at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Dragonblood grass powder · hold 0/1 [S 0031]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy dragonblood grass powder at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      }
+     ]
+    },
+    {
+     "id": "sun_9",
+     "formulaBuy": {
+      "disabled": true,
+      "title": "Insufficient money.",
+      "text": "Buy a copy of the Bard formula from the broker's desk · 1200 pence (a scaled proposal; canon 230 pounds)"
+     },
+     "slots": [
+      {
+       "text": "○ main: Crystal sunflower · hold 0/1 [S 0146, 0142]",
+       "buy": {
+        "disabled": true,
+        "title": "Insufficient money.",
+        "text": "Buy · 522 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Midsummer grass (1) · hold 0/1 [S 0146]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy midsummer grass at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: July-wine juice (5 drops) · hold 0/1 [S 0146]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy july-wine juice at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Elf dark leaf (1) · hold 0/1 [S 0146]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy elf dark leaf at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      }
+     ]
+    },
+    {
+     "id": "visionary_9",
+     "formulaBuy": {
+      "disabled": true,
+      "title": "Insufficient money.",
+      "text": "Buy a copy of the Spectator formula from the broker's desk · 1200 pence (a scaled proposal; canon 230 pounds)"
+     },
+     "slots": [
+      {
+       "text": "○ main: Adult Manhar-fish eyes (pair) · hold 0/1 [T Alger 0034]",
+       "buy": {
+        "disabled": true,
+        "title": "Insufficient money.",
+        "text": "Buy · 522 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ main: Horn-black-fish blood (35 ml) · hold 0/1 [T Alger 0034]",
+       "buy": {
+        "disabled": true,
+        "title": "Insufficient money.",
+        "text": "Buy · 522 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Purified water (80 ml) · hold 0/1 [T 0034]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy purified water at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Meadow-saffron essence (5 drops) · hold 0/1 [T 0034]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy meadow-saffron essence at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Ox-tooth peony powder (13 g) · hold 0/1 [T 0034]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy ox-tooth peony powder at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      },
+      {
+       "text": "○ aux: Elf flowers (7) · hold 0/1 [T 0034]",
+       "buy": {
+        "disabled": false,
+        "title": "Buy elf flowers at the supplier's counter · 52 pence",
+        "text": "Buy · 52 pence (4 left)"
+       }
+      }
+     ]
+    }
+   ]
+  }
  }
 }

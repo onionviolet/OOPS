@@ -105,8 +105,9 @@ Checks:
   no page errors.
 - `npm test` (load average above 100): 4106 pass, 9 fail. The failures are live cast-lives
   integrations ("live joins preserve ... Save, reload, Export and Import" and kin) whose worker
-  process exits silently. With the private pack linked in, 4 of them still fail. A comparison
-  run on untouched master was still running at commit; treat as unresolved, not as cleared.
+  process exits silently. With the private pack linked in, 4 of them still fail. One of them,
+  run alone on untouched master `99c927ec1` with the pack linked, fails the same way, so it
+  predates this branch; the other eight were not rerun on master.
 - `npm run check:arch`: pass, no new cycle edges. `npm run check:rules`: pass (5 existing
   warnings). `npm run check:docs`: this doc clean.
 - The substituted-state captures with effects full and off are byte-identical because that
@@ -126,3 +127,161 @@ Verdict: implemented, below floor on the MCP-first part of FLR2 only.
 Next slice: draw broken on a failed attempt once an ingestion command calls
 `gradeRiteAtTransition` at the moment of drinking. Then add O4 (odds ledger) beside the
 circle from the per-condition loss shares, and the Polyjuice bench as a second home.
+
+## Round 2, 2026-10-30 (proposals)
+
+From the [round 2 brief](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md). Round 1 is a
+draft; this round keeps the circle where it earns its place and restructures the rest.
+
+### How other games do it
+
+Claims are from general knowledge of these games, not fresh play; treat them as inferred.
+
+| Game | What the player sees | Makes easy | Costs | Idea taken |
+| --- | --- | --- | --- | --- |
+| Cultist Simulator, Book of Hours | A verb card with empty slots; each slot names the aspect it wants; a ring timer runs once started | Knowing what fits before you have it | Hidden rules, much trial and error | A slot names the *principle* it wants, so a stand-in visibly fits or does not (our `principle.wants`). LATER: show it on hover. |
+| Potion Craft | A map; each ingredient pushes a marker toward effects and away from danger | Seeing why a mix drifts | One big mechanic carries the whole game | Risk as distance from a danger edge. Taken in spirit: the risk ledger says which cause moves the risk most. |
+| Noita | Wand slots in a row; order changes what fires | Order-dependent sequences read left to right | Opaque modifiers | Ordered things belong on a strip; unordered things do not. So brewing steps are a track and rite conditions are not. |
+| Atelier (Ryza) | A synthesis grid of nodes; materials placed raise traits and quality | Seeing quality climb as you place | Grid density at depth | Quality bands as a visible outcome (item 19). LATER, once a world grades brewed quality. |
+| Opus Magnum | A board where the machine runs visibly | Debugging a process by watching it | Puzzle game, heavy for an idle shell | Not taken now; the unconventional option below borrows "watch the setup". |
+
+Abstractions underneath: a **slot board** (rite conditions), a **track** (materials, brew), and a
+**ledger** (risk by cause). The ledger is new here; a second consumer (combat risk, travel
+danger) would make it a shared shape (proposed UR79).
+
+### What changed (ACT NOW, done)
+
+- **Split** (items 3, 21). One figure answered two questions. Now the rite circle and its risk
+  ledger share a row (`.fig-row`, side by side when the column is wide enough, stacked when
+  not), and the making figure (materials, brew) sits below. The circle keeps a fixed 440 size
+  instead of growing with the material count, and the risk mark sits below its centre so
+  inward condition labels clear it.
+- **Large text** (item 10). Fixed the shared figure primitive's 21 px label collisions; see
+  gaps.
+- **Glance first** (UR42). Both figures now come before the reference lines in the bench; the
+  rite and material lines stay below as the full text form and keep the buy buttons.
+- **Risk ledger** (option O4, item 19). Each condition's share of the added risk, largest
+  first, with the words to act on: "Fix first: Holding one breath, about 67% of the added
+  risk." A native `<meter>` per row, words beside it. The shared `meter_bar.js` did not fit:
+  its states mean limits ("near the limit"), and a share of risk is not a limit.
+- **Fresh-player wording** (item 2). "Drink now · 48% odds" became "48% risk", with "48% chance
+  of losing control if drunk now" in the summary. "0 of 6 done" became "0 of 6 held" (a
+  generic `progressWord` on figure tracks). "1440 min" became "24 h". Legend says "missing"
+  instead of "still needed" for conditions.
+- **Semantic roles** (item 20). Every mark carries a role (`condition`, `risk`, `material`,
+  `step`, `circle`, `gather`, `sequence`) that a motif pack can key on. The primitive ignores
+  it today.
+- **Alternative form** (items 7, 18). A strip version of the rite sits in the gallery beside
+  the circle. The circle stays the default: conditions are unordered, and a strip implies an
+  order that is not there.
+
+### Forms chosen (item 18)
+
+| Part | Form | Why not the others |
+| --- | --- | --- |
+| Rite conditions | Circle of slots | They are placed around one act and unordered; a strip implies order, a table hides "laid out". |
+| Risk by cause | Ledger with bars | It is a ranking; a ring segment of equal size cannot show shares. |
+| Materials | Track (count held) | A shopping list; a grid adds nothing at two to six items. |
+| Brew | Track (ordered steps) | Strictly ordered; this bench reads time and nothing else, so no heat band (MR17). |
+| Grade | Words plus a state mark | One value; a chip in the formula picker is LATER. |
+
+### Density at 1920×1080
+
+The Tingen panel is the known worst case (round 8 UIW6, owned by the Worlds and crossings
+session). Here: glance row (circle, ledger) first, making tracks second, reference prose last.
+Larger moves (bench as its own center tab, prose behind a disclosure) are for that session;
+old browser scripts read the rite lines' text, so they stay visible for now.
+
+### Account for now
+
+- **Flourish** (item 13). Glow on met conditions and pulse on a running brew exist. Proposed:
+  a one-shot settle when a slot changes to met, which needs a non-looping effect in the
+  primitive (coordinator, since every figure shares it). Particles (`src/particles.js`) are a
+  background effect and do not fit a subject-bound event.
+- **Reports** (item 14). Proposed line when a grade changes: "Rite of X: now met with
+  stand-ins, 48% risk" with the circle glyph, grouped per formula. Owner: Time and chronicle.
+- **Pop-out and Electron** (item 5). No pop-out: a rite is prepared at the bench. A desktop
+  notification "the brew is ready to bottle" fits presence. LATER, sonnet, small; done when the
+  brew-ready transition raises one notification and the browser fallback logs a line.
+- **Cheat or insight view** (item 6). An insight view would list stand-ins the character does
+  not hold with their fit to the principle, marked as insight-sourced, never the sealed truth of
+  a rite. LATER with the cheat surface work.
+- **Later volumes** (item 17). Data-driven: conditions, materials and steps come from rows. Gaps:
+  later rites with many conditions (more than about six crowd a ring: switch to two rings or the
+  strip with grouping), mass rites with participants (a second ring of people), and timing laws
+  (hour and moon rings from the Low Lamp fixture once a condition carries a window, not a
+  boolean). Checked against the rite scales in the formula rows (solitary, creature, mass); no
+  private reading notes opened.
+
+### Unconventional option (item 9)
+
+**The laid-out room.** Draw the rite as the space the character actually prepares, seen from
+above: the ice, the canvas over the window, the candle, where the body lies. Missing pieces are
+outlines where they would go. It shows *why* a stand-in is weaker (light leaking past a shutter)
+better than a slot can. Cost: a free-placement layout in the primitive and per-rite placement
+data. Worth a later slice after the failure state lands.
+
+### Flair in two worlds (item 20)
+
+In the foggy industrial world: a chalk circle on floorboards, condition slots as brass sockets,
+risk as a pressure gauge needle, wax drips on met slots. In the wizarding school: a parchment
+recipe card, steps as numbered quill lines, the cauldron's bubbles as the brew's pulse, risk as
+a smudge spreading across the card. Both restyle by role without touching the adapter.
+
+### Gaps left (item 10)
+
+- Other seats: the bench belongs to the lead; cast making rows have no figure.
+- Empty and error states: a formula with no rite and no named materials draws nothing, and
+  the reference lines explain why. Checked in tests.
+- 21 px text: the first capture showed every label colliding, in both figures. The cause was
+  in the shared primitive (SVG text grew in CSS pixels while the drawing kept its geometry), so
+  every figure in every session had it. Fixed in `figure.js`/`figure.css`: text is drawn at the
+  12 px design base in the drawing's own units and the drawing is sized in em of the small type
+  token, so larger text scales labels and spacing together. Recapture at 21 px: zero label
+  overlaps in either figure, no horizontal overflow.
+- Effects off, set through Settings and Apply and save: the figures' text form is identical to
+  effects full.
+- A brewing state is not reachable from the starting purse: the cheapest formula costs 1200
+  pence and its main material 522, both refused with "Insufficient money." The brew track's
+  running state is proven in tests and the gallery fixture, not in the game. No save was funded.
+- At 1920×1080 the Tingen panel's center column is about 700 px, so the circle and its ledger
+  wrap into a stack rather than sitting side by side. Side by side needs the wider center view
+  the Worlds and crossings session is proposing.
+- Performance: each bench render rebuilds two small SVGs when the signature changes (once a
+  game minute while brewing). Not measured.
+
+### Open for improvement (item 12)
+
+All of this is the current best (AD45). Known limits: equal condition weights assumed in the
+ledger; no failure state; the circle's size is fixed; materials have no source shown. Likely
+next refactor: when ingestion calls `gradeRiteAtTransition`, the adapter gains the failed
+condition and draws it broken, and the ledger becomes a shared shape if a second feature uses it.
+
+### Data owners (coordinator note, 2026-10-30)
+
+The sonnet wave's sw-rites lane owns rite, summons, divination and formula rows. This adapter
+models none of them: it reads the bench projection the LOTM host already builds from
+`src/book_world_lotm_ritual.js` (graded rites) and `src/lotm_formula_rows.js` (formulas), so row
+changes there reach the figure with no adapter change. Divination queries
+(`src/lotm_divination_rows.js`, on master at `00ab553e1`, not on this branch's base) and summons
+rows are separate families with ordered steps and no graded conditions; they would draw as a
+track from their own host projection once a panel shows them. Not built here.
+
+### Round 2 receipt
+
+Files: `src/ui/rite_figure.js` (split into `riteCircleSpec`, `makingSpec`, `riskLedger`),
+`src/book_world_lotm_ui.js` (glance row first, ledger with native meters),
+`src/ui/figure.js` and `styles/figure.css` (text scaling, `progressWord`, `.fig-row`,
+`.fig-ledger`), `src/perspective_controls.js` (ledger tag), `src/ui/preview/fixtures/rituals.js`
+(five fixtures with the strip alternative), `tests/rite_figure.test.js`,
+`docs/representations/evidence/rituals/` (browser script extended by a Sonnet subagent: ledger
+assertions, 21 px overlap scan, effects off through Settings, brewing attempt).
+
+Checks: `node --test tests/rite_figure.test.js tests/figure.test.js tests/perspective_controls.test.js`
+pass; `npm run check:arch` no new cycle edges; `npm run check:docs` clean for this doc; the
+browser journey and gallery capture are in the evidence folder with the bundle hash in
+`result.json`. Full `npm test` was not rerun this round (the machine's load average stayed above
+80 and the round 1 run's failures were live cast-lives integrations unrelated to these files).
+
+AD43 floor: unchanged from round 1. Implemented, below floor on FLR2's MCP-first walk only;
+agent-verified, not human-reviewed.
