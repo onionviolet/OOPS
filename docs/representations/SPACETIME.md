@@ -54,14 +54,15 @@ Forms weighed and picked per part:
 - Gallery fixtures `src/ui/preview/fixtures/spacetime.js` (one import line in `figure_gallery.js`): lives tree (through the adapter), loop, divergence ledger (design only), memory palace (abstract space).
 - Tests: `tests/lives_figure.test.js` (6) with `figure.test.js`, `observer_view.test.js`, `continuation_state.test.js`.
 - Evidence: `docs/representations/evidence/spacetime/*.png` (1920×1080, Luminous and Neutral side by side, effects full and off; `scripts/capture_spacetime_gallery.mjs`).
-- **Verification state:** gallery rendering exercised in headless Chrome, 0 page errors. The Lives tab inside the live game is implemented and unit-covered but **not exercised in a rebuilt game**; it needs an enrolled continuation (fresh life: Journal undiscovered until the elder, then the enroll button). Implemented-unverified.
+- **Verification state:** gallery fixtures rendered in headless Chrome (0 page errors). The Lives tab was exercised in a rebuilt game from a fresh origin at 1920×1080 with `scripts/capture_spacetime_game.mjs`: one life, then a second life through "Begin a fresh life"; asserts the figure, the text form and real dates (`game-lives-one.png`, `game-lives-two.png`). Not exercised: resume, rewind, loop on, challenge, reload and import. The adapter reads existing fields only, so no persistence change. `check:arch` run; the full suite was not run (machine load).
+- Fixed after review: paused lives first showed placeholder dates in the game (the view lacked them); `continuationView` now returns each paused life's start and checkpoint dates (read-only) and the fixture goes through the same adapter.
 
 ## Round 2
 
 Items 1-21, short. Everything is a draft.
 
 1. **Other games**: table above. Each idea maps to a part; nothing copies a look.
-2. **Fresh-player test (from the fixture, not a live game)**: five-second read is "four lives, I'm in number 2, 4 has no way back". Terms needing knowing: "return point", "route", "isolated challenge". The legend defines route, and the track says Start, Later point, Now. Cheap fix applied: dropped the overlapping "both ways" edge label. Not fixed: the panel still starts on Anchors & study; proposing Lives as default (ACCOUNT FOR NOW, changes the tab existing browser scripts click).
+2. **Fresh-player test (from the fixture, not a live game)**: five-second read is "four lives, I'm in number 2, 4 has no way back". Terms needing knowing: "return point", "route", "isolated challenge". The legend defines route, and the track says Start, Later point, Now. Cheap fix applied: dropped the overlapping "both ways" edge label. In the game the figure fills the centre, so tracks and the text form sit below the fold of the panel (it scrolls); a tighter figure size (520) is used there. Not fixed: the panel still starts on Anchors & study; proposing Lives as default (ACCOUNT FOR NOW, changes the tab existing browser scripts click).
 3. **Density (UR42)**: glance is the node row plus the "you remember" line; the per-life tracks are second level; the old Return buttons stay one tab away.
 4. **Signals**: a loop chip "cycle 6" and a "paused lives: 3" chip fit the panel's home card (`#continuation_panel`). Each answers "can I go back, and where". LATER.
 5. **Pop-out**: a lives view on a second screen earns it for loop worlds (watch cycles while playing). Proposal; browser fallback is the same renderer.

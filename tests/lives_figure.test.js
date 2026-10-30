@@ -53,3 +53,11 @@ test('renders to svg with the text form beside it', () => {
     renderFigure(host, PALACE_FIXTURE, {text: true});
     assert.ok(host.innerHTML.includes('Sealed room (S-11)'));
 });
+
+test('a paused life shows its own real dates, not a placeholder', () => {
+    const text = figureText(LIVES_FIXTURE);
+    assert.match(text, /Track First life, 2 of 3 done: 1\. Start Y1 1\/1 \(done\); 2\. Later point Y2 6\/2 \(done\); 3\. Paused Y3 4\/9/);
+    assert.match(text, /Track Fresh start, Ashgate, 1 of 3 done: 1\. Start Y1 1\/1 \(done\); 2\. Later point not set \(empty\)/);
+    assert.match(text, /learned skills Literacy, Smelting\./);
+    assert.match(text, /14 life events/);
+});

@@ -1,16 +1,19 @@
 // Spacetime fixtures (invented names only, CLR3): a lives tree through the real adapter, a loop with carry-over,
 // a divergence ledger (opt-in, LTU10, design only) and an abstract space with no geography. Sealed places appear by ID.
 import {FIGURE_FIXTURES} from '../figure_fixtures.js';
-import {livesFigure} from '../../lives_figure.js';
+import {livesFigure, livesFromView} from '../../lives_figure.js';
 
 const T = (year, month, day) => ({year, month, day});
-export const LIVES_VIEW = {available: true, challenge: null, loop: {enabled: false, target: 'initial', cycles: 0}, memoryCount: 14, carried: ['Literacy', 'Smelting'],
-    lives: [
-        {id: 'life-1', label: 'First life', active: false, paused: T(3, 4, 9), reachable: true, tether: 'life-2', initial: T(1, 1, 1), checkpoint: T(2, 6, 2), checkpointReachable: true},
-        {id: 'life-2', label: 'Ferryman of Lowmere', active: true, initial: T(1, 1, 1), checkpoint: T(1, 9, 20), checkpointReachable: true, tether: null},
-        {id: 'life-3', label: 'Fresh start, Ashgate', active: false, paused: T(1, 2, 11), reachable: true, tether: 'life-2', initial: T(1, 1, 1), checkpoint: null},
-        {id: 'life-4', label: 'Shelved after the fire', active: false, paused: T(1, 8, 30), reachable: false, tether: null, initial: T(1, 1, 1), checkpoint: null}]};
-export const LIVES_FIXTURE = livesFigure(LIVES_VIEW);
+// Same shape as continuationView(save) returns, so the fixture goes through the adapter the game uses.
+export const LIVES_VIEW = {available: true, life: 'Ferryman of Lowmere', activeId: 'life-2', challenge: null, loop: {enabled: false, target: 'initial', cycles: 0},
+    initialDate: {year: 1, month: 1, day: 1}, checkpointDate: T(1, 9, 20), checkpointReachable: true, initialBlocked: '',
+    memories: Array.from({length: 14}, (_, i) => ({lifeId: 'life-1', event: {text: `Remembered event ${i + 1}`, at: i}})),
+    mastery: [{skill: 'Literacy', xp: 120, usable: true}, {skill: 'Smelting', xp: 40, usable: true}, {skill: 'Archery', xp: 30, usable: false}],
+    paused: [
+        {id: 'life-1', label: 'First life', reachable: true, date: T(3, 4, 9), initialDate: T(1, 1, 1), checkpointDate: T(2, 6, 2)},
+        {id: 'life-3', label: 'Fresh start, Ashgate', reachable: true, date: T(1, 2, 11), initialDate: T(1, 1, 1), checkpointDate: null},
+        {id: 'life-4', label: 'Shelved after the fire', reachable: false, date: T(1, 8, 30), initialDate: T(1, 1, 1), checkpointDate: null}]};
+export const LIVES_FIXTURE = livesFigure(livesFromView(LIVES_VIEW));
 
 export const LOOP_FIXTURE = {id: 'loop-clock-town', size: 640, title: 'Loop of the Clockwork Town (proposal)',
     summary: 'Cycle 6 of an unknown number. The town resets at dusk on day three; you keep what you learned.',

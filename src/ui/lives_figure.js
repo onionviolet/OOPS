@@ -42,7 +42,7 @@ export function livesFigure(view, options = {}) {
 /** Maps continuationView(save) onto the livesFigure input; reads only what the view already exposes. */
 export function livesFromView(view, activeLabel = 'This life') {
     if (!view || !view.available) return {available: false};
-    const paused = (view.paused || []).map(p => ({id: p.id, label: p.label, paused: p.date, reachable: p.reachable, tether: view.activeId, active: false}));
+    const paused = (view.paused || []).map(p => ({id: p.id, label: p.label, paused: p.date, initial: p.initialDate, checkpoint: p.checkpointDate, reachable: p.reachable, tether: view.activeId, active: false}));
     const active = {id: view.activeId || 'active', label: view.life || activeLabel, active: true, challenge: !!view.challenge, initial: view.initialDate, checkpoint: view.checkpointDate,
         initialBlocked: !!view.initialBlocked, checkpointReachable: view.checkpointReachable, tether: null};
     return {available: true, lives: [active, ...paused], challenge: view.challenge, loop: view.loop, memoryCount: (view.memories || []).length,

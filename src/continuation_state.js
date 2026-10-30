@@ -235,5 +235,5 @@ export function continuationView(save) {
         initialBlocked:externalEquipmentReason(life,life.initial),checkpointBlocked:externalEquipmentReason(life,life.checkpoint),initialDate:copy(life.initial['current time']),checkpointDate:life.checkpoint?copy(life.checkpoint['current time']):null,
         checkpointReachable:!!life.checkpoint&&!externalEquipmentReason(life,life.checkpoint)&&(!save['current time']||nativeMoment(life.checkpoint)<=nativeMoment(save)),
         memories:copy(c.memories||[]).map(m=>({...m,lifeLabel:c.lives[m.lifeId]?.label||'Earlier life'})),arrivalPaused:!!c.arrivalPaused,research:copy(c.research),loop:copy(c.loop),mastery:Object.entries(c.mastery).filter(([skill,xp])=>xp>0&&(c.knownMastery||[]).includes(skill)).map(([skill,xp])=>({skill,xp,usable:COMPATIBLE_MASTERY.includes(skill)})),
-        paused:Object.values(c.lives).filter(x=>x.paused).map(x=>({id:x.id,label:x.label,reachable:life.tether===x.id||x.tether===c.active,date:copy(x.paused['current time'])}))};
+        paused:Object.values(c.lives).filter(x=>x.paused).map(x=>({id:x.id,label:x.label,reachable:life.tether===x.id||x.tether===c.active,date:copy(x.paused['current time']),initialDate:copy(x.initial['current time']),checkpointDate:x.checkpoint?copy(x.checkpoint['current time']):null}))};
 }
