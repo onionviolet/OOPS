@@ -56,3 +56,11 @@ First pass: 23 lanes of 3 shards; 13 shards came back incomplete (ids only, loca
 
 Output: private `enrich15/steps15_sidecar.jsonl` (one row per step: Luna fields plus the script's actor, kind and habit for comparison). Scenes are untouched. The 1.3 scene rows carry no reader 1.5 fields, so nothing of the reader's own is overridden yet; later Haiku 1.5 reads win on union (LSD151).
 **Open:** the 3 bad locators and 6 unknown ids should be dropped or reviewed at merge; target and item fields are the weak spot, so downstream consumers should treat them as unreviewed (label `I`) until a larger spot check.
+
+## Lessons from lane L6 (Circle of Inevitability, 2026-10-30)
+
+- **Brief wording:** "edit no tracked repo file" is fine; "do not edit the repo" alone made one lane refuse to write its reply file. Say the reply files are required and allowed.
+- **Lane size:** one shard with its three passes per lane worked; one lane with 9 prompts failed or came back thin on 3 of 4 lanes. Keep lanes to one shard.
+- **Check every time:** run `luna_lane.mjs ingest` and compare row counts with the pilot; thin replies (1-5 rows against 11-31) are the failure signature. One retry, no third.
+- **Ungraded passes:** people, rules and texture have no audit grade, so use lint issues, row counts and a 12-15 row spot check against the cited paragraph.
+- **Candidates for other books** (text on disk, not yet read by any route): LOTM volumes 2-8, Worm, You Are Summoned 1-5, Wish Upon the Stars 1-8, Godclads, The Perfect Run, Super Supportive, A Regressor's Tale of Cultivation, Reverend Insanity after chapter 400, and the rest of Circle of Inevitability. Each needs a plan file from `make_book_plans.mjs`, a census (Luna census is untested; the local qwen lane covers census only for Circle of Inevitability), then the passes. TTKS has no full text.

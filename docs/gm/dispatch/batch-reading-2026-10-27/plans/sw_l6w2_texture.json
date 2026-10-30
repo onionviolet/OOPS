@@ -1,0 +1,91 @@
+{
+ "world": "coi",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.4",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/luna-l6/w2/texture",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/luna-l6/gloss",
+  "censusMatch": "^coic\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "sw-l6w2-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "coic017L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch017-020.txt",
+   "base": "01701",
+   "chapters": "17-20"
+  },
+  {
+   "prefix": "coic021L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch021-024.txt",
+   "base": "02101",
+   "chapters": "21-24"
+  },
+  {
+   "prefix": "coic025L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch025-028.txt",
+   "base": "02501",
+   "chapters": "25-28"
+  },
+  {
+   "prefix": "coic029L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch029-032.txt",
+   "base": "02901",
+   "chapters": "29-32"
+  },
+  {
+   "prefix": "coic033L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch033-036.txt",
+   "base": "03301",
+   "chapters": "33-36"
+  },
+  {
+   "prefix": "coic037L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch037-040.txt",
+   "base": "03701",
+   "chapters": "37-40"
+  },
+  {
+   "prefix": "coic041L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch041-044.txt",
+   "base": "04101",
+   "chapters": "41-44"
+  },
+  {
+   "prefix": "coic045L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch045-048.txt",
+   "base": "04501",
+   "chapters": "45-48"
+  },
+  {
+   "prefix": "coic049L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch049-052.txt",
+   "base": "04901",
+   "chapters": "49-52"
+  },
+  {
+   "prefix": "coic053L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch053-056.txt",
+   "base": "05301",
+   "chapters": "53-56"
+  },
+  {
+   "prefix": "coic057L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch057-060.txt",
+   "base": "05701",
+   "chapters": "57-60"
+  },
+  {
+   "prefix": "coic061L",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch061-064.txt",
+   "base": "06101",
+   "chapters": "61-64"
+  }
+ ]
+}

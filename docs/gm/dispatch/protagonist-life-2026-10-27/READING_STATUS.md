@@ -21,6 +21,10 @@ Grade-C scene shards: `b4s42`, `b4s44`, `b4s48`, `b5s50`, `b5s52`, `b5s59`, `b6s
 
 **Luna enrich, all 72 shards (2026-10-29):** 1,768 of 1,768 steps carry 1.5 fields in a private sidecar after one retry of 13 shards; 3 locators outside the shard, 6 ids outside the table; 15-step spot check 11 supported, 3 partial, 1 wrong. $0 API; Codex window 26% before and after. Scenes unchanged. See [Luna lane](READING_LUNA_LANE.md).
 
+**Lane L6, Circle of Inevitability on Luna (2026-10-30, `gpt-6-luna` medium, $0 API):** people, rules and texture passes on the shards that have a local census (40 of 295). Pilot `coic005`, `coic009`, `coic013`: 9 of 9 replies ok, 7 lint-clean, 15-row spot check in the wave notes below. Wave 2 (12 shards): the first try failed (2 lanes wrote nothing, 1 thin; the brief said "no repo edits" while requiring reply files), one retry in the pilot shape (one shard per lane, brief fixed) gave **36 of 36 ok, 8 lint issues total, rows per shard in line with the pilot**. The passes carry no audit grade or name accuracy; lint plus spot check stand in. Glossary is the local census, not a batch census (the Nov batch census will replace it). Usage: Codex 27% before and after; Claude weekly 44%, 5-hour 72% (shared with other sessions). Requirements and lessons: [Luna lane](READING_LUNA_LANE.md).
+
+**Grade-C shards fixed (2026-10-30):** the 10 volume 1 scene shards are now grade B by `scripts/lead_run/setaside_lint.mjs` (no model call; backups in `pre-setaside/`; 5 rows set aside on `b4s44`, 1 each on 4 others). The Luna enrich sidecar had 3 bad locators, 1 unknown id and 13 self-targets removed.
+
 **Free lane:** the local COI census queue (tag `n1`, 53 shards done, last entry 2026-10-29 21:05) is not running now; resume with the command in the local handoff when the coordinator's browser checks are done.
 
 **Next step (one line):** script-set-aside the failing rows of the 10 grade-C volume 1 shards, then Weibao's go on a November run file (Circle of Inevitability `coi` first per C24).
