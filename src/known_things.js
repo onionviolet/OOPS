@@ -29,7 +29,10 @@ export function projectKnownThings({kills = {}, enemies = {}, bookProgress = {},
         return {key: `book:${name}`, name: bookItems[name]?.name || name, detail: done ? 'Finished' : `${pct}% read`};
     }).sort(byName);
     const items = Object.entries(found).filter(([, row]) => row && row.number > 0).map(([id, row]) => ({key: `item:${id}`, name: itemTemplates[id]?.name || id, detail: `${row.number.toLocaleString()} found`})).sort(byName);
-    const placesRows = places.map(p => ({key: `place:${p.id}`, name: p.name, detail: p.detail})).sort(byName);
+    // Several places can share a name and parent (four "practice yard" rows); one reads as one place.
+    const seenPlace = new Set();
+    const placesRows = places.filter(p => { const k = `${p.name}|${p.detail}`; return seenPlace.has(k) ? false : (seenPlace.add(k), true); })
+        .map(p => ({key: `place:${p.id}`, name: p.name, detail: p.detail})).sort(byName);
     return {creatures, books, items, places: placesRows};
 }
 
