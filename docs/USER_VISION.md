@@ -6974,3 +6974,12 @@ Weibao, 2026-10-30, answering the base-cheat pass (the audit headline: heir succ
 Weibao, 2026-10-30, answering whether to make the background-only preference a standing rule: "no visibal windows as standing rule".
 
 - Agents never open a visible window on his screen. Browsers run headless and Electron runs hidden, and native computer control needs his say-so first. Recorded in [AGENTS.md](../AGENTS.md#safety).
+
+## Base cheat versus other cheats; cheat work deferred long term (2026-10-30)
+
+Weibao, 2026-10-30, answering whether the ring elder should become a form of the base cheat: "Ring spirit is NOT the base cheat, but ratherm it is a certain type of cheat that will be out there, there are so many possible cheats, base cheat is the standard stuff that makes our guy beyond a normal person, but then, the world can have so much more, more cheats and more? We did consider this already, we can defer cheat works long term"
+
+- **The base cheat** is the standard part that makes the played character more than a normal person. It carries between lives along with memories, as in the earlier entries on base-cheat carryover and lore.
+- **Other cheats** are separate things the world can offer: a ring spirit, a system, and many more. Each is its own cheat, not a form or skin of the base cheat.
+- **Deferred long term:** further cheat work, after the commits already landed today (growth view, look by type, the ring-elder premise grant). Nothing is deleted.
+- Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [cheat library](CHEAT_LIBRARY.md).
