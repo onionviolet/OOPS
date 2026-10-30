@@ -104,3 +104,19 @@ export function relationshipStageMeter(person) {
         note: stage.next ? `Next: ${stage.next}.` : 'The highest stage this world names.',
         ...(person.manner ? {observation: {text: `Seen here now: ${person.manner.line.replace(/\.$/, '')}`}} : {})};
 }
+
+// Round 3 bars: three small readings per person, each with its words beside the bar (UR37, UR61). Trust is the
+// observer's own axis. Warmth is only what was read face to face today, and says so when nothing was. Debt is
+// a count from the open agreements and loans, never a fill from anyone's hidden state.
+const TRUST_WORD = ['You distrust them', 'You have not decided', 'You trust them'];
+export function relationshipBars(person) {
+    const bars = [], sign = Number.isFinite(person.trust) ? Math.sign(person.trust) : 0;
+    bars.push({id: `trust.${person.id}`, label: `Trust: ${TRUST_WORD[sign + 1]}`, kind: 'track', value: sign + 1, max: 2, discrete: true, note: 'Your own regard for them, from what you have lived through.'});
+    const m = person.manner, warmth = !m ? 1 : m.warm ? 2 : 0;
+    bars.push({id: `warmth.${person.id}`, label: !m ? 'Their warmth: not read now' : m.warm ? 'Their warmth: warmer toward you' : 'Their warmth: wary of you', kind: 'track', value: warmth, max: 2, discrete: true,
+        note: !m ? 'Manner is read only face to face.' : `${m.heard ? 'Heard of you; ' : ''}Seen here now: ${m.line.replace(/\.$/, '')}.`});
+    const open = person.owes.filter(o => !o.settled), you = open.filter(o => o.by === 'you').length, them = open.length - you;
+    bars.push({id: `debt.${person.id}`, label: !open.length ? 'Debts: none open' : `Debts: you owe ${you}, they owe ${them}`, kind: 'track', value: Math.min(open.length, 4), max: 4, discrete: true,
+        note: open.length ? open.map(o => `${o.by === 'you' ? 'You owe' : 'Owes you'}: ${o.label}`).join('; ') + '.' : 'No agreement or loan is open between you.'});
+    return bars;
+}

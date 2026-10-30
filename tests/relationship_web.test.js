@@ -149,3 +149,44 @@ test('relationship stages climb only on evidence the observer has, and the bar s
     assert.equal(normalizeMeter(relationshipStageMeter({...base, owes: [{by: 'you', label: 'd', settled: true}], trust: 1})).state, 'complete');
     assert.equal(RELATIONSHIP_STAGES.length - 1, relationshipStage(base).max);
 });
+
+test('bars: trust is the seat\'s own regard, warmth only what was read, debt a count; no hidden axis leaks', async () => {
+    const {relationshipBars} = await import('../src/ui/relationship_web.js');
+    const base = {id: 'a', name: 'Ann', here: false, owes: [], saw: []};
+    const bars = p => relationshipBars(p).map(b => normalizeMeter(b));
+    const [t, w, d] = bars({...base, trust: 99});
+    assert.match(t.text, /Trust: You trust them/); assert.doesNotMatch(JSON.stringify([t, w, d]), /99/);
+    assert.match(w.text, /Their warmth: not read now/); assert.match(w.note, /face to face/);
+    assert.match(d.text, /Debts: none open/);
+    const [, w2, d2] = bars({...base, manner: {line: 'Wary of you.', warm: false, heard: false}, owes: [{by: 'you', label: 'x'}, {by: 'them', label: 'y'}, {by: 'them', label: 'z', settled: true}]});
+    assert.match(w2.text, /wary of you/); assert.match(d2.text, /you owe 1, they owe 1/);
+    // the live projection feeds the same bars with no raw trust number in any label
+    const state = enrolled(); state.simulation.relationships.player = {oldCraftsman: {axes: {trust: 77}}};
+    const [live] = relationshipWebPeople(state, met);
+    assert.doesNotMatch(JSON.stringify(relationshipBars(live)), /77/);
+});
+
+test('who else knows: only seat evidence; here gates ask; the truth query is never read', async () => {
+    const {whoKnowsRows, whoKnowsFor, registerWhoKnowsSource} = await import('../src/who_knows_view.js');
+    const rows = [{key: 'k1', text: 'The ferry is late'}, {key: 'k2', text: 'Unlinked'}];
+    const people = [{id: 'a', name: 'Ann', here: true}, {id: 'b', name: 'Bo', here: false}];
+    const out = whoKnowsRows(rows, [{key: 'k1', person: 'a', basis: 'present'}, {key: 'k1', person: 'b', basis: 'asked'}, {key: 'k1', person: 'zz', basis: 'told'}, {key: 'k1', person: 'a', basis: 'oracle'}], people);
+    assert.equal(out.length, 1); assert.deepEqual(out[0].who.map(w => [w.id, w.certainty, w.canAsk]), [['a', 'known', true], ['b', 'open', false]]);
+    assert.match(out[0].who[1].askReason, /not here/);
+    assert.deepEqual(whoKnowsFor({}, {}, rows, people), [], 'no source, no rows');
+    const off = registerWhoKnowsSource(() => [{key: 'k1', person: 'a', basis: 'told'}]);
+    assert.equal(whoKnowsFor({}, {}, rows, people)[0].who[0].reason, 'you told them'); off();
+});
+
+test('who you can ask: bridge output only; ask is gated on presence; nothing leaks', async () => {
+    const {askRows, registerAskSource} = await import('../src/who_knows_view.js');
+    const {askListFromWhoKnows} = await import('../src/read_models/knows_ask_bridge.js');
+    const known = [{person: 'a', eventId: 'e1', route: 'gossip', learnedDay: 9, level: 'heard'}, {person: 'b', eventId: 'e1', route: 'present', learnedDay: 2, level: 'present'}, {person: 'z', eventId: 'e1', route: 'x', learnedDay: 1, level: 'heard'}];
+    const list = askListFromWhoKnows(known, {self: 'me', knownPeople: new Set(['a', 'b']), nameOf: id => ({a: 'Ann', b: 'Bo'})[id], topicOf: () => 'the ferry fire'});
+    const people = [{id: 'a', name: 'Ann', here: true}, {id: 'b', name: 'Bo', here: false}];
+    const off = registerAskSource(() => list);
+    const rows = askRows({}, {}, people); off();
+    assert.deepEqual(rows.map(r => [r.personId, r.canAsk]), [['a', true], ['b', false]]);
+    assert.match(rows[1].reason, /not here/);
+    assert.doesNotMatch(JSON.stringify(rows), /gossip|present|learnedDay|heard/);
+});

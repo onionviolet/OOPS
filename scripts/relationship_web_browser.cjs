@@ -25,14 +25,14 @@ const output = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/re
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
-    await page.locator('[data-textline="hello"]').click();
+    await page.locator('[data-textline="hello"]').dispatchEvent('click'); // the talk view covers the native line (TALK.md); same handler
     await people(page);
     const web = page.locator('#known_people_panel > #relationship_web');
     assert.equal(await web.isVisible(), true, 'the web sits directly in the People panel');
     assert.equal(await page.locator('[data-known-person] #relationship_web, #relationship_web [data-known-person]').count(), 0);
     assert.equal(await web.locator('svg.fig-svg').count(), 1);
     assert.equal(await web.evaluate(n => n.open), false, 'web starts closed; cards carry the glance');
-    assert.match(await page.locator('[data-known-person="villageElder"] summary').textContent(), /Village elder · Met/);
+    assert.match(await page.locator('[data-known-person="villageElder"] > summary').textContent(), /Village elder · Met/);
     await web.locator(':scope > summary').click(); await web.locator('details > summary', {hasText: 'Read as text'}).click();
     const fresh = await webText(page);
     assert.match(fresh, /Who knows what about you/); assert.match(fresh, /Village elder/);
@@ -61,9 +61,11 @@ const output = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/re
     const snapshot = await save(page), hidden = snapshot.expansion.simulation.relationships.oldCraftsman?.player?.axes?.trust;
     assert.doesNotMatch(commissioned, /Craftsman's trust|trust: \d/);
     const craftCard = page.locator('[data-known-person="oldCraftsman"]');
-    assert.match(await craftCard.locator('summary').textContent(), /Old craftsman · Familiar · here · owes you/);
-    if(!await craftCard.evaluate(n => n.open)) await craftCard.locator('summary').click();
-    assert.match(await craftCard.locator('.meter-bar').textContent(), /Bond: Familiar/);
+    assert.match(await craftCard.locator(':scope > summary').textContent(), /Old craftsman · Familiar · here · owes you/);
+    if(!await craftCard.evaluate(n => n.open)) await craftCard.locator(':scope > summary').click();
+    assert.match(await craftCard.locator('.meter-bar').first().textContent(), /Bond: Familiar/);
+    const barsText = await craftCard.locator('.known_person_bars').textContent();
+    assert.match(barsText, /Trust: /); assert.match(barsText, /Their warmth: /); assert.match(barsText, /Debts: (none open|you owe|they owe)/);
     assert.doesNotMatch(await craftCard.textContent(), /Who knows what|Craftsman's trust/);
     await page.locator('#relationship_web > summary').click(); // close the web: the cards are the glance
     await craftCard.scrollIntoViewIfNeeded(); await page.screenshot({path: path.join(output, 'game-craftsman-card-bond.png')});

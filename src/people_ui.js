@@ -5,7 +5,7 @@ import {renderCharacterSheet} from "./ui/character_sheet_view.js";
 import {observerView} from "./observer_view.js";
 import {domainRegistry} from "./domain_registry.js";
 import {relationshipWebPeople} from "./relationship_web_view.js";
-import {relationshipWebSpec, relationshipGlance, relationshipStageMeter} from "./ui/relationship_web.js";
+import {relationshipWebSpec, relationshipGlance, relationshipStageMeter, relationshipBars} from "./ui/relationship_web.js";
 import {renderFigure} from "./ui/figure.js";
 import {createMeterBar} from "./meter_bar.js";
 
@@ -49,21 +49,22 @@ export function createPeopleOverview() {
         for(const row of rows) {
             let card = cards.get(row.id);
             if(!card) {
-                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), bond = createMeterBar(document);
-                glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true;
+                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), bond = createMeterBar(document), bars = node("div"), barMeters = [0,1,2].map(() => createMeterBar(document));
+                glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true; bars.className = "known_person_bars"; bars.append(...barMeters.map(m => m.node));
                 // The sheet owns where you last saw them, what you know and what you remember (UR73, CHARACTER_SHEET.md);
                 // the card keeps the name, the bond and the way in. Open by default so those lines stay one look away.
                 const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.open = true;
                 sheet.append(node("summary", "Character sheet · where, what you know, what you remember"), sheetHost);
-                root.dataset.knownPerson = row.id; root.append(heading, bond.node, sheet); list.append(root);
-                card = {root, heading, name, glance, bond, sheetHost, signature:""}; cards.set(row.id, card);
+                root.dataset.knownPerson = row.id; root.append(heading, bond.node, bars, sheet); list.append(root);
+                card = {root, heading, name, glance, bond, bars, barMeters, sheetHost, signature:""}; cards.set(row.id, card);
             }
             const person = bonds.get(row.id), signature = JSON.stringify([title(row), row, person || null]);
             if(signature !== card.signature) {
                 card.signature = signature; card.name.textContent = title(row);
                 // Glance first (stage and what needs attention), the bond bar one click away inside the card.
                 card.glance.textContent = person ? ` · ${relationshipGlance(person)}` : "";
-                card.bond.node.hidden = !person; if(person) card.bond.update(relationshipStageMeter(person));
+                card.bond.node.hidden = !person; card.bars.hidden = !person;
+                if(person) {card.bond.update(relationshipStageMeter(person)); relationshipBars(person).forEach((spec, i) => card.barMeters[i].update(spec));}
                 renderCharacterSheet(card.sheetHost, characterSheetView(subjectFromKnownPerson(row), observerView(state), [MET_READ]), {layout: "narrow"});
             }
         }

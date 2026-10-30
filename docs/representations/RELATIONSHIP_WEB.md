@@ -338,3 +338,33 @@ were small and the 5-hour window was at 72% (the brief pauses launches past 80%)
   Familiar · here · owes you" with "Bond: Familiar 2/4" and today's observed manner
   (`evidence/relationship-web/game-craftsman-card-bond.png`).
 - Full `npm test` not run (coordinator's instruction; it runs at merge).
+
+## Round 3 (2026-10-30, F3 of the book UI wave): bars and who else knows
+
+Proposals, not accepted decisions (AD45).
+
+**Bars (built).** Inside each person card, three small bars with words beside them, read through `observerView` only
+(`relationshipBars` in `src/ui/relationship_web.js`): *Trust* is the seat's own regard (three steps, no number); *Warmth*
+is only the manner read face to face today ("not read now" otherwise, with the reason); *Debts* is a count from open
+agreements and loans, listed in its note. The hidden axes of the other person, `derivedBond` and `bondTotal` are not read;
+the test asserts that a raw trust value never reaches any bar text. The glance line stays in the card summary.
+
+**Who else knows (built, no live source yet).** `src/who_knows_view.js` maps a seat's own evidence onto the existing
+Known / Open grammar in the Knows home ("Who else knows" section): *known* when you were both there or you told them,
+*open* when you asked and got no answer. It never calls `whoKnows` (a truth query). Hosts feed it through
+`registerWhoKnowsSource`. The **Ask** button calls the existing `start_dialogue` and is enabled only when the person is
+here; otherwise it is disabled with "not here; ask when you meet". The full `whoKnows` list belongs to the insight seat, later.
+
+**Why no live rows.** The event book (`buildEventBook` plus presence and channels) is built only by the book-world event pack,
+not by base.frontier, and bridging it is sw-bridge's lane (PLAN F5). Reading other people's memory episodes to find who was
+told is excluded by this doc's own rule. So on a fresh origin the section is hidden.
+
+**AD43 floor.** Bars: rebuilt, 1920x1080 headless card evidence, focused tests, implemented. Who-knows: implemented, below floor on
+FLR4 (nothing feeds it) and the browser walk (hidden on a fresh origin; the Ask path is unit-tested only). Next slice: a seat-evidence
+source (presence records and the hero's tellings) once sw-bridge lands the book bridge.
+
+**Round 3 addition: who you can ask.** `registerAskSource` takes `askListFromWhoKnows` output (L13 `knows_ask_bridge.js`); the Knows home lists people and topics only, and Ask calls `start_dialogue` for the person (enabled only when here, else "not here; ask when you meet"). No host registers a source yet, so the section is hidden on a fresh origin.
+
+**Round 3 verification state.** Focused tests: `relationship_web`, `read_models_upcoming_learn_ask`, people_knowledge, knowledge and character_sheet slices pass (38 + 14). Rebuilt with `npm run build`. 1920x1080 browser proof (`scripts/relationship_web_browser.cjs`, now asserts the three bars) is queued for the browser slot and **pending**. Full suite pending (coordinator's batch run). Floor: implemented, below floor, browser proof pending.
+
+**Round 3 browser proof (2026-10-30).** `scripts/relationship_web_browser.cjs` passed at 1920x1080 from a fresh origin on bundle `v0.6-535991c83c90`, 0 page errors; it asserts the Trust, Their warmth and Debts bars on the craftsman card. The script's selectors were updated for the talk view and per-card character sheets. Floor: bars met except the full suite (pending, coordinator's batch run); who-knows and who-you-can-ask remain implemented, below floor on FLR4 (no registered source) and the browser walk (hidden on a fresh origin).
