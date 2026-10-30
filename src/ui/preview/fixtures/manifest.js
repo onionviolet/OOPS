@@ -16,4 +16,5 @@ export const FIXTURE_MANIFEST = [
     [() => import('./spacetime.js')],
     [() => import('./relationship_web.js'), 'RELATIONSHIP_WEB_FIXTURES'],
     [() => import('./homes.js'), 'HOME_FIXTURES'],
+    [() => import('./progression.js')],
 ];
