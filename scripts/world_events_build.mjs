@@ -36,6 +36,8 @@ export function buildPack(sceneRows, newsRows) {
             spread: [],
         };
         if (scene.place != null) event.place = scene.place;
+        if (Array.isArray(scene.present) && scene.present.length) event.present = scene.present;   // the others there; they always know
+        if (scene.leadPresent) event.witnessedByLead = true;   // the lead's own beats are the cast's; the rest happen without the lead
         if (root) event.ordinal = {beat: scene.frame};
         else event.anchor = {eventId: `ev.${scene.frame}`, offsetDays: scene.frameDay};
         events.push(event);

@@ -100,3 +100,15 @@ test('later-volume rules: witnessed rows are seen by the lead, named audiences n
     assert.deepEqual(knownTo(book, 'stranger', 31, ctx).map(k => k.eventId), []);
     assert.deepEqual(knownTo(book, 'stranger', 32, ctx).map(k => k.eventId), ['p']);
 });
+
+test('scenes the lead is not in happen anyway and are known only to those present', () => {
+    const scene = (beat, extra) => ({beat, frame: 'r', frameDay: beat === 'r' ? null : 1, place: 'p', label: 'I', present: [], leadPresent: true, ...extra});
+    const {pack} = buildPack([scene('r'), scene('s', {present: ['aly'], leadPresent: false})], []);
+    const s = pack.events.find(e => e.id === 'ev.s');
+    assert.deepEqual(s.present, ['aly']);
+    assert.equal(s.witnessedByLead, undefined);
+    const book = loadEventPack(pack, {bindings: {r: 5}, leadId: 'lead'});
+    const ctx = {presence: () => null, channels: () => new Set()};
+    assert.deepEqual(knownTo(book, 'aly', 99, ctx).map(k => k.eventId), ['ev.s']);
+    assert.deepEqual(knownTo(book, 'lead', 99, ctx).map(k => k.eventId), ['ev.r']);
+});
