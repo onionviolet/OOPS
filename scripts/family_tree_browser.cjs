@@ -22,8 +22,9 @@ const family=async page=>{await openMod(page,'family');const p=page.locator('#fa
 let {page,ctx}=await open();
 assert.ok(!(await page.getByRole('combobox',{name:'Other known panels'}).locator('option[value="family"]').count()),'Family is not offered before a chronicle');
 ok('fresh life: Family not offered yet');
-await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(800);
-await page.locator('.end_dialogue_button:visible, #center_mode_back').first().click().catch(()=>{});
+await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();// The talk view covers the native text lines, so choose through its own option, then leave by its back button.
+await page.locator('#talk_view_host button[data-topic-id="hello"]').click();await page.waitForTimeout(800);
+await page.locator('#center_mode_back').click();
 await page.locator('[data-route-id="known-people"]').click();await page.waitForTimeout(500);
 {const t=page.locator('[data-notebook-view="people"]');if(await t.isVisible())await t.click();
 if(!(await page.locator('#chronicle_panel').isVisible())){await openMod(page,'notebook');await page.waitForTimeout(300);const t2=page.locator('[data-notebook-view="people"]');if(await t2.isVisible())await t2.click();}

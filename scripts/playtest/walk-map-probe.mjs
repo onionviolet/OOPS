@@ -22,7 +22,8 @@ try{
  await nav('lotm');
  // Walk arrival records cite the workroom situation, which begins when you report in (MT-F1), so a
  // player reports in first, as the panel offers.
- const reportIn=panel.locator('[data-lotm$="report_in"]');
+ // The workroom tabs keep a hidden duplicate report_in in the DOM, so click only the visible one.
+ const reportIn=panel.locator('[data-lotm$="report_in"]:visible');
  if(await reportIn.count()){await reportIn.first().click();await s.step(60);await pause();await nav('lotm');report.steps.push({step:'reported in'});}
  const board=panel.locator('[data-walk-board]');await board.waitFor();await board.scrollIntoViewIfNeeded();await pause();
  const rows=await board.locator('[data-walk-rows] > li').evaluateAll(ns=>ns.map(n=>n.dataset.walkPlace+' | '+n.querySelector('.walk-board-minutes').textContent));
@@ -55,6 +56,6 @@ try{
  if(!landed)assert.equal(notice,'Knowledge needs its actual situation context.','only the known host defect may stop the walk');
  await panel.locator('[data-walk-map]').scrollIntoViewIfNeeded();await pause();
  await p.screenshot({path:path.join(out,'walk-map-walk-attempt-1920.png')});
- report.errors=s.errors;const real=s.errors.filter(e=>!/status of 404/.test(e.text));assert.equal(real.length,0,JSON.stringify(real)); // 404s: ignored assets absent from a worktree
+ report.errors=s.errors;const real=s.errors.filter(e=>!/status of 404/.test(e.text));assert.equal(real.length,0,JSON.stringify(real)); // Known noise: 404s for private fonts and packs, which a plain static server does not have
 }finally{await fs.writeFile(path.join(out,'walk-map-probe.json'),JSON.stringify(report,null,1)+'\n');await s.close();server.close();await bundle.dispose();}
 console.log(JSON.stringify({ok:true,bundle:bundleHash,steps:report.steps.map(x=>x.step)}));

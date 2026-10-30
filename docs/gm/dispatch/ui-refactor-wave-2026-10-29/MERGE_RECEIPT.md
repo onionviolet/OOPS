@@ -77,8 +77,15 @@ Master `f86bdd5b`. Each branch's own proof script was run against the rebuilt `d
 Design issues seen, not fixed:
 - The Tingen header shows "Local weather unavailable" and "Local date unavailable" on a fresh Tingen life.
 - The first-visit tab hint ("Got it") sits inline in the Notebook text and reads as part of the panel.
-- The browser proof scripts for family, body, combat and walk are stale against the talk view and the workroom tabs and need updating (click through the talk view's own options; click the visible `report_in`).
-- Console-error assertions fail on the 404 for private fonts when served by a plain static server (workroom proof).
+- Proof scripts updated 2026-10-30, all eight run unpatched at 1920x1080 on a fresh build and origin, evidence in `docs/representations/evidence/post-merge/<view>/` (PASS):
+  - `scripts/talk_browser.cjs`: unchanged, passes.
+  - `scripts/owed_ledger_browser.cjs`: only an output-dir override (`YAIRPG_PROOF_DIR`).
+  - `scripts/playtest/items-card-proof.mjs`: unchanged, passes.
+  - `scripts/family_tree_browser.cjs`: chooses "hello" through the talk view's own option, leaves by `#center_mode_back`.
+  - `scripts/body_figure_browser.cjs`: talk-view options for both lines; output-dir and port overrides.
+  - `scripts/combat_situation_browser.cjs`: the four elder lines go through the talk view; "Talk to someone" is clicked by role because the first text match is a hidden duplicate (not the fixed date). The fight card is reached and Withdraw works.
+  - `scripts/playtest/walk-map-probe.mjs`: clicks only the visible `report_in`.
+  - `scripts/playtest/workroom-density.mjs`: private-font/pack 404 console noise filtered with a comment; page errors still fail.
 - Allowlisted style literals (49) remain recorded debt for the token-migration lane.
 
 ## Late fix
