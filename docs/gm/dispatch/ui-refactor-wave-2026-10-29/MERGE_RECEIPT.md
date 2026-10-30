@@ -55,6 +55,10 @@ One `figure.js` API: `track.orient`, `track.progress` (words), step `fill` and `
 - `tests/cast_journeys.test.js` test 10 (native place-panel journey) **fails identically on bare master** (checked in a scratch worktree of master HEAD 562669b7: 9 pass, 1 fail), so it is not from this merge.
 - Full suite (load-gated, concurrency 4, 4476 tests): 4455 pass, 15 skipped, 6 fail. Fixed after the run, each re-run alone and green: `ui_contract` (49 literal-style entries from the draft rep CSS added to `tests/ui_contract_allowlist.json` as a named integration reset: body_view, character_sheet, crafting_detail, figure, item_card, research, settled_text_effects, style.css; **migrate them to tokens**), `ui_contract` surface check (`research` surface added to `LAYOUT_SPEC`), `seat_profiles` route count 20 to 21 (the Knows route). Remaining 3 are the same on bare master: `cast_journeys` test 10 (verified in a scratch master worktree) and two private-root CLI tests (pre-existing per the coordinator).
 
+## Landing
+
+Master moved twice during the work; the integration branch merged it each time (final base `be83f1c3`). `dist/` was rebuilt after the last merge; `check:arch` exit 0, `check:rules` PASS, focused re-run (lotm path/advancement/districts, ladder figure, contract, ui_contract, seat profiles, build output) 45 of 45. The full suite ran before the last two master commits (L4 volume 3 rows); those touch pack rows only, not UI files. Not pushed.
+
 ## Floor state
 
 Implemented and agent-verified at the unit level; **below the AD43 floor**: no post-merge browser run at 1920x1080 for any feature, and `dist/` was rebuilt once after the merge. Each branch's own browser evidence is in `docs/representations/evidence/`.
