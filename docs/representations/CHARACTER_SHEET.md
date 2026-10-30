@@ -69,7 +69,7 @@ reading like a fact. CS3's figure joins later through compose slots (CS9), not a
 | CS6b | **Bands snap to a grid.** | Precision 0-3 gives widths 10, 5, 2 and exact. A band is floored to its width (38 at width 5 reads "35 to 39"), so a band's midpoint never equals the truth. |
 | CS6c | **The ceiling.** | A read whose rank is below the subject's falls to a relative sense (AP2: "far beyond you"). Dial: a means that reads past rank omits `rank`. |
 | CS6d | **Schema and channel.** | A power outside the read's schema shows as `???` ("Something your read cannot name"), never by name or id; a row on a channel the read lacks does not appear at all. |
-| CS6e | **Scope.** | A specialist read lists only its sections (a physician's eye reads body and conditions, and says nothing about level, header included). |
+| CS6e | **Scope.** | A specialist read lists only its sections (a physician's eye reads body and conditions, and says nothing about level or name, header included). |
 | CS6f | **Guess reads.** | Divination, rumour and similar mark every row they produce as guessed. |
 | CS6g | **Merge.** | Several reads merge row by row: known beats guessed beats unknown; a narrower band beats a wider; a tie keeps the first read that showed it. |
 | CS6h | **No counts.** | A core section with nothing read shows one line whose words never depend on the truth, so a stranger with ten powers reads the same as one with none (ABR19, AA13). |
@@ -346,6 +346,7 @@ gallery.
 |---|---|
 | Band beside your own value ("yours is 7") | UR75: a band needs a baseline |
 | `source: 'cheat'` read style | Cheat reads arrive with rep-abilities' powers |
+| People card repeats location, details and memories in the sheet's Between you (UR73) | Coordinator decides whether the card or the sheet owns those lines |
 | Shared `guessed` mark in `figure.js` | Coordinator; family tree and this doc use `≈` |
 | Global `.theme-preview dl` rule | Breaks any new `dl` in a themed module |
 

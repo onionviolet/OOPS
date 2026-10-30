@@ -139,7 +139,9 @@ export function characterSheetView(subject, observer, reads = [], options = {}) 
         if (rows.length) sections.push({...def, rows});
         else if (CORE.has(def.id)) sections.push({...def, rows: [{id: 'unread', label: def.label, state: 'unknown', text: UNREAD}]});
     }
-    const nameKnown = self || all.some(r => reach(r, subject) >= 1) || (subject.nameKey && observer?.knows?.(subject.nameKey));
+    // Identifying needs a read that looks at the person (appearance in scope); a scoped specialist
+    // read (a physician's eye, a divination of intent) names nobody, header included (CS6e).
+    const nameKnown = self || all.some(r => inScope(r, 'appearance') && reach(r, subject) >= 1) || (subject.nameKey && observer?.knows?.(subject.nameKey));
     const statReads = all.filter(r => inScope(r, 'stats'));
     const top = Math.max(0, ...statReads.map(r => reach(r, subject)));
     let levelText = null;

@@ -79,6 +79,8 @@ test('a scoped read reads only its sections, and learned facts come from the obs
     assert.ok(section(doc, 'conditions').rows.some(r => r.label === 'Soot cough'));
     // A conditions-only read says nothing about her level, in the header or anywhere else.
     assert.equal(doc.level, null);
+    assert.equal(doc.title, 'Someone you have not identified'); assert.equal(doc.kind, '');
+    assert.equal(other('introduced', 'physician').title, 'Edda Marrow');
     assert.equal(other('sense', 'physician').level, 'far beyond you');
     assert.equal(section(doc, 'stats').rows[0].state, 'unknown');
     assert.ok(!JSON.stringify(section(doc, 'traits')).includes('old debt'));
