@@ -1,4 +1,8 @@
 import {knownPeopleView} from "./people_knowledge.js";
+import {characterSheetView} from "./character_sheet.js";
+import {subjectFromKnownPerson, MET_READ} from "./character_sheet_people.js";
+import {renderCharacterSheet} from "./ui/character_sheet_view.js";
+import {observerView} from "./observer_view.js";
 
 const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
 export function createPeopleOverview() {
@@ -16,8 +20,10 @@ export function createPeopleOverview() {
             let card = cards.get(row.id);
             if(!card) {
                 const root = node("details"), heading = node("summary", title(row)), location = node("p"), details = node("div"), history = node("ul");
-                root.dataset.knownPerson = row.id; root.append(heading, location, details, history); list.append(root);
-                card = {root, heading, location, details, history, signature:""}; cards.set(row.id, card);
+                // The same character sheet as the You panel, read from what you learned (CHARACTER_SHEET.md).
+                const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.append(node("summary", "Character sheet"), sheetHost);
+                root.dataset.knownPerson = row.id; root.append(heading, location, details, history, sheet); list.append(root);
+                card = {root, heading, location, details, history, sheetHost, signature:""}; cards.set(row.id, card);
             }
             const signature = JSON.stringify([title(row), row]);
             if(signature !== card.signature) {
@@ -27,6 +33,7 @@ export function createPeopleOverview() {
                     for(const account of row.accounts){const entry=node('div');entry.dataset.personAccount=account.id;entry.append(node('p',account.text),node('small',`${account.basis}${Number.isFinite(account.at)?` · played minute ${account.at}`:''}`));card.details.append(entry);}
                 }else card.details.replaceChildren(...row.details.map(text => node("p", text)));
                 card.history.replaceChildren(...row.memories.map(m => node("li", m.text))); card.history.hidden = !!row.accounts?.length || !row.memories.length;
+                renderCharacterSheet(card.sheetHost, characterSheetView(subjectFromKnownPerson(row), observerView(state), [MET_READ]), {layout: "narrow"});
             }
         }
         for(const [id,card] of cards) if(!rows.some(row => row.id === id)) {card.root.remove(); cards.delete(id);}
