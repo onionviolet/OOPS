@@ -59,6 +59,25 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         notice.after(next);
         const versus = document.createElement('div'); versus.className = 'fight-situation-versus'; next.after(versus);
         renderVersusRow(versus, t.versus);
+        if (t.aims.length) {
+            const setAim = domainRegistry.command('tempo_fight', 'aim');
+            const reason = !setAim ? 'Aiming is unavailable until the contest can accept an aim.' : !t.yourTurn ? 'Not your turn yet.' : '';
+            const row = document.createElement('p'); row.className = 'fight-situation-aims'; row.dataset.tempoAims = '';
+            row.append('Aim: ');
+            for (const a of [{id: null, label: 'Anywhere', text: 'No particular mark: the blow lands where it lands.'}, ...t.aims]) {
+                const button = document.createElement('button'); button.type = 'button'; button.textContent = a.label;
+                button.dataset.fightAim = a.id ?? 'any'; button.disabled = !!reason;
+                button.title = `${a.text}${a.id ? ' Costs a little time; a small mark is easier to avoid.' : ''}`;
+                button.setAttribute('aria-pressed', String(t.aim === a.id));
+                button.onclick = () => {
+                    try { setAim({aim: a.id}); lastNotice = ''; } catch (error) { lastNotice = error.message; }
+                    cardKey = ''; render();
+                };
+                row.append(button);
+            }
+            if (reason) { const why = document.createElement('span'); why.textContent = ` ${reason}`; row.append(why); }
+            versus.after(row);
+        }
         const log = document.createElement('ol'); log.className = 'fight-situation-log'; log.setAttribute('aria-label', 'What happened in this fight');
         for (const line of t.log) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
         card.append(log);

@@ -60,7 +60,7 @@ test('tempo mode: learned types are plain, revealed ones carry their source, the
     assert.deepEqual(cutter.types.map(t => [t.word, t.source]), [['weak to bludgeoning', 'insight'], ['resists piercing', 'insight']]);
     assert.equal(TEMPO_FIXTURE.versus.you.mix, 'slashing 70% · piercing 30%');
     assert.equal(TEMPO_FIXTURE.moves[0].mixText, 'slashing 70% · piercing 30%');
-    assert.match(TEMPO_FIXTURE.dev[0], /You → Ford warden: 3\.6 at x0\.9 \(slashing 65%, piercing 35%\)/);
+    assert.match(TEMPO_FIXTURE.dev[0], /You → Ford warden \[body\]: 3\.6 at x0\.9 \(slashing 65%, piercing 35%\)/);
     assert.deepEqual(tempoSituation(TEMPO_VIEW, {}).dev, []);   // the readout is off outside dev
     const text = versusText(TEMPO_FIXTURE.versus);
     assert.match(text, /Ford warden\. Hurt\. .*resists slashing\./);
@@ -69,6 +69,18 @@ test('tempo mode: learned types are plain, revealed ones carry their source, the
     const both = typeChips({piercing: 'normal'}, {reveal: {source: 'insight', defense: {piercing: .5}}});
     assert.deepEqual(both.map(t => [t.word, t.source]), [['takes normal piercing', 'learned']]);
     assert.ok(typeChips({}, {reveal: {defense: {fire: 2}}}).every(t => t.source !== 'learned'));
+});
+
+test('dev hit readout accepts legacy fields and omits absent type metadata', () => {
+    const view = {fight: {...TEMPO_VIEW.fight, hits: [
+        {actor: 'You', target: 'Ford warden', slot: 'leg', dmg: 0},
+        {actor: 'You', foe: 'Ford warden', dealt: 2, multiplier: 0, split: {physical: 1}},
+    ]}};
+    assert.deepEqual(tempoSituation(view, {dev: true}).dev, [
+        'You → Ford warden [leg]: 0', 'You → Ford warden: 2 at x0 (physical 100%)',
+    ]);
+    assert.deepEqual(TEMPO_FIXTURE.aims, TEMPO_VIEW.fight.aims);
+    assert.equal(TEMPO_FIXTURE.aim, null);
 });
 
 test('no fight, or a settled one, hides tempo mode', () => {
@@ -94,21 +106,28 @@ function contest(types) {
     for (let i = 0; i < 6 && plan.state.simulation.sessions.player; i++) plan = commitTempoMove(plan.state, registry, context, {moveId: 'jab'});
     return plan.state.simulation.sessions.player.nativeBattle;
 }
-const dealt = b => b.log.filter(l => /^You hit Crab for/.test(l)).map(l => Number(/for (\d+(?:\.\d+)?)/.exec(l)[1]));
+const playerHits = b => (b.hits || []).filter(h => h.actor === 'You' && h.target === 'Crab');
 
 test('tempo strikes deal typed harm, teach the foe row, record the split, and survive a reload', {skip: WAITS}, () => {
     const plain = contest(null), weak = contest({you: {attack: {bludgeoning: 1}, defense: {}}, foe: {attack: {physical: 1}, defense: {bludgeoning: 1.5}}});
-    assert.ok(dealt(plain).length >= 2 && dealt(plain).length === dealt(weak).length, 'same keyed rolls in both fights');
-    dealt(plain).forEach((d, i) => assert.ok(Math.abs(dealt(weak)[i] - Math.round(10 * d * 1.5) / 10) <= .1, `${d} -> ${dealt(weak)[i]}`));
+    const untypedHits = playerHits(plain), typedHits = playerHits(weak);
+    assert.ok(untypedHits.length >= 2 && untypedHits.length === typedHits.length, 'same keyed rolls in both fights');
+    untypedHits.forEach((h, i) => {
+        const typed = typedHits[i];
+        assert.equal(typed.slot, h.slot, 'same keyed location roll');
+        assert.equal(typed.multiplier, 1.5);
+        const expected = Math.round(10 * h.dmg * typed.multiplier) / 10;
+        assert.ok(Math.abs(typed.dmg - expected) <= .100000001, `${h.slot}: ${h.dmg} -> ${typed.dmg}, expected ${expected}`);
+    });
     assert.ok(weak.log.some(l => /for [\d.]+ bludgeoning(?: \(critical\))?, weak spot\./.test(l)));
     assert.deepEqual(weak.fighters.foe1.learned, {bludgeoning: 'weak spot'});
     assert.equal(weak.hits.at(-1).multiplier, 1.5); assert.deepEqual(weak.hits.at(-1).split, {bludgeoning: 1});
     const v = tempoView(weak);
     assert.deepEqual(v.you.mix, {bludgeoning: 1}); assert.deepEqual(v.foes[0].learned, {bludgeoning: 'weak spot'});
     assert.deepEqual(v.moves.find(m => m.id === 'jab').mix, {bludgeoning: 1});
-    // Untyped (a fight saved before this change): no type words, no learned rows, no hit records.
+    // Untyped saved fights keep location records without type words or learned rows.
     assert.ok(plain.log.every(l => !/physical|weak spot|resisted/.test(l)));
-    assert.equal(plain.fighters.foe1.learned, undefined); assert.equal(plain.hits, undefined);
+    assert.equal(plain.fighters.foe1.learned, undefined);
 });
 
 test('a typed open fight saves and reloads exactly', {skip: WAITS}, () => {

@@ -39,11 +39,11 @@ export const TEMPO_VIEW = {fight: {title: 'Contest at the ford', result: null, y
     you: {hp: 21, maxHp: 30, stamina: 7, maxStamina: 10, mix: {slashing: .7, piercing: .3}},
     moves: [{id: 'jab', label: 'Quick strike', text: 'A fast, light blow.', cost: 3, safe: false, usable: true, why: '', mix: {slashing: .7, piercing: .3}},
         {id: 'guard', label: 'Brace', text: 'Take the next blow better.', cost: 2, safe: true, usable: true, why: ''}],
-    orders: [], allies: [],
+    aims: [{id: 'head', label: 'Head', text: 'A small mark, easier to avoid.'}, {id: 'body', label: 'Body', text: 'A broad mark.'}], aim: null, orders: [], allies: [],
     foes: [{id: 'fx-warden', name: 'Ford warden', hurt: 'hurt', learned: {slashing: 'resisted'}},
         {id: 'fx-cutter', name: 'Reed cutter', hurt: 'fresh', learned: {}, reveal: {source: 'insight', defense: {bludgeoning: 1.3, piercing: .8}}}],
     lines: ['Both sides see each other at once.', 'You hit Ford warden for 3.6 slashing, resisted.', 'Ford warden hits you for 4 piercing.'],
-    hits: [{actor: 'You', foe: 'Ford warden', dealt: 3.6, multiplier: .9, split: {slashing: .65, piercing: .35}}, {actor: 'Ford warden', foe: 'You', dealt: 4, multiplier: 1, split: {piercing: .6, slashing: .4}}]}};
+    hits: [{actor: 'You', target: 'Ford warden', slot: 'body', dmg: 3.6, multiplier: .9, split: {slashing: .65, piercing: .35}}, {actor: 'Ford warden', target: 'You', slot: 'arm', dmg: 4, multiplier: 1, split: {piercing: .6, slashing: .4}}]}};
 export const TEMPO_FIXTURE = tempoSituation(TEMPO_VIEW, {place: 'Shallow ford', dev: true});
 export const VERSUS_FIXTURES = [DUEL_VERSUS, BRAWL_VERSUS, TEMPO_FIXTURE.versus];
 
