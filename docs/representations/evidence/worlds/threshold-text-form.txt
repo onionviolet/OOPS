@@ -1,0 +1,75 @@
+== fixture lanternside-clerk (thresholdText)
+Before you cross · Village → Lanternside · as a dock clerk · Year 412, the wet season
+Only what is listed under "Crosses with you" goes along. Your Village life pauses where you left it and can be resumed.
+Crosses with you:
+- Memories. Yours carry whole. The clerk's come in fragments: faces, the ledger room, the way home.
+- Base cheat. Comes with you, unchanged.
+Stays behind:
+- Money and items. Nothing physical crosses. The money you held stays behind with your Village life; the clerk's own purse, 3 crowns, is yours.
+Pauses:
+- Your old life. Your Village life pauses where you left it, money and all. Resume it from Continuing connection.
+Waiting on the far side:
+- Body. A dock clerk who died in the night. You wake in their body, healthy enough to work.
+- Name and papers. The clerk's name, papers and post are yours.
+- Language. The clerk's harbour tongue comes with the body.
+- Who notices. No one, at first. Colleagues see a clerk who seems a little changed.
+- What you owe. Report to Harbourmaster Quell and serve a probation.
+[Confirm and cross to Lanternside]
+[Back to the lives]
+
+== fixture lanternside-envoy (thresholdText)
+Before you cross · Village → Lanternside · under a new name · Year 412, the wet season
+Only what is listed under "Crosses with you" goes along. Your Village life stops here, with no way back yet.
+Crosses with you:
+- Body. Your own adult body. You arrive in person.
+- Memories. Yours carry whole. The clerk's come in fragments: faces, the ledger room, the way home.
+- Base cheat. Comes with you, unchanged.
+- Language. You speak the harbour tongue well enough to pass.
+Stays behind:
+- Money and items. Nothing physical crosses. The money you held stays behind with your Village life; the clerk's own purse, 3 crowns, is yours.
+Ends here:
+- Your old life. Your Village life stops where you left it. Export first if you want to keep playing it.
+Waiting on the far side:
+- Name and papers. The clerk's name, papers and post are yours.
+- Who notices. No one, at first. Colleagues see a clerk who seems a little changed.
+- What you owe. Report to Harbourmaster Quell and serve a probation.
+Also:
+- Omens. The harbour bells ring once when you land.
+[Confirm and cross to Lanternside] unavailable: Return to the Village first.
+[Back to the lives]
+
+== live game, fresh Village → door → pick probationer, card innerText at 1920x1080
+Before you cross · Village → Tingen · as a Nighthawk probationer · 1349, early Tingen
+
+Only what is listed under "Crosses with you" goes along. Your Village life pauses where you left it and can be resumed.
+
+Crosses with you
+
+Memories. Yours carry whole. The clerk's come in fragments: faces, the office routine, the way home.
+
+Base cheat. Comes with you, unchanged.
+
+Stays behind
+
+Money and items. Nothing physical crosses. The money you held stays behind with your Village life; the clerk's own purse, 2 pounds, is yours.
+
+Pauses
+
+Your old life. Your Village life pauses where you left it, money and all. Resume it from Continuing connection; this Tingen life then pauses in turn.
+
+Waiting on the far side
+
+Body. An adult Tingen clerk who died in the night. You wake in their body, healthy enough to work.
+
+Name and papers. The clerk's name, papers and post are yours, and their colleagues expect them at work.
+
+Language. The clerk's Loenese comes with the body.
+
+Who notices. No one, at first. Colleagues see a clerk who seems a little changed.
+
+What you owe. The clerk's post: report to Warden Hale and serve a probation under church supervision.
+
+Confirm and cross to Tingen
+Your Village life pauses
+Back to the lives
+Nothing changes

@@ -10,6 +10,7 @@ export function lotmThresholdView(v, pick, {onConfirm, onBack}) {
         id: pick.key, attrs: {lotmEntryAnswers: pick.key},
         from: 'Village', to: 'Tingen', title: pick.label.replace(/^Begin /, ''), era: pick.independent ? undefined : era,
         method: pick.independent ? undefined : entryMethodOf(pick.key), returnable: !!v.returnable, independent: !!pick.independent,
+        stakes: pick.independent ? 'A separate life begins. Your current life is kept until the new life is ready.' : undefined,
         answers: pick.answers, rowAttrs: question => ({lotmAnswer: question}),
         options: [
             {id: 'confirm', label: pick.independent ? 'Start this new life' : 'Confirm and cross to Tingen', attrs: {lotm: pick.key === 'probationer' ? 'enroll' : `enroll_${pick.key}`},

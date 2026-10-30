@@ -103,7 +103,7 @@ Files:
 - `styles/crossing_threshold.css`, plus one stylesheet link in `index.html`.
 - `src/ui/preview/fixtures/worlds.js`: named fixtures `CROSSING_RETURNABLE` and `CROSSING_ONE_WAY_BLOCKED`, using invented places only (CLR3). The figure gallery renders only figures, so this slice has no gallery registration line.
 - `tests/crossing_threshold.test.js`.
-- Evidence: `docs/representations/evidence/worlds/` (`threshold-confirm-1920.png`, `threshold-choice-1920.png`, `reconcile-master-result.json`).
+- Evidence: `docs/representations/evidence/worlds/` (`threshold-confirm-1920.png`, `threshold-choice-1920.png`, `threshold-text-form.txt`, `reconcile-master-result.json`).
 
 Checks:
 - `node --test tests/crossing_threshold.test.js tests/perspective_controls.test.js tests/lotm_ui_replay.test.js`: 11 pass. Covers grouping, all nine answers kept once per live profile, button tokens, blocked reason, text form and tokens-only CSS.
@@ -113,10 +113,20 @@ Checks:
 - `npm run check:arch`: pass (no growth). `npm run check:rules`: PASS.
 - `dist/bundle.js` and the `index.html` bundle version are rebuilt artifacts. On merge, resolve them by rebuilding.
 
-AD43 floor: the slice is reachable from a fresh life (Village place action) and
-from named fixtures. Its text form is shown and tested. It was rebuilt and
-exercised headless at 1920×1080. Persistence is unchanged: no save shape changed,
-so no migration. Status: agent-verified, not human-reviewed.
+AD43 floor (FLR1-FLR6):
+- FLR1 Build: met. The receipt names the proven bundle as `dist/bundle.js` sha256 `589c6c6e2ba5` (full hash in the result file) (`reconcile-master-result.json`).
+- FLR2 Route: met. The route is fresh life → Village → "Cross to another world: Tingen" → pick a life → threshold card. There are also named fixtures `CROSSING_RETURNABLE` and `CROSSING_ONE_WAY_BLOCKED`. The UI proof is a rebuilt headless desktop browser run at 1920×1080. The MCP walk could not cover this branch, because `game_new` serves the primary checkout's build, not a worktree. That limit is reported to the game MCP ledger.
+- FLR3 Shown: met. Each row keeps its WER3 description. Confirm quotes its cost ("Your Village life pauses" or "Cannot be undone on this save"). A blocked start prints its reason beside the button. Text form: `evidence/worlds/threshold-text-form.txt`, with both fixtures and the live card.
+- FLR4 Used: met. The card is the consumer for the existing entry view and drives the existing enroll and Back actions.
+- FLR5 Kept: not applicable. No save shape changed. reconcile-master still passes Save, reload, Export and literal Import across the crossing.
+- FLR6 Labelled: agent-verified, not human-reviewed. The route kind is a fresh-life place action.
+
+Implemented-unverified: the `beside` and independent `be` starts. Both need the private cast pack, and the headless route stubs an empty pack manifest. Their grouping is covered only by `tests/crossing_threshold.test.js` (beside) and by the independent-life fixture case.
+
+Open wording notes (WER3):
+- In the civil, in-person start, *Money and items* sits under **Stays behind**. Its answer leads with the money that stays, but also names the 5 pounds funded for arrival. The row is accurate. The grouping files it by what is left behind.
+- The independent-life stakes line uses the host's own wording ("kept until the new life is ready"). It does not claim the old life survives.
+- The seat filter hides `closest('[data-panel-row]')`, or failing that the control itself. Scene-card option rows have no `data-panel-row`. If `control.start-confirm` is ever hidden for a seat, its quote line would stay visible. Before enrollment every seat shows the entry step, so this is low risk. The next slice that adds seat-gated options should mark option rows.
 
 Next slice: WCO2, the multiverse map in the Worlds route. It would be built from
 the continuation record's paused lives and the active world, with carrier-only

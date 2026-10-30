@@ -9,6 +9,7 @@ import {renderSceneCard, sceneHeaderText} from './scene_card.js';
 //   lead, from, to, title, era,               // header: "Before you cross · Village → Far City · Clerk · 1349"
 //   method: 'crossing'|'in_person'|...,       // in person, your own body and speech cross too
 //   returnable, independent,                  // old life pauses (true) or ends (false); independent = a new life
+//   stakes,                                   // optional: the host's own wording overrides the default line
 //   answers: [[question, answer]],            // the WER3 answers, shown whole and once each
 //   rowAttrs: question => ({...}),            // optional data-* per answer row
 //   options: scene options (confirm, back)    // passed to the scene card untouched
@@ -40,8 +41,8 @@ export function carryGroups(view) {
 
 export function thresholdScene(view) {
     const from = view.from || 'Your current life';
-    const stakes = view.independent ? `A separate life begins. Your ${from} life is kept as it is.`
-        : `Only what is listed under "Crosses with you" goes along. Your ${from} life ${view.returnable ? 'pauses where you left it and can be resumed' : 'stops here, with no way back yet'}.`;
+    const stakes = view.stakes || (view.independent ? 'A separate life begins.'
+        : `Only what is listed under "Crosses with you" goes along. Your ${from} life ${view.returnable ? 'pauses where you left it and can be resumed' : 'stops here, with no way back yet'}.`);
     return {kind: view.kind || 'crossing-threshold', id: view.id, attrs: view.attrs,
         header: {lead: view.lead || (view.independent ? 'New life' : 'Before you cross'), place: view.to ? `${view.from || 'Here'} → ${view.to}` : '', title: view.title, time: view.era},
         stakes, options: view.options || []};

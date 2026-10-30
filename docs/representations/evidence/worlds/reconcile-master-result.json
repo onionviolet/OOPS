@@ -1,5 +1,5 @@
 {
-  "bundleSha256": "e6df35f2d67aa8a6f63c6cb5be4739fbfb0efd73d2993d46d29755eaf2d3d005",
+  "bundleSha256": "589c6c6e2ba502846122b3cc9816842cc0fa5ef466326447812aa383cabe3477",
   "route": "fresh Village notice → Tingen life pick → nine entry answers → confirm → resume Village → resume Tingen → native Save/reload/Export/literal Import",
   "matrix": [
     {
@@ -45,9 +45,9 @@
     "Village resumed with 102 money and no Tingen branch; Tingen resumed with 480 pence and its exact slice; paused lives survive literal Import"
   ],
   "saveBytes": {
-    "whole": 304385,
-    "pausedVillage": 78340,
-    "continuation": 211964,
+    "whole": 304525,
+    "pausedVillage": 78480,
+    "continuation": 212104,
     "expansion": 10263
   },
   "status": "PASS",
