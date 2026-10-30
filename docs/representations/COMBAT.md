@@ -277,6 +277,22 @@ qi-pressure brush strokes. Neither touches the adapter or the text form.
   is header, Withdraw, cards. Not yet exercised at 21 px in the browser (gap).
 - Persistence: none (derived view).
 
+### Switch-over to the sonnet wave's owners (coordinator, 2026-10-30)
+
+Combat views read the shared models rather than one of their own
+([sonnet wave plan](../gm/dispatch/sonnet-wave-2026-10-30/PLAN.md), lanes L9 and L10). Every switch
+lands in the pure adapter `src/ui/combat_situation.js`; the renderer and the text form keep their shape.
+
+| Reading today | Source today | Switches to | Where in the adapter |
+|---|---|---|---|
+| Threat stage (Light, Heavy, Could down you) and the lethal bound | Shown attack, own defense, `mitigateCombatDamage` | L9 harm ladder (sw-death: harm, backlash, death; LSD34, LSD283): "could down you" becomes the ladder rung the hit reaches (hurt, downed, maimed, dead) | `hardestBlow` and the `lethal` list; `versus.opponents[].threat` gains a `rung` |
+| "Down" for a beaten opponent | `defeated` in the opponent projection | L9 typed outcome (CBR2, CBR5: unconscious, yielded, fled, dead) | `threat.level === 'down'` becomes the outcome word |
+| Intent chip ("Intent unread") | Nothing; no source | L10 typed ability record (sw-adv, GM26): an opponent's known abilities and readied ability, read through the observer's appraisal (CBR14) | `versus.opponents[].intent` (already `{known, word}`; adds `source`) |
+| Your own side | Native fighter readout | L10 typed abilities for your actions; a later "use ability" option row in the scene card | `versus.you` gains `abilities` |
+
+Until those lanes land, the adapter keeps today's sources, and the doc's D4 and D5 dials stand.
+Neither lane is consumed yet; no code was changed for this note.
+
 ### Round 2 receipt
 
 Delegation: one Sonnet subagent built `src/ui/combat_versus.js`, `styles/combat_versus.css`,
