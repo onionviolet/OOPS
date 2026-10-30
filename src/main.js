@@ -375,6 +375,7 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
+import {applyStartGrants} from './cheat_cards.js';
 import {cheatState,setCheatState,readCheatSave,configureCheatHost,commandCheat,seedCheatBeginning,observeCheats as awakenOptionalStart} from './cheat_host.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
@@ -9570,6 +9571,7 @@ if(newGameBeginning) {
         }
         const choice = newGameBeginning.cheatChoice();
         seedCheatBeginning({choice, at: cheatCalendarTime()});
+        {const grants=startProbe?.selected()?.snapshot.grants;if(grants?.length)setCheatState(applyStartGrants(cheatState,grants,{at:cheatCalendarTime()}).state);}
         lifeRecord = appendLifeMilestone(lifeRecord, {year: current_game_time.year,
             at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
             text: choice === 'none' ? 'You chose an ordinary beginning without a system.' :
