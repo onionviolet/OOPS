@@ -9,6 +9,8 @@ import {ladderFigureSpec} from './ability_ladder_figure.js';
 import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
 import {walkMapBlock} from './ui/walk_map.js';
 import {walkBoard} from './ui/walk_board.js';
+import {renderCrossingThreshold} from './ui/crossing_threshold.js';
+import {lotmThresholdView} from './book_world_lotm_threshold.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -112,12 +114,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
     for(const pr of v.profiles)actions.append(row(button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable||pr.available===false,pr.available===false?'A fresh book life is unavailable in this host.':v.startable?(pr.independent?'See this new life.':'See what this life keeps and leaves before crossing.'):v.startReasons.join(' '))),node('p',pr.blurb));
     if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
    }
-   // The nine entry answers come before the irreversible step (WER3, UR43).
-   const box=node('div');box.dataset.lotmEntryAnswers=pick.key;box.append(node('h3',`${pick.independent?'New life':'Before you cross'} · ${pick.label.replace(/^Begin /,'')}`));
-   for(const [q,a] of pick.answers){const r=node('p');r.append(node('strong',`${q}. `),a);r.dataset.lotmAnswer=q;box.append(r);}
-   actions.append(box,row(button(pick.independent?'Start this new life':'Confirm and cross to Tingen',pick.key==='probationer'?'enroll':`enroll_${pick.key}`,()=>{choosing=null;notice.textContent=pick.independent?'Starting…':'Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{const message=e?.message||'The new life could not start.';notice.textContent=/current save is kept/i.test(message)?message:`${message} Your current save is kept.`;}).finally(()=>{signature='';render();});},!v.startable||pick.available===false,v.startable?(pick.independent?'Start this new life.':'Crossing cannot be undone on this save.'):v.startReasons.join(' ')),
-    button('Back to the lives','entry_back',()=>{choosing=null;signature='';render();},false,'Return to the list of Tingen lives. Nothing changes.')));
-   if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
+   // The nine entry answers come before the irreversible step (WER3, UR43), grouped as a carry list (RPX20).
+   renderCrossingThreshold(actions,lotmThresholdView(v,pick,{onConfirm:()=>{choosing=null;notice.textContent=pick.independent?'Starting…':'Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{const message=e?.message||'The new life could not start.';notice.textContent=/current save is kept/i.test(message)?message:`${message} Your current save is kept.`;}).finally(()=>{signature='';render();});},
+    onBack:()=>{choosing=null;signature='';render();}}));
+   return;
   }
   const d=v.district,resident=v.resident===true;bench.hidden=resident;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;
