@@ -1,0 +1,42 @@
+# Landing receipt: book UI wave batch (2026-10-30, lane bk-land)
+
+One batch, thirteen lanes, merged in a single integration branch and landed with a fast-forward. Nothing pushed. No `Co-Authored-By` trailer anywhere in the range. `dist/`, `index.html` and `figure-gallery.html` were not committed (the primary checkout holds uncommitted, partly staged edits to them; the rebuild is theirs to commit).
+
+## Lanes
+
+| Lane | Tip landed | State | Notes |
+|---|---|---|---|
+| bk-scout | 746f5edd0 | landed | docs only |
+| bk-ui-directions | f384a890e | landed | fixed after the first gate: stylesheet not-loaded list, token-only CSS (ui_contract) |
+| bk-benefits | 18b445603 | landed | economy doc kept both sections; fixture registered in `fixtures/manifest.js` |
+| bk-seams | 100a7edb6 | landed, below floor | law seam row adapter (GM23) |
+| bk-coi | d3817cd54 | landed | invented currency names (CLR3); rep-economy approved the `owed_ledger_view.js` edit |
+| bk-party | 489d2c5e4 | landed | its committed dist/index.html taken from master |
+| bk-ss | 3e724094a | landed | first tip held for CLR3 (canon rank/trial names in src/tests); renamed to neutral names, then landed. Crossing carry list (WCO1) not wired: below floor |
+| bk-mol | 1c7caed79 | landed, below floor | `Proposal:` reason label fixed after the first gate (player_text_hygiene) |
+| bk-hp | ef250c622 | landed, below floor | fizzle draw needs a command-level seeded chance in `src/simulation.js` (patch note in ideas/bk-hp.md) |
+| bk-gaps | ba24c2bb0 | landed | `working_state.css` reworked onto tokens after the first gate; its link block reaches `index.html` only through the rebuild |
+| bk-progression | cb66a5929 | landed | design round and fixtures |
+| bk-making-ui | 47b492d6f | landed | design round and fixtures |
+| bk-forms | 8372b2c2f | landed | first tip held: conflict with master's RPX11 `people_ui.js` rewrite; rebased by the lane |
+
+Conflicts resolved by hand (all append-only or one side clearly stale): `CHOICES.md` (kept master queue, added Whole-UI direction), `ECONOMY_AND_INSTITUTIONS.md` (kept both sections), `fixtures/manifest.js` (kept every registration line; `benefits` and `making_forms` added there after `figure_gallery.js` became manifest-based), `figure_gallery.js` (master's skin cells plus forms' `?form=` switch).
+
+## Gate (merged tree, all through `slot_run.mjs`)
+
+- `npm run build`: exit 0 (bundle v0.6-c51c427de436, not committed).
+- `npm run check:arch`: exit 0. `npm run check:rules`: exit 0.
+- `npm test` on the merged tree before the last lane tips: 4797 tests, 4789 pass, 8 fail. Classified:
+  - On bare master too: `facts_frame` (1), `market_life` (2), `world_lead_pipeline` (1), `ui_contract` (only `style.css` hits; master's working copy carries an uncommitted deletion that clears them), `stylesheet_manifest` test 2 (committed `index.html` lacks `cheat_faculty.css`; a rebuild clears it, verified passing after build).
+  - Load-dependent, also failing on a bare-master worktree: `cast_inference_adapter`, `cast_journeys` (disposable-copy workers hit their time limit under machine load of 70-150; 276 s run before failing). Not a lane bug; recheck when the machine is quiet.
+- Tips that changed after that suite ran (bk-gaps `ba24c2bb0`, bk-ui-directions `f384a890e`, bk-mol, bk-forms) were verified by focused tests only: stylesheet_manifest, working_state, palette_browse, ui_directions, ui_contract (only `style.css`), player_text_hygiene, figure_forms, 83 lane tests together.
+
+## Floor state
+
+Implemented, below floor unless the lane's own evidence says otherwise: seams (not wired), mol, hp (fizzle draw), ss (WCO1 carry list). Lane browser evidence at 1920x1080 was reported for hp, mol, ss, party, gaps (before/after) and coi (recaptured); each lives under its lane's evidence folder. This batch adds no new human-reviewed state.
+
+## Follow-ups
+
+- Whoever commits the rebuilt `dist/` and `index.html` also picks up the `working_state.css` link.
+- Rerun the two cast tests on a quiet machine.
+- `bk-recon`: ledger rows for the lanes above (RC1-RC7 and the lane rows) change from "unlanded"/"uncommitted" to landed with these tips.
