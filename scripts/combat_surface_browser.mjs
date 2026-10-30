@@ -76,6 +76,9 @@ const card = () => page.evaluate(() => {
         notice: s.querySelector('.fight-situation-notice')?.textContent || '', world: document.documentElement.dataset.worldFamily || null,
         oldPanel: document.getElementById('tempo_fight_panel')?.innerText.slice(0, 160) || null};
 });
+// held (banked away minutes) grows across a reload by design (P5, LSD317), so it is reported, not compared.
+const same = (a, b) => { const strip = x => x && {...x, held: undefined}; const diff = a && b ? Object.keys({...a, ...b}).filter(k => JSON.stringify(a[k]) !== JSON.stringify(b[k])) : ['missing'];
+    return {identical: JSON.stringify(strip(a)) === JSON.stringify(strip(b)), diff, held: [a?.held, b?.held]}; };
 const showCard = async () => { await page.evaluate(() => document.getElementById('fight_situation')?.scrollIntoView({block: 'start'})); await page.waitForTimeout(200); };
 try {
     await open(null);
@@ -104,7 +107,7 @@ try {
     // Save and reload: the open typed fight comes back identical and the card redraws from it.
     const mid = await battle(), midSave = await save(); await writeFile(join(OUT, 'mid.save.json'), midSave);
     await open(midSave); await page.waitForTimeout(1500); await tick(); await page.waitForTimeout(600);
-    report.reloadIdentical = JSON.stringify(await battle()) === JSON.stringify(mid);
+    report.reload = same(mid, await battle()); report.reloadIdentical = report.reload.identical;
     report.afterReload = await card();
     // Export, then a literal Import into a fresh origin.
     const encoded = await page.evaluate(() => window.save_to_file());
@@ -113,7 +116,7 @@ try {
     await page.waitForTimeout(1500);
     const play2 = page.locator('#loading_screen_play_button'); if (await play2.isVisible().catch(() => false)) { await page.evaluate(() => window.simulationTestHooks?.pause()); await play2.click(); await page.waitForTimeout(800); }
     await tick(); await page.waitForTimeout(600);
-    report.importIdentical = JSON.stringify(await battle()) === JSON.stringify(mid);
+    report.import = same(mid, await battle()); report.importIdentical = report.import.identical;
     report.afterImport = await card();
     for (let i = 0; i < 60 && (await battle()); i++) await realClick('#fight_situation [data-fight-option="jab"]').catch(e => (report.finishNote = e.message));
     const done = JSON.parse(await save());

@@ -484,7 +484,7 @@ One row per old/new pair that drifts. Verdicts are proposals.
 | Code | Pair | Evidence | Proposal |
 |---|---|---|---|
 | R3-C1 | Native auto-fight (`models/combat.js`, `ui/combat_display.js`, `combat_situation_ui.js`) vs tempo contest (`tempo_fight*.js`, its `<details>` panel) | Two homes, two logs, types only on the native side | **Merge presentation** into R3-O1; keep both engines |
-| R3-C2 | Pursuit stages (`pursuit.js`, `pursuit_ui.js`) vs chase stage track (`chaseSituation`, fixture only) vs a tempo chase (not built) | `chaseSituation` has no live caller; no tempo chase exists | **Merge** the stage track into `pursuit_ui.js` (already the next slice); a tempo chase, when built, is a mode of the fight surface, not a third chase UI |
+| R3-C2 | Pursuit stages (`pursuit.js`, `pursuit_ui.js`) vs chase stage track (`chaseSituation`, fixture only) vs a tempo chase (not built) | Since COV15 (2026-10-30), `pursuit_ui.js` draws `chaseSituation` with a range track for each open case; no tempo chase exists | **Merged** for stages and range (COV15). A tempo chase, when built, is a mode of the fight surface, not a third chase UI |
 | R3-C3 | `away_ledger.js` vs the away bank | `away_bank_domain.js:2` imports `computeAway`; not orphaned | **Keep**: the ledger is the bank's calculator, not a rival |
 | R3-C4 | `anchor_snapshots.js` vs live state | Imported only by `tests/anchor_snapshots.test.js` | **Retire or wire**: give it a consumer (world lint in `check:rules`) in the next world pass, else retire with its test |
 | R3-C5 | Return digest (`return_digest*.js`, event feed) vs Reports dock (`reports_dock.js`) | Both mounted from `main.js`, both list recent events | **Merge**: the digest's grouped rows become dock rows with the world voice table (M4); one report surface |
@@ -553,6 +553,19 @@ done: world-voiced fight report rows in `src/world_report_voice.js` (later, smal
 World family: the card reads `data-world-family` for now; once `world_look.js` is on master it should call
 `worldFamily(fight world id)` with `currentWorldFamily()` as the fallback (one authority, works headless), as `ui-identity` advised.
 
-Remaining gate, in order: damage-types commit, then `p4-fights` commits with both patches, then rebase this
-branch, run the full `npm test`, `npm run build`, `check:arch`, `check:rules` and the browser script again,
-then merge on Weibao's yes.
+Update after rebase (2026-10-30, weekly 89%, stopped at the 86% budget line): rebased onto master 19a48e65d
+(damage types committed by their owner, who handed `damage_types.js` to this lane) and fe8f654c4 (P5 tempo). This
+lane's additions are now in `damage_types.js` (`typeSnapshot`, `typedHit`, `declareWorldDamageTypes`, `damageTypeLabel`,
+`mixText`, the LOTM row). The two tempo patches were regenerated against P5 and sit in the shared notes folder for
+`p4-fights` to apply (its choice); the two tempo-engine tests skip with a named reason until `typedHit` is in `tempo_fight.js`.
+- With both patches applied locally: `node --test` over combat_surface_types, tempo_fight, tempo_allies, conflict_frame,
+  damage_types, combat_situation, combat_versus, party_battle: 197 pass, 0 skipped. Without them (this commit): the two
+  tempo tests skip, the rest pass.
+- `npm run check:arch`: PASS. `npm run check:rules`: PASS (16 receipts, 0 problems).
+- `node scripts/combat_surface_browser.mjs` with the patches: PASS, bundle `9ff850f5dca6`. Reload and Import identical
+  except `held` (banked away minutes, 5 to 6 and 5 to 7), which grows on purpose (P5, LSD317).
+- Not run: full `npm test` (budget stop; the committer runs it before merge), `npm run build` into `dist/`.
+
+Remaining gate, in order: `p4-fights` applies both patches and commits; rebase; the two skipped tests run; full
+`npm test` and `npm run build`; the browser script once more; merge on Weibao's yes. After `ui-identity` merges, read
+the world family through `world_look.js`.

@@ -1,5 +1,5 @@
 {
- "bundleHash": "1bc871cfaab9",
+ "bundleHash": "9ff850f5dca6",
  "viewport": "1920x1080",
  "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
  "started": {
@@ -31,7 +31,7 @@
    1130,
    423
   ],
-  "stakes": "Village: 1 of 1 opponent standing; you have 60 of 60 hp.",
+  "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
   "you": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [
@@ -63,7 +63,7 @@
    1130,
    573
   ],
-  "stakes": "Village: 1 of 1 opponent standing; you have 55.4 of 60 hp.",
+  "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
   "you": "You\n\n55.4/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [
@@ -108,6 +108,16 @@
   "You → Mara: 1 at x1.15 (bludgeoning 100%)",
   "You → Mara: 0.8 at x1.15 (bludgeoning 100%)"
  ],
+ "reload": {
+  "identical": true,
+  "diff": [
+   "held"
+  ],
+  "held": [
+   5,
+   6
+  ]
+ },
  "reloadIdentical": true,
  "afterReload": {
   "visible": true,
@@ -117,7 +127,7 @@
    1009,
    607
   ],
-  "stakes": "Village: 1 of 1 opponent standing; you have 55.4 of 60 hp.",
+  "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
   "you": "You\n\n55.4/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [
@@ -154,6 +164,16 @@
   "world": null,
   "oldPanel": "Road contest · tempoThe contest is open in the Fight card below. The world clock holds until it ends."
  },
+ "import": {
+  "identical": true,
+  "diff": [
+   "held"
+  ],
+  "held": [
+   5,
+   7
+  ]
+ },
  "importIdentical": true,
  "afterImport": {
   "visible": true,
@@ -163,7 +183,7 @@
    1009,
    607
   ],
-  "stakes": "Village: 1 of 1 opponent standing; you have 55.4 of 60 hp.",
+  "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
   "you": "You\n\n55.4/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [

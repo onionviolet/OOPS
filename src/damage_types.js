@@ -131,3 +131,54 @@ export function describeDeclared({attack_types, defense_types} = {}) {
     const defense = Object.entries(mods).filter(([, m]) => m !== 1).map(([t, m]) => `${t} x${Math.round(m * 100) / 100}`).join(', ');
     return {attack, defense};
 }
+
+// ---- Tempo and other saved-data fights (combat-surface lane, COMBAT.md round 3) ----
+// A tempo fighter is saved data, not a live actor, so the attack mix and defender map are read once from the live
+// actor when the fight starts and kept on the fighter's profile. A fight saved without them reads as untyped physical
+// with no modifiers, which is the old math (compatibility decision, no migration).
+export function typeSnapshot(actor) {
+    return {attack: attackMix(actor), defense: defenseMultipliers(actor)};
+}
+
+/** typedStrike for plain data: {multiplier, kind, note, split}. split is each type's share of the dealt harm after
+ * the defender's modifier (shares sum to 1, or are all 0 when nothing gets through), for the log and dev readout. */
+export function typedHit(attack, defense) {
+    const mix = normalizeMix(attack) || {[PHYSICAL]: 1}, mods = normalizeMultipliers(defense);
+    const multiplier = typeMultiplier(mix, mods), kind = dominant(mix);
+    const note = Math.abs(multiplier - 1) < NOTE_THRESHOLD ? '' : multiplier < 1 ? (multiplier === 0 ? 'no effect' : 'resisted') : 'weak spot';
+    const split = Object.fromEntries(Object.entries(mix).map(([t, w]) => [t, multiplier > 0 ? w * (mods[t] ?? 1) / multiplier : 0]));
+    return {multiplier, kind, note, split};
+}
+
+// ---- Per-world names (M6). The mechanism is shared; the words and glyphs are the world's. ----
+// Default: physical plus the effect_dsl types under their plain names. A world may rename a type or add its own id
+// (a curse, mystical harm); added ids become valid in mixes everywhere, with multiplier 1 where undeclared.
+const BASE_GLYPHS = {physical: '✊', slashing: '⟋', piercing: '➶', bludgeoning: '◼', fire: '♨', cold: '❄', lightning: 'ϟ', acid: '⌬',
+    poison: '☠', necrotic: '☽', radiant: '☀', psychic: '◎', force: '✦', thunder: '≋'};
+const worldTypes = new Map();
+export function declareWorldDamageTypes(worldId, rows) {
+    const table = {};
+    for(const [id, row] of Object.entries(rows || {})) {
+        if(!/^[a-z][a-z0-9_]{0,31}$/.test(id) || typeof row?.name !== 'string' || !row.name.trim()) continue;
+        table[id] = {name: row.name.trim(), glyph: typeof row.glyph === 'string' && row.glyph ? row.glyph : BASE_GLYPHS[id] || '•'};
+        KNOWN.add(id);
+    }
+    worldTypes.set(worldId, Object.freeze(table));
+}
+/** {name, glyph} for a type in a world; the base name and glyph when the world declares nothing for it. */
+export function damageTypeLabel(type, worldId = null) {
+    const row = worldId ? worldTypes.get(worldId)?.[type] : null;
+    return row || {name: type, glyph: BASE_GLYPHS[type] || '•'};
+}
+/** "slashing 70% · piercing 30%" in the world's words, heaviest first. */
+export function mixText(mix, worldId = null) {
+    const m = normalizeMix(mix) || {[PHYSICAL]: 1};
+    return Object.entries(m).sort((a, b) => b[1] - a[1]).map(([t, w]) => `${damageTypeLabel(t, worldId).name} ${Math.round(w * 100)}%`).join(' · ');
+}
+// World rows (proposal values, keyed by world family as world_look.js worldFamily() names it, DESIGN.md DSG13 and DSG14). Words only: the
+// multipliers stay with each fighter. LOTM is the first entry; every other world keeps the plain names.
+const WORLD_DAMAGE_TYPES = {
+    lotm: {psychic: {name: 'spiritual harm', glyph: '◎'}, necrotic: {name: 'curse', glyph: '☾'}, radiant: {name: 'sacred light', glyph: '☀'},
+        mystical: {name: 'mystical harm', glyph: '✧'}},
+};
+for(const [family, rows] of Object.entries(WORLD_DAMAGE_TYPES)) declareWorldDamageTypes(family, rows);
