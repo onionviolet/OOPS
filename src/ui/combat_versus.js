@@ -11,13 +11,13 @@ const oddsText = odds => {
     if (odds.them != null) parts.push(`It hits you ${odds.themWord} ${odds.them}%`);
     return parts.join(' · ');
 };
-const threatText = t => `${MARKS[t.level] || ''} ${t.word}`.trim();
+const threatText = t => `${MARKS[t.level] || ''} ${t.word}${t.rung ? ` · reaches ${t.rung}` : ''}`.trim();
 
 function youLine(you) {
     return `${you.name}${you.hp ? `, ${you.hp.text}` : ''}${you.allies > 0 ? `, +${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}` : ''}`;
 }
 function opponentLine(o) {
-    const bits = o.down ? [o.name, 'Down'] : [o.name, o.hp.text, o.threat.word];
+    const bits = o.down ? [o.name, 'Down'] : [o.name, o.hp.text, `${o.threat.word}${o.threat.rung ? ` · reaches ${o.threat.rung}` : ''}`];
     if (o.intent) bits.push(o.intent.word);
     if (o.odds) { const t = oddsText(o.odds); if (t) bits.push(t); }
     if (o.target === 'unread') bits.push('Target unread');

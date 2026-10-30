@@ -11,6 +11,8 @@ import {fightSituation, pickLeaveChoice} from './ui/combat_situation.js';
 import {figureText, FIGURE_STATES} from './ui/figure.js';
 import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
+import {versusWithEngine} from './read_models/combat_situation_bridge.js';
+import {harmRung} from './harm_state.js';
 
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
@@ -57,7 +59,9 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             const li = document.createElement('li'); li.className = `fig-note${note.state ? ` fig-state--${note.state}` : ''}`;
             li.textContent = `${note.state ? `${FIGURE_STATES[note.state]} ` : ''}${note.text}`; return li;
         }));
-        renderVersusRow(figure, situation.versus);
+        // L13 bridge: the harm rung a shown blow reaches comes from the L9 ladder. Typed outcomes, readied abilities and appraisal reads
+        // are not in the engine yet (bridge gaps G4, G5), so they stay unread and the card keeps today's words.
+        renderVersusRow(figure, versusWithEngine(situation.versus, {health: own.health, rungOf: harmRung}));
     }
     const timer = setInterval(render, every);
     return {render, stop: () => clearInterval(timer), node: section};
