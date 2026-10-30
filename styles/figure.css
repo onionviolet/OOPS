@@ -1,7 +1,7 @@
 /* MDL2 figure primitive (src/ui/figure.js). Colors and widths come from the theme and UI tokens, so a
    world skin (MDL6) restyles every figure by setting tokens. Effects (MDL8, UR38) are classes only,
    never move layout, and switch off under data-effects off and reduced. */
-.fig {
+.fig, .fig-ledger {
     --fig-ink: var(--theme-text, var(--ui-text));
     --fig-muted: var(--theme-muted, var(--ui-hairline));
     --fig-line: var(--theme-border, var(--ui-hairline));
@@ -104,5 +104,9 @@
 .fig-ledger {display: grid; gap: var(--ui-space-3); font-size: var(--ui-type-small);}
 .fig-ledger p {margin: 0;}
 .fig-ledger-row {display: grid; gap: var(--ui-space-1);}
-.fig-ledger-row meter {inline-size: 100%;} /* low, high and optimum set by the caller: a larger share reads as worse */
-.fig-ledger-row small {color: var(--theme-muted, var(--ui-hairline));}
+.fig-ledger-row meter {inline-size: 100%; block-size: .6em;} /* low, high and optimum set by the caller: a larger share reads as worse */
+.fig-ledger-row meter::-webkit-meter-bar {background: var(--fig-surface); border: 1px solid var(--fig-line); border-radius: 0;}
+.fig-ledger-row meter::-webkit-meter-optimum-value {background: var(--fig-accent);}
+.fig-ledger-row meter::-webkit-meter-suboptimum-value {background: var(--fig-warn);}
+.fig-ledger-row meter::-webkit-meter-even-less-good-value {background: var(--fig-danger);}
+.fig-ledger-row small {color: var(--fig-muted);}

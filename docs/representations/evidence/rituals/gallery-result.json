@@ -1,0 +1,21 @@
+{
+ "errors": [],
+ "fixtures": [
+  "ritual-low-lamp",
+  "web-lanternside",
+  "bench-bell_5-rite",
+  "bench-bell_5-making",
+  "bell_5-strip",
+  "bench-bell_5_brewing-rite",
+  "bench-bell_5_brewing-making"
+ ],
+ "full": {
+  "glowFilter": "drop-shadow(rgb(127, 231, 232) 0px 0px 5px)",
+  "pulseAnimation": "fig-pulse"
+ },
+ "off": {
+  "glowFilter": "none",
+  "pulseAnimation": "none"
+ },
+ "textIdentical": true
+}

@@ -171,9 +171,14 @@ danger) would make it a shared shape (proposed UR79).
 - **Semantic roles** (item 20). Every mark carries a role (`condition`, `risk`, `material`,
   `step`, `circle`, `gather`, `sequence`) that a motif pack can key on. The primitive ignores
   it today.
-- **Alternative form** (items 7, 18). A strip version of the rite sits in the gallery beside
-  the circle. The circle stays the default: conditions are unordered, and a strip implies an
-  order that is not there.
+- **Alternative form** (item 18). A strip version of the rite sits in the gallery beside the
+  circle. The circle stays the default: conditions are unordered, and a strip implies an order
+  that is not there. This is a different form, not a different visual style; item 7 is LATER.
+- **Ledger tokens.** The native meters are styled from theme tokens (accent, warning, danger),
+  with low, high and optimum set so a larger share of risk reads as worse.
+- **Effects proof.** `evidence/rituals/gallery.cjs` asserts the glow on met conditions and the
+  pulse on a running brew are present with effects full and gone with effects off, with an
+  identical text form. No reachable game state has a met condition or a running brew yet.
 
 ### Forms chosen (item 18)
 
@@ -194,18 +199,29 @@ old browser scripts read the rite lines' text, so they stay visible for now.
 
 ### Account for now
 
-- **Flourish** (item 13). Glow on met conditions and pulse on a running brew exist. Proposed:
-  a one-shot settle when a slot changes to met, which needs a non-looping effect in the
-  primitive (coordinator, since every figure shares it). Particles (`src/particles.js`) are a
-  background effect and do not fit a subject-bound event.
+- **Flourish** (item 13). Glow on met conditions and pulse on a running brew exist. Particles
+  (`src/particles.js`) are a background effect and do not fit a subject-bound event.
 - **Reports** (item 14). Proposed line when a grade changes: "Rite of X: now met with
   stand-ins, 48% risk" with the circle glyph, grouped per formula. Owner: Time and chronicle.
-- **Pop-out and Electron** (item 5). No pop-out: a rite is prepared at the bench. A desktop
-  notification "the brew is ready to bottle" fits presence. LATER, sonnet, small; done when the
-  brew-ready transition raises one notification and the browser fallback logs a line.
+- **Pop-out and Electron** (item 5). No pop-out: a rite is prepared at the bench.
 - **Cheat or insight view** (item 6). An insight view would list stand-ins the character does
   not hold with their fit to the principle, marked as insight-sourced, never the sealed truth of
-  a rite. LATER with the cheat surface work.
+  a rite.
+
+### LATER / DELEGATE
+
+| Item | Level | Effort | Done when |
+| --- | --- | --- | --- |
+| Brew-ready desktop notification (item 5) | Sonnet | Small | The brew-ready transition raises one presence notification; the browser fallback logs one line. |
+| Settle flourish when a condition becomes met (item 13) | Sonnet, after the coordinator adds a non-looping effect to the primitive | Small | One short settle on the changed slot, none on reload, none with effects off or reduced. |
+| Principle on hover (Cultist Simulator idea) | Sonnet | Small | Hovering or focusing a condition slot shows its principle and wanted traits; the text form already has them. |
+| Insight view of unheld stand-ins (item 6) | Opus design, Sonnet build, with the cheat surface work | Medium | Rows marked insight-sourced; a test proves no sealed field is read. |
+| Reports line on grade change (item 14) | Sonnet, with Time and chronicle | Small | One grouped line per formula per change, linking to the bench. |
+| Alternative visual style (item 7) | Sonnet | Small | A token-override fixture (paper and ink) beside the default in the gallery, Luminous and Neutral, 14 and 21 px, effects off. |
+| Failure state: broken slot on a failed attempt | Sonnet, after ingestion calls `gradeRiteAtTransition` | Small | A failed attempt marks its failing condition broken in the figure and the ledger. |
+| Quality bands (item 19) | Opus design | Medium | A world that grades brewed quality shows the band on the Bottle step and in the product line. |
+| Timing rings and many-condition rites (item 17) | Sonnet | Medium | A condition with a time window draws an hour or moon ring; more than six conditions switch to two rings or the grouped strip. |
+| Laid-out room (item 9) | Opus design | Large | A free-placement layout in the primitive and placement data for one rite, with a text form. |
 - **Later volumes** (item 17). Data-driven: conditions, materials and steps come from rows. Gaps:
   later rites with many conditions (more than about six crowd a ring: switch to two rings or the
   strip with grouping), mass rites with participants (a second ring of people), and timing laws
@@ -238,7 +254,14 @@ a smudge spreading across the card. Both restyle by role without touching the ad
   every figure in every session had it. Fixed in `figure.js`/`figure.css`: text is drawn at the
   12 px design base in the drawing's own units and the drawing is sized in em of the small type
   token, so larger text scales labels and spacing together. Recapture at 21 px: zero label
-  overlaps in either figure, no horizontal overflow.
+  overlaps in either figure, no horizontal overflow. Trade-off: a figure still shrinks to fit
+  its column. At 21 px the rite circle (fits) grew about 1.31×, measured from the captures,
+  while the making figure hit the roughly 700 px column and its labels grew about 1.13×
+  (estimated from widths), so large text reaches clamped figures only partly. Before the fix
+  labels grew fully and collided. The alternative is to let a clamped figure scroll inside its
+  own box (`overflow-x: auto` on the host, no `max-width`), which keeps full text size at the
+  cost of horizontal scrolling in narrow panels; that changes every sibling's figures, so it
+  is the coordinator's call.
 - Effects off, set through Settings and Apply and save: the figures' text form is identical to
   effects full.
 - A brewing state is not reachable from the starting purse: the cheapest formula costs 1200
