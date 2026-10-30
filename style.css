@@ -2958,6 +2958,10 @@ i {
 	#world_event_feed button:disabled { cursor: default; }
 	#world_event_feed ol { margin: var(--ui-space-3) 0; padding-left: 20px; }
 	#world_event_feed li { margin-bottom: var(--ui-space-3); }
+	#return_digest ul { margin: var(--ui-space-2) 0; padding-left: var(--ui-space-6); }
+	#return_digest li { margin-bottom: var(--ui-space-1); }
+	#return_digest .return-digest-who { font-weight: bold; }
+	#return_digest .return-digest-status:empty { display: none; }
 	.message_background {
 		display: var(--message_background_display);
 	}

@@ -1,0 +1,195 @@
+{
+ "bundle": "1667d2bff113b1cd",
+ "viewport": "1920x1080",
+ "route": "fresh life, elder talk, Notebook waypost, 12 game hours; Save, reload, Mark as read, Export, Import, pre-slice save",
+ "errors": [],
+ "log": [
+  "A0 fresh life: no row; marker baselined at clock 0 and saved",
+  "A1 earned: talked to the elder, opened Notes, practice & people from All panels, investigated the waypost",
+  "A1b opened World events from All panels",
+  "A2 four hours later: row shown",
+  "A3 twelve hours later: \"While you were away · about half a day | You · 1 | A dry booklet and a brass token found beneath the waypost (about half a day ago) | Mark as read\"",
+  "B Save and reload: still unread, marker seenAt 0; World events module closed by the workspace, reopened from All panels",
+  "C Mark as read: row hidden; marker seenAt 731 = clock",
+  "D Export then Import: marker carried, row not replayed",
+  "E save without the slice: marker starts at its own clock, no replay"
+ ],
+ "views": {
+  "fresh": {
+   "visible": false,
+   "rendered": false,
+   "rect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "blockers": [
+    "section#return_digest.return-digest",
+    "details#world_event_feed.",
+    "section#.workspace-module",
+    "div#.workspace-undiscovered"
+   ],
+   "text": "Mark as read",
+   "feedShown": false,
+   "marker": {
+    "schema": 1,
+    "seenAt": 0
+   },
+   "clock": 1,
+   "pageOverflow": false
+  },
+  "fourHours": {
+   "visible": true,
+   "rendered": true,
+   "rect": [
+    672,
+    199,
+    705,
+    118,
+    199,
+    1376,
+    317,
+    672
+   ],
+   "blockers": [],
+   "text": "While you were away · about 4 hours\nYou · 1\nA dry booklet and a brass token found beneath the waypost (about 4 hours ago)\nMark as read",
+   "feedShown": true,
+   "marker": {
+    "schema": 1,
+    "seenAt": 0
+   },
+   "clock": 244,
+   "pageOverflow": false
+  },
+  "away": {
+   "visible": true,
+   "rendered": true,
+   "rect": [
+    672,
+    199,
+    705,
+    138,
+    199,
+    1376,
+    337,
+    672
+   ],
+   "blockers": [],
+   "text": "While you were away · about half a day\nYou · 1\nA dry booklet and a brass token found beneath the waypost (about half a day ago)\nMark as read",
+   "feedShown": true,
+   "marker": {
+    "schema": 1,
+    "seenAt": 0
+   },
+   "clock": 724,
+   "pageOverflow": false
+  },
+  "reloaded": {
+   "visible": false,
+   "rendered": true,
+   "rect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "blockers": [
+    "section#.workspace-module"
+   ],
+   "text": "While you were away · about half a dayYou · 1A dry booklet and a brass token found beneath the waypost (about half a day ago)Mark as read",
+   "feedShown": true,
+   "marker": {
+    "schema": 1,
+    "seenAt": 0
+   },
+   "clock": 730,
+   "pageOverflow": false
+  },
+  "read": {
+   "visible": false,
+   "rendered": false,
+   "rect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "blockers": [
+    "section#return_digest.return-digest"
+   ],
+   "text": "While you were away · about half a dayYou · 1A dry booklet and a brass token found beneath the waypost (about half a day ago)Mark as read",
+   "feedShown": true,
+   "marker": {
+    "schema": 1,
+    "seenAt": 731
+   },
+   "clock": 731,
+   "pageOverflow": false
+  },
+  "imported": {
+   "visible": false,
+   "rendered": false,
+   "rect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "blockers": [
+    "section#return_digest.return-digest",
+    "section#.workspace-module"
+   ],
+   "text": "Mark as read",
+   "feedShown": true,
+   "marker": {
+    "schema": 1,
+    "seenAt": 731
+   },
+   "clock": 736,
+   "pageOverflow": false
+  },
+  "legacy": {
+   "visible": false,
+   "rendered": false,
+   "rect": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "blockers": [
+    "section#return_digest.return-digest",
+    "section#.workspace-module"
+   ],
+   "text": "Mark as read",
+   "feedShown": true,
+   "marker": {
+    "schema": 1,
+    "seenAt": 737
+   },
+   "clock": 738,
+   "pageOverflow": false
+  }
+ }
+}

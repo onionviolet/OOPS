@@ -1,6 +1,9 @@
 import {definePanel} from './panel_kit.js';
 import {eventFeed} from "./event_feed.js";
 import {reportAttention,reportProjection} from "./host.js";
+import {domainRegistry} from "./domain_registry.js";
+import {returnDigest} from "./return_digest.js";
+import {createReturnDigestRow} from "./return_digest_ui.js";
 
 const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
 export function createEventFeed({registry, read, open}) {
@@ -8,7 +11,9 @@ export function createEventFeed({registry, read, open}) {
     panel.setAttribute("aria-label", "Known world events"); panel.open = true;
     const summary = node("summary", "World events"), leads = node("div"), past = node("details");
     const pastSummary = node("summary", "Recent news"), history = node("ol");
-    past.append(pastSummary,history); panel.append(summary,leads,past);
+    past.append(pastSummary,history);
+    const digestRow=createReturnDigestRow({markRead:()=>{domainRegistry.command('returnDigest','markRead')();render();}});
+    panel.append(summary,digestRow.node,leads,past);
     const lifePanel=node('details'),heardPanel=node('details'),lifeHistory=node('ol'),heardHistory=node('ol');
     lifeHistory.style.maxHeight='16rem';lifeHistory.style.overflowY='auto';
     lifePanel.id='life_event_view'; heardPanel.id='heard_event_view';
@@ -16,10 +21,12 @@ export function createEventFeed({registry, read, open}) {
     const rows = new Map(); let historySignature,lifeSignature,heardSignature;
     function render() {
         const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
-        panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
+        const marker=domainRegistry.project('returnDigest'),digest=marker?returnDigest(state,registry,{facts:context.facts,lifeRecord:snapshot.lifeRecord,seenAt:marker.seenAt,feed}):null;
+        digestRow.update(digest,{writable:marker?.writable!==false});
+        panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length && !digest?.visible;
         const count = feed.leads.filter(e => e.available).length;
         reportAttention(count, feed.leads.find(e => e.available)?.label || "");
-        reportProjection("events", () => ({leads: feed.leads.map(e => ({label: e.label, detail: e.detail, available: e.available})), news: feed.news.map(m => m.text)}));
+        reportProjection("events", () => ({leads: feed.leads.map(e => ({label: e.label, detail: e.detail, available: e.available})), news: feed.news.map(m => m.text), ...(digest?.visible ? {away: digest.text} : {})}));
         summary.textContent = `World events${count ? ` · ${count} available` : ""}`;
         for(const e of feed.leads) {
             let row = rows.get(e.id);
