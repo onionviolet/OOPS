@@ -8,6 +8,8 @@ import {PARTY_HELPER} from './native_battle_contracts.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
 import {registerChangeCounter} from './change_badges.js';
 import {node, syncList, visibleRenderer, plural, minutesText} from './reference_kit.js';
+import {bondMeter, STANCES} from './companion_stage.js';
+import {createMeterBar} from './meter_bar.js';
 import {COMPANION_PROFILES, profileFor, issueWish, wishSignature, wishText, progressWish, departure, returnInDays, comeBack, DAY} from './companion_wishes.js';
 
 // SX6: Companions. One line for each person who is with you or settled near you and whom you have
@@ -28,7 +30,8 @@ export function projectCompanions(expansion, people = []) {
         const job = expansion.simulation?.jobs?.find(j => (j.participants || [j.actorId]).includes(PARTY_HELPER));
         const busy = job ? `${job.label}, ${minutesText(Math.max(0, job.due - expansion.clock))} left` : 'free';
         const body = v ? `${Math.round(v.health)}/${Math.round(v.max_health)} health, ${Math.round(v.stamina)}/${Math.round(v.max_stamina)} stamina` : 'condition unknown';
-        rows.push({key: 'party:lio', name: 'Lio', detail: `${partner?.location || 'Village'} · ${busy} · ${body}`});
+        const stance = STANCES[facts['party.stance']] || STANCES.ready;
+        rows.push({key: 'party:lio', name: 'Lio', detail: `${partner?.location || 'Village'} · ${busy} · ${body} · in a contest he ${stance.word}`});
     }
     for (const p of people) {
         if (!p.met) continue;
@@ -185,6 +188,9 @@ function createRosterPanel() {
                 box.append(node('ul', null, {class: 'bond-parts'}), node('ul', null, {class: 'bond-memory', 'aria-label': 'Remembered scenes'}), node('div', null, {class: 'bond-actions', role: 'group'}), node('div', null, {class: 'bond-return', role: 'group'}));
                 li.append(box);
             }
+            let meter = li.querySelector('.bond-meter');
+            if (!meter) { const m = createMeterBar(document); m.node.classList.add('bond-meter'); li.insertBefore(m.node, box); li._meter = m; meter = m.node; }
+            li._meter.update(bondMeter(row.key, row.level));
             const [parts, memory, actions, back] = box.children;
             const sync = (ul, lines) => { if (ul.dataset.sig !== lines.join('\n')) { ul.dataset.sig = lines.join('\n'); ul.replaceChildren(...lines.map(t => node('li', t))); } };
             sync(parts, row.parts); sync(memory, row.memory);
