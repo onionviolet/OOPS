@@ -44,3 +44,16 @@ Read `ability_records.js` and `lotm_advancement.js` whole; checked consumers (`r
 - **Fixed:** ability keys repeated across rungs would collide on ids; `advanceLadders` now throws. Private-pack test pinned exact counts (2 crossings, 3 abilities, 2 blockers); now checks properties. Unstated lists now name the paper-substitute charge count and the flame-jump duration (supply and duration stated as limited or short, no number).
 - **Checked, no change:** unread pack fields (`notes`, per-condition `locator`) are citations for audit and tests, deliberately not in player-facing cards (spoilers). Other lanes: `sw-chars` joins by ability record id only; `sw-death` has not consumed the `lotm.backlash` hook yet, so nothing duplicates it.
 - **Authored costs:** all remaining amounts (spirituality 1-4, cooldown 10, charges 3, durations) have no stated number in the rows; only orderings are cited, so they stay proposals and are listed under `unstated`. A number would need a stated amount or a balance decision.
+
+## Slice 6: Sequence 5 rung (volumes 3-6), 2026-10-30
+
+**ACT NOW (done):** Seq 5 in the private pack: a contribution quota (institution gate, count a proposal) and the dose crossing citing the formula row; three ability records with stated ranges as conditions (about 5 m to bind, about 120 m to operate, about 150 m to swap) and cited blockers (stunned, a parasitic state on the puppet). **Order held:** the ladder test checks stage order, not a fixed list.
+
+**ACCOUNT FOR NOW:** ranges are conditions on facts the host must supply (`actor.lotm.target_within_5m` and kin), because the engine has no distance model; swap's two-to-three-second gap and bind's twenty-second threshold are below the minute clock and sit in `unstated`.
+
+**LATER**
+| Idea | Level | Effort | Done check |
+| --- | --- | --- | --- |
+| A distance fact family from the scene or map owner (`within <n> m` of a named actor), so range conditions read geometry, not a flag | seam | medium | Range facts come from a position owner and the bind refuses at 6 m |
+| Sub-minute timing: a seconds-grain gap and threshold for fights (swap gap, 20 s bind), owned by combat | mechanism | medium | A bind takes about 20 s in a combat scene |
+| Seq 4 onward (volumes 5-8): defer until the lead nears Seq 5; walk by the same extraction | data | medium per rung | Next rung stage and abilities with cited blockers |

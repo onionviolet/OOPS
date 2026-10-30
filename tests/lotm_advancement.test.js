@@ -49,7 +49,8 @@ test('the private Sequence 7 pack, when present, compiles and every ability cite
     const r = advanceLadder(seerPathway, pack);
     assert.ok(r.path.stages.find(s => s.id === 'seq7').crossings.every(c => c.type && c.fact));
     const all = advanceLadders(seerPathway, pack);
-    assert.deepEqual(all.path.stages.map(s => s.id).slice(-2), ['seq7', 'seq6']);
+    const order = all.path.stages.map(s => s.id);
+    assert.ok(order.indexOf('seq7') < order.indexOf('seq6') && order.indexOf('seq6') < order.indexOf('seq5'));
     assert.ok(Object.values(all.rungs.seq6.abilities.cards).some(c => c.blockedBy.length > 0));
     for(const rung of Object.values(pack.rungs)) for(const a of rung.abilities) for(const b of a.blockedBy ?? []) assert.ok(b.locator, a.key);
     assert.ok(Object.keys(r.abilities.cards).length >= 1);
