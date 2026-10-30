@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
-import {buildLedger} from '../scripts/lead_run/coverage_ledger.mjs';
+import {buildLedger, buildVolumeLedger, volumeOf} from '../scripts/lead_run/coverage_ledger.mjs';
 
 // Invented rows and locators; no book prose.
 const shard = 'lotmc001m', later = 'lotm2c001m', locator = 'zh 第1章 p1';
@@ -95,4 +95,20 @@ test('CLI reads repeated game files/directories and writes only safe missing met
     visit(result);
     const allowed = ['id', 'locator', 'shard', 'rows', 'touchedByLead', 'score'];
     for (const rows of Object.values(result.missing)) for (const row of rows) assert.deepEqual(Object.keys(row), allowed);
+});
+
+test('per-volume ledger counts by kind and flags ids new in each volume', () => {
+    const result = buildVolumeLedger({
+        registry: [{id: 'a.person.one', kind: 'person', shards: ['lotmc001m', 'lotm3c001m']},
+            {id: 'a.place.two', kind: 'place', shards: ['lotm3c001m']}, {id: 'a.place.three', kind: 'place', shards: ['lotm2c001m', 'lotm3c001m']}],
+        extras: [{extra: 'rules', kind: 'rite', id: 'a.rite.x', shard: 'lotm2c001m'}, {extra: 'rules', kind: 'rite', id: 'a.rite.x', shard: 'lotm3c001m'},
+            {extra: 'texture_other', shard: 'lotm3c002'}],
+    });
+    assert.equal(volumeOf('lotmc001m'), 1);
+    assert.deepEqual(result.volumes[1].newIds, {person: 1});
+    assert.deepEqual(result.volumes[2].newIds, {place: 1, 'rules.rite': 1});
+    assert.deepEqual(result.volumes[3].newIds, {place: 1});
+    assert.deepEqual(result.volumes[3].registry, {person: 1, place: 2});
+    assert.deepEqual(result.volumes[3].extras, {rules: 1, texture_other: 1});
+    assert.deepEqual(result.volumes[3].rules, {rite: 1});
 });

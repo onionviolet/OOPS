@@ -1,11 +1,13 @@
 // Volume 1 consumer proxies over merged read rows. No source prose is emitted.
 // node scripts/lead_run/coverage_ledger.mjs [--merged dir] [--game file|dir ...] [--out json] [--summary]
+// node scripts/lead_run/coverage_ledger.mjs --volumes all [--merged dir] [--out json]   (per-volume counts, ids new in each volume)
 import {readFileSync, writeFileSync, readdirSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const DEFAULT_MERGED = 'docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/m4-whole-book-2026-10-29/merged';
 const volumeOne = shard => !/^lotm[2-8]c\d+m?$/.test(shard);
+export const volumeOf = shard => Number(/^lotm([2-8])c\d+m?$/.exec(shard)?.[1] ?? 1);
 const compare = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const stated = value => typeof value === 'string' && value.trim() !== '' && !/^(?:unstated|not stated)$/i.test(value.trim());
 
@@ -68,6 +70,36 @@ export function buildLedger({registry = [], extras = [], scenes = [], corpus = '
     return {generatedFrom: {volume: 1, consumerProxy: 'whole id token or volume 1 locator'}, counts: sorted(counts), missing: sorted(missing)};
 }
 
+/** Per-volume mechanism-grain counts. Ids only; never row prose. A row's volume comes from its shard; an id is new in the lowest volume that holds it. */
+export function buildVolumeLedger({registry = [], extras = []}) {
+    const bump = (obj, key, n = 1) => { obj[key] = (obj[key] || 0) + n; };
+    const volumes = {};
+    const vol = n => volumes[n] ||= {extras: {}, rules: {}, registry: {}, newIds: {}, newIdList: {}};
+    const firstSeen = new Map();
+    const note = (id, kind, n) => {
+        if (!id || (firstSeen.has(id) && firstSeen.get(id).n <= n)) return;
+        firstSeen.set(id, {n, kind});
+    };
+    for (const row of registry) {
+        const ns = (row.shards || []).map(volumeOf);
+        for (const n of new Set(ns)) bump(vol(n).registry, row.kind || 'other');
+        if (ns.length) note(row.id, row.kind || 'other', Math.min(...ns));
+    }
+    for (const row of extras) {
+        const n = volumeOf(row.shard), v = vol(n);
+        bump(v.extras, row.extra || 'other');
+        if (row.extra === 'rules') {
+            bump(v.rules, row.kind || 'other');
+            note(row.id, 'rules.' + (row.kind || 'other'), n);
+        }
+    }
+    for (const [id, {n, kind}] of firstSeen) { bump(vol(n).newIds, kind); (vol(n).newIdList[kind] ||= []).push(id); }
+    const sorted = obj => Object.fromEntries(Object.entries(obj).sort(([a], [b]) => compare(a, b)));
+    return {volumes: sorted(Object.fromEntries(Object.entries(volumes).map(([n, v]) =>
+        [n, {extras: sorted(v.extras), rules: sorted(v.rules), registry: sorted(v.registry), newIds: sorted(v.newIds),
+            newIdList: sorted(Object.fromEntries(Object.entries(v.newIdList).map(([k, ids]) => [k, ids.sort(compare)])))}])))};
+}
+
 const readJsonl = path => readFileSync(path, 'utf8').split('\n').filter(line => line.trim()).map(line => JSON.parse(line));
 const filesAt = path => statSync(path).isDirectory()
     ? readdirSync(path, {withFileTypes: true}).sort((a, b) => compare(a.name, b.name)).flatMap(entry => entry.isSymbolicLink() ? [] : filesAt(join(path, entry.name))) : [path];
@@ -75,15 +107,25 @@ const filesAt = path => statSync(path).isDirectory()
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     try {
         const args = process.argv.slice(2), game = [];
-        let merged = DEFAULT_MERGED, out;
+        let merged = DEFAULT_MERGED, out, volumes;
         for (let i = 0; i < args.length; i++) {
             const flag = args[i];
             if (flag === '--summary') continue;
-            if (!['--merged', '--game', '--out'].includes(flag) || !args[i + 1] || args[i + 1].startsWith('--')) throw new Error(`Invalid argument: ${flag}`);
+            if (!['--merged', '--game', '--out', '--volumes'].includes(flag) || !args[i + 1] || args[i + 1].startsWith('--')) throw new Error(`Invalid argument: ${flag}`);
             const value = args[++i];
             if (flag === '--merged') merged = value;
             else if (flag === '--out') out = value;
+            else if (flag === '--volumes') { if (value !== 'all') throw new Error(`Invalid --volumes: ${value}`); volumes = value; }
             else game.push(value);
+        }
+        if (volumes) {
+            const result = buildVolumeLedger({registry: readJsonl(join(merged, 'registry.jsonl')), extras: readJsonl(join(merged, 'extras.jsonl'))});
+            if (out) writeFileSync(out, JSON.stringify(result, null, 2) + '\n');
+            for (const [n, v] of Object.entries(result.volumes)) {
+                const line = obj => Object.entries(obj).map(([k, c]) => `${k} ${c}`).join(', ');
+                console.log(`volume ${n}\n  extras: ${line(v.extras)}\n  rules: ${line(v.rules)}\n  registry: ${line(v.registry)}\n  new ids: ${line(v.newIds)}`);
+            }
+            process.exit(0);
         }
         const defaults = ['private_packs/lotm-cast/cast.json', 'private_packs/lotm-ingredients/ingredients.json',
             ...readdirSync('src').filter(name => /^book_world_lotm_.*\.js$/.test(name)).sort().map(name => join('src', name)),

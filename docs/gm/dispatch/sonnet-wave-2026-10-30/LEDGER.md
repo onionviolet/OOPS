@@ -94,3 +94,18 @@ Applied by the existing untracked `scripts/lead_run/setaside_lint.mjs` (another 
 | **Total** | 10 of 10 clean | **11 rows set aside** |
 
 Census row counts before and after: b4s48 96 to 95, b5s50 123 to 122, b5s52 113 to 112, b6s63 107 to 106, b6s68 135 to 134; the other five unchanged. For b4s44 the 5 set-aside rows were written before the `pre-setaside` backup was taken, so its before-count (145) is already post-change. Backups: `lead-run-2026-10-27/pre-setaside/`; set-aside rows: `*_setaside.jsonl` beside them. The 10 shards still need the whole-book merge to be re-run before the merged files reflect the repairs.
+
+## Whole-book gaps pass (L7, 2026-10-30)
+
+Owner: lane L7 (`local_e9811a9a` side session). Output: [gap map sections 2b and 2c](../../../research/READING_GAP_MAP_2026-10-28.md), rows GM22-GM40 (GM20 and GM21 already existed there, so numbering starts at GM22). Ids and counts only; family answers live in gitignored `private/wb-families*/` folders.
+
+| Step | Result |
+| --- | --- |
+| `coverage_ledger.mjs --volumes all` (written by Sonnet, not Sol: about 40 lines, quicker than a brief) | Per-volume counts by extra, rule kind and registry kind, plus ids new in each volume. Volume 1 default output unchanged. `tests/lead_run_coverage.test.js`: 4 pass. |
+| `family_pass.mjs prep` / `tally` (new, free) | One TSV of unique rule ids per volume or half; tally joins Luna answers and reports missing, malformed and duplicate lines. |
+| LOTM families, 8 Luna lanes (`sw-l7-lotm-v1..v8`, gpt-6-luna medium) | 14 files, 8,663 id-volume pairs (7,976 unique ids), all classified, 0 missing, 0 malformed. No NEW slugs used. |
+| Other books merged (`merge_shards.mjs --include-batch`; the default skips batch-route shards and yields 0 rows) | MoL 106 shards, HP 179, Shadow Slave 377, plus Godclads 90, Perfect Run 83, Reverend Insanity 143, Circle of Inevitability 28, A Soldier's Life 175. |
+| Other books' families, 8 Luna lanes | MoL 1,063 ids, HP 1,332, SS 2,806, GC 728, PR 709, RI 1,607, COI 232, ASL 1,822; all classified, 0 missing, 0 malformed. Model confirmed gpt-6-luna in the lane record (checked on the Shadow Slave lane). |
+| Not done | Worm, Super Supportive, Wish Upon the Stars, You Are Summoned have no sharded lead-run (0 headers), so they are not in the table. Texture and `rules_other` rows were not classified by Luna (28,987 LOTM texture rows); a keyword count over texture gave upper bounds only and is not in the register. Family labels against `src/` are file-name and grep checks, not a code read. |
+
+Known classifier drift: potion ids went to ADV in volume 1 and MAK in volume 6; volume 2 has no creature ids. Merge ADV, MAK and ACT before reading trends. Reproduce: `node scripts/lead_run/family_pass.mjs prep --merged <merged> --out <private dir> --by lotm`, launch Luna lanes with a brief per file, then `tally --in <private dir>`.
