@@ -38,6 +38,7 @@ const NOT_LOADED_ON_PURPOSE = {
     'styles/palette_reports.css': 'loaded through the @import at the top of style.css',
     'styles/figure_gallery.css': 'only figure-gallery.html and item-card-gallery.html link it',
     'styles/ui_preview.css': 'only ui-preview.html links it',
+    'styles/ui_directions.css': 'only ui-directions.html links it',
 };
 
 test('every styles/*.css file is in the manifest or on the not-loaded-on-purpose list', () => {
