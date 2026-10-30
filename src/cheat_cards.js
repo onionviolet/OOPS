@@ -1,3 +1,4 @@
+import {ringSpiritCard} from './cheat_growth.js';
 import {validateModuleState,moduleCard,CHEAT_MODULES} from './cheat_definitions.js';
 // C0 data contract. Granting one runs no hooks.
 const CARD_KEYS = ['id', 'family', 'name', 'ui', 'terms', 'hooks', 'state', 'stages', 'observers', 'sources'];
@@ -100,6 +101,9 @@ export function seedBeginningCheats(state, {choice = 'none', at} = {}) {
     if(!next.held['quiet-faculty']) next = grantCheat(next, quietFacultyCard(), {route: 'personal-faculty', at});
     if(['system-quests', 'surprise'].includes(choice) && !next.held['system-quests'])
         next = grantCheat(next, optionalStartCard(), {route: 'optional-start', at});
+    // Premise intros call this with their kind; the ring elder is the first voiced non-system start.
+    if(choice === 'ring-spirit' && !next.held['ring-spirit'])
+        next = grantCheat(next, ringSpiritCard(), {route: 'optional-start', at});
     return next;
 }
 // A temporal return restores local inputs from its snapshot; enduring faculty

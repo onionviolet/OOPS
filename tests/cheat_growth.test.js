@@ -37,3 +37,10 @@ test('heir line: a ring spirit and a system return dormant with no points, ordin
  const same=carryCheats(c,defaultCheatState());assert.equal(same.held['system-quests'],undefined,'temporal return keeps its snapshot rules');
  const woke=awakenCheats(next,{dayCount:3,at}).state;assert.equal(woke.held['ring-spirit'].messages.length,1);
 });
+test('seedBeginningCheats grants the ring elder as a start choice, dormant until it wakes',()=>{
+ const c=seedBeginningCheats(defaultCheatState(),{choice:'ring-spirit',at});
+ assert.equal(c.held['ring-spirit'].card.state.awakened,false);assert.equal(c.held['ring-spirit'].acquired.route,'optional-start');
+ assert.equal(seedBeginningCheats(c,{choice:'ring-spirit',at}).held['ring-spirit'].messages.length,0);
+ const woke=awakenCheats(c,{dayCount:3,at}).state,p=cheatProjection({cheats:woke,locations:{},levels:{person:{main_character:{skill_xp:{}}}}});
+ assert.equal(p.companions[0].voice.reliable,false);
+});
