@@ -31,6 +31,14 @@ Reading coordinator state (02:50): p3c-memory (P3c), p4-fights (P4 then P5, P7, 
 
 Every ~40 minutes the supervisor reads usage and the session list. The Sonnet wave coordinator hits its cross-session send cap without a user turn, so the tick nudges idle `sw-*` lanes directly (QUEUE Round 2), at most 8 sends per tick; `sw-death` and `sw-chars` wake from their Codex watchers and get nudged only after an hour idle. `sw-gaps` is nudged when `ideas/` grows by 50+ lines (baseline 224 lines at 02:45). The UI and reading coordinators get a nudge only after 30 minutes idle with queue left. Above the stop lines it sends "checkpoint and hold" instead. It does not write code, start workers or edit other owners' files.
 
+**Load W2 (03:06):** 1-minute load reached 355-377 on 18 cores. Three full suites ran at once with one worker per core (gate-wire for sw-wire, a raw `npm test` outside the limiter in the primary checkout at PID 48334, and rep-talk), plus headless Chrome. The UI integrator's single-slot merge gate could not start, so the representation branches are not landed on master. Pacing asked: let current runs finish, then hold new full suites until the integrator gate runs or 05:30. The suite command for everyone becomes:
+
+`YAIRPG_SLOT_MAX_LOAD=40 node scripts/slot_run.mjs --kind suite --slots 1 -- node --test --test-concurrency=4 tests/*.test.js`
+
+(the same files as `npm test`, with 4 workers instead of 18).
+
+**Send cap W3 (03:07):** the desktop app pauses a session's cross-session sends after 10 without a user message. The Sonnet wave coordinator hit it first, then this supervisor. Its reply to the UI coordinator did not go out (sw-wire got the pacing note; p3c-memory has it queued). From here the tick only observes and writes this report. To restart nudging, Weibao types any message in the supervisor session. Lanes keep moving on their own Codex watchers and in-flight turns.
+
 ## Morning report
 
 Filled by the supervisor's last tick.
