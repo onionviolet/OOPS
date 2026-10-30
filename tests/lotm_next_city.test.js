@@ -60,3 +60,26 @@ t('verified rows keep their label, authored hours and fares stay marked, and the
     assert.equal(tr.ok, true); assert.deepEqual(tr.exposed, []);
     assert.equal(leave(g, 'seat.fool').bodyRevealed, false);
 });
+
+const BAIYAM = new URL('../private_packs/lotm-baiyam/region.json', import.meta.url);
+const bay = fs.existsSync(BAIYAM) ? JSON.parse(fs.readFileSync(BAIYAM, 'utf8')) : null;
+(bay ? test : test.skip)('the sea city loads, is cited row by row, and its voyage charges once and can meet its hazards', async () => {
+    const city = buildNextCity(bay);
+    assert.ok(city);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    assert.ok(city.provenance['pirate-sighting'] && city.provenance['fog-and-storm']);
+    const q = quoteRoute(city.route, {money: 960, minuteOfDay: 8 * 60});
+    assert.equal(q.totalFare, 960);
+    assert.equal(q.eligible, true);
+    assert.equal(quoteRoute(city.route, {money: 959}).eligible, false);
+    const read = readRegion(city.region, {reputation: 0, hour: 12, money: 1000});
+    assert.equal(read.priceList.find(p => p.id === 'third-class-passage').text, '960 pence');
+    assert.equal(read.offices[0].eligible, false);
+    const kinds = new Set();
+    for(let d = 0; d < 200; d++) for(const e of settleRoute(city.route, {day: d, money: 960, seed: 11}).events) kinds.add(e.kind);
+    assert.deepEqual([...kinds].sort(), ['ambush', 'weather']);
+    const {loadCities} = await import('../src/lotm_next_city.js');
+    const files = {'private_packs/manifest.json': {schema: 1, supplements: ['lotm-baiyam/region.json']}, 'private_packs/lotm-baiyam/region.json': bay};
+    const cities = await loadCities(async p => ({ok: !!files[p], json: async () => files[p]}));
+    assert.deepEqual(cities.map(c => c.region.id), ['baiyam']);
+});
