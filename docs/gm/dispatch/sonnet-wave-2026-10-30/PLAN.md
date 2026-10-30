@@ -119,7 +119,7 @@ LATER / DELEGATE
 - **WB8, the same coarse pass over other books.** Mother of Learning, Harry Potter and Shadow Slave rows are read but unmerged; merging is free. A cross-book family table shows which seams serve several worlds, which is the strongest case for making a feature general. Level: Sonnet plus Luna. Done check: a family-by-book table in the gap map.
 - **WB9, schema 1.5 step enrich for volumes 2-8.** Use the Luna enrich route proven on volume 1. Only needed when a slice replays those scenes. Level: Luna medium. Done check: the `luna_enrich.mjs check` counts.
 
-**Proposed lane L7, whole-book gaps** (needs Weibao's go):
+**Lane L7, whole-book gaps:** Weibao said go 2026-10-30, with WB8 included ("Also other books"). Started as `sw-gaps` (`local_6db3be60`).
 - Model: Sonnet, plus a Sol draft of `--volumes all` and the per-volume and new-id counts in `coverage_ledger.mjs`, plus Luna clustering lanes.
 - Files: the coverage script and its test, the gap map rows from GM20 on, and a LEDGER.md whole-book section.
 - Done check: every volume has its families labelled and ordered by the lead's path, ready to hand to gap workers.
