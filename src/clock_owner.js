@@ -45,7 +45,7 @@ export function createClockOwner({clock, save, body, world, ui}) {
         if(clock.usesJoinedClock()) {
             if(save.importProbeToken || !save.ownsSave || clock.expansionError || save.foundationSaveBlocked || save.is_loading_error || body.nativeLifeEnded()) return 0;
             // An open tempo fight waits indefinitely; its away minutes are kept for after (LSD315, LSD317).
-            if(clock.expansionState.simulation?.sessions.player?.nativeBattle?.schema===TEMPO_SCHEMA)recordTempoHold(time_in_minutes??1);
+            {const open=clock.expansionState.simulation?.sessions.player?.nativeBattle;if(open?.schema===TEMPO_SCHEMA)recordTempoHold(time_in_minutes??1,open);}
             if(clock.expansionState.simulation?.sessions.player || clock.waitingSimulationChoice(clock.expansionState)) {ui.frontierCampaignPanel?.render();ui.featureExpansionPanel?.render();ui.foundationInteractionPanel?.render();ui.causalStoryPanel?.render();ui.simulationPanel?.render(); ui.pursuitPanel?.render(); ui.fieldPanel?.render(); ui.promisePanel?.render(); ui.crushSocialPanel?.render(); ui.managementPanel?.render(); ui.knownRoutesPanel?.render();ui.adventureNotebook?.render();ui.livingGearPanel?.render();ui.combatOptionsPanel?.render(); return 0;}
             if(clock.expansionState.chronicle?.session?.policy === "manual") {ui.chroniclePanel?.render(); return 0;}
             try {

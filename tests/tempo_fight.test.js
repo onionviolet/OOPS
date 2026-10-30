@@ -111,3 +111,11 @@ test('a damaging public strike leaves a witnessed memory effect with a severity 
     const e=plan.memoryEffects[0];
     assert.ok(e.scene.severity>=1&&e.scene.severity<=4&&e.cause.startsWith('battle:fx1:'));
 });
+
+test('away minutes recorded against the open fight survive a reload',()=>{
+    const {p,context}=fresh(3);
+    const plan=beginTempoFight(p.state,registry,context,spec());
+    recordTempoHold(45,plan.state.simulation.sessions.player.nativeBattle);
+    const loaded=reload(JSON.parse(JSON.stringify(plan.state)));
+    assert.equal(loaded.simulation.sessions.player.nativeBattle.held,45);
+});
