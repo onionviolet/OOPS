@@ -1,0 +1,22 @@
+You owe 3 accounts (7 verl d’or and 4 coppets and 2 coins). Owed to you: 1 account (1 verl d’or). Nothing here has a date.
+
+All 4You owe 3Owed to you 1Has a date 0Money 4
+Who	What	Kind	When
+To the Counting-House	7 verl d’or	Money	no set date
+To the Market Circle	4 coppets	Money	no set date
+To the Gutter Crews	2 coins	Money	no set date
+From the broker	1 verl d’or	Money	no set date
+You owe the Counting-House 7 verl d’or, no set date.
+
+Why: Rent for the week
+
+Since: 3 days ago.
+
+Ends with this life.
+
+Kept by: Standing and ledger.
+
+Settle: Repay it in Standing and ledger → Credit. Paying on time raises that house's regard for you.
+
+This tab only reads. Each account is settled where its row says.
+errors: []
