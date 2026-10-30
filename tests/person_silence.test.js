@@ -124,6 +124,7 @@ test('gossip keeps or breaks a flagged secret for stated reasons and records the
     // outcomes write the test into the asker's memory
     const r1 = keptRoots[0], after = run(full, r1);
     assert.ok(readMemories(after, asker, DAY).some(e => e.kind === 'helped' && e.fact.includes('kept_quiet')));
+    assert.equal(standingView({memory: after, holder: hold, subject: asker, day: DAY}).loyalty.tested, true, 'keeping a costly secret tests his loyalty too');
     const r2 = brokenWeak[0], afterBreak = run(weak, r2);
     assert.ok(readMemories(afterBreak, asker, DAY).some(e => e.kind === 'betrayed' && e.fact.includes('broke_confidence')));
     assert.equal(readMemories(afterBreak, other, DAY).find(e => e.source?.teller === hold).silence.promised, false, 'a told secret is flagged for the listener without a promise');
@@ -135,4 +136,35 @@ test('gossip keeps or breaks a flagged secret for stated reasons and records the
 test('encoding is lossless and compact for flagged episodes', () => {
     const m = pay(ask(base(), true)), again = encodeMemory(decodeMemory(m, DAY), DAY, undefined, decodeClaims(m));
     assert.deepEqual(again, m);
+});
+
+import {standingView, standingLines} from '../src/person_standing.js';
+const topicEffect = (m, text, axis, amount, subject, cause) => rememberEffect(m, {holder: hold, subject, cause, axis, amount, text}, DAY);
+test('threat, oath, pressure and a rival offer each move the verdict by their own factor, with a stated reason', () => {
+    const asked = ask(base());
+    const chance = m => verdict(m, 5).chance;
+    const threat = topicEffect(ask(base()), 'Threatened him to keep the interruption quiet.', 'respect', -3, asker, 't1');
+    // fear raises the chance; in the live game the harm also lowers the bond through the relationship axis
+    const f = id => verdict(threat, 5).factors.find(x => x.id === id).value;
+    assert.ok(f('fear') > 0 && chance(threat) > chance(asked) - 1);
+    const oath = topicEffect(asked, 'Swore with a log set on the bench that the interruption stays quiet.', 'trust', 2, asker, 'o1');
+    assert.ok(verdict(oath, 5).factors.find(x => x.id === 'oath').value > 0 && chance(oath) > chance(asked));
+    const pressed = topicEffect(asked, 'Asked him pointedly what had happened at the bench.', 'familiarity', 1, other, 'p1');
+    assert.ok(chance(pressed) < chance(asked));
+    const rival = topicEffect(asked, 'Offered a coin to hear what happened at the bench.', 'respect', 2, other, 'r1');
+    assert.ok(chance(rival) < chance(asked) && verdict(rival, 5).factors.find(x => x.id === 'rival').value < 0);
+    assert.match(silenceExplanation(verdict(rival, 5)), /offered more|against/);
+    // a rival offer can outbid the asker's payment
+    assert.ok(chance(rival) < chance(pay(asked)));
+    // the deal itself and the threat are never gossiped
+    for (const r of [1, 2, 3, 4, 5, 6]) assert.equal(readMemories(gossipStep({memory: threat, ...scene(threat, r)}).memory, other, DAY).some(e => /threat|oath/.test(e.fact)), false);
+});
+
+test('standing reads show severity, loyalty as a guess then tested, debt, and a lie beside the record', () => {
+    let m = ask(base());
+    const v = standingView({memory: m, holder: hold, subject: asker, day: DAY});
+    assert.equal(v.severity.rung, 'minor'); assert.equal(v.loyalty.shown, 'a guess');
+    m = addClaim(m, {speaker: asker, fact: readMemories(m, hold, DAY).find(e => e.fact.includes('interruption')).fact, says: 'claim.only_asked', day: DAY}, DAY);
+    const lines = standingLines(standingView({memory: m, holder: hold, subject: asker, day: DAY})).join(' ');
+    assert.match(lines, /minor slight/); assert.match(lines, /a guess/); assert.match(lines, /only asked him for a moment, but the record shows you interrupted/);
 });
