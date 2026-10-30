@@ -550,6 +550,9 @@ Built against the DESIGN.md draft (`ui-identity`, commit 7c2cbf199): DSG11 one h
 longer repeats hp; R3-C11 names the hero-panel gap); DSG14 type names from the world, owned in `damage_types.js`. Not
 done: world-voiced fight report rows in `src/world_report_voice.js` (later, small).
 
+World family: the card reads `data-world-family` for now; once `world_look.js` is on master it should call
+`worldFamily(fight world id)` with `currentWorldFamily()` as the fallback (one authority, works headless), as `ui-identity` advised.
+
 Remaining gate, in order: damage-types commit, then `p4-fights` commits with both patches, then rebase this
 branch, run the full `npm test`, `npm run build`, `check:arch`, `check:rules` and the browser script again,
 then merge on Weibao's yes.
