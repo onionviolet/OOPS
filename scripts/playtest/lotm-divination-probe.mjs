@@ -12,7 +12,7 @@ const pause=(ms=350)=>s.page.waitForTimeout(ms);
 const nav=async id=>{await s.page.keyboard.press('Escape');await s.page.evaluate(v=>{const e=document.querySelector('select[aria-label="Other known panels"]');e.value=v;e.dispatchEvent(new Event('change',{bubbles:true}));},id);await pause();};
 const report={bundle:bundleHash,viewport:'1920x1080',steps:[]};
 try{
- await s.open();const p=s.page;await p.setViewportSize({width:1920,height:1080});
+ await s.open();const p=s.page;report.events=[];p.on('crash',()=>report.events.push('crash'));p.on('close',()=>report.events.push('close'));p.on('pageerror',e=>report.events.push('pageerror '+String(e).slice(0,200)));p.on('console',m=>{if(m.type()==='error')report.events.push('console '+m.text().slice(0,200));});p.on('framenavigated',f=>{if(f===p.mainFrame())report.events.push('nav '+f.url().slice(-40));});await p.setViewportSize({width:1920,height:1080});
  await nav('lotm');const panel=p.locator('#lotm_panel');
  await panel.locator('[data-lotm="pick_be"]').click();await pause();await panel.locator('[data-lotm="enroll_be"]').click();
  const t0=Date.now();
@@ -33,14 +33,26 @@ try{
  const grab=()=>p.evaluate(()=>{const d=document.querySelector('#lotm_panel details[data-lotm-divinations]');if(!d)return null;d.open=true;return [...d.querySelectorAll('p,button')].map(e=>(e.tagName==='BUTTON'?'[BTN'+(e.disabled?' disabled':'')+'] ':'')+e.textContent.trim().slice(0,160));});
  for(let i=0;i<10&&!report.rows;i++){report.rows=await grab();if(!report.rows)await pause(1000);}
  report.hasRites=!!report.rows;
+const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>{const b=[...document.querySelectorAll('#lotm_panel details[data-lotm-divinations] button')].find(b=>!b.disabled&&new RegExp(src).test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;},re);if(t)return t;await pause(1000);}return null;};
  if(report.rows){await p.screenshot({path:path.join(out,'divination-before.png'),timeout:8000}).catch(()=>{report.shotFail=1;});
-  const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>{const b=[...document.querySelectorAll('#lotm_panel details[data-lotm-divinations] button')].find(b=>!b.disabled&&new RegExp(src).test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;},re);if(t)return t;await pause(1000);}return null;};
   report.clicked=[];
-  for(const re of ['^Take out the coin','^Ask about returning','^Read the coin']){const t=await clickLabel(re);report.clicked.push(t);if(!t)break;await pause(2500);}
+  if(mode!=='backlash')  for(const re of ['^Take out the coin','^Ask about returning','^Read the coin']){const t=await clickLabel(re);report.clicked.push(t);if(!t)break;await pause(2500);}
   report.notice=await p.evaluate(()=>document.querySelector('#lotm_panel [role=status]')?.textContent||'');
   report.after=await grab();
   report.reports=await p.evaluate(()=>document.body.innerText.split('Reports')[1]?.slice(0,1500)||'');
   await p.screenshot({path:path.join(out,'divination-after.png'),timeout:8000}).catch(()=>{report.shotFail=1;});}
+
+ if(mode==='backlash'){
+  const loops=[];report.loops=loops;
+  for(let n=0;n<14;n++){
+   const row={n};
+   for(const re of ['^Take out the coin','^Ask about returning','^Read the coin']){const t=await clickLabel(re);row[re]=!!t;if(!t)break;await pause(900);}
+   row.harm=await p.evaluate(()=>{const e=window.simulationTestHooks.snapshot();const h=e.harm||e.expansion?.harm;return h?JSON.stringify(h).slice(0,200):null;});
+   row.life=await p.evaluate(()=>document.body.innerText.match(/(You (have )?died|lost control|Connection|restart)[^\n]{0,80}/i)?.[0]||null);
+   loops.push(row);if(row.life||!row['^Take out the coin'])break;
+  }
+  report.reports=await p.evaluate(()=>document.body.innerText.slice(-1500));
+ }
  const know=()=>p.evaluate(()=>{const k=window.simulationTestHooks.snapshot().expansion.simulation.knowledge.player||{};return Object.keys(k).filter(x=>x.startsWith('divination.')).length;});
  report.knowBefore=await know();report.saved=await p.evaluate(()=>{const b=[...document.querySelectorAll('button,#save_button')].find(b=>b.id==='save_button'||b.textContent.trim()==='Save');if(b){b.click();return b.id||'text';}return null;});await pause(800);
  await p.reload({waitUntil:'domcontentloaded'});for(let i=0;i<40;i++){try{if(await p.locator('#loading_screen_play_button').isVisible())await p.locator('#loading_screen_play_button').click({timeout:3000});report.knowAfter=await know();if(report.knowAfter)break;}catch(e){}await pause(1500);}
