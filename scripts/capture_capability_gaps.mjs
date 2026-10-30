@@ -40,7 +40,7 @@ const facts = page => page.evaluate(() => {
     };
 });
 const shot = async (page, name, extra = {}) => {
-    await page.screenshot({path: resolve(out, `${name}.png`)});
+    await page.screenshot({path: resolve(out, `${name}.png`), timeout: 120000}).catch(e => { extra = {...extra, screenshotError: e.message.slice(0, 80)}; });
     note(name, {...(await facts(page)), ...extra});
 };
 const start = async page => {
@@ -85,12 +85,19 @@ try {
     await shot(lead, 't01-world-entry');
     await lead.getByRole('button', {name: /Be Klein Moretti/}).first().click(); await lead.waitForTimeout(400);
     await shot(lead, 't02-lead-confirm');
-    const t0 = Date.now(); await lead.getByRole('button', {name: 'Start this new life'}).click();
-    await lead.waitForFunction(() => /Moretti/.test(document.getElementById('location_name_span')?.innerText || ''), null, {timeout: 30000}); await lead.waitForTimeout(500);
-    note('life start duration ms', {ms: Date.now() - t0});
+    const t0 = Date.now(); await lead.evaluate(() => { window.__unloadAt = null; addEventListener('beforeunload', () => sessionStorage.setItem('capture.unloadAt', String(Date.now()))); });
+    await lead.getByRole('button', {name: 'Start this new life'}).click(); await lead.waitForTimeout(300);
+    await shot(lead, 't02b-300ms-after-start', {workingNote: await lead.locator('#working_note').innerText().catch(() => null)});
+    // Reload: the loading screen repeats the note; the game then continues on its own when the load is clean.
+    let loadingSeen = null;
+    await lead.waitForFunction(() => /Moretti/.test(document.getElementById('location_name_span')?.innerText || '') || document.getElementById('loading_screen_working'), null, {timeout: 180000, polling: 100}).catch(() => {});
+    loadingSeen = await lead.locator('#loading_screen_working').innerText().catch(() => null);
+    if (loadingSeen) await lead.screenshot({path: resolve(out, 't02c-loading-screen.png')});
+    await lead.waitForFunction(() => /Moretti/.test(document.getElementById('location_name_span')?.innerText || ''), null, {timeout: 180000}); await lead.waitForTimeout(500);
+    note('life start duration ms', {ms: Date.now() - t0, loadingScreenLine: loadingSeen, autoPlayed: true});
     await shot(lead, 't03-lead-first-screen');
     // The life start reloads the page; a stale handle here is a finding, not a crash.
     for (let i = 1; i <= 3; i++) { try { await lead.evaluate(() => advanceTicks(60)); await lead.waitForTimeout(500); await shot(lead, `t0${3 + i}-lead-hour-${i}`); } catch (e) { note(`lead-hour-${i} skipped`, {error: e.message.slice(0, 120)}); } }
     note('page-errors', {errors});
     await writeFile(resolve(out, 'receipt.json'), JSON.stringify(receipt, null, 1) + '\n');
-} finally { await browser.close(); server.close(); }
+} finally { await writeFile(resolve(out, 'receipt.json'), JSON.stringify(receipt, null, 1) + '\n').catch(() => {}); await browser.close(); server.close(); }
