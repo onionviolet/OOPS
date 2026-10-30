@@ -10,6 +10,7 @@ import './fixtures/combat.js';
 import {MAP_FIXTURES} from './fixtures/maps.js';
 import {mountCharacterSheetGallery} from './character_sheet_gallery.js'; queueMicrotask(() => mountCharacterSheetGallery(document.getElementById('fig_gallery')));
 import {BODY_FIXTURES} from './fixtures/body.js'; FIGURE_FIXTURES.push(...BODY_FIXTURES);
+import './fixtures/knowledge.js';
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};

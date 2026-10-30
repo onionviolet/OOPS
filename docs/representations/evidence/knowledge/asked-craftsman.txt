@@ -1,0 +1,18 @@
+What you know
+List
+Board
+
+2 things you hold. Open lines are questions you asked that have no answer yet.
+
+Known (2)
+Known: The shower passed; the craftsman dried his bench. No missed reward is owed. (You saw it, today)
+Known: He likes sound materials and quiet while counting fittings; questions are welcome after work. (You learned it, today)
+Open People
+
+--- board text form ---
+What you know
+Only what you hold. Left: known. Middle: your readings. Right: open questions and plans.
+Nodes: The shower passed; the craftsman dried… (filled); He likes sound materials and quiet… (filled).
+Key: ● filled means known: seen or learned.
+Key: · pending means guessed: your reading, may be wrong.
+Key: ? unknown means open: asked, no answer yet.

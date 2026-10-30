@@ -11,6 +11,7 @@ const routeRows = [
   ['bestiary', 'records:bestiary', 'in-world', 'Known creatures belong to this life.'],
   ['books', 'records:books', 'in-world', 'Reading records belong to this life.'],
   ['data', 'records:data', 'in-world', 'Recorded character data belongs to this life.'],
+  ['knows', 'records:knows', 'in-world', 'What this seat knows, seen from its own life.'],
   ['notebook', 'records:notebook', 'in-world', 'The notebook contains this life’s notes.'],
   ['skills', 'skills', 'in-world', 'Learned skills belong to this life.'],
   ['people', 'known-people', 'in-world', 'Known people belong to this life.'],

@@ -246,6 +246,7 @@ export const LAYOUT_SPEC = Object.freeze({
         {id: 'records:bestiary', label: 'Bestiary', key: 'b', target: 'records', tab: 'journal_show_bestiary'},
         {id: 'records:books', label: 'Books', key: 'a', target: 'records', tab: 'journal_show_books'},
         {id: 'records:data', label: 'Data', key: 'd', target: 'records', tab: 'journal_show_data'},
+        {id: 'records:knows', label: 'Knows', key: 'f', target: 'records', tab: 'journal_show_knows'},
         {id: 'records:notebook', label: 'Notebook', key: 'n', target: 'notebook'},
         {id: 'skills', label: 'Skills', key: 'k', target: 'skills', pane: 2},
         {id: 'known-people', label: 'People', key: 'p', target: 'known-people'},
