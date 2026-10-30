@@ -438,7 +438,8 @@ default in [CHOICES](../gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md) item 2. P
 | Check | Result | Gap |
 |---|---|---|
 | `node --test tests/ability_ladder_figure.test.js tests/figure.test.js` | 19 pass | full suite left to the coordinator (limiter) |
-| Headless Chrome 1920x1080, disposable copy (HEAD + this change + the host patch), fresh origin | gallery: planned fixture 4 ghost arcs, records fixture lines with "(inferred)"; game: PLAY, probationer, dose, lesson, "Find action" on the reading act gives "after answer a client ...: 1 of 6" and one ghost arc; it persists while the act runs; no page errors | ability lines in game need a promoted Sequence 8 life (not reached); `evidence/abilities/ghost-*` |
+| 32 test files importing the changed or patched files, in the copy | 214 pass, 2 fail | both fail on clean HEAD too: `perspective_controls` (organizations route untagged) and the `cast_ability_adapter` disposable-copy save worker |
+| Headless Chrome 1920x1080, disposable copy (HEAD + this change + the host patch, private advancement pack removed so no later rung names reach tracked evidence), fresh origin | gallery: planned fixture 4 ghost arcs, records fixture lines with "(inferred)"; game: PLAY, probationer, dose, lesson, "Find action" on the reading act gives "after answer a client ...: 1 of 6" and one ghost arc; it persists while the act runs; no page errors | ability lines in game need a promoted Sequence 8 life (not reached); `evidence/abilities/ghost-*` |
 
 Findings for other owners (not changed here):
 - F1. With the private advancement pack present, `lotmPathView` passes `known` as the whole path, so a
@@ -446,4 +447,6 @@ Findings for other owners (not changed here):
   belongs to L10 or floor-wire (ABR19).
 - F2. Most L10 rows state no cost (CHOICES item 2). Until the inferred costs land in the data, the
   lines read "cost not stated", which is honest but sparse.
-
+- F3. The first Round 4 commit (`2bae890d`) carried in-game captures made with the private advancement
+  pack present, so they showed later rung names; the follow-up commit replaces them, but the old blobs
+  stay in history. Decide before pushing.
