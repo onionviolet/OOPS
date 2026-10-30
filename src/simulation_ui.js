@@ -6,23 +6,31 @@ import {previewSimulationCommand, inspectSimulationEvents} from "./simulation.js
 import {everydayScene} from "./everyday_life.js";
 import {knownPeopleView} from "./people_knowledge.js";
 import {splitReasons, playerReasonText} from "./player_reasons.js";
+import {workshopHome} from "./workshop_placement.js";
+import {summarizeGroups} from "./ui_components.js";
+import {config} from "./config.js";
 const node = (tag, text) => {const n = document.createElement(tag); if(text) n.textContent = text; return n;};
 export function createSimulationPanel({registry, read, command}) {
     const panel = node("details"); panel.id = "simulation_panel"; panel.className = "expedition_panel";
     panel.append(node("summary", "Craftsman & workshop")); const body = node("div"), description = node("p"), status = node("p"), buttons = node("div"), events = node("div"), history = node("ol");
     const encounter = node("section"), people = node("section"); body.append(encounter); people.append(node("h4", "Local commissions"));
     const personal = node("p"); personal.id = "workshop_personal_detail";
-    const conversation = node("details"), conversations = node("div"); conversation.id = "workshop_conversation";
-    conversation.open = true; conversation.append(node("summary", "Conversation & rest"), conversations);
-    panel.append(body); body.append(description, personal, status, conversation, buttons, people, events, history); let notice = "", eventSignature = "", encounterSignature = "", wasIrritated = false;
+    // Sections are <details> so summarizeGroups gives each heading its "n ready / m actions" (WS-4).
+    const section = (id, title, open) => {const d = node("details"), list = node("div"); d.id = id; d.className = "workshop_section"; d.open = open; d.append(node("summary", title), list); return {d, list};};
+    const talk = section("workshop_conversation", "Talk", true), workSection = section("workshop_work", "Work here", true), leads = section("workshop_leads", "Leads here", true);
+    const notYet = section("workshop_not_yet", "Not yet", false), unplaced = section("workshop_unplaced", "Unplaced commands (dev)", false);
+    const conversation = talk.d, conversations = talk.list, scene = node("section"); scene.className = "workshop_scene"; scene.append(personal);
+    workSection.list.append(buttons); const practiceNote = node("small"); workSection.list.append(practiceNote); practiceNote.className = "workshop_practice";
+    const homes = {talk: conversations, work: buttons, leads: leads.list};
+    panel.append(body); body.append(description, scene, status, conversation, workSection.d, leads.d, notYet.d, unplaced.d, people, events, history); let notice = "", eventSignature = "", encounterSignature = "", wasIrritated = false;
     const run = c => {try {command(c);status.dataset.themeState='status';status.setAttribute('role','status'); const disclosure=registry.simulation.commands.get(c.id)?.effects.find(e=>e.type === "knowledge" && !e.actor && e.key.startsWith("body.feedback."));
         notice=disclosure ? read().state.simulation.knowledge.player[disclosure.key].value : c.type === "cancel" ? "Command saved. Current work stopped." : c.type === "withdraw" ? "Command saved. Encounter withdrawn." : "Command saved.";} catch(e) {status.dataset.themeState='error';status.setAttribute('role','alert');notice = e.message;} render();};
     const button = (label, id, c) => {const b = node("button", label); b.type = "button"; b.dataset.simulation = id; b.addEventListener("click", () => run(c)); return b;};
     const enroll = button("Follow local people and work", "enroll", {type: "enroll"}); buttons.append(enroll);
     const controls = new Map();
     for(const d of registry.simulation.commands.values()) if(d.actorId === "player" && !d.targetDefinitionId && d.group!=="structured_local" && !STEAM_ABSORPTION_GROUPS.includes(d.group) && !["management","game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","body","field","pursuit","exchange","observation","glasshouse","skills","original_frontier","feature_objects","feature_society","feature_powers","feature_battle","tidemark","repositories","ink","backlog","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(d.group)) {
-        const b = button(d.label, d.id, {type: "command", id: d.id, targetId: d.targetId});
-        (d.group === "social" ? conversations : buttons).append(b); controls.set(d.id, b);
+        const b = button(d.label, d.id, {type: "command", id: d.id, targetId: d.targetId}), home = workshopHome(d);
+        b.dataset.home = home || "unplaced"; (homes[home] || unplaced.list).append(b); controls.set(d.id, b);
     }
     const routine = button("Pack 3 kits automatically · reserve each kit's inputs when work starts", "routine", {type: "program", id: "village.measured_pack", count: 3}); buttons.append(routine);
     const pause = button("Pause automatic packing after the current kit", "pause", {type: "pause"}); buttons.append(pause);
@@ -45,16 +53,30 @@ export function createSimulationPanel({registry, read, command}) {
             // Unreachable here (another world or actor, or an unmet requirement the command never names) means
             // hidden, not explained: those reasons are engine text (UR73, UR82; Weibao 2026-10-30).
             const why = splitReasons(p.reasons);
-            b.hidden = !p.visible || why.dev.length > 0 || !!(d.worldId && state.actors.player?.worldId !== d.worldId) || !!(d.once && state.actors.player.completed[id]) || !!(d.claim && s.claims[d.claim]) || d.group === "social" && d.location !== context.facts.location;
+            const home = b.dataset.home, devOnly = home === "unplaced";
+            b.hidden = devOnly && !config.enable_dev_mode || !p.visible || why.dev.length > 0 && !devOnly || !!(d.worldId && state.actors.player?.worldId !== d.worldId) || !!(d.once && state.actors.player.completed[id]) || !!(d.claim && s.claims[d.claim]) || d.group === "social" && d.location !== context.facts.location;
             b.disabled = !enabled || !!error || !p.eligible; b.title = why.player.join(" ");
+            // A blocked action leaves its section for the closed "Not yet" list, where its reason is one line beside it.
+            const target = devOnly ? unplaced.list : !b.hidden && !p.eligible ? notYet.list : homes[home];
+            if(b.parentNode !== target) {const had = document.activeElement === b; target.append(b); if(had) b.focus();}
             // A place blocker is a tag on the button ("· at Shack"), not a sentence under it.
             if(why.place && !p.eligible) b.dataset.place = why.place; else delete b.dataset.place;
             if(b.hidden && document.activeElement === b) (d.group === "social" ? conversation : panel).querySelector("summary").focus();
         }
-        conversation.hidden = !s || ![...controls].some(([id,b]) => registry.simulation.commands.get(id).group === "social" && !b.hidden);
+        conversation.hidden = !s || ![...controls].some(([id,b]) => b.dataset.home === "talk" && !b.hidden && b.parentNode === conversations);
+        workSection.d.hidden = !s || ![...controls.values(), routine, pause, resume, cancel].some(b => b.parentNode === buttons && !b.hidden);
+        leads.d.hidden = !s || !leads.list.querySelector("button:not([hidden])");
+        notYet.d.hidden = !s || !notYet.list.querySelector("button:not([hidden])");
+        unplaced.d.hidden = !config.enable_dev_mode || !unplaced.list.querySelector("button:not([hidden])");
         if(context.facts["village.craftsmanIrritated"] && !wasIrritated) conversation.open = true;
         wasIrritated = !!context.facts["village.craftsmanIrritated"];
-        routine.hidden = !s; routine.disabled = !s || !enabled || !!error || !previewSimulationCommand(state, registry, "village.measured_pack", context).eligible;
+        const routinePreview = s ? previewSimulationCommand(state, registry, "village.measured_pack", context) : {eligible: false, reasons: []}, routineWhy = splitReasons(routinePreview.reasons);
+        routine.hidden = !s; routine.disabled = !s || !enabled || !!error || !routinePreview.eligible;
+        // A disabled control always says why, in player words (WS-5): the place as a tag, the rest as the title.
+        routine.title = routineWhy.player.join(" ") || (routineWhy.place || routinePreview.eligible ? "" : "Not possible right now.");
+        if(routineWhy.place && !routinePreview.eligible) routine.dataset.place = routineWhy.place; else delete routine.dataset.place;
+        const routineTarget = !s || routine.hidden || routinePreview.eligible || !enabled || error ? buttons : notYet.list;
+        if(routine.parentNode !== routineTarget) routineTarget.append(routine);
         pause.hidden = s?.programs.player?.status !== "running"; pause.disabled = !!error;
         resume.hidden = s?.programs.player?.status !== "paused" || !s?.programs.player?.remaining; resume.disabled = !!error || !enabled;
         // These hosts own their exact scene/descriptor cancellation controls.
@@ -64,7 +86,9 @@ export function createSimulationPanel({registry, read, command}) {
         const program = s?.programs.player;
         const routineState = program ? program.status === "paused" ? ` Routine paused${s.jobs.some(j=>j.actorId === "player") ? " after current work" : ""}. ${program.reason || ""}` : program.status === "running" ? " Routine running." : s.jobs.some(j=>j.actorId === "player" && j.commandId === program.commandId) ? " Final routine work pending; no further repetitions." : " Routine settled." : "";
         const waiting = s?.sessions.player || inspectSimulationEvents(state).some(e=>e.actorId === "player" && e.status === "open" && e.mode === "decision" && e.nonBlocking !== true) ? " Waiting for your response." : "";
-        status.textContent = error || `${notice ? notice + " " : ""}${work}${routineState}${waiting} Completed packing practice: ${practice}.`;
+        // One line: what just happened and what is running. The practice count sits with the work it counts.
+        status.textContent = error || [notice, work, routineState, waiting].map(t => t.trim()).filter(Boolean).join(" · ");
+        practiceNote.textContent = `Completed packing practice: ${practice}.`;
         const localPeople = Object.entries(s?.people || {}).filter(([id,p]) => p.createdBy === "player" && !["original_frontier.","artifact_collection.","causal.story.","remainder_","remainder."].some(prefix=>p.definitionId?.startsWith(prefix)) && state.actors[id].worldId === state.actors.player.worldId);
         people.hidden = !localPeople.length;
         for(const [index,[id,p]] of localPeople.entries()) {
@@ -106,6 +130,7 @@ export function createSimulationPanel({registry, read, command}) {
         const texts = (s?.log || []).filter(e => !e.audience || e.audience.includes("player")).slice(-5).reverse().map(e => node("li", e.text));
         if(history.textContent !== texts.map(n => n.textContent).join("")) history.replaceChildren(...texts);
         if(!panel.isConnected) document.getElementById("location_actions_div")?.append(panel);
+        summarizeGroups(panel); // the notebook can host this panel outside the node that is summarized, so count its own sections
     }
     render(); return {render};
 }
