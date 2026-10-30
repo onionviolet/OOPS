@@ -376,7 +376,7 @@ function applyEffects(plan, effects, context, registry, cause, {spending = false
             const receipt = `${cause}:${actor}:${e.target}:${e.axis}`;
             if(!Object.hasOwn(s.causes, receipt)) {
                 const next = (r.axes[e.axis] || 0) + e.amount; assert(finite(next), "Relationship overflow."); r.axes[e.axis] = next;
-                if(e.amount) (plan.memoryEffects ||= []).push({holder:actor, subject:e.target, cause, axis:e.axis, amount:e.amount, text:e.text, clock:state.clock});
+                if(e.amount) (plan.memoryEffects ||= []).push({holder:actor, subject:e.target, cause, axis:e.axis, amount:e.amount, text:e.text, clock:state.clock, ...(e.silence ? {silence:e.silence} : {})});
                 r.memories.push({cause, at: state.clock, text: e.text || e.axis}); r.memories = r.memories.slice(-32); s.causes[receipt] = state.clock;
             }
         } else if(e.type === "claim") {

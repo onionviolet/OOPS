@@ -26,7 +26,9 @@ export const promiseDefinitions={
             know("claim",'Tamsin says: "At the mill last evening, you promised a brace for my cart. I waited until dark."',"recollection"),
             know("memory","I remember this face and voice promising a cart brace at dusk.","recollection",visitorId),
             know("belief","I think this traveler is the person who made the promise.","inference",visitorId),
-            memory("Raised the old cart-brace recollection; no new agreement was made.",0)]}),
+            memory("Raised the old cart-brace recollection; no new agreement was made.",0),
+            // Neighbours at the mill and the bench: this gives the craftsman a person to talk to (P3c telling and silence).
+            {type:"relationship",actor:"oldCraftsman",target:visitorId,axis:"familiarity",amount:3,text:"A traveler's cart now stands near his bench."}]}),
         command({id:"promise.investigate",label:"Compare the mill slip · 2 min",description:"Read the concrete details together. This accepts no repair or obligation.",duration:2,participants:["$target"],requires:all(response,{fact:"vital.health",op:"gte",value:2}),visibleWhen:phase("introduced"),
             effects:[shift("introduced","investigated"),know("slip","The slip names Rowan, a porter described as two handspans taller than you. This conflicts with Tamsin's identification.","observation","player","player"),
                 know("slip","We compared the mill slip. It names Rowan and describes a taller porter.","observation",visitorId,"player"),

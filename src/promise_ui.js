@@ -1,5 +1,8 @@
 import {previewSimulationCommand} from "./simulation.js";
 import {promiseView, promiseId, visitorId} from "./promise_content.js";
+import {createTemperamentPort} from './person_temperament.js';
+import {domainRegistry} from './domain_registry.js';
+import {reactionLine, silenceLine} from './person_memory_effects.js';
 import {crushSocialContext} from './crush_social_facts.js';
 import {promiseReturnRecap, crushSocialActionLine} from './crush_social_views.js';
 const node=(tag,text="",className="")=>{const n=document.createElement(tag);n.textContent=text;n.className=className;return n;};
@@ -7,12 +10,12 @@ const node=(tag,text="",className="")=>{const n=document.createElement(tag);n.te
 export function createPromisePanel({registry,read,command}) {
     const panel=node("details","","expedition_panel");panel.id="promise_panel";
     panel.append(node("summary","A wary traveler"));
-    const intro=node("p"),records=node("div"),status=node("p","","expedition_status"),recap=node('section','','expedition_card'),
+    const intro=node("p"),quiet=node("p","","promise_quiet"),records=node("div"),status=node("p","","expedition_status"),recap=node('section','','expedition_card'),
         recapTitle=node('h4','Returning to Tamsin'),recapRecords=node('div'),recapUseful=node('div'),recapQuotes=node('div'),recapTerms=node('p'),
         socialHistory=node('details'),socialHistoryRecords=node('div');
     socialHistory.append(node('summary','Your remembered cart checks'),socialHistoryRecords);
     recap.append(recapTitle,recapRecords,recapUseful,recapQuotes,recapTerms);
-    status.setAttribute("role","status");panel.append(intro,recap,records,socialHistory,status);
+    status.setAttribute("role","status");quiet.id='promise_quiet_note';panel.append(intro,quiet,recap,records,socialHistory,status);
     let notice="",signature="";
     const controls=new Map();
     const run=c=>{try{
@@ -42,6 +45,16 @@ export function createPromisePanel({registry,read,command}) {
         intro.textContent=!view.introduced ? "A traveler beside a damaged cart watches you, then checks a folded slip." : !state.actors.player.completed["promise.investigate"] && !state.actors.player.completed["promise.help"] && !state.actors.player.completed["promise.decline"] && situation.phase === "introduced"
             ? "Tamsin will wait "+Math.max(0,situation.deadline-state.clock)+" more played minutes before arranging her own repair. Silence makes no agreement."
             : "Tamsin stays beside the cart. Speak again when she has news, or ask about her bracing method.";
+        // P3c: what the craftsman will do with a confidence, and how Tamsin treats you if it got out. Derived each render, never saved.
+        const people=s?.people||{},day=Number.isSafeInteger(context.facts.calendarMinute)?Math.floor(context.facts.calendarMinute/1440):null,memory=domainRegistry.command('memory','read')?.();
+        quiet.textContent="";
+        if(view.introduced && day!==null && memory && people.oldCraftsman?.life==='alive' && people[visitorId]?.life==='alive'){
+            const port=createTemperamentPort(id=>registry.simulation.people.get(people[id]?.definitionId||id)),baselineOf=(h,o)=>s.relationships?.[h]?.[o]?.axes||{};
+            const hold=silenceLine({memory,holder:'oldCraftsman',subject:'player',listener:visitorId,day,root:s.seed,baselineOf,temperamentOf:port});
+            const manner=reactionLine({memory,holder:visitorId,subject:'player',day,root:s.seed,baseline:s.relationships?.[visitorId]?.player?.axes,temperamentOf:port});
+            quiet.textContent=[hold&&"The craftsman, asked to keep the interruption quiet. "+hold,manner&&"Tamsin: "+manner].filter(Boolean).join(" ");
+        }
+        quiet.hidden=!quiet.textContent;
         const next=JSON.stringify(view.details);
         if(next !== signature){signature=next;records.replaceChildren(...view.details.map(k=>node("p",(k.basis?.kind === "recollection" ? "Attributed recollection: " : k.basis?.kind === "instruction" ? "Learned method: " : "Observed or reported: ")+k.text)));}
         recap.hidden=!returnView.visible;

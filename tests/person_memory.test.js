@@ -14,7 +14,7 @@ test('compact records preserve opaque IDs and reject unknown kinds, future days 
     assert.deepEqual(decodeMemory(JSON.parse(JSON.stringify(s)), 10)['person.a'], [e]);
     assert.throws(() => episode(sample({kind: 'unknown'}), 10), /kind/);
     assert.throws(() => episode(sample({day: 11}), 10), /future/);
-    for (const bad of [null, {...s, vividness: 1}, {...s, schema: 2}, {...s, holders: {'person.a': [[0, 999, 0, -1, 90, 20, 1]]}},
+    for (const bad of [null, {...s, vividness: 1}, {...s, schema: 3}, {...s, holders: {'person.a': [[0, 999, 0, -1, 90, 20, 1]]}},
         {...s, holders: {'person.a': [[0, 0, 1, -1, 90, 20, 11]]}}, {...s, holders: {'person.a': [[0, 0, 1, -1, 90, 20, 1, 2]]}}]) {
         assert.throws(() => validateMemory(bad, 10));
     }
