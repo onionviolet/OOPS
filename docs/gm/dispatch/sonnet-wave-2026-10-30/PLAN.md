@@ -94,3 +94,4 @@ Pilot as launched: **L-A** (absorption successor and integrator), **L2** (ledger
 | Time | Event | Claude weekly | Claude 5-hour | Codex highest |
 | --- | --- | --- | --- | --- |
 | 10-29 22:40 | Plan written, nothing launched | 38% | 28% | 26% (22:55) |
+| 10-30 00:46 | Pilot launched: sw-absorb (`local_98b0ec09`), sw-ledger (`local_2498dc0e`), L6 sent to readings session `local_fb1fcc38` | 41% | 51% (resets 01:30) | 26% |
