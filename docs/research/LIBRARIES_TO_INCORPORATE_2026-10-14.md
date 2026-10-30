@@ -146,3 +146,7 @@ ER6-X1: Link [ER1's runtime audit](RUNTIME_HOTSPOT_AUDIT_2026-10-14.md) for clon
 MEASURED only: npm scratch install and browser-target package-size compilation/gzip, including the corrected pure-rand subpath probe. READ only: mapped runtime source, current owners, existing license/build/dependency recipe. STATED only: live package registry, GitHub API/archive/push data and author mechanisms. The ranking/adapters/save decisions are INFERRED proposals.
 
 Open adoption gates: selected real workload, adapter behavior/semantic parity, full current dependency-notice audit, rebuilt browser proof and old/current/failure save roundtrips where touched. Current gameplay/native gates stay with their existing owners. No gameplay tests, native browser journey, real save migration, engine throughput benchmark or shipping bundle rebuild was run in ER6. The [lane report](../gm/dispatch/engine-runtime-2026-10-14/ER6/REPORT.md) lists commands, files and exact limits. ER7 may provide separate ECS/worker/SQL spike evidence; this package-size probe does not preempt its result.
+
+## UI building blocks (added 2026-10-30)
+
+Docking, virtual lists, command palette, tooltips, graph layout, focus handling and save diffing were not covered above. The [GitHub and web scout](GITHUB_AND_WEB_SCOUT_2026-10-30.md) lists them with licences, dates and a ranked top 10 (dockview, @tanstack/virtual-core, uFuzzy + tinykeys, @floating-ui/dom, dagre first). Proposals only; no dependency was added.

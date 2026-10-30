@@ -116,3 +116,5 @@ For a changed launcher, run `python3 -m unittest discover -s scripts/toolsets/te
 
 
 The repo-local playtest runner is optional and available only in revisions that include `scripts/playtest/run.mjs`; scoped `doctor` reports it missing on older/default checkouts.
+
+For candidate UI and data libraries (docking, virtual lists, graph layout, save diffing), see the [GitHub and web scout](research/GITHUB_AND_WEB_SCOUT_2026-10-30.md); these are proposals, not registered tools.
