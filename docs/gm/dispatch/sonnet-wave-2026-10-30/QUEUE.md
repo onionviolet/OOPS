@@ -44,6 +44,10 @@ The coordinator sweeps the intake files and folds lasting items into their owner
 
 Nothing in an intake file is accepted direction until it is folded and, where needed, approved.
 
+## Questions go here
+
+Lanes add questions for Weibao to [CHOICES.md](CHOICES.md), not to chat. Each entry carries a default and a dial (AD5, no either/or). The default proceeds unless Weibao objects. At most five are active; the rest wait in the ranked backlog below them (2026-10-30, proposal from the done-chats audit O3).
+
 ## Round 2: wiring, floor and improvement pass (2026-10-30 02:30)
 
 Weibao: "Send out next sonnet waves accordingly, or have each chat do so, do the iterative improvement pass".

@@ -394,6 +394,19 @@ owners before proposing another rulebook. A new rulebook requires Weibao’s
 request, provenance in USER_VISION, a register/router row here and a PROJECT
 summary; an audit or an isolated mistake does not require one.
 
+## Overlap owners (proposal, 2026-10-30)
+
+Proposed owners for overlaps found by the [done-chats audit](audits/DONE_CHATS_AUDIT_2026-10-30.md) F8. These are proposals until the coordinators confirm them; they change no accepted decision. The owner holds the model and the other side reads it; a second copy of the data is a defect (WA41, AR1).
+
+| Overlap | Proposed owner | The other side |
+|---|---|---|
+| Debts | The economy Owed ledger | The relationship web reads debts from it and adds only how people feel about them |
+| Known, guessed and open wording | Knows (the knowledge system) | The character sheet displays its states and wording and does not keep its own |
+| Institution rank ladder (RPX18) | Organizations | Economy reads rank for pay and access |
+| LOTM potion formulas and aid preparations | sw-rites (L4), on the rite and craft act engine from `30871ea4` (D1: ritual essence oil and ritual bath oil are one product in two stages; D2: potion rows run on that engine) | The village mixing counter stays the mixture model |
+| LOTM volume 1 absorption | L-A only | The overnight coordinator hands off and stops writing it |
+| Divination rows | The sw-absorb `divinations` key, through its seam; L4 supplies the rows in the `lotm_divination_rows.js` shape | Summons and potion promotion get their own row files, per `30871ea4` |
+
 ## Reserved prefixes (2026-10-19)
 
 The prefixes of the [register](#register-of-rule-sets) are reserved: AD, UR, AR, MW,
