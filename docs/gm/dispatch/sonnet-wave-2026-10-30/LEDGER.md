@@ -109,3 +109,11 @@ Owner: lane L7 (`local_e9811a9a` side session). Output: [gap map sections 2b and
 | Not done | Worm, Super Supportive, Wish Upon the Stars, You Are Summoned have no sharded lead-run (0 headers), so they are not in the table. Texture and `rules_other` rows were not classified by Luna (28,987 LOTM texture rows); a keyword count over texture gave upper bounds only and is not in the register. Family labels against `src/` are file-name and grep checks, not a code read. |
 
 Known classifier drift: potion ids went to ADV in volume 1 and MAK in volume 6; volume 2 has no creature ids. Merge ADV, MAK and ACT before reading trends. Reproduce: `node scripts/lead_run/family_pass.mjs prep --merged <merged> --out <private dir> --by lotm`, launch Luna lanes with a brief per file, then `tally --in <private dir>`.
+
+## L14 calendar and news (2026-10-30)
+
+| Slice | Result | Check | Meter |
+| --- | --- | --- | --- |
+| Design note | `L14_CALENDAR_DESIGN.md`: whole-source sample (v1-v8, MoL, HP), event record, reader API, bindings | none (doc) | Codex 29% |
+| 1: `src/world_events.js` | Day-indexed record, `happenedOn`/`knownTo`/`learnedBetween`/`newsOn`, anchors, bound ordinals, curfews; written on Sonnet (about 90 lines) | `node --test tests/world_events.test.js`: 7 pass | Codex 29% |
+| 2: LOTM v1 events as private data | Luna `sw-l14-news` classified 240 news rows (129 private facts kept off the calendar, 48 public, 36 disaster, 17 notice, 10 beat; 1 anchored, 129 ordinal, 110 unplaced). Sol `sw-l14-loader` wrote `world_events_build.mjs` and `world_events_pack.js`. Builder output: 427 events (326 beats from 170 scene frames, 147 anchored), 129 private facts, 0 left out; real pack loads. Frames are independent: the host binds each frame root to a day | `node --test tests/world_events_pack.test.js`: 3 pass; models confirmed in lane.json | Codex 29% before launch |
