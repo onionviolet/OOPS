@@ -15,8 +15,8 @@ export function advanceLadder(path, pack, {stageId = 'seq7', rungKey = stageId} 
     const rung = pack?.rungs?.[rungKey];
     if(!rung) return {path, abilities: null, promotionEffects: {}, conditions: []};
     const desc = structuredClone(path);
-    const stage = desc.stages.find(s => s.id === stageId);
-    if(!stage) throw Error(`Unknown stage ${stageId}.`);
+    let stage = desc.stages.find(s => s.id === stageId);
+    if(!stage) {stage = {id: stageId, label: rung.label, crossings: [], grants: []}; desc.stages.push(stage);}
     stage.crossings = rung.crossings.map(({id, type, label, fact, need, irreversible}) => ({id, type, label, fact, need, ...(irreversible ? {irreversible} : {})}));
     stage.grants = [...rung.grants];
     if(rung.failure) stage.failure = {...rung.failure};
@@ -36,4 +36,17 @@ export function abilityViews(adv, {facts = {}, held = [], readyIn = {}, charges 
     if(!adv.abilities) return [];
     return Object.values(adv.abilities.cards).filter(c => held.includes(c.sourceId))
         .map(c => abilityView(c, {facts, readyIn: readyIn[c.key] ?? 0, charges: charges[c.key] ?? null}));
+}
+
+// Every rung in the pack, in order, on one path: stages are appended when the base path lacks them. Returns the path and, per rung,
+// the ability records, the promotion effects and the conditions to register. advanceLadder (one rung) stays as it was.
+export function advanceLadders(path, pack) {
+    let current = path;
+    const rungs = {};
+    for(const key of Object.keys(pack?.rungs ?? {})) {
+        const r = advanceLadder(current, pack, {stageId: key});
+        current = r.path;
+        rungs[key] = {abilities: r.abilities, promotionEffects: r.promotionEffects[key], conditions: r.conditions};
+    }
+    return {path: current, rungs};
 }

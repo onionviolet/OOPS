@@ -140,3 +140,29 @@ test('a learn block with a gate missing its reason or a threshold without practi
         assert.throws(() => defineAbilityRecords(rows, {prefix: 'abl', world: {id: 'abl.world'}}));
     }
 });
+
+test('a blocker cancels the ability while it holds and the view names it', () => {
+    const rows = learnRows().slice(0, 1).map(r => ({...r, learn: undefined, blockedBy: [{label: 'heavy rain', active: eq('world.rain')}]}));
+    delete rows[0].learn;
+    const {cards} = defineAbilityRecords(rows, {prefix: 'abl', world: {id: 'abl.world'}});
+    assert.deepEqual(abilityView(cards.basic, {facts: {'world.rain': true}}).refusedBy, ['blocked by heavy rain']);
+    assert.equal(abilityView(cards.basic, {facts: {'world.rain': false}}).ready, true);
+});
+
+test('a blocker refuses the native cast while it holds and allows it when it clears', () => {
+    const rows = [{key: 'bolt', label: 'Bolt', sourceId: 'abl.gift', conditions: [], cost: [], limit: {kind: 'none'}, blockedBy: [{label: 'a muffling aura', active: eq('actor.muffled')}],
+        effects: [{type: 'item', actor: 'player', key: '{"id":"abl.bolt"}', amount: 1}]}];
+    const set = defineAbilityRecords(rows, {prefix: 'abl', world: {id: 'abl.world'}});
+    const registry = createContentRegistry({worlds: [{id: 'base.frontier', label: 'Home'}, {id: 'abl.world', label: 'Synthetic'}], sources: set.definition.sources,
+        simulation: {commands: set.commands, powers: set.powers, people: [], onEnroll: [{type: 'source', sourceId: 'abl.gift', operation: 'grant', awakened: true, active: true}, ...set.seeds]}});
+    const state = createExpansionState();
+    state.actors.player.worldId = 'abl.world'; state.worlds['abl.world'] = {facts: {}, resources: {}, completed: {}};
+    const context = {actorId: 'player', worldId: 'abl.world', facts: {}, gameplay: {player: {inventory: {}, skills: {}, reputation: {}}}, external: {}};
+    const plan = enrollSimulation(state, registry, context);
+    const quote = () => previewSimulationCommand(plan.state, registry, 'abl.use.bolt', {...context, gameplay: plan.gameplay});
+    assert.equal(quote().eligible, true);
+    plan.state.actors.player.facts.muffled = true;
+    assert.equal(quote().eligible, false);
+    plan.state.actors.player.facts.muffled = false;
+    assert.equal(quote().eligible, true);
+});

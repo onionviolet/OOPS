@@ -8,7 +8,7 @@ import {assert, record, stableId, jsonData, validatePredicate, meets} from './si
 import {evaluateRule} from './rules.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 
-const fields = new Set(['key', 'label', 'description', 'sourceId', 'acquisition', 'kind', 'fn', 'conditions', 'cost', 'limit', 'effects', 'price', 'failure', 'unstated', 'locator', 'costBasis', 'learn']);
+const fields = new Set(['key', 'label', 'description', 'sourceId', 'acquisition', 'kind', 'fn', 'conditions', 'cost', 'limit', 'effects', 'price', 'failure', 'unstated', 'locator', 'costBasis', 'learn', 'blockedBy', 'notes']);
 const limitKinds = new Set(['none', 'cooldown', 'charges']);
 const text = v => typeof v === 'string' && v.trim().length > 0;
 const nat = v => Number.isSafeInteger(v) && v > 0;
@@ -27,6 +27,9 @@ function validateRow(row, prefix) {
     if(l.kind === 'cooldown') assert(nat(l.minutes), 'A cooldown needs positive minutes.');
     if(l.kind === 'charges') assert(nat(l.max) && record(l.recharge), 'Charges need a maximum and a recharge rule.');
     assert(row.failure == null || record(row.failure) && (row.failure.hook == null || stableId(row.failure.hook)), 'Invalid failure.');
+    // A blocker is a named state that cancels the ability while it holds (heavy rain, a blocked mind, a stated aura): a typed counter, shown by label.
+    assert(row.blockedBy == null || Array.isArray(row.blockedBy) && row.blockedBy.every(b => record(b) && text(b.label) && record(b.active)), 'A blocker needs a label and a typed predicate.');
+    (row.blockedBy ?? []).forEach(b => validatePredicate(b.active));
     if(row.learn != null) validateLearn(row.learn);
     assert(row.unstated == null || Array.isArray(row.unstated) && row.unstated.every(text), 'Invalid unstated list.');
 }
@@ -60,7 +63,7 @@ export function defineAbilityRecords(rows, {prefix, world, group = 'ability_reco
         const command = {id: commandId(k), revision: 1, label: row.label, ...(row.description ? {description: row.description} : {}), group, worldId: world.id, actorId, audience: ['$actor'],
             costs: structuredClone(row.cost), effects: structuredClone(row.effects)};
         const ab = {id: abilityId(k), commandId: command.id, sourceId: row.sourceId, function: row.fn ?? 'physical', acquisition: row.acquisition ?? 'acquired',
-            executionKind: row.kind ?? 'body-faculty', control: {all: [{fact: 'actor.life', op: 'eq', value: 'alive'}, ...row.conditions.map(c => structuredClone(c.requires))]}, target: null, counters: [], carriers: []};
+            executionKind: row.kind ?? 'body-faculty', control: {all: [{fact: 'actor.life', op: 'eq', value: 'alive'}, ...row.conditions.map(c => structuredClone(c.requires))]}, target: null, counters: (row.blockedBy ?? []).map(b => structuredClone(b.active)), carriers: []};
         const conditionRows = [];
         if(row.price) conditionRows.push({id: `${prefix}.price.${k}`, price: structuredClone(row.price)});
         grants[k] = [];
@@ -89,26 +92,32 @@ export function defineAbilityRecords(rows, {prefix, world, group = 'ability_reco
         if(conditionRows.length) ab.conditions = conditionRows;
         if(!sources.has(row.sourceId)) sources.set(row.sourceId, {id: row.sourceId, revision: 1, label: row.sourceId, kind: 'trait', origin: 'acquired', grants: []});
         commands.push(command); abilities.push(ab);
-        cards[k] = {id: ab.id, key: k, label: row.label, sourceId: row.sourceId, conditions: row.conditions.map(c => ({label: c.label, requires: structuredClone(c.requires)})),
+        cards[k] = {id: ab.id, key: k, label: row.label, sourceId: row.sourceId, blockedBy: (row.blockedBy ?? []).map(b => ({label: b.label, active: structuredClone(b.active)})), conditions: row.conditions.map(c => ({label: c.label, requires: structuredClone(c.requires)})),
             cost: structuredClone(row.cost), limit: structuredClone(limit), price: structuredClone(row.price ?? []), failureHook: row.failure?.hook ?? null, unstated: [...(row.unstated ?? [])], locator: row.locator ?? null, costBasis: row.costBasis ? structuredClone(row.costBasis) : null,
             learn: row.learn ? {teacher: row.learn.teacher ?? null, prerequisites: structuredClone(row.learn.prerequisites ?? []), practice: row.learn.practice ?? null, masteryNeeded: row.learn.masteryNeeded ?? 0, signs: structuredClone(row.learn.signs ?? []), power: powerId(k)} : null};
         if(row.learn) for(const [part, ok] of [['teacher', row.learn.teacher], ['practice time', row.learn.practice], ['signs of progress', row.learn.signs?.length]]) if(!ok && !cards[k].unstated.includes(part)) cards[k].unstated.push(part);
     }
+    // A blocker is negated, and an absent fact is unknown (a negation of it would fail closed forever), so simple actor and world flags start false.
+    const flagSeeds = [];
+    for(const row of rows) for(const b of row.blockedBy ?? []) {
+        const scope = b.active.op === 'eq' && b.active.value === true && ['actor', 'world'].find(x => String(b.active.fact).startsWith(x + '.'));
+        if(scope) flagSeeds.push({type: 'fact', scope, ...(scope === 'actor' ? {actor: actorId} : {}), key: b.active.fact.slice(scope.length + 1), value: false});
+    }
     const definition = {id: prefix, world: {id: world.id}, sources: [...sources.values()], abilities, simulation: {powers, commands}};
     const compiled = compileStructuredAbilities(definition);
-    return {definition, commands: compiled.commands, powers: compiled.powers, conditions: compiled.conditions, seeds: compiled.seeds, cards, grants,
+    return {definition, commands: compiled.commands, powers: compiled.powers, conditions: compiled.conditions, seeds: [...compiled.seeds, ...flagSeeds], cards, grants,
         ids: Object.fromEntries([...seen].map(k => [k, {ability: abilityId(k), command: commandId(k), power: powerId(k), limit: limitId(k), learn: learnId(k), practice: practiceId(k)}]))};
 }
 
 // Read model for a sheet or combat panel (AR8: observer-safe, no secrets). facts: the fact map the engine evaluates; quote: an optional
 // previewSimulationCommand result. Each condition reports met or not by its own label, never by the predicate; the limit reports what is left.
 export function abilityView(card, {facts = {}, quote = null, charges = null, readyIn = null} = {}) {
-    const conditions = card.conditions.map(c => ({label: c.label, met: meets(c.requires, facts)}));
+    const conditions = card.conditions.map(c => ({label: c.label, met: meets(c.requires, facts)})), blockers = (card.blockedBy ?? []).filter(b => meets(b.active, facts)).map(b => b.label);
     const limit = card.limit.kind === 'cooldown' ? {kind: 'cooldown', minutes: card.limit.minutes, readyIn: readyIn ?? 0}
         : card.limit.kind === 'charges' ? {kind: 'charges', max: card.limit.max, left: charges ?? card.limit.initial ?? card.limit.max} : {kind: 'none'};
-    const ready = quote ? quote.eligible === true : conditions.every(c => c.met) && (limit.kind !== 'cooldown' || limit.readyIn === 0) && (limit.kind !== 'charges' || limit.left > 0);
+    const ready = quote ? quote.eligible === true : blockers.length === 0 && conditions.every(c => c.met) && (limit.kind !== 'cooldown' || limit.readyIn === 0) && (limit.kind !== 'charges' || limit.left > 0);
     return {id: card.id, label: card.label, conditions, cost: card.cost.map(c => ({what: c.key ?? c.type, amount: -c.amount})), limit, price: card.price.length > 0,
-        ready, refusedBy: ready ? [] : [...conditions.filter(c => !c.met).map(c => c.label), ...(limit.kind === 'cooldown' && limit.readyIn > 0 ? ['recovering'] : []), ...(limit.kind === 'charges' && limit.left <= 0 ? ['no charges left'] : [])],
+        ready, refusedBy: ready ? [] : [...conditions.filter(c => !c.met).map(c => c.label), ...blockers.map(l => `blocked by ${l}`), ...(limit.kind === 'cooldown' && limit.readyIn > 0 ? ['recovering'] : []), ...(limit.kind === 'charges' && limit.left <= 0 ? ['no charges left'] : [])],
         failureHook: card.failureHook, unstated: card.unstated};
 }
 

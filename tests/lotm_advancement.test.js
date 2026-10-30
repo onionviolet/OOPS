@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {existsSync, readFileSync} from 'node:fs';
 import {seerPathway} from '../src/book_world_lotm_path.js';
 import {pathView} from '../src/ascension_paths.js';
-import {advanceLadder, abilityViews} from '../src/lotm_advancement.js';
+import {advanceLadder, advanceLadders, abilityViews} from '../src/lotm_advancement.js';
 
 // Synthetic pack: same shape as the private one, invented content, so the tracked test never needs source text.
 const eq = (fact, value = true) => ({fact, op: 'eq', value});
@@ -48,9 +48,25 @@ test('the private Sequence 7 pack, when present, compiles and every ability cite
     const pack = JSON.parse(readFileSync(privatePath, 'utf8'));
     const r = advanceLadder(seerPathway, pack);
     assert.equal(r.path.stages.find(s => s.id === 'seq7').crossings.length, 2);
+    const all = advanceLadders(seerPathway, pack);
+    assert.deepEqual(all.path.stages.map(s => s.id).slice(-2), ['seq7', 'seq6']);
+    assert.ok(all.rungs.seq6.abilities.cards.face_copy.blockedBy.length >= 2);
+    for(const rung of Object.values(pack.rungs)) for(const a of rung.abilities) for(const b of a.blockedBy ?? []) assert.ok(b.locator, a.key);
     assert.ok(Object.keys(r.abilities.cards).length >= 3);
     for(const row of pack.rungs.seq7.abilities) assert.ok(row.locator && row.conditions.every(c => c.locator), row.key);
     const ranks = Object.fromEntries(pack.rungs.seq7.abilities.map(a => [a.key, a.costBasis.rank])), spirit = k => -pack.rungs.seq7.abilities.find(a => a.key === k).cost.filter(c => c.key === 'spirituality').reduce((n, c) => n + c.amount, 0);
     assert.ok(spirit('paper_substitute') > spirit('flame_jump') && spirit('flame_jump') > spirit('air_bullet') && ranks.paper_substitute > ranks.flame_jump && ranks.flame_jump > ranks.air_bullet, 'cost order follows the cited ranking');
     assert.ok(pack.rungs.seq7.abilities.some(a => a.limit.kind === 'cooldown') && pack.rungs.seq7.abilities.some(a => a.limit.kind === 'charges'));
+});
+
+test('advanceLadders walks every rung of the pack in order and appends stages the base path lacks', () => {
+    const pack = synthetic();
+    pack.rungs.seq6 = {label: 'Rung six', crossings: [{id: 'dose6', type: 'ingest', label: 'Dose', fact: 'heldSix', need: true}], grants: ['Another faculty'],
+        abilities: [{key: 'mask', label: 'Mask', sourceId: 'book.lotm.rungsix', conditions: [], cost: [], limit: {kind: 'none'}, blockedBy: [{label: 'a sharp-eyed observer', active: eq('actor.watched')}],
+            effects: [{type: 'condition', id: 'book.lotm.rungsix.mask', operation: 'apply', duration: 5}]}]};
+    const r = advanceLadders(seerPathway, pack);
+    assert.deepEqual(r.path.stages.map(s => s.id).slice(-2), ['seq7', 'seq6']);
+    assert.deepEqual(Object.keys(r.rungs), ['seq7', 'seq6']);
+    assert.equal(r.rungs.seq6.abilities.cards.mask.blockedBy[0].label, 'a sharp-eyed observer');
+    assert.ok(r.rungs.seq6.promotionEffects.some(e => e.type === 'source'));
 });
