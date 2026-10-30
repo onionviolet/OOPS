@@ -128,5 +128,5 @@ test('a coin row names its own currency and totals never mix currencies (UR61, C
     const v = owedLedgerView({rows: [row('a', 1, 'verl d’or'), row('b', 4, {one: 'coppet', many: 'coppets'}), row('c', 2, null)]});
     const text = Object.fromEntries(v.rows.map(r => [r.id, r.amountText]));
     assert.deepEqual(text, {a: '1 verl d’or', b: '4 coppets', c: '2 coins'});
-    assert.match(v.summary, /\(1 verl d’or and 4 coppets and 2 coins\)/);
+    assert.match(v.summary, /\(1 verl d’or, 4 coppets and 2 coins\)/);
 });

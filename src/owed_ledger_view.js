@@ -100,7 +100,8 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
             const k = unitOf(r.unit).one, was = by.get(k);
             by.set(k, {unit: r.unit, n: (was?.n ?? 0) + r.amount});
         }
-        return [...by.values()].map(({unit, n}) => amountText('coin', n, unit)).join(' and ');
+        const parts = [...by.values()].map(({unit, n}) => amountText('coin', n, unit));
+        return parts.length < 2 ? parts.join('') : `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}`;
     };
     const owe = all.filter(r => r.direction === 'owe').length, owed = all.filter(r => r.direction === 'owed').length;
     const next = all.find(r => r.dated);
