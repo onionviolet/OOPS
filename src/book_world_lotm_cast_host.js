@@ -1,5 +1,6 @@
 import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
-import {settleLotmEvents,LOTM_EVENTS_SETTLED} from './book_world_lotm_events.js';
+import {settleLotmEvents,lotmRestrictions,LOTM_EVENTS_SETTLED} from './book_world_lotm_events.js';
+import {CITY_PREFIX,TINGEN_STATION,journeyUnderRestrictions} from './book_world_lotm_cities.js';
 import {LOTM_DIVINATION_ROWS} from './lotm_divination_rows.js';
 import {constraintsFromPack} from './constraint_pack.js';
 import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
@@ -63,7 +64,10 @@ export function castJourneyContext(state,context){
 export function castJourneyOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
- return quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
+ const offers=quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
+ if(!offers.some(o=>o.id.startsWith(CITY_PREFIX)))return offers;
+ const restrictions=lotmRestrictions({state,days:getPrivateLotmCast()?.bindings?.days||[]}),hour=castCalendar(state).calendar.hour;
+ return offers.map(o=>journeyUnderRestrictions(o,restrictions,hour));
 }
 export let castInferenceCommands=[];
 export let castCardRows=[];
@@ -322,7 +326,8 @@ export function installCastWalk(registry,from,to){
 // Missing-pack saves keep their bodies and knowledge. Name-free dormant
 // definitions let the normal validators retain those exact identities; no
 // schedule, meeting or new start is granted by these placeholders.
-export const dormantCastPlace=id=>typeof id==='string'&&/^lotm\.place\.cast-[a-f0-9]{20}$/.test(id);
+// City-leg places (L11) are name-free too, so a save made with the city packs restores without them.
+export const dormantCastPlace=id=>typeof id==='string'&&(/^lotm\.place\.cast-[a-f0-9]{20}$/.test(id)||id===TINGEN_STATION.id||/^lotm\.city\.[a-z0-9_-]+\.[a-z0-9_.-]+$/i.test(id));
 export function restoreUnavailableCast(state,registry,place=()=>{}){
  if(!lotmCastLife(state))return;
  if(castAvailable){for(const job of state.simulation?.jobs||[]){const def=castWalkDefinitionById(job.commandId);if(def)installCastWalk(registry,def.location,walkDestination(def));}return;}

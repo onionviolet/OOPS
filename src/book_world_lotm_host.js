@@ -29,6 +29,8 @@ import {LOTM_TIERS,rowById} from './lotm_formula_rows.js';
 import {CC_BREW} from './book_world_lotm_brew.js';
 import {abilitySourceOf} from './book_world_lotm_abilities.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
+import {lotmRegionAt} from './book_world_lotm_cities.js';
+import {lotmRestrictions} from './book_world_lotm_events.js';
 import {lotmSheetsFor} from './book_world_lotm_sheets.js';
 import {harmContext,accrueHarm,restHarm,lostControlOutcome} from './book_world_lotm_harm.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
@@ -248,8 +250,9 @@ export function createLotmHost(ports){
    const objectActs=withFactsFrame(s,()=>castObjectOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
    const jobs=s.simulation.jobs.filter(j=>[...castBodyCommands,...castWalkCommands,...castObjectCommands,...castTalkCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId)?.label||'Saved walk',due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:[...castBodyCommands,...castMakingCommands,...castExchangeCommands,...castAbilityCommands].some(d=>d.id===j.commandId)&&['refund','forfeit'].includes(j.cancellation)}));
    const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at}));
+   const region=lotmRegionAt(s.simulation.people.player.location,{hour:castCalendar(s).calendar.hour,money:ports.context().external?.money??0,restrictions:lotmRestrictions({state:s,days:getPrivateLotmCast()?.bindings?.days||[]})});
    const sheets=lotmSheetsFor(s,getPrivateLotmCast(),Object.keys(know).map(k=>/^book\.lotm\.cast\.(?:known|met)\.(.+)$/.exec(k)?.[1]).filter(Boolean));
-   return {enrolled:true,resident:true,runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,exchanges,divinations,inferences,abilityConflicts,sheets,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   return {enrolled:true,resident:true,runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
   }
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');

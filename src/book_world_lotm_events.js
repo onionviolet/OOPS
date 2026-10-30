@@ -3,6 +3,7 @@
 // returns the lines the cast persist path writes once per day rollover (RPT6, replay-safe).
 import {deepFreeze} from './basics.js';
 import {loadEventPack,frameBindings} from './world_events_pack.js';
+import {restrictionsOn} from './world_events.js';
 import {eventKnowledgeWrites} from './world_events_knowledge.js';
 const PATH='lotm-events/events.json',LEAD='player',SETTLED='lotm.events.settledDay';
 // Dials (default, reason): the lead lives in a city with papers, boards and talk; letters, telegrams and
@@ -38,3 +39,10 @@ export function settleLotmEvents({pack=loaded,ledger,days,day,reached}){
  return {writes,reports,settledDay:day};
 }
 export const LOTM_EVENTS_SETTLED=SETTLED;
+// The day's restrictions (closures, curfews, travel halts) for the lead's current day, or [] without a pack (L11 reads them).
+export function lotmRestrictions({state,days,pack=loaded}){
+ if(!pack||!state.lotm)return [];
+ const day=Math.floor((state.clock-state.lotm.initializedAt)/1440)+1,byScene=new Map(days.map(d=>[d.scene,d.day]));
+ const reached=days.filter(d=>state.clock>=state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene);
+ return restrictionsOn(loadEventPack(pack,{bindings:frameBindings(pack,reached,beat=>byScene.get(beat)),leadId:LEAD}),day);
+}

@@ -2,6 +2,8 @@
 // No world registration, source rows or Node filesystem path enters the bundle.
 import {deepFreeze} from './basics.js';
 import {validateLotmCast} from './book_world_lotm_cast.js';
+import {loadCities} from './lotm_next_city.js';
+import {withCities,setCities} from './book_world_lotm_cities.js';
 export async function loadPrivateCast(kind,validate,fetchFile=globalThis.fetch){
  try{
   const manifest=await fetchFile('private_packs/manifest.json');if(!manifest.ok)return null;
@@ -18,7 +20,8 @@ export const getPrivateLotmCast=()=>loadedCast;
 const listeners=[];
 export function onCastLoaded(fn){listeners.push(fn);if(loadedCast)fn(loadedCast);}
 // Start I/O without making this module (and the application's boot) asynchronous.
-const loading=loadPrivateCast('lotm',validateLotmCast).then(pack=>{
+const loading=loadPrivateCast('lotm',validateLotmCast).then(async pack=>{
+ if(pack){const list=await loadCities();setCities(list);pack=deepFreeze(withCities(pack,list));}
  loadedCast=pack;if(pack)for(const fn of listeners)fn(pack);return pack;
 });
 export const whenCastLoaded=()=>loading;
