@@ -18,4 +18,5 @@ export const FIXTURE_MANIFEST = [
     [() => import('./homes.js'), 'HOME_FIXTURES'],
     [() => import('./forms.js'), 'FORMS_FIXTURES'],
     [() => import('./gathering.js'), 'GATHERING_FIXTURES'],
+    [() => import('./bridges.js')],
 ];

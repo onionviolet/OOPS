@@ -23,6 +23,7 @@ import {entryRecord,entryAnswers,LOTM_ENTRY_AXES} from './book_world_lotm_entry.
 import {causeView} from './book_world_lotm_causes.js';
 import {brokerView} from './book_world_lotm_broker.js';
 import {gradeRiteAtTransition} from './book_world_lotm_ritual.js';
+import {benchWithRite} from './read_models/rite_state_bridge.js';
 import {meritView} from './book_world_lotm_merit.js';
 import {BENCH_PREFIX,INGREDIENT_BY_NAME,benchRowList,seedBenchStock,stockSeeded,characteristicBrewId} from './book_world_lotm_bench.js';
 import {LOTM_TIERS,rowById} from './lotm_formula_rows.js';
@@ -84,7 +85,10 @@ function benchDetail(s,c,id,{registry,asleep}){
   if(summary.brewing)actions.push(prev(`book.lotm.bf_collect_${id}`));
   if(summary.doses&&row.product.sellPence)actions.push(prev(`book.lotm.bf_sell_${id}`));
  }
- return {...summary,rite:gradeRiteAtTransition(id,f),minutes:row.minutes,price:row.price||null,formulaRoute:!row.price&&brewable&&!viaMain?row.route:null,route:row.route,ritual:row.ritual||null,gaps:row.gaps,evidence:row.evidence,
+ // COV15: the rite figure's input goes through the bridge. The seat has read a condition when the formula notes it holds name the rite (row.ritual.needed): those
+ // notes state the same conditions. A per-condition learned fact does not exist yet, so a rite the notes do not name draws no figure and no odds.
+ const graded=gradeRiteAtTransition(id,f),riteKnown=new Set(row.ritual?.needed&&graded?graded.conditions.map(c=>c.id):[]);
+ return {...summary,...benchWithRite({},graded,{label:graded?.label,known:riteKnown}),minutes:row.minutes,price:row.price||null,formulaRoute:!row.price&&brewable&&!viaMain?row.route:null,route:row.route,ritual:row.ritual||null,gaps:row.gaps,evidence:row.evidence,
   slots,actions,product:brewable&&!viaMain?{name:row.product.name,sellPence:row.product.sellPence}:null,
   via:viaMain?`Brewed at Hale's bench with the Corpse Collector actions in the list above (${CC_BREW.minutes} minutes, formula ${CC_BREW.formulaPence} pence).`:null,
   drinkOptions:summary.doses&&generatedDrinkIds[id]?generatedDrinkIds[id].map(prev).filter(o=>o&&o.visible):null,

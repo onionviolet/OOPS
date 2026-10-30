@@ -37,6 +37,7 @@ test('chase range: route minutes from where the pursuer was last seen; unseen me
     assert.equal(unseen.tracks.length, 1);
     assert.match(unseen.notes[0].text, /not seen/);
     assert.match(withPursuitRange(chaseSituation(view), {routes: [], here: 'c', pursuerSeenAt: 'a', labelOf}).notes[0].text, /no way/);
+    assert.match(withPursuitRange(chaseSituation(view), {routes, here: 'c', pursuerSeenAt: 'c', labelOf}).notes[0].text, /right where you are/);
     assert.equal(withPursuitRange(null, {}), null);
 });
 

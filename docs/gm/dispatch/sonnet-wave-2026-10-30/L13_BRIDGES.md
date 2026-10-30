@@ -69,3 +69,5 @@ Not done: gallery fixtures that match each bridge (the COV15 done check asks for
 ## Verification state
 
 Focused tests pass (20: `tests/read_models_*.test.js`). Not wired into any UI, not built, full suite not run (integrator's). The combat test inlines `rungOf`; it does not import `harm_state.js`, which sw-death had staged but uncommitted at write time.
+
+COV15 view side (2026-10-30): rituals and chase are wired live (`book_world_lotm_host.js` bench detail through `benchWithRite`; `pursuit_ui.js` through `withPursuitRange`, with the 0-minute note now reading "right where you are"). Research and place history are not wired because no live host supplies a learn-view feed or world eras; the owners' docs name the missing input. All four have gallery fixtures in `src/ui/preview/fixtures/bridges.js`. Evidence in `docs/representations/evidence/cov15/`.

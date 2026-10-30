@@ -85,7 +85,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   bench.append(node('p',d.ritual?(d.ritual.needed?`Rite (${d.ritual.scale}): ${d.ritual.text}${d.ritual.materials.length?` · needs ${d.ritual.materials.join(', ')}`:''} [${d.ritual.evidence}]. This does not stop the brewing; drinking without it is a stated loss-of-control risk.`:d.ritual.text):'Rite: not in the notes.'));
   if(d.rite){const r=d.rite,box=node('div');box.dataset.lotmRite=r.grade;
    box.append(node('p',`${r.label} if drunk now: ${r.grade} · stated loss-of-control odds ${r.odds} percent (pre-signs stay reversible about ${r.recoveryDays} days). Seq ${d.seq} doses cannot be drunk yet, so this is a preview.`));
-   for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}. Principle: ${c.principle}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
+   for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
    bench.append(box);}
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
   if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));

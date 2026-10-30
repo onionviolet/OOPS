@@ -27,5 +27,5 @@ export function withPursuitRange(spec, {routes = [], here, pursuerSeenAt = null,
     const steps = route.path.map((p, i) => ({label: i === 0 ? `${name(p)} (last seen)` : i === route.path.length - 1 ? `${name(p)} (you)` : name(p),
         state: i === 0 ? 'current' : i === route.path.length - 1 ? 'done' : 'pending'}));
     return {...spec, tracks: [...spec.tracks, {id: 'range', label: `Range: ${minutesText(route.minutes)} by the usual routes`, steps}],
-        notes: [{text: `Last seen ${minutesText(route.minutes)} away by the usual routes. That may have changed.`}, ...notes]};
+        notes: [{text: route.minutes <= 0 ? 'Last seen right where you are. That may have changed.' : `Last seen ${minutesText(route.minutes)} away by the usual routes. That may have changed.`}, ...notes]};
 }
