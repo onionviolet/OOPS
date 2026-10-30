@@ -13,6 +13,7 @@ import {openWorkspaceModule} from './workspace_layout.js';
 import {storyRecap} from './lore_history_view.js';
 import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
 import {formatCalendar} from './world_calendar.js';
+import {upcomingStripNode} from './upcoming_strip_ui.js';
 const factHelp=label=>({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[label]||'';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 
@@ -60,7 +61,7 @@ export function createVillageWorkspace({read,act,placeDetail}) {
     // its own yet; a legacy bridge publishes 'place' when that list mutates.
     let optionsText='Options',stopOptions=()=>{},stopBridge=()=>{};
     const refreshOptions=()=>{optionsText=optionsLabel();const b=placeTabs.querySelector('[data-place-tab="options"]');if(b)setText(b,optionsText);};
-    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,...(placeDetail?[placeDetail]:[]),people,things,groups);
+    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,upcomingStripNode(),...(placeDetail?[placeDetail]:[]),people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
     // the inspected opponent's facts once below the rows instead of repeated on every card. Reads the

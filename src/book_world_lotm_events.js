@@ -42,7 +42,11 @@ export const LOTM_EVENTS_SETTLED=SETTLED;
 // The day's restrictions (closures, curfews, travel halts) for the lead's current day, or [] without a pack (L11 reads them).
 export function lotmRestrictions({state,days,pack=loaded}){
  if(!pack||!state.lotm)return [];
- const day=Math.floor((state.clock-state.lotm.initializedAt)/1440)+1,byScene=new Map(days.map(d=>[d.scene,d.day]));
- const reached=days.filter(d=>state.clock>=state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene);
- return restrictionsOn(loadEventPack(pack,{bindings:frameBindings(pack,reached,beat=>byScene.get(beat)),leadId:LEAD}),day);
+ return restrictionsOn(lotmEventBook({state,days,pack}),lotmDay(state));
+}
+export const lotmDay=state=>Math.floor((state.clock-state.lotm.initializedAt)/1440)+1;
+// The one book the day's restrictions and the upcoming strip both read, so the strip cannot disagree with travel blocking.
+export function lotmEventBook({state,days,pack=loaded}){
+ const byScene=new Map(days.map(d=>[d.scene,d.day])),reached=days.filter(d=>state.clock>=state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene);
+ return loadEventPack(pack,{bindings:frameBindings(pack,reached,beat=>byScene.get(beat)),leadId:LEAD});
 }

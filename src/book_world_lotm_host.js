@@ -31,6 +31,7 @@ import {abilitySourceOf} from './book_world_lotm_abilities.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
 import {lotmRegionAt} from './book_world_lotm_cities.js';
 import {lotmRestrictions} from './book_world_lotm_events.js';
+import {lotmUpcoming} from './book_world_lotm_upcoming.js';
 import {lotmSheetsFor} from './book_world_lotm_sheets.js';
 import {harmContext,accrueHarm,restHarm,lostControlOutcome} from './book_world_lotm_harm.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
@@ -291,7 +292,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!castBodyCommands.some(d=>d.id===job.commandId&&d.bodyCare.kind==='sleep'))return false;ports.beginSleep();return true;}
- return {enroll,cross,act,cancel,move,wake,tick,view,startable,restoreSleep,inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,act,cancel,move,wake,tick,view,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){const c=castCalendar(s).calendar;return `Day ${c.day_count}, ${c.hour<6?'night':c.hour<12?'morning':c.hour<18?'afternoon':'evening'}`;}

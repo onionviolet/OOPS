@@ -414,3 +414,21 @@ surfaces' side.
   that ordinary travel alone loses it; a missed window has a later chance or a fair substitute.
   A loop or deadline world raises the dial (tight windows, no repeat) with the in-world reason
   stated on the strip ("the loop resets in two days"). Cost: one route-time read per strip item.
+
+## Upcoming strip wired (2026-10-30, TC12, SUI7)
+
+**Reading.** At 1920x1080 the player sees the next three firm things as words, soonest first ("Trains out of Tingen are halted today. · today only"), in a "Coming up" block directly under the place view's calendar line. No circle (UR79). When a world supplies none, the block is hidden with no placeholder.
+
+**Where.** `src/upcoming_strip_ui.js` (world-neutral, AD46) owns the node and a source registry; `src/village_workspace.js` mounts it under the calendar line. The `#time_and_location` box named in TC12 is not on screen in the current layout (0x0 in the Village and in Tingen), so the visible time region is the place view header. Moving the strip into the Due tab (B4) is not done. The Tingen source is `src/book_world_lotm_upcoming.js`, which reads the same event book as `lotmRestrictions` (`lotmEventBook`) and passes it through `upcomingStrip` (G14).
+
+**Floor (AD43), labelled: implemented, below floor.**
+- FLR1 bundle `7fb606c1f1a0456b` for the Village check. FLR3 shown as words with when-phrases. FLR4 the bridge rows are the consumer; FLR5 n/a (no persistence).
+- Tests: `tests/read_models_upcoming_learn_ask.test.js` (strip merge and hiding; the Tingen source before, at and after the beat, no pack, no life).
+- Evidence: `evidence/time-strip/` from `scripts/playtest/time-strip-probe.mjs`, headless 1920x1080, fresh origin: the Village shows no strip (node present, hidden); Tingen shows none at 08:08, then after 480 played minutes shows the rail halt row. Route: real life, earned minutes; fixture: the pack's evidence label corrected in transit (see gaps). Review state: agent-verified, not human-reviewed.
+
+**Gaps.**
+- G20 stands: `announced` is empty, so no future closure is ever shown ahead. Needs L14 advance notice or a posted-notice writer.
+- `gatherings` is empty: the only authored gathering (Backlund) has no knowledge writer, and showing it would leak a secret seat. Nothing is faked.
+- The shipped private pack `lotm-events/events.json` carries evidence label `authored proposal`, which `world_events.js` rejects (labels S, T, I, U). `loadPrivateEvents` swallows that and returns null, so in real play the Tingen strip and the day's travel restrictions are both empty until the pack label is fixed. The probe corrects the label in transit as a named fixture.
+- The pack line already says "today", so the chip reads "...today · today only".
+- Gathering days use the lead's day count; the pack's offset is host calendar Monday. Check when a gathering is first wired.
