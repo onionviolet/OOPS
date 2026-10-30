@@ -1,0 +1,24 @@
+{
+ "world": "coi",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+  "censusMatch": "^(coi|coix)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "coix-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "coixc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coix_b2_ch001-001.txt",
+   "base": "200101",
+   "chapters": "1-1"
+  }
+ ]
+}

@@ -366,6 +366,34 @@
    "to": 1179
   },
   {
+   "key": "coix",
+   "world": "coi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/source/en/coi_en_ch1026.epub",
+   "book": 2,
+   "dir": "docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+   "group": {
+    "target": 8000,
+    "max": 1
+   },
+   "note": "Chapter 1026 from the official English edition (Weibao's download, 2026-10-30); the Calibre 34 edition read as `coi` skips it. Book 2 keeps its locator apart from book 1."
+  },
+  {
+   "key": "lotmx",
+   "world": "lotm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/source/en/lotm_en_extras.epub",
+   "book": 9,
+   "dir": "docs/research/novels/lord-of-mysteries/private/lead-run-extras-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 3
+   },
+   "note": "Official English edition: the 3 chapters missing from the Chinese shards (en 713, 794, 1360 = zh v3 ch231, v4 ch62, v8 ch7), side stories en 1395-1430 and 5 titled extras, renumbered 1-44 with the English number in the title. Book 9 keeps locators apart from the Chinese books 0-8."
+  },
+  {
    "key": "ttks1",
    "world": "ttks1",
    "lang": "zh",
