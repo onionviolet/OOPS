@@ -21,11 +21,11 @@ const reload=state=>loadExpansionState(JSON.parse(JSON.stringify(state)),registr
 
 test('a waiting fight saved mid-tempo resumes exactly after reload',()=>{
     const {p,context}=fresh();
-    let plan=beginTempoFight(p.state,registry,context,spec());
+    let plan=beginTempoFight(p.state,registry,context,spec({player:{hp:60,maxHp:60},foe:{hp:60,maxHp:60}}));
     for(let i=0;i<3&&plan.state.simulation.sessions.player;i++){
         const v=tempoView(plan.state.simulation.sessions.player.nativeBattle);
         assert.ok(v.yourTurn&&v.next.length&&v.moves.length);
-        plan=commitTempoMove(plan.state,registry,context,{moveId:'jab'});
+        plan=commitTempoMove(plan.state,registry,context,{moveId:i===0?'jab':'guard'});
     }
     assert.ok(plan.state.simulation.sessions.player,'fight still open');
     const loaded=reload(plan.state);
@@ -143,4 +143,19 @@ test('the player\'s contest vitals are readable from one place while the fight i
         const b=plan.state.simulation.sessions.player?.nativeBattle;
         if(b)assert.equal(plan.vitals.player.health,Math.max(1,b.fighters.player.hp));
     }
+});
+
+test('a fight left by withdrawing still writes its one witnessed memory per pair',()=>{
+    let found=null;
+    for(let seed=1;seed<60&&!found;seed++){
+        const {p,context}=fresh(seed);
+        let plan=beginTempoFight(p.state,registry,context,spec({player:{hp:80,maxHp:80},foe:{hp:80,maxHp:80}}));
+        for(let i=0;i<8&&plan.state.simulation.sessions.player&&!plan.state.simulation.sessions.player.nativeBattle.worst;i++)plan=commitTempoMove(plan.state,registry,context,{moveId:'jab'});
+        if(!plan.state.simulation.sessions.player)continue;
+        plan=commitTempoMove(plan.state,registry,context,{moveId:'withdraw'});
+        if(!plan.state.simulation.sessions.player&&plan.memoryEffects?.length)found=plan;
+    }
+    assert.ok(found,'withdrawal ends the fight and carries the worst moments');
+    const pairs=found.memoryEffects.map(e=>`${e.holder}>${e.subject}`);
+    assert.equal(new Set(pairs).size,pairs.length);
 });

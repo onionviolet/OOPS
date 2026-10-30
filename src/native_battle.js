@@ -20,7 +20,8 @@ export function initializeNativeBattle(plan) {
 export function readNativeFighter(actor) {
     return {stats:{...actor.getFullStats()},attackPower:actor.getAttackPower(),shield:actor.hasShield() ? actor.getBlockStrength() : 0,
         emptyStaminaMultiplier:.5+(actor.getLevelableComponent?.().getTotalLevelBonus("Persistence") || 0),
-        shieldSkill:actor.getEquipment()["off-hand"]?.tags.ignore_skill ? 0 : actor.getTotalSkillLevel?.("Shield blocking") || 0};
+        shieldSkill:actor.getEquipment()["off-hand"]?.tags.ignore_skill ? 0 : actor.getTotalSkillLevel?.("Shield blocking") || 0,
+        armorBySlot:Object.fromEntries(["head","torso","arms","legs"].map(slot=>[slot,actor.getEquipment()[slot]?.getDefense?.() || 0]))};
 }
 
 function finish(plan,registry,result) {
