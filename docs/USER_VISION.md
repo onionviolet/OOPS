@@ -6915,6 +6915,12 @@ Recorded: when an idea is worked, consider its siblings in the same family where
 
 Reading: the ability and advancement UI, and the systems feeding it, take the character's path as data. A path is any pathway, realm track, class or school a world offers, and a character may hold several at once, switch, branch or lose rungs. The lead's book path is the default start, not the only route. Today the LOTM host hand-writes one pathway (`src/book_world_lotm_path.js`) and stubs the next rung. Owners: [ABILITIES](representations/ABILITIES.md) (view), the L10 advancement note (data), and the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md) round 5 (dispatch).
 
+Follow-up, same day:
+
+> not every world is a latter either? Also consider branching and more for the paths stuff, since things can branch, and of course one can attempt to mix paths, to their own disaster? but then we should make things possible and more? maybe tree for all of them? /more-to-consider  little stuff and more? maybe if we learn about it it can also show the benefits of stuff and paths and more?
+
+Reading: a path has a shape set by its world (ladder, tree, web, wheel, stack, field, or none), and branching is ordinary. Mixing paths is possible, with the costs and failures that world's mechanisms give it (AD38). A general graph can hold every shape, a ladder being the simplest case. What a character has learned decides how much the view shows: the benefits, costs and risks of a path or ability, including ones they do not yet hold.
+
 ## Asks recovered from chats (recorded 2026-10-30)
 
 Weibao's words, kept verbatim with typos. Recovered by gap audit items G13 and G14

@@ -98,3 +98,20 @@ More to consider (proposals):
 - P6. Other worlds prove it: `bk-ss` (ranks on the shared seam), `bk-hp` (spells), and later cultivation (Reverend Insanity).
 
 Routing: data side (P1, P3, the Sequence 7 stub) to `sw-adv`, with a heads-up to floor-wire about the host file. View side (P2, P4, P5) to `rep-abilities`, under the General UI coordinator.
+
+## Round 6: paths are graphs, branching and mixing (2026-10-30 15:3x)
+
+Weibao: "not every world is a latter either? ... branching ... mix paths, to their own disaster? but then we should make things possible ... maybe tree for all of them? ... if we learn about it it can also show the benefits of stuff and paths".
+
+Evidence: `src/ascension_paths.js` already names `pathShapes = ['ladder','tree','web','wheel','stack','field']`, but its validator only accepts ordered stages (index 0 is the entry), so only ladders work. The ladder figure draws vertical tracks.
+
+More to consider (proposals):
+- G1. One path model: a graph of nodes (states, rungs, realms, techniques) and edges (crossings with types, costs, needs and `irreversible`). A ladder is a chain; a tree, web, wheel or field is the same data. Each world picks its shape and its default view.
+- G2. Branching: an edge can fork, so a choice at a node locks or keeps other branches open (a dial per world). It covers neighbouring-path swaps (LOTM), class branches, cultivation methods, and HP subject mastery, which is a field with no ranks.
+- G3. Mixing is an edge kind (`mix`), not a ban. It carries the world's mechanism: conflict, instability, corruption or a rare synergy, with its odds, its signs, and what happens after. A wrong-order potion is a mix failure. Cheats or methods can change the odds (AD38).
+- G4. No-shape worlds: some powers have no path at all, such as a set of skills with mastery, items, contracts or a one-off gift. The view must handle "no path" as a valid state.
+- G5. The view picks its form by shape (round 2 item 18): a chain for ladders, a tree or DAG layout for branching, a web or field for webs, a ring for wheels, a list for none. One generic graph layout serves them all (an elkjs or dagre class, per `bk-scout`'s finds).
+- G6. Knowledge-gated depth: each node and edge shows what the character has learned. That ranges from "a path exists" to its name, then benefits, costs, risks, mix outcomes, and real odds. Benefits of unheld paths show when learned (the "compare before commit" capability). Cheat or insight views reveal more and mark it as such; sealed secrets stay on their discovery route.
+- G7. Little details: a hover preview of the next node's gains (the ghost fill already shipped), warning chips on mix edges, a "you are here" marker on every shape, the paths others in the cast walk (when known), rumoured versus confirmed nodes, and the history of nodes taken. Loss or demotion moves the marker back and keeps the trail.
+
+Routing: G1-G4 (model and data) go to `sw-adv` (L10 owner); it extends `ascension_paths.js` with the ladder kept as the default shape and its existing descriptors unchanged. G5-G7 (view) go to `rep-abilities`. The `bk-ss` and `bk-hp` slices are the second-world checks.
