@@ -9,6 +9,7 @@ import {finishRoadContest} from './native_battle.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {allyMove, hearOrder, coverChance, activeOrder, orderChance, oddsWord, ALLY_ORDERS, ALLY_ORDER_IDS, ALLY_DIALS} from './tempo_allies.js';
 import {SLOTS, SLOT_IDS, LOCATION_DIALS, weights as slotWeights, pickSlot, defenceAt, oddsOf, injuryFor, partLabel} from './tempo_location.js';
+import {leaveChance, yieldChance, followers, EXIT_DIALS} from './tempo_exit.js';
 import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
@@ -31,8 +32,8 @@ export const TEMPO_MOVES = {
     swing: {label: 'Heavy swing', kind: 'strike', cost: 6, power: 1.4, safe: false, text: 'A slow, hard blow. Leaves you open longer.'},
     guard: {label: 'Brace', kind: 'guard', cost: 2, safe: true, text: 'Take the next blow better. Costs a little time.'},
     tend: {label: 'Tend a wound', kind: 'remedy', cost: 5, heal: .15, stamina: 2, safe: true, text: 'Stop the worst of the bleeding. Needs two stamina.'},
-    withdraw: {label: 'Back away', kind: 'withdraw', cost: 4, safe: true, text: 'Leave the fight. Ends it for you; injuries remain.'},
-    yield: {label: 'Yield', kind: 'yield', cost: 2, safe: true, text: 'Give up the contest while you can still stand.'},
+    withdraw: {label: 'Back away', kind: 'withdraw', cost: 4, safe: true, text: 'Try to leave. A miss costs a free blow; a clean exit can still leave a friend behind or a grudge following.'},
+    yield: {label: 'Yield', kind: 'yield', cost: 2, safe: true, text: 'Offer to give up while you can still stand. The other side may refuse.'},
     order: {label: 'Give an order', kind: 'order', cost: 2, safe: false, text: 'Say it to an ally. Costs a little time and may not be heard.'}
 };
 const KEEP = TEMPO_MOVE_IDS.filter(m => m !== 'order');
@@ -121,6 +122,12 @@ function finishFight(plan, registry, result) {
     const allies = Object.entries(b.fighters).filter(([id, f]) => f.ally && state.simulation.people[id]);
     if(allies.length) applySimulationEffects(plan, allies.flatMap(([id, f]) => [{type: 'fact', scope: 'actor', key: 'party.lastResult', value: result === 'yielded' ? 'withdrawn' : result},
         {type: 'relationship', target: id, axis: 'familiarity', amount: 1, text: f.status === 'left' ? `${f.name} left the contest before its end.` : `${f.name} fought beside you in the road contest.`}]), {actorId: 'player'}, registry, `tempo-allies:${state.sequence}`);
+    // The price of leaving (LSD368): allies left behind, a follower, and a grudge (LSD331).
+    if(b.exit && b.fighters.player.status === 'left') {
+        const left = b.exit.leftBehind.filter(id => state.simulation.people[id]).map(id => ({type: 'relationship', target: id, axis: 'familiarity', amount: -1, text: `You left ${b.fighters[id].name} in the contest when you ${b.exit.kind === 'yielded' ? 'yielded' : 'backed out'}.`}));
+        const facts = b.exit.followedBy.length ? [{type: 'fact', scope: 'actor', key: 'tempo.followed_by', value: b.exit.followedBy.join(',')}] : [];
+        if(left.length || facts.length) applySimulationEffects(plan, [...left, ...facts], {actorId: 'player'}, registry, `tempo-exit:${state.sequence}`);
+    }
     // A tempo contest standing in for the road duel closes that pursuit exactly as the native duel does.
     if(session.definitionId === 'rival.native_duel') return finishRoadContest(plan, registry, result === 'yielded' ? 'withdrawn' : result);
     state.simulation.log.push({at: state.clock, text: `${b.title}: ${result}.`, cause: session.id});
@@ -211,15 +218,29 @@ function runMove(plan, registry, command, publish) {
         f.stamina -= move.stamina; f.hp = Math.min(f.maxHp, round1(f.hp + f.maxHp * move.heal));
         say(b, `${name} tend${id === 'player' ? '' : 's'} a wound.`);
     } else if(move.kind === 'withdraw') {
-        f.status = 'left'; say(b, `${name} back${id === 'player' ? '' : 's'} away.`);
+        // Backing out is an attempt (LSD368): a keyed draw on speed, tiredness, light, footing and the rivals' resolve.
+        if(draw(b, 'leave', id, {tries: f.tries || 0}) < leaveChance(b, f, x => oddsOf(x).speed)) {
+            f.status = 'left'; say(b, `${name} back${id === 'player' ? '' : 's'} away.`);
+            b.exit = {kind: 'withdrawn', followedBy: followers(b, f, draw), leftBehind: id === 'player' ? active(b, 'a').filter(x => x !== 'player' && b.fighters[x].ally) : []};
+        } else {
+            f.tries = (f.tries || 0) + 1; f.guard = false; cost += EXIT_DIALS.turnPenalty.value;
+            say(b, `${name} ${id === 'player' ? 'try to back away, but are cut off' : 'tries to back away, but is cut off'}; the turn costs a free blow.`);
+        }
     } else {
-        f.status = 'left'; f.yielded = true; say(b, `${name} yield${id === 'player' ? '' : 's'}.`);
+        // A surrender can be refused by the other side's goals.
+        if(draw(b, 'yield', id, {tries: f.tries || 0}) < yieldChance(b, f)) {
+            f.status = 'left'; f.yielded = true; say(b, `${name} yield${id === 'player' ? '' : 's'}.`);
+            b.exit = {kind: 'yielded', followedBy: [], leftBehind: id === 'player' ? active(b, 'a').filter(x => x !== 'player' && b.fighters[x].ally) : []};
+        } else {
+            f.tries = (f.tries || 0) + 1; f.guard = false;
+            say(b, `${name} ${id === 'player' ? 'offer to yield, but it is refused' : 'offers to yield, but it is refused'}.`);
+        }
     }
     f.ready += cost; b.seconds += cost; plan.state.sequence++;
     // One home for the player's contest vitals (R3-C11): every view reads the same value while the fight is open.
     const mine = b.fighters.player, pv = plan.vitals.player;
     pv.health = Math.max(1, Math.min(pv.max_health ?? mine.maxHp, mine.hp)); pv.stamina = Math.min(pv.max_stamina ?? mine.maxStamina, mine.stamina);
-    if(move.kind === 'yield' && !mishap) publish(f.side === 'a' ? 'yielded' : 'won');
+    if(move.kind === 'yield' && !mishap && f.status === 'left') publish(f.side === 'a' ? 'yielded' : 'won');
     else resolveEnd(b, publish, f, id);
 }
 
@@ -268,7 +289,7 @@ export function beginTempoFight(state, registry, context, spec) {
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
             profile: structuredClone(f.profile), moves: (f.moves || KEEP).filter(m => KEEP.includes(m)), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
@@ -324,6 +345,7 @@ export function tempoView(b) {
     return {title: b.title, lines: [...b.log], next, yourTurn: mine && !b.result, result: b.result,
         moves: mine ? me.moves.filter(id => id !== 'order').map(id => ({id, label: TEMPO_MOVES[id].label, text: TEMPO_MOVES[id].text, cost: scaled(TEMPO_MOVES[id], me), safe: TEMPO_MOVES[id].safe,
             usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed),
+            odds: id === 'withdraw' ? oddsWord(leaveChance(b, me, x => oddsOf(x).speed)) : id === 'yield' ? oddsWord(yieldChance(b, me)) : null,
             why: id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : ''})) : [],
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],
         hurt: Object.entries(me.parts || {}).map(([id, rung]) => ({id, label: partLabel(id), rung, shift: oddsOf({parts: {[id]: rung}}).shift})),

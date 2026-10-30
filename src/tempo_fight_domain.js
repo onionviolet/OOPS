@@ -116,7 +116,7 @@ function mount() {
                     }
                     body.append(row);
                 }
-                for(const m of f.moves) body.append(button(`${m.label} · ${m.cost} time`, m.id, `${m.text}${m.why ? ' ' + m.why : ''}${m.safe ? ' Safe.' : ''}`, !m.usable || !ports.writable(), () => act(move, {moveId: m.id, aim: m.id === 'jab' || m.id === 'swing' ? aim : null})));
+                for(const m of f.moves) body.append(button(`${m.label} · ${m.cost} time${m.odds ? ' · ' + m.odds : ''}`, m.id, `${m.text}${m.why ? ' ' + m.why : ''}${m.safe ? ' Safe.' : ''}`, !m.usable || !ports.writable(), () => act(move, {moveId: m.id, aim: m.id === 'jab' || m.id === 'swing' ? aim : null})));
                 for(const o of f.orders) body.append(button(`${o.label} · ${o.cost} time · ${o.odds}`, `order:${o.orderId}:${o.allyId}`, `${o.text} Whether it is heard is not certain.`, !ports.writable(), () => act(move, {moveId: 'order', allyId: o.allyId, orderId: o.orderId})));
                 body.append(button('Let a careful policy take one safe turn', 'handover', 'Plays only brace, tend or back away for you; never a new attack.', !ports.writable(), () => act(move, {handOver: true})));
             }
