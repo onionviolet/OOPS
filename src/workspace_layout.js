@@ -1,4 +1,5 @@
 import {readPort} from './ui_ports.js';
+import {resolvePanel,selectSection,foldOf} from './panel_folds.js';
 import {seatAllowsPanel,panelPerspective} from './seat_profiles.js';
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
@@ -578,7 +579,9 @@ export function unregisterWorkspaceModule(id) {
     if (owner) { owner.layout = normalizeLayout(owner.layout, [...registry.keys()]); owner.picker.querySelector(`[data-module="${id}"]`)?.remove(); save(); updateWorkspace(); }
 }
 
-export function openWorkspaceModule(id) {
+export function openWorkspaceModule(requested) {
+    // Only a retired id redirects here; a folded module that still exists keeps its own layout Show control.
+    const {id,section}=foldOf(requested)?.retired?resolvePanel(requested):{id:requested};if(id!==requested){const opened=openWorkspaceModule(id);if(opened)selectSection(id,section);return opened;}
     if(owner?.context==='play'&&id.startsWith('customization'))setWorkspaceContext('authoring');
     if(owner?.context==='authoring'&&!id.startsWith('customization'))setWorkspaceContext('play');
     const module = registry.get(id); if (!module || !seatAllowsPanel(readPort('expansion'),module)) return false;
@@ -623,7 +626,10 @@ export function setWorkspaceContext(context) {
 export function knownWorkspaceModules() {
     const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return seatAllowsPanel(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
 }
-export function expandWorkspaceModule(id,{title}={}) {
+export function expandWorkspaceModule(requested,{title}={}) {
+    // COV5/COV12, UR13: a folded id opens its owner (and the owner's tab, when one is named).
+    const {id,section}=resolvePanel(requested);
+    if(id!==requested){const opened=expandWorkspaceModule(id,{title});if(opened)selectSection(id,section);return opened;}
     if(id==='local-actions'){centerModes().showHere();return true;}
     const module=registry.get(id);if(!owner||!module||module.eligible()===false||!knownWorkspaceModules().some(m=>m.id===id))return false;
     const mode=`workspace:${id}`,label=title||module.title;

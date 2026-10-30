@@ -1,5 +1,5 @@
 import {registerDomain} from './domain_registry.js';
-import {definePanel} from './panel_kit.js';
+import {registerSection} from './panel_folds.js';
 import {current_game_time} from './game_time.js';
 import {current_location} from './runtime_state.js';
 import {can_work} from './activity_time.js';
@@ -59,7 +59,7 @@ function createTodayPanel() {
     panel.dataset.surfaceType = 'obligations';
     const clock = node('p', ''), date = node('p', ''), work = node('p', ''), heading = node('h3', 'Open here'), list = node('ul', null, {'aria-label': 'Timed activities here'});
     clock.className = 'reference-clock'; clock.setAttribute('role', 'timer'); clock.setAttribute('aria-live', 'off');
-    panel.append(node('h2', 'Today'), clock, date, work, heading, list);
+    panel.append(clock, date, work, heading, list);
     const render = visibleRenderer(panel, readToday, view => {
         clock.textContent = view.clock; date.textContent = view.date;
         work.textContent = view.work.count
@@ -70,8 +70,8 @@ function createTodayPanel() {
     });
     panel.render = render;
     whenPortsReady(() => render(true));
-    definePanel({id: 'today', title: 'Today', role: 'records', node: panel, home: document.getElementById('main_content'),
-        discovered: here, eligible: here, emptyText: 'Begin to see the day here'});
+    // COV5: Today is a tab of the place view (region-view), not a panel of its own.
+    registerSection('region-view', {id: 'today', label: 'Today', node: panel, eligible: here, render});
     return panel;
 }
 

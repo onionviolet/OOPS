@@ -1,7 +1,7 @@
 import {publishBodyExpression} from './body_expression.js';
 import {createMeterBar} from './meter_bar.js';
 import {registerDomain, domainRegistry} from './domain_registry.js';
-import {definePanel} from './panel_kit.js';
+import {registerSection} from './panel_folds.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
 import {current_location} from './runtime_state.js';
 import {current_game_time} from './game_time.js';
@@ -154,13 +154,13 @@ function createPanel() {
     returnContext=node('p');returnList=node('ul');returnMeters=node('div');returnDetails.append(node('summary','Details of this return'),returnContext,returnList,returnMeters);
     activity.className = 'palette-feedback-activity'; returned.className = 'palette-feedback-return';
     intro.textContent = 'Return snapshots and completed local work, from observed native state. Comparisons last for this session only.';
-    section.append(node('h2', 'Session notes'), intro, activity, cueLine, returned,returnDetails);
+    section.append(intro, activity, cueLine, returned,returnDetails);
     activityLine = activity; returnLine = returned;
     feedback = createPaletteFeedback({container: section, ledger, readSettings: () => readPort('presentation', 'location') || {}});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)suppressNextCue=true;});
     section.render = render;
-    definePanel({id: 'around-place', title: 'Around this place', role: 'records', node: section, home: document.getElementById('main_content'),
-        discovered: () => !!current_location, eligible: () => !!current_location, emptyText: 'Travel somewhere to see local context.'});
+    // COV5: Around this place is the Notes tab of the place view (region-view), not a panel of its own.
+    registerSection('region-view', {id: 'notes', label: 'Notes', node: section, eligible: () => !!current_location, render: () => section.render()});
     return section;
 }
 let activityLine = null, returnLine = null,cueLine=null,returnDetails=null,returnContext=null,returnList=null,returnMeters=null;

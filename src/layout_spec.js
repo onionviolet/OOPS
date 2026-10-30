@@ -225,16 +225,24 @@ export const LAYOUT_SPEC = Object.freeze({
         'research': surface('ST6', {home: 'Right dock beside the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'known-things': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['knowledge'], contexts: ['idle', 'travel', 'service']}),
         'statistics': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['work', 'combat', 'inventory'], contexts: ['idle', 'travel', 'service']}),
-        'today': surface('ST5', {home: 'Beside the actions; Journal companion space', frequency: 'frequent', status: 'proposal', reads: ['time', 'place', 'work'], contexts: ['idle', 'travel']}),
-        'around-place': surface('ST6', {home: 'Reference dock; session return and completed work notes', frequency: 'occasional', status: 'proposal', reads: ['place', 'inventory', 'knowledge', 'work'], contexts: ['idle', 'travel', 'service']}),
         'carcass-processing': surface('ST4', {home:'Place services; native processing owner',frequency:'frequent',status:'proposal',reads:['inventory','work','place'],contexts:['idle','service']}),
-        'region-view': surface('ST2', {home: 'Beside the actions; keeper is the road itself', frequency: 'frequent', status: 'proposal', reads: ['place'], contexts: ['idle', 'travel']}),
+        'region-view': surface('ST2', {home: 'Beside the actions; tabs for today, the roads and session notes', frequency: 'frequent', status: 'proposal', reads: ['place', 'time', 'work', 'inventory', 'knowledge'], contexts: ['idle', 'travel', 'service']}),
         'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'canon-pull': surface('ST6', {home: 'Side column beside You; how the story leans and where it bent', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'family': surface('ST6', {home: 'Side column beside You', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'stock_view': surface('ST6', {home: 'Main column with the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'management': surface('ST2', {home: 'Beside the actions in the Village; its own panel, not inside Location actions (UR8)', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time'], contexts: ['idle', 'service'], representations: routed}),
         'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
+    }),
+    // COV5 / COV12 (2026-10-30), UR13: views folded into one owner (src/panel_folds.js). `retired`: the
+    // module is gone and its id aliases the owner (and `section`, a tab); otherwise the module stays
+    // inside the owner's box and only the All panels list and the palette stop repeating it.
+    folds: Object.freeze({
+        'today': Object.freeze({into: 'region-view', section: 'today', retired: true, label: 'Today'}),
+        'around-place': Object.freeze({into: 'region-view', section: 'notes', retired: true, label: 'Around this place'}),
+        'shell-inventory-tools': Object.freeze({into: 'belongings'}),
+        'combat-controls': Object.freeze({into: 'belongings'}),
+        'shell-character': Object.freeze({into: 'vitals'}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.
     views: Object.freeze({
