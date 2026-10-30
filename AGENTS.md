@@ -1,12 +1,15 @@
 # Agent instructions
 
-Read [GROUND_RULES](docs/GROUND_RULES.md) (one page, 2026-10-26), then the
-PROJECT.md summary and the relevant source before changing this project. That
+Read [GROUND_RULES](docs/GROUND_RULES.md) (one page, 2026-10-26), the
+[vision digest](docs/VISION_DIGEST.md) (one page), then the PROJECT.md summary
+and the relevant source before changing this project. That
 is the whole startup read; everything else below is looked up when a task needs it.
 
 ## Standing direction and consistency gates
 
-`docs/USER_VISION.md` preserves Weibao's goals, reasons and original requests;
+`docs/USER_VISION.md` preserves Weibao's goals, reasons and original requests
+(search it by heading; `docs/VISION_DIGEST.md` is the summary to read, updated in
+the same change when lasting direction changes);
 `PROJECT.md` is the short current-state summary: current focus and standing
 priorities. Accepted decisions live as AD lines in the rules index or their rulebook. Relevant design
 owners translate that direction into behavior. Checkpoints and verification

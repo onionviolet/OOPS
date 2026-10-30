@@ -56,7 +56,7 @@ Published master is runtime `6077f785a`; the normal app serves frozen `v0.6-948b
 | Need | Owner |
 |---|---|
 | Which rules apply to a task | `.claude/rules/*.md` (auto-loaded by path), then the [rules index](docs/RULES_INDEX.md) router for design-rule questions |
-| What Weibao asked for and why | [USER_VISION](docs/USER_VISION.md), searched by heading rather than read whole |
+| What Weibao asked for and why | [vision digest](docs/VISION_DIGEST.md) first, then [USER_VISION](docs/USER_VISION.md) searched by heading rather than read whole |
 | Open queues and packet states | [IDEA_INDEX current queue routing](docs/IDEA_INDEX.md#current-queue-routing-2026-10-18) |
 | Active lanes and reconciliation | `docs/gm/dispatch/*/CHECKPOINT.md`, [shared worktree practice](docs/gm/SHARED_WORKTREE_PRACTICE.md) |
 | Tools, book library, game MCP | [tool registry](docs/TOOL_REGISTRY.md), [library index](docs/research/LIBRARY_INDEX.md), [game MCP limits](docs/tools/GAME_MCP_LIMITS.md) |
