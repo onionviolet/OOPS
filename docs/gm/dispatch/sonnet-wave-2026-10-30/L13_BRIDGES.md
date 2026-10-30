@@ -47,6 +47,13 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 
 Re-checked after L10 Sequence 5 and typed blockers, L11 multi-city and gatherings, L14 spread, L9 walk: all 11 bridge tests still pass; the ladder bridge takes the longer path unchanged and blockers surface through `refusedBy`.
 
+## Contracts named by the UI coordinator (2026-10-30, after the first notices)
+
+- G15 confirmed: `present` is Around (seen yourself), `heard` is Missed (second-hand); affected and aftermath also go under Missed with their level shown (RPT2). The UI integrator (`ui-integrator`) wires `time_digest_bridge.js` at merge. Affected/aftermath levels are not in L14's `level` yet (`present`/`heard` only): L14 gap if wanted.
+- G14 gatherings and TC12 curfews: the time view's upcoming strip (rep-time), place via the maps departures board. Bridge slice after merge.
+- G17 `learnView`: a Skills and techniques tab in the abilities ladder view (ABILITIES.md), same ladder contract. Bridge slice after merge.
+- G18 `whoKnows`: the knowledge view's Knows home, with an "ask" action to the talk view (rep-talk). Bridge slice after merge.
+
 ## Verification state
 
 Focused tests pass (11). Not wired into any UI, not built, full suite not run (integrator's). The combat test inlines `rungOf`; it does not import `harm_state.js`, which sw-death had staged but uncommitted at write time.
