@@ -214,6 +214,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
         'place_clock': surface('ST2', {home: 'Owned hearth place (prototype)', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
         'rank_gap_observer': surface('ST2', {home: 'Goa branch records (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time', 'body']}),
+        'mol_access': surface('ST6', {home: 'Reference dock; opens in Cyoria, listed under All panels', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
         'primordial_credit': surface('ST2', {home: 'Sect Library priced credit (prototype, opt-in)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
         'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
         'customization': surface('ST7', {representations: routed}),
