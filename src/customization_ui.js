@@ -4,17 +4,20 @@ import {mountDisplaySettings} from './display_settings.js';
 import {defaultCustomizationState, defaultPresentationSettings, validateCustomizationState, getCustomizationSettings, mergePresentationSettings, applyCustomizationProfile, createLuminousGothicDraft, EFFECT_MODULES} from './customization_profiles.js';
 
 export function createCustomizationUI({container, effectsContainer, read, save, season = () => '', canWrite = () => true, moduleIds = [], previewContainer, readPreview = () => []}) {
-    function surface(host, title, explanation) {
+    function surface(host, title, explanation, {collapse = false} = {}) {
         const panel = document.createElement('section'); panel.className = 'customization-panel customization-surface';
         const heading = document.createElement('h3'); heading.textContent = title; panel.append(heading);
         const notice = document.createElement('p'); notice.className = 'customization-draft-status'; notice.setAttribute('role', 'status'); panel.append(notice);
         const body = document.createElement('div'); body.className = 'customization-editor customization-fields-scroll'; panel.append(body);
-        const intro = document.createElement('p'); intro.className = 'customization-explanation'; intro.textContent = explanation; body.append(intro);
+        const intro = document.createElement(collapse ? 'details' : 'p'); intro.className = 'customization-explanation';
+        // A long explanation sits behind a named disclosure so the settings come first (UR75).
+        if (collapse) { const sum = document.createElement('summary'); sum.textContent = 'What this changes'; const text = document.createElement('p'); text.textContent = explanation; intro.append(sum, text); } else intro.textContent = explanation;
+        body.append(intro);
         const actions = document.createElement('div'); actions.className = 'customization-actions'; panel.append(actions);
         host.append(panel); return {panel, notice, body, actions};
     }
     const appearance = surface(container, 'Appearance', 'Profile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.');
-    const effectSurface = surface(effectsContainer || container, 'Effects & sound', 'Original effects for settled Work Ledger and crafting receipts, plus first skill discoveries. Sound requires a gesture.');
+    const effectSurface = surface(effectsContainer || container, 'Effects & sound', 'Original effects for settled Work Ledger and crafting receipts, plus first skill discoveries. Sound requires a gesture.', {collapse: true});
     const {panel, body, actions} = appearance;
     const effectContext = document.createElement('p'); effectContext.className = 'customization-target-context'; effectSurface.body.prepend(effectContext);
     let draft = defaultCustomizationState(), target = '', busy = false, disposed = false, savedSignature = null, validSaved = true, renderedSettings = null, lastAllowed = null;
@@ -32,6 +35,9 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     const background = input('Background', 'color'), text = input('Text', 'color'), accent = input('Accent', 'color'), spacing = input('Spacing', 'number', 0, 32);
     currentFields = effectFields;
     const effects = select('Effects', ['off','reduced','full']), sound = input('Sound after gesture', 'checkbox'), presentation = select('Receipt placement', ['inline','margin']);
+    // The basics stay in view; the receipt's look sits behind one disclosure.
+    const lookBox = document.createElement('details'); lookBox.className = 'customization-look';
+    const lookSummary = document.createElement('summary'); lookSummary.textContent = 'Receipt look'; const lookBody = document.createElement('div'); lookBody.className = 'ui-field-grid'; lookBox.append(lookSummary, lookBody); effectFields.append(lookBox); currentFields = lookBody;
     const motif = select('Original VFX motif', ['receipt','seal','guidance','closing']), duration = input('Receipt duration (ms)', 'number', 200, 10000);
     const effectColor = input('VFX color', 'color'), effectBackground = input('VFX background', 'color'), staticMode = input('Static VFX', 'checkbox'), plain = input('Plain text VFX', 'checkbox');
     // Per-browser display settings sit outside the save-bound fieldset, so they stay usable when the save is read-only.

@@ -1,38 +1,45 @@
 import {treatmentCapacity} from './craft_body_treatment.js';
 import {definePanel} from './panel_kit.js';
 import {renderCraftingDetail} from './crafting_detail.js';
+import {infoRow,chip,reasonLine,labelControl} from './ui/panel_sections.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 // Expanded center workspace view. The shared center controller owns Back and Esc.
 export function createCraftingHome({read,quote,execute,forecast}) {
  const panel=node('section');panel.id='crafting_engine_home';panel.className='expedition_panel';panel.dataset.surfaceType='expanded-center';
- const title=node('h2','Village experiments'),description=node('p','Gather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.'),harvest=node('button','Gather from the Village verge'),stock=node('div'),detail=node('div'),history=node('p'),grudge=node('p'),products=node('div'),notebook=node('div'),notice=node('p');
- harvest.type='button';harvest.id='crafting_gather';detail.dataset.craftDetail='';notice.setAttribute('role','status');
+ const title=node('h2','Village experiments'),description=node('details'),harvest=node('button','Gather from the Village verge'),stock=node('div'),detail=node('div'),history=node('p'),grudge=node('p'),products=node('div'),notebook=node('details'),notice=node('p');
+ description.append(node('summary','About these trials'),node('p','Gather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.'));harvest.type='button';const harvestWhy=reasonLine('');harvestWhy.hidden=true;harvest.id='crafting_gather';detail.dataset.craftDetail='';notice.setAttribute('role','status');
  history.dataset.craftForecast='';grudge.dataset.craftGrudge='';notebook.dataset.craftNotebook='';
  const shelf=node('div'),refs=node('div'),sample=node('div'),method=node('select'),methodHint=node('p');method.id='crafting_method';method.setAttribute('aria-label','Method');
-  panel.append(title,description,harvest,shelf,refs,method,methodHint,stock,sample,detail,history,grudge,products,notebook,notice);
+  panel.append(title,description,harvest,harvestWhy,shelf,refs,method,methodHint,stock,sample,detail,history,grudge,products,notebook,notice);
  let selected=new Map(),signature='',lastQuote;
- const layered=node('input');layered.type='checkbox';layered.id='crafting_layered';const mode=node('label');mode.append(layered,node('span','Layered brazier formulation · one Charcoal; ingredients react in selection order'));panel.insertBefore(mode,stock);
- const tablet=node('input');tablet.type='checkbox';tablet.id='crafting_tablet';const tabletLabel=node('label');tabletLabel.append(tablet,node('span','Press a body-conditioning tablet (layered law)'));panel.insertBefore(tabletLabel,stock);tablet.onchange=()=>{if(tablet.checked)layered.checked=true;render();};
- const timed=node('input');timed.type='checkbox';timed.id='crafting_timed';const timedLabel=node('label');timedLabel.append(timed,node('span','Hold this batch on the brazier · 6 played minutes; late collection adds heat'));panel.insertBefore(timedLabel,stock);timed.onchange=()=>{if(timed.checked)layered.checked=true;render();};
+ const layered=node('input');layered.type='checkbox';layered.id='crafting_layered';const mode=node('label');mode.append(layered,node('span','Layered brazier'));panel.insertBefore(mode,stock);
+ const tablet=node('input');tablet.type='checkbox';tablet.id='crafting_tablet';const tabletLabel=node('label');tabletLabel.append(tablet,node('span','Body-conditioning tablet'));panel.insertBefore(tabletLabel,stock);tablet.onchange=()=>{if(tablet.checked)layered.checked=true;render();};
+ const timed=node('input');timed.type='checkbox';timed.id='crafting_timed';const timedLabel=node('label');timedLabel.append(timed,node('span','Hold on the brazier'));panel.insertBefore(timedLabel,stock);timed.onchange=()=>{if(timed.checked)layered.checked=true;render();};
  const firing=node('div');firing.dataset.craftFiring='';panel.insertBefore(firing,stock);
  const heat=node('input');heat.type='number';heat.min='1';heat.max='12';heat.value='4';heat.id='crafting_heat';heat.setAttribute('aria-label','Brazier heat');panel.insertBefore(heat,stock);layered.onchange=heat.oninput=heat.onchange=()=>render();
  const strength=node('select');strength.id='crafting_steep_level';strength.setAttribute('aria-label','Steep level');
  for(const level of [1,2,3])strength.append(Object.assign(node('option',`Steep level ${level}`),{value:String(level)}));
  strength.oninput=strength.onchange=method.onchange=()=>render();panel.insertBefore(strength,stock);
+ // One labelled form (UR79): method and process on a grid, the long explanations behind one disclosure.
+ const form=node('section');form.className='crafting-trial-form';form.append(node('h3','Try a batch'));
+ const fields=node('div');fields.className='ui-field-grid crafting-trial-fields';fields.append(labelControl(method,'Method'),labelControl(strength,'Steep level'),labelControl(heat,'Brazier heat'));
+ const checks=node('div');checks.className='crafting-trial-checks';checks.append(mode,tabletLabel,timedLabel);
+ const optionHelp=node('details');optionHelp.append(node('summary','What the options do'),node('p','Layered brazier formulation: one Charcoal; ingredients react in selection order.'),node('p','Body-conditioning tablet: press one (layered law).'),node('p','Hold on the brazier: 6 played minutes; late collection adds heat.'));
+ form.append(fields,methodHint,checks,optionHelp);panel.insertBefore(form,firing);
  function run(q){try{const plan=execute(q);notice.textContent=plan?.outcome?.text??(q.request.type==='harvest'?'Gathered materials stored in your inventory.':q.request.type==='treatment'?'The quoted materials are committed to the treatment.':q.request.type==='craft'?(plan.failure?plan.failure.reason:'The exact materials became a preparation. Drink to observe it.'):'Preparation used. Its observed effects are recorded.');}catch(e){notice.textContent=e.message;}signature='';render();}
  harvest.onclick=()=>run(quote({type:'harvest'}));
  function render(){
   const view=read(),next=JSON.stringify([view,[...selected],strength.value,method.value,layered.checked,heat.value,tablet.checked,timed.checked]);if(next===signature)return;signature=next;
   const allowed=view.world==='base.frontier'&&view.location==='Village';panel.hidden=!allowed;
   if(!allowed)return;
-  const gather=quote({type:'harvest'});harvest.disabled=!gather.eligible;harvest.title=gather.reason;
+  const gather=quote({type:'harvest'});harvest.disabled=!gather.eligible;harvest.title=gather.reason;harvestWhy.textContent=gather.eligible?'':gather.reason;harvestWhy.hidden=gather.eligible||!gather.reason;
   const act=(label,request,id)=>{const b=node('button',label),q=quote(request);b.type='button';b.dataset[id]=request.ref??request.key;b.disabled=!q.eligible;b.title=q.reason;b.onclick=()=>run(q);return b;};
   shelf.replaceChildren(node('h3','Village shelf'));
-  for(const o of view.shelf??[]){const row=node('div');row.append(node('p',`${o.name}: ${o.blurb}`),act('Take a copy',{type:'acquire',ref:o.id},'shelfTake'));shelf.append(row);}
+  for(const o of view.shelf??[]){const b=act('Take a copy',{type:'acquire',ref:o.id},'shelfTake');shelf.append(infoRow({label:o.name,actions:[b,...(b.disabled&&b.title?[reasonLine(b.title)]:[])],more:o.blurb,moreLabel:'What it does'}));}
   refs.replaceChildren(node('h3','Carried books and slates'));
-  for(const r of view.references??[]){const row=node('div');row.append(node('p',`${r.name} · ${r.count} carried${r.read?' · read':''}`));
-   if(r.mode==='learn')row.append(act('Study and learn',{type:'learn',key:r.key},'refLearn'));if(r.mode==='training')row.append(act('Read',{type:'read',key:r.key},'refRead'));
-   if(r.mode==='access')row.append(node('p','Method available while carried.'));row.append(act('Put back on shelf',{type:'return',key:r.key},'refReturn'));refs.append(row);}
+  for(const r of view.references??[]){const chips=[chip(`${r.count} carried`)];if(r.read)chips.push(chip('read',{tone:'good'}));if(r.mode==='access')chips.push(chip('method available while carried'));
+   const acts=[];if(r.mode==='learn')acts.push(act('Study and learn',{type:'learn',key:r.key},'refLearn'));if(r.mode==='training')acts.push(act('Read',{type:'read',key:r.key},'refRead'));acts.push(act('Put back on shelf',{type:'return',key:r.key},'refReturn'));
+   for(const b of [...acts])if(b.disabled&&b.title)acts.push(reasonLine(b.title));refs.append(infoRow({label:r.name,chips,actions:acts}));}
   if(!view.references?.length)refs.append(node('p','Nothing carried. Take a copy from the shelf.'));
   const chosen=method.value;method.replaceChildren(Object.assign(node('option','Free experiment (no method)'),{value:''}));
   for(const m of view.methods??[])method.append(Object.assign(node('option',`Follow ${m.name} (${m.via.map(v=>v==='learned'?'learned':'from book').join(', ')})`),{value:m.id}));
@@ -64,12 +71,12 @@ export function createCraftingHome({read,quote,execute,forecast}) {
   if(!view.examinable?.length)sample.append(node('p','Gather a material to examine it.'));
   // This bounded trial commits one selected batch. There is no misleading bulk quote.
   for(const b of detail.querySelectorAll('[data-craft-amount]'))b.remove();
-  notebook.replaceChildren(node('h3','Experiment notebook'));
+  notebook.replaceChildren(node('summary','Experiment notebook'));
   const t=view.treatment;
   if(t){notebook.append(node('p',`Current body conditioning ${t.conditioning}: +${t.conditioning}% maximum stamina. Medicinal residue ${t.impurity}/${treatmentCapacity(t)}. Treatment vessel tier ${t.apparatus}. Tablets condition this body; tonic tolerance and poison are separate.`));
    if(t.channels)notebook.append(node('p',`Bodily channels ${t.channels}/3: +${2*t.channels} medicinal residue capacity, ${20*t.channels}% less crafted herbal poison exposure, faster and stronger residue purging, and ${2*t.channels} stability for this body’s quick tempering. The channels stay with this treated body.`));
    if(t.job)notebook.append(node('p',`${t.job.kind} soak pending until calendar minute ${t.job.due}. This passive treatment runs during other work; it remains bound to the treated body.`));
-   for(const [action,label] of [['channel','Open the next bodily channel · matched conditioning/tempering, 2 ingots and 24 min per channel number'],['apparatus','Fit a larger treatment vessel · 2 Iron ingots'],['purge','Residue-purging soak · 2 Charcoal, 6–12 minutes by channels, removes 5 per vessel tier × (1 + channels)'],['capacity','Capacity-expanding soak · 4 Charcoal, 24 minutes, +5 capacity']]){const b=node('button',label),q=quote({type:'treatment',action});b.type='button';b.dataset.craftTreatment=action;b.disabled=!q.eligible;b.title=q.reason;b.onclick=()=>run(q);notebook.append(b);}
+   for(const [action,label,cost] of [['channel','Open the next bodily channel','matched conditioning/tempering, 2 ingots and 24 min per channel number'],['apparatus','Fit a larger treatment vessel','2 Iron ingots'],['purge','Purge residue','2 Charcoal, 6–12 minutes by channels, removes 5 per vessel tier × (1 + channels)'],['capacity','Expand capacity','4 Charcoal, 24 minutes, +5 capacity']]){const b=node('button',label),q=quote({type:'treatment',action});b.type='button';b.dataset.craftTreatment=action;b.disabled=!q.eligible;b.title=q.reason;b.onclick=()=>run(q);notebook.append(infoRow({label:'',actions:[b,...(!q.eligible&&q.reason?[reasonLine(q.reason)]:[])],more:cost,moreLabel:'Cost'}));}
   }
   const depth=view.depth??{tolerance:[],deductions:[],trials:0};
   if(depth.tolerance.length)notebook.append(Object.assign(node('p',`Body still dulled to: ${depth.tolerance.map(t=>`${t.effect} ${t.level}/${t.overdoseAt}`).join(' · ')}. Drinking past the limit sours the body instead.`),{className:'crafting-trial-tolerance'}));

@@ -53,3 +53,32 @@ button[data-new-count]::after {
 
 /* G2: one-line feeling under a reputation rank */
 .data_entry_feeling { font-size: var(--ui-type-small); opacity: 0.75; margin: 0 0 var(--ui-space-2) var(--ui-space-2); }
+
+/* Text-wall shapes (COV3, UR79): chips, rows with a named disclosure, a two-column settings board. */
+.ui-chip {display: inline-block; padding: 0 var(--ui-space-3); border: var(--ui-space-hairline, 1px) solid var(--ui-hairline); font-size: var(--ui-type-small); white-space: nowrap;}
+.ui-chip[data-tone="accent"] {border-color: var(--ui-accent); color: var(--ui-accent);}
+.ui-chip[data-tone="warn"] {border-color: var(--ui-meter-warn); color: var(--ui-meter-warn);}
+.ui-chip[data-tone="limit"] {border-color: var(--ui-meter-limit); color: var(--ui-meter-limit);}
+.ui-chip[data-tone="good"] {border-color: var(--ui-meter-track); color: var(--ui-meter-track);}
+.ui-chip[data-guess] {border-style: dashed;}
+.ui-row {display: grid; grid-template-columns: minmax(9rem, 14rem) minmax(0, 1fr) auto; align-items: center; gap: var(--ui-space-1) var(--ui-space-3); padding: var(--ui-space-2) 0; border-bottom: var(--ui-space-hairline, 1px) solid var(--ui-hairline);}
+.ui-row-chips, .ui-row-actions {display: flex; flex-wrap: wrap; gap: var(--ui-space-2); align-items: center; min-width: 0;}
+.ui-row-actions {justify-content: flex-end;}
+.ui-row-more {grid-column: 1 / -1; font-size: var(--ui-type-body);}
+.ui-row-more > summary {cursor: pointer; font-size: var(--ui-type-small);}
+.ui-row-more > p {margin: var(--ui-space-1) 0 0; line-height: var(--ui-line-body);}
+.ui-row-reason {color: var(--ui-meter-warn); font-size: var(--ui-type-small); flex-basis: 100%; text-align: right;}
+.ui-table {width: 100%; border-collapse: collapse;}
+.ui-table :is(th, td) {text-align: left; padding: var(--ui-space-1) var(--ui-space-3); border-bottom: var(--ui-space-hairline, 1px) solid var(--ui-hairline); vertical-align: middle;}
+.ui-table th {font-size: var(--ui-type-small); font-weight: var(--ui-weight-strong);}
+.ui-table td.ui-num {text-align: right; font-variant-numeric: tabular-nums;}
+.ui-board {display: grid; grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); gap: var(--ui-space-3); align-items: start;}
+.ui-board > details {border: var(--ui-space-hairline, 1px) solid var(--ui-hairline); padding: var(--ui-space-2) var(--ui-space-3);}
+.ui-board > details > summary {cursor: pointer; font-weight: var(--ui-weight-strong);}
+.ui-field-grid {display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--ui-space-2) var(--ui-space-3); align-items: center;}
+.ui-field-grid > label {display: contents;}
+.ui-row-label:empty, .ui-row-chips:empty {display: none;}
+.ui-row:has(> .ui-row-label:empty) {grid-template-columns: auto minmax(0, 1fr);}
+.ui-row:has(> .ui-row-label:empty) > .ui-row-actions {justify-content: flex-start;}
+.crafting-trial-checks {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); margin: var(--ui-space-2) 0;}
+.crafting-trial-fields {margin-bottom: var(--ui-space-2);}
