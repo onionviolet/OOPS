@@ -59,11 +59,11 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         for(const row of d.rows){const tr=document.createElement('tr');tr.dataset.ingredient=row.id;tr.dataset.state=row.state;const name=document.createElement('th');name.textContent=row.id;tr.append(name);
             for(const c of row.cells){const td=document.createElement('td');td.dataset.state=c.state;td.className='mixture-cell mixture-cell--'+c.state;td.title=c.text;td.textContent=`${c.state==='known'?'●':c.state==='guessed'?'≈':'?'} ${c.state==='unknown'?'unknown':c.state==='guessed'?'guessed':c.word}`;tr.append(td);}
             table.append(tr);}
-        const title=document.createElement('strong');title.textContent='What you have learned';
+        const title=document.createElement('strong');title.textContent='What you have learned';const note=document.createElement('small');note.textContent=' Words give the dose in a standard vial: one pack of the plant, one of water.';title.append(note);
         const next=document.createElement('p');next.id='mixture_next_try';next.textContent='Next try: '+d.suggestion.text;
         const set=document.createElement('button');set.id='mixture_next_set';set.type='button';set.textContent='Set up this try';
         set.onclick=()=>{for(const i of INGREDIENTS)amounts[i.id].value=d.suggestion.prefill.inputs[i.id]??0;process.value=d.suggestion.prefill.process;render();};
-        const parts=[title,table,next,set];const last=Object.values(s?.products??{}).filter(p=>s.knowledge[p.id]).pop();
+        const parts=[title,table,next,set];const last=s?.products?.[s.lastObservation];
         if(last){const v=describeVial(last),line=document.createElement('p');line.id='mixture_last_vial';line.textContent=`Last vial you drank: ${v.potency}${v.side.length?`, with ${v.side.join(', ')}`:''}, ${v.minutes} minutes.`;parts.splice(4,0,line);}
         learned.replaceChildren();learned.append(...parts);learned.dataset.text=d.text;}
     let outputSignature=null;

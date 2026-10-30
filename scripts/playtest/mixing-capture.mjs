@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {resolve, join} from 'node:path';
+import {createHash} from 'node:crypto';
 import {Session, buildBundle, serve} from './lib.mjs';
 import {defaultCustomizationState} from '../../src/customization_profiles.js';
 const out = resolve(process.argv[2] || 'docs/representations/evidence/mixing'); await mkdir(out, {recursive: true});
@@ -11,7 +12,8 @@ delete seed.availabilities?.recipe?.undefined; delete seed.availabilities?.recip
 seed.customization = defaultCustomizationState(); seed.customization.profiles.Default.settings.effects = 'full';
 const bundle = await buildBundle(), server = await serve(bundle.dir);
 const s = new Session({url: server.url, seed: 19, wall: Date.UTC(2026, 9, 25), opTimeout: 15000});
-const log = []; const say = m => { log.push(m); console.log(m); };
+const bundleHash = createHash('sha256').update(await readFile(join(bundle.dir, 'bundle.js'))).digest('hex').slice(0, 16);
+const log = [`bundle sha256 ${bundleHash} (built from this tree), fixture tests/fixtures/perf/mid.json, headless Chrome 1920x1080`]; const say = m => { log.push(m); console.log(m); };
 try {
     await s.start(); await s.open(seed); const p = s.page;
     await p.locator('#village_mixing_open').click();

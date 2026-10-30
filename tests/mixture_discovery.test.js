@@ -8,6 +8,7 @@ function drink(state, inputs, process) {
     const product = resolveMixture(state, inputs, process);
     state.products[product.id] = product;
     state.knowledge[product.id] = {observed: true, at: Object.keys(state.knowledge).length};
+    state.lastObservation = product.id;
     return product;
 }
 const cell = (d, ingredient, effect) => d.rows.find(r => r.id === ingredient).cells.find(c => c.effect === effect);
@@ -136,4 +137,38 @@ test('the Village counter shows the learned table and the next try, and "Set up 
         assert.equal(amount(EMBER), 1);
         assert.equal(amount(BELL), 0);
     } finally { setMixtureOwner(null); Object.assign(globalThis, previous); }
+});
+
+test('one vial gets one tier word in the table and on the vial card', () => {
+    const s = createMixtureState(7);
+    for (const process of ['steep', 'boil']) for (const plant of [BELL, EMBER]) {
+        const product = drink(createMixtureState(7), {[plant]: 1, [WATER]: 1}, process);
+        const solo = createMixtureState(7); drink(solo, {[plant]: 1, [WATER]: 1}, process);
+        const d = projectMixtureDiscovery(solo), card = describeVial(product);
+        const main = MIXTURE_EFFECTS.filter(e => !e.side).map(e => ({e, v: product.dose[e.dose]})).sort((a, b) => b.v - a.v)[0];
+        const word = cell(d, plant, main.e.id).readings[0].word;
+        assert.equal(card.potency, `${word} ${main.e.label.toLowerCase()}`, `${plant} ${process}`);
+    }
+    void s;
+});
+
+test('steep and boil readings show the ratio, so the suggested comparison teaches something visible', () => {
+    const s = createMixtureState(7);
+    drink(s, {[BELL]: 1, [WATER]: 1}, 'steep');
+    drink(s, {[BELL]: 1, [WATER]: 1}, 'boil');
+    const health = cell(projectMixtureDiscovery(s), BELL, 'health');
+    assert.ok(health.ratio > 1.1);
+    assert.match(health.word, /boiling ≈\d\.\d× steeping/);
+});
+
+test('responsive-law vials (revision 2) are read separately and never mixed into ordinary readings', () => {
+    const s = createMixtureState(7);
+    const ordinary = drink(s, {[BELL]: 1, [WATER]: 1}, 'boil');
+    const responsive = {...structuredClone(ordinary), revision: 2, id: 'm2:fake', dose: {...ordinary.dose, health: ordinary.dose.health * 1.2}};
+    s.products[responsive.id] = responsive; s.knowledge[responsive.id] = {observed: true, at: 9};
+    const d = projectMixtureDiscovery(s), health = cell(d, BELL, 'health');
+    assert.equal(health.readings.length, 2);
+    assert.ok(health.readings.some(r => r.revision === 2));
+    assert.ok(Math.abs(health.readings.find(r => r.revision === 1).value - ordinary.dose.health) < 1e-9);
+    assert.match(health.text, /responsive/);
 });

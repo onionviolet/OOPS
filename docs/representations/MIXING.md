@@ -33,18 +33,26 @@ Everything here is a proposal (AD32) and a draft: each choice is the current bes
 
 **Derivation, not a new saved field.** `src/mixture_discovery.js` is a pure projection of observed products only (inputs, process, dose). It never reads ingredient profiles or the hidden method, so it cannot leak truth (AD6-AD8); a test gives two states with different hidden truth and identical observations and asserts identical output. No persistence change, so no migration (FLR5 reduced to: the projection is recomputed after load from retained knowledge).
 
-**Levels and depth (item 19).** Potency band (mild, steady, strong), side effects (slight, noticeable) and duration per vial; strength is per plant *and* process, so the player sees what boiling changes; synergy shows up when a worked-out strength differs from a vial's total. Next level (draft): quality traits that carry across batches (Atelier), purity as the share of wanted effect over side effect.
+**One scale.** A plant's table word is its dose in a standard vial (one pack of it, one of water), and the vial card tiers the actual dose on the same scale, so one vial gets one word in both places (tested). Steep and boil readings sit side by side with the ratio ("boiling ≈1.5× steeping"). Responsive-method vials (revision 2 changes the health dose) are read separately by process and revision, never mixed into ordinary readings.
 
-**Later worlds and volumes (item 17).** `MIXTURE_EFFECTS` is a data list (id, dose key, label, tier words, side flag); `INGREDIENTS` gained `role` (`plant` or `carrier`) and `base`. A later world adds effect rows and ingredient rows; the projection needs no change. Checked: the existing brewing and potion data shape in `src/hp_brewing_*` (rituals-owned, read only) uses a different formula owner, so a bridge consumer is still open; the LOTM potion rows (L4) are not read here and stay open. Canon names stay out of tracked source (CLR3): fixtures use the generic Village ingredients.
+**Levels and depth (item 19).** Potency band (faint, mild, steady, strong), side effects (slight, noticeable) and duration per vial; strength is per plant *and* process, so the player sees what boiling changes; synergy shows up when a worked-out strength differs from a vial's total. Next level (draft): quality traits that carry across batches (Atelier), purity as the share of wanted effect over side effect.
+
+**Later worlds and volumes (item 17).** `MIXTURE_EFFECTS` is a data list (id, dose key, label, tier words, side flag); `INGREDIENTS` gained `role` (`plant` or `carrier`) and `base`. A later world adds effect rows and ingredient rows; the projection needs no change. Checked: `src/hp_brewing_domain.js` (the Polyjuice-style bench, rituals-owned, read only) is a separate registered slice with its own state, formula owner and native transaction, so it shares nothing with the Village counter today; a bridge consumer is open (see Assays and benches). The LOTM potion rows (L4) were not read and stay open. Canon names stay out of tracked source (CLR3): fixtures use the generic Village ingredients.
+
+## Assays and benches
+
+- **MR1 (true properties act, known or not)** and **MR22 (repeating an identical observation teaches nothing new):** by default the table fills from distinct drunk vials, and re-drinking a vial already drunk changes no cell.
+- **Drink effects and assays** use the same known, guessed, unknown grammar (UIV6, one shared wording under UR74); this table is the first consumer. An assay that reports an ingredient's properties would feed the same row shape (`{id, state, cells[]}`); the appraisal vocabulary (actual, observed, forecast) lives in `MEANS_AND_APPRAISAL.md` and is not yet wired here (ACCOUNT FOR NOW, small).
+- **Polyjuice-style bench** (`src/hp_brewing_*`, rituals-owned): its own slice and panel, a track of timed steps. A bench that has steps shows them as a **track** (the figure `track` already exists), not as this table; what it can share is the discovery grammar for its ingredients. **MR29** (shared knowledge projection, separate product logics) supports a bridge adapter from the bench's observed facts to the same projection; the rituals session decides if and when. **MR9:** open slots change strength within a product family, which maps to the dose scale here.
 
 ## What shipped (slice)
 
 On the Village mixing counter (center mode `mixing`), above the ingredient rows:
 1. "What you have learned" table, ingredient by effect, with known, guessed and unknown cells and words.
 2. "Next try: ..." sentence ranked first (nothing drunk), isolate an unknown plant, separate a guessed plant, compare steep and boil, add the carrier, then blend; plus **Set up this try**, which fills the amounts and process.
-3. "Last vial you drank: mild stamina regeneration, with slight agility drag, 40 minutes."
+3. "Last vial you drank: ..." from the saved `lastObservation` (the vial last drunk, in words).
 
-Files: `src/mixture_discovery.js`, `src/mixture_ui.js` (render inside the signature-guarded block, so no work per tick), `src/mixture_state.js` (ingredient `role`), `styles/ui_tokens.css` (tokens only). Tests: `tests/mixture_discovery.test.js` (8 tests including the leak test and the panel). Evidence: `docs/representations/evidence/mixing/` (1920x1080 headless captures `1-fresh` to `5-after-try-4`, `walk.txt`; script `scripts/playtest/mixing-capture.mjs`). Route kind: fixture save `tests/fixtures/perf/mid.json`, fresh origin, rebuilt bundle, headless Chrome; the walk follows each suggestion four times. Human review: none (agent-verified, not human-reviewed).
+Files: `src/mixture_discovery.js`, `src/mixture_ui.js` (render inside the signature-guarded block, so no work per tick), `src/mixture_state.js` (ingredient `role`), `styles/ui_tokens.css` (tokens only). Tests: `tests/mixture_discovery.test.js` (12 tests: the leak test, one-scale, ratio, revision separation and the panel). Evidence: `docs/representations/evidence/mixing/` (1920x1080 headless captures `1-fresh` to `5-after-try-4`, `walk.txt`; script `scripts/playtest/mixing-capture.mjs`). Route kind: fixture save `tests/fixtures/perf/mid.json`, fresh origin, rebuilt bundle, headless Chrome; the walk follows each suggestion four times. Human review: none (agent-verified, not human-reviewed).
 
 ## Round 2
 
@@ -54,7 +62,7 @@ Items 1-21 of the brief. Labels: ACT NOW (done), ACCOUNT FOR NOW, LATER/DELEGATE
 
 **2 Fresh-player test.** First screen of the table: eight words need knowing ("regeneration", "agility drag", "steeped", "boiled", "carrier", "known", "guessed"). Terms are all in the cells or tooltips; "Ordinary method / Responsive method" is still unexplained jargon (ACCOUNT FOR NOW: rename or tooltip, shared with the rules owner). Fixed: the first-ever screen now says what to do first. Open: "Whole packs: water + plants" help line is dense, and the center mode title is duplicated ("Village mixing counter" twice, pre-existing).
 
-**3 Space, split, density.** Table and next-try are the glance (compact, always on top). The long product list, queue controls and feedback grid stay below as detail; LATER: put the product list behind a disclosure and split Mix and Vials into two center tabs (UR42). At 1920x1080 the whole counter now fits one screen with the table in the top third.
+**3 Space, split, density.** Table and next-try are the glance (compact, always on top). The long product list, queue controls and feedback grid stay below as detail; LATER: put the product list behind a disclosure and split Mix and Vials into two center tabs (UR42). At 1920x1080 the table, next try and ingredient rows sit in the first screen; the product list is below the fold (the capture shows this).
 
 **4 Bars and chips.** Not needed now; a potency chip (`mild`/`steady`/`strong` with a word) could sit on each product line (ACCOUNT FOR NOW, cheap).
 
