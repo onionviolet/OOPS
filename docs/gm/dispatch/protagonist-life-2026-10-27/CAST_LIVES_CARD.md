@@ -28,6 +28,8 @@ LOTM chapters 1-24, "beside the lead" start. Second world: Mother of Learning, f
 | P1 | One command per book to records-ready (CL272) | Landed `569616c90`; MoL reproduces, LOTM shows input drift |
 | G2 | Concealment | Held until the be replay needs it |
 | B1 | **Be the lead**: history pass, seat registration, no Village behind him, seeded draws | Running (Sol, pid 25335, `codex_lane.mjs status`) |
+| T2, TH2 | Pack-driven journeys, non-walkable arrival fix, test timeouts | Landed `0df26deaa`, implemented below floor (browser floor pending); see [sonnet wave checkpoint](../sonnet-wave-2026-10-30/A_CHECKPOINT.md) |
+| A1 | Routine bands in whole-book builds (ch 31+) | Generator landed; band ch 31-60 candidate 39 of 163 usable, places missing; not adopted into the pack |
 | Next | Browser check of B1, then the L5r replay in the be seat (CL269); D1 determinism and divergence | See the handoff queue |
 
 ## What you can do now

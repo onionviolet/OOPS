@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,writeFileSync,readFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+import {createHash} from 'node:crypto';
 import {buildCastPack,run} from '../scripts/lead_run/build_cast_pack.mjs';
 import {buildCrosswalk} from '../scripts/lead_run/build_crosswalk.mjs';
 const loc='en b1 c1 p1', slice={from:loc,to:'en b1 c2 p999'};
@@ -167,4 +168,64 @@ test('whole-book ID collision keeps the authored row and adds a distinct source 
     assert.equal(pack.people.find(p=>p.id===sourceId).name,'Authored identity');
     const source=pack.people.find(p=>p.indexId===sourceId);
     assert.ok(source);assert.notEqual(source.id,sourceId);assert.equal(source.name,'Fixture B');
+});
+
+test('whole-book chapter band reuses slice routine ids, timing, hours and usability',()=>{
+    const f=fixture(),start='en b1 c31 p1',end='en b1 c60 p999';
+    f.slice={from:start,to:end};
+    f.extras[0].locator='en b1 c90 p1';
+    for(const slot of f.extras[0].routine) slot.locator=start;
+    f.extras[0].routine.push({place:f.registry[3].id,days:'evening',locator:'en b1 c61 p1'});
+    f.extras[0].routine.push({place:f.registry[3].id,days:'weekdays',locator:end});
+    f.extras[1].locator=start;
+    f.extras.push({...f.extras[1],hours:'evening',locator:'en b1 c61 p1'},
+        {...f.extras[1],extra:'rules',place:'lotm.place.other',role:'other-role',hours:'night',locator:start});
+    f.crosswalk=buildCrosswalk({...f,world:f.book}).crosswalk;
+    const expected=buildCastPack(f),actual=buildCastPack({...f,wholeBook:true});
+    for(const section of ['routines','orderEdges','worldHours'])
+        assert.equal(JSON.stringify(actual.pack[section]),JSON.stringify(expected.pack[section]));
+    assert.equal(actual.report.routines.total,4);
+    assert.equal(actual.report.routines.newUsable,4);
+    assert.equal(actual.report.routines.unresolvedPlace,0);
+    assert.equal(actual.pack.worldHours.length,2);
+    assert.ok(actual.pack.routines.every(r=>r.roleHours.length===1));
+    assert.ok(actual.pack.routines.some(r=>r.band));
+    assert.ok(actual.pack.orderEdges.some(e=>e.offsetDays===1));
+    assert.ok(actual.pack.routines.every(r=>[start,end].includes(r.locator)));
+    assert.ok(actual.pack.people.some(p=>p.indexId===f.registry[1].id));
+});
+
+test('whole-book band reports unknown places as gaps without dangling routines or edges',()=>{
+    const f=fixture();f.slice={from:'en b1 c31 p1',to:'en b1 c60 p999'};
+    f.extras=[{extra:'people',id:f.registry[0].id,locator:loc,routine:[
+        {place:'lotm.place.unknown',days:'after lunch',locator:f.slice.from},
+        {place:f.registry[3].id,days:'morning',locator:f.slice.from},
+    ]}];
+    f.crosswalk=buildCrosswalk({...f,world:f.book}).crosswalk;
+    const {pack,report}=buildCastPack({...f,wholeBook:true});
+    assert.equal(pack.routines.length,1);assert.equal(pack.orderEdges.length,0);
+    assert.equal(report.routines.total,1);assert.equal(report.routines.newUsable,1);
+    assert.equal(report.routines.unresolvedPlace,1);
+    assert.equal(pack.revisionNote.gaps.length,1);
+    assert.equal(pack.revisionNote.gaps[0].reason,'unresolved-place');
+    assert.equal(pack.revisionNote.gaps[0].locator,f.slice.from);
+});
+
+test('chapter 1-24 default output stays byte-identical to the pre-band compiler',()=>{
+    const f=fixture();f.slice={from:loc,to:'en b1 c24 p999'};
+    f.crosswalk=buildCrosswalk({...f,world:f.book}).crosswalk;
+    assert.equal(createHash('sha256').update(JSON.stringify(buildCastPack(f))).digest('hex'),
+        'ced0928e384c5a210d00e5b78a15d194ecde1a8bc87644188a6e292061cb927b');
+    f.extras.push({extra:'people',id:f.registry[0].id,locator:'en b1 c25 p1',routine:[]});
+    f.crosswalk=buildCrosswalk({...f,world:f.book}).crosswalk;
+    const ordinary=buildCastPack(f).pack,whole=buildCastPack({...f,wholeBook:true}).pack;
+    for(const section of ['routines','orderEdges','worldHours'])
+        assert.equal(JSON.stringify(whole[section]),JSON.stringify(ordinary[section]));
+});
+
+test('whole-book range covering every source locator keeps base routines and hours unchanged',()=>{
+    const f=fixture();f.base.routines=[{id:'kept-routine'}];f.base.orderEdges=[{id:'kept-edge'}];f.base.worldHours=[{id:'kept-hours'}];
+    const {pack,report}=buildCastPack({...f,wholeBook:true});
+    for(const section of ['routines','orderEdges','worldHours']) assert.deepEqual(pack[section],f.base[section]);
+    assert.equal(report.routines.total,0);assert.equal(report.routines.unresolvedPlace,undefined);
 });
