@@ -78,3 +78,16 @@ test("the Body & recovery panel shows the body by part, acts through its cards a
         assert.match(view.querySelector(".body-view-empty").textContent,/Nothing is troubling/);
     }finally{globalThis.document=saved.document;}
 });
+
+test('harm from the L9 ladder joins the body by part through the bridge', async () => {
+    const {bodyViewModel} = await import('../src/body_figure.js');
+    const {observerView} = await import('../src/observer_view.js');
+    const state = {clock: 0, actors: {player: {facts: {'body.enrolled': true}, sources: {}, resources: {}}}, simulation: {conditions: {}}};
+    const seat = observerView(state).actorId;
+    state.actors[seat] = state.actors.player;
+    const harm = {carriers: [], rung: 'wounded', parts: [{id: 'arm', label: 'Left arm', rung: 'maimed', rungLabel: 'Maimed', modifiers: [{axis: 'force', cause: 'maimed'}], recovers: {rest: 1}}], lastDeath: null};
+    const model = bodyViewModel(state, {harm});
+    assert(model.parts.some(p => p.slot === 'part:arm'));
+    assert(model.glance.some(g => g.id === 'harm.overall'));
+    assert.equal(bodyViewModel(state, {}).parts.length, 0);
+});

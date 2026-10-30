@@ -1,6 +1,7 @@
 import {previewSimulationCommand} from "./simulation.js";
 import {bodyScene} from "./body_progression.js";
 import {bodyViewModel} from "./body_figure.js";
+import {harmView,harmState} from "./harm_state.js";
 import {renderBodyView} from "./ui/body_view.js";
 
 export function createBodyPanel({registry,read,command}) {
@@ -34,7 +35,7 @@ export function createBodyPanel({registry,read,command}) {
         }
         // BC7/BC8 body by part; redrawn only when its model or a cure's state changes, so frequent renders stay no-op writes.
         // A cure button clicks the existing card, so costs, errors and reasons stay with the card.
-        const all=[...registry.simulation.commands.values()],model=s?bodyViewModel(state,{commands:all,cureCommands:all.filter(d=>cards.has(d.id)&&!cards.get(d.id).row.hidden)}):null;figure.hidden=!model;
+        const all=[...registry.simulation.commands.values()],model=s?bodyViewModel(state,{harm:harmView({harm:harmState()}),commands:all,cureCommands:all.filter(d=>cards.has(d.id)&&!cards.get(d.id).row.hidden)}):null;figure.hidden=!model;
         const cureState=id=>{const c=cards.get(id);return c&&!c.row.hidden?{disabled:c.button.disabled,reason:c.reason.textContent}:{disabled:true,reason:"Not available here."};};
         const key=model?JSON.stringify([model,model.parts.flatMap(p=>p.now.flatMap(c=>c.cures.map(x=>cureState(x.id))))]):"";
         if(key!==drawn){drawn=key;const focused=figureHost.contains(document.activeElement)?document.activeElement.dataset.bodyCure:null;

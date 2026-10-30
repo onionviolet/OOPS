@@ -2,6 +2,7 @@
 // Regions come from the `look.slot` the body owner already gives its traits and conditions, so a new
 // trait or condition appears here without figure code. Facts sit in labels and notes, never in color
 // alone (UR37); effects only mark a subject's settled state and the text form is identical without them (UR38).
+import {bodyViewFromHarm} from './read_models/body_bridge.js';
 import {bodySources, bodyConditions} from './body_progression.js';
 import {observerView} from './observer_view.js';
 
@@ -88,7 +89,7 @@ export function secondBodyFigureSpec(view) {
 // content shows its own recovery and treatment without view code.
 const effectsOf = d => d.effects || [];
 // `cureCommands` narrows the listed cures to verbs the showing surface can run (default: every command).
-export function bodyViewModel(state, {commands = [], cureCommands = commands, sources = bodySources, conditions = bodyConditions} = {}) {
+export function bodyViewModel(state, {commands = [], cureCommands = commands, sources = bodySources, conditions = bodyConditions, harm = null} = {}) {
     const seat = observerView(state), actor = state?.actors?.[seat.actorId];
     if (!actor?.facts?.['body.enrolled']) return null;
     const clock = state.clock ?? 0, live = state.simulation?.conditions?.[seat.actorId] || {};
@@ -111,6 +112,9 @@ export function bodyViewModel(state, {commands = [], cureCommands = commands, so
         now: now.filter(c => c.slot === slot), lasting: held.filter(s => s.slot === slot)}));
     const milestones = MILESTONES.filter(m => !actor.facts[m.done] && (!m.when || actor.facts[m.when]) && (actor.resources?.[m.resource] || 0) > 0)
         .map(m => ({id: m.id, label: m.label, done: Math.min(m.need, actor.resources[m.resource]), need: m.need, step: m.step, keep: m.keep}));
-    return {title: 'Your body', glance: now.map(({id, label, slot, time, level}) => ({id, label, slot, time, level})), parts, milestones,
+    // Harm (the L9 ladder, parts and carriers) is felt and owned by the seat alone: the bridge builds its groups from harmView(save).
+    const hurt = harm ? bodyViewFromHarm(harm) : null, glance = now.map(({id, label, slot, time, level}) => ({id, label, slot, time, level}));
+    if (hurt) { parts.push(...hurt.parts.filter(p => !parts.some(q => q.slot === p.slot))); glance.push(...hurt.glance); }
+    return {title: 'Your body', glance, parts, milestones,
         empty: parts.length ? null : 'Nothing is troubling this body right now. Training, work and injuries will show here by body part.'};
 }
