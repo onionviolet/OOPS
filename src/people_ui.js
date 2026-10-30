@@ -47,24 +47,21 @@ export function createPeopleOverview() {
         for(const row of rows) {
             let card = cards.get(row.id);
             if(!card) {
-                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), location = node("p"), details = node("div"), history = node("ul"), bond = createMeterBar(document);
+                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), bond = createMeterBar(document);
                 glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true;
-                // The same character sheet as the You panel, read from what you learned (CHARACTER_SHEET.md).
-                const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.append(node("summary", "Character sheet"), sheetHost);
-                root.dataset.knownPerson = row.id; root.append(heading, bond.node, location, details, history, sheet); list.append(root);
-                card = {root, heading, name, glance, bond, location, details, history, sheetHost, signature:""}; cards.set(row.id, card);
+                // The sheet owns where you last saw them, what you know and what you remember (UR73, CHARACTER_SHEET.md);
+                // the card keeps the name, the bond and the way in. Open by default so those lines stay one look away.
+                const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.open = true;
+                sheet.append(node("summary", "Character sheet · where, what you know, what you remember"), sheetHost);
+                root.dataset.knownPerson = row.id; root.append(heading, bond.node, sheet); list.append(root);
+                card = {root, heading, name, glance, bond, sheetHost, signature:""}; cards.set(row.id, card);
             }
             const person = bonds.get(row.id), signature = JSON.stringify([title(row), row, person || null]);
             if(signature !== card.signature) {
-                card.signature = signature; card.name.textContent = title(row); card.location.textContent = row.location;
+                card.signature = signature; card.name.textContent = title(row);
                 // Glance first (stage and what needs attention), the bond bar one click away inside the card.
                 card.glance.textContent = person ? ` · ${relationshipGlance(person)}` : "";
                 card.bond.node.hidden = !person; if(person) card.bond.update(relationshipStageMeter(person));
-                if(row.accounts?.length){
-                    card.details.replaceChildren(node('h4','Known capabilities and services'),node('p','These are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person’s local service for current terms.'));
-                    for(const account of row.accounts){const entry=node('div');entry.dataset.personAccount=account.id;entry.append(node('p',account.text),node('small',`${account.basis}${Number.isFinite(account.at)?` · played minute ${account.at}`:''}`));card.details.append(entry);}
-                }else card.details.replaceChildren(...row.details.map(text => node("p", text)));
-                card.history.replaceChildren(...row.memories.map(m => node("li", m.text))); card.history.hidden = !!row.accounts?.length || !row.memories.length;
                 renderCharacterSheet(card.sheetHost, characterSheetView(subjectFromKnownPerson(row), observerView(state), [MET_READ]), {layout: "narrow"});
             }
         }

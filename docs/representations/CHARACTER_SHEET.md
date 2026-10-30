@@ -346,7 +346,7 @@ gallery.
 |---|---|
 | Band beside your own value ("yours is 7") | UR75: a band needs a baseline |
 | `source: 'cheat'` read style | Cheat reads arrive with rep-abilities' powers |
-| People card repeats location, details and memories in the sheet's Between you (UR73) | Coordinator decides whether the card or the sheet owns those lines |
+| People card repeats location, details and memories in the sheet's Between you (UR73) | Done 2026-10-30: the sheet owns them (Follow-up slice 4) |
 | Shared `guessed` mark in `figure.js` | Coordinator; family tree and this doc use `≈` |
 | Global `.theme-preview dl` rule | Breaks any new `dl` in a themed module |
 
@@ -406,3 +406,24 @@ number, and facts the fight does not know, pass through as given.
 
 Gap: no way yet to hand the card a second read (an inspect skill used on the target), so only `COMBAT_READ` reaches it today;
 `opponentFacts(facts, observer, reads)` takes the list when a lane supplies one.
+
+### Slice 4: the sheet owns the person lines (UR73)
+
+The People card (`src/people_ui.js`) no longer draws the last-known location, the details or accounts, or the
+memories. They are the sheet's Between you rows (`character_sheet_people.js` already built them), drawn once. The card keeps
+the name, the glance, the bond bar and the sheet link, now worded "Character sheet · where, what you know, what you remember"
+and open by default, so the lines stay one look away. A test asserts the card carries no paragraph or list of its own and the
+location appears once (`tests/people_card_sheet.test.js`); `tests/relationship_web.test.js` and `tests/people_knowledge.test.js` still pass.
+
+| AD43 line | State |
+|---|---|
+| Build identity | Rebuilt bundle; fresh origin at 1920×1080, no page errors |
+| Natural route | Elder greeting, People, expand the card (`people-card-sheet-1920.png`) |
+| Shown description and cost | Where, what you know and what you remember read as before, under the sheet |
+| Consumer | The People panel; relationship web and bond bar untouched |
+| Persistence | Not applicable: display only |
+| Review | Agent-verified, not human-reviewed |
+
+Gap: the accounts caveat line ("current condition and private possessions are not assessed here") is gone with the card block;
+each account row still names its basis. `scripts/people_browser.cjs` was tried and stops at its Talk click, which the
+center overlay intercepts in the current shell (before it reaches any card), so it is not evidence for this slice.
