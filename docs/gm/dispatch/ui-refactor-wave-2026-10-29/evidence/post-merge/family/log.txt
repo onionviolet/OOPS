@@ -1,0 +1,6 @@
+PASS fresh life: Family not offered yet
+PASS enrolled through the elder and the People notebook
+PASS fresh life: Family shows parents known, grandparents unknown, the succession line and its text form
+PASS heir: the line of lives is a track, the untracked partner is guessed, the founders are grandparents
+PASS gallery fixtures captured
+PASS no page errors

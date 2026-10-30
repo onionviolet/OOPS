@@ -1,0 +1,51 @@
+{
+ "bundle": "de328c446f857b16",
+ "viewport": "1920x1080",
+ "steps": [
+  {
+   "step": "reported in"
+  },
+  {
+   "step": "board shown, nearest first",
+   "rows": [
+    "Tingen probationer lodging | 2 min",
+    "Tingen docks | 20 min",
+    "Tingen university area | 25 min"
+   ]
+  },
+  {
+   "step": "map shown after crossing",
+   "textForm": "Walks from Tingen supervised workroom\nRings step outward by walking time from where you stand, not by compass direction. Only places you know are drawn.\nRing 2 min walk, 1 places: 1. Tingen probationer lodging.\nRing 20 min walk, 1 places: 1. Tingen docks.\nRing 25 min walk, 1 places: 1. Tingen university area.\nNodes: Tingen supervised workroom (current).\nTingen supervised workroom to Tingen probationer lodging: walk, 2 min.\nTingen supervised workroom to Tingen docks: walk, 20 min.\nTingen supervised workroom to Tingen university area: walk, 25 min.\nDistricts: North quarter (Tingen supervised workroom, Tingen probationer lodging); Docks (Tingen docks); University area (Tingen university area).\nKey: ▶ current means you are here.\nKey: walk means walk, minutes quoted."
+  },
+  {
+   "step": "click a place",
+   "place": "Tingen university area",
+   "focusedRow": {
+    "place": "Tingen university area",
+    "button": "Walk · 25 min"
+   }
+  },
+  {
+   "step": "walked 25 min, map recentred",
+   "notice": "You walk there.",
+   "textForm": "Walks from Tingen university area\nRings step outward by walking time from where you stand, not by compass direction. Only places you know are drawn.\nRing 25 min walk, 2 places: 1. Tingen supervised workroom; 2. Tingen probationer lodging.\nRing 35 min walk, 1 places: 1. Tingen docks.\nNodes: Tingen university area (current).\nTingen university area to Tingen supervised workroom: walk, 25 min.\nTingen university area to Tingen probationer lodging: walk, 25 min.\nTingen university area to Tingen docks: walk, 35 min.\nDistricts: North quarter (Tingen supervised workroom, Tingen probationer lodging); Docks (Tingen docks); University area (Tingen university area).\nKey: ▶ current means you are here.\nKey: walk means walk, minutes quoted."
+  }
+ ],
+ "errors": [
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  }
+ ]
+}

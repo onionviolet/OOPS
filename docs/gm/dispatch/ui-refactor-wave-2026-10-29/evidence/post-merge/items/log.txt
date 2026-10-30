@@ -1,0 +1,1 @@
+{"result":"PASS","out":"/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/ui-integration-8e9e92/docs/gm/dispatch/ui-refactor-wave-2026-10-29/evidence/post-merge/items"}

@@ -59,6 +59,28 @@ One `figure.js` API: `track.orient`, `track.progress` (words), step `fill` and `
 
 Master moved twice during the work; the integration branch merged it each time (final base `be83f1c3`). `dist/` was rebuilt after the last merge; `check:arch` exit 0, `check:rules` PASS, focused re-run (lotm path/advancement/districts, ladder figure, contract, ui_contract, seat profiles, build output) 45 of 45. The full suite ran before the last two master commits (L4 volume 3 rows); those touch pack rows only, not UI files. Not pushed.
 
+## Post-merge browser pass (1920x1080, rebuilt dist, fresh origin, browser slot)
+
+Master `f86bdd5b`. Each branch's own proof script was run against the rebuilt `dist/`; screenshots and logs are in `evidence/post-merge/<view>/`. Four scripts needed a temporary patched copy (deleted afterwards) because the talk view's `#center_mode_content` now covers the native "hello" text line (clicks were intercepted), and a hidden duplicate `report_in` button matched first after the workroom split into tabs. The patches changed only how the click is made.
+
+| View | Result | Evidence |
+| --- | --- | --- |
+| Elder talk view | **Reached**, script passes unpatched | `talk/` (7 shots, proof json) |
+| Ledger Owed tab | **Reached**, passes unpatched | `ledger/` (4 shots, text form) |
+| Items card | **Reached**, PASS unpatched | `items/` (fresh life, vs worn) |
+| Family panel | **Reached** with the click patch; all PASS lines | `family/` (fresh life, heir, gallery) |
+| Notebook body view | **Reached** with the click patch, `errors []`; shots were written to its own default folder and copied | `body/` |
+| Walking board and map | **Reached** with the visible-button patch | `walk/` (board, map, walk attempt) |
+| Tingen workroom tabs | **Reached** (Here, Path, Work & merit, Notebook tabs visible); the script then failed its zero-console-errors assertion on 404s for private fonts the static server lacks | `workroom/failure.png` and text per tab |
+| Village encounter card (fight card) | **Not reached**: the script stops at `[data-dialogue="villageElder"]` not visible after "Talk to someone" under its fixed clock and seed; the unpatched talk script reaches the same button, so the cause is likely that script's fixed date, not unproven | `combat/log.txt` |
+
+Design issues seen, not fixed:
+- The Tingen header shows "Local weather unavailable" and "Local date unavailable" on a fresh Tingen life.
+- The first-visit tab hint ("Got it") sits inline in the Notebook text and reads as part of the panel.
+- The browser proof scripts for family, body, combat and walk are stale against the talk view and the workroom tabs and need updating (click through the talk view's own options; click the visible `report_in`).
+- Console-error assertions fail on the 404 for private fonts when served by a plain static server (workroom proof).
+- Allowlisted style literals (49) remain recorded debt for the token-migration lane.
+
 ## Floor state
 
-Implemented and agent-verified at the unit level; **below the AD43 floor**: no post-merge browser run at 1920x1080 for any feature, and `dist/` was rebuilt once after the merge. Each branch's own browser evidence is in `docs/representations/evidence/`.
+Implemented and agent-verified at the unit level; **partly below the AD43 floor**: the post-merge browser pass above reached 7 of 8 views at 1920x1080 (the fight card was not reached); the other features rely on their branch evidence plus unit and contract tests. Each branch's own browser evidence is in `docs/representations/evidence/`.
