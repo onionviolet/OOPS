@@ -240,6 +240,12 @@ Those notes say "M3 remains stopped", which the later M3 resume (B4) superseded.
 - **Kept:** 4 paths with live working-tree edits (`dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md`) were unstaged index-only with `git restore --staged`. Their old staged blobs stay recoverable: `cfeca12d6854`, `cb8174b91baa`, `cc77c5086c18` and `0c6ad6142384`.
 - **Rule:** a session that moves `master` from another worktree also syncs the primary checkout's index and unedited working files in the same step, as the guarded-update recipe above says.
 
+**D3, it recurred the same day.** After the push at `de0b66af6`, the primary index again held 21 stale staged paths, mostly relationship-web and workshop UI. Three files committed in HEAD (`src/who_knows_view.js`, `src/workshop_placement.js`, `tests/workshop_placement.test.js`) were missing on disk and staged as deletions, so the next plain `git commit` would have deleted them. The repair followed D2:
+- **Recovery point:** the stale index tree was saved as `cbaafbdc574406dd766e70d15d791a19ebd28649`.
+- **Synced:** 19 unedited paths were brought to HEAD.
+- **Kept:** `figure-gallery.html` has live edits, so it was unstaged only. Its old staged blob is `ed4caa894fd6`.
+- **Check before committing:** the rule alone did not stop it, so every session committing from the primary checkout runs `git diff --cached --name-status` first. Any staged path it did not stage itself means stop and resync.
+
 ## Receipts and the delivery floor, 2026-10-26
 
 Every lane checkpoint or receipt starts with the front-matter block proposed as
