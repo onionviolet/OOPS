@@ -78,8 +78,11 @@ const STATUS_WORDS = {doing: 'In progress', started: 'Started', available: 'Coul
 
 /** observer: from observerView(state). Only this seat's world and this seat's own records. */
 export function researchView(observer, state) {
+    const heard = row => !!observer.facts()[row.heard.fact];
     const projects = RESEARCH_PROJECTS.filter(row => !row.world || row.world === observer.worldId)
-        .map(row => projectView(row, observer, state))
+        .map(row => ({row, p: projectView(row, observer, state)}))
+        .filter(({row, p}) => heard(row) || p.status !== 'available')
+        .map(({p}) => p)
         .sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status]);
     for (const p of projects) p.statusLabel = STATUS_WORDS[p.status];
     const count = s => projects.filter(p => p.status === s).length;

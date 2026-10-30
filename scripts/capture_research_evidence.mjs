@@ -25,7 +25,7 @@ const ask = (p, id) => fieldCommand(p, `field.lp1.${id}`, 'Village', {targetId: 
 const checked = fieldAdvance(ask(ask(createFieldFixture(), 'demonstrate'), 'hand'), 6);
 const midPractice = (() => { let p = ask(ask(checked, 'return'), 'explain'); p.gameplay.player.inventory[brace] = 1; return fieldAdvance(ask(p, 'practice'), 2); })();
 const finished = fieldAdvance(midPractice, 1);
-const fixtures = {'checked-evidence': ask(checked, 'return'), 'explained': ask(ask(checked, 'return'), 'explain'), 'finished': finished};
+const fixtures = {'introduced': createFieldFixture(), 'checked-evidence': ask(checked, 'return'), 'explained': ask(ask(checked, 'return'), 'explain'), 'finished': finished};
 
 async function boot(page, expansion) {
     await page.goto(`${base}/?test_hooks=1`);
@@ -39,8 +39,11 @@ async function boot(page, expansion) {
     }
 }
 async function openStudy(page, name) {
-    await page.getByRole('button', {name: 'Find', exact: true}).click(); await page.keyboard.type('Study'); await page.waitForTimeout(300); await page.keyboard.press('Enter'); await page.waitForTimeout(600);
     const panel = page.locator('#research_panel');
+    for (let i = 0; i < 5 && !await panel.isVisible(); i++) {
+        await page.getByRole('button', {name: 'Find', exact: true}).click(); await page.keyboard.type('Study'); await page.waitForTimeout(1500); await page.keyboard.press('Enter'); await page.waitForTimeout(2500);
+    }
+    if (!await panel.isVisible()) await page.screenshot({path: `/private/tmp/claude-501/fail-${name}.png`});
     note(`${name}: panel`, {visible: await panel.isVisible()});
     if (!await panel.isVisible()) return null;
     await page.screenshot({path: resolve(out, `${name}-screen.png`)});
@@ -51,21 +54,30 @@ async function openStudy(page, name) {
 }
 try {
     const errors = [];
-    for (const [name, expansion] of [['fresh-life', null], ...Object.entries(fixtures)]) {
+    for (const [name, expansion] of [['fresh-life', null], ...Object.entries(fixtures)].filter(([n]) => !process.env.ONLY || process.env.ONLY.split(',').includes(n))) {
         const context = await browser.newContext({viewport: {width: 1920, height: 1080}}), page = await context.newPage();
         page.on('pageerror', e => errors.push(`${name}: ${e.message}`));
         await boot(page, expansion ? JSON.parse(JSON.stringify(expansion.state)) : null);
         await openStudy(page, name);
-        if (name === 'explained') { await page.locator('#research_panel details.research-map > summary').click().catch(() => {}); await page.waitForTimeout(300); await page.locator('#research_panel').screenshot({path: resolve(out, 'explained-map.png')}); }
+        if (name === 'explained') {
+            await page.locator('#research_panel details.research-map > summary').click().catch(() => {}); await page.waitForTimeout(300);
+            await page.locator('#research_panel').screenshot({path: resolve(out, 'explained-map.png')});
+            await page.locator('#research_panel .research-where').click(); await page.waitForTimeout(600);
+            note('show me where', await page.evaluate(() => { const f = document.getElementById('field_panel'); return {exists: !!f, open: f?.open, visible: f?.checkVisibility?.(), note: document.querySelector('.research-where-note')?.textContent}; }));
+            await page.screenshot({path: resolve(out, 'explained-show-where.png')});
+        }
         await context.close();
     }
     {
         const context = await browser.newContext({viewport: {width: 1920, height: 1080}}), page = await context.newPage();
         page.on('pageerror', e => errors.push(`gallery: ${e.message}`));
-        await page.goto(`${base}/figure-gallery.html`); await page.waitForTimeout(800);
-        for (const id of ['research-map-frontier.lever', 'research-ladder-frontier.lever']) {
-            const section = page.locator(`[data-fixture="${id}"]`); await section.scrollIntoViewIfNeeded(); await section.screenshot({path: resolve(out, `gallery-${id.replace('frontier.', '')}.png`)});
-            note(`gallery ${id}`, {text: (await section.locator('.fig-text').first().innerText()).slice(0, 300)});
+        for (const effects of ['full', 'off']) {
+            await page.goto(`${base}/figure-gallery.html?effects=${effects}`); await page.waitForTimeout(800);
+            for (const id of ['research-map-frontier.lever', 'research-ladder-frontier.lever']) {
+                const section = page.locator(`[data-fixture="${id}"]`); await section.scrollIntoViewIfNeeded();
+                await section.screenshot({path: resolve(out, `gallery-${id.replace('frontier.', '')}${effects === 'off' ? '-effects-off' : ''}.png`)});
+                note(`gallery ${effects} ${id}`, {text: (await section.locator('.fig-text').first().innerText()).slice(0, 120)});
+            }
         }
         await context.close();
     }

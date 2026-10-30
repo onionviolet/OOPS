@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
 import {previewSimulationCommand} from '../src/simulation.js';
 import {createFieldFixture, fieldCommand, fieldAdvance, fieldContext, fieldReload} from '../scripts/field_fixtures.mjs';
+import {createExpansionState} from '../src/expansion_engine.js';
+import {initializeExpedition} from '../src/expedition_content.js';
 import {observerView} from '../src/observer_view.js';
 import {validateFigureSpec, figureText} from '../src/ui/figure.js';
 import {LEVER_PRACTICE_BRACE as brace} from '../src/lever_practice_supply.js';
@@ -22,13 +24,21 @@ test('every study row names a real command, power and duration (rows cannot drif
             if (d.duration) assert.equal(step.minutes, d.duration, `${step.command} minutes`);
             for (const id of step.after) assert.ok(row.steps.some(s => s.id === id), `${step.id} after ${id}`);
         }
+        assert.ok(row.heard.fact);
         assert.ok(registry.simulation.powers.get(row.opens.power), `${row.id}: unknown power`);
         assert.ok(registry.simulation.commands.get(row.opens.command), `${row.id}: unknown opens command`);
         assert.equal(row.levels[0].needs.length, 0);
     }
 });
 
-test('a fresh life sees the lesson as something it could study, with nothing done and the whole path ahead', () => {
+test('before the seat has been told of a lesson it lists nothing (AD6); the facts that gate it are real', () => {
+    const fresh = initializeExpedition(createExpansionState(71));
+    assert.equal(view({state: fresh}).projects.length, 0);
+    assert.match(view({state: fresh}).empty, /Nothing here can be studied yet/);
+    assert.equal(createFieldFixture().state.actors.player.facts['field.introduced'], true);
+});
+
+test('once told, a lesson is something it could study, with nothing done and the whole path ahead', () => {
     const p = lever(createFieldFixture());
     assert.equal(p.status, 'available');
     assert.equal(p.level.label, 'Curious');

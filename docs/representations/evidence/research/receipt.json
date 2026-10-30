@@ -1,46 +1,30 @@
 {
- "bundle": "3acce3eeb64a",
+ "bundle": "8e29306e3b7f",
  "viewport": "1920x1080",
  "steps": [
   {
-   "step": "fresh-life: panel",
+   "step": "introduced: panel",
    "visible": true
   },
   {
-   "step": "fresh-life: text",
-   "head": "Study\n\n2 to begin. Pick one to see what it needs and what it opens.\n\nWhy the long arm lifts\nCould study · Curious\nAbout 9 min of timed work, plus asking\nMarking a true datum\nCould study · Curious\nAbou"
+   "step": "introduced: text",
+   "head": "Study\n\n1 to begin. Pick one to see what it needs and what it opens.\n\nWhy the long arm lifts\nCould study · Curious\nAbout 9 min of timed work, plus asking\nWhy the long arm lifts\n\nThe Village craftsman c"
   },
   {
-   "step": "checked-evidence: panel",
-   "visible": true
+   "step": "gallery full research-map-frontier.lever",
+   "text": "What it takes: Why the long arm lifts\nLeft to right: what has to come first. The star is what finishing opens.\nNodes: Wo"
   },
   {
-   "step": "checked-evidence: text",
-   "head": "Study\n\n1 under study, 1 to begin. Pick one to see what it needs and what it opens.\n\nWhy the long arm lifts\nStarted · Checked\nAbout 3 min of timed work, plus asking\nMarking a true datum\nCould study · C"
+   "step": "gallery full research-ladder-frontier.lever",
+   "text": "Why the long arm lifts: how far you have got\nYou can say why it works. Supervised practice is now open.\nTrack Understand"
   },
   {
-   "step": "explained: panel",
-   "visible": true
+   "step": "gallery off research-map-frontier.lever",
+   "text": "What it takes: Why the long arm lifts\nLeft to right: what has to come first. The star is what finishing opens.\nNodes: Wo"
   },
   {
-   "step": "explained: text",
-   "head": "Study\n\n1 under study, 1 to begin. Pick one to see what it needs and what it opens.\n\nWhy the long arm lifts\nStarted · Explained\nAbout 3 min of timed work, plus asking\nMarking a true datum\nCould study ·"
-  },
-  {
-   "step": "finished: panel",
-   "visible": true
-  },
-  {
-   "step": "finished: text",
-   "head": "Study\n\n1 to begin, 1 finished. Pick one to see what it needs and what it opens.\n\nMarking a true datum\nCould study · Curious\nAbout 7 min of timed work, plus asking\nWhy the long arm lifts\nFinished · Pra"
-  },
-  {
-   "step": "gallery research-map-frontier.lever",
-   "text": "What it takes: Why the long arm lifts\nLeft to right: what has to come first. The star is what finishing opens.\nNodes: Work a wedged log by hand (done); Watch the craftsman demonstrate (done); Return both records to the craftsman (done); Explain the pivot rule (done); Practise with the craftsman (cur"
-  },
-  {
-   "step": "gallery research-ladder-frontier.lever",
-   "text": "Why the long arm lifts: how far you have got\nYou can say why it works. Supervised practice is now open.\nTrack Understanding, 3 of 5 done: 1. Curious (done); 2. Seen (done); 3. Checked (done); 4. Explained (current); 5. Practised (pending).\nNext, Practised: You can do it yourself, given hands, a spar"
+   "step": "gallery off research-ladder-frontier.lever",
+   "text": "Why the long arm lifts: how far you have got\nYou can say why it works. Supervised practice is now open.\nTrack Understand"
   },
   {
    "step": "errors",

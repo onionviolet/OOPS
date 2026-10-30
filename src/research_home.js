@@ -3,6 +3,7 @@ import {definePanel} from './panel_kit.js';
 import {readPort} from './ui_ports.js';
 import {node, visibleRenderer} from './reference_kit.js';
 import {openWorkspaceModule} from './workspace_layout.js';
+import {centerModes} from './center_modes.js';
 import {observerView} from './observer_view.js';
 import {createMeterBar} from './meter_bar.js';
 import {renderFigure} from './ui/figure.js';
@@ -30,10 +31,15 @@ function createPanel() {
         m.update(spec); return m.node;
     };
     const section = (title, ...children) => { const s = node('section', null, {class: 'research-section'}); s.append(node('h4', title), ...children); return s; };
+    // The lesson's own buttons live in the notes panel (Here view). Say what happened either way (FLR3).
+    const where = node('p', '', {class: 'research-where-note', role: 'status', 'aria-live': 'polite'});
     const showWhere = p => {
+        centerModes().showHere();
         openWorkspaceModule('notebook');
         const target = document.getElementById(p.panel);
-        if (target) { if ('open' in target) target.open = true; target.scrollIntoView?.({block: 'nearest'}); }
+        if (target && 'open' in target) target.open = true;
+        target?.scrollIntoView?.({block: 'nearest'});
+        where.textContent = target?.checkVisibility?.() ? `Opened ${target.querySelector('summary')?.textContent || 'the panel'} in your notes.` : 'It is not on screen from here. Go to the place named in the step, then open Notes and its Here view.';
     };
 
     const render = visibleRenderer(root, () => {
@@ -66,15 +72,15 @@ function createPanel() {
         const ladder = node('div'), map = node('div');
         renderFigure(ladder, researchLadderSpec(p, {size: 640}), {idPrefix: `study-ladder-${p.id}`, text: true});
         renderFigure(map, researchMapSpec(p, {size: 720}), {idPrefix: `study-map-${p.id}`, text: true});
-        const where = node('button', next ? `Show me where: ${next.label}` : 'Nothing left to do', {type: 'button', class: 'research-where'});
-        where.disabled = !next; where.onclick = () => showWhere(p);
+        const whereButton = node('button', next ? `Show me where: ${next.label}` : 'Nothing left to do', {type: 'button', class: 'research-where'});
+        whereButton.disabled = !next; whereButton.onclick = () => showWhere(p);
         const mapBox = node('details', null, {class: 'research-map'}); mapBox.append(node('summary', 'Map: what needs what'), map, ladder);
         inspector.replaceChildren(
             node('h3', p.title), node('p', p.summary),
             node('p', `${p.level.label} (level ${p.level.index + 1} of ${p.level.of}): ${p.level.means}`, {class: 'research-level'}),
             meter('understanding', {id: 'understanding', label: 'Understanding', kind: 'track', value: p.understanding.done, max: p.understanding.total, note: 'Evidence gathered and the rule explained.'}),
             p.usability.total ? meter('usable', {id: 'usable', label: 'Usable', kind: 'track', value: p.usability.done, max: p.usability.total, note: 'Practised enough to do it yourself.'}) : node('span'),
-            node('p', `Time left: ${p.timeLeft.text}.`, {class: 'research-time'}), where,
+            node('p', `Time left: ${p.timeLeft.text}.`, {class: 'research-time'}), whereButton, where,
             section('Steps', steps),
             section('What you have found so far', findings),
             section('What it opens', node('p', `${p.opens.state === 'open' ? '★ Open' : '☆ Closed'}: ${p.opens.label}. ${p.opens.how}${p.opens.state === 'open' ? '' : ` (${p.opens.gate})`}`, {class: 'research-opens', 'data-state': p.opens.state})),

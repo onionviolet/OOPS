@@ -8,13 +8,15 @@
 //         evidence = something seen or tried; understanding = being able to say why; practice = usable.
 //         finding = knowledge key the step writes (its words are the partial finding).
 // level {id, label, needs[] (step ids), means}   the highest level whose needs are done is current.
+// heard {fact}   the seat's own actor fact that means it has been told of this study (AD6: nothing is listed before
+//                 the lesson itself would show it). A row is also listed once any of its steps is done or running.
 // opens {power, label, command, how}              what the finished study makes possible.
 
 export const RESEARCH_PROJECTS = Object.freeze([
     {
         id: 'frontier.lever', world: 'base.frontier', title: 'Why the long arm lifts', subject: 'Levers and pivots',
         summary: 'The Village craftsman can show you how to free wedged timber with a lever. Watching is not enough: you need it checked, explained, then practised under supervision.',
-        panel: 'field_panel',
+        panel: 'field_panel', heard: {fact: 'field.introduced'},
         steps: [
             {id: 'hand', label: 'Work a wedged log by hand', kind: 'evidence', command: 'field.lp1.hand', after: [], minutes: 6, where: 'Village', how: 'Free and sort a wedged log yourself. It costs a log and stamina.', repeat: true},
             {id: 'demonstrate', label: 'Watch the craftsman demonstrate', kind: 'evidence', command: 'field.lp1.demonstrate', after: [], minutes: 0, where: 'Village', how: 'Ask the craftsman to demonstrate, between 08:00 and 18:00.', finding: 'field.lp1.demonstration'},
@@ -34,7 +36,7 @@ export const RESEARCH_PROJECTS = Object.freeze([
     {
         id: 'frontier.datum', world: 'base.frontier', title: 'Marking a true datum', subject: 'Measured fitting',
         summary: 'Eda will teach a paid datum procedure at her Village bench. Learning it lets you fit a measured drain strip yourself.',
-        panel: 'world_completion_learning_panel',
+        panel: 'feature_expansion_panel', heard: {fact: 'world.completion.learning.enrolled'},
         steps: [
             {id: 'terms', label: 'Hear Eda\'s lesson terms', kind: 'evidence', command: 'world.completion.learning.begin', after: [], minutes: 0, where: 'Village bench', how: 'Optional: hear the price and what you must bring.', finding: 'world.completion.learning.terms'},
             {id: 'learn', label: 'Learn datum marking', kind: 'practice', command: 'world.completion.learning.learn_player', after: ['terms'], minutes: 5, where: 'Village bench', how: 'Two coins, a held offcut and your effort for five minutes.', finding: 'world.completion.learning.procedure'},

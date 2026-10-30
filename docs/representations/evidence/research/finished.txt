@@ -1,45 +1,41 @@
 Study
 
-1 to begin, 1 finished. Pick one to see what it needs and what it opens.
+1 finished. Pick one to see what it needs and what it opens.
 
-Marking a true datum
-Could study · Curious
-About 7 min of timed work, plus asking
 Why the long arm lifts
 Finished · Practised
 Finished
-Marking a true datum
+Why the long arm lifts
 
-Eda will teach a paid datum procedure at her Village bench. Learning it lets you fit a measured drain strip yourself.
+The Village craftsman can show you how to free wedged timber with a lever. Watching is not enough: you need it checked, explained, then practised under supervision.
 
-Curious (level 1 of 4): You have heard Eda teaches a datum procedure.
+Practised (level 5 of 5): You can do it yourself, given hands, a spare log and a body that works.
 
-Understanding0/1 · not started
-Usable0/2 · not started
+Understanding4/4 · complete
+Usable1/1 · complete
 
-Time left: About 7 min of timed work, plus asking.
+Time left: Finished.
 
-Show me where: Hear Eda's lesson terms
+Nothing left to do
+
 Steps
-◆
-Hear Eda's lesson terms (Ready, Evidence)
-Village bench. Optional: hear the price and what you must bring.
-·
-Learn datum marking (Not yet, Practice, 5 min). After: Hear Eda's lesson terms
-Village bench. Two coins, a held offcut and your effort for five minutes.
-·
-Fit a measured drain strip (Not yet, Practice, 2 min). After: Learn datum marking
-Village bench. One offcut and stamina; repeatable once learned.
+✓
+Work a wedged log by hand (Done, Evidence)
+✓
+Watch the craftsman demonstrate (Done, Evidence)
+✓
+Return both records to the craftsman (Done, Evidence)
+✓
+Explain the pivot rule (Done, Understanding)
+✓
+Practise with the craftsman (Done, Practice)
 What you have found so far
-
-Nothing learned yet. Each step you finish leaves a note here, in your own words.
-
+Seen: In Village, the old craftsman demonstrates a pivot beside the wedged timber: brace the near end, then lift the far end. He offers instruction when willing and available. (You were shown, today)
+Seen: The craftsman checked your completed hand-work timber job and lever demonstration. Both assignment records are accepted. Explain the pivot rule, then complete paid supervised practice to learn the method. (You were shown, today)
+Understood: The old craftsman checked your explanation in Village: the brace stays near the pivot, your hands lift the far end, and you stop if the timber slips. Paid supported practice is still needed. (You were taught, today)
+Understood: The old craftsman taught you lever-setting in Village after your pivot explanation and three minutes of supervised practice. You used one Lever practice brace and spent one coin and one stamina. You can now free timber with a spare log as a lever; actual hands and the held tool remain required. (You were taught, today)
 What it opens
 
-☆ Closed: Measured drain strips. Two minutes per strip; each keeps the sample it was fitted against. (Reach Applied)
-
-Next level
-
-Terms heard: You know the price and what to bring.
+★ Open: Free wedged timber with lever-setting. 2 minutes, one log and one stamina; a spare log is held as the lever and returns. It can repeat on its own.
 
 Map: what needs what

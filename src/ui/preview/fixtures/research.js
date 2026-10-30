@@ -5,7 +5,7 @@ import {FIGURE_FIXTURES} from '../figure_fixtures.js';
 import {researchView, researchLadderSpec, researchMapSpec} from '../../../research_view.js';
 
 const seat = (completed, knowledge = {}) => [{
-    actorId: 'player', worldId: 'base.frontier', knowledge: () => knowledge, completed: id => !!completed[id],
+    actorId: 'player', worldId: 'base.frontier', knowledge: () => knowledge, facts: () => ({'field.introduced': true}), completed: id => !!completed[id],
 }, {clock: 600, actors: {player: {completed}}, simulation: {jobs: [{id: 'j1', actorId: 'player', commandId: 'field.lp1.practice', due: 603}], powers: {}}}];
 const entry = (stage, value, kind = 'instruction') => ({stage, value, at: 590, basis: {kind}});
 const [observer, state] = seat(
