@@ -17,6 +17,7 @@ import './hp_brewing_domain.js';
 import './rank_gap_observer_domain.js';
 import './lives_carry_domain.js';
 import './lineage_domain.js';
+import './research_home.js';
 
 // One mount point for the shell-wide helpers that read the DOM the shell already shows: the command
 // palette (GU1) and the row menu (GU9), and it pulls in the reference sections (SX1 to SX6), each a
