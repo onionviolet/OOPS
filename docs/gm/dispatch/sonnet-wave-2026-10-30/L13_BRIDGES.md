@@ -55,6 +55,17 @@ Re-checked after L10 Sequence 5 and typed blockers, L11 multi-city and gathering
 - G17 `learnView`: `learn_tab_bridge.js` `skillsTabRows(views, {labelOf, known, understood})` -> rows `{id, label, stage, stageWord, canLearn, gates, refusedBy, progress, practiceMinutes, sign}`. Built. Cards not in `known` get no row; `nextSignAt` only for `understood`.
 - G18 `whoKnows`: `knows_ask_bridge.js` `askListFromWhoKnows(known, {self, knownPeople, nameOf, topicOf})` -> `[{personId, name, topic, action:{kind:'ask', to, about}}]`. Built. No route, day or witness level leaves.
 
+## COV15 gated figures (2026-10-30, requested by General UI)
+
+| Figure | Bridge | Signature | Live feed (host supplies) |
+|---|---|---|---|
+| Ritual | `rite_state_bridge.js` | `benchWithRite(base, graded, {label, known})` -> bench detail with `rite` for `riteCircleSpec`/`riskLedger` | `gradeRitual()` result; `known` = condition ids the seat has learned. Any unknown condition returns `rite: null` |
+| Combat chase | `chase_range_bridge.js` | `withPursuitRange(chaseSpec, {routes, here, pursuerSeenAt, labelOf})` | pursuit policy routes; `pursuerSeenAt` only when the seat has seen or sensed the pursuer, else the track says unknown |
+| Research | `study_bridge.js` | `studyProjectFromLearn(learnView, {label, opensLabel, known})` -> project for `researchLadderSpec`/`researchMapSpec`/`projectLines` | L10 `learnView`; learning an ability is the study in progress |
+| Spacetime | `place_history_bridge.js` | `placeHistorySpec(book, person, place, day, ctx, {eras, textOf, placeLabel})` -> spec with one track per era | L14 event book; eras named by the world calendar |
+
+Not done: gallery fixtures that match each bridge (the COV15 done check asks for one per read model), and any route for a fresh life to show Research or Rituals; both are view-wiring. The study bridge covers learning an ability only; a non-ability study project (a lesson, a book) still comes from `researchView` rows. `left` for a practising step is the per-session `practiceMinutes`, an upper bound.
+
 ## Verification state
 
-Focused tests pass (14: `tests/read_models_*.test.js`). Not wired into any UI, not built, full suite not run (integrator's). The combat test inlines `rungOf`; it does not import `harm_state.js`, which sw-death had staged but uncommitted at write time.
+Focused tests pass (20: `tests/read_models_*.test.js`). Not wired into any UI, not built, full suite not run (integrator's). The combat test inlines `rungOf`; it does not import `harm_state.js`, which sw-death had staged but uncommitted at write time.
