@@ -1,0 +1,1740 @@
+{
+  "schema": "r3b-resplit/1",
+  "inputs": {
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/coordinator-gaps.json": "dbda7f9454a8a7504fa14810a1c49f8d07b0ea1ce240c836af8c0aca564ba2ce",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/inventory.json": "c6b724dd7e39b28043115885014114ecb497bdd06c4c6e405e68a3106338c8a0",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/manifest.json": "81f5cdf9bcfa72f7ce02c4492f348d79e5c60a18b856a871c2249b13d4a267c7",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/unread.jsonl": "c385e62a5cfb71bf080fcdae81e2f33e26b46eac8b9fe7ccf3855d6b6803cea4",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/luna_methods_01.jsonl": "142988f2d99a5e5d0bc927fade873e85367c0d48c68cf3fe282f8d85a37179b6",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/luna_methods_02.jsonl": "b2781af031cf232385c64f62d8f1047b13741cd311a5bce1009aef4a4568cf06",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/luna_methods_03.jsonl": "10f767e0eefcf82903a51195aac0a04e024ba6a86f1d848927425313f412f3af",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/luna_methods_04.jsonl": "96c9bf17f35bf4485c37b936f7b44269fbc7a83237ba309edcf8cd88296da37f",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/luna_methods_05.jsonl": "11c6524ca4e2f024339e25f9d18cebf02443e6536ed7b39db15c7cfc198be4c2",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/luna_gm33_01.jsonl": "04403ee87899091fe92ba139c0d3515e9eee92bbb02044c13a326e826bda2adf",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/methods_05b_in.jsonl": "07576f2ae80fd457f4383f12605f2e671cb8e34b2775db39a8bdc892e0eb215b",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/volume_corrections.jsonl": "9bdec01fc6ef218020ea00d8f829904ea69d8566b956fcb3d077d17ce66f9af1",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/methods_reviewed.jsonl": "0fda0819af179162aafda17553b156eafe5fc366a13529d26920b71a236f3890",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/gm33_reviewed.jsonl": "673bc8bd664605acd6b4b29fc407deb6485285cf24e4c79961e12808b5d9633f",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/methods_all_in.jsonl": "fe01bdfb5c25e328f74cc4ec6a4bcd9a18e63017b93c0df4b52ca4fd7fd21c79",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/gm33_all_in.jsonl": "5d5f29253696500ed46b28d39f51d0a2c70a418215d35e471db8f814a27be987",
+    "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5/manifest.json": "45871f9f40ba6d6b94b342fa9c3cd7ced6d391d8d06f436daaaafdbe7ae70041",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2a.tsv": "31184131618c97fd535945b621b24d9505953a8371ae739487d43aa08af3b3f2",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2a.tsv": "fe1aeed4428f172e80339dd34bc13677c0f6b61a6ef006532cce87b29f459296",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2b.tsv": "e5f8c91ff1c38c93225af1766a0b2d14f874592a58b5184f9c17d9caebf536cd",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2b.tsv": "3f59f813d9055bcc9f1332431014b43b7eea7d57b48baff6cdf2e518c2b1e6e4",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2c.tsv": "4c4fcf7606b7144064a6e70d4b88ec08cd7fd707b2dba095467a63bd8b17d17c",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2c.tsv": "bba52de9d47ab5c452b2751dd8ca7374212946dd686a8c853535775ab55bd795",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2d.tsv": "0a64a1eedeb358b8af20eb84e4626b8324a2ca59f5c74bbb3151fc99204674e1",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2d.tsv": "416440cea22a41fcfaa054cda395b3afb37da8755aff7b0199e9258978c86313",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3a.tsv": "77648ce9366f45c0f847d8b600b6afc7f5652d88b0332272d5bbeece0ed907d6",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3a.tsv": "1c704e3c4331f91eda50d9b36fdec6eb36a96dcfb6a774570e3adb4799c5506d",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3b.tsv": "c735110629488f8ac2997c80bcf9de5768495608dae7c7e4b77dcadc5d96fcee",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3b.tsv": "4e905084a6aa759b2b37ab7ace4c1ba10bdcad7e79c246a694b02da266c5f20c",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3c.tsv": "855951ae80144849137dbc6bb0aeacdefc2062c1961712c816a010a2eaaa2eac",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3c.tsv": "9ed82206720ec568aa302f0175f48cb62c4b452e1cabc86f91cf41b25f4711ab",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3d.tsv": "4342bc13b8092748deefc17353a8a3a7cdaf62c7139aac433535474e49156af9",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3d.tsv": "7c2c41e79c8cecd0723a7dd6fa4423939a48bf3a473f2d72d535e5112a36e14a",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v4a.tsv": "10d589afed5f6a8456eb74e802b19de116283ddb7123d92a476719b10799a130",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v4a.tsv": "37f9d5f7949287da3d35e301867aa4dfb6c18d5fdccae7dec537a01575445c6a",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v4b.tsv": "73724ef9ddd74f8dfa49b9c55bb4614634f685fb8673867f7f55550658945df4",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v4b.tsv": "1a63ef0d7acf928b7c2f95ccf3d749b3ad7c5ed31a602471803f6317de6e5672",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v4c.tsv": "e5f7d852a9a63b9a9c7b3045819cf7aa07df88c944a3d080b2847d14c390c26c",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v4c.tsv": "8194d25c3a9209917823873514725dcdaf9ab9108fd86270bc3d7a3e46254e7d",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v5a.tsv": "1ce45532d642c585a9473baeee1244ebdbf1c8ba97570e026a2c13f28cd6cb12",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v5a.tsv": "6f8619fbe3433df6631cc9f190982d96d07e0ae2d91bfb0878832bedbf9660e3",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v5b.tsv": "777308c5f7e5ccaffbe148bbacfb2580be17f925f9bdaed79258c697ad6dd5ba",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v5b.tsv": "111e1466e77c94bc203c06711819f94e0c89cc6de0e045b50d1cd2911672a051",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v5c.tsv": "247c8966966c638ebc9067574bafcd25effc44336b3d71e1ad4548e3e0f33ec1",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v5c.tsv": "2529476ae423ae836c0b7975aca06b5d1f258ae63e81896836c02f1dffab871d",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v6a.tsv": "b31d819cf8452ec06d30b94b7c081c12f191effdf6d3e4b9c3f4ab58ba3ce8a2",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v6a.tsv": "fb7b8f475e8707aeca168e6b8d94df758b61dc52bbff1702a446f126c1a5dde0",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v6b.tsv": "5a1213b1382d54d1d94106d8d03a3562709ff3e8876fad7ded73a003ac5d5278",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v6b.tsv": "7d10a0a4fb0f0786409f7acc0e80e021b5ba685b06685ccaebfd0c80e6dc3f1c",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v7a.tsv": "872a444ae5950dacbc7bfaf3d8a6fdb1fd38fa010081c65ae5e6e4dc9c0c3f1e",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v7a.tsv": null,
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v7b.tsv": "d986694c734cc248608e0f234bba21dd5d77017b4f51ae3a775ef63e422c9d27",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v7b.tsv": "3b02c21b4cab6d7007329f5434bedc7ad1d6e85449a529bbc05f08e182e13876",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v8.tsv": "eb40459a45ad05847a74e42fd0bbebd9c7bf80c5e3c4835a9519047f4b8effd6",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v8.tsv": "c9342ff55bd1c01b3e6ce9a5404b2b27a58d12923657a62fb3c4b323331f95ac"
+  },
+  "families": {
+    "c1": {
+      "unread": 1363,
+      "cap": 40
+    },
+    "c4": {
+      "methods": 1022,
+      "gm33": 175,
+      "unread": 1197,
+      "cap": 35
+    },
+    "c5": {
+      "unread": 42580,
+      "labelled": 8614,
+      "skippedRunning": [],
+      "cap": 500
+    }
+  },
+  "briefs": [
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b1.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b1.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b1.jsonl",
+      "rows": 35,
+      "inputSha256": "11cecb31ddfa015d81550e18e98ae632aa370a180193901db70d53b3fc97d0e8",
+      "briefSha256": "2a9de6dadfb3f6a26c039b0e34f00d1a015ef61bc35eefbff2e85d77207a9a8a"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b2.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b2.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b2.jsonl",
+      "rows": 35,
+      "inputSha256": "c164e4dc1f67f152f97284224cfbb53546493c559e5c4f1e68bf5d233599d327",
+      "briefSha256": "44abb21f43727dc0ad9db20cdd3208cbc56529ed24ec9813977ac5effad21225"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b3.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b3.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b3.jsonl",
+      "rows": 35,
+      "inputSha256": "cd02c4138e74360edbd7a91b8f48c9a08abbdfeade9e2eb4ebcbfe3639f9dbb3",
+      "briefSha256": "8388bd2adeacca5325e94479382569bb394cc59924f5b4c20544f5a3a7850e76"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b4.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b4.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b4.jsonl",
+      "rows": 35,
+      "inputSha256": "015b4d8794585839e852450a32963ef5d15f5652d63fda6a9cc9f17ac09168e4",
+      "briefSha256": "219eca4728eb9373890986338d78d3866bece64bbcfc757413e9b22008c7727b"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b5.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b5.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b5.jsonl",
+      "rows": 35,
+      "inputSha256": "b1be4f8e38d7c454a164558f0651deb5f98e40d5dc77e654fd44a8c253ea21ec",
+      "briefSha256": "1074cfccb74b70f0747e294b6251606ab60c3df37e59f70d945e2e86978214d0"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b6.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b6.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b6.jsonl",
+      "rows": 35,
+      "inputSha256": "5eb2713ba67a70d388c7db448cbae73129aa7c0e20cc090896302afceea757f1",
+      "briefSha256": "f6f65448197011123d65e278c54fab8b7c3eb9fc30b8a053c1ff95f8de385596"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b7.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b7.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b7.jsonl",
+      "rows": 35,
+      "inputSha256": "2ee7595c54605dcbb4f3e756c3c77523a00241614f067863c545cf51440cb645",
+      "briefSha256": "e9f2ba0cd44de987f64589caddcf8c6e7faaf259bbb262c620d204590c8c0921"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b8.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b8.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b8.jsonl",
+      "rows": 35,
+      "inputSha256": "7f4523af9deae7ee857ec92d6f249fd22cafec5297a39485eeffc072689cf8e1",
+      "briefSha256": "545e17361e626d8142a28cedf539c166345fac24bbf6c416a795f52c13bad6dc"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b9.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b9.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b9.jsonl",
+      "rows": 35,
+      "inputSha256": "6b76541dd01553b59a937ad6f316c08f985f64229e3487ddf3b59ae466c399b1",
+      "briefSha256": "4ce1c9f1fd46a0ece26a5bfb21244bcf2d8e514e9b6e39a3ad142ca37f72881a"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b10.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b10.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b10.jsonl",
+      "rows": 35,
+      "inputSha256": "39d768d164c1fe09eec8d6c874df6c2114079f1c349efcb264e4a3e8c95aee77",
+      "briefSha256": "ea2da7ed00d6155ff2d5650121ef2e3ecb492948245f3fa873b2ccf26bddc98a"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b11.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b11.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b11.jsonl",
+      "rows": 35,
+      "inputSha256": "b26211cf0664b2426170ab5fe9b72c33ba47e0dce1606dd2124dd4c3c469e774",
+      "briefSha256": "c4b0919764eeb9760bc4613a5ecaf5a308fede0bfa5d36b8fc792c807eb125b0"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b12.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b12.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b12.jsonl",
+      "rows": 35,
+      "inputSha256": "05cc4c57c04b541d1cc826d413ddf92ce1ab906126c458e232061b87ef10c9f4",
+      "briefSha256": "83b665b3fb5c97fe1cdab5486c4546ad26b66425cc0d4ff252a005254501d476"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b13.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b13.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b13.jsonl",
+      "rows": 35,
+      "inputSha256": "b5d33868563bac2d8493e187625b603424bd63b677001d5a1d6c1c2fb11ae9b1",
+      "briefSha256": "e0a8f42e75ff69a8f2a4614b73af205660981f37936d2169424d05bf77fda000"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b14.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b14.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b14.jsonl",
+      "rows": 35,
+      "inputSha256": "9e4aeb3454c7478c65084d75fe5d87242e38e67135902e91ad943c0d3d891e79",
+      "briefSha256": "a91f01ed13547480e4843f7b23fbce8945003b82d7607eebfb2de3b918913919"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b15.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b15.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b15.jsonl",
+      "rows": 35,
+      "inputSha256": "e4c94a05bdb141b22d143cd1e9195af95f539422e441202434e7d1fdf1cff2d0",
+      "briefSha256": "d679cf2c52a444124d8096b312b0e0f9e1a57f8836189760c245127d0baf5c40"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b16.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b16.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b16.jsonl",
+      "rows": 35,
+      "inputSha256": "589476fb01888e248c3ed6c3c3a50a61571aa06611fd563e07116ba602ce4877",
+      "briefSha256": "dc9ba5e8b843476f14dcf3b0daa5e214a1eb6c203e5d6b4ea6684f5086b4d1b2"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b17.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b17.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b17.jsonl",
+      "rows": 35,
+      "inputSha256": "b173ae4c8f0415ba3b01675a85fbbf658b1a5008d9cdc6f6dd72339ec2f32e1d",
+      "briefSha256": "9db254d4e840cba678819f9b290eaf274dd5b49a06b4da8042b633a9a051bc1f"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b18.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b18.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b18.jsonl",
+      "rows": 35,
+      "inputSha256": "08661db8fc75a32e7ec3d07158fbbe4ba13db5c80b43d814ebf3f0db856b52c9",
+      "briefSha256": "470c0d9c3d95189e1bf2f5dccaeb7ed98a00958177437edfe7d3a4834e61fafa"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b19.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b19.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b19.jsonl",
+      "rows": 35,
+      "inputSha256": "947b4df15435524baf9ccba25b696c11e0372af3fe1c560e9bcd2b72fbdd0a37",
+      "briefSha256": "eb227e9cc8c1c366375ab3074996465b993126f345d3aacb741ed00665664626"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b20.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b20.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b20.jsonl",
+      "rows": 35,
+      "inputSha256": "f4f422abec1bb69659c7a81687357fdbe8d2a3ddf0c533f641f82dcbd5886f76",
+      "briefSha256": "fd6fbe4e258a6aea0c438dac829fdc77cc6cc05002c256dfdda54e20fba73c06"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b21.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b21.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b21.jsonl",
+      "rows": 35,
+      "inputSha256": "bf2b9e74985f3203cb7ac55bb5a1de8bf927084f54a4bfa5ac62993a18a5b565",
+      "briefSha256": "4ef635f629da77bde338e797ae21c527bbd4e1c2e23008870faf6b3c234eb68a"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b22.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b22.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b22.jsonl",
+      "rows": 35,
+      "inputSha256": "403508b24eb688e30fdd8b832391f935a11477f632aba51234b2ae147cae2def",
+      "briefSha256": "acc465350ce1b3f45fea834a5ed97988642709cf3c912b2b7ae37f1531e11fcb"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b23.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b23.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b23.jsonl",
+      "rows": 35,
+      "inputSha256": "479b6fe4b480cd02b9abd37d95f6f2ef432d4ec5a2b2fc579a587be97aacf129",
+      "briefSha256": "441009826d584625600c7b2893537e5dcbcc3c1faaaf1b902cab8b9f5241d5ae"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b24.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b24.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b24.jsonl",
+      "rows": 35,
+      "inputSha256": "182283cc0cdb30b8c3e46c51852fd3b754f64037647cf5b87ac8351af835ada2",
+      "briefSha256": "2cd71f6480635eda87e81bc70bd1223d66a9c04be5a4af86a45972d382253add"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b25.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b25.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b25.jsonl",
+      "rows": 35,
+      "inputSha256": "ba5a0c731a743129124d26d456e1da349d54ee3931aba1387615119d7dd56a3a",
+      "briefSha256": "b6556bea99124eb68898bc5fe63f4e0538440f00ad1cfa3fa292e8601251706e"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b26.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b26.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b26.jsonl",
+      "rows": 35,
+      "inputSha256": "6d22d9ea609c64492a59da0a45f5fc35baa5b05d57489aa1f5406570635509af",
+      "briefSha256": "58e76ab8a2ef25b40e6cb68df7c956131666b217ec6b54349aa1ee06fa49a5a4"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b27.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b27.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b27.jsonl",
+      "rows": 35,
+      "inputSha256": "2fc54935dcd16e31b4efe281e7ff53552b1b60a4e4b040ab50b559574d89e445",
+      "briefSha256": "afae2c746bcb5943652f76e4da298e86c8066ebad194dcf2ed6b6c7caaf15ab3"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b28.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b28.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b28.jsonl",
+      "rows": 35,
+      "inputSha256": "7a7216318b493a23a25b9d427c1a16d573edc09ba2268a64aa6289c30e450d74",
+      "briefSha256": "65e8df9215e2f316d2c7f169289d1e1a38429712a9609ed78e0e9eaa802de363"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b29.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b29.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b29.jsonl",
+      "rows": 35,
+      "inputSha256": "0118e610ad01056fb1dad5272224f6c188862e5af2c4db49e636105c3343e1c5",
+      "briefSha256": "1e6a67803d6979ea5c0776a008ef281b4b0b16870289811238263958f6061af0"
+    },
+    {
+      "family": "c4",
+      "group": "methods",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b30.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b30.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b30.jsonl",
+      "rows": 7,
+      "inputSha256": "0f25d43a503ac3a36bf143f113e33cc9d9576f67686cf4c81ad1ef18586b638f",
+      "briefSha256": "67c15baa236c0f9b6f6f1bfb0728af98b97e713680c0b9c1458b6d78b9ae5756"
+    },
+    {
+      "family": "c4",
+      "group": "gm33",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b31.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b31.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b31.jsonl",
+      "rows": 35,
+      "inputSha256": "22f57e8daf978377077d90664c99a407abe553c45c106633eb93781f03924eeb",
+      "briefSha256": "d7450a19230bc3aa45ce01ad71de4a42f98e3a4ae0ba022ff9ae40b42e7fd384"
+    },
+    {
+      "family": "c4",
+      "group": "gm33",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b32.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b32.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b32.jsonl",
+      "rows": 35,
+      "inputSha256": "8e16b40885dafb2c60298af540c2b4efecd3a8e0b1035df460b476cbceabfb45",
+      "briefSha256": "526e4c8e4ed678ade3d1380516493066f8b66f156121c0f39f686ab040268c3b"
+    },
+    {
+      "family": "c4",
+      "group": "gm33",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b33.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b33.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b33.jsonl",
+      "rows": 35,
+      "inputSha256": "f9dfab83f078952ba3da42333615867591a0312a6ed8b0b31dbae4d96714d983",
+      "briefSha256": "b4d2b1223a7ee81cd7249c78da1d066021612575082b23448045c7a86e9dd4fb"
+    },
+    {
+      "family": "c4",
+      "group": "gm33",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b34.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b34.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b34.jsonl",
+      "rows": 35,
+      "inputSha256": "965c93dc52ea4a2f87b382323ccf48a43f20c5f8db78824625e79c101a79b2df",
+      "briefSha256": "aed897baea8ac010bf36aec373b6b934f502356b29e0454c768b31125535402c"
+    },
+    {
+      "family": "c4",
+      "group": "gm33",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c4b/luna_b35.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/r3b/in_b35.jsonl",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l4/v4plus/out_b35.jsonl",
+      "rows": 35,
+      "inputSha256": "6db6e9a43612f9bdf0b7aeede7f6a9bf4c676995c88cd2aef1374c09d5eeb7bd",
+      "briefSha256": "337fe43fbc41af3c58e03d4916ac0543bffaf5f19d3eead467ebebd7c6ba5b2f"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b1.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b1.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b1.jsonl",
+      "rows": 40,
+      "inputSha256": "4524f96ad7d0f5f936ea4013db39c51c0d5a2508337802368a3ef981e8949d98",
+      "briefSha256": "2970fe3ab7f73ddad807faa1a3c747d5914f50c5dae700c36d8e18cc4f5e5a7e"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b2.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b2.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b2.jsonl",
+      "rows": 40,
+      "inputSha256": "225901046f827164af4416679dda631f451bca372cb6f197721ffa4223c464df",
+      "briefSha256": "beb6b2e5e1bca94e92c89a4598238e4f6bfb219591cb562c8e6251e8ad883f29"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b3.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b3.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b3.jsonl",
+      "rows": 40,
+      "inputSha256": "cdfa9ef781b79f9b8dd72d0298d4b1f8fb33647cd3daad18a7396732c31decec",
+      "briefSha256": "f265442b0d4e0a26c8aabba62e25f69279f697bdade9f1d8fb5ea7119f110b3e"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b4.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b4.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b4.jsonl",
+      "rows": 40,
+      "inputSha256": "7621463df3f44dea9d02d4961e87ccb268fa8096d724a787a585a7a18ff48348",
+      "briefSha256": "3f0eee3483aff993561909c12e984e00a30b793d59392e172a1c2c8e34bc338a"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b5.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b5.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b5.jsonl",
+      "rows": 40,
+      "inputSha256": "1586b438d5cd284d81c98df26d11db63fd0c28c8070fd4130c17efa30e0f38fa",
+      "briefSha256": "c20faa50cc256fd0fe06981962c90ebc84a5c7d59d7a9df4b6be03b88b1ea66e"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b6.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b6.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b6.jsonl",
+      "rows": 40,
+      "inputSha256": "1b0dea64ab4b4dadfa3519e4f3865e8efae30fec001e4bfb3d9b71ccd00f2b87",
+      "briefSha256": "46b88d4362ea35575ccda4e4c9654ef54b2e04c3071fa7605a6c35131612c9e4"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b7.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b7.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b7.jsonl",
+      "rows": 40,
+      "inputSha256": "5eb436f2d318e41f90d9616c761787ef1006d3552666d0089070370bd22271fd",
+      "briefSha256": "ae42ae8a8a7eda0f1ff3bb1752ae5f44babf0681fb44cbd35082498b14a4be2c"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b8.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b8.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b8.jsonl",
+      "rows": 40,
+      "inputSha256": "e01cc641ac4c70d95e365bbb54fd4fcee0121054b52b1c0fdfa325749453ec96",
+      "briefSha256": "09652c54ea9fb6b0cfa7c73fe42e4774c92904771c9e00013b52def580def0e8"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b9.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b9.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b9.jsonl",
+      "rows": 40,
+      "inputSha256": "bca758adcfa1f917ac0752455cdf7487e0a7385a62320e5692bfa9a624c32882",
+      "briefSha256": "90a6c7569370770eacf597acc1b0a887c1e152f3e54e690e096ec97d538b4686"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b10.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b10.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b10.jsonl",
+      "rows": 40,
+      "inputSha256": "5cefb1597ab8c639b169a0d7ffe818992dddc6f18dd57925dae379a325ebdf05",
+      "briefSha256": "405af5199183d3edd03f040126dea398172437cbe7708eda3f572dcae543b7ce"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b11.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b11.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b11.jsonl",
+      "rows": 40,
+      "inputSha256": "392c59d0a0752862186dd0a221e456d60093fcd2d43634dadafa2a93d2bc2903",
+      "briefSha256": "b7c82c3cee1290d950c2eb4bec480343045e1ec95f76032372ac230951120ec4"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b12.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b12.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b12.jsonl",
+      "rows": 40,
+      "inputSha256": "2d644a42ebe533713bf66903f1469545a407023d8cf8695d062162a94a497302",
+      "briefSha256": "5310da05e094161bb4b7e8d157924c9e0687c47177917244e84359f95074440e"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b13.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b13.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b13.jsonl",
+      "rows": 40,
+      "inputSha256": "4b8a74809e9e691422350f1f58819f668fc119405d9b889ae49917347dfc84a8",
+      "briefSha256": "ff8518786a0e50d9a901d16127845f449fbeb7d12a8b7aa357d88b57e0ef467d"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b14.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b14.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b14.jsonl",
+      "rows": 40,
+      "inputSha256": "0d6eea2f816f01abc649549ff5c79b148a98fb55214c11b10a585bc8a4143676",
+      "briefSha256": "3b4d4c485595a7f4d6249c172199faf7fd08c5ef009f84ce05fdfd5e38c3ef79"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b15.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b15.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b15.jsonl",
+      "rows": 40,
+      "inputSha256": "65bf1a09f5217a41b3b750054d2a2c2b6ca3c9845eddad26bbb6dcbe3a702671",
+      "briefSha256": "ae4c8419183206cb5411b4a61cb3099f8e262329e8d8017092a3ab6b428d5f40"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b16.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b16.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b16.jsonl",
+      "rows": 40,
+      "inputSha256": "8cfbdbf5fb813b66e734497e63e614cba64fec18a22fc5c6e9d902684e04c6f1",
+      "briefSha256": "a8e0b16124db7083a837a9ce66a6e54fd68e4ca7862c4e1dba7064a3d4aaad0f"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b17.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b17.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b17.jsonl",
+      "rows": 40,
+      "inputSha256": "2be0825e5df4ffcdd335c3fbcc664bdb07f5bfbe23f0bf44d8bc94cf8290865c",
+      "briefSha256": "bb714c56232e71d0d9114b0c7c695471cb94bbc30455b7e260158ca6c250054d"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b18.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b18.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b18.jsonl",
+      "rows": 40,
+      "inputSha256": "37a9e81590b3083f420122f0a3db763415dd4789ff776c1052e9d4ef02ffbc63",
+      "briefSha256": "605b077de6999c4ff8ecf7e856abfcc37584fa32cd82ffdc02d9aa0a631baaba"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b19.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b19.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b19.jsonl",
+      "rows": 40,
+      "inputSha256": "76ab72532c50f72ed090a04b25c3031cea049859d2182a54c8a3c09ec3314216",
+      "briefSha256": "7680840711733f3a547aef98da239cd091a634bf94d85be10154a39216d29dcb"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b20.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b20.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b20.jsonl",
+      "rows": 40,
+      "inputSha256": "c05ed8e7e435c56a874c715c70fb15039813abd72adf87c39d0f4e4c06944dc7",
+      "briefSha256": "f64d098d8b8d36ef72ab2c5f6e5c65a122e9a2e4e170de49d8fb427f0b17a5b8"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b21.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b21.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b21.jsonl",
+      "rows": 40,
+      "inputSha256": "542bf41bda431816a18ff2f1f30067a3696f447e216f642317cd2809a72214b0",
+      "briefSha256": "16140b567580e7cc0c44dbede1e0dcf8de7ed6f67dd7f752abfe08801413dd89"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b22.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b22.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b22.jsonl",
+      "rows": 40,
+      "inputSha256": "a8a402d03dfc59367172a335bea7078705c39cc47760b0129077c868eb86cedd",
+      "briefSha256": "f6e9ed40d0613db08702849aafed77d8ee6bb2772556105af234f10f8383a9b4"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b23.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b23.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b23.jsonl",
+      "rows": 40,
+      "inputSha256": "06a5cae8ef05d48216cbbf1b452e43b2bc37932d88e223ba6c65b396a07ea3b0",
+      "briefSha256": "b9701fb8b1c83a488b7590754a821b1340b64e3ee2ded392958b6fc23ef288b0"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b24.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b24.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b24.jsonl",
+      "rows": 40,
+      "inputSha256": "965003c2a6b5a185846177b78e31ed25696b0d6ffd5b21a4e961b44863762c6c",
+      "briefSha256": "f8799a9fe8b8e948a0dba89d7cebcafc5974b196a0d109b381b00103fc36a999"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b25.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b25.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b25.jsonl",
+      "rows": 40,
+      "inputSha256": "20650f83899fb632d25e7913d0348004e96a215260d50fd8b30a9c7789f6f658",
+      "briefSha256": "c9f19519d2a6081d2f2be90fbe7dd5ae3d4752405b231cb2ea975a0d5b0eb207"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b26.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b26.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b26.jsonl",
+      "rows": 40,
+      "inputSha256": "746a63982d61bd3dfe2125354ec560d3c11a9aef42efda36668ae9805ac4d1d6",
+      "briefSha256": "9690b67f0996b10e1971f42f7eb34d881f1bb9fa6964ed758d607ffba7563899"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b27.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b27.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b27.jsonl",
+      "rows": 40,
+      "inputSha256": "e98fdf9d9e2c8405cbb20a6580539d9fe1bd7d4080c0dab1fe72adebf1bbc574",
+      "briefSha256": "06640a1a7b7da8b79a68147ce78328fb4a5fb0142be642344193160d12fa6811"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b28.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b28.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b28.jsonl",
+      "rows": 40,
+      "inputSha256": "9c60d69fa0f1effe9d36c82abc949238a17834eeb36c753d7835669f0837bf74",
+      "briefSha256": "4adf2737e1dd2ea6fa1c54dedcaf4c3fb5146ea119c4a66fe1b4b248aca025a0"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b29.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b29.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b29.jsonl",
+      "rows": 40,
+      "inputSha256": "75b422806124813f957461e6eb0b96c6c0948c93aab810b0bd95a58bb2c80efd",
+      "briefSha256": "eb97c7c7ab8a9731d2a240e365bdbcb589b47b20ed9ceb21859ea762e20e5a20"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b30.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b30.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b30.jsonl",
+      "rows": 40,
+      "inputSha256": "6fba01964817bf3ecfb2aca71af7b357d10fc26ffa76ec758cc5512e3d572235",
+      "briefSha256": "53833d8d4ff74ba3b3d17155b02a4e03084952a9bf06a721e46e8a441d60f576"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b31.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b31.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b31.jsonl",
+      "rows": 40,
+      "inputSha256": "f77a7efe8b9adfe6479e6c295ed21eb24e79f659fced672e199dd3e0584b9508",
+      "briefSha256": "df727d0dc97a8c65622d03acafc37cd2503b8a1fd18f5d51d547c1dff2105409"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b32.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b32.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b32.jsonl",
+      "rows": 40,
+      "inputSha256": "c795c821d61d5d35a467cb532c0fd059ed7e91ce8ef92fc1483f225497f1b57c",
+      "briefSha256": "7cbf5873a3c73f8950d8950e38f4cb32beed10ec08672115f5b61454e9f123f8"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b33.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b33.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b33.jsonl",
+      "rows": 40,
+      "inputSha256": "b19155235c9baed65e0ac0ba81cae55dd679db6a48a1c5b340806e134fe68ce7",
+      "briefSha256": "ccbef3e99cfafa74d2241264f881e83d3c8f5f79fa06eb191fefca0745f6f561"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b34.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b34.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b34.jsonl",
+      "rows": 40,
+      "inputSha256": "b6b1654054f66d7240d871ba40f59f572ef16f3f965147b56447b174f5f46aa3",
+      "briefSha256": "80c2f2e7918eed10cd2eb209efa7dcbfa6c56a110ce7dce704e1559d43bc94b1"
+    },
+    {
+      "family": "c1",
+      "group": "slugs",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1b/luna_b35.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/r3b/in_b35.json",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10/slug-cluster/out_b35.jsonl",
+      "rows": 3,
+      "inputSha256": "40e1154ed13acc2e39b45e94c70d91a1fbd6a7ce15ddd04680f5190c1d93703b",
+      "briefSha256": "67dc6aec1faa7cadad54edfb2519702f86e24859a530654a4c8a77041193944a"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b1.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b1.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b1.tsv",
+      "rows": 500,
+      "inputSha256": "0a34105504510e60015ae629f4251541c09c8261f2f388ff846f671f69b50de8",
+      "briefSha256": "8643dd534160f2de1e6a5d16f8a71ef6db6412f4c38a7ccaab2160b310db87bc"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b2.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b2.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b2.tsv",
+      "rows": 500,
+      "inputSha256": "328f5d3b56b1a50f3b2310b881c428ace4ec14f7200efd58a9b32cc6b299aa1f",
+      "briefSha256": "db748233b2eae5194bbe43c52fc57fbdfb4acab5dafa14f0f3da0fb9541fb7aa"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b3.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b3.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b3.tsv",
+      "rows": 500,
+      "inputSha256": "0f8f306ee8b67e0d9781e6eb379d8c5bae7be844fde07c5999144830fa14e7cb",
+      "briefSha256": "743197a1d206c865a22550e4e5635a42fff513e8754c96d6da035b124f414d9d"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b4.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b4.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b4.tsv",
+      "rows": 500,
+      "inputSha256": "3ed317f18163442813bee12f98fa6e0c5c931095a18ed296d3f7007f745785f1",
+      "briefSha256": "6539b25a769ba3abe654b194754f8350e2a6ab8f240f1b30bbb387ea0da438e5"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b5.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b5.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b5.tsv",
+      "rows": 500,
+      "inputSha256": "a3c51414ae0d998c1eefd2ade093e54b43ebaf4bbfd69ec27f26d61436c3add3",
+      "briefSha256": "a0e08b46da80d6145c825513c152c7fa10ee07868fba3dacd182cf9d147cdf92"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b6.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b6.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b6.tsv",
+      "rows": 500,
+      "inputSha256": "d3b86557f2dc0b6fdfe8d711093b447575c2080260b71e794e2fa6c10b90eada",
+      "briefSha256": "189f4e2d86a7830eaea3f8b00012b1b186bcdb946b6631d01de7c8bfbda3adc5"
+    },
+    {
+      "family": "c5",
+      "group": "v2a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b7.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b7.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b7.tsv",
+      "rows": 20,
+      "inputSha256": "40e9d17c3bdfd79a0297fff3a838bae377567dae3bfcb1506104ecfc3f11a7d7",
+      "briefSha256": "9c74f4ac107f2111561e1c6bb0994609b0f9be7e2bec5cb5601375fb923179ed"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b8.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b8.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b8.tsv",
+      "rows": 500,
+      "inputSha256": "3c39744432bb07049f26da574e74b426d1c0bd4e55b837778ab22bcfa035c335",
+      "briefSha256": "ce6bbc53f7849baaa42fcab4bcf0b7ccd7a15d1d295b8d6c19a6ff235ba872c2"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b9.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b9.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b9.tsv",
+      "rows": 500,
+      "inputSha256": "c24b805c762d49063f51624de1526b2cb34414e71441b5da4e9636cd468771de",
+      "briefSha256": "1c9f01f01c790c1a5ef2d237671ee596fb1b9cf5c6d78248a40feee6bbd4e600"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b10.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b10.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b10.tsv",
+      "rows": 500,
+      "inputSha256": "3263a1b6c34ba3c8f82610ad0c997cb133219e798eef456caea69c81b8648fb8",
+      "briefSha256": "5fe6d6d4caca5cfd51ba41b36a8af23a9707387afc0ff978db3a062b88255b6e"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b11.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b11.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b11.tsv",
+      "rows": 500,
+      "inputSha256": "6407e1a63f43d5bd8e05b207e7156c4790a0ce71795c34545f3136585d77d8c9",
+      "briefSha256": "0906b7e1640ba025c1e08b9d6edb0abd34ad76c84569bc91590bd9ecedcc6288"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b12.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b12.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b12.tsv",
+      "rows": 500,
+      "inputSha256": "8ce5553d8ce5c9f7e60236ad746e2a520301a605bf97d350a276b00e22369e0d",
+      "briefSha256": "2a5a04011549c1ed5472d3b8e33ca692c6791a64193604d3442357a59ab216d2"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b13.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b13.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b13.tsv",
+      "rows": 500,
+      "inputSha256": "f526795992642c89d7b3d44b47924bbb144a95893b545a409b14975f4bc002e6",
+      "briefSha256": "ac5e16f05e81996c012d4b8b10a7b5cbd5de2bd46ffc52a371f5492f9aeb9fc1"
+    },
+    {
+      "family": "c5",
+      "group": "v2b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b14.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b14.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b14.tsv",
+      "rows": 20,
+      "inputSha256": "16330cb22f986f8224923058006e0e617e213e904a18aed8c9193841792d9952",
+      "briefSha256": "606e5018c8ae9396bd72974408615d3fe491e1e4085c1b101b7623d93883d73d"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b15.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b15.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b15.tsv",
+      "rows": 500,
+      "inputSha256": "91e10df6b740766bd46bad10452b99236ad22b37d7d009deca0fa37ee79c4299",
+      "briefSha256": "a6e166ded73a39a1e217e34f4e8586eb5a4d496e652459c8e3164368c3345d57"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b16.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b16.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b16.tsv",
+      "rows": 500,
+      "inputSha256": "13bdabf6de623bf71e6bf492f35496103b7ff208730771faf624e900e7aace4f",
+      "briefSha256": "699d3751353af7a5cd2f1eabcbe2373dab6f85bffd299084fc557fa07740a617"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b17.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b17.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b17.tsv",
+      "rows": 500,
+      "inputSha256": "7ce3c246f0417463671cf9d677f01010814c09a2ebbf84fd6baba281b3521c05",
+      "briefSha256": "8455b1f74534ed14e7b567c48af3bc49b94495b385b2f5cb882dbfa5ab619629"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b18.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b18.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b18.tsv",
+      "rows": 500,
+      "inputSha256": "87db67397758d9f9e51b78c020f55fa6608bc52c204b09f38acf6df6bf26e6cd",
+      "briefSha256": "3ab4548863e084b54f6036dc1db48102b2bb461961a1baa947336cdfeb9afbb2"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b19.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b19.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b19.tsv",
+      "rows": 500,
+      "inputSha256": "a177169f7fa551dcc0f891b9804074f8b71dd43e32aa689be5c3c2c6a0faa4df",
+      "briefSha256": "68a2c7dfb537371303f52171cc5b7e3d667a9008f21a453ad66d6dc0717240f8"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b20.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b20.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b20.tsv",
+      "rows": 500,
+      "inputSha256": "f1b7a3c8aa4b5e8315a9dc3e352bae10231f86238bbc7cca9942c8e0cf38bb37",
+      "briefSha256": "781421141d55d5d7d30f1f6435f4c69da9300670b9df1d042c1265b8f6d922f0"
+    },
+    {
+      "family": "c5",
+      "group": "v2c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b21.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b21.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b21.tsv",
+      "rows": 20,
+      "inputSha256": "6db46684c0a217abb535dd14ebc77217af35f225162c3b9041311d9e2a13c003",
+      "briefSha256": "003ab6ba4e4e56f1b79157a28a600ad634f20e9da3132bcf5f4a70db3c4db064"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b22.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b22.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b22.tsv",
+      "rows": 500,
+      "inputSha256": "22e601e2004bbd95e86ed23938c2458919b6e9fa062edac4c3c7b2400014288f",
+      "briefSha256": "b71aba4dc81d264b33f5473e91d9e0df65ca206164fbf9c87a484bea4ff88a62"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b23.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b23.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b23.tsv",
+      "rows": 500,
+      "inputSha256": "6e39629e8572a82ab10bb2bd08d67d579bb5337ed430f537fcbf1db5ab6a41c9",
+      "briefSha256": "b7fb06ed5a57e915b782dbdc06a8e19d5684146661a5e46623bb9413c5526363"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b24.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b24.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b24.tsv",
+      "rows": 500,
+      "inputSha256": "af738fbfa453402ddcd657f8514ef26f1c0f05d92b9b831bf0f939ea01f4c319",
+      "briefSha256": "b894f5d5d8d99eacee748f3801e2c68ba5788555817950a13b261bf036c40796"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b25.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b25.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b25.tsv",
+      "rows": 500,
+      "inputSha256": "30f92016663207614615eaee08150590ff4fe612b0f61e81268a216ab8f357fe",
+      "briefSha256": "9b05bd2aad12fe20be70102fd788f026836cdf43b755712e8ff6687f9bec9754"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b26.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b26.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b26.tsv",
+      "rows": 500,
+      "inputSha256": "0f59cf410eba8ebc52822b2cc74d3cb26539d96713095fcb903f80176c13b4ec",
+      "briefSha256": "bdf1df8a9496938c024d6894adae8435926380386b1ba053b36d0c3f1020b438"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b27.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b27.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b27.tsv",
+      "rows": 500,
+      "inputSha256": "14bb86076d2b4111c77f4d19ab105e60126ce05e45efe24912aa26306cde9745",
+      "briefSha256": "987e92d027daa15c7df6df86fe996f6a2d33a17149467182905846624935df51"
+    },
+    {
+      "family": "c5",
+      "group": "v2d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b28.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b28.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b28.tsv",
+      "rows": 20,
+      "inputSha256": "b2703cd144a5dbc0e39bea1ba2273e956550a20b36d0ecb4c31660fceb93b318",
+      "briefSha256": "aa363c8921bef2854219d0893fed89a4a69e23931174916609fca800124193f7"
+    },
+    {
+      "family": "c5",
+      "group": "v3a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b29.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b29.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b29.tsv",
+      "rows": 500,
+      "inputSha256": "5a433f8573fe026a2fd92b7cb72f922678a00f6f023864a2a797e8130d3d5afa",
+      "briefSha256": "032759c768b6bf86da030e2eebde848e884c658a5d8ee2c62631baeb7789dac1"
+    },
+    {
+      "family": "c5",
+      "group": "v3a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b30.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b30.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b30.tsv",
+      "rows": 500,
+      "inputSha256": "20aa984af887f6a50234005634d89af3e9e5264f64bfc64b0ad9afe2c83bb1f5",
+      "briefSha256": "857c4a8fbd7dffedbbd53b7ff979f9d49076ff2c75e00c05299580427c4101b2"
+    },
+    {
+      "family": "c5",
+      "group": "v3a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b31.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b31.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b31.tsv",
+      "rows": 500,
+      "inputSha256": "8f188c8d50f64e8ff472d0ad7e500ef138a9c9d1d5ca0f275c1ea4eca9e090b3",
+      "briefSha256": "5facaff63bf471c8ce7db87e882b9e698844bebd8b7635b2f0d9954d424f416c"
+    },
+    {
+      "family": "c5",
+      "group": "v3a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b32.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b32.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b32.tsv",
+      "rows": 500,
+      "inputSha256": "32c3e6d21f5c59e13dcbf5ec4f3dbba628feffdba05aabb7551d18d3dd22aa29",
+      "briefSha256": "97c3a99748a0297050fe10ad7743b1775860de1ebbe32b984e7dfb3ea7984a2a"
+    },
+    {
+      "family": "c5",
+      "group": "v3a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b33.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b33.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b33.tsv",
+      "rows": 500,
+      "inputSha256": "ac4292ec87a6ffb732233a5aa43fdfbe7e116225fa2282ef2df7e4b742a854c3",
+      "briefSha256": "ece6053743b4a8dd2ad21eb3dca318bc38fce67b052013503c0aae045afee0d0"
+    },
+    {
+      "family": "c5",
+      "group": "v3a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b34.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b34.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b34.tsv",
+      "rows": 292,
+      "inputSha256": "c6c2675a3bc29cebbe2de82a5f3be17edf5951b0cd2577ec65b2f5c3597de5af",
+      "briefSha256": "75caa09f29931c7aa42067b747903232eb314d4a9cf3a0a478f89b8277f51deb"
+    },
+    {
+      "family": "c5",
+      "group": "v3b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b35.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b35.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b35.tsv",
+      "rows": 500,
+      "inputSha256": "6cd7e0dec46126c4d35283fe48474c6017cce220cecc076dcb4e1eb77c0d0c5f",
+      "briefSha256": "eb0742c3077e37ed9bf983f15afeec32e45743c016a998f83e42e18eddeeb72a"
+    },
+    {
+      "family": "c5",
+      "group": "v3b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b36.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b36.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b36.tsv",
+      "rows": 500,
+      "inputSha256": "809ded2265c2bbeed85f14c3f44f22d40663e98b4cac3b719675af9594ce5a31",
+      "briefSha256": "a91292e5ac669e237e6bd2a2a4a9cd613c71ddb0c23867d10de72319a337ba29"
+    },
+    {
+      "family": "c5",
+      "group": "v3b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b37.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b37.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b37.tsv",
+      "rows": 500,
+      "inputSha256": "68f7ddfc2330e798391a0abd19e444e697b799db254ffdd833a6d9cfd7b0af63",
+      "briefSha256": "1a5985755aa59386985efe12d8feb128d66df3bb18b425a1d0cbebd3b48a0e77"
+    },
+    {
+      "family": "c5",
+      "group": "v3b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b38.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b38.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b38.tsv",
+      "rows": 500,
+      "inputSha256": "6238ad5f153761c783b5fb63f92bea53e21927e15e94a5e42c041d8b4cc23f8e",
+      "briefSha256": "e67e5dddca67798efc8bce5b199f743214f04d79cd0838a7f80d38cfb49abc2a"
+    },
+    {
+      "family": "c5",
+      "group": "v3b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b39.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b39.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b39.tsv",
+      "rows": 500,
+      "inputSha256": "435d10395bddf508aba6d318d0d2af35e98bdb7645d679ff1f3f9fb818994b7d",
+      "briefSha256": "5eb254b63635e423021c63f72980d57908df5f3b4a17617905d3c205468db450"
+    },
+    {
+      "family": "c5",
+      "group": "v3b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b40.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b40.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b40.tsv",
+      "rows": 292,
+      "inputSha256": "dbbbffdc27dc29574065fdd0f5530a35e52a980b474a6aa35795b00481c001ad",
+      "briefSha256": "f9479a5231e8f90cacb6bb3b671446beb469ed704888aea1085fb9c2ee6280b9"
+    },
+    {
+      "family": "c5",
+      "group": "v3c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b41.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b41.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b41.tsv",
+      "rows": 500,
+      "inputSha256": "f77c9f070d7445210ddef90ae1b0402057ceb15055d4c385d5742445f7feddaf",
+      "briefSha256": "96f2a98529ef2f1279805560ff6964719c14b409f8b202701c97288f4b3e5ba3"
+    },
+    {
+      "family": "c5",
+      "group": "v3c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b42.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b42.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b42.tsv",
+      "rows": 500,
+      "inputSha256": "8b3f85c675bd57c316a3a1f7d12eb227502e53dfd7b55fe096892079386bf2af",
+      "briefSha256": "cf63288994f8c5072fd7655b9b081dbfe186124270a065e3992935a487bbfff5"
+    },
+    {
+      "family": "c5",
+      "group": "v3c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b43.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b43.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b43.tsv",
+      "rows": 500,
+      "inputSha256": "9fa94f7d9016c914fc04475ef9f4e212e8f516e1e3b86f21ee20adf120cd8604",
+      "briefSha256": "9779027627854c2bfabfbb43268ed617af59dcd0a0e954439fa431acf7b5f5cd"
+    },
+    {
+      "family": "c5",
+      "group": "v3c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b44.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b44.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b44.tsv",
+      "rows": 500,
+      "inputSha256": "ba854daaa37eb09b297e0dad1a35797c323e0acdeca0817f90a92226bf247f4f",
+      "briefSha256": "0f4f1f264b20a007d1aa2476b8ea67eff1bd2d3c6b557c14584667d1e2ce86e7"
+    },
+    {
+      "family": "c5",
+      "group": "v3c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b45.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b45.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b45.tsv",
+      "rows": 500,
+      "inputSha256": "154b218582800bd96fe8d06233cb195443f5efd27f73990fa3078a0eb352f9da",
+      "briefSha256": "b5cc6aff7f360fe744a304c8d16b337b9d1ac2e61639a816aafbbcc5ec63add2"
+    },
+    {
+      "family": "c5",
+      "group": "v3c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b46.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b46.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b46.tsv",
+      "rows": 292,
+      "inputSha256": "0cc4362b90dea029c8ca3461c761952104872d49d801660b3e734efcecb98496",
+      "briefSha256": "48510cb071d8adf43e53bb6b981e39826f5f0d8c159a79c5f604794e3d9ee60f"
+    },
+    {
+      "family": "c5",
+      "group": "v3d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b47.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b47.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b47.tsv",
+      "rows": 500,
+      "inputSha256": "87ff257b109eda2592c1c7a384055c2b32843f1763fa6ff62a54afc8c981d1e2",
+      "briefSha256": "bb52096fce297b4013da04f001caeba431fe0865750679416ca6b62a92c3e7c4"
+    },
+    {
+      "family": "c5",
+      "group": "v3d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b48.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b48.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b48.tsv",
+      "rows": 500,
+      "inputSha256": "0c497f65f0f7e3057998cf52749358c4dbb50ba699267c65d70f6af78d509b37",
+      "briefSha256": "013cc9c2b9eebfb194d2630c36e035017208ac00f607d67e0b1afd91f995aba1"
+    },
+    {
+      "family": "c5",
+      "group": "v3d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b49.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b49.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b49.tsv",
+      "rows": 500,
+      "inputSha256": "63744858fa5f6f2a99205123e69cd4addae21ba4a0951359e20b635dd6b4bfb2",
+      "briefSha256": "759980dc36afdf650467efda5926a83aadfddd2038e15ab5fa21e4e60fa85933"
+    },
+    {
+      "family": "c5",
+      "group": "v3d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b50.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b50.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b50.tsv",
+      "rows": 500,
+      "inputSha256": "b5bd068af41df27fc14293d928da9e406d535ac838c4ac6c4563d219dace98d7",
+      "briefSha256": "ac2387f8bb6ec9b36dcf0e07cdd5bb7abff14b8b2bf35ea48399ccb103e4cc15"
+    },
+    {
+      "family": "c5",
+      "group": "v3d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b51.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b51.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b51.tsv",
+      "rows": 500,
+      "inputSha256": "e927b5d10dae248209d614627d637ed93c1f22b4b6567a9b0b6158dead4a9d23",
+      "briefSha256": "8f7aeb92738dafb8c0db625141807fb5d5c6335c85e0989aa1d458b6eab2e4dc"
+    },
+    {
+      "family": "c5",
+      "group": "v3d",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b52.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b52.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b52.tsv",
+      "rows": 292,
+      "inputSha256": "caa0fa147b427de9f23493bf4fa37653cf37ff3b1ca27764cfad34f26ab88658",
+      "briefSha256": "c1497d0cee3b9bcbae2ea11b80b537ce2f823ab5af00b4def8e6149d48956c7e"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b53.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b53.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b53.tsv",
+      "rows": 500,
+      "inputSha256": "cf0a1fe3773194f798b45043add075fe9961eacc95c679b5b642528bf74d20b3",
+      "briefSha256": "19b665ac61a064dd8657198e2664acf78ab2654488fd498549f00d2e07d44df7"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b54.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b54.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b54.tsv",
+      "rows": 500,
+      "inputSha256": "5259b3d8d80c9be3bfe6dd4abba94979a98828cc34743c8b9ad8262d28c62e94",
+      "briefSha256": "4f1c014612092156c666879d66c7b184912f9ceff630efa75ac0910961354e61"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b55.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b55.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b55.tsv",
+      "rows": 500,
+      "inputSha256": "03324b216e30ac7b70014b02d200eee21ae422b2463df2663315ed3d8613d9d3",
+      "briefSha256": "c6cdc7c961b69b52ca79b9fbec71d07d2a1bbdcf768777abd8fcfc9644f8a0b6"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b56.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b56.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b56.tsv",
+      "rows": 500,
+      "inputSha256": "3dcc0178b1b9c2b93546113965d425263258daacead7730c1386f3b80a4dfa39",
+      "briefSha256": "c298c940c15a2bdc3e941ad48ea9f355807ee4282bd26da98825929315e9ecad"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b57.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b57.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b57.tsv",
+      "rows": 500,
+      "inputSha256": "1041a4dca05c31af403b7c077648c2b594cc2bea7dae181c850b988f5356b99f",
+      "briefSha256": "d06b60d561974afe65980dd0a773fdfad2178c421ddf0599356ea869fb8693af"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b58.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b58.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b58.tsv",
+      "rows": 500,
+      "inputSha256": "3c13dfc92af3a2554d3c671de4c4342287ac870f9d9940ae71bdef709ecf894a",
+      "briefSha256": "a5c14840367648366a58ec19c39c406e71960053d11753f107849c13338eb74f"
+    },
+    {
+      "family": "c5",
+      "group": "v4a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b59.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b59.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b59.tsv",
+      "rows": 109,
+      "inputSha256": "cd2b028e88db5fb8843bb97b0393e3d4acffbd03e1e524e92876ea50e5871491",
+      "briefSha256": "9716e91b7a2d36cca19476704f571941a5de134f4a11891f2a304359f15d0144"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b60.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b60.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b60.tsv",
+      "rows": 500,
+      "inputSha256": "6992e52b4178efc1aefc1bbdb7e54321392867540ebcde7ee9acbe5e5d522ca8",
+      "briefSha256": "fc30633ca8b616ad023d2be0cc26e7bc6cfd1ee63ef36c577d88a4d99c647681"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b61.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b61.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b61.tsv",
+      "rows": 500,
+      "inputSha256": "5007c633889ea44f8ce203b8c7bfc1f0cfb36b638e19eb1b771232087c49f0e1",
+      "briefSha256": "dca5ce1746a56c8a3b7d4d620817c852e782d4d1446738771ed1679fce59e610"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b62.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b62.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b62.tsv",
+      "rows": 500,
+      "inputSha256": "d0551a918f70cb71d7b26904a66e5219e8b634f508ddd023d04249709aa05a7a",
+      "briefSha256": "1b24bc022f1bcca3ab244816a0e210fba5939cbb34f4d8b3950eca1460d1424e"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b63.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b63.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b63.tsv",
+      "rows": 500,
+      "inputSha256": "933337d3b24eb64d06d561e45c61f702187a3d952c0a2266d87a6289307d25b4",
+      "briefSha256": "d6e5bd45a6373601a0676bb362045a02d2650d715f189ef155ac87590f47e321"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b64.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b64.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b64.tsv",
+      "rows": 500,
+      "inputSha256": "d29fd3ee6a2263149c9a102ab53a2b616086a1152324ac175270004790c7057f",
+      "briefSha256": "721cc4b1cf2d2ab2af70a2820890571dbd6ef3a4a2f2e1a7600a3f4ade3f12d3"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b65.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b65.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b65.tsv",
+      "rows": 500,
+      "inputSha256": "d5d027bcbeef22289255e272da407e3ba667cdcc1888d0ac9bd6dbd3b5197e46",
+      "briefSha256": "d657ace025c02cb56957c2830020af3d28e75fd91c2c32a210946d482a55e64d"
+    },
+    {
+      "family": "c5",
+      "group": "v4b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b66.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b66.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b66.tsv",
+      "rows": 109,
+      "inputSha256": "eb2b929cc362b12b3d2a4aaffe412833c2fb3a6652fd4cb2b4d66a168e8b00f7",
+      "briefSha256": "e482ba71440ae617c6195fdaf405d40fb79d7f628553fe5f89000aa2c4152721"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b67.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b67.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b67.tsv",
+      "rows": 500,
+      "inputSha256": "0b2a504f975440fd8eb5f6184a79b662ba50e2ab2e467ff2a0ea007aa5a9bbbf",
+      "briefSha256": "448a181b0ed0c281e681fbfc92c0a7a4b75d93ac8676e12b429c108edea371d8"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b68.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b68.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b68.tsv",
+      "rows": 500,
+      "inputSha256": "fdb2a67fe751aa4dd6d1bf2a127f08607031490da0c7281fd733e8b66cc0368c",
+      "briefSha256": "8ad34188bb817715a251de78ec2e8e44a803a63c9f4bfca743c79fd48b0f6058"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b69.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b69.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b69.tsv",
+      "rows": 500,
+      "inputSha256": "27d9c79b78fa66072e3c2cf19e5044de69fcb840fe5b9b32752b7bada5e7328a",
+      "briefSha256": "a270c32a8f8ee0071dce53c874ca709048828ea3ba78e8a822577e0d40719bdf"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b70.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b70.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b70.tsv",
+      "rows": 500,
+      "inputSha256": "1a419bc68bc7b5273c534e1aeb27aacb79665dd6b9ff38c3a198dd0dad5f0054",
+      "briefSha256": "6a0209481348e2a10a24e74fa64e5a3c980c42ee7530512700376c0b2b232d0d"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b71.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b71.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b71.tsv",
+      "rows": 500,
+      "inputSha256": "4937977a6fba029617940b68d579bac41b43567a94bbe96a460992277a1cb6f6",
+      "briefSha256": "7c9b80507159c62ca786f262c4084486262601d7635447602210290454059ff6"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b72.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b72.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b72.tsv",
+      "rows": 500,
+      "inputSha256": "14787238223dffa4372505fe61aeceaad132e4083c42a30daaa76b44a28d3c26",
+      "briefSha256": "23f27ff79254e63dd6c582abc2a247477384c697fc3f0146134c2a1bbdd0767e"
+    },
+    {
+      "family": "c5",
+      "group": "v4c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b73.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b73.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b73.tsv",
+      "rows": 108,
+      "inputSha256": "70cdf37497b09c354f158228b9f37275b886185c42c2b6dd268ca305aa27c7eb",
+      "briefSha256": "3400f2f9f30905d82c1b761943d00182cf0e5996293f57b3b67d2b61b92ae185"
+    },
+    {
+      "family": "c5",
+      "group": "v5a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b74.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b74.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b74.tsv",
+      "rows": 500,
+      "inputSha256": "776d91d3feff7e500d05a98cb352a2821710592542e11f7ee8cf11e18278071e",
+      "briefSha256": "6936cfaa2501f0281dd0f806a52312c67e01c43a7301f3b5369ce3579197b186"
+    },
+    {
+      "family": "c5",
+      "group": "v5a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b75.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b75.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b75.tsv",
+      "rows": 500,
+      "inputSha256": "a2d8b422a76f40de3a736e9e02a5e893d8fdc89061d369691e0581654efd349b",
+      "briefSha256": "d223caaabe13affc91bb7d69034548efaae8e9c99b9b8c6a44baa984c6f1f736"
+    },
+    {
+      "family": "c5",
+      "group": "v5a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b76.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b76.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b76.tsv",
+      "rows": 500,
+      "inputSha256": "ca6c467523e240d40469de16345b787bfeefe7fad57e4911c123d413e88458bd",
+      "briefSha256": "34ec4c908578d171dd629f9eecf87ea3bdf7dc2067c13bb18f467e5f8e03c49f"
+    },
+    {
+      "family": "c5",
+      "group": "v5a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b77.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b77.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b77.tsv",
+      "rows": 500,
+      "inputSha256": "e51b0e0e103451626303a1611cb43d7cef4c3c70be2b0da2130a00e8ec0ab6ce",
+      "briefSha256": "b1d0e2f4f0f95793714c04bade4dc6fe6488422a52047476ab24236ab76c8f21"
+    },
+    {
+      "family": "c5",
+      "group": "v5a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b78.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b78.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b78.tsv",
+      "rows": 500,
+      "inputSha256": "6efdb230167f265726b694ed231a926e1fd8d827e755fbf040f7014b9859df2e",
+      "briefSha256": "e750b2c153fe68a6fd00c582bdfcfa13e9198d8fde586e60e2b94eb58e1c2902"
+    },
+    {
+      "family": "c5",
+      "group": "v5a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b79.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b79.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b79.tsv",
+      "rows": 260,
+      "inputSha256": "02f79ecd940b8e40abf01f8ab975000d884e45c8d047520158cd4779da12c9a6",
+      "briefSha256": "fce20a1d4928e63df775b846456070f9ccb39a38a97d771ae964cad3f14e37ed"
+    },
+    {
+      "family": "c5",
+      "group": "v5c",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b80.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b80.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b80.tsv",
+      "rows": 281,
+      "inputSha256": "79520af6c148eb2af8261ceb42860e15a9d237fa1d205badbfb5ec328c2a5fd9",
+      "briefSha256": "dbdb0496e7aab945064eb376f1f2df956698edc66fea4d6188e1b848daae15ba"
+    },
+    {
+      "family": "c5",
+      "group": "v6a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b81.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b81.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b81.tsv",
+      "rows": 500,
+      "inputSha256": "9568961c3789ea6c057e4f867bdb0ada245d3bab06ff345c79f2f41e71b2f493",
+      "briefSha256": "5181947a236c75f68264be4b043b15b8cec983863938ab1d43d10859d564ee21"
+    },
+    {
+      "family": "c5",
+      "group": "v6a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b82.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b82.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b82.tsv",
+      "rows": 500,
+      "inputSha256": "7076083ac29168639c238613abecc605f988230a3831ebe8b8d899ed6f7def29",
+      "briefSha256": "ce5af8bf1ecda0f5c87e3599ebcc438e98b89b04c855d327f22b6af0fe82e405"
+    },
+    {
+      "family": "c5",
+      "group": "v6a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b83.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b83.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b83.tsv",
+      "rows": 500,
+      "inputSha256": "894e981c78dc91a005f6cb6436c556e55d6be1c1ff299d41c3edc5f58fa31f75",
+      "briefSha256": "e8d5a5140922fc139dede113c8796ccc781641910cd24701a0415ec33c80e63c"
+    },
+    {
+      "family": "c5",
+      "group": "v6a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b84.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b84.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b84.tsv",
+      "rows": 500,
+      "inputSha256": "22e0bc805b336ff42c9f9eca54ed999fd129d8bc2c8319689541547551e1b8eb",
+      "briefSha256": "a146f9b1244fc338f338ede05efaac89ae677870cca2b4450e033ce2d6fbb336"
+    },
+    {
+      "family": "c5",
+      "group": "v6a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b85.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b85.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b85.tsv",
+      "rows": 500,
+      "inputSha256": "6ba62db92e83e2223472977bc6e0cb12a9b7ddecb0ca205b5fad4f16a36b18fd",
+      "briefSha256": "1cb61091db810262e663a5d2cafd038d7761f047d166046aa00b7ff71f4d3502"
+    },
+    {
+      "family": "c5",
+      "group": "v6a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b86.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b86.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b86.tsv",
+      "rows": 17,
+      "inputSha256": "c7d6eb4a0721dedea8f863c4372f2fef7d3d399926b804d889ce236210d5bf71",
+      "briefSha256": "a796cdd22f34a0d42ee75990f86e9b94c8f404381054e211a4a5dfd08f649afe"
+    },
+    {
+      "family": "c5",
+      "group": "v6b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b87.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b87.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b87.tsv",
+      "rows": 500,
+      "inputSha256": "73fdea9ec45f9c5ff49f3ccf176d57b38e496096c21732752698a396bea73d63",
+      "briefSha256": "ac3b48fb5bddc597ba9a982264b94e585ef06f83e3c61be38e642f454e3fb325"
+    },
+    {
+      "family": "c5",
+      "group": "v6b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b88.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b88.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b88.tsv",
+      "rows": 500,
+      "inputSha256": "da91410151464529f9160cc48b66bc211a8aac733bc964fd07932fc5a0bbab19",
+      "briefSha256": "5c9bac77e3b033dd8c85a80cab740a7d0495b4a1e1467fd16427d03ca4931775"
+    },
+    {
+      "family": "c5",
+      "group": "v6b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b89.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b89.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b89.tsv",
+      "rows": 500,
+      "inputSha256": "d32f041a52ec49b773a135af032d247f129c9b54725082d53135651157338512",
+      "briefSha256": "6553f0cb118244b17001fb4900207305ae690ef39335ebbfbbea52e7d3f9673d"
+    },
+    {
+      "family": "c5",
+      "group": "v6b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b90.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b90.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b90.tsv",
+      "rows": 500,
+      "inputSha256": "4b2c0d50c51e6a423b84ca0ff0ed1f35f5b352681eb40437aa2f0b4eb975119d",
+      "briefSha256": "71946e211e446887808652597bb5c6acb98df506e8585d16876b7731df7f5857"
+    },
+    {
+      "family": "c5",
+      "group": "v6b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b91.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b91.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b91.tsv",
+      "rows": 500,
+      "inputSha256": "c187dac75f3f76f7a6f2c9a282340d7a459f49be49078a68dc227f4c711a919e",
+      "briefSha256": "2b35c7ae3f18bd77fd1481cfdba890d72b414abca433eca773b65a3f51be0c81"
+    },
+    {
+      "family": "c5",
+      "group": "v6b",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b92.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b92.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b92.tsv",
+      "rows": 16,
+      "inputSha256": "b739045eadb949456dcd7ad1e6148bd2fd993775581c8880aa63c4e503b31200",
+      "briefSha256": "52751fd5d9880acc1b168149ea7129f349ca8f2fb363963f4f9f204c7efb49e2"
+    },
+    {
+      "family": "c5",
+      "group": "v7a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b93.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b93.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b93.tsv",
+      "rows": 500,
+      "inputSha256": "766bc8fa1ab17ef891ccba445f1fe168bc9a98ea22f4e003e1be82bc711d2d6e",
+      "briefSha256": "92ef9bbe210d7192bdb9ab6ccf8fd58ba94f00eff3bd33778e2430ad97457c1a"
+    },
+    {
+      "family": "c5",
+      "group": "v7a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b94.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b94.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b94.tsv",
+      "rows": 500,
+      "inputSha256": "4e28c0376a9d6ff8c63797e6acb79bb8a4d5824fe4d4f8d32aaec0931c1870db",
+      "briefSha256": "67d4e043fe5ef528d3be714d7e3e0b68f94d38a0351a079473884241120fa41c"
+    },
+    {
+      "family": "c5",
+      "group": "v7a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b95.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b95.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b95.tsv",
+      "rows": 500,
+      "inputSha256": "2c26c72e2c67f2f1aba5bc1a046962489977152878e8ea8eadfa99ef8013f45c",
+      "briefSha256": "4a17ada726d0d928366d6befae8d4654c20b903010490e01f011f70a5d8f313a"
+    },
+    {
+      "family": "c5",
+      "group": "v7a",
+      "brief": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c5b/luna_b96.md",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/r3b/in_b96.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_b96.tsv",
+      "rows": 432,
+      "inputSha256": "80885e0ac71b8fb0812ab4b40bfedab3b1c61effa827bbc83fa44252f8446bb9",
+      "briefSha256": "5f586d44ea9d51abfe1f391d2ee4dafcd27a8d9f44c91838e3c7f2ef44c04585"
+    }
+  ]
+}

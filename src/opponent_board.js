@@ -8,6 +8,10 @@
 // renders as unknown; missing knowledge never means all-known (NX22). 'native' is the inherited
 // native readout (legacy disclosure until the knowledge round, R29), not AD8 knowledge.
 
+import {opponentFacts} from './opponent_sheet.js';
+import {observerView} from './observer_view.js';
+import {readPort} from './ui_ports.js';
+
 const UNKNOWN_TEXT = /^(?:\?+|unknown|unavailable)(?:\s|$)/i;
 export const isUnknownText = value => value == null || !String(value).trim() || UNKNOWN_TEXT.test(String(value).trim());
 const SHOWN = new Set(['known', 'native', 'partial']);
@@ -39,9 +43,12 @@ export function projectNativeOpponents(rows = [], {groupsLeft = '', clears = ''}
             defeated: !!health && Number(health[1]) === 0,
             health: {text: row.hp, progress: row.healthProgress ?? null, knowledge: health ? 'native' : 'unknown'},
             cycle: row.attackProgress ?? null,
-            facts: (row.facts || []).map(f => ({label: f.label, value: f.value, knowledge: isUnknownText(f.value) ? 'unknown' : 'native'}))};
+            facts: viaSheet((row.facts || []).map(f => ({label: f.label, value: f.value, knowledge: isUnknownText(f.value) ? 'unknown' : 'native'})))};
     })};
 }
+
+// UR36: the card's rows come from the sheet projection at the fight's means, the same code a person met elsewhere reads through.
+const viaSheet = facts => opponentFacts(facts, observerView(readPort('expansion') ?? {}));
 
 export const factShown = fact => SHOWN.has(fact?.knowledge) && !isUnknownText(fact.value);
 // What a cell shows: the value when its knowledge allows, an estimate marker for partial, ??? otherwise.
@@ -91,6 +98,6 @@ export function fromCombatOpponentsProjection(projection, {groupsLeft = '', clea
         id: o.id || o.slot, slot: o.index, letter: letterFor(o.index), name: o.name, knowledge: shown, defeated: !!o.defeated,
         health: o.health ? {text: `${o.health.current}/${o.health.max} hp`, progress: Math.round(o.health.fraction * 1000) / 10, knowledge: shown} : {text: '', progress: null, knowledge: 'unknown'},
         cycle: null,
-        facts: (o.facts || []).map(f => ({label: f.label, value: f.known ? f.value : null, knowledge: f.known ? shown : 'unknown'})),
+        facts: viaSheet((o.facts || []).map(f => ({label: f.label, value: f.known ? f.value : null, knowledge: f.known ? shown : 'unknown'}))),
     }))};
 }

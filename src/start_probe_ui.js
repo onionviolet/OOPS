@@ -1,5 +1,8 @@
 import {resolveStart} from './start_records.js';
-import {frontierStartWorld as world} from './data/start_layers_frontier.js';
+import {frontierStartWorld} from './data/start_layers_frontier.js';
+import {frontierPremises} from './data/premises_frontier.js';
+import {premiseWorld} from './premise_generator.js';
+const world=premiseWorld(frontierStartWorld,frontierPremises);
 export function createStartProbe(panel) {
     if(!['localhost','127.0.0.1'].includes(location.hostname) || new URLSearchParams(location.search).get('start_probe')!=='1')return null;
     panel.classList.add('start-probe-active');

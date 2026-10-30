@@ -103,6 +103,21 @@ test('the web renders as a sibling of the cards in the People panel with a text 
     } finally { delete globalThis.document; }
 });
 
+test('the web opens once when two people are known, then the player\'s choice stays (COV4)', async () => {
+    const dom = createDom(); dom.loadHTML('<html><body></body></html>');
+    globalThis.document = dom.document;
+    try {
+        const {createPeopleOverview} = await import('../src/people_ui.js');
+        const people = createPeopleOverview(); dom.document.body.append(people.panel);
+        const state = enrolled();
+        people.render(state, {...met, 'village.elderMet': true});
+        const web = people.panel.querySelector('#relationship_web');
+        assert.equal(web.open, true);
+        web.open = false; people.render(state, {...met, 'village.elderMet': true});
+        assert.equal(web.open, false, 'a player\'s close is not reopened');
+    } finally { delete globalThis.document; }
+});
+
 test('edge labels: no two placed label boxes overlap in the populated fixture', () => {
     const dom = createDom(); dom.loadHTML('<html><body><div id="h"></div></body></html>');
     const {svg} = renderFigure(dom.document.getElementById('h'), RELATIONSHIP_WEB_FIXTURES[0]);

@@ -52,7 +52,7 @@ test('training book grants once per actor read key, not per item', () => {
     const {state} = setup();
     const a = readTraining(state, 'p', 'book:lifting', ['book:lifting']);
     assert.deepEqual(a.grant, {kind: 'attribute', id: 'strength', points: 1, actor: 'p', source: 'book:lifting'});
-    assert.equal(readTraining(a.state, 'p', 'book:lifting', ['book:lifting']).reason, 'already read by this actor');
+    assert.equal(readTraining(a.state, 'p', 'book:lifting', ['book:lifting']).reason, 'already read by this actor: a second reading adds nothing new; practising the method is what builds on it');
     assert.equal(readTraining(a.state, 'q', 'book:lifting', ['book:lifting']).ok, true);
     assert.equal(readTraining(state, 'p', 'book:lifting', []).reason, 'reference not held');
 });

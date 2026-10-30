@@ -26,7 +26,10 @@ const sortKeys = object => Object.fromEntries(Object.keys(object).sort(compareCo
 //  output:   {id, route, effect, axis, per, mode:'dose'|'total'|'scalar'}
 //  tagLaw:   {tag, axis, min}  (fraction axes: permille concentration; scalar: value)
 export function defineCraftLaw(spec) {
-    only(spec, ['id', 'revision', 'catalogue', 'carrier', 'ops', 'reactions', 'outputs', 'tagLaws','directions','thermal'], 'law');
+    only(spec, ['id', 'revision', 'catalogue', 'carrier', 'ops', 'reactions', 'outputs', 'tagLaws','directions','thermal','limits'], 'law');
+    const limits = spec.limits ?? {};
+    only(limits, ['batchCeiling', 'steps'], 'limits');
+    for(const [k, v] of Object.entries(limits)) if(!pos(v) || v > 1e9) fail(`Limit ${k} must be a whole number from 1 to 1000000000.`);
     const catalogue = spec.catalogue ?? fail('Law needs a catalogue.');
     const axis = (id, kind) => {
         const def = catalogue.axes[id] ?? fail(`Unknown law axis: ${id}.`);
@@ -89,9 +92,12 @@ export function defineCraftLaw(spec) {
     const thermal=spec.thermal;
     if(thermal){only(thermal,['op','from','to','safePerInput'],'thermal');axis(thermal.from,'fraction');axis(thermal.to,'fraction');if(!ops[thermal.op]||!pos(thermal.safePerInput))fail('Invalid thermal law.');}
     return deepFreeze({id: text(spec.id, 'Law ID'), revision: spec.revision, ref: versioned(spec.id, spec.revision),
-        directions,thermal:thermal?{...thermal}:null,catalogue, carrier: text(spec.carrier ?? 'Crafted batch', 'Carrier'), ops, reactions, outputs, tagLaws});
+        directions,thermal:thermal?{...thermal}:null,
+        limits: {batchCeiling: limits.batchCeiling ?? MAX_INPUT_QTY, steps: limits.steps ?? MAX_STEPS}, catalogue, carrier: text(spec.carrier ?? 'Crafted batch', 'Carrier'), ops, reactions, outputs, tagLaws});
 }
 
+// Default 999 per lot and 12 steps; a law (a bigger vat, a crew) raises them via spec.limits.
+const batchReason = law => `Use whole quantities from 1 to ${law.limits.batchCeiling} of one lot; a bigger batch needs a bigger vat or several batches.`;
 function canonicalInputs(law, inputs) {
     if(!Array.isArray(inputs) || !inputs.length) fail('Choose at least one input.');
     const merged = new Map();
@@ -100,12 +106,12 @@ function canonicalInputs(law, inputs) {
         const material = validateMaterial(law.catalogue, input.material);
         const role = input.role ?? 'consumed';
         if(!['consumed', 'catalyst'].includes(role)) fail('Input role must be consumed or catalyst.');
-        if(!pos(input.qty) || input.qty > MAX_INPUT_QTY) fail(`Use whole quantities from 1 to ${MAX_INPUT_QTY}.`);
+        if(!pos(input.qty) || input.qty > law.limits.batchCeiling) fail(batchReason(law));
         const key = `${role}\u0000${material.id}`;
         const prior = merged.get(key);
         if(prior && prior.material.revision !== material.revision) fail(`Two revisions of ${material.id} in one batch.`);
         const qty = (prior?.qty ?? 0) + input.qty;
-        if(qty > MAX_INPUT_QTY) fail(`Use whole quantities from 1 to ${MAX_INPUT_QTY}.`);
+        if(qty > law.limits.batchCeiling) fail(batchReason(law));
         merged.set(key, {material, qty, role});
     }
     return [...merged.values()].sort((a, b) => compareCodePoints(a.role, b.role) || compareCodePoints(a.material.id, b.material.id));
@@ -161,7 +167,7 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
             trace.push({step, kind: 'reaction', id: r.id, extent});
         }
     };
-    if(!Array.isArray(process) || process.length > MAX_STEPS) fail(`Use at most ${MAX_STEPS} process steps.`);
+    if(!Array.isArray(process) || process.length > law.limits.steps) fail(`This law's station can hold ${law.limits.steps} process steps at a time; split the work into staged batches with a rest between, or use a law with a longer line.`);
     const steps = process.map((s, step) => {
         only(s, ['op', 'level'], 'process step');
         const op = law.ops[s.op] ?? fail(`Unknown process: ${s.op}.`);

@@ -161,14 +161,17 @@ export function planProcessRepeat(method, {mode = 'quick', means = {}, stopPolic
     const apparatusSupported = required.apparatus
         ? Object.entries(required.apparatus).every(([key, amount]) => Number.isFinite(means.apparatusCapabilities?.[key]) && means.apparatusCapabilities[key] >= amount)
         : means.apparatus === method.apparatus;
-    if(!apparatusSupported || required.tools.some(tool => !(means.tools ?? []).includes(tool)))
-        return {ok: false, reason: 'The demonstrated apparatus or tools are unavailable.'};
-    if(Object.entries(required.skills).some(([skill, amount]) => !Number.isFinite(means.skills?.[skill]) || means.skills[skill] < amount))
-        return {ok: false, reason: 'This maker lacks the demonstrated control.'};
-    if(Object.entries(required.stock).some(([id, amount]) => !Number.isFinite(means.stock?.[id]) || means.stock[id] < amount))
-        return {ok: false, reason: 'The demonstrated materials are unavailable.'};
+    const missingTools = required.tools.filter(tool => !(means.tools ?? []).includes(tool));
+    if(!apparatusSupported || missingTools.length)
+        return {ok: false, reason: `The demonstrated ${!apparatusSupported ? 'apparatus' : 'tool'} is missing${missingTools.length ? `: ${missingTools.join(', ')}` : ''}. A comparable ${!apparatusSupported ? 'apparatus' : 'tool'} would do the work with less control.`, shortfall: {apparatus: !apparatusSupported, tools: missingTools}};
+    const lackedSkills = Object.entries(required.skills).filter(([skill, amount]) => !Number.isFinite(means.skills?.[skill]) || means.skills[skill] < amount);
+    if(lackedSkills.length)
+        return {ok: false, reason: `This maker lacks the demonstrated control: ${lackedSkills.map(([skill, amount]) => `${skill} ${means.skills?.[skill] ?? 0} of ${amount}`).join(', ')}. Practice raises it.`, shortfall: {skills: Object.fromEntries(lackedSkills)}};
+    const lackedStock = Object.entries(required.stock).filter(([id, amount]) => !Number.isFinite(means.stock?.[id]) || means.stock[id] < amount);
+    if(lackedStock.length)
+        return {ok: false, reason: `The demonstrated materials run short: ${lackedStock.map(([id, amount]) => `${id} ${means.stock?.[id] ?? 0} of ${amount}`).join(', ')}.`, shortfall: {stock: Object.fromEntries(lackedStock)}};
     if(policy.kind === 'atCue' && !projectProcessCues({readings: {[policy.id]: policy.impression}, means}).length)
-        return {ok: false, reason: 'This maker cannot observe the chosen stopping cue.'};
+        return {ok: false, reason: 'This maker cannot observe the chosen stopping cue yet. A sense or instrument that shows it would let the repeat run.'};
     const actions = method.steps.map(step => ({...copy(step), at: step.at + offset}));
     if(actions.some(step => !nat(step.at))) fail('Repeat timeline exceeds supported game time.');
     return {ok: true, law: method.law, actions, stopPolicy: copy(policy),

@@ -1,0 +1,313 @@
+{
+ "home-14": {
+  "task": null,
+  "center": 673,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    336,
+    386,
+    ""
+   ],
+   "focus": [
+    359,
+    1033,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    336,
+    581,
+    ""
+   ],
+   "actions": [
+    359,
+    1033,
+    581,
+    ""
+   ],
+   "log": [
+    1398,
+    505,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "display-14": {
+  "task": null,
+  "center": 673,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    336,
+    386,
+    ""
+   ],
+   "focus": [
+    359,
+    1033,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    336,
+    581,
+    ""
+   ],
+   "actions": [
+    359,
+    1033,
+    581,
+    ""
+   ],
+   "log": [
+    1398,
+    505,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "condition-14": {
+  "task": "workspace:condition",
+  "center": 721,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    501,
+    213,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    629,
+    754,
+    ""
+   ],
+   "actions": [
+    652,
+    745,
+    973,
+    ""
+   ],
+   "log": [
+    1402,
+    501,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "home-21": {
+  "task": null,
+  "center": 532,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    415,
+    536,
+    ""
+   ],
+   "focus": [
+    438,
+    954,
+    536,
+    ""
+   ],
+   "inventory": [
+    17,
+    415,
+    431,
+    ""
+   ],
+   "actions": [
+    438,
+    954,
+    431,
+    ""
+   ],
+   "log": [
+    1398,
+    505,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "display-21": {
+  "task": null,
+  "center": 532,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    415,
+    536,
+    ""
+   ],
+   "focus": [
+    438,
+    954,
+    536,
+    ""
+   ],
+   "inventory": [
+    17,
+    415,
+    431,
+    ""
+   ],
+   "actions": [
+    438,
+    954,
+    431,
+    ""
+   ],
+   "log": [
+    1398,
+    505,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "condition-21": {
+  "task": "workspace:condition",
+  "center": 721,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    501,
+    320,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    629,
+    647,
+    ""
+   ],
+   "actions": [
+    652,
+    745,
+    973,
+    ""
+   ],
+   "log": [
+    1402,
+    501,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "savedBefore": {
+  "task": null,
+  "center": 577,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    300,
+    386,
+    ""
+   ],
+   "focus": [
+    323,
+    1009,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    372,
+    581,
+    ""
+   ],
+   "actions": [
+    395,
+    937,
+    581,
+    ""
+   ],
+   "log": [
+    1338,
+    565,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "keys": [
+  "yairpg.display.v1",
+  "yairpg.workspace.v1.desktop.proto23-parity.placement",
+  "save data"
+ ],
+ "savedAfterReload": {
+  "task": null,
+  "center": 577,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    300,
+    386,
+    ""
+   ],
+   "focus": [
+    323,
+    1009,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    372,
+    581,
+    ""
+   ],
+   "actions": [
+    395,
+    937,
+    581,
+    ""
+   ],
+   "log": [
+    1338,
+    565,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-share-1: 26.7973856%; --shell-share-2"
+ },
+ "_err": "locator.selectOption: Timeout 6000ms exceeded.\nCall log:\n  - waiting for locator('#workspace_navigation select').first()\n    - locator resolved to <select aria-label=\"Other known panels\">…</select>\n  - attempting select option action\n    2 × waiting for element to be visible and enabled\n      - did not find some options\n    - retrying select option action\n    - waiting 20ms\n    2 × waiting for element to be visible and enabled\n      - did not find some options\n    - retrying select option action\n      - waiting 100ms\n    12 × waiting for element to be visible and enabled\n       - did not find some options\n     - retrying select option action\n       - waiting 500ms\n\n    at /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/31b50c9f-eca0-4f8b-a303-7878ae2a7485/scratchpad/width.mjs:26:59",
+ "_errors": []
+}

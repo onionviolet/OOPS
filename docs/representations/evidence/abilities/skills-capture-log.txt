@@ -1,0 +1,9 @@
+gallery skills-tab: Read the lamp · Not learned. |   Not yet: A teacher: the harbour warden. |   Met: Steady hands by night. |   Cannot learn yet: The harbour warden has not agreed to teach you. |   One practice takes 30 min. | Turn the smoke · Practicing · 2 of 6. |   Met: A teacher: the harbour warden. |   One practice takes 30 min. |   So far: The smoke leans toward you. |   The next sign comes at 3. | Cut the wick · Ready to use. |   Met: A teacher: the harbour warden. |   One practice takes 30 min. |   So far: The flame holds still when asked.
+gallery skills-tab-empty: No techniques known yet.
+play: clicked
+picked
+enrolled
+select: chose Tingen workroom
+path tab: true
+skills tab: visible=true | No techniques known yet. | ladderHidden=true
+errors: []

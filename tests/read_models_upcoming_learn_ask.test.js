@@ -51,3 +51,28 @@ test('ask list: known people only, once each, no route, day or witness level', (
     assert.ok(!/route|crier|learnedDay|level|present|heard|stranger/.test(JSON.stringify(rows)));
     assert.deepEqual(askListFromWhoKnows(known, {knownPeople: new Set(['ann']), nameOf: () => 'Ann', topicOf: () => null}), []);
 });
+
+test('upcoming strip ui: sources merge soonest first, malformed rows and duplicates drop, nothing means nothing', async () => {
+    globalThis.document ??= {getElementById: () => null};
+    const {stripChips} = await import('../src/upcoming_strip_ui.js');
+    const a = () => [{id: 'x', kind: 'curfew', text: 'A', when: 'from tomorrow', startsIn: 1}, {id: 'bad', text: '', when: 'today'}];
+    const b = () => [{id: 'y', kind: 'gathering', text: 'B', when: 'today, 20:00', startsIn: 0}, {id: 'x', text: 'dup', when: 'z', startsIn: 0}];
+    assert.deepEqual(stripChips([a, b]).map(r => r.id), ['y', 'x']);
+    assert.deepEqual(stripChips([() => { throw new Error('mid-load'); }]), []);
+    assert.deepEqual(stripChips([]), []);
+});
+
+test('lotm upcoming source: the reached beat shows as a worded row; before it, and with no pack or no life, nothing', async () => {
+    const {lotmUpcoming} = await import('../src/book_world_lotm_upcoming.js');
+    const pack = {schema: 1, world: 'w', lines: {'news.halt': 'Trains out of the city are halted today.'}, events: [{id: 'halt', key: 'halt', lineKey: 'news.halt', kind: 'public_event', placement: 'ordinal', scope: 'public', evidence: 'U',
+        spread: [], witnessedByLead: true, ordinal: {beat: 'b1'}, effects: [{kind: 'travel_halt', means: ['rail']}]}]};
+    const days = [{scene: 'b1', day: 1, from: 420, to: 440}];
+    const at = clock => lotmUpcoming({state: {clock, lotm: {initializedAt: 0}}, days, pack});
+    assert.deepEqual(at(100), []);
+    const rows = at(436);
+    assert.equal(rows.length, 1);
+    assert.equal(rows[0].text, 'Trains out of the city are halted today.');
+    assert.equal(rows[0].when, 'today only');
+    assert.deepEqual(lotmUpcoming({state: {clock: 436}, days, pack}), []);
+    assert.deepEqual(lotmUpcoming({state: {clock: 436, lotm: {initializedAt: 0}}, days, pack: null}), []);
+});

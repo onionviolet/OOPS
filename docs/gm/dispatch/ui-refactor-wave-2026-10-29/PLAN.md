@@ -103,3 +103,46 @@ Token migration and VSX1 style guide (session `tokens`, 2026-10-30, 1920x1080 ta
 3. Answer the UI rules packet P1-P16.
 4. Start the queued Sonnet lanes: token migration and proof-script refresh, then homes, gathering and companions.
 5. Look at the figure gallery and the new views and say which drafts are worth keeping.
+
+## UI round 3 (2026-10-30 afternoon, weekly 67%)
+
+Weibao, via the supervisor: "send out and finish the other sonnet works too, from like the UI stuff". Workers run as Sonnet subagents from the coordinator, two at a time. Session cards don't show over Remote Control.
+
+| Item | State |
+| --- | --- |
+| UI rules packet P1-P16 | Applied as proposals in use (CHOICES 4), `8de98f00` |
+| Proof scripts (talk, ledger, items, family, body, combat, walk, workroom) | 8 of 8 reached unpatched, `da8e7acc` |
+| Token migration and VSX1 style guide | `18ee8ef7`, `80f548e06`, `67d0ef76b`; full suite cut short by load (failures outside these files) |
+| ABILITIES F1 rung-name leak | Fixed here: a fresh life sees its rung and the next; regression in `tests/lotm_advancement.test.js` |
+| Homes and bases representation | Home at a glance `58b0f84cd`, implemented, below floor (full suite and fold into Homes open) |
+| Wiring follow-ups (You panel, Repay, opponent card, People-card dedup) | `a5387f552`, `2b3d2f5cb`, `c5897cf66`, `501c26434`; full suite pending |
+| COV2 centre width | `f9736d8ac`: open centre panel 721 to 1130 px at 1920, 14 px type |
+| COV3 text walls | `7528c7511`: Effects & sound 857 to 78 words; three more views roughly halved |
+| Full suites | The load gate (12) starves queued suites at load 45-90; lanes commit on focused tests plus browser proof, and one batch suite is queued over all of it |
+| Batch suite (HEAD `cd811c30`, slot pool, no load gate) | 4629/4662 pass. Of the 30 failures: 9 test files failed whole on a transient duplicate import that existed only mid-edit; they re-pass 19/19. 9 save-worker integration tests fail under concurrency; one passes alone 6/6, so memory pressure, not a regression. Real and not ours: `core_ratchets` Math.random 29 > 28 (`src/spell_seam.js:5`, GM40 lane) and `ui_contract` colours in other lanes' CSS |
+| COV5/COV12 merges | `053dd6276`: Today and Around are tabs of Where I am; duplicate panels fold to their owners |
+| COV6-COV11 labels plus IP12/IP13 | `3c9b068a1`/`ea921d032` (repaired a tool misfire in workspace_layout.js), `805de8c5b`, `5310b0800`, `56162a67b`, `2030a7ccc`, `b0f4b20d0` |
+| COV4 forms | `a98b2bc0e`: table, threshold card, band, chip and bar rows; Home strip 36 circles to 0; gallery circle share 72% to 66% |
+| RC69 next-slice lines | `b95524c93`, combat fixed in `001b80913` |
+| Tool note | `commit_own_paragraphs.py --para` is for docs; on a JS file holding another lane's hunks it duplicated about 570 lines. Code commits with shared files use the manual hunk method |
+| Abilities G17 Skills tab, relationships G18 Knows plus bars | Sent to `rep-abilities` and `rep-relationship-web` (switched to Sonnet), with L13 bridges `learn_tab_bridge`, `knows_ask_bridge` |
+| Companions | Moved to book-UI wave `bk-party` |
+
+Queue, in order. Stop line raised to weekly 90% (Weibao 2026-10-30, "Raise to 90, for the ability UI and more", USER_VISION 0f2ef3cb7). COV3 started first because COV2 waits on the homes layout_spec hunk. Source: [coverage audit](../../../audits/gap-audit-2026-10-30/ui_cov.md).
+1. COV2 width back to the centre, plus COV3 three worst text walls into tables or rows (one worker; layout_spec after homes lands).
+2. COV4 open the best figures by default, and non-node forms (Owed table, threshold card, TC2 band, chip and bar rows).
+3. COV5 one "where am I" view; COV6-COV12 labels, verb-first buttons, Effects board, empty-state rule, Reports column, Condition and Inventory merge.
+4. RC69 next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME; G14 `upcoming_strip_bridge` into the time strip.
+5. Gathering and seasons representation; COV13 paper-and-ink second skin and COV14 unbuilt screens in the gallery.
+6. COV15 read models gating the Research, Ritual, Combat and Spacetime figures: route to `sw-bridge`.
+
+## Open defect routed out: workshop panel as a catch-all (2026-10-30 evening)
+
+Not a debug page: "Craftsman & workshop" (`src/simulation_ui.js`, `#simulation_panel`) is a player panel that the first-hour gate points to (`src/progression_gates.js` `FOLLOW_LOCAL_PEOPLE`). It acts as a dev dump, because every player command whose group is missing from a hand-kept denylist lands there. Weibao's screenshot (1920 wide, Village) shows other worlds' techniques ("Let the dead take you", "Keep your feet on a heaving deck") beside the craftsman's work, and the blocker notes run together into one paragraph. He called the text meaningless and said it takes away from the game. Owner: the queued "crafting and workshops" representation session. Engine text fixes (WS-1 to WS-3) may land first from the protagonist-life coordinator; the session does the layout (WS-4, WS-5).
+
+- WS-1: Commands get placement by allowlist, not by denylist. A command with no declared home panel goes in a dev-only "Unplaced commands" list, shown only with `config.enable_dev_mode` and labelled as dev, never in a player panel. The other-world filter added today (`d5f48d5f6`) misses techniques without a `worldId`.
+- WS-2: Never print engine reasons to the player. "This command belongs to another world." (`src/simulation.js:131`) and the fallback "The required knowledge, means or circumstances are missing." (`src/simulation.js:46`) are dev text. Hide what is unreachable in this world or life, or name the specific missing thing ("needs 1 log", "learn measured packing first", "the traveler is busy").
+- WS-3: A location blocker ("Return to Shack") becomes a travel chip on the button, not a sentence under it.
+- WS-4: Split the panel into sections: Talk, Work here, Your abilities (collapsed, this world only), Elsewhere (one line each with travel). Each heading shows "n ready / m actions" (`summarizeGroups`). Put the rest in a closed "Not yet (n)" section.
+- WS-5: Keep the scene prose and status apart from the controls. The scene goes in a framed block above, and status becomes one line. Blocker reasons show on hover or focus, not as inline `small.ui-disabled-reason` runs (`src/ui_components.js`).
+- Done check: rebuilt 1920x1080 fresh origin, Village with the craftsman met. No other-world label is visible. No reason note contains either generic string. Each section heading has its count.

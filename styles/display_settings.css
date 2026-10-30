@@ -25,3 +25,14 @@
 :root[data-display-vitals-value="beside"] #main_content #basic_character_info_div :is(#character_xp_bar_max, #character_stamina_bar_max, #character_mana_bar_max, #character_healthbar_max) {flex: 1 1 auto; min-width: 0; margin: 0;}
 :root[data-display-vitals-value="beside"] #main_content #basic_character_info_div :is(#character_xp_value, #character_stamina_value, #character_mana_value, #character_health_value) {position: static; flex: 0 1 auto; width: auto; min-width: 0; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left;}
 :root[data-display-vitals-level="hide"] #main_content #character_vitals_level {display: none;}
+
+/* COV3: Effects & sound is a board of settings rows. Groups are closed disclosures; a row is label and control, its explanation sits under it. */
+.customization-surface .customization-look {grid-column: 1 / -1;}
+.customization-surface .customization-look > summary {cursor: pointer;}
+.customization-surface .customization-look .ui-field-grid > label {display: contents;}
+.display-board {margin-top: var(--ui-space-2);}
+.display-group > summary {cursor: pointer; font-weight: var(--ui-weight-strong);}
+.display-group .display-setting-row {grid-template-columns: minmax(8rem, 1fr) auto; margin: var(--ui-space-2) 0;}
+.display-group .display-setting-desc {font-size: var(--ui-type-small); color: var(--theme-muted, var(--workspace-muted));}
+.display-group .display-setting-desc[hidden] {display: none;}
+.display-group > p.display-setting-desc {margin: 0 0 var(--ui-space-2);}

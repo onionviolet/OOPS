@@ -4,7 +4,7 @@
 //
 // subject = {id, name, kind, rank, level, appearance[], stats[], abilities[], conditions[], gear[],
 //            traits[], standing[], ties[], history[], intent[], between[]}
-//   every row is {id, label, value?, unit?, desc?, detail?, reveal?, knowKey?, schema?, channel?}
+//   every row is {id, label, value?, unit?, exactText?, desc?, detail?, reveal?, knowKey?, schema?, channel?}
 //   reveal is the appraisal level (AP0-AP9, MEANS_AND_APPRAISAL) a read needs; sections give defaults.
 // read    = {means, label, level 0..9, precision 0..3, rank?, channels?, schemas?, scope?, guess?}
 //   precision narrows numeric bands (0 widest, 3 exact); rank caps reads past the observer (the
@@ -71,7 +71,11 @@ function rowsFor(section, subject, read, level, observer, mine) {
         if (!inScope(read, section) || level < need(row) || !channelOk(read, row)) continue;
         if (section === 'stats') {
             if (!Number.isFinite(row.value)) continue;
-            if (level >= 3) { const b = bandText(row.value, read.precision, row.unit); rows.push({id: row.id, label: row.label, state: state(b.state, row), text: b.text, basis, desc: row.desc, width: b.width}); }
+            if (level >= 3) {
+                const b = bandText(row.value, read.precision, row.unit);
+                // `exactText` is the owner's own wording of the exact value (a combat readout's "5 dmg x2"); a band never uses it.
+                rows.push({id: row.id, label: row.label, state: state(b.state, row), text: b.width === 1 && row.exactText ? row.exactText : b.text, basis, desc: row.desc, width: b.width});
+            }
             continue;
         }
         if (section === 'abilities' && !schemaOk(read, row)) {

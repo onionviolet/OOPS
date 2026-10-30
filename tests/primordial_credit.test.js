@@ -192,3 +192,15 @@ test('slice validation: CP and mission fields must be sound; a save without them
     assert.throws(() => R.validateSlice({...base, cp: -1}), /bad CP/); assert.throws(() => R.validateSlice({...base, cp: 1.5}), /bad CP/);
     assert.throws(() => R.validateSlice({...base, shift: {startedAt: 'x'}}), /bad mission/);
 });
+
+test('IP7: a second mission on the same day is a paid rush posting, never a flat refusal', () => {
+    const {host, clock} = hostAt();
+    host.startShift();
+    clock.t = T0 + 8 * HOUR; host.tick();
+    const cp = host.view().cp;
+    clock.t = T0 + 9 * HOUR;
+    assert.throws(() => host.startShift(), /rush posting/);
+    host.startShift({rush: true});
+    assert.ok(host.view().shift);
+    assert.equal(host.view().cp, cp - R.DIALS.rushFee.value, 'the fee is the cost');
+});

@@ -1,0 +1,389 @@
+{
+ "total": {
+  "circle": 1220,
+  "rect": 161,
+  "line": 419,
+  "path": 78
+ },
+ "secs": {
+  "style-guide": {
+   "circle": 0,
+   "rect": 39,
+   "line": 7,
+   "path": 0
+  },
+  "character-sheet": {
+   "circle": 0,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "skills-tab": {
+   "circle": 0,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "skills-tab-empty": {
+   "circle": 0,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "ladders-several": {
+   "circle": 48,
+   "rect": 0,
+   "line": 9,
+   "path": 6
+  },
+  "path-picker": {
+   "circle": 0,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "graph-fork": {
+   "circle": 12,
+   "rect": 0,
+   "line": 5,
+   "path": 0
+  },
+  "graph-moons": {
+   "circle": 8,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "graph-hall": {
+   "circle": 8,
+   "rect": 0,
+   "line": 3,
+   "path": 0
+  },
+  "graph-gifts": {
+   "circle": 6,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "ladder-events": {
+   "circle": 14,
+   "rect": 0,
+   "line": 3,
+   "path": 2
+  },
+  "versus-row": {
+   "circle": 0,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "ritual-low-lamp": {
+   "circle": 38,
+   "rect": 0,
+   "line": 4,
+   "path": 20
+  },
+  "web-lanternside": {
+   "circle": 24,
+   "rect": 0,
+   "line": 22,
+   "path": 0
+  },
+  "ladder-lantern-self": {
+   "circle": 32,
+   "rect": 0,
+   "line": 6,
+   "path": 4
+  },
+  "ladder-reed-self": {
+   "circle": 28,
+   "rect": 0,
+   "line": 6,
+   "path": 4
+  },
+  "ladder-lantern-witness": {
+   "circle": 12,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "ladder-long-self": {
+   "circle": 28,
+   "rect": 0,
+   "line": 6,
+   "path": 4
+  },
+  "ladder-lantern-compact": {
+   "circle": 28,
+   "rect": 0,
+   "line": 6,
+   "path": 4
+  },
+  "ladder-lantern-planned": {
+   "circle": 28,
+   "rect": 0,
+   "line": 6,
+   "path": 8
+  },
+  "ladder-lantern-records": {
+   "circle": 28,
+   "rect": 0,
+   "line": 6,
+   "path": 4
+  },
+  "ladder-lantern-insight": {
+   "circle": 32,
+   "rect": 0,
+   "line": 6,
+   "path": 4
+  },
+  "bench-bell_5-rite": {
+   "circle": 18,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "bench-bell_5-making": {
+   "circle": 28,
+   "rect": 0,
+   "line": 6,
+   "path": 0
+  },
+  "bell_5-strip": {
+   "circle": 12,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "bench-bell_5_brewing-rite": {
+   "circle": 18,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "bench-bell_5_brewing-making": {
+   "circle": 28,
+   "rect": 0,
+   "line": 8,
+   "path": 0
+  },
+  "fight-duel": {
+   "circle": 10,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "fight-brawl": {
+   "circle": 22,
+   "rect": 0,
+   "line": 8,
+   "path": 0
+  },
+  "chase-fixture.tollman": {
+   "circle": 16,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "knows-harbor-bell": {
+   "circle": 40,
+   "rect": 0,
+   "line": 12,
+   "path": 0
+  },
+  "research-map-frontier.lever": {
+   "circle": 24,
+   "rect": 0,
+   "line": 14,
+   "path": 0
+  },
+  "research-ladder-frontier.lever": {
+   "circle": 20,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "time-return-digest": {
+   "circle": 20,
+   "rect": 0,
+   "line": 14,
+   "path": 0
+  },
+  "lives-tree": {
+   "circle": 64,
+   "rect": 0,
+   "line": 18,
+   "path": 0
+  },
+  "loop-clock-town": {
+   "circle": 20,
+   "rect": 0,
+   "line": 4,
+   "path": 18
+  },
+  "divergence-opt-in": {
+   "circle": 32,
+   "rect": 0,
+   "line": 8,
+   "path": 0
+  },
+  "space-memory-palace": {
+   "circle": 20,
+   "rect": 0,
+   "line": 14,
+   "path": 0
+  },
+  "family-household": {
+   "circle": 52,
+   "rect": 0,
+   "line": 32,
+   "path": 0
+  },
+  "family-stranger": {
+   "circle": 28,
+   "rect": 0,
+   "line": 14,
+   "path": 0
+  },
+  "family-fan-stranger": {
+   "circle": 32,
+   "rect": 0,
+   "line": 0,
+   "path": 0
+  },
+  "walk-map": {
+   "circle": 34,
+   "rect": 0,
+   "line": 16,
+   "path": 0
+  },
+  "walk-ladder": {
+   "circle": 20,
+   "rect": 0,
+   "line": 2,
+   "path": 0
+  },
+  "walk-map-alone": {
+   "circle": 4,
+   "rect": 0,
+   "line": 2,
+   "path": 0
+  },
+  "route-strip": {
+   "circle": 16,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "body-record": {
+   "circle": 48,
+   "rect": 0,
+   "line": 8,
+   "path": 0
+  },
+  "body-channels": {
+   "circle": 38,
+   "rect": 0,
+   "line": 8,
+   "path": 0
+  },
+  "body-second": {
+   "circle": 16,
+   "rect": 0,
+   "line": 12,
+   "path": 0
+  },
+  "org-courtyard-standing": {
+   "circle": 24,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "org-gang-crew": {
+   "circle": 24,
+   "rect": 0,
+   "line": 6,
+   "path": 0
+  },
+  "org-sect-ranks": {
+   "circle": 20,
+   "rect": 0,
+   "line": 4,
+   "path": 0
+  },
+  "craft-flow-blade": {
+   "circle": 32,
+   "rect": 0,
+   "line": 20,
+   "path": 0
+  },
+  "relationship-web-ferry": {
+   "circle": 28,
+   "rect": 0,
+   "line": 30,
+   "path": 0
+  },
+  "rumour-ripple-seal": {
+   "circle": 38,
+   "rect": 0,
+   "line": 18,
+   "path": 0
+  },
+  "home-strip-cottage": {
+   "circle": 0,
+   "rect": 18,
+   "line": 0,
+   "path": 0
+  },
+  "home-strip-nest-worn": {
+   "circle": 0,
+   "rect": 4,
+   "line": 0,
+   "path": 0
+  },
+  "home-strip-rental": {
+   "circle": 0,
+   "rect": 10,
+   "line": 0,
+   "path": 0
+  },
+  "owed-table-mixed": {
+   "circle": 0,
+   "rect": 20,
+   "line": 0,
+   "path": 0
+  },
+  "threshold-lanternside-clerk": {
+   "circle": 0,
+   "rect": 10,
+   "line": 0,
+   "path": 0
+  },
+  "threshold-lanternside-envoy": {
+   "circle": 0,
+   "rect": 12,
+   "line": 0,
+   "path": 0
+  },
+  "time-day-band": {
+   "circle": 0,
+   "rect": 18,
+   "line": 14,
+   "path": 0
+  },
+  "forms-chip-row": {
+   "circle": 0,
+   "rect": 14,
+   "line": 0,
+   "path": 0
+  },
+  "forms-bar-rows": {
+   "circle": 0,
+   "rect": 16,
+   "line": 0,
+   "path": 0
+  }
+ },
+ "errs": []
+}

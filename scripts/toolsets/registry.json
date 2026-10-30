@@ -461,6 +461,70 @@
       "effects": "Boots game in Node; synthetic/frozen time, no layout proof."
     },
     {
+      "id": "advance-save",
+      "title": "Advance a save by days or to the next event (headless, on a copy)",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/headless/advance.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/headless/advance.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Boots the game in Node, writes only --out (never the input save)."
+    },
+    {
+      "id": "scenarios",
+      "title": "Named save-state library and boot-twice determinism check",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/headless/scenarios.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/headless/scenarios.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "list is read-only; build writes --out and a source-stamped cache in the OS temp folder."
+    },
+    {
+      "id": "branch-explorer",
+      "title": "Run one event or choice every way (choices x seeds x stats) and tabulate",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/replay/explore.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/replay/explore.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Read-only on the input save; works on copies in memory."
+    },
+    {
+      "id": "stat-report",
+      "title": "Stat interaction report: no reader, no writer, runaway multipliers",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/stat_report.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/stat_report.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Reads src and content registries; writes only --out. Static and heuristic."
+    },
+    {
       "id": "replay",
       "title": "Deterministic engine replay",
       "kind": "launch",

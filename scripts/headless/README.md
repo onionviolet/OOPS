@@ -67,3 +67,13 @@ const saved = await game.save();                               // window.savePro
 
 Tests: `node --test tests/headless/*.test.js` (set `YAIRPG_HEADLESS_DAY=1` for the full
 24-hour fresh step).
+
+## Faster time, scenarios and determinism (2026-10-30)
+
+- `advance.mjs`: `--days N`, `--minutes N` or `--until event` on `--save file` or `--fresh`, writing `--out` (never the
+  input). `until event` uses the engine's `nextSimulationBoundary`. It uses the dev stepper, not the browser-only
+  sliced `fastForward` (needs a real event loop); `tests/headless/advance_equivalence.test.js` shows one call, 60-minute
+  chunks and day-by-day give the same canonical save. `chunk` is the stepper batch (the dev time multiplier).
+- `scenarios.mjs`: `list`, `build <name> --out f`, `determinism <name> [--days 1]` (boot twice, same seed, compare).
+  Names: fresh, fresh-day3, fresh-week, perf-fresh, perf-mid, perf-crowded. Recipes cache in the OS temp folder.
+- Game MCP: `game_step({days})`, `game_step({until:"event"})`, `game_new({scenario})`.

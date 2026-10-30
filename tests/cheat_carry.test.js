@@ -17,7 +17,7 @@ test('optional talking system is distinct and awakening uses each card message',
  const result=awakenCheats(s,{wonFight:true,dayCount:1,at});assert.equal(result.messages.length,2);
  assert.notEqual(...result.messages);validateCheatState(result.state);
 });
-test('heir receives enduring faculty stages without copying points, claim rows or the accompanying system',()=>{
+test('heir receives enduring faculty stages without copying points or claim rows, and the accompanying system returns dormant',()=>{
  const s=awakenCheats(seedBeginningCheats(defaultCheatState(),{choice:'system-quests',at}),{wonFight:true,dayCount:1,at}).state;
  s.held['quiet-faculty'].card.stages.push({id:'true-appraisal',at,via:'practice',carried:true});s.held['quiet-faculty'].card.state.points=5;s.held['quiet-faculty'].card.state.earned=5;
  const fresh={character:{name:'You',money:0,reputation:{}},levels:{},'current time':at,
@@ -25,7 +25,7 @@ test('heir receives enduring faculty stages without copying points, claim rows o
  const end=62*GAME_YEAR,previous={...structuredClone(fresh),cheats:s,expansion:{rng:7,clock:end,chronicle:advanceChronicle(createChronicle(0,at,true),end)}};
  const next=buildLifeHeirSave(previous,fresh);assert.equal(next.cheats.held['quiet-faculty'].card.state.points,0);
  assert.deepEqual(next.cheats.held['quiet-faculty'].card.stages,s.held['quiet-faculty'].card.stages);
- assert.equal(next.cheats.held['quiet-faculty'].messages.length,1);assert.equal(next.cheats.held['system-quests'],undefined);
+ assert.equal(next.cheats.held['quiet-faculty'].messages.length,1);const line=next.cheats.held['system-quests'];assert.equal(line.card.state.awakened,false);assert.equal(line.card.state.points,0);assert.equal(line.messages.length,0);assert.equal(line.acquired.route,'heir-line');
  assert.equal(s.held['quiet-faculty'].card.state.points,5);validateCheatState(next.cheats);
 });
 test('temporal carrier keeps faculty acquired after a checkpoint without copying other cards',()=>{

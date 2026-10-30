@@ -80,11 +80,12 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
 
 export function createEquipmentComparison({read}) {
     const panel=document.createElement('details');panel.id='workspace_equipment_comparison';const title=document.createElement('summary');title.textContent='Equipment comparison';panel.append(title);
-    const note=document.createElement('p');note.textContent='Compare equipment you hold or wear. Values describe each item, before your body, skills and situational effects. No equipment changes here.';
+    const note=document.createElement('p');const noteText=note.textContent='Compare equipment you hold or wear. Values describe each item, before your body, skills and situational effects. No equipment changes here.';
     const choices=document.createElement('div'),table=document.createElement('table');table.setAttribute('aria-label','Held equipment comparison');
     const selects=[0,1].map(i=>{const label=document.createElement('label');label.textContent=i?'Compare with ':'Compare item ';const select=document.createElement('select');select.setAttribute('aria-label',i?'Second equipment item':'First equipment item');label.append(select);choices.append(label);select.onchange=()=>render(true);return select;});
     panel.append(note,choices,table);document.getElementById('character_div')?.append(panel);
-    registerWorkspaceModule({id:'equipment-comparison',title:'Equipment comparison',node:panel,home:'left'});
+    // UR82: hidden until the life holds or wears equipment; with one piece it says how to get the second.
+    registerWorkspaceModule({id:'equipment-comparison',title:'Equipment comparison',node:panel,home:'left',discovered:()=>{try{return read().length>0;}catch{return false;}},unavailableReason:()=>'Hold or wear a piece of equipment to compare it.'});
     let last='';
     function render(force=false){
         const rows=read(),signature=JSON.stringify(rows);if(!force&&last===signature)return;
@@ -92,6 +93,7 @@ export function createEquipmentComparison({read}) {
             select.replaceChildren(...rows.map(row=>{const o=document.createElement('option');o.value=row.id;o.textContent=row.label;return o;}));
             select.value=rows.some(r=>r.id===previous[i])?previous[i]:rows[Math.min(i,rows.length-1)]?.id||'';
         }last=signature;}
+        note.textContent=rows.length>1?noteText:'Hold or wear a second piece of equipment, then pick two here to compare them.';
         const chosen=selects.map(s=>rows.find(r=>r.id===s.value));
         const makeRow=(label,values,header=false)=>{const tr=document.createElement('tr');for(const text of [label,...values]){const c=document.createElement(header?'th':'td');c.textContent=String(text??'None');tr.append(c);}return tr;};
         const keys=[...new Set(chosen.flatMap(r=>Object.keys(r?.stats||{})))];

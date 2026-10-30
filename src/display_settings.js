@@ -106,9 +106,8 @@ export function mountDisplaySettings(host) {
     if (!host || typeof document === 'undefined') return null;
     const section = document.createElement('fieldset'); section.className = 'display-settings';
     const legend = document.createElement('legend'); legend.textContent = 'This browser'; section.append(legend);
-    const intro = document.createElement('p'); intro.className = 'display-settings-intro';
-    intro.textContent = 'Stored in this browser. Changes apply at once. Effects off above turns off every motion here.';
-    section.append(intro);
+    // Stored here, applied at once. The old paragraph is the legend's tooltip; Effects off above still caps every motion.
+    legend.title = 'Stored in this browser. Changes apply at once. Effects off above turns off every motion here.';
     const controls = {};
     const row = (key, label, control, description) => {
         const line = document.createElement('div'); line.className = 'display-setting-row';
@@ -118,36 +117,57 @@ export function mountDisplaySettings(host) {
         const desc = document.createElement('span'); desc.id = descId; desc.className = 'display-setting-desc'; desc.textContent = description;
         line.append(name, control); controls[key] = control; return {line, desc};
     };
-    for (const s of DISPLAY_SETTINGS) {
+    // One group per kind of setting, closed by default: the board shows what can be changed, a group opens to the controls and their explanations.
+    const group = (title, count, rows) => {
+        const box = document.createElement('details'); box.className = 'display-group';
+        const sum = document.createElement('summary'); sum.append(`${title} `);
+        const n = document.createElement('span'); n.className = 'ui-chip'; n.textContent = String(count); sum.append(n); box.append(sum);
+        for (const r of rows) box.append(r); return box;
+    };
+    const selectRow = s => {
         const select = document.createElement('select');
         for (const [value, text] of s.options) { const o = document.createElement('option'); o.value = value; o.textContent = text; select.append(o); }
+        select.value = current[s.key];
         select.addEventListener('change', () => setDisplaySettings({[s.key]: select.value}));
-        const {line, desc} = row(s.key, s.label, select, s.description); line.append(desc); section.append(line);
-    }
-    for (const c of DISPLAY_COLORS) {
+        return row(s.key, s.label, select, s.description);
+    };
+    const colorRow = c => {
         const input = document.createElement('input'); input.type = 'color';
         input.addEventListener('input', () => setDisplaySettings({[c.key]: input.value}));
         const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'display-color-clear'; clear.textContent = 'Use scheme';
         clear.addEventListener('click', () => setDisplaySettings({[c.key]: ''}));
-        const {line, desc} = row(c.key, c.label, input, c.description); line.append(clear, desc); section.append(line);
+        const {line, desc} = row(c.key, c.label, input, c.description); line.append(clear); return {line, desc};
+    };
+    const KINDS = [
+        ['Opening and panels', ['stagedOpening', 'nextStep', 'reveal']],
+        ['Numbers and logs', ['numberFormat', 'combatRepeatMode', 'lootReports', 'logFollow']],
+        ['Vitals and purse', ['vitalsValue', 'vitalsLevel', 'coinFloat', 'coinFloatAutomatic', 'newDot']],
+        ['Contrast and colors', ['contrast']],
+    ];
+    const board = document.createElement('div'); board.className = 'ui-board display-board'; section.append(board);
+    const used = new Set();
+    for (const [title, keys] of KINDS) {
+        const defs = keys.map(k => DISPLAY_SETTINGS.find(s => s.key === k)).filter(Boolean);
+        const colors = title === 'Contrast and colors' ? DISPLAY_COLORS : [];
+        const nodes = [...defs.map(selectRow), ...colors.map(colorRow)].map(({line, desc}) => { line.append(desc); return line; });
+        defs.forEach(d => used.add(d.key));
+        board.append(group(title, nodes.length, nodes));
     }
-    const groups = document.createElement('div'); section.append(groups);
+    // Any future setting not named above still shows, in a catch-all group, never dropped.
+    const rest = DISPLAY_SETTINGS.filter(s => !used.has(s.key)).map(selectRow).map(({line, desc}) => { line.append(desc); return line; });
+    if (rest.length) board.append(group('More', rest.length, rest));
+    const groups = document.createElement('div'); groups.className = 'ui-board display-board'; section.append(groups);
     const mountPanels = () => {
         groups.replaceChildren();
         for (const panel of panelSettings.values()) {
             if (!panel.settings.length) continue;
-            const group = document.createElement('fieldset'); group.dataset.panelSettings = panel.id;
-            const title = document.createElement('legend'); title.textContent = panel.title; group.append(title);
-            for (const s of panel.settings) {
-                const select = document.createElement('select');
-                for (const [value, text] of s.options) {
-                    const option = document.createElement('option'); option.value = value; option.textContent = text; select.append(option);
-                }
-                select.value = current[s.key];
-                select.addEventListener('change', () => setDisplaySettings({[s.key]: select.value}));
-                const {line, desc} = row(s.key, s.label, select, s.description); line.append(desc); group.append(line);
-            }
-            groups.append(group);
+            // Settings that share one explanation show it once under the group, not once per row.
+            const descs = new Set(panel.settings.map(s => s.description)), shared = descs.size === 1 && panel.settings.length > 1 ? [...descs][0] : '';
+            const rows = panel.settings.map(s => { const {line, desc} = selectRow(s); if (!shared) line.append(desc); else desc.className = 'display-setting-desc'; return {line, desc}; });
+            const box = group(panel.title, panel.settings.length, rows.map(r => r.line));
+            box.dataset.panelSettings = panel.id;
+            if (shared) { const note = document.createElement('p'); note.className = 'display-setting-desc'; note.textContent = shared; box.append(note); for (const r of rows) r.desc.hidden = true, box.append(r.desc); }
+            groups.append(box);
         }
     };
     mountPanels(); panelRegistrations.add(mountPanels);

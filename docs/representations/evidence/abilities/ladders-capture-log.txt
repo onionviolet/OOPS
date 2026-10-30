@@ -1,0 +1,4 @@
+gallery ladders-several: Potion sequence / Your rung / Realm / Learned / By a gift you cannot explain |  | fills=6
+gallery path-picker:  | Lantern-Reader pathway: Ordinary clerk > First rung · Lantern-Reader > Second rung · Wick-Turner > Not yet known. You stand on First rung · Lantern-Reader. | Reed-breath realms: Dust Gathering > Reed Breath > Not yet known. You stand on Dust Gathering. | fills=0
+gallery ladder-events:  |  | fills=2
+errors: []

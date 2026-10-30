@@ -41,6 +41,7 @@ export function mountWorkroomTabs({panel, after, blocks, initial = 'here'}) {
     // Dismissal is remembered per browser so the hint does not return on every load.
     const MOVED_KEY = 'yairpg.workroomMovedSeen';
     got.onclick = () => { moved.remove(); try { localStorage.setItem(MOVED_KEY, '1'); } catch { /* storage may be unavailable */ } };
+    got.setAttribute('aria-label', 'Got it: hide the note about the workroom tabs'); got.title = 'Hide the note about the workroom tabs';
     moved.append(got);
     let seen = false; try { seen = localStorage.getItem(MOVED_KEY) === '1'; } catch { /* storage may be unavailable */ }
     wrapper.append(tabs.bar); if (!seen) wrapper.append(moved);

@@ -46,3 +46,34 @@ export function quotedActionList(rows, {id, activate}) {
     }
     return root;
 }
+
+// Shared row shapes for views that used to be prose (UR79: one shape per kind). A chip is a
+// hairline-outline word; a row is a label, chips and actions on one line, with the longer
+// explanation behind a named disclosure so no fact is dropped (UR75).
+export function chip(text, {tone = '', guess = false, title = ''} = {}) {
+    const node = document.createElement('span'); node.className = 'ui-chip'; node.textContent = text;
+    if(tone) node.dataset.tone = tone;
+    if(guess) node.dataset.guess = '';
+    if(title) node.title = title;
+    return node;
+}
+
+export function infoRow({label, chips = [], actions = [], more = '', moreLabel = 'Why', moreNodes = []} = {}) {
+    const row = document.createElement('div'); row.className = 'ui-row';
+    const name = document.createElement('strong'); name.className = 'ui-row-label'; name.textContent = label;
+    const chipBox = document.createElement('span'); chipBox.className = 'ui-row-chips'; chipBox.append(...chips);
+    const actionBox = document.createElement('span'); actionBox.className = 'ui-row-actions'; actionBox.append(...actions);
+    row.append(name, chipBox, actionBox);
+    if(more || moreNodes.length) {
+        const details = document.createElement('details'); details.className = 'ui-row-more';
+        const summary = document.createElement('summary'); summary.textContent = moreLabel; details.append(summary);
+        if(more) { const p = document.createElement('p'); p.textContent = more; details.append(p); }
+        details.append(...moreNodes); row.append(details);
+    }
+    return row;
+}
+
+// A reason that stays beside a disabled control instead of hiding in a title (UIV1).
+export function reasonLine(text) {
+    const node = document.createElement('small'); node.className = 'ui-row-reason'; node.textContent = text; return node;
+}

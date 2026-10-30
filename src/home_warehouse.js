@@ -20,7 +20,7 @@ export function warehouseDecision(h,c){
  if(w.pending||busy(c,M))return {run:false,reason:'Mara is occupied by an actual appointment.'};
  if(c.people?.[M]?.life!=='alive'||c.people[M].location!==ROOM)return {run:false,reason:'Mara must actually visit the manor; a real pantry delivery brings her here.'};
  if((h.stock[WOOD]||0)<=w.keep)return {run:false,reason:`Stored rough logs are at the ${w.keep}-log reserve floor.`};
- if((c.staffResources?.[M]?.['home.wages']||0)<1)return {run:false,reason:'Mara’s personal purse cannot fund another one-coin purchase.'};
+ if((c.staffResources?.[M]?.['home.wages']||0)<1)return {run:false,reason:'Mara’s personal purse cannot fund another one-coin purchase now; it refills from her wages, or you can pay her first.'};
  return {run:true,reason:'Mara can reserve sixty played minutes to assess one available log for one of her own coins.'};
 }
 function stationNeeds(h,c){

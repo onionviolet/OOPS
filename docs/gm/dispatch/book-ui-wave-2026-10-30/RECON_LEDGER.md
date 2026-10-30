@@ -146,8 +146,9 @@ Source: `implemented, below floor` or `read model only` in `docs/gm/dispatch/pro
 | RC15-RC28 | GenUI checked by content (each commit 0-13% missing, explained by later edits; rituals `57c8e648` 84/229 replaced by its round 2); Sonnet confirmed `3287d6a2` is on master as `09901eab` | GenUI, Sonnet | Whole CB-S tier confirmed by content: nothing unique remains. |
 | RC9 | G17 Skills tab built, uncommitted; commit follows one queued full suite; host patch `skills-tab-host.patch` sent to floor-wire (new unapplied patch); below floor at FLR4 | rep-abilities | Commit after the suite. |
 | RC42 | `gate-wire` was made by sw-wire, not floor-wire, idle since | sw-wire (Sonnet) | Sonnet asks sw-wire; then CB-D. |
-| RC44 | p4-fights commits its own set after the 1920x1080 run and one gated suite. Set: `tempo_*` (3), `tempo_allies.js`, `clock_owner.js`, its `enemy:Enemy` hunk in `main.js`, 2 tests. `stepper_batch_validation.test.js` and the `validateEnvelopeInBatch` hunks in `main.js` are perf-waits'. | p4-fights, perf-waits | p4-fights tells bk-party when it lands. |
-| RC45 | p3c-memory has the row (queued, no reply yet) | p3c-memory | Commit set together. |
+| RC44 | p4-fights commits its own set after the 1920x1080 run and one gated suite. Set: `tempo_*` (3), `tempo_allies.js`, `clock_owner.js`, its `enemy:Enemy` hunk in `main.js`, 2 tests. `stepper_batch_validation.test.js` and the `validateEnvelopeInBatch` hunks in `main.js` are perf-waits' and are now committed (`4e2cba556`, test tracked, `main.js` equals HEAD). A truncated `main.js` was restored from HEAD (`dfcf3390a`) and about 27 uncommitted lines were lost; perf-waits confirmed both its hunks (batched validation and the `fastForward` rest) are in `4e2cba556`, nothing lost, and its 45-day Chrome proof (1920x1080, save, reload, import) passed. RC62 timing proof can run. | p4-fights, perf-waits | p4-fights tells bk-party when it lands. |
+| RC45 | Landed: `fcdfee7ba` holds the whole set (`person_silence`, `promise_*`, `person_memory_effects`, `everyday_life`, `simulation_effects`, test, `person_standing.js`), on master and tracked. Keep-quiet route, severity/loyalty/debt/lie lines and village crowd witness browser-verified at 1920x1080 with save, reload and import; the 45-day wait and the real-fight hook are not yet proven. | p3c-memory | Closed as a stray. Remaining: the two unproven routes. |
+| RC61 | MR1-MR3 are at the floor per `docs/LEAD_LIFE_GUIDE.md` section 6 (MR1 implemented and consumed by P3; MR2 at floor for the village workshop route; MR3 at floor for the amends route) | p3c-memory | Closed. |
 | RC46, RC47 | A homes worker under GenUI is finishing its suite, then commits `home_overview_*`, `ui/home_view`, `home_view.css`, test and probably the `home_domain`, `home_building_model`, `layout_spec` hunks. `index.html` hash lines: whoever next builds. `styles/manifest.txt`: tooling-defaults. | GenUI homes worker | Commit. |
 | RC49 | `book_world_lotm_path.js` closed (`14b99beee`); `clock_owner.js` is p4-fights' (RC44); `tests/lotm_advancement.test.js` to floor-wire | p4-fights, floor-wire | Commit or drop. |
 | RC50 | Closed: coverage ledger diff gone from master | none | none |
@@ -162,6 +163,17 @@ Source: `implemented, below floor` or `read model only` in `docs/gm/dispatch/pro
 | RC63, RC64, RC66 | sw-bridge (inference, lanes not opened): bridges exist for MF_ABILITY and MF_BODY (consumer: UI integrator at abilities and body views). No bridge for L3M, L4A-E, MF_DIVINATION, MF_INFERENCE, MF_EXCHANGE, MF_MAKING and L-A slices: read-model-only, consumer owner the lane owner, then floor-wire. | sw-bridge, floor-wire | Send sw-bridge a read-model function plus a rep contract per slice it should bridge. |
 | RC69 | GenUI writes next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME after its workers land; rep-abilities and rep-relationship-web write their own | GenUI | Done check: each doc has the line. |
 | RC1-RC7 | bk lane messages not delivered (send limit); see the notes folder `bk-recon-report.md` | Book UI forwards | Forward. |
+
+## Later wave lanes (started after the snapshot)
+
+| Code | Kind | Evidence | State | Owner | Next step and done check |
+| --- | --- | --- | --- | --- | --- |
+| RC74 | worktree + branch | `bk-scout-cc90b8`, 2 unmerged commits (`49e8e7188` plus a follow-up), clean, unpushed; docs only: `docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md` (new), pointers in `LIBRARIES_TO_INCORPORATE_2026-10-14.md` and `docs/TOOL_REGISTRY.md` | unlanded | bk-scout `local_fef6b2ab` (running); merge owner: Book UI | Integrator merges those three paths. Done: `git cherry master claude/bk-scout-cc90b8` empty. |
+| RC75 | worktree | `bk-seams-5e4ce1`, 4 uncommitted, on `c8244211` | in progress | bk-seams `local_2ff55b52` | Commit own paths, rebase before merge (RC7). |
+| RC76 | worktree | `bk-ui-directions-65b80d`, 13 uncommitted, on `c8244211`, idle | in progress | bk-ui-directions `local_4a85e652` | Commit own paths or hand to Book UI; rebase (RC7). |
+| RC77 | worktree | `bk-benefits-5b89ef`, 7 uncommitted, on `c8244211`, idle | in progress | bk-benefits `local_cf3a9013` | Same as RC76. |
+
+RC1 update: bk-coi's branch has two commits (`205df106`, `09aa46a5`) touching 7 files (`COI_NEEDS.md`, `evidence/coi/*`, `src/owed_ledger_view.js`, `tests/owed_ledger.test.js`); the tracked tree is clean (the earlier "3 uncommitted" were private symlinks). bk-coi rebases in its own worktree, then Book UI lands it; GenUI must OK first because rep-economy lists the owed ledger files. RC7 is resolved for bk-hp, bk-party and bk-gaps (on `e90e12a1`).
 
 ## Cleanup batch for Weibao's yes (nothing removed)
 

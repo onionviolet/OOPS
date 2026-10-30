@@ -9,7 +9,7 @@ export function createFieldPanel({read, quote, execute, discovered}) {
     const panel = node('section'); panel.id = 'fields_panel'; panel.className = 'expedition_panel'; panel.dataset.surfaceType = 'place-service';
     const intro = node('p'), table = node('div'), controls = node('div'), notice = node('p');
     notice.setAttribute('role', 'status');
-    panel.append(node('h2', 'Spilled stock and smoke'), intro, table, controls, notice);
+    panel.append(node('h2', 'Spills and smoke'), intro, table, controls, notice);
     let signature = '';
     const run = req => { try { execute(quote(req)); notice.textContent = ''; } catch (e) { notice.textContent = e.message; } render(); };
     function button(label, req, attr) {
@@ -55,7 +55,7 @@ export function createFieldPanel({read, quote, execute, discovered}) {
         controls.append(pickers,actions);
         if(focusMaterial)material.focus({preventScroll:true});else if(focusLevel)level.focus({preventScroll:true});
     }
-    definePanel({id: 'fields', title: 'Spilled stock and smoke', role: 'actions', node: panel, home: document.getElementById('main_content'),
+    definePanel({id: 'fields', title: 'Spills and smoke', role: 'actions', node: panel, home: document.getElementById('main_content'),
         discovered, eligible: () => true, unavailableReason: () => 'Carry a mixture or ingredient to spill it here'});
     // Stock and place come from other owners: re-read when the pack or the place changes (declared pending in the spec).
     subscribeChange({id: 'fields', pending: ['inventory', 'place'], refresh: () => render()});

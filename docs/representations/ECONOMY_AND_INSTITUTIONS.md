@@ -1,5 +1,7 @@
 # Economy and institutions: representations (proposals, 2026-10-30)
 
+**Next slice (2026-10-30):** O2 ladder rows on the Tingen path. Level and effort: sonnet, medium. Done when: no done check is written in the doc; the owner is still open.
+
 Status: agent proposals. Nothing here is accepted until Weibao says so. One playable slice is built (Ledger → Owed); the other
 representations are designed for later slices.
 
@@ -126,7 +128,7 @@ overdue first, then by date, then you-owe before owed-to-you.
     Favour filter with no UI change.
   - Loyalty (from LTU6) is not an account. It belongs on the person (relationship web), not here.
 - **LATER/DELEGATE:**
-  - **Settle-in-place for coin rows:** sonnet, medium. Done when Repay from the inspector quotes the same figure the Standing
+  - **Settle-in-place for coin rows:** done for credit rows 2026-10-30 (see Follow-up below). Done when Repay from the inspector quotes the same figure the Standing
     panel commits.
   - **O2 ladder figure:** sonnet, medium. Done check as above.
   - **Merging Standing's credit lines into Owed:** sonnet, small. Done when one account appears in one place and the Standing
@@ -177,7 +179,7 @@ overdue first, then by date, then you-owe before owed-to-you.
 | FLR1 | Met: bundle `18125a0c9bd8` |
 | FLR2 | Met by the rebuilt-browser route (earned step and named fixture). The game MCP walk of this branch is missing, because the MCP serves the primary checkout |
 | FLR3 | Met: effect-first sentences, an empty state that says how to fill it, and a no-match text for every filter |
-| FLR4 | Partial: the tab's consumer is the existing Repay verb, which it points to but does not call |
+| FLR4 | Partial: the tab's consumer is the existing Repay verb, which it points to but does not call. Closed for credit rows by the 2026-10-30 settle-in-place follow-up below |
 | FLR5 | Not applicable: no persistence change |
 | FLR6 | Agent-verified, not human-reviewed. Route kinds are earned and fixture |
 
@@ -409,3 +411,29 @@ rows prove too flat.
 
 **Delegation:** one Sonnet subagent did the reference-game and prior-docs study (R2-1). I built the code myself, because each
 piece was smaller than a brief. No Opus session was started.
+
+## Follow-up, 2026-10-30: Repay settles in place
+
+Proposal (AD32), desktop 1920×1080, evidence in `docs/representations/evidence/followups/`.
+
+Selecting a credit row in Ledger → Owed now shows a button, `Repay N`, where N is `loan.owed` from the same
+economy_standing projection Standing labels its own button from. It calls the domain's `repay` command (published
+as `commands.repay`, the function Standing's button calls), so the commit, the purse and the standing deed are one path.
+The row says why it is blocked with an empty purse, and says how much lands when the purse is short of N. The other
+kinds (claims, household, career, verge grudge) keep their pointer line and no button: each has a different owner
+and no command to call yet. A receipt line, "Paid N coins.", appears in the ledger notice.
+
+Settled in the browser from a fresh origin: borrow 10 in Standing, open Owed, the two buttons read the same
+(`Repay 10`), Repay from Owed clears the row, Standing shows no loan, and the loan stays cleared after save, reload and Import.
+
+| AD43 line | State |
+|---|---|
+| FLR1 build identity | Rebuilt bundle served from the repo root; no page errors |
+| FLR2 natural route | Earned step: Borrow in Standing, then Ledger → Owed → row → Repay |
+| FLR3 description and cost | Button carries the exact figure; blocked and partial cases say why |
+| FLR4 consumer | Met for credit rows: the existing repay command is called; `tests/owed_ledger.test.js` (20 pass with the economy tests) |
+| FLR5 persistence | Cleared loan survives save, reload and Import; no new save field |
+| FLR6 review | Agent-verified, not human-reviewed |
+
+Gap: the quote is checked at a zero-interest moment in the browser; with accrued interest both read the same
+`loan.owed` field (unit test), but no browser run advanced days first.

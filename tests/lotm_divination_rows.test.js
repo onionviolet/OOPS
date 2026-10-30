@@ -7,9 +7,25 @@ import {LOTM_DIVINATION_ROWS, LOTM_DIVINATION_FACTS, LOTM_DIVINATION_GAPS, LOTM_
 const binding = {worldId: LOTM_IDS.world, group: 'book_lotm', situationId: LOTM_IDS.situation};
 const commands = defineDivinations(LOTM_DIVINATION_ROWS, binding);
 
+test('each row names the fact its answer turns on, and an unsupported answer reads as unclear', () => {
+    for (const row of LOTM_DIVINATION_ROWS.queries) {
+        assert.match(row.grounds.fact, /^actor\.lotm\.div\.grounds\./);
+        assert.equal(row.grounds.source, row.locator, 'the answer cites its source scene');
+        const step = row.steps.find(x => x.kind === 'attempt');
+        if (!step) continue; // a row with only unknown stages has no signal to ground
+        const ask = commands.find(c => c.id === `${row.id}.${step.id}`), unclear = commands.find(c => c.id === `${row.id}.${step.id}.unclear`);
+        assert.ok(ask && unclear, `${row.id} has supported and unclear attempts`);
+        assert.ok(JSON.stringify(ask.requires).includes(`"fact":"${row.grounds.fact}","op":"eq","value":true`), 'supported needs the held fact');
+        assert.ok(JSON.stringify(unclear.requires).includes(`"fact":"${row.grounds.fact}","op":"eq","value":false`), 'unclear needs the named state false, never an absent fact');
+        const effect = unclear.effects.find(e => e.key === `divination.${row.id}.signal`);
+        assert.match(effect.value, /nothing you know bears/);
+        assert.equal(effect.basis.status, 'unanswered');
+    }
+});
+
 test('source rows compile with distinct identities, indexed locators and host support facts', () => {
     for (const id of ['lotm.div.coin-divination', 'lotm.div.cane-dowsing', 'lotm.div.altar-search-divination']) assert.ok(LOTM_DIVINATION_ROWS.queries.some(row => row.id === id), `${id} keeps its published id`);
-    assert.equal(commands.length, LOTM_DIVINATION_ROWS.queries.reduce((n, row) => n + row.steps.length, 0));
+    assert.equal(commands.length, LOTM_DIVINATION_ROWS.queries.reduce((n, row) => n + row.steps.length + row.steps.filter(step => ['attempt', 'interpret'].includes(step.kind)).length, 0), 'every attempt and interpret step also has an unclear twin');
     assert.equal(new Set(commands.map(command => command.id)).size, commands.length);
     for (const row of LOTM_DIVINATION_ROWS.queries) {
         assert.match(row.id, /^lotm\.div\./);
@@ -25,7 +41,7 @@ test('source rows compile with distinct identities, indexed locators and host su
         }
         for (const step of row.steps) assert.equal(step.costs, undefined, 'no source-stated spent stock');
     }
-    assert.deepEqual(LOTM_DIVINATION_FACTS, [...new Set(LOTM_DIVINATION_ROWS.queries.flatMap(row => [row.means.fact, row.contact.fact]))]);
+    assert.deepEqual(LOTM_DIVINATION_FACTS, [...new Set(LOTM_DIVINATION_ROWS.queries.flatMap(row => [row.means.fact, row.contact.fact, row.grounds.fact]))]);
     for (const command of commands) {
         assert.equal(command.worldId, LOTM_IDS.world);
         assert.equal(command.group, 'book_lotm');

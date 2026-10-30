@@ -112,3 +112,11 @@ test("snapshot validity: save, validate, load round trip; legacy envelope and un
   domainRegistry.load(env);assert.deepEqual(slice(),saved);
   domainRegistry.load({});assert.deepEqual(slice(),defaultSlice());
 });
+
+test('IP11: a missing credential names the means and a way around it', async () => {
+    const {meansAvailable} = await import('../src/rank_gap_observer.js');
+    const r = meansAvailable({facts: {}}, 'local_permit');
+    assert.equal(r.ok, false);
+    assert.match(r.reason, /Palace-approach admission/);
+    assert.match(r.reason, /friend/);
+});

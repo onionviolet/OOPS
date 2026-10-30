@@ -2,7 +2,7 @@
 // conditions, cost, limit, effects and the learn/practice/mastery lowering) and adds the four parts that record lacks:
 //   origin  - where knowledge of the spell comes from (teacher, text, observed, inherited, sequence, granted);
 //   prepare - an optional timed step before the cast (a memorised formula, a laid circle); the cast consumes it unless `keep` is true;
-//   failure - a chance (a dial, drawn from a seeded stream by the caller's seed, never Math.random) plus typed outcome effects;
+//   failure - a chance (a dial, drawn from a seeded stream by the caller's seed, never an unseeded source) plus typed outcome effects;
 //   strain  - backlash weight with protections, handed to the world's own ledger through an injected `add` (harm_state stays the authority).
 // A world plugs in through an adapter {worldId, prefix, origins, failure, strain}: default, dial and reason, not a list of allowed outcomes (AD38).
 // A part the source does not state is listed under `unstated`, never invented. Leaf: no world imports, no DOM, no clock, no save.

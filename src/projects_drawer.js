@@ -1,6 +1,6 @@
 import {decorateActionComponents} from './ui_components.js';
 import {definePanel} from './panel_kit.js';
-let drawer,body;
+let drawer,body,met=false;
 export function projectsHome() {
     if(body?.isConnected)return body;
     drawer=document.createElement('details');drawer.id='projects_drawer';
@@ -9,8 +9,9 @@ export function projectsHome() {
     body=document.createElement('div');drawer.append(title,note,body);
     definePanel({id:'projects',title:'Projects',role:'optional',node:drawer,
         home:document.getElementById('main_content'),defaultDock:'center',
-        discovered:()=>true,eligible:()=>[...body.children].some(n=>!n.hidden),
-        unavailableReason:()=> 'No projects available at this place.'});
+        // UR82: stays out of the list until a project has been offered; after that an empty place says where to look.
+        discovered:()=>{if([...body.children].some(n=>!n.hidden))met=true;return met;},eligible:()=>[...body.children].some(n=>!n.hidden),
+        unavailableReason:()=> 'No project is offered here. Try another place.'});
     decorateActionComponents(body);
     return body;
 }

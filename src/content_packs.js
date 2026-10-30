@@ -61,7 +61,9 @@ export function validatePack(definition) {
     for(const action of d.activities) {
         check(Number.isSafeInteger(action.duration)&&action.duration>=0&&typeof action.description==='string','Invalid optional activity.');
         // Native coin paid once at timed settlement; immediate actions have no pay owner.
-        check(action.pay==null||Number.isSafeInteger(action.pay)&&action.pay>=0&&action.pay<=MAX_PACK_PAY&&(action.pay===0||action.duration>0),'Invalid optional activity pay.');
+        check(action.pay==null||Number.isSafeInteger(action.pay)&&action.pay>=0,'Optional activity pay must be a whole number of coins, zero or more.');
+        check(action.pay==null||action.pay<=MAX_PACK_PAY,'Optional activity pay is above '+MAX_PACK_PAY+' coins, the most one patron can post in a pack; split the work into several postings or raise the pack limit.');
+        check(action.pay==null||action.pay===0||action.duration>0,'Paid work needs a duration, since pay comes from time spent.');
         for(const rules of [action.requires||[],action.visibleWhen||[]])for(const rule of rules)check(Object.hasOwn(d.initial,rule.field)&&['eq','gte','lte'].includes(rule.op)&&scalar(rule.value),'Invalid optional condition.');
         for(const changes of [action.start||{},action.complete||{}]) {
             for(const [key,val] of Object.entries(changes.set||{}))check(Object.hasOwn(d.initial,key)&&typeof val===typeof d.initial[key]&&scalar(val),'Invalid optional state change.');

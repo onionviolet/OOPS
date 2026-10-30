@@ -15,6 +15,26 @@ export function createCheatPanel({read,act,nameItem}) {
     const run=request=>{try {act(request);message.textContent='Recorded.';}catch(e){message.textContent=e.message;}signature='';render(true);};
     const button=(label,request,disabled=false)=>{const b=node('button',label);b.type='button';b.className='action_button';b.disabled=disabled;b.dataset.cheatAction=request.type;b.onclick=()=>run(request);return b;};
     open.onclick=()=>{render(true);centerModes().open('cheat-faculty');};
+    function growthCard(s) {
+        const g=s.growth,sec=node('section');sec.className='panel-info cheat-growth';sec.dataset.cheatKind=s.skin.kind;sec.dataset.cheatFrame=s.skin.frame;sec.dataset.cheatGrowth='';
+        const head=node('h3');const glyph=node('span',s.skin.glyph);glyph.className='cheat-glyph';glyph.setAttribute('aria-hidden','true');head.append(glyph,` ${s.skin.label} · ${g.tier.name}`);
+        const bar=node('progress');bar.max=1;bar.value=g.progress;bar.setAttribute('aria-label','Progress to next tier');
+        const tierLine=node('p',g.nextTier?`Next tier ${g.nextTier.name}: ${g.nextTier.remaining} more insight earned.`:'Highest tier reached.');
+        const chips=node('ul');chips.className='cheat-facets';
+        const hidden=g.facets.filter(f=>f.state==='undiscovered').length;
+        for(const f of g.facets.filter(f=>f.state!=='undiscovered')){const li=node('li',f.name);li.dataset.state=f.state;chips.append(li);}
+        if(hidden){const li=node('li',`+${hidden} not yet understood`);li.dataset.state='undiscovered';chips.append(li);}
+        const next=node('p',`${g.next.label}${g.next.cost?` · ${g.next.cost} insight (have ${g.points})`:''}. ${g.next.source}.`);next.dataset.cheatNext='';
+        const lim=g.limits,limits=node('p',`Reach: ${lim.reach} · reserves: ${lim.reserves} · fuel: ${lim.fuel} · recovery: ${lim.recovery}.`);limits.className='cheat-limits';
+        sec.append(head,bar,tierLine,chips,next,limits);return sec;
+    }
+    function companionCard(c) {
+        const sec=node('section');sec.className='panel-info cheat-companion';sec.dataset.cheatKind=c.skin.kind;sec.dataset.cheatFrame=c.skin.frame;sec.dataset.cheatCompanion=c.id;
+        const head=node('h3');const glyph=node('span',c.skin.glyph);glyph.className='cheat-glyph';glyph.setAttribute('aria-hidden','true');head.append(glyph,` ${c.name} · ${c.skin.label}`);
+        sec.append(head,node('p','“'+c.last+'”'));
+        if(c.voice){const v=node('p',c.voice.text);v.dataset.cheatVoice=c.voice.reliable?'reliable':'unreliable';sec.append(v);if(c.voice.truth){const t=node('p',c.voice.truth);t.className='cheat-limits';sec.append(t);}}
+        return sec;
+    }
     function render(force=false) {
         const s=read();home.hidden=!s.visible;
         if(!s.visible){view.hidden=true;return;}view.hidden=false;
@@ -22,6 +42,8 @@ export function createCheatPanel({read,act,nameItem}) {
         const key=JSON.stringify(s);if(!force&&signature===key)return;signature=key;body.replaceChildren();
         status.textContent=`Insight: have ${s.points}, earned ${s.earned}, spent ${s.spent}. Enduring developments follow the continuing self; local reserves have their own carrier.`;
         if(s.reason)body.append(node('p',s.reason));
+        body.append(growthCard(s));
+        for(const c of s.companions)body.append(companionCard(c));
         const milestones=node('details');milestones.open=true;milestones.append(node('summary','Reflect on lived experience'));
         for(const m of s.milestones){const row=node('p',m.label+' · '+(m.claimed?'retained':m.met?'ready':'not yet lived')+' ');if(!m.claimed)row.append(button('Retain insight',{type:'claim',id:m.id},!m.met||!!s.reason));milestones.append(row);}body.append(milestones);
         if(s.development)body.append(button(s.development,{type:'develop'},s.points<1||!!s.reason));

@@ -16,6 +16,7 @@ export function createPrimordialPanel({read, request, askRule, startShift, repay
         const left = v.shift ? Math.max(0, Math.ceil((v.shift.startedAt + d.taskMinutes.value - v.now) / 60)) : 0;
         wallet.append(node('p', `${v.task.label}: ${d.taskMinutes.value / 60} game hours, pays ${d.taskPay.value} CP less ${d.taskCost.value} CP for lamp oil, ${d.taskPerDay.value} a day. Prototype rates (AUTHORED, see the list at the foot). ${v.shift ? `In progress: about ${left} game hours left.` : 'Not started.'}`, {'data-primordial-task': ''}));
         const sb = node('button', 'Start the mission', {type: 'button', 'data-primordial-start-task': ''}); sb.disabled = !!v.shift; sb.onclick = () => act(startShift, 'You take the mission; it ends after eight game hours.'); wallet.append(sb);
+        const rb = node('button', `Rush an extra posting today (${d.rushFee.value} CP)`, {type: 'button', 'data-primordial-rush-task': ''}); rb.disabled = !!v.shift || v.cp < d.rushFee.value; rb.onclick = () => act(() => startShift({rush: true}), 'You pay the elder for a rush posting; it ends after eight game hours.'); wallet.append(rb);
         hall.replaceChildren(node('h3', 'Treasure hall · spend contribution points'));
         hall.append(node('p', `CP in hand ${f(v.cp)}; spent at the hall so far ${f(v.hall.spent)}. The hall sells for CP only; a loan is a separate route.`, {'data-primordial-hall-balance': String(v.cp)}));
         for(const r of v.hall.rows) {

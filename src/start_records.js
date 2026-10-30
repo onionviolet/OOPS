@@ -1,12 +1,12 @@
 // Pure start recipes. Axis order belongs to the world; saves keep resolved native fields.
 import {fnv1a} from './hash_rng.js';
-export const START_MERGE_RULES = Object.freeze({money:'sum',items:'append by id+quality',pockets:'append',location:'last',quest:'last',skills:'sum',knowledge:'append',text:'append',lead:'last'});
+export const START_MERGE_RULES = Object.freeze({money:'sum',items:'append by id+quality',pockets:'append',location:'last',quest:'last',skills:'sum',knowledge:'append',text:'append',lead:'last',grants:'append'});
 export function seededStartRng(seed) {
     let h=fnv1a(2166136261,String(seed));
     return () => {h=(h+0x6D2B79F5)|0;let t=Math.imul(h^(h>>>15),1|h);t^=t+Math.imul(t^(t>>>7),61|t);return ((t^(t>>>14))>>>0)/4294967296;};
 }
 function compose(layers,base={}) {
-    const s={money:0,items:[],pockets:[],location:null,quest:null,skills:{},knowledge:[],text:[],lead:null};
+    const s={money:0,items:[],pockets:[],location:null,quest:null,skills:{},knowledge:[],text:[],lead:null,grants:[]};
     for(const {axis,id:layerId,patch:p={}} of [{patch:base},...layers]) {
         s.money+=p.money ?? 0;
         for(const item of p.items || []) {
@@ -18,7 +18,7 @@ function compose(layers,base={}) {
         }
         for(const field of ['location','quest','lead'])if(Object.hasOwn(p,field))s[field]=p[field];
         for(const [id,n] of Object.entries(p.skills || {}))s.skills[id]=(s.skills[id] || 0)+n;
-        for(const field of ['knowledge','text'])s[field].push(...(p[field] || []));
+        for(const field of ['knowledge','text','grants'])s[field].push(...(p[field] || []));
     }
     return s;
 }

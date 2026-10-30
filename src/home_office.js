@@ -25,7 +25,7 @@ export function officeDecision(c){
  if(funds<OFFICE_TERMS.orderCost+floor)return {status:'paused',holder,reason:`The office fund holds ${funds} of the ${OFFICE_TERMS.orderCost} coins an order costs, retaining a ${floor}-coin office reserve.`};
  const supplier=c.people?.[SUPPLIER],stock=c.staffStock?.[SUPPLIER]||{};
  if(supplier?.life!=='alive'||supplier.location!=='Village')return {status:'paused',holder,reason:'Mara must be back in Village before another order.'};
- if((stock[k('Rat meat chunks')]||0)<OFFICE_TERMS.meat||(stock[k('Rough wood log')]||0)<OFFICE_TERMS.logs)return {status:'paused',holder,reason:'Mara’s Village stock cannot fill a full order.'};
+ if((stock[k('Rat meat chunks')]||0)<OFFICE_TERMS.meat||(stock[k('Rough wood log')]||0)<OFFICE_TERMS.logs)return {status:'paused',holder,reason:'Mara’s Village stock cannot fill a full order yet; she restocks on her next trade run, or you can bring her the missing goods.'};
  return {status:'order',holder,reason:`${who} is placing the standing provision order.`,job:{id:`home.office.restock.${holder}`,actor:holder}};
 }
 export function planHomeOffice(s,r,c,out){

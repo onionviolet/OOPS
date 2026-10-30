@@ -123,7 +123,13 @@ export class Session {
             }
             for(const el of document.querySelectorAll('button, [role="button"], a[href], input[type="button"], input[type="submit"]'))
                 if(visible(el) && !el.disabled && !(el.innerText || el.value || '').trim() && !el.getAttribute('aria-label') && !el.title && !el.querySelector('img[alt]:not([alt=""]), svg title')) unlabeled.push(name(el));
-            return {pageOverflow:doc.scrollWidth > innerWidth + 1 ? doc.scrollWidth - innerWidth : 0, clipped:[...new Set(clipped)], unlabeled:[...new Set(unlabeled)]};
+            // COV10: a toggle that shows only an arrow or cross must say what it opens, and a disabled button must say why.
+            const bareToggles = [], disabledNoReason = [];
+            for(const el of document.querySelectorAll('button, summary'))
+                if(visible(el) && /^[\s▾▸▼▶◂◀×✕+–-]*$/.test(el.innerText || '') && (el.innerText || '').trim() && !el.getAttribute('aria-label')) bareToggles.push(name(el));
+            for(const el of document.querySelectorAll('button:disabled'))
+                if(visible(el) && !el.title && !el.getAttribute('aria-describedby') && !el.getAttribute('aria-label') && !(el.nextElementSibling?.textContent || '').trim()) disabledNoReason.push((el.innerText || name(el)).trim().slice(0, 40));
+            return {pageOverflow:doc.scrollWidth > innerWidth + 1 ? doc.scrollWidth - innerWidth : 0, clipped:[...new Set(clipped)], unlabeled:[...new Set(unlabeled)], bareToggles:[...new Set(bareToggles)], disabledNoReason:[...new Set(disabledNoReason)]};
         });
     }
     async close() {await this.context?.close().catch(() => {}); await this.browser?.close().catch(() => {});}

@@ -1,5 +1,7 @@
 # Rituals and making: representation (proposals)
 
+**Next slice (2026-10-30):** Brew-ready desktop notification (item 5). Level and effort: Sonnet, small. Done when: the brew-ready transition raises one presence notification; the browser fallback logs one line.
+
 Status: agent proposals, 2026-10-30, from the UI representation wave
 ([plan](../gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md); audit rows RPX1, RPX2, RPX3,
 MDL2, MDL7, MDL8 in [UI design core audit](../audits/UI_DESIGN_CORE_AUDIT.md)). Nothing here is

@@ -1,14 +1,18 @@
 import {ORDEAL_LOADS,ORDEAL_TERMS} from './pledges_content.js';
 import {describeTrialChoice,TRIAL_HISTORY_LIMIT} from './trial_history.js';
 import {definePanel} from './panel_kit.js';
+import {chip, infoRow, reasonLine} from './ui/panel_sections.js';
 // Desktop-first (UI target 1536/1920; mobile deferred). Two reference-dock panels (ST6) that read one projection;
 // every button calls a domain command that revalidates and reports its own refusal text in place.
 const node = (tag, text = '', className = '') => { const n = document.createElement(tag); if(text) n.textContent = text; if(className) n.className = className; return n; };
 const cap = s => s[0].toUpperCase() + s.slice(1);
-function shell(id, title, heading, intro) {
+function shell(id, title, heading, intro, {collapse = false} = {}) {
     const panel = node('section', '', 'expedition_panel'); panel.id = id; panel.dataset.surfaceType = 'records';
     const body = node('div'), notice = node('p'); notice.setAttribute('role', 'status');
-    panel.append(node('h2', heading), node('p', intro, 'expedition_preview'), body, notice);
+    let introNode = node('p', intro, 'expedition_preview');
+    // A long intro sits behind a named disclosure so the rows come first (UR75).
+    if(collapse) { introNode = node('details'); introNode.append(node('summary', 'How this works'), node('p', intro, 'expedition_preview')); }
+    panel.append(node('h2', heading), introNode, body, notice);
     let signature = '';
     const act = (fn, done) => { try { const r = fn(); notice.textContent = typeof done === 'function' ? done(r) : done; } catch(e) { notice.textContent = e.message; } signature = ''; };
     const button = (label, attrs, onclick, disabled = false, title = '') => { const b = node('button', label); b.type = 'button'; b.disabled = disabled; b.title = title; Object.assign(b.dataset, attrs); b.onclick = onclick; return b; };
@@ -17,29 +21,33 @@ function shell(id, title, heading, intro) {
 
 export function createPledgesPanel({read, commands}) {
     const s = shell('pledges_panel', 'Vows and trials', 'Vows and tempering',
-        'A vow trades freedom for strength and leaves a scar if broken. Tempering sets the body for good; a failed attempt wakes a heart demon that dulls you until you sit it out.');
-    let rerender = () => {},routineDraft=null,loadDraft=0;
+        'A vow trades freedom for strength and leaves a scar if broken. Tempering sets the body for good; a failed attempt wakes a heart demon that dulls you until you sit it out.', {collapse: true});
+    let rerender = () => {},routineDraft=null,loadDraft=0,gradedOpen=false,routineOpen=false;
     function render() {
         const v = read();
         if(!s.changed([v.state.vows, v.state.trial,v.state.routine,v.routine,v.routineContext,v.sharedLearning, v.ordeal, v.rations, v.trial.ready, v.ready,loadDraft])) return;
         s.body.replaceChildren(node('h3', `Vows (${v.keptCount} of ${v.maxKept} kept)`));
         for(const vow of v.vows) {
-            const row = node('p'); row.dataset.vow = vow.id;
-            const state = vow.kept ? 'kept' : vow.broken ? `broken, scar ${vow.broken.scar}` : 'not sworn';
-            row.append(node('span', `${cap(vow.id.replace('-', ' '))}: ${vow.text} +${vow.bonus / 10}% ${vow.track}, scar ${vow.scar} if broken. (${state}) ${vow.reason} `));
-            if(vow.kept) row.append(s.button('Break vow', {breakVow: vow.id}, () => { s.act(() => commands.breakVow(vow.id), 'The vow is broken.'); render(); }));
+            const full = v.keptCount >= v.maxKept;
+            const state = vow.kept ? chip('kept', {tone: 'good'}) : vow.broken ? chip(`broken, scar ${vow.broken.scar}`, {tone: 'limit'}) : chip('not sworn');
+            const actions = [];
+            if(vow.kept) actions.push(s.button('Break vow', {breakVow: vow.id}, () => { s.act(() => commands.breakVow(vow.id), 'The vow is broken.'); render(); }));
             else {
-                const full = v.keptCount >= v.maxKept;
-                row.append(s.button('Swear', {takeVow: vow.id}, () => { s.act(() => commands.takeVow(vow.id), 'You swear the vow.'); render(); }, full, full ? 'Break a kept vow first.' : ''));
-                if(full) row.append(node('span', ' Break a kept vow first.', 'expedition_requirements'));
+                const swear = s.button('Swear', {takeVow: vow.id}, () => { s.act(() => commands.takeVow(vow.id), 'You swear the vow.'); render(); }, full, full ? 'Break a kept vow first.' : '');
+                swear.setAttribute('aria-label', `Swear the ${cap(vow.id.replace('-', ' '))} vow`); actions.push(swear);
+                if(full) actions.push(reasonLine('Break a kept vow first.'));
             }
-            s.body.append(row);
+            const row = infoRow({label: cap(vow.id.replace('-', ' ')), chips: [chip(`+${vow.bonus / 10}% ${vow.track}`, {tone: 'accent'}), chip(`scar ${vow.scar} if broken`), state], actions, more: `${vow.text} ${vow.reason}`, moreLabel: 'The vow'});
+            row.dataset.vow = vow.id; s.body.append(row);
         }
         const t = v.trial;
-        s.body.append(node('h3', `Current body tempering: ${t.name}`));if((v.state.trial.bestStage||0)>v.state.trial.stage)s.body.append(node('p',`Remembered qualification: stage ${v.state.trial.bestStage}. This embodiment must build its own conditioning; returning to the previously conditioned body restores its own stages.`));
-        if(v.sharedLearning)s.body.append(node('p',`Shared failure learning ${v.sharedLearning}: up to 10 stability against later quick trials and up to 3 composure saved per measured ordeal step. Fear and learning are separate; calming fear retains what you learned.`));
-        if(v.state.trial.routeLessons){const lessons=node('details');lessons.dataset.trialExpertise='';lessons.append(node('summary','Learning from particular trials'));for(const [key,n]of Object.entries(v.state.trial.routeLessons)){const [kind,tier]=key.split('.');lessons.append(node('p',`${cap(kind)} stage ${tier}: ${n} retained task lessons. Up to three steady this particular quick trial or measured ordeal step; another route or stage uses its own experience.`));}s.body.append(lessons);}
-        if(v.state.trial.quality)s.body.append(node('p',`Earned trial quality: ${v.state.trial.quality}. Each grade adds 0.5% strength and maximum health, alongside the stage bonus.`));
+        s.body.append(node('h3', `Current body tempering: ${t.name}`));
+        const learned = node('details'); learned.dataset.trialLearned = ''; const learnedCount = () => learned.children.length - 1; learned.append(node('summary', 'What this body has learned'));
+        if((v.state.trial.bestStage||0)>v.state.trial.stage)learned.append(node('p',`Remembered qualification: stage ${v.state.trial.bestStage}. This embodiment must build its own conditioning; returning to the previously conditioned body restores its own stages.`));
+        if(v.sharedLearning)learned.append(node('p',`Shared failure learning ${v.sharedLearning}: up to 10 stability against later quick trials and up to 3 composure saved per measured ordeal step. Fear and learning are separate; calming fear retains what you learned.`));
+        if(v.state.trial.routeLessons){const lessons=node('details');lessons.dataset.trialExpertise='';lessons.append(node('summary','Learning from particular trials'));for(const [key,n]of Object.entries(v.state.trial.routeLessons)){const [kind,tier]=key.split('.');lessons.append(node('p',`${cap(kind)} stage ${tier}: ${n} retained task lessons. Up to three steady this particular quick trial or measured ordeal step; another route or stage uses its own experience.`));}learned.append(lessons);}
+        if(v.state.trial.quality)learned.append(node('p',`Earned trial quality: ${v.state.trial.quality}. Each grade adds 0.5% strength and maximum health, alongside the stage bonus.`));
+        if(learnedCount()) s.body.append(learned);
         const o=v.ordeal;
         if(o) {
             const group=node('div');group.dataset.ordeal='';
@@ -52,26 +60,26 @@ export function createPledgesPanel({read, commands}) {
         }
         if(t.done) s.body.append(node('p', 'Nothing is left to temper in this slice.'));
         else {
-            const line = node('p', `Next: ${t.next}${t.tribulation ? ' (a tribulation: a failure wakes the demon harder)' : ''}. Chance of failing: ${t.risk / 10}%. Vows steady it (${t.stability}), broken vows and the heart demon (${t.pressure}) worsen it (scar ${t.scar}).`); line.dataset.trialRisk = String(t.risk);
+            const line = infoRow({label: `Next: ${t.next}`, chips: [chip(`${t.risk / 10}% chance to fail`, {tone: t.risk >= 400 ? 'limit' : 'warn'}), chip(`vows steady ${t.stability}`), chip(`heart demon ${t.pressure}`, {tone: t.pressure ? 'limit' : ''}), chip(`scar ${t.scar}`)], more: `Vows steady it (${t.stability}); broken vows and the heart demon (${t.pressure}) worsen it (scar ${t.scar}).${t.tribulation ? ' This is a tribulation: a failure wakes the demon harder.' : ''}${t.taskLessons ? ` This quick stage has ${t.taskLessons} retained task lessons, adding ${Math.min(3,t.taskLessons)} stability to the shown chance.` : ''}`, moreLabel: 'What moves it'}); line.dataset.trialRisk = String(t.risk);
             s.body.append(line);
-            if(t.taskLessons)s.body.append(node('p',`This quick stage has ${t.taskLessons} retained task lessons, adding ${Math.min(3,t.taskLessons)} stability to the shown chance.`));
-            if(!t.ready) s.body.append(node('p', `Not ready: ${t.shown.join(' ')}`, 'expedition_requirements'));
             const q = t.quote;
-            s.body.append(node('p', `Rations laid in cut the risk (up to ${t.maxUnits}, never to zero). The lowest risk, ${q.to / 10}%, costs ${q.cost} ${q.cost === 1 ? 'ration' : 'rations'} of stale bread. You carry ${v.rations}.`, 'expedition_preview'));
+            s.body.append(infoRow({label: 'Rations', chips: [chip(`carry ${v.rations} stale bread`), chip(`lowest risk ${q.to / 10}% for ${q.cost}`, {tone: 'good'})], more: `Rations laid in cut the risk (up to ${t.maxUnits}, never to zero). The lowest risk, ${q.to / 10}%, costs ${q.cost} ${q.cost === 1 ? 'ration' : 'rations'} of stale bread.`, moreLabel: 'How rations help'}));
             const row = node('div');
             for(const n of [0, q.units].filter((x, i, a) => a.indexOf(x) === i)) {
                 row.append(s.button(n ? `Temper, laying in ${n}` : 'Temper without rations', {temper: String(n)}, () => { s.act(() => commands.temper(n), r => r.passed ? 'The tempering holds.' : 'The tempering failed. The heart demon stirs.'); render(); }, !!o || !t.ready || v.rations < n, o?'Finish the active ordeal.':!t.ready ? 'Not ready yet.' : ''));
             }
-            row.append(s.button('Guarded preparation · 5 rations, guaranteed stage, no grade bonus',{guardedTempering:''},()=>{s.act(()=>commands.guarded(),'The guarded sequence holds. Five rations were spent; no performance grade was awarded.');render();},!!o||!t.ready||v.rations<5));
+            if(!t.ready) { const missing = node('details', '', 'ui-row-more'); missing.dataset.trialMissing = ''; missing.append(node('summary', `Not ready: ${t.shown.length} ${t.shown.length === 1 ? 'thing' : 'things'} missing`)); for(const line of t.shown) missing.append(node('p', line, 'expedition_requirements')); row.append(missing); }
+            row.append(s.button('Guarded preparation · 5 rations',{guardedTempering:''},()=>{s.act(()=>commands.guarded(),'The guarded sequence holds. Five rations were spent; no performance grade was awarded.');render();},!!o||!t.ready||v.rations<5,o?'An ordeal is already under way.':!t.ready?'Your body is not ready for another trial yet.':v.rations<5?`Needs 5 rations; you have ${v.rations}.`:''));
             s.body.append(row);
             if(!o){
-                s.body.append(node('p','Or choose a graded ordeal: each turn raises pressure. Accept early for a modest grade or risk a collapse for better conditioning. One laid-in ration gives four more composure; the practice frame closes after twelve turns.'));
+                const graded=node('details');graded.dataset.gradedOrdeal='';graded.open=gradedOpen;graded.ontoggle=()=>{gradedOpen=graded.open;};graded.append(node('summary','Graded ordeal (optional)'));
+                graded.append(node('p','Or choose a graded ordeal: each turn raises pressure. Accept early for a modest grade or risk a collapse for better conditioning. One laid-in ration gives four more composure; the practice frame closes after twelve turns.'));
                 const loadLabel=node('label','Frame load '),loadSelect=node('select');loadSelect.setAttribute('aria-label','Frame load');
-                ORDEAL_LOADS.forEach((terms,i)=>{const o=node('option',terms.label);o.value=String(i);loadSelect.append(o);});loadSelect.value=String(loadDraft);loadSelect.onchange=()=>{loadDraft=Number(loadSelect.value);render();};loadLabel.append(loadSelect);s.body.append(loadLabel);
-                const load=ORDEAL_LOADS[loadDraft];s.body.append(node('p',`Tightening this rig adds ${load.pressure} pressure to every turn and ${load.score} performance score to each completed step. A collapse adds ${ORDEAL_TERMS.collapsePressure+load.collapse} fear in total. Only an accepted grade grants conditioning; leaving keeps supplies spent.`));
+                ORDEAL_LOADS.forEach((terms,i)=>{const o=node('option',terms.label);o.value=String(i);loadSelect.append(o);});loadSelect.value=String(loadDraft);loadSelect.onchange=()=>{loadDraft=Number(loadSelect.value);render();};loadLabel.append(loadSelect);graded.append(loadLabel);
+                const load=ORDEAL_LOADS[loadDraft];graded.append(node('p',`Tightening this rig adds ${load.pressure} pressure to every turn and ${load.score} performance score to each completed step. A collapse adds ${ORDEAL_TERMS.collapsePressure+load.collapse} fear in total. Only an accepted grade grants conditioning; leaving keeps supplies spent.`));
                 const choices=node('div');
                 for(const {kind,eligible,reason} of v.ordealKinds)for(const units of [0,1])choices.append(s.button(`${cap(kind)} ordeal${units?' · 1 ration':''}`,{ordealBegin:kind,ordealRations:String(units)},()=>{s.act(()=>commands.beginOrdeal(kind,units,loadDraft),'The staged ordeal begins.');render();},!eligible||!t.ready||v.rations<units,!eligible?reason:!t.ready?'Practice a qualifying skill first.':v.rations<units?'Needs one stale bread.':''));
-                s.body.append(choices);
+                graded.append(choices);s.body.append(graded);
             }
         }
         if(v.state.trial.decisions?.length){
@@ -79,19 +87,20 @@ export function createPledgesPanel({read, commands}) {
             const rows=node('ol');for(const h of [...v.state.trial.decisions].reverse())rows.append(node('li',describeTrialChoice(h)));history.append(rows);s.body.append(history);
         }else for(const h of (v.state.trial.history??[]).slice(-4).reverse())s.body.append(node('p',`${cap(h.kind)}: ${h.passed?`accepted grade ${h.grade}`:'collapsed'}, turn ${h.turn}.`,'expedition_preview'));
         if(t.pressure) {
-            const row = node('p', `Heart demon: pressure ${t.pressure}. It dulls strength and agility by ${Math.min(30, t.pressure * 2)}%. `); row.dataset.heartDemon = String(t.pressure);
-            row.append(s.button('Sit with the fear (1 ration)', {calm: ''}, () => { s.act(() => commands.calm(), 'The fear eases a little.'); render(); }, v.rations < 1));
+            const calm = s.button('Sit with the fear (1 ration)', {calm: ''}, () => { s.act(() => commands.calm(), 'The fear eases a little.'); render(); }, v.rations < 1, v.rations < 1 ? 'You need a ration of stale bread.' : '');
+            const row = infoRow({label: 'Heart demon', chips: [chip(`pressure ${t.pressure}`, {tone: 'limit'}), chip(`dulls strength and agility ${Math.min(30, t.pressure * 2)}%`, {tone: 'warn'})], actions: v.rations < 1 ? [calm, reasonLine('You need a ration of stale bread.')] : [calm]}); row.dataset.heartDemon = String(t.pressure);
             s.body.append(row);
         }
         if((v.state.trial.quality||0)>0){const r=v.state.routine;routineDraft ||= {maxRisk:r?.maxRisk??50,maxUnits:r?.maxUnits??5,reserve:r?.reserve??1};
-            s.body.append(node('h3','Earned frame routine'),node('p','A graded success teaches a bounded preparation routine. It attempts one ready stage on the next ordinary played tick, within your risk and ration limits, then stops for review. Missing means, travel, work or a waiting choice stop it. A zero-risk limit can use the five-ration guarded sequence if your limits fund it. It never chooses a new life for you.'));
-            const status=node('p',r?.enabled?`Armed: maximum ${r.maxRisk/10}% failure risk, at most ${r.maxUnits} rations, keep ${r.reserve} untouched. Draft edits do not change these armed limits.`:'Routine is off. Editing the draft spends nothing and does not arm it.');status.dataset.routineStatus='';s.body.append(status);
+            const routineBox=node('details');routineBox.dataset.trialRoutine='';routineBox.open=routineOpen;routineBox.ontoggle=()=>{routineOpen=routineBox.open;};routineBox.append(node('summary','Earned frame routine'));
+            routineBox.append(node('p','A graded success teaches a bounded preparation routine. It attempts one ready stage on the next ordinary played tick, within your risk and ration limits, then stops for review. Missing means, travel, work or a waiting choice stop it. A zero-risk limit can use the five-ration guarded sequence if your limits fund it. It never chooses a new life for you.'));
+            const status=node('p',r?.enabled?`Armed: maximum ${r.maxRisk/10}% failure risk, at most ${r.maxUnits} rations, keep ${r.reserve} untouched. Draft edits do not change these armed limits.`:'Routine is off. Editing the draft spends nothing and does not arm it.');status.dataset.routineStatus='';routineBox.append(status);
             const preview=node('p');preview.dataset.routinePreview='';preview.setAttribute('role','status');
             const updatePreview=()=>{try{const q=commands.previewRoutine(routineDraft),source=`Source: ${q.stock} carried Stale bread in your bag. Destination: this body's ${q.next||'next'} stage.`;preview.textContent=`Draft preview (not applied). ${source} `+(q.eligible?`${q.guarded?'Guarded preparation, no grade bonus':'Quick trial'}, ${q.risk/10}% failure risk. Spend ${q.cost} Stale bread; ${q.stock-q.cost} remain, keeping the ${routineDraft.reserve}-ration floor. Recheck means and choices on the next ordinary played tick, then stop for review.`:`Blocked: ${q.reason}`);}catch(e){preview.textContent=`Draft preview (not applied). ${e.message}`;}};
-            for(const [id,label,scale,max] of [['maxRisk','Maximum failure risk (%)',10,100],['maxUnits','Maximum rations per attempt',1,5],['reserve','Rations to keep untouched',1,1000000]]){const labelNode=node('label',label+' '),input=node('input');input.type='number';input.min='0';input.max=String(max);input.value=String(routineDraft[id]/scale);input.setAttribute('aria-label',label);input.oninput=()=>{routineDraft[id]=Math.floor(Number(input.value)*scale);updatePreview();};labelNode.append(input);s.body.append(labelNode);}
-            updatePreview();s.body.append(preview);
-            s.body.append(s.button(r?.enabled?'Stop routine':'Arm one bounded attempt',{trialRoutine:''},()=>{s.act(()=>commands.routine({...routineDraft,enabled:!r?.enabled}),r?.enabled?'Routine stopped.':'Limits saved. Review the current routine state above.');render();}));
-            if(r?.last)s.body.append(node('p',`Last stop: ${r.last.reason}`));if(r?.enabled&&v.routine&&!v.routine.eligible)s.body.append(node('p',`Current block: ${v.routine.reason}`));
+            for(const [id,label,scale,max] of [['maxRisk','Maximum failure risk (%)',10,100],['maxUnits','Maximum rations per attempt',1,5],['reserve','Rations to keep untouched',1,1000000]]){const labelNode=node('label',label+' '),input=node('input');input.type='number';input.min='0';input.max=String(max);input.value=String(routineDraft[id]/scale);input.setAttribute('aria-label',label);input.oninput=()=>{routineDraft[id]=Math.floor(Number(input.value)*scale);updatePreview();};labelNode.append(input);routineBox.append(labelNode);}
+            updatePreview();routineBox.append(preview);
+            routineBox.append(s.button(r?.enabled?'Stop routine':'Arm one bounded attempt',{trialRoutine:''},()=>{s.act(()=>commands.routine({...routineDraft,enabled:!r?.enabled}),r?.enabled?'Routine stopped.':'Limits saved. Review the current routine state above.');render();}));
+            if(r?.last)routineBox.append(node('p',`Last stop: ${r.last.reason}`));if(r?.enabled&&v.routine&&!v.routine.eligible)routineBox.append(node('p',`Current block: ${v.routine.reason}`));s.body.append(routineBox);
         }
         s.notice.hidden = !s.notice.textContent;
     }

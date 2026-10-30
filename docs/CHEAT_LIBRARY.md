@@ -1549,7 +1549,7 @@ accepted decision. Evidence labels are in the lane files. Codes are IM (implemen
 | Code | Correction | Evidence |
 | --- | --- | --- |
 | IM1 | **The base cheat is lost on heir succession.** `buildLifeHeirSave` copies `npc_lives`, `options`, `inheritance_law` and `discovery_codex` but not `cheats`, and the heir boot skips the save load, so the heir starts with the default empty state. `carry_ledger.js:23-25` says the base cheat carries; that row is data only and nothing enforces it. No test covers it. | K1; checked by Claude in `life_experience_host.js:15-32` |
-| IM2 | **A normal new game never grants a cheat.** The picker is hidden except on localhost with `?start_probe=1`, defaults to none, and the only card it can grant is the talking quest system, which AD29 says is an accompanying cheat, not the quiet base faculty. | K1, K5 |
+| IM2 | **By default a new game grants no cheat; a world card or start may grant one (AD29).** The picker is hidden except on localhost with `?start_probe=1`, defaults to none, and the only card it can grant is the talking quest system, which AD29 says is an accompanying cheat, not the quiet base faculty. | K1, K5 |
 | IM3 | **"AB6 and AB9 have two users" stays overstated** (already corrected above). K6 adds: `rule_modules.js` has one `cheat_overlay` mention and no modules of that kind; its fact vocabulary is closed. | K6 |
 | IM4 | **Cards have no holder field**, so a rival-held cheat has no home in the shape (K4); `hooks` is empty and nothing runs it; no PANELS kind fits away-notes or action lists. | K4 |
 | IM5 | **F7 message growth is not a live defect.** Production writes at most one message per card; cap it when the first emitter lands. | K2 |

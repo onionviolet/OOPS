@@ -20,7 +20,7 @@ export function validateSchedule(s) {
 export function recurringWindow(schedule, minute, lastClaim) {
     validateSchedule(schedule);
     if(lastClaim != null && !integer(lastClaim)) throw new Error("Invalid recurring service claim.");
-    if(!integer(minute)) return {open: false, reason: "The game calendar is unavailable."};
+    if(!integer(minute)) return {open: false, reason: "The opening hours cannot be read right now. Wait a moment, then try again."};
     const cycle = Math.floor(minute / schedule.period), phase = minute % schedule.period;
     const claimed = lastClaim != null && lastClaim >= cycle;
     const open = !claimed && phase >= schedule.opens && phase < schedule.closes;

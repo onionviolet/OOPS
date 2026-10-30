@@ -252,3 +252,13 @@ test('UM3 a composition with a sixth region and its own grid is data only', () =
     assert.equal(gridTemplate({context: 'travel', atLeast: () => true}, spec).areas, '"player focus map log" "inventory actions actions log"');
     assert.equal(gridTemplate({context: 'idle', atLeast: () => true}, spec).areas, gridTemplate({context: 'idle', atLeast: () => true}).areas);
 });
+
+// COV2 / UR69: the lend dial is spec data; the host writes one variable and CSS has one rule.
+test('COV2 center lend gives the view the rest: two side tracks, a closed track 2, a one-fr center', async () => {
+    const {centerLendColumns} = await import('../src/layout_spec.js');
+    const cols = centerLendColumns('14px');
+    assert.equal(cols, 'minmax(0,min(calc(14px*24),22%)) minmax(0,0px) minmax(0,1fr) minmax(0,min(calc(14px*27),22%))');
+    assert.equal(cols.split(' ').length, 4);
+    const tight = centerLendColumns('14px', {...LAYOUT_SPEC, centerLend: {sideEm: 20, sideMaxPct: 18, logEm: 22, logMaxPct: 18}});
+    assert.match(tight, /\*20\),18%\)/);
+});

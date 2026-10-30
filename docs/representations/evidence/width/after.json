@@ -1,0 +1,426 @@
+{
+ "home-14": {
+  "task": null,
+  "center": 673,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    336,
+    386,
+    ""
+   ],
+   "focus": [
+    359,
+    1033,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    336,
+    581,
+    ""
+   ],
+   "actions": [
+    359,
+    1033,
+    581,
+    ""
+   ],
+   "log": [
+    1398,
+    505,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "customization-effects-14": {
+  "task": "workspace:customization-effects",
+  "center": 1130,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    336,
+    305,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    342,
+    662,
+    ""
+   ],
+   "actions": [
+    365,
+    1154,
+    973,
+    ""
+   ],
+   "log": [
+    1525,
+    378,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "condition-14": {
+  "task": "workspace:condition",
+  "center": 1130,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    336,
+    236,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    342,
+    731,
+    ""
+   ],
+   "actions": [
+    365,
+    1154,
+    973,
+    ""
+   ],
+   "log": [
+    1525,
+    378,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "records-14": {
+  "task": "workspace:records",
+  "center": 1130,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    336,
+    236,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    342,
+    731,
+    ""
+   ],
+   "actions": [
+    365,
+    1154,
+    973,
+    ""
+   ],
+   "log": [
+    1525,
+    378,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "home-21": {
+  "task": null,
+  "center": 532,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    415,
+    536,
+    ""
+   ],
+   "focus": [
+    438,
+    954,
+    536,
+    ""
+   ],
+   "inventory": [
+    17,
+    415,
+    431,
+    ""
+   ],
+   "actions": [
+    438,
+    954,
+    431,
+    ""
+   ],
+   "log": [
+    1398,
+    505,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "customization-effects-21": {
+  "task": "workspace:customization-effects",
+  "center": 1014,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    415,
+    476,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    421,
+    491,
+    ""
+   ],
+   "actions": [
+    444,
+    1038,
+    973,
+    ""
+   ],
+   "log": [
+    1488,
+    415,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "condition-21": {
+  "task": "workspace:condition",
+  "center": 1014,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    415,
+    476,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    421,
+    491,
+    ""
+   ],
+   "actions": [
+    444,
+    1038,
+    973,
+    ""
+   ],
+   "log": [
+    1488,
+    415,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "records-21": {
+  "task": "workspace:records",
+  "center": 1014,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    415,
+    476,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    421,
+    491,
+    ""
+   ],
+   "actions": [
+    444,
+    1038,
+    973,
+    ""
+   ],
+   "log": [
+    1488,
+    415,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "savedBefore": {
+  "task": null,
+  "center": 577,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    300,
+    386,
+    ""
+   ],
+   "focus": [
+    323,
+    1009,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    372,
+    581,
+    ""
+   ],
+   "actions": [
+    395,
+    937,
+    581,
+    ""
+   ],
+   "log": [
+    1338,
+    565,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "keys": [
+  "yairpg.display.v1",
+  "yairpg.workspace.v1.desktop.proto23-parity.placement",
+  "save data"
+ ],
+ "savedAfterReload": {
+  "task": null,
+  "center": 577,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    300,
+    386,
+    ""
+   ],
+   "focus": [
+    323,
+    1009,
+    386,
+    ""
+   ],
+   "inventory": [
+    17,
+    372,
+    581,
+    ""
+   ],
+   "actions": [
+    395,
+    937,
+    581,
+    ""
+   ],
+   "log": [
+    1338,
+    565,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "savedOpen": {
+  "task": "workspace:condition",
+  "center": 985,
+  "over": false,
+  "g": {
+   "player": [
+    17,
+    300,
+    236,
+    ""
+   ],
+   "focus": [
+    0,
+    0,
+    0,
+    "hidden"
+   ],
+   "inventory": [
+    17,
+    300,
+    731,
+    ""
+   ],
+   "actions": [
+    323,
+    1009,
+    973,
+    ""
+   ],
+   "log": [
+    1338,
+    565,
+    973,
+    ""
+   ]
+  },
+  "style": "--shell-areas: \"player focus focus log\" \"inventory actions actions log\"; --shell-columns: minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr); --shell-lend-columns: minmax(0,min(calc(var(-"
+ },
+ "_errors": []
+}

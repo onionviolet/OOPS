@@ -311,7 +311,7 @@ census and reader notes. Private output in `research/novels/lord-of-mysteries/ce
   absence in all 1,402 entries.
 - **Stated, but not an ingredient rule:** Beyonder characteristics are conserved, and a dead
   Beyonder's characteristic is "a potion without auxiliaries", so auxiliaries are still needed
-  and Sequences cannot be skipped.
+  and Sequences are not skipped by default (dial: a ritual, gift or cheat skips one, paid in purity or imprint risk).
 - **Shown:** a main ingredient can be replaced by a same-Sequence characteristic; some formulas
   list alternate mains.
 - **Inferred only:** a few materials recur across pathways (for example one octopus blood in two

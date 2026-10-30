@@ -3,6 +3,7 @@
 // and the panel mounts with the other domains. main.js makes one configureLotm call.
 import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
 import {registerDomain} from './domain_registry.js';
+import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
 import {lotmDivinationFacts} from './book_world_lotm_div_supply.js';
 import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
@@ -33,6 +34,7 @@ function restoreMissingCast(envelope){
  if(castAvailable){ensureCastLocation(envelope.expansion.simulation?.people?.player?.location);for(const id of Object.keys(envelope.locations||{}))ensureCastLocation(id);return;}
  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
 }
+registerUpcomingSource(()=>host?.upcoming()||[]);
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
  projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args)}:host?.view(),

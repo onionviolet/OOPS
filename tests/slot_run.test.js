@@ -104,3 +104,30 @@ test('a nested slot_run under a held slot runs without taking another slot', () 
     const r = spawnSync(process.execPath, [SCRIPT, '--slots', '1', '--', 'sh', '-c', inner], {env: env(dir), encoding: 'utf8', timeout: 15000});
     assert.equal(r.status, 7);
 });
+
+import {loadGate} from '../scripts/slot_gate.mjs';
+
+test('loadGate: calm or ungated load goes; high load waits; soft wait expires; hard wait never does', () => {
+  assert.equal(loadGate({load: 90, maxLoad: null, waitedMs: 0, loadWaitMs: null}), 'go');
+  assert.equal(loadGate({load: 8, maxLoad: 12, waitedMs: 0, loadWaitMs: 300000}), 'go');
+  assert.equal(loadGate({load: 90, maxLoad: 12, waitedMs: 1000, loadWaitMs: 300000}), 'wait-load');
+  assert.equal(loadGate({load: 90, maxLoad: 12, waitedMs: 300000, loadWaitMs: 300000}), 'run-anyway');
+  assert.equal(loadGate({load: 90, maxLoad: 12, waitedMs: 9e9, loadWaitMs: null}), 'wait-load');
+});
+
+test('a soft load wait runs the command after the wait; --status lists the waiter with a reason', async () => {
+  const dir = tmp();
+  const holder = start(dir, ['--slots', '1', ...SLEEP]);
+  assert.ok(await until(() => held(dir) === 1));
+  const waiter = start(dir, ['--slots', '1', '--', process.execPath, '-e', '0']);
+  assert.ok(await until(() => waiter.err.includes('waiting')));
+  assert.ok(await until(() => spawnSync(process.execPath, [SCRIPT, '--status'], {env: env(dir), encoding: 'utf8'}).stdout.includes('waiting #1')));
+  const status = spawnSync(process.execPath, [SCRIPT, '--status'], {env: env(dir), encoding: 'utf8'}).stdout;
+  assert.match(status, /why=1\/1 slots held/);
+  holder.kill('SIGTERM');
+  assert.equal(await waiter.done, 0);
+  await holder.done;
+  const soft = spawnSync(process.execPath, [SCRIPT, '--max-load', '0.0001', '--load-wait', '1', '--', process.execPath, '-e', '0'], {env: env(tmp()), encoding: 'utf8', timeout: 20000});
+  assert.equal(soft.status, 0);
+  assert.match(soft.stderr, /running anyway/);
+});

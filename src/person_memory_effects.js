@@ -1,5 +1,5 @@
 // World-neutral memory consumers. The host owns clock, presence and transactions.
-import {freshMemory, readMemories, remember, tellMemory, vividness, isMemorySnapshot, memorySnapshot, flagSilence} from './person_memory.js';
+import {freshMemory, readMemories, remember, tellMemory, vividness, isMemorySnapshot, memorySnapshot, flagSilence, addClaim} from './person_memory.js';
 import {silenceVerdict, silenceExplanation} from './person_silence.js';
 import {loyaltyOf} from './person_loyalty.js';
 import {witnessScene} from './crowd_memory.js';
@@ -18,10 +18,15 @@ const TOPICS = Object.freeze({
     'Asked him to keep the interruption quiet.': 'silence_ask',
     'Asked him to promise to keep the interruption quiet.': 'silence_promise',
     'Left a log so the interruption stays quiet.': 'payment',
+    'Threatened him to keep the interruption quiet.': 'threat',
+    'Swore with a log set on the bench that the interruption stays quiet.': 'oath',
+    'Asked him pointedly what had happened at the bench.': 'pressure',
+    'Offered a coin to hear what happened at the bench.': 'payment',
+    'Heard that you had only asked him for a moment.': 'cover',
 });
 const PHRASES = Object.freeze({habits: 'you asked about his working habits', materials: 'you supplied the agreed materials',
     interruption: 'you interrupted his counting at the bench', apology: 'you apologized and supplied a log',
-    helped: 'you helped them', harmed: 'you harmed them', betrayed: 'you betrayed them'});
+    cover: 'you had only asked him for a moment', helped: 'you helped them', harmed: 'you harmed them', betrayed: 'you betrayed them'});
 import {payload, token} from './person_episode.js';
 // The fact is an opaque event pointer plus a small template payload, never prose.
 export function episodeFromEffect({holder, subject, cause, axis, amount, text, day}) {
@@ -43,7 +48,7 @@ export function rememberEffect(memory, effect, day, limits = MEMORY_LIMITS) {
 // Legacy axes already include these effects. Remove each mirrored contribution
 // before adding its current strength; hearsay has no mirrored stored write.
 // The deal for silence is itself private: asking, promising and paying are never retold as gossip.
-const PRIVATE_TOPICS = Object.freeze(['silence_ask', 'silence_promise', 'payment']);
+const PRIVATE_TOPICS = Object.freeze(['silence_ask', 'silence_promise', 'payment', 'threat', 'oath', 'pressure', 'cover']);
 const reactionPriority = e => e.kind==='amends' ? 2 : harm(e) ? 1 : 0;
 const bondCache = new WeakMap();
 const harm = e => ['harmed','betrayed'].includes(e.kind);
@@ -117,13 +122,14 @@ export function bondTotal({memory, holder, subject, baseline = {}, day, temperam
 // The weighed factors for one flagged secret and one possible listener. Used by gossip and by the inspector (LSD424).
 export function silenceCase({memory, secret, holder, listener, day, root, baselineOf = () => ({}), temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
     const rows = readMemories(memory,holder,day,{limits}), t = temperamentOf(holder), asker = secret.silence.asker;
-    const bribe = rows.filter(e=>e.about===asker && payload(e)?.topic==='payment').reduce((sum,e)=>sum+e.feeling*vividness(e,day,t,limits),0);
+    const felt=(about,topics)=>rows.filter(e=>e.about===about && topics.includes(payload(e)?.topic)).reduce((sum,e)=>sum+Math.abs(e.feeling)*vividness(e,day,t,limits),0);
+    const bribe = felt(asker,['payment']), fear = felt(asker,['threat']), pressure = felt(listener,['pressure']), rival = felt(listener,['payment']), oath = rows.some(e=>e.about===asker && payload(e)?.topic==='oath');
     const loyalty = loyaltyOf({rows, subject:asker, day, temperament:t, limits}).value;
     const rung = rungIndex(standingRung(secret,{rows,day,temperament:t,relative:{},table:SEVERITY_TABLE}).id);
     return silenceVerdict({holder, secret:secret.fact, listener, day, root, promised:secret.silence.promised,
         bondAsker:bondTotal({memory,holder,subject:asker,baseline:baselineOf(holder,asker),day,temperamentOf,limits}),
         bondListener:bondTotal({memory,holder,subject:listener,baseline:baselineOf(holder,listener),day,temperamentOf,limits}),
-        bribe, loyalty, rung, telling:t.telling});
+        bribe, loyalty, rung, telling:t.telling, oath, fear, pressure, rival});
 }
 // Player-facing line for a holder who was asked to keep something quiet; '' if nothing is flagged.
 export function silenceLine({memory, holder, subject, listener, day, root, baselineOf, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
@@ -139,7 +145,11 @@ function noteConfidence(memory, holder, secret, outcome, day, limits) {
     const asker=secret.silence.asker, kept=outcome==='kept', amount=kept ? 4 : -4, topic=kept ? 'kept_quiet' : 'broke_confidence';
     const fact=`fx1|trust|${amount}|${topic}|${token('p3c.'+holder)}|${token([secret.fact,outcome])}`;
     if(readMemories(memory,asker,day,{limits}).some(r=>r.fact===fact)) return memory;
-    return remember(memory,asker,{kind:kept ? 'helped' : 'betrayed',about:holder,fact,source:'saw',certainty:100,feeling:amount,day,count:1},day,limits);
+    memory=remember(memory,asker,{kind:kept ? 'helped' : 'betrayed',about:holder,fact,source:'saw',certainty:100,feeling:amount,day,count:1},day,limits);
+    // Keeping a costly secret is a loyalty test the holder has passed too (LSD409): it raises loyalty on both sides.
+    if(!kept) return memory;
+    const own=`fx1|trust|${amount}|${topic}|${token('p3c.'+asker)}|${token([secret.fact,'held'])}`;
+    return readMemories(memory,holder,day,{limits}).some(r=>r.fact===own) ? memory : remember(memory,holder,{kind:'helped',about:asker,fact:own,source:'saw',certainty:100,feeling:amount,day,count:1},day,limits);
 }
 
 // Called at a played-time transaction boundary. Existing causes own daily
@@ -199,6 +209,11 @@ export function memoryForPlan({memory = freshMemory(), plan, day, minute = day*1
         memory = rememberEffect(memory,effect,day,limits);
         // A public scene (P6): the crowd there leaves a group impression and one promoted witness remembers the player.
         const sim=plan.state.simulation, e=input.scene && sim ? episodeFromEffect(effect) : null;
+        // A lie is a claim beside the fact (LSD422): the speaker's account of the topic, pointing at the holder's real episode.
+        if(input.claim) {
+            const real=readMemories(memory,input.claim.about,day,{limits}).find(r=>r.about===input.claim.speaker && payload(r)?.topic===input.claim.topic);
+            if(real) memory=addClaim(memory,{speaker:input.claim.speaker,fact:real.fact,says:input.claim.says,day:effect.day},effect.day,limits);
+        }
         if(e) {
             const named=Object.entries(sim.people||{}).filter(([id,p])=>id!=='player' && p.life==='alive' && p.location===input.scene.place).length;
             memory = witnessScene({memory,scene:input.scene,subject:input.subject,fact:e.fact,feeling:e.feeling,minute:Math.max(0,Math.floor(at)),day:effect.day,root:sim.seed,namedHere:named,limits}).memory;

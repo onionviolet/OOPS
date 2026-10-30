@@ -48,3 +48,20 @@ adapter, so both runners share one format and CLI (`--adapter`).
   commands; set `REPLAY_COMMANDS=1000` or use `cli.mjs check` for the full gate.
 - Native publication returns (`nativePatch`, acquisition log rows) stay with
   the host and are outside the engine adapter's durable JSON.
+
+## Branch explorer (2026-10-30)
+
+`branch_explorer.mjs` runs one decision every way from a single save: each legal response (or an explicit command
+list) x a set of seeds x stat variants, then an optional `follow` command list. It reports the outcome spread per
+metric, which axis drives it (choice, seed, variant), distinct outcomes, and which canon beats were added or removed.
+`apply()` is non-mutating and every branch works on a copy; the report states `inputUnchanged`. A seed replaces
+`state.rng` and resets the keyed streams, so it reads as "fate differs from here on".
+
+```bash
+node scripts/replay/explore.mjs --find-event --world-seed 1 --seeds 6 --follow-minutes 1440 --stat Perception=40
+```
+
+API for other lanes: `exploreBranches({adapter, save, prefix, branch, seeds, variants, follow, metrics, beats})` and
+`formatReport`. Pass your own `metrics(afterSave, beforeSave)` and `beats(save) -> ids` to read a native adapter's
+beat ledger or canon-pull slice; the defaults read the expansion state only. A new adapter needs only the adapter
+contract above (`load/save/apply/candidates`).

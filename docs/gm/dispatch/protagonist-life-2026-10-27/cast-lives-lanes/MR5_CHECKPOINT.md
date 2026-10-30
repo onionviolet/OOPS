@@ -35,3 +35,7 @@ Evidence: `p3c_evidence/p6-crowd-1920.png`, `p6_browser.mjs`.
 - Fights, helping, fetching authorities, hurt bystanders as shields, and authority arrival time are not wired; `stepCrowd` and `promote` supply them through the patch. Investigator testimony exists as functions only, with no command or screen.
 - Only `sees_face` promotion is exercised in the village; intervene, hurt and picked-up-item reasons use the same function.
 - Roles are a default table; a world swaps it with a new `id@rev`.
+
+## Fight hook proved in the browser (2026-10-30)
+
+p4-fights committed the hook in the tempo runner (`src/tempo_fight.js`, d3b23a23), not in `native_battle.js`, so the prepared patch is superseded. Their P4 harness (copied to my scratchpad, with a DOM-click fallback for the two prerequisite "Hello?" lines) ran the road contest in Chrome at 1920x1080 through `slot_run --kind browser`: after real strikes the saved memory holds the promoted witness `crowd.Road.359730.morning.worker.3` (4 episodes), the group impression `crowd.group.Road`, and both fighters' own episodes (`player`, `roadRival`). So the browser commit path does apply `plan.memoryEffects`; no port is needed. After the fight finished, Export and literal Import kept the same holders (witness 26 episodes, one per damaging strike, within the 40 cap). Gap: no screen shows the road witness yet (the crowd note reads the Village only), and the witness writes one episode per strike, which a later pass could fold into one.

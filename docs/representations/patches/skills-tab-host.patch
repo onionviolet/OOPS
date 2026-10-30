@@ -1,0 +1,46 @@
+diff -ru a/src/book_world_lotm_ui.js b/src/book_world_lotm_ui.js
+--- a/src/book_world_lotm_ui.js	2026-10-30 10:42:10
++++ b/src/book_world_lotm_ui.js	2026-10-30 10:42:10
+@@ -6,6 +6,8 @@
+ import {observerForProfile} from './observer_view.js';
+ import {renderFigure} from './ui/figure.js';
+ import {ladderFigureSpec} from './ability_ladder_figure.js';
++import {renderSkillsTab} from './ui/skills_tab.js';
++import {createTabs} from './reference_kit.js';
+ import {lotmRungAbilities} from './book_world_lotm_path.js';
+ import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
+ import {walkMapBlock} from './ui/walk_map.js';
+@@ -25,7 +27,7 @@
+  // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
+  const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
+  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
+- let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
++ let signature='',pathTab='ladder',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+  const waitButtons=new Map();
+  const applySeatFilter=()=>{
+   const observer=observerForProfile(read(selected)?.entryProfile);
+@@ -152,7 +154,12 @@
+   if(Date.now()<pulseUntil)for(const s of spec.tracks[0].steps)if(s.state==='current')s.effect='pulse';
+   const {text}=renderFigure(fig,spec,{idPrefix:'lotm-ladder'});
+   words.append(node('summary','Read the ladder as text'),Object.assign(node('pre',text),{className:'fig-text'}));
+-  path.append(node('h3',p.label),fig,words);
++  // G17: Skills and techniques sits beside the ladder as a sub-tab. v.skills holds skillsTabRows() output built by the host from held and
++  // heard-of cards only (ABR19); Tingen has no learn-bearing card yet, so it reads its empty state until L10 rungs carry learn blocks.
++  const ladderPane=node('div'),skillsPane=node('div');ladderPane.append(fig,words);skillsPane.dataset.lotmSkills='';renderSkillsTab(skillsPane,v.skills||[]);
++  const showPane=id=>{pathTab=id;ladderPane.toggleAttribute('data-tab-off',id!=='ladder');skillsPane.toggleAttribute('data-tab-off',id!=='skills');};
++  const pathTabs=createTabs({label:'Path views',tabs:[{id:'ladder',label:'Ladder'},{id:'skills',label:'Skills and techniques'}],initial:pathTab,onSelect:id=>{showPane(id);}});showPane(pathTab);
++  path.append(node('h3',p.label),pathTabs.bar,ladderPane,skillsPane);
+   // Reference prose sits behind one disclosure after the ladders and steps (UR42, round 2 density).
+   const howTo=[v.switchNotice];
+   if(!p.chosen)for(const o of p.others)path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')));
+diff -ru a/src/perspective_controls.js b/src/perspective_controls.js
+--- a/src/perspective_controls.js	2026-10-30 10:42:10
++++ b/src/perspective_controls.js	2026-10-30 10:42:10
+@@ -75,6 +75,7 @@
+     ['path', 'in-world', 'Current pathway information.'],
+     ['ladder', 'in-world', 'This character’s pathway ladder as a figure.'],
+     ['ladder-text', 'in-world', 'This character’s pathway ladder in words.'],
++    ['skills', 'in-world', 'Techniques this character has heard of, with what they ask and how far practice has come.'],
+     ['paused-life', 'crossing', 'This line exposes a connection to another life.'],
+     ['places', 'in-world', 'Places in the current world.'],
+     ['plan', 'in-world', 'Preparation for this character’s next step.'],

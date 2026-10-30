@@ -1,6 +1,7 @@
 // Validate Luna coverage, then fold shared canonical names and explicitly reviewed
 // cross-slice aliases. Never edits the source typed facts or claims runtime wiring.
-import {readFileSync, writeFileSync} from 'node:fs';
+import {readFileSync, writeFileSync, existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
@@ -28,6 +29,25 @@ export function validateSlice(input, rows, bySlug) {
     return {groups, unread: last.unread, covered};
 }
 
+// A repair replaces coverage in the unread set, never a resolved original row.
+export function overlayRepairs(groups, unread, repairs, bySlug) {
+    const remaining = new Set(unread), assigned = new Set(), merged = [...groups];
+    let pending = 0;
+    for (const {input, rows, lane} of repairs) {
+        for (const {slug} of input) {
+            if (!remaining.has(slug) || assigned.has(slug)) throw Error(`Foreign/duplicate repair slug: ${slug}`);
+            assigned.add(slug);
+        }
+        if (rows === null) { pending++; continue; }
+        const result = validateSlice(input, rows, bySlug);
+        for (const group of result.groups) {
+            group.members.forEach(m => remaining.delete(m.slug));
+            merged.push({...group, lane});
+        }
+    }
+    return {groups: merged, unread: [...remaining], pending};
+}
+
 async function main() {
 const tracked = 'docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c1';
 const base = 'docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/l10';
@@ -40,7 +60,8 @@ const assert = (ok, message) => {if (!ok) throw Error(message);};
 const selected = args.includes('--lane') ? manifest.slices.filter(x => x.lane === Number(value('--lane'))) : manifest.slices;
 assert(selected.length > 0, 'Unknown lane');
 assert(!args.includes('--lane') || args.includes('--validate-only'), 'Single-lane mode is validation only.');
-const groups = [], unread = [], seen = new Set();
+let groups = [], unread = [];
+const seen = new Set();
 for (const lane of selected) {
     const input = JSON.parse(readFileSync(lane.input, 'utf8'));
     const rows = readFileSync(lane.output, 'utf8').trim().split('\n').map(JSON.parse);
@@ -49,8 +70,22 @@ for (const lane of selected) {
     groups.push(...result.groups.map(row => ({...row, lane: lane.lane})));
     unread.push(...result.unread);
 }
+let pendingRepairs = 0;
+const repairPath = `${tracked}/../r3b/manifest.json`;
+if (!args.includes('--lane') && existsSync(repairPath)) {
+    const plan = JSON.parse(readFileSync(repairPath, 'utf8'));
+    const repairs = plan.briefs.filter(b => b.family === 'c1').map(b => {
+        const bytes = readFileSync(b.input);
+        assert(createHash('sha256').update(bytes).digest('hex') === b.inputSha256, 'Repair input changed');
+        return {input: JSON.parse(bytes), lane: b.brief, rows: existsSync(b.output)
+            ? readFileSync(b.output, 'utf8').trim().split('\n').map(JSON.parse) : null};
+    });
+    const result = overlayRepairs(groups, unread, repairs, bySlug);
+    ({groups, unread} = result); pendingRepairs = result.pending;
+}
 if (args.includes('--validate-only')) {
     console.log(JSON.stringify({lanes: selected.map(x => x.lane), covered: seen.size, groups: groups.length, unread: unread.length,
+        pendingRepairs,
         gap: 'Locator matching does not verify paragraph reading or semantic equivalence.'}));
 } else {
     const aliases = new Map();
@@ -84,7 +119,7 @@ if (args.includes('--validate-only')) {
     const assignment = new Map([...merged.values()].flatMap(g => g.members.map(m => [m.slug, g.canonical])));
     for (const g of merged.values()) assert(!assignment.has(g.canonical) || assignment.get(g.canonical) === g.canonical,
         `Canonical collision ${g.canonical}: review an alias before folding.`);
-    const result = {schema: 1, status: 'proposal; semantic spot-check pending', groups: [...merged.values()], unread,
+    const result = {schema: 1, status: 'proposal; semantic spot-check pending', groups: [...merged.values()], unread, pendingRepairs,
         aliasReviews: [...aliases.values()], sourceInputs: manifest.inputs,
         counts: {covered: seen.size, resolved: seen.size - unread.length, unread: unread.length, groups: merged.size},
         gaps: ['No runtime rewrites.', 'Unread canonical names require source review before promotion.',

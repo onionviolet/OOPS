@@ -73,7 +73,7 @@ export function meansAvailable(ctx,meansId){
   const m=MEANS[meansId];if(!m)return {ok:false,reason:'Unknown means.'};
   if(!m.needs)return {ok:true};
   if(m.needs.item&&(ctx.items?.[m.needs.item]||0)<1)return {ok:false,reason:`Needs the physical ${m.needs.item}.`};
-  if(m.needs.fact&&!ctx.facts?.[m.needs.fact])return {ok:false,reason:'Needs the matching credential or sense.'};
+  if(m.needs.fact&&!ctx.facts?.[m.needs.fact])return {ok:false,reason:`Needs ${m.label||meansId}, which you lack. A friend who has it can look for you, at a favour.`};
   return {ok:true};
 }
 // Observer-only readout: what THIS observer can resolve by THIS means. A

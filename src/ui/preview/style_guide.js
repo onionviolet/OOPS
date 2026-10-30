@@ -1,7 +1,8 @@
 // Living style guide (VSX1, UI audit). Draws the shipped visual grammar from the shared tokens so the gallery shows
 // what a theme or world skin would change. Renders nothing the game does not already style; every size, color, glow
 // and time comes from styles/ui_tokens.css. New representations start here and add a swatch with the token they add.
-import {FIGURE_STATES} from '../figure.js';
+import {FIGURE_STATES, renderFigure} from '../figure.js';
+import {OWED_TABLE_FIXTURE, THRESHOLD_FIXTURES, DAY_BAND_FIXTURE, CHIP_ROW_FIXTURE, BAR_ROWS_FIXTURE} from './fixtures/forms.js';
 import {createMeterBar} from '../../meter_bar.js';
 import {applyCustomizationProfile, defaultCustomizationState} from '../../customization_profiles.js';
 
@@ -14,6 +15,7 @@ const EXTEND = [
     'State is a mark plus a word, never color alone (UR37). Pick the mark from the glyph set above; add a glyph here before using a new one.',
     'Glow marks a control or a meaningful state. Prose and numbers sit on quiet backing. Motion uses the three times above, so Effects off and reduced-motion silence everything with one switch.',
     'A world skin sets theme tokens (--theme-surface, -text, -muted, -border, -accent, -warning, -danger); a representation reads them through its own local names, as figure.css and character_sheet.css do.',
+    'One shape per kind (UR79): a ledger is a table, a before-you-cross sheet is a card, a stretch of time is a band, a set of tags is a chip row, a count of work is a bar row. Reach for a node graph only when the question is who or what connects to what.',
     'Make the text form first and the drawing second (RCT2): the drawing adds nothing the words do not say.'
 ];
 
@@ -92,6 +94,20 @@ export function mountStyleGuide(main) {
     for (const n of ['sm', 'md', 'lg']) { const c = el('div', {class: 'sg-ctl'}, `control-${n}`); c.style.height = `var(--ui-control-${n})`; ctl.append(c, el('code', {}, `--ui-control-${n}`)); }
     const grid = el('div', {class: 'sg-grid'}); grid.append(cell('Spacing, UR65', scale), cell('Type roles, UR68', type), cell('Control heights, UR66', ctl));
     guide.append(group('Scales', 'Spacing, type and control heights grow with the player text setting.', grid));
+
+    // Non-node forms (COV4, UR79): one shape per kind. Drawn by the same renderFigure as every node figure, so the page shows them in the skin.
+    const FORMS = [
+        ['Ledger table', 'Rows of accounts: one word per cell, a bar for a share left, a mark for a late row. Use for what is owed, stock and standing; not for who relates to whom.', OWED_TABLE_FIXTURE],
+        ['Threshold card', 'A sheet of grouped facts before something cannot be undone: what goes with you, what stays, what pauses or ends, what waits.', THRESHOLD_FIXTURES[0]],
+        ['Band', 'A span of time or intensity along an axis, in lanes, with a now line. Level darkens a span and its note says it in words.', DAY_BAND_FIXTURE],
+        ['Chip row', 'Small tags that wrap: conditions, fittings, what is true now. The mark and word carry the state; a long note moves to hover and the text form.', CHIP_ROW_FIXTURE],
+        ['Bar rows', 'One bar per piece of work or stat, with the words always beside it. Not a gradient vital: a count of steps or sittings.', BAR_ROWS_FIXTURE],
+    ];
+    for (const [title, note, spec] of FORMS) {
+        const holder = el('div', {class: 'sg-form'});
+        renderFigure(holder, spec, {idPrefix: `sg-${spec.id}`, legend: false});
+        guide.append(group(title, note, holder));
+    }
 
     // How to extend
     const list = el('ol', {class: 'sg-extend'});

@@ -1,6 +1,10 @@
 import {definePanel} from './panel_kit.js';
 import {openMixtureCounter} from './mixture_ui.js';
 import {knownWorkspaceModules,expandWorkspaceModule} from './workspace_layout.js';
+import {listable,movedNotices} from './panel_folds.js';
+import {PANEL_GROUPS} from './panel_directory.js';
+// A disabled row keeps the module's own reason, cut to a short clause so the list stays one line each.
+const shortReason=reason=>{const text=String(reason||'').replace(/\.$/,'');return !text||/^(Return to the relevant place|This panel has no content here|Not available at this place|Unavailable)/.test(text)?'not here':text.length>44?text.slice(0,41).trimEnd()+'…':text;};
 import {centerModes} from './center_modes.js';
 import {decorateInventoryList,summarizeGroups} from './ui_components.js';
 import {mountGameBar} from './game_bar.js';
@@ -73,7 +77,9 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         const observer=observerView(readPort('expansion'));
         for(const [route,b]of buttons){const {target:id,tab}=route;
             let hidden=!views.has(id)&&!ids.has(id);
-            if(tab){const control=document.getElementById(tab);hidden=!control||control.hidden||control.dataset.referenceKnown==='false';}
+            if(tab){const control=document.getElementById(tab);hidden=!control||control.hidden||control.dataset.referenceKnown==='false';
+                // A Journal tab whose panel is not eligible yet opened an empty 0x0 view; it appears once the panel is reachable.
+                if(!ids.has(id)||known.some(m=>m.id===id&&!m.eligible))hidden=true;}
             const controlId=controlForRoute(route.id);
             if(controlId&&!observer.sees({control:controlId}))hidden=true;
             if(b.hidden!==hidden){if(hold)held=true;else b.hidden=hidden;}
@@ -89,8 +95,16 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         pollBadges();for(const [route,b]of buttons)paintBadge(b,badgeCount(route.id),route.label);
         for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!observer.sees({control:'menu.pane-selector'});b.disabled=original.disabled;b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
         const next=JSON.stringify([known,[...arrivals],known.map(m=>badgeCount(m.id))]);if(next!==last){last=next;more.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=arrivals.size?'All panels… •':'All panels…';more.append(first);
-            for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id)||(controlForRoute(m.id)&&!observer.sees({control:controlForRoute(m.id)})))continue;const option=document.createElement('option');option.value=m.id;option.textContent=m.title+(arrivals.has(m.id)?' •':'')+(badgeCount(m.id)?` (${badgeCount(m.id)} new)`:'');option.disabled=!m.eligible;more.append(option);}}
+            // COV6: five groups in player words; a greyed row says why (UIV1) instead of sitting there silent.
+            const groups=new Map(PANEL_GROUPS.map(g=>[g,document.createElement('optgroup')]));groups.forEach((g,name)=>{g.label=name;});
+            for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id)||(controlForRoute(m.id)&&!observer.sees({control:controlForRoute(m.id)})))continue;const option=document.createElement('option');option.value=m.id;const why=m.eligible?'':shortReason(m.reason);option.textContent=m.title+(arrivals.has(m.id)?' •':'')+(badgeCount(m.id)?` (${badgeCount(m.id)} new)`:'')+(why?` · ${why}`:'');option.title=m.eligible?'':m.reason;option.disabled=!m.eligible;(groups.get(m.group)||groups.get('World')).append(option);}
+            groups.forEach(g=>{if(g.children.length)more.append(g);});}
+            // COV5/COV12: a folded panel is listed once, under its owner (src/panel_folds.js).
+            for(const option of [...more.querySelectorAll('option')])if(!listable(option.value))option.remove();for(const group of [...more.querySelectorAll('optgroup')])if(!group.children.length)group.remove();
     };
+    // COV5/COV12, UR13: the first load that finds an old panel id in a saved layout says where it went and dots the owner.
+    const announce=setInterval(()=>{if(!nav.isConnected){clearInterval(announce);return;}if(document.documentElement.dataset.startScreen!=='closed')return;clearInterval(announce);
+        const known=knownWorkspaceModules();for(const move of movedNotices({titleOf:id=>known.find(m=>m.id===id)?.title||id})){arrivals.add(move.into);notice?.(move.text,move.into);}refresh();},700);
     document.addEventListener('workspace-panel-arrival',event=>{const{id}=event.detail||{};if(id==='pane-navigation')return;const known=knownWorkspaceModules().find(m=>m.id===id);if(!known)return;arrivals.add(id);notice?.(`${known.title} is now available in navigation.`,id);publishChange('knowledge','panel-arrival');});
     // A held route change lands once the pointer leaves the bar or focus moves off it.
     const release=()=>{if(held)queueMicrotask(()=>{if(held&&!interacting())refresh();});};

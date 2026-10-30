@@ -1,4 +1,5 @@
 import {definePanel} from './panel_kit.js';
+import {chip, infoRow, reasonLine, panelSection} from './ui/panel_sections.js';
 // Desktop-first (UI target 1536/1920; mobile deferred, AD/standing UI priority). Surface type:
 // records panel in the main workspace (UR1). Read-only except the Borrow/Repay buttons, which
 // call the domain and report its refusal text in place.
@@ -38,56 +39,83 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
         const v = read();
         const next = JSON.stringify([v.factions.map(f => [f.score, f.loan]), v.credit, v.wear, v.claims, v.memory, v.rumours, v.insurance, v.insuranceOffer, v.coins, notice.textContent]);
         if(next === signature) return; signature = next;
+        // Houses are one table (UR79): standing and both price shifts in columns, the rival and the reason one disclosure away.
         factions.replaceChildren(node('h3', 'Houses'));
+        const table = node('table', '', 'ui-table'); table.dataset.standingTable = '';
+        const head = node('tr'); for(const h of ['House', 'Standing', 'Sells to you', 'Buys from you']) { const th = node('th', h); th.scope = 'col'; head.append(th); }
+        const body = node('tbody'); table.append(node('thead'), body); table.firstChild.append(head);
         for(const f of v.factions) {
-            const row = node('p', `${f.label} (${f.region}): ${f.tier.label}, ${f.score}. Rival: ${f.rivalLabel}. Sells to you ${pct(f.tier.buy)}, buys from you ${pct(f.tier.sell)}.`);
-            row.append(node('span', ` Why: ${f.tier.why}`, 'standing_why')); row.dataset.standingFaction = f.id; factions.append(row);
+            const tr = node('tr'); tr.dataset.standingFaction = f.id;
+            const who = node('td', f.label); who.append(node('small', ` ${f.region}`));
+            const stand = node('td'); stand.append(chip(f.tier.label, {tone: f.tier.buy > 1 ? 'warn' : f.tier.sell > 1 ? 'good' : ''}), ` ${f.score}`);
+            const sells = node('td', pct(f.tier.buy), 'ui-num'), buys = node('td', pct(f.tier.sell), 'ui-num');
+            tr.title = `Rival: ${f.rivalLabel}. Why: ${f.tier.why}`;
+            tr.append(who, stand, sells, buys); body.append(tr);
         }
+        factions.append(table);
+        const why = panelSection('Why each house stands here', {disclosure: true}); why.node.dataset.standingWhy = '';
+        for(const f of v.factions) { const p = node('p', `${f.label}: ${f.tier.why} Rival: ${f.rivalLabel}.`); p.className = 'standing_why'; why.body.append(p); }
+        factions.append(why.node);
         const last = v.deeds.at(-1);
         if(last) factions.append(node('p', `Last deed: ${last.deed}, ${last.moves.map(m => `${m.id.replace('_', ' ')} ${signed(m.amount)}${m.backlash ? ' (rival backlash)' : ''}`).join('; ')}.`, 'expedition_preview'));
-        paths.replaceChildren(node('h3', 'Worn paths'));
-        if(!v.wear.length) paths.append(node('p', 'Walk the same road often and it gets quicker: up to a quarter off.', 'expedition_preview'));
-        for(const w of v.wear.slice(0, 6)) { const row = node('p', `${w.leg}: ${w.count} trips, ${Math.round(w.gain * 1000) / 10}% quicker (a worn path, capped by the ground).`); row.dataset.wornPath = w.leg; paths.append(row); }
+        const wear = panelSection(`Worn paths · ${v.wear.length}`, {disclosure: true}); wear.node.dataset.section = 'worn-paths';
+        paths.replaceChildren(wear.node);
+        if(!v.wear.length) wear.body.append(node('p', 'Walk the same road often and it gets quicker, up to a quarter off.', 'expedition_preview'));
+        for(const w of v.wear.slice(0, 6)) { const row = infoRow({label: w.leg, chips: [chip(`${w.count} trips`), chip(`${Math.round(w.gain * 1000) / 10}% quicker`, {tone: 'good'})], more: 'A worn path is capped by the ground.', moreLabel: 'Limit'}); row.dataset.wornPath = w.leg; wear.body.append(row); }
         credit.replaceChildren(node('h3', 'Credit'));
         for(const c of v.credit) {
-            const line = node('div'); line.dataset.creditRow = c.factionId;
             const f = v.factions.find(x => x.id === c.factionId);
-            const status = f.loan ? ` You owe ${f.loan.owed}; ${f.loan.overdue ? 'overdue' : `due in ${f.loan.daysLeft} days`}.` : '';
-            line.append(node('span', `${c.label}: limit ${c.limit}, rate ${Math.round(c.rate * 100)}% per ${c.termDays} days.${status} ${c.reason}`));
+            const chips = [chip(`limit ${c.limit}`), chip(`${Math.round(c.rate * 100)}% per ${c.termDays} days`)];
+            if(f.loan) chips.push(chip(`owe ${f.loan.owed}`, {tone: 'warn'}), chip(f.loan.overdue ? 'overdue' : `due in ${f.loan.daysLeft} days`, {tone: f.loan.overdue ? 'limit' : ''}));
+            const actions = [], reasons = [];
             for(const n of [10, 25]) {
                 const b = node('button', `Borrow ${n}`); b.type = 'button'; b.disabled = !c.eligible || n > c.available;
-                b.onclick = () => act(() => borrow(c.factionId, n), `Borrowed ${n} coins from the ${c.label}.`); line.append(b);
+                if(b.disabled) reasons.push(!c.eligible ? c.reason : `Only ${c.available} left to borrow.`);
+                b.onclick = () => act(() => borrow(c.factionId, n), `Borrowed ${n} coins from the ${c.label}.`); actions.push(b);
             }
             if(f.loan) {
                 const b = node('button', `Repay ${f.loan.owed}`); b.type = 'button'; b.disabled = v.coins < 1;
-                b.onclick = () => act(() => repay(c.factionId, f.loan.owed), `Paid toward the ${c.label}.`); line.append(b);
+                if(b.disabled) reasons.push('You have no coins to repay with.');
+                b.onclick = () => act(() => repay(c.factionId, f.loan.owed), `Paid toward the ${c.label}.`); actions.push(b);
             }
-            credit.append(line);
+            // The disabled reason sits beside the buttons, once, not in a tooltip.
+            if(reasons.length) actions.push(reasonLine([...new Set(reasons)].join(' ')));
+            const line = infoRow({label: c.label, chips, actions, more: c.reason}); line.dataset.creditRow = c.factionId; credit.append(line);
         }
         if(v.insurance) credit.append(node('p', `Policy on ${v.insurance.label}: pays up to ${v.insurance.payout} on a loss (premium paid ${v.insurance.premium}).`));
         for(const c of v.claims) credit.append(node('p', `Owed to you by the broker: ${c.amount} coins, due in ${Math.max(0, Math.ceil((c.due - v.now) / 1440))} days.`));
         if(!v.insurance) {
-            const line = node('div'); line.dataset.insuranceRow = '';
             const o = v.insuranceOffer;
             const b = node('button', `Insure ${o.value} coins of cargo`); b.type = 'button'; b.dataset.insure = ''; b.disabled = !o.eligible || v.coins < o.premium;
             b.onclick = () => act(() => insure(o.value, o.danger, 'carried cargo'), 'Cargo insured.');
-            const text = o.eligible
-                ? `No policy. Road danger here is ${o.danger}, so the premium is ${o.premium} coins and a loss pays up to ${o.payout}. A mishap on the road (pickpockets, a dropped load) is what it pays on; the broker keeps ${o.fee} coins and settles in ${o.days} days. Why: ${o.why}`
-                : `No policy. ${o.reason}`;
-            const span = node('span', text); span.dataset.insuranceQuote = '';
-            line.append(span, b); credit.append(line);
+            const actions = [b];
+            if(b.disabled) actions.push(reasonLine(!o.eligible ? o.reason : `You need ${o.premium} coins for the premium.`));
+            const chips = o.eligible ? [chip('no policy'), chip(`premium ${o.premium}`), chip(`pays up to ${o.payout}`)] : [chip('no policy')];
+            const more = o.eligible
+                ? `Road danger here is ${o.danger}, so the premium is ${o.premium} coins and a loss pays up to ${o.payout}. A mishap on the road (pickpockets, a dropped load) is what it pays on; the broker keeps ${o.fee} coins and settles in ${o.days} days. Why: ${o.why}`
+                : o.reason;
+            const line = infoRow({label: 'Cargo insurance', chips, actions, more, moreLabel: 'Terms'}); line.dataset.insuranceRow = '';
+            line.querySelector('.ui-row-more p').dataset.insuranceQuote = ''; credit.append(line);
         }
-        memory.replaceChildren(node('h3', 'What you remember of prices'));
-        if(!v.memory.length) memory.append(node('p', 'Nothing yet. Trade and you will remember what things fetched.', 'expedition_preview'));
-        for(const m of v.memory.slice(0, 8)) {
-            const row = node('p', `${m.label} in ${m.region}: ${m.price}, ${m.ageDays} days ago${m.stale ? ' (stale, a guess now)' : ''}.`);
-            row.dataset.memoryRow = m.key; memory.append(row);
+        const mem = panelSection(`What you remember of prices · ${v.memory.length}`, {disclosure: true}); mem.node.dataset.section = 'price-memory';
+        memory.replaceChildren(mem.node);
+        if(!v.memory.length) mem.body.append(node('p', 'Nothing yet. Trade and you will remember what things fetched.', 'expedition_preview'));
+        if(v.memory.length) {
+            const mt = node('table', '', 'ui-table'), mh = node('tr'); for(const h of ['Good', 'Where', 'Price', 'Seen']) { const th = node('th', h); th.scope = 'col'; mh.append(th); }
+            const mb = node('tbody'); mt.append(node('thead'), mb); mt.firstChild.append(mh);
+            for(const m of v.memory.slice(0, 8)) {
+                const tr = node('tr'); tr.dataset.memoryRow = m.key;
+                const seen = node('td', `${m.ageDays} days ago`); if(m.stale) seen.append(' ', chip('a guess now', {guess: true}));
+                tr.append(node('td', m.label), node('td', m.region), node('td', String(m.price), 'ui-num'), seen); mb.append(tr);
+            }
+            mem.body.append(mt);
         }
-        rumours.replaceChildren(node('h3', 'Talk'));
-        if(!v.rumours.length) rumours.append(node('p', 'No one has repeated a price to you.', 'expedition_preview'));
+        const talk = panelSection(`Talk · ${v.rumours.length}`, {disclosure: true}); talk.node.dataset.section = 'talk';
+        rumours.replaceChildren(talk.node);
+        if(!v.rumours.length) talk.body.append(node('p', 'No one has repeated a price to you.', 'expedition_preview'));
         for(const r of v.rumours.slice(-5).reverse()) {
-            const verdict = r.verdict ? (r.verdict === 'held' ? ' It held up.' : ' It was wrong.') : '';
-            const row = node('p', `${r.text}. Sounds ${r.sounds}.${verdict}`); row.dataset.rumourRow = r.id; rumours.append(row);
+            const row = infoRow({label: r.text, chips: [chip(`sounds ${r.sounds}`, {guess: !r.verdict}), ...(r.verdict ? [chip(r.verdict === 'held' ? 'held up' : 'was wrong', {tone: r.verdict === 'held' ? 'good' : 'limit'})] : [])]});
+            row.dataset.rumourRow = r.id; talk.body.append(row);
         }
         notice.hidden = !notice.textContent;
     }

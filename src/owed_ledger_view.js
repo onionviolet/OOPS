@@ -17,7 +17,7 @@ const SOURCE = {economy_standing: 'Standing and ledger', household_fortunes: 'Ho
     crafting: 'Crafting', heir_inheritance: 'Inheritance'};
 // Where each row is settled, as a pointer (this tab never settles). Keyed by id prefix, then by kind.
 const SETTLE = [
-    ['credit:', 'Repay it in Standing and ledger → Credit. Paying on time raises that house\'s regard for you.'],
+    ['credit:', 'Repay it here, or in Standing and ledger → Credit. Paying on time raises that house\'s regard for you.'],
     ['claim:', 'The broker pays on the date written on the claim. Nothing to do but wait.'],
     ['career:', 'Settle with the Village watch: return the kit or pay its price.'],
     ['household:', 'Eases with decent treatment of the household, season by season.'],
@@ -47,7 +47,7 @@ function dueText(due, row) {
 
 // One row as the player reads it. `due` is {daysLeft, overdue} when the writer keeps a date; `amount` may be a live figure (interest,
 // easing) supplied by the host so the tab never shows a stale balance.
-export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = null, amount = row.amount, now = 0, house = null, late = null} = {}) {
+export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = null, amount = row.amount, now = 0, house = null, late = null, quote = null} = {}) {
     const name = id => id === actorId ? 'you' : labels[id] ?? PARTY_LABELS[id] ?? words(id);
     const direction = row.debtor === actorId || row.debtor === 'heir' ? 'owe' : row.creditor === actorId ? 'owed' : 'other';
     const party = direction === 'owed' ? name(row.debtor) : name(row.creditor);
@@ -60,7 +60,7 @@ export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = 
         dated: !!due, overdue: !!due?.overdue, daysLeft: due ? due.daysLeft : null, dueText: when, effect,
         // Share of the term still left (0 when late), for a due bar beside the words; null without a dated term.
         termLeft: due?.term > 0 ? Math.max(0, Math.min(1, due.daysLeft / due.term)) : null,
-        house, late,
+        house, late, quote,
         why: row.why || 'No reason was written down.',
         since: days == null ? 'Since: not recorded.' : days === 0 ? 'Since: today.' : `Since: ${plural(days, 'day')} ago.`,
         carries: row.carries ? 'Passes to an heir if it is still open when this life ends.' : 'Ends with this life.',
@@ -82,7 +82,7 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
     const seen = new Set(), all = [];
     for(const r of rows) {
         if(!r || seen.has(r.id)) continue; seen.add(r.id);
-        const v = owedRow(r, {actorId, labels, now, due: live[r.id]?.due ?? null, amount: live[r.id]?.amount ?? r.amount, house: live[r.id]?.house ?? null, late: live[r.id]?.late ?? null});
+        const v = owedRow(r, {actorId, labels, now, due: live[r.id]?.due ?? null, amount: live[r.id]?.amount ?? r.amount, house: live[r.id]?.house ?? null, late: live[r.id]?.late ?? null, quote: live[r.id]?.quote ?? null});
         if(v.amount > 0) all.push(v);
     }
     all.sort((a, b) => rank(a) - rank(b) || (a.id < b.id ? -1 : 1));
@@ -101,7 +101,7 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
     const pick = shown.find(r => r.id === selected) ?? null;
     return {rows: shown, total: all.length, filter: f, filters, summary, selected: pick,
         empty: !all.length ? EMPTY_TEXT : !shown.length ? `Nothing matches “${FILTER_LABEL[f]}”. Choose All to see ${plural(all.length, 'account')}.` : '',
-        note: 'This tab only reads. Each account is settled where its row says.'};
+        note: 'A row with a button is settled here, for the figure on the button. Every other account is settled where its row says.'};
 }
 
 // A house's standing as a ladder (RPX18 glance): every rung named, yours marked, and what moves you to the next one.
@@ -123,7 +123,11 @@ export function gatherOwed({standing = null, fortunes = [], grudge = null, terms
         labels[f.id] = `the ${f.label}`;
         if(!f.loan) continue;
         const term = standing.credit?.find(c => c.factionId === f.id)?.termDays ?? null;
-        live[`credit:${f.id}`] = {amount: f.loan.owed, due: {daysLeft: f.loan.daysLeft, overdue: !!f.loan.overdue, term},
+        // The same figure Standing's Repay button shows (loan.owed, from the same projection); the purse only limits what lands.
+        const coins = standing.coins ?? 0, pays = Math.min(f.loan.owed, coins);
+        live[`credit:${f.id}`] = {amount: f.loan.owed, quote: {command: 'repay', factionId: f.id, owed: f.loan.owed, pays, coins,
+            label: `Repay ${f.loan.owed}`, blocked: coins < 1 ? 'You have no coins to repay with.' : null,
+            note: pays < f.loan.owed && coins >= 1 ? `You hold ${plural(coins, 'coin')}, so this pays ${pays} now and the rest stays owed.` : null}, due: {daysLeft: f.loan.daysLeft, overdue: !!f.loan.overdue, term},
             house: terms ? houseLadder({label: `the ${f.label}`, score: f.score ?? 0, tiers: terms.tiers, cuts: terms.cuts, paid: terms.paid,
                 causes: (standing.deeds ?? []).flatMap(d => (d.moves ?? []).filter(m => m.id === f.id).map(m => `${m.amount > 0 ? '+' : '−'}${Math.abs(m.amount)} ${DEED_WORDS[d.deed] ?? words(d.deed)}${m.backlash ? ' (their rival was favoured)' : ''}`)).slice(-3)}) : null,
             late: terms ? `If late: after ${plural(terms.grace, 'day')} of grace the rate rises ${Math.round(terms.ratchet * 100)} points for the rest of the loan and standing drops ${terms.defaulted}.` : null};

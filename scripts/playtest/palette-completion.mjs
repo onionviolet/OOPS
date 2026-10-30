@@ -58,7 +58,7 @@ try{
  await session.step((await snapshot()).harvest.job.remaining);await page.waitForTimeout(600);
  assert.equal((await snapshot()).harvest.processed,1);
  assert.match(await page.locator('#harvest_receipt').innerText(),/Completed/);
- await panel('around-place');
+ await panel('region-view');await page.locator('#region_view_panel [data-tab="notes"]').click();
  assert.match(await page.locator('#palette_feedback_panel').innerText(),/Output: carried/);
  await roundTrip();checks.push('Native carcass selection, work progress, finish, processed count and carried-output summary agree');
 

@@ -7,6 +7,7 @@ import {validateCheatState,grantCheat} from './cheat_cards.js';
 import {CHEAT_MODULES,moduleCard} from './cheat_definitions.js';
 import {observeCarcass,setHarvestRoutine} from './harvest.js';
 import {ensureStreams,scopedStream,armStreamCall,peekStreamDecision} from './seeded_streams.js';
+import {growthTrack,cheatKind,kindSkin,cheatVoice} from './cheat_growth.js';
 import {calendarMinutes} from './world_rhythm.js';
 
 export function insightMilestones(save) {
@@ -28,8 +29,14 @@ export function cheatProjection(save) {
     const faculty=save.cheats?.held?.['quiet-faculty'];
     if(!faculty?.card.state.awakened)return {visible:false,cards:[],milestones:[]};
     const state=faculty.card.state;
-    return {visible:true,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
-        milestones:insightMilestones(save).map(m=>({...m,claimed:(state.claimed||[]).includes(m.id)})),
+    const milestones=insightMilestones(save).map(m=>({...m,claimed:(state.claimed||[]).includes(m.id)}));
+    const growth=growthTrack({earned:state.earned??0,points:state.points??0,spent:state.spent??0,milestones,
+        facets:CHEAT_MODULES.map(d=>({id:d.id,name:d.name,family:d.family,held:!!save.cheats.held[d.id]}))});
+    const companions=Object.values(save.cheats.held).filter(e=>e.card.ui==='status-window'&&e.card.state.awakened===true&&e.messages.length).map(e=>{
+        const kind=cheatKind(e.card);
+        return {id:e.card.id,name:e.card.name,skin:kindSkin(kind),voice:cheatVoice(kind,growth,{unreliable:e.card.state.unreliable===true,salt:e.messages.length}),last:e.messages.at(-1).text};});
+    return {visible:true,skin:kindSkin(cheatKind(faculty.card)),growth,companions,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
+        milestones,
         decisions:save.decisions||[],freshness:informationFreshness(save),
         heirlooms:['person','chest'].flatMap(source=>Object.entries(source==='person'?save.inventories?.person?.main_character||{}:save.inventories?.storage?.player||{}).filter(([,r])=>r.count>0).map(([key,r])=>({source,key,count:r.count}))),
         methods:projectCrafting(save.crafting,Object.fromEntries(Object.entries(save.inventories?.person?.main_character||{}).map(([k,r])=>[k,r.count]))).methods,

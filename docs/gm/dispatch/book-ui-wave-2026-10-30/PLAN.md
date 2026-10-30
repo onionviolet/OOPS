@@ -73,3 +73,82 @@ Weibao: "Debt and stuff can be part of corportation, or like the benefits system
 | `bk-ui-directions` | `docs/audits/UI_DIRECTIONS_2026-10-30.md`: four whole-UI directions (refined panels, day hub, task-first, unconventional) as static mocks, plus the list of features still lacking a design round |
 
 Status at 14:5x: `bk-coi` committed on its branch. `bk-mol`, `bk-ss` and `bk-party` have slices written with focused tests passing and are waiting on queued builds (the slot limiter is busy). `bk-hp`, `bk-gaps` and `bk-recon` are working.
+
+## Round 4: multi-book seams, UI inspiration, corporation styles, scouting (2026-10-30 15:0x, weekly 67%)
+
+Weibao: "Other stuff that would benefit from drawing from miltiple books ... For the whole UI direction, we would need to consider other information dense games ... Considr also absorbing or taking inspiration from Miencraft mods and other games ... Different 'corporation' styles, from company, to sect, to other similar stuff ... Search across github for anything that could be useful for use? Also search online too".
+
+- Multi-book: law and making are each heavy in 7-8 books, with LOTM-only owners, so they go to `bk-seams`. ABL, SPL, ORG, loops and MND already have owners. ART, CRE and CUS are the next candidates once those two land.
+- UI direction: `bk-ui-directions` was told to cover information-dense games, Minecraft mod UIs (JEI/EMI, FTB Quests, Patchouli, Ponder, AE2 terminals), implementation difficulty, sectioning, creativity, and the UI-system capabilities needed for full comprehensiveness.
+- Corporation styles: `bk-benefits` was told to cover company, sect, church, guild, academy, military, clan, gang, secret order and adventurer association as dials on one model.
+- Scouting: `bk-scout` searches GitHub and the web, extends the 10-14 and 10-15 scout docs, and adds no dependency.
+
+## Round 5: stop line 90%, abilities with no hardcoded path (2026-10-30 15:1x, weekly 67%)
+
+Weibao: "Raise to 90, for the ability UI and more, we shoudnt hardcode a specific path, sonce there is multiple possibilities and more? more to consider?" The lanes' stop line is now weekly 90%, with a checkpoint at 85%. Direction recorded in [USER_VISION](../../../USER_VISION.md#abilities-no-hardcoded-path-2026-10-30).
+
+Evidence: `src/book_world_lotm_path.js` hand-writes the Seer pathway's rungs and stubs Sequence 7 as "Not offered in this slice". Other pathways are already row descriptors (`book_world_lotm_pathways.js`), and the ladder figure is world-neutral.
+
+More to consider (proposals):
+- P1. The path is a choice made from data: any pathway, realm track, class or school. The lead's book path is the default; other paths are reachable through their in-world means (WER).
+- P2. One character can hold several ladders at once (sequence, learned spells, cultivation, a class), shown grouped by system and by ability source (rung, learned, item, contract, cheat).
+- P3. Switches, branches and loss: neighbouring-path swaps, branching rungs, demotion or loss, mixed or wrong-order intake with its failure. All of these are data with costs, not code paths.
+- P4. Knowledge gates the view. Unknown rungs show as unknown to the character (the spoiler fix the General UI coordinator committed), and a path picker shows only paths the character has heard of.
+- P5. A ratchet test fails if an ability UI module names a pathway or world id, like the `observer_view` ratchet.
+- P6. Other worlds prove it: `bk-ss` (ranks on the shared seam), `bk-hp` (spells), and later cultivation (Reverend Insanity).
+
+Routing: data side (P1, P3, the Sequence 7 stub) to `sw-adv`, with a heads-up to floor-wire about the host file. View side (P2, P4, P5) to `rep-abilities`, under the General UI coordinator.
+
+## Round 6: paths are graphs, branching and mixing (2026-10-30 15:3x)
+
+Weibao: "not every world is a latter either? ... branching ... mix paths, to their own disaster? but then we should make things possible ... maybe tree for all of them? ... if we learn about it it can also show the benefits of stuff and paths".
+
+Evidence: `src/ascension_paths.js` already names `pathShapes = ['ladder','tree','web','wheel','stack','field']`, but its validator only accepts ordered stages (index 0 is the entry), so only ladders work. The ladder figure draws vertical tracks.
+
+More to consider (proposals):
+- G1. One path model: a graph of nodes (states, rungs, realms, techniques) and edges (crossings with types, costs, needs and `irreversible`). A ladder is a chain; a tree, web, wheel or field is the same data. Each world picks its shape and its default view.
+- G2. Branching: an edge can fork, so a choice at a node locks or keeps other branches open (a dial per world). It covers neighbouring-path swaps (LOTM), class branches, cultivation methods, and HP subject mastery, which is a field with no ranks.
+- G3. Mixing is an edge kind (`mix`), not a ban. It carries the world's mechanism: conflict, instability, corruption or a rare synergy, with its odds, its signs, and what happens after. A wrong-order potion is a mix failure. Cheats or methods can change the odds (AD38).
+- G4. No-shape worlds: some powers have no path at all, such as a set of skills with mastery, items, contracts or a one-off gift. The view must handle "no path" as a valid state.
+- G5. The view picks its form by shape (round 2 item 18): a chain for ladders, a tree or DAG layout for branching, a web or field for webs, a ring for wheels, a list for none. One generic graph layout serves them all (an elkjs or dagre class, per `bk-scout`'s finds).
+- G6. Knowledge-gated depth: each node and edge shows what the character has learned. That ranges from "a path exists" to its name, then benefits, costs, risks, mix outcomes, and real odds. Benefits of unheld paths show when learned (the "compare before commit" capability). Cheat or insight views reveal more and mark it as such; sealed secrets stay on their discovery route.
+- G7. Little details: a hover preview of the next node's gains (the ghost fill already shipped), warning chips on mix edges, a "you are here" marker on every shape, the paths others in the cast walk (when known), rumoured versus confirmed nodes, and the history of nodes taken. Loss or demotion moves the marker back and keeps the trail.
+
+Routing: G1-G4 (model and data) go to `sw-adv` (L10 owner); it extends `ascension_paths.js` with the ladder kept as the default shape and its existing descriptors unchanged. G5-G7 (view) go to `rep-abilities`. The `bk-ss` and `bk-hp` slices are the second-world checks.
+
+## Round 7: parallel browser proofs, per-world progression (2026-10-30 15:1x, weekly 69%)
+
+Weibao: "batch Ui usage accordingly so that not all of them have to wait? each can test their own seperately?" The browser pool default is now 4 slots (`1b08c0928`). Each run serves its own worktree on a free port. Waiters started before the change keep the old single slot until they are requeued; the five lanes were told.
+
+Weibao: "We can use different progression systems/progression UI rather than just forcing the LOTM one? we can choose/add nuance for each world accordingly? More to consider? Other representations?"
+
+Candidate representations (palette, not spec), each a default per world with a dial:
+- A sequence ladder with digestion and acting (LOTM).
+- A realm meter with a bottleneck and a breakthrough or tribulation event (cultivation: Reverend Insanity, A Regressor's Tale). Gu and aperture show as an inventory-plus-vessel view.
+- Subject grades and exam results, like a report card or transcript (Harry Potter; an academy in Mother of Learning).
+- Use-based skill bars that rise by doing (Skyrim-like; ordinary crafts everywhere).
+- A LitRPG status window with attributes, ranks and runes (Shadow Slave, You Are Summoned).
+- Rank insignia and commendations in a service record (A Soldier's Life).
+- Threat ratings and classifications in a dossier, without personal growth (Worm, Godclads).
+- Loop knowledge and mastery with no numbers: a notebook of what is known and practised (Mother of Learning, The Perfect Run, COI).
+- Constellations or a passive tree (cheats and system-granted powers).
+- Contracts and patrons: a standing with each power (warlock-style).
+
+Notes:
+- A character can show several of these at once, one per system they hold. The character sheet picks a glance line for each.
+- Knowledge gating and cheat marking (G6) apply to all of them.
+- Nuance per world: what the numbers mean, whether numbers show at all, what failure looks like, and who else can see your rank.
+
+Dispatch: `bk-progression` (design round across the nine read books, plus the gallery). Model work stays with `sw-adv` and view work with `rep-abilities`. This round gives each world its default.
+
+## Round 8: form fit and interaction (2026-10-30 15:3x)
+
+Weibao: "For Ui implementations, alot of stuff just turned into webs for representaiton, are those even the most effective? can we be more nuanced? hovering, other stuff, and more?" AD46 (`7a194cb35`) is the standing rule. `bk-forms` measures each of the 13 `figure.js` views against alternatives such as table and inspector, matrix, cards, timeline, tree, inline bars and prose. It also builds a shared interaction layer: neighbour highlight, nested hover cards, pin and compare, filter, focus plus context, "why" on hover, and keyboard access. Replacements keep the old form as an alternate view.
+
+## Round 9: making UIs (2026-10-30 15:3x)
+
+Weibao: "what about the UI for crafting or potions or rune rafting and more in the future? or would be abstract into more numerical stuff? more to conisider?"
+
+Proposal: hands-on versus abstract is a dial, not a choice. A new recipe starts hands-on; mastery folds it into numbers and a queue; the player can unfold it at any time. Unique or dangerous work stays hands-on, and trivial work starts abstract. `bk-making-ui` writes `docs/representations/MAKING_FORMS.md`. It covers each craft family's form (potions, smithing, cooking, runes and inscription, enchanting, rites, Gu, artifacts, tailoring and building), mocks the rune composition form, and shows one craft in both modes. It extends CRAFTING, MIXING and RITUALS_AND_MAKING rather than redoing them.
+
+Browser pool: `scripts/slot_run.mjs` now has an uncommitted waiting-queue change from another session on top of `1b08c0928`. Three browser slots are in parallel use.
