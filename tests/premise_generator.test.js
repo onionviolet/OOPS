@@ -36,3 +36,11 @@ test('a rolled premise is repeatable per seed and draws every tone across seeds'
     }
     assert.deepEqual([...tones].sort(), ['funny', 'odd', 'ordinary', 'villain']);
 });
+
+test('a premise may carry grants (cheats with a reason and cost) that append to the resolved start for the host to consume', () => {
+    const grant = {cheat: 'example.cheat', why: 'An elder at the ring gave it to you.', cost: 'The ring remembers.'};
+    const withGrant = [{id: 'ring-elder', revision: 1, tags: ['premise'], needs: ['village'], excludes: [], weight: 1, tone: 'odd', patch: {text: ['x'], grants: [grant]}}];
+    const r = resolveWithPremise(world, withGrant, 's', 'ring-elder', {entry: {mode: 'lock', layerId: 'vanilla'}});
+    assert.deepEqual(r.snapshot.grants, [grant]);
+    assert.deepEqual(resolveStart(world, {entry: {mode: 'lock', layerId: 'vanilla'}}, 's').snapshot.grants, []);
+});
