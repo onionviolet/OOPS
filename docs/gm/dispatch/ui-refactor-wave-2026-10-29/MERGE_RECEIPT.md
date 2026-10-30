@@ -81,6 +81,10 @@ Design issues seen, not fixed:
 - Console-error assertions fail on the 404 for private fonts when served by a plain static server (workroom proof).
 - Allowlisted style literals (49) remain recorded debt for the token-migration lane.
 
+## Late fix
+
+After the last master merge, `tests/lotm_districts.test.js` test 8 failed: `sw-wire`'s commit `51541c7f` (walk moves carry `to` and `minutes`) had rewritten the host's walk lines from a pre-fix copy and dropped the walks-wait-for-report_in fix. I restored the fix on top of its fields (master `064fd773`) and told `sw-wire`. With the fix back, `lotm_districts` and `cast_journeys` pass (18 of 18, including the `cast_journeys` test that failed on master before). The maps `legsFromMoves` fallback can now drop its label parse because moves carry `to`; I did not change it.
+
 ## Floor state
 
 Implemented and agent-verified at the unit level; **partly below the AD43 floor**: the post-merge browser pass above reached 7 of 8 views at 1920x1080 (the fight card was not reached); the other features rely on their branch evidence plus unit and contract tests. Each branch's own browser evidence is in `docs/representations/evidence/`.
