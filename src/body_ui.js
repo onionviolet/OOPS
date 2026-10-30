@@ -1,10 +1,14 @@
 import {previewSimulationCommand} from "./simulation.js";
 import {bodyScene} from "./body_progression.js";
+import {bodyFigureSpec} from "./body_figure.js";
+import {renderFigure, figureText} from "./ui/figure.js";
 
 export function createBodyPanel({registry,read,command}) {
     const node=(tag,text="")=>{const n=document.createElement(tag);n.textContent=text;return n;};
     const panel=node("details");panel.id="body_panel";panel.className="expedition_panel";panel.append(node("summary","Body & recovery"));
-    const scene=node("p"),status=node("p"),body=node("div");status.setAttribute("role","status");body.append(scene,status);panel.append(body);
+    const scene=node("p"),status=node("p"),body=node("div");status.setAttribute("role","status");
+    const figure=node("details"),figureHost=node("div");figure.className="body-figure";figure.append(node("summary","Body figure"),figureHost);let drawn="";
+    body.append(scene,figure,status);panel.append(body);
     let notice="";const cards=new Map();
     for(const d of registry.simulation.commands.values()) if(d.group === "body") {
         const row=node("section"),button=node("button",d.label),detail=node("p",d.description),reason=node("p");
@@ -20,6 +24,9 @@ export function createBodyPanel({registry,read,command}) {
         panel.hidden=snapshot.inDialogue || !context.facts["village.elderMet"] || !["Village","Shack"].includes(context.facts.location) && !job;
         if(!panel.isConnected) document.getElementById("location_actions_div")?.append(panel);
         scene.textContent=bodyScene(state);
+        // RPX4/RPX9 body figure; redrawn only when its text form changes, so frequent renders stay no-op writes.
+        const spec=bodyFigureSpec(state),text=spec?figureText(spec):"";figure.hidden=!spec;
+        if(text!==drawn){drawn=text;if(spec)renderFigure(figureHost,spec,{idPrefix:"body_figure",text:true});else figureHost.replaceChildren();}
         status.textContent=error || notice || (job ? `${job.label} · ${Math.max(0,job.due-state.clock)} min remaining` : "");status.hidden=!status.textContent;
         for(const [id,card] of cards) {
             const d=registry.simulation.commands.get(id);

@@ -1,0 +1,9 @@
+Your body
+Now: sore hands.
+Nodes: Face and bearing; Build; Hands (strained); Skin.
+Track Conditioned grip, 1 of 3 done: 1. Drill 1 (done); 2. Drill 2 (current); 3. Keep the grip (pending).
+Strained: Sore hands (hands, 10 min left): Grip drills need recovery; packing and marker work take longer.
+Key: ! strained means condition now.
+Key: ● filled means lasting change.
+Key: ✓ done means step done.
+Key: ▶ current means next step.
