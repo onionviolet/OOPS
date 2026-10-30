@@ -195,6 +195,8 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     if (f.allies?.length) base.versus.you.alliesText = f.allies.map(a => `${a.name} (${a.hurt}${a.order ? `, told: ${a.order}` : ''})`).join(', ');
     const moves = (f.moves || []).map(m => ({...m, mixText: m.mix ? mixText(m.mix, worldId) : ''}));
     const hits = dev ? (f.hits || []).map(h => `${h.actor} → ${h.foe}: ${h.dealt} at x${Math.round(h.multiplier * 100) / 100} (${Object.entries(h.split).map(([t, s]) => `${damageTypeLabel(t, worldId).name} ${Math.round(s * 100)}%`).join(', ')})`) : [];
-    return {active: true, mode: 'tempo', summary: base.summary, versus: base.versus, next: f.next || [], yourTurn: !!f.yourTurn,
+    // One home per fact (DESIGN.md DSG11): hp lives on the versus row, so the summary keeps only who is standing.
+    const standing = f.foes.length, summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing.`;
+    return {active: true, mode: 'tempo', summary, versus: base.versus, next: f.next || [], yourTurn: !!f.yourTurn,
         moves, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
 }

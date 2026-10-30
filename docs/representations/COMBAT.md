@@ -494,6 +494,8 @@ One row per old/new pair that drifts. Verdicts are proposals.
 | R3-C9 | `combat_readout.js` vs `combat_opponents_domain.js` | Own exact numbers vs observer-safe projection (AD8) | **Keep**: layered on purpose |
 | R3-C10 | Native fight screen: top Opponent panel, Opponents list, Encounter box and the Fight card (reported by the damage-types session from a 1920x1080 River crab fight, 2026-10-30) | Opponent hp in three places, hit chances twice, "Could down you" as a sentence and a chip, the remaining count three times | **Merge**: one home per fact. Done in the card: the threat chip carries the bound and the per-opponent sentence is gone. Unowned, waiting on Weibao's go-ahead: the top Opponent panel stops repeating hp and odds during a fight, the Opponents list becomes one compact row per enemy (hp, attack with type) with details on click, and the Encounter box folds into one header line |
 
+| R3-C11 | Hero panel hp vs the tempo contest's own hp (DESIGN.md DSG11, one home per fact) | During a contest the hero panel shows native vitals (60/60) while the card shows the contest's 55.4/60; the contest writes vitals back only at its end | **Merge** (proposal for `p4-fights`, owner of `tempo_fight*.js`): write the player's contest hp and stamina to the native vitals after each settled move, so every view reads one value. The card already keeps hp only on the versus row |
+
 Other frame users and types:
 
 | Frame user | Harm today | Opt into types? |
@@ -543,6 +545,10 @@ card polls every 400 ms, so a screenshot can catch one hit's gap); `data-world-f
 `ui-identity` lane and was not on this tree, so the LOTM words are covered by the unit test only; no cheat
 source reveals types in play yet (the fixture shows the marked form); the hero panel shows native hp during a
 tempo contest because the contest applies harm at its end (existing behavior). Agent-verified, not human-reviewed.
+
+Built against the DESIGN.md draft (`ui-identity`, commit 7c2cbf199): DSG11 one home per fact (the tempo summary no
+longer repeats hp; R3-C11 names the hero-panel gap); DSG14 type names from the world, owned in `damage_types.js`. Not
+done: world-voiced fight report rows in `src/world_report_voice.js` (later, small).
 
 Remaining gate, in order: damage-types commit, then `p4-fights` commits with both patches, then rebase this
 branch, run the full `npm test`, `npm run build`, `check:arch`, `check:rules` and the browser script again,
