@@ -39,6 +39,8 @@ Every ~40 minutes the supervisor reads usage and the session list. The Sonnet wa
 
 **Send cap W3 (03:07):** the desktop app pauses a session's cross-session sends after 10 without a user message. The Sonnet wave coordinator hit it first, then this supervisor. Its reply to the UI coordinator did not go out (sw-wire got the pacing note; p3c-memory has it queued). From here the tick only observes and writes this report. To restart nudging, Weibao types any message in the supervisor session. Lanes keep moving on their own Codex watchers and in-flight turns.
 
+**W2 update (03:15, from the Sonnet wave coordinator):** `slot_run --status` shows no holders, so the suites now running bypass the limiter: the ui-integration "mastercheck" (4 node test processes), rep-talk (3) and 4 in the primary checkout. sw-absorb's gate on `fe6a8e17` came back inconclusive (15 of 4,320 failing, timeouts mixed in) and waits for load under 40 to rerun the cast and wiring files alone. macOS `mediaanalysisd` and Spotlight take about 280% CPU on top. The supervisor could not relay the limiter request to the UI coordinator (W3 cap). **UI lanes reading this:** route integrator and rep-* suites through the command above.
+
 ## Morning report
 
 Filled by the supervisor's last tick.
