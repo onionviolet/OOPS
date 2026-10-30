@@ -7002,3 +7002,5 @@ Weibao: "Also need to consider stufff like switching pathways and more but that 
 
 - **Accepted, quality-gated:** the pathway card with its ladder (Round 10 and 11 of the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md)) and the world map tied to journeys. Acceptance of the result depends on how well they are built; the gates are in that plan's Round 12.
 - **Long term:** pathway switching, and content outside the lead's life for other playthroughs. Considerations are saved in Round 12.
+
+## Gallery: less generic, less wall of text (2026-10-30)
