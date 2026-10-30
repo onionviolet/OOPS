@@ -30,9 +30,19 @@ export const REED_PATH = definePath({id: 'fixture.reed', world: 'fixture.marsh',
 ]});
 const reedView = pathView(REED_PATH, 1, {hours: 37, calm: false}, {known: 3});
 
+// A long ladder: ten rungs, so crossed rungs fold and the next rung's gift shows.
+const BELL_NAMES = ['Pew-Sweeper', 'Rope-Hand', 'Clapper-Setter', 'Tower-Climber', 'Chime-Counter', 'Bell-Ringer', 'Peal-Keeper', 'Hour-Caller', 'Bourdon-Warden', 'Silent Tower'];
+export const BELL_PATH = definePath({id: 'fixture.bells', world: 'fixture.harbour', label: 'Bell-Ringer ladder', shape: 'ladder', stages: BELL_NAMES.map((label, i) => ({
+    id: `b${i}`, label: `Rung ${i + 1} · ${label}`, grants: [`Gift of ${label}`, ...(i % 2 ? [`Second gift of ${label}`] : [])],
+    crossings: i === 0 ? [] : [{id: 'practice', type: 'quota', label: 'Ring the hours', fact: 'hours', need: 10 * i}]}))});
+const bellView = pathView(BELL_PATH, 6, {hours: 41}, {known: 10});
+
 export const ABILITY_FIXTURES = [
     ladderFigureSpec(lanternView, {id: 'ladder-lantern-self', felt: 'settling', rumours: {3: 'Third rung · Glass-Warden'}}),
     ladderFigureSpec(reedView, {id: 'ladder-reed-self', rumours: {3: 'Hollow Bell'}}),
     ladderFigureSpec(lanternView, {id: 'ladder-lantern-witness', perspective: 'witness', seen: 1, subject: 'the night clerk'}),
+    ladderFigureSpec(bellView, {id: 'ladder-long-self', felt: 'steady'}),
+    ladderFigureSpec(lanternView, {id: 'ladder-lantern-compact', felt: 'settling', layout: 'compact'}),
+    ladderFigureSpec(lanternView, {id: 'ladder-lantern-insight', felt: 'settling', insight: {stages: [, , , 'Third rung · Glass-Warden', 'Fourth rung · Mirror-Speaker'], thresholds: true}}),
 ];
 for (const spec of ABILITY_FIXTURES) if (!FIGURE_FIXTURES.some(f => f.id === spec.id)) FIGURE_FIXTURES.push(spec);

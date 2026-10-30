@@ -21,7 +21,7 @@ const log = [];
 if(process.argv[3]!=='game'){// 1. Gallery: scroll each ability fixture into view at 1920x1080.
 for (const effects of ['full', 'off']) {
     await send('Page.navigate', {url: `${BASE}/figure-gallery.html?effects=${effects}`}); await sleep(2500);
-    for (const fixture of ['ladder-lantern-self', 'ladder-reed-self', 'ladder-lantern-witness']) {
+    for (const fixture of ['ladder-lantern-self', 'ladder-reed-self', 'ladder-lantern-witness', 'ladder-long-self', 'ladder-lantern-compact', 'ladder-lantern-insight']) {
         if (effects === 'off' && fixture !== 'ladder-lantern-self') continue;
         const ok = await evaluate(`(()=>{const s=document.querySelector('[data-fixture="${fixture}"]');if(!s)return false;s.scrollIntoView({block:'start'});return true;})()`);
         await sleep(300); log.push(`gallery ${fixture} effects=${effects}: ${ok}`);
@@ -54,7 +54,8 @@ for (const re of ['report_in', 'accept_allocation', 'ingest']) {
     await sleep(1500);
 }
 const after = await evaluate(`(()=>{const p=document.querySelector('#lotm_panel');const f=p.querySelector('[data-lotm-ladder]');const t=p.querySelector('[data-lotm-ladder-text]');if(t)t.open=true;f?.scrollIntoView({block:'start'});return t?.querySelector('pre')?.textContent.split('\\n').slice(0,4).join(' | ');})()`);
-log.push('after: '+after); await sleep(500); await shot('game-tingen-dose-ladder.png');
+log.push('after: '+after);
+log.push('pulse on gained rung: '+await evaluate(`!!document.querySelector('#lotm_panel [data-lotm-ladder] .fig-step.fig-state--current.fig-fx--pulse')`)); await sleep(500); await shot('game-tingen-dose-ladder.png');
 log.push('errors: ' + JSON.stringify(errors.slice(0, 5)));
 writeFileSync(join(OUT, 'capture-log.txt'), log.join('\n') + '\n');
 sock.close(); chrome.kill();

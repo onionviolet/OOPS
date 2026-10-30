@@ -15,7 +15,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
   const observer=observerForProfile(read(selected)?.entryProfile);
@@ -122,7 +122,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }else{
   // RPX5: the ladder as a vertical figure; the current rung carries the felt digestion and fills with acts. The plan below keeps the crossings.
   const fig=node('div'),words=node('details');fig.dataset.lotmLadder='';words.dataset.lotmLadderText='';
-  const {text}=renderFigure(fig,ladderFigureSpec(p,{felt:p.felt,crossings:false}),{idPrefix:'lotm-ladder'});
+  // RA19: a rung gained pulses for a few seconds of wall time; effects off and reduced keep only the words.
+  const spec=ladderFigureSpec(p,{felt:p.felt,crossings:false});
+  if(lastRung!==null&&p.position>lastRung)pulseUntil=Date.now()+6000;
+  lastRung=p.position;
+  if(Date.now()<pulseUntil)for(const s of spec.tracks[0].steps)if(s.state==='current')s.effect='pulse';
+  const {text}=renderFigure(fig,spec,{idPrefix:'lotm-ladder'});
   words.append(node('summary','Read the ladder as text'),Object.assign(node('pre',text),{className:'fig-text'}));
   path.append(node('h3',p.label),fig,words);
   if(p.chosen)path.append(node('p',v.switchNotice));

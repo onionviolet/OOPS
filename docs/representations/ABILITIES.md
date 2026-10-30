@@ -168,3 +168,157 @@ covers the gallery only.
    chooser.
 3. Skill web (O2) for the "Methods & practice" panel once two skills build on each other.
 4. Witness view's first in-game home: another person's card when the player has seen them use a power.
+
+## Round 2 (2026-10-30): review against other games, fresh eyes, depth
+
+Brief: `docs/gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md` items 1-21. This session leads
+item 19 (levels and depth) and item 15 (how an ability feels when used or gained). Everything here,
+round 1 included, is a draft and open to refactor or replacement with a reason (AD45, item 21).
+Codes RA1-RA30 are this round's.
+
+### How other games do it (item 1)
+
+Labels: **docs** (known from published material or wide play reports), **inferred** (my reading of why it works).
+
+| Code | Game | What the player sees | Makes easy | Costs | Idea worth adapting |
+| --- | --- | --- | --- | --- | --- |
+| RA1 | Path of Exile, passive tree | A huge web of small nodes; notables and keystones larger; your allocated path lit (docs) | Planning a long build; seeing where a cluster leads | Overwhelming on first sight; needs external planners (docs) | Size by consequence: a rung or node that changes what you can do is drawn larger than one that adds a number (ABR18). Our ladder already marks only real tiers; the skill web (O2) should size notables up |
+| RA2 | Disco Elysium, skills as voices | Skills speak in the dialogue log with their own name; level shows as dots; checks quote odds (docs) | Feeling a skill as part of the character; knowing why a check passed | Text-heavy; ability truth comes in voice, not table (inferred) | The ability speaks when it acts: a short log line in the ability's own voice on use, marked as such (RA24). The potion's "felt" state already reads like this |
+| RA3 | Tale of Immortal / Amazing Cultivation Simulator, realms | Named realms with early/mid/late/peak sub-stages, a cultivation bar, a breakthrough event with odds (docs) | Long progressions in readable chunks; dread before breakthrough | Grindy bars become the whole game; odds as bare numbers (inferred) | Sub-stages as segments of one rung (fill in quarters) and the breakthrough as its own crossing with a stated risk; our crossing track and risk note already fit; segments are LATER (RA27) |
+| RA4 | Hades, boon chains | Boon cards with rarity, a prerequisite icon row; duo boons appear when two gods' boons are held (docs) | Seeing synergies at the moment of choice | Short-run scope; little long-term depth (inferred) | Synergy shown where the choice happens, as "works with X you hold", not in a separate tree (RA19) |
+| RA5 | Skyrim, constellations | Skill trees as star patterns per skill; perks lit; level gates per perk (docs) | Diegetic beauty; one tree per skill keeps each small | Hard to compare across trees; stars hide requirements (inferred) | One small figure per path, not one giant board; requirements in words beside each star (our crossing track) |
+| RA6 | Proto23 / YAIR baselines (UR12, UR49) | Skills as rows with a level and an XP bar, unlocks listed (our own reference) | Quick glance at many skills | No sense of tier or what the next level changes | Keep the row-and-bar glance for skills; the ladder is the click-away depth (RA10) |
+
+Our own history checked: the thematic UI owner's BD2 "accumulation" (fill toward a known
+consequence, a cue on release) is exactly digestion fill; the scale palette's CS1 says a cheat's
+surface follows its fiction (RA16); the representation ladder (glance, row, figure, scene) is the
+density scale used below.
+
+### Fresh-player test (item 2)
+
+From a fresh life (PLAY, pick the probationer life, cross, open "Tingen workroom"):
+
+| Code | Finding | Fix |
+| --- | --- | --- |
+| RA7 | "0 of 6" beside "feels unsettled" has no unit: 6 of what? | ACT NOW: the rung says "0 of 6 toward the next rung"; the crossing track keeps the unit in its label |
+| RA8 | What the next rung gives is not said anywhere, so there is no pull to climb | ACT NOW: "What the next rung gives: …" when the character can name it (`pathView.nextGrants`) |
+| RA9 | Terms a newcomer must know: Sequence, Beyonder, potion, digestion, rung. "Rung" is our word, not the world's | Keep "rung" in the generic adapter; a world's term set (Sequence, realm, rank) belongs to the world's skin through tokens and the track label (item 20). LATER: per-world rung noun in the path descriptor |
+| RA10 | The workroom opens parked after crossing; the ladder sits under the place status and meters | Not this slice: Worlds and crossings owns workroom density (item 14). Proposed glance line for the You panel or sheet (RA11) so the ladder is seen without opening the workroom |
+
+### Space, split, density (items 3, 4, 18)
+
+| Code | Part | Density and form | Why the others fit worse |
+| --- | --- | --- | --- |
+| RA11 | Glance | One line, `ladderGlance(view)`: "Sequence 9 · Seer · feels settling · 2 of 6 toward Sequence 8". For the You panel header or the character sheet (rep-character-sheet composes it) | A bar alone hides the felt words; a figure is too much for a header |
+| RA12 | Ladder | Vertical track (round 1) in the pathway block; compact horizontal variant for sheets (`layout: 'compact'`) | Ladder rungs are ordered ranks, so a vertical track beats rings (no cycle) and a tree (no branching in a chosen path) |
+| RA13 | Crossings | Plan list stays text with Find step buttons (actions first); the figure omits its crossing track there | A second picture of the same list would split attention |
+| RA14 | Long ladders (later volumes) | Above 7 rungs, crossed rungs below the one under you fold into "k rungs crossed" | Ten Sequences or nine realms at 64 px each would push the plan off screen |
+| RA15 | Bar | Digestion uses the figure's fill plus words, not a separate meter; a meter would repeat the same fact (UR74) | |
+
+### Pop-out, cheats, style, flourish (items 5, 6, 7, 13, 15)
+
+- **RA16 Cheat or insight view.** `insight: {stages}` names rungs the character cannot know, drawn
+  as guessed with "shown by insight" and a note saying so (CS1: the cheat's surface follows its
+  fiction; a system-window cheat would show this inside its own window). Insight never applies to
+  the witness view. Sealed truths stay out: insight reads only the path descriptor's public stage
+  labels the owner passes in, never sealed secret files.
+- **RA17 Pop-out.** Not earned: the ladder changes a few times per life. A desktop notification on
+  a rung gained is earned (presence already exists); proposed, not built.
+- **RA18 Alternative style.** Compact horizontal ladder in the gallery beside the vertical one. The
+  vertical reads better for one path you live in (height means rank); the compact one reads better in
+  a sheet that lists several things. Both use the same tokens, so Luminous and Neutral both work.
+- **RA19 Flourish on gain (item 15).** When the current rung changes, the new rung pulses once
+  (`effect: 'pulse'`), bound to the settled subject; effects off and reduced remove it and the words
+  stay (UR38, UR62). On use, the ability's own voice line in Reports (RA24) is the feel; particles
+  only for a crossing, never for routine use.
+
+### Levels and depth (item 19, lead)
+
+| Code | Depth question | Default, dial and in-world reason |
+| --- | --- | --- |
+| RA20 | Levels, tiers, stages | Rungs are tiers that add a verb or domain (ABR18); sub-stages (early/mid/late) are fill segments inside a rung, not rungs. Dial: a world whose sub-stages each change what you can do promotes them to rungs |
+| RA21 | What the next level changes | Shown when the character can name the next rung ("What the next rung gives"); otherwise nothing (ABR19). Reason: institutions teach what the next step brings; rumours give only its name |
+| RA22 | Prerequisites and unlocks | The crossing track is the prerequisite list; what a rung unlocks is its grants. For skill webs, edges "builds on" and "opens" (O2) |
+| RA23 | How use, training or digestion moves it | Fill on the current rung from the counted crossing (`digest` acts, `quota` practice) plus felt words where the world knows it by feel. Dial: a world without felt cues shows the count only |
+| RA24 | Synergies and conflicts | Shown at the moment of choice as one line ("works with: …", "conflicts with: …"), from row data; the Tingen rule "one pathway per life, a second potion risks loss of control" is the first conflict and already reads as the switch notice. Data field proposed for path rows: `conflicts`, `synergies` |
+| RA25 | Costs that scale | On the ability row's quote, per rung ("2 spirituality at Sequence 9, 1 at 8"); the ladder shows only that a rung changes costs, in its grants text |
+| RA26 | How well a character knows their own ability | Four depths, matching UIV6: unknown (no row), heard of (guessed rung), known (named rung and grants), understood (thresholds and costs shown). The `known` count in `pathView` already sets the first three; "understood" is a per-world fact (an assessment, a teacher, insight) |
+
+### Later volumes and worlds (item 17)
+
+Checked against what the library index and reading status say exist (higher Sequences, long realm
+ladders, ranks inside organisations, several pathways seen in others): the adapter is data-driven
+over `definePath`, so a later volume adds stages and grants rows, not code. Needs met now: long
+ladders fold (RA14); unknown rungs never reveal ladder length; witness view for others' powers.
+Open: branching pathways (a tree), parallel ladders held at once (cultivation plus a body art),
+sub-stage segments (RA27), and a per-world rung noun (RA9).
+
+### Unconventional option (item 9)
+
+**RA28 The ladder you remember climbing.** Each crossed rung keeps one dated line from the moment
+it happened ("Drank it in the workroom at dusk; the room smelled of smoke"), drawn as a small
+scene card on hover, so the ladder becomes a memoir of the life rather than a progress bar. Needs a
+crossing receipt line in the owner's knowledge record (the Tingen knowledge entries already hold a
+time and text) and a hover inspector. Worth a later slice once the scene card is in the workroom.
+
+### Flair in two worlds (item 20)
+
+Marks carry roles, not looks: `rank` (rung), `crossing`, `risk`, `rumour`, `seal` (not offered
+here). In a gothic potion world the motif could be a stair of numbered brass plates, the fill as
+liquid in a vial beside the current plate, rumoured plates tarnished. In a cultivation world, a
+mountain path of named terraces, the fill as mist rising round the current terrace, the next
+breakthrough a gate with its risk written on the lintel. Both restyle `fig-track--vertical` through
+tokens and a motif class; the adapter and text form do not change.
+
+### Audit gaps (item 10)
+
+Other seats: beside lives read their own ladder; the witness view covers others. Empty: civil staff
+keeps its words, no ladder. Error: a malformed descriptor throws in `definePath`, caught in tests.
+Performance: one SVG of under 60 nodes per render; the panel already rebuilds the block on change
+only. Accessibility: SVG title and description carry the text form; the disclosure gives it as
+plain text; effects off keeps every fact. Keyboard: the disclosure is reachable; the figure has no
+controls. 21 px text: labels wrap by width (round 1 fix) but the vertical rung labels are not yet
+checked at 21 px (gap).
+
+### ACCOUNT FOR NOW
+
+- RA10/RA11: the You panel or sheet shows `ladderGlance`; rep-character-sheet decides placement.
+- RA24: path rows add `conflicts` and `synergies` when a second ladder becomes holdable.
+- Workroom density is Worlds and crossings' (item 14); this block keeps actions first and prose behind disclosures.
+
+### LATER / DELEGATE (ranked)
+
+| Priority | Work | Level / effort / done check |
+| --- | --- | --- |
+| First | Mistglass method track through the same adapter in its cultivation home | Sonnet medium, small. Done: track shows in its panel at 1920×1080 with practice fill; tests on `mistglassPathView` |
+| Second | RA19 pulse on rung gain plus a Reports line in the ability's voice (RA2, RA24) | Sonnet low, small. Done: one pulse after a crossing, none with effects off; one Reports line per crossing |
+| Third | RA27 sub-stage segments (fill in quarters) as a generic step option in `figure.js` | Sonnet medium, small. Done: test and gallery fixture of a four-stage realm |
+| Fourth | O2 skill web for "Methods & practice" once two skills build on each other | Opus design, Sonnet build; medium. Done: web from real skill rows, unknown skills absent |
+| Fifth | RA28 memoir ladder | Sonnet medium after scene cards reach the workroom. Done: each crossed rung shows its dated line on hover |
+
+### ACT NOW (done this round)
+
+| Code | Change | Where |
+| --- | --- | --- |
+| RA7 | Rung count says "toward the next rung" | `src/ability_ladder_figure.js` |
+| RA8, RA21 | "What the next rung gives" when the next rung is nameable; `pathView` returns `nextGrants` | `src/ascension_paths.js`, adapter |
+| RA11 | `ladderGlance(view, {felt})` one-line glance for headers and sheets | adapter (not wired: rep-character-sheet owns placement) |
+| RA12, RA18 | `layout: 'compact'` horizontal ladder; gallery `ladder-lantern-compact` | adapter, fixtures |
+| RA14 | Ladders over 7 rungs fold crossed rungs below the one under you ("5 rungs crossed", "Rung 1 to Rung 5"); gallery `ladder-long-self` | adapter, fixtures |
+| RA16 | `insight: {stages}` names unknown rungs as guessed, "shown by insight", with a note; never for a witness; gallery `ladder-lantern-insight` | adapter, fixtures |
+| RA19 | A gained rung pulses for six seconds in the workroom; effects off and reduced keep only the words | `src/book_world_lotm_ui.js` |
+
+Built by a Sonnet subagent from a bounded brief (adapter, `pathView`, tests, fixtures), diff reviewed
+here; fold-note shortening, fixture fix and the pulse done here.
+
+**Round 2 checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test` on the ladder, figure, perspective and observer tests | 30 pass | |
+| `node --test` on every test reading `pathView` (LOTM pathway, compat, digestion files) | 53 pass | Full `npm test` not rerun this round: round 1's full run was load-bound (see round 1 checks) and round 2 touches only these consumers |
+| `npm run build`, `npm run build:figures` | Bundle `v0.6-e53c162fccff` | |
+| Headless Chrome 1920×1080, `capture_cdp.mjs` | Six gallery fixtures captured; fresh life to the workroom; after the dose the gained rung carries `fig-fx--pulse`; no page errors | 21 px text not captured; pulse proven by class, not by eye |
+
+AD43 floor for round 2: FLR1 bundle above; FLR2 same fresh-life route; FLR3 words for every new
+state; FLR4 reads existing `pathView`; FLR5 no persistence change; FLR6 agent-verified, not human-reviewed.
