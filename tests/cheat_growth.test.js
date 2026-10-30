@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {defaultCheatState,seedBeginningCheats,awakenCheats,grantCheat,carryCheats,validateCheatState} from '../src/cheat_cards.js';
+import {applyStartGrants,defaultCheatState,seedBeginningCheats,awakenCheats,grantCheat,carryCheats,validateCheatState} from '../src/cheat_cards.js';
 import {cheatKind,kindSkin,growthTrack,cheatVoice,ringSpiritCard,TIERS} from '../src/cheat_growth.js';
 import {cheatProjection} from '../src/cheat_mechanisms.js';
 const at={year:999,month:4,day:3,hour:8,minute:0,day_count:3};
@@ -43,4 +43,8 @@ test('seedBeginningCheats grants the ring elder as a start choice, dormant until
  assert.equal(seedBeginningCheats(c,{choice:'ring-spirit',at}).held['ring-spirit'].messages.length,0);
  const woke=awakenCheats(c,{dayCount:3,at}).state,p=cheatProjection({cheats:woke,locations:{},levels:{person:{main_character:{skill_xp:{}}}}});
  assert.equal(p.companions[0].voice.reliable,false);
+});
+test('premise grants resolve to start cards; unknown cheats are reported',()=>{
+ const r=applyStartGrants(defaultCheatState(),[{cheat:'ring-spirit',why:'w',cost:'c'},{cheat:'nope'}],{at});
+ assert.ok(r.state.held['ring-spirit']);assert.deepEqual(r.unknown,['nope']);
 });

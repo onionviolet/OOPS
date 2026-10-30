@@ -10,6 +10,8 @@ export const frontierPremises = Object.freeze([
     premise('echo-name', 'odd', 'Three people in the market greet you by a name that is not yours, and they all use the same one.', {layer: {weight: 2}}),
     premise('the-one-blamed', 'villain', 'The village already has a story about whoever broke the mill gate last winter. It fits you uncomfortably well.', {layer: {weight: 1}}),
     premise('quiet-debt', 'villain', 'You owe someone in this village something you took, and they have not noticed yet.', {layer: {weight: 1}}),
+    premise('ring-elder', 'odd', 'The ring on your finger was not there yesterday, and something inside it clears its throat as if it has been waiting to be introduced.',
+        {layer: {weight: 1}, patch: {grants: [{cheat: 'ring-spirit', why: 'An old tenant of the ring picked you.', cost: 'It boasts, and it is not always right.'}]}}),
     premise('hen-raised', 'funny', 'The hens at the end of the lane treat you as one of the flock, and you have not yet found a polite way to stop them.', {layer: {weight: 1}}),
     premise('ordered-by-mistake', 'funny', 'A merchant swears you were ordered, paid for, and are overdue. Nobody can find the order.', {layer: {weight: 1}}),
 ]);
