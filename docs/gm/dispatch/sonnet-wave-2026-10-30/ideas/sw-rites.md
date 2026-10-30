@@ -15,3 +15,13 @@ Shape check against the sibling book's existing rule rows (14 sampled by structu
 | LATER (level: mechanism; effort: M; done: a consequence-by-agent field routed to the harm/backlash owner `sw-death`, not built here) | `consequences[{trigger, response, by}]` where `by` is the agent (the rite itself, a summoned messenger, a principle). Hand to `sw-death`. [folded: GM46] |
 | LATER (level: data; effort: S; done: coverage ledger counts the L4 row files as a consumer or the wiring commit lands) | The ledger corpus does not list `src/lotm_*_rows.js`; counts only move when added or wired. Ask the ledger owner. [folded: done: coverage_ledger defaults now include src/lotm_*_rows.js] |
 | LATER (level: process; effort: S) | Luna sampling lanes pulled later-volume locators (`zh bN ...` prefix) into volume 1 queries once; the review caught it. Add a locator-prefix check (`/^zh 第/`) to every row test (done in slices 2-4 tests). [folded: WA53] |
+
+## 2026-10-30 (slice 5, volume 2)
+
+| Class | Entry |
+| --- | --- |
+| ACT NOW | `lotm_rite_rows.js` carries the sibling-shape fields: `outcomes` branches, `performers`, `scale`, `consequences`, volume tag. Locator form for volume 2+ is `zh bN 第N章 pM`; tests accept the optional prefix. |
+| ACCOUNT FOR NOW | Luna lanes drift to placeholders when handed more than ~30 unique ids (208-row lane returned 166 empty rows and admitted it). Cap chunks at about 28 ids and require an `unread` line. |
+| ACCOUNT FOR NOW | Of 184 craft/potion volume 2 rows, 103 are later-ladder potion rules (ADV/MAK territory, GM25) and 40 crafts are unusable as cited; sw-adv owns the ladder rows. |
+| LATER (level: data; effort: M; done: the 29 unread rite citations and 8 unread volume 2 craft/potion groups extracted in 15-id chunks, rows added to `lotm_rite_rows.js`) | Finish volume 2 rite extraction. |
+| LATER (level: data; effort: S; done: v2 mirror-questioning and remains-search moved under `lotm_divination_rows.js` queries if a performed answer is confirmed) | Two v2 rows are question-and-signal in kind but sit in the rite file for now. |
