@@ -46,13 +46,40 @@ export function buildEventBook(records, {bindings = {}} = {}) {
 
 export const happenedOn = (book, day) => book.events.filter(e => e.window && e.window.day <= day && day <= e.window.endDay);
 export const endedBy = (book, day) => book.events.filter(e => e.window && e.window.endDay <= day);
-// A curfew-kind event is its own effect over its window unless it lists explicit curfew effects.
-export const curfewsOn = (book, day) => book.events.flatMap(e => {
-    if (!e.window) return [];
-    const listed = e.effects.filter(f => f.kind === 'curfew');
-    if (!listed.length) return e.kind === 'curfew' && e.window.day <= day && day <= e.window.endDay ? [{eventId: e.id, place: e.place ?? null}] : [];
-    return listed.filter(f => f.fromDay <= day && day <= f.toDay).map(f => ({eventId: e.id, place: f.place ?? e.place}));
-});
+// City-scale restrictions (GM38): the world meets the lead as curfews, closures and halted travel on their days.
+// An effect is {kind: 'curfew'|'closure'|'travel_halt', places?, institutions?, legs?, means?, hours?, fromDay?, toDay?}.
+// `places` omitted means the whole region; `hours` is [start, end] like region_kit hours and names when the restriction
+// bites (curfew), omitted means all day; `hoursKnown` is false when the source gives none (shown, not enforced, by default).
+// A curfew- or closure-kind event with no listed effect is its own region-wide restriction over its window.
+export function restrictionsOn(book, day) {
+    return book.events.flatMap(e => {
+        if (!e.window) return [];
+        const listed = e.effects.filter(f => ['curfew', 'closure', 'travel_halt'].includes(f.kind));
+        if (!listed.length) {
+            return ['curfew', 'closure'].includes(e.kind) && e.window.day <= day && day <= e.window.endDay ?
+                [{eventId: e.id, kind: e.kind, places: e.place ? [e.place] : null, hours: null, hoursKnown: false, lineKey: e.lineKey ?? null}] : [];
+        }
+        return listed.filter(f => (f.fromDay ?? e.window.day) <= day && day <= (f.toDay ?? e.window.endDay)).map(f => ({eventId: e.id, kind: f.kind,
+            places: f.places ?? (f.place ? [f.place] : e.place ? [e.place] : null), institutions: f.institutions ?? null, legs: f.legs ?? null, means: f.means ?? null,
+            hours: f.hours ?? null, hoursKnown: f.hoursKnown ?? f.hours != null, lineKey: e.lineKey ?? null}));
+    });
+}
+export const curfewsOn = (book, day) => restrictionsOn(book, day).filter(r => r.kind === 'curfew').map(r => ({eventId: r.eventId, place: r.places?.[0] ?? null}));
+
+// Whether a place, institution or leg stays open at an hour under the day's restrictions. The caller ANDs this with its own
+// base hours (region_kit isOpen). Enforced: closures, curfews with known hours, halts. Curfews with no recorded hours are
+// reported in `notices` but do not close anything (default; the source gave no hours).
+export function openUnder(restrictions, {place = null, institution = null, leg = null, means = null, hour}) {
+    const hits = restrictions.filter(r => {
+        if (r.kind === 'travel_halt') return (leg && r.legs?.includes(leg)) || (means && r.means?.includes(means)) || (!r.legs && !r.means && !!leg);
+        if (r.institutions) return !!institution && r.institutions.includes(institution);
+        if (r.legs || r.means) return false;
+        return !r.places || (place && r.places.includes(place));
+    });
+    const inHours = h => !h || (h[0] < h[1] ? hour >= h[0] && hour < h[1] : hour >= h[0] || hour < h[1]);
+    const closing = hits.filter(r => r.kind === 'closure' ? !r.hours || inHours(r.hours) : r.hoursKnown && inHours(r.hours) || r.kind === 'travel_halt');
+    return {open: closing.length === 0, closedBy: closing.map(r => r.eventId), notices: hits.filter(r => !closing.includes(r) && !r.hoursKnown).map(r => r.eventId)};
+}
 
 // ctx = {presence(person, day) -> place|null, channels(person) -> Set}.
 // Present: in the event's place on any day of its window, or listed in `present`. Heard: through the first

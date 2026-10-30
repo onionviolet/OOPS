@@ -67,3 +67,7 @@ Luna medium extracts the dated and anchored scene and news rows with locators in
 - Mapping ordinal beats to days needs the host (cast beats).
 - Which people carry which `via` links outside the pack data (ordinary gossip) needs the person-memory owner (GM29, GM35).
 - War beyond news and curfews (GM38) has no mechanism here.
+
+## Restrictions (GM38, added 2026-10-30)
+
+City-scale events reach the lead as news and as restrictions on their days. An event's `effects` may hold `{kind: 'curfew' | 'closure' | 'travel_halt', places?, institutions?, legs?, means?, hours?: [start, end], hoursKnown?, fromDay?, toDay?}`; field names follow `region_kit` (place and institution ids, `hours` as an hour pair) and `travel_legs` (leg ids, `means`). `restrictionsOn(book, day)` lists the day's restrictions; `openUnder(restrictions, {place, institution, leg, means, hour})` returns `{open, closedBy, notices}` and the caller ANDs it with its own base hours (`isOpen`). Default, dial and reason: closures and halts bite all day unless hours are given; a curfew bites only in its stated hours; a curfew with no recorded hours is a notice, not a block, because the source gave no hours to enforce. No war mechanism: war reaches the lead as news and these restrictions only.

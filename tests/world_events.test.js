@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildEventBook, happenedOn, endedBy, curfewsOn, knownTo, learnedBetween, newsOn, whoKnows} from '../src/world_events.js';
+import {buildEventBook, happenedOn, endedBy, curfewsOn, knownTo, learnedBetween, newsOn, whoKnows, restrictionsOn, openUnder} from '../src/world_events.js';
 
 const rec = (id, extra) => ({id, key: `k.${id}`, kind: 'public_event', placement: 'dated', scope: 'public', evidence: 'S', when: {day: 10}, ...extra});
 const book = buildEventBook([
@@ -86,4 +86,22 @@ test('second-hand news travels a delay behind its carrier, through chains, witho
     assert.deepEqual(knownTo(b, 'c', 99, nobody).map(k => k.learnedDay), [13]);
     assert.deepEqual(whoKnows(b, 'chain', 12, ['a', 'b', 'c', 'd'], nobody).map(k => k.person), ['a', 'b']);
     assert.deepEqual(whoKnows(b, 'chain', 13, ['a', 'b', 'c', 'd'], nobody).map(k => k.person), ['a', 'b', 'c']);
+});
+
+test('restrictions close places, institutions and legs on their days and hours; unstated curfew hours only notify', () => {
+    const b = buildEventBook([
+        rec('cf', {kind: 'curfew', place: 'ward', when: {day: 4, endDay: 6}, effects: [{kind: 'curfew', places: ['ward'], hours: [22, 5], fromDay: 5, toDay: 6}]}),
+        rec('cl', {kind: 'public_event', when: {day: 5}, effects: [{kind: 'closure', institutions: ['bank'], hours: null}, {kind: 'travel_halt', means: ['rail']}]}),
+        rec('vague', {kind: 'curfew', when: {day: 5}}),
+    ]);
+    assert.deepEqual(restrictionsOn(b, 4).map(r => r.eventId), []);
+    const day5 = restrictionsOn(b, 5);
+    assert.deepEqual(day5.map(r => r.eventId).sort(), ['cf', 'cl', 'cl', 'vague']);
+    assert.deepEqual(openUnder(day5, {place: 'ward', hour: 23}).closedBy, ['cf']);
+    assert.equal(openUnder(day5, {place: 'ward', hour: 12}).open, true);
+    assert.deepEqual(openUnder(day5, {place: 'ward', hour: 12}).notices, ['vague']);
+    assert.equal(openUnder(day5, {institution: 'bank', place: 'ward', hour: 12}).open, false);
+    assert.equal(openUnder(day5, {leg: 'l1', means: 'rail', hour: 9}).open, false);
+    assert.equal(openUnder(day5, {leg: 'l2', means: 'road', hour: 9}).open, true);
+    assert.equal(openUnder(restrictionsOn(b, 7), {place: 'ward', hour: 23}).open, true);
 });
