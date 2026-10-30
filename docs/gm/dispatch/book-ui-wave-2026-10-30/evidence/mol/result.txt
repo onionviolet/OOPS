@@ -1,0 +1,10 @@
+PASS panel mounted 
+PASS panel visible at 1920x1080 in Cyoria 
+PASS open pass with scope, exclusions and kept skill Cyoria · access and loops / Academy access / Ilsa’s guest pass from Ilsa, academy guest desk: Open. / Term: 720 h from issue (Proposal: the pack records a pass with no term; a month matches a clerk re
+PASS restart readout names source 
+PASS slice mol_access saved {"schema":1,"issuedAt":718}
+PASS lapsed pass closes scope, keeps skill Cyoria · access and loops / Academy access / Ilsa’s guest pass from Ilsa, academy guest desk: Lapsed. It lapsed 36 minutes ago; Ilsa, academy guest desk issues the next one. / Term: 3 min from issue (
+PASS reload keeps stamp 
+PASS Export then Import keeps the stamp 
+PASS imported save still shows the lapsed pass 
+PASS no page errors 

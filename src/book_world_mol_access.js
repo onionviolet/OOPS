@@ -27,9 +27,9 @@ export function accessView(expansion, slice) {
     if(!hasPermit(expansion)) return {granted: false, permit: false};
     const now = expansion.clock ?? 0, issuedAt = slice?.issuedAt ?? now;
     const grant = defineGrant({id: 'book.mol.guest_pass', issuer: 'Ilsa, academy guest desk', subject: 'You', label: 'Ilsa’s guest pass', issuedAt,
-        expiresAt: issuedAt + GUEST_TERM.value, warnWithin: 3 * DAY, scope: OPENS, notScope: NOT_COVERED, suspendedAt: slice?.suspendedAt ?? null});
+        expiresAt: issuedAt + (slice?.termMinutes ?? GUEST_TERM.value), warnWithin: 3 * DAY, scope: OPENS, notScope: NOT_COVERED, suspendedAt: slice?.suspendedAt ?? null});
     const status = accessStatus(grant, now, ownSkill(expansion));
-    return {granted: true, permit: true, label: grant.label, issuer: grant.issuer, term: GUEST_TERM, issuedAt, expiresAt: grant.expiresAt, ...status};
+    return {granted: true, permit: true, label: grant.label, issuer: grant.issuer, term: slice?.termMinutes ? {value: slice.termMinutes, reason: 'Set for this save.'} : GUEST_TERM, issuedAt, expiresAt: grant.expiresAt, ...status};
 }
 
 // MoL's rows for the shared loop table. Proposal: the PG4 text read of the loop ids is still owed, so no row claims canon.

@@ -13,7 +13,7 @@ export function createMolAccessPanel({read, eligible}) {
         if(!a.granted) access.append(node('p', 'You hold no academy pass. Ilsa at the guest desk issues the guest pass; it opens the guest library and supervised reconstruction, not the academy itself.', {'data-mol-access': 'none'}));
         else {
             const word = {active: 'Open', expiring: 'Open, lapsing soon', expired: 'Lapsed', suspended: 'Suspended'}[a.state];
-            access.append(node('p', `${a.label} from ${a.issuer}: ${word}. ${a.why}`, {'data-mol-access': a.state}),
+            access.append(node('p', `${a.label} from ${a.issuer}: ${word}.${a.state === 'active' ? '' : ' ' + a.why}`, {'data-mol-access': a.state}),
                 node('p', `Term: ${minutesText(a.term.value)} from issue (${a.term.reason})`, {class: 'expedition_preview'}),
                 list(a.opens.length ? 'This pass opens' : 'Closed while it is not open', a.opens.length ? a.opens.map(s => s.label) : a.closed.slice(0, 3)),
                 list('It never covered', a.opens.length ? a.closed : a.closed.slice(3)),

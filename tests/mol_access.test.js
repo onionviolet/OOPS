@@ -20,3 +20,6 @@ test('the loop table is world-neutral: an unregistered world gets the default an
     const {loopReadout} = await import('../src/loop_table.js');
     const l = loopReadout('book.other.world'); assert.match(l.source, /no reset table yet/); assert.ok(l.resets.length && l.carries.length);
 });
+test('a save-level term dial overrides the default term', () => {
+    assert.equal(accessView(exp(110), {issuedAt: 100, termMinutes: 3}).state, 'expired');
+});

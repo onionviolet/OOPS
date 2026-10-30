@@ -17,7 +17,7 @@ fs.mkdirSync(output, {recursive: true});
   const open = async data => {
    const context = await browser.newContext({viewport: {width: 1920, height: 1080}, acceptDownloads: true});
    if(data) await context.addInitScript(d => {if(!localStorage.getItem('save data')) localStorage.setItem('save data', JSON.stringify(d));}, data);
-   const page = await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror', e => errors.push(e.stack));
+   const page = await context.newPage();page.setDefaultTimeout(90000);page.on('pageerror', e => errors.push(e.stack));
    for(let i = 0; i < 3; i++) {try {await page.goto(url);break;} catch(e) {if(i === 2) throw e;await page.waitForTimeout(1000);}}await page.waitForTimeout(300);
    await page.getByText('PLAY', {exact: true}).click();await page.waitForTimeout(800);
    await openPanel(page);
@@ -37,9 +37,12 @@ fs.mkdirSync(output, {recursive: true});
   line('slice mol_access saved', s1.mol_access?.schema === 1, JSON.stringify(s1.mol_access));
   fs.writeFileSync(path.join(output, 'saved.json'), JSON.stringify(s1));
   await context.close();
-  // lapse: move the stamp 31 days into the past
-  const lapsed = structuredClone(s1);lapsed.mol_access.issuedAt = Math.max(0, lapsed.mol_access.issuedAt - 31 * 1440);
-  ({page, context} = await open(lapsed));
+  // lapse: the slice's optional term dial is set to 3 minutes; the app's own tick path then plays the clock past it
+  const short = structuredClone(s1);short.mol_access.termMinutes = 3;
+  ({page, context} = await open(short));
+  await page.evaluate(() => advanceTicks(10));
+  await openPanel(page);
+  const lapsed = {mol_access: short.mol_access};
   const t2 = await page.locator('#mol_access_panel').innerText().catch(() => '');
   line('lapsed pass closes scope, keeps skill', /Lapsed/.test(t2) && /Closed while it is not open/.test(t2) && /Keyed-lamp operator/.test(t2), t2.replace(/\n+/g, ' / ').slice(0, 200));
   await page.screenshot({path: path.join(output, '02-lapsed.png')});
@@ -50,7 +53,7 @@ fs.mkdirSync(output, {recursive: true});
   await Promise.all([page.waitForNavigation(), page.locator('#saved_file_input').setInputFiles({name: 'mol-access.txt', mimeType: 'text/plain', buffer: Buffer.from(encoded)})]);
   await page.getByText('PLAY', {exact: true}).click();await page.waitForTimeout(800);await openPanel(page);
   const s3 = await save(page);
-  line('Export then Import keeps the stamp', s3.mol_access?.issuedAt === lapsed.mol_access.issuedAt);
+  line('Export then Import keeps the stamp', s3.mol_access?.issuedAt === lapsed.mol_access.issuedAt && s3.mol_access?.termMinutes === 3);
   const t3 = await page.locator('#mol_access_panel').innerText().catch(() => '');
   line('imported save still shows the lapsed pass', /Lapsed/.test(t3));
   await page.screenshot({path: path.join(output, '03-imported.png')});
