@@ -94,7 +94,7 @@ Module: `src/ui/figure_interact.js` (pure model plus `attachFigureInteract`). Al
 | Focus plus context | A Focus toggle (or the `f` key) hides labels of points beyond the pinned set's neighbourhood and fades them to 18%. Shape stays | `options.focusMode`, `hops` |
 | Why on hover | Shows node and edge `why` ("Why: ...") and `detail` when the spec carries them. A view that derives a value supplies the sentence; the layer adds no sentence of its own | spec field `why` |
 | Keyboard | One roving tab stop; arrows move to the nearest point in that direction by drawn position; Home and End; Enter or Space pins; `f` toggles focus; Esc clears hover and pins. Points get `role="button"` and `aria-pressed` | none |
-| Motion | Only a real change: pass `options.previous` and points whose state or label changed get `fig-changed` (a stroke, plus a two-beat halo only when effects are on). Under `data-effects` off or reduced there is no animation; dimming is an instant change by default (UR38, UR62) | `changedIds(prev, next)` |
+| Motion | Only a real change: pass `options.previous` and points whose state or label changed get `fig-changed` (a stroke, plus the shared pulse effect, which is off under effects off and reduced). Under `data-effects` off or reduced there is no animation; dimming is an instant change by default (UR38, UR62) | `changedIds(prev, next)` |
 
 Accessibility and fallbacks: every fact on a card is also in `figureText` and the table or sentence form (no fact lives in hover alone, UR37). A spec with no markers attaches as a no-op. Specs without points (tracks only) are unaffected.
 

@@ -240,7 +240,7 @@ export function attachFigureInteract(host, spec, options = {}) {
 
     if (options.previous) {
         const flash = changedIds(options.previous, spec);
-        for (const id of flash) if (markerEls.has(id)) markerEls.get(id).classList.add('fig-changed'); // CSS animates it only when effects are on
+        for (const id of flash) if (markerEls.has(id)) markerEls.get(id).classList.add('fig-changed', 'fig-fx--pulse'); // the shared pulse effect: classes only, off under effects off and reduced
     }
     repaint();
     return {
@@ -252,7 +252,7 @@ export function attachFigureInteract(host, spec, options = {}) {
         destroy() {
             for (const [type, fn] of handlers) host.removeEventListener(type, fn);
             for (const [el, t] of titles) { el.removeAttribute('aria-label'); el.prepend(t); }
-            for (const el of markerEls.values()) { for (const a of ['tabindex', 'role', 'aria-pressed']) el.removeAttribute(a); el.classList.remove('fig-interactive', 'fig-hl', 'fig-dim', 'fig-pinned', 'fig-far', 'fig-changed'); }
+            for (const el of markerEls.values()) { for (const a of ['tabindex', 'role', 'aria-pressed']) el.removeAttribute(a); el.classList.remove('fig-interactive', 'fig-hl', 'fig-dim', 'fig-pinned', 'fig-far', 'fig-changed', 'fig-fx--pulse'); }
             for (const el of edgeEls) el.classList.remove('fig-hl', 'fig-dim');
             bar.remove(); hint.remove(); cards.remove(); comparePane.remove();
             host.classList.remove('fig-interact', 'fig-has-focus');

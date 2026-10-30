@@ -127,13 +127,13 @@
 .fig-svg .fig-far .fig-label {display: none;}
 .fig-svg .fig-far {opacity: .18;}
 .fig-cards {display: grid; gap: var(--ui-space-3); margin-block-start: var(--ui-space-3);}
-.fig-card, .fig-compare, .fig-inspector {border: 1px solid var(--fig-line); border-radius: var(--ui-radius); background: var(--fig-surface); padding: var(--ui-space-3) var(--ui-space-4); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.fig-card, .fig-compare, .fig-inspector {border: 1px solid var(--fig-line); background: var(--fig-surface); padding: var(--ui-space-3) var(--ui-space-4); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
 .fig-card--nested {border-style: dashed;}
 .fig-card p, .fig-compare p, .fig-inspector p {margin: var(--ui-space-1) 0;}
 .fig-card h4, .fig-compare h4, .fig-inspector h4 {margin: 0 0 var(--ui-space-1);}
 .fig-card-state, .fig-card-kind, .fig-card-none, .fig-inspector-empty {color: var(--fig-muted);}
 .fig-card-list {list-style: none; margin: var(--ui-space-2) 0 0; padding: 0; display: grid; gap: var(--ui-space-1);}
-.fig-card-link, .fig-sort, .fig-form-choice, .fig-focus-toggle, .fig-clear, .fig-matrix-mark {font: inherit; color: var(--fig-ink); background: transparent; border: 1px solid var(--fig-line); border-radius: var(--ui-radius); padding: 0 var(--ui-space-2); cursor: pointer;}
+.fig-card-link, .fig-sort, .fig-form-choice, .fig-focus-toggle, .fig-clear, .fig-matrix-mark {font: inherit; color: var(--fig-ink); background: transparent; border: 1px solid var(--fig-line); padding: 0 var(--ui-space-2); cursor: pointer;}
 .fig-form-choice[aria-pressed="true"], .fig-focus-toggle[aria-pressed="true"] {border-color: var(--fig-accent); color: var(--fig-accent);}
 .fig-form-switch {display: flex; gap: var(--ui-space-2); margin-block-end: var(--ui-space-3);}
 .fig-form--table {display: grid; grid-template-columns: minmax(0, 3fr) minmax(14em, 2fr); gap: var(--ui-space-4); align-items: start;}
@@ -144,9 +144,8 @@
 .fig-matrix-col {vertical-align: bottom; max-width: 3.5em;} .fig-matrix-col span {display: block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;}
 .fig-matrix-on {background: color-mix(in srgb, var(--fig-accent) 22%, var(--fig-surface)); text-align: center;}
 .fig-matrix-note {min-height: 1.5em; color: var(--fig-muted);}
-.fig-sentences {margin: 0; padding-inline-start: 1.2em; font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.fig-sentences {margin: 0; padding-inline-start: var(--ui-space-5); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
 .fig-svg .fig-changed > .fig-body {stroke: var(--fig-accent); stroke-width: 3.5;}
-:root:not([data-effects="off"]):not([data-effects="reduced"]) .fig-svg .fig-changed > .fig-halo {animation: fig-pulse 700ms ease-out 2 alternate;}
 /* Non-node forms (src/ui/figure_forms.js, COV4): table, card, band, chips and bar rows. Rects reuse .fig-body and the state
    classes above, so state looks the same here as on a node; words and marks carry the meaning (UR37). */
 .fig-cell {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
