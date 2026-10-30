@@ -8,7 +8,7 @@ const jerkin = make({name: 'Patched jerkin', slot: 'torso', quality: 40, defense
 const mailShirt = make({name: 'Riveted shirt', slot: 'torso', quality: 112, defense: 6, stats: {cold_tolerance: {flat: 0.2}, agility: {multiplier: 0.93}, damage_taken: {multiplier: 0.95}},
     gearwork: {history: [{action: 'reforge', maker: 'oldCraftsman', location: 'the lower forge'}, {action: 'repair', maker: 'you', location: 'the village'}], roles: {plate: {name: 'Scrap steel', grade: 3}}, treatment: {stage: 'tempered'}}});
 export const ITEM_CARD_FIXTURES = [
-    {id: 'first-gear', title: 'First minutes: carried pants, nothing worn', item: jerkin, worn: null, info: {rarity: 'trash'}},
+    {id: 'first-gear', title: 'First minutes: a carried jerkin, nothing worn', item: jerkin, worn: null, info: {rarity: 'trash'}},
     {id: 'upgrade', title: 'Worn jerkin vs a reforged shirt (in hand)', item: mailShirt, worn: jerkin, info: {rarity: 'common', wearFactor: 0.62, count: 1}},
     {id: 'unappraised', title: 'The same shirt through a glance (AP1)', item: mailShirt, worn: jerkin, info: {rarity: 'common', level: 'AP1'}},
     {id: 'estimated', title: 'Estimate only (AP2): band, no numbers', item: mailShirt, worn: jerkin, info: {rarity: 'common', level: 'AP2'}},

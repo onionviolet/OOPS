@@ -1,6 +1,6 @@
 // Item card renderer (ITEMS.md proposal). Draws a model from src/item_card_model.js into the node it is
 // given, never the global document (MDL13). Every mark has words beside it (UR37): the band is a word,
-// a delta is "+2 better", an unknown facet reads "unknown", never zero. Roles, not looks, are named in
+// a delta is "+2 better", an unknown facet reads "Unknown to you", never zero. The tilde mark is reserved for a guess (shared with the sheet grammar). Roles, not looks, are named in
 // data attributes so a later motif pack can restyle them (item 20).
 const el = (doc, tag, cls, text) => { const n = doc.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const GLYPH = {better: '▲', worse: '▼', same: '＝'};
@@ -31,7 +31,7 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
     if (model.facets.stats === 'known') root.append(versus);
 
     if (model.facets.stats === 'unknown') {
-        root.append(el(doc, 'p', 'item-card-unknown', '≈ Its numbers are beyond what you can read from here.'));
+        root.append(el(doc, 'p', 'item-card-unknown', 'Unknown to you: its numbers are beyond what you can read from here.'));
     } else if (model.rows.length) {
         const table = el(doc, 'table', 'item-card-rows');
         table.setAttribute('aria-label', 'What this item contributes');
@@ -54,7 +54,7 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
         if (model.trailRecorded) { const ol = el(doc, 'ol'); for (const t of model.trail) { const li = el(doc, 'li', null, t.text); li.dataset.kind = t.kind; ol.append(li); } trail.append(ol); }
         else trail.append(el(doc, 'p', 'item-card-note', 'No maker or past is recorded for this one.'));
         root.append(trail);
-    } else root.append(el(doc, 'p', 'item-card-unknown', '≈ Where it came from is hidden from you.'));
+    } else root.append(el(doc, 'p', 'item-card-unknown', 'Unknown to you: where it came from.'));
 
     if (model.value && model.facets.value === 'known') root.append(el(doc, 'p', 'item-card-worth', `Worth ${model.value}`));
     host.replaceChildren(root);

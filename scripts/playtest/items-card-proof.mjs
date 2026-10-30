@@ -5,10 +5,11 @@ import {writeFile,mkdir} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {readFile} from 'node:fs/promises';
 import {defaultCustomizationState} from '../../src/customization_profiles.js';
+import {createHash} from 'node:crypto';
 import {buildBundle,serve,Session} from './lib.mjs';
 const out=resolve(process.argv[2]||'docs/representations/evidence/items');await mkdir(out,{recursive:true});
 const bundle=await buildBundle(),server=await serve(bundle.dir),s=new Session({url:server.url,seed:87,wall:Date.UTC(2026,9,30,9)});
-const receipt={viewport:'1920x1080',cases:[]};let p;
+const receipt={viewport:'1920x1080',fixture:'fresh life; then tests/fixtures/perf/mid.json plus Cheap leather pants at 60% and 140% (declared test stock, not natural acquisition)',bundleSha256:createHash('sha256').update(await readFile(join(bundle.dir,'bundle.js'))).digest('hex'),cases:[]};let p;
 try{
  await s.start();await s.open();p=s.page;
  p.setDefaultTimeout(30000);await p.setViewportSize({width:1920,height:1080});

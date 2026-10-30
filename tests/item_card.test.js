@@ -26,10 +26,10 @@ test('lower-is-better stats read as better when they fall, and say so', () => {
 test('appraisal hides facets as unknown, never as zero', () => {
     const glance = model('unappraised'), host = draw(glance);
     assert.equal(glance.facets.stats, 'unknown'); assert.equal(host.querySelector('.item-card-rows'), null);
-    assert.match(host.textContent, /beyond what you can read/); assert.match(host.textContent, /quality unknown/);
+    assert.match(host.textContent, /Unknown to you: its numbers/); assert.match(host.textContent, /quality unknown/);
     assert.doesNotMatch(host.textContent, /Defense/);
     const measured = draw(model('measured')); assert.match(measured.textContent, /Defense/);
-    assert.match(measured.textContent, /hidden from you/, 'a measured reader still cannot see the past');
+    assert.match(measured.textContent, /Unknown to you: where it came from/, 'a measured reader still cannot see the past');
 });
 
 test('provenance lists recorded work and parts, and admits when nothing is recorded', () => {
