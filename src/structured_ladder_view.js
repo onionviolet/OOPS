@@ -20,5 +20,5 @@ export function structuredLadderView(d, actorFacts = {}) {
     const facts = {};
     for(const [name, key] of Object.entries(l.facts)) if(actorFacts[key] !== undefined) facts[name] = actorFacts[key];
     const view = ladderViewFromRecord(path, {position, facts, known: l.known});
-    return {label: view.label, stage: view.stage, next: view.next, ready: view.ready, crossings: view.crossings, spec: ladderFigureSpec(view, {crossings: true})};
+    return {label: view.label, stage: view.stage, next: view.next, ready: view.ready, crossings: view.crossings, spec: ladderFigureSpec(view, {crossings: true, layout: 'compact'})};
 }

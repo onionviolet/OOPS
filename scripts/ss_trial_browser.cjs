@@ -12,7 +12,8 @@ const server=http.createServer((req,res)=>{const p=path.join(root,decodeURICompo
  page.on('pageerror',e=>result.errors.push(e.message));page.on('dialog',d=>d.dismiss());
  const boot=async()=>{await page.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});await page.locator('#loading_screen_play_button').click();await page.waitForTimeout(800);};
  const panel=()=>page.locator('#structured_pack_panel').innerText();
- const act=async n=>{await page.locator(`[data-structured-action="book.ss.trial.${n}"]`).click();await advanceGameMinutes(page,14);await page.waitForTimeout(400);};
+ const toBeginning=async()=>{if(!(await page.locator('[data-structured-ladder]').first().isVisible().catch(()=>false)))await page.getByRole('button',{name:'Beginning',exact:true}).first().click().catch(()=>page.locator('#workspace_navigation select').first().selectOption('beginning'));await page.waitForTimeout(300);};
+ const act=async n=>{await toBeginning();const b=page.locator(`[data-structured-action="book.ss.trial.${n}"]`);try{await b.click({timeout:8000});}catch(e){await page.screenshot({path:`${out}/fail-${n}.png`});console.log('PANEL',(await panel()).slice(0,700));throw e;}await advanceGameMinutes(page,14);await page.waitForTimeout(400);await toBeginning();};
  const save=async()=>{await page.locator('#save_button').click();return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
  try{
   await page.goto(base+'/index.html?test_hooks=1');await boot();
