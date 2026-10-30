@@ -1,0 +1,83 @@
+/* UI directions gallery only (ui-directions.html). Proposal mocks; tokens come from ui_tokens.css and the theme cell. */
+body.ud-page {margin: 0; background: var(--ui-navy); color: var(--ui-text); }
+.ud-wrap {padding: var(--ui-space-5) 0 var(--ui-space-7);}
+.ud-wrap > h1 {margin: 0 var(--ui-space-6) var(--ui-space-1); font-size: var(--ui-type-title); font-weight: var(--ui-weight-regular);}
+.ud-tag {margin: 0 var(--ui-space-6) var(--ui-space-4); opacity: .8; font-size: var(--ui-type-small);}
+.ud-screen {position: relative; width: 1920px; height: 1080px; overflow: hidden; border: 1px solid var(--ui-hairline); box-sizing: border-box; --ud-text: var(--custom-size, 14px); font-size: var(--ud-text); line-height: var(--ui-line-body);}
+.ud-screen .theme-preview, .ud-screen .ud-root {width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; background: var(--ui-navy); color: var(--ui-text); padding: var(--ui-space-4); gap: var(--ui-space-4);}
+.ud-screen small {font-size: var(--ui-type-small); opacity: .85;}
+.ud-screen button {font: inherit; color: inherit; background: var(--ui-button-fill); border: 1px solid var(--ui-hairline); padding: var(--ui-space-1) var(--ui-space-3); min-height: var(--ui-control-md); text-align: left;}
+.ud-screen button.is-on {box-shadow: var(--ui-glow-active); border-color: var(--ui-accent);}
+.ud-header {display: flex; gap: var(--ui-space-7); align-items: baseline; padding: var(--ui-space-2) var(--ui-space-4); border-bottom: 1px solid var(--ui-hairline);}
+.ud-header strong {font-size: var(--ui-type-title);}
+.ud-nav {display: flex; gap: var(--ui-space-3); align-items: center;}
+.ud-spacer {flex: 1;}
+.ud-dot {display: inline-block; width: .55em; height: .55em; margin-left: var(--ui-space-2); background: var(--ui-accent);}
+.ud-panel {border: 1px solid var(--ui-hairline); background: var(--ui-panel-fill, var(--ui-navy)); min-width: 0; display: flex; flex-direction: column;}
+.ud-panel > header {display: flex; justify-content: space-between; padding: var(--ui-space-2) var(--ui-space-4); border-bottom: 1px solid var(--ui-hairline); background: color-mix(in srgb, var(--ui-teal) 55%, var(--ui-navy));}
+.ud-meta {opacity: .75;}
+.ud-panel > :not(header) {margin: var(--ui-space-3) var(--ui-space-4);}
+.ud-rows {list-style: none; margin: var(--ui-space-3) var(--ui-space-4); padding: 0; display: flex; flex-direction: column; gap: var(--ui-space-2);}
+.ud-rows li {display: flex; gap: var(--ui-space-4); align-items: baseline; flex-wrap: wrap;}
+.ud-rows li > b {min-width: 3.5em;}
+.ud-chip {display: inline-block; border: 1px solid var(--ui-hairline); padding: 0 var(--ui-space-2); font-size: var(--ui-type-small);}
+.ud-chip.is-on {border-color: var(--ui-accent); box-shadow: var(--ui-glow-active);}
+.ud-want {border-color: var(--ui-accent);}
+.ud-chips {display: flex; gap: var(--ui-space-3); flex-wrap: wrap;}
+.ud-bar {height: .7em; border: 1px solid var(--ui-hairline); background: var(--ui-navy); margin-top: var(--ui-space-2);}
+.ud-bar i {display: block; height: 100%; background: var(--ui-meter-pool);}
+.ud-bar-hp i {background: var(--ui-meter-limit);} .ud-bar-sta i {background: var(--ui-meter-track);} .ud-bar-xp i {background: var(--ui-accent);}
+.ud-vitals {display: flex; flex-direction: column; gap: var(--ui-space-hairline);}
+.ud-vitals p {margin: 0 0 var(--ui-space-1);}
+.ud-nextstep {display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ui-space-2) var(--ui-space-5); padding: var(--ui-space-4) var(--ui-space-4); border: 1px solid var(--ui-accent); box-shadow: var(--ui-glow-affordance); background: color-mix(in srgb, var(--ui-teal) 40%, var(--ui-navy));}
+.ud-nextstep strong {text-transform: uppercase; letter-spacing: .08em; font-size: var(--ui-type-small);}
+.ud-nextstep span {font-size: var(--ui-type-title);} .ud-nextstep small {flex-basis: 100%;}
+[data-effects="off"] .ud-nextstep, [data-effects="off"] .ud-screen * {box-shadow: none !important; animation: none !important; transition: none !important;}
+.ud-action {display: flex; flex-wrap: wrap; gap: var(--ui-space-2) var(--ui-space-5); align-items: baseline; margin: var(--ui-space-2) 0;}
+.ud-action .ud-quote {opacity: .85;}
+.ud-action.is-pick button {border-color: var(--ui-accent); box-shadow: var(--ui-glow-affordance);}
+.ud-blocked {color: var(--ui-meter-warn); flex-basis: 100%;}
+.ud-action.is-blocked button {opacity: .6;}
+.ud-returnnote {margin: var(--ui-space-2) var(--ui-space-4); padding: var(--ui-space-2) var(--ui-space-4); border-left: 3px solid var(--ui-accent);}
+.ud-prose {line-height: var(--ui-line-prose);} .ud-dim {opacity: .7;}
+.ud-label {margin: var(--ui-space-4) 0 var(--ui-space-1); opacity: .7; text-transform: uppercase; font-size: var(--ui-type-small);}
+.ud-grid-a {flex: 1; display: grid; grid-template-columns: 22% 1fr 28%; gap: var(--ui-space-4); min-height: 0;}
+.ud-col {display: flex; flex-direction: column; gap: var(--ui-space-4); min-width: 0; min-height: 0;}
+.ud-grid-b {flex: 1; display: grid; grid-template-columns: 17% 1fr 24%; gap: var(--ui-space-4); min-height: 0;}
+.ud-rail {display: flex; flex-direction: column; gap: var(--ui-space-3); padding: var(--ui-space-4); border: 1px solid var(--ui-hairline);}
+.ud-day {display: flex; flex-direction: column; gap: var(--ui-space-4); min-width: 0;}
+.ud-day h2 {margin: 0; font-size: var(--ui-type-title); font-weight: var(--ui-weight-regular);}
+.ud-two {display: grid; grid-template-columns: 1fr 1fr; gap: var(--ui-space-4);}
+.ud-side {display: flex; flex-direction: column; gap: var(--ui-space-4);}
+.ud-scene .scene-card {border: 1px solid var(--ui-accent); padding: var(--ui-space-5) var(--ui-space-5); display: flex; flex-direction: column; gap: var(--ui-space-4); background: color-mix(in srgb, var(--ui-teal) 35%, var(--ui-navy)); box-shadow: var(--ui-glow-affordance);}
+.ud-scene .scene-card-header {margin: 0; font-size: var(--ui-type-title);} .ud-scene .scene-card-stakes {margin: 0; opacity: .9;}
+.ud-scene .scene-card-people {display: flex; gap: var(--ui-space-3);} .ud-scene .scene-card-option {display: flex; gap: var(--ui-space-5); align-items: baseline; flex-wrap: wrap;}
+.ud-scene .scene-card-blocked {color: var(--ui-meter-warn); flex-basis: 100%;}
+.ud-grid-c {flex: 1; position: relative; min-height: 0; display: grid; grid-template-columns: 1fr; padding: 0;}
+.ud-grid-c > * {grid-area: 1 / 1;}
+.ud-quiet {display: flex; flex-direction: column; gap: var(--ui-space-4); padding: var(--ui-space-5); max-width: 520px; opacity: .55;}
+.ud-palette {align-self: start; justify-self: center; margin-top: calc(var(--ui-space-7) * 4); width: 860px; border: 1px solid var(--ui-accent); background: var(--ui-navy); box-shadow: 0 0 var(--ui-space-7) var(--ui-navy), var(--ui-glow-affordance); padding: var(--ui-space-4); display: flex; flex-direction: column; gap: var(--ui-space-4); z-index: var(--ui-layer-raised);}
+.ud-search {font-size: var(--ui-type-title); padding: var(--ui-space-3) var(--ui-space-4); border-bottom: 1px solid var(--ui-hairline);}
+.ud-palette .ud-rows li {padding: var(--ui-space-2) var(--ui-space-3); display: grid; grid-template-columns: 5.5em 1fr auto; gap: var(--ui-space-4);}
+.ud-palette .ud-rows li:first-child {background: color-mix(in srgb, var(--ui-teal) 70%, var(--ui-navy)); box-shadow: var(--ui-glow-active);}
+.ud-palette .is-blocked {color: var(--ui-meter-warn);}
+.ud-foot {margin: 0; opacity: .7; font-size: var(--ui-type-small);}
+.ud-suggest {align-self: end; justify-self: end; width: 420px; z-index: var(--ui-layer-raised);}
+.ud-primary {border-color: var(--ui-accent) !important;}
+[data-direction="d"] .ud-root {background: radial-gradient(ellipse at 50% 40%, color-mix(in srgb, var(--ui-accent) 22%, var(--ui-navy)), var(--ui-navy)); color: color-mix(in srgb, var(--ui-accent) 20%, var(--ui-text)); --ui-hairline: color-mix(in srgb, var(--ui-accent) 60%, var(--ui-navy)); --ui-teal: color-mix(in srgb, var(--ui-accent) 25%, var(--ui-navy)); --ui-button-fill: var(--ui-teal);}
+[data-direction="d"][data-fixture="tingen"] .ud-root {background: radial-gradient(ellipse at 50% 40%, color-mix(in srgb, var(--ui-teal) 55%, var(--ui-navy)), var(--ui-navy)); color: var(--ui-text); --ui-hairline: color-mix(in srgb, var(--ui-accent) 70%, var(--ui-navy)); --ui-teal: color-mix(in srgb, var(--ui-teal) 80%, var(--ui-navy)); --ui-button-fill: var(--ui-teal);}
+.ud-desk {flex: 1; overflow: hidden; display: grid; grid-template-columns: 26% 1fr 20%; grid-template-rows: 1fr auto; gap: var(--ui-space-5); min-height: 0;}
+.ud-notebook {background: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-text)); color: var(--ui-navy); padding: var(--ui-space-6) var(--ui-space-6); transform: rotate(-.4deg); box-shadow: var(--ui-space-2) var(--ui-space-3) 0 color-mix(in srgb, var(--ui-navy) 60%, transparent); min-width: 0;}
+.ud-notebook h2, .ud-notebook h3 {margin: 0 0 var(--ui-space-3); font-weight: var(--ui-weight-regular);}
+.ud-notebook .ud-rows li > b {min-width: 4em;}
+.ud-hand {font-size: var(--ui-type-title); margin: var(--ui-space-2) 0;}
+.ud-table {border: 2px solid var(--ui-hairline); padding: var(--ui-space-5); display: flex; flex-direction: column; gap: var(--ui-space-4); background: color-mix(in srgb, var(--ui-navy) 40%, transparent); min-width: 0; overflow: hidden;}
+.ud-table h2 {margin: 0; font-weight: var(--ui-weight-regular);}
+.ud-figure {max-height: 420px; overflow: hidden;}
+.ud-cards {display: flex; gap: var(--ui-space-4);}
+.ud-card {border: 1px solid var(--ui-hairline); padding: var(--ui-space-3) var(--ui-space-4); display: flex; flex-direction: column; background: color-mix(in srgb, var(--ui-accent) 8%, transparent); transform: rotate(.5deg);}
+.ud-actions-row {display: flex; flex-wrap: wrap; gap: var(--ui-space-3) var(--ui-space-6);}
+.ud-letters {background: color-mix(in srgb, var(--ui-navy) 30%, transparent); border: 1px dashed var(--ui-hairline); padding: var(--ui-space-4); display: flex; flex-direction: column; gap: var(--ui-space-4);}
+.ud-letters h2 {margin: 0; font-weight: var(--ui-weight-regular);}
+.ud-letter {margin: 0; padding: var(--ui-space-3) var(--ui-space-4); background: color-mix(in srgb, var(--ui-accent) 14%, transparent); border-left: 3px solid var(--ui-accent);}
+.ud-satchel {grid-column: 1 / -1; display: flex; gap: var(--ui-space-4); align-items: center; padding: var(--ui-space-4) var(--ui-space-5); border-top: 2px solid var(--ui-hairline); background: color-mix(in srgb, var(--ui-navy) 40%, transparent);}

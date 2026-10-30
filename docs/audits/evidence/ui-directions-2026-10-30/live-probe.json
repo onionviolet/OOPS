@@ -1,0 +1,322 @@
+{
+ "village_t0": {
+  "modulesMounted": 85,
+  "modulesVisible": 11,
+  "visibleTitles": [
+   "You",
+   "Stats & equipment",
+   "Condition",
+   "Around you",
+   "Inventory tools",
+   "Inventory",
+   "Village scene",
+   "Current work & saving",
+   "Local actions",
+   "Center views",
+   "Reports"
+  ],
+  "rects": [
+   [
+    20,
+    93,
+    330,
+    87
+   ],
+   [
+    20,
+    179,
+    330,
+    125
+   ],
+   [
+    20,
+    304,
+    330,
+    72
+   ],
+   [
+    362,
+    93,
+    1027,
+    380
+   ],
+   [
+    20,
+    485,
+    330,
+    25
+   ],
+   [
+    20,
+    509,
+    330,
+    551
+   ],
+   [
+    362,
+    485,
+    1027,
+    80
+   ],
+   [
+    362,
+    565,
+    1027,
+    27
+   ],
+   [
+    362,
+    592,
+    1027,
+    440
+   ],
+   [
+    362,
+    1032,
+    1027,
+    28
+   ],
+   [
+    1401,
+    93,
+    499,
+    967
+   ]
+  ],
+  "clickableVisible": 90,
+  "domNodes": 9340,
+  "selectSizes": [
+   53,
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "nextStep": "Next stepTalk to the village elder.In Local actions: Talk to someone, then Talk to village elder.Show me",
+  "fontPx": "14px"
+ },
+ "village_dialogue": {
+  "modulesMounted": 85,
+  "modulesVisible": 10,
+  "visibleTitles": [
+   "You",
+   "Stats & equipment",
+   "Condition",
+   "Inventory tools",
+   "Inventory",
+   "Village scene",
+   "Current work & saving",
+   "Local actions",
+   "Center views",
+   "Reports"
+  ],
+  "rects": [
+   [
+    20,
+    93,
+    495,
+    87
+   ],
+   [
+    20,
+    179,
+    495,
+    101
+   ],
+   [
+    20,
+    280,
+    495,
+    72
+   ],
+   [
+    20,
+    485,
+    623,
+    25
+   ],
+   [
+    20,
+    509,
+    623,
+    551
+   ],
+   [
+    655,
+    93,
+    739,
+    67
+   ],
+   [
+    655,
+    160,
+    739,
+    37
+   ],
+   [
+    655,
+    197,
+    739,
+    835
+   ],
+   [
+    655,
+    1032,
+    739,
+    28
+   ],
+   [
+    1405,
+    93,
+    495,
+    967
+   ]
+  ],
+  "clickableVisible": 94,
+  "domNodes": 9561,
+  "selectSizes": [
+   56,
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "nextStep": "Next stepKeep talking: say you want to leave.In the conversation, pick the line about leaving, then \"But I want to leave\".Show me",
+  "fontPx": "14px"
+ },
+ "tingen_after_cross_click": {
+  "modulesMounted": 85,
+  "modulesVisible": 10,
+  "visibleTitles": [
+   "You",
+   "Stats & equipment",
+   "Condition",
+   "Inventory tools",
+   "Inventory",
+   "Village scene",
+   "Current work & saving",
+   "Local actions",
+   "Center views",
+   "Reports"
+  ],
+  "rects": [
+   [
+    20,
+    93,
+    495,
+    87
+   ],
+   [
+    20,
+    179,
+    495,
+    101
+   ],
+   [
+    20,
+    280,
+    495,
+    72
+   ],
+   [
+    20,
+    404,
+    623,
+    25
+   ],
+   [
+    20,
+    428,
+    623,
+    632
+   ],
+   [
+    655,
+    93,
+    739,
+    67
+   ],
+   [
+    655,
+    160,
+    739,
+    27
+   ],
+   [
+    655,
+    187,
+    739,
+    845
+   ],
+   [
+    655,
+    1032,
+    739,
+    28
+   ],
+   [
+    1405,
+    93,
+    495,
+    967
+   ]
+  ],
+  "clickableVisible": 87,
+  "domNodes": 9802,
+  "selectSizes": [
+   56,
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "nextStep": "Next stepKeep talking: say you want to leave.In the conversation, pick the line about leaving, then \"But I want to leave\".Show me",
+  "fontPx": "14px"
+ },
+ "tingen_buttons": [
+  "Stats",
+  "Condition",
+  "Inventory",
+  "Journal",
+  "Data",
+  "Knows",
+  "Notebook",
+  "People",
+  "Travelers",
+  "Projects",
+  "Ledger",
+  "Worlds",
+  "Beginning",
+  "Connection",
+  "Settings",
+  "Find",
+  "Menu▾",
+  "Show me",
+  "▾",
+  "Expand",
+  "STR12.0 \n                               ",
+  "AGL8.0 \n                                ",
+  "DEX10.0 \n                               ",
+  "INT10.0 \n                               ",
+  "Defense1.0 \n                            ",
+  "Magic0.0 \n                              ",
+  "Attack1.2 \n                             ",
+  "Speed1.0 /s \n                           ",
+  "Crit %5.0%\n                             ",
+  "Crit ×130.0% \n                          ",
+  "AP32 \n                                  ",
+  "EP25\n                                   ",
+  "Attributes ›",
+  "head · Empty",
+  "torso · Empty",
+  "arms · Empty",
+  "ring · Empty",
+  "weapon · Empty",
+  "off-hand · Empty",
+  "legs · Empty"
+ ],
+ "errors": []
+}

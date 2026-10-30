@@ -75,3 +75,6 @@ disposable-profile/
 /dist/figure-gallery.js
 /dist/figure-gallery.js.map
 /dist/figure-gallery.receipt.json
+/dist/ui-directions.js
+/dist/ui-directions.js.map
+/dist/ui-directions.receipt.json
