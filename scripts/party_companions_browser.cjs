@@ -25,7 +25,7 @@ fs.mkdirSync(out,{recursive:true});
  };
  const saved=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
  const save=async()=>{await page.evaluate(()=>window.saveProgress());return saved();};
- const panel=async id=>{await openNotebook(page);await page.locator('[data-notebook-view="people"]').click();await page.locator('#'+id).evaluate(n=>{n.open=true;});};
+ const panel=async id=>{await page.evaluate(()=>showNotebook());await page.locator('[data-notebook-view="people"]').click();await page.locator('#'+id).evaluate(n=>{n.open=true;});};
  const click=async(id,kind='party')=>{await panel(kind==='party'?'party_panel':'frontier_campaign_panel');const b=page.locator(`[data-${kind}="${id}"]`);await b.evaluate(n=>{for(let p=n.parentElement;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;});await b.click();};
  const reload=async()=>{await page.reload();await page.getByText('PLAY',{exact:true}).click();};
  const imported=async()=>{const encoded=await page.evaluate(()=>window.save_to_file());await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#saved_file_input').setInputFiles({name:'generated-party.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);await page.getByText('PLAY',{exact:true}).click();return save();};
