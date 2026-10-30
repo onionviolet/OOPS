@@ -445,15 +445,16 @@ mode; an encounter can override it with an in-world reason (a formal duel is mov
 brawl in the rat field runs on its own).
 
 What is built (first slice): the Fight card (`#fight_situation`, under Local actions) has a mode. In tempo
-mode it reads the `tempo_fight` projection and plays moves through that domain's `move` command; in auto
+mode it reads the `tempo_fight` projection and routes moves through that domain's `move` command
+when registered (otherwise the moves show a blocked reason); in auto
 mode it reads the native opponent projection as before. Today the encounter picks the mode (the road
 contest offers tempo; field fights run native). A per-world default mode is a dial not yet wired (later:
-a row per world family, read through the same `data-world-family` hook as DESIGN.md DSG11). The tempo
-`<details>` panel keeps only the start offer and a pointer while a contest is open.
+a row per world family, read through `world_look.js` (DESIGN.md DSG14)). The tempo
+`<details>` panel's start-offer-and-pointer replacement awaits the owner domain patch.
 
 ### Damage types in tempo fights (M1, M6)
 
-- The frame stays structural: `conflict_frame.js` gets no harm step. The tempo definition's strike
+- The frame stays structural: `conflict_frame.js` gets no harm step. Pending owner integration, the tempo definition's strike
   calls `typedHit` in `damage_types.js` (sibling of `typedStrike`, same math, no draws) and passes the
   multiplier as the fifth argument of `mitigateCombatDamageFromStats`.
 - Tempo fighters are saved data, not live actors, so `typeSnapshot(actor)` reads the live hero,
@@ -494,7 +495,7 @@ One row per old/new pair that drifts. Verdicts are proposals.
 | R3-C9 | `combat_readout.js` vs `combat_opponents_domain.js` | Own exact numbers vs observer-safe projection (AD8) | **Keep**: layered on purpose |
 | R3-C10 | Native fight screen: top Opponent panel, Opponents list, Encounter box and the Fight card (reported by the damage-types session from a 1920x1080 River crab fight, 2026-10-30) | Opponent hp in three places, hit chances twice, "Could down you" as a sentence and a chip, the remaining count three times | **Merge**: one home per fact. Done in the card: the threat chip carries the bound and the per-opponent sentence is gone. Unowned, waiting on Weibao's go-ahead: the top Opponent panel stops repeating hp and odds during a fight, the Opponents list becomes one compact row per enemy (hp, attack with type) with details on click, and the Encounter box folds into one header line |
 
-| R3-C11 | Hero panel hp vs the tempo contest's own hp (DESIGN.md DSG11, one home per fact) | During a contest the hero panel shows native vitals (60/60) while the card shows the contest's 55.4/60; the contest writes vitals back only at its end | **Merge** (proposal for `p4-fights`, owner of `tempo_fight*.js`): write the player's contest hp and stamina to the native vitals after each settled move, so every view reads one value. The card already keeps hp only on the versus row |
+| R3-C11 | Hero panel hp vs the tempo contest's own hp (DESIGN.md DSG11, one home per fact) | The former end-only writeback drifted during a contest; master `428015d90` now syncs vitals after each move | **Merged by p4-fights** at source level. The card keeps hp on the versus row. Rebuilt browser acceptance on this candidate remains below floor, as the receipt records |
 
 Other frame users and types:
 
@@ -505,67 +506,62 @@ Other frame users and types:
 | `feature_expansion_battle` (sluice) | Same, legacy, twice (guard check) | **No** until a revision bump with new content that declares types |
 | `cast_ability_adapter` | No harm step; commits the ability | **Yes, through the ability**: when an ability deals harm, its effect_dsl damage type feeds `typedHit` |
 
-### Round 3 receipt (checkpoint, 2026-10-30): implemented, below floor
+### Round 3 receipt (2026-10-30): implemented, below floor
 
-State: **implemented, below floor** (AD43). The tempo engine half and `damage_types.js` belong to two
-sessions whose work was still uncommitted on primary at checkpoint: `p4-fights` owns `src/tempo_fight*.js`
-and applies this lane's patches itself after its witness and hit-location changes (its choice, option a);
-the damage-types session owns `src/damage_types.js` until its commit, then hands it to this lane. So this
-checkpoint commits only this lane's paths, and the branch does not build alone until both land.
+State: **implemented, below floor** (AD43). Rebased without conflicts onto master
+`11ba659bd8ca978ac6edf1bab3665404f780c41f`. Master includes hit location and per-move
+vitals sync, but not the `p4-fights` typing integration or the domain move command.
+This lane owns `damage_types.js` now. No tempo-engine owner file was edited.
 
-Not in this commit (kept as patches in the wave's shared notes folder, applied locally for the checks below):
-`tempo_fight.patch` (typed strike, learned rows, hit records, tempoView fields), `tempo_fight_domain.patch`
-(type snapshots at start, `commands.move`, panel defers to the card), `damage_types_additions.diff`
-(`typeSnapshot`, `typedHit`, per-world names with LOTM as the first row, `mixText`).
+Target: populated desktop 1920x1080. Surface: the existing Fight card below Local
+actions, with tempo moves, one versus row, log and optional dev readout. Mobile,
+world-default fight-mode selection, world-voiced fight reports and the wider native
+panel consolidation (R3-C10) remain deferred. Rules: DSG6-DSG11, DSG14,
+[UI path rules](../../.claude/rules/player-ui.md), AR2, AR8, AR10, AD36 and AD43.
+Runtime seam: the existing `tempo_fight` projection and domain commands, under
+[architecture rules](../ARCHITECTURE_RULES.md). No core-owner edits or registration
+lines were added; architecture checks found no new cycle edges.
 
-In this commit: the Fight card's tempo mode (`src/combat_situation_ui.js`), the tempo adapter and type chips
-(`src/ui/combat_situation.js`), type and bound chips (`src/ui/combat_versus.js`, `styles/combat_versus.css`),
-the M7 fixture (`src/ui/preview/fixtures/combat.js`), Mara's declared types (`src/frontier_campaign.js`, data
-read only by the tempo contest), `tests/combat_surface_types.test.js`, `scripts/combat_surface_browser.mjs`,
-evidence under `evidence/combat-surface/`.
+Changes in this continuation:
+- R3-A1: tempo tests compare `b.hits` by actor/target IDs, the same keyed seed and
+  slot, with damage scaled by each hit's multiplier to 0.1 rounding. The named
+  `typedHit` skip guard and exact save/reload test remain.
+- R3-A2: dev readout reads `target`, `dmg`, `slot`, with `foe` and `dealt` as legacy
+  fallbacks. Multiplier and split render when present. Fixture and assertions
+  cover location, absent metadata, legacy fields and a zero multiplier.
+- R3-A3: the Fight card shows an Aim row from `tempoView.aims`. It calls the
+  domain's `aim` command when available, with selection read from the projection.
+  Until that command lands, its disabled buttons have a visible reason (DSG10).
+- R3-B2: type words use `worldFamily(fight.worldId)` when supplied and
+  `currentWorldFamily()` otherwise. The DOM dataset is no longer an authority.
+  `tempoView` currently supplies no world ID; this is a gap for `p4-fights`.
 
-Checks (all on the worktree with the owners' working files and the three patches applied locally):
-- `node --test tests/combat_surface_types.test.js`: 9 pass (typedHit equals typedStrike; untyped saved fight
-  keeps the old math; native typed once; frame untouched; world names; tempo chips, reveal marks, dev readout;
-  typed tempo engine harm, learned row, split, save and reload).
-- `node --test tests/conflict_frame.test.js tests/tempo_fight.test.js tests/damage_types.test.js tests/combat_versus.test.js tests/combat_situation.test.js tests/party_battle.test.js`:
-  177 pass, including the three legacy old/runner replays (road, party, sluice).
-- `node scripts/combat_surface_browser.mjs` (headless, 1920x1080, fresh origin, DEV SEEDED field fixture as in
-  the P4 proof, then real clicks): PASS, bundle `1bc871cfaab9`. Card opens with moves showing their mix; four
-  quick strikes log "You hit Mara for 1 bludgeoning, weak spot."; Mara's card gains "weak to bludgeoning"
-  (learned); dev readout shows each hit's split; save and reload identical; Export and Import identical; the
-  old panel only points to the card after Import; the fight finishes (won) and the card hides.
-- Not run: full `npm test`, `npm run build`, `check:arch`, `check:rules` (they wait for the rebased tree).
-- "One other path" in the done check is native combat (`models/combat.js` through `takeDamage(type_multiplier)`, which both
-  `Enemy` and `Person` forward on primary). No conflict-frame user opts in, per the census above. Today's native check is the
-  math plus a one-call source check; after the rebase it should run a real `Enemy.takeDamage` through the owner's `loadNative` helper.
+Checks on the rebased sources (one line per check):
+- `node --test tests/combat_surface_types.test.js tests/damage_types.test.js tests/combat_situation.test.js tests/combat_versus.test.js tests/conflict_frame.test.js tests/tempo_fight.test.js tests/party_battle.test.js`: PASS, 190 passed, 2 skipped pending `typedHit`, 0 failed.
+- `npm run build`: PASS; bundle SHA256 `88888fe6596a0a4c634811eb86112ae71f4d6d80112ab1b4ffde016e46e83bdc`; generated `dist/` and `index.html` excluded from lane commits.
+- `npm run check:arch`: PASS; 205 grandfathered cycle edges, no new edges; core-owner growth at or below baseline.
+- `npm run check:rules`: PASS; 17 existing warnings, 16 receipts, 0 problems.
+- `npm test`: RUNNING, one invocation through the machine-wide limiter; high load delayed its start.
+- `node scripts/combat_surface_browser.mjs docs/representations/evidence/combat-surface`: PENDING, headless, fresh origin, DEV SEEDED route; checks remain strict.
 
-Gaps: native mode not re-proved in the browser this round (the stale-hp report in R3-C10 is unverified; the
-card polls every 400 ms, so a screenshot can catch one hit's gap); `data-world-family` comes from the
-`ui-identity` lane and was not on this tree, so the LOTM words are covered by the unit test only; no cheat
-source reveals types in play yet (the fixture shows the marked form); the hero panel shows native hp during a
-tempo contest because the contest applies harm at its end (existing behavior). Agent-verified, not human-reviewed.
+AD43 floor:
+- FLR1: build proven on the SHA256 above; browser bundle recorded separately below.
+- FLR2: rebuilt browser route pending on the rebased tree; earlier patched-tree evidence is superseded.
+- FLR3: aim's blocked reason is implemented; rebuilt screen proof pending.
+- FLR4: the type calculator and projection have consumers, but live typed tempo strikes await the owner integration.
+- FLR5: persistence shape unchanged in this continuation; the typed save/reload regression is retained but skipped until typing lands; browser round-trip pending.
+- FLR6: source and focused-check verified, not human-reviewed; intended route is the named DEV SEEDED field-workshop fixture, not a natural fresh-life journey.
 
-Built against the DESIGN.md draft (`ui-identity`, commit 7c2cbf199): DSG11 one home per fact (the tempo summary no
-longer repeats hp; R3-C11 names the hero-panel gap); DSG14 type names from the world, owned in `damage_types.js`. Not
-done: world-voiced fight report rows in `src/world_report_voice.js` (later, small).
+Owner patches in the shared handover folder: existing `tempo_fight.patch` and
+`tempo_fight_domain.patch` are recipes for `p4-fights` to reconcile with hit
+location and its newer work. New `codex-aim-command.patch` adds a validated domain
+`aim` command, projects the selection and uses it for strike commands. It is an
+additive follow-up to the move-command registration in `tempo_fight_domain.patch`;
+apply or reconcile that typing/domain patch first. Neither patch was applied here.
+The Aim row stays disabled until its command lands. The old tempo panel still
+owns duplicate fight content until the original domain patch's pointer lands.
 
-World family: the card reads `data-world-family` for now; once `world_look.js` is on master it should call
-`worldFamily(fight world id)` with `currentWorldFamily()` as the fallback (one authority, works headless), as `ui-identity` advised.
-
-Update after rebase (2026-10-30, weekly 89%, stopped at the 86% budget line): rebased onto master 19a48e65d
-(damage types committed by their owner, who handed `damage_types.js` to this lane) and fe8f654c4 (P5 tempo). This
-lane's additions are now in `damage_types.js` (`typeSnapshot`, `typedHit`, `declareWorldDamageTypes`, `damageTypeLabel`,
-`mixText`, the LOTM row). The two tempo patches were regenerated against P5 and sit in the shared notes folder for
-`p4-fights` to apply (its choice); the two tempo-engine tests skip with a named reason until `typedHit` is in `tempo_fight.js`.
-- With both patches applied locally: `node --test` over combat_surface_types, tempo_fight, tempo_allies, conflict_frame,
-  damage_types, combat_situation, combat_versus, party_battle: 197 pass, 0 skipped. Without them (this commit): the two
-  tempo tests skip, the rest pass.
-- `npm run check:arch`: PASS. `npm run check:rules`: PASS (16 receipts, 0 problems).
-- `node scripts/combat_surface_browser.mjs` with the patches: PASS, bundle `9ff850f5dca6`. Reload and Import identical
-  except `held` (banked away minutes, 5 to 6 and 5 to 7), which grows on purpose (P5, LSD317).
-- Not run: full `npm test` (budget stop; the committer runs it before merge), `npm run build` into `dist/`.
-
-Remaining gate, in order: `p4-fights` applies both patches and commits; rebase; the two skipped tests run; full
-`npm test` and `npm run build`; the browser script once more; merge on Weibao's yes. After `ui-identity` merges, read
-the world family through `world_look.js`.
+Remaining: owner typing and move/aim integration, fight-world ID projection,
+then rerun skipped tests and strict browser proof on that integrated candidate.
+Native mode has not been re-proved in the browser this round. Type reveals by
+cheat remain fixture-only. No push or merge to master is authorized by this receipt.

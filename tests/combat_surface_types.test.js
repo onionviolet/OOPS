@@ -106,7 +106,7 @@ function contest(types) {
     for (let i = 0; i < 6 && plan.state.simulation.sessions.player; i++) plan = commitTempoMove(plan.state, registry, context, {moveId: 'jab'});
     return plan.state.simulation.sessions.player.nativeBattle;
 }
-const playerHits = b => (b.hits || []).filter(h => h.actor === 'You' && h.target === 'Crab');
+const playerHits = b => (b.hits || []).filter(h => h.actor === 'player' && h.target === 'foe1');
 
 test('tempo strikes deal typed harm, teach the foe row, record the split, and survive a reload', {skip: WAITS}, () => {
     const plain = contest(null), weak = contest({you: {attack: {bludgeoning: 1}, defense: {}}, foe: {attack: {physical: 1}, defense: {bludgeoning: 1.5}}});
@@ -121,7 +121,7 @@ test('tempo strikes deal typed harm, teach the foe row, record the split, and su
     });
     assert.ok(weak.log.some(l => /for [\d.]+ bludgeoning(?: \(critical\))?, weak spot\./.test(l)));
     assert.deepEqual(weak.fighters.foe1.learned, {bludgeoning: 'weak spot'});
-    assert.equal(weak.hits.at(-1).multiplier, 1.5); assert.deepEqual(weak.hits.at(-1).split, {bludgeoning: 1});
+    assert.equal(typedHits.at(-1).multiplier, 1.5); assert.deepEqual(typedHits.at(-1).split, {bludgeoning: 1});
     const v = tempoView(weak);
     assert.deepEqual(v.you.mix, {bludgeoning: 1}); assert.deepEqual(v.foes[0].learned, {bludgeoning: 'weak spot'});
     assert.deepEqual(v.moves.find(m => m.id === 'jab').mix, {bludgeoning: 1});

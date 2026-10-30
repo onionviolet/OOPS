@@ -14,6 +14,7 @@ import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
+import {worldFamily, currentWorldFamily} from './world_look.js';
 
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
@@ -32,7 +33,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         if (!view?.fight || view.fight.result) return false;
         const place = document.getElementById('location_name_span')?.textContent.trim() || '';
         const dev = !!config.enable_dev_mode || document.documentElement.dataset.dev === 'on';
-        const t = tempoSituation(view, {place, worldId: document.documentElement.dataset.worldFamily || null, dev});
+        const t = tempoSituation(view, {place, worldId: view.fight.worldId ? worldFamily(view.fight.worldId) : currentWorldFamily(), dev});
         if (!t.active) return false;
         if (actions && section.previousElementSibling !== actions) actions.after(section);
         const key = `tempo\n${JSON.stringify(t)}`;

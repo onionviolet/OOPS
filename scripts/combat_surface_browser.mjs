@@ -35,11 +35,11 @@ const open = async seed => {
     await context?.close();
     context = await browser.newContext({viewport: {width: 1920, height: 1080}});
     if (seed) await context.addInitScript(d => { if (!sessionStorage.getItem('s')) { localStorage.setItem('save data', d); sessionStorage.setItem('s', '1'); } }, seed);
-    page = await context.newPage(); page.setDefaultTimeout(60000);
+    page = await context.newPage(); page.setDefaultTimeout(120000);
     page.on('pageerror', e => errors.push(e.message)); page.on('console', m => { if (m.type() === 'error' && !/status of 404/.test(m.text())) errors.push('console: ' + m.text().slice(0, 200)); });
-    await page.goto(url, {timeout: 120000, waitUntil: 'domcontentloaded'});
+    await page.goto(url, {timeout: 240000, waitUntil: 'domcontentloaded'});
     const play = page.locator('#loading_screen_play_button');
-    await play.waitFor({state: 'visible', timeout: 180000});
+    await play.waitFor({state: 'visible', timeout: 300000});
     await page.evaluate(() => window.simulationTestHooks?.pause());
     await play.click();
     const confirm = page.locator('#hero_creation_panel_confirmation');
@@ -73,6 +73,8 @@ const card = () => page.evaluate(() => {
         typeChips: [...s.querySelectorAll('.versus-chip--type')].map(c => ({text: c.textContent, type: c.dataset.damageType, source: c.dataset.source})),
         moves: [...s.querySelectorAll('.scene-card-option')].map(o => o.innerText.replace(/\s+/g, ' ')),
         log: [...s.querySelectorAll('.fight-situation-log li')].map(n => n.textContent), dev: [...s.querySelectorAll('.fight-situation-dev li')].map(n => n.textContent),
+        aims: [...s.querySelectorAll('[data-fight-aim]')].map(b => ({aim: b.dataset.fightAim, disabled: b.disabled, pressed: b.getAttribute('aria-pressed')})),
+        aimReason: s.querySelector('.fight-situation-aims span')?.textContent.trim() || '',
         notice: s.querySelector('.fight-situation-notice')?.textContent || '', world: document.documentElement.dataset.worldFamily || null,
         oldPanel: document.getElementById('tempo_fight_panel')?.innerText.slice(0, 160) || null};
 });
