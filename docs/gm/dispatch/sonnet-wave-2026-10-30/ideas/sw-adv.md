@@ -57,3 +57,17 @@ Read `ability_records.js` and `lotm_advancement.js` whole; checked consumers (`r
 | A distance fact family from the scene or map owner (`within <n> m` of a named actor), so range conditions read geometry, not a flag | seam | medium | Range facts come from a position owner and the bind refuses at 6 m |
 | Sub-minute timing: a seconds-grain gap and threshold for fights (swap gap, 20 s bind), owned by combat | mechanism | medium | A bind takes about 20 s in a combat scene |
 | Seq 4 onward (volumes 5-8): defer until the lead nears Seq 5; walk by the same extraction | data | medium per rung | Next rung stage and abilities with cited blockers |
+
+## Typed abilities per volume, 2026-10-30 overnight
+
+**ACT NOW (done):** 2,368 ability ids over volumes 2-8 typed into conditions, blockers, stated numbers and stated costs with locators (private); the pipeline, brief and fan-out driver are reusable for any book's ability rows.
+
+**ACCOUNT FOR NOW:** most rows state no cost amount (about 130 stated costs over about 2,400 ids) and no effect, so promoted records carry a marker effect and list both as unstated; slugs are specific per row, so the host must supply facts per slug (many facts) or a clustering step must merge them first.
+
+**LATER**
+| Idea | Level | Effort | Done check |
+| --- | --- | --- | --- |
+| Slug clustering: one Luna pass merges near-equal slugs across a volume to a shared vocabulary (`item_held`, `target_within_reach`) so hosts supply fewer facts | data | small, 7 lanes | Distinct slugs fall below about 400 with no condition changed in meaning on a 30-row sample |
+| Bulk-promote typed rows to records per pathway once a pathway's source and effects are authored (the effect is the missing piece) | data | medium per pathway | A pathway's abilities quote eligible or refused from facts |
+| Same pipeline over Shadow Slave, Harry Potter and Mother of Learning ability and spell rows (GM26, GM40 across worlds) | data | medium | Typed rows for 3 books with the same counts table |
+| More Mother of Learning and Harry Potter learnable spells from cited rows (round 2, item 2), starting with spells that state a teacher or practice time | data | small | 3 more spells per book compile with a cited teacher gate |
