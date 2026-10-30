@@ -1,5 +1,7 @@
 # Weaponcraft, runes and inscription: considerations, 2026-10-14
 
+> **Owner of weaponcraft, runes, inscription and maker arts (2026-10-30).** The three companion palettes were merged in [Round 4](#round-4-the-three-companion-palettes-merged-here-2026-10-30) at the end of this file; use its alias table to read any WFI-, REV- or MKR- code, and link here, not to the old files.
+
 Claude (root), 2026-10-14. A palette, not a spec, and nothing here is
 selected for a build. Weibao asked: "Weaponcrafting, runestuff, other stuff
 and more? ... Cheats that would show stuff like these and more? ... Subtle
@@ -574,3 +576,506 @@ This round doesn't redo that map. It records only what changes in this doc.
 
 The duplicate palettes stay as they are; they're owned elsewhere. This doc
 remains primary, and the maker-arts doc keeps its W-lane links.
+
+## Round 4: the three companion palettes merged here (2026-10-30)
+
+Weibao wants one owner per cross-cutting topic: merge rather than create, and every other place links to the owner. Round 3 ended with "The duplicate palettes stay as they are"; that is superseded. This file is the owner of weaponcraft, runes, inscription, maker arts and their reveal cheats. Everything below is an agent proposal (AD32); no code or build order is selected.
+
+**Why this file and not a representation doc.** It already carries the Round 2 crosswalk and the Round 3 fold, IDEA_INDEX lists it first, and most live links point at it. [CRAFTING](representations/CRAFTING.md) is the craft-glance UI slice (CF1) and [RITUALS_AND_MAKING](representations/RITUALS_AND_MAKING.md) draws rite circles and brew tracks, so both are screen representations, and about 92 KB of palette text does not fit a section of either. They link back here for the design palette; this file links to them for the screens.
+
+**Donors.** Each donor keeps a stub that names this owner and the git revision `d415ef656`, where its full text can be read.
+
+| Donor (former file) | Prefix in this file | Codes | Same idea as a canonical row (alias table) | Moved here as written |
+|---|---|---|---|---|
+| [WEAPONCRAFTING_RUNES_AND_INSCRIPTION](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) | `WF`, `WP`, `RU`, `CS` stay bare; `WFI-` for OM, WW, SB, OV, AB, IM | 103 | 59 | 44 |
+| [WEAPONCRAFTING_RUNES_AND_REVEAL](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md) | `REV-` for WC, RN, OV, IM; `RV` and `XA` stay bare | 48 | 37 | 11 |
+| [WEAPONCRAFT_RUNES_AND_MAKER_ARTS](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md) | `MKR-` for WC, AR, RN, OM, SB, OV, IM, AB; `WQ` and `RC` stay bare | 124 | 49 | 75 |
+
+Bare WC, RN, CR, SU, OV, AB, IM, WW and WX codes are this file's own, from the earlier rounds. The 2026-10-19 rename is in [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
+**Correction to the Round 2 crosswalk.** Its "M" and "I" columns were written before the rename, so "M WC1" now means MKR-WC1 and would read as this file's WC1. Use the alias table below instead: it is keyed by the donor's current code and has the reveal companion (R) the Round 2 table lacked. Where Round 2 and the alias table differ, the alias table is the current reading. A few Round 2 pairings were loose (for example RU10, erasing and overwriting, is a distinct idea and is kept below, not folded into RN7).
+
+**Authority and open owner.** The Round 2 and Round 3 positions stand: P6 owns the assembly and pattern graphs, the P2 records are the item identity authority, and one owner for the knowledge and fidelity store is still the open decision (AB2 above). The merge does not decide it.
+
+**Other owners the donors cite** (kept so the links survive; the Round 1 owner table above has the rest): [E4 tags and rules](emergent/E4_TAGS_AND_RULES.md), [E4B materials](emergent/E4B_MATERIALS_AND_NOITA.md), [means and appraisal](MEANS_AND_APPRAISAL.md), [cheat library](CHEAT_LIBRARY.md), [cheats by world](CHEATS_BY_WORLD.md), [part 22 features as cheats](worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md), [part 39 overarching principles](worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md), [technology and progression](TECHNOLOGY_AND_PROGRESSION.md) (CT1-CT5, CD1-CD12), [P6 report](gm/dispatch/procgen-2026-10-13/p6/REPORT.md), [CR2 world crafting laws](gm/dispatch/procgen-2026-10-13/cr2/REPORT.md), [maker arts by world](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md).
+
+**Zero-loss check (script, 2026-10-30).** All 275 table codes in the three donors were extracted from `d415ef656` and each appears in this file, 145 in the alias table and 130 as moved rows. Uncoded donor ideas moved as text blocks: the lens rules, the identity authority note, the fidelity tiers, the reference-game list, the two code-state notes and the three earlier build orders. Donor owner tables are reduced to the link list above (the links, not the prose). Nothing outside those was dropped; the alias table keeps each aliased row's title only, so extra wording on an aliased row is read from the donor revision.
+
+### Round 4 alias table: one name per idea
+
+Read a donor code across to its canonical (bare) code. Targets named MKR-, WFI- or REV- point at a kept row in the moved sections below. Each donor row had a title and extra wording; the title is shown here and the full donor text is at `d415ef656` (see the stubs). A target code is the working name from now on.
+
+**WFI codes** (Weaponcrafting, runes and inscription (parallel session))
+
+| Donor code | Idea (donor title) | Same idea as |
+|---|---|---|
+| WF1 | Weapons are assemblies | WC1 |
+| WF2 | Material decides limits, skill decides how close you get | WC4 |
+| WF3 | Process steps matter | WC3 |
+| WF4 | Heat treatment as the classic choice | WC3 |
+| WF5 | Fit to the wielder | WC5 |
+| WF7 | Signature marks | SU3, WC10 |
+| WF10 | Non-metal weapons | WC11 |
+| WF11 | Ammunition and consumable weapons | WC11, MKR-WC7 |
+| WF12 | Armor follows the same model | WC11, MKR-AR1 to MKR-AR6 |
+| WP1 | Wear and maintenance | WC7 |
+| WP2 | Repair vs reforge | WC8 |
+| WP3 | History log | WC10 |
+| WP4 | Naming | WC10, SU4 |
+| WP5 | Bond growth | WC9 |
+| WP7 | Breaking | WC8, MKR-WC10 |
+| RU1 | A rune is a small program on a carrier | RN1 to RN4 |
+| RU2 | Grammar | RN2 |
+| RU3 | Runes are knowledge first | RN10 |
+| RU4 | Carrier limits | RN3, RN5 |
+| RU6 | Power source and upkeep | RN4, RN7 |
+| RU7 | Misfire and backlash | RN9 |
+| RU8 | Deciphering found runes | RN10 |
+| RU11 | Runes on bodies | RN12, MKR-RN6 |
+| RU12 | Runes in places | RN12 |
+| RU13 | Reading runes reveals intent | RN11 |
+| WFI-OM4 | Wands and foci | MKR-OM2 |
+| WFI-OM6 | Jewelry and trinkets | MKR-OM1 |
+| WFI-OM7 | Traps and devices | MKR-OM5 |
+| WFI-OM8 | Fusion of finished items | MKR-OM15 |
+| CS1 | Item status window | CR5 |
+| CS2 | Material sight | CR15 |
+| CS3 | Forge preview | CR7 |
+| CS4 | Rune reading | CR2 |
+| CS6 | Weapon voice | CR10 |
+| CS8 | Copy inscription | CR9 |
+| CS9 | Upgrade path display | CR11 |
+| WFI-SB2 | Burns and calluses on a smith's hands (MC13) | MKR-SB3 |
+| WFI-OV1 | One making model for all things | OV |
+| WFI-OV2 | Truth vs knowledge | OV4 |
+| WFI-OV3 | Ceilings from materials, closeness from skill | WC4 |
+| WFI-OV4 | History is part of an item | AB10, WC10 |
+| WFI-OV5 | World laws plug in | OV1 |
+| WFI-OV6 | Everything idles by batch and routine | OV3 |
+| WFI-AB1 | Material | AB2 |
+| WFI-AB2 | Part | AB1 |
+| WFI-AB3 | Assembly | AB1 |
+| WFI-AB4 | Process record | AB3 |
+| WFI-AB5 | Inscription | AB6 |
+| WFI-AB6 | Effect | AB4 |
+| WFI-AB7 | Knowledge entry | AB7 |
+| WFI-AB8 | Item history | AB10 |
+| WFI-AB9 | World making law | AB11 |
+| WFI-AB10 | Stat derivation | AB4, MKR-IM3 |
+| WFI-IM1 | Vanilla compatibility | IM7 |
+| WFI-IM3 | Save size | IM1 |
+| WFI-IM4 | Pure resolvers | IM2 |
+| WFI-IM5 | Knowledge filter in UI | IM4 |
+| WFI-IM7 | Content scale | IM6 |
+| WFI-IM8 | Browser proof | IM9 and the AGENTS.md verification section |
+
+**REV codes** (Weaponcrafting, runes and reveal)
+
+| Donor code | Idea (donor title) | Same idea as |
+|---|---|---|
+| REV-WC1 | Weapons from parts | WC1 |
+| REV-WC2 | Technique changes the result | WC3 |
+| REV-WC3 | Weapons that grow with their owner | WC9, MKR-AB9 |
+| REV-WC6 | Named weapons and lineage | WC10, SU4 |
+| REV-WC8 | Maintenance as gameplay | WC7 |
+| REV-WC9 | Commissions and smith reputations | WF8, MKR-WC13 |
+| REV-WC10 | Testing and trials | MKR-WC11 |
+| REV-RN1 | A symbol grammar per world | RN1, RN2 |
+| REV-RN2 | Surface capacity | RN3, RN5 |
+| REV-RN3 | Resonance and conflict | RN8 |
+| REV-RN4 | Activation and fuel | RN4, RN6 |
+| REV-RN5 | Places as surfaces | RN12 |
+| REV-RN6 | Inscription skill and errors | RU5, RN9 |
+| REV-RN7 | Reading foreign runes | RN10, MKR-RN11 |
+| REV-RN8 | Rune drift and decay | RN7 |
+| REV-RN9 | Runes on bodies | RN12, RU11 |
+| RV1 | Appraisal and identify | CR5 |
+| RV2 | Structural analysis and tracing | CR1, CR9 |
+| RV3 | Status window item view | CR5 |
+| RV5 | Rune readers | CR2 |
+| RV7 | Smith's sense | CS12, RC4 |
+| RV8 | Provenance sight | CR10 |
+| REV-OV4 | Small honest tells | SU7, MKR-SB9 |
+| REV-OV5 | Repair keeps identity | WC8, WP2 |
+| REV-OV6 | Per-world weapon culture | MKR-WC12 |
+| XA1 | Item identity | AB1, MKR-AB12 |
+| XA2 | Composition graph | AB1 |
+| XA3 | Inscription layer | AB6 |
+| XA4 | Bond | MKR-AB9 |
+| XA5 | Effect algebra | AB4 |
+| XA6 | Lens | AB7 |
+| XA7 | Process | AB3 |
+| XA8 | World law adapter | AB11 |
+| REV-IM1 | Hidden properties need a knowledge store from day one | IM4, MKR-IM6 |
+| REV-IM2 | Derived stats are computed, not saved | IM1, MKR-IM3 |
+| REV-IM4 | Seeded outcomes per process step | IM2 |
+| REV-IM7 | Desktop item view | AB12 |
+
+**MKR codes** (Weaponcraft, runes and maker arts)
+
+| Donor code | Idea (donor title) | Same idea as |
+|---|---|---|
+| MKR-WC1 | Weapons as part graphs | WC1 |
+| MKR-WC2 | Geometry is the stat | WC2 |
+| MKR-WC3 | Heat treatment tradeoffs | WC3 |
+| MKR-WC4 | Layers and folding | WC3 |
+| MKR-WC5 | Fit to the wielder | WC5 |
+| MKR-WC6 | Weapon meets technique | WC6 |
+| MKR-WC8 | Edges wear and lives shorten | WC7 |
+| MKR-WC10 | Reforging the broken | WC8 |
+| MKR-RN1 | Runes as a language | RN1, RN2 |
+| MKR-RN2 | One glyph, many meanings | RN2 |
+| MKR-RN3 | Carrier capacity | RN3, RN5 |
+| MKR-RN5 | Erosion and upkeep | RN7 |
+| MKR-RN6 | Body inscriptions | RN12, RU11 |
+| MKR-RN11 | Learning from ruins | RN10 |
+| MKR-RN12 | Generated scripts per world | RN1, RN13 |
+| MKR-OM9 | Awakened weapons | WC9 |
+| RC1 | Item window | CR5 |
+| RC2 | Blueprint eye | CR1 |
+| RC3 | Breaking point sight | CR4 |
+| RC4 | Smith's ear | CS12 |
+| RC5 | Rune reader | CR2 |
+| RC6 | Psychometry | CR10 |
+| RC7 | Potential sight | CR11 |
+| RC9 | Weapon voice | CR6 |
+| RC13 | Structural grasp and copy | CR9 |
+| MKR-SB1 | Temper colors (straw, bronze, purple, blue) and steel's glow appear as text cues before any number | SU1 |
+| MKR-SB2 | Item descriptions change with condition: a new nick, a rewrapped grip, a darker edge | SU5, SU12 |
+| MKR-SB7 | Rumor names your weapon something you never called it. Names diverge by town | SU4 <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+| MKR-OV1 | One maker pipeline | OV |
+| MKR-OV2 | An item is five things | OV |
+| MKR-OV4 | Knowledge is not truth | OV4 |
+| MKR-OV5 | World laws are adapters | OV1 |
+| MKR-OV6 | Conservation by default | OV1 |
+| MKR-OV7 | Idle by default, precision when active | OV3 |
+| MKR-IM1 | Item instance envelope | IM1 |
+| MKR-IM6 | Knowledge store per item | IM4 |
+| MKR-IM7 | Legacy items wrap, not migrate | IM7 |
+| MKR-IM8 | Determinism | IM2 |
+| MKR-IM12 | Tests | IM9 |
+| MKR-AB1 | Process operator | AB3 |
+| MKR-AB2 | Assembly graph (L2) | AB1 |
+| MKR-AB3 | Pattern graph (L3) | AB6 |
+| MKR-AB4 | Material record (L1) | AB2 |
+| MKR-AB5 | Condition vector and wear law | AB9 |
+| MKR-AB6 | Knowledge and fidelity store | AB7 |
+| MKR-AB7 | Derived profile adapter | MKR-IM3 |
+| MKR-AB8 | Receipt log / biography | AB10 |
+| MKR-AB10 | World law adapter | AB11 |
+| MKR-AB12 | Entity reference scheme | AB1 |
+
+### Round 4 moved rows: distinct ideas, text as written
+
+Rows with no canonical equivalent, moved verbatim with their donor codes. Table columns differ by donor section, so each group keeps its own header.
+
+**WFI: 1. Forging and making weapons (WF)**
+
+| Code | Consideration | Default | Why it matters |
+|---|---|---|---|
+| WF6 | **Style schools** | Smithing traditions (regional, sect, guild) each favor certain shapes and processes and teach techniques. | Teachers and places matter (crafting doc MK). |
+| WF8 | **Commissions** | NPCs order weapons to spec; delivered work builds renown (QP, MDQ10). | Crafting connects to the quest board. |
+| WF9 | **Failures teach** | A cracked blade still yields knowledge of the material (knowledge record). | Failure moves you forward. |
+
+**WFI: 2. A weapon's life (WP)**
+
+| Code | Consideration | Default | Why it matters |
+|---|---|---|---|
+| WP6 | **Heirloom weapons** | Passed down with history; heirs get the item, not the skill (LR3, LR4). | Ties to succession. |
+| WP8 | **Theft and recovery** | Stolen named weapons can be traced by their mark or history (QT3). | Items carry stories across owners. |
+
+**WFI: 3. Runes and inscription (RU)**
+
+| Code | Consideration | Default | Why it matters |
+|---|---|---|---|
+| RU5 | **Precision** | Hand steadiness, tools and time decide how clean a line is; sloppy lines weaken or twist the effect. | Skill without dice. |
+| RU9 | **Composition discovery** | New combinations can be found by experiment; some are dangerous, some are lost lore. | Player creativity with limits. |
+| RU10 | **Erasing and overwriting** | Runes can be scraped, burned out or overwritten, sometimes leaving residue. | Items change over time. |
+| RU14 | **Runes as language and culture** | Each culture's script carries history; runes can be words as well as power (PROCEDURAL_STORY B5). | Lore depth. |
+
+**WFI: 4. Other making near these (OM)**
+
+| Code | Consideration | Default | Why it matters |
+|---|---|---|---|
+| WFI-OM1 | **Enchanting** | Adding an effect to an item through a ritual, rune or infusion, with slots and conflicts. | Common fantasy craft. |
+| WFI-OM2 | **Socketing and gems** | Gems or cores set into fittings add properties; removal may destroy one or the other. | Modular upgrades. |
+| WFI-OM3 | **Golems, constructs and puppets** | Body (materials) plus control program (runes) plus power. | Same abstractions combined. |
+| WFI-OM5 | **Talismans and charms** | Single-use inscribed paper or objects; batchable. | Idle production. |
+
+**WFI: 5. Cheats that show these things (CS)**
+
+| Code | Cheat | What it shows | Limits |
+|---|---|---|---|
+| CS5 | **Recipe or pattern sense** | Outlines of designs never seen: a shape, a fold pattern, a circle layout. | Outline only; execution still needs skill (crafting doc CT4). <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+| CS7 | **Perfect line** | Removes precision error when inscribing (crafting doc CT2 for runes). | A wrong design is still wrong. |
+| CS10 | **System smithy** | An outside shop or forge that crafts with system rules (Solo Leveling style). | Imported goods still face local laws (crafting doc CT4). |
+| CS11 | **Absorb a weapon's skill** | Learn a technique from a weapon's history (Shadow Slave style memories, Tensura absorption). | World-specific; follows carry rules (LR4). |
+| CS12 | **Smith's sense (base, not cheat)** | Tap a blade and hear its temper; a common trained skill in smithing cultures. | Shows the line between skill and cheat. |
+
+**WFI: 6. Per world (WW)**
+
+| Code | World | Making law worth modeling |
+|---|---|---|
+| WFI-WW1 | Harry Potter | Wandlore (core, wood, wand chooses the wizard); Ancient Runes as a school subject; goblin metalwork. |
+| WFI-WW2 | D&D | Magic item crafting by budget and time; scrolls, glyphs and symbols by spell; intelligent items. |
+| WFI-WW3 | Mother of Learning | Shaping, ward schemes, golem and enchanted item crafting with mana. |
+| WFI-WW4 | LOTM / CoI | Mystical items carry Beyonder characteristics and negative effects; symbols and rituals matter. |
+| WFI-WW5 | Shadow Slave | Memories (items) the Spell describes in runes; runes as the Spell's readable text. |
+| WFI-WW6 | JJK | Cursed tools, technique-imbued objects, binding vows on items. |
+| WFI-WW7 | Bleach | Zanpakuto are souls, not crafted; Kido incantations; Quincy tools. |
+| WFI-WW8 | Naruto | Ninja tools, sealing jutsu (fuinjutsu) as inscription, storage scrolls, explosive tags. |
+| WFI-WW9 | FMA | Transmutation circles; equivalent exchange on materials; automail engineering. |
+| WFI-WW10 | Fate | Mystic codes, Noble Phantasms as legends, not crafted; runes as a magecraft line. |
+| WFI-WW11 | HxH | Nen imbued into objects; conditions and vows strengthen them. |
+| WFI-WW12 | One Piece | Graded named swords, seastone, Den Den Mushi and dial technology. |
+| WFI-WW13 | Chainsaw Man | Devil contracts rather than crafting; few made items matter. |
+| WFI-WW14 | A Soldier's Life, TTKS | From private packs; codex lane checks. |
+| WFI-WW15 | Original worlds | One small original making law per world (crafting doc WL8). |
+
+**WFI: 7. Subtle stuff (SB)**
+
+| Code | Detail | Why it matters |
+|---|---|---|
+| WFI-SB1 | The smithy is hot and loud; neighbors complain at night. | Place texture and social cost. |
+| WFI-SB3 | A new blade's first nick is mentioned once. | History begins. |
+| WFI-SB4 | Rune ink smells of iron or herbs by medium. | Sense detail per tradition. |
+| WFI-SB5 | A misread rune in an old ruin, corrected later in the notebook. | Knowledge with revision. |
+| WFI-SB6 | A famous maker's mark faked on cheap work at the market. | Forgery as world texture. |
+| WFI-SB7 | A weapon hums near the runes of its own tradition. | Hint of hidden links without stats. |
+| WFI-SB8 | Apprentices sweep, sort scrap and fail before they forge. | Training feels real. |
+| WFI-SB9 | A customer comes back to complain or to thank. | Work has afterlives (MDQ9). |
+| WFI-SB10 | Scrap and offcuts pile up and can be sold or reused. | Material conservation felt. |
+
+**WFI: 10. Implementation implications (IM)**
+
+| Code | Consideration | Implication |
+|---|---|---|
+| WFI-IM2 | **Item identity** | History and names need a stable per-item id; vanilla stacks items by template and quality. Unique items must stop stacking. Migration: only new crafted or named items get ids. <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+| WFI-IM6 | **Rune evaluation safety** | Inscription programs are data evaluated by a bounded interpreter: no loops without limits, capped symbol counts, validated grammar. |
+
+**REV: WC. Weaponcrafting**
+
+| Code | Idea | Notes |
+|---|---|---|
+| REV-WC4 | **Weapons shaped by the wielder.** Recalled: Demon Slayer nichirin blades change color with the user; HP wands choose the wizard; Nen users shape conjured weapons by their type and vows. | The owner is an input to the item, not just a holder. |
+| REV-WC5 | **Weapons with souls or wills.** Sentient blades, cursed tools (JJK, recalled), demon swords, spirit-bound relics: preferences, refusals, hunger, bargains. | Items as story actors (story P3 round 3). |
+| REV-WC7 | **Canon-reserved weapons.** Noble Phantasms, legendary swords and unique artifacts are found, earned, repaired or copied only through a world's own route, never minted randomly. | P9 reserved-item rule. <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+
+**REV: RV. Cheats that reveal**
+
+| Code | Lens | Source patterns (recalled) |
+|---|---|---|
+| RV4 | **Eyes.** Sight of auras, flows, weak points, lines of death or lies. | Six Eyes (JJK), Gyo (HxH), Sharingan (Naruto), Mystic Eyes of Death Perception (Fate), Spirit Vision (LOTM) |
+| RV6 | **Analysis advisors.** An inner voice that explains properties and suggests recipes. | Great Sage (Slime), system assistants |
+
+**REV: OV. Overarching and subtle**
+
+| Code | Idea | Notes |
+|---|---|---|
+| REV-OV1 | **Everything made is a story object.** First blood, naming, breaking and reforging write receipts that story generators read. | The spine's receipt log is the bridge. |
+| REV-OV2 | **The same rule set for NPC makers.** NPC smiths and rune masters use the player's rules, so their products are coherent and comparable. | CR4 makes the same point for crafting. |
+| REV-OV3 | **Economies react to good gear.** Well-armed villages change bandit behavior; a famous rune ward raises land value. | Story J economy, I conflict. |
+
+**REV: IM. Implementation implications**
+
+| Code | Implication |
+|---|---|
+| REV-IM3 | **Inscription validation is a parser.** A rune composition is checked like code: grammar, capacity, connections, conflicts. That makes the lint tooling (P15, P40) reusable for content and for player-made runes. |
+| REV-IM5 | **Registry entries, not main.js edits.** New part types, symbols, lenses and bond rules register in their own files (story BJ3). |
+| REV-IM6 | **Canon-reserved IDs are checked at generation time,** not just in docs. |
+
+**MKR: WC. Weaponcraft**
+
+| Code | Idea | Notes |
+|---|---|---|
+| MKR-WC7 | **Ranged makers.** Bowyer (draw weight, limb wood, string), fletcher (spine, fletching, head), crossbows, firearms and ammunition where a world allows. | CO9 ammunition stacks already carry coatings. |
+| MKR-WC9 | **Weapons are tools too.** Machete clears brush, axe fells trees, spear fishes, knife cooks. | Life-sim fit: gear has consumers outside combat. |
+| MKR-WC11 | **Proof and testing.** Test cuts, proof marks on armor, ring tests, bend tests. Testing is an observation route that reveals properties at a cost (a test can damage). | Honest knowledge without a cheat. |
+| MKR-WC12 | **Weapon law and custom.** Carry permits, peace-bonding, sword hunts, sect rules, duel etiquette. A fine blade in the wrong town is trouble. | World adjective, not a ban. |
+| MKR-WC13 | **Commissions for others.** Arm a companion, an apprentice, a village militia. NPC users' results change your reputation. | Links MK6 commissions and [companions](COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md). |
+| MKR-WC14 | **Monster-part weapons.** Fangs, horns, carapace, venom sacs. Harvest quality depends on how the creature died and how it was carved. | P8 creature resources own the harvest. |
+
+**MKR: AR. Armor and protection**
+
+| Code | Idea | Notes |
+|---|---|---|
+| MKR-AR1 | **Coverage map and layers.** Padding under mail under plate; gaps at joints; what covers what. Hits resolve against the layer at that spot. | Reads a body map the nonhuman docs already need. |
+| MKR-AR2 | **Weight, heat and stamina.** Armor costs breath on long marches and in hot climates; desert worlds punish plate. | A real cost, not a speed stat. |
+| MKR-AR3 | **Fitting and refits.** A growing child, a pregnancy, a body change or a transformation needs refitting. | Ties age phases and transformation docs. |
+| MKR-AR4 | **Damage meets material.** Cut, pierce, crush, heat, curse, soul. Each material answers each differently. | One response table per material family. |
+| MKR-AR5 | **Shields as spent defense.** Shields split and get replaced; a shield wall is a group object. | Consumable defense fits idle supply loops. |
+| MKR-AR6 | **Clothes as armor where magic allows.** Enchanted robes, protective charms in cloth, fashion vs function, social signals of rank. | HP K5 protective clothing is a sourced example (P6 PATTERNS). |
+
+**MKR: RN. Runes, inscriptions and patterns**
+
+| Code | Idea | Notes |
+|---|---|---|
+| MKR-RN4 | **Triggers and logic.** Conditions (touched, spoken, blood, moonlight, intent, proximity) and gates (and, not, delay, counter) make runes a programming toy. | Noita wands and Factorio circuits feel. Execution trace required, as P6 says. |
+| MKR-RN7 | **Formations at scale.** Sect barriers, city wards, anchor stones. A lost node weakens the whole; sieges hunt nodes. | Situated network; site law. |
+| MKR-RN8 | **Reading and breaking others' work.** Decipher, counter-rune, smudge, hijack, reroute. | Defense and heist content from the same graph. |
+| MKR-RN9 | **Deep words.** Knowing a rune's older or truer meaning strengthens it (true names, words of power). | A knowledge ladder with a real consumer. |
+| MKR-RN10 | **Runes as binding.** Seals on spirits, written contracts, oaths in stone. Breaking one has the consequences it says. | Links pacts and contracts work. |
+| MKR-RN13 | **Copying hazards.** A miscopied rune runs as what was written. Forgeries, student errors and drift lineages follow. | KN1 and KN4 for patterns. |
+| MKR-RN14 | **Rune crafting as a resource loop.** Make blank runes from essence at an altar (RuneScape-style runecrafting) and spend them on spells. | A second, simpler mode for worlds that want it. |
+
+**MKR: OM. Other maker arts**
+
+| Code | Art | What makes it distinct |
+|---|---|---|
+| MKR-OM1 | **Gems and jewelry** | Cut quality and facets channel or store power; gems as batteries, foci or soul containers. |
+| MKR-OM2 | **Wands, staffs and foci** | Core plus wood plus maker; allegiance and fit (HP wandlore is a public franchise rule). |
+| MKR-OM3 | **Leather and hide** | Tanning, curing, monster hide traits; quality from harvest and process. |
+| MKR-OM4 | **Glass and lenses** | Bottles, then lenses, then telescopes, microscopes and scrying glass. Links containers and research. |
+| MKR-OM5 | **Clockwork and traps** | Springs, gears, triggers; traps as placed devices with real triggers (shares MKR-RN4 logic). |
+| MKR-OM6 | **Gunsmithing and mods** | Receiver plus mods (Fallout workbench shape); tech tiers. |
+| MKR-OM7 | **Soul and memory crafting** | Shards, memories, soul-forged gear (Shadow Slave K10 keeps forging and weaving distinct). |
+| MKR-OM8 | **Cursed tools** | Binding a curse or a vow into an object (JJK cursed tools). Costs land on maker or user. |
+| MKR-OM10 | **Living crafts** | Grafting, bred bows, fungal armor, symbiote blades, bio-engineered tools. Shares genetics records. |
+| MKR-OM11 | **Woodwork and home** | Furniture, tools, boats, a home that shows your work. Life-sim payoff. |
+| MKR-OM12 | **Paper, ink and binding** | Scroll and talisman media, manuals, ledgers. Feeds RN carriers and KN books. |
+| MKR-OM13 | **Masks and disguises** | Crafted identity: masks, makeup, forged papers. Links identity laws. |
+| MKR-OM14 | **Instruments** | Tone from wood and build; enchanted music where a world allows. P6 M5 owns it. |
+| MKR-OM15 | **Tech blueprints and fusion** | Learn blueprints, combine two into a new one (Legendary Mechanic shape, MEMORY). |
+| MKR-OM16 | **Gu and living artifacts** | Refining and combining living artifacts (Reverend Insanity Gu, MEMORY, to verify). |
+
+**MKR: WQ. World laws for weapons and runes**
+
+| Code | World | Law worth modeling | Evidence |
+|---|---|---|---|
+| WQ1 | Skyrim | Smithing tiers by material, tempering, enchanting with soul gems, disenchant to learn | MEMORY |
+| WQ2 | Elden Ring | Smithing stone upgrades, affinities and Ashes of War on weapons, weapon scaling by stat | MEMORY |
+| WQ3 | Fallout | Weapon and armor mods at workbenches, scrapping for parts, power armor frames | MEMORY |
+| WQ4 | D&D 2024 | Magic item attunement with a slot limit (a world adjective), crafting by tools, time and budget | MEMORY |
+| WQ5 | Fate | Mystery grows with age; mystic codes; tracing and projection as structural grasp | MEMORY |
+| WQ6 | Jujutsu Kaisen | Cursed tools, binding vows that trade a restriction for power | MEMORY |
+| WQ7 | Naruto | Sealing and storage seals, explosive tags, chakra-conductive metal | MEMORY |
+| WQ8 | Bleach | Zanpakuto born from the soul, name learned through inner dialogue, shikai and bankai stages | MEMORY |
+| WQ9 | Fullmetal Alchemist | Transmuting weapons from surroundings, equivalent exchange, circle-free transmutation as a rare trait | MEMORY |
+| WQ10 | Harry Potter | Wandlore, goblin-made silver that takes in what strengthens it, protective clothing charms | P6 cites K5; rest MEMORY |
+| WQ11 | Mother of Learning | Prepared steel and golem parts, ward and formula geometry stabilizing mana | SHOWN in P6 K6-K8 |
+| WQ12 | Shadow Slave | Forging and Memory weaving are distinct; shard roles and semantic fit limit enchantments | SHOWN in P6 K10 |
+| WQ13 | Lord of the Mysteries | Sealed artifacts with negative effects; Beyonder characteristics in items | MEMORY |
+| WQ14 | Original worlds | One small new law each: blades that only cut what their maker hated, runes that read the reader | INFERRED <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+
+**MKR: RC. Cheats that would show this**
+
+| Code | Cheat | Shows | Notes |
+|---|---|---|---|
+| RC8 | **Blueprint fusion** | Preview of combining two known designs | MKR-OM15 shape; preview is pure and spends nothing. |
+| RC10 | **Uses-left counter** | Exact durability or charge remaining | Small, beloved, idle friendly. |
+| RC11 | **Fit meter** | Wielder-weapon and technique-weapon match | Answers MKR-WC5/MKR-WC6 at a glance. |
+| RC12 | **Array sight** | Formation lines, nodes and traps in the world | MKR-RN7/MKR-RN8 scouting. |
+| RC14 | **Buyer sense** | What each buyer would pay and why | EC economy view. |
+| RC15 | **Masterwork omen** | That the next job's committed draw is exceptional | Safe because reload never rerolls; it is foresight, not a reroll. <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+| RC16 | **Forge memory** | Replays the moment an item was made, showing each choice | A learning cheat: study a master's process. |
+
+**MKR: SB. Subtle stuff**
+
+| Code | Detail | Why it matters |
+|---|---|---|
+| MKR-SB3 | The smith's body records the work: burns, calluses, a bad shoulder, sharper eyes in low light. | Craft shapes the maker (RS2 exposure). |
+| MKR-SB4 | Humidity, cold and altitude shift forging and quench results a little. | RX1/RX2 site and time laws at small scale. |
+| MKR-SB5 | Guards eye a fine blade; thieves note it; experts name its maker. | Gear has a social footprint; pairs with MKR-SB7 rumor names. |
+| MKR-SB6 | Shop jargon is learnable knowledge; using the right word with a smith earns trust. | Language as a skill with a social consumer. |
+| MKR-SB8 | Hand familiarity: switching weapons costs comfort for a while. | Reuses the field-familiarity work in absorb-all P23. |
+| MKR-SB9 | Rune ink glows faintly near related magic; a careful player notices. | A free F0 reveal for attentive play. |
+| MKR-SB10 | An apprentice's first piece is weak and kept anyway. | Sentiment as a real record with a relationship consumer. |
+| MKR-SB11 | Carried weight shows up as travel fatigue, not as a hidden cap. | Body realism without a menu wall. |
+| MKR-SB12 | A seal or rune half-remembered from childhood resurfaces in a ruin. | Continuity hook across age phases. |
+
+**MKR: OV. Overarching rules**
+
+| Code | Rule |
+|---|---|
+| MKR-OV3 | **Every stat has a consumer.** No geometry, rune or trait ships without a rule that reads it (P6 "no empty controls"). |
+| MKR-OV8 | **Makers live in the social web.** Reputation, commissions, rivals, law and gifts read real item properties. |
+
+**MKR: IM. Implementation implications**
+
+| Code | Implication | Notes |
+|---|---|---|
+| MKR-IM2 | **Part interface registry.** Socket types, fit tolerance, swap rules. Authored once per family. | Small, shared by weapons, armor, tools, devices. |
+| MKR-IM3 | **Derived profile as a pure function.** (item, wielder, technique, world law) → combat or work profile, cached as a snapshot and invalidated by receipts. | The derived-snapshots dispatch is the natural owner. Never derive on each render. <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+| MKR-IM4 | **Pattern validator and executor.** Validate ports and topology before spend; evaluate triggers at tick boundaries; one energy ledger per reservoir. | Budget the trigger checks per tick for idle. |
+| MKR-IM5 | **Wear from use receipts, batched.** Condition updates per job or per fight, never per swing during offline catch-up. | Keeps offline cost bounded. <!-- slip-ok: moved verbatim from the donor palette at d415ef656 --> |
+| MKR-IM9 | **Combat must read the profile.** Today weapons are authored items; combat needs one adapter that reads derived reach, cut, thrust and durability. | Verify the current combat path before any weapon slice (lane W4). |
+| MKR-IM10 | **Text from properties.** Item names and descriptions generate from properties and condition through a grammar pack, so MKR-SB1/MKR-SB2 come for free. | Shares story grammar packs. |
+| MKR-IM11 | **Scale.** Thousands of items across worlds: index by owner and location, page lists, lazy-derive. | Pairs with [UI at scale](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md). |
+
+**MKR: AB. Abstractions needed**
+
+| Code | Abstraction | Shared by | Status |
+|---|---|---|---|
+| MKR-AB9 | **Bond or attunement relation** between actor and item | Weapons, wands, zanpakuto, familiars | Shares the companions bond record |
+| MKR-AB11 | **Station with state** (forge, altar, workbench, array site) | All arts | RX4 station quirks |
+
+### Round 4 moved text blocks
+
+**REV: reveal-lens rules** (from the reveal companion, text as written)
+
+**Subtle lens rules.** Lenses have scope (what kinds of properties), depth (how
+much), cost (stamina, mana, sanity), range, and error rate. Some lie or simplify.
+Hidden properties stay hidden until a lens or an experiment reveals them, and what
+was revealed is recorded as knowledge (story S-4), so it survives reload without
+re-rolling. Sealed world secrets are only revealed by their authored discovery
+route; a lens can be that route only when the secret's file says so.
+
+**REV: item identity authority** (2026-10-14, agreed with the crafting and potions session; the Round 2 note above restates it)
+
+**Authority (2026-10-14, agreed with the Procedural crafting and potions session):**
+P2's live product and knowledge records (`src/mixture_state.js`,
+`src/mixture_native.js`, `src/active_effects.js`) are the item identity and
+knowledge authority. XA entries are adapters onto them, not a parallel model.
+Reveal lenses (XA6, RV) extend the crafting palette's CT codes and CR2.
+
+**MKR: fidelity tiers for reveal cheats**
+
+Fidelity tiers, illustrative: **F0** a feeling ("this blade is wrong") → **F1**
+category and name → **F2** numbers → **F3** hidden properties → **F4** history
+and makers → **F5** what it could become.
+
+**MKR: reference points** (the maker-arts author's recall, not verified)
+
+Reference points (my knowledge, not verified this session): Tinkers' Construct
+(part-built tools), Monster Hunter (monster-part weapons), Kingdom Come:
+Deliverance (sharpening, forging), Noita (wand programming), Heaven's Vault
+(inferring a script), RuneScape (runecrafting), Elden Ring (Ashes of War),
+Skyrim (smithing and enchanting), Fallout 4 (mods), Dwarf Fortress (material
+response, named artifacts).
+
+**Code-state claims as of 2026-10-14** (history; Round 3 corrected the part and wear claims, check the code before relying on any)
+
+- Inscription companion: **Code today (shown).** Vanilla weapons are assembled from components: blade or head plus handle, each with a `component_type` (`src/items.js:26-40`, `:397-398`). Quality maps to rarity with an extra multiplier on top (`src/items.js:13-24`). Armor has interior components by slot (`:127-138`). `src/crafting_recipes.js` (2,118 lines) holds recipes; `src/alloy_equipment.js` derives a brace's stats from an authored alloy profile. There is no rune, inscription, enchantment or weapon-history system.
+
+- Maker-arts palette: Code state, checked 2026-10-14: `src/crafting_recipes.js` picks authored result IDs and assembles template parts; `src/alloy_equipment.js` derives one brace's stats. Weapons appear in `src/items.js` and `src/enemies.js` as authored items. No rune grammar, part graph or weapon geometry exists in source. Nothing below is implemented.
+
+**Earlier build orders and smallest slices** (superseded by the Round 3 top picks; kept so their codes still read)
+
+Inscription companion:
+
+1. **Guard and pommel parts** added to vanilla's head plus handle assembly, each with material and quality (WF1, WFI-AB2-WFI-AB3).
+2. **A maker's mark and five-line history** on newly crafted weapons (WF7, WP3, WFI-AB8), with stable ids only for new items (WFI-IM2). <!-- slip-ok: moved verbatim from the donor palette at d415ef656 -->
+3. **One rune on one carrier**: a single learned symbol that sharpens or warms a blade, with precision from skill (RU1-RU5, WFI-AB5).
+4. **A base smith's sense** (CS12) and one cheat version (CS1 item status window) to show the line between skill and cheat.
+
+Codex lanes `docs/gm/dispatch/making-runes-2026-10-14/` C1 and C2 were stopped as duplicates of the primary doc's lanes.
+
+Reveal companion:
+
+Proposal only. Decide XA1 (item identity with knowledge state) and XA6 (lens)
+first, because they shape every item UI and every reveal cheat. Then a first
+playable slice: REV-WC1 weapon from two parts with one technique choice, one RV1
+appraisal lens revealing one hidden trait, and REV-WC6 a name earned from a recorded
+deed. Runes (XA3) follow once the item model holds.
+
+Maker-arts palette:
+
+Proposal only.
+
+1. Merge P2 mixing and the P1 streams first; both are prerequisites here.
+2. Unify MKR-AB1 process operator and MKR-AB6 knowledge store, since every art and
+   every reveal cheat leans on them.
+3. Build P6 S3-A (two braces) and extend it with MKR-WC2 geometry and MKR-WC3 heat
+   treatment, plus MKR-IM9's combat adapter, to get the first real weapon.
+4. RC1 item window and RC10 uses-left counter as the first reveal cheats.
+5. P6 S6-A work lamp, then MKR-RN1 rune language and MKR-RN4 triggers on the same graph.

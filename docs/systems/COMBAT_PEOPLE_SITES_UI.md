@@ -1,9 +1,11 @@
 # Combat, people, sites and UI layout: systems map
 
+> Front door: [systems README](README.md) lists every owner of each system (rulebook, representation, code map, palettes, inspector).
+
 Written 2026-10-25 for MAW-X8, by reading host source in the dirty primary checkout.
 Primary checkout `HEAD` and branch base: `3dfc49cf3422c0262d86810df47459f53f3a4a67`; working-tree source may be newer than that commit. This lane's branch began at the same commit. Exact primary source hashes for the representative modules appear below. **VERIFIED** means the cited code was read; **INFERRED** means a consumer relationship follows from imports/calls but was not run; **PROPOSAL** means an example for future plug-in work. A registered/called source path is not proof of browser play. This map does not certify a rebuilt bundle, runtime journey or human acceptance.
 
-Paths and line locators are relative to `src/`, unless prefixed with `docs/`. File lines can drift as shared work continues. The host's accepted rules remain authoritative: combat CBR1-CBR30 in `docs/DOMAIN_RULES.md`, people PIR1-PIR25 and NPC deferral AD33, sites SR1-SR24, and UI UR1-UR69/AD34. This is a locator and fit guide, not a new decision or backlog.
+Paths and line locators are relative to `src/`, unless prefixed with `docs/`. File lines can drift as shared work continues. The host's accepted rules remain authoritative: combat CBR1-CBR30 in `docs/DOMAIN_RULES.md`, people PIR1-PIR25 and NPC deferral AD33, sites SR1-SR24, and UI UR1-UR82 (UR76-UR82 proposed)/AD34. This is a locator and fit guide, not a new decision or backlog.
 
 ## 1. Combat: separate math, encounter ownership and presentation
 

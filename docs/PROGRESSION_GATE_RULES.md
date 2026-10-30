@@ -22,7 +22,7 @@ It composes existing owners and adds only what none of them covers.
 | [Cheat library US1–US6, ST11–ST17](CHEAT_LIBRARY.md#unlocking-the-optional-start-and-keeping-progression-intact-2026-10-13), [UP1–UP10](CHEAT_LIBRARY.md#more-to-consider-the-status-window-unlock-progress-and-random-starts-2026-10-13) | Start and cheat unlocks, unlock progress | Meta gates (GTR19) |
 | [Shounen world gating G1–G8](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#world-gating-and-similar-world-fixtures-2026-10-17) | Gating worlds by fit | World entry gates (GTR19) |
 | [World pass rules](WORLD_PASS_RULES.md) WPR14, WPR31 | Rank gates in coverage, mechanism over item list | Absorbing gates in a pass (GTR5, GTR7) |
-| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1–WA21, WAC9 | Laws as rules and gate modules | Where absorbed gates land (GTR7) |
+| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1–WA53, WAC9 | Laws as rules and gate modules | Where absorbed gates land (GTR7) |
 | [Domain rules](DOMAIN_RULES.md) SLR, CBR, ECR, BHR | Skills and rust, queued outcomes, quotes, bodies | Gate kinds' own mechanisms (GTR3) |
 
 Status: proposed 2026-10-23 from Weibao's request. Defaults for agents; a world

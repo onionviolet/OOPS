@@ -273,3 +273,22 @@ M3 done at the code level, with one deviation from the plan above: LOTM spiritua
 Evidence: `npm run build`, `npm test` 2289 of 2289 (includes the new `tests/meter_bar.test.js`: state direction per kind, bad-spec refusal, LOTM meters mirror the record and add no state), `check:arch` zero growth, `check:rules` pass. Browser, `?lotm_probe=1` emulated at 1920x1080: enrolled, ingested, took the lesson; two `role=meter` bars rendered with `aria-valuetext` "Spirituality 2/3" and "Strain 1/6", widths 66.7% and 16.7%, states updated after the lesson. **Not verified:** pixel appearance (the pane screenshot was 800x600 and the panel stayed hidden behind the title screen, so no screenshot of the bars), the `high` and `full` outlines, 1366x768, and save, reload and import with the new bars (no save shape changed, but not exercised). These stay on the acceptance backlog. Taste unaccepted, nothing committed.
 
 See also (2026-10-19): [CRAFTING_ENGINE Round 6](CRAFTING_ENGINE.md#round-6-2026-10-19-tags-subtle-properties-new-material-families-places-and-display) for tags, material families, harvest places and display (TQ, NX, PG, UV). Proposal only.
+
+## Round 6 (2026-10-30): condition records and paired dials from the similar-games surveys, proposal only
+
+Source: [similar games beyond protolikes](research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md) F6, F7, F11 and the
+[protolike survey](research/PROTOLIKE_FORKS_AND_SIMILAR_GAMES_2026-10-30.md) F5 (IncRPG), F10 (Dao Tree);
+ranked in the [absorption plan](research/ABSORPTION_PLAN_SIMILAR_GAMES_2026-10-30.md). Proposals (AD32). Dominions
+numbers are community-reported and are not copied. The first slice stays WDI60's rule: one real non-default meter end to end.
+
+ACCOUNT FOR NOW
+
+| Code | Item | Default, dial and reason |
+|---|---|---|
+| WDI61 | **One condition record shape across body, items and places** (Ostranauts): an opposing condition removed first, tiers by stat range, a world supplies threshold modifiers, an expiry follow-up. | We already have S16 tags, the effect DSL and the LOTM strain meter, so this is a reading of existing parts, not a new engine. FND5: by default the DSL grows when a second world supplies a second consumer (dial: Weibao may waive it), so name that consumer before any DSL edit (LOTM strain plus HP brewing contamination is the candidate pair). `src/effect_dsl.js` has uncommitted edits; sequence after them. |
+| WDI62 | **Correction: verbs with test-actor/test-target records are already the direction, and the display choice is the opposite.** The S11 expansion engine and ENGINE_AUTHORING hold the record shape; AY2 in the around-you considerations keeps unavailable verbs visible and disabled with a reason (FLR3: feedback when it cannot run). Ostranauts hides the verb. | Default: keep AY2. Dial: a world whose rules hide options the character cannot perceive (TQ6 not perceivable) may hide instead. Reason: hiding suits unknown options, disabled-with-reason suits known ones. |
+| WDI63 | **Paired world dials set by a point budget, negative settings refund points** (Dominions scales). | A creation-screen idea for a world's local rules (for example order against turmoil). Default: three pairs per world, budget small, refunds capped. Reason: it gives "different lives per setting" a front door at start. Contested spread toward local dominion is LATER. |
+| WDI64 | **Mechanisms as tag selectors plus meters** (IncRPG): an activity owns meters and an effect selects by tag. | Already the direction of AD38 and WDI60; record as support, not new work. |
+| WDI65 | **Mostly covered: `scripts/check_content_authoring.mjs` already flags a row whose consumer is dormant or refused; `check_generators.mjs` checks generators have consumers.** Dao Tree adds invariants (no dead multiplier, completability by construction, optional systems as accelerants). | Default: extend the existing check with one rule, a granted effect field with no reader fails; no new script. Level sonnet, low. |
+
+LATER / DELEGATE: open the Ostranauts base-game JSON before any field mapping (survey L2); re-read the Dominions manual for scale effects (survey L3).

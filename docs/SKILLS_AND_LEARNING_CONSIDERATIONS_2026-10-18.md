@@ -632,3 +632,29 @@ credentials or previously earned technique.
 
 Verification: documentation and local-link checks only. EL22 is source-inspected;
 EL23–EL41 are unbuilt proposals. No runtime, rulebook or accepted direction changed.
+
+## Round 5 (2026-10-30): what the similar-games surveys add to practice, proposal only
+
+Source: [similar games beyond protolikes](research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md) F3, F4, F13 and the
+[protolike fork survey](research/PROTOLIKE_FORKS_AND_SIMILAR_GAMES_2026-10-30.md) F10; ranked in the
+[absorption plan](research/ABSORPTION_PLAN_SIMILAR_GAMES_2026-10-30.md). All entries are proposals (AD32). Closed-game
+numbers (DragonRealms, EVE) are not copied; only shapes are. Fit started from SLL12/SLC-P (plateau and simple repetition),
+EL31 (idle training), CRL49 (books after learning) and `src/skill_expansion_content.js`; no third learning ledger (SLR27).
+
+ACT NOW (done): this section; the plan doc records the classifications.
+
+ACCOUNT FOR NOW
+
+| Code | Item | Default, dial and reason |
+|---|---|---|
+| SLC106 | **Advance cost grows with current value.** Daggerfall Unity's uses-to-advance rises with skill value, level and a class multiplier (DFU `FormulaHelper.CalculateSkillUsesForAdvancement`, raw-checked in the survey). Deepens SLL12's plateau: the plateau is a reduced-gain cliff at mastery 4, this is a smooth curve. | Default: keep the SLL12 plateau; offer the smooth curve only for a world that wants many slow skills. Dial: growth rate per skill family. Reason: the plateau is built and verified; a second curve would be a third ledger (SLR27) unless it replaces the plateau's table. |
+| SLC107 | **Absorption band.** Practice fills a per-skill pool shown as a named state; the pool drains with rest or time away, and only drained room accepts more (DragonRealms, community-reported, shape only). | Default: off. Dial: pool size, drain per rest hour, which stat lifts size. Reason: gives idle time a use that is not a bank refund, and explains why grinding one skill for hours has a soft limit without a "once". Must sit on the away-bank spend, not beside it. |
+| SLC108 | **Declared study queue at a stat-set rate** (EVE shape): a learner names what they will study; it runs at a rate set by two stats, and an empty queue wastes the time. | This is EL31 plus a rate rule. Default: queue length 1, rate from the world's own learning stat. Reason: EL31 already says idle training is genuine progression; the new part is only the rate and the "empty queue wastes time" dial. |
+| SLC109 | **Skill groups per tool or material family, with a content hash on the tree** (Veloren). | Family groups are LATER. The hash is a persistence rule: a changed tree shows as a visible respec event, not silent save drift. Needs the migration or compatibility decision AGENTS.md requires; old-save compatibility is currently deferred. |
+
+LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| SLC110 | Playable slice "study hours": a declared study queue (SLC108) spent through the away bank on a book already owned, with the absorption band (SLC107) showing why the third hour teaches less. Host: lead's life, Harry Potter or LOTM book study. | Sonnet, medium; waits for the away-bank lane to land | FLR1-FLR6: a fresh-life route to the queue, panel text in UR70-UR75 shape, an existing consumer (the skill level read by a check), save/reload/export/import. Reopen when `src/away_bank_domain.js` is committed. |
+| SLC111 | Read the Veloren skill curve constants and Severed Heaven's routine-wheel code before copying any number. | Haiku then sonnet, low | Raw file excerpts with paths; no number copied from the survey summaries. |

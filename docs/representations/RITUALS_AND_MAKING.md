@@ -7,6 +7,7 @@ Status: agent proposals, 2026-10-30, from the UI representation wave
 MDL2, MDL7, MDL8 in [UI design core audit](../audits/UI_DESIGN_CORE_AUDIT.md)). Nothing here is
 accepted until Weibao says so (AD32). Proposed UI rules (UR76-UR82) are cited as proposed.
 Making rules [MR1-MR36](../MAKING_RULES.md) bind.
+Rune, inscription and maker-arts design palette (owner): [Weaponcraft, runes and inscription](../WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30). This file covers the screen only.
 
 ## Reading (PRF1)
 

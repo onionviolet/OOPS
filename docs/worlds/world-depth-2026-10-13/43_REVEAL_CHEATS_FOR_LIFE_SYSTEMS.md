@@ -2,7 +2,7 @@
 
 Weibao (2026-10-14): "more to consider? ... Cheats that would show stuff like these and more? ... Abstaction thats needed? Merging, commiting or pushing?"
 
-Proposals only. Nothing here is accepted. Part 41 RV1-RV14 and the primary [weaponcraft palette](../../WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) cover reveal cheats for items and runes. This part applies the same pattern to the life systems in parts 29-38, which no sibling doc covers. Code LR checked free.
+Proposals only. Nothing here is accepted. Part 41 RV1-RV14 and the primary [weaponcraft palette](../../WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) cover reveal cheats for items and runes. This part applies the same pattern to the life systems in parts 29-38, which no sibling doc covers. Code LR checked free. <!-- slip-ok: existing wording; only the link target changed -->
 
 Every row uses the part 41 AX5 reveal-route shape: what layer it reads, level steps, the tell observers notice, and what it never shows. All follow part 39 OA2 (true versus shown) and OA14 (sealed secrets stay sealed). These are cheats by part 28 LS5: they break what locals believe is impossible. Where a world has the ability natively (Legilimency in HP, Insight in D&D, Sharingan reading in Naruto), it is a world skill there, not a cheat.
 

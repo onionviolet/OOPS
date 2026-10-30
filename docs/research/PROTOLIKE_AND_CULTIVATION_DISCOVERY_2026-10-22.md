@@ -8,6 +8,10 @@ evidence boundary.
 2026-10-24 follow-up: [protolike UI references](PROTOLIKE_UI_REFERENCES_2026-10-24.md)
 covers the Cultivate card, job rows and assembly-crafting tabs from supplied screenshots.
 
+2026-10-30 follow-up: [Proto23 forks, protolike fork networks and similar games](PROTOLIKE_FORKS_AND_SIMILAR_GAMES_2026-10-30.md)
+covers the Proto23 GitHub network, forks of NekoRPG, Progress Knight and Idle Loops, and a
+cluster of 2026 cultivation and life-sim incrementals.
+
 Research requested by Weibao: inspect Cultivating All the Above and find similar
 projects absent from our usual references. Follow-up explicitly adds GauTech's
 experimental RPG, btly0711's NekoRPG and Ihtasham42's original Progress Knight.

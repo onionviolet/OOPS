@@ -22,6 +22,25 @@ Update 01:15: wave 1 is merged into `codex/gameplay-foundations`
 (`src/seeded_streams.js`, `mixture_*`, `storylet_*` present) and
 `Math.random` is down to 27 calls.
 
+## Related palettes and history (2026-10-30)
+
+This file owns GR1-GR17. These five dated docs sit beside it; none of them restates the rules, and a rule change is made here and nowhere else. "Current" means its design content still routes work; "history" means read it for why, not for what exists.
+
+- [Procedural generation status](PROCEDURAL_GENERATION_STATUS_2026-10-13.md): the 2026-10-13 map of what the code did, with a 2026-10-18 reconcile note. History for the code rows; the design-coverage table (D1-D10) and proposed order (O1-O5) are dated proposals. Current routing lives in [procgen STATUS](gm/dispatch/procgen-2026-10-13/STATUS.md).
+- [Procedural materials and alchemy audit](PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md): the five-record contract (material, owned batch, process, resolved product, knowledge) and the pure resolver. Current as the design owner for mixing; its working-tree findings are history.
+- [Procedural crafting and consumables](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md): consumables, crafting feel, maker identity, world laws, crafting cheats, economy (PCX and PAU codes). Current palette; the "not merged" code note near its top is superseded by its own update line.
+- [Procedural story and content](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md): the long story-generation palette (the V generator-architecture note this file extends, PS- codes). Current palette; its opening baseline (P3 and P4 unmerged) is history, corrected at its "State change since these lanes ran" note.
+- [Other procedural systems and general opportunities](PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md): the 2026-10-16 palette. Its commissions-first rankings are history; the ruins and world-first focus it records is the current direction.
+
+**Gaps found 2026-10-30 (none fixed here; this pass changed no code):**
+
+- G-a. The status map's code rows predate the merges. F7 says `Math.random` has about 60 call sites with no RNG tests; a recursive grep of `src/` today finds 30 calls in 7 files. D4 (storylets, "One event") and D5 (generated people, listed as varying the death year alone) describe the state before `storylet_deck.js`, `storylet_content.js` and `generated_people.js` landed. Its file:line references (for example `src/main.js:440`) have drifted; the per-save seed is now created near `src/main.js:632`.
+- G-b. The status map's R3-4 row lists three unmerged stale branches and its line 4 calls older rows "unmerged/running"; the 2026-10-18 note already says those rows are superseded, but no row-level refresh was done and no runtime gate was rerun then or now.
+- G-c. [RULES_INDEX](RULES_INDEX.md) "Generators, RNG, seeds" still routes to the status map as the procedural status link. The better route is this file plus procgen STATUS.
+- G-d. The paragraph above ("Verified at write time") quotes 63 then 27 `Math.random` calls; both are dated 2026-10-14 and the count is 30 in 7 files today (recursive grep, including files this doc did not count).
+- G-e. [GROUND_RULES](GROUND_RULES.md) CX4 links GW5 with a `../../../../` path that escapes the repository; the working target is `GENERATION_FOUNDATION_RULES_2026-10-14.md#gw5-causal-commitment-before-observation-2026-10-15`.
+- G-f. The crafting palette's note that P2 is "not merged" (line 26) is still in the file under its 2026-10-14 update line, and the story palette's opening baseline says P3 and P4 are unmerged. Both are stale readings kept for history.
+
 ## The rules (GR)
 
 Each rule names the failure it prevents.

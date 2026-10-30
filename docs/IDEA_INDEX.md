@@ -205,8 +205,8 @@ owns the 2026-10-14 story-generation palette (A-F): casting, hooks, readable fut
 factions, exams, mysteries, canon density and spoilers, story as power, standing
 policies, story QA. Proposals only; lanes P12-P18 in procgen wave 1.
 
-[Weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md)
-owns the 2026-10-14 palette for weapons (WC), armor (AR), runes (RN), other maker
+[Weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30)
+(merged into the weaponcraft owner above on 2026-10-30) held the 2026-10-14 palette for weapons (WC), armor (AR), runes (RN), other maker
 arts (OM), world laws (WQ), reveal cheats (RC), subtle cues (SB), overarching rules
 (OV), implementation implications (IM) and shared abstractions (AB). Proposals only.
 
@@ -279,10 +279,9 @@ Round 5: limits describe the ordinary case and exceptions have routes (TQ250),
 with exception sources, better makers and an exception ledger (TQ251-TQ296).
 Proposals only.
 
-[Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-is a parallel-session duplicate of the weaponcraft palette above; fold its
-distinct rows (vanilla head plus handle assemblies, rune as a program on a
-carrier, base skill vs cheat sight) into the primary, then leave a pointer.
+Weaponcrafting, runes and inscription (parallel-session duplicate) and the reveal
+companion were folded into the [weaponcraft owner](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30)
+on 2026-10-30; the old files are stubs.
 
 [Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
 owns the 2026-10-11 engineering proposal set under I29: save/recovery and history

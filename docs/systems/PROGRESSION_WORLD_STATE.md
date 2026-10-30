@@ -1,5 +1,7 @@
 # Systems guide: progression, world loading, jobs, knowledge, saves
 
+> Front door: [systems README](README.md) lists every owner of each system (rulebook, representation, code map, palettes, inspector).
+
 **Status: reference map, written 2026-10-25 (lane C2). Not accepted direction.**
 Weibao: "we should write down our existing systems to help fit in better ... so
 that there isnt so much hoops in the future". This file says which existing
@@ -11,7 +13,7 @@ Every `file:line` below was read from the working tree on 2026-10-25 (the
 checkout is dirty, so lines may drift; re-grep before citing). Lines marked
 **(inference)** are not directly verified in code.
 
-Rule codes cited: AR1-AR16 ([architecture](../ARCHITECTURE_RULES.md)), GTR1-GTR30
+Rule codes cited: AR1-AR16 ([architecture](../ARCHITECTURE_RULES.md)), GTR1-GTR35
 ([gate rules](../PROGRESSION_GATE_RULES.md)), ASC1-ASC6
 ([cultivation paths](../RESEARCH_CULTIVATION_PATHS.md)), AD5, AD22, AD36, AD38
 ([index](../RULES_INDEX.md)), WPR31 mechanism over item list, MR33 old saves
@@ -137,7 +139,7 @@ closes?, closeReason?, overflow?:{policy, reason}, dials?:{name:{default}}}`.
 `pledges_content.js:28`, `reveal_chain.js:7` (HERB_LESSON_GATE),
 and the read-only view in `chain_inspector.js:86`. Test: `tests/progression_gates.test.js`.
 
-**Maturity.** Wired, thin. Header says proposal (GTR1-GTR20, 2026-10-23).
+**Maturity.** Wired, thin. Header says proposal (GTR1-GTR35; GTR1-GTR20 written 2026-10-23).
 
 **How to plug in.**
 1. Read the [gate rules](../PROGRESSION_GATE_RULES.md) kinds and GTR2 (read the mechanism, not the label).
@@ -151,7 +153,7 @@ and the read-only view in `chain_inspector.js:86`. Test: `tests/progression_gate
 throws (`progression_gates.js:38-40`). Unknown dial names throw at define time.
 `closes` defaults to `persist`. Gates are not saved; only owner state is.
 
-**Owner docs.** [PROGRESSION_GATE_RULES](../PROGRESSION_GATE_RULES.md) (GTR1-GTR30),
+**Owner docs.** [PROGRESSION_GATE_RULES](../PROGRESSION_GATE_RULES.md) (GTR1-GTR35),
 [PROGRESSION_GATE_OVERFLOW_2026-10-23](../PROGRESSION_GATE_OVERFLOW_2026-10-23.md).
 
 ---
@@ -545,6 +547,7 @@ check `validateExpansionState` (`:171`) before adding fields.
 ## S12. Persistence
 
 **Use it for.** Making state survive reload, Export and Import.
+The contract (what a save holds, migration list, compatibility ledger, open gaps) is [SAVES](../SAVES.md); this section is the code map.
 
 **Key API.** `validateSaveEnvelope(original, currentVersion)` (`src/save_files.js:64`)
 chains per-owner validators then `domainRegistry.validate` (`:75`); version check

@@ -1,5 +1,7 @@
 # Making, items and economy: the systems map
 
+> Front door: [systems README](README.md) lists every owner of each system (rulebook, representation, code map, palettes, inspector).
+
 Written 2026-10-25 (lane C1) against the working tree on `640bc884b`. Several cited
 files carry uncommitted edits from other sessions (for example `craft_content_frontier.js`,
 `craft_depth_domain.js`, `components/trader_component.js`), so file:line refs can drift.
@@ -356,7 +358,7 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 
 **How to plug in a world.** (1) Add a `GEAR_WORK_LAWS[worldId]` row; (2) give component templates `material_strength`, `material_toughness` (and optional weight and warmth); (3) add a `WORLD_AFFIX_DIALS` entry; (4) route `configureGearWorkshop` ports (`world`, `stationTier`, `skillLevel`) for that world.
 
-**Owner docs.** `docs/WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md`; gear rules GDP1-GDP38 are cited in `gear_work.js:1` (the doc was not located this pass).
+**Owner docs.** `docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md`; gear rules GDP1-GDP38 are cited in `gear_work.js:1` (the doc was not located this pass).
 
 **Gotchas.** Worked gear must be equipment with components, not structured equipment (`gear_work.js:122-124`). Quote must match at execute or it throws (`gear_workshop_domain.js:48`).
 

@@ -4,7 +4,7 @@
 
 W1, documentation only. Completed WQ1-WQ14 review, all 25 immediate world-folder dispositions at final inventory, all 17 immediate full-book-folder dispositions, and two priority book-source supplements. Wrote only this file and [W1 report](../gm/dispatch/maker-arts-2026-10-14/W1_REPORT.md). No gameplay, library, save, bundle, test, commit or source-owner changes. No files named `SECRETS*` opened.
 
-Resume with the [root palette](../WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md), its live owners and the source gates below. This is a dated consideration palette, not accepted design or implementation. “Fits now” means **fits the proposed era and entrant**, not playable in today's build. The current canon-first order stands; Skyrim, Fallout and Elden Ring remain inactive.
+Resume with the [root palette](../WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30), its live owners and the source gates below. This is a dated consideration palette, not accepted design or implementation. “Fits now” means **fits the proposed era and entrant**, not playable in today's build. The current canon-first order stands; Skyrim, Fallout and Elden Ring remain inactive.
 
 ## Scope and reading key
 

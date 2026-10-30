@@ -6,7 +6,7 @@ code record it; everything else is a proposal from the cast-lives sessions.*
 
 This guide reconciles how YAIRPG turns a book into a playable life: the design in
 [LEAD_LIFE_SYSTEMS_DESIGN](gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md)
-(LSD1-LSD256), the timeline standard, the absorption and cast-lives rules, the reader
+(LSD1-LSD470; this guide covers LSD1-LSD256), the timeline standard, the absorption and cast-lives rules, the reader
 schemas and Weibao's own entries in [USER_VISION](USER_VISION.md). It summarizes and
 links; the owners keep their tables. Where this guide and an owner disagree, the owner wins
 and this guide is corrected.
