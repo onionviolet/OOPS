@@ -33,3 +33,21 @@ export function legsFromRoutes(entries, opts = {}) {
     }
     return [...best.values()];
 }
+
+/**
+ * Legs for a host that lists places and walk moves but has no route row (the LOTM Tingen host today): a move names its place with
+ * `move.to` when the host says so, and otherwise by its "Walk to {place} · " label. This is the one place that still reads the label;
+ * delete the fallback when the host puts `to` on its moves (needs the book_world_lotm_host.js owner). Places the seat has not been
+ * told of get no leg (SR9). window, when a move carries one, keeps the {hours:[open,close], text, waitMinutes} shape of legsFromRoute.
+ */
+export function legsFromMoves(view) {
+    const moves = Array.isArray(view?.moves) ? view.moves : [];
+    const targetOf = (m, place) => m.to === place || (m.to === undefined && typeof m.label === 'string' && m.label.startsWith(`Walk to ${place} \u00b7 `));
+    const legs = [];
+    for (const p of Array.isArray(view?.places) ? view.places : []) {
+        if (p.here) continue;
+        const m = moves.find(m => targetOf(m, p.place));
+        if (m) legs.push({to: p.place, minutes: p.minutes, moveId: m.id, eligible: !!m.eligible, reasons: [...(m.reasons || [])], ...(m.window ? {window: m.window} : {})});
+    }
+    return legs;
+}

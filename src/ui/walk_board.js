@@ -17,7 +17,9 @@ export function walkBoard(view, {move, onToggleMap, mapShown = false} = {}) {
     const moves = Array.isArray(view?.moves) ? view.moves : [];
     const known = new Set(places.map(p => p.place));
     const people = (Array.isArray(view?.people) ? view.people : []).filter(person => known.has(person.place));
-    const moveFor = place => moves.find(m => typeof m.label === 'string' && m.label.startsWith(`Walk to ${place} · `)) || null;
+    // Legs [{to, minutes, moveId, eligible, reasons, window?}] name the move for each place; no label is parsed here.
+    const legs = Array.isArray(view?.legs) ? view.legs : [];
+    const moveFor = place => { const leg = legs.find(l => l.to === place && l.moveId); return leg ? {id: leg.moveId, eligible: leg.eligible, reasons: leg.reasons, window: leg.window} : null; };
     const here = places.find(p => p.here) || null;
     const away = places.filter(p => !p.here && Number.isFinite(p.minutes))
         .sort((a, b) => a.minutes - b.minutes || (a.place < b.place ? -1 : a.place > b.place ? 1 : 0));
@@ -53,6 +55,7 @@ export function walkBoard(view, {move, onToggleMap, mapShown = false} = {}) {
                 button.addEventListener('click', () => { if (move && !button.disabled) move(walk.id); });
                 row.append(button);
                 if (!walk.eligible) row.append(el('small', reasons, {class: 'walk-board-reason'}));
+                if (walk.window?.text) row.append(el('small', `Open ${walk.window.text}${walk.window.waitMinutes > 0 ? ` · wait ${walk.window.waitMinutes} min` : ''}`, {class: 'walk-board-window'}));
             }
             list.append(row);
         }

@@ -9,6 +9,7 @@ import {ladderFigureSpec} from './ability_ladder_figure.js';
 import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
 import {walkMapBlock} from './ui/walk_map.js';
 import {walkBoard} from './ui/walk_board.js';
+import {legsFromMoves} from './read_models/travel_legs_bridge.js';
 import {renderCrossingThreshold} from './ui/crossing_threshold.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
 import {mountWorkroomTabs} from './book_world_lotm_tabs.js';
@@ -256,11 +257,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   // RPX14 round 2: one departures board (nearest first, walk buttons in their rows) replaces the Places lists and
   // per-district walk disclosures; the walking map opens below it on request. Walks with no listed place keep a plain row.
   const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' ')));
+  const legs=legsFromMoves(v),walkIds=new Set(legs.map(l=>l.moveId));
   if(v.places?.length){
-   walks.append(walkBoard({...v,elsewhere:[]},{move:id=>run(()=>move(id),'You walk there.'),onToggleMap:()=>{mapOpen=!mapOpen;signature='';render();},mapShown:mapOpen}));
-   if(mapOpen)walks.append(walkMapBlock(v,{open:true,ontoggle:o=>{if(!o){mapOpen=false;signature='';render();}},onPick:findControl}));
+   walks.append(walkBoard({...v,legs,elsewhere:[]},{move:id=>run(()=>move(id),'You walk there.'),onToggleMap:()=>{mapOpen=!mapOpen;signature='';render();},mapShown:mapOpen}));
+   if(mapOpen)walks.append(walkMapBlock({...v,legs},{open:true,ontoggle:o=>{if(!o){mapOpen=false;signature='';render();}},onPick:findControl}));
   }
-  for(const m of v.moves.filter(m=>!v.places?.some(pl=>m.label.startsWith(`Walk to ${pl.place} · `))))walks.append(walkRow(m));
+  for(const m of v.moves.filter(m=>!walkIds.has(m.id)))walks.append(walkRow(m));
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
   tabsUi.update(v);
  }

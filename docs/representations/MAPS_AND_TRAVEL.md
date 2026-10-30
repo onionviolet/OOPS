@@ -292,3 +292,8 @@ that folder, so the field names below are this lane's request, not L11's decisio
   layout, text form, roles and `data-lotm` button ids stay as they are.
 - **Done check for the switch:** `tests/walk_board.test.js` and `tests/walk_map.test.js` run
   on a legs-shaped fixture, and the label-prefix match is deleted.
+
+## Integration note (2026-10-30, merge)
+
+- **Window shape confirmed (bridge gap G6).** A leg's `window` is `{hours: [open, close], text, waitMinutes}`, exactly what `legsFromRoute` emits. The board shows `Open {text}` and the wait when `waitMinutes` is above zero.
+- **Legs replace the label match.** `walk_board.js` and `walk_map.js` read `view.legs` (`{to, minutes, moveId, eligible, reasons, window?}`) and parse no label. The Tingen host has no route row, so `legsFromMoves` in `src/read_models/travel_legs_bridge.js` builds the legs from `move.to` when present and from the `Walk to {place} · ` label otherwise. That fallback is the only remaining label read; delete it when `book_world_lotm_host.js` puts `to` on its moves (owner: the LOTM absorption session).

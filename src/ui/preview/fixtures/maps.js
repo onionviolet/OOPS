@@ -1,8 +1,9 @@
 // RPX14 walk map fixtures (invented names, CLR3). Built by the real adapter from a place-panel view,
 // so the gallery exercises the same path as the game.
 import {walkMapSpec, walkLadderSpec, routeStripSpec} from '../../walk_map.js';
+import {legsFromMoves} from '../../../read_models/travel_legs_bridge.js';
 
-export const WALK_MAP_VIEW = {
+const WALK_MAP_BASE = {
     places: [
         {place: 'Lamplighters\' hall', district: 'Hill quarter', here: true, minutes: 0},
         {place: 'Rented attic', district: 'Hill quarter', here: false, minutes: 2},
@@ -23,6 +24,8 @@ export const WALK_MAP_VIEW = {
     ],
     elsewhere: [{id: 'p4', label: 'Your cousin lives in another city'}],
 };
+// Legs come from the same bridge the game uses until the Tingen host names each move's place.
+export const WALK_MAP_VIEW = {...WALK_MAP_BASE, legs: legsFromMoves(WALK_MAP_BASE)};
 export const WALK_MAP_FIXTURE = walkMapSpec(WALK_MAP_VIEW).spec;
 export const WALK_MAP_ALONE_FIXTURE = {...walkMapSpec({places: [{place: 'Roadside inn', here: true, minutes: 0}]}).spec, id: 'walk-map-alone'};
 export const ROUTE_STRIP_FIXTURE = routeStripSpec({from: 'Lamplighters\' hall', to: 'Saltgate wharf', minutes: 20,

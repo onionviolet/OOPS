@@ -11,7 +11,8 @@ import {FIGURE_FIXTURES} from '../src/ui/preview/figure_fixtures.js';
 
 const fixtureDir = new URL('../src/ui/preview/fixtures/', import.meta.url);
 const pairs = [];
-const isSpec = v => v && typeof v === 'object' && typeof v.id === 'string' && typeof v.title === 'string';
+const FIGURE_PARTS = ['rings', 'nodes', 'slots', 'tracks', 'notes', 'edges'];
+const isSpec = v => v && typeof v === 'object' && typeof v.id === 'string' && typeof v.title === 'string' && FIGURE_PARTS.some(k => Array.isArray(v[k]));
 for (const file of readdirSync(fixtureDir).filter(f => f.endsWith('.js')).sort()) {
     const mod = await import(new URL(file, fixtureDir));
     for (const value of Object.values(mod)) {
