@@ -11,6 +11,7 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 | `rep-maps` `legs` (`MAPS_AND_TRAVEL.md` switch-over) | `travel_legs_bridge.js` `legsFromRoute(s)` | the `Walk to {place} · ` label-prefix match |
 | `rep-character-sheet` `subject` (`character_sheet.js`) | `character_sheet_bridge.js` `subjectFromDatedSheet(sheetAsOf(...), opts)`, `standingRows(...)` | `subjectFromDatedSheet` the rep doc names |
 | `rep-body` `bodyViewModel` shape (`body_figure.js`) | `body_bridge.js` `bodyViewFromHarm(harmView(save), opts)` | the `live` read in `bodyViewModel` |
+| `rep-time` return digest (`return_digest.js` `groupDigest` inputs `around`, `missed`) | `time_digest_bridge.js` `digestRowsFromEvents(book, person, span, ctx, textOf)` | the digest's news source for world events (L14) |
 
 ## Observer rules each bridge keeps
 
@@ -37,7 +38,10 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 | G11 | `appearance`, `ties`, `history`, `intent`, `between` | L8 sheets have none; `links` are pointers owned by `sw-absorb` | sw-absorb joins them from cast records; bridge leaves them empty |
 | G12 | Stats as exact numbers | L8 bands are 0 to 9 and coarse; rep bands numerics to 10/5/2/1 | rep: treat world bands as already banded (read precision 3 shows the band) |
 | G13 | Body parts and cures | `harmView().parts` is `[]` in slice 1 and its entry shape is not fixed; no `healPart`, so no cures or time left. Bridge assumes `{id, rung, cause?, gates?[]}` and shows "eases with rest" | L9: fix the part entry shape when the first combat consumer lands |
+| G14 | Gatherings on a board or web (L11 `gatherings.js`) | `seatsOn` returns `{seatId, label: seatId}` only: no persona name, standing or schedule text; no rep branch names a gathering contract | rep-organizations/relationship-web: name the contract; L11: seat labels. No bridge yet |
+| G15 | Digest `Missed` row | rep reads `feed.heard`; L14 splits witnessed (`present`) from heard by `level`. Bridge maps present to Around, heard to Missed | rep-time: confirm that split |
+| G16 | Wording for event rows | L14 holds `lineKey` only; text is pack data. Bridge takes a `textOf` callback and drops unworded events | sw-calendar/sw-absorb: supply the pack lookup at the host |
 
 ## Verification state
 
-Focused tests pass (10). Not wired into any UI, not built, full suite not run (integrator's). The combat test inlines `rungOf`; it does not import `harm_state.js`, which sw-death had staged but uncommitted at write time.
+Focused tests pass (11). Not wired into any UI, not built, full suite not run (integrator's). The combat test inlines `rungOf`; it does not import `harm_state.js`, which sw-death had staged but uncommitted at write time.
