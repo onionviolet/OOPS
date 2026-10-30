@@ -175,6 +175,25 @@ Source: `implemented, below floor` or `read model only` in `docs/gm/dispatch/pro
 
 RC1 update: bk-coi's branch has two commits (`205df106`, `09aa46a5`) touching 7 files (`COI_NEEDS.md`, `evidence/coi/*`, `src/owed_ledger_view.js`, `tests/owed_ledger.test.js`); the tracked tree is clean (the earlier "3 uncommitted" were private symlinks). bk-coi rebases in its own worktree, then Book UI lands it; GenUI must OK first because rep-economy lists the owed ledger files. RC7 is resolved for bk-hp, bk-party and bk-gaps (on `e90e12a1`).
 
+## Book wave lanes landed (bk-land, `LANDING_RECEIPT.md`, master tip `46ab02375`, ff-only, not pushed)
+
+Supersedes the state and next step of RC1-RC7 and RC74-RC77 above. Each tip below is an ancestor of master (checked).
+
+| Code | Lane | Landed tip | Floor and leftovers |
+| --- | --- | --- | --- |
+| RC1 | bk-coi | `d3817cd54` | Landed. rep-economy OK no longer needed. |
+| RC2 | bk-hp | `ef250c622` | Below floor: fizzle draw needs a seeded chance in `simulation.js` (floor-wire). |
+| RC3 | bk-mol | `1c7caed79` | Below floor. |
+| RC4 | bk-ss | `3e724094a` | Below floor: WCO1 carry list. |
+| RC5, RC6 | bk-party, bk-gaps | `489d2c5e4`, `ba24c2bb0` | Landed. |
+| RC7 | rebase hazard | all lanes on current master | Closed. |
+| RC74-RC77 | bk-scout, bk-seams, bk-ui-directions, bk-benefits | `746f5edd0`, `100a7edb6` (seams below floor), `f384a890e`, `18b445603` | Landed. |
+| RC78-RC80 | bk-progression, bk-making-ui, bk-forms | `cb66a5929`, `47b492d6f`, `8372b2c2f` | Landed; no earlier row. |
+
+Open after the landing: `dist/`, `index.html` and `figure-gallery.html` were not committed (primary has them dirty; a rebuild commit adds the `working_state.css` link). bk-land reports failures on bare master at `99d997eaa`, not lane bugs: `facts_frame`, `market_life`, `world_lead_pipeline`, `ui_contract` (style.css), `cast_inference_adapter` test 6, `cast_journeys` test 16. Owners for those failures are not assigned in this ledger.
+
+All 15 `bk-*` worktrees are now clean of lane work (bk-hp and bk-ss hold only dist/index.html build output) and are cleanup candidates (batch CB-L, 15, proven by ancestry, plus `bk-land-ecb3eb` itself once its session ends). Their sessions are idle.
+
 ## Cleanup batch for Weibao's yes (nothing removed)
 
 Worktrees only (33 of 42). Two tiers, because only patch-id equality or ancestry proves content landed; subject matching proves the message landed, and the whole-diff reverse check failed for all 18 unmerged-by-subject branches (master has since edited the same shared files).
@@ -183,4 +202,4 @@ Worktrees only (33 of 42). Two tiers, because only patch-id equality or ancestry
 - **CB-S, landed by subject; GenUI has since confirmed by content that nothing unique remains (14):** `great-ritchie` (RC28) and 13 rep branches (RC15-RC27). Same commands with `-D`. `rep-character-sheet` (RC8, obsolete) can join them, making 34 if Weibao agrees.
 - **CB-D, detached, after floor-wire finishes (2):** RC42, RC43.
 
-Keep: RC1, RC2-RC6, RC8 (until its commit is placed), RC9, RC10.
+Keep: RC9, RC10 (live relationship and abilities sessions) and RC8 until Weibao agrees it is obsolete.
