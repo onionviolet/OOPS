@@ -137,3 +137,18 @@ Weibao via the overnight supervisor: "MOre codex readings or more things codex c
 | `sw-r3-c6-chars` | C6: Luen and Groselle thin sheets | sw-chars (L8) | the two private sheets, `codex-r3/c6/` | launched, Sol medium |
 
 L14 needs no lane this round: volumes 2-8 of news and calendar are already done (see the L14 section above).
+
+### Round 3 returns (2026-10-30 ~10:40, `043869b2`)
+
+| Lane | Result | Check |
+| --- | --- | --- |
+| C1 | `inferAbilityCost` is a pure proposal function. 3,311 of 3,417 merged ability occurrences state no cost: 936 get qualitative proposals and 2,375 keep a reason, mostly an unknown rung or mechanism. Stated costs are untouched. The 1,575 condition and blocker slugs are split into 7 Luna slices of 225 each. | `node --test tests/ability_cost_infer.test.js` plus the fold test: 8 pass |
+| C2 | The premise was wrong. All 91 unbound cards belong to scenes in later volumes whose locators were misread as volume 1. They are recorded as 91 decided gaps, and a builder patch is proposed (`c2/build_event_cards_volume.patch`, not applied). Live inputs show 322 missing lead slots, not 276. Of those, 240 are filled as source candidates (`runtimeReady: false`) and 82 are left with reasons. | `c2/verify.mjs` PASS; `tests/lead_run_step_tags.test.js` 10/10 |
+| C3 | Price crosswalk. Volume 1 prices: 382 mapped, 2 band inferred, 46 unmapped. Traceable volume 1 coverage goes from 0% to 23.0%. | `node --test tests/lotm_price_map.test.js tests/lead_run_coverage.test.js`: 9 pass |
+| C4 | 6 Luna briefs (methods and artifacts, volumes 4-8 and volume 2 leftovers) with compile and anchor helpers. | prep checks in `c4/fold.md` |
+| C5 | 19 Luna briefs covering 51,194 texture rows, with a fold script. | `c5/CHECKS.md` |
+| C6 | Groselle's sheet now has dated entries and 2 outcomes. Luen stays thin on purpose: the id refers to a country, not a person. The registry fix goes to sw-chars. | `node --test tests/character_sheets.test.js`: 8 pass, 0 skipped |
+
+Combined focused run: 25 pass, `check:arch` pass. The full suite has not run.
+
+Luna lanes: C1 (7) and C4 (6) were launched at about 10:40 with Codex at 36%. C5's 19 lanes wait until the load average falls (it was 70-83, driven by other sessions' ugrep and Chrome).
