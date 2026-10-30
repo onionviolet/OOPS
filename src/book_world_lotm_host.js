@@ -29,6 +29,10 @@ import {LOTM_TIERS,rowById} from './lotm_formula_rows.js';
 import {CC_BREW} from './book_world_lotm_brew.js';
 import {abilitySourceOf} from './book_world_lotm_abilities.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
+import {lotmRegionAt} from './book_world_lotm_cities.js';
+import {lotmRestrictions} from './book_world_lotm_events.js';
+import {lotmSheetsFor} from './book_world_lotm_sheets.js';
+import {harmContext,accrueHarm,restHarm,lostControlOutcome} from './book_world_lotm_harm.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
 // A walk's arrival record cites the workroom situation, which begins when you report in (or your life's own first report).
@@ -86,13 +90,13 @@ function benchDetail(s,c,id,{registry,asleep}){
   drink:summary.doses&&!generatedDrinkIds[id]?{eligible:false,reason:row.ritual?.needed?`${NOT_WRITTEN} Drinking it without its rite (${row.ritual.scale}: ${row.ritual.text}) is a stated loss-of-control risk.`:NOT_WRITTEN}:null};
 }
 export function createLotmHost(ports){
- const registry=ports.registry;
+ const registry=ports.registry;let dying=false;
  const persist=(plan,options={})=>persistLotmCastPlan(plan,ports.persist,{...options,publish:r=>ports.logMessage?.(r.text,r.kind,{safeText:true,panelId:'known-people'})});
  const state=()=>{installCast(registry);return ports.state();};
  const castState=s=>{if(!lotmCastLife(s))return s;const projected=copy(s);syncLotmCast(projected);return projected;};
  const sleepJob=s=>s.simulation?.jobs?.find(j=>(j.commandId===SLEEP||castBodyCommands.some(d=>d.id===j.commandId&&d.bodyCare.kind==='sleep'))&&j.actorId==='player');
  function ctx(s,def){const c=ports.context(),vitals=c.vitals||{};
-  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,out);}
+  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,def?{...out,...harmContext(s,def)}:out);}
  const base=(s,c)=>({state:copy(s),external:copy(c.external||{}),gameplay:copy(c.gameplay||{}),gameplayBefore:copy(c.gameplay||{}),vitals:copy(c.vitals||{}),equipment:copy(c.equipment||{}),acquisitions:[],unlocks:[]});
  function writable(){assert(ports.writable(),'Saving is paused, so the branch cannot change now.');assert(!lotmBe(state())||validLeadLife(getPrivateLotmCast()),'Cast unavailable: private pack absent. This life is read-only.');}
  function recordEmergent(plan,def){
@@ -187,6 +191,7 @@ export function createLotmHost(ports){
   recordEmergent(plan,def);
   syncLotmCast(plan.state);
   persist(plan);
+  accrueHarm(plan.state,def);
   if(id===SLEEP||def.bodyCare?.kind==='sleep')ports.beginSleep();
   return plan;
  }
@@ -215,7 +220,7 @@ export function createLotmHost(ports){
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(){const s=state();if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){const s=state();if(s.lotm){if(ports.sleeping())restHarm(s,minutes);else if(!dying&&ports.die&&ports.writable()&&lostControlOutcome(s)?.default==='final'){dying=true;Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  function view(selected=null){
   const s=castState(state()),d=s.lotm;
   if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,returnable:returnable(),profiles:Object.values(LOTM_PROFILES).filter(p=>p.key==='be'?validLeadLife(getPrivateLotmCast()):p.key!=='beside'||castAvailable).map(({key,label,blurb})=>({key,label,blurb,answers:key==='be'?[['Beginning',blurb]]:entryAnswers(key,{returnable:returnable()}),...(key==='be'?{independent:true,available:!!ports.startBe}: {})}))};
@@ -248,7 +253,9 @@ export function createLotmHost(ports){
    const objectActs=withFactsFrame(s,()=>castObjectOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?'Saving is paused.':ports.sleeping()?'Wake first: you are asleep.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
    const jobs=s.simulation.jobs.filter(j=>[...castBodyCommands,...castWalkCommands,...castObjectCommands,...castTalkCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId)?.label||'Saved walk',due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:[...castBodyCommands,...castMakingCommands,...castExchangeCommands,...castAbilityCommands].some(d=>d.id===j.commandId)&&['refund','forfeit'].includes(j.cancellation)}));
    const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at}));
-   return {enrolled:true,resident:true,runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,exchanges,divinations,inferences,abilityConflicts,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   const region=lotmRegionAt(s.simulation.people.player.location,{hour:castCalendar(s).calendar.hour,money:ports.context().external?.money??0,restrictions:lotmRestrictions({state:s,days:getPrivateLotmCast()?.bindings?.days||[]})});
+   const sheets=lotmSheetsFor(s,getPrivateLotmCast(),Object.keys(know).map(k=>/^book\.lotm\.cast\.(?:known|met)\.(.+)$/.exec(k)?.[1]).filter(Boolean));
+   return {enrolled:true,resident:true,runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
   }
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');

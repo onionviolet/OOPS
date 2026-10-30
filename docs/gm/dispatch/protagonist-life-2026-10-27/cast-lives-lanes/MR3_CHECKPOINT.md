@@ -244,3 +244,15 @@ Additional read inputs: `src/main.js` SHA-256 `3489afeca4eeda929425077ea83cb0157
 - Noted, not in scope: the workshop panel still lists other worlds' actions (for example spirit or deck actions) as
   visible buttons; that is existing panel content, not MR3.
 - State: P3b at the floor for this route; agent-verified, not human-reviewed.
+
+## Workshop clutter fix (2026-10-30, coordinator)
+
+- `src/simulation_ui.js`: commands bound to another world are hidden in the village panel; same-world hints such as
+  "Return to Shack" stay. Chrome at 1920x1080, fresh origin (bundle SHA-256 `0edb4c19…62c7fc93`): visible workshop
+  buttons 125 to 67, visible reason notes 23 to 6; the craftsman interrupt-then-apologise route still reads correctly
+  after reload; page call 3 ms.
+- Focused simulation and memory route tests (8 files): PASS 62/62.
+- `npm test` at load average 100-120: the same nine cast disposable-copy integration tests fail as in the MR3 run. Rerun
+  alone at load 100: cast topic talk failed by its worker's 270 s timeout with empty output (killed for time, not an
+  assertion); journeys 9/10 and card integration 0/1 the same way. All passed alone at lower load in the MR3 review.
+  Recorded as load timeouts; a clean full run waits for a quieter machine.

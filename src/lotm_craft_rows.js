@@ -1,4 +1,4 @@
-// Volume 1 craft source data (MR10/MR13, AR2/AR3, AD38, WPR5).
+// Volumes 1 and 3 craft source data (MR10/MR13, AR2/AR3, AD38, WPR5).
 // S = shown, T = told, I = inferred/authored. Specific field paths override parents.
 // Pure rows: owner-needed effects request integration, not inventory or gameplay changes.
 // Locators cite extraction anchors; neighboring source paragraphs supply context.
@@ -13,7 +13,7 @@ const proposals = [
     'Quantities, yields and execution durations remain null where unstated; no invented strength, success odds or recipe proportions.',
 ];
 const evidence = {
-    id: 'I', label: 'I', sourceIds: 'S', locators: 'S', eligibility: 'I',
+    id: 'I', kind: 'I', label: 'I', sourceIds: 'S', locators: 'S', eligibility: 'I',
     inputs: 'S', steps: 'S', 'steps.*.id': 'I', 'steps.*.kind': 'I',
     'steps.*.minutes': 'I', product: 'S', limits: 'I', effects: 'I', proposals: 'I',
 };
@@ -38,9 +38,236 @@ const recharge = () => ({
     limits: 'The recharge procedure, material cost and restored charge are not stated; the two-week account is a maintenance interval, not a measured effect duration.',
 });
 
+
+// Volume 3 anchors were checked against book-3 shards, including the ch179 alias.
+// These are source records, not executable recipes. Preparation and item-use
+// rows retain their actual operations rather than inventing a manufacture step.
+const volume3Row = ({slug, kind, label, sourceIds, locators, means, inputs, steps, product, limits = [], tag = 'S', tags = {}, effects, notes = []}) => ({
+    id: `lotm.craft.${slug}`, volume: 3, kind, label, sourceIds, locators,
+    eligibility: eligibility([`${slug}-means`, means]),
+    inputs: inputs.map(name => ({name, quantity: null, evidence: tag})),
+    steps, product, limits,
+    evidence: {...evidence, volume: 'S', kind: 'I', inputs: tag, steps: tag, product: tag, limits: tag, ...tags},
+    proposals: [...proposals, ...notes], effects,
+});
+const volume3Rows = [
+    volume3Row({
+        slug: 'fish-man-hunting-preparation', kind: 'making', label: 'Peppered bait and coated hunting blades',
+        sourceIds: ['lotm.craft.fish-man-hunt'], locators: ['zh b3 第11章 p76', 'zh b3 第11章 p77', 'zh b3 第11章 p78', 'zh b3 第11章 p79'],
+        means: 'The described hunt uses knowledge of the fish-man response, bait, coated blades and borrowed firearms.',
+        inputs: ['Pig or cattle entrails, with canned entrails described as an alternative', 'Peppercorns', 'Mint ointment', 'Trident, dagger and short knife', 'Borrowed rifles'],
+        steps: [step('bait', 'craft', 'Scatter peppercorns over the entrails.'), step('coat', 'craft', 'Spread mint ointment over the blade tips.'), step('arrange', 'prepare', 'Arrange borrowed rifles and a paid twenty-minute period without disturbance.')],
+        product: {name: 'Prepared fish-man hunting setup', mechanism: 'The hunter explains that peppered entrails attract the prey and cause excitement with impaired balance for about a minute, followed by fatigue. Mint ointment is described as a blood poison for fish-men; coated blades provide the delivery route. The preparation is shown, while these physiological effects are taught.'},
+        limits: ['The hunter pays a substantial but unstated sum for the rifles and the no-disturbance arrangement.', 'About one minute describes the taught excitement phase, not the length or success probability of a hunt.'],
+        tags: {'product.mechanism': 'T', 'limits.0': 'T', 'limits.1': 'T', 'steps.2.text': 'T'},
+        effects: [pending('hunting-preparation', 'Account for bait, coating and equipment access.'), pending('body-state', 'Resolve exposure through food or blade contact and the prey response, rather than granting a kill.')],
+    }),
+    volume3Row({
+        slug: 'fish-man-cooking', kind: 'cooking', label: 'Fish-man cuts and seasoned grilled belly',
+        sourceIds: ['lotm.craft.fish-man-cooking', 'lotm.craft.fish-seasoning', 'lotm.craft.dixi-grilled-fish'],
+        locators: ['zh b3 第12章 p75', 'zh b3 第12章 p76', 'zh b3 第12章 p97', 'zh b3 第13章 p2', 'zh b3 第13章 p3', 'zh b3 第15章 p1', 'zh b3 第15章 p4'],
+        means: 'The demonstrated cooks have a fish-man carcass, a knife, seasonings and cooking heat.',
+        inputs: ['Fish-man carcass', 'Knife', 'Cooking oil', 'Basil', 'Cumin', 'Sea salt', 'Pepper', 'Lemon juice', 'Additional unspecified seasonings', 'Brush and charcoal grill'],
+        steps: [step('cut', 'craft', 'Cut tender cheek meat from below the eye for raw eating; the teaching assigns rib meat to oil frying and belly meat to roasting.'), step('season', 'prepare', 'Brush the belly strips with the mixed seasoning.'), step('grill', 'craft', 'Turn the strips during charcoal grilling to heat both sides evenly.')],
+        product: {name: 'Raw cheek slices and Dixi grilled fish-man belly', mechanism: 'Butchery selects the cuts for their different textures. Repeated brushing and turning season and heat the belly strips, which are served cooked with a little charring. Rib frying is recommended in speech rather than demonstrated in these anchors.'},
+        limits: ['The remaining cuts are described as unpleasant to eat.'], tags: {'steps.0.text': 'T', 'limits': 'T'},
+        effects: [pending('food-preparation', 'Resolve carcass cuts, seasoning use and cooked food; retain the distinction between shown grilling and recommended frying.')],
+    }),
+    volume3Row({
+        slug: 'radio-telegram-work', kind: 'communication', label: 'Learn, send and decode radio telegrams',
+        sourceIds: ['lotm.craft.radio-operation', 'lotm.craft.radio-codebook-report', 'lotm.craft.radio-telegram-decoding', 'lotm.craft.telegraph-decoding'],
+        locators: ['zh b3 第73章 p78', 'zh b3 第73章 p80', 'zh b3 第19章 p32', 'zh b3 第241章 p7', 'zh b3 第241章 p14', 'zh b3 第241章 p15', 'zh b3 第241章 p16', 'zh b3 第243章 p7'],
+        means: 'Use the appropriate radio equipment, operating knowledge, frequency information and corresponding codebook; reception also depends on a transmitted signal.',
+        inputs: ['Radio equipment appropriate for sending or receiving', 'Operation manual', 'Frequency and code information', 'Codebook', 'Writing materials'],
+        steps: [step('learn', 'prepare', 'Study the manual and frequency/code information and practice using the receiver.'), step('send', 'use', 'Set up a transmitting radio and consult the codebook to send a short report.'), step('tune', 'prepare', 'Tune the receiver to the intended frequency and listen for a signal.'), step('decode', 'use', 'Record the signal and translate it with the matching codebook into written letters and words.')],
+        product: {name: 'Operating knowledge and transmitted or decoded messages', mechanism: 'Practice supplies equipment knowledge; radio carries coded information, and a matching codebook turns recorded signals into readable words. Separate sending and receiving scenes demonstrate these operations without establishing that every receiver can transmit or that a report is accurate.'},
+        effects: [pending('communication', 'Resolve device capabilities, frequency, transmitted messages and reception.'), pending('knowledge', 'Retain learned operation and decoded content separately from the truth of a report.')],
+        notes: ['Training, sending and decoding share this authored grouping; no technical code format or operating duration is supplied.'],
+    }),
+    volume3Row({
+        slug: 'ritual-portrait', kind: 'making', label: 'Ritual portrait with photographic presentation',
+        sourceIds: ['lotm.rule.ritual-portrait'], locators: ['zh b3 第76章 p45'],
+        means: 'The demonstrated maker uses ritual means, suitable paper and presentation technique.',
+        inputs: ['Paper matching a photograph', 'Undisclosed ritual means'],
+        steps: [step('make', 'craft', 'Produce the portrait through ritual means and use matching paper and technique to present it like a photograph.')],
+        product: {name: 'Photographic-looking ritual portrait', mechanism: 'Ritual image-making reproduces the intended appearance; the paper and presentation disguise the image as a photograph. The anchor reports a convincing result without disclosing the ritual recipe.'},
+        effects: [pending('image-making', 'Resolve the portrait and its presentation without granting knowledge of the undisclosed rite.')],
+    }),
+    volume3Row({
+        slug: 'hybrid-bacteria-cultivation', kind: 'making', label: 'Reported soil-resting hybrid bacteria',
+        sourceIds: ['lotm.craft.hybrid-bacteria-cultivation'], locators: ['zh b3 第167章 p50', 'zh b3 第167章 p53', 'zh b3 第167章 p56'],
+        means: 'The dream-scene account describes an existing hybrid culture resting in soil; initial creation is not disclosed.',
+        inputs: ['Existing hybrid bacteria', 'Soil'], tag: 'T',
+        steps: [step('rest', 'prepare', 'The account describes leaving the culture in soil for growth and reproduction.')],
+        product: {name: 'Proposed grown hybrid culture', mechanism: 'In a dream encounter the cultivator describes soil resting as the growth route and claims the bacteria can make bulls produce milk. He expresses doubt about reproduction; neither successful propagation nor milk production is physically verified by this scene.'},
+        limits: ['The cultivator doubts that the culture will reproduce.'],
+        effects: [pending('cultivation', 'Resolve culture growth and reproduction as unverified claims before implementing a productive recipe.')],
+        notes: ['The dream-scene claim is retained as told evidence, not a demonstrated real-world cultivation result.'],
+    }),
+    volume3Row({
+        slug: 'damir-spirit-cured-meat', kind: 'cooking', label: 'Damir cave-cured meat',
+        sourceIds: ['lotm.craft.damir-spirit-cured-meat'], locators: ['zh b3 第19章 p70'], tag: 'T',
+        means: 'The described curing uses caves with natural hot air near the dormant volcano on Damir Island.',
+        inputs: ['Cured meat', 'Cave with natural hot airflow'],
+        steps: [step('dry', 'craft', 'Air-dry the cured meat in the naturally warmed caves.')],
+        product: {name: 'Damir cured meat', mechanism: 'The account attributes a distinctive flavor to drying cured meat in the cave airflow. Salt preparation, temperature and drying time are not supplied; no separate spirit-world ingredient is established.'},
+        effects: [pending('food-preparation', 'Resolve cave drying and its food product without inventing a curing recipe or supernatural bonus.')],
+    }),
+    volume3Row({
+        slug: 'formula-materialization', kind: 'making', label: 'Materialize a written potion formula',
+        sourceIds: ['lotm.craft.formula-materialization'], locators: ['zh b3 第33章 p6', 'zh b3 第33章 p7', 'zh b3 第33章 p8'],
+        means: 'The requester has access to the gathering and the formula knowledge to be written after asking the Fool for materialization.',
+        inputs: ['Known potion formula', 'Materialized parchment'],
+        steps: [step('request', 'prepare', 'Ask the Fool for formula materialization.'), step('write', 'craft', 'Write the formula on the parchment, including its main and auxiliary ingredients and stated amounts.')],
+        product: {name: 'Written potion formula', mechanism: 'The request is followed by the requester writing the formula on parchment. This produces a knowledge document, rather than materializing its ingredients or brewing the potion; the means of materialization are not explained here.'},
+        tags: {inputs: 'I'},
+        effects: [pending('knowledge-document', 'Represent the written formula and access to its knowledge separately from ingredient stock and a completed potion.')],
+    }),
+    volume3Row({
+        slug: 'silver-mask-reshape', kind: 'item_use', label: 'Reshape a silver magical mask',
+        sourceIds: ['lotm.item.silver-mask'], locators: ['zh b3 第37章 p43', 'zh b3 第37章 p44'],
+        means: 'The wearer has the responsive magical mask and can extend spirituality toward it.',
+        inputs: ['Silver magical mask', 'Channeled spirituality and intended form'],
+        steps: [step('convey', 'use', 'Extend spirituality to convey an intended shape to the mask.')],
+        product: {name: 'Mask reshaped into an ear ornament', mechanism: 'The existing mask folds into an ornate ear ornament in response to spiritual intent. This changes an existing item\'s form; it does not demonstrate making a new magical item or duplicating one.'},
+        effects: [pending('item-form', 'Change the existing item form while retaining its identity.')],
+    }),
+    volume3Row({
+        slug: 'aromatherapy', kind: 'item_use', label: 'Described aromatic emotional aid',
+        sourceIds: ['lotm.craft.aromatherapy'], locators: ['zh b3 第42章 p51'], tag: 'T',
+        means: 'The described practitioner knows which scents correspond to the emotional problem.',
+        inputs: ['Essential oils, hydrosols, incense or flower essences'],
+        steps: [step('apply', 'use', 'Use the scents appropriate to the emotional concern according to the described practice.')],
+        product: {name: 'Aromatic emotional aid', mechanism: 'The speaker describes scent-based treatment that calms emotional distress. The anchor is an account of practitioner skill, with no individual treatment outcome, mixture, dose or duration demonstrated.'},
+        effects: [pending('mind-state', 'Resolve scent exposure and response without treating a described aid as a demonstrated cure.')],
+    }),
+    volume3Row({
+        slug: 'teyatiwa', kind: 'cooking', label: 'Teyatiwa stuffed roasted fruit',
+        sourceIds: ['lotm.craft.teyatiwa'], locators: ['zh b3 第71章 p86'], tag: 'T',
+        means: 'The described cook uses local Teyana fruit as a firm shell around seasoned meat.',
+        inputs: ['Teyana fruit', 'Mutton', 'Fish meat', 'Sea salt', 'Several unspecified spices', 'Cooking fire'],
+        steps: [step('hollow', 'prepare', 'Remove the fruit pulp while retaining the firm shell.'), step('stuff', 'craft', 'Mash the mutton and fish and fill the shell with the meat, sea salt and spices.'), step('roast', 'finish', 'Roast repeatedly over fire.')],
+        product: {name: 'Roasted meat-stuffed Teyana fruit', mechanism: 'The fruit shell holds meat during repeated roasting; the account describes fragrant meat combining with the fruit\'s sweet and slightly sour flavor. The eaten dish is recalled, rather than cooked on the page.'},
+        effects: [pending('food-preparation', 'Account for the fruit shell, removed pulp, seasoned filling and roasted food.')],
+    }),
+    volume3Row({
+        slug: 'makeup-disguise', kind: 'disguise', label: 'Apply, remove and restore an ordinary disguise',
+        sourceIds: ['lotm.craft.makeup-disguise', 'lotm.craft.helene-male-disguise', 'lotm.craft.makeup-removal-disguise'],
+        locators: ['zh b3 第92章 p95', 'zh b3 第96章 p13', 'zh b3 第96章 p14', 'zh b3 第96章 p16', 'zh b3 第96章 p17', 'zh b3 第96章 p18', 'zh b3 第97章 p58', 'zh b3 第97章 p65', 'zh b3 第97章 p70', 'zh b3 第97章 p74', 'zh b3 第97章 p75'],
+        means: 'The demonstrated disguises use makeup, hair arrangement, accessories and clothing rather than a transferred supernatural transformation.',
+        inputs: ['Makeup', 'Mirror', 'Hat and clothing suited to the appearance', 'Cloth strips for chest flattening in one variant', 'Glasses in another variant', 'Unspecified makeup-removal liquid', 'Handkerchief'],
+        steps: [step('apply', 'craft', 'Arrange and conceal the hair, adjust brows and shadows with makeup, and choose clothing and accessories for the appearance; one demonstrated variant flattens the chest with cloth.'), step('remove', 'use', 'Pour the removal liquid on a handkerchief and wipe the face; remove the hat and release the hair.'), step('restore', 'craft', 'Use the mirror to reapply makeup and arrange the hair again.')],
+        product: {name: 'Changed visible appearance', mechanism: 'Hair, facial shading, clothing and silhouette change how the person looks. Liquid and wiping remove the makeup, and the disguise can then be restored. These scenes show changed appearance without establishing guaranteed deception of every observer.'},
+        effects: [pending('appearance', 'Resolve visible disguise features and removal separately from body transformation and observer recognition.')],
+    }),
+    volume3Row({
+        slug: 'blood-smear-clear', kind: 'item_use', label: 'Blood treatment for a travel notebook',
+        sourceIds: ['lotm.craft.blood-smear-clear'], locators: ['zh b3 第164章 p72'], tag: 'T',
+        means: 'The taught countermeasure uses the notebook user\'s blood on the notebook cover after use.',
+        inputs: ['Travel notebook', 'Notebook user\'s own blood'],
+        steps: [step('coat', 'use', 'Draw some of the user\'s blood and spread it evenly over the cover after notebook use.')],
+        product: {name: 'Blood-treated notebook cover', mechanism: 'The teacher describes this blood application as clearing the notebook\'s post-use misdirection. Untreated use is said to make the user become dangerously lost; no treatment is performed at this anchor.'},
+        limits: ['The instruction calls for treatment after each use and prompt handling; the blood amount is unspecified.'],
+        effects: [pending('item-aftereffect', 'Resolve the notebook misdirection and its blood countermeasure.'), pending('body-cost', 'Account for the user\'s blood without inventing a dose.')],
+    }),
+    volume3Row({
+        slug: 'whistle-oil-coat', kind: 'making', label: 'Match and oil recovery preparation',
+        sourceIds: ['lotm.rule.whistle-oil-coat'], locators: ['zh b3 第178章 p55', 'zh b3 第178章 p56', 'zh b3 第178章 p58'],
+        means: 'This recovery route combines an attached match, flammable coating and the user\'s fire-jumping ability.',
+        inputs: ['Copper whistle', 'Attached match', 'Flammable Sun oil'],
+        steps: [step('prepare', 'craft', 'Tie a match to the whistle and coat the whistle with flammable Sun oil as a contingency if the match is pulled away.'), step('recover', 'use', 'Ignite the attached match and jump through its flame to retrieve the whistle.')],
+        product: {name: 'Whistle prepared with a flame recovery route', mechanism: 'The attached match supplies the demonstrated fire-jump destination. The oil coating is a backup combustible surface; its independent use is not demonstrated by this recovery.'},
+        effects: [pending('item-preparation', 'Retain the whistle, attached match and coating as preparation state.'), pending('fire-jump', 'Resolve ignition and travel through the existing ability owner, without granting that ability from the item.')],
+    }),
+    volume3Row({
+        slug: 'sea-god-talisman-use', kind: 'item_use', label: 'Tin Sea God charm activation and recovery',
+        sourceIds: ['lotm.rule.sea-god-talisman'], locators: ['zh b3 第178章 p17', 'zh b3 第178章 p19', 'zh b3 第178章 p21'],
+        means: 'The demonstrated user has prepared tin charms and a connection to the power receiving their offering.',
+        inputs: ['Prepared tin Sea God charms'],
+        steps: [step('activate', 'use', 'Speak the Ancient Hermes activation word for storm; the tin sheets burn as offerings.'), step('recover', 'finish', 'The account says this user can reclaim most of the material for reuse while the metal still bears spirituality.')],
+        product: {name: 'Activated charms and potentially recovered tin', mechanism: 'Burning offerings invoke effects in the Sea God domain. The scene combines wind blades, waves and several support effects from mixed charms, rather than proving a single storm effect for every sheet. Most material can be reclaimed through the user\'s connection to the offering recipient.'},
+        limits: ['Reuse ends when the metal can no longer bear spirituality; the passage gives no cycle count.'],
+        tags: {'steps.1.text': 'T', 'limits': 'T'},
+        effects: [pending('offering-and-recovery', 'Account for burned offerings, reclaimed material and degraded metal without duplicating stock.'), pending('sea-god-effects', 'Resolve the activated charm variant and its effects.')],
+        notes: ['Material recovery is distinct from recharging; the charm manufacture and inscription procedure remain undisclosed.'],
+    }),
+    volume3Row({
+        slug: 'paper-figure-fire', kind: 'making', label: 'Inscribed and burned paper figure',
+        sourceIds: ['lotm.rule.paper-figure-fire'], locators: ['zh b3 第179章 p49', 'zh b3 第179章 p52', 'zh b3 第179章 p53'],
+        means: 'The demonstrated practitioner prepares symbolic paper figures and can seek a response above the grey fog.',
+        inputs: ['Paper figure', 'Fool-associated change and concealment symbols'],
+        steps: [step('inscribe', 'craft', 'Cut a paper figure and cover it with the symbolic marks.'), step('burn', 'use', 'Lift and flick the figure; it burns to ash.')],
+        product: {name: 'Prepared paper figure consumed in a concealment attempt', mechanism: 'The figure is cut, marked and burned. The practitioner judges the desired effect preliminary and describes a stronger response above the grey fog, using the Black Emperor card and paper-angel protection. The anchor supplies no measured protection outcome.'},
+        limits: ['The practitioner describes the initial effect as preliminary.'],
+        tags: {'product.mechanism': 'I', 'limits': 'I'},
+        effects: [pending('inventory-consumption', 'Account for the prepared figure consumed into ash.'), pending('concealment', 'Resolve symbolic preparation and any responding power without treating the preliminary judgment as measured efficacy.')],
+    }),
+    volume3Row({
+        slug: 'dorinsman-rain-cloak', kind: 'making', label: 'Tree-sap rainproof linen cloak',
+        sourceIds: ['lotm.craft.dorinsman-rain-cloak'], locators: ['zh b3 第229章 p3', 'zh b3 第229章 p4'],
+        means: 'The described garment uses hardened Dorin\'sman tree sap over linen.',
+        inputs: ['Linen cloak', 'Dorin\'sman tree sap'],
+        steps: [step('coat', 'craft', 'Coat the linen surface with the viscous sap and let the coating harden.')],
+        product: {name: 'Sap-coated rain cloak', mechanism: 'Rain runs off the hardened coating instead of soaking through the linen in the observed storm. The finished garment shows the material mechanism; application technique and drying time are not demonstrated.'},
+        tags: {'steps': 'T', 'inputs': 'T'},
+        effects: [pending('garment-coating', 'Resolve the coating and observed water shedding without inventing durability or lifetime.')],
+    }),
+    volume3Row({
+        slug: 'monster-food-prep', kind: 'cooking', label: 'Described monster-meat preparation',
+        sourceIds: ['lotm.craft.monster-food-prep'], locators: ['zh b3 第235章 p9'], tag: 'T',
+        means: 'The account concerns hunted monsters of kinds that become edible after characteristic separation and preparation.',
+        inputs: ['Suitable hunted monster', 'Fire'],
+        steps: [step('separate', 'prepare', 'Let the Beyonder characteristic separate and remove the hide and fur.'), step('roast', 'craft', 'Heat the prepared meat with flame.')],
+        product: {name: 'Cooked monster meat with residual contamination', mechanism: 'The speaker describes removing the characteristic and hide, then using flame to make many local monster kinds edible. Residual contamination remains and can cause mental problems; preparation does not establish complete purification.'},
+        limits: ['Consumption is spaced with sufficient intervals because contamination persists; the account gives no safe numeric interval.'],
+        effects: [pending('food-preparation', 'Account for separated characteristic, hide and cooked meat.'), pending('contamination', 'Resolve residual contamination and consumption spacing without granting universal monster edibility.')],
+    }),
+    volume3Row({
+        slug: 'hybrid-mushroom', kind: 'making', label: 'Reported fish-fed hybrid mushrooms',
+        sourceIds: ['lotm.craft.hybrid-mushroom'], locators: ['zh b3 第239章 p2', 'zh b3 第239章 p3', 'zh b3 第239章 p4'], tag: 'T',
+        means: 'The cultivator reports creating the strain from Rose Bishop flesh and supplying fish; recipients receive dried specimens.',
+        inputs: ['Rose Bishop flesh for the reported original cultivation', 'Existing hybrid mushroom or dried starter for propagation', 'Fish', 'Water for rehydration'],
+        steps: [step('cultivate', 'craft', 'The letter reports cultivation of a hybrid strain using the flesh; the initial procedure is undisclosed.'), step('revive', 'use', 'Supply water and fish to the dried specimens to revive them and support propagation.')],
+        product: {name: 'Hybrid mushroom culture and dried starter', mechanism: 'The letter claims a beef-crossed flavor and reproduction while supplied with fish. Dried specimens are said to revive with water and fish. This describes starter propagation separately from the undisclosed creation of the original strain.'},
+        limits: ['The mushrooms do not catch their own fish and depend on external feeding.'],
+        effects: [pending('cultivation', 'Resolve rehydration, fish feeding and reproduction without inventing yields or an original-strain recipe.')],
+    }),
+    volume3Row({
+        slug: 'scent-dispersal-wall', kind: 'concealment', label: 'Wait behind a spiritual wall for scent dispersal',
+        sourceIds: ['lotm.rite.scent-dispersal-wall'], locators: ['zh b3 第241章 p9', 'zh b3 第241章 p10', 'zh b3 第241章 p13'],
+        means: 'The demonstrated user can enclose the room with a spiritual wall using a ritual silver dagger.',
+        inputs: ['Room', 'Ritual silver dagger', 'Spirituality'],
+        steps: [step('seal', 'prepare', 'Create a spiritual wall enclosing the room.'), step('wait', 'use', 'Wait seven or eight minutes until the grey-fog scent seems sufficiently dispersed, then remove the wall.')],
+        product: {name: 'Room judged ready for radio use after waiting', mechanism: 'The user waits behind the wall before operating the receiver and judges the scent sufficiently dispersed. This is a precaution based on perceived scent, rather than verified elimination of detectability.'},
+        limits: ['Seven or eight minutes is the observed waiting interval, not a universal disappearance time.'],
+        tags: {'product.mechanism': 'I', 'limits': 'I'},
+        effects: [pending('spiritual-wall', 'Resolve enclosure and removal through the wall owner.'), pending('concealment', 'Resolve elapsed time and detectable scent separately from the user\'s judgment.')],
+    }),
+    volume3Row({
+        slug: 'three-layer-interference', kind: 'concealment', label: 'Planned layered anti-divination concealment',
+        sourceIds: ['lotm.craft.three-layer-interference'], locators: ['zh b3 第249章 p5', 'zh b3 第249章 p6'], tag: 'T',
+        means: 'The plan uses access to grey-fog cleansing, a paper angel, a spiritual wall and the copper whistle.',
+        inputs: ['Wraith-associated reflective vessel', 'Grey-fog cleansing', 'Paper angel', 'Iron cigarette case', 'Spiritual wall', 'Copper whistle'],
+        steps: [step('cleanse', 'prepare', 'The practitioner plans to pass the wraith through the grey fog to cleanse contamination.'), step('wrap', 'prepare', 'Wrap the associated reflective vessel in a paper angel.'), step('enclose', 'prepare', 'Place it with the copper whistle in the iron case and enclose it with a spiritual wall.')],
+        product: {name: 'Planned layered concealment arrangement', mechanism: 'The practitioner combines cleansing, paper-angel protection and a sealed case with the whistle as three layers of interference. He expects divination or prophecy through the target to become very difficult; the plan does not demonstrate a failed hostile search.'},
+        tags: {'product.mechanism': 'I', limits: 'I'},
+        limits: ['The confidence claim belongs to the practitioner and does not establish certainty.'],
+        effects: [pending('concealment', 'Resolve the separate interference sources and actual hostile detection rather than treating confidence as guaranteed immunity.')],
+    }),
+    volume3Row({
+        slug: 'paper-angel', kind: 'making', label: 'Anti-divination paper angel',
+        sourceIds: ['lotm.craft.paper-angel'], locators: ['zh b3 第249章 p42', 'zh b3 第249章 p43', 'zh b3 第249章 p45'],
+        means: 'The demonstrated maker has a paper figure, the Black Emperor card and access to power above the grey fog.',
+        inputs: ['Paper figure', 'Black Emperor card', 'A little power from above the grey fog', 'Gold coin reflecting the target'],
+        steps: [step('transform', 'craft', 'Combine the paper figure, card and a little grey-fog power to form the anti-divination angel.'), step('wrap', 'use', 'Let the angel spread its wings around the reflective coin; store the coin and whistle in the iron case sealed with a spiritual wall.')],
+        product: {name: 'Paper angel surrounding a reflective coin', mechanism: 'The figure visibly becomes an angel and embraces the coin bearing the target\'s reflection. It is described as anti-divination protection; this scene demonstrates formation and placement, without measuring resistance against an opposing diviner.'},
+        effects: [pending('paper-angel', 'Resolve formation, power input and the protected object.'), pending('concealment', 'Resolve the protection against an actual detection mechanism rather than granting general immunity.')],
+    }),
+];
+
 export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
     {
-        id: 'lotm.craft.slumber-charm', label: 'Slumber charm',
+        kind: 'making', id: 'lotm.craft.slumber-charm', label: 'Slumber charm',
         sourceIds: ['lotm.craft.slumber-charm', ...charmSourceIds],
         locators: ['zh 第127章 p27', 'zh 第127章 p30', 'zh 第128章 p70', 'zh 第133章 p17', 'zh 第133章 p47', 'zh 第198章 p3', 'zh 第198章 p15'],
         eligibility: charmEligibility(), inputs: charmInputs(),
@@ -52,7 +279,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-consumption', 'Account for craft materials and the charm consumed by burning.'), pending('body-state', 'Resolve sleep for exposed targets, allies and user through their actual response.'), pending('item-charge', 'Resolve unused-charm spiritual decay and maintenance without treating a burned charm as rechargeable.')],
     },
     {
-        id: 'lotm.craft.soothing-charm', label: 'Soothing charm',
+        kind: 'making', id: 'lotm.craft.soothing-charm', label: 'Soothing charm',
         sourceIds: ['lotm.craft.soothing-charm', ...charmSourceIds],
         locators: ['zh 第127章 p27', 'zh 第127章 p30', 'zh 第128章 p70', 'zh 第133章 p17', 'zh 第133章 p47', 'zh 第198章 p34', 'zh 第198章 p38'],
         eligibility: charmEligibility(), inputs: charmInputs(),
@@ -64,7 +291,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-consumption', 'Account for materials and the charm consumed by burning.'), pending('mind-state', 'Resolve the observed calming of those exposed.'), pending('spirit-state', 'Resolve the taught spirit-soothing response without assigning an invented strength.'), pending('item-charge', 'Resolve unused-charm maintenance separately from consumed items.')],
     },
     {
-        id: 'lotm.craft.dream-charm', label: 'Dream charm',
+        kind: 'making', id: 'lotm.craft.dream-charm', label: 'Dream charm',
         sourceIds: ['lotm.rule.dream-charm-making', 'lotm.rule.dream-charm-use', ...charmSourceIds],
         locators: ['zh 第127章 p27', 'zh 第127章 p30', 'zh 第128章 p70', 'zh 第133章 p17', 'zh 第133章 p20', 'zh 第133章 p47'],
         eligibility: charmEligibility(), inputs: charmInputs(),
@@ -76,7 +303,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-consumption', 'Account for craft materials and the burned charm.'), pending('dream-access', 'Resolve the practitioner entering the sleeping subject\'s dream through the demonstrated meditation route.'), pending('item-charge', 'Resolve unused-charm decay and recharging.')],
     },
     {
-        id: 'lotm.craft.protective-talisman', label: 'Engraved protective talisman',
+        kind: 'making', id: 'lotm.craft.protective-talisman', label: 'Engraved protective talisman',
         sourceIds: ['lotm.craft.protective-talisman', 'lotm.craft.silver-talisman-carving', 'lotm.craft.talisman', 'lotm.craft.talisman-finishing-blessing'],
         locators: ['zh 第69章 p19', 'zh 第69章 p44', 'zh 第81章 p17', 'zh 第83章 p42', 'zh 第83章 p48', 'zh 第84章 p6', 'zh 第84章 p10'],
         eligibility: eligibility(['talisman-inscription', 'Use the learned carving method and the corresponding words and symbols.'], ['spirituality-channeling', 'For the visibly effective method, spirituality flows through the knife tip during carving.']),
@@ -91,7 +318,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-crafting', 'Turn the ornament into the inscribed talisman and retain the carving tool.'), pending('protection', 'Resolve the requested protection through its power source; the cited gift scene does not prove a prevented misfortune.')],
     },
     {
-        id: 'lotm.craft.holy-night-powder', label: 'Holy Night powder',
+        kind: 'making', id: 'lotm.craft.holy-night-powder', label: 'Holy Night powder',
         sourceIds: ['lotm.craft.holy-night-powder'],
         locators: ['zh 第102章 p33', 'zh 第105章 p2'],
         eligibility: eligibility(['holy-night-method', 'The lead mixes the powder after buying materials; this describes access to that preparation knowledge.'], ['spirituality-channeling', 'The demonstrated barrier use imbues the powder with spirituality before scattering.']),
@@ -107,7 +334,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-crafting', 'Account for herbs transformed into stored powder and portions expended in use.'), pending('spiritual-wall', 'Resolve the circled barrier and its actual ritual purpose.')],
     },
     {
-        id: 'lotm.craft.ritual-essence-oil', label: 'Distilled ritual essence oil',
+        kind: 'making', id: 'lotm.craft.ritual-essence-oil', label: 'Distilled ritual essence oil',
         sourceIds: ['lotm.craft.ritual-essence-oil', 'lotm.craft.ritual-oil-distillation'],
         locators: ['zh 第64章 p12', 'zh 第64章 p13'],
         eligibility: eligibility(['botanical-distillation', 'Audrey draws on experience preparing oils and hydrosols and follows supplied instructions.']),
@@ -123,7 +350,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-crafting', 'Account for botanicals and bottling without inventing an output quantity.'), pending('aid-preparations', 'Supply the made oil to lotm.aid.ritual-oil-bath; its application and relaxation remain with the existing aid row.')],
     },
     {
-        id: 'lotm.craft.full-moon-oil', label: 'Full Moon oil',
+        kind: 'making', id: 'lotm.craft.full-moon-oil', label: 'Full Moon oil',
         sourceIds: ['lotm.craft.full-moon-oil'], locators: ['zh 第173章 p33'],
         eligibility: eligibility(['full-moon-preparation', 'This scene identifies the prepared oil and its ingredients but does not show its manufacture; the predicate is an unresolved method input.']),
         inputs: [input('Dragon-pattern tree bark'), input('Moon flower')],
@@ -138,7 +365,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         effects: [pending('inventory-crafting', 'Resolve the undisclosed oil-making operation before this row becomes an executable recipe.'), pending('ritual-preparation', 'Consume prepared oil in the altar setup alongside lotm.aid.amanda-distillate; the Amanda preparation stays with its existing owner.')],
     },
     {
-        id: 'lotm.craft.pure-water', label: 'Repeatedly distilled water',
+        kind: 'making', id: 'lotm.craft.pure-water', label: 'Repeatedly distilled water',
         sourceIds: ['lotm.craft.pure-water'],
         locators: ['zh 第168章 p25', 'zh 第168章 p27', 'zh 第168章 p28'],
         eligibility: eligibility(['alchemy-apparatus', 'The demonstrated route uses equipment in the alchemy room.']),
@@ -153,6 +380,7 @@ export const LOTM_CRAFT_ROWS = {schema: 1, rows: [
         proposals: [...proposals, 'Formula demand is not a claim about the amount of raw water or distillation yield.'],
         effects: [pending('inventory-crafting', 'Transform the water through distillation, retain apparatus and leave unstated yield unresolved.'), pending('potion-preparation', 'Supply pure water to the intended formula without granting a completed potion.')],
     },
+    ...volume3Rows,
 ]};
 
 // Host-supplied facts, not abilities granted by importing these data.
@@ -167,4 +395,13 @@ export const LOTM_CRAFT_GAPS = [
     {id: 'lotm.rite.nail-blood-charm', reason: 'A consumed token is shown, but its purpose, target and supernatural effect are unstated.'},
     {id: 'lotm.craft.hunter-bullets', reason: 'Material suitability is discussed without a recipe or performed ammunition manufacture.'},
     {id: 'lotm.craft.matchbox-gluing', reason: 'Supplies and completed boxes do not establish the actual making procedure.'},
+
+    // No selected usable anchor was missing from the book-3 shards. The ch179 alias was confirmed and normalized; paragraph ranges and the p75/p97 shorthand were expanded to confirmed individual anchors.
+    {"id": "lotm.craft.airship-barrage", "reason": "Evacuation and artillery coordination belong to a combat owner; this is not a craft, preparation aid or made product."},
+    {"id": "lotm.craft.volume3-unusable-commissions", "sourceIds": ["lotm.craft.underwater-stealth-item", "lotm.craft.extraordinary-item-making", "lotm.rite.summon-messengers", "lotm.craft.summon-item-commission", "lotm.craft.fixed-summon-ritual", "lotm.craft.swim-bladder-ring", "lotm.craft.trait-commission", "lotm.rite.portrait-ritual"], "reason": "The typed records describe requests or possible commissions without a verified manufacture procedure or completed result."},
+    {"id": "lotm.craft.volume3-unusable-descriptions", "sourceIds": ["lotm.craft.bernadette-gift", "lotm.rule.silver-mask-craft", "lotm.craft.ninth-law-talisman", "lotm.rule.murloc-cufflink-craft", "lotm.rite.harmonica-spirit-summon", "lotm.craft.whale-butchery", "lotm.craft.whale-oil-rendering", "lotm.craft.nibos-distilling", "lotm.craft.storm-charm-tin", "lotm.rule.aura-seal-box"], "reason": "The typed records describe existing goods, materials or delivered items without a usable production sequence."},
+    {"id": "lotm.craft.volume3-unusable-attempts", "sourceIds": ["lotm.craft.inscribe-true-names", "lotm.craft.faceless-roleplay", "lotm.craft.silver-fish-breeding"], "reason": "The typed records describe contemplated, uncertain or failed procedures and do not establish a usable making result."},
+    {"id": "lotm.craft.volume3-unusable-effects", "sourceIds": ["lotm.item.sun-holy-water-bottle-charge", "lotm.item.paper-crane", "lotm.rite.tree-desire-drink", "lotm.craft.night-watch-crane-forgery", "lotm.rite.blue-eye-portrait", "lotm.craft.sweet-lemon-cocktail", "lotm.craft.silver-badge-replica", "lotm.rule.wine-blood-fish", "lotm.craft.sedative-drink", "lotm.craft.extraordinary-trait-use", "lotm.craft.monocle-locating"], "reason": "The typed records lack the resulting effect or a usable method at the selected anchor."},
+    {"id": "lotm.craft.volume3-repeat-occasions", "sourceIds": ["lotm.craft.tarot-three-card-reading", "lotm.craft.coin-divination", "lotm.craft.high-grade-talisman-sun-emblem"], "reason": "Known-method occasions are excluded by this brief rather than promoted into new craft recipes."},
+    {"id": "lotm.craft.volume3-no-content", "sourceIds": ["lotm.craft.sun-holy-water", "lotm.craft.canoe-building", "lotm.craft.puppeteer-puppet-plan", "lotm.craft.hermetic-language", "lotm.craft.suonia-blood-wine", "lotm.craft.engineer-fee", "lotm.craft.puppeteer-materials", "lotm.craft.talisman-self-prayer"], "reason": "Nonprocedural mentions supply no usable making method and are excluded by this brief."},
 ];

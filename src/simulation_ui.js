@@ -40,7 +40,8 @@ export function createSimulationPanel({registry, read, command}) {
         for(const [id,b] of controls) {
             if(!s) {b.hidden = true; continue;}
             const d = registry.simulation.commands.get(id), ctx = {...context, targetId: d.targetId || null};
-            const p = previewSimulationCommand(state, registry, id, ctx); b.hidden = !p.visible || !!(d.once && state.actors.player.completed[id]) || !!(d.claim && s.claims[d.claim]) || d.group === "social" && d.location !== context.facts.location;
+            const p = previewSimulationCommand(state, registry, id, ctx); // A command bound to another world is never actionable here; listing it only buried the local ones (2026-10-30).
+            b.hidden = !p.visible || !!(d.worldId && state.actors.player?.worldId !== d.worldId) || !!(d.once && state.actors.player.completed[id]) || !!(d.claim && s.claims[d.claim]) || d.group === "social" && d.location !== context.facts.location;
             b.disabled = !enabled || !!error || !p.eligible; b.title = p.reasons.join(" ");
             if(b.hidden && document.activeElement === b) (d.group === "social" ? conversation : panel).querySelector("summary").focus();
         }

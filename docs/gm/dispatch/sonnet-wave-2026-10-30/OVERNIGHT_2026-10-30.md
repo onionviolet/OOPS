@@ -23,9 +23,23 @@ No new parallel wave. About 40 sessions already run under three coordinators, an
 
 UI coordinator state (02:40): ui-integrator merges the eighteen finished rep-* branches plus the walks fix in RCT1 order (receipt `docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md`); rep-items, rep-first-hour and rep-talk run; homes, gathering/seasons and companions are queued. UI lanes stop launching at weekly 70%.
 
+Reading coordinator state (02:50): p3c-memory (P3c), p4-fights (P4 then P5, P7, P6, P8) and lead-readings (Circle of Inevitability, 12 shards in 4 Luna lanes) run; ownership is in LEAD_LIFE_GUIDE section 6. Committed tonight: MR3 traits `432afe7b1` (browser floor met) and the workshop clutter fix `d5f48d5f6`.
+
+**Watch item W1:** at machine load 100+, the full `npm test` cannot run clean. Nine cast disposable-copy integration tests hit the 270 s worker limit and pass when run alone at lower load. A clean full-suite gate needs a quieter window (or the slot limiter holding other gates), so overnight full-suite failures of only those tests are load, not regressions, until rerun quietly. Fix (sw-slots, committed): run the full gate as `YAIRPG_SLOT_MAX_LOAD=40 node scripts/slot_run.mjs --kind suite --slots 1 -- npm test`. It waits until the 1-minute load is at or below 40, then takes the single suite slot. Every overnight nudge carries this command.
+
 ## Supervisor tick
 
 Every ~40 minutes the supervisor reads usage and the session list. The Sonnet wave coordinator hits its cross-session send cap without a user turn, so the tick nudges idle `sw-*` lanes directly (QUEUE Round 2), at most 8 sends per tick; `sw-death` and `sw-chars` wake from their Codex watchers and get nudged only after an hour idle. `sw-gaps` is nudged when `ideas/` grows by 50+ lines (baseline 224 lines at 02:45). The UI and reading coordinators get a nudge only after 30 minutes idle with queue left. Above the stop lines it sends "checkpoint and hold" instead. It does not write code, start workers or edit other owners' files.
+
+**Load W2 (03:06):** 1-minute load reached 355-377 on 18 cores. Three full suites ran at once with one worker per core (gate-wire for sw-wire, a raw `npm test` outside the limiter in the primary checkout at PID 48334, and rep-talk), plus headless Chrome. The UI integrator's single-slot merge gate could not start, so the representation branches are not landed on master. Pacing asked: let current runs finish, then hold new full suites until the integrator gate runs or 05:30. The suite command for everyone becomes:
+
+`YAIRPG_SLOT_MAX_LOAD=40 node scripts/slot_run.mjs --kind suite --slots 1 -- node --test --test-concurrency=4 tests/*.test.js`
+
+(the same files as `npm test`, with 4 workers instead of 18).
+
+**Send cap W3 (03:07):** the desktop app pauses a session's cross-session sends after 10 without a user message. The Sonnet wave coordinator hit it first, then this supervisor. Its reply to the UI coordinator did not go out (sw-wire got the pacing note; p3c-memory has it queued). From here the tick only observes and writes this report. To restart nudging, Weibao types any message in the supervisor session. Lanes keep moving on their own Codex watchers and in-flight turns.
+
+**W2 update (03:15, from the Sonnet wave coordinator):** `slot_run --status` shows no holders, so the suites now running bypass the limiter: the ui-integration "mastercheck" (4 node test processes), rep-talk (3) and 4 in the primary checkout. sw-absorb's gate on `fe6a8e17` came back inconclusive (15 of 4,320 failing, timeouts mixed in) and waits for load under 40 to rerun the cast and wiring files alone. macOS `mediaanalysisd` and Spotlight take about 280% CPU on top. The supervisor could not relay the limiter request to the UI coordinator (W3 cap). **UI lanes reading this:** route integrator and rep-* suites through the command above.
 
 ## Morning report
 

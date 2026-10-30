@@ -6,7 +6,7 @@ import {LOTM_AID_PREPARATIONS} from '../src/lotm_potion_rule_rows.js';
 
 const {rows} = LOTM_CRAFT_ROWS;
 const row = slug => rows.find(item => item.id === `lotm.craft.${slug}`);
-const locatorPattern = /^zh \u7b2c[1-9]\d*\u7ae0 p[1-9]\d*$/;
+const locatorPattern = /^zh (?:b3 )?\u7b2c[1-9]\d*\u7ae0 p[1-9]\d*$/;
 
 test('craft rows have unique identities, anchor locators and English paraphrases', () => {
     assert.equal(LOTM_CRAFT_ROWS.schema, 1);
@@ -28,10 +28,10 @@ test('craft rows have unique identities, anchor locators and English paraphrases
         assert.equal(item.evidence.eligibility, 'I');
     }
     const source = readFileSync(new URL('../src/lotm_craft_rows.js', import.meta.url), 'utf8');
-    assert.doesNotMatch(source.replace(/(['"])zh \u7b2c[1-9]\d*\u7ae0 p[1-9]\d*\1/g, '"locator"'), /\p{Script=Han}/u);
+    assert.doesNotMatch(source.replace(/(['"])zh (?:b3 )?\u7b2c[1-9]\d*\u7ae0 p[1-9]\d*\1/g, '"locator"'), /\p{Script=Han}/u);
 });
 
-test('every craft has typed inputs, a making step and a product mechanism', () => {
+test('every craft has typed inputs, appropriate operations and a product mechanism', () => {
     for (const item of rows) {
         assert.ok(item.inputs.length > 0, item.id);
         for (const ingredient of item.inputs) {
@@ -40,7 +40,8 @@ test('every craft has typed inputs, a making step and a product mechanism', () =
             assert.ok(ingredient.quantity === null || typeof ingredient.quantity === 'string');
             assert.ok(['S', 'T', 'I'].includes(ingredient.evidence));
         }
-        assert.ok(item.steps.some(step => step.kind === 'craft'), item.id);
+        assert.ok(item.steps.length > 0, item.id);
+        if (item.volume !== 3) assert.ok(item.steps.some(step => step.kind === 'craft'), item.id);
         assert.equal(new Set(item.steps.map(step => step.id)).size, item.steps.length);
         for (const step of item.steps) {
             assert.ok(step.id && step.text?.trim());
@@ -50,7 +51,8 @@ test('every craft has typed inputs, a making step and a product mechanism', () =
         assert.ok(item.product.name?.trim());
         assert.ok(item.product.mechanism?.trim());
         assert.doesNotMatch(item.product.mechanism, /\b(?:never|always|only)\b/i);
-        assert.ok(item.limits.length > 0);
+        assert.ok(Array.isArray(item.limits));
+        for (const limit of item.limits) assert.ok(limit.trim());
         assert.ok(item.effects.length > 0);
         for (const effect of item.effects) {
             assert.equal(effect.type, 'owner-needed');
@@ -128,4 +130,49 @@ test('unusable source identities remain reasoned gaps outside represented rows',
     for (const id of ['lotm.craft.sun-flame-charm', 'lotm.craft.covert-entry-search', 'lotm.craft.surveillance-tailing', 'lotm.rite.nail-blood-charm', 'lotm.craft.hunter-bullets', 'lotm.craft.matchbox-gluing']) {
         assert.ok(LOTM_CRAFT_GAPS.some(gap => gap.id === id), id);
     }
+});
+
+
+test('volume and kind distinguish source operations without recasting item use as manufacture', () => {
+    const kinds = new Set(['making', 'cooking', 'communication', 'disguise', 'concealment', 'training', 'item_use']);
+    for (const item of rows) {
+        assert.ok(kinds.has(item.kind), item.id);
+        assert.equal(item.evidence.kind, 'I');
+        if (item.volume === 3) {
+            assert.ok(item.locators.every(locator => locator.startsWith('zh b3 ')), item.id);
+        } else {
+            assert.equal(item.kind, 'making');
+            assert.ok(item.locators.every(locator => !locator.startsWith('zh b3 ')), item.id);
+        }
+    }
+    for (const item of rows.filter(item => item.kind === 'item_use')) {
+        assert.ok(item.steps.some(step => step.kind === 'use'), item.id);
+        assert.ok(!item.steps.some(step => step.kind === 'craft'), item.id);
+    }
+});
+
+test('merged source methods retain provenance without duplicate source identities', () => {
+    const sourceIds = rows.filter(item => item.volume === 3).flatMap(item => item.sourceIds);
+    assert.equal(new Set(sourceIds).size, sourceIds.length);
+    for (const ids of [
+        ['lotm.craft.radio-operation', 'lotm.craft.radio-codebook-report', 'lotm.craft.radio-telegram-decoding', 'lotm.craft.telegraph-decoding'],
+        ['lotm.craft.fish-man-cooking', 'lotm.craft.fish-seasoning', 'lotm.craft.dixi-grilled-fish'],
+        ['lotm.craft.makeup-disguise', 'lotm.craft.helene-male-disguise', 'lotm.craft.makeup-removal-disguise'],
+    ]) {
+        assert.ok(rows.some(item => ids.every(id => item.sourceIds.includes(id))));
+    }
+    for (const gap of LOTM_CRAFT_GAPS) {
+        for (const id of gap.sourceIds ?? [gap.id]) assert.ok(!sourceIds.includes(id), id);
+    }
+});
+
+test('reported, planned and judged outcomes retain their evidence boundary', () => {
+    assert.equal(row('hybrid-bacteria-cultivation').evidence.product, 'T');
+    assert.equal(row('hybrid-bacteria-cultivation').evidence.steps, 'T');
+    assert.equal(row('three-layer-interference').evidence.steps, 'T');
+    assert.equal(row('three-layer-interference').evidence['product.mechanism'], 'I');
+    assert.equal(row('scent-dispersal-wall').evidence['product.mechanism'], 'I');
+    assert.ok(!Object.hasOwn(row('sea-god-talisman-use'), 'recharge'));
+    assert.equal(row('sea-god-talisman-use').evidence['steps.1.text'], 'T');
+    assert.ok(LOTM_CRAFT_GAPS.some(gap => gap.id === 'lotm.craft.airship-barrage'));
 });

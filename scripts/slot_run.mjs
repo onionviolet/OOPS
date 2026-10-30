@@ -4,9 +4,10 @@
 //        node scripts/slot_run.mjs --status
 // Slots are atomic mkdir dirs under YAIRPG_SLOT_DIR (default ~/.cache/yairpg-slots).
 // suite and build share one pool (default 2 slots); browser has its own (default 1).
+// --max-load N (or YAIRPG_SLOT_MAX_LOAD) also holds the gate until the 1-minute load average is <= N.
 import {spawn} from 'node:child_process';
 import {mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
-import {homedir} from 'node:os';
+import {homedir, loadavg} from 'node:os';
 import {join} from 'node:path';
 
 const DEFAULT_SLOTS = {heavy: 2, browser: 1};
@@ -61,7 +62,7 @@ function listHolders() {
 }
 
 function parseArgs(argv) {
-  const out = {kind: 'suite', slots: null, status: false, command: []};
+  const out = {kind: 'suite', slots: null, maxLoad: Number(process.env.YAIRPG_SLOT_MAX_LOAD) || null, status: false, command: []};
   const sep = argv.indexOf('--');
   const head = sep === -1 ? argv : argv.slice(0, sep);
   out.command = sep === -1 ? [] : argv.slice(sep + 1);
@@ -69,6 +70,7 @@ function parseArgs(argv) {
     if (head[i] === '--status') out.status = true;
     else if (head[i] === '--kind') out.kind = head[++i];
     else if (head[i] === '--slots') out.slots = Number(head[++i]);
+    else if (head[i] === '--max-load') out.maxLoad = Number(head[++i]);
     else throw new Error(`unknown argument ${head[i]}`);
   }
   if (!['suite', 'build', 'browser'].includes(out.kind)) throw new Error(`bad --kind ${out.kind}`);
@@ -114,10 +116,12 @@ async function main() {
   for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) process.on(sig, () => onSignal(sig));
   process.on('exit', release);
 
-  while (!(dir = tryAcquire(pool, slots, info))) {
+  const calm = () => !args.maxLoad || loadavg()[0] <= args.maxLoad;
+  while (!((calm() && (dir = tryAcquire(pool, slots, info))))) {
     if (!announced) {
       const held = listHolders().filter((r) => r.pool === pool && r.alive).length;
-      console.error(`slot_run: waiting for a ${pool} slot (${held}/${slots} held; run --status to see holders)`);
+      const why = calm() ? `${held}/${slots} held` : `load ${loadavg()[0].toFixed(0)} > ${args.maxLoad}`;
+      console.error(`slot_run: waiting for a ${pool} slot (${why}; run --status to see holders)`);
       announced = true;
     }
     await sleep(POLL_MS);

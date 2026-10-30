@@ -286,4 +286,5 @@ slot limiter so concurrent sessions queue instead of piling load onto the machin
 Suite and build share 2 slots, browser has 1 (`--slots N` overrides); locks live in
 `~/.cache/yairpg-slots/` (`YAIRPG_SLOT_DIR`), dead holders are reclaimed, and the
 child's exit code passes through. `node scripts/slot_run.mjs --status` lists holders.
-Focused single-file tests need no slot.
+Focused single-file tests need no slot. Add `--max-load N` (or `YAIRPG_SLOT_MAX_LOAD`) to also hold the gate until
+the 1-minute load average is at or below N; overnight gates use `--max-load 40` so they do not time out under load.

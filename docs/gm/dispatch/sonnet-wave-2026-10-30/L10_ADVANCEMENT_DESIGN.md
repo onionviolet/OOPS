@@ -55,3 +55,25 @@ For a record set with prefix `P` and key `k`: ability `P.ability.k`, command `P.
 **Slice 4 data (private, `private_packs/learnable-spells/{mol,hp}.json`):** Mother of Learning torch, book-finding divination, magic missile; Harry Potter match-to-needle, summoning charm, patronus charm. Each row cites rule id and locators for teacher, conditions and signs. Authored proposals: practice minutes, mastery counts (for example 90 sessions for "months", 14 for "two weeks"), mana amounts. Evidence: `tests/learnable_spells_packs.test.js` (2 pass, skip if packs absent). **Checks not run:** no Luna paragraph check beyond my own read of the cited rows; one reader.
 
 **Not done:** wiring packs into a world, any world's teacher-presence facts, failure chance (a dial, no stated number), browser run.
+
+## Typed abilities per volume (GM26, volumes 2-8), 2026-10-30 overnight
+
+Pipeline: `scripts/lead_run/ability_typing.mjs` (prep, answer parser, typed rows; 3 tests) feeds Luna lanes (`gpt-6-luna` medium, brief template `l10-briefs/TYPING_BRIEF_TEMPLATE.md`), launched three at a time by `ability_typing_fanout.mjs`. Luna classifies existing extracted items (no book text): required state, blocker, stated range, duration or count, cost, note. It never invents a number; unanswered or malformed items are reported, not guessed.
+
+**Result (private, `private_packs/lotm-abilities/typed_v2..v8.json`; counts only):**
+
+| Volume | Typed ability ids | Conditions | Blockers | Stated numbers | Stated costs | Items unanswered |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2 | 367 | 245 | 22 | 8 | 22 | 1 |
+| 3 | 470 | 436 | 35 | 32 | 21 | 5 |
+| 4 | 431 | 275 | 47 | 24 | 29 | 1 |
+| 5 | 435 | 273 | 26 | 23 | 11 | 2 |
+| 6 | 334 | 242 | 45 | 24 | 15 | 1 |
+| 7 | 177 | 144 | 6 | 21 | 12 | 14 |
+| 8 | 154 | 99 | 10 | 5 | 3 | 0 |
+
+30 chunks, all complete; 24 items had malformed lines (slug format) and stay untyped. **Brief iteration (D11):** the first brief over-labelled (100 of 161 items as conditions on volume 8), the second under-labelled (7 of 161), the third (needed/required/trigger is a condition, narration is a note, no generic slugs) gave 102 conditions, 15 blockers and 48 notes on a volume 3 chunk. Sonnet reviewed about 20 sampled items: labels and slugs fit; slugs stay specific (about 1,575 distinct), so cross-ability reuse is low and a slug clustering pass is a later idea.
+
+**Promotion:** `src/ability_typed_rows.js` (`recordFromTyped`, 2 tests) turns a typed row into an ability record input: conditions and blockers from the cited states, stated numbers carried as `stated` (shown in `abilityView`), a generic marker effect, and `unstated` saying the effect and the cost amount are not stated. Records are not generated in bulk yet: a held source and a real effect per ability are decisions for the rung or pathway they belong to.
+
+**Verification state:** agent-verified, not human-reviewed; 12 focused tests across the pipeline, typed rows and records pass; `check:arch` passes; not wired; no browser run. Codex peak 30% at last preflight; Claude weekly 57%, 5-hour 83% at 2026-10-30 about 07:10.

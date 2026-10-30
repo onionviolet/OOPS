@@ -1,4 +1,7 @@
 import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
+import {settleLotmEvents,lotmRestrictions,LOTM_EVENTS_SETTLED} from './book_world_lotm_events.js';
+import {CITY_PREFIX,TINGEN_STATION,journeyUnderRestrictions} from './book_world_lotm_cities.js';
+import {LOTM_DIVINATION_ROWS} from './lotm_divination_rows.js';
 import {constraintsFromPack} from './constraint_pack.js';
 import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
 import {createStreams} from './seeded_streams.js';
@@ -61,7 +64,10 @@ export function castJourneyContext(state,context){
 export function castJourneyOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
- return quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
+ const offers=quoteJourneys(state,castJourneyCommands.filter(d=>d.location===place||pending.has(d.id)),preview,{...options,label:castPlaceLabel});
+ if(!offers.some(o=>o.id.startsWith(CITY_PREFIX)))return offers;
+ const restrictions=lotmRestrictions({state,days:getPrivateLotmCast()?.bindings?.days||[]}),hour=castCalendar(state).calendar.hour;
+ return offers.map(o=>journeyUnderRestrictions(o,restrictions,hour));
 }
 export let castInferenceCommands=[];
 export let castCardRows=[];
@@ -165,7 +171,7 @@ function deriveCast(pack){
  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castCardRows=defineCards(pack.eventCards ?? null,{worldId:I.world,actorId:'player',group:'book_lotm',situationId:LOTM_CAST_SITUATION});
  castAbilityCommands=defineCastAbilities(pack.abilityConflicts,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
- castDivinationCommands=defineDivinations(pack.divinations,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castDivinationCommands=defineDivinations({...pack.divinations,queries:[...(pack.divinations?.queries||[]),...LOTM_DIVINATION_ROWS.queries]},{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castMakingCommands=defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -320,7 +326,8 @@ export function installCastWalk(registry,from,to){
 // Missing-pack saves keep their bodies and knowledge. Name-free dormant
 // definitions let the normal validators retain those exact identities; no
 // schedule, meeting or new start is granted by these placeholders.
-export const dormantCastPlace=id=>typeof id==='string'&&/^lotm\.place\.cast-[a-f0-9]{20}$/.test(id);
+// City-leg places (L11) are name-free too, so a save made with the city packs restores without them.
+export const dormantCastPlace=id=>typeof id==='string'&&(/^lotm\.place\.cast-[a-f0-9]{20}$/.test(id)||id===TINGEN_STATION.id||/^lotm\.city\.[a-z0-9_-]+\.[a-z0-9_.-]+$/i.test(id));
 export function restoreUnavailableCast(state,registry,place=()=>{}){
  if(!lotmCastLife(state))return;
  if(castAvailable){for(const job of state.simulation?.jobs||[]){const def=castWalkDefinitionById(job.commandId);if(def)installCastWalk(registry,def.location,walkDestination(def));}return;}
@@ -552,6 +559,10 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
   if(report.effects.length)applySimulationEffects(plan,report.effects,{actorId:'player',worldId:I.world,facts:{location:report.place}},null,`lotm.cast.card.${report.cardId.replace(/[^a-z0-9_.:-]/gi,'_')}`);
   out.ledger.facts[REPORT_PREFIX+`card.${report.cardId}`]={text:report.text,at:report.at,kind:report.kind,actor:report.actor,place:report.place,threadId:report.threadId};
  }
+ const news=lotmBe(plan.state)?settleLotmEvents({ledger:out.ledger,days:getPrivateLotmCast()?.bindings?.days||[],day:Math.floor((plan.state.clock-plan.state.lotm.initializedAt)/1440)+1,reached:new Set(cardWindow.scenes)}):{writes:[],reports:[]};
+ if(news.writes.length)applyBeatKnowledge(plan,news.writes,writeKnowledge);
+ if(news.settledDay!==undefined)out.ledger.facts[LOTM_EVENTS_SETTLED]=news.settledDay;
+ for(const r of news.reports)out.ledger.facts[REPORT_PREFIX+r.id]={text:r.text,at:r.at,kind:r.kind,actor:r.actor};
  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
  const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];
@@ -561,6 +572,6 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  const journeyReports=lotmBe(plan.state)?settleJourneyReports(plan.state,castJourneyCommands,I.world):[];
  const result=persist(plan);
  domainRegistry.command('beatLedger','commit')(saved);
- for(const report of [...out.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);
+ for(const report of [...out.reports,...news.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);
  return result;
 }

@@ -83,3 +83,15 @@ test('browser kind uses its own single slot and --status lists holders', async (
   await a.done;
   rmSync(dir, {recursive: true, force: true});
 });
+
+test('--max-load holds the gate while the load average is above it, without taking a slot', async () => {
+  const dir = tmp();
+  const c = start(dir, ['--max-load', '0.0001', '--', process.execPath, '-e', '0']);
+  assert.ok(await until(() => c.err.includes('load')));
+  assert.equal(held(dir), 0);
+  c.kill('SIGTERM');
+  await c.done;
+  const ok = spawnSync(process.execPath, [SCRIPT, '--max-load', '100000', '--', process.execPath, '-e', '0'], {env: env(dir)});
+  assert.equal(ok.status, 0);
+  rmSync(dir, {recursive: true, force: true});
+});

@@ -4,11 +4,11 @@ import {LOTM_RITE_ROWS, LOTM_RITE_FACTS, LOTM_RITE_GAPS} from '../src/lotm_rite_
 
 const {rows} = LOTM_RITE_ROWS;
 const locator = /^zh (b\d )?第\d+章 p\d+$/;
-const families = new Set(['sacrifice', 'confession', 'purification', 'dream_entry', 'summons', 'questioning', 'search', 'entry']);
+const families = new Set(['sacrifice', 'confession', 'purification', 'dream_entry', 'summons', 'questioning', 'search', 'entry', 'blessing', 'offering', 'contact', 'contract', 'concealment']);
 const kinds = new Set(['prepare', 'rite', 'call', 'response', 'attempt', 'interpret', 'use', 'outcome']);
 const branches = new Set(['success', 'failure', 'partial', 'unknown']);
 
-test('rite rows have distinct namespaced identities and confirmed volume-2 locator forms', () => {
+test('rite rows have distinct namespaced identities and locators matching their volume', () => {
     assert.equal(LOTM_RITE_ROWS.schema, 1);
     assert.ok(rows.length > 0);
     assert.equal(new Set(rows.map(row => row.id)).size, rows.length);
@@ -20,8 +20,43 @@ test('rite rows have distinct namespaced identities and confirmed volume-2 locat
         assert.ok(row.locators.length);
         for (const ref of row.locators) {
             assert.match(ref, locator);
-            assert.ok(ref.startsWith('zh b2 '), ref);
+            assert.ok(ref.startsWith(`zh b${row.volume} `), ref);
         }
+    }
+});
+
+test('volume-3 groups retain source identities without duplicate procedure occurrences', () => {
+    const later = rows.filter(row => row.volume === 3);
+    assert.ok(later.length);
+    const seen = new Set();
+    for (const row of later) {
+        assert.equal(new Set(row.locators).size, row.locators.length, row.id);
+        for (const id of row.sourceIds) {
+            assert.match(id, /^lotm\.[a-z]+\.[a-z0-9-]+$/);
+            assert.ok(!seen.has(id), `source procedure occurs in multiple groups: ${id}`);
+            seen.add(id);
+        }
+        assert.ok(row.steps.every(step => step.minutes === null));
+    }
+    const self = later.find(row => row.sourceIds.includes('lotm.rite.self-summon-grey-fog'));
+    assert.ok(self.sourceIds.includes('lotm.rule.self-summon-ritual'));
+    const messenger = later.find(row => row.sourceIds.includes('lotm.rite.summon-messenger'));
+    assert.ok(messenger.sourceIds.includes('lotm.rite.harmonica-summon-messenger-lady'));
+    assert.ok(!seen.has('lotm.rite.deep-red-star-link'));
+    assert.ok(!seen.has('lotm.rule.harmonica-messenger-binding'));
+});
+
+test('reported instruction and partial cleansing do not become demonstrated grants', () => {
+    for (const source of ['lotm.rule.messenger-contract', 'lotm.rite.purifying-cannon-recharge', 'lotm.rite.fertility-necklace-contamination']) {
+        const row = rows.find(row => row.sourceIds.includes(source));
+        assert.equal(row.evidence.outcomes, 'T');
+        assert.ok(row.outcomes.every(result => result.when === 'unknown'));
+    }
+    const cleansing = rows.find(row => row.sourceIds.includes('lotm.rite.four-step-cleansing'));
+    assert.ok(cleansing.outcomes.every(result => result.when === 'partial'));
+    assert.match(cleansing.outcomes[0].stated, /physical.*remain/i);
+    for (const id of ['volume-3-deep-red-star-link', 'volume-3-harmonica-manufacture']) {
+        assert.ok(LOTM_RITE_GAPS.some(gap => gap.id === id));
     }
 });
 
