@@ -4,6 +4,7 @@
 import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
 import {registerDomain} from './domain_registry.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
+import {lotmDivinationFacts} from './book_world_lotm_div_supply.js';
 import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
 import {createLotmPanel} from './book_world_lotm_ui.js';
 import {lotmPeople} from './book_world_lotm_content.js';
@@ -32,7 +33,7 @@ function restoreMissingCast(envelope){
  if(castAvailable){ensureCastLocation(envelope.expansion.simulation?.people?.player?.location);for(const id of Object.keys(envelope.locations||{}))ensureCastLocation(id);return;}
  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
 }
-registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:()=>host?.tick(),refresh:()=>panel?.render(),
+registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
- projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
+ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args)}:host?.view(),
  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});
