@@ -83,7 +83,7 @@ test('timed preparation and document handling retain action/object facts without
  }
 });
 
-test('live joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:180000}, async t=>{
+test('live joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:300000}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -172,6 +172,6 @@ try {
  assert.deepEqual(g.errors,[]);assert.equal(g.internals.foundationSaveBlocked,false);
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native making fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

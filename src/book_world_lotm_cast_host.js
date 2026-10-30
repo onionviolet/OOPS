@@ -175,8 +175,9 @@ function deriveCast(pack){
  for(const d of castJourneyCommands)if(!placesById.has(d.journey.from)||!placesById.has(d.journey.to))throw Error('Journey needs pack places.');
  castTalkCommands.push(...castTopicCommands);
  talkIds=new Set(castTalkCommands.map(d=>d.id));
- castPlaces=pack.places.filter(p=>p.travel&&!p.anchorOnly);
- castMoves=Object.fromEntries(castPlaces.map(p=>[`lotm.move.${p.id}`,p.id]));
+ const journeyPlaces=new Set(castJourneyCommands.flatMap(d=>[d.journey.from,d.journey.to]));
+ castPlaces=pack.places.filter(p=>!p.anchorOnly&&(p.travel||journeyPlaces.has(p.id)));
+ castMoves=Object.fromEntries(castPlaces.filter(p=>p.travel).map(p=>[`lotm.move.${p.id}`,p.id]));
  castWalkCommands=[];walksById.clear();walkPlaces=new Map([...Object.values(L),...castPlaces.map(p=>p.id)].map(id=>[walkPart(id),id]));
  castObjectCommands=definePlaceActs(pack.householdActs,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -294,7 +295,7 @@ export function castWalkDefinition(from,to){
  const id=castWalkId(from,to);if(walksById.has(id))return walksById.get(id);
  const minutes=lotmWalkMinutes(from,to),district=districtOfPlace(to);if(minutes==null||!district)return null;
  const def=cmd(id.replace('book.lotm.',''),`Walk to ${castPlaceLabel(to)} · ${minutes} min`,from,
- {alone:true,once:false,duration:minutes,cancellation:'none',requires:eq('lotm.profile.beside'),
+ {alone:true,once:false,duration:minutes,cancellation:'none',requires:{any:[eq('lotm.profile.beside'),eq('lotm.profile.be')]},
  effects:[{type:'knowledge',actor:'player',key:'book.lotm.arrived',stage:'seen',
  value:`You reach ${castPlaceLabel(to)} in ${district.qlabel}. The walk took ${minutes} minutes.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]});

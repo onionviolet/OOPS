@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from '../src/cast_journeys.js';
+import {defineDivinations} from '../src/cast_divination_adapter.js';
+import {defineCastAbilities} from '../src/cast_ability_adapter.js';
 import {fresh,ctx,registry,I} from './lotm_helpers.js';
 import {createSimulationRegistry} from '../src/simulation_contracts.js';
 import {simulationFacts} from '../src/simulation_effects.js';
@@ -93,7 +95,17 @@ test('generator-shaped journey with no fare passes the native registry JSON chec
  for(const fare of [NaN,Infinity,-1])assert.throws(()=>defineJourneys({journeys:[{...row,fare}]},binding),/Invalid journey/);
 });
 
-test('native place-panel journey validates pending Save/reload, arrival and literal Export/Import', {timeout:180000}, async t=>{
+for(const [kind,make] of [
+ ['divination',()=>defineDivinations({queries:[{id:'fixture.divination',targetId:'fixture.target',question:'Where?',method:'A rite',label:'Rite',description:'Perform a rite.',place:a,means:{fact:'actor.life',op:'eq',value:'alive'},contact:{fact:'actor.life',op:'eq',value:'alive'},steps:[{id:'move',kind:'unknown',label:'Move',description:'Travel by a rite.',minutes:1,report:'You moved.',effects:[{type:'relocate',location:b}]}]}]},binding)],
+ ['ability',()=>defineCastAbilities({encounters:[{id:'fixture.ability',label:'Move',description:'An encounter.',place:a,moves:[{id:'move',label:'Move',description:'Travel by an ability.',minutes:1,report:'You moved.',effects:[{type:'relocate',location:b}]}]}]},binding)]
+])test(`${kind} relocation uses the native movement result`,async()=>{
+ const d=make()[0],checked=createSimulationRegistry({commands:[d]});registry.simulation.commands.set(d.id,checked.commands.get(d.id));
+ let p=setup();p=start(p,d);const c=context(p),{advanceSimulation}=await import('../src/expansion_engine.js');
+ const out=advanceSimulation(p.state,registry,1,p.external,p.gameplay,{player:{...c,vitals:c.vitals.player}});
+ assert.equal(out.state.simulation.people.player.location,b);assert.equal(out.nativeLocation,b);assert.equal(out.nativePatch['current location'],b);
+});
+
+test('native place-panel journey validates pending Save/reload, arrival and literal Export/Import', {timeout:300000}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -118,10 +130,14 @@ test('native place-panel journey validates pending Save/reload, arrival and lite
    {id:'fixture.journey.carriage',from:'fixture.place.other',to:'fixture.place.second',means:'carriage',label:'Take the carriage',minutes:3,fare:2,hours:[0,18],report:'You arrive by carriage.'},
    {id:'fixture.journey.return',from:'fixture.place.second',to:'fixture.place.other',means:'walk',label:'Return home',minutes:2,fare:0,report:'You return home.'},
    {id:'fixture.journey.same',sourceStepId:'fixture.scene#3',sourceStepIds:['fixture.scene#3'],sourceStepOrigins:{'fixture.scene#3':'step origin'},from:'fixture.place.other',to:'fixture.place.other',means:'unspecified',originBasis:'step origin',label:'Travel locally',description:'Travel locally.',minutes:1,minutesBasis:'fill: one minute',report:'You arrive.',source:evidence},
+   {id:'fixture.journey.afterwalk',from:'fixture.place.second',to:'fixture.place.third',means:'unspecified',label:'Continue onward',minutes:1,report:'You arrive.'},
    {id:'fixture.journey.generated',sourceStepId:'fixture.scene#4',sourceStepIds:['fixture.scene#4'],sourceStepOrigins:{'fixture.scene#4':'step origin'},from:'fixture.place.other',to:'fixture.place.third',means:'unspecified',originBasis:'step origin',label:'Travel onward',description:'Travel onward.',minutes:1,minutesBasis:'fill: one minute',report:'You arrive.',source:evidence},
    {id:'fixture.journey.closed',from:'fixture.place.other',to:'fixture.place.third',means:'boat',label:'Take the boat',minutes:4,fare:10,hours:[6,18],report:'You arrive by boat.'}
   ]}};
- for(const id of ['second','third'])pack.places.push({id:`fixture.place.${id}`,indexId:`fixture.place.${id}`,name:id,openingHours:[],travel:{district:'evernight',basis:'fixture'},...evidence});
+ for(const id of ['second','third'])pack.places.push({id:`fixture.place.${id}`,indexId:`fixture.place.${id}`,name:id,openingHours:[],...(id==='second'?{travel:{district:'evernight',basis:'fixture'}}:{}),...evidence});
+ const alive={fact:'actor.life',op:'eq',value:'alive'};
+ pack.divinations={queries:[{id:'fixture.rite',targetId:'fixture.target',question:'Where?',method:'A rite',label:'Rite',description:'Perform a rite.',place:'fixture.place.other',means:alive,contact:alive,steps:[{id:'move',kind:'unknown',label:'Move by rite',description:'Travel by a rite.',minutes:1,report:'You moved.',effects:[{type:'relocate',location:'fixture.place.third'}]}]}]};
+ pack.abilityConflicts={encounters:[{id:'fixture.ability',label:'Move',description:'An encounter.',place:'fixture.place.other',moves:[{id:'move',label:'Move by ability',description:'Travel by an ability.',minutes:1,report:'You moved.',effects:[{type:'relocate',location:'fixture.place.third'}]}]}]};
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
@@ -145,6 +161,19 @@ try {
  g.module.t2Act('fixture.journey.generated');assert.equal(g.internals.foundationSaveBlocked,false);
  let generated=await g.save();assert.ok(generated.expansion.simulation.jobs.some(j=>j.commandId==='fixture.journey.generated'));g.module.t2Validate(generated);
  await g.reload();const generatedExport=await g.exportFile();await g.importFile(generatedExport);generated=await g.save();assert.ok(generated.expansion.simulation.jobs.some(j=>j.commandId==='fixture.journey.generated'));
+ await g.step(1);generated=await g.save();g.module.t2Validate(generated);
+ assert.equal(generated['current location'],'fixture.place.third');assert.equal(generated.expansion.simulation.people.player.location,'fixture.place.third');
+ await g.reload();const arrivedExport=await g.exportFile();await g.importFile(arrivedExport);generated=await g.save();g.module.t2Validate(generated);assert.equal(generated['current location'],'fixture.place.third');
+ await g.load(initial);const walk=button('lotm.move.fixture.place.second');assert.ok(walk);assert.equal(walk.disabled,false);walk.onclick();
+ let chained=await g.save();assert.equal(chained['current location'],'fixture.place.second');await g.step(2);
+ g.module.t2Act('fixture.journey.afterwalk');await g.step(1);chained=await g.save();g.module.t2Validate(chained);
+ assert.equal(chained['current location'],'fixture.place.third');assert.equal(chained.expansion.simulation.people.player.location,'fixture.place.third');
+ await g.reload();const chainedExport=await g.exportFile();await g.importFile(chainedExport);chained=await g.save();g.module.t2Validate(chained);assert.equal(chained['current location'],'fixture.place.third');
+ for(const id of ['fixture.rite.move','fixture.ability.move']){
+  await g.load(initial);assert.equal(button(id).disabled,false);g.module.t2Act(id);await g.step(1);
+  const moved=await g.save();g.module.t2Validate(moved);assert.equal(moved['current location'],'fixture.place.third');assert.equal(moved.expansion.simulation.people.player.location,'fixture.place.third');
+  await g.reload();const movedExport=await g.exportFile();await g.importFile(movedExport);g.module.t2Validate(await g.save());
+ }
  await g.load(initial);
  g.module.t2Act('fixture.journey.carriage');
  assert.equal(g.internals.foundationSaveBlocked,false);
@@ -168,6 +197,6 @@ try {
  await g.settle();
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native journey fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });
