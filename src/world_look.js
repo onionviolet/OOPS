@@ -8,13 +8,12 @@ import {readPort} from './ui_ports.js';
 // their tokens live in styles/ui_tokens.css with the rules in styles/world_look.css. Everything
 // unlisted falls back to the plain Luminous look.
 
-// A world id names its family: book.lotm.tingen -> lotm, base.frontier -> frontier.
+// A world id names its family: book.lotm.tingen -> lotm, base.frontier -> frontier, hp.world -> hp.
 export function worldFamily(worldId) {
     if (typeof worldId !== 'string' || !worldId) return 'unknown';
     const parts = worldId.split('.');
-    if (parts[0] === 'book' && parts[1]) return parts[1];
-    if (parts[0] === 'base' && parts[1]) return parts[1];
-    return parts.length > 1 ? parts[1] : parts[0];
+    // book.lotm.tingen, base.frontier, pocket.x: the family is the second part; hp.world, lotm.world: the first.
+    return ['book', 'base', 'pocket'].includes(parts[0]) && parts[1] ? parts[1] : parts[0];
 }
 
 // Which families have a flourish, and what it is in words (for the census and the gallery).

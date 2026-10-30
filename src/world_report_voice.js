@@ -15,14 +15,13 @@ const TINGEN_PLACES = freeze({
     'Tingen docks': freeze({flavour: 'Salt, tar and the Storm church\'s bells over the water.', useful: 'The docks are the Mandated Punishers\' district; what you can do here is in the Tingen workroom panel.'}),
     'Tingen university area': freeze({flavour: 'Lecture-hall steps and the hiss of the Machinery team\'s engines.', useful: 'The university area is the Machinery team\'s district; what you can do here is in the Tingen workroom panel.'}),
 });
-const TINGEN_ELSEWHERE = freeze({flavour: 'Fog on the cobbles and a lamp-lighter working down the street.', useful: 'Places and walks lists the walks from here with their minutes.'});
 
 const VOICES = freeze({
     lotm: freeze({
         message_travel: text => {
             const place = /^\[ Entering (.+) \]$/.exec(text)?.[1];
             if (!place) return null;
-            return TINGEN_PLACES[place] || TINGEN_ELSEWHERE;
+            return TINGEN_PLACES[place] || null; // other lives' places stay generic until checked in play (UR72)
         },
     }),
 });

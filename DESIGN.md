@@ -8,8 +8,8 @@ navigation stay in [UI rules](docs/UI_RULES.md) (UR1-UR82, SUI, RPT); this file
 links to them and does not restate them.
 
 Status: the owner and the lines marked **accepted** are Weibao's direction.
-Everything else here is a proposal in use as the default (AD32) until he accepts
-or changes it. Codes DSG1-DSG19 are new to this file. Every line is a default, a
+Everything else here is proposed (AD32) until he accepts or changes it; a line
+that restates a UR or AD keeps that rule's status. Codes DSG1-DSG19 are new to this file. Every line is a default, a
 dial and a reason (AD5); a world or feature can depart from one by saying why.
 
 Target: desktop 1920x1080 first; mobile deferred ([standing priority](docs/USER_VISION.md#standing-ui-priority-2026-10-13)).
@@ -37,7 +37,7 @@ in the Projects drawer (UR2). The contract card (UR76) is where a lane writes th
 | DSG9 | **An empty state that says how to fill it.** Known-empty, filtered-empty, unavailable and unknown read differently (UR52). | A world may keep a layer hidden until something attaches (UR82). | Blank panels read as bugs. |
 | DSG10 | **A reason on anything greyed.** A disabled control shows what is missing inline or on focus, never only in a tooltip (UIV1, SUI5), in the observer's knowledge only. | How much of the cause shows follows what the observer knows; a sealed cause reads "not yet" without the truth. | A player may never hover, and a silent grey button teaches nothing. |
 
-| DSG11 | **One home per fact.** Each player-facing fact (a health total, a hit chance, a threat, how many opponents are left) has one owning place on screen. Other places link to it or show a deliberately different view, a summary with a route to the owner (UR56, UR64), not a second copy. Every view reads the same read model. | A glance header may repeat a fact it needs, such as HP in a versus header, if it reads the same read model and refreshes with the owner. | Copies drift: a 2026-10-30 fight showed opponent health three times, two of them disagreeing (2016/2025 against 2025/2025). Weibao asked for this rule on 2026-10-30, relayed by the repository review session. |
+| DSG11 | **One home per fact.** Each player-facing fact (a health total, a hit chance, a threat, how many opponents are left) has one owning place on screen. Other places link to it or show a deliberately different view, a summary with a route to the owner (UR56, UR64), not a second copy. Every view reads the same read model. | A glance header may repeat a fact it needs, such as HP in a versus header, if it reads the same read model and refreshes with the owner. | Copies drift: a 2026-10-30 fight showed opponent health three times, two of them disagreeing (2016/2025 against 2025/2025). Weibao asked for this rule on 2026-10-30, relayed by the repository review session ([record](docs/USER_VISION.md#ui-identity-per-world-basics-and-combat-surfaces-2026-10-30)). |
 
 Descriptions inside any of these follow UR70-UR75 (meaning first, numbers second).
 

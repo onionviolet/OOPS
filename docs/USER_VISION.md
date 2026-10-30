@@ -6994,6 +6994,7 @@ Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options 
 - **World flourish and report text:** each world gets its own flourish and its own report lines (flavour and useful, specific text), not only generic ones.
 - **Combat:** combine the old combat screen and the tempo fight in whatever form works best; damage types reach the tempo fights; check which other systems need the same merge.
 - **Feature UI backlog (F2):** waits for the landing and wiring sessions already running.
+- **One home per fact (relayed by the repository review session, 2026-10-30):** a fact on screen, such as opponent health, hit chances, threat or opponents left, has one owning place and one read model rather than copies that drift. In Weibao's words as relayed: this "should have been considered already in design.md". Owner: [DESIGN.md](../DESIGN.md) DSG11.
 - Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
 
 ## Pathway card, ladder and map; switching and life outside the lead later (2026-10-30)

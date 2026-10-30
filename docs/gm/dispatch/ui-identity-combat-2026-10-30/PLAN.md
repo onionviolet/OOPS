@@ -47,11 +47,13 @@ Implemented, below floor (AD43): FLR4 holds for the flourish and arrival voice. 
 - DESIGN.md DSG1-DSG19, linked from AGENTS.md and UI_RULES, with a RULES_INDEX register row, router entry and reserved DSG prefix. DSG11 (one home per fact) is Weibao's request, relayed by the repository review session. No AD line: O1 is recorded through the register row.
 - M3: `src/world_look.js`, LOTM tokens in `styles/ui_tokens.css`, rules in `styles/world_look.css` (manifest line). M4: `src/world_report_voice.js`, applied once at write time in `display.js` `log_message`. Save-neutral: Reports lines are not saved.
 - M5: [kit census](../../../audits/WORLD_UI_KIT_CENSUS_2026-10-30.md).
+- Follow-up fixes, after an advisor review: `worldFamily` maps `hp.world` to `hp` rather than `world`; the LOTM fallback for unlisted places was dropped, so the other five lives' places stay generic until they are checked in play (UR72); DSG status reads proposed (AD32); Weibao's relayed DSG11 request is recorded in USER_VISION.
 
 | Check | Result | Gaps |
 | --- | --- | --- |
 | `node --test tests/world_look.test.js` | 5/5 pass | none |
 | `node --test tests/ui_contract.test.js tests/stylesheet_manifest.test.js` | 9/9 pass | none |
-| `node scripts/playtest/world-look-probe.mjs` at 1920x1080, bundle `3d7ee038fca60de4`, fresh origin | Frontier: family `frontier`, flourish off, 0 voiced lines. LOTM after crossing: family `lotm`, flourish on, header glyph and epithet, 1 voiced arrival line. Back in the Village after resume: flourish off, 0 voiced lines, 0 page errors | The frontier same-kind arrival line was not captured, because the resume reload clears the log. The unit test covers it |
+| `node scripts/playtest/world-look-probe.mjs` at 1920x1080, bundle `3d7ee038fca60de4`, rerun on `d97f7729fdaa460f` after the follow-up fixes, fresh origin | Frontier: family `frontier`, flourish off, 0 voiced lines. LOTM after crossing: family `lotm`, flourish on, header glyph and epithet, 1 voiced arrival line. Back in the Village after resume: flourish off, 0 voiced lines, 0 page errors | The frontier same-kind arrival line was not captured, because the resume reload clears the log. The unit test covers it |
 | `npm run check:rules` | PASS (18 warnings, all pre-existing kinds) | none |
 | `npm run check:arch` | exit 0 | none |
+| `npm test` (full, pre-merge gate) | queued behind four suites in `slot_run` at commit time | Result not recorded yet; the merger runs it once before merging (AD36) |
