@@ -14,6 +14,7 @@ import './fixtures/knowledge.js';
 import './fixtures/research.js';
 import {FIGURE_FIXTURES_ORGANIZATIONS} from './fixtures/organizations.js';
 import {CRAFTING_FIXTURES} from './fixtures/crafting.js'; FIGURE_FIXTURES.push(...CRAFTING_FIXTURES);
+import './fixtures/making_forms.js'; // MAKING_FORMS proposals register into FIGURE_FIXTURES
 import './fixtures/time.js'; // TIME_AND_CHRONICLE return digest registers into FIGURE_FIXTURES
 import './fixtures/spacetime.js';
 import {RELATIONSHIP_WEB_FIXTURES} from './fixtures/relationship_web.js';
