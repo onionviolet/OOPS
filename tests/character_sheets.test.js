@@ -7,7 +7,8 @@ import {LIST_FIELDS, bandAsOf, chapterRank, reproduces, sheetAsOf} from '../src/
 const entry = (v, from, extra = {}) => ({v, from, ev: 'S', loc: 'x', ...extra});
 const synthetic = {
     id: 'test.person.a', tier: 'principal',
-    identities: [entry({name: 'First', kind: 'legal'}, 'b1:1'), entry({name: 'Second', kind: 'persona'}, 'b3:5'), entry({name: 'Hidden', kind: 'legal'}, 'b3:5', {gate: 'reveal@b3:5'}), entry({name: 'Rumor', kind: 'persona'}, 'b3:5', {view: 'believed', by: 'test.person.b'})],
+    personaIds: ['persona.second'],
+    identities: [entry({name: 'First', kind: 'legal'}, 'b1:1'), entry({name: 'Second', kind: 'persona', persona: 'persona.second'}, 'b3:5'), entry({name: 'Hidden', kind: 'legal'}, 'b3:5', {gate: 'reveal@b3:5'}), entry({name: 'Rumor', kind: 'persona'}, 'b3:5', {view: 'believed', by: 'test.person.b'})],
     power: [entry({path: 'p', level: 9}, 'b1:1', {to: 'b3:5'}), entry({path: 'p', level: 7}, 'b3:5')],
     stats: [entry({axis: 'might', band: 2}, 'b1:1', {to: 'b4:1'}), entry({axis: 'might', band: 6}, 'b4:1')],
     money: [entry({kind: 'purse', amount: 100}, 'b1:1')],
@@ -24,6 +25,8 @@ test('synthetic sheet: values change by volume, to is exclusive, believed stays 
     assert.equal(late.power.actual[0].v.level, 7);
     assert.equal(sheetAsOf(synthetic, 'b3:5').power.actual.length, 1);
     assert.deepEqual(early.identities.actual.map(e => e.v.name), ['First']);
+    assert.deepEqual(early.personaIds, []);
+    assert.deepEqual(late.personaIds, ['persona.second']);
     assert.equal(late.identities.believed[0].by, 'test.person.b');
 });
 

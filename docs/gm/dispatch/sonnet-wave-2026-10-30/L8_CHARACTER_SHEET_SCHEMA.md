@@ -90,3 +90,7 @@ L7 classifies rule ids only; ADV and MAK potion ids drift across volumes, so `po
 ## Ability ids (from L10, `L10_ADVANCEMENT_DESIGN.md`)
 
 L10 ability records use `P.ability.k` (`P = book.lotm.adv`). Pilot sheets cite the merged rule ids (`rule`); a later join maps them to `book.lotm.adv.ability.*` ids and never copies conditions or costs. `abilityView` in `src/ability_records.js` is the read model.
+
+## Persona ids (L11, schema bump 2026-10-30)
+
+`personaIds: []` on the sheet lists `persona.<slug>` ids; each persona `identities` entry carries `v.persona` with the same id. `sheetAsOf` returns `personaIds` held at the ref (persona entry in force and not gated shut). Standing stays keyed by persona in `standingOf` (`src/persona_standing.js`); the sheet stores no standing.

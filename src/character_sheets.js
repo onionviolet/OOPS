@@ -18,6 +18,12 @@ export function inForce(entry, at) {
 /** Gates open when every gate id is in `openGates`; an entry without a gate is always open. */
 export const gateOpen = (entry, openGates) => !entry.gate || openGates.has(entry.gate);
 
+/** Persona ids ('persona.<slug>', L11) the person holds as of a chapter; standing is read elsewhere (standingOf), never stored here. */
+function personaIdsAsOf(sheet, at, open) {
+    const held = new Set((sheet.identities ?? []).filter(e => e.v?.persona && inForce(e, at) && gateOpen(e, open)).map(e => e.v.persona));
+    return (sheet.personaIds ?? []).filter(id => held.has(id));
+}
+
 /**
  * The sheet as of a chapter. Per list field, entries in force and not gated shut, split by view:
  * `actual` (default) and `shown` are what the person is and displays; `believed` entries stay apart with their observer.
@@ -27,7 +33,7 @@ export function sheetAsOf(sheet, chapterRef, {openGates = []} = {}) {
     const at = chapterRank(chapterRef);
     if (!sheet || at === null) return null;
     const open = openGates instanceof Set ? openGates : new Set(openGates);
-    const out = {id: sheet.id, tier: sheet.tier, asOf: chapterRef, hidden: 0};
+    const out = {id: sheet.id, tier: sheet.tier, asOf: chapterRef, hidden: 0, personaIds: personaIdsAsOf(sheet, at, open)};
     for (const field of LIST_FIELDS) {
         const live = (sheet[field] ?? []).filter(e => inForce(e, at));
         const shut = live.filter(e => !gateOpen(e, open));
