@@ -7,3 +7,7 @@ Short list, at most five. Each comes with the default that will be used if you s
 3. **Save compatibility for new rows.** Rumour and presumed-death chronicle rows, `knownVia` chains and carried standing (WA52, GM44, GM47) add data to saves. Default: add them as optional fields with no migration, old saves read as "nothing heard second-hand yet".
 4. **Spells as one shared feature before the other-book wave.** Five worlds need learned and cast spells (GM40); GM20 and GM21 (other books' populations and day-one lives) wait for it. Default: build GM40 once, then start the other-book wave.
 5. **Restart cost table needs more reading?** GM46 wants a per-world table of what a restart loses, costs and who remembers, from Mother of Learning and Perfect Run text. Default: use the rows already read; ask you before any new paid reading run.
+
+## Backlog (beyond the five)
+
+- **Whole-UI direction** ([UI directions](../../../audits/UI_DIRECTIONS_2026-10-30.md)). Default: keep today's panel workspace (direction A), group its 13 routes and 56-entry list into six hubs, keep one next-step band in every world, and take the day page's return note and a Ctrl+K jump from directions B and C. Dial: B opens on a Today page once the return note and timeline shapes land; C leads when a place offers more than about 30 verbs; D (the desk) is a per-world skin, never the structure. Proposal only; it proceeds unless you object.
