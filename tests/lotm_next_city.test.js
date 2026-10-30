@@ -109,3 +109,21 @@ const frontier = fs.existsSync(FRONTIER) ? JSON.parse(fs.readFileSync(FRONTIER, 
     for(let d = 0; d < 100; d++) for(const e of settleRoute(city.route, {day: d, seed: 5}).events) kinds.add(e.kind);
     assert.deepEqual([...kinds], ['creature']);
 });
+
+const RAIL = new URL('../private_packs/lotm-utopia/region.json', import.meta.url);
+const rail = fs.existsSync(RAIL) ? JSON.parse(fs.readFileSync(RAIL, 'utf8')) : null;
+(rail ? test : test.skip)('a rail-stop city waits for the morning train and meets a weather halt', () => {
+    const city = buildNextCity(rail);
+    assert.ok(city);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    const read = readRegion(city.region, {reputation: 0, hour: 23, money: 5});
+    assert.equal(read.institutions.find(i => i.id === 'utopia.post').hoursText, 'hours not recorded');
+    assert.equal(read.priceList.find(p => p.id === 'liquor').text, 'price not recorded');
+    assert.equal(read.offices[0].eligible, false);
+    // The return train leaves at 8 in the morning: reaching the station at 02:00 means waiting.
+    const back = quoteRoute({...city.route, legs: [city.route.legs[1]]}, {money: 99, minuteOfDay: 2 * 60, proposedFare: 5});
+    assert.equal(back.legs[0].waitMinutes, 6 * 60);
+    const kinds = new Set();
+    for(let d = 0; d < 100; d++) for(const e of settleRoute(city.route, {day: d, money: 99, minuteOfDay: 8 * 60, seed: 9, proposedFare: 5, money: 99}).events) kinds.add(e.kind);
+    assert.ok(kinds.has('weather'));
+});
