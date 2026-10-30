@@ -5,7 +5,8 @@ import {bindSubjectGesture} from './recipe_connections.js';
 import {createNearbyContextView} from './nearby_context_view.js';
 import {readTemperature} from './condition_facts.js';
 import {boardLayout} from './layout_spec.js';
-import {projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,kindHue,KNOWLEDGE_LABEL} from './opponent_board.js';
+import {domainRegistry} from './domain_registry.js';
+import {withAttackTypes,projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,kindHue,KNOWLEDGE_LABEL} from './opponent_board.js';
 import {definePanel} from './panel_kit.js';
 import {getDisplaySetting} from './display_settings.js';
 import {projectVillageScene} from './causal_story_scenes.js';
@@ -97,9 +98,9 @@ export function createVillageWorkspace({read,act,placeDetail}) {
     function renderFacts(list,nodes,facts,you){
         for(const[key,row]of nodes)if(!facts.some(f=>f.label===key)){row.remove();nodes.delete(key);}
         for(const fact of facts){let row=nodes.get(fact.label);if(!row){row=node('div');row.append(node('dt'),node('dd'),node('small'));row.tabIndex=0;nodes.set(fact.label,row);list.append(row);}
-            const value=factText(fact),own=you?ownValue(fact.label):'';
-            setText(row.firstChild,shortLabel[fact.label]||fact.label);setText(row.children[1],value);setText(row.lastChild,own);setAttr(row,'data-knowledge',fact.knowledge||'unknown');
-            setTitle(row,`${fact.label}: ${value}. ${factHelp(fact.label)}${own?` ${own}.`:''}`);setAttr(row,'aria-label',`${fact.label}: ${value}`);}
+            const value=factText(fact),own=you?ownValue(fact.label):'',typed=fact.damageType&&factShown(fact)?value.replace(/ dmg\b/,` ${fact.damageType}`):value;
+            setText(row.firstChild,shortLabel[fact.label]||fact.label);setText(row.children[1],typed);setText(row.lastChild,own);setAttr(row,'data-knowledge',fact.knowledge||'unknown');setAttr(row,'data-typed',typed!==value);
+            setTitle(row,`${fact.label}: ${typed}. ${factHelp(fact.label)}${fact.typeHelp&&factShown(fact)?` ${fact.typeHelp}`:''}${own?` ${own}.`:''}`);setAttr(row,'aria-label',`${fact.label}: ${typed}`);}
     }
     const shortLabel={'You hit them':'Your hit','Evade you':'Evade','Attack':'Atk','Speed':'Spd'};
     const ownValue=label=>{const id=({'Attack':'attack_power_slot','Defense':'defense_slot','Speed':'attack_speed_slot'})[label];const own=id?document.querySelector(`#character_stats_div #${id}`)?.textContent.trim():'';return own?`You: ${own}${label==='Speed'?' /s':''}`:'';};
@@ -255,7 +256,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         // the registry projection, GU8); otherwise the existing read() rows are adapted, with the
         // encounter counters the cards already read (NX42). No new truth reads.
         const rows=frame.enemies||(frame.enemy?[frame.enemy]:[]);
-        const board=frame.opponents||(rows.length?projectNativeOpponents(rows,{groupsLeft:document.getElementById('enemies_left_div')?.textContent.trim()||'',clears:document.getElementById('clear_count_div')?.textContent.replace(/\s+/g,' ').trim()||''}):{opponents:[]});
+        const board=frame.opponents||(rows.length?withAttackTypes(projectNativeOpponents(rows,{groupsLeft:document.getElementById('enemies_left_div')?.textContent.trim()||'',clears:document.getElementById('clear_count_div')?.textContent.replace(/\s+/g,' ').trim()||''}),domainRegistry.project('combat-opponents')):{opponents:[]});
         const picked=retainCombatInspection(board.opponents,selectedEnemy,lastInspectedEnemy),row=picked&&rows.find(r=>r.id===picked.id);
         if(picked){lastInspectedEnemy=picked;selectedEnemy=picked.id;}
         // Classic keeps its native text (GU5); projection-only frames derive it from the shape.

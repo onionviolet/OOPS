@@ -8,7 +8,7 @@
 //     piercing or element, which the opponent's hidden stats can add (LSD384)
 //   - the ring is who is in the fight, not distance; native combat has no range data
 import {letterFor, factShown, knowledgeOf} from '../opponent_board.js';
-import {mitigateCombatDamage} from '../combat_math.js';
+import {mitigateCombatDamage, scaleByType} from '../combat_math.js';
 
 // The native roll is power x (0.8..1.2), rounded to a tenth, per strike (combat_math.rollBaseCombatDamage).
 const HARDEST_ROLL = 1.2;
@@ -27,14 +27,15 @@ const perSecond = fact => fact ? Number(/(\d+(?:\.\d+)?)/.exec(String(fact.value
 // "12 dmg x2" -> {power: 12, count: 2}; null when the attack is not a shown fact.
 export function attackOf(opp) {
     const fact = factOf(opp, 'Attack'), m = fact && /(\d+(?:\.\d+)?)\s*dmg(?:\s*x(\d+))?/.exec(String(fact.value));
-    return m ? {power: Number(m[1]), count: m[2] ? Number(m[2]) : 1} : null;
+    return m ? {power: Number(m[1]), count: m[2] ? Number(m[2]) : 1, typeMultiplier: Number.isFinite(fact.typeMultiplier) ? fact.typeMultiplier : 1} : null;
 }
 // Hardest ordinary blow after your own defense layers. Native enemy strikes use damage modifier 1;
 // crits, the attacker's armor piercing and elemental or pledge modifiers are excluded and the text says so.
+// The enemy's attack mix against your worn per-type protection is included (damage_types.js, CBD10): a weakness can raise the bound.
 export function hardestBlow(attack, you = {}) {
     if (!attack) return null;
     const one = Math.round(10 * HARDEST_ROLL * attack.power) / 10;
-    return mitigateCombatDamage(Array(attack.count).fill(one), you.defense || 0, {floorShare: you.minDamageShare ?? .05, taken: you.damageTaken ?? 1});
+    return scaleByType(mitigateCombatDamage(Array(attack.count).fill(one), you.defense || 0, {floorShare: you.minDamageShare ?? .05, taken: you.damageTaken ?? 1}), attack.typeMultiplier ?? 1);
 }
 // The native leave choice in a fight: the leave branch (travel_normal, "Go back to" or the place's
 // leave text), never Quick return. Safe only because display.js skips onward links while is_combat,

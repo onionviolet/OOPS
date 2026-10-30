@@ -1,13 +1,25 @@
 import {configureCombatReview} from './combat_review_domain.js';
 import {combatSubject} from './combat_subject.js';
 import {registerDomain} from './domain_registry.js';
+import {describeDeclared, attackKind, attackMix, defenseMultipliers, typeMultiplier} from './damage_types.js';
 // Observer-safe opponent projection (PP5). Publishes only what the native combat view already shows,
 // from the same readout, as inherited native disclosure (NX22): not AD8 learned knowledge. No save slice,
 // command or clock. No template ids, tags, levels, loot or XP leave this module.
 export const DISCLOSURE = 'native-legacy';
 const fact = (id, label, value, number, extra) => ({id, label, known: true, value, number, ...extra});
-export function opponentFacts(r) {
-    const facts = [fact('attack', 'Attack', `${r.attack.power} dmg${r.attack.count > 1 ? ` x${r.attack.count}` : ''}`, r.attack.power, {count: r.attack.count}),
+// An enemy that declares its attack mix or defense multipliers gets the type on its Attack fact (damageType, typeHelp);
+// an undeclared one keeps the plain fact, so no "physical" noise appears (damage_types.js default).
+const typeInfo = fighter => {
+    if(!fighter || fighter.tags?.main_character) return null;
+    const {attack, defense} = describeDeclared(fighter);
+    if(!attack && !defense) return null;
+    return {...(attack ? {damageType: attackKind(fighter)} : {}),
+        typeHelp: [attack && `Attacks as ${attack}.`, defense && `Takes ${defense}.`].filter(Boolean).join(' ')};
+};
+// How much of this enemy's blow the hero's worn protection lets through (damage_types.js scalar), for the "Could down you" bound.
+const strikeScalar = (fighter, victim) => fighter && victim?.tags?.main_character ? {typeMultiplier: typeMultiplier(attackMix(fighter), defenseMultipliers(victim))} : {};
+export function opponentFacts(r, fighter, victim) {
+    const facts = [fact('attack', 'Attack', `${r.attack.power} dmg${r.attack.count > 1 ? ` x${r.attack.count}` : ''}`, r.attack.power, {count: r.attack.count, ...typeInfo(fighter), ...strikeScalar(fighter, victim)}),
         fact('speed', 'Speed', `${r.speed} /s`, r.speed)];
     if(r.solo) facts.push(r.opposingShield ? fact('hits-you', 'Hit you', '100%', 100, {shield: true}) : fact('hits-you', 'Hit you', `${r.hitPct}%`, r.hitPct));
     else facts.push(fact('attack-rating', 'Attack rating', String(r.attackPoints), r.attackPoints));
@@ -23,7 +35,7 @@ export function projectOpponents(combat, readout) {
     const opponents = combat.defenders.map((_, index) => {
         const r = readout(combat, {fighter_index: index, is_attacker: false});
         return {id:combatSubject(combat,combat.defenders[index]), slot: `opponent-${index + 1}`, index, name: r.name, defeated: r.defeated,
-            health: {current: r.health.current, max: r.health.max, fraction: Math.min(1, r.health.bar / 100)}, facts: opponentFacts(r)};
+            health: {current: r.health.current, max: r.health.max, fraction: Math.min(1, r.health.bar / 100)}, facts: opponentFacts(r, combat.defenders[index], combat.attackers[0])};
     });
     return {schema: 1, active: true, disclosure: DISCLOSURE, count: opponents.length, alive: opponents.filter(o => !o.defeated).length, opponents};
 }

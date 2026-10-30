@@ -1,7 +1,8 @@
 // Original presentation helpers, inspired by the Proto23 mechanism audit.
 // No foreign source, combat outcomes or save state are introduced here.
-export function combatHitText({target, damage, count = 1, critical = false, blocked = false}) {
-    return `${target}${blocked ? ' partially blocked, then' : ' was'} hit${critical ? ' [CRIT]' : ''}${count > 1 ? ` ×${count} hits` : ''} for ${Math.ceil(10 * damage) / 10} physical damage${count > 1 ? ' total' : ''}`;
+// kind: the strike's heaviest damage type (damage_types.js); note: 'resisted', 'weak spot' or 'no effect' when the target's per-type protection changed the hit.
+export function combatHitText({target, damage, count = 1, critical = false, blocked = false, kind = 'physical', note = ''}) {
+    return `${target}${blocked ? ' partially blocked, then' : ' was'} hit${critical ? ' [CRIT]' : ''}${count > 1 ? ` ×${count} hits` : ''} for ${Math.ceil(10 * damage) / 10} ${kind} damage${count > 1 ? ' total' : ''}${note ? ` (${note})` : ''}`;
 }
 export function vendorState({stock, selected = 0, price, money, buying = 0, selling = 0}) {
     if(stock <= 0) return {state: 'sold-out', label: 'Sold out'};

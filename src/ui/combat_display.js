@@ -1,4 +1,5 @@
 import {combatSubject} from '../combat_subject.js';
+import {describeDeclared, attackKind} from '../damage_types.js';
 import {deferSimulationRender} from '../simulation_render.js';
 "use strict";
 
@@ -326,7 +327,11 @@ function update_defender_stats() {
 
         const stats_div = defenders_div.children[i].querySelector(".enemy_stats");
 
+        const declared = describeDeclared(defenders[i]);
+        if(declared.attack) text_string += ` ${attackKind(defenders[i])}`;
         stats_div.children[0].innerText = text_string;
+        stats_div.children[0].title = declared.attack ? `Hits with ${declared.attack}` : '';
+        stats_div.children[4].title = declared.defense ? `Takes damage as: ${declared.defense}` : '';
         stats_div.children[1].innerText = `Spd: ${disp_speed}`;
         stats_div.children[2].innerText = attackers.length == 1 ? `Hit: ${Math.min(100,Math.max(0,Math.round(100*hit_chance)))}%` : `AP: ${Math.round(full_stats.attack_points)}`;
         stats_div.children[3].innerText = attackers.length == 1 ? `Ddg: ${Math.min(100,Math.max(0,Math.round(100*evasion_chance)))}%` : `EP: ${Math.round(full_stats.evasion_points)}`;
