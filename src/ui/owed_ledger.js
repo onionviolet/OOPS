@@ -1,7 +1,7 @@
 // Ledger → Owed tab body (K3 ledger plus K6 inspector, coverage B2). Renders an owedLedgerView() projection; it reads nothing else and
-// settles nothing. Filters and the selected row are the host's in-memory choices, reported through onFilter and onSelect.
+// settles only through the onSettle callback (a credit row, from its quote). Filters and the selected row are the host's in-memory choices, reported through onFilter and onSelect.
 // Desktop first (1920×1080); text is the whole form, colour only repeats it (UR37). Every node carries a data-owed hook for checks.
-export function renderOwedLedger(parent, view, {onFilter = () => {}, onSelect = () => {}, disabled = false} = {}) {
+export function renderOwedLedger(parent, view, {onFilter = () => {}, onSelect = () => {}, onSettle = null, disabled = false} = {}) {
     const doc = parent.ownerDocument;
     const el = (tag, text, host = parent, attrs = {}) => {
         const n = doc.createElement(tag);
@@ -50,6 +50,14 @@ export function renderOwedLedger(parent, view, {onFilter = () => {}, onSelect = 
         el('h4', s.effect, inspector);
         for(const [k, line] of [['why', `Why: ${s.why}`], ['since', s.since], ['carries', s.carries], ['source', `Kept by: ${s.source}.`], ['settle', `Settle: ${s.settle}`], ['late', s.late]])
             if(line) el('p', line, inspector, {'data-owed-detail': k});
+        // Settle in place: the button carries the exact figure it will commit (UR10, UR55).
+        if(s.quote && onSettle) {
+            const b = el('button', s.quote.label, inspector, {type: 'button', class: 'action_button', 'data-owed-settle': s.id, 'data-ledger-control': `owed-settle-${s.id}`});
+            b.disabled = disabled || !!s.quote.blocked;
+            if(s.quote.blocked) el('p', s.quote.blocked, inspector, {'data-owed-detail': 'blocked'});
+            else if(s.quote.note) el('p', s.quote.note, inspector, {'data-owed-detail': 'partial'});
+            b.onclick = () => onSettle(s.quote);
+        }
         // The lender's regard as a ladder of named rungs, yours marked in words (RPX18 glance; depth stays in Standing and ledger).
         if(s.house) {
             el('p', s.house.text, inspector, {'data-owed-detail': 'house'});

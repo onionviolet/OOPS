@@ -2,12 +2,12 @@ import {workspaceOwns} from './workspace_layout.js';
 import {createSettledTextEffects} from './settled_text_effects.js';
 import {syncChildren} from './dom_sync.js';
 import {owedLedgerView} from './owed_ledger_view.js';
-import {readOwedLedger} from './owed_ledger_sources.js';
+import {readOwedLedger, settleOwed} from './owed_ledger_sources.js';
 import {renderOwedLedger} from './ui/owed_ledger.js';
 
 // The runtime supplies an actor-safe projection and owns all command settlement. The Ledger tabs (coverage B2) are an array so a
 // later tab (Due, Orders) is one entry; Owed is read-only over the obligations rows (readOwed). Tab, filter and selection live in memory only.
-export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}, readSettings, readOwed = readOwedLedger}) {
+export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}, readSettings, readOwed = readOwedLedger, settle = settleOwed}) {
     if (!container || typeof read !== 'function' || typeof command !== 'function') throw new TypeError('Work ledger needs its native host, projection and command path.');
     const panel = document.createElement('details');
     panel.id = 'work_ledger_panel'; panel.className = 'work-ledger-panel'; panel.open = true; // the Ledger route lands on its content (round 2 FP1)
@@ -65,7 +65,12 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
     const TABS = [
         {id: 'work', label: 'Work', render: (view, state) => view.available ? buildWork(view, state) : element('p', 'Work commissions are taken and claimed at the Village work ledger desk.')},
         {id: 'owed', label: 'Owed', count: owed => owed.total, render: (view, state, owed) => renderOwedLedger(target, owed, {
-            onFilter: id => { owedFilter = id; owedSelected = null; render(true); }, onSelect: id => { owedSelected = id; render(true); }})},
+            onFilter: id => { owedFilter = id; owedSelected = null; render(true); }, onSelect: id => { owedSelected = id; render(true); },
+            onSettle: quote => {
+                try { const paid = settle(quote); notice.dataset.themeState = 'status'; notice.setAttribute('role', 'status'); notice.textContent = `Paid ${paid} ${paid === 1 ? 'coin' : 'coins'}.`; }
+                catch (error) { notice.dataset.themeState = 'error'; notice.setAttribute('role', 'alert'); notice.textContent = error?.message || 'That payment could not be made.'; }
+                render(true);
+            }})},
     ];
     function build(view, state, owed) {
         const active = TABS.find(t => t.id === chosenTab) ?? TABS.find(t => t.id === (view.available ? 'work' : 'owed'));

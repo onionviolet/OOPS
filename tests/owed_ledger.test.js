@@ -101,3 +101,25 @@ test('round 2: a credit row carries its term bar, late terms and the house ladde
     assert.equal(host.querySelector('[data-owed-row="credit:market_circle"] [role="meter"]').getAttribute('aria-valuenow'), '89');
     assert.match(host.querySelector('.owed-ladder [aria-current="true"]').textContent, /Neutral \(you\)/);
 });
+
+test('settle in place: a credit row quotes the figure Standing shows and hands it to the repay command', () => {
+    const fx = {...OWED_MIXED, standing: {...OWED_MIXED.standing, coins: 7}};
+    const loan = fx.standing.factions.find(f => f.id === 'market_circle').loan;
+    const row = owedLedgerView({...gatherOwed(fx), selected: 'credit:market_circle'}).selected;
+    // Standing labels its button `Repay ${loan.owed}`; this row reads the same field of the same projection.
+    assert.equal(row.quote.label, `Repay ${loan.owed}`);
+    assert.deepEqual([row.quote.command, row.quote.factionId, row.quote.owed], ['repay', 'market_circle', loan.owed]);
+    assert.equal(row.quote.pays, Math.min(loan.owed, 7));
+    const dom = createDom(); dom.loadHTML('<html><body><div id="h"></div></body></html>');
+    const host = dom.document.getElementById('h'), sent = [];
+    renderOwedLedger(host, owedLedgerView({...gatherOwed(fx), selected: 'credit:market_circle'}), {onSettle: q => sent.push(q)});
+    const button = host.querySelector('[data-owed-settle]');
+    assert.equal(button.textContent, `Repay ${loan.owed}`);
+    button.onclick();
+    assert.equal(sent[0].owed, loan.owed);
+    // An empty purse says why and disables the button; rows without a lender keep no button.
+    const broke = owedLedgerView({...gatherOwed({...fx, standing: {...fx.standing, coins: 0}}), selected: 'credit:market_circle'}).selected;
+    assert.equal(broke.quote.blocked, 'You have no coins to repay with.');
+    const claim = owedLedgerView({...gatherOwed(fx), selected: 'claim:3'}).selected;
+    assert.equal(claim.quote, null);
+});
