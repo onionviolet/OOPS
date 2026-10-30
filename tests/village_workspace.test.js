@@ -30,5 +30,5 @@ test('scene clock follows the local public calendar and preserves qualified clim
     const visitor=sceneClock({worldId:'book.mol.cyoria',calendar:projectCalendar(p['book.mol.cyoria'],{instanceId:'visitor'}),weatherWords:'Dry · 17.0°C · climate proposal',clock:homeClock});
     assert.match(visitor.date,/Cyoria visitor · 01\/01\/1/);assert.equal(visitor.season,null);assert.equal(visitor.phase,null);assert.equal(visitor.weather,'Dry · 17.0°C · climate proposal');assert.doesNotMatch(visitor.date,/999|Summer/);
     const unknown=sceneClock({worldId:'unknown',calendar:null,weatherWords:null,clock:homeClock});
-    assert.equal(unknown.date,'Local date unavailable');assert.equal(unknown.weather,'Local weather unavailable');
+    assert.equal(unknown.date,'Calendar unknown here');assert.equal(unknown.weather,'');
 });
