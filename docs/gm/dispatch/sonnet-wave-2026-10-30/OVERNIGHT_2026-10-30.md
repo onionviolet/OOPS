@@ -53,6 +53,31 @@ The supervisor could not message the owners (W3). **sw-wire and sw-chars reading
 
 ## Morning report
 
-Filled by the supervisor's last tick.
+Written 07:20 from git log (127 commits since 02:30, all local, none pushed), the merge receipt, the Sonnet wave ledger, the P4 checkpoints and a focused rerun.
 
-- (pending)
+**Playable now, agent-verified, not human-reviewed**
+- 21 representation branches on local master (`docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md`): ability ladder, rite circle, family pedigree, fight card, walk board and map, character sheet, body by part, Knows tab and case board, Study panel, organization overview, craft glance, mixing counter, Owed ledger, return digest, lives figure, crossing threshold and Tingen workroom tabs, relationship web, item card, next-step line and the elder's conversation view. The post-merge browser pass at 1920x1080 reached 7 of 8 views; the fight card was not reached.
+- P4 tempo contest route, Notebook panel and road-pursuit consumer, with save, reload and import tested in the browser (`d3b23a23`).
+- MR3 traits (`432afe7b1`, browser floor met), and the village workshop now shows 67 commands instead of 125 (`d5f48d5f`).
+- LOTM walks wait for report_in again (`064fd773`, restored after `51541c7f` dropped it).
+
+**Implemented, below floor (engine or data, no browser proof)**
+- Rites and crafts: LOTM volume 2 and 3 rows (L4).
+- Advancement: typed abilities for volumes 2-8 (L10).
+- Cities: rail-stop, walled and frontier-camp packs, and region restrictions (L11 slices 6-8).
+- Calendar: news for volumes 2-8, second-hand spread, curfews, closures and travel halts (L14).
+- People: memory schema 2 with silence, severity, loyalty and debt (P3c), and crowd records (P6).
+- sw-wire host consumers for harm, divination facts, events, sheets, city journeys and ladder blockers (`fe6a8e17`, `562669b7`). These landed, but they break tests (W6).
+
+**Needs Weibao (at most five)**
+- **A1 Push.** Master is 127 commits ahead of origin. The suite is red (W6), so the push should wait for sw-wire and sw-chars to fix their failures, then a load-gated full suite.
+- **A2 Lift the send cap.** Typing in this supervisor or the Sonnet wave coordinator lets them message lanes again (W3). Before that, the W6 owners have only this file.
+- **A3 Optional UI review** at 1920x1080. Known issues: the Tingen header shows "Local weather/date unavailable" on a fresh life; the "Got it" tab hint sits inline in the Notebook text; 49 draft style literals are allowlisted until a token-migration pass replaces them.
+- **A4 Choices list.** `docs/gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md` holds the idea sweep's Weibao-facing choices.
+
+**Watch items**
+- W1: superseded by W6. The cast fixtures fail on a stale patch, not on load.
+- W2: resolved. Load has been 2-5 since about 04:00. The usage window reset at 06:30 (weekly 59%).
+- W3: still in force until Weibao types.
+- W4 and W6: open. Rerun at 07:20 at load 2: `cast_topic_talk` fails ("patch failed: src/book_world_lotm_cast_days.js:2"), `cast_whole_book_scale` fails tests 1 and 2, and `character_sheets` fails test 10. Owners: sw-wire (regenerate `D2_LOAD_INTEGRATION.patch` or detect already-integrated hunks) and sw-chars.
+- W5: repaired. Primary checkout synced; rule D2 is in shared worktree practice.
