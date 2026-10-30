@@ -6876,3 +6876,17 @@ Recorded: Luminous Gothic (glow frames, navy and teal fields, purple Reports) is
 
 Weibao's words: "save the stuff for future accordingly, refactor now? more to consider? Work in parallel using sonnet agents?"
 Recorded: the future UI work stays saved in [UI audit rounds 8-12](audits/UI_DESIGN_CORE_AUDIT.md); the refactors that get expensive later start now as parallel sonnet lanes under the [UI refactor wave plan](gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md): seat seam, scene card slots, figure primitive and gallery, rules in one place, and a snapshot adoption routine. Mount on first open waits for the UI freeze fix.
+
+## Whole-book seams, gap register and character records (2026-10-30)
+
+Weibao's words, during the Sonnet wave ([plan](gm/dispatch/sonnet-wave-2026-10-30/PLAN.md)):
+
+- "how hard to go beyond just vol one, or at least have a coarse gaps pass through the entire book so that gaps workers can begin addressing? more to consider? That would be important to make features be more comprehensive?" Then: "Also other books."
+- On WB1 (lanes were shaping rites, potions and schedules on volume 1 alone): "write [it] somewhere for future books too since that is something important to consider".
+- "Everything here should be saved into something long term to address all of these?"
+- "Also we should work on digitalizing each character, stats wise, ability wise and everything?"
+
+Recorded:
+- WB1 is now [WA48](WORLD_ABSORPTION_RULES.md), accepted: seams are shaped on samples from the whole read source, and only the slice's own data is authored.
+- The coarse pass is proposed as WA49. Lane L7 (`sw-gaps`) runs it for all 8 LOTM volumes, then Mother of Learning, Harry Potter and Shadow Slave. Its results land as GM rows in the [reading gap map](research/READING_GAP_MAP_2026-10-28.md), which is the long-term register gap workers take from.
+- Per-character digitization is proposed as WA50: dated character records, deep by tier, built on WA23, WA33, WA40, WA42 and WA43.

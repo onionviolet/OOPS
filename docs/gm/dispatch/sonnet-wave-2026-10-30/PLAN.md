@@ -125,6 +125,37 @@ LATER / DELEGATE
 - Done check: every volume has its families labelled and ordered by the lead's path, ready to hand to gap workers.
 - Estimated cost: one Sonnet lane (a few weekly points) and 8-16 Luna lanes.
 
+## Long-term homes and character records (2026-10-30)
+
+Weibao: "Everything here should be saved into something long term to address all of these?" and "Also we should work on digitalizing each character, stats wise, ability wise and everything?"
+
+**Long-term homes:**
+- WB1 became [WA48](../../../WORLD_ABSORPTION_RULES.md) (accepted).
+- WB2-WB8 became WA49 (proposed). Its output, the GM20+ rows, lives in the [reading gap map](../../../research/READING_GAP_MAP_2026-10-28.md).
+- WB7 and WB9 are queued under QR6 in the [idea index](../../../IDEA_INDEX.md#current-queue-routing-2026-10-18).
+- His words are in [USER_VISION](../../../USER_VISION.md#whole-book-seams-gap-register-and-character-records-2026-10-30).
+- This plan stays the dispatch record only.
+
+**Character records (WA50, proposed).** What exists today: the cast records (`private_packs/lotm-cast/cast.json`, 1,500 people) carry `knows`, `relations`, `wants`, `tier` and counts. They have no power path or level, abilities, stats, items or money, and nothing is dated past the first reading. The rules for the pieces already exist (WA23 whereabouts, WA33 stat bands, WA40 held state, WA42 motives, WA43 tiers, hidden strength). What is missing is the join.
+
+Options weighed:
+
+| Option | Cost | Gives | Verdict |
+| --- | --- | --- | --- |
+| O1: full sheet for every registry person | about 12,000 ids, mostly crowd; Luna days | Uniform coverage | Over-models passers-by (WA43 mistake) |
+| O2: stats only for people who fight | Small | Combat works | Misses the knowledge, money, routines and personas that drive the lead's days |
+| O3 (unusual): no stored sheets; derive "as of chapter X" on demand from rows | Cheapest storage | Always current with re-reads | Nothing to calibrate or edit, so slow lookups in play; fine for crowd people only |
+| **O4, default: tiered dated sheets** | About 50 principals full, about 300 recurring as bands, identity and routine, crowd derived on demand (O3) | Comprehensive where play looks; calibrated (WA33) | **Proposed** |
+
+**Proposed lane L8**, needs Weibao's go:
+- **Who does what:** Sonnet designs the sheet schema under WA48, sampling all 8 volumes. Luna fills one principal per lane from cited rows (`cite_paragraphs.mjs --id`). Sol drafts the loader and calibration test.
+- **Pilot:** 5 LOTM principals, the lead included.
+- **Done check:**
+  - Each pilot sheet reads "as of" volume 1 and a later volume with different power and identity fields.
+  - Each sheet reproduces 2 stated outcomes by band.
+  - Sealed fields are gated.
+- **Order:** start after L7's LOTM families land, so the schema covers every family that touches a person.
+
 ## Order and stop rules
 
 1. Before any launch: find the owner of the uncommitted `src/book_world_lotm_{cast_host,host,state}.js` and `tests/cast_*` edits; L3-L5 cut from HEAD and must not clobber them at merge.
