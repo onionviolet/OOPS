@@ -28,8 +28,10 @@ const SETTLE_KIND = {coin: 'Pay it where it was borrowed.', favor: 'Return the f
 const words = id => String(id).replace(/^book\.[^.]+\.(ledger\.)?/, '').replace(/[_.:-]+/g, ' ').trim();
 const plural = (n, one, many = one + 's') => `${n} ${n === 1 ? one : many}`;
 
-export function amountText(kind, amount) {
-    if(kind === 'coin') return plural(amount, 'coin');
+// A coin row may name its currency (`unit: 'crown'` or `{one, many}`) so a world's money is not read as bare "coins" (UR61). Default stays "coin".
+const unitOf = unit => !unit ? {one: 'coin', many: 'coins'} : typeof unit === 'string' ? {one: unit, many: unit} : {one: unit.one, many: unit.many ?? unit.one};
+export function amountText(kind, amount, unit = null) {
+    if(kind === 'coin') { const u = unitOf(unit); return plural(amount, u.one, u.many); }
     if(kind === 'grievance') return `grievance ${amount}`;
     if(kind === 'favor') return amount === 1 ? 'a favour' : plural(amount, 'favour');
     return amount === 1 ? 'a duty' : plural(amount, 'duty', 'duties');
@@ -51,12 +53,12 @@ export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = 
     const name = id => id === actorId ? 'you' : labels[id] ?? PARTY_LABELS[id] ?? words(id);
     const direction = row.debtor === actorId || row.debtor === 'heir' ? 'owe' : row.creditor === actorId ? 'owed' : 'other';
     const party = direction === 'owed' ? name(row.debtor) : name(row.creditor);
-    const what = amountText(row.kind, amount), when = dueText(due, row);
+    const what = amountText(row.kind, amount, row.unit), when = dueText(due, row);
     const effect = direction === 'owed' ? `${cap(party)} owes you ${what}, ${when}.`
         : row.debtor === 'heir' ? `Your heir owes ${party} ${what}, ${when}.`
         : direction === 'owe' ? `You owe ${party} ${what}, ${when}.` : `${cap(name(row.debtor))} owes ${name(row.creditor)} ${what}, ${when}.`;
     const days = row.since > 0 && now >= row.since ? Math.floor((now - row.since) / DAY) : null;
-    return {id: row.id, kind: row.kind, kindLabel: KIND[row.kind] ?? words(row.kind), direction, party, amount, amountText: what,
+    return {id: row.id, kind: row.kind, unit: row.unit ?? null, kindLabel: KIND[row.kind] ?? words(row.kind), direction, party, amount, amountText: what,
         dated: !!due, overdue: !!due?.overdue, daysLeft: due ? due.daysLeft : null, dueText: when, effect,
         // Share of the term still left (0 when late), for a due bar beside the words; null without a dated term.
         termLeft: due?.term > 0 ? Math.max(0, Math.min(1, due.daysLeft / due.term)) : null,
@@ -91,12 +93,21 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
     const kinds = new Set(all.map(r => r.kind));
     const filters = FILTERS.filter(id => !KIND_ORDER.includes(id) || kinds.has(id))
         .map(id => ({id, label: FILTER_LABEL[id], count: all.filter(r => matches(r, id)).length, active: id === f}));
-    const coins = dir => all.filter(r => r.direction === dir && r.kind === 'coin').reduce((n, r) => n + r.amount, 0);
+    // Money totals are per currency: 7 crowns and 3 pennies are never added into one number.
+    const coins = dir => {
+        const by = new Map();
+        for(const r of all) if(r.direction === dir && r.kind === 'coin') {
+            const k = unitOf(r.unit).one, was = by.get(k);
+            by.set(k, {unit: r.unit, n: (was?.n ?? 0) + r.amount});
+        }
+        const parts = [...by.values()].map(({unit, n}) => amountText('coin', n, unit));
+        return parts.length < 2 ? parts.join('') : `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}`;
+    };
     const owe = all.filter(r => r.direction === 'owe').length, owed = all.filter(r => r.direction === 'owed').length;
     const next = all.find(r => r.dated);
     const summary = !all.length ? '' : [
-        `You owe ${plural(owe, 'account')}${coins('owe') ? ` (${plural(coins('owe'), 'coin')})` : ''}.`,
-        `Owed to you: ${plural(owed, 'account')}${coins('owed') ? ` (${plural(coins('owed'), 'coin')})` : ''}.`,
+        `You owe ${plural(owe, 'account')}${coins('owe') ? ` (${coins('owe')})` : ''}.`,
+        `Owed to you: ${plural(owed, 'account')}${coins('owed') ? ` (${coins('owed')})` : ''}.`,
         next ? `Next date: ${next.party}, ${next.dueText}.` : 'Nothing here has a date.'].join(' ');
     const pick = shown.find(r => r.id === selected) ?? null;
     return {rows: shown, total: all.length, filter: f, filters, summary, selected: pick,

@@ -123,3 +123,11 @@ test('settle in place: a credit row quotes the figure Standing shows and hands i
     const claim = owedLedgerView({...gatherOwed(fx), selected: 'claim:3'}).selected;
     assert.equal(claim.quote, null);
 });
+
+test('a coin row names its own currency and totals never mix currencies (UR61, COI money)', () => {
+    const row = (id, amount, unit) => ({id, kind: 'coin', debtor: 'player', creditor: 'counting_house', amount, since: 0, unit});
+    const v = owedLedgerView({rows: [row('a', 1, 'crown'), row('b', 4, {one: 'penny', many: 'pennies'}), row('c', 2, null)]});
+    const text = Object.fromEntries(v.rows.map(r => [r.id, r.amountText]));
+    assert.deepEqual(text, {a: '1 crown', b: '4 pennies', c: '2 coins'});
+    assert.match(v.summary, /\(1 crown, 4 pennies and 2 coins\)/);
+});
