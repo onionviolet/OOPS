@@ -5,6 +5,7 @@ import {rollCombatStrike, mitigateCombatDamageFromStats} from './combat_math.js'
 import {runConflictFrame} from './conflict_frame.js';
 import {validateExpansionState} from './expansion_engine.js';
 import {savedBattleLoss} from './defeat_domain.js';
+import {finishRoadContest} from './native_battle.js';
 import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
@@ -90,16 +91,19 @@ function finishFight(plan, registry, result) {
     b.result = result;
     for(const [id, f] of Object.entries(b.fighters)) {
         const vitals = id === 'player' ? plan.vitals.player : state.simulation.people[id]?.vitals;
-        if(vitals) {vitals.health = Math.max(vitals.health > 1 ? 1 : vitals.health, Math.min(vitals.max_health ?? f.maxHp, f.hp)); vitals.stamina = Math.min(vitals.max_stamina ?? f.maxStamina, f.stamina);}
+        if(vitals) {vitals.health = Math.max(1, Math.min(vitals.max_health ?? f.maxHp, f.hp)); vitals.stamina = Math.min(vitals.max_stamina ?? f.maxStamina, f.stamina);}
     }
+    plan.native = {hpToFull: plan.vitals.player.max_health - plan.vitals.player.health, staminaToFull: plan.vitals.player.max_stamina - plan.vitals.player.stamina};
     const held = Math.min(TEMPO_DIALS.heldCapMinutes.value, (b.held || 0) + takeTempoHold());
     const facts = state.actors.player.facts;
     facts[TEMPO_FACT_HELD] = Math.min(TEMPO_DIALS.heldCapMinutes.value, (facts[TEMPO_FACT_HELD] || 0) + held);
     facts['tempo.lastResult'] = result;
+    if(result === 'lost') plan.defeat = savedBattleLoss(Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => b.fighters[id].name));
+    // A tempo contest standing in for the road duel closes that pursuit exactly as the native duel does.
+    if(session.definitionId === 'rival.native_duel') return finishRoadContest(plan, registry, result === 'yielded' ? 'withdrawn' : result);
     state.simulation.log.push({at: state.clock, text: `${b.title}: ${result}.`, cause: session.id});
     state.simulation.log = state.simulation.log.slice(-100);
     delete state.simulation.sessions.player;
-    if(result === 'lost') plan.defeat = savedBattleLoss(Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => b.fighters[id].name));
 }
 const publishers = {won: finishFight, lost: finishFight, withdrawn: finishFight, yielded: finishFight};
 
@@ -137,6 +141,9 @@ function runMove(plan, registry, command, publish) {
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; foe.adrenalineUntil = b.now + 10;
             if(foe.hp <= b.floor) foe.status = 'down';
         }
+        // P6 hook: a damaging strike is seen. The crowd leaves a group impression and one promoted witness remembers the striker.
+        if(dmg) (plan.memoryEffects ||= []).push({holder: foeId, subject: id, cause: `battle:${b.id}:${b.actions}`, axis: 'respect', amount: -Math.max(1, Math.round(dmg)),
+            text: 'Struck in a public fight.', clock: plan.state.clock, scene: {place: b.conditions.place || 'Road', severity: Math.min(4, 1 + Math.floor(dmg * 4 / Math.max(1, foe.hp + dmg)))}});
         const foeName = foeId === 'player' ? 'you' : foe.name;
         say(b, `${name} ${strike.kind === 'hit' ? `hit${id === 'player' ? '' : 's'} ${foeName} for ${round1(dmg)}${strike.critted ? ' (critical)' : ''}` : strike.kind === 'blocked' ? `meet${id === 'player' ? '' : 's'} a full block` : `miss${id === 'player' ? '' : 'es'}`}.`);
     } else if(move.kind === 'guard') {
@@ -169,13 +176,16 @@ function step(state, registry, context, command) {
 
 // Foes and allies act on their own until the player is next to act or the fight ends.
 function settleAuto(plan, registry, context, driver = null, limit = 400) {
+    // Each step builds a fresh plan, so witness memories are carried across steps by hand.
+    const carried = [...(plan.memoryEffects || [])], done = p => {if(carried.length) p.memoryEffects = carried; return p;};
     for(let n = 0; n < limit; n++) {
         const b = plan.state.simulation.sessions.player?.nativeBattle;
-        if(!b) return plan;
+        if(!b) return done(plan);
         const id = nextActor(b);
-        if(!id || (id === 'player' && !driver)) return plan;
+        if(!id || (id === 'player' && !driver)) return done(plan);
         const pick = id === 'player' ? policyMove(b, id, driver) : policyMove(b, id, 'steady');
         plan = step(plan.state, registry, context, {actorId: id, ...pick});
+        carried.push(...(plan.memoryEffects || []));
     }
     throw new Error('Tempo fight did not settle within its step budget.');
 }
@@ -186,10 +196,12 @@ function withHold(plan) {
 }
 
 // spec: {id,title,fighters:[{id,name,side,speed,hp,maxHp,stamina,maxStamina,profile,moves,perception,stealth,tool}],conditions,floor}
+// An open encounter session (for example the road duel's) may be adopted by passing its plan as spec.adopt.
 export function beginTempoFight(state, registry, context, spec) {
-    check(state.simulation && !Object.keys(state.simulation.sessions).length, 'Another encounter is already open.');
+    const adopt = spec.adopt || null;
+    if(!adopt) check(state.simulation && !Object.keys(state.simulation.sessions).length, 'Another encounter is already open.');
     check(Array.isArray(spec.fighters) && spec.fighters.some(f => f.id === 'player' && f.side === 'a') && spec.fighters.some(f => f.side === 'b'), 'A tempo fight needs the player and an opposing side.');
-    const base = structuredClone(state), cause = `tempo:${++base.sequence}`;
+    const base = adopt ? adopt.state : structuredClone(state), cause = `tempo:${++base.sequence}`;
     const seed = (base.simulation.seed ^ base.sequence ^ 0x7e3d1) >>> 0 || 1;
     const fighters = {};
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
@@ -208,10 +220,11 @@ export function beginTempoFight(state, registry, context, spec) {
         for(const f of Object.values(fighters)) if(f.side === slow) f.ready += TEMPO_DIALS.surpriseDelay.value;
         say(b, slow === 'a' ? 'You are caught off guard.' : 'They are caught off guard.');
     } else say(b, 'Both sides see each other at once.');
-    base.simulation.sessions.player = {id: cause, definitionId: 'tempo.fight', revision: 1, targetId: null, commandId: 'tempo.fight', claim: null, turns: [{responses: []}], turn: 0, lethal: false, settlement: [], answers: [], partyIds: [], participants: Object.keys(fighters).filter(id => id === 'player' || base.simulation.people[id]), nativeBattle: b};
-    const plan = {state: base, external: structuredClone(context.external), gameplay: structuredClone(context.gameplay), vitals: structuredClone(context.vitals), acquisitions: [], unlocks: []};
-    validateTempoBattle(b, base.simulation.sessions.player);
-    return withHold(settleAuto(plan, registry, context));
+    if(adopt) adopt.state.simulation.sessions.player.nativeBattle = b;
+    else base.simulation.sessions.player = {id: cause, definitionId: 'tempo.fight', revision: 1, targetId: null, commandId: 'tempo.fight', claim: null, turns: [{responses: []}], turn: 0, lethal: false, settlement: [], answers: [], partyIds: [], participants: Object.keys(fighters).filter(id => id === 'player' || base.simulation.people[id]), nativeBattle: b};
+    const plan = adopt || {state: base, external: structuredClone(context.external), gameplay: structuredClone(context.gameplay), vitals: structuredClone(context.vitals), acquisitions: [], unlocks: []};
+    validateTempoBattle(b, plan.state.simulation.sessions.player);
+    return withHold(settleAuto(plan, registry, adopt ? {...context, external: adopt.external, gameplay: adopt.gameplay, vitals: adopt.vitals} : context));
 }
 
 // The player's own move. Everyone else then acts until the player is next.

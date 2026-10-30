@@ -17,7 +17,7 @@ const natural = n => Number.isSafeInteger(n) && n >= 0;
 const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].status === 'active' && (!side || b.fighters[id].side === side));
 
 export function validateTempoBattle(b, session, state) {
-    check(b?.schema === TEMPO_SCHEMA && session?.definitionId === 'tempo.fight' && typeof b.id === 'string' && b.id, 'Invalid tempo fight binding.');
+    check(b?.schema === TEMPO_SCHEMA && session && typeof session.definitionId === 'string' && typeof b.id === 'string' && b.id, 'Invalid tempo fight binding.');
     check(natural(b.seed) && b.seed > 0 && b.seed <= 0xffffffff && natural(b.actions) && natural(b.now) && natural(b.seconds) && natural(b.held) && natural(b.floor), 'Invalid saved tempo fight.');
     check(Array.isArray(b.log) && b.log.length <= TEMPO_LOG_LINES && typeof b.last === 'string' && b.last.length <= 500 && b.result === null, 'Invalid tempo log.');
     const ids = Object.keys(b.fighters || {});

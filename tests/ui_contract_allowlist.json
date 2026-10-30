@@ -6535,6 +6535,14 @@
       "rule": "spacing",
       "snippet": "padding-left:1.2em",
       "count": 1
+    },
+    {
+      "key": "src/tempo_fight_domain.js|foreign-host|24aa59969c8c59a4",
+      "path": "src/tempo_fight_domain.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(root);",
+      "count": 1,
+      "reason": "Same home as the road-rivalry panel; the notes shelf collects it by id. Move onto a declared panel home with the other encounter panels."
     }
   ]
 }

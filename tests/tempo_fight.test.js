@@ -82,3 +82,32 @@ test('stale and wrong-turn commands are rejected',()=>{
     assert.throws(()=>commitTempoMove(plan.state,registry,context,{moveId:'jab'},plan.state.sequence-1),/stale/);
     assert.throws(()=>commitTempoMove(plan.state,registry,context,{moveId:'swing',actorId:'foe1'}),/turn|cannot/);
 });
+
+import {commitSimulationCommand} from '../src/simulation.js';
+import {fieldCommand,fieldAdvance} from '../scripts/field_fixtures.mjs';
+test('a tempo contest closes the road rivalry exactly as the native duel does',()=>{
+    let p=joinField(createFieldFixture());p.state.simulation.seed=5;
+    p=fieldAdvance(fieldCommand(p,'rival.begin'),3);
+    const ctx=fieldContext(p,'Village',{vitals:{player:{health:30,max_health:30,stamina:30,max_stamina:30}}});
+    const requestId=p.state.simulation.pursuits['frontier.road_rival'].request.id;
+    const adopt=commitSimulationCommand(p.state,registry,{id:'rival.confront',requestId},{...ctx,targetId:'roadRival'});
+    const rival=adopt.state.simulation.people.roadRival;
+    let plan=beginTempoFight(adopt.state,registry,ctx,{adopt,id:'rival',title:"Mara's road contest",floor:1,fighters:[
+        {id:'player',name:'You',side:'a',hp:30,stamina:30,profile},
+        {id:'roadRival',name:'Mara',side:'b',hp:rival.vitals.health,stamina:rival.vitals.stamina,profile}]});
+    assert.equal(plan.state.simulation.sessions.player.definitionId,'rival.native_duel');
+    plan=driveTempoFight(plan.state,registry,ctx,'aggressive');
+    assert.equal(plan.state.simulation.sessions.player,undefined);
+    const result=plan.state.actors.player.facts['rival.lastResult'];
+    assert.ok(['won','lost','withdrawn'].includes(result));
+    assert.notEqual(plan.state.simulation.pursuits['frontier.road_rival'].status,'encounter');
+    assert.ok(plan.native);
+});
+
+test('a damaging public strike leaves a witnessed memory effect with a severity rung',()=>{
+    const {p,context}=fresh(11);
+    const plan=driveTempoFight(beginTempoFight(p.state,registry,context,spec()).state,registry,context,'aggressive');
+    assert.ok(plan.memoryEffects?.length>0);
+    const e=plan.memoryEffects[0];
+    assert.ok(e.scene.severity>=1&&e.scene.severity<=4&&e.cause.startsWith('battle:fx1:'));
+});
