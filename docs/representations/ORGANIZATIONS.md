@@ -213,3 +213,11 @@ sentences; a "moved" note with one remembered dismissal.
 - **L3** Paper-ledger style and Neutral/21 px checks (Sonnet; small; done: gallery shows both).
 - **L4** Foreman's note producer and Reports lines (Sonnet; medium; done: a finished job writes one subject-first line).
 - **L5** Tree layout in `figure.js` for hierarchy (Sonnet; medium; done: gallery fixture with text form).
+
+### Territory and holdings read the road kit (coordinator note, 2026-10-30)
+
+The sonnet wave's sw-road lane builds the region kit, travel legs and personas (L11 design note in
+`docs/gm/dispatch/sonnet-wave-2026-10-30/`). Territory and holdings here will read that, not a model of this doc's own.
+Today `courtyardOrganization` hard-codes three site rows (bench, room, plot) in the `holdings` field. The adapter switches over at
+that one line: when the region kit publishes places for a world, `holdings` is built from its rows (place, who holds it, risk word),
+and a gang's turf and heat read the same rows. `organizationView` and the panel need no change. Until L11 lands the three rows stay.
