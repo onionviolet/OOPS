@@ -42,6 +42,19 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
   report.reports=await p.evaluate(()=>document.body.innerText.split('Reports')[1]?.slice(0,1500)||'');
   await p.screenshot({path:path.join(out,'divination-after.png'),timeout:8000}).catch(()=>{report.shotFail=1;});}
 
+
+ if(mode==='rail'){
+  const btns=()=>p.evaluate(()=>[...document.querySelectorAll('#lotm_panel button')].map(b=>(b.disabled?'[disabled] ':'')+b.textContent.trim().slice(0,110)));
+  const click=async re=>p.evaluate(src=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&new RegExp(src).test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;},re);
+  report.rail=[];
+  for(let i=0;i<30;i++){
+   const all=await btns();const j=all.filter(t=>/^(\[disabled\] )?Travel to /.test(t));
+   if(j.length){report.rail.push({step:i,journeys:j});break;}
+   const t=await click('^Walk to Tingen railway station');report.rail.push({step:i,walked:t});if(!t){report.railButtons=all.filter(x=>/Walk/.test(x)).slice(0,30);break;}
+   await pause(2500);
+  }
+  report.reports=await p.evaluate(()=>document.body.innerText.match(/halted[^\n]{0,80}/ig));
+ }
  if(mode==='backlash'){
   const loops=[];report.loops=loops;
   for(let n=0;n<14;n++){
