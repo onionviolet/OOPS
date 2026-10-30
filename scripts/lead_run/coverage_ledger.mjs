@@ -4,6 +4,7 @@
 import {readFileSync, writeFileSync, readdirSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {traceLotmPrices} from '../../src/lotm_price_map.js';
 
 const DEFAULT_MERGED = 'docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/m4-whole-book-2026-10-29/merged';
 const volumeOne = shard => !/^lotm[2-8]c\d+m?$/.test(shard);
@@ -17,6 +18,7 @@ export function buildLedger({registry = [], extras = [], scenes = [], corpus = '
     const ids = new Set(text.match(/(?<![a-z0-9._-])lotm\.[a-z0-9_]+\.[a-z0-9._-]*[a-z0-9](?![a-z0-9._-])/g) || []);
     const beats = new Set(text.match(/lr\.lotm\.[a-z0-9_]+\.\d+/g) || []);
     const locators = new Set(text.match(/zh 第\d+章 p\d+/g) || []);
+    const priceIds = new Set(traceLotmPrices(registry, text).filter(row => row.gameRefs.length).map(row => row.id));
     const counts = {}, missing = {};
     const ensure = kind => { counts[kind] ||= {total: 0, consumed: 0, missing: 0}; missing[kind] ||= []; };
     for (const kind of ['people', 'places', 'routines', 'services', 'prices', 'dated events', 'customs', 'opening hours', 'people_other']) ensure(kind);
@@ -34,7 +36,7 @@ export function buildLedger({registry = [], extras = [], scenes = [], corpus = '
     for (const row of registry) {
         if (!row.shards?.some(volumeOne)) continue;
         const kind = row.kind === 'person' ? 'people' : ['place', 'organization'].includes(row.kind) ? 'places' : row.kind === 'price' ? 'prices' : null;
-        if (kind) add(kind, row, ids.has(row.id), true);
+        if (kind) add(kind, row, ids.has(row.id) || (kind === 'prices' && priceIds.has(row.id)), true);
     }
     const routines = new Set();
     for (const row of extras) {

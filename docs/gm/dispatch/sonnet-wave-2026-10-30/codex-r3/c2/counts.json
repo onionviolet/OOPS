@@ -1,0 +1,93 @@
+{
+  "cards": {
+    "total": 157,
+    "previouslyBound": 66,
+    "unbound": 91,
+    "boundByThisLane": 0,
+    "decidedGap": 91,
+    "byVolume": {
+      "3": 17,
+      "5": 5,
+      "6": 24,
+      "7": 7,
+      "8": 38
+    }
+  },
+  "slots": {
+    "sourceUnique": 415,
+    "consumedProxy": 93,
+    "missing": {
+      "missing": 322,
+      "filled": 240,
+      "fromRows": 240,
+      "left": 82,
+      "reasons": {
+        "no_source_time_band_clock_or_relative_anchor": 73,
+        "source_place_unstated": 8,
+        "transit_requires_route_binding": 1
+      }
+    },
+    "later": {
+      "missing": 305,
+      "filled": 231,
+      "fromRows": 231,
+      "left": 74,
+      "reasons": {
+        "no_source_time_band_clock_or_relative_anchor": 65,
+        "source_place_unstated": 8,
+        "transit_requires_route_binding": 1
+      }
+    },
+    "bands": {
+      "1-30": {
+        "missing": 17,
+        "filled": 9,
+        "fromRows": 9,
+        "left": 8,
+        "reasons": {
+          "no_source_time_band_clock_or_relative_anchor": 8
+        }
+      },
+      "31-60": {
+        "missing": 46,
+        "filled": 41,
+        "fromRows": 41,
+        "left": 5,
+        "reasons": {
+          "no_source_time_band_clock_or_relative_anchor": 5
+        }
+      },
+      "61-100": {
+        "missing": 59,
+        "filled": 47,
+        "fromRows": 47,
+        "left": 12,
+        "reasons": {
+          "no_source_time_band_clock_or_relative_anchor": 11,
+          "source_place_unstated": 1
+        }
+      },
+      "101-150": {
+        "missing": 104,
+        "filled": 76,
+        "fromRows": 76,
+        "left": 28,
+        "reasons": {
+          "no_source_time_band_clock_or_relative_anchor": 24,
+          "source_place_unstated": 4
+        }
+      },
+      "151-213": {
+        "missing": 96,
+        "filled": 67,
+        "fromRows": 67,
+        "left": 29,
+        "reasons": {
+          "transit_requires_route_binding": 1,
+          "no_source_time_band_clock_or_relative_anchor": 25,
+          "source_place_unstated": 3
+        }
+      }
+    }
+  }
+}

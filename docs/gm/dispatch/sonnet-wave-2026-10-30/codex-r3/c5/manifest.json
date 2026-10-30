@@ -1,0 +1,223 @@
+{
+  "schema": "c5-texture-prep/1",
+  "source": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/m4-whole-book-2026-10-29/merged/extras.jsonl",
+  "sourceSha256": "bc07779fbea9f79c0a044746351544ae0a643a007dcaf1014a8ea01848caeeae",
+  "home": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture",
+  "counts": {
+    "2": {
+      "texture_other": 6674,
+      "rules_other": 5406
+    },
+    "3": {
+      "texture_other": 6341,
+      "rules_other": 4827
+    },
+    "4": {
+      "texture_other": 5058,
+      "rules_other": 4268
+    },
+    "5": {
+      "texture_other": 4928,
+      "rules_other": 3350
+    },
+    "6": {
+      "texture_other": 2978,
+      "rules_other": 2055
+    },
+    "7": {
+      "texture_other": 2163,
+      "rules_other": 1701
+    },
+    "8": {
+      "texture_other": 845,
+      "rules_other": 600
+    }
+  },
+  "skipped": {
+    "rules": 9564,
+    "people": 12493,
+    "places": 9223,
+    "services": 2626,
+    "news": 4775,
+    "customs": 5059,
+    "people_other": 29346
+  },
+  "rows": 51194,
+  "shards": [
+    {
+      "brief": "luna_1.md",
+      "group": "v2a",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2a.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2a.tsv",
+      "rows": 3020,
+      "summaryWords": 26315,
+      "inputSha256": "31184131618c97fd535945b621b24d9505953a8371ae739487d43aa08af3b3f2"
+    },
+    {
+      "brief": "luna_2.md",
+      "group": "v2b",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2b.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2b.tsv",
+      "rows": 3020,
+      "summaryWords": 26224,
+      "inputSha256": "e5f8c91ff1c38c93225af1766a0b2d14f874592a58b5184f9c17d9caebf536cd"
+    },
+    {
+      "brief": "luna_3.md",
+      "group": "v2c",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2c.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2c.tsv",
+      "rows": 3020,
+      "summaryWords": 26591,
+      "inputSha256": "4c4fcf7606b7144064a6e70d4b88ec08cd7fd707b2dba095467a63bd8b17d17c"
+    },
+    {
+      "brief": "luna_4.md",
+      "group": "v2d",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v2d.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v2d.tsv",
+      "rows": 3020,
+      "summaryWords": 26542,
+      "inputSha256": "0a64a1eedeb358b8af20eb84e4626b8324a2ca59f5c74bbb3151fc99204674e1"
+    },
+    {
+      "brief": "luna_5.md",
+      "group": "v3a",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3a.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3a.tsv",
+      "rows": 2792,
+      "summaryWords": 24681,
+      "inputSha256": "77648ce9366f45c0f847d8b600b6afc7f5652d88b0332272d5bbeece0ed907d6"
+    },
+    {
+      "brief": "luna_6.md",
+      "group": "v3b",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3b.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3b.tsv",
+      "rows": 2792,
+      "summaryWords": 24480,
+      "inputSha256": "c735110629488f8ac2997c80bcf9de5768495608dae7c7e4b77dcadc5d96fcee"
+    },
+    {
+      "brief": "luna_7.md",
+      "group": "v3c",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3c.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3c.tsv",
+      "rows": 2792,
+      "summaryWords": 24717,
+      "inputSha256": "855951ae80144849137dbc6bb0aeacdefc2062c1961712c816a010a2eaaa2eac"
+    },
+    {
+      "brief": "luna_8.md",
+      "group": "v3d",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v3d.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v3d.tsv",
+      "rows": 2792,
+      "summaryWords": 24688,
+      "inputSha256": "4342bc13b8092748deefc17353a8a3a7cdaf62c7139aac433535474e49156af9"
+    },
+    {
+      "brief": "luna_9.md",
+      "group": "v4a",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v4a.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v4a.tsv",
+      "rows": 3109,
+      "summaryWords": 28046,
+      "inputSha256": "10d589afed5f6a8456eb74e802b19de116283ddb7123d92a476719b10799a130"
+    },
+    {
+      "brief": "luna_10.md",
+      "group": "v4b",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v4b.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v4b.tsv",
+      "rows": 3109,
+      "summaryWords": 27637,
+      "inputSha256": "73724ef9ddd74f8dfa49b9c55bb4614634f685fb8673867f7f55550658945df4"
+    },
+    {
+      "brief": "luna_11.md",
+      "group": "v4c",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v4c.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v4c.tsv",
+      "rows": 3108,
+      "summaryWords": 27695,
+      "inputSha256": "e5f7d852a9a63b9a9c7b3045819cf7aa07df88c944a3d080b2847d14c390c26c"
+    },
+    {
+      "brief": "luna_12.md",
+      "group": "v5a",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v5a.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v5a.tsv",
+      "rows": 2760,
+      "summaryWords": 25105,
+      "inputSha256": "1ce45532d642c585a9473baeee1244ebdbf1c8ba97570e026a2c13f28cd6cb12"
+    },
+    {
+      "brief": "luna_13.md",
+      "group": "v5b",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v5b.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v5b.tsv",
+      "rows": 2760,
+      "summaryWords": 25168,
+      "inputSha256": "777308c5f7e5ccaffbe148bbacfb2580be17f925f9bdaed79258c697ad6dd5ba"
+    },
+    {
+      "brief": "luna_14.md",
+      "group": "v5c",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v5c.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v5c.tsv",
+      "rows": 2758,
+      "summaryWords": 25130,
+      "inputSha256": "247c8966966c638ebc9067574bafcd25effc44336b3d71e1ad4548e3e0f33ec1"
+    },
+    {
+      "brief": "luna_15.md",
+      "group": "v6a",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v6a.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v6a.tsv",
+      "rows": 2517,
+      "summaryWords": 22739,
+      "inputSha256": "b31d819cf8452ec06d30b94b7c081c12f191effdf6d3e4b9c3f4ab58ba3ce8a2"
+    },
+    {
+      "brief": "luna_16.md",
+      "group": "v6b",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v6b.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v6b.tsv",
+      "rows": 2516,
+      "summaryWords": 22518,
+      "inputSha256": "5a1213b1382d54d1d94106d8d03a3562709ff3e8876fad7ded73a003ac5d5278"
+    },
+    {
+      "brief": "luna_17.md",
+      "group": "v7a",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v7a.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v7a.tsv",
+      "rows": 1932,
+      "summaryWords": 17185,
+      "inputSha256": "872a444ae5950dacbc7bfaf3d8a6fdb1fd38fa010081c65ae5e6e4dc9c0c3f1e"
+    },
+    {
+      "brief": "luna_18.md",
+      "group": "v7b",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v7b.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v7b.tsv",
+      "rows": 1932,
+      "summaryWords": 17093,
+      "inputSha256": "d986694c734cc248608e0f234bba21dd5d77017b4f51ae3a775ef63e422c9d27"
+    },
+    {
+      "brief": "luna_19.md",
+      "group": "v8",
+      "input": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/in_v8.tsv",
+      "output": "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/wb-families-texture/out_v8.tsv",
+      "rows": 1445,
+      "summaryWords": 12828,
+      "inputSha256": "eb40459a45ad05847a74e42fd0bbebd9c7bf80c5e3c4835a9519047f4b8effd6"
+    }
+  ],
+  "volume1": {
+    "rows": 0,
+    "status": "No texture_other or rules_other in supplied whole-book merge; older volume-one shard extras are not silently mixed into this edition."
+  }
+}
