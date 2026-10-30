@@ -129,7 +129,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         }
         const defaults = ['private_packs/lotm-cast/cast.json', 'private_packs/lotm-ingredients/ingredients.json',
             ...readdirSync('src').filter(name => /^book_world_lotm_.*\.js$/.test(name)).sort().map(name => join('src', name)),
-            'src/lotm_formula_rows.js', 'src/cast_schedule.js'];
+            ...readdirSync('src').filter(name => /^lotm_.*_rows\.js$/.test(name)).sort().map(name => join('src', name)), 'src/cast_schedule.js'];
         const gameFiles = [...new Set((game.length ? game : defaults).flatMap(filesAt))];
         const ledger = buildLedger({registry: readJsonl(join(merged, 'registry.jsonl')), extras: readJsonl(join(merged, 'extras.jsonl')),
             scenes: readJsonl(join(merged, 'scenes.jsonl')), corpus: gameFiles.map(path => readFileSync(path, 'utf8'))});
