@@ -275,3 +275,15 @@ changed/new prose; `npm run check:descriptions` writes an author inventory,
 `npm run check:generators` reports static generator signals, and
 `npm run report:cycles` groups the existing cycle baseline. These reports do
 not certify writing quality, generation behavior, or completed refactoring.
+
+## Heavy gates take a slot (2026-10-30, RCT5)
+
+Full suites, builds and headless browser captures run through the machine-wide
+slot limiter so concurrent sessions queue instead of piling load onto the machine:
+`node scripts/slot_run.mjs --kind suite -- npm test`,
+`node scripts/slot_run.mjs --kind build -- npm run build`,
+`node scripts/slot_run.mjs --kind browser -- <capture command>`.
+Suite and build share 2 slots, browser has 1 (`--slots N` overrides); locks live in
+`~/.cache/yairpg-slots/` (`YAIRPG_SLOT_DIR`), dead holders are reclaimed, and the
+child's exit code passes through. `node scripts/slot_run.mjs --status` lists holders.
+Focused single-file tests need no slot.
