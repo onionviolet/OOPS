@@ -2,6 +2,7 @@ import {awakenedStatusCard} from './cheat_cards.js';
 import {definePanel} from './panel_kit.js';
 import {updateWorkspace} from './workspace_layout.js';
 import {getDisplaySetting, subscribeDisplaySettings} from './display_settings.js';
+import {createYouSheet} from './you_sheet.js';
 
 const coreStats = ['strength', 'agility', 'dexterity', 'intuition', 'magic'];
 const node = (tag, text = '') => {const n = document.createElement(tag); n.textContent = text; return n;};
@@ -12,6 +13,8 @@ export function createStatusWindow({read, onKnown = () => {}}) {
     // Existing awakened saves restore silently; only a live transition scrolls.
     let known = !!awakenedStatusCard(read().cheats);
     document.getElementById('character_div').append(panel);
+    // The expanded You view opens on the character sheet; this window is one of its reads once awakened.
+    const youSheet = createYouSheet({host: document.getElementById('character_div'), read});
     const level = node('span'); level.dataset.statusLevel = '';
     const levelRow = node('div'); levelRow.className = 'status_window_row'; levelRow.append(node('span', 'Level'), level); panel.append(levelRow);
     const values = new Map();
@@ -28,6 +31,7 @@ export function createStatusWindow({read, onKnown = () => {}}) {
     const claim=node('button','Claim first victory · 1 point');claim.type='button';claim.className='action_button';claim.dataset.systemClaim='';claim.onclick=()=>{try{read().claim();}catch(e){fields.quests.textContent=e.message;}};panel.append(claim);
     function render() {
         const snapshot = read(), entry = awakenedStatusCard(snapshot.cheats);
+        youSheet.render(entry ? entry.card.state : null);
         panel.hidden = !entry;
         if(!entry) {delete panel.dataset.fitWant; return;}
         const newlyKnown = !known; known = true;
@@ -57,5 +61,5 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         settings: [{key: 'density', label: 'Row spacing', description: 'Choose comfortable or compact spacing for your known stats.',
             options: [['comfortable', 'Comfortable'], ['compact', 'Compact']], default: 'compact'}]});
     const unsubscribe = subscribeDisplaySettings(render);
-    return {render, destroy() {unsubscribe(); panel.remove();}};
+    return {render, destroy() {unsubscribe(); youSheet.destroy(); panel.remove();}};
 }

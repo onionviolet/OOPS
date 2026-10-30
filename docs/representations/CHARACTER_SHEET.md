@@ -354,8 +354,33 @@ gallery.
 
 | Item | Level, effort | Done check |
 |---|---|---|
-| You panel expanded view on the sheet (step 16) | Sonnet medium, one slice touching `main.js` once | Fresh life: your sheet shows native stats exact, status window as a read after awakening, saved layout with the old panel id still opens it |
+| You panel expanded view on the sheet (step 16) | Done 2026-10-30, see Follow-up slices | Fresh life: your sheet shows native stats exact, status window as a read after awakening, saved layout with the old panel id still opens it |
 | Reads as actions with cost and stored history (AA9, CRL35-CRL36) | Sonnet medium, persistence slice with migration | Appraise once, save, reload, Import: the read and its time survive; a stale read says so |
 | Opponent card on the projection (UR36) | Sonnet medium | A combat target and the same person met read identical rows at the same means |
 | Being-read notice (step 9) | Sonnet low after the above | A sensitive subject's relationship gains a line when appraised |
 | Pinned person inspector beside the People list | Sonnet medium, center controller | 1920×1080: list left, sheet right, Esc returns to the list position |
+
+## Follow-up slices, 2026-10-30
+
+Desktop 1920×1080, Luminous Gothic. Evidence in `docs/representations/evidence/followups/`. Proposals (AD32).
+
+### Slice 1: You expanded view opens on the sheet
+
+`src/you_sheet.js` builds the self subject from what the status window already reads and mounts the sheet at
+the top of the Character & preparation view (Attributes ›). Native stats read exact (CS6i). The status window
+is a read scoped to Standing, added only after the system awakens, so system points and the quest appear then
+and never before. The `status-window` panel id and its compact You-box panel are untouched, so a saved layout
+with the old id still places it. `main.js` was not touched. A self sheet leaves out sections no owner has filled
+instead of saying "not read yet" about you.
+
+| AD43 line | State |
+|---|---|
+| Build identity | Rebuilt bundle served; fresh origin, page errors none |
+| Natural route | Attributes › in You opens the view; sheet first |
+| Shown description and cost | Rows and "How you know" chips; no cost (a read of yourself) |
+| Consumer | `status_window.js` mounts it; `tests/you_sheet.test.js` (3 pass) |
+| Persistence | Reload and Import show the identical sheet; sheet state is not saved, it derives from the save |
+| Review | Agent-verified, not human-reviewed |
+
+Known limits: the compact status panel still repeats stats and level in the You box (it is the alias target);
+bio and abilities are not yet sections of the sheet.
