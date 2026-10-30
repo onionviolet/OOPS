@@ -566,6 +566,7 @@ let titlesPanel;
 let title_check_ticks = 0;
 import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_lives.js';
 import {createVillageLivesPanel} from './npc_lives_ui.js';
+import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
 import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
@@ -9761,6 +9762,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:(key,quantity=1)=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=quantity,
         publishSupply:(key,quantity=1)=>{character.removeFromInventory([{item_key:key,item_count:quantity}]);update_displayed_character_inventory();},publishReward:add_money_to_character,publishMint:key=>{character.addToInventory([{item_key:key,count:1}]);update_displayed_character_inventory();},publishCost:(cost,source)=>add_money_to_character(-cost,source)});
+    registerQuestBoard({read:()=>({world:expansionState.lotm?'lotm':null,seed:generatedPeopleSeed(),day:Math.floor(calendarMinutes(current_game_time)/1440)})});
     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:hard=>{
         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");

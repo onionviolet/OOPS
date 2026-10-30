@@ -19,7 +19,7 @@ export function debtNeeds(owed = {rows: [], live: {}}, {world, actorId = 'player
             const urgency = due?.overdue ? 1 : due ? Math.max(0.3, 0.9 - due.daysLeft / 20) : 0.35;
             return {ref: `debt:${r.id}`, kind: 'debt', world, subject: r.creditor, urgency: Math.min(1, urgency),
                 label: r.kind === 'coin' ? `Settle with ${name}` : `Do your duty to ${name}`,
-                why: `${r.why}${due ? due.overdue ? ' (overdue)' : ` (due in ${due.daysLeft} days)` : ''}.`.replace('..', '.'),
+                why: `${r.why}${due ? due.overdue ? ' (overdue)' : ` (due in ${due.daysLeft === 1 ? 'a day' : due.daysLeft + ' days'})` : ''}.`.replace('..', '.'),
                 route: {verb: 'owed_settle', rowId: r.id}};
         });
 }
