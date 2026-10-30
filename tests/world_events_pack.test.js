@@ -26,7 +26,7 @@ test('builder preserves independent frames and timing metadata, separating facts
         scope: 'private', evidence: 'S', spread: [], ordinal: {beat: 'a'}});
     assert.deepEqual(pack.events[1].anchor, {eventId: 'ev.a', offsetDays: 2});
     assert.deepEqual(pack.events[3], {id: 'n1', key: 'lotm.v1.n1', lineKey: 'news.n1', kind: 'public_event',
-        placement: 'anchored', scope: 'public', evidence: 'T', spread: [{route: 'newspaper', delayDays: 1}], chapter: 1,
+        placement: 'anchored', scope: 'public', evidence: 'T', spread: [{route: 'newspaper', delayDays: 1}],
         anchor: {eventId: 'ev.a', offsetDays: 2}});
     assert.deepEqual(pack.events[4].ordinal, {beat: 'z'});
     assert.deepEqual(pack.events[4].spread, []);
@@ -81,4 +81,22 @@ test('later volumes place a row at its chapter beat and keep private facts off t
     assert.deepEqual(pack.events.map(e => [e.id, e.placement]), [['a', 'ordinal'], ['c', 'unplaced'], ['d', 'unplaced']]);
     assert.equal(pack.events[0].ordinal.beat, 'lotm.v3.ch7');
     assert.deepEqual(privateFacts.map(f => f.id), ['b']);
+});
+
+test('later-volume rules: witnessed rows are seen by the lead, named audiences need a carrier, empty reads drop', async () => {
+    const {buildLaterPack} = await import('../scripts/world_events_build.mjs');
+    const {knownTo} = await import('../src/world_events.js');
+    const row = (id, extra) => ({id, kind: 'public_event', placement: 'ordinal', chapter: 4, scope: 'public', evidence: 'S', route: 'witness', delayDays: 0, what: 'x', ...extra});
+    const {pack} = buildLaterPack(2, [row('w'), row('n', {route: 'word', audience: 'named'}), row('r', {what: 'paper read; content not stated'}), row('p', {route: 'letter', delayDays: 2, audience: 'public'})]);
+    assert.deepEqual(pack.events.map(e => e.id), ['w', 'n', 'p']);
+    assert.equal(pack.events[0].witnessedByLead, true);
+    assert.deepEqual(pack.events[1].spread, []);
+    const beat = 'lotm.v2.ch4', bindings = frameBindings(pack, [beat], () => 30);
+    assert.deepEqual(bindings, {[beat]: 30});
+    const book = loadEventPack(pack, {bindings, leadId: 'lead'});
+    const ctx = {presence: () => null, channels: () => new Set(['letter'])};
+    assert.deepEqual(knownTo(book, 'lead', 30, {...ctx, channels: () => new Set()}).map(k => k.eventId), ['w']);
+    assert.deepEqual(knownTo(book, 'stranger', 99, {...ctx, channels: () => new Set()}), []);
+    assert.deepEqual(knownTo(book, 'stranger', 31, ctx).map(k => k.eventId), []);
+    assert.deepEqual(knownTo(book, 'stranger', 32, ctx).map(k => k.eventId), ['p']);
 });

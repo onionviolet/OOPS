@@ -46,8 +46,13 @@ export function buildEventBook(records, {bindings = {}} = {}) {
 
 export const happenedOn = (book, day) => book.events.filter(e => e.window && e.window.day <= day && day <= e.window.endDay);
 export const endedBy = (book, day) => book.events.filter(e => e.window && e.window.endDay <= day);
-export const curfewsOn = (book, day) => book.events.flatMap(e => e.window ? e.effects.filter(f => f.kind === 'curfew' && f.fromDay <= day && day <= f.toDay)
-    .map(f => ({eventId: e.id, place: f.place ?? e.place})) : []);
+// A curfew-kind event is its own effect over its window unless it lists explicit curfew effects.
+export const curfewsOn = (book, day) => book.events.flatMap(e => {
+    if (!e.window) return [];
+    const listed = e.effects.filter(f => f.kind === 'curfew');
+    if (!listed.length) return e.kind === 'curfew' && e.window.day <= day && day <= e.window.endDay ? [{eventId: e.id, place: e.place ?? null}] : [];
+    return listed.filter(f => f.fromDay <= day && day <= f.toDay).map(f => ({eventId: e.id, place: f.place ?? e.place}));
+});
 
 // ctx = {presence(person, day) -> place|null, channels(person) -> Set, knownVia(personId, eventId, day) -> bool}.
 // Present: in the event's place on any day of its window, or listed in `present`. Heard: through the first
@@ -62,6 +67,8 @@ export function learnedDay(book, person, eventId, ctx) {
     const channels = ctx.channels?.(person) ?? new Set();
     let best = null;
     for (const s of e.spread) {
+        // Private events leave the room only through a named carrier (WA37 scope); an open channel never delivers them.
+        if (e.scope === 'private' && !s.via) continue;
         const open = s.via ? e.present.includes(s.via) && ctx.knownVia?.(s.via, eventId, endDay + s.delayDays) !== false && (!s.audience || s.audience === person || channels.has(s.audience))
             : channels.has(s.route) || (s.audience === person);
         if (!open) continue;

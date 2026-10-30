@@ -66,3 +66,15 @@ test('invalid records, duplicates and anchor cycles fail closed', () => {
         rec('b', {placement: 'anchored', anchor: {eventId: 'a', offsetDays: 1}, when: undefined})]), /cycle/);
     assert.throws(() => buildEventBook([rec('a', {placement: 'anchored', anchor: {eventId: 'zz', offsetDays: 1}, when: undefined})]), /Unknown anchor/);
 });
+
+test('a private event is not delivered by an open channel, only by a named carrier', () => {
+    const b = buildEventBook([rec('pv', {scope: 'private', place: 'den', present: ['spy'], spread: [{route: 'newspaper', delayDays: 0}, {route: 'word', delayDays: 1, via: 'spy', audience: 'bob'}]})]);
+    assert.deepEqual(knownTo(b, 'ann', 99, reader), []);
+    assert.deepEqual(knownTo(b, 'bob', 99, nobody).map(k => [k.route, k.learnedDay]), [['word', 11]]);
+});
+
+test('a curfew-kind event is a curfew over its window', () => {
+    const b = buildEventBook([rec('c', {kind: 'curfew', place: 'ward', when: {day: 4, endDay: 5}})]);
+    assert.deepEqual(curfewsOn(b, 5), [{eventId: 'c', place: 'ward'}]);
+    assert.deepEqual(curfewsOn(b, 6), []);
+});
