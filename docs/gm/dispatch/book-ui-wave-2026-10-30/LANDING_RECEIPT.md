@@ -24,6 +24,24 @@ CLR3: added lines in tracked `src/`, `tests/` and `scripts/` carry no canon name
 
 Conflicts resolved by hand (all append-only or one side clearly stale): `CHOICES.md` (kept master queue, added Whole-UI direction), `ECONOMY_AND_INSTITUTIONS.md` (kept both sections), `fixtures/manifest.js` (kept every registration line; `benefits` and `making_forms` added there after `figure_gallery.js` became manifest-based), `figure_gallery.js` (master's skin cells plus forms' `?form=` switch).
 
+## Commit ranges (merge-base with master 8148223b6 .. tip)
+
+| Lane | Range |
+|---|---|
+| bk-scout | c82442113..746f5edd0 |
+| bk-ui-directions | 6c97ec39e..f384a890e |
+| bk-benefits | c82442113..18b445603 |
+| bk-seams | c82442113..100a7edb6 |
+| bk-coi | 6d9f0ff00..d3817cd54 |
+| bk-party | 053dd6276..489d2c5e4 |
+| bk-ss | cd811c306..3e724094a |
+| bk-mol | 6c97ec39e..1c7caed79 |
+| bk-hp | e90e12a1c..ef250c622 |
+| bk-gaps | 6c97ec39e..ba24c2bb0 |
+| bk-progression | afc609704..cb66a5929 |
+| bk-making-ui | c82442113..47b492d6f |
+| bk-forms | 0c04f755a..8372b2c2f |
+
 ## Gate (merged tree, all through `slot_run.mjs`)
 
 - `npm run build`: exit 0 (bundle v0.6-c51c427de436, not committed).
@@ -33,6 +51,8 @@ Conflicts resolved by hand (all append-only or one side clearly stale): `CHOICES
   - `cast_inference_adapter` test 6 and `cast_journeys` test 16: paired run at the same time and load on bare master `99d997eaa` and on this tree gave the identical two failures (14 of 16 pass on both). They fail on master, not a lane regression; the disposable-copy workers run 270+ s under machine load of 70-150, so recheck on a quiet machine.
 - `stylesheet_manifest` "index.html loads each manifest stylesheet" fails on the committed `index.html` (also on bare master, which lacks `cheat_faculty.css`; this tree adds the `working_state.css` link) and passes after `npm run build` regenerates `index.html`; it was not among the full-suite failures because the gate build ran first.
 - Tips that changed after that suite ran (bk-gaps `ba24c2bb0`, bk-ui-directions `f384a890e`, bk-mol, bk-forms) were verified by focused tests only: stylesheet_manifest, working_state, palette_browse, ui_directions, ui_contract (only `style.css`), player_text_hygiene, figure_forms, 83 lane tests together.
+
+Measured on: the full suite ran on `bf42ec9f9` (before the last lane tips); focused tests, `check:arch` and `check:rules` were rerun on the landing tree after the `99d997eaa` and `8148223b6` master merges; the bundle `c51c427de436` was built before those merges. Landed tip: `46ab02375`. Committed `dist/` and `index.html` on master are stale against the landed source until someone commits a rebuild; the owner is whoever holds `index.html` staged in the primary checkout.
 
 ## Floor state
 
