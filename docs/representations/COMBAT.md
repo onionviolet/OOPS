@@ -336,11 +336,20 @@ Injuries mostly shift odds and strength by degree; only the extreme rung gates (
 
 - **HL7 What shifts.** A damaged hand: lower hit odds, weaker blows (a cut tendon hits weaker), and its
   strikes are easier to dodge. A hurt leg: lower speed and evasion. A hurt eye: lower precision at
-  range. The source is L9: a graded `actionModifiers(stage, actionClass)` beside `actionGate`,
-  returning factors with their cause; the adapter reads it there and computes nothing of its own.
+  range. The source is L9 (adopted in b8da5ec4a; parts and modifiers land in L9 slice 2 with this
+  consumer): `actionModifiers(save, actionClass)` returns per-axis entries `[{axis, mult|add, cause}]`,
+  combined across every applying part and backlash (the worst does not simply win). Combat calls it
+  for four axes: `accuracy` (your hit odds), `force` (blow strength), `speed` (attack rate) and
+  `evasion` (their hit odds against you). `actionGate` stays only for hard stops (backlash `lost`, an
+  extreme part rung), which disable the option with the stage word as the reason. The native strike
+  path applies the same entries to its rolls, so the quote and the outcome agree; the adapter only
+  reads and words them. Treatment and training reduce the entries through L9's recovery function.
 - **HL8 The quote shows the shift and its cause.** Odds on the card and on an aimed-attack option carry
-  the adjustment and why: "You hit usually 62% (−8%, injured right hand)" (UR40, UR71). The full
-  breakdown (base, each injury, stance, armour) is one hover away on the chip, never in the glance.
+  the adjustment and each entry's `cause` verbatim: "You hit usually 62% (−8%, injured right hand)",
+  "Blows weaker (×0.8, cut tendon)", "Slower (×0.9, limping left leg)" (UR40, UR71). With several
+  entries on one axis the glance shows the net and the largest cause ("−14%, injured right hand and
+  1 more"); the full breakdown (base, each entry with its cause, stance, armour) is one hover away on
+  the chip. Model change when it lands: `versus.you.mods` and `odds.shift` carry `[{axis, delta, cause}]`.
   The threat chip's bound uses the shifted numbers on both sides.
 - **HL9 What reduces a penalty.** Switching to the off hand (its own skill), a splint or bandage (care
   items with a stated reduction), and trained one-handed technique each reduce the factor, each named
