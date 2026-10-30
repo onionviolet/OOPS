@@ -3,14 +3,15 @@
 // Usage: node scripts/slot_run.mjs [--kind suite|build|browser] [--slots N] -- <command...>
 //        node scripts/slot_run.mjs --status
 // Slots are atomic mkdir dirs under YAIRPG_SLOT_DIR (default ~/.cache/yairpg-slots).
-// suite and build share one pool (default 2 slots); browser has its own (default 1).
+// suite and build share one pool (default 2 slots); browser has its own (default 4, so lanes prove their own
+// slices in parallel; each run serves its own worktree on its own free port).
 // --max-load N (or YAIRPG_SLOT_MAX_LOAD) also holds the gate until the 1-minute load average is <= N.
 import {spawn} from 'node:child_process';
 import {mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
 import {homedir, loadavg} from 'node:os';
 import {join} from 'node:path';
 
-const DEFAULT_SLOTS = {heavy: 2, browser: 1};
+const DEFAULT_SLOTS = {heavy: 2, browser: 4};
 const POLL_MS = Number(process.env.YAIRPG_SLOT_POLL_MS) || 1000;
 
 const slotRoot = () => process.env.YAIRPG_SLOT_DIR || join(homedir(), '.cache', 'yairpg-slots');
