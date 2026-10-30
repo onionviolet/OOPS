@@ -10,11 +10,25 @@ const color = value => typeof value === 'string' && /^#[\da-f]{6}$/i.test(value)
 const keys = (value, allowed) => { if (!record(value) || Object.keys(value).some(key => !allowed.includes(key))) fail('unknown or malformed fields'); };
 export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vitals', 'preparation', 'belongings', 'records', 'time', 'location', 'skills', 'messages', 'notebook', 'customization', 'status-window'];
 export const EFFECT_MODULES = ['ledger', 'crafting', 'skills'];
-export function defaultPresentationSettings() {
+const LUMINOUS_PALETTE = {background:'#07162d', text:'#d5f7ff', accent:'#7fe7e8'};
+const LUMINOUS_MESSAGES_PALETTE = {background:'#231735', text:'#eee5ff', accent:'#bca4ff'};
+// The Neutral look that was the default before 2026-10-29. Saves whose only
+// profile still equals it are upgraded to Luminous Gothic on load.
+export function neutralPresentationSettings() {
     return {componentTheme: 'neutral', typography: {font: 'gothic', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
 }
+// Luminous Gothic is the default look (Weibao, 2026-10-29).
+export function defaultPresentationSettings() {
+    return {...neutralPresentationSettings(), componentTheme: 'luminous', palette: {...LUMINOUS_PALETTE}};
+}
 export function defaultCustomizationState() {
-    return {schema: 1, active: 'Default', theme: {mode: 'off', season: 'spring'}, profiles: {Default: {settings: defaultPresentationSettings(), modules: {}}}};
+    return {schema: 1, active: 'Default', theme: {mode: 'off', season: 'spring'}, profiles: {Default: {settings: defaultPresentationSettings(), modules: {messages: {palette: {...LUMINOUS_MESSAGES_PALETTE}}}}}};
+}
+export function upgradeUntouchedCustomization(state) {
+    const valid = validateCustomizationState(state), names = Object.keys(valid.profiles), only = valid.profiles.Default;
+    const untouched = names.length === 1 && valid.active === 'Default' && Object.keys(only.modules).length === 0
+        && JSON.stringify(only.settings) === JSON.stringify(validatePresentationSettings(neutralPresentationSettings()));
+    return untouched ? {...valid, profiles: {Default: defaultCustomizationState().profiles.Default}} : valid;
 }
 export function validatePresentationSettings(input, partial = false) {
     const allowed = ['componentTheme', 'typography', 'palette', 'spacing', 'effects', 'sound', 'presentation', 'effectDefinition'];
@@ -102,11 +116,11 @@ export function createLuminousGothicDraft(state) {
     const settings = structuredClone(source.settings);
     settings.componentTheme = 'luminous';
     settings.typography.font = 'gothic';
-    settings.palette = {background:'#07162d', text:'#d5f7ff', accent:'#7fe7e8'};
+    settings.palette = {...LUMINOUS_PALETTE};
     const modules = structuredClone(source.modules);
     if (!modules.messages?.palette) {
         modules.messages ||= {};
-        modules.messages.palette = {background:'#231735', text:'#eee5ff', accent:'#bca4ff'};
+        modules.messages.palette = {...LUMINOUS_MESSAGES_PALETTE};
     }
     valid.profiles[name] = {settings, modules};
     valid.active = name;
@@ -160,7 +174,8 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         Object.assign(vars, componentThemeTokens(settings));
         node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];
         // A player-chosen or seasonal palette stays authoritative over display schemes such as Vivid.
-        const base = defaultPresentationSettings().palette;
+        // A theme's own preset palette is not a player choice, so Luminous keeps the pastel vitals.
+        const base = settings.componentTheme === 'luminous' ? LUMINOUS_PALETTE : neutralPresentationSettings().palette;
         node.dataset.customPalette = String(['background','text','accent'].some(key => settings.palette[key] !== base[key]));
         for (const [name, value] of Object.entries(vars)) node.style.setProperty(name, value);
     }

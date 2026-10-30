@@ -94,5 +94,5 @@ export function gradeRitual(ritual, facts, dial) {
 export function describeGrade(result) {
     const parts = result.conditions.map(c => c.status === 'met' ? `${c.label}: met (${c.via})` : c.status === 'substituted' ? `${c.label}: substituted (${c.via}, fit ${c.fit})`
         : `${c.label}: absent (${c.wanted})`);
-    return {headline: `Rite ${result.grade}: stated loss-of-control odds ${result.odds} percent (a proposal)`, lines: parts};
+    return {headline: `Rite ${result.grade}: stated loss-of-control odds ${result.odds} percent`, lines: parts};
 }

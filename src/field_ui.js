@@ -57,7 +57,7 @@ export function createFieldPanel({registry,read,command,openWorkshop,localAction
         }
         const alloy = alloyEquipmentFacts(state, context)["equipment.springsteel.equipped"];
         const driveButton = controls.get("field.pack_drive")?.b;
-        if(driveButton) driveButton.textContent = `Use the workshop with drive · 1 log + 1 coin · 1 min → ${alloy ? 2 : 1} kit${alloy ? "s" : ""} · ${alloy ? 2 : 3} drive units${alloy ? " · spring grade 1 (proposal)" : ""}`;
+        if(driveButton) driveButton.textContent = `Use the workshop with drive · 1 log + 1 coin · 1 min → ${alloy ? 2 : 1} kit${alloy ? "s" : ""} · ${alloy ? 2 : 3} drive units${alloy ? " · spring grade 1" : ""}`;
         const ownEnergies=energyView(state);energies.hidden=!ownEnergies.length;
         energies.textContent=ownEnergies.map(e=>`${e.label}: ${e.reserve}/${e.capacity} units; strain ${e.strain}/${e.strainLimit}; output ${e.output}, control ${e.control}.`).join(" ");
         report.hidden=!view.introduced || !state.actors.player.completed["field.project_start"];

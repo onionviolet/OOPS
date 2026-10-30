@@ -45,15 +45,15 @@ export const riteByFormula=id=>LOTM_RITUALS.find(r=>r.formula===id)||null;
 export const ritualFlags=['rit.harpyContract','rit.messengerPact'];
 // Every rite command needs the branch's situation to exist, which reporting in opens.
 const R=has('reportedIn');
-const buy=(id,label,at,pence,key,text,extra={})=>cmd(`rit_${id}`,`${label} · ${pence} pence (a proposal)`,at,{alone:true,once:false,...extra,requires:extra.requires?all(R,extra.requires):R,costs:[money(-pence),...(extra.costs||[])],
+const buy=(id,label,at,pence,key,text,extra={})=>cmd(`rit_${id}`,`${label} · ${pence} pence`,at,{alone:true,once:false,...extra,requires:extra.requires?all(R,extra.requires):R,costs:[money(-pence),...(extra.costs||[])],
  effects:[item('player',key,1),know(`rit.${id}`,text,'player','player','observation','understood')]});
 export const ritualCommands=[
  buy('buy_ice','Buy a block of ordinary ice from the docks ice-house',L.docks,2*P.soli,RITE_KEYS.ice,'The ice-house sold you a block. It will melt well before a long rite is over.'),
  buy('buy_canvas','Buy blackout canvas at the docks',L.docks,5*P.soli,RITE_KEYS.canvas,'Heavy canvas, lined twice. Wrapped in it you cannot tell day from night.'),
  buy('buy_nonmelting','Order non-melting ice through the broker',L.docks,P.pound,RITE_KEYS.nonMelting,'The broker took your pounds and a day later produced a block that stayed hard in a warm hand. He would not say where it came from.',{requires:eq('lotm.brokerHere'),visibleWhen:all(eq('lotm.enrolled'),R,eq('lotm.brokerHere')),targetId:I.broker}),
- cmd('rit_harpy_contract','Call a spirit-world harpy and strike a contract · 4 pounds of offerings (a proposal)',L.lodging,{alone:true,requires:all(R,no('rit.harpyContract')),visibleWhen:all(eq('lotm.enrolled'),R,no('rit.harpyContract')),costs:[money(-4*P.pound)],
+ cmd('rit_harpy_contract','Call a spirit-world harpy and strike a contract · 4 pounds of offerings',L.lodging,{alone:true,requires:all(R,no('rit.harpyContract')),visibleWhen:all(eq('lotm.enrolled'),R,no('rit.harpyContract')),costs:[money(-4*P.pound)],
   effects:[af('rit.harpyContract'),item('player',RITE_KEYS.harpyFeather,1),know('rit.harpyContract','The harpy took the offering, named its price in years of dreams you will not get back, and let a tail feather fall. The contract holds while you keep the feather.','player','player','observation','understood')]}),
- cmd('rit_messenger_pact','Bargain with a lesser spirit-world messenger · 1 pound of offerings (a proposal)',L.lodging,{alone:true,requires:all(R,no('rit.messengerPact')),visibleWhen:all(eq('lotm.enrolled'),R,no('rit.messengerPact')),costs:[money(-P.pound)],
+ cmd('rit_messenger_pact','Bargain with a lesser spirit-world messenger · 1 pound of offerings',L.lodging,{alone:true,requires:all(R,no('rit.messengerPact')),visibleWhen:all(eq('lotm.enrolled'),R,no('rit.messengerPact')),costs:[money(-P.pound)],
   effects:[af('rit.messengerPact'),item('player',RITE_KEYS.messengerFeather,1),know('rit.messengerPact','The small thing across the border agreed to a lesser bargain and left a feather. It is not a harpy.','player','player','observation','understood')]}),
  ...[['anger','Dwell on an old injury until your hands shake','Anger came easily. It will not last the hour.'],['joy','Play the song you love loudly until you laugh','Joy came easily. It will not last the hour.']].map(([k,label,text])=>
   cmd(`rit_stir_${k}`,`${label} · 10 min`,L.lodging,{alone:true,once:false,requires:R,duration:10,cancellation:'none',effects:[know('rit.feeling',text,'player','player','observation','seen')]}))];

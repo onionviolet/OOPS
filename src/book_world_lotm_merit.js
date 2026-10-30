@@ -25,7 +25,7 @@ export const NIGHTHAWKS=defineInstitution({id:'nighthawks',world:'lotm',name:'Ni
    text:'Seized with a smuggler\'s cache and kept in the store. Two lots are on the shelf (an authored stock).'}]});
 const home=eq('lotm.home.evernight');
 export const meritCommands=[
- ...NIGHTHAWKS.missions.map(m=>cmd(`merit_${m.id}`,`${m.label} · ${m.minutes} min · earns ${m.pay} merit (a proposal)`,L.workroom,{targetId:I.supervisor,once:false,requires:home,visibleWhen:home,duration:m.minutes,cancellation:'forfeit',
+ ...NIGHTHAWKS.missions.map(m=>cmd(`merit_${m.id}`,`${m.label} · ${m.minutes} min · earns ${m.pay} merit`,L.workroom,{targetId:I.supervisor,once:false,requires:home,visibleWhen:home,duration:m.minutes,cancellation:'forfeit',
   effects:[counter(meritRes.earned,m.pay),know(`merit.${m.id}`,`${m.text} Merit earned: ${m.pay}.`,'player','player','observation',U)]})),
  ...NIGHTHAWKS.store.map(r=>{
   const grant=r.kind==='formula'?[af(r.grants.flag)]:[item('player',r.grants.key,1)];

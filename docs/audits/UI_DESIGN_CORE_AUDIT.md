@@ -438,3 +438,267 @@ no browser run in this round.
 | Second | UIV4 with G1 I1: quote/commit parity in one book-world route. | Sol medium, medium. Done: changed state between preview and commit yields a stated change or refusal, no silent charge. |
 | Third | UIV3 under-way list on the work line. | Sol medium, medium. Done: three concurrent timed jobs show time left and travel consequence; save and import keep them. |
 | Fourth | UIV5 text comparison in the geometry harness. | Luna low, small. Done: catches the friction #5 drift on its fixture, or records that it no longer reproduces. |
+
+## Round 8, 2026-10-29: general overhaul options and cleanup
+
+Weibao: "Consider general UI overhauls and more that we can do to improve in
+general." Proposals only; none of it has Weibao's yes and no `src/` file changed.
+Builds on the [UI coverage plan](../gm/dispatch/ui-coverage-2026-10-27/PLAN.md)
+(homes fixed, eight shared shapes, B1-B5, proposed UR76-UR82) and does not repeat
+UIV1-UIV7 or Q18 P02-P10.
+
+Evidence (UR45): a native interaction on a populated localhost test save, this
+checkout's working-tree `dist/bundle.js` (sha256 `7c0bcaf9792b`, carrying another
+session's uncommitted rebuild), 1920×1080 only, panel rectangles measured by script;
+a fresh hero through the game MCP; the 10-27 Tingen evidence PNG. The MacBook size,
+1536×864 and 21 px text were not checked. Not the frozen `v0.6-948bd45d09cd` app.
+
+### Findings
+
+| Code | Evidence and consequence | Default, dial and reason |
+| --- | --- | --- |
+| UIW1 | **Developer status leaks into player text.** "(a proposal)" ends player rows in `src/book_world_lotm_merit.js:28`, `book_world_lotm_bench.js:41`, `book_world_lotm_ritual.js:48-56` and `ritual_conditions.js:97`; Settings shows "(proposal, off by default)" and "Assignments and prices are proposals". | Default: proposal status is a badge in the Authoring context, never in player strings (UR73). Dial: the Authoring toggle shows it. Reason: the player reads it as the world being unfinished. |
+| UIW2 | **Panel sprawl behind the nav.** 83 registered panels, 76 hidden but mounted (about 9,700 DOM nodes), 56 entries in "All panels…", with near-duplicates (Projects ×2, Condition ×2; Inventory, Belongings, Inventory & combat view, Inventory tools; Stats & equipment, Character & preparation). UR77 budgets routes, not panels. | Default: the list groups entries under their home route, drops duplicates and dev-only panels, and hidden panels mount on first open. Dial: Authoring shows the full list. Reason: the escape hatch has become a second, flat navigation. |
+| UIW3 | **Dev controls sit in the player strip.** Authoring, Layout and the density toggle share the top strip with player routes. | Default: they move under Settings → Layout, with Authoring behind a dev flag. Reason: UR50, chrome earns space through a player need. |
+| UIW4 | **"Unavailable" reads as broken.** Tingen's header shows "Local weather unavailable" and "Local date unavailable". | Default: an in-world line or the field hidden with a reason, through the UF2 header chips. Reason: a missing reading should look like the world, not a bug. |
+| UIW5 | **Blocked reasons are generic.** The Tingen night watch says "The required knowledge, means or circumstances are missing." UIV1 makes reasons visible; this makes them specific. | Default: name the missing thing and where to get it, from the eligibility guard's own result. Folds into B3. Reason: a reason that names nothing does not help the next move. |
+| UIW6 | **Service views become documents.** The Tingen workroom center is a long page of pathway, clearance and merit prose, with actions mid-text and the scene's main move below the fold. | Default: the service view uses the scene-card shape: status line, actions with costs, then a "Rules here" disclosure (UR42, UR63). Dial: a reference-heavy place may open on its reference tab. Reason: the player came to act. |
+| UIW7 | **Back label may name a panel, not a place.** The Tingen evidence shows "← Appearance". Not reproduced this round. | Default: reproduce first (UR15); if real, UR22's history stack names the real previous place. |
+| UIW8 | **One 7.6 MB bundle.** 902 `src` files ship in one `dist/bundle.js`. Load time not measured. | Default: measure first load and tick cost on the populated save; if load passes about 2 s, book worlds load on first entry. Reason: every world added makes every session start slower. |
+| UIW9 | **The MCP screenshot shows a different screen.** The Electron mirror renders the classic grid (empty bands at bottom and right at 1920×1080) while the live build renders the workspace filling the viewport. Logged with `game_report_limit`. | Default: UI claims use the browser route until the mirror renders the live layout. Reason: a wrong picture sends work at a screen nobody plays. |
+
+### Overhaul options
+
+| Code | Option | Verdict |
+| --- | --- | --- |
+| O1 | **Finish the shared shapes, then clean.** Build coverage-plan B1-B5 (note, ledger, choice row, timeline, policy row), with UIW1-UIW6 as small riders. | Recommended default. It is already planned, needs no new homes, and B1's return note is the idle-game payoff. |
+| O2 | **Grouped navigation.** Replace the flat route strip and the 56-entry list with about six task hubs (You, Belongings, People, Work and time, World, System) and a Ctrl+K jump (UR28). | Do after O1, when B2/B4 have settled what Ledger and Journal hold; doing it first would regroup tabs that are about to move. |
+| O3 | **A day page** (unusual). Each in-game morning, or a return after absence, opens one threshold screen: what is due, what changed, who wants you, one suggested next move. It reads the note and timeline shapes. | Worth it as O1's capstone after B1 and B4; it turns the clocks the player cannot see into a reason to come back. |
+| O4 | **Diegetic scene navigation** (unusual). Places and people in the center become the main navigation; panels open as cards on the scene. | Not now: it reopens UR9/UR12's settled baseline at rewrite cost for a feel change. Keep as a palette idea for one book world. |
+
+Rejected in a line: a framework rewrite (AR forbids it, no player gain), and a reskin alone (fixes look, not flow).
+
+### ACT NOW (done this round)
+
+- Findings and options saved here; MCP mirror limit logged.
+
+### LATER / DELEGATE (ranked)
+
+| Priority | Work | Level / effort / done check |
+| --- | --- | --- |
+| First | UIW1 strip proposal text from player strings into the Authoring badge. | Haiku low or Luna low, small. Done: no player-visible string ends in "proposal"; the Authoring toggle still shows status. |
+| Second | Coverage-plan B1 return note (its own done check), then B3 with UIW5. | Sonnet medium, one session each. Done: as the plan states, plus every blocked Tingen and Village option names what is missing. |
+| Third | UIW2 + UIW3: group and dedupe the panel list, lazy-mount hidden panels, move dev controls. | Sonnet medium, one session. Done: list grouped by route with no duplicate names; DOM node count on the populated save drops; saved layouts and pins load unchanged (UR17). |
+| Fourth | UIW6 scene-card shape for the Tingen workroom. | Sonnet medium, half a session. Done: at 1920×1080 the main action and its cost show without scrolling. |
+| Fifth | UIW8 load measurement; UIW4 and UIW7 checks. | Luna low, small. Done: numbers recorded; UIW7 reproduced or closed. |
+
+O2 and O3 wait until B2 and B4 land.
+
+## Round 9, 2026-10-29: the rulebook itself, reconciliation and improvement
+
+Weibao: "Consider UI rules and then reconciliation and improvement and more?
+more to consider?" Read-only round over [UI_RULES](../UI_RULES.md), the proposed
+UR76-UR82 in the [coverage plan](../gm/dispatch/ui-coverage-2026-10-27/PLAN.md#8-proposed-standing-rules-proposed-2026-10-27-awaiting-weibaos-yes),
+the [rules index](../RULES_INDEX.md) rows for UI, the check scripts and round 8.
+Proposals only; no rule text changed.
+
+### Findings
+
+| Code | Evidence and consequence | Default, dial and reason |
+| --- | --- | --- |
+| UIX1 | **Too long to apply, ordered by date.** 72 rule rows plus routing prose, 6,840 words. Rows run UR70-UR75, UR1-UR13, UR65-UR68, UR14-UR17, UR21-UR33, UR69, UR34-UR64; UR18-UR20 are bullets, not rows. An agent touching one button cannot tell which ten matter. | Default: keep every code and its text, add a one-screen **UI checklist** at the top (about twelve rules most often missed, grouped place / build / check), and order the reference body by task with a dated changelog below. Dial: a lane brief may cite the checklist alone for a small fix. Reason: GROUND_RULES found that rules nobody can hold in mind recur as mistakes. |
+| UIX2 | **Few rules have a check.** Just UR9, UR11, UR12, UR18, UR47 and UR65-UR68 appear in `scripts/` or `tests/`. GROUND_RULES' own lesson is that prose rules without a check recur. Round 8's UIW1 (dev words in player text) is a UR73 slip no check caught. | Default: add checks to existing owners, ranked by how often the mistake recurs: UR73 dev-term lint in `check_descriptions.mjs` (proposal, seam, stored field, adapter), UR25 page-scroll and UR14 back-label in `check_desktop.mjs`, UR77 counts as a test once he says yes. Dial: a rule about taste stays prose. Reason: a check is cheaper than the next audit round. |
+| UIX3 | **"Proposal" means two things on screen.** UR2 sends unaccepted *features* to the Projects drawer, yet LOTM rows on the main surface say "(a proposal)" about their *numbers* (pay, prices, odds). Those numbers are tuned defaults, which LSD425-LSD440 already treats as readable numbers with revisions. | Default: a tuned number ships as a plain number; its revision history lives in the Authoring view. UR2 applies to features, not to values inside an accepted surface (same line as proposed UR78). Reason: resolves round 8 UIW1 from existing authority without a new rule. |
+| UIX4 | **Proposed rules and defaults pile up undecided.** UR76-UR82 (10-27), UIV1-UIV7 (10-26), PRF1-PRF8 and the round 8 defaults all sit as proposals; the index still says UR1-UR75. Lanes cite them anyway, so they act as half-rules. | Default: one short acceptance packet listing each proposed UI rule with a one-line "what changes if accepted", sent to Weibao as one yes/edit list (build order and acceptance are his calls; no either/or). Until then briefs cite them as "proposed". Reason: half-rules drift faster than either state. |
+| UIX5 | **Absolute wording in a defaults house.** Rule titles use never/no/only in four rows (UR6 tokens, UR7, UR8, UR13), against AD5's default, dial and reason. For code hygiene (tokens, own your node) a hard default is right. | Default: keep the hard default and add its dial in one clause (for example UR6: an exception needs a token added first). Reason: same meaning, consistent with the house rule, and the blanket-claim sweep stops flagging it. |
+| UIX6 | **Rules cover screens, not budgets of what is mounted.** Round 8 found 83 panels, 76 hidden but mounted. UR3 budgets Local actions and proposed UR77 budgets routes, regions and center modes; nothing budgets panels, the All panels list or render cost. | Default: extend proposed UR77 with a panel count by home and a mount-on-first-open default; record DOM size and first-load time on the populated fixture as a watched number, not a gate. Reason: every system adds a panel; nothing makes one leave. |
+| UIX7 | **Evidence names the build but not which app.** Weibao plays the frozen `v0.6-948bd45d09cd` app; UI rules are proven on dev builds, and the MCP Electron mirror shows a third layout (round 8 UIW9). UR45 covers how state was reached, not which app. | Default: UR45 evidence also names the app (dev build hash, frozen app, or mirror) and says whether the change has reached the app he plays. Reason: "fixed" means little if his app still shows the old screen. |
+| UIX8 | **The lead's life will add panels fastest.** Current focus is cast lives, with LSD design up to LSD440 and runtime lanes (MR2 memory effects) landing now. Proposed UR76 (fill the UI contract first) is what keeps those from each inventing a screen, but it is not accepted. | Default: cast-lives runtime briefs fill the UR76 contract as a proposal now (it costs a paragraph) and cite which existing home and shape they use. Reason: the main line should not be where the sprawl comes from. |
+| UIX9 | **Description rules and the description inventory are separate.** UR70-UR75 own description quality; `check_descriptions.mjs` inventories missing descriptions only for registries, not UI strings built in `*_ui.js` and row files like `book_world_lotm_rows.js`. | Default: the inventory adds UI row strings from book-world row files as a second source, reported, not failing. Reason: the strings players read most are outside its view. |
+
+### ACCOUNT FOR NOW
+
+- UIX3 answers round 8 UIW1's design question: the fix is removing the label, not moving rows to the drawer.
+- Briefs touching UI cite UR76-UR82 and UIV codes as "proposed" until UIX4's packet is answered.
+- Evidence lines name the app (UIX7) starting with the next UI receipt.
+
+### LATER / DELEGATE (ranked)
+
+| Priority | Work | Level / effort / done check |
+| --- | --- | --- |
+| First | UIX4 acceptance packet for UR76-UR82, UIV1-UIV7 and UIX3, UIX5, UIX6 wording. | Sonnet low, small, docs. Done: one page, each item with its effect on a yes; nothing marked as his decision without his words. |
+| Second | UIX2 dev-term lint in `check_descriptions.mjs`, report mode, then fix the hits (round 8 UIW1). | Sonnet low, small. Done: lint lists the six LOTM hits and the Settings lines; after the fix it lists none; `npm test` passes. |
+| Third | UIX1 checklist and task ordering of UI_RULES, codes unchanged, plus RULES_INDEX row. | Sonnet medium, half a session. Done: every UR code still resolves; `check:rules` passes; checklist fits one screen. |
+| Fourth | UIX2 page-scroll and back-label checks in `check_desktop.mjs`. | Sonnet medium, small. Done: fails on a seeded page-scroll fixture, passes on the populated save at 1920×1080. |
+| Fifth | UIX6 mounted-panel and load numbers recorded on the populated fixture. | Luna low, small. Done: numbers in the checkpoint with bundle hash. |
+
+### Round 9 follow-through, 2026-10-29
+
+Weibao: "lint fix and packet".
+
+- UIX2 first slice: `scripts/check_descriptions.mjs` reports status labels in `src/` string literals (qualifier forms; "Name (proposal)" feature titles stay, for the reason UR2 gives) and flags them in registry descriptions; regression in `tests/check_descriptions.test.js`.
+- Round 8 UIW1: 16 labels removed across LOTM rows, ritual odds, merit, Primordial hall, HP school, the native-growth line, the gust toggle and formula gaps, plus one nested label in `field_ui.js` the lint cannot see. One stays: `book_shadow_slave_life.js:71`, whose revision-two command contract is hash-pinned for save compatibility; changing it needs a revision three.
+- UIX4: [acceptance packet](UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md), P1-P16, waiting on Weibao.
+- Checks: focused tests 87/87 after the revert and LOTM-related 290/290; build `fb5065ed3b00`; fresh `127.0.0.1` origin shows no labels in the DOM and no console errors. The Tingen merit and ritual rows were not reached in the browser (implemented-unverified for those rows; string and replay tests cover them). Full `npm test` not run; nothing committed.
+
+## Round 10, 2026-10-29: long-term UI for the lead's run, other seats, modularity and representations
+
+Weibao: "long term required UI improvements based on all the gaps and for
+implementing the systems for bringiing things to parity for book main character
+run, and future non main character runs?" then "modularity stuff and more? consider
+all the future scenes and representations that we havent even considered yet, from
+visually representing rituals and more? more to consider?"
+
+Proposals only. Sources: a read-only sonnet pass over
+[LEAD_LIFE_SYSTEMS_DESIGN](../gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md),
+the [cast-lives card](../gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md) and lane checkpoints
+(no lane has rebuilt 1920×1080 evidence for its UI yet; "has UI" below means source exists);
+the [coverage plan](../gm/dispatch/ui-coverage-2026-10-27/PLAN.md) homes and primitives (K1-K8, M1-M15);
+the [representation ladder](../UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md) RP1-RP6;
+the [scale palette](../UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md); SUI1-SUI19 and RPT1-RPT12 (binding defaults).
+Today the game draws almost everything as DOM text: 52 `definePanel` panels, canvas in 8 files and
+SVG in 3 (particles, journal, battle hosts), and no shared way to draw a figure.
+
+### A. What the lead's run needs on screen (parity)
+
+Ranked by how many lead steps each unblocks. "Home" names the coverage-plan home or primitive.
+
+| Code | Need | Today | Home |
+| --- | --- | --- | --- |
+| LTU1 | **Quoted choice rows everywhere**: time, cost, risk and exposure in words, a blocked reason naming what is missing, untaken canon options locked as "Not how it happened" (SUI5, SUI6, LSD9, LSD103) | Partial: LOTM Actions show cost and blocked text; risk and exposure not quoted | K1 choice row (coverage B3) |
+| LTU2 | **Scene card and upcoming strip**: one card at a time, stakes line first, people as links, closes pointing onward (SUI2, SUI7-SUI10, SUI13) | None; canon steps go to Reports for now | K5 scene card, K4 timeline |
+| LTU3 | **Return digest and result notes**: "While you were away" grouped by person; check results say what happened, why, what it cost and who saw (RPT6, LSD94) | Reports ledger exists; digest and result note do not | K2 note (coverage B1) |
+| LTU4 | **Knowledge home**: dated knowledge lines, inner inferences, his intentions, open matters (LSD116, LSD118, LSD264) | Partial in the place panel | Journal → Knows (M13) |
+| LTU5 | **Person view that remembers**: usual place, why they act as they do, memory and provenance, traits learned by seeing (LSD108, LSD145, LSD399) | `people_ui.js` and `relationship_view.js` exist; memory not wired (MR2 running) | K6 list and inspector (M6) |
+| LTU6 | **Owed and due**: favours, debts, loyalty, deadlines (LSD409) | `obligations_ledger.js` not wired | Ledger → Owed and Due (coverage B2, B4) |
+| LTU7 | **Fight situation card**: intent shown, lethal telegraphed, odds in words, text-first tempo (LSD91, LSD93, LSD294, LSD384) | None beyond native combat | K5 inside the fight center mode (M15) |
+| LTU8 | **Run mode and seat header**: canon or open run, seat, a legend that reopens mid-life (LSD105; reader gap G1) | Partial: header wording exists, start disabled until B1 lands | Header chip (M12) plus threshold screen (ST3) |
+| LTU9 | **Coverage and folds**: a folded action lists the book steps it stands for; a slice is UI-complete when no step is unmapped (SUI17, SUI19) | None | K1 row detail, plus a dev coverage view |
+| LTU10 | **Divergence and pull**, opt-in: what now differs from the book, and fate or pull traces where a world has them (LSD223, LSD240; reader gaps G3, G5) | None | Ledger diff mode (K3) behind the canon overlay (SUI4) |
+
+### B. What changes for other seats
+
+| Code | Default, dial and reason |
+| --- | --- |
+| LTU11 | **Every surface reads the seat, never "is the lead"** (LSD226). Header labels, names (RPT4), Knows and locked rows come from the seat's own knowledge. Reason: a bystander must not see the lead's facts. Check: each surface's test runs once with a non-lead fixture. |
+| LTU12 | **Failure is a first-class row.** Refused, caught, short of money and too late each get a choice-row state and a note (LSD227). Reason: the canon run tests success paths; other seats live in the rest. |
+| LTU13 | **Thin lives lean on montage.** A seat with mostly `fill` days shows day cards and policies more than step controls (LSD128, section C of the lead-life rules); locked rows collapse to a count. Dial: day zoom. |
+| LTU14 | **Taking a seat is a threshold screen** that shows what you know, what you own, whom you know and which book facts now lock for you (LSD129). |
+| LTU15 | **Loop and calendar worlds get a reset marker and carry view**: what persists across a loop (Mother of Learning) and a school-year calendar (HP) in the header and Branches (M10). |
+
+### C. Modularity: shapes and renderers, not screens
+
+| Code | Proposal | Reason and check |
+| --- | --- | --- |
+| MDL1 | **Representation registry.** A subject kind (ritual, person, place, item, body, timeline, contract) registers renderers on a ladder: line → row → card → figure → scene. A surface asks for "this subject at card size" and gets the world's renderer or the shared default. Every renderer has a text form. | One subject looks the same everywhere (UR74); a new world adds renderers, not screens. Check: a registry test fails when a kind has no line or row renderer. |
+| MDL2 | **One figure primitive.** A small declarative spec (nodes, rings, slots, tracks, edges, labels, states) drawn once in SVG with glyph text and tokens. Rituals, relationship webs, meridians, district maps, timelines and investigation boards are all data for it. | The cheapest route to visual rituals without a renderer per feature. Check: three different kinds render from fixtures with no kind-specific drawing code. |
+| MDL3 | **Scene card as slots.** Header, stakes line, people chips, options with quotes, result, onward line. By default a scene kind fills slots instead of building DOM (SUI1-SUI13). | New scene kinds cost data, not UI. |
+| MDL4 | **Seat-parametric projection.** Every renderer takes the observer and seat and reads the player projection (AR8, proposed UR80). | Non-lead runs reuse every renderer unchanged. |
+| MDL5 | **Lenses as layers.** Spirit sight, divination, disguise and canon overlay add or filter a layer over existing renderers with their cost and duration shown; none reads world truth. | Perception powers do not each need a screen. |
+| MDL6 | **World skin as tokens.** A world sets palette, frame, glyph set and figure style through tokens (UR6) by default, rather than per-feature CSS. Luminous Gothic, Neutral, Arcane and Workshop are already the start of this. | Book worlds can feel distinct at no code cost. |
+| MDL7 | **Mount on open and a representation gallery.** Hidden panels mount on first open (round 8 UIW2); `ui-preview.html` with `src/ui/preview/fixtures.js` grows into a gallery showing every renderer and figure at 1920×1080 from fixtures. | The fast way to see a representation before a lane wires it, and the visual regression baseline. |
+| MDL8 | **Effects bound to subjects, honest and capped.** Ritual glow, strain flicker or madness tint attach to a subject's settled state by default, do not move controls or hide facts, and obey effects off and reduced (UR38, UR62). | Visual intensity without breaking reading or saves. |
+
+### D. Representations not yet designed (palette, pick per world)
+
+Each row gives the cheapest form and the capable form on the primitives above. Idea rows, not specs.
+
+| Code | Scene or subject | Cheapest | Capable |
+| --- | --- | --- | --- |
+| RPX1 | **Rituals** | Step list with components, timing window and risk line | MDL2 circle: rings for timing (hour, moon), slots for placed components that fill as you place them, chant lines on a track, risk as a ring colour with words; failure shows which slot or step broke |
+| RPX2 | **Brewing and making sequences** | Ordered steps with heat and time | Figure track with heat band, add points and a live "late adds heat" marker; same spec as RPX1 |
+| RPX3 | **Spellcasting and gestures** (HP wandwork, incantations) | Named spell with success words | Small glyph stroke figure and timing pip; practice shows drift |
+| RPX4 | **Cultivation and body paths** | Realm and stage line | Meridian or channel figure; blockages and breakthroughs as node states |
+| RPX5 | **Advancement ladders** (sequences, realms, ranks) | Ladder text (exists for Tingen) | Vertical track with known, rumoured and unknown rungs (UIV6 grammar), digestion as fill |
+| RPX6 | **Divination results** | Result line with confidence | Fragment cards (images as our words), dowsing needle figure, dream as a short sequence of scene fragments marked "seen in a dream" |
+| RPX7 | **Spirit or second sight** | Extra lines on the place view | MDL5 lens tinting people and things with auras and labels, with a cost meter |
+| RPX8 | **Dreams, visions and memory scenes** | A journal entry | A scene card in a distinct skin (MDL6), with "remembered" provenance |
+| RPX9 | **Altered states** (loss of control, intoxication, poison, fear) | Condition line | MDL8 effects: tinted frames, an intruding log voice marked as such, unreliable labels flagged as unreliable; effects-off shows the words alone |
+| RPX10 | **Disguise and identity** (Polyjuice, masks, secret roles) | "Appearing as" line | You panel in a second body view, with who sees which face (seat projection) |
+| RPX11 | **Relationship web and who knows what** | People list with lines | MDL2 web: you at the centre, edges for trust, debt and what each knows about you (limited to what you know) |
+| RPX12 | **Investigation board** | Clue list | Board figure: clues, inferences, open questions, links drawn by the player or by inference acts |
+| RPX13 | **Documents** (letters, newspapers, contracts, notices) | Text block | Document card with paper skin, sender, date, seal state; contracts show clauses and who holds which copy (our wording, RPT10) |
+| RPX14 | **Maps and routes** | Exit buttons and district links | District figure with people's usual places, "on the way" meetings (SUI15) and follow mode (SUI16) |
+| RPX15 | **Time** | Clock chip and calendar list | Day montage strip, week calendar with windows, loop reset view, years-passing summary |
+| RPX16 | **Duels, chases and multi-party fights** | Combat log | Situation card with positions, intent arrows and tempo; chase as a track with distance |
+| RPX17 | **Crowds, rumours and spreading news** | Rumour lines | Ripple figure: who heard, from whom, how far it travelled |
+| RPX18 | **Institutions and standing** | Rank and merit lines | Org figure: your place, who above can clear what (clearance grades exist in Tingen) |
+| RPX19 | **Chronicle of a life** | Journal list | Life timeline figure for replay and the "story so far" recap at a return |
+| RPX20 | **Crossing and transmigration** | Threshold text | Threshold screen with a carry list: what crosses, what is held, what pauses (WER rules) |
+
+### ACCOUNT FOR NOW
+
+- **The glow is an Appearance profile, and the default is Neutral.** Weibao asked for glow across the UI on 2026-10-20 ([direction](../USER_VISION.md#typography-component-styling-and-glow-2026-10-20)); the TSG receipt delivered it as an explicit "Luminous Gothic draft" in Appearance, while new and reset profiles start on Neutral (`src/customization_profiles.js:14`). Verified 2026-10-29 on bundle `fb5065ed3b00`, fresh `127.0.0.1` origin: before, the You panel had no glow shadow and theme `neutral`; after "Luminous Gothic draft" → "Apply and save", theme `luminous` and the glow shadow return. A read-only second tab refuses the apply ("profile changes require the active save owner"). Whether Luminous becomes the default for unedited profiles is his call; explicit Appearance choices stay as they are.
+- New lead-life UI uses the coverage homes (LTU1-LTU10) and fills the UR76 contract as a proposal (round 9 UIX8).
+- No new renderer is built per feature before MDL1-MDL3 exist; until then, cheapest forms in the RPX table.
+
+### LATER / DELEGATE (ranked)
+
+| Priority | Work | Level / effort / done check |
+| --- | --- | --- |
+| First | Coverage B1 note and B3 choice row, shaped as LTU3 and LTU1 for the lead's run. | Sonnet medium, one session each. Done: in the be seat, a blocked step names what is missing and a 12 h absence shows a per-person digest, at 1920×1080. |
+| Second | MDL3 scene card slots and LTU2 upcoming strip, with one LOTM choice scene. | Sonnet medium, one session. Done: two scene kinds from data, one card at a time, onward line with quoted travel. |
+| Third | MDL2 figure primitive with RPX1 ritual circle and RPX11 web from fixtures in the MDL7 gallery. | Sonnet medium, one session. Done: both render from specs with no kind-specific drawing; text form matches; effects off keeps the facts. |
+| Fourth | MDL1 registry and MDL4 seat projection, proven with a non-lead fixture on LTU4 and LTU5. | Sonnet medium, one session. Done: the same panels show the lead's and a bystander's knowledge correctly. |
+| Fifth | LTU6 Owed and Due (coverage B2, B4). | Sonnet medium, one session. Done: as the coverage plan states. |
+
+LTU7-LTU10, LTU13-LTU15, MDL5, MDL6 and RPX2-RPX20 follow as each world's lead run reaches them.
+
+## Round 11, 2026-10-29: Luminous default and refactors to plan for
+
+Weibao: "Sure, but consider other features first, or future considerations? If
+major refactors will be needed in the future> making luminous gothic as default?
+save accordingly and push". [Direction record](../USER_VISION.md#luminous-gothic-is-the-default-look-2026-10-29).
+
+### What was wrong
+
+The glow lived in an opt-in Appearance profile while new and reset profiles started on Neutral, and the pastel vitals were switched off for any palette that differed from Neutral's, Luminous included (`styles/ui_tokens.css:727-728`). So Neutral had pastel without glow and Luminous had glow without pastel.
+
+### Delivered
+
+- Luminous Gothic is the default; untouched old Neutral saves upgrade once; a `customization_default` save marker keeps a later explicit Neutral (`src/customization_profiles.js`, `src/main.js`). Persistence: additive top-level key, ignored by older builds; customization schema unchanged at 1.
+- A theme's own preset palette no longer counts as custom, so Luminous keeps the pastel HP, XP and stamina fills.
+- Regression: `tests/presentation_style.test.js` (default, upgrade, edited and multi-profile saves kept).
+- Hidden Electron, fresh profile, `app://yairpg`, 1920×1080: new game theme `luminous` with glow and pastel vitals; injected legacy Neutral save upgraded on relaunch; explicit Neutral with the marker kept; zero page errors; no proposal labels in the DOM. Script kept in the session scratchpad; not a repo check.
+
+### Refactors to plan for before they get expensive
+
+Ranked by how much later work they would otherwise have to touch. Proposals.
+
+| Code | Refactor | Why now rather than later | Trigger and cost |
+| --- | --- | --- | --- |
+| MDL9 | **Seat-aware projection seam** (MDL4, LTU11) | Every panel built against "the player" has to be revisited when non-lead seats arrive; 83 panels today and growing with cast lives | Do the seam before the next lead-life panel; one session, then panels move as touched |
+| MDL10 | **Mount on first open** (round 8 UIW2) | Changes panel lifecycle; each new panel written assuming eager mount adds to the retrofit | One session with the layout owner; saved layouts and pins must load unchanged (UR17) |
+| MDL11 | **Scene card slots before more hand-built scenes** (MDL3) | LOTM scenes built as bespoke DOM each need rework later | Before the second LOTM choice scene; one session |
+| MDL12 | **Appearance precedence: player > world skin > default** (MDL6) | Luminous is now the base; per-world skins will need a clear order so a world never overrides a player's choice, and the custom-palette flag must stay theme-relative | Decide in the first world-skin slice; small |
+| MDL13 | **Renderers that work in pop-out windows** | The Electron host has pop-out panels (A3); a renderer that queries the global document breaks there | Rule for MDL1 renderers from the start: render into the node given, no global lookups; costs nothing now |
+| MDL14 | **LOTM host to world-neutral host** (LSD141) | UI rows written against LOTM-named state double when Mother of Learning arrives | At the second book's first slice, as planned; UI rows go through the generic choice row (LTU1) meanwhile |
+| MDL15 | **Bundle split by world** (round 8 UIW8) | Build and import structure; harder once worlds cross-import | Measure first; split when first load passes about 2 s |
+| MDL16 | **Frozen-app adoption as a routine** | Every UI change waits for a manual snapshot swap before Weibao sees it in his app | A one-command "candidate snapshot, hidden check, ask, swap" path; small |
+
+Additive work that needs no refactor and can wait: the figure primitive (MDL2), the representation registry (MDL1) and the RPX palette.
+
+## Round 12, 2026-10-29: what is next, and rules in one place
+
+Weibao: "whats next? other stuff we need to implement? Rules all in one place? more to consider?" Proposals.
+
+### Rules in one place
+
+The [rules index](../RULES_INDEX.md) is already the single front door: 28 registered sets with router rows by task. Its domain rules were consolidated into one [DOMAIN_RULES](../DOMAIN_RULES.md) file earlier, with stubs at the old paths. The gap is sets that still live in dated working documents:
+
+| Code | Finding | Default, dial and reason |
+| --- | --- | --- |
+| RIX1 | CLR1-CLR13 sit in the cast-lives card; SUI1-SUI19 and RPT1-RPT12 sit inside the dated cast-lives plan; CX1-CX8 sit in a dispatch part doc. Binding defaults in working documents are how SUI and RPT went unrouted from UI work until round 9. | Default: move each into a standing rulebook with codes and wording unchanged and a stub at the old place, as DOMAIN_RULES did: SUI and RPT into a "Scene and report rules" section of UI_RULES, CLR into LEAD_LIFE_RULES, CX into GROUND_RULES. Reason: one home per rule, found by path rules. |
+| RIX2 | Nothing checks that a registered code family is reachable from a router row or a path rule. | Default: `check:rules` warns when a register row's codes appear in no router row, and when a register owner lives under `docs/gm/dispatch/`. Dial: warn first, fail later. |
+| RIX3 | About 600 registered codes; an agent cannot hold them. | Default: one-screen checklists per area (UI per UIX1, runtime, world passes, lead life), each citing codes; the full books stay reference. |
+| RIX4 | Proposed sets (UR76-UR82, PRF, LSD) and binding sets look alike in citations. | Default: the index marks each set binding or proposed in its register row; briefs cite proposed codes with "(proposed)". The UI packet is the first batch to settle. |
+
+### What is next (ranked)
+
+1. **See it in the normal app.** Pushing does not change the Electron app he plays: it serves frozen `v0.6-948bd45d09cd`. Adopting a new snapshot (MDL16) needs his yes; until then Luminous and today's fixes show in dev and the web build, not his app.
+2. **Answer the UI packet** (P1-P16), which turns the coverage plan's shapes into rules.
+3. **Return note and choice rows** (coverage B1, B3; LTU3, LTU1), first in the lead's be seat.
+4. **Seat projection seam** (MDL9) before the next lead-life panel, then scene card slots (MDL11).
+5. **Rules moves RIX1-RIX2**, docs and a check, one small session.
+
+Also waiting: the other lane's uncommitted work in the shared checkout fails 45 tests (`Invalid game calendar for recurring service.`, `src/world_rhythm.js:8`); they pass on clean HEAD and with this session's changes alone, so they belong to that lane (CLR13).

@@ -121,7 +121,7 @@ function build(r) {
     const gaps = [];
     if(auxStatus === 'missing') gaps.push('Auxiliary materials are not in the notes (M).');
     if(tags[4]) gaps.push('The table lists alternate main materials (an OR line); only the first listed is used here.');
-    if(full && [...main, ...aux].some(m => !m[1])) gaps.push('Some amounts are not stated; one lot of each material is a proposal.');
+    if(full && [...main, ...aux].some(m => !m[1])) gaps.push('Some amounts are not stated; one lot of each material is assumed.');
     if(ritual === 'missing') gaps.push('The rite is not in the notes (M).');
     if(!full) gaps.push('Inspect-only: the notes do not name every material, so no brew is offered.');
     const row = {id, world: LOTM_WORLD, name, pathway, seq, status: full ? 'brewable' : 'inspect-only', slots, minutes: MINUTES[seq], bench: 'Tingen supervised workroom', route: routeOf(r),

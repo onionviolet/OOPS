@@ -32,7 +32,7 @@ export const SPECTATOR_SPEC=Object.freeze({
   rushed:['vi.rushed','The Telepathist potion took, but the Spectator potion was not settled. Other people\'s moods arrive unasked and tangled with your own, and a hum behind the eyes does not stop.','observation']},
  sources:{base:{label:'Spectator source (initiated)',bioDetail:'One consumed brewed dose. Source ownership is separate from digestion. The notes list no Spectator abilities, so none is granted here (gap).'},
   next:{label:'Telepathist source (Sequence 8)',bioDetail:'A second consumed brewed dose. The notes list no Telepathist abilities, so none is granted here (gap).'}},
- ladder:{s9:['A neutral, steadier view of people (proposal; canon abilities are not in the notes)'],s8:['Others\' moods read plainly (proposal; canon abilities are not in the notes)'],
+ ladder:{s9:['A neutral, steadier view of people'],s8:['Others\' moods read plainly'],
   failure:{signs:'Emotional involvement skews what you see, and moods that are not yours crowd in',outcome:'Loss of control if a potion is drunk undigested, out of order or from another pathway'}}});
 export function generatePathwayRow(spec){
  const base=rowById(spec.baseFormula),next=rowById(spec.nextFormula),need=(r,id)=>{if(!r||r.status!=='brewable')throw Error(`Generated row needs a brewable formula row: ${id}.`);return r;};

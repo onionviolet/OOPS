@@ -1,8 +1,8 @@
 # Description lint inventory (generated)
 
-Generated from the current authored source tree. Source SHA-256: `5d1e73aaf6296a80706dd3d3ca0e6b6c4e4853b2bb94c9a2545efad19ceb6814`.
+Generated from the current authored source tree. Source SHA-256: `e6f634bdf7d121dcb34c45a02a0e62799ca19f9bb997e092c8d7cc07d5e1de87`.
 
-Descriptions checked: 1397. With mechanical flags: 1. Missing description fields inventoried for applicability review: 1959.
+Descriptions checked: 1439. With mechanical flags: 1. Missing description fields inventoried for applicability review: 1985.
 
 Flags are drafting leads only. The check does not score narrative quality or rewrite copy.
 Scanned definitions come from the frozen `expeditionRegistry` content and simulation Maps plus built-in schema-2 factories compiled through `compileStructuredPack`; optional user packs are excluded because they are private runtime inputs.
@@ -14,11 +14,11 @@ Missing fields are not silently skipped or automatically defects: some structura
 
 | World | Source file | Descriptions | Flagged |
 | --- | --- | ---: | ---: |
-| base.frontier | `src/expedition_content.js` | 1200 | 1 |
+| base.frontier | `src/expedition_content.js` | 1201 | 1 |
 | book.lotm.tingen | `src/expedition_content.js` | 72 | 0 |
-| book.mol.cyoria | `src/expedition_content.js` | 9 | 0 |
+| book.mol.cyoria | `src/expedition_content.js` | 34 | 0 |
 | book.paradise.goa | `src/expedition_content.js` | 15 | 0 |
-| book.paradise.hub | `src/expedition_content.js` | 13 | 0 |
+| book.paradise.hub | `src/expedition_content.js` | 29 | 0 |
 | foundation_start.workroom | `src/foundation_start_content.js` | 3 | 0 |
 | lanternloan.cellar | `src/lantern_loan_start_content.js` | 1 | 0 |
 | nested.archive | `src/expedition_content.js` | 6 | 0 |
@@ -134,6 +134,8 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `field.pattern_imprint` | sources | `src/expedition_content.js` |
 | `frontier.observation` | rollTables | `src/expedition_content.js` |
 | `frontier.rat_step` | techniques | `src/expedition_content.js` |
+| `book.paradise.drying.rack` | simulation.people | `src/expedition_content.js` |
+| `book.paradise.ecology.nursery` | simulation.people | `src/expedition_content.js` |
 | `cohort.ada` | simulation.people | `src/expedition_content.js` |
 | `cohort.bren` | simulation.people | `src/expedition_content.js` |
 | `book.paradise.employee` | simulation.people | `src/expedition_content.js` |
@@ -430,6 +432,7 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `book.lotm.bf_start_black_emperor_7` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.bf_collect_black_emperor_7` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.bf_sell_black_emperor_7` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.bf_core_visionary_9` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.bf_ing_lavatan_octopus_blood` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.bf_ing_star_crystal` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.bf_ing_purified_water` | simulation.commands | `src/expedition_content.js` |
@@ -517,6 +520,10 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `book.lotm.rit_messenger_pact` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.rit_stir_anger` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.rit_stir_joy` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.rit_self_learn` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.rit_self_prepare` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.rit_self_light` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.rit_self_light_body` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.merit_cold_room_watch` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.merit_case_file_copy` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.merit_buy_sun_8_sheet` | simulation.commands | `src/expedition_content.js` |
@@ -563,12 +570,21 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `book.lotm.errand_evernight` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.errand_storm` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.errand_machinery` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.recover_dock_manifest` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.reflect_work_sv` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.reflect_work_sa` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.report_in_machinery` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.report_in_storm` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.sign_contract` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.collect_pay` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.request_sealed_3` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.return_sealed_3` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.learn_sealed_3_protocol` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.work_sealed_3_protocol` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.lot_pay_tc01` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.lot_verify_tc01` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.lot_settle_tc01` | simulation.commands | `src/expedition_content.js` |
+| `book.lotm.lot_reject_tc01` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.lot_pay_frog` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.lot_verify_frog` | simulation.commands | `src/expedition_content.js` |
 | `book.lotm.lot_settle_frog` | simulation.commands | `src/expedition_content.js` |
@@ -745,6 +761,8 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `pocket.close_receipt` | simulation.commands | `src/expedition_content.js` |
 | `pocket.fund_bench` | simulation.commands | `src/expedition_content.js` |
 | `pocket.frontier_pack` | simulation.commands | `src/expedition_content.js` |
+| `glasshouse.main.glasshouse.supply_logs` | simulation.commands | `src/expedition_content.js` |
+| `glasshouse.main.glasshouse.commission_kits` | simulation.commands | `src/expedition_content.js` |
 | `pocket.observation.earn_listener` | simulation.commands | `src/expedition_content.js` |
 | `pocket.observation.craft_device` | simulation.commands | `src/expedition_content.js` |
 | `pocket.observation.activate` | simulation.commands | `src/expedition_content.js` |
@@ -1657,6 +1675,9 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `foundation.probe.c.strip.a` | simulation.commands | `src/expedition_content.js` |
 | `foundation.probe.c.strip.b` | simulation.commands | `src/expedition_content.js` |
 | `village.storylets.begin` | simulation.commands | `src/expedition_content.js` |
+| `village.storylets.temper.calm` | simulation.commands | `src/expedition_content.js` |
+| `village.storylets.temper.usual` | simulation.commands | `src/expedition_content.js` |
+| `village.storylets.temper.lively` | simulation.commands | `src/expedition_content.js` |
 | `systems_workshop.join` | simulation.commands | `src/expedition_content.js` |
 | `systems_workshop.refuse` | simulation.commands | `src/expedition_content.js` |
 | `systems_workshop.accept` | simulation.commands | `src/expedition_content.js` |
@@ -1813,6 +1834,10 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `village.child_has_fever` | simulation.events | `src/expedition_content.js` |
 | `village.teacher_passes_through` | simulation.events | `src/expedition_content.js` |
 | `village.peddler_with_rope` | simulation.events | `src/expedition_content.js` |
+| `village.watch_lantern` | simulation.events | `src/expedition_content.js` |
+| `village.mill_cart_word` | simulation.events | `src/expedition_content.js` |
+| `village.lamplighter_wicks` | simulation.events | `src/expedition_content.js` |
+| `village.supper_invite` | simulation.events | `src/expedition_content.js` |
 | `village.rats_in_the_granary` | simulation.events | `src/expedition_content.js` |
 | `village.scouts_on_forest_road` | simulation.events | `src/expedition_content.js` |
 | `village.fever_spreads` | simulation.events | `src/expedition_content.js` |
@@ -1939,6 +1964,7 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `village.heavenly_summons` | simulation.pursuits | `src/expedition_content.js` |
 | `village.workshop_review` | simulation.pursuits | `src/expedition_content.js` |
 | `field.lp1.lesson` | simulation.situations | `src/expedition_content.js` |
+| `book.lotm.tingen.canon_beside` | simulation.situations | `src/expedition_content.js` |
 | `book.lotm.probationer_branch` | simulation.situations | `src/expedition_content.js` |
 | `book.mol.visitor_branch` | simulation.situations | `src/expedition_content.js` |
 | `book.paradise.side_branch` | simulation.situations | `src/expedition_content.js` |
@@ -1998,6 +2024,14 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `slakebench.yard` | worlds | `src/slake_bench_start_content.js` |
 | `slakebench.hot_press` | simulation.powers | `src/slake_bench_start_content.js` |
 | `slakebench.heat` | simulation.energies | `src/slake_bench_start_content.js` |
+
+## Status labels in player strings (UR73)
+
+String literals in `src/` that qualify a value or row as a proposal. Feature titles of the form "Name (proposal)" are not listed (UR2).
+
+| Source | Line | Label | Text |
+| --- | ---: | --- | --- |
+| `src/world_packs/book_shadow_slave_life.js` | 71 | are proposals | Work on your own carried ${label}, retaining its exact key and title. The known compatible pattern raises this piece’s w |
 
 ## Drafting pass list
 

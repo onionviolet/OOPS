@@ -75,6 +75,29 @@ for (const family of ['worlds', 'actions', 'opportunities', 'capabilities', 'sou
 for (const family of ['people', 'commands', 'powers', 'advancements', 'sites', 'events', 'controllers', 'transitions', 'origins', 'conditions', 'encounters', 'energies', 'pursuits', 'situations', 'containers']) {
   for (const row of expeditionRegistry.simulation[family].values()) idTokens.add(row.id);
 }
+// UR73 / UI audit UIX3: a tuned number or row reads as a plain value; its review
+// status belongs in Authoring. "<Feature> (proposal)" titles for unaccepted
+// features stay legal under UR2, so only qualifier forms are flagged.
+const statusLabelPattern = /\(a proposal\)|\(proposal[;:,][^)]*\)|\(proposal threshold\)|\bare proposals\b|\bis a proposal\b/i;
+const stringLiteralPattern = /(['"`])((?:\\.|(?!\1).)*)\1/g;
+export const playerStringFindings = (source, file = '') => {
+  const findings = [];
+  source.split('\n').forEach((line, index) => {
+    if (/^\s*(?:\/\/|\*|\/\*)/.test(line)) return;
+    for (const [, , literal] of line.matchAll(stringLiteralPattern)) {
+      const hit = literal.match(statusLabelPattern);
+      if (hit) findings.push({file, line: index + 1, label: hit[0], text: literal.slice(0, 120)});
+    }
+  });
+  return findings;
+};
+const listSources = dir => readdirSync(dir, {withFileTypes: true}).flatMap(entry => {
+  const path = resolve(dir, entry.name);
+  return entry.isDirectory() ? listSources(path) : entry.name.endsWith('.js') ? [path] : [];
+});
+const statusLabels = listSources(resolve(root, 'src')).sort()
+  .flatMap(path => playerStringFindings(readFileSync(path, 'utf8'), relative(root, path)));
+
 export const descriptionFindings = (row, knownIds = idTokens) => {
   const text = typeof row.description === 'string' ? row.description.trim() : '';
   if (row.description === undefined) return ['missing-description-needs-review'];
@@ -82,6 +105,7 @@ export const descriptionFindings = (row, knownIds = idTokens) => {
   if (!text) findings.push('empty');
   if (text.length < 20) findings.push('under-20-chars');
   if (/\b(?:placeholder|TODO|lorem)\b/i.test(text)) findings.push('placeholder-marker');
+  if (statusLabelPattern.test(text)) findings.push('status-label');
   if (/^[\d\s()+*/.%×÷−-]+$/.test(text) && /\d/.test(text) && /[+*/×÷−-]/.test(text)) findings.push('formula-only');
   const snake = text.match(/\b[a-z][a-z0-9]*(?:_[a-z0-9]+)+\b/g) || [];
   const exactIds = [...knownIds].filter(id => id.length >= 4 && text.includes(id));
@@ -129,6 +153,14 @@ const report = [
   '| --- | --- | --- |',
   ...missingDescriptions.map(row => `| \`${row.id}\` | ${row.family} | \`${row.origin}\` |`),
   '',
+  '## Status labels in player strings (UR73)',
+  '',
+  'String literals in `src/` that qualify a value or row as a proposal. Feature titles of the form "Name (proposal)" are not listed (UR2).',
+  '',
+  statusLabels.length ? '| Source | Line | Label | Text |' : 'None found.',
+  ...(statusLabels.length ? ['| --- | ---: | --- | --- |'] : []),
+  ...statusLabels.map(row => `| \`${row.file}\` | ${row.line} | ${row.label} | ${row.text.replaceAll('|', '\\|')} |`),
+  '',
   '## Drafting pass list',
   '',
   '| World | Definition | Family | Source | Flags | Current description |',
@@ -140,6 +172,6 @@ const report = [
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   writeFileSync(reportPath, report);
-  console.log(`Description lint: ${rows.length} descriptions, ${flagged.length} flagged, ${missingDescriptions.length} missing fields inventoried; source sha256 ${sourceSha256}`);
+  console.log(`Description lint: ${rows.length} descriptions, ${flagged.length} flagged, ${missingDescriptions.length} missing fields inventoried, ${statusLabels.length} status labels in player strings; source sha256 ${sourceSha256}`);
   console.log(`Wrote ${relative(root, reportPath)}`);
 }

@@ -15,7 +15,7 @@ export function mountExposurePanel({host,getState,getContext,getKnownSkills=()=>
         throw new Error('Exposure panel requires native host callbacks');
     const doc=host.ownerDocument, panel=doc.createElement('section');panel.dataset.exposurePanel='true';
     const label=doc.createElement('label'), input=doc.createElement('input');input.type='checkbox';input.dataset.exposureHazardous='true';
-    label.append(input,doc.createTextNode('Hazardous storm/gust profile (proposal, off by default)'));
+    label.append(input,doc.createTextNode('Hazardous storm/gust profile (off by default)'));
     const status=doc.createElement('p');status.dataset.exposureStatus='true';panel.append(label,status);host.append(panel);
     function render() {input.checked=(validateExposure(getState())??createExposure()).hazardousEnabled;status.textContent=exposureStatus(getState(),getContext(),getKnownSkills());}
     input.addEventListener('change',()=>{try{onChange(setHazardousMode(getState(),input.checked));render();}catch(error){render();status.textContent=error.message;}});

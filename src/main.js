@@ -93,7 +93,7 @@ import {createFoundationStartContent,FOUNDATION_START_PACK_ID} from './foundatio
 import {createLocalLivelihoodContent} from './local_livelihood_content.js';import {createWarmHandStartContent} from './warm_hand_start_content.js';import {createLanternLoanStartContent} from './lantern_loan_start_content.js';import {createSlakeBenchStartContent} from './slake_bench_start_content.js';
 import {mountWorkspace,registerWorkspaceModule,registerLayoutSignal,workspaceOwns,openWorkspaceModule,expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
-import {defaultCustomizationState,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
+import {defaultCustomizationState,neutralPresentationSettings,upgradeUntouchedCustomization,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
 import {createCustomizationUI} from './customization_ui.js';
 import {createWorkLedgerAuthorUI} from './work_ledger_author_ui.js';
 import {createSettledTextEffects} from './settled_text_effects.js';
@@ -804,7 +804,7 @@ function growthFrame() {
     if(!p23Growth){lines.push('You learned the optional visitor method. Enrollment is a separate choice; background starts off.');actions.push({id:'enroll',label:'Enroll in study conditioning',reason:disabled||(!c.idle?'Finish current work.':'')});}
     else {
         lines.push(`Study conditioning level ${view.level}; ${view.totalXP} local XP; next total ${view.nextTotalXP??'beyond current numeric storage'}; ${view.pendingXP} pending XP.`);
-        lines.push(`Earned local native skill XP since enrollment: ${(p23GrowthEarned?.earnedUnits||0)/100} / ${GROWTH_EARNED_THRESHOLD} (proposal threshold). Older XP is not backfilled. ${p23GrowthEarned?.awardedUnits ? `${p23GrowthEarned.awardedUnits/(GROWTH_EARNED_THRESHOLD*100)} threshold rewards frozen. `:''}Each further150000 genuinely earned XP can fund another reward after pending work settles.`);
+        lines.push(`Earned local native skill XP since enrollment: ${(p23GrowthEarned?.earnedUnits||0)/100} / ${GROWTH_EARNED_THRESHOLD}. Older XP is not backfilled. ${p23GrowthEarned?.awardedUnits ? `${p23GrowthEarned.awardedUnits/(GROWTH_EARNED_THRESHOLD*100)} threshold rewards frozen. `:''}Each further150000 genuinely earned XP can fund another reward after pending work settles.`);
         lines.push(`${view.tonics} tonics consumed. Each adds 2 permanent raw max-health to this profile, with no healing.`);
         lines.push(`Background ${p23Growth.background.enabled?'on':'off'}: ${view.background.reason}`);
         actions.push({id:'background',label:`Turn background conditioning ${p23Growth.background.enabled?'off':'on'}`,reason:!c.ownsSave||c.saveBlocked?'Restore writable saving.':!p23Growth.background.enabled?disabled:''});
@@ -3351,8 +3351,10 @@ function handle_location_icon_click() {
  * @param {Object} selected_activity - {id} of activity in Location's activities list??
  */
 function customizationFromSave(save) {
-    if(save.customization!=null)return validateCustomizationState(save.customization);
-    const next=defaultCustomizationState();if(save.work_ledger?.settings)Object.assign(next.profiles.Default.settings,save.work_ledger.settings);return validateCustomizationState(next);
+    // Saves written before Luminous Gothic became the default (2026-10-29) carry no marker;
+    // their untouched Neutral profile is upgraded once. Later saves keep an explicit Neutral.
+    if(save.customization!=null)return save.customization_default==='luminous'?validateCustomizationState(save.customization):upgradeUntouchedCustomization(save.customization);
+    const next={...defaultCustomizationState(),profiles:{Default:{settings:neutralPresentationSettings(),modules:{}}}};if(save.work_ledger?.settings)Object.assign(next.profiles.Default.settings,save.work_ledger.settings);return upgradeUntouchedCustomization(next);
 }
 function refreshCustomization() {
     if(deferSimulationRender(refreshCustomization, refreshCustomization)) return;
@@ -6525,6 +6527,7 @@ function create_save({forExport = false} = {}) {
         save_data.village_career = structuredClone(villageCareer);
         save_data.work_ledger=structuredClone(workLedger);
         save_data.customization=structuredClone(customization);
+        save_data.customization_default='luminous';
         save_data.fork_schema = 1;
         save_data.life_record = observeLifeSave(lifeRecord, {...save_data, expansion: expansionState});
         const generatedSnapshot=generatedPeopleSnapshot(calendarMinutes(current_game_time));

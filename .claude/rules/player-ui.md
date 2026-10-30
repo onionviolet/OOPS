@@ -18,6 +18,8 @@ on a populated save at the 1920×1080 primary target
 not every view opens in the lower center. Follow UR41–UR49 for disclosure,
 hover/pinned inspection, clean logs/hierarchy and faithful reference evidence.
 Lane briefs that touch UI link that file.
+Scenes, choices, travel and Reports lines also follow SUI1-SUI19 and RPT1-RPT12
+(binding defaults 2026-10-28, in the cast-lives plan; routed from the rules index).
 For reference-informed design, apply UR59–UR64 and the linked Discord guide:
 retain source context, typography roles, meter meaning, subject-bound reactions,
 visible work intent and meaningful summaries. The UI_RULES reference-routing

@@ -66,3 +66,20 @@ test('Luminous Gothic name collision gets a valid suffix and profile cap is enfo
     for (let index=2; index<=20; index++) full.profiles[`Profile ${index}`] = clone(full.profiles.Default);
     assert.throws(() => createLuminousGothicDraft(full), /profile limit is 20/);
 });
+
+test('Luminous Gothic is the default look and only an untouched Neutral profile is upgraded', async () => {
+    const {neutralPresentationSettings, upgradeUntouchedCustomization} = await import('../src/customization_profiles.js');
+    const fresh = defaultCustomizationState();
+    assert.equal(fresh.profiles.Default.settings.componentTheme, 'luminous');
+    assert.deepEqual(fresh.profiles.Default.settings.palette, {background:'#07162d',text:'#d5f7ff',accent:'#7fe7e8'});
+    assert.deepEqual(fresh.profiles.Default.modules.messages.palette, {background:'#231735',text:'#eee5ff',accent:'#bca4ff'});
+    const legacy = {schema:1, active:'Default', theme:{mode:'automatic',season:'spring'}, profiles:{Default:{settings:neutralPresentationSettings(), modules:{}}}};
+    const upgraded = upgradeUntouchedCustomization(clone(legacy));
+    assert.equal(upgraded.profiles.Default.settings.componentTheme, 'luminous');
+    assert.equal(upgraded.theme.mode, 'automatic');
+    const edited = clone(legacy); edited.profiles.Default.settings.typography.size = 17;
+    assert.deepEqual(upgradeUntouchedCustomization(edited), validateCustomizationState(edited));
+    const named = clone(legacy); named.profiles.Mine = clone(legacy.profiles.Default);
+    assert.equal(upgradeUntouchedCustomization(named).profiles.Default.settings.componentTheme, 'neutral');
+    assert.deepEqual(validateCustomizationState(JSON.parse(JSON.stringify(fresh))), fresh);
+});

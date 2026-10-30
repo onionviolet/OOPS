@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {descriptionFindings} from '../scripts/check_descriptions.mjs';
+import {descriptionFindings, playerStringFindings} from '../scripts/check_descriptions.mjs';
 
 test('description lint accepts explanatory prose and flags mechanical failures', () => {
   const passing = {
@@ -24,4 +24,18 @@ test('description lint flags empty and short text', () => {
   assert.deepEqual(descriptionFindings({id: 'fixture.missing'}, new Set()), ['missing-description-needs-review']);
   assert.deepEqual(descriptionFindings({id: 'fixture.empty', description: ''}, new Set()), ['empty', 'under-20-chars']);
   assert.deepEqual(descriptionFindings({id: 'fixture.short', description: 'A short note.'}, new Set()), ['under-20-chars']);
+});
+
+test('player-string lint flags proposal qualifiers on values but not feature titles (UR73, UR2)', () => {
+  const source = [
+    "cmd('a', `Watch · 60 min · earns ${pay} merit (a proposal)`);",
+    "node('p', 'Assignments and prices are proposals; standing is separate.');",
+    "summary.textContent = 'Combat options (proposal)';",
+    "// a comment that says (a proposal) is ignored",
+  ].join('\n');
+  assert.deepEqual(playerStringFindings(source, 'x.js').map(row => [row.line, row.label]), [
+    [1, '(a proposal)'],
+    [2, 'are proposals'],
+  ]);
+  assert.deepEqual(descriptionFindings({id: 'f', description: 'Sell the herb to the broker for six pence (a proposal).'}, new Set()), ['status-label']);
 });

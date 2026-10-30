@@ -1187,3 +1187,7 @@ The easiest useful O5 slice consumes existing known mood/posture/history in
 Weather/tool/recovery transitions, every service/world and installed-app
 appearance were not verified by this audit. These limits do not create new
 gates or authorize production implementation.
+
+### Luminous Gothic becomes the default, 2026-10-29
+
+Weibao made Luminous Gothic the default ([direction](USER_VISION.md#luminous-gothic-is-the-default-look-2026-10-29)). `defaultPresentationSettings()` now returns the Luminous settings with the purple messages palette; the old Neutral defaults live on as `neutralPresentationSettings()`. `upgradeUntouchedCustomization` upgrades a save whose single Default profile still equals the old Neutral, unless the save carries `customization_default: 'luminous'`, which every save written by this build includes. The custom-palette flag now compares against the active theme's own preset, so Luminous keeps the Vivid pastel vitals (`styles/ui_tokens.css:727-728`). Evidence: [UI audit round 11](audits/UI_DESIGN_CORE_AUDIT.md#round-11-2026-10-29-luminous-default-and-refactors-to-plan-for).

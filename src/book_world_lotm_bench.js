@@ -38,7 +38,7 @@ export function benchRowCommands(row){
  out.push(cmd(`bf_collect_${rid}`,`Bottle the brewed ${row.name} dose`,L.workroom,{targetId:I.supervisor,once:false,
   visibleWhen:all(ready,has(B)),requires:all(ready,has(B),eq(`lotm.bf.ready.${rid}`)),
   effects:[af(B,false),item('player',P.key,1),counter(rid,'made'),know(`brew.${rid}.collected`,`The pot settled and you bottled one ${P.name}. Holding it grants nothing; drinking it is a separate, irreversible step where the pathway has one written.`,'player','player','observation',U)]}));
- if(P.sellPence)out.push(cmd(`bf_sell_${rid}`,`Sell the ${P.name} to the broker · ${P.sellPence} pence (a proposal)`,L.docks,{alone:true,targetId:I.broker,once:false,
+ if(P.sellPence)out.push(cmd(`bf_sell_${rid}`,`Sell the ${P.name} to the broker · ${P.sellPence} pence`,L.docks,{alone:true,targetId:I.broker,once:false,
   visibleWhen:BROKER_AT,requires:all(eq('lotm.brokerHere'),gte(`lotm.bf.holds.dose_${rid}`,1)),costs:[item('player',P.key,-1)],
   effects:[money(P.sellPence),counter(rid,'sold'),know(`brew.${rid}.sold`,`The broker paid ${P.sellPence} pence for the ${P.name} and will find a buyer who asks no questions.`,'player','player','observation',U)]}));
  return out;
