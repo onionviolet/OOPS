@@ -4,12 +4,15 @@ import {validateSimulationEffect} from './simulation_contracts.js';
 import {defineRitual,ritualDial,fitScore,gradeRitual} from './ritual_conditions.js';
 const id=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
+// An answer with no named support reads as unclear rather than inventing one (WA51).
+const UNCLEAR_SIGNAL='The answer will not settle; nothing you know bears on this question yet.';
+const unclearBelief=source=>`I cannot read an answer from this. Nothing I know grounds it (source scene: ${source}).`;
 const eq=(fact,value,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 const all=(...rules)=>({all:rules.filter(Boolean)});
 export function defineDivinations(data,{worldId,actorId='player',group,situationId,requires}={}){
  if(![worldId,actorId,group,situationId].every(id))throw Error('Invalid divination binding.');
  const commands=[],ids=new Set();
- const rowFields=new Set(['id','targetId','question','method','label','description','means','contact','requires','place','steps','ritual','dial','locator','sourceStepId']);
+ const rowFields=new Set(['id','targetId','question','method','label','description','means','contact','requires','place','steps','ritual','dial','locator','sourceStepId','grounds']);
  const stepFields=new Set(['id','kind','label','description','minutes','report','costs','requires','status','signal','belief','effects']);
  for(const row of data?.queries||[]){
   if(Object.keys(row).some(k=>!rowFields.has(k)))throw Error('Unsupported query field needs its owning mechanism.');
@@ -33,21 +36,25 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
    const commandId=`${row.id}.${step.id}`;
    if(!id(step.id)||ids.has(commandId)||!text(step.label)||!text(step.description)||!Number.isSafeInteger(step.minutes)||step.minutes<1||!text(step.report))throw Error('Invalid ordered query step.');
    ids.add(commandId);
+   const gated=row.grounds&&['attempt','interpret'].includes(step.kind);
+   for(const v of gated?[{suffix:'',grounded:true},{suffix:'.unclear',grounded:false}]:[{suffix:'',grounded:null}]){
+   const cid=commandId+v.suffix,groundedKey=`divination.${row.id}.grounded`;
    const costs=structuredClone(step.costs||[]);
    if(!Array.isArray(costs)||costs.some(c=>!['resource','item','vital'].includes(c.type)||!Number.isFinite(c.amount)||c.amount>=0))throw Error('Declare explicit spent stock through a native cost.');
    const phase=previous&&eq(`actor.${phaseKey}`,previous,'Complete the preceding rite step first.');
    const effects=[{type:'fact',scope:'actor',actor:actorId,key:phaseKey,value:step.id}];
    const basis={kind:step.kind==='interpret'?'inference':'observation',attributedTo:actorId,situationId,
     queryId:row.id,targetId:row.targetId,method:row.method,...(row.locator?{at:row.locator}:{} )};
-   const receiptKey=`divination.${commandId}`;
+   const receiptKey=`divination.${cid}`;
+   if(gated&&step.kind==='attempt')effects.push({type:'fact',scope:'actor',actor:actorId,key:groundedKey,value:v.grounded});
    effects.push({type:'knowledge',actor:actorId,key:receiptKey,stage:step.kind==='interpret'?'interpreted':'seen',value:step.report,basis});
    if(step.kind==='attempt'){
     if(!['signal','obscured','unanswered'].includes(step.status)||!text(step.signal))throw Error('Attempt needs a supported signal or explicit no-answer feedback.');
-    effects.push({type:'knowledge',actor:actorId,key:`divination.${row.id}.signal`,stage:'seen',value:step.signal,basis:{...basis,status:step.status}});
+    effects.push({type:'knowledge',actor:actorId,key:`divination.${row.id}.signal`,stage:'seen',value:v.grounded===false?UNCLEAR_SIGNAL:step.signal,basis:{...basis,status:v.grounded===false?'unanswered':step.status,...(row.grounds?{grounds:row.grounds.source,supported:v.grounded!==false}:{})}});
    }
    if(step.kind==='interpret'){
     if(!text(step.belief))throw Error('Interpretation needs a stated belief, not hidden truth.');
-    effects.push({type:'knowledge',actor:actorId,key:`divination.${row.id}.interpretation`,stage:'interpreted',value:step.belief,basis:{...basis,evidence:[`divination.${row.id}.signal`]}});
+    effects.push({type:'knowledge',actor:actorId,key:`divination.${row.id}.interpretation`,stage:'interpreted',value:v.grounded===false?unclearBelief(row.grounds.source):step.belief,basis:{...basis,evidence:[`divination.${row.id}.signal`]}});
    }
    if(step.effects!=null&&!Array.isArray(step.effects))throw Error('Rite effects need a list.');
    for(const [index,spec] of (step.effects||[]).entries()){
@@ -63,12 +70,15 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
     }
     validateSimulationEffect(effect);effects.push(effect);
    }
-   commands.push({id:commandId,revision:1,label:step.label,description:step.description,worldId,actorId,group,
+   const groundsRule=gated&&step.kind==='attempt'?eq(row.grounds.fact,v.grounded,v.grounded?`Nothing you know bears on this question yet (${row.grounds.source}).`:undefined):null;
+   const flagRule=gated&&step.kind==='interpret'?eq(`actor.${groundedKey}`,v.grounded):null;
+   commands.push({id:cid,revision:1,label:step.label,description:step.description,worldId,actorId,group,
     ...(row.place?{location:row.place}:{}),once:false,duration:step.minutes,cancellation:'refund',
-    visibleWhen:requires||eq('actor.life','alive'),requires:all(support,phase,step.requires),
-    completionRequires:all(support,phase,step.requires),completionCoLocated:!!row.place,completionFailure:'refund',costs,effects,
+    visibleWhen:all(requires||eq('actor.life','alive'),groundsRule,flagRule),requires:all(support,phase,step.requires,groundsRule,flagRule),
+    completionRequires:all(support,phase,step.requires,groundsRule,flagRule),completionCoLocated:!!row.place,completionFailure:'refund',costs,effects,
     divination:{queryId:row.id,question:row.question,targetId:row.targetId,method:row.method,label:row.label,
      kind:step.kind,receiptKey,phaseKey,ritual,dial,...(step.kind==='attempt'&&!costs.length?{cost:null}:{})}});
+   }
    previous=step.id;
   }
  }
