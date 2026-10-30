@@ -38,3 +38,20 @@ Codes M1-M10 are new to this round.
 | `combat-surface` | `src/damage_types.js` and the tempo definition's harm call (frame untouched), tempo fight UI, `combat_versus` / situation read model | M1 types through the frame (tempo first), M6 per-world type names, the combined fight surface (M2) after weighing forms, M7 inspector, M9 census | Focused tests for typed harm in tempo and one other frame user; 1920 browser proof of a tempo fight showing types, versus row and log with save, reload, import; census table in its doc |
 
 The combat lane builds UI against the DESIGN.md draft once `ui-identity` sends it. Until then it does the engine side (M1, M6) and the form choice.
+
+## Lane receipt: `ui-identity` (2026-10-30)
+
+Implemented, below floor (AD43): FLR4 holds for the flourish and arrival voice. The M5 census has unchecked rows, and LOTM work writes no Reports line to voice (census K1). Agent-verified, not human-reviewed.
+
+- Correction to M3: a root hook already existed. `workspace_views.js` writes `data-world` with the world id, or `native` for the frontier. The lane added `data-world-family` and `data-world-flourish` beside it rather than a second writer.
+- DESIGN.md DSG1-DSG19, linked from AGENTS.md and UI_RULES, with a RULES_INDEX register row, router entry and reserved DSG prefix. DSG11 (one home per fact) is Weibao's request, relayed by the repository review session. No AD line: O1 is recorded through the register row.
+- M3: `src/world_look.js`, LOTM tokens in `styles/ui_tokens.css`, rules in `styles/world_look.css` (manifest line). M4: `src/world_report_voice.js`, applied once at write time in `display.js` `log_message`. Save-neutral: Reports lines are not saved.
+- M5: [kit census](../../../audits/WORLD_UI_KIT_CENSUS_2026-10-30.md).
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/world_look.test.js` | 5/5 pass | none |
+| `node --test tests/ui_contract.test.js tests/stylesheet_manifest.test.js` | 9/9 pass | none |
+| `node scripts/playtest/world-look-probe.mjs` at 1920x1080, bundle `3d7ee038fca60de4`, fresh origin | Frontier: family `frontier`, flourish off, 0 voiced lines. LOTM after crossing: family `lotm`, flourish on, header glyph and epithet, 1 voiced arrival line. Back in the Village after resume: flourish off, 0 voiced lines, 0 page errors | The frontier same-kind arrival line was not captured, because the resume reload clears the log. The unit test covers it |
+| `npm run check:rules` | PASS (18 warnings, all pre-existing kinds) | none |
+| `npm run check:arch` | exit 0 | none |

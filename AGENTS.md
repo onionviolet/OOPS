@@ -45,7 +45,7 @@ router rows, and a new or changed accepted decision updates its AD line. Lane
 briefs and task packets name the codes they apply. Shared guidance lives here and
 in the repo docs, not in one agent's private memory.
 
-Player-facing UI: follow `.claude/rules/player-ui.md` and [UI rules](docs/UI_RULES.md) (UR1–UR75 standing, UR76–UR82 proposed). Lane briefs that touch UI link that file.
+Player-facing UI: follow [DESIGN.md](DESIGN.md) (the look, DSG1–DSG19), `.claude/rules/player-ui.md` and [UI rules](docs/UI_RULES.md) (UR1–UR75 standing, UR76–UR82 proposed). Lane briefs that touch UI link that file.
 
 Making systems: follow `.claude/rules/making-systems.md` and [making rules](docs/MAKING_RULES.md) MR1-MR36.
 

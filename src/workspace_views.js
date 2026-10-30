@@ -3,6 +3,7 @@ import {definePanel} from './panel_kit.js';
 import {createReferenceDisclosure} from './workspace_disclosure.js';
 import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
 import {publishChange} from './ui_change_signal.js';
+import {applyWorldLook} from './world_look.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
@@ -60,6 +61,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
         // Generic world palettes stay deliberately independent of sealed IDs.
         const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm',root=document.getElementById('main_content');
         if(document.documentElement.dataset.world!==world)document.documentElement.dataset.world=world;
+        applyWorldLook(document.documentElement,view.world||'base.frontier'); // DSG12 family and flourish hooks
         if(root.dataset.worldTheme!==theme)root.dataset.worldTheme=theme;
         updateWorkspace();
     };
