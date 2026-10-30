@@ -5,9 +5,10 @@
 // Defaults and dials (per world): a limit of kind 'none' is allowed; costs and limits the source does not state are labelled `unstated`
 // rather than invented. `failure.hook` is an opaque id another owner (backlash, loss of control) can read; nothing here models it.
 import {assert, record, stableId, jsonData, validatePredicate, meets} from './simulation_contracts.js';
+import {evaluateRule} from './rules.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 
-const fields = new Set(['key', 'label', 'description', 'sourceId', 'acquisition', 'kind', 'fn', 'conditions', 'cost', 'limit', 'effects', 'price', 'failure', 'unstated', 'locator', 'costBasis']);
+const fields = new Set(['key', 'label', 'description', 'sourceId', 'acquisition', 'kind', 'fn', 'conditions', 'cost', 'limit', 'effects', 'price', 'failure', 'unstated', 'locator', 'costBasis', 'learn']);
 const limitKinds = new Set(['none', 'cooldown', 'charges']);
 const text = v => typeof v === 'string' && v.trim().length > 0;
 const nat = v => Number.isSafeInteger(v) && v > 0;
@@ -26,13 +27,30 @@ function validateRow(row, prefix) {
     if(l.kind === 'cooldown') assert(nat(l.minutes), 'A cooldown needs positive minutes.');
     if(l.kind === 'charges') assert(nat(l.max) && record(l.recharge), 'Charges need a maximum and a recharge rule.');
     assert(row.failure == null || record(row.failure) && (row.failure.hook == null || stableId(row.failure.hook)), 'Invalid failure.');
+    if(row.learn != null) validateLearn(row.learn);
     assert(row.unstated == null || Array.isArray(row.unstated) && row.unstated.every(text), 'Invalid unstated list.');
 }
+
+// A learnable row (GM8, GM40): who teaches, what must already be held, how long practice takes and what shows progress. Every part is optional
+// (rows rarely state them: 3-6% of spell rows in HP, MoL and Shadow Slave); a missing part is listed under `unstated`, never invented.
+// teacher/prerequisites carry a typed predicate and the reason shown when it fails; mastery is the engine's power mastery.
+function validateLearn(l) {
+    assert(record(l) && Object.keys(l).every(k => ['teacher', 'prerequisites', 'lessonCost', 'practice', 'masteryNeeded', 'signs'].includes(k)), 'Invalid learn block.');
+    const gate = g => assert(record(g) && text(g.label) && text(g.reason) && record(g.requires), 'A learning gate needs a label, a reason and a typed predicate.');
+    if(l.teacher != null) gate(l.teacher);
+    (l.prerequisites ?? []).forEach(gate);
+    [l.teacher?.requires, ...(l.prerequisites ?? []).map(g => g.requires)].filter(Boolean).forEach(validatePredicate);
+    assert(l.lessonCost == null || Array.isArray(l.lessonCost) && l.lessonCost.every(c => record(c) && c.amount < 0), 'Lesson costs must name spent stock.');
+    assert(l.practice == null || record(l.practice) && nat(l.practice.minutes) && nat(l.practice.mastery), 'Practice needs minutes and a mastery gain per session.');
+    assert(l.masteryNeeded == null || nat(l.masteryNeeded) && l.practice, 'A mastery threshold needs a practice session to reach it.');
+    assert(l.signs == null || Array.isArray(l.signs) && l.signs.every(x => record(x) && nat(x.at) && text(x.text)), 'Signs of progress need a mastery point and text.');
+}
+const gated = g => ({all: [{...structuredClone(g.requires), reason: g.reason}]});
 
 // rows: typed records. world: {id}. prefix: owner id for every generated id (ids are `${prefix}.<kind>.<key>`).
 export function defineAbilityRecords(rows, {prefix, world, group = 'ability_record', actorId = 'player'}) {
     assert(stableId(prefix) && record(world) && stableId(world.id) && Array.isArray(rows), 'Invalid ability record set.');
-    const abilityId = k => `${prefix}.ability.${k}`, commandId = k => `${prefix}.use.${k}`, powerId = k => `${prefix}.power.${k}`, limitId = k => `${prefix}.limit.${k}`;
+    const abilityId = k => `${prefix}.ability.${k}`, commandId = k => `${prefix}.use.${k}`, powerId = k => `${prefix}.power.${k}`, limitId = k => `${prefix}.limit.${k}`, learnId = k => `${prefix}.learn.${k}`, practiceId = k => `${prefix}.practice.${k}`;
     const seen = new Set(), commands = [], powers = [], abilities = [], sources = new Map(), cards = {}, grants = {};
     for(const row of rows) {
         validateRow(row, prefix);
@@ -46,7 +64,23 @@ export function defineAbilityRecords(rows, {prefix, world, group = 'ability_reco
         const conditionRows = [];
         if(row.price) conditionRows.push({id: `${prefix}.price.${k}`, price: structuredClone(row.price)});
         grants[k] = [];
-        if(limit.kind === 'cooldown') {
+        const learn = row.learn;
+        if(learn) {
+            // A learned spell is a power: learned from the teacher, practiced to the needed mastery, then cast.
+            const need = learn.masteryNeeded ?? 0;
+            powers.push({id: powerId(k), revision: 1, label: row.label, model: 'practice', capacity: 1, cooldown: limit.kind === 'cooldown' ? limit.minutes : 0});
+            command.powerId = ab.powerId = powerId(k);
+            ab.acquisition = 'learned';
+            if(need) ab.control.all.push({fact: `power.${powerId(k)}.mastery`, op: 'gte', value: need, reason: 'Not practiced enough to cast this reliably.'});
+            const gates = [learn.teacher, ...(learn.prerequisites ?? [])].filter(Boolean).map(gated);
+            commands.push({id: learnId(k), revision: 1, label: `Learn ${row.label}`, group, worldId: world.id, actorId, audience: ['$actor'], once: true, costs: structuredClone(learn.lessonCost ?? []),
+                requires: {all: [...gates], reason: `Needs: ${[learn.teacher, ...(learn.prerequisites ?? [])].filter(Boolean).map(g => g.label).join('; ') || 'nothing more'}`},
+                effects: [{type: 'power', powerId: powerId(k), operation: 'learn'}]});
+            if(learn.practice) commands.push({id: practiceId(k), revision: 1, label: `Practice ${row.label}`, group, worldId: world.id, actorId, audience: ['$actor'], duration: learn.practice.minutes, cancellation: 'refund',
+                costs: [], requires: {all: [{fact: `power.${powerId(k)}.owned`, op: 'eq', value: true, reason: 'Learn it first.'}]},
+                effects: [{type: 'power', powerId: powerId(k), operation: 'refine', amount: learn.practice.mastery}]});
+        }
+        if(limit.kind === 'cooldown' && !learn) {
             powers.push({id: powerId(k), revision: 1, label: row.label, model: 'practice', capacity: 1, cooldown: limit.minutes});
             command.powerId = ab.powerId = powerId(k);
             ab.acquisition = row.acquisition === 'innate' ? 'innate' : 'learned';
@@ -56,12 +90,14 @@ export function defineAbilityRecords(rows, {prefix, world, group = 'ability_reco
         if(!sources.has(row.sourceId)) sources.set(row.sourceId, {id: row.sourceId, revision: 1, label: row.sourceId, kind: 'trait', origin: 'acquired', grants: []});
         commands.push(command); abilities.push(ab);
         cards[k] = {id: ab.id, key: k, label: row.label, sourceId: row.sourceId, conditions: row.conditions.map(c => ({label: c.label, requires: structuredClone(c.requires)})),
-            cost: structuredClone(row.cost), limit: structuredClone(limit), price: structuredClone(row.price ?? []), failureHook: row.failure?.hook ?? null, unstated: [...(row.unstated ?? [])], locator: row.locator ?? null, costBasis: row.costBasis ? structuredClone(row.costBasis) : null};
+            cost: structuredClone(row.cost), limit: structuredClone(limit), price: structuredClone(row.price ?? []), failureHook: row.failure?.hook ?? null, unstated: [...(row.unstated ?? [])], locator: row.locator ?? null, costBasis: row.costBasis ? structuredClone(row.costBasis) : null,
+            learn: row.learn ? {teacher: row.learn.teacher ?? null, prerequisites: structuredClone(row.learn.prerequisites ?? []), practice: row.learn.practice ?? null, masteryNeeded: row.learn.masteryNeeded ?? 0, signs: structuredClone(row.learn.signs ?? []), power: powerId(k)} : null};
+        if(row.learn) for(const [part, ok] of [['teacher', row.learn.teacher], ['practice time', row.learn.practice], ['signs of progress', row.learn.signs?.length]]) if(!ok && !cards[k].unstated.includes(part)) cards[k].unstated.push(part);
     }
     const definition = {id: prefix, world: {id: world.id}, sources: [...sources.values()], abilities, simulation: {powers, commands}};
     const compiled = compileStructuredAbilities(definition);
     return {definition, commands: compiled.commands, powers: compiled.powers, conditions: compiled.conditions, seeds: compiled.seeds, cards, grants,
-        ids: Object.fromEntries([...seen].map(k => [k, {ability: abilityId(k), command: commandId(k), power: powerId(k), limit: limitId(k)}]))};
+        ids: Object.fromEntries([...seen].map(k => [k, {ability: abilityId(k), command: commandId(k), power: powerId(k), limit: limitId(k), learn: learnId(k), practice: practiceId(k)}]))};
 }
 
 // Read model for a sheet or combat panel (AR8: observer-safe, no secrets). facts: the fact map the engine evaluates; quote: an optional
@@ -74,4 +110,18 @@ export function abilityView(card, {facts = {}, quote = null, charges = null, rea
     return {id: card.id, label: card.label, conditions, cost: card.cost.map(c => ({what: c.key ?? c.type, amount: -c.amount})), limit, price: card.price.length > 0,
         ready, refusedBy: ready ? [] : [...conditions.filter(c => !c.met).map(c => c.label), ...(limit.kind === 'cooldown' && limit.readyIn > 0 ? ['recovering'] : []), ...(limit.kind === 'charges' && limit.left <= 0 ? ['no charges left'] : [])],
         failureHook: card.failureHook, unstated: card.unstated};
+}
+
+// Learning read model (GM8): stage, why learning is refused (the authored reasons, never the predicates), the next sign of progress.
+// facts: the engine fact map (so `power.<id>.owned` and `.mastery` are read from it).
+export function learnView(card, {facts = {}} = {}) {
+    const l = card.learn;
+    if(!l) return null;
+    const owned = facts[`power.${l.power}.owned`] === true, mastery = Number(facts[`power.${l.power}.mastery`] ?? 0);
+    const gates = [l.teacher, ...l.prerequisites].filter(Boolean).map(g => ({label: g.label, met: evaluateRule(g.requires, facts).met, reason: g.reason}));
+    const stage = !owned ? 'unlearned' : mastery >= l.masteryNeeded ? 'castable' : 'practicing';
+    const next = l.signs.filter(x => x.at > mastery).sort((a, b) => a.at - b.at)[0];
+    return {id: card.id, stage, canLearn: !owned && gates.every(g => g.met), refusedBy: owned ? [] : gates.filter(g => !g.met).map(g => g.reason),
+        gates: gates.map(({label, met}) => ({label, met})), mastery, masteryNeeded: l.masteryNeeded, practiceMinutes: l.practice?.minutes ?? null,
+        sign: [...l.signs].filter(x => x.at <= mastery).sort((a, b) => b.at - a.at)[0]?.text ?? null, nextSignAt: next?.at ?? null, unstated: card.unstated};
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {defineAbilityRecords, abilityView} from '../src/ability_records.js';
-import {createExpansionState, createContentRegistry} from '../src/expansion_engine.js';
+import {createExpansionState, createContentRegistry, advanceSimulation} from '../src/expansion_engine.js';
 import {enrollSimulation, previewSimulationCommand, commitSimulationCommand} from '../src/simulation.js';
 
 const eq = (fact, value = true) => ({fact, op: 'eq', value});
@@ -74,4 +74,69 @@ test('authoring rejects unowned sources, positive costs, bad limits and duplicat
     }
     const dup = rows({kind: 'none'}); dup.push(dup[0]);
     assert.throws(() => defineAbilityRecords(dup, {prefix: 'abl', world: {id: 'abl.world'}}));
+});
+
+// Learnable layer (GM8, GM40): taught, gated by prerequisites, practiced, then cast.
+import {learnView} from '../src/ability_records.js';
+const learnRows = () => [
+    {key: 'basic', label: 'Basic charm', sourceId: 'abl.gift', conditions: [], cost: [], limit: {kind: 'none'}, effects: [{type: 'item', actor: 'player', key: '{"id":"abl.basic"}', amount: 1}],
+        learn: {teacher: {label: 'A teacher is present', reason: 'No one here can teach it.', requires: eq('actor.teacherHere')}, signs: [{at: 1, text: 'The first try sputters.'}]}},
+    {key: 'adv', label: 'Advanced charm', sourceId: 'abl.gift', conditions: [], cost: [], limit: {kind: 'cooldown', minutes: 10}, effects: [{type: 'item', actor: 'player', key: '{"id":"abl.adv"}', amount: 1}],
+        learn: {teacher: {label: 'A teacher is present', reason: 'No one here can teach it.', requires: eq('actor.teacherHere')},
+            prerequisites: [{label: 'Knows the basic charm', reason: 'Learn the basic charm first.', requires: eq('power.abl.power.basic.owned')}],
+            lessonCost: [{type: 'resource', scope: 'actor', key: 'spirit', amount: -1}], practice: {minutes: 20, mastery: 1}, masteryNeeded: 2,
+            signs: [{at: 1, text: 'It holds for a breath.'}, {at: 2, text: 'It answers the first time.'}]}}];
+function learnWorld() {
+    const set = defineAbilityRecords(learnRows(), {prefix: 'abl', world: {id: 'abl.world'}});
+    const registry = createContentRegistry({worlds: [{id: 'base.frontier', label: 'Home'}, {id: 'abl.world', label: 'Synthetic'}], sources: set.definition.sources,
+        simulation: {commands: set.commands, powers: set.powers, people: [], onEnroll: [{type: 'source', sourceId: 'abl.gift', operation: 'grant', awakened: true, active: true}, ...set.seeds]}});
+    const state = createExpansionState();
+    state.actors.player.worldId = 'abl.world'; state.worlds['abl.world'] = {facts: {}, resources: {}, completed: {}};
+    state.actors.player.resources.spirit = 5; state.actors.player.facts.teacherHere = true;
+    const context = {actorId: 'player', worldId: 'abl.world', facts: {}, gameplay: {player: {inventory: {}, skills: {}, reputation: {}}}, external: {}};
+    return {set, registry, context, plan: enrollSimulation(state, registry, context)};
+}
+const q = (f, id) => previewSimulationCommand(f.plan.state, f.registry, id, {...f.context, gameplay: f.plan.gameplay});
+const run = (f, id) => {const r = commitSimulationCommand(f.plan.state, f.registry, {id}, {...f.context, gameplay: f.plan.gameplay}); f.plan = {...f.plan, state: r.state, gameplay: r.gameplay}; return r;};
+
+test('a spell is refused before its prerequisite and teacher, learned after, then needs practice to cast', () => {
+    const f = learnWorld();
+    assert.equal(q(f, 'abl.learn.adv').eligible, false);
+    assert.match(q(f, 'abl.learn.adv').reasons.join(' '), /Knows the basic charm/);
+    f.plan.state.actors.player.facts.teacherHere = false;
+    assert.match(q(f, 'abl.learn.basic').reasons.join(' '), /A teacher is present/);
+    f.plan.state.actors.player.facts.teacherHere = true;
+    run(f, 'abl.learn.basic');
+    assert.equal(q(f, 'abl.learn.basic').eligible, false, 'once');
+    assert.equal(q(f, 'abl.learn.adv').eligible, true);
+    run(f, 'abl.learn.adv');
+    assert.equal(f.plan.state.actors.player.resources.spirit, 4);
+    assert.equal(q(f, 'abl.use.adv').eligible, false, 'known but not practiced');
+    assert.equal(q(f, 'abl.practice.adv').eligible, true);
+    for(let i = 0; i < 2; i++) {
+        const r = run(f, 'abl.practice.adv');
+        const done = advanceSimulation(r.state, f.registry, 20, r.external, r.gameplay);
+        f.plan = {...f.plan, state: done.state, gameplay: done.gameplay ?? r.gameplay};
+    }
+    assert.equal(f.plan.state.simulation.powers.player['abl.power.adv'].mastery, 2);
+    assert.equal(q(f, 'abl.use.adv').eligible, true, 'practiced to the needed mastery');
+});
+
+test('the learning read model reports stage, authored refusal reasons and signs of progress, and lists what the row leaves unstated', () => {
+    const {cards} = defineAbilityRecords(learnRows(), {prefix: 'abl', world: {id: 'abl.world'}});
+    const un = learnView(cards.adv, {facts: {'actor.teacherHere': false}});
+    assert.equal(un.stage, 'unlearned'); assert.equal(un.canLearn, false);
+    assert.deepEqual(un.refusedBy, ['No one here can teach it.', 'Learn the basic charm first.']);
+    const mid = learnView(cards.adv, {facts: {'power.abl.power.adv.owned': true, 'power.abl.power.adv.mastery': 1}});
+    assert.equal(mid.stage, 'practicing'); assert.equal(mid.sign, 'It holds for a breath.'); assert.equal(mid.nextSignAt, 2);
+    assert.equal(learnView(cards.adv, {facts: {'power.abl.power.adv.owned': true, 'power.abl.power.adv.mastery': 2}}).stage, 'castable');
+    assert.deepEqual(cards.basic.unstated, ['practice time']);
+    assert.equal(learnView(cards.spark ?? cards.basic, {}) !== null, true);
+});
+
+test('a learn block with a gate missing its reason or a threshold without practice is rejected', () => {
+    for(const change of [l => l.teacher = {label: 'T', requires: eq('x')}, l => {delete l.practice; l.masteryNeeded = 2;}, l => l.signs = [{at: 0, text: 'x'}]]) {
+        const rows = learnRows(); change(rows[1].learn);
+        assert.throws(() => defineAbilityRecords(rows, {prefix: 'abl', world: {id: 'abl.world'}}));
+    }
 });
