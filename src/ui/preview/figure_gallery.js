@@ -36,10 +36,9 @@ bar.append(el('strong', {}, 'Figure gallery'), select);
 const main = el('main', {id: 'fig_gallery'});
 document.body.append(bar, main);
 
-for (const spec of [...FIGURE_FIXTURES, ...FAMILY_FIXTURES]) {
-for (const spec of [...FIGURE_FIXTURES, ...MAP_FIXTURES]) {
-for (const spec of [...FIGURE_FIXTURES, ...FIGURE_FIXTURES_ORGANIZATIONS]) {
-for (const spec of [...FIGURE_FIXTURES, ...RELATIONSHIP_WEB_FIXTURES]) {
+// Fixtures register by import (FIGURE_FIXTURES) or export their own list; one id appears once.
+const GALLERY = [...new Map([...FIGURE_FIXTURES, ...FAMILY_FIXTURES, ...MAP_FIXTURES, ...FIGURE_FIXTURES_ORGANIZATIONS, ...RELATIONSHIP_WEB_FIXTURES].map(spec => [spec.id, spec])).values()];
+for (const spec of GALLERY) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));
     const pair = el('div', {class: 'fig-gallery-pair'});
