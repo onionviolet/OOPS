@@ -19,7 +19,7 @@ const browser = await launchChrome(), errors = [];
 try {
     const page = await (await browser.newContext({viewport: {width: 1920, height: 1080}})).newPage();
     page.on('pageerror', e => errors.push(e.message));
-    const play = async () => { await page.waitForTimeout(500); if (await page.locator('#loading_screen_play_button').isVisible()) await page.locator('#loading_screen_play_button').click(); if (await page.locator('#hero_creation_panel_confirmation').isVisible()) await page.locator('#hero_creation_panel_confirmation').click(); await page.waitForTimeout(800); };
+    const play = async () => { await page.waitForTimeout(500); if (await page.locator('#loading_screen_play_button').isVisible()) await page.locator('#loading_screen_play_button').click(); await page.waitForTimeout(800); const hero = page.locator('#hero_creation_panel_confirmation'); if (await hero.isVisible()) await hero.click({timeout: 60000}); await page.waitForTimeout(800); };
     const open = async () => { if (!await page.locator('#continuation_open').isVisible()) await page.getByRole('combobox', {name: 'Other known panels'}).selectOption('continuation'); await page.locator('#continuation_open').click(); await page.waitForTimeout(150); };
     const action = async id => { await page.locator(`[data-continuation-action="${id}"]`).first().click(); await page.waitForTimeout(150); const b = page.locator(`[data-continuation-action="${id}"]`).filter({hasText: /^Confirm /}); if (await b.count()) await b.click(); };
     const lives = async () => { await page.locator('[data-connection-tab=lives]').click(); await page.waitForTimeout(300); return page.locator('#continuation_view .fig-svg, #continuation_view svg').count(); };
