@@ -1,0 +1,20 @@
+gallery ladder-lantern-planned: 4 ghosts; Lantern-Reader pathway Now: First rung · Lantern-Reader. Next: Second rung · Wick-Turner. Track Rungs, standing on First rung · Lantern-Reader: 1. Ordinary clerk (done); 2. First rung · Lantern-Reader (current; feels settling, 4 of 6 toward the next rung, after the night lamp round: 5 of 6); 3. Second rung · Wick-Turner (pending); 4. Not yet known (unknown). Track To reach Second rung · Wick-Turner, 0 of 3 done: 1. Acts in the Lantern-Reader role (current; 4 of 6, after the night lamp round: 5 of 6); 2. The harbour warden assesses you (pending); 3. Hold the wick draught, then drink it (pending
+gallery ladder-lantern-records: 0 ghosts; Lantern-Reader pathway Now: First rung · Lantern-Reader. Next: Second rung · Wick-Turner. Track Rungs, standing on First rung · Lantern-Reader: 1. Ordinary clerk (done); 2. First rung · Lantern-Reader (current; feels settling, 4 of 6 toward the next rung); 3. Second rung · Wick-Turner (pending); 4. Not yet known (unknown). Track To reach Second rung · Wick-Turner, 0 of 3 done: 1. Acts in the Lantern-Reader role (current; 4 of 6); 2. The harbour warden assesses you (pending); 3. Hold the wick draught, then drink it (pending; irreversible). What this rung gives: Read lamp-smoke: 1 lamp oil; Stea
+play: clicked
+picked
+enrolled
+select: chose Tingen workroom
+step report_in: clicked book.lotm.report_in
+step accept_allocation: clicked book.lotm.accept_allocation
+step ingest: clicked book.lotm.ingest
+lesson: clicked
+reading act: ready
+to workroom: back: ← Tingen supervised workroom
+before find: 0 ghosts | Seer pathway | Now: Sequence 9 · Seer. Next: Sequence 8 · Clown. | Track Rungs, standing on Sequence 9 · Seer: 1. Ordinary clerk (done); 2. Sequence 9 · Seer (current; feels unsettled, 0 of 6 toward the next rung); 3. Sequence 8 · Clown (pending); 4. Sequence 7 (pending); 5. Sequence 6 · Faceless Man (pending); 6. Sequence 5 · Marionettist (pending). | What this rung gives: Spirituality pool; Material perception once taught.
+find: Answer a client from the request ledger with a hedged reading · 1 spirituality, 
+to workroom: none
+after find: 1 ghosts | Seer pathway | Now: Sequence 9 · Seer. Next: Sequence 8 · Clown. | Track Rungs, standing on Sequence 9 · Seer: 1. Ordinary clerk (done); 2. Sequence 9 · Seer (current; feels unsettled, 0 of 6 toward the next rung, after answer a client from the request ledger with a hedged reading: 1 of 6); 3. Sequence 8 · Clown (pending); 4. Sequence 7 (pending); 5. Sequence 6 · Faceless Man (pending); 6. Sequence 5 · Marionettist (pending). | What this rung gives: Spirituality pool; Material perception once taught.
+start reading: clicked
+to workroom: back: ← Tingen supervised workroom
+while running: 1 ghosts | Seer pathway | Now: Sequence 9 · Seer. Next: Sequence 8 · Clown. | Track Rungs, standing on Sequence 9 · Seer: 1. Ordinary clerk (done); 2. Sequence 9 · Seer (current; feels unsettled, 0 of 6 toward the next rung, after answer a client from the request ledger with a hedged reading: 1 of 6); 3. Sequence 8 · Clown (pending); 4. Sequence 7 (pending); 5. Sequence 6 · Faceless Man (pending); 6. Sequence 5 · Marionettist (pending). | What this rung gives: Spirituality pool; Material perception once taught.
+errors: []

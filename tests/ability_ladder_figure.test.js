@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {renderFigure, figureText, validateFigureSpec} from '../src/ui/figure.js';
-import {ladderFigureSpec, ladderGlance, rungFill} from '../src/ability_ladder_figure.js';
+import {ladderFigureSpec, ladderGlance, rungFill, plannedFill, abilityLines} from '../src/ability_ladder_figure.js';
 import {pathView, definePath} from '../src/ascension_paths.js';
 import {lotmPathView} from '../src/book_world_lotm_path.js';
 import {LOTM_DIGEST_ACTS} from '../src/book_world_lotm_ids.js';
-import {ABILITY_FIXTURES, LANTERN_PATH} from '../src/ui/preview/fixtures/abilities.js';
+import {ABILITY_FIXTURES, LANTERN_PATH, LANTERN_ABILITIES} from '../src/ui/preview/fixtures/abilities.js';
 import {FIGURE_FIXTURES} from '../src/ui/preview/figure_fixtures.js';
 
 const draw = spec => {
@@ -127,4 +127,31 @@ test('glance gives one plain line for fresh, digesting and ready views', () => {
     assert.equal(ladderGlance(pathView(bells(5), 1, {hrs: 2}), {felt: 'settling'}), 'Rung 2 · feels settling · 2 of 5 toward Rung 3');
     assert.equal(ladderGlance(pathView(bells(5), 1, {hrs: 5})), 'Rung 2 · 5 of 5 toward Rung 3 · ready for Rung 3');
     assert.equal(ladderGlance(pathView(bells(5), 4, {})), 'Rung 5');
+});
+
+test('a planned act draws a ghost past the fill on the rung and its crossing, in words too; a witness never sees it', () => {
+    const view = pathView(LANTERN_PATH, 1, {acting: 4}, {known: 3, ceiling: 2});
+    const spec = ladderFigureSpec(view, {felt: 'settling', planned: {label: 'the night round'}});
+    const rung = spec.tracks[0].steps.find(s => s.state === 'current'), act = spec.tracks[1].steps.find(s => s.ghost !== undefined);
+    assert.equal(rung.ghost, 5 / 6);
+    assert.match(rung.note, /after the night round: 5 of 6/);
+    assert.equal(act.label, 'Acts in the Lantern-Reader role');
+    const {svg, text} = draw(spec);
+    assert.equal(all(svg, n => cls(n, 'fig-ghost')).length, 2);
+    assert.match(text, /after the night round: 5 of 6/);
+    assert.equal(ladderGlance(view, {planned: {label: 'a round', adds: 3}}), 'First rung · Lantern-Reader · 4 of 6 toward Second rung · Wick-Turner · after a round: 6 of 6');
+    assert.equal(plannedFill(pathView(LANTERN_PATH, 1, {acting: 6}, {known: 3}), {label: 'x'}), null, 'nothing to preview once the count is met');
+    assert.doesNotMatch(figureText(ladderFigureSpec(view, {perspective: 'witness', seen: 1, planned: {label: 'the night round'}})), /after/);
+    assert.match(figureText({id: 'g', title: 'G', tracks: [{id: 't', steps: [{label: 'a', state: 'current', fill: .25, ghost: .5}]}]}), /25% filled, 50% after the planned act/);
+    assert.throws(() => validateFigureSpec({id: 'g', title: 'G', tracks: [{id: 't', steps: [{label: 'a', fill: .5, ghost: .25}]}]}), /ghost/);
+});
+
+test('typed ability records give per-ability lines with inferred costs marked, and unnamed next rungs hide them', () => {
+    assert.deepEqual(abilityLines(LANTERN_ABILITIES.here), ['Read lamp-smoke: 1 lamp oil', 'Steady hands by night: cost not stated']);
+    assert.deepEqual(abilityLines(LANTERN_ABILITIES.next), ['Turn a flame: 2 spirit (inferred); recovers in 15 min (inferred)']);
+    const named = ladderFigureSpec(pathView(LANTERN_PATH, 1, {}, {known: 3}), {abilities: LANTERN_ABILITIES});
+    assert.ok(named.notes.some(n => n.text === 'What the next rung gives: Turn a flame: 2 spirit (inferred); recovers in 15 min (inferred).'));
+    const unnamed = ladderFigureSpec(pathView(LANTERN_PATH, 1, {}, {known: 2}), {abilities: LANTERN_ABILITIES});
+    assert.doesNotMatch(figureText(unnamed), /Turn a flame/);
+    assert.match(figureText(unnamed), /What this rung gives: Read lamp-smoke: 1 lamp oil/);
 });

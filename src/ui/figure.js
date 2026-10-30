@@ -4,10 +4,11 @@
 //   ring   {id, label, radius 0..1, segments:[{label,state,effect}] | slots:N | count:N, labels:'out'|'in', rotate, visible, state}
 //   node   {id, label, glyph, state, effect, at:'center'|[x,y] | ring + index}      (x, y in -1..1 of the figure radius)
 //   slot   {id, label, ring, index, state, effect}      a node on a ring that is drawn as a place to fill
-//   track  {id, label, progress, orient:'horizontal'|'vertical', steps:[{label,state,effect,fill,note}]}
+//   track  {id, label, progress, orient:'horizontal'|'vertical', steps:[{label,state,effect,fill,ghost,note}]}
 //          progress is counted from the steps' states unless progress (words) is given; a vertical track runs bottom (first step) to top (a ladder).
 //          fill 0..1 draws a partial ring round the pip (digestion, mastery); note is its words, and the text form
 //          reads the note, or the fill as a percentage when there is no note, so the drawing never holds a fact alone.
+//          ghost 0..1 (at least fill) draws a dashed arc past the fill: what a planned act would add, said in the note.
 //   edge   {from, to, kind, label, state, detail?}       kinds take distinct line patterns in order of first use;
 //                                                        detail is plain words for the text form and hover only
 //   note   {text, state}                                 plain words, e.g. a risk line
@@ -97,6 +98,7 @@ export function validateFigureSpec(input) {
             if (!step || typeof step.label !== 'string') fail(`${where} needs a label`);
             checkState(step.state, where); checkEffect(step.effect, where);
             if (step.fill !== undefined && !(Number.isFinite(step.fill) && step.fill >= 0 && step.fill <= 1)) fail(`${where} fill must be a number from 0 to 1`);
+            if (step.ghost !== undefined && !(Number.isFinite(step.ghost) && step.ghost >= (step.fill ?? 0) && step.ghost <= 1)) fail(`${where} ghost must be a number from its fill to 1`);
             if (step.note !== undefined && (typeof step.note !== 'string' || !step.note)) fail(`${where} note must be words`);
         });
     });
@@ -113,7 +115,7 @@ export function validateFigureSpec(input) {
 const stepProgress = track => track.progress || `${track.steps.filter(step => step.state === 'done').length} of ${track.steps.length} done`;
 const tag = state => state ? ` (${state})` : '';
 const stepTag = step => {
-    const parts = [step.state, step.note || (step.fill !== undefined ? `${Math.round(step.fill * 100)}% filled` : undefined)].filter(Boolean);
+    const parts = [step.state, step.note || [step.fill !== undefined ? `${Math.round(step.fill * 100)}% filled` : null, step.ghost !== undefined ? `${Math.round(step.ghost * 100)}% after the planned act` : null].filter(Boolean).join(', ') || undefined].filter(Boolean);
     return parts.length ? ` (${parts.join('; ')})` : '';
 };
 // Horizontal labels wrap to the space between steps (end labels turn inward, so they get half of it);
@@ -123,7 +125,13 @@ const wrapChars = (track, size, i) => {
     const n = track.steps.length, gap = n > 1 ? (size - 2 * PAD) / (n - 1) : size - 2 * PAD, edge = n > 1 && (i === 0 || i === n - 1);
     return Math.max(6, Math.floor(gap * (edge ? .5 : .9) / 9));
 };
-const trackHeight = (track, size) => track.orient === 'vertical' ? RUNG_TOP + track.steps.length * RUNG_H
+// Vertical rungs: the label wraps beside the pip and the note wraps under it; a rung grows past RUNG_H to fit both.
+const rungRows = (step, size) => {
+    const chars = Math.floor((size - 2 * PAD - PIP_R - 16) / 9);
+    return {label: wrap(step.label, chars), note: step.note ? wrap(step.note, chars) : []};
+};
+const rungHeights = (track, size) => track.steps.map(step => { const r = rungRows(step, size); return Math.max(RUNG_H, (r.label.length + r.note.length) * 16 + 32); });
+const trackHeight = (track, size) => track.orient === 'vertical' ? RUNG_TOP + rungHeights(track, size).reduce((a, b) => a + b, 0)
     : Math.max(TRACK_H, 38 + PIP_R + 30 + Math.max(...track.steps.map((step, i) => wrap(stepWords(step), wrapChars(track, size, i)).length)) * 16);
 
 /** The same facts as the drawing, as plain lines: the accessible description and the effects-off reading. */
@@ -321,6 +329,8 @@ export function renderFigure(node, input, options = {}) {
         s.append(make('circle', {class: 'fig-halo', cx: round1(px), cy: round1(py), r: PIP_R + 5}), make('circle', {class: 'fig-body', cx: round1(px), cy: round1(py), r: PIP_R}));
         if (step.fill > 0) s.append(step.fill >= 1 ? make('circle', {class: 'fig-fill', cx: round1(px), cy: round1(py), r: PIP_R + 5})
             : make('path', {class: 'fig-fill', d: arc(px, py, PIP_R + 5, -90, -90 + 360 * step.fill)}));
+        const from = step.fill ?? 0;
+        if (step.ghost > from) s.append(make('path', {class: 'fig-ghost', d: arc(px, py, PIP_R + 5, -90 + 360 * from, -90 + 360 * Math.min(step.ghost, .9999))}));
         s.append(make('text', {class: 'fig-glyph', x: round1(px), y: round1(py + 5), 'text-anchor': 'middle'}, step.state ? FIGURE_STATES[step.state] : ''));
         parent.append(s); return s;
     };
@@ -332,13 +342,16 @@ export function renderFigure(node, input, options = {}) {
         g.append(make('text', {class: 'fig-track-title', x: x0 - PAD / 2, y: y + 14}, `${track.label || track.id}: ${stepProgress(track)}`));
         const last = track.steps.reduce((acc, step, i) => step.state === 'done' || step.state === 'current' ? i : acc, -1);
         if (track.orient === 'vertical') {
-            const px = x0, rungY = i => y + RUNG_TOP + (n - 1 - i) * RUNG_H + RUNG_H / 2;
+            // Rungs stack from the top in reverse order (first step lowest); each is centred in its own height.
+            const heights = rungHeights(track, S), tops = [];
+            for (let i = n - 1, top = y + RUNG_TOP; i >= 0; top += heights[i], i--) tops[i] = top;
+            const px = x0, rungY = i => tops[i] + heights[i] / 2;
             g.append(make('line', {class: 'fig-track-line', x1: px, y1: rungY(n - 1), x2: px, y2: rungY(0)}));
             if (last > 0) g.append(make('line', {class: 'fig-track-progress', x1: px, y1: rungY(0), x2: px, y2: rungY(last)}));
             track.steps.forEach((step, i) => {
-                const s = pip(g, step, px, rungY(i)), rows = wrap(step.label, Math.floor((x1 - px) / 9));
-                lines(s, px + PIP_R + 16, rungY(i) + (step.note ? -4 : 5) - (rows.length - 1) * 8, rows, {class: 'fig-label', 'text-anchor': 'start'});
-                if (step.note) s.append(make('text', {class: 'fig-step-note', x: px + PIP_R + 16, y: round1(rungY(i) + 12 + (rows.length - 1) * 8)}, step.note));
+                const s = pip(g, step, px, rungY(i)), {label: rows, note} = rungRows(step, S), top = rungY(i) + 5 - (rows.length + note.length - 1) * 8;
+                lines(s, px + PIP_R + 16, top, rows, {class: 'fig-label', 'text-anchor': 'start'});
+                if (note.length) lines(s, px + PIP_R + 16, top + rows.length * 16, note, {class: 'fig-step-note', 'text-anchor': 'start'});
             });
         } else {
             const gap = n > 1 ? (x1 - x0) / (n - 1) : 0, rowY = y + 38;

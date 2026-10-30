@@ -325,7 +325,8 @@ state; FLR4 reads existing `pathView`; FLR5 no persistence change; FLR6 agent-ve
 
 ## Round 3 (2026-10-30): similar ideas for each idea
 
-Weibao, 2026-10-30: "Can consider similar ideas for each idea where relevant too". For each idea
+Weibao, 2026-10-30: "Can consider similar ideas for each idea where relevant too" (recorded in
+[USER_VISION](../USER_VISION.md#consider-similar-ideas-for-each-idea-where-relevant-2026-10-30)). For each idea
 above, its close variants (other ways to get the same effect) and its siblings (the same idea in
 another feature). Codes RS1-RS24. All proposals; ideas with no useful variant are left out.
 "Feature" names the owning representation session where a sibling belongs elsewhere.
@@ -389,12 +390,16 @@ Ranked, adding to round 2's list without displacing its first two items:
 4. RS19 shared tier-versus-fill rule handed to rep-crafting and rep-rituals as one line each in their docs (theirs to accept).
 5. RS5 inner-voice refusal lines, after the Reports voice line (round 2 second item) lands.
 
-## Source switch: the L10 typed ability record (gap, 2026-10-30)
+## Source switch: the L10 typed ability record (2026-10-30)
 
 The coordinator routed the ladder mechanism above the first rung and the typed, world-neutral ability
 record to the sonnet wave's L10 lane (`docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md`, GM25, GM26). These
-views read that record, not a model of their own. At this commit L10 has no design note or code on
-master, so the views still read `pathView`.
+views read that record, not a model of their own.
+
+**Status (later the same day): switched.** L10 landed the mapper as `ladderViewFromRecord` in
+`src/read_models/ability_ladder_bridge.js`, and `lotmPathView` reads it, so the Tingen ladder already
+draws from L10's path (the private advancement pack adds rungs when present). Round 4 below adds the
+per-rung typed ability records. The notes kept below are the original gap record.
 
 - **Seam:** every view here (`ladderFigureSpec`, `ladderGlance`, the witness and insight options) takes
   one "ladder view" object whose shape is written in the header of `src/ability_ladder_figure.js`. It is
@@ -408,3 +413,37 @@ master, so the views still read `pathView`.
   and `level` separate from `title` (L8 sheet schema), which the witness view needs for others.
 - **Open:** typed abilities held per rung (costs, cooldowns, synergies, conflicts: RA24, RA25) belong to
   L10's record and appear here only once it exists.
+
+## Round 4 (2026-10-30): ghost fill and typed ability lines
+
+Ordered by the supervisor under Weibao's 2026-10-30 "finish the other sonnet works too", taking the
+default in [CHOICES](../gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md) item 2. Proposals; agent-verified, not human-reviewed.
+
+- **Ghost fill (RS15, done).** A step may carry `ghost` (0..1, at least its `fill`) in `src/ui/figure.js`.
+  It draws a dashed arc past the fill, and the text form says it. `ladderFigureSpec(view, {planned: {label, adds}})`
+  puts the ghost on the current rung and on its counted crossing, with the words "after <act>: n of m";
+  `ladderGlance` takes the same option. A witness never sees it. Nothing is previewed once the count is met.
+- **Typed ability lines (done).** `abilityLines(cards)` turns L10 ability cards (`ability_records.js`) into
+  one line each: label, cost, limit. A cost or limit the source does not state but the record proposes
+  (`costBasis.amounts: 'proposal'`, or named in `unstated`) is marked "(inferred)"; an ability with no cost
+  row reads "cost not stated". The option `abilities: {here, next}` replaces the plain grant words. Next-rung
+  lines show only when that rung is named (ABR19). The view labels inferred costs; the inference itself
+  (a cost from the rung and the ability's mechanism, CHOICES item 2) stays in L10's data.
+- **Home (patch, not applied).** The Tingen wiring touches LOTM host files, so it went to floor-wire as
+  `docs/representations/patches/ladder-ghost-host.patch`. It previews a running acting act, or the one last
+  picked with "Find action" or "Find walk to", and passes the Seer rung's ability cards through a new
+  `lotmRungAbilities(position)` in `book_world_lotm_path.js`.
+- **Seat note.** A planned act is the player's own plan, so the ghost shows only on a self view.
+
+| Check | Result | Gap |
+|---|---|---|
+| `node --test tests/ability_ladder_figure.test.js tests/figure.test.js` | 19 pass | full suite left to the coordinator (limiter) |
+| Headless Chrome 1920x1080, disposable copy (HEAD + this change + the host patch), fresh origin | gallery: planned fixture 4 ghost arcs, records fixture lines with "(inferred)"; game: PLAY, probationer, dose, lesson, "Find action" on the reading act gives "after answer a client ...: 1 of 6" and one ghost arc; it persists while the act runs; no page errors | ability lines in game need a promoted Sequence 8 life (not reached); `evidence/abilities/ghost-*` |
+
+Findings for other owners (not changed here):
+- F1. With the private advancement pack present, `lotmPathView` passes `known` as the whole path, so a
+  fresh Sequence 9 life sees every later rung named in the ladder. If that is not intended, `known`
+  belongs to L10 or floor-wire (ABR19).
+- F2. Most L10 rows state no cost (CHOICES item 2). Until the inferred costs land in the data, the
+  lines read "cost not stated", which is honest but sparse.
+
