@@ -62,3 +62,14 @@ LATER / DELEGATE: F2 and F3 go to the General UI coordinator (owner of those ses
 | `bk-party` | Companions, party and pets: representation rounds 1-2 (reference games), one host-consumed slice at the floor, consuming `tempo_allies` and the roster rather than P5 |
 | `bk-gaps` | Whole-game fresh-player capability pass at 1920x1080. Fixes top gaps in files no one holds and routes the rest to owners |
 | `bk-recon` | Reconciliation: one ledger of every half-finished slice, branch, worktree, patch and below-floor receipt, with owner and next step. It cleans only what is provably landed and idle, and lists deletions for Weibao's yes |
+
+## Round 3: design rounds (2026-10-30 14:5x, weekly 66%)
+
+Weibao: "Debt and stuff can be part of corportation, or like the benefits system, more to consider? Send out design rounds for stuff that need them? OVerall UI pass to make things intuitive? different design posbbilities and more?"
+
+| Lane | Delivers |
+| --- | --- |
+| `bk-benefits` | Round 3 in `ECONOMY_AND_INSTITUTIONS.md`: membership, benefits and debts as one institution package, three or more UI forms with a default, and gallery prototypes. It fits `bk-mol`'s academy access. |
+| `bk-ui-directions` | `docs/audits/UI_DIRECTIONS_2026-10-30.md`: four whole-UI directions (refined panels, day hub, task-first, unconventional) as static mocks, plus the list of features still lacking a design round |
+
+Status at 14:5x: `bk-coi` committed on its branch. `bk-mol`, `bk-ss` and `bk-party` have slices written with focused tests passing and are waiting on queued builds (the slot limiter is busy). `bk-hp`, `bk-gaps` and `bk-recon` are working.
