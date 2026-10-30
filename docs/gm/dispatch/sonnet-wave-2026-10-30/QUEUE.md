@@ -43,3 +43,20 @@ The coordinator sweeps the intake files and folds lasting items into their owner
 - Weibao-facing choices into a short list for him.
 
 Nothing in an intake file is accepted direction until it is folded and, where needed, approved.
+
+## Round 2: wiring, floor and improvement pass (2026-10-30 02:30)
+
+Weibao: "Send out next sonnet waves accordingly, or have each chat do so, do the iterative improvement pass".
+
+**State:** the L-A checkpoint says every engine slice is "landed, read model only". Divination has the one host consumer, and nothing supplies its facts. No scripted Chrome floor runner exists. Load is down to about 5 with the slot limiter. Claude weekly is at 53% and Codex at 29%, so Codex is underused.
+
+**Ownership changes (no duplicate writers):**
+- **New lane `sw-wire`** takes ownership of the LOTM host files (`src/book_world_lotm_{host,state,cast_host}.js`, `src/simulation.js` wiring, `src/domain_registry.js` registrations). It wires each landed read model to a playable host consumer in the lead's run.
+- **`sw-absorb`** keeps the lead's-run data line (place mapping, timing, routine bands) and becomes the gate owner: full suite, build and browser floor through the limiter. Host edits go to `sw-wire` as patches.
+- **`sw-slots`** builds the scripted Chrome floor runner, which `sw-absorb` and `sw-wire` use.
+- **`sw-gaps`** sweeps the `ideas/` intake into the owners (WA lines, GM rows, QR6, a short choices list for Weibao) and repeats the sweep each round.
+
+**Every lane's improvement pass, before its next volume:**
+1. Re-read your own committed slices with fresh eyes against your design note and the rules you cite. Look for defects, dead fields nobody reads (WA41), blanket claims written as absolutes instead of default, dial and reason, tests that pin incidental shapes, and duplicates of another lane's model.
+2. Fix them in one commit, and log what you found in your intake file.
+3. Then continue your volume walk. Codex is the bulk route: up to 3 Codex lanes per Sonnet lane, about 10 across the wave, and stop launching at Codex 85%. Lanes may run their own Codex waves but do not start new Claude sessions; ask the coordinator.
