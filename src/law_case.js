@@ -78,10 +78,12 @@ export function statuteFromRow(row, overlay) {
     if(!enforcer) return {skipped: row.id, why: 'No enforcer named in the row.'};
     const penaltyText = row.enforcement?.penalty || cons.find(c => c.response)?.response;
     if(!penaltyText) return {skipped: row.id, why: 'No penalty or response named in the row.'};
+    // An overlay that types only detection still needs proof: default the need to what detection can give, so no scene means unproven.
+    const needs = overlay.evidence || [...new Set((overlay.detection || []).map(d => d.gives))];
     const responses = cons.filter(c => id(slug(c.trigger || '')) && c.response && c.by).map(c => ({trigger: slug(c.trigger), response: c.response, by: c.by}));
     return {id: row.id, act: overlay.act, places: overlay.places, enforcer,
         penalty: {kind: overlay.penaltyKind || 'sanction', text: penaltyText},
-        evidence: {needs: overlay.evidence || [], known: Boolean(overlay.evidence?.length)},
+        evidence: {needs, known: needs.length > 0},
         ...(overlay.exemptions ? {exemptions: overlay.exemptions} : {}),
         ...(overlay.appliesTo ? {appliesTo: overlay.appliesTo} : {}),
         ...(overlay.detection ? {detection: overlay.detection} : {}),

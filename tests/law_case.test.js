@@ -5,10 +5,10 @@ import {defineLawBook, jurisdictionChain, detect, caseFor, responsesFor, statute
 // Synthetic, paraphrased fixtures shaped like two unrelated books' merged law rows. No book text, no shared ids.
 // Book A: a hidden-school world; rows carry consequences only (no enforcement block, no detection).
 const rowA = {id: 'a.law.minor-spell-ban', name: 'Minors may not cast outside school', conditions: ['under age'], who: ['minor'],
-    consequences: [{trigger: 'cast in front of a muggle', response: 'warning letter', by: 'Ministry office'}, {trigger: 'repeat', response: 'wand snapped and expelled', by: 'Ministry office'}]};
+    consequences: [{trigger: 'cast in front of a outsider', response: 'warning letter', by: 'Ministry office'}, {trigger: 'repeat', response: 'wand snapped and expelled', by: 'Ministry office'}]};
 // Book B: a clan world; enforcement block with free-text detection, no consequences list.
 const rowB = {id: 'b.rule.fair-contest', name: 'No poison in a ranked duel', conditions: ['ranked duel'], who: ['clan member'],
-    enforcement: {penalty: 'cripple the cultivation', enforcer: 'Elder hall', detection: 'a judge inspects the arena afterwards'}};
+    enforcement: {penalty: 'cripple the rank', enforcer: 'Elder hall', detection: 'a judge inspects the arena afterwards'}};
 const rowNorm = {id: 'a.law.unspoken-custom', name: 'Do not stare', conditions: [], who: [], consequences: []};
 
 const overlays = {
@@ -40,6 +40,12 @@ test('the same engine rules both worlds: detection becomes evidence, then the ba
     const poison = caseFor(statutes, 'poison-in-duel', 'arena', parentOf, {scene: {traces: ['residue']}});
     assert.equal(poison.primary.ruling.penalty.kind, 'maiming');
     assert.equal(caseFor(statutes, 'poison-in-duel', 'arena', parentOf, {scene: {traces: ['residue']}, flags: ['duel_to_death']}).primary, null);
+});
+
+test('a detection-only overlay still needs the scene to prove it', () => {
+    const {statutes: t} = lawBookFromRows([rowA], {[rowA.id]: {act: 'cast', places: ['town'], detection: [{via: 'witness', gives: 'seen'}]}});
+    assert.equal(caseFor(t, 'cast', 'town', {}, {scene: {witnesses: []}}).primary, null);
+    assert.equal(caseFor(t, 'cast', 'town', {}, {scene: {witnesses: [{id: 'w', saw: true}]}}).primary.ruling.proven, true);
 });
 
 test('the actor filter: a statute for minors does not reach an adult', () => {

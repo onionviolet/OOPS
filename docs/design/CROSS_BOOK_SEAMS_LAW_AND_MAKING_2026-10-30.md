@@ -16,7 +16,7 @@ LOTM rows are in the private `wb-families-lotm` pack and owned by `sw-road` (law
 
 **Already built (do not duplicate).** `src/jurisdiction_rules.js` (sw-road, L11): a statute is act, places, enforcer, penalty, evidence needs, exemptions; `rulingFor` gives one ruling and a strictness dial. Its gaps are what the rows show.
 
-**What every book shares.** Row fields `conditions` (when it bites), `who` (an actor class, filled on 85-95% of rows: HP 203/219, SS 399/483, RI 138/150), `consequences[{trigger, response, by}]` (HP 125, SS 243, ASL 148, RI 101) and `limits`. Seven of seven books name an enforcer by `by` or `enforcement.enforcer`.
+**What every book shares.** Row fields `conditions` (when it bites), `who` (an actor class, filled on 81-93% of rows: HP 203/219, SS 399/483, GC 55/68, RI 138/150), `consequences[{trigger, response, by}]` (HP 125, SS 243, ASL 148, RI 101) and `limits`. Enforcer named (`by` or `enforcement.enforcer`): HP 125/219, SS 243/483, ASL 148/247, MoL 75/121, RI 112/150, GC 44/68, PR 26/35, so about half of rows in every book; the rest are norms without an enforcer and are skipped by the adapter.
 
 **Where it varies (dials with reasons, AD5/AD38).**
 
@@ -28,7 +28,7 @@ LOTM rows are in the private `wb-families-lotm` pack and owned by `sw-road` (law
 | Actor filter `appliesTo` | everyone | Minors, ranks, castes |
 | Detection sources | witness, trace, detector with `min` | Magic can leave residue; a city can run a ward |
 
-**Typed row.** `statuteFromRow(row, overlay)`: merged row plus `{act, places, appliesTo?, detection?, evidence?, exemptions?, penaltyKind?}` gives a jurisdiction_rules statute with `appliesTo`, `detection:[{via, gives, min?}]`, `responses:[{trigger, response, by}]`. A row naming no enforcer or penalty is **skipped with a reason**, never given an invented enforcer; rows without an overlay are listed as `untyped`.
+**Typed row.** (A detection-only overlay defaults its evidence need to what detection gives, so an empty scene proves nothing.) `statuteFromRow(row, overlay)`: merged row plus `{act, places, appliesTo?, detection?, evidence?, exemptions?, penaltyKind?}` gives a jurisdiction_rules statute with `appliesTo`, `detection:[{via, gives, min?}]`, `responses:[{trigger, response, by}]`. A row naming no enforcer or penalty is **skipped with a reason**, never given an invented enforcer; rows without an overlay are listed as `untyped`.
 
 **Engine seam (CX2).** `caseFor` calls `rulingFor` once per statute per level on the `jurisdictionChain`; detection feeds the existing `evidence` list. No second ruling engine. Chance is not drawn: the caller passes who saw what (MR2).
 
@@ -36,7 +36,7 @@ LOTM rows are in the private `wb-families-lotm` pack and owned by `sw-road` (law
 
 | ACT NOW (done) | Level | Done check |
 |---|---|---|
-| `defineLawBook`, `jurisdictionChain`, `detect`, `caseFor`, `responsesFor`, adapters | read model | 6 tests in `tests/law_case.test.js`, fixtures from two unrelated synthetic shapes; `check:arch` passes |
+| `defineLawBook`, `jurisdictionChain`, `detect`, `caseFor`, `responsesFor`, adapters | read model | 7 tests in `tests/law_case.test.js`, fixtures from two unrelated synthetic shapes; `check:arch` passes |
 
 | ACCOUNT FOR NOW | Owner | Level | Effort | Done check |
 |---|---|---|---|---|
