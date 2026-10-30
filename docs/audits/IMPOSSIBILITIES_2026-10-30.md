@@ -9,7 +9,7 @@ Weibao, 2026-10-30: "Consider gaps and impossibilities, we can just implement th
 | Code | Where | Was | Now (default, dial, reason) |
 | --- | --- | --- | --- |
 | IP1 | `src/craft_resolver.js` | Batch of 999 per lot and 12 steps, fixed for every law | Default 999 and 12. Dial: `limits.batchCeiling` and `limits.steps` on a law (a bigger vat or crew). Refusal now says what would lift it. Test: `tests/craft_engine.test.js` (IP1 x2) |
-| IP2 | `src/home_school_offices.js` | "already booked this school month" with no way forward | Default one funded session per 30 days. Dial: a paid top-up (4 estate coins, button "Pay for an extra session now"), which pushes the next free session back by a third of a month. Refusal now names the top-up. Test: `tests/home_cultivation.test.js` (IP8 test) |
+| IP2 | `src/home_school_offices.js` | "already booked this school month" with no way forward | Default one funded session per 30 days. Dial: a paid top-up (4 estate coins, button "Pay for an extra session now"), which pushes the next free session back by a third of a month. Refusal now names the top-up. Test: `tests/home_cultivation.test.js` (IP8 test). Browser: `scripts/ip2_school_topup_browser.cjs` renders the real offices panel on a fresh origin at 1920x1080 and clicks the top-up (panel-level harness, not the full seeded household; no persistence change, so save/reload/import not run) |
 
 ## Second batch (2026-10-30, tests pass; agent-verified, not human-reviewed)
 
