@@ -3,6 +3,9 @@
  "viewport": "1920x1080",
  "steps": [
   {
+   "step": "reported in"
+  },
+  {
    "step": "map shown after crossing",
    "textForm": "Walks from Tingen supervised workroom\nRings step outward by walking time from where you stand, not by compass direction. Only places you know are drawn.\nRing 2 min walk, 1 places: 1. Tingen probationer lodging.\nRing 20 min walk, 1 places: 1. Tingen docks.\nRing 25 min walk, 1 places: 1. Tingen university area.\nNodes: Tingen supervised workroom (current).\nTingen supervised workroom to Tingen probationer lodging: walk, 2 min.\nTingen supervised workroom to Tingen docks: walk, 20 min.\nTingen supervised workroom to Tingen university area: walk, 25 min.\nDistricts: North quarter (Tingen supervised workroom, Tingen probationer lodging); Docks (Tingen docks); University area (Tingen university area).\nKey: ▶ current means you are here.\nKey: walk means walk, minutes quoted."
   },

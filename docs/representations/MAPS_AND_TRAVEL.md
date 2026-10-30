@@ -10,7 +10,8 @@ here is accepted until Weibao says so (AD32).
 
 - **Reading.** Show where you can go, and how long it takes, from the place you stand, in the
   place's own panel at 1920×1080. Premises: walks already exist as timed jobs with real
-  minutes (district links), and the host already projects only the places this seat knows.
+  minutes (district links). In resident lives the host filters places to what this seat knows;
+  the classic probationer view lists all four Tingen places, as its Places list already does.
 - **Player sentence.** "Walks from the workroom: the lodging is 2 min, the docks 20, the
   university 25. Click one to go to its walk." When a walk cannot run: the place carries a
   `!` mark and the map says why in words.
@@ -32,6 +33,7 @@ here is accepted until Weibao says so (AD32).
 | MT2 | **Walk-time rings around you**: you at the centre, rings step outward by minutes, each known place on its ring with the minutes on the line | Needs no geometry; seat-relative by construction; quotes SUI6 minutes on the drawing itself | Says nothing about direction; two places 20 min away may be on opposite sides of town | **Default** (MT-D1) |
 | MT3 | **Route strip**: one walk as a track of stretches, with the people you passed on the way at your witness level | Makes the route a place (SUI15); natural home for "on the way" meetings and follow mode | Needs a source of who crosses the route; nothing feeds it yet | Second view, for a walk under way or a walk being considered (MT-D3) |
 | MT4 | **Text-art map**: a monospaced block, places as labelled boxes joined by lines with minutes | Cheap, copyable, effects-proof | Duplicates the figure's own text form; layout problems as MT1 | Not built; the figure's text form ("The map in words") already does this job |
+| MT6 | **Other homes**: site rooms and exits (`drainage_site_ui.js` already draws its own room map from `v.map.edges`; `authored_site_ui.js` quotes activity minutes, not travel) and the Village "Move somewhere else" list (`display.js`, native locations, no walk minutes) | One figure for every place surface | Sites have room adjacency, not walking minutes; native travel has no minutes to quote yet | MT-D1 extends to a home only once it quotes travel minutes (SUI6); sites keep their room map, and a later slice can move it onto the MDL2 figure with rings by steps instead of minutes |
 | MT5 | **Day threads** (unusual): time across, places down; each known person's day is a thread through the places, and your reachable window is shaded from your walk minutes | Answers "where can I catch her before noon" in one look; makes schedules and travel one picture; the natural planning view for follow mode (SUI16) | Needs schedule rows projected per seat; heavy for a casual glance | Later, for planning and follow mode (MT-D4) |
 
 ## Defaults (proposed)
@@ -44,8 +46,10 @@ here is accepted until Weibao says so (AD32).
 | MT-D4 | Day threads (MT5) open from a person's usual-place line for planning and follow mode | Threads show only the parts of a day this seat knows; the rest stays blank, not guessed | You learn people's habits by watching or being told, not by reading their diary |
 | MT-D5 | Unknown places stay off the map, without "?" markers. A lead to a place (SR6) can appear as a "?" node joined by a dashed line with no minutes | A world can show "rumoured" places once a lead exists | Knowing that a place exists is different from knowing the way (SR6) |
 
-Seats see only their own knowledge: the figure is built from the host's view, which already
-filters places to what this seat knows; people are drawn only at places the seat knows, and
+Seats see only their own knowledge: the figure draws nothing beyond the host's view. The
+knowledge filter is the host's (`book_world_lotm_host.js`, resident lives only; the classic
+probationer view lists every Tingen place and the map shows the same set as the Places list).
+People are drawn only at places in the view, and
 a person whose usual place is unknown is left off rather than placed at "?" (LTU11, SR9).
 
 ## Slice: walk map in the Tingen place panel (implemented 2026-10-30)
@@ -69,7 +73,7 @@ view; the walk itself stays the existing timed job (SUI14).
 
 | Code | Finding | Owner |
 |---|---|---|
-| MT-F1 | **Every walk in a fresh Tingen probationer life fails in the browser** with "Knowledge needs its actual situation context." (`src/causal_situations.js` via the LOTM host walk). Reproduced on unchanged master `4a83cac9a` with the map code removed, so not caused by this slice; `tests/lotm_districts.test.js` passes because its state lacks whatever knowledge row the browser start writes. The walk map's click lands on the walk button correctly; the walk then fails. | LOTM host owner (`src/book_world_lotm_host.js`, off-limits to this lane) |
+| MT-F1 | **Every walk in a fresh Tingen probationer life without the private pack fails in the browser** with "Knowledge needs its actual situation context." (`src/causal_situations.js` via the LOTM host walk), before and after reporting in. Reproduced on unchanged master `4a83cac9a` with the map code removed, so not caused by this slice. Lead, not a diagnosis: walk arrival records use `know()` in `book_world_lotm_kit.js`, which cites `I.situation`; that situation begins only at `report_in` (`book_world_lotm_actions.js`), and the browser failure persists after report-in, so something else in the browser state is also missing. Guess: `tests/lotm_districts.test.js` passes because its state differs from the browser start. The map's click lands on the walk button correctly; the walk then fails. | LOTM host owner (`src/book_world_lotm_host.js`, off-limits to this lane) |
 | MT-F2 | The host view does not yet carry people's usual places for a seat. The adapter accepts `people` rows and the gallery shows them; the game does not feed them yet. | Next slice, needs a host or cast-host read |
 | MT-F3 | `figureText` writes "1 places" for a one-member ring. Shared primitive, not changed here. | Figure owner |
 | MT-F4 | `index.html` did not link `styles/figure.css`, so no in-game figure was styled. This lane adds the one link line; sibling lanes need the same line. | Coordinator merge |
@@ -86,7 +90,7 @@ Files (all this lane's own unless noted):
   (one import, one spread into the fixture loop).
 - `tests/walk_map.test.js` (new), `scripts/playtest/walk-map-probe.mjs` (new).
 - Evidence: `docs/representations/evidence/maps/` (`walk-map-1920.png` live panel,
-  `walk-map-figure.png`, `walk-map-after-walk-1920.png`, `walk-map-probe.json`,
+  `walk-map-figure.png`, `walk-map-walk-attempt-1920.png` (walk refused), `walk-map-probe.json`,
   `gallery-*.png`).
 
 Change surface (FND2): no core-owner file, no `main.js` line, no new import cycle.
@@ -99,7 +103,7 @@ Checks:
   views draw, click maps to the walk command).
 - `node scripts/playtest/walk-map-probe.mjs docs/representations/evidence/maps`: pass on
   bundle `b2dddedfd7fd8ac3` (same as `npm run build` output), 1920×1080, fresh origin, no
-  private pack: Village → Tingen probationer start → map shown with text form → clicking the
+  private pack: Village → Tingen probationer start → report in → map shown with text form → clicking the
   25-min place focuses "Walk to … · 25 min" → walk refused by MT-F1.
 - Gallery headless capture at 1920×1080: no page errors, both themes.
 - `npm run check:arch`: pass (growth 0). `npm run check:rules`: pass, 5 existing warnings.
@@ -109,7 +113,7 @@ Checks:
   (`cast_body_adapter`, `place_acts`: 2 fail either way), so none traces to this slice.
 
 AD43 floor: FLR1 met (bundle `b2dddedfd7fd8ac3`). FLR2 met (fresh life by earned steps,
-headless browser; MCP walk not run). FLR3 met (text form, minutes, blocked reason in
+headless browser; partly met, since the MCP walk was not run: the game MCP serves the primary checkout, not this worktree). FLR3 met (text form, minutes, blocked reason in
 words). FLR4 met in part: the click reaches the real walk control, but the walk itself
 fails on MT-F1. FLR5 not applicable (no persistence change). FLR6: agent-verified, not
 human-reviewed; route kind fresh life, rebuilt headless browser. State: **implemented,

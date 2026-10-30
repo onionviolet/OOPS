@@ -20,6 +20,10 @@ try{
  await panel.locator('[data-lotm="pick_probationer"]').click();await pause();await panel.locator('[data-lotm="enroll"]').click();
  await p.waitForFunction(()=>/Tingen/.test(document.querySelector('#location_name_span')?.textContent||''),null,{timeout:30000});await pause();
  await nav('lotm');
+ // Walk arrival records cite the workroom situation, which begins when you report in (MT-F1), so a
+ // player reports in first, as the panel offers.
+ const reportIn=panel.locator('[data-lotm$="report_in"]');
+ if(await reportIn.count()){await reportIn.first().click();await s.step(60);await pause();await nav('lotm');report.steps.push({step:'reported in'});}
  const map=panel.locator('[data-walk-map]');await map.waitFor();await map.scrollIntoViewIfNeeded();await pause();
  const text=await map.locator('pre.fig-text').textContent();
  assert.match(text,/^Walks from /);assert.match(text,/walk, \d+ min/);assert.match(text,/\(current\)/);
@@ -43,7 +47,7 @@ try{
  report.steps.push({step:landed?`walked ${minutes} min, map recentred`:'walk refused by the host',notice,textForm:after});
  if(!landed)assert.equal(notice,'Knowledge needs its actual situation context.','only the known host defect may stop the walk');
  await panel.locator('[data-walk-map]').scrollIntoViewIfNeeded();await pause();
- await p.screenshot({path:path.join(out,'walk-map-after-walk-1920.png')});
+ await p.screenshot({path:path.join(out,'walk-map-walk-attempt-1920.png')});
  report.errors=s.errors;const real=s.errors.filter(e=>!/status of 404/.test(e.text));assert.equal(real.length,0,JSON.stringify(real)); // 404s: ignored assets absent from a worktree
 }finally{await fs.writeFile(path.join(out,'walk-map-probe.json'),JSON.stringify(report,null,1)+'\n');await s.close();server.close();await bundle.dispose();}
 console.log(JSON.stringify({ok:true,bundle:bundleHash,steps:report.steps.map(x=>x.step)}));
