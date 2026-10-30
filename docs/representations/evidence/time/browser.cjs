@@ -1,6 +1,6 @@
 // Return digest browser proof (TIME_AND_CHRONICLE TC3, RPT6, B1): fresh life, earned steps, 1920x1080 headless Chrome.
 //   npm run build && node docs/representations/evidence/time/browser.cjs      (own static server, fresh origin; no save is edited except step E's pre-slice copy)
-// Route: talk to the elder, open the Notebook, investigate the waypost, let twelve game hours pass; then
+// Route: talk to the elder, open the Notebook, investigate the waypost, let twelve game hours pass (the row is pinned at the top of Reports); then
 // Save, reload, Mark as read, Save, Export, Import, and load a copy with the slice removed.
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const out=__dirname,repo=path.resolve(out,'../../../..');
@@ -29,16 +29,14 @@ const saveNow=async page=>{await page.locator('#save_button').click({force:true}
   const here=page.locator('[data-notebook-view="here"]');if(await here.count())await here.first().click();await page.locator('#village_panel summary').waitFor({state:'visible'});await page.locator('#village_panel summary').click();
   const openPanel=title=>page.evaluate(t=>{const named=o=>o.textContent.replace(/\s*•\s*$/,'').trim()===t;const sel=[...document.querySelectorAll('select')].find(s=>[...s.options].some(named));const o=sel&&[...sel.options].find(named);if(!o)return null;sel.value=o.value;sel.dispatchEvent(new Event('change',{bubbles:true}));return t;},title);
   await page.locator('[data-village-action="village.waypost"]').click();log.push('A1 earned: talked to the elder, opened Notes, practice & people from All panels, investigated the waypost');
-  await advanceGameMinutes(page,5);assert.ok(await openPanel('World events'),'World events is listed in All panels once it has news');await page.waitForTimeout(500);log.push('A1b opened World events from All panels');
-  await advanceGameMinutes(page,235);views.fourHours=await view(page);log.push(`A2 four hours later: row ${views.fourHours.visible?'shown':'hidden'}`);
+  await advanceGameMinutes(page,240);views.fourHours=await view(page);log.push(`A2 four hours later: row ${views.fourHours.visible?'shown':'hidden'}`);
   await advanceGameMinutes(page,480);views.away=await view(page);
   assert.equal(views.away.visible,true,'digest after twelve hours');assert.match(views.away.text,/While you were away · about half a day/);assert.match(views.away.text,/You · \d/);assert.match(views.away.text,/waypost/i);assert.equal(views.away.pageOverflow,false);
   log.push(`A3 twelve hours later: "${views.away.text.replace(/\n+/g,' | ')}"`);
-  await page.evaluate(()=>document.getElementById('return_digest').scrollIntoView({block:'center'}));await page.screenshot({path:path.join(out,'digest-away-1920x1080.png')});
+  await page.screenshot({path:path.join(out,'digest-away-1920x1080.png')});
   const saved=await saveNow(page);assert.deepEqual(saved.returnDigest,{schema:1,seenAt:0});await page.reload();await boot();views.reloaded=await view(page);
   assert.equal(views.reloaded.rendered,true,'still unread after reload');assert.equal(views.reloaded.marker.seenAt,0);
-  log.push(`B Save and reload: still unread, marker seenAt 0; World events module ${views.reloaded.visible?'open':'closed by the workspace, reopened from All panels'}`);
-  if(!views.reloaded.visible){await openPanel('World events');await page.waitForTimeout(500);assert.equal((await view(page)).visible,true);}
+  assert.equal(views.reloaded.visible,true,'pinned in Reports after reload');log.push('B Save and reload: still unread and on screen at the top of Reports, marker seenAt 0');
   await page.locator('#return_digest button').click();views.read=await view(page);assert.equal(views.read.visible,false);assert.ok(views.read.clock-views.read.marker.seenAt<=2);
   log.push(`C Mark as read: row hidden; marker seenAt ${views.read.marker.seenAt} = clock`);
   await page.screenshot({path:path.join(out,'digest-read-1920x1080.png')});
@@ -49,7 +47,7 @@ const saveNow=async page=>{await page.locator('#save_button').click({force:true}
   log.push('D Export then Import: marker carried, row not replayed');
   const legacy=await saveNow(page);delete legacy.returnDigest;await page.evaluate(s=>localStorage.setItem('save data',JSON.stringify(s)),legacy);await page.reload();await boot();
   views.legacy=await view(page);assert.equal(views.legacy.visible,false);assert.ok(views.legacy.clock-views.legacy.marker.seenAt<=2&&views.legacy.marker.seenAt>views.read.marker.seenAt-1,'starts at its own clock');log.push('E save without the slice: marker starts at its own clock, no replay');
-  const r={bundle,viewport:'1920x1080',route:'fresh life, elder talk, Notebook waypost, 12 game hours; Save, reload, Mark as read, Export, Import, pre-slice save',errors,log,views};
+  const r={bundle,viewport:'1920x1080',route:'fresh life, elder talk, Notebook waypost, 12 game hours, row at the top of Reports; Save, reload, Mark as read, Export, Import, pre-slice save',errors,log,views};
   fs.writeFileSync(path.join(out,'result.json'),JSON.stringify(r,null,1));console.log(JSON.stringify({bundle,errors,log},null,1));if(errors.length)process.exitCode=1;
  }catch(e){console.error(e);console.log(JSON.stringify({log,errors,views},null,1));process.exitCode=1;}finally{await browser.close().catch(()=>{});server.close();}
 })();

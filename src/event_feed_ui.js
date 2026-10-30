@@ -4,6 +4,7 @@ import {reportAttention,reportProjection} from "./host.js";
 import {domainRegistry} from "./domain_registry.js";
 import {returnDigest} from "./return_digest.js";
 import {createReturnDigestRow} from "./return_digest_ui.js";
+import {openWorkspaceModule} from "./workspace_layout.js";
 
 const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
 export function createEventFeed({registry, read, open}) {
@@ -12,8 +13,11 @@ export function createEventFeed({registry, read, open}) {
     const summary = node("summary", "World events"), leads = node("div"), past = node("details");
     const pastSummary = node("summary", "Recent news"), history = node("ol");
     past.append(pastSummary,history);
-    const digestRow=createReturnDigestRow({markRead:()=>{domainRegistry.command('returnDigest','markRead')();render();}});
-    panel.append(summary,digestRow.node,leads,past);
+    // RPT6 home: the top of Reports, which stays on screen; the stream below keeps the raw lines.
+    const digestRow=createReturnDigestRow({markRead:()=>{domainRegistry.command('returnDigest','markRead')();render();},openPerson:()=>openWorkspaceModule('known-people')});
+    const reports=document.getElementById('message_log_div');
+    if(reports)reports.insertBefore(digestRow.node,document.getElementById('message_box_div'));
+    panel.append(summary,leads,past);
     const lifePanel=node('details'),heardPanel=node('details'),lifeHistory=node('ol'),heardHistory=node('ol');
     lifeHistory.style.maxHeight='16rem';lifeHistory.style.overflowY='auto';
     lifePanel.id='life_event_view'; heardPanel.id='heard_event_view';
@@ -23,7 +27,7 @@ export function createEventFeed({registry, read, open}) {
         const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
         const marker=domainRegistry.project('returnDigest'),digest=marker?returnDigest(state,registry,{facts:context.facts,lifeRecord:snapshot.lifeRecord,seenAt:marker.seenAt,feed}):null;
         digestRow.update(digest,{writable:marker?.writable!==false});
-        panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length && !digest?.visible;
+        panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
         const count = feed.leads.filter(e => e.available).length;
         reportAttention(count, feed.leads.find(e => e.available)?.label || "");
         reportProjection("events", () => ({leads: feed.leads.map(e => ({label: e.label, detail: e.detail, available: e.available})), news: feed.news.map(m => m.text), ...(digest?.visible ? {away: digest.text} : {})}));

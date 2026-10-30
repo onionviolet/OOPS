@@ -13,6 +13,7 @@ import {GRADED_IDS} from './harvest.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
+import {reportRepeatKey} from './report_repeats.js';
 import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot, hostileSubject} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
 import {denominationsKnown} from './reveal_chain.js';
@@ -993,6 +994,22 @@ export function setNativeLogBufferReader(reader) {
 
     message_to_add = message_to_add.replaceAll("%HeroName%", character.name).replaceAll("\n","<br>");
     //message_to_add = message_to_add.replaceAll("%HeroName%", character.name).replaceAll("<br>","\n");
+    // Non-combat repeat of the newest visible line folds into its ×N (report_repeats.js).
+    const repeat_key=getDisplaySetting('combatRepeatMode')==='detailed'?null:reportRepeatKey(message_type,message_to_add,details);
+    let last_line=repeat_key&&message_log?.lastElementChild;
+    while(last_line&&!last_line.classList.contains('message_common'))last_line=last_line.previousElementSibling;
+    if(last_line&&last_line.dataset.reportRepeatKey===repeat_key){
+        const batch=deferSimulationRender(finish_batched_message_log,finish_batched_message_log);
+        const following=batch&&batched_log_following!==undefined?batched_log_following:getDisplaySetting("logFollow")==="always"||is_message_log_near_bottom();
+        if(batch)batched_log_following=following;
+        addCombatOccurrence(last_line,combat_occurrence_time());
+        const shown=document.getElementById([...last_line.classList].find(c=>/^message_(?:events|loot|unlocks|background|crafting|combat)$/.test(c))?.replace("_","_show_"));
+        if(shown?.classList.contains('active_selection_button')){
+            if(following){if(batch)batched_log_scroll_requested=true;else message_log.scrollTop=message_log.scrollHeight;}
+            else{message_log_unread_count+=1;show_message_log_unread();}
+        }
+        return;
+    }
 
     let message = document.createElement("div");
     message.classList.add("message_common");
@@ -1191,6 +1208,7 @@ export function setNativeLogBufferReader(reader) {
     insert_HTML(message, "<div class='message_border'> </>");
 
     message_log.appendChild(message);
+    if(repeat_key){message.dataset.reportRepeatKey=repeat_key;addCombatOccurrence(message,combat_occurrence_time());}
 
     const button_id = group_to_add.replace("_","_show_"); //not the best way but likelihood of the ids being changed is quite low
     if(document.getElementById(button_id).classList.contains("active_selection_button")) {

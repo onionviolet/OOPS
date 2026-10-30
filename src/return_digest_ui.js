@@ -1,8 +1,8 @@
-// "While you were away" row (RPT6, LTU3). Home: the World events panel, above its leads; the raw
-// lines stay in Recent news, Life and Reports. Plain DOM lists, so the row is its own text form.
+// "While you were away" row (RPT6, LTU3). Home: pinned at the top of Reports, above the stream that
+// keeps the raw lines. Plain DOM lists, so the row is its own text form.
 const node = (doc, tag, text = '', cls = '') => {const n = doc.createElement(tag); if (text) n.textContent = text; if (cls) n.className = cls; return n;};
 
-export function createReturnDigestRow({doc = document, markRead}) {
+export function createReturnDigestRow({doc = document, markRead, openPerson = null}) {
     const root = node(doc, 'section', '', 'return-digest');
     root.id = 'return_digest'; root.setAttribute('aria-label', 'While you were away'); root.hidden = true;
     const heading = node(doc, 'strong'), groups = node(doc, 'ul', '', 'return-digest-groups');
@@ -27,7 +27,9 @@ export function createReturnDigestRow({doc = document, markRead}) {
             const item = node(doc, 'li'); item.dataset.digestGroup = g.id;
             const lines = node(doc, 'ul');
             lines.append(...g.lines.map(l => node(doc, 'li', `${l.text} (${l.when})`)));
-            item.append(node(doc, 'span', `${g.label} · ${g.lines.length}`, 'return-digest-who'), lines);
+            const who = node(doc, openPerson && g.kind === 'person' ? 'button' : 'span', `${g.label} · ${g.lines.length}`, 'return-digest-who');
+            if (who.tagName === 'BUTTON') {who.type = 'button'; who.title = `Open People: ${g.label}`; who.addEventListener('click', () => openPerson(g.personId));}
+            item.append(who, lines);
             return item;
         }));
     }};
