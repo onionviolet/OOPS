@@ -122,3 +122,18 @@ Known classifier drift: potion ids went to ADV in volume 1 and MAK in volume 6; 
 | Improvement pass (slices 1-4) | Luna model confirmed for all 11 later lanes; 13-event spot-check plus counts over 2,568 rows found 6 defect classes (private leak, named-without-carrier, unwitnessable witnessed rows, later-volume bindings, curfew kind, dead fields); all fixed in one commit | `node --test` on the three world_events test files: 16 pass; builder re-run on real inputs exits 0 | Codex 29% |
 | GM35 deepening | Second-hand spread (carrier must learn first, chains, loop guard) and `whoKnows`; design note updated | `node --test` on the three world_events files: 17 pass | Codex 29% |
 | GM38 restrictions | `restrictionsOn` and `openUnder` (curfew, closure, travel_halt shaped to region_kit and travel_legs fields); Luna `sw-l14-restrict` (gpt-6-luna, model in lane.json) classified 155 placed city-scale rows, 11 with effects (4 closures, 4 region curfews, 2 halts, 1 curfew with hours); text-only scopes load as `unmapped` notices. Scenes the lead is absent from (25 of 316 merged scenes) now carry `present` and happen without the lead | `node --test` on the three world_events files: 20 pass; builder re-run on real inputs exits 0 | Codex 30% |
+
+## Round 3: Codex bulk lanes (2026-10-30 ~09:55)
+
+Weibao via the overnight supervisor: "MOre codex readings or more things codex can do? Send out and finish the other sonnet works too". The owning Sonnet lanes are idle, so each family's file area below passes to its Codex lane for this round. Briefs are in [codex-r3/](codex-r3/). Each Sol lane does the prep, and where the work is bulk it writes Luna briefs that the coordinator launches. Before anything is folded in, the coordinator spot-checks 15 rows per family. floor-wire is the only writer of the LOTM host files. Launch stops: Codex at 85%, Claude weekly at 72%. Codex was at 35% when these launched.
+
+| Lane | Brief | Takes over from | Owned area | State |
+| --- | --- | --- | --- | --- |
+| `sw-r3-c1-l10` | C1: inferred ability costs (CHOICES 2), then slug clustering | sw-adv (L10) | `src/ability_cost_infer.js`, its test, `codex-r3/c1/`, private `l10/cost-infer/`, `l10/slug-cluster/` | launched, Sol medium |
+| `sw-r3-c2-routine` | C2: 91 unbound cards, Klein slots after chapter 30 (CHOICES 3) | sw-absorb data line | `codex-r3/c2/`, private `routine-r3/` | launched, Sol medium |
+| `sw-r3-c3-price` | C3: price ids to pence ids (L2 item 7) | L2 | `src/lotm_price_map.js`, its test, price count in `coverage_ledger.mjs` and its test, `codex-r3/c3/` | launched, Sol medium |
+| `sw-r3-c4-rites` | C4: rites and crafts for volumes 4-8, volume 2 leftovers, GM33 artifacts | sw-rites (L4) | `codex-r3/c4/`, private `l4/v4plus/` | launched, Sol medium (prep) |
+| `sw-r3-c5-texture` | C5: classify texture rows | L7 | `codex-r3/c5/`, private `wb-families-texture/` | launched, Sol medium (prep) |
+| `sw-r3-c6-chars` | C6: Luen and Groselle thin sheets | sw-chars (L8) | the two private sheets, `codex-r3/c6/` | launched, Sol medium |
+
+L14 needs no lane this round: volumes 2-8 of news and calendar are already done (see the L14 section above).
