@@ -96,3 +96,4 @@ Pilot as launched: **L-A** (absorption successor and integrator), **L2** (ledger
 | 10-29 22:40 | Plan written, nothing launched | 38% | 28% | 26% (22:55) |
 | 10-30 00:46 | Pilot launched: sw-absorb (`local_98b0ec09`), sw-ledger (`local_2498dc0e`), L6 sent to readings session `local_fb1fcc38` | 41% | 51% (resets 01:30) | 26% |
 | 10-30 01:20 | L2 ledger done: script + test (3 pass), LEDGER.md, grade-C set-aside already applied by another session (10/10 lint clean, 11 rows aside) | 41% (sampled 00:46) | 51% | 27% |
+| 10-30 05:00 | L6 (readings session): Circle of Inevitability people/rules/texture on Luna, pilot 3 shards then 12 more (36 of 36 ok after one retry); 10 grade-C volume 1 shards now B | 44% | 72% | 27% |
