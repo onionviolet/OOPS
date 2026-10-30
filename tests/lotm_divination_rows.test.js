@@ -8,8 +8,8 @@ const binding = {worldId: LOTM_IDS.world, group: 'book_lotm', situationId: LOTM_
 const commands = defineDivinations(LOTM_DIVINATION_ROWS, binding);
 
 test('source rows compile with distinct identities, indexed locators and host support facts', () => {
-    assert.equal(LOTM_DIVINATION_ROWS.queries.length, 9);
-    assert.equal(commands.length, 29);
+    for (const id of ['lotm.div.coin-divination', 'lotm.div.cane-dowsing', 'lotm.div.altar-search-divination']) assert.ok(LOTM_DIVINATION_ROWS.queries.some(row => row.id === id), `${id} keeps its published id`);
+    assert.equal(commands.length, LOTM_DIVINATION_ROWS.queries.reduce((n, row) => n + row.steps.length, 0));
     assert.equal(new Set(commands.map(command => command.id)).size, commands.length);
     for (const row of LOTM_DIVINATION_ROWS.queries) {
         assert.match(row.id, /^lotm\.div\./);
@@ -88,7 +88,7 @@ test('unperformed methods, messenger and demonstration gaps stay outside the que
 
 test('each added method has one performed query with a stated reading', () => {
     const added = LOTM_DIVINATION_ROWS.queries.slice(3);
-    assert.equal(new Set(added.map(row => row.method)).size, 6);
+    assert.equal(new Set(added.map(row => row.method)).size, added.length);
     for (const row of added) {
         assert.deepEqual(row.steps.map(step => step.kind), ['prepare', 'attempt', 'interpret']);
         const attempt = row.steps.find(step => step.kind === 'attempt');
@@ -105,7 +105,6 @@ test('each added method has one performed query with a stated reading', () => {
 
 test('secondary occasions retain their query binding, source anchor and incomplete statuses', () => {
     const ids = new Set(LOTM_DIVINATION_ROWS.queries.map(row => row.id));
-    assert.equal(LOTM_DIVINATION_OCCASIONS.length, 12);
     const anchors = new Set();
     for (const occasion of LOTM_DIVINATION_OCCASIONS) {
         assert.deepEqual(Object.keys(occasion).sort(), ['locator', 'queryId', 'question', 'status']);
@@ -119,5 +118,4 @@ test('secondary occasions retain their query binding, source anchor and incomple
         const query = LOTM_DIVINATION_ROWS.queries.find(row => row.id === occasion.queryId);
         assert.notEqual(occasion.locator, query.locator, 'the primary occasion is already represented by its runnable query');
     }
-    assert.equal(LOTM_DIVINATION_OCCASIONS.filter(row => row.status === 'unknown').length, 4);
 });

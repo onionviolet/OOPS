@@ -9,7 +9,7 @@ const stage = {prepare: 0, call: 1, response: 2, rite: 3, outcome: 4};
 
 test('schema, identities and ordered steps describe two summons scenes', () => {
   assert.equal(LOTM_SUMMONS_ROWS.schema, 1);
-  assert.equal(rows.length, 2);
+  for (const id of ['lotm.summon.copper-whistle-messenger', 'lotm.summon.candle-self-summoning']) assert.ok(rows.some(row => row.id === id), `${id} keeps its published id`);
   const ids = rows.map(row => row.id);
   assert.equal(new Set(ids).size, ids.length);
   for (const row of rows) {

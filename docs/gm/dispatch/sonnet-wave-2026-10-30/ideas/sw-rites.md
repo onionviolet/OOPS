@@ -25,3 +25,14 @@ Shape check against the sibling book's existing rule rows (14 sampled by structu
 | ACCOUNT FOR NOW | Of 184 craft/potion volume 2 rows, 103 are later-ladder potion rules (ADV/MAK territory, GM25) and 40 crafts are unusable as cited; sw-adv owns the ladder rows. |
 | LATER (level: data; effort: M; done: the 29 unread rite citations and 8 unread volume 2 craft/potion groups extracted in 15-id chunks, rows added to `lotm_rite_rows.js`) | Finish volume 2 rite extraction. |
 | LATER (level: data; effort: S; done: v2 mirror-questioning and remains-search moved under `lotm_divination_rows.js` queries if a performed answer is confirmed) | Two v2 rows are question-and-signal in kind but sit in the rite file for now. |
+
+## 2026-10-30 (improvement pass over slices 1-4, round 2)
+
+| Class | Entry |
+| --- | --- |
+| ACT NOW | Tests pinned incidental shapes: exact row counts (9 queries, 29 commands, 12 occasions, 4 unknown, 6 added methods, 2 summons, 6 aids, 5 rules, 6 oil inputs) and `volume === 2` on every rite row, which would have broken the next volume. Replaced by published-id checks and invariants (command count equals step count; volume is an integer from 2). |
+| ACT NOW | Cross-file test `tests/lotm_row_files.test.js`: ids unique across the five row files, fact names stay in their own `actor.lotm.<ns>.` namespace, every locator is the source-index form with an optional `bN` prefix. |
+| ACT NOW | Divination gaps for the copper-whistle ids now name `coveredBy: 'lotm.summon.copper-whistle-messenger'` so they no longer read as missing. |
+| ACCOUNT FOR NOW | Checked for absolutes: no never/always/only in mechanism text; the "cannot" uses restate a source limit tied to a stated condition. Authored numbers (minutes, spirituality threshold) are labelled proposals. |
+| ACCOUNT FOR NOW | Fields nobody reads yet: all five files are unwired, so `proposals`, `evidence` and `effects` are read only by tests. Wiring (`sw-wire`) decides which are consumed; unused ones go in the next pass after wiring, not before. |
+| LATER (level: data; effort: S; done: wiring shows `craft.ritual-essence-oil` and `aid.ritual-oil-bath` overlap or not, then merge or cross-reference) | The craft row for ritual essence oil and the aid row for the ritual bath oil may describe one product from two sides. |

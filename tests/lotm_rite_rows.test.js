@@ -14,7 +14,7 @@ test('rite rows have distinct namespaced identities and confirmed volume-2 locat
     assert.equal(new Set(rows.map(row => row.id)).size, rows.length);
     for (const row of rows) {
         assert.match(row.id, /^lotm\.rite\.[a-z0-9-]+$/);
-        assert.equal(row.volume, 2);
+        assert.ok(Number.isInteger(row.volume) && row.volume >= 2);
         assert.ok(row.sourceIds.length);
         assert.ok(families.has(row.family));
         assert.ok(row.locators.length);

@@ -15,8 +15,8 @@ const rule = slug => rules.find(row => row.id === `lotm.potionrule.${slug}`);
 test('versioned tables have unique identities and cited English paraphrases', () => {
     assert.equal(LOTM_AID_PREPARATIONS.schema, 1);
     assert.equal(LOTM_POTION_RULES.schema, 1);
-    assert.equal(aids.length, 6);
-    assert.equal(rules.length, 5);
+    for (const id of ['amanda-distillate', 'eye-of-spirit', 'ritual-oil-bath', 'craggy-oil', 'folk-herbal-remedy', 'calm-potion']) assert.ok(aids.some(r => r.id === `lotm.aid.${id}`), id);
+    for (const id of ['procurement-attention', 'remains-main-material', 'related-pathway-substitution', 'low-sequence-brewing', 'animal-ingestion']) assert.ok(rules.some(r => r.id === `lotm.potionrule.${id}`), id);
     assert.equal(new Set(rows.map(row => row.id)).size, rows.length);
     for (const row of rows) {
         assert.match(row.id, /^lotm\.(?:aid|potionrule)\.[a-z0-9-]+$/);
