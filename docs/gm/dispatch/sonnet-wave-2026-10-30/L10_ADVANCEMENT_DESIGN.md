@@ -36,3 +36,22 @@ For a record set with prefix `P` and key `k`: ability `P.ability.k`, command `P.
 - Slice 1: `src/ability_records.js`, `tests/ability_records.test.js` (5 pass): condition refusal, cost paid, cooldown and charge limits through the native engine, read model, authoring rejects.
 - Slice 2: `src/lotm_advancement.js`, `tests/lotm_advancement.test.js` (4 pass; one reads the private pack and skips if absent). Seq 7 for the lead's pathway: a digest crossing, an ingest crossing citing the sw-rites formula row id, three ability records with cited conditions and a cooldown and a charge limit.
 - **Not done:** wiring `advanceLadder` into `lotmPathView` and the host (ceiling stays at Sequence 8 so play is unchanged), no browser run, costs are authored proposals (WPR5). Patch for the integrator is in the hand-off.
+
+## Slices 3 and 4: learnable abilities (GM8, GM40)
+
+**Samples (spell rows, counts only):** Harry Potter 653 spell rows, Mother of Learning 466, Shadow Slave 105 (LOTM 108 per the family table). Rows that mention teaching, lessons or practice: HP 23, MoL 28, Shadow Slave 5. So teacher, prerequisite, practice time and signs of progress are stated for about 3-6% of spells; the rest state conditions and limits only.
+
+| Code | Decision (proposal) | Reason |
+| --- | --- | --- |
+| D7 | A `learn` block on an ability record: `teacher` and `prerequisites` (each `{label, reason, requires}`), `lessonCost`, `practice {minutes, mastery}`, `masteryNeeded`, `signs [{at, text}]`. Every part is optional; a missing teacher, practice time or signs is added to `unstated` automatically. | Rows seldom state them (above); never invent. |
+| D8 | It lowers to the engine's power: a once-only `learn` command (teacher and prerequisite predicates, lesson cost, `learn` power effect), a timed `practice` command (`refine` effect adds mastery), and a cast whose control needs `power.<id>.mastery >= masteryNeeded`. A prerequisite spell is `power.<P>.power.<key>.owned`. | Reuses the existing power and practice model; nothing forked. |
+| D9 | `teacher_window.js` stays a village projection. Its `available` result (or any world's teacher presence) feeds the record's `teacher.requires` as a fact; the record never owns teacher hours. | One authority per fact (AR); GM1 schedules supply presence. |
+| D10 | Refusal reasons: the engine quote shows `Needs: <gate labels>`. `learnView` returns each gate's authored `reason`, so a panel can say why. | The engine hides per-gate predicates by design. |
+
+**Read model:** `learnView(card, {facts})` in `src/ability_records.js` returns `{stage: unlearned|practicing|castable, canLearn, refusedBy:[reasons], gates:[{label, met}], mastery, masteryNeeded, practiceMinutes, sign, nextSignAt, unstated}`. Cards carry `card.learn` and `card.ids` include `learn` and `practice` command ids.
+
+**Slice 3 evidence:** `tests/ability_records.test.js` (8 pass): refused before prerequisite and teacher, learned after, once-only, lesson cost paid, two timed practice sessions raise mastery to 2 through `advanceSimulation`, then the cast quotes eligible.
+
+**Slice 4 data (private, `private_packs/learnable-spells/{mol,hp}.json`):** Mother of Learning torch, book-finding divination, magic missile; Harry Potter match-to-needle, summoning charm, patronus charm. Each row cites rule id and locators for teacher, conditions and signs. Authored proposals: practice minutes, mastery counts (for example 90 sessions for "months", 14 for "two weeks"), mana amounts. Evidence: `tests/learnable_spells_packs.test.js` (2 pass, skip if packs absent). **Checks not run:** no Luna paragraph check beyond my own read of the cited rows; one reader.
+
+**Not done:** wiring packs into a world, any world's teacher-presence facts, failure chance (a dial, no stated number), browser run.
