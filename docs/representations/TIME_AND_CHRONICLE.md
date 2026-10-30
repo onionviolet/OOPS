@@ -150,7 +150,7 @@ save's own clock; future marker clamps; Export carries it). No engine schema bum
 - `node docs/representations/evidence/time/gallery.cjs`: fixture in Luminous and
   Neutral with its text form, `gallery-return-digest-1920x1080.png`.
 - `npm run check:arch`: PASS (main.js growth −48, no new cycle). `npm run check:rules`: PASS (5 existing warnings).
-- `npm test` (full, while six sibling suites ran): every failure seen is a 180 s timeout in live-browser `cast_*` integration tests or the two private-folder CLI checks that need the gitignored `docs/research/novels`; none touch these modules.
+- `npm test` (full, round-1 inputs, while six sibling suites ran): 4105/4123 pass, 10 fail; every failure is a 180 s timeout in live-browser `cast_*` integration tests or the two private-folder CLI checks that need the gitignored `docs/research/novels`; none touch these modules.
 
 **AD43 floor**
 
@@ -382,6 +382,7 @@ the digest). Likely next refactor: when a second note exists, move
 - TC18 ×N folding: unit-tested (key rules) and built; not yet exercised by a repeated line in the browser (implemented, browser-unexercised).
 - TC20 person links: built; the evidence route has no known person with memories, so the link is not exercised in the browser.
 - `npm run check:arch`: PASS (display.js 6748, under its 6767 baseline). `npm run check:rules`: PASS.
+- Full `npm test` was not rerun after round 2's `display.js` change; the coordinator's post-merge run is the gate.
 - Built by: TC18 by a Sonnet subagent (reviewed here); TC17, TC20 and this doc by this session. No other session started.
 
 AD43 floor for round 2: TC17 meets FLR1-FLR6 (agent-verified, not human-reviewed); TC18 and TC20 are implemented, below floor (FLR2 browser route not exercised).
