@@ -6,7 +6,7 @@ Weibao: "alot of stuff just turned into webs for representaiton, are those even 
 
 ## Short answer
 
-- **A web fits one question well: "what is this thing connected to, in words I can read at once?" It is only that when the lines carry labels.** Where the edges are labelled (people web, walk map, family tree) the plain figure answered 0-step questions by eye. Where edges are unlabelled (knowledge board, study map, fight ring) every answer needed a hover or click in every form.
+- **A web suits the question "what is this thing connected to, in words I can read at once?" when the lines carry labels, and little else.** Where the edges are labelled (people web, walk map, family tree) the plain figure answered most questions by eye (people web 0 steps, walk map 0, family tree 1 of 2 questions). Where edges are unlabelled (knowledge board, study map, fight ring) every answer needed a hover or click in every form.
 - **A table with an inspector halves the reading load.** First-paint words on the same data: figure about 126, table about 66, matrix about 80, sentences about 110 (measured, mean over 7 fixtures). The table needs one click per source to reach links, the same as a hover card.
 - **The matrix cost the most steps, or tied for most, on all 16 questions** (33 against 17 for the table, among the figure, table and matrix). Default: offer it only for pairwise questions ("who knows whom"), as an alternate.
 - **No measured gain justifies replacing a figure with a table or matrix.** The big form wins already landed on master from other lanes (body by part table, fight versus row, departures board, home chips). So this lane ships the interaction layer and a form switch, and replaces nothing (task 5 allowed "at most two where the gain is large"; none qualified).
@@ -25,7 +25,7 @@ Live views that draw through `src/ui/figure.js` (`renderFigure`), at master `b16
 | Talk rapport | `ui/talk_view.js` | four-stop track | how is this person changing toward me (TALK, stated) |
 | Walk map | `ui/walk_map.js` | rings plus places | how long to each place, who is usually there (MAPS_AND_TRAVEL, stated; the board table is the default) |
 | Home strip | `ui/home_view.js` | track (COV4 moved it to chips on master) | which rooms, what upkeep (HOMES, stated) |
-| Body milestones | `ui/body_view.js` | track only; the radial map was replaced by body by part | where does harm sit, how long to recover (BODY_AND_CONDITIONS, stated) |
+| Body milestones | `ui/body_view.js` | track; the radial map was replaced by body by part | where does harm sit, how long to recover (BODY_AND_CONDITIONS, stated) |
 | LOTM circle, making, ladder | `book_world_lotm_ui.js` | ritual ring, tracks | which condition is missing, where does the brew stand (RITUALS_AND_MAKING, stated). Owned by `floor-wire`; not touched |
 
 Not drawn views, so not counted as 13 webs: `combat_situation_ui.js` calls only `figureText` (the fight card's drawing is the versus row; `ui/combat_versus.js` imports only the state marks), `read_models/talk_bridge.js` and `ui/combat_situation.js` build specs, `return_digest.js` mentions figure.js in a comment, and the gallery and style guide are previews. Several of the "web" views were already reworked on master in round 2 (body, fight, departures board, home strip, family fan alternative).
@@ -55,7 +55,7 @@ Steps for all questions in the view / mean words in the answering element / mean
 
 What it says:
 
-- F1 (measured). The plain figure reaches its answers at 0 steps only through edge labels, and only if the eye follows the line to the right person. In the people web 15 of its facts were that kind. Where labels are absent, the plain figure needs a hover in every case.
+- F1 (measured). The plain figure reaches its answers at 0 steps through edge labels, by the eye following the line to the right person; that was 15 of the 40 facts, mostly in the people web, walk map and family tree. Where labels are absent, the plain figure needs a hover in every case.
 - F2 (measured). The interaction layer costs more steps than the plain figure in the table because the plain column assumes eye-tracing is free; it buys a card that names the whole neighbourhood in words (one hover per person, not per line) and makes the answer readable without tracing. This is its job: accuracy of the answer, not fewer clicks.
 - F3 (measured). The table halves the first-paint text. It is a good form when the question is a list or a sort ("who has the most links", "which are guessed"). It shows shape poorly.
 - F4 (measured). The matrix needs a click per marked cell; a row with four links cost four steps. It answers "is there a link between A and B" well and little else.
@@ -89,7 +89,7 @@ Module: `src/ui/figure_interact.js` (pure model plus `attachFigureInteract`). Al
 | Neighbour highlight | Hover or focus a point: it and its neighbours stay, the rest and their edges fade to 28% opacity, an instant change | `options.hops` (default 1) |
 | Hover card | One card per hovered point under the figure: title, state mark and word, ring, optional `detail` and `why`, and each link as a button with its kind word. The native `<title>` tooltip moves into `aria-label` while attached and is restored on destroy | cards are plain DOM; no tooltip library |
 | Nested cards (Paradox style) | Hover or focus a link inside a card and that point's card opens beneath it, up to two levels. Clicking a link moves focus to that point | `MAX_NEST` 2 |
-| Pin and compare | Click or Enter pins; two pins open a compare pane: linked directly, both connect to, only A, only B. A third pin replaces the oldest | two at most (a compare is a pair) |
+| Pin and compare | Click or Enter pins; two pins open a compare pane: linked directly, both connect to, only A, only B. A third pin replaces the oldest | two by default (a compare is a pair) |
 | Filter | A text box dims points whose label or ring misses; "k of n match" is announced politely. The model also filters by state and edge kind | `options.filter: false` hides the box |
 | Focus plus context | A Focus toggle (or the `f` key) hides labels of points beyond the pinned set's neighbourhood and fades them to 18%. Shape stays | `options.focusMode`, `hops` |
 | Why on hover | Shows node and edge `why` ("Why: ...") and `detail` when the spec carries them. A view that derives a value supplies the sentence; the layer adds no sentence of its own | spec field `why` |
