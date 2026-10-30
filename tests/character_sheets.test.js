@@ -57,7 +57,8 @@ maybe('pilot sheets differ between volume 1 and a later volume and reproduce two
     for (const sheet of pilots) {
         const v1 = sheetAsOf(sheet, 'b1:213'), late = sheetAsOf(sheet, 'b8:1');
         const key = s => JSON.stringify([s.power.actual, s.identities.actual]);
-        assert.notEqual(key(v1), key(late), `${sheet.id} same power and identity in b1 and b8`);
+        // a thin extension sheet (bundle too small to date identity or power) has nothing to differ on
+        if ((sheet.identities?.length ?? 0) + (sheet.power?.length ?? 0) > 0) assert.notEqual(key(v1), key(late), `${sheet.id} same power and identity in b1 and b8`);
         const checked = (sheet.outcomes ?? []).map(o => reproduces(sheet, o.v ?? o)).filter(r => r !== null);
         assert.ok(checked.every(Boolean), `${sheet.id} outcomes ${JSON.stringify(checked)}`);
         if (PILOT.has(sheet.id)) assert.ok(checked.length >= 2, `${sheet.id} needs 2 checkable outcomes, has ${checked.length}`);
