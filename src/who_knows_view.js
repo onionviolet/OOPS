@@ -30,3 +30,23 @@ export function whoKnowsFor(observer, state, rows, people) {
     const links = sources.flatMap(fn => { try { return fn(observer, state) || []; } catch { return []; } });
     return whoKnowsRows(rows, links, people);
 }
+
+// "Who can I ask" (L13 bridge): hosts feed askListFromWhoKnows output ([{personId, name, topic, action}]) through
+// registerAskSource. The list names people and topics only; the route, day and witness level never reach the page.
+// Ask opens talk with the person (start_dialogue takes the person; the topic is shown beside the button).
+const askSources = [];
+export const registerAskSource = fn => { askSources.push(fn); return () => askSources.splice(askSources.indexOf(fn), 1); };
+export function askRows(observer, state, people) {
+    const here = new Map(people.map(p => [p.id, p.here])), seen = new Set(), out = [];
+    for (const fn of askSources) {
+        let list = []; try { list = fn(observer, state) || []; } catch { list = []; }
+        for (const item of list) {
+            const key = `${item.personId}|${item.action?.about}`;
+            if (item.action?.kind !== 'ask' || !here.has(item.personId) || seen.has(key)) continue; seen.add(key);
+            const present = here.get(item.personId);
+            out.push({personId: item.personId, name: item.name, topic: item.topic, canAsk: present,
+                reason: present ? `Ask ${item.name} about it` : `${item.name} is not here; ask when you meet`});
+        }
+    }
+    return out;
+}

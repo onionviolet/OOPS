@@ -362,3 +362,7 @@ told is excluded by this doc's own rule. So on a fresh origin the section is hid
 **AD43 floor.** Bars: rebuilt, 1920x1080 headless card evidence, focused tests, implemented. Who-knows: implemented, below floor on
 FLR4 (nothing feeds it) and the browser walk (hidden on a fresh origin; the Ask path is unit-tested only). Next slice: a seat-evidence
 source (presence records and the hero's tellings) once sw-bridge lands the book bridge.
+
+**Round 3 addition: who you can ask.** `registerAskSource` takes `askListFromWhoKnows` output (L13 `knows_ask_bridge.js`); the Knows home lists people and topics only, and Ask calls `start_dialogue` for the person (enabled only when here, else "not here; ask when you meet"). No host registers a source yet, so the section is hidden on a fresh origin.
+
+**Round 3 verification state.** Focused tests: `relationship_web`, `read_models_upcoming_learn_ask`, people_knowledge, knowledge and character_sheet slices pass (38 + 14). Rebuilt with `npm run build`. 1920x1080 browser proof (`scripts/relationship_web_browser.cjs`, now asserts the three bars) is queued for the browser slot and **pending**. Full suite pending (coordinator's batch run). Floor: implemented, below floor, browser proof pending.

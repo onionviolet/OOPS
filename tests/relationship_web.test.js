@@ -162,3 +162,16 @@ test('who else knows: only seat evidence; here gates ask; the truth query is nev
     const off = registerWhoKnowsSource(() => [{key: 'k1', person: 'a', basis: 'told'}]);
     assert.equal(whoKnowsFor({}, {}, rows, people)[0].who[0].reason, 'you told them'); off();
 });
+
+test('who you can ask: bridge output only; ask is gated on presence; nothing leaks', async () => {
+    const {askRows, registerAskSource} = await import('../src/who_knows_view.js');
+    const {askListFromWhoKnows} = await import('../src/read_models/knows_ask_bridge.js');
+    const known = [{person: 'a', eventId: 'e1', route: 'gossip', learnedDay: 9, level: 'heard'}, {person: 'b', eventId: 'e1', route: 'present', learnedDay: 2, level: 'present'}, {person: 'z', eventId: 'e1', route: 'x', learnedDay: 1, level: 'heard'}];
+    const list = askListFromWhoKnows(known, {self: 'me', knownPeople: new Set(['a', 'b']), nameOf: id => ({a: 'Ann', b: 'Bo'})[id], topicOf: () => 'the ferry fire'});
+    const people = [{id: 'a', name: 'Ann', here: true}, {id: 'b', name: 'Bo', here: false}];
+    const off = registerAskSource(() => list);
+    const rows = askRows({}, {}, people); off();
+    assert.deepEqual(rows.map(r => [r.personId, r.canAsk]), [['a', true], ['b', false]]);
+    assert.match(rows[1].reason, /not here/);
+    assert.doesNotMatch(JSON.stringify(rows), /gossip|present|learnedDay|heard/);
+});
