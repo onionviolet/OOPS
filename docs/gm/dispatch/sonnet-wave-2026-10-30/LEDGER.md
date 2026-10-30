@@ -125,7 +125,7 @@ Known classifier drift: potion ids went to ADV in volume 1 and MAK in volume 6; 
 
 ## Round 3: Codex bulk lanes (2026-10-30 ~09:55)
 
-Weibao via the overnight supervisor: "MOre codex readings or more things codex can do? Send out and finish the other sonnet works too". The owning Sonnet lanes are idle, so each family's file area below passes to its Codex lane for this round. Briefs are in [codex-r3/](codex-r3/). Each Sol lane does the prep, and where the work is bulk it writes Luna briefs that the coordinator launches. Before anything is folded in, the coordinator spot-checks 15 rows per family. floor-wire is the only writer of the LOTM host files. Launch stops: Codex at 85%, Claude weekly at 72%. Codex was at 35% when these launched.
+Weibao via the overnight supervisor: "MOre codex readings or more things codex can do? Send out and finish the other sonnet works too". The owning Sonnet lanes are idle, so each family's file area below passes to its Codex lane for this round. Briefs are in [codex-r3/](codex-r3/). Each Sol lane does the prep, and where the work is bulk it writes Luna briefs that the coordinator launches. Before anything is folded in, the coordinator spot-checks 15 rows per family. floor-wire is the only writer of the LOTM host files. Launch stops: Codex at 85%, Claude weekly at 90% (raised from 72% by Weibao, 2026-10-30). Codex was at 35% when these launched.
 
 | Lane | Brief | Takes over from | Owned area | State |
 | --- | --- | --- | --- | --- |
