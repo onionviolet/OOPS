@@ -534,6 +534,9 @@ Checks (all on the worktree with the owners' working files and the three patches
   (learned); dev readout shows each hit's split; save and reload identical; Export and Import identical; the
   old panel only points to the card after Import; the fight finishes (won) and the card hides.
 - Not run: full `npm test`, `npm run build`, `check:arch`, `check:rules` (they wait for the rebased tree).
+- "One other path" in the done check is native combat (`models/combat.js` through `takeDamage(type_multiplier)`, which both
+  `Enemy` and `Person` forward on primary). No conflict-frame user opts in, per the census above. Today's native check is the
+  math plus a one-call source check; after the rebase it should run a real `Enemy.takeDamage` through the owner's `loadNative` helper.
 
 Gaps: native mode not re-proved in the browser this round (the stale-hp report in R3-C10 is unverified; the
 card polls every 400 ms, so a screenshot can catch one hit's gap); `data-world-family` comes from the
