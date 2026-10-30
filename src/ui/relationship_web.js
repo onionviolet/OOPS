@@ -68,3 +68,39 @@ export function relationshipWebSpec(people, {id = 'relationship-web', title = 'W
     // Size dial: a small web for a few people, so one acquaintance does not fill the column.
     return {id, size: size ?? (shown.length < WEB_LIMITS.bands ? 560 : 720), title, summary: 'Only what you have seen, agreed or can read from them now. Hover a line for detail.', rings, nodes, edges, notes, legend};
 }
+
+// Relationship stages (round 2, proposal): depth from what the observer knows, never their hidden axes.
+// Each rung names the evidence that reaches it, so the bar can say what moves it next. The words are
+// a per-world dial (a court may say acquaintance, ally, confidant); the evidence rules stay the same.
+export const RELATIONSHIP_STAGES = Object.freeze([
+    {id: 'met', word: 'Met', next: 'share something with them: work, a favour, a question'},
+    {id: 'acquainted', word: 'Acquainted', next: 'see them often or make an agreement with them'},
+    {id: 'familiar', word: 'Familiar', next: 'settle an agreement with them'},
+    {id: 'relied', word: 'Relied on', next: 'after a settled agreement, see them warm toward you or come to trust them yourself'},
+    {id: 'close', word: 'Close', next: ''},
+]);
+const reached = person => {
+    const settled = person.owes.some(o => o.settled), warm = person.manner?.warm === true || person.trust > 0;
+    if (settled && warm) return 4;
+    if (settled) return 3;
+    if (person.saw.length >= 3 || person.owes.length) return 2;
+    return person.saw.length ? 1 : 0;
+};
+/** Stage and its strain, from the same person input as the web. */
+export function relationshipStage(person) {
+    const index = reached(person), stage = RELATIONSHIP_STAGES[index];
+    return {...stage, index, max: RELATIONSHIP_STAGES.length - 1, strained: strained(person)};
+}
+/** One glance line for a person card summary: stage, then only the signals that need attention. */
+export function relationshipGlance(person) {
+    const stage = relationshipStage(person), open = person.owes.filter(o => !o.settled);
+    return [stage.word, person.here ? 'here' : '', open.some(o => o.by === 'you') ? 'you owe' : '', open.some(o => o.by === 'them') ? 'owes you' : '',
+        stage.strained ? 'needs care' : ''].filter(Boolean).join(' · ');
+}
+/** A meter_bar.js spec (discrete track) for the stage, with what moves it and what was read today. */
+export function relationshipStageMeter(person) {
+    const stage = relationshipStage(person);
+    return {id: `bond.${person.id}`, label: `Bond: ${stage.word}`, kind: 'track', value: stage.index, max: stage.max, discrete: true,
+        note: stage.next ? `Next: ${stage.next}.` : 'The highest stage this world names.',
+        ...(person.manner ? {observation: {text: `Seen here now: ${person.manner.line.replace(/\.$/, '')}`}} : {})};
+}

@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createDom} from '../scripts/headless/dom.mjs';
-import {relationshipWebSpec, WEB_LIMITS} from '../src/ui/relationship_web.js';
+import {relationshipWebSpec, WEB_LIMITS, relationshipStage, relationshipGlance, relationshipStageMeter, RELATIONSHIP_STAGES} from '../src/ui/relationship_web.js';
+import {normalizeMeter} from '../src/meter_bar.js';
 import {relationshipWebPeople, relationshipWebForState} from '../src/relationship_web_view.js';
 import {figureText, renderFigure, validateFigureSpec} from '../src/ui/figure.js';
 import {RELATIONSHIP_WEB_FIXTURES, RELATIONSHIP_WEB_PEOPLE} from '../src/ui/preview/fixtures/relationship_web.js';
@@ -91,8 +92,12 @@ test('the web renders as a sibling of the cards in the People panel with a text 
         assert.equal(web.closest('[data-known-person]'), null);
         assert.equal(web.querySelector('[data-known-person]'), null);
         assert.match(web.querySelector('pre.fig-text').textContent, /owes you: a commissioned kit/);
+        assert.equal(web.open, false, 'the web is a closed disclosure; cards carry the glance');
+        assert.match(web.querySelector('summary').textContent, /Web of who knows what · 1 person/);
         const card = people.panel.querySelector('[data-known-person="oldCraftsman"]');
-        assert.doesNotMatch(card.textContent, /owes|Who knows what/);
+        assert.equal(card.querySelector('summary .known_person_glance').textContent, ' · Familiar · here · owes you');
+        assert.match(card.querySelector('.meter-bar .meter-bar-label').textContent, /Bond: Familiar/);
+        assert.doesNotMatch(card.textContent, /Who knows what|99|fear/);
         const svg = web.querySelector('svg'); people.render(state, met);
         assert.equal(web.querySelector('svg'), svg, 'an unchanged spec is not redrawn');
     } finally { delete globalThis.document; }
@@ -111,4 +116,21 @@ test('edge labels: no two placed label boxes overlap in the populated fixture', 
         const a = boxes[i], b = boxes[j];
         assert.ok(!(a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0), `labels ${i} and ${j} overlap`);
     }
+});
+
+test('relationship stages climb only on evidence the observer has, and the bar says what moves it', () => {
+    const base = {id: 'a', name: 'Ann', here: false, owes: [], saw: []};
+    const word = person => relationshipStage(person).word;
+    assert.equal(word(base), 'Met');
+    assert.equal(word({...base, saw: ['x']}), 'Acquainted');
+    assert.equal(word({...base, owes: [{by: 'you', label: 'a debt'}]}), 'Familiar');
+    assert.equal(word({...base, owes: [{by: 'you', label: 'a debt', settled: true}]}), 'Relied on');
+    assert.equal(word({...base, owes: [{by: 'you', label: 'a debt', settled: true}], manner: {line: 'Warmer toward you.', warm: true, heard: false}}), 'Close');
+    assert.equal(relationshipStage({...base, manner: {line: 'Wary of you.', warm: false, heard: false}}).strained, true);
+    assert.equal(relationshipGlance({...base, here: true, owes: [{by: 'them', label: 'x'}, {by: 'you', label: 'y', strained: true}]}), 'Familiar · here · you owe · owes you · needs care');
+    const meter = normalizeMeter(relationshipStageMeter({...base, saw: ['x']}));
+    assert.equal(meter.text, 'Bond: Acquainted 1/4'); assert.equal(meter.discrete, true);
+    assert.match(meter.note, /^Next: /);
+    assert.equal(normalizeMeter(relationshipStageMeter({...base, owes: [{by: 'you', label: 'd', settled: true}], trust: 1})).state, 'complete');
+    assert.equal(RELATIONSHIP_STAGES.length - 1, relationshipStage(base).max);
 });

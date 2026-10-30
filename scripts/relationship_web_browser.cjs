@@ -31,7 +31,9 @@ const output = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/re
     assert.equal(await web.isVisible(), true, 'the web sits directly in the People panel');
     assert.equal(await page.locator('[data-known-person] #relationship_web, #relationship_web [data-known-person]').count(), 0);
     assert.equal(await web.locator('svg.fig-svg').count(), 1);
-    await web.locator('details > summary', {hasText: 'Read as text'}).click();
+    assert.equal(await web.evaluate(n => n.open), false, 'web starts closed; cards carry the glance');
+    assert.match(await page.locator('[data-known-person="villageElder"] summary').textContent(), /Village elder · Met/);
+    await web.locator(':scope > summary').click(); await web.locator('details > summary', {hasText: 'Read as text'}).click();
     const fresh = await webText(page);
     assert.match(fresh, /Who knows what about you/); assert.match(fresh, /Village elder/);
     assert.doesNotMatch(fresh, /trust \d|archive|successor/i);
@@ -51,13 +53,21 @@ const output = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/re
     await page.locator('[data-simulation="village.working_habits"]').click();
     await page.locator('[data-simulation="village.commission"]').click();
     await people(page);
+    if(!await page.locator('#relationship_web').evaluate(n => n.open)) await page.locator('#relationship_web > summary').click();
     if(!await page.locator('#relationship_web details').evaluate(n => n.open)) await page.locator('#relationship_web details > summary').click();
     const commissioned = await webText(page);
     assert.match(commissioned, /Old craftsman to You: owes, owes you: a commissioned kit \(pending\)/);
     assert.match(commissioned, /Old craftsman to You: saw, saw \d deeds?\. Saw: /);
     const snapshot = await save(page), hidden = snapshot.expansion.simulation.relationships.oldCraftsman?.player?.axes?.trust;
     assert.doesNotMatch(commissioned, /Craftsman's trust|trust: \d/);
-    assert.doesNotMatch(await page.locator('[data-known-person="oldCraftsman"]').textContent(), /owes|Who knows what/);
+    const craftCard = page.locator('[data-known-person="oldCraftsman"]');
+    assert.match(await craftCard.locator('summary').textContent(), /Old craftsman · Familiar · here · owes you/);
+    if(!await craftCard.evaluate(n => n.open)) await craftCard.locator('summary').click();
+    assert.match(await craftCard.locator('.meter-bar').textContent(), /Bond: Familiar/);
+    assert.doesNotMatch(await craftCard.textContent(), /Who knows what|Craftsman's trust/);
+    await page.locator('#relationship_web > summary').click(); // close the web: the cards are the glance
+    await craftCard.scrollIntoViewIfNeeded(); await page.screenshot({path: path.join(output, 'game-craftsman-card-bond.png')});
+    await page.locator('#relationship_web > summary').click();
     await shot(page, 'game-craftsman-commission.png');
     findings.push(`Fixture route (generated save, craftsman greeting): enrolling, asking his habits and paying the commission adds "owes you: a commissioned kit" and "saw" edges; his hidden trust axis (${hidden}) does not appear.`);
     const result = {url, viewport: '1920x1080', fingerprint, findings, errors, generatedSavesOnly: true, text: {fresh, commissioned}};

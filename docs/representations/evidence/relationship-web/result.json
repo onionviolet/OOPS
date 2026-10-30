@@ -1,7 +1,7 @@
 {
   "url": "http://127.0.0.1:18617/",
   "viewport": "1920x1080",
-  "fingerprint": "http://127.0.0.1:18617/dist/bundle.js?version=v0.6-f0b79723b9f2",
+  "fingerprint": "http://127.0.0.1:18617/dist/bundle.js?version=v0.6-a682e3246431",
   "findings": [
     "Fresh life, earned route: greeting the elder shows the web in People route (known-people) with the elder and the text form: [\"Who knows what about you\",\"Only what you have seen, agreed or can read from them now. Hover a line for detail.\",\"Ring Known, 1 places: 1. Village elder.\",\"Nodes: You (active).\",\"No agreement or shared event yet with Village elder.\",\"Unknown: Manner is read only face to face; nothing read now for anyone you know.\"]",
     "Fixture route (generated save, craftsman greeting): enrolling, asking his habits and paying the commission adds \"owes you: a commissioned kit\" and \"saw\" edges; his hidden trust axis (1) does not appear."

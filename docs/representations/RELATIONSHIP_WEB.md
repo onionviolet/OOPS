@@ -182,3 +182,159 @@ own traced rumours: a "you asked who told them" verb that records a teller
 into the observer's knowledge, so the ripple fills ring by ring. (3) Read
 debts from the owed-ledger sources once merged. (4) RW3 exposure map for a
 hidden-identity start, with its per-world fact list.
+
+## Round 2 (2026-10-30, proposals)
+
+Brief: [round 2](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md). Everything here,
+round 1 included, is the current best and open to replacement with a reason (AD45).
+
+### R2.1 How other games do it
+
+Claims are from general knowledge of these games' public play and docs, not from a play
+session this round; the "adapt" column is inference.
+
+| Game | What the player sees | Easy / costly | Idea adapted |
+|---|---|---|---|
+| Crusader Kings III | Opinion as a number with a hover breakdown of signed reasons; hooks and secrets as separate icons | Easy to see *why*; costly in reading load and numbers without felt meaning | Every stage and edge carries its *reason* (the evidence), shown on hover or in the text form |
+| RimWorld | Social tab: a list of pawns with an opinion number, the breakdown in a tooltip | One list answers "who likes whom"; tooltips hide the point | A list, not a graph, is the frequent view; reasons one hover away |
+| Stardew Valley | Heart bars per person, gifts this week, a birthday | Glanceable and warm; hides that hearts are a hidden number | The **bond bar** with discrete steps and a "next" line (adapted, with stages from known evidence rather than a hidden number) |
+| Persona 5 | Confidant ranks 1-10, what the next rank unlocks | Clear depth and goals | **Stages that say what moves them** and what the next one means |
+| Dwarf Fortress | Plain relationship lists in a unit's thoughts | Honest, dense, no shape | Plain-words text form stays first-class |
+| The Sims 4 | Two bars (friendship, romance) per relationship | Two axes at a glance | Keep axes separate when a world has more than one (dial below) |
+
+Our own references: the thematic UI owner's "small contextual bars" and the existing
+`meter_bar.js` track kind already give the bar; no new shape was needed (UR79).
+
+### R2.2 Fresh-player test (from a fresh life, then the craftsman fixture)
+
+Five-second read before this round: a large empty figure with one node ("Village elder")
+dominated the People view; the person card showed only a name. Terms with no meaning yet:
+"Web", "manner", "saw 2 deeds". Fixes made (ACT NOW): the web is now a closed disclosure
+with a count; each card's summary says the stage and what needs attention ("Old craftsman ·
+Familiar · here · owes you"); the bar inside says what moves it next.
+
+### R2.3 Split and density (1920×1080)
+
+- **Glance (looked at often):** one line per person in the card summary. Compact.
+- **Bond bar (looked at sometimes):** inside the open card, a discrete track with a "next" note
+  and today's observed manner as its annotation. One click.
+- **Web (looked at rarely):** who owes whom across everyone, closed by default.
+- Split chosen: the web answered two questions (how close is each person; what links us). The
+  bar now answers the first, the web the second.
+
+### R2.4 Bars and small signals
+
+The bond bar answers "how far has this relationship come, by what I have seen?" (UR61). Words
+sit beside it ("Bond: Familiar 2/4", "Next: …"); it reads the same in any card (UR74). Stages:
+Met → Acquainted (a shared event) → Familiar (three shared events, or an agreement) → Relied on
+(an agreement settled) → Close (settled, and warm manner seen or your own trust). The words are
+a per-world dial; the evidence rules are the default. "Needs care" marks strain (wary manner, a
+strained debt) without lowering the stage, since strain and history are different facts.
+
+### R2.5 Pop-out and desktop
+
+Earns a pop-out later: the web is the one view worth a second screen during a social-heavy
+stretch. `renderFigure` draws with the node's own document (MDL13), so a pop-out host can
+mount it; the browser fallback is the disclosure. No badge or notification: a bond stage
+change is a Reports line (R2.14), not an interruption.
+
+### R2.6 Cheats and insight
+
+By default the honest seat does not read `whoKnows` (L14) or anyone's axes toward you. A cheat or
+continuing-insight view is the place for them: the same bar gains a second, marked fill
+("insight: their regard") and the ripple fills from `whoKnows` with each link marked as
+insight-sourced. Sealed secrets stay out: `whoKnows` answers who knows an *event*, and the
+insight view shows only events whose discovery route the seat has opened. The developer
+inspector stays separate. LATER.
+
+### R2.7 Alternative style
+
+Proposed alternative: a **matrix** (people as rows, columns owes / saw / manner / stage) for
+"who knows what about whom" once the web shows NPC-to-NPC links (RPX17). A matrix needs a grid
+layout in `figure.js` or a plain table; at today's data (edges only to you) a table is the
+person-card list itself, so no second style was built. Styles keep tokens only, so Luminous
+and Neutral both work.
+
+### R2.8 Use what we have
+
+Used: `meter_bar.js` (bond bar), `figure.js` (web), `observer_view.js`, `knownPeopleView`
+rows, `reactionLine`, custody loans. Read model to switch to: the cast records' `relations`,
+`knows` and `wants` (lead-run pipeline, `scripts/lead_run/batch_lib.mjs`). They are not in
+runtime `src/` on master yet; when a cast pack exposes them, `relationshipWebPeople` gains
+`relations` as known edges with their `basis`, `knows` as "saw/told" rows, and `wants` as a
+glance chip. That is the switch-over point.
+
+### R2.9 Unconventional option
+
+**The room tells you.** Instead of a meter, when you enter a place the Around-you line for
+each present person carries their manner as one short observed sentence ("Orr looks up and
+nods"), drawn from the same `reactionLine`, and the web is the remembered summary of those
+moments. Worth a later slice with rep-talk; costs a per-world phrase set.
+
+### R2.10 Audit gaps
+
+- Other seats: by default the adapter reads the observer's records, so a thin life or bystander seat
+  shows fewer stages, not wrong ones. Not yet tested with a non-player observer (needs a seat
+  that controls another actor).
+- Empty state: no known people hides the panel (existing). Error: the web, glance and bar hide
+  and the cards stay.
+- Persistence: none (derived).
+- Performance: one projection per People render, reusing the panel's rows; the figure redraws
+  only on a changed spec; one meter per card.
+- Accessibility: the bar has `role=progressbar` with value text; the web has its text form;
+  effects off keeps every fact. Not checked at 21 px this round.
+
+### R2.11-R2.21 (remaining items, short)
+
+- **Abstraction (R2.11):** a directed multigraph with typed, reasoned edges plus a per-node
+  stage track. Organizations and family tree can reuse the stage track for standing and kin
+  closeness.
+- **Open for improvement (R2.12):** known limits: no NPC-to-NPC edges; stages are a heuristic
+  ladder; debts duplicate rep-economy's owed sources until merged.
+- **Flourish (R2.13):** a short settle glow on the bar when the stage rises (UR38, effects-off
+  safe). LATER.
+- **Reports and center (R2.14):** proposed Reports line: "Bond: Old craftsman is now Familiar
+  (you made an agreement)." Owned by rep-time's Reports shell.
+- **Fold into existing UI (R2.16):** done: glance and bar live in the existing person cards; no
+  new surface.
+- **Later volumes (R2.17):** larger casts are handled by the 16-person web cap and the list;
+  stage words and evidence are data, so a later world adds rows (court ranks, sworn bonds).
+- **Form fits subject (R2.18):** stage → bar (a track); who owes whom → graph; who knows what
+  about whom → matrix later; reasons → prose. The circle stays only for the web.
+- **Levels and depth (R2.19):** the five-stage ladder with a "next" line; depth one click away.
+- **Semantic roles (R2.20):** edge kinds are roles (`owes`, `saw`, `manner`, `your trust`).
+  Flair sketch: in a gaslit city, the web as a pinned evidence board with string and wax
+  seals; in a cultivation world, bonds as karmic threads whose thickness is the stage.
+- **Draft (R2.21):** round 1's web is kept but demoted from the default view.
+
+### Round 2 ledger
+
+**ACT NOW (done):** bond stages (`RELATIONSHIP_STAGES`, `relationshipStage`,
+`relationshipGlance`, `relationshipStageMeter`); card glance line and bond bar in
+`people_ui.js`; web closed by default with a count; tests and 1920×1080 proof extended.
+
+**ACCOUNT FOR NOW:** switch to cast records when they reach runtime (R2.8); read debts from
+rep-economy's owed sources after merge; Reports bond line through rep-time's shell.
+
+**LATER / DELEGATE:**
+- Click a person on the web to select their card (FLR4 consumer). Sonnet, small. Done: click
+  focuses the card; test.
+- Insight view: marked insight fill on the bar and a `whoKnows` ripple. Sonnet, medium. Done:
+  insight seat shows it, honest seat does not; test both.
+- Matrix layout for NPC-to-NPC knowledge. Sonnet, medium, after NPC edges exist. Done: grid in
+  `figure.js` with a test.
+- Room-tells-you manner lines (R2.9) with rep-talk. Opus design, Sonnet build.
+
+Model use this round: done in this session rather than with Sonnet subagents, since the pieces
+were small and the 5-hour window was at 72% (the brief pauses launches past 80%).
+
+### Round 2 checks
+
+- `node --test tests/relationship_web.test.js tests/figure.test.js tests/people_knowledge.test.js`:
+  20 pass (adds the stage ladder, glance line, bond bar in the card, web closed by default).
+- `npm run check:docs`: clean for this doc.
+- Browser proof at 1920×1080 through the slot limiter on bundle `v0.6-a682e3246431`: 0 page
+  errors; elder card reads "Village elder · Met"; craftsman card reads "Old craftsman ·
+  Familiar · here · owes you" with "Bond: Familiar 2/4" and today's observed manner
+  (`evidence/relationship-web/game-craftsman-card-bond.png`).
+- Full `npm test` not run (coordinator's instruction; it runs at merge).
