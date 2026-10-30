@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {existsSync, readFileSync} from 'node:fs';
+import {existsSync, readdirSync, readFileSync} from 'node:fs';
 import {readManifest, renderStylesheets} from '../scripts/stylesheet_manifest.mjs';
 
 const hrefsIn = html => [...html.matchAll(/<link\b[^>]*rel\s*=\s*"stylesheet"[^>]*>/g)].map(m => m[0].match(/href\s*=\s*"([^"?]+)/)[1]);
