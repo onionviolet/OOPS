@@ -46,14 +46,15 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
  if(mode==='rail'){
   const btns=()=>p.evaluate(()=>[...document.querySelectorAll('#lotm_panel button')].map(b=>(b.disabled?'[disabled] ':'')+b.textContent.trim().slice(0,110)));
   const click=async re=>p.evaluate(src=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&new RegExp(src).test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;},re);
-  report.rail=[];await click('^Show the walking map');await pause(1000);report.walkList=(await btns()).filter(t=>/Walk|station|Station/.test(t)).slice(0,60);report.placedAt=await p.evaluate(()=>window.simulationTestHooks.snapshot().expansion.simulation.people.player.location);
+  report.stationBtns=(await btns()).filter(t=>/station/i.test(t));report.rail=[];if(mode==='rail'&&process.env.LISTONLY){report.allBtns=await btns();}await click('^Show the walking map');await pause(1000);report.walkList=(await btns()).filter(t=>/Walk|station|Station/.test(t)).slice(0,60);report.placedAt=await p.evaluate(()=>window.simulationTestHooks.snapshot().expansion.simulation.people.player.location);
+  if(process.env.LISTONLY)throw new Error('list only');
   const seen=new Set();
   for(let i=0;i<60;i++){
-   const all=await btns();await fs.appendFile(path.join(out,'progress.log'),`${new Date().toISOString()} step ${i} ${all.filter(t=>/Walk|Travel/.test(t)).slice(0,6).join(' | ')}\n`);const j=all.filter(t=>/^(\[disabled\] )?Travel from Tingen railway station/.test(t));
+   const all=await btns();await fs.appendFile(path.join(out,'progress.log'),`${new Date().toISOString()} step ${i} ${all.filter(t=>/Walk|Travel/.test(t)).slice(0,40).map(t=>t.slice(0,60)).join(' | ')}\n`);const j=all.filter(t=>/^(\[disabled\] )?Travel from Tingen railway station/.test(t));
    if(j.length){report.rail.push({step:i,journeys:j});break;}
    const stationTravel=all.find(t=>/^Travel from .* to Tingen railway station/i.test(t));if(stationTravel&&!report.stationVia){report.stationVia=stationTravel;}
    const walks=all.filter(t=>/^(Walk|Travel from)/.test(t)&&!/^Travel from Tingen railway station/.test(t));
-   const pick=(stationTravel?[stationTravel]:[]).concat(walks.filter(t=>/railway station/i.test(t))).find(Boolean)||walks.find(t=>!seen.has(t))||walks[0];
+   const pick=(stationTravel?[stationTravel]:[]).concat(walks.filter(t=>/railway station/i.test(t))).find(Boolean)||(i<3?walks.find(t=>/street market/i.test(t)):null)||walks.find(t=>!seen.has(t))||walks[0];
    if(!pick){if(all.some(t=>/^\[disabled\] /.test(t))&&i<59){await pause(5000);continue;}report.rail.push({step:i,stuck:all.slice(0,20)});break;}
    seen.add(pick);const t=await click('^'+pick.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').slice(0,60));report.rail.push({step:i,walked:t});
    await pause(3500);
