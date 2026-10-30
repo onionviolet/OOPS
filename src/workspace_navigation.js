@@ -73,7 +73,9 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         const observer=observerView(readPort('expansion'));
         for(const [route,b]of buttons){const {target:id,tab}=route;
             let hidden=!views.has(id)&&!ids.has(id);
-            if(tab){const control=document.getElementById(tab);hidden=!control||control.hidden||control.dataset.referenceKnown==='false';}
+            if(tab){const control=document.getElementById(tab);hidden=!control||control.hidden||control.dataset.referenceKnown==='false';
+                // A Journal tab whose panel is not eligible yet opened an empty 0x0 view; it appears once the panel is reachable.
+                if(!ids.has(id)||known.some(m=>m.id===id&&!m.eligible))hidden=true;}
             const controlId=controlForRoute(route.id);
             if(controlId&&!observer.sees({control:controlId}))hidden=true;
             if(b.hidden!==hidden){if(hold)held=true;else b.hidden=hidden;}
