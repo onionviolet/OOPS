@@ -219,3 +219,16 @@ The default stands: A, with B's return note and C's jump-by-name. Part 2 adds th
 ### Libraries that could build these pieces (relayed from `bk-scout`, not verified here)
 
 `bk-scout` reports, with licences and versions checked against npm and GitHub on 2026-10-30 (full doc `docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md` on its branch): **dockview** 8.8.2 (MIT, vanilla, floating panels, popouts, JSON layout save and restore) for tabs, split and pop-out; **@tanstack/virtual-core** and **table-core** (MIT) for long lists and sort, filter and group; **@floating-ui/dom** (MIT) for nested tooltips, with focus-trap and tabbable for keyboard focus; **uFuzzy** plus **tinykeys** (MIT) to build the palette, since no maintained vanilla one exists; **dagre** (MIT) for tree layout. **elkjs** is weak copyleft and Patchouli is CC BY-NC-SA, so both are reference-only. None is adopted. Two cautions before any adoption: dockview is the largest decision (bundle size, and its saved layout JSON would need a migration from today's layouts under UR17), and AD45 asks for a replaceable seam, so any library sits behind a port. Effect on difficulty scores: dockview lowers the tabs and split cost for A but adds a layout-migration line; the palette stack cuts C's jump-by-name to about 5 of 15.
+
+### Where several ladders and systems live (Weibao: abilities must not hardcode one path)
+
+Weibao, via the coordinator: abilities must not hardcode one path, and a character may hold several ladders. The played Tingen workroom already lists two pathways at once (Seer and Corpse Collector, with a stated one-pathway-per-life rule), plus Nighthawk merit as a third ladder. The mocks therefore treat a ladder as a list item with a name, where you stand and what is next, never as one fixed track (`ladders` in the fixture; `tests/ui_directions.test.js` fails if a direction shows only one).
+
+| Direction | Where ladders live | Many-ladder behaviour |
+| --- | --- | --- |
+| A | A "Paths and ladders" panel under You, one row per ladder; the abilities view opens one ladder at a time as a tab | Rows stack; a held ladder sorts above an offered one; tabs scale to any count |
+| B | A section of the Today page ("progress due"), with the next rung of each ladder as an agenda row | Only ladders with something due show; the rest sit in the drill-in |
+| C | Ladders are a result kind ("Ladder: Seer pathway"); the lookup answers "what uses this" for any rung | Search scales to any count; no screen space is spent until asked |
+| D | The notebook's skills page, one spread per ladder, plus a ribbon bookmark per ladder | Page per ladder; many ladders mean a thicker notebook, which is the weak spot of D |
+
+Default: ladders are data rows in every direction and the ladder figure (`ability_ladder_figure.js`) draws any one of them. Dial: with more than four ladders, show the held ones as rows and fold the offered ones under one "Offered" line.

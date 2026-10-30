@@ -25,6 +25,17 @@ test('every direction renders both fixtures with the facts a player needs, from 
     }
 });
 
+test('every direction shows each held or offered ladder, not one hardcoded path', () => {
+    for (const fixture of Object.values(FIXTURES)) {
+        assert.ok(fixture.ladders.length >= 1);
+        for (const {id} of DIRECTIONS) {
+            const text = textOf(buildScreen(id, fixture.id, {size: 14}));
+            const names = fixture.ladders.filter(l => text.includes(l.name)).length;
+            assert.ok(names >= (id === 'c' ? 1 : fixture.ladders.length), `${id}/${fixture.id}: ladders`);
+        }
+    }
+});
+
 test('effects-off facts: nothing the player needs is carried by a glow or animation class alone', () => {
     const css = readFileSync(new URL('../styles/ui_directions.css', import.meta.url), 'utf8');
     assert.match(css, /\[data-effects="off"\]/);

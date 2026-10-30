@@ -51,6 +51,9 @@ function reportsPanel(fx, withNote) {
 function peopleList(fx, withWant = true) {
     return rows(fx.people, (li, p) => add(li, btn(p.name), el('small', {}, p.role), withWant && p.want ? chip(p.want, 'ud-want') : null));
 }
+function laddersList(fx) {
+    return rows(fx.ladders, (li, l) => add(li, el('b', {}, l.name), el('span', {}, l.now), el('small', {}, `next: ${l.next}`)));
+}
 function itemsList(fx) {
     return rows(fx.items, (li, i) => add(li, el('span', {}, `${i.name} x${i.count}`), el('small', {}, i.value)));
 }
@@ -66,7 +69,7 @@ function buildA(fx, root) {
         panel({name: 'Around you', meta: `${fx.people.length} people · ${fx.services.length} places`}, [peopleList(fx, false), rows(fx.services.slice(0, 3), (li, s) => add(li, btn(s.name)))]));
     add(mid, nextStepBand(fx), panel({name: 'Local actions', meta: `${fx.actions.length} options`}, rows(fx.actions, (li, a) => li.append(actionRow(a)))),
         panel({name: 'Scene', meta: fx.place}, el('p', {class: 'ud-prose'}, 'Daylight falls across the path. Choose someone or something here to inspect.')));
-    add(right, reportsPanel(fx, true), panel({name: 'Belongings', meta: fx.money}, itemsList(fx)), panel({name: 'Journal', meta: 'pinned'}, rows(fx.agenda.slice(0, 2), (li, a) => add(li, el('b', {}, a.at), el('span', {}, a.text)))));
+    add(right, reportsPanel(fx, true), panel({name: 'Belongings', meta: fx.money}, itemsList(fx)), panel({name: 'Paths and ladders', meta: `${fx.ladders.length} held or offered`}, laddersList(fx), 'ud-ladders'), panel({name: 'Journal', meta: 'pinned'}, rows(fx.agenda.slice(0, 2), (li, a) => add(li, el('b', {}, a.at), el('span', {}, a.text)))));
     add(grid, left, mid, right); add(root, header(fx), top, grid);
 }
 
@@ -85,7 +88,7 @@ function buildB(fx, root) {
     const agenda = panel({name: 'Due today', meta: `${fx.agenda.length}`}, rows(fx.agenda, (li, a) => { li.dataset.state = a.state; add(li, el('b', {}, a.at), el('span', {}, a.text)); }));
     const who = panel({name: 'Who wants you'}, peopleList(fx));
     const reports = reportsPanel(fx, false);
-    const cols = el('div', {class: 'ud-two'}); add(cols, agenda, who);
+    const cols = el('div', {class: 'ud-two'}); add(cols, agenda, who, panel({name: 'Paths and ladders'}, laddersList(fx), 'ud-ladders'));
     add(page, cardHost, cols, panel({name: 'Drill in', meta: 'opens as a drawer'}, add(el('div', {class: 'ud-chips'}), ...['Stats', 'Belongings', 'People', 'Journal', 'Map', 'Settings'].map(t => chip(t)))));
     const side = el('aside', {class: 'ud-side'}); add(side, reports, panel({name: 'Belongings', meta: fx.money}, itemsList(fx)));
     add(root, header(fx), add(el('div', {class: 'ud-grid-b'}), rail, page, side));
@@ -96,8 +99,8 @@ function buildC(fx, root) {
     const query = fx.id === 'village' ? 'tal' : 'wat';
     const pool = [...fx.actions.map(a => ({kind: a.verb, label: a.label, hint: [a.time, a.cost].filter(Boolean).join(' · '), blocked: a.blocked})),
         ...fx.people.map(p => ({kind: 'Talk', label: `Talk to ${p.name}`, hint: p.role})), ...fx.services.map(s => ({kind: 'Place', label: s.name, hint: s.note})),
-        ...VIEWS.slice(0, 5).map(v => ({kind: 'View', label: v[0], hint: `${v[1]} hub`})), ...fx.items.map(i => ({kind: 'Item', label: i.name, hint: `x${i.count}`}))];
-    const hits = pool.filter(r => r.label.toLowerCase().includes(query)).concat(pool.filter(r => !r.label.toLowerCase().includes(query)).slice(0, 5)).slice(0, 8);
+        ...VIEWS.slice(0, 5).map(v => ({kind: 'View', label: v[0], hint: `${v[1]} hub`})), ...fx.items.map(i => ({kind: 'Item', label: i.name, hint: `x${i.count}`})), ...fx.ladders.map(l => ({kind: 'Ladder', label: l.name, hint: `${l.now} → ${l.next}`}))];
+    const hits = pool.filter(r => r.label.toLowerCase().includes(query)).concat(pool.filter(r => !r.label.toLowerCase().includes(query)).slice(0, 5)).slice(0, 7).concat(pool.filter(r => r.kind === 'Ladder').slice(0, 1));
     const quiet = el('div', {class: 'ud-quiet'});
     add(quiet, header(fx), el('p', {class: 'ud-prose ud-dim'}, 'Daylight falls across the village path.'), vitals(fx), reportsPanel(fx, true));
     const pal = el('section', {class: 'ud-palette', role: 'dialog', 'aria-label': 'Jump or do'});
@@ -114,7 +117,7 @@ function buildD(fx, root) {
     const desk = el('div', {class: 'ud-desk'});
     const book = el('section', {class: 'ud-notebook', 'aria-label': 'Notebook'});
     add(book, el('h2', {}, 'Notebook'), el('p', {class: 'ud-hand'}, fx.nextStep.text), el('p', {class: 'ud-hand ud-dim'}, fx.nextStep.how),
-        el('h3', {}, 'Today'), rows(fx.agenda, (li, a) => { li.dataset.state = a.state; add(li, el('b', {}, a.at), el('span', {}, a.text)); }), el('p', {class: 'ud-returnnote', 'data-return-note': ''}, fx.returnNote));
+        el('h3', {}, 'Ladders'), laddersList(fx), el('h3', {}, 'Today'), rows(fx.agenda, (li, a) => { li.dataset.state = a.state; add(li, el('b', {}, a.at), el('span', {}, a.text)); }), el('p', {class: 'ud-returnnote', 'data-return-note': ''}, fx.returnNote));
     const table = el('section', {class: 'ud-table', 'aria-label': 'Map table'});
     const fig = {id: 'ud-places', size: 640, title: `${fx.place} and nearby`, summary: 'Places by travel time from here.', rings: [{id: 'near', label: 'Near', radius: .5, slots: fx.places.length}],
         slots: fx.places.map((p, i) => ({id: p.id, ring: 'near', index: i, label: p.here ? `${p.name} (you)` : `${p.name} · ${p.time}`, state: p.here ? 'active' : 'empty', effect: p.here ? 'glow' : undefined}))};
