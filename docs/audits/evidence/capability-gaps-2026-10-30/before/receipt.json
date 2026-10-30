@@ -1,0 +1,150 @@
+{
+ "bundle": "57cc8bc5af48",
+ "viewport": "1920x1080",
+ "steps": [
+  {
+   "step": "v01-first-screen",
+   "nextStep": [],
+   "buttons": 66,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 2698,
+   "docScrollH": 1080
+  },
+  {
+   "step": "v02-after-question-mark",
+   "nextStep": [],
+   "buttons": 67,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 3409,
+   "docScrollH": 1080
+  },
+  {
+   "step": "v03-after-ctrl-k",
+   "nextStep": [],
+   "buttons": 66,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 4265,
+   "docScrollH": 1080,
+   "palette": [
+    "Known"
+   ]
+  },
+  {
+   "step": "v04-talk-menu",
+   "nextStep": [],
+   "buttons": 66,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\n Talk to village elder\nwork_outline Find work\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 2721,
+   "docScrollH": 1080
+  },
+  {
+   "step": "v05-elder-dialogue",
+   "nextStep": [],
+   "buttons": 65,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "Village elder\nAlready covered\n\nNothing yet. Each thing you say is kept here.\n\nTalking with Village elder · Village\n\nVillage elder is listening. Saying any of these takes no time. Each line shows what it costs before you say it.\n\n*You see an older man with curly white hair and dull, heavy horns. Desp",
+   "reportsLatest": [],
+   "bodyChars": 2769,
+   "docScrollH": 1080
+  },
+  {
+   "step": "v06-after-elder",
+   "nextStep": [],
+   "buttons": 71,
+   "panelSelectOptions": 56,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 2996,
+   "docScrollH": 1080
+  },
+  {
+   "step": "v07-find-work",
+   "nextStep": [],
+   "buttons": 71,
+   "panelSelectOptions": 56,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\n Take a loaned kit and patrol with Tessa (2 hours, 50 coins).\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 3058,
+   "docScrollH": 1080
+  },
+  {
+   "step": "v08-after-an-hour",
+   "nextStep": [],
+   "buttons": 71,
+   "panelSelectOptions": 56,
+   "hasPanelSearch": true,
+   "actionsText": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\n Take a loaned kit and patrol with Tessa (2 hours, 50 coins).\nblur_onCross to another world: Tingen\nMix at the Village counter",
+   "reportsLatest": [],
+   "bodyChars": 3058,
+   "docScrollH": 1080
+  },
+  {
+   "step": "t01-world-entry",
+   "nextStep": [],
+   "buttons": 68,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "Patrol blocked: return the loaned kit · Open Patrol & custody\t\n                        \n                    directions Move somewhere elsecheck_box_outline_blank Go to [Wild willow stand] [5m]question_answer Talk to someonecheck_box_outline_blank Talk to village elderwork_outline Find workPays 5C pe",
+   "reportsLatest": [],
+   "bodyChars": 4442,
+   "docScrollH": 1080
+  },
+  {
+   "step": "t02-lead-confirm",
+   "nextStep": [],
+   "buttons": 64,
+   "panelSelectOptions": 53,
+   "hasPanelSearch": true,
+   "actionsText": "Patrol blocked: return the loaned kit · Open Patrol & custody\t\n                        \n                    directions Move somewhere elsecheck_box_outline_blank Go to [Wild willow stand] [5m]question_answer Talk to someonecheck_box_outline_blank Talk to village elderwork_outline Find workPays 5C pe",
+   "reportsLatest": [],
+   "bodyChars": 2481,
+   "docScrollH": 1080
+  },
+  {
+   "step": "life start duration ms",
+   "ms": 26723
+  },
+  {
+   "step": "t03-lead-first-screen",
+   "nextStep": [],
+   "buttons": 47,
+   "panelSelectOptions": 21,
+   "hasPanelSearch": true,
+   "actionsText": "",
+   "reportsLatest": [],
+   "bodyChars": 1459,
+   "docScrollH": 1080
+  },
+  {
+   "step": "lead-hour-1 skipped",
+   "error": "page.evaluate: Error: Start PLAY before advancing ticks.\n    at z9e (http://127.0.0.1:53810/dist/bundle.js?version=v0.6-"
+  },
+  {
+   "step": "lead-hour-2 skipped",
+   "error": "page.evaluate: Error: Start PLAY before advancing ticks.\n    at z9e (http://127.0.0.1:53810/dist/bundle.js?version=v0.6-"
+  },
+  {
+   "step": "lead-hour-3 skipped",
+   "error": "page.evaluate: Error: Start PLAY before advancing ticks.\n    at z9e (http://127.0.0.1:53810/dist/bundle.js?version=v0.6-"
+  },
+  {
+   "step": "page-errors",
+   "errors": []
+  }
+ ]
+}
