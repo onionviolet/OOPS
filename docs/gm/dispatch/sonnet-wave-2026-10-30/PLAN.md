@@ -212,6 +212,10 @@ Each comes after this batch reports, or sooner if usage pacing allows.
 
 **Pacing:** the weekly burn is fast, so lanes draft on Codex (Sol) and keep Sonnet for review. That reminder went to L4, L9, L10 and L11.
 
+## Whole-book walk (2026-10-30 02:10)
+
+Weibao: "dont forget to consider every little idea and more, and still work through implementing through the rest of the book". Lanes now own a family across all 8 volumes and walk it volume by volume, logging every idea in a per-lane intake file: [QUEUE](QUEUE.md). The charter reached `sw-absorb`, `sw-rites`, `sw-adv`, `sw-road` and `sw-death`. `sw-calendar`, `sw-chars` and `sw-bridge` get it after Weibao's next message, because the app pauses cross-session sends after 10 in one turn.
+
 ## Order and stop rules
 
 1. Before any launch: find the owner of the uncommitted `src/book_world_lotm_{cast_host,host,state}.js` and `tests/cast_*` edits; L3-L5 cut from HEAD and must not clobber them at merge.
