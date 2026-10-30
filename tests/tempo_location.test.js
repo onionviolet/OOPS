@@ -87,3 +87,18 @@ test('aiming costs time and improves the odds of the chosen spot without making 
     assert.ok(open(a).fighters.player.ready-ready>open(n).fighters.player.ready-ready||!open(a)||!open(n));
     assert.ok(LOCATION_DIALS.aimShare.value<1);
 });
+
+test('damage types: a typed profile resists or exposes by kind, the player side learns it, untyped fights keep x1',()=>{
+    const typedFoe={...bare,types:{attack:{slashing:1},defense:{bludgeoning:.5,slashing:1}}},tough={...bare,types:{attack:{bludgeoning:1},defense:{bludgeoning:.25}}};
+    const run=(me,foe,seed)=>{const {p,context}=fresh(seed);let plan=beginTempoFight(p.state,registry,context,spec(foe,{player:{profile:me}}));
+        for(let i=0;i<4&&open(plan);i++)plan=commitTempoMove(plan.state,registry,context,{moveId:'jab'});return plan;};
+    let learned=null,noted=false;
+    for(let seed=1;seed<40&&!learned;seed++){
+        const plan=run({...bare,types:{attack:{bludgeoning:1},defense:{}}},tough,seed),b=open(plan);
+        if(b&&Object.keys(b.fighters.foe1.learned||{}).length){learned=b.fighters.foe1.learned;noted=b.log.some(l=>/bludgeoning, resisted/.test(l))&&b.hits.some(h=>h.actor==='player'&&h.multiplier<1&&h.split.bludgeoning>0);}
+    }
+    assert.ok(learned&&learned.bludgeoning==='resisted'&&noted);
+    const plain=run(bare,bare,3),b=open(plain);
+    assert.ok(!b||b.hits.every(h=>h.multiplier===1&&h.split.physical===1));
+    assert.ok(!b||!/slashing|bludgeoning/.test(b.log.join(' ')),'untyped log text unchanged');
+});

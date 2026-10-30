@@ -3,6 +3,7 @@ import {commitSimulationCommand, previewSimulationCommand} from './simulation.js
 import {pursuitView} from './pursuit.js';
 import {ROAD_RIVAL, RIVAL_PURSUIT} from './frontier_campaign.js';
 import {readNativeFighter} from './native_battle.js';
+import {typeSnapshot} from './damage_types.js';
 import {partyHelperReasons, initializePartyBattle} from './party_battle.js';
 import {PARTY_HELPER} from './native_battle_contracts.js';
 import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
@@ -21,6 +22,8 @@ function applyHarm(plan) {
 }
 const carriedParts = () => Object.fromEntries(Object.entries(harmState().parts || {}).filter(([, p]) => HARM_RUNGS.includes(p.rung)).map(([id, p]) => [id, p.rung]));
 export const configureTempoFight = operations => {ports = operations;};
+// Damage types are read once from the live actors and kept on the saved profile; a fight saved without them reads as untyped physical.
+const withTypes = (profile, actor) => ({...profile, types: typeSnapshot(actor)});
 const node = (tag, text = '') => {const n = document.createElement(tag); n.textContent = text; return n;};
 const open = () => ports.root().simulation?.sessions.player?.nativeBattle?.schema === TEMPO_SCHEMA ? ports.root().simulation.sessions.player.nativeBattle : null;
 
@@ -54,12 +57,12 @@ function start(request = {}) {
     const requestId = pursuitView(state, RIVAL_PURSUIT)?.requestId;
     const withLio = !!request.withLio;
     const adopt = withLio ? initializePartyBattle(state, ports.registry, {requestId}, context) : commitSimulationCommand(state, ports.registry, {id: 'rival.confront', requestId}, context);
-    const rival = adopt.state.simulation.people[ROAD_RIVAL], me = readNativeFighter(ports.actor()), v = context.vitals.player, body = rival.body;
+    const rival = adopt.state.simulation.people[ROAD_RIVAL], me = withTypes(readNativeFighter(ports.actor()), ports.actor()), v = context.vitals.player, body = rival.body;
     // Same derivation as the road duel's rival (native_battle_host): an Enemy built from the saved body and vitals.
     const foe = new ports.enemy({id: ROAD_RIVAL, name: 'Mara', description: 'A rival association scout', add_to_bestiary: false, tags: ['living', 'person'],
         stats: {...body, health: rival.vitals.max_health, max_stamina: rival.vitals.max_stamina}});
     foe.init(); Object.assign(foe.getFullStats(), rival.vitals);
-    const rivalProfile = readNativeFighter(foe);
+    const rivalProfile = withTypes(readNativeFighter(foe), foe);
     let lio = [];
     if(withLio) {
         const person = adopt.state.simulation.people[PARTY_HELPER];
@@ -67,7 +70,7 @@ function start(request = {}) {
             stats: {...person.body, health: person.vitals.max_health, max_stamina: person.vitals.max_stamina}});
         friend.init(); Object.assign(friend.getFullStats(), person.vitals);
         lio = [{id: PARTY_HELPER, name: 'Lio', side: 'a', speed: 100, hp: person.vitals.health, maxHp: person.vitals.max_health, stamina: person.vitals.stamina, maxStamina: person.vitals.max_stamina,
-            profile: readNativeFighter(friend), perception: person.body.intuition ?? 5, stealth: person.body.agility ?? 5, moves: ['guard', 'tend', 'jab', 'withdraw'], ally: lioAlly(adopt.state)}];
+            profile: withTypes(readNativeFighter(friend), friend), perception: person.body.intuition ?? 5, stealth: person.body.agility ?? 5, moves: ['guard', 'tend', 'jab', 'withdraw'], ally: lioAlly(adopt.state)}];
     }
     const plan = beginTempoFight(adopt.state, ports.registry, context, {adopt, id: 'road-rival', title: "Mara's road contest", floor: 1, fighters: [...lio,
         {id: 'player', name: 'You', side: 'a', speed: 100, parts: carriedParts(), hp: v.health, maxHp: v.max_health, stamina: v.stamina, maxStamina: v.max_stamina, profile: me, perception: me.stats.intuition ?? 5, stealth: me.stats.agility ?? 5},

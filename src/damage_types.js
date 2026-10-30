@@ -105,6 +105,25 @@ export function typedStrike({fighter, target}) {
     return {multiplier, kind, note};
 }
 
+
+// ---- Tempo and other saved-data fights (combat-surface lane, COMBAT.md round 3) ----
+// A tempo fighter is saved data, not a live actor, so the attack mix and defender map are read once from the live
+// actor when the fight starts and kept on the fighter's profile. A fight saved without them reads as untyped physical
+// with no modifiers, which is the old math (compatibility decision, no migration).
+export function typeSnapshot(actor) {
+    return {attack: attackMix(actor), defense: defenseMultipliers(actor)};
+}
+
+/** typedStrike for plain data: {multiplier, kind, note, split}. split is each type's share of the dealt harm after
+ * the defender's modifier (shares sum to 1, or are all 0 when nothing gets through), for the log and dev readout. */
+export function typedHit(attack, defense) {
+    const mix = normalizeMix(attack) || {[PHYSICAL]: 1}, mods = normalizeMultipliers(defense);
+    const multiplier = typeMultiplier(mix, mods), kind = dominant(mix);
+    const note = Math.abs(multiplier - 1) < NOTE_THRESHOLD ? '' : multiplier < 1 ? (multiplier === 0 ? 'no effect' : 'resisted') : 'weak spot';
+    const split = Object.fromEntries(Object.entries(mix).map(([t, w]) => [t, multiplier > 0 ? w * (mods[t] ?? 1) / multiplier : 0]));
+    return {multiplier, kind, note, split};
+}
+
 /** Plain words for a tooltip: what an enemy hits with and what it takes extra or less of. */
 export function describeDeclared({attack_types, defense_types} = {}) {
     const mix = normalizeMix(attack_types), mods = normalizeMultipliers(defense_types);
