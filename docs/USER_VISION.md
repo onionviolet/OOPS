@@ -6944,3 +6944,13 @@ the owner named holds the follow-through.
 - 2026-10-30 (grudges, loyalty, bystanders, memory size): "what about traits and more? people who hold grudges holding grudges and more? future deepening of these and more?", "loyalty can go up and more? other subtle interactions and more? Severity of events and more? warning people not to say things and other stuff and more?", "how to even implement bystanders? LSD345 might not always be true but they can try and back out with varying consequences" and "Wont memory cause storage balooning?". Owner: [LEAD_LIFE_GUIDE](LEAD_LIFE_GUIDE.md) LSD rows and [RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md).
 - 2026-10-23 (book reader): "we can use kavita as the reader accordingly,". Owner: [SOURCE_ACQUISITION_TOOLS](research/SOURCE_ACQUISITION_TOOLS.md) and [LIBRARY_INDEX](research/LIBRARY_INDEX.md).
 - 2026-10-09 (no stop gate): "Remove the 'stop gate' you wrote down, I never asked for that". Owner: [GROUND_RULES](GROUND_RULES.md); agents do not invent stop gates he did not ask for.
+
+## Heirs deferred; the cheat stays with whoever is played (2026-10-30)
+
+Weibao, 2026-10-30, answering the base-cheat pass (the audit headline: heir succession drops the cheat): "Defer heirs, unless as a different start or something? so its just whoever is being played as?"
+
+- **Default:** the cheat belongs to the character being played. Heir succession is deferred as a main-line feature, so cheat lanes don't build heir carry-over now.
+- **Dial:** an heir can return as a start option, "start as the heir of an earlier life", with that start's own rules for what passes down.
+- **Reason:** the played character's life is the main line, and heirs add scope without changing who is being played.
+- Existing heir code (L9's `resume:` of a tethered life) stays; nothing is deleted.
+- Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [world entry rules](WORLD_ENTRY_RULES.md) for the start option.
