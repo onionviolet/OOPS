@@ -20,3 +20,13 @@ test('unmet fact rules explain themselves without raw fact ids or operators', ()
         assert.doesNotMatch(text, /\b(gte|lte|eq)\b|\w\.\w/);
     }
 });
+
+test('purse amounts read in denominations once they are known', async () => {
+    const {moneyText, bindDenominationKnowledge} = await import('../src/reveal_chain.js');
+    bindDenominationKnowledge(() => true);
+    assert.equal(moneyText(102), '10C 2W');
+    assert.equal(moneyText(0), 'nothing');
+    bindDenominationKnowledge(() => false);
+    assert.equal(moneyText(102), '102 coins');
+    bindDenominationKnowledge(() => true);
+});

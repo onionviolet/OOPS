@@ -255,6 +255,7 @@ export const LAYOUT_SPEC = Object.freeze({
         {id: 'village-travelers', label: 'Travelers', key: 't', target: 'village-travelers'},
         {id: 'projects', label: 'Projects', key: 'r', target: 'projects'},
         {id: 'ledger', label: 'Ledger', key: 'l', target: 'ledger'},
+        {id: 'organizations', label: 'Organizations', key: 'x', target: 'management'},
         {id: 'optional-worlds', label: 'Worlds', key: 'w', target: 'optional-worlds'},
         {id: 'beginning', label: 'Beginning', key: 'g', target: 'beginning'},
         {id: 'continuation', label: 'Connection', key: 'y', target: 'continuation', select: 'continuation_open'},

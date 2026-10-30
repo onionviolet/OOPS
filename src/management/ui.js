@@ -2,6 +2,7 @@ import {managementPresentation} from './host.js';
 import {courtyardOrganization} from './organization_source.js';
 import {organizationView,organizationText} from '../organization_view.js';
 import {definePanel} from '../panel_kit.js';
+import {moneyText} from '../reveal_chain.js';
 const node=(tag,text='',attrs={})=>{const n=document.createElement(tag);n.textContent=text;for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};
 const MOVED_KEY='oops.management.movedNoticeSeen';
 const seenMoved=()=>{try{return localStorage.getItem(MOVED_KEY)==='1';}catch{return false;}};
@@ -43,7 +44,7 @@ export function createManagementPanel({read,registry,command}) {
    const more=[o.held.length&&`holds ${o.held.join(', ')}`,o.pays.length&&`pays ${o.pays.join(', ')}`].filter(Boolean).join('; ');if(more)li.append(node('small',` (${more})`));ul.append(li);}ops.append(ul);}
   // Money strip (O3) and standing meter (O4).
   const strip=node('div','',{class:'organization-strip'});
-  if(view.money){const m=view.money,parts=[Number.isFinite(m.onHand)&&`${m.onHand} coins on hand`,Number.isFinite(m.committedOut)&&`${m.committedOut} committed out`,Number.isFinite(m.expectedIn)&&`${m.expectedIn} expected in`].filter(Boolean);strip.append(node('p',parts.join(' · '),{class:'organization-money'}));}
+  if(view.money){const m=view.money,parts=[Number.isFinite(m.onHand)&&`${!m.unit||m.unit==='coin'?moneyText(m.onHand):m.onHand+' '+m.unit} on hand`,Number.isFinite(m.committedOut)&&`${!m.unit||m.unit==='coin'?moneyText(m.committedOut):m.committedOut} committed out`,Number.isFinite(m.expectedIn)&&`${!m.unit||m.unit==='coin'?moneyText(m.expectedIn):m.expectedIn} expected in`].filter(Boolean);strip.append(node('p',parts.join(' · '),{class:'organization-money'}));}
   if(view.standing){const s=view.standing,wrap=node('div','',{class:'organization-standing'});
    const top=s.next?s.next.at:s.value||1,meter=node('meter','',{min:'0',max:String(Math.max(top,1)),value:String(Math.max(0,s.value)),'aria-label':`${s.label}: ${s.rank}`});
    wrap.append(node('strong',`${s.label}: ${s.rank}`),meter,node('span',s.next?` ${s.value} of ${s.next.at} for ${s.next.name}`:' the top rung'),node('p',s.feeling,{class:'organization-note'}));strip.append(wrap);}
