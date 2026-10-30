@@ -21,4 +21,5 @@ export const FIXTURE_MANIFEST = [
     [() => import('./bridges.js')],
     [() => import('./benefits.js'), 'FIGURE_FIXTURES_BENEFITS'],
     [() => import('./progression.js')],
+    [() => import('./making_forms.js')],
 ];
