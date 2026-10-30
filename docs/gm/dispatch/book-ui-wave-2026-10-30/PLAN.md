@@ -115,3 +115,28 @@ More to consider (proposals):
 - G7. Little details: a hover preview of the next node's gains (the ghost fill already shipped), warning chips on mix edges, a "you are here" marker on every shape, the paths others in the cast walk (when known), rumoured versus confirmed nodes, and the history of nodes taken. Loss or demotion moves the marker back and keeps the trail.
 
 Routing: G1-G4 (model and data) go to `sw-adv` (L10 owner); it extends `ascension_paths.js` with the ladder kept as the default shape and its existing descriptors unchanged. G5-G7 (view) go to `rep-abilities`. The `bk-ss` and `bk-hp` slices are the second-world checks.
+
+## Round 7: parallel browser proofs, per-world progression (2026-10-30 15:1x, weekly 69%)
+
+Weibao: "batch Ui usage accordingly so that not all of them have to wait? each can test their own seperately?" The browser pool default is now 4 slots (`1b08c0928`). Each run serves its own worktree on a free port. Waiters started before the change keep the old single slot until they are requeued; the five lanes were told.
+
+Weibao: "We can use different progression systems/progression UI rather than just forcing the LOTM one? we can choose/add nuance for each world accordingly? More to consider? Other representations?"
+
+Candidate representations (palette, not spec), each a default per world with a dial:
+- A sequence ladder with digestion and acting (LOTM).
+- A realm meter with a bottleneck and a breakthrough or tribulation event (cultivation: Reverend Insanity, A Regressor's Tale). Gu and aperture show as an inventory-plus-vessel view.
+- Subject grades and exam results, like a report card or transcript (Harry Potter; an academy in Mother of Learning).
+- Use-based skill bars that rise by doing (Skyrim-like; ordinary crafts everywhere).
+- A LitRPG status window with attributes, ranks and runes (Shadow Slave, You Are Summoned).
+- Rank insignia and commendations in a service record (A Soldier's Life).
+- Threat ratings and classifications in a dossier, without personal growth (Worm, Godclads).
+- Loop knowledge and mastery with no numbers: a notebook of what is known and practised (Mother of Learning, The Perfect Run, COI).
+- Constellations or a passive tree (cheats and system-granted powers).
+- Contracts and patrons: a standing with each power (warlock-style).
+
+Notes:
+- A character can show several of these at once, one per system they hold. The character sheet picks a glance line for each.
+- Knowledge gating and cheat marking (G6) apply to all of them.
+- Nuance per world: what the numbers mean, whether numbers show at all, what failure looks like, and who else can see your rank.
+
+Dispatch: `bk-progression` (design round across the nine read books, plus the gallery). Model work stays with `sw-adv` and view work with `rep-abilities`. This round gives each world its default.

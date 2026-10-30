@@ -6921,6 +6921,12 @@ Follow-up, same day:
 
 Reading: a path has a shape set by its world (ladder, tree, web, wheel, stack, field, or none), and branching is ordinary. Mixing paths is possible, with the costs and failures that world's mechanisms give it (AD38). A general graph can hold every shape, a ladder being the simplest case. What a character has learned decides how much the view shows: the benefits, costs and risks of a path or ability, including ones they do not yet hold.
 
+Second follow-up, same day:
+
+> We can use different progression systems/progression UI rather than just forcing the LOTM one? we can choose/add nuance for each world accordingly? More to consider? Other representations?
+
+Reading: each world chooses its own progression system and its own progression UI, with nuance per world. The LOTM sequence ladder is one example among many, not a template. The shared path graph is the plumbing underneath, not a shared look.
+
 ## Asks recovered from chats (recorded 2026-10-30)
 
 Weibao's words, kept verbatim with typos. Recovered by gap audit items G13 and G14
