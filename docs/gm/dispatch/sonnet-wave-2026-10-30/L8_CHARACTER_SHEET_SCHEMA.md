@@ -62,7 +62,7 @@ Sealed truths are referenced by id only (`gate.seal`), never described in tracke
 | `held` | `{item: id, kind: carried / worn / owned / lent, where?}` |
 | `money` | `{kind: purse / debt / share / bounty / wage, amount, currency, with?}` |
 | `condition` | `{state: id, severity?}` (injury, curse, loss of control, mask worn) |
-| `links` | pointers only: `cast` (cast.json key), `routine` (cast_schedule anchor ids), `relations` (not duplicated) |
+| `links` | pointers only: `cast` (cast.json person id), `routines` and `slots` (cast routine and schedule ids), `relations` (not duplicated); there is no `routine` list on a sheet |
 | `outcomes` | calibration targets: `{id, what, expect, from, loc}`; `expect` is a comparable (`beats`/`loses_to`/`survives`/`price_at_least`) |
 
 ## Read model
@@ -108,3 +108,9 @@ Shape only, from the Circle of Inevitability merge's counts (no text read, nothi
 | Money kinds include wages and fees | `money.kind` already holds wage; add `fee` |
 
 Bump applied in place (AD45): `power.v.scale` optional, `money.v.kind` gains `fee`, `refOfLocator` in the loader. No LOTM sheet changes.
+
+## Improvement pass 1 (2026-10-30)
+
+- Routine is one source: the cast records. `sheet_joins.mjs` writes `links.{cast, routines, slots}` on 310 sheets and the loader returns `links`; the copied routine lists are gone.
+- Sealed gating: only 1 of 1,494 entries on the 15 principal sheets carries a gate. Chapter dating already hides what the book has not yet stated at the player's ref, so a gate is reserved for a truth whose in-game discovery differs from the book's order (another person's concealed identity or a sealed fact). The Luna briefs under-asked for it; the next lanes get an explicit pass for it.
+- Dead fields: empty `conditions`, `costs`, `limits` on ability entries are stripped (the rule owner holds them). `view: believed` and `by` appear on 3 entries, so observer beliefs are mostly unfilled.

@@ -1,4 +1,4 @@
-// Recurring-tier character sheets by script (L8, WA43/WA50): identity, power, derived bands and routine only. No model reads the source.
+// Recurring-tier character sheets by script (L8, WA43/WA50): identity, power and derived bands; routine is a link to the cast records (sheet_joins.mjs), never a copy. No model reads the source.
 //   node scripts/lead_run/recurring_sheets.mjs [--min-rows N]
 // Reads the whole-book merge; writes private/lead-run-2026-10-27/character-sheets/recurring/recurring-sheets.json (gitignored) and prints counts.
 // Bands here are derived from a stated Sequence level (ev "I") and have no outcome entries; a cited outcome is added by a later Luna pass where a band needs one.
@@ -16,17 +16,16 @@ const minIdx = process.argv.indexOf('--min-rows'), minRows = minIdx > 0 ? +proce
 const sheetsDir = join(root, 'character-sheets');
 const principals = new Set(readdirSync(sheetsDir).filter(f => f.endsWith('.json')).map(f => `lotm.person.${f.slice(0, -5)}`));
 const registry = jsonl('registry.jsonl').filter(r => r.kind === 'person' && r.rows >= minRows && !principals.has(r.id));
-const want = new Map(registry.map(r => [r.id, {reg: r, power: [], routine: []}]));
+const want = new Map(registry.map(r => [r.id, {reg: r, power: []}]));
 for (const r of jsonl('extras.jsonl')) {
-    if (r.id && want.has(r.id) && Array.isArray(r.routine)) want.get(r.id).routine.push(...r.routine.map(x => ({...x, loc: x.locator || r.locator})));
-    else if (Array.isArray(r.about) && r.what) {
+    if (Array.isArray(r.about) && r.what) {
         const people = r.about.filter(a => a.startsWith('lotm.person.'));
         const m = /Sequence (\d)\b/.exec(r.what);
         if (people.length === 1 && m && want.has(people[0])) want.get(people[0]).power.push({seq: +m[1], what: r.what, label: r.label, loc: r.locator});
     }
 }
 const sheets = {};
-for (const [id, {reg, power, routine}] of want) {
+for (const [id, {reg, power}] of want) {
     const first = refOf(reg.firstMention) ?? 'b1:1', ent = (v, from, loc, ev = 'S', extra = {}) => ({v, from, view: 'actual', ev, loc, ...extra});
     const names = [reg.label, ...(reg.aliases ?? []).filter(a => /^[\x20-\x7e]+$/.test(a) && a !== reg.label)].slice(0, 12);
     // power: one entry per distinct level in source order; each closes the previous one
@@ -38,10 +37,9 @@ for (const [id, {reg, power, routine}] of want) {
         id, slug: id.split('.').pop(), tier: 'recurring', personaIds: [],
         identities: names.map((name, i) => ent({name, kind: i === 0 ? 'legal' : 'alias'}, first, reg.firstMention ?? '', 'S')),
         power: powerEntries, stats,
-        routine: routine.slice(0, 24).map(x => ent({place: x.place, days: x.days, from: x.from, what: x.what}, refOf(x.loc) ?? first, x.loc, x.label ?? 'T')),
     };
 }
 mkdirSync(join(sheetsDir, 'recurring'), {recursive: true});
 writeFileSync(join(sheetsDir, 'recurring/recurring-sheets.json'), JSON.stringify(sheets));
 const all = Object.values(sheets);
-console.log(`recurring sheets: ${all.length}; with power: ${all.filter(s => s.power.length).length}; with routine: ${all.filter(s => s.routine.length).length}; min rows ${minRows}`);
+console.log(`recurring sheets: ${all.length}; with power: ${all.filter(s => s.power.length).length}; min rows ${minRows}`);

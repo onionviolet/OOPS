@@ -20,3 +20,15 @@ LATER
 - Calibrate recurring bands with a cited outcome where a band is read by play (a fight or a bargain). Level: Luna medium. Done check: loader test reproduces 1 outcome per such person.
 - Add people volume by volume as they enter (volume 2 onward principals not yet sheeted). Level: Luna medium per person. Done check: pilot test pattern.
 - Sheet read-model hooks: `sw-bridge` consumes `sheetAsOf`; knowledge and relations stay in the cast records.
+
+## 2026-10-30 improvement pass 1 (sheets)
+
+ACT NOW (done)
+- check:arch run (pass). Routine copies removed; sheets link to the cast routine and slot ids (310 sheets). Loader returns `links`.
+- Unread empties stripped from ability entries. Findings: gates on 1 of 1,494 entries; believed/by on 3.
+
+ACCOUNT FOR NOW
+- The next principal briefs ask for an explicit gate pass (another person's concealed identity or sealed fact, by id) and a believed-view pass (what observers think), since the first lanes skipped both.
+
+LATER
+- Observer beliefs per sheet from `reacts`/`relations` rows. Level: Luna medium. Done check: loader test finds one `believed` entry per principal that differs from `actual`.
