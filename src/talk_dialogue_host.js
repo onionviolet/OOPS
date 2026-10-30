@@ -10,14 +10,19 @@ import {storyRecap} from './lore_history_view.js';
 import {readPort} from './ui_ports.js';
 
 export function nativeTalkLines({dialogue, shownKeys, labelOf, answerOf}) {
-    const lines = [];
+    const lines = [], groups = new Map();
     for (const [key, line] of Object.entries(dialogue.textlines)) {
         if (line.is_branch_only) continue;
         const a = line.getAvailabilityComponent();
         const closed = a.is_unlocked && (a.is_locked || a.is_finished);
-        if (shownKeys.includes(key)) lines.push({id: key, label: labelOf(key), state: 'new', rewards: line.rewards, closesOthers: Object.values(line.rewards?.locks?.textlines || {}).flat().some(k => k !== key)});
-        else if (closed) lines.push({id: key, label: labelOf(key), state: (line.locks_lines || []).includes(key) ? 'heard' : 'closed', text: answerOf(line)});
+        if (shownKeys.includes(key)) { lines.push({id: key, label: labelOf(key), state: 'new', rewards: line.rewards, closesOthers: Object.values(line.rewards?.locks?.textlines || {}).flat().some(k => k !== key)}); continue; }
+        if (!closed) continue;
+        const set = (line.locks_lines || []).filter(k => dialogue.textlines[k]);
+        // Availability cannot say which of several siblings that lock each other was the one said, so they read as one row.
+        if (set.length > 1 && set.includes(key)) { const id = [...set].sort().join('|'); (groups.get(id) || groups.set(id, []).get(id)).push(key); }
+        else lines.push({id: key, label: labelOf(key), state: set.length === 1 && set[0] === key ? 'heard' : 'closed', text: answerOf(line)});
     }
+    for (const [id, keys] of groups) lines.push({id, label: keys.length > 1 ? `One of: ${keys.map(labelOf).join(' / ')}` : labelOf(keys[0]), state: 'heard', text: keys.length > 1 ? 'You asked one of these; the others were settled by the answer.' : answerOf(dialogue.textlines[keys[0]]), group: keys});
     const hidden = Object.values(dialogue.textlines).some(l => !l.is_branch_only && !l.getAvailabilityComponent().is_unlocked && !l.getAvailabilityComponent().is_locked);
     return {lines, hiddenMore: hidden};
 }

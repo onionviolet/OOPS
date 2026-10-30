@@ -55,6 +55,14 @@ fs.mkdirSync(output, {recursive: true});
         report.options = opts;
         assert.ok(opts.some(t => /Settles the other ways/.test(t)), 'sibling-closing options say so');
         await shot('talk-options-1920.png');
+        // Sibling lines lock each other: saying one reads as one covered row and one told row, not three.
+        await page.locator('#talk_view_host button[data-topic-id="where am i"]').click();
+        await page.waitForTimeout(300);
+        const sibling = await text();
+        assert.equal((sibling.match(/^- You told them: /gm) || []).length, 2, 'hello plus one grouped row');
+        assert.match(sibling, /One of: .*Where am I\?/);
+        assert.equal(await page.locator('.talk-covered-row[data-topic-state="heard"]').count(), 2);
+        await shot('talk-sibling-group-1920.png'); report.steps.push('one of three sibling lines said: one grouped heard row, rapport counts it once');
         // Keyboard: Esc leaves (PIR13), place returns.
         await page.keyboard.press('Escape'); await page.waitForTimeout(250);
         assert.equal(await page.locator('#talk_view_host').count(), 0);

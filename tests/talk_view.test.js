@@ -53,6 +53,21 @@ test('three looks: used lines become heard or settled-another-way and stay reada
     assert.deepEqual(model.open.map(t => t.id), ['c']);
 });
 
+test('real elder data: one of three sibling lines said reads as one heard row, not three (rapport counts it once)', () => {
+    const keys = ['hello', 'what happened', 'where am i', 'dont remember'];
+    const status = k => elder.textlines[k].getAvailabilityComponent(), saved = keys.map(k => [status(k).is_unlocked, status(k).is_locked]);
+    try {
+        for (const k of keys) { status(k).is_unlocked = true; status(k).is_locked = true; }
+        const {lines} = nativeTalkLines({dialogue: elder, shownKeys: [], labelOf, answerOf: l => l.text});
+        const heard = lines.filter(l => l.state === 'heard');
+        assert.equal(heard.length, 2, 'hello, plus one grouped row for the three siblings');
+        assert.match(heard.find(l => l.group)?.label, /^One of: label:what happened \/ label:where am i \/ label:dont remember$/);
+        const model = talkModel({person: {id: 'p', name: 'Elder'}, topics: topicsFromLines(lines)});
+        assert.equal(model.knows.rows.filter(r => r.kind === 'told').length, 2);
+        assert.equal(model.rapport.stage.id, 'acquainted');
+    } finally { keys.forEach((k, i) => { [status(k).is_unlocked, status(k).is_locked] = saved[i]; }); }
+});
+
 test('rapport stages count things said and name what the next stage opens', () => {
     assert.equal(rapportOf({heardCount: 0}).stage.id, 'stranger');
     assert.equal(rapportOf({heardCount: 3}).stage.id, 'familiar');

@@ -27,7 +27,7 @@ Route kind (FLR2): real route from a fresh life, by earned steps (the place acti
    Names appear only when the caller says the hero already knows the target. The test uses the real elder data: the line that unlocks a field and two activities
    quotes none of their names. Time: base dialogue costs none, said once in the stakes line when every row agrees.
 2. **Three looks (PIR16) derived, not stored.** new = a line the native menu offers (read from the divs `update_displayed_dialogue` already built, so eligibility cannot
-   drift); heard = a closed line that locks itself; settled another way = a closed line a sibling locked. No new save field, so no migration and nothing to
+   drift); heard = a closed line that locks only itself; several sibling lines that lock each other read as one grouped row, "One of: ...", because availability cannot say which was said (found by the advisor check, covered by a real-data test); settled another way = a closed line some other line locked. No new save field, so no migration and nothing to
    import or export (FLR5: save, reload, confirmed derived again in the browser script). Known limit: PIR14 asks for a per-line fingerprint so changed text counts as new
    again; that needs a persisted heard list and is ACCOUNT FOR NOW below.
 3. **Hidden lines stay hidden.** The base elder's later lines are unlocked by earlier ones. The view shows a single sentence, "There may be more to ask as you learn more." Listing
@@ -85,7 +85,7 @@ Route kind (FLR2): real route from a fresh life, by earned steps (the place acti
 - A uniform cost is said once. Effects are separated by a middle dot on one line.
 - Reference prose is not on the card: the rapport sentence is the one piece of prose beyond the quote.
 - Center layout is container-sized: at the center column's width the card leads and the two ledgers sit side by side beneath it; in a wider pop-out the three columns sit in one row.
-- Reports: a said line writes one subject-first line ("You asked the village elder: Hello?") through the existing log path; the person view holds the history. Shared panel shell stays with the time session (item 14).
+- Reports (proposal, not built): a said line would write one subject-first line ("You asked the village elder: Hello?") through the existing log path, and the person view would hold the history. Shared panel shell stays with the time session (item 14).
 
 ## Witness levels and names (SUI3, RPT2, RPT4, other seats)
 
@@ -97,7 +97,7 @@ witness line, not a card: only the lead's own conversations draw the card.
 
 | Check | Result |
 |---|---|
-| `node --test tests/talk_view.test.js` | 9 pass (real elder data: fresh life shows one new line; a line that unlocks a place quotes no place name; heard and closed rows; rapport; knows ledger; witness; cast adapter; view draws through the given document; styles use tokens) |
+| `node --test tests/talk_view.test.js` | 10 pass (real elder data: fresh life shows one new line; a line that unlocks a place quotes no place name; heard and closed rows; one of three sibling lines said reads as one grouped row; rapport; knows ledger; witness; cast adapter; view draws through the given document; styles use tokens) |
 | `node scripts/slot_run.mjs --kind build -- npm run build` | ok; proof ran on that bundle (`talk-proof.json` names the fingerprint) |
 | `scripts/talk_browser.cjs` via slot_run browser | passes: fresh life route, 1920×1080, quote and empty ledger, choose through the view (native `start_textline` runs), heard row and told row, Esc leaves, save + reload derives heard again, 21 px text with effects off has no horizontal overflow |
 | Gaps | Not run: `npm test` (committer), `check:arch`, `check:rules`; Neutral theme screenshot; real 14 px vs "Increase textsize" option toggle (the 21 px case set tokens directly); Electron |
@@ -143,7 +143,7 @@ Not wired to a setting. Sealed secrets stay inside their discovery route: the br
 
 **13. Flourish.** Hover and focus glow use `--ui-glow-affordance` and are removed under effects off and reduced. A settle animation when a line moves from the card to the covered list, and a soft pulse on a new line, would use `settled_text_effects`; not built. Effects never move layout.
 
-**14. Reports and center.** Reports: one subject-first line per said line, written once by the settling event (RPT8). Center: reference prose stays out of the card. Shared panel shells left to time and worlds.
+**14. Reports and center.** Reports (proposal, not built; see ACCOUNT FOR NOW): one subject-first line per said line, written once by the settling event (RPT8). Center: reference prose stays out of the card. Shared panel shells left to time and worlds.
 
 **15. Ability flourish.** Not relevant here.
 

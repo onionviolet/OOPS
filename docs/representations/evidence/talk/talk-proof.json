@@ -3,6 +3,7 @@
  "steps": [
   "fresh: one new line, quote, empty knows ledger",
   "after one line: heard row, told row, rapport stage, answer in card",
+  "one of three sibling lines said: one grouped heard row, rapport counts it once",
   "save, reload: heard rows derived again, no new save field",
   "21 px text, effects off"
  ],
@@ -13,6 +14,6 @@
   "I don't remember how I got here, what happened?Opens more to ask. · Moves one of your journal tasks forward. · Settles the other ways to put this.",
   "Who are you?"
  ],
- "build": "http://127.0.0.1:18461/dist/bundle.js?version=v0.6-76f355a63009",
+ "build": "http://127.0.0.1:18461/dist/bundle.js?version=v0.6-e9be766eccfd",
  "saveKeysChanged": null
 }
