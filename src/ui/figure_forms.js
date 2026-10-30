@@ -132,6 +132,7 @@ export function mountFormSwitch(root, spec, options = {}) {
     const valid = validateFigureSpec(spec), interact = options.interact !== false;
     const bar = el(doc, 'div', 'fig-form-switch'), stage = el(doc, 'div', 'fig-form-stage');
     bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', `Show ${valid.title} as`);
+    root.classList.add('fig'); // the figure tokens must reach the switch and the non-figure forms, not only a drawn figure
     root.replaceChildren(bar, stage);
     let current = (options.memory && options.memory.get(valid.id)) || options.initial || forms[0], detach = null;
     const buttons = new Map(forms.map(f => { const b = el(doc, 'button', 'fig-form-choice', FIGURE_FORMS[f]); b.type = 'button'; b.dataset.form = f; bar.append(b); b.addEventListener('click', () => show(f)); return [f, b]; }));
