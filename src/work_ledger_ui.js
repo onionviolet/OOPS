@@ -1,9 +1,13 @@
 import {workspaceOwns} from './workspace_layout.js';
 import {createSettledTextEffects} from './settled_text_effects.js';
 import {syncChildren} from './dom_sync.js';
+import {owedLedgerView} from './owed_ledger_view.js';
+import {readOwedLedger} from './owed_ledger_sources.js';
+import {renderOwedLedger} from './ui/owed_ledger.js';
 
-// The runtime supplies an actor-safe projection and owns all command settlement.
-export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}, readSettings}) {
+// The runtime supplies an actor-safe projection and owns all command settlement. The Ledger tabs (coverage B2) are an array so a
+// later tab (Due, Orders) is one entry; Owed is read-only over the obligations rows (readOwed). Tab, filter and selection live in memory only.
+export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}, readSettings, readOwed = readOwedLedger}) {
     if (!container || typeof read !== 'function' || typeof command !== 'function') throw new TypeError('Work ledger needs its native host, projection and command path.');
     const panel = document.createElement('details');
     panel.id = 'work_ledger_panel'; panel.className = 'work-ledger-panel'; panel.open = false;
@@ -11,7 +15,8 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
     const body = document.createElement('div'); body.className = 'work-ledger-body'; panel.append(body);
     const notice = document.createElement('p'); notice.className = 'work-ledger-notice'; notice.setAttribute('role', 'status'); panel.append(notice);
     container.append(panel);
-    let signature = '', busy = false, destroyed = false;
+    let signature = '', busy = false, destroyed = false, chosenTab = null, owedFilter = 'all', owedSelected = null;
+    const owedNow = () => { let src = null; try { src = readOwed?.(); } catch { src = null; } return owedLedgerView({...(src || {}), filter: owedFilter, selected: owedSelected}); };
     const options = () => { if(readSettings)return readSettings(); const view = read(); return view?.settings || view?.state?.settings || {effects: 'reduced', sound: false, presentation: 'inline'}; };
     const effects = createSettledTextEffects({container: panel, readSettings: options});
     const cancelEffects=()=>{effects.cancel();cancelExternalEffects();};
@@ -37,19 +42,38 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
         if (destroyed) return;
         const host = container.isConnected ? container : container.id ? document.getElementById(container.id) : null;
         if (host && !workspaceOwns(panel) && panel.parentElement !== host) host.append(panel);
-        const view = read() || {}, state = view.state;
-        panel.hidden = !view.available;
-        const next = JSON.stringify({view, busy});
+        const view = read() || {}, state = view.state, owed = owedNow();
+        // Attached or absent (proposed UR82): the panel shows where work can be taken or while any account is open.
+        panel.hidden = !view.available && !owed.total;
+        const next = JSON.stringify({view, busy, owed, chosenTab});
         if (!force && next === signature) return;
         signature = next;
         const active = document.activeElement;
         const focusKey = body.contains(active) ? active.dataset.ledgerControl : null;
         // Build detached, then keep every unchanged live node.
         target = document.createElement('div');
-        try { build(view, state); } finally { syncChildren(body, [...target.childNodes]); target = body; }
+        try { build(view, state, owed); } finally { syncChildren(body, [...target.childNodes]); target = body; }
         if (focusKey && !body.contains(document.activeElement)) [...body.querySelectorAll('[data-ledger-control]')].find(node => node.dataset.ledgerControl === focusKey)?.focus();
     }
-    function build(view, state) {
+    const TABS = [
+        {id: 'work', label: 'Work', render: (view, state) => view.available ? buildWork(view, state) : element('p', 'Work commissions are taken and claimed at the Village work ledger desk.')},
+        {id: 'owed', label: 'Owed', count: owed => owed.total, render: (view, state, owed) => renderOwedLedger(target, owed, {
+            onFilter: id => { owedFilter = id; owedSelected = null; render(true); }, onSelect: id => { owedSelected = id; render(true); }})},
+    ];
+    function build(view, state, owed) {
+        const active = TABS.find(t => t.id === chosenTab) ?? TABS.find(t => t.id === (view.available ? 'work' : 'owed'));
+        const strip = element('div', ''); strip.className = 'work-ledger-tabs'; strip.setAttribute('role', 'tablist'); strip.setAttribute('aria-label', 'Ledger');
+        for (const tab of TABS) {
+            const n = tab.count?.(owed);
+            const button = element('button', n ? `${tab.label} ${n}` : tab.label, strip); button.type = 'button';
+            button.setAttribute('role', 'tab'); button.setAttribute('aria-selected', String(tab === active)); button.dataset.ledgerControl = `tab-${tab.id}`; button.dataset.ledgerTab = tab.id;
+            button.onclick = () => { chosenTab = tab.id; render(true); };
+        }
+        const pane = element('div', ''); pane.setAttribute('role', 'tabpanel'); pane.dataset.ledgerPane = active.id;
+        const outer = target; target = pane;
+        try { active.render(view, state, owed); } finally { target = outer; }
+    }
+    function buildWork(view, state) {
         if (!state) { element('p', view.reason || 'The work ledger is not available here.'); return; }
         element('p', 'Complete work, claim points, then choose a taught method or a connected assistance service.');
         const status = element('p', `Connection: ${state.connection}. Points: ${state.points}.`); status.className = 'work-ledger-status';

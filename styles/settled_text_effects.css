@@ -59,3 +59,22 @@
 .native-discovery-cancel[hidden] {display:none;}
 /* Coin spend float (I6): anchored beside the purse line, decorative only. */
 .coin-float { position: fixed; z-index: var(--ui-layer-region); pointer-events: none; white-space: nowrap; font-weight: bold; font-size: var(--ui-type-title); padding: 0 round(.3em, 1px); border-radius: var(--ui-radius); color: var(--sem-loss, var(--ui-swatch-126)); }
+/* Ledger tab strip and the Owed tab (LTU6, coverage B2). Tokens only (UR6); state is in text, colour repeats it (UR37). */
+.work-ledger-tabs { display: flex; gap: var(--ui-space-1); margin-block: var(--ui-space-2); border-bottom: var(--ui-space-hairline) solid var(--ui-hairline); }
+.work-ledger-tabs > [role="tab"] { border-bottom-width: 0; }
+.work-ledger-tabs > [aria-selected="true"] { border-color: var(--ui-accent); text-decoration: underline; text-underline-offset: var(--ui-space-1); }
+.owed-ledger { display: grid; gap: var(--ui-space-2); }
+.owed-filters { display: flex; flex-wrap: wrap; gap: var(--ui-space-1); }
+.owed-filters > [aria-pressed="true"] { border-color: var(--ui-accent); text-decoration: underline; }
+.owed-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--ui-space-3); align-items: start; }
+.owed-table { width: 100%; border-collapse: collapse; font-size: var(--ui-type-body); }
+.owed-table thead th { position: sticky; top: 0; z-index: var(--ui-layer-sticky); text-align: left; font-size: var(--ui-type-small); background: var(--workspace-surface, var(--ui-navy)); border-bottom: var(--ui-space-hairline) solid var(--ui-hairline); padding: var(--ui-space-1); }
+.owed-table td { padding: var(--ui-space-1); border-bottom: var(--ui-space-hairline) solid var(--ui-swatch-113); vertical-align: top; }
+.owed-table [aria-selected="true"] { outline: var(--ui-space-hairline) solid var(--ui-accent); outline-offset: calc(-1 * var(--ui-space-hairline)); }
+.owed-pick { text-align: left; white-space: normal; }
+.owed-late { color: var(--ui-meter-limit); font-weight: bold; }
+.owed-inspector { border-inline-start: 2px solid var(--ui-swatch-114); padding-inline-start: var(--ui-space-3); }
+.owed-inspector h4 { margin-block: 0 var(--ui-space-2); }
+.owed-empty, .owed-hint, .owed-note { font-size: var(--ui-type-small); }
+.owed-table td, .owed-table th { overflow-wrap: normal; }
+.owed-table td:nth-child(2), .owed-table td:nth-child(3) { white-space: nowrap; }
