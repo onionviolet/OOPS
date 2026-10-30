@@ -200,6 +200,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'home-layout': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'inventory']}),
         'inherited_traits': surface('ST6', {home: 'Reference dock; family qualities and what a test reveals, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'people']}),
         'lives_carry': surface('ST6', {home: 'Reference dock; opens once a life has ended or a carry exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'people']}),
+        'quest-board': surface('ST6', {home: 'Reference dock beside Records; leads drawn from debts and wants', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'story-insight': surface('ST6', {home: 'Reference dock beside Records; recaps and world history from saved state', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'social-trust': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'people', 'inventory']}),
         'life-events': surface('ST6', {home: 'Reference dock; opens once the Village neighbors are known or a life moment is waiting', frequency: 'occasional', status: 'proposal', reads: ['people', 'time', 'inventory']}),
