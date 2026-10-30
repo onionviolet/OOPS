@@ -182,3 +182,11 @@ test('legacy continuation JSON stays additive, while malformed death and ended r
     let s=enroll();for(let i=0;i<34;i++){s=cmd(s,'die:harm');s=cmd(s,'restart:initial');}
     assert.equal(s.continuation.deaths.length,64);assert.equal(s.continuation.deaths[0].cause,'harm');
 });
+
+// Slice 1's empty schema remains a valid input after optional parts were added.
+test('explicit slice-1 harm save still migrates and round-trips unchanged',()=>{
+    const old={schema:1,backlash:{}};
+    harmDomain.load(harmDomain.migrate(JSON.parse(JSON.stringify(old))));
+    assert.deepEqual(harmState(),old);assert.equal(harmDomain.save(),undefined);
+    assert.throws(()=>harmDomain.migrate({schema:1,backlash:{},parts:{hands:{rung:'missing'}}}));
+});

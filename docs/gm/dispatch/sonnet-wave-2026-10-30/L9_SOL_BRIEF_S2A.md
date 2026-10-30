@@ -1,0 +1,18 @@
+# Lane sw-l9-s2a brief (Sol medium): body parts and graded actionModifiers
+
+Repo /Users/weiwei/code/yet-another-idle-rpg (shared checkout, other sessions edit it; never git stash/checkout/reset; do not commit; no web). Read first: `docs/gm/dispatch/sonnet-wave-2026-10-30/L9_DEATH_RESTART_DESIGN.md` (sections "Where a body part lives" incl. "Graded, not gated", and the read model), `src/harm_state.js` and `tests/harm_state.test.js` (slice 1, already committed), and docs/DOMAIN_RULES.md BHR2-BHR7 (injury names damaged function; keep conditions and HP distinct).
+
+## You own exactly
+1. `src/harm_state.js` (edit)  2. `tests/harm_state.test.js` (extend, keep slice 1 tests passing)  3. NEW `tests/harm_parts.test.js`. Touch nothing else. If you find the existing action-check hook lives in another file, do NOT edit it: write `docs/gm/dispatch/sonnet-wave-2026-10-30/L9_WIRING_S2.patch` (a unified diff against current HEAD, test-applied with `git apply --check`) and name the file and function in your report.
+
+## Build (world-neutral, no book text, no LOTM plot)
+- Slice state gains optional `parts:{<partId>:{rung,cause?}}` inside the `harm` slice: additive, absent when empty, `save()` still returns undefined for a clean state, `validate` strict (rung in HARM_RUNGS, safe ids, cap 64), `migrate` keeps old slices (no `parts`) valid. Old save with `{schema:1,backlash:{}}` must still load; round-trip test.
+- World rows gain `parts:{<partId>:{label, axes:{<rung>:[{axis, mult?, add?}]}, blocksAt:{rung, classes:[actionClass]}, healPerHour, treatedPerHour}}`. Provide for Tingen and a generic default: `hands` (axes: accuracy, force, fineWork; classes craft, fight), `legs` (speed, evasion; travel, fight), `eyes` (precision, perception; study, research), `voice` (clarity; socialize, ritual). Hard block only at the extreme rung (`maimed` or `dying`), where the mechanism truly stops the action; below that, only graded axes (mult below 1, never 0). Every number a default with a `reason` string (dial).
+- `injurePart(state,rules,partId,{rung,cause})` (never lowers an existing worse rung unless healed), `healPart(state,rules,partId,{minutes,treated,trained})` (treatment and training, e.g. off-hand technique, speed recovery; rung steps down after enough accumulated care, keep an `care` minutes counter in the slice, additive), both return `{state,record}` like slice 1.
+- `actionModifiers(save, actionClass)` returns `{allowed:boolean, blockedBy:null|{part|carrier, reason}, modifiers:[{axis,mult?,add?,cause}]}`: combine across ALL applying parts and backlash stages per axis (multiply mults, sum adds; the worst does not simply win), include the cause (part label and rung word). `allowed` is false only for a hard block, and `blockedBy` names the part or carrier. It must call the existing `actionGate` for backlash stages so there is one source of truth. `harmView(save)` fills `parts:[{id,label,rung,rungLabel,modifiers:[...],recovers}]`.
+- Locate the existing action-check path (start at `src/conditions.js`, the simulation command requirement checks, and wherever `actionGate` consumers would plug in; grep `completionRequires`, `requires`). Report where `actionModifiers` should be called. Do not fork a parallel check.
+
+## Tests (`node --test tests/harm_state.test.js tests/harm_parts.test.js tests/continuation_state.test.js`, focused only)
+Graded not gated (hurt hand lowers accuracy and force but craft stays allowed; maimed hand blocks and names `hands`); several parts combine per axis; backlash plus part combine; heal with treated and trained faster; clean state not saved; slice-1 shaped save migrates; hostile keys refused; harmView shape.
+
+Report files changed, test counts, and the hook location. No book text or plot in any string.

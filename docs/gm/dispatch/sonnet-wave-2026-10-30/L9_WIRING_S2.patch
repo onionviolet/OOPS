@@ -1,0 +1,30 @@
+--- a/src/simulation.js
++++ b/src/simulation.js
+@@ -1,3 +1,4 @@
++import {actionModifiers} from './harm_state.js';
+ import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
+ import {createWakeQueue} from './wake_queue.js';
+ import {AFTERMATH_ID,aftermathPersonPresent} from './story_aftermath.js';
+@@ -108,7 +109,22 @@
+     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
+     if(d.group==='proto23' && context.proto23Host!==true)return {visible:false,eligible:false,reasons:['Use the current Proto23 visitor controls.']};
+     const s=state.simulation, facts = knownFacts || simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry, [d.requires,d.visibleWhen]), p = person(state, context.actorId);
++    // Integration proposal: the trusted host supplies the current full save and
++    // this command's function class on BOTH preview and execution. Expansion
++    // state alone lacks the body slice; do not read the module-global harm here.
++    // Legacy/native conditions.js remains context-only and imports no domains.
++    const harm = context.actorId === 'player' && context.harmSave && context.harmActionClass
++        ? actionModifiers(context.harmSave,context.harmActionClass) : null;
+     const reasons = [...ruleReason(d.requires, facts)];
++    if (harm && !harm.allowed) reasons.push(harm.blockedBy.reason);
++    // Expose axes to the existing numeric expression resolver. Commands opt in
++    // through their own formulas; these are multipliers/offsets, not odds.
++    // The host must rebind harmSave at execution and completion, rather than
++    // trusting a UI quote or freezing a body snapshot in the accepted job.
++    for (const modifier of harm?.modifiers ?? []) {
++        facts[`harm.${modifier.axis}.mult`] = modifier.mult ?? 1;
++        facts[`harm.${modifier.axis}.add`] = modifier.add ?? 0;
++    }
+     if(d.group === "original_frontier" && !facts["originalFrontier.clockSupported"]) reasons.push("This local work has no supported clock or contact while you are in another realm.");
+     if(d.actorId && d.actorId !== context.actorId) reasons.push("This command belongs to another actor.");
+     if(d.actorDefinitionId && d.actorDefinitionId !== p.definitionId) reasons.push("This command belongs to another actor role.");

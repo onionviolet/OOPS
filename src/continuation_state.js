@@ -7,6 +7,7 @@ import {CHALLENGE_GOALS,challengeProgress,validateChallenge,challengeExport,vali
 import {check, copy, natural} from './basics.js';
 import {carryCheats} from './cheat_cards.js';
 import {HARM_WORLDS,HARM_DEATH_CAUSES,resolveDeath} from './harm_state.js';
+import {scopedRestart} from './harm_restart_scope.js';
 export const CONTINUATION_SCHEMA = 1;
 export const STUDY_MINUTES = 10;
 // Worlds whose lives may pause and resume through the connection (RET4). Early Tingen joined 2026-10-27.
@@ -153,7 +154,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         const target=anchor==='initial'?life.initial:life.checkpoint;
         check(target,'There is no later checkpoint in this life.');
         check(nativeMoment(target)<=nativeMoment(source),'That recorded point lies in an abandoned future. This connection does not grant forward travel.');
-        const at=nativeMoment(source);next=restore(source,target,c);
+        const at=nativeMoment(source);next=restore(source,scopedRestart(source,target,source.expansion?.actors?.player?.worldId),c);
         delete life.ended;c.arrivalPaused=false;
         c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at}].slice(-64);
     } else if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
