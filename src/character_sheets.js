@@ -1,6 +1,6 @@
 // Dated character sheets (WA50): a pure read model over sheet objects. Sheets are data (private pack); this module never reads files or holds plot text.
 // Chapter refs are 'bN:CH' (volume, chapter; chapters restart per volume). Docs: docs/gm/dispatch/sonnet-wave-2026-10-30/L8_CHARACTER_SHEET_SCHEMA.md
-export const LIST_FIELDS = ['identities', 'affiliation', 'power', 'abilities', 'stats', 'skills', 'held', 'money', 'condition', 'outcomes', 'routine'];
+export const LIST_FIELDS = ['identities', 'affiliation', 'power', 'abilities', 'stats', 'skills', 'held', 'money', 'condition', 'outcomes'];
 export const STAT_AXES = ['might', 'speed', 'resilience', 'mind', 'perception', 'lore', 'influence', 'wealth'];
 
 /** 'b5:12' -> sortable number; null for anything else. */
@@ -39,7 +39,7 @@ export function sheetAsOf(sheet, chapterRef, {openGates = []} = {}) {
     const at = chapterRank(chapterRef);
     if (!sheet || at === null) return null;
     const open = openGates instanceof Set ? openGates : new Set(openGates);
-    const out = {id: sheet.id, tier: sheet.tier, asOf: chapterRef, hidden: 0, personaIds: personaIdsAsOf(sheet, at, open)};
+    const out = {id: sheet.id, tier: sheet.tier, asOf: chapterRef, links: sheet.links ?? {}, hidden: 0, personaIds: personaIdsAsOf(sheet, at, open)};
     for (const field of LIST_FIELDS) {
         const live = (sheet[field] ?? []).filter(e => inForce(e, at));
         const shut = live.filter(e => !gateOpen(e, open));

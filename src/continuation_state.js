@@ -137,18 +137,23 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     check(expectedSequence===c.sequence,'This continuation choice is stale. Inspect it again.');
     check(id(token),'Missing continuation event identity.');
     check(c.lastTransition?.token!==token,'This return has already been applied.');
+    const life=c.lives[c.active];let next=source;
+    // Ended embodiments have no connection actions until their explicit restart.
+    check(!life.ended||command.startsWith('restart:')||command.startsWith('die:'),
+        'This life has ended. Restart from its initial point or checkpoint before acting.');
     if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
     else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('die:')||command.startsWith('restart:')||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
-    const life=c.lives[c.active];let next=source;
     if(command.startsWith('die:')) {
+        check(!(c.deaths||[]).some(entry=>entry.token===token),'This return has already been applied.');
         check(!life.ended,'This life has already ended.');
         const cause=command.slice(4),world=source.expansion?.actors?.player?.worldId;
         const rules=Object.hasOwn(HARM_WORLDS,world)?HARM_WORLDS[world]:HARM_WORLDS.default;
         const outcome=resolveDeath(rules,cause).default;
         check(outcome==='final',"This world's outcome is not a death.");
         life.ended={cause,outcome,at:nativeMoment(source)};
-        c.deaths=[...(c.deaths||[]),{lifeId:c.active,...life.ended}].slice(-64);
+        c.deaths=[...(c.deaths||[]),{lifeId:c.active,...life.ended,token}].slice(-64);
     } else if(command.startsWith('restart:')) {
+        check(!(c.deaths||[]).some(entry=>entry.token===token),'This return has already been applied.');
         const anchor=command.slice(8);check(['initial','checkpoint'].includes(anchor),'Choose an initial or checkpoint restart.');
         check(life.ended,'This life has not ended.');
         const target=anchor==='initial'?life.initial:life.checkpoint;
@@ -156,7 +161,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         check(nativeMoment(target)<=nativeMoment(source),'That recorded point lies in an abandoned future. This connection does not grant forward travel.');
         const at=nativeMoment(source);next=restore(source,scopedRestart(source,target,source.expansion?.actors?.player?.worldId),c);
         delete life.ended;c.arrivalPaused=false;
-        c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at}].slice(-64);
+        c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at,token}].slice(-64);
     } else if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
     else if(command.startsWith('intent:')){anchorIntent(source,c,command.slice(7));}
     else if(command.startsWith('law:')){purchaseLawAnchor(source,c,command.slice(4));}

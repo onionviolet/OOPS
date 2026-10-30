@@ -22,7 +22,9 @@ t('the lead arrives, uses a service in its hours and reads a cited price', () =>
     assert.ok(city);
     const bank = id => readRegion(city.region, {reputation: 0, hour: 11, money: 5}).institutions.find(i => i.id === id);
     assert.equal(bank('backlund.clearing-bank').open, true);
-    assert.equal(readRegion(city.region, {hour: 22}).institutions.find(i => i.id === 'backlund.clearing-bank').open, false);
+    const late = readRegion(city.region, {hour: 22}).institutions.find(i => i.id === 'backlund.clearing-bank');
+    assert.equal(late.hoursText, 'hours not recorded');
+    assert.equal(late.hoursKnown, false);
     const read = readRegion(city.region, {reputation: 0, hour: 11, money: 5});
     assert.equal(read.rank.id, 'stranger');
     const trip = read.institutions.find(i => i.id === 'backlund.public-carriage').services.find(s => s.id === 'cross-district-trip');
@@ -34,6 +36,8 @@ t('the lead arrives, uses a service in its hours and reads a cited price', () =>
     assert.equal(city.provenance['cross-district-trip'].evidence, 'S');
     assert.match(city.provenance['cross-district-trip'].locator, /^zh b\d 第\d+章 p\d+$/);
     assert.equal(read.offices[0].eligible, false);
+    assert.equal(read.era.from, 'volume 1 chapter 80');
+    assert.equal(read.dial.priceLevel, 1);
     assert.equal(read.errands[0].eligible, true);
 });
 t('every pack row is cited and labelled, and the road from the home city takes days away', () => {
@@ -49,12 +53,15 @@ t('every pack row is cited and labelled, and the road from the home city takes d
 });
 t('verified rows keep their label, authored hours and fares stay marked, and the weekly circle meets by persona only', async () => {
     const city = buildNextCity(pack);
-    assert.equal(city.provenance['backlund.clearing-bank'].hoursEvidence, 'I');
+    assert.equal(city.provenance['steam-train'].hoursEvidence, 'I');
+    assert.equal(quoteRoute(city.route, {money: 99, minuteOfDay: 3 * 60, proposedFare: 5}).legs[0].waitMinutes, 4 * 60);
+    assert.ok(city.provenance['steam-train'].hoursLocator);
     assert.equal(city.provenance['steam-train'].fareEvidence, 'I');
     assert.equal(readRegion(city.region, {reputation: 12, hour: 11, money: 5}).institutions[1].services[0].priceText, 'price not recorded');
-    const {meetsOn, seatsOn, trade, leave} = await import('../src/gatherings.js');
+    const {meetsOn, seatsOn, trade, leave, nextMeeting} = await import('../src/gatherings.js');
     const g = city.gathering;
     assert.deepEqual([0, 3, 7, 14].map(d => meetsOn(g, d)), [true, false, true, true]);
+    assert.deepEqual(nextMeeting(g, 1), {day: 7, hour: 14});
     assert.ok(seatsOn(g, 7).every(s => Object.keys(s).sort().join() === 'label,seatId'));
     const tr = trade(g, {}, {from: 'seat.fool', to: 'seat.justice', give: {kind: 'fact', key: 'news.one'}, take: {kind: 'item', key: 'item.one'}});
     assert.equal(tr.ok, true); assert.deepEqual(tr.exposed, []);
@@ -82,4 +89,57 @@ const bay = fs.existsSync(BAIYAM) ? JSON.parse(fs.readFileSync(BAIYAM, 'utf8')) 
     const files = {'private_packs/manifest.json': {schema: 1, supplements: ['lotm-baiyam/region.json']}, 'private_packs/lotm-baiyam/region.json': bay};
     const cities = await loadCities(async p => ({ok: !!files[p], json: async () => files[p]}));
     assert.deepEqual(cities.map(c => c.region.id), ['baiyam']);
+});
+
+const FRONTIER = new URL('../private_packs/lotm-afternoon-town/region.json', import.meta.url);
+const frontier = fs.existsSync(FRONTIER) ? JSON.parse(fs.readFileSync(FRONTIER, 'utf8')) : null;
+(frontier ? test : test.skip)('a frontier camp uses the same kit: unstated prices stay unstated and the route meets a creature hazard', () => {
+    const city = buildNextCity(frontier);
+    assert.ok(city);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    const read = readRegion(city.region, {reputation: 0, hour: 3, money: 100});
+    const kitchen = read.institutions.find(i => i.id === 'afternoon-town.camp-kitchen');
+    assert.equal(kitchen.hoursText, 'hours not recorded');
+    assert.equal(kitchen.services[0].priceText, 'price not recorded');
+    assert.equal(read.institutions[0].services[1].available, false);
+    assert.equal(read.offices[0].eligible, false);
+    const q = quoteRoute(city.route, {money: 0});
+    assert.equal(q.totalFare, 0); assert.equal(q.totalDays, 1); assert.equal(q.eligible, true);
+    const kinds = new Set();
+    for(let d = 0; d < 100; d++) for(const e of settleRoute(city.route, {day: d, seed: 5}).events) kinds.add(e.kind);
+    assert.deepEqual([...kinds], ['creature']);
+});
+
+const RAIL = new URL('../private_packs/lotm-utopia/region.json', import.meta.url);
+const rail = fs.existsSync(RAIL) ? JSON.parse(fs.readFileSync(RAIL, 'utf8')) : null;
+(rail ? test : test.skip)('a rail-stop city waits for the morning train and meets a weather halt', () => {
+    const city = buildNextCity(rail);
+    assert.ok(city);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    const read = readRegion(city.region, {reputation: 0, hour: 23, money: 5});
+    assert.equal(read.institutions.find(i => i.id === 'utopia.post').hoursText, 'hours not recorded');
+    assert.equal(read.priceList.find(p => p.id === 'liquor').text, 'price not recorded');
+    assert.equal(read.offices[0].eligible, false);
+    // The return train leaves at 8 in the morning: reaching the station at 02:00 means waiting.
+    const back = quoteRoute({...city.route, legs: [city.route.legs[1]]}, {money: 99, minuteOfDay: 2 * 60, proposedFare: 5});
+    assert.equal(back.legs[0].waitMinutes, 6 * 60);
+    const kinds = new Set();
+    for(let d = 0; d < 100; d++) for(const e of settleRoute(city.route, {day: d, money: 99, minuteOfDay: 8 * 60, seed: 9, proposedFare: 5, money: 99}).events) kinds.add(e.kind);
+    assert.ok(kinds.has('weather'));
+});
+
+const WALLED = new URL('../private_packs/lotm-silver-city/region.json', import.meta.url);
+const walled = fs.existsSync(WALLED) ? JSON.parse(fs.readFileSync(WALLED, 'utf8')) : null;
+(walled ? test : test.skip)('a city with no cited way in loads without a route and prices in its own unit', () => {
+    const city = buildNextCity(walled);
+    assert.ok(city);
+    assert.equal(city.route, null);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    const read = readRegion(city.region, {reputation: 0, hour: 12, money: 20000});
+    const merit = read.institutions.find(i => i.id === 'silver-city.patrols').services.find(s => s.id === 'merit-for-food');
+    assert.equal(merit.priceText, 'price not recorded');
+    assert.equal(read.priceList.find(p => p.id === 'clearing-team-pay').text, 'price not recorded');
+    assert.equal(read.offices[0].eligible, false);
+    assert.equal(readRegion(city.region, {reputation: 12}).offices[0].eligible, true);
+    assert.equal(buildNextCity({...walled, route: 'no'}), null);
 });

@@ -93,3 +93,24 @@ test('two personas of one body hold different standing and leak only when linked
     assert.equal(expose(s, 'persona.b', 'aster', {observerId: 'npc.1'}).leaked, 0);
     assert.throws(() => addPersona(s, {id: 'persona.a', bodyId: 'body.x'}));
 });
+
+import {buildEventBook, restrictionsOn} from '../src/world_events.js';
+test('the day\'s restrictions close a service and halt a leg, and a curfew without hours is only a notice', () => {
+    const book = buildEventBook([
+        {id: 'ev.closure', key: 'k.closure', kind: 'institution_notice', placement: 'dated', scope: 'public', evidence: 'I', when: {day: 5, endDay: 5},
+            effects: [{kind: 'closure', institutions: ['aster.guild']}]},
+        {id: 'ev.halt', key: 'k.halt', kind: 'disaster', placement: 'dated', scope: 'public', evidence: 'I', when: {day: 5, endDay: 5}, effects: [{kind: 'travel_halt', legs: ['l1']}]},
+        {id: 'ev.curfew', key: 'k.curfew', kind: 'curfew', placement: 'dated', scope: 'public', evidence: 'I', when: {day: 6, endDay: 6}, effects: []}]);
+    const r5 = restrictionsOn(book, 5), r6 = restrictionsOn(book, 6), r9 = restrictionsOn(book, 9);
+    const region = city('aster');
+    const closed = readRegion(region, {reputation: 12, hour: 12, money: 50, restrictions: r5});
+    assert.equal(closed.institutions[0].open, false);
+    assert.match(closed.institutions[0].services[0].reasons.join(' '), /restriction/);
+    assert.equal(readRegion(region, {reputation: 12, hour: 12, money: 50, restrictions: r9}).institutions[0].open, true);
+    const notice = readRegion(region, {reputation: 12, hour: 12, money: 50, restrictions: r6});
+    assert.equal(notice.institutions[0].open, true);
+    const q = quoteRoute(route, {money: 100, minuteOfDay: 8 * 60, proposedFare: 5, restrictions: r5});
+    assert.equal(q.eligible, false);
+    assert.match(q.reasons.join(' '), /Halted/);
+    assert.equal(quoteRoute(route, {money: 100, proposedFare: 5, restrictions: r9}).eligible, true);
+});

@@ -26,7 +26,7 @@ test('builder preserves independent frames and timing metadata, separating facts
         scope: 'private', evidence: 'S', spread: [], ordinal: {beat: 'a'}});
     assert.deepEqual(pack.events[1].anchor, {eventId: 'ev.a', offsetDays: 2});
     assert.deepEqual(pack.events[3], {id: 'n1', key: 'lotm.v1.n1', lineKey: 'news.n1', kind: 'public_event',
-        placement: 'anchored', scope: 'public', evidence: 'T', spread: [{route: 'newspaper', delayDays: 1}], chapter: 1,
+        placement: 'anchored', scope: 'public', evidence: 'T', spread: [{route: 'newspaper', delayDays: 1}],
         anchor: {eventId: 'ev.a', offsetDays: 2}});
     assert.deepEqual(pack.events[4].ordinal, {beat: 'z'});
     assert.deepEqual(pack.events[4].spread, []);
@@ -81,4 +81,51 @@ test('later volumes place a row at its chapter beat and keep private facts off t
     assert.deepEqual(pack.events.map(e => [e.id, e.placement]), [['a', 'ordinal'], ['c', 'unplaced'], ['d', 'unplaced']]);
     assert.equal(pack.events[0].ordinal.beat, 'lotm.v3.ch7');
     assert.deepEqual(privateFacts.map(f => f.id), ['b']);
+});
+
+test('later-volume rules: witnessed rows are seen by the lead, named audiences need a carrier, empty reads drop', async () => {
+    const {buildLaterPack} = await import('../scripts/world_events_build.mjs');
+    const {knownTo} = await import('../src/world_events.js');
+    const row = (id, extra) => ({id, kind: 'public_event', placement: 'ordinal', chapter: 4, scope: 'public', evidence: 'S', route: 'witness', delayDays: 0, what: 'x', ...extra});
+    const {pack} = buildLaterPack(2, [row('w'), row('n', {route: 'word', audience: 'named'}), row('r', {what: 'paper read; content not stated'}), row('p', {route: 'letter', delayDays: 2, audience: 'public'})]);
+    assert.deepEqual(pack.events.map(e => e.id), ['w', 'n', 'p']);
+    assert.equal(pack.events[0].witnessedByLead, true);
+    assert.deepEqual(pack.events[1].spread, []);
+    const beat = 'lotm.v2.ch4', bindings = frameBindings(pack, [beat], () => 30);
+    assert.deepEqual(bindings, {[beat]: 30});
+    const book = loadEventPack(pack, {bindings, leadId: 'lead'});
+    const ctx = {presence: () => null, channels: () => new Set(['letter'])};
+    assert.deepEqual(knownTo(book, 'lead', 30, {...ctx, channels: () => new Set()}).map(k => k.eventId), ['w']);
+    assert.deepEqual(knownTo(book, 'stranger', 99, {...ctx, channels: () => new Set()}), []);
+    assert.deepEqual(knownTo(book, 'stranger', 31, ctx).map(k => k.eventId), []);
+    assert.deepEqual(knownTo(book, 'stranger', 32, ctx).map(k => k.eventId), ['p']);
+});
+
+test('scenes the lead is not in happen anyway and are known only to those present', () => {
+    const scene = (beat, extra) => ({beat, frame: 'r', frameDay: beat === 'r' ? null : 1, place: 'p', label: 'I', present: [], leadPresent: true, ...extra});
+    const {pack} = buildPack([scene('r'), scene('s', {present: ['aly'], leadPresent: false})], []);
+    const s = pack.events.find(e => e.id === 'ev.s');
+    assert.deepEqual(s.present, ['aly']);
+    assert.equal(s.witnessedByLead, undefined);
+    const book = loadEventPack(pack, {bindings: {r: 5}, leadId: 'lead'});
+    const ctx = {presence: () => null, channels: () => new Set()};
+    assert.deepEqual(knownTo(book, 'aly', 99, ctx).map(k => k.eventId), ['ev.s']);
+    assert.deepEqual(knownTo(book, 'lead', 99, ctx).map(k => k.eventId), ['ev.r']);
+});
+
+test('restriction rows attach as effects; text-only scopes are unmapped notices, region scopes are enforced', async () => {
+    const {applyRestrictions, buildLaterPack} = await import('../scripts/world_events_build.mjs');
+    const {restrictionsOn, openUnder} = await import('../src/world_events.js');
+    const base = {kind: 'public_event', placement: 'ordinal', chapter: 3, scope: 'public', evidence: 'S', route: 'newspaper', delayDays: 0, what: 'x'};
+    const {pack} = buildLaterPack(2, [{id: 'a', ...base}, {id: 'b', ...base}]);
+    const n = applyRestrictions(pack.events, [
+        {id: 'a', kind_fix: 'curfew', effects: [{kind: 'curfew', scope: 'region', hours: [21, 5]}]},
+        {id: 'b', effects: [{kind: 'closure', scope: 'place', scope_text: 'a named hall'}]}, {id: 'ghost', effects: [{kind: 'closure', scope: 'region'}]}]);
+    assert.equal(n, 2);
+    const book = loadEventPack(pack, {bindings: {'lotm.v2.ch3': 9}});
+    const day = restrictionsOn(book, 9);
+    assert.equal(openUnder(day, {place: 'x', hour: 22}).open, false);
+    const unmapped = openUnder(day, {place: 'x', hour: 12});
+    assert.equal(unmapped.open, true);
+    assert.deepEqual(unmapped.notices, ['b']);
 });

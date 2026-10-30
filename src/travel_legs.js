@@ -5,6 +5,7 @@
 import {check, natural, object, deepFreeze} from './basics.js';
 import {hashStreamSeed, xorshift32} from './hash_rng.js';
 import {isOpen, hoursText} from './region_kit.js';
+import {openUnder} from './world_events.js';
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !['__proto__', 'constructor', 'prototype'].includes(v);
 const DAY = 1440;
 const fareOk = f => f === undefined || object(f) && (natural(f.sum) || f.unstated === true || natural(f.perKm) && natural(f.km) && (f.cap === undefined || natural(f.cap)));
@@ -41,18 +42,20 @@ const waitFor = (hours, minuteOfDay) => {
     if(isOpen(hours, hour)) return 0;
     return (hours[0] * 60 - minuteOfDay + DAY) % DAY;
 };
-/** ctx: {money, minuteOfDay, proposedFare}. Reads only. */
-export function quoteRoute(route, {money = Infinity, minuteOfDay = 8 * 60, proposedFare = 0} = {}) {
+/** ctx: {money, minuteOfDay, proposedFare, restrictions (from world_events restrictionsOn)}. Reads only. */
+export function quoteRoute(route, {money = Infinity, minuteOfDay = 8 * 60, proposedFare = 0, restrictions = []} = {}) {
     let clock = minuteOfDay, totalFare = 0, purse = money;
     const legs = route.legs.map(leg => {
         const wait = waitFor(leg.hours, clock), known = legFare(leg, route.dial.priceLevel), fare = known ?? proposedFare, reasons = [];
         if(wait) reasons.push(`Service runs ${hoursText(leg.hours)}; wait ${wait} min.`);
         if(purse < fare) reasons.push(`Needs ${fare} money for the fare.`);
+        const halt = openUnder(restrictions, {leg: leg.id, means: leg.means, hour: Math.floor((clock + wait) / 60) % 24});
+        if(!halt.open) reasons.push("Halted by the day's restriction.");
         purse -= fare; totalFare += fare;
         const start = clock + wait; clock = start + leg.minutes;
         return {id: leg.id, from: leg.from, to: leg.to, means: leg.means, minutes: leg.minutes, waitMinutes: wait, fare,
             fareText: known === null ? 'Fare not recorded.' : known === 0 ? 'No fare.' : `${known} money fare.`, fareBasis: known === null ? 'proposed' : 'stated',
-            hazards: (leg.hazards || []).map(h => ({id: h.id, kind: h.kind})), eligible: purse >= 0 && !reasons.some(r => r.startsWith('Needs')), reasons};
+            hazards: (leg.hazards || []).map(h => ({id: h.id, kind: h.kind})), eligible: purse >= 0 && !reasons.some(r => r.startsWith('Needs') || r.startsWith('Halted')), reasons, notices: halt.notices};
     });
     const totalMinutes = clock - minuteOfDay;
     return {id: route.id, legs, totalMinutes, totalDays: Math.ceil(totalMinutes / DAY), totalFare, eligible: legs.every(l => l.eligible), reasons: legs.flatMap(l => l.reasons)};

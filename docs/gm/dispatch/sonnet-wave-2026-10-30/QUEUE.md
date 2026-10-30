@@ -60,3 +60,20 @@ Weibao: "Send out next sonnet waves accordingly, or have each chat do so, do the
 1. Re-read your own committed slices with fresh eyes against your design note and the rules you cite. Look for defects, dead fields nobody reads (WA41), blanket claims written as absolutes instead of default, dial and reason, tests that pin incidental shapes, and duplicates of another lane's model.
 2. Fix them in one commit, and log what you found in your intake file.
 3. Then continue your volume walk. Codex is the bulk route: up to 3 Codex lanes per Sonnet lane, about 10 across the wave, and stop launching at Codex 85%. Lanes may run their own Codex waves but do not start new Claude sessions; ask the coordinator.
+
+## Round 2 results and overnight (2026-10-30 02:50)
+
+Landed after round 2's improvement passes:
+
+| Lane | Commits | What landed |
+| --- | --- | --- |
+| L10 | `a5c5a3a09`, `31ab6c6df` | Sequence 5 |
+| L11 | `dc6f42cca`, `1e6ae2429` | Slice 6 |
+| L14 | `bdc9de9b6`, `9c7fb2ece` | Second-hand spread and `whoKnows` |
+| L9 | `b41eec320` | Backlash walk; audit lane still running |
+| L4 | `9e4bf365d` | Volume 2 rites |
+| Idea sweep | `cee7415e1` | All 141 intake lines folded |
+
+Every slice is still unwired. `sw-wire` owns wiring from `WIRING_HANDOFF_FROM_L-A.md`, and `sw-slots` is building the Chrome floor runner. Most lanes still skip Codex, so Sonnet does work Codex could.
+
+Overnight: Weibao is asleep. The overnight supervisor (`local_9346d8a9`, [rules](OVERNIGHT_2026-10-30.md)) nudges idle lanes on a ~40-minute tick, because this coordinator's cross-session sends cap at 10 per user turn. Next items went to `sw-road` (next cities), `sw-adv` (typed abilities volumes 2-8, more spells), `sw-calendar` (GM38 curfews, volume 1 dated scenes), `sw-bridge` (new read models) and `sw-absorb` (timing gap, place rebuild, gates). Each lane leaves a morning block at its last commit.

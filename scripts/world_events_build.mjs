@@ -10,6 +10,40 @@ const tally = (rows, key) => rows.reduce((counts, row) => {
     return counts;
 }, {});
 
+// Spread rules: witnessed rows have no route (the lead is present); a named audience needs its carrier; a route with no
+// stated delay (a diary, say) has no delivery day.
+function spreadFor(row) {
+    if (row.route === 'none' || row.route === 'witness' || row.route === 'overheard') return [];
+    if (!Number.isSafeInteger(row.delayDays)) return [];
+    if (row.audience === 'named' && !row.via) return [];
+    return [{route: row.route, delayDays: row.delayDays, ...(row.via ? {via: row.via, audience: row.audience} : {})}];
+}
+const witnessed = row => row.route === 'witness' || row.route === 'overheard';
+// Reading acts ("content not stated") carry no event.
+const emptyRead = row => /content not stated/i.test(row.what ?? '');
+
+// Luna restriction rows (GM38) become event effects. A scope given only as text has no place id yet, so the effect is
+// `unmapped`: shown as a notice, never enforced, until place data names it. Region scope needs no ids.
+export function applyRestrictions(events, restrictRows) {
+    const byId = new Map(events.map(e => [e.id, e]));
+    let applied = 0;
+    for (const row of restrictRows) {
+        const event = byId.get(row.id);
+        if (!event) continue;
+        if (row.kind_fix) event.kind = row.kind_fix;
+        for (const f of row.effects ?? []) {
+            const effect = {kind: f.kind};
+            if (f.scope !== 'region') {effect.unmapped = true; effect.scopeText = f.scope_text ?? null;}
+            if (f.means) effect.means = [f.means];
+            if (Array.isArray(f.hours)) effect.hours = f.hours;
+            if (Number.isSafeInteger(f.durationDays) && event.window == null) effect.durationDays = f.durationDays;
+            (event.effects ??= []).push(effect);
+            applied++;
+        }
+    }
+    return applied;
+}
+
 // newsRows includes the source's id/chapter/scope metadata joined by the CLI.
 // Return the pack separately from facts so facts cannot enter the calendar.
 export function buildPack(sceneRows, newsRows) {
@@ -24,18 +58,20 @@ export function buildPack(sceneRows, newsRows) {
             spread: [],
         };
         if (scene.place != null) event.place = scene.place;
+        if (Array.isArray(scene.present) && scene.present.length) event.present = scene.present;   // the others there; they always know
+        if (scene.leadPresent) event.witnessedByLead = true;   // the lead's own beats are the cast's; the rest happen without the lead
         if (root) event.ordinal = {beat: scene.frame};
         else event.anchor = {eventId: `ev.${scene.frame}`, offsetDays: scene.frameDay};
         events.push(event);
     }
     for (const row of newsRows) {
-        const spread = row.route === 'none' ? [] : [{route: row.route, delayDays: row.delayDays,
-            ...(row.via ? {via: row.via, audience: row.audience} : {})}];
+        if (emptyRead(row)) {leftOut++; continue;}
+        const spread = spreadFor(row);
         const event = {
             id: row.id, key: `lotm.v1.${row.id}`, lineKey: `news.${row.id}`,
             kind: row.kind, placement: row.placement, scope: row.scope, evidence: row.evidence, spread,
         };
-        if (row.chapter !== undefined) event.chapter = row.chapter;
+        if (witnessed(row) && row.placement === 'ordinal') event.witnessedByLead = true;
         if (row.kind === 'private_fact') {
             privateFacts.push({...event, frame: row.frame, offsetDays: row.offsetDays, durationDays: row.durationDays});
             continue;
@@ -62,13 +98,12 @@ export function buildPack(sceneRows, newsRows) {
 export function buildLaterPack(volume, newsRows) {
     const events = [], privateFacts = [];
     for (const row of newsRows) {
-        // A route with no stated delay (a diary, say) has no delivery day, so it spreads nowhere.
-        const spread = row.route === 'none' || !Number.isSafeInteger(row.delayDays) ? [] : [{route: row.route, delayDays: row.delayDays,
-            ...(row.via ? {via: row.via, audience: row.audience} : {})}];
+        if (emptyRead(row)) continue;
+        const spread = spreadFor(row);
         const event = {id: row.id, key: `lotm.v${volume}.${row.id}`, lineKey: `news.${row.id}`, kind: row.kind,
             placement: row.placement === 'ordinal' && Number.isSafeInteger(row.chapter) ? 'ordinal' : 'unplaced',
             scope: row.scope, evidence: row.evidence, spread};
-        if (row.chapter != null) event.chapter = row.chapter;
+        if (witnessed(row) && event.placement === 'ordinal') event.witnessedByLead = true;
         if (row.kind === 'private_fact') {privateFacts.push({...event, durationDays: row.durationDays}); continue;}
         if (event.placement === 'ordinal') event.ordinal = {beat: `lotm.v${volume}.ch${row.chapter}`};
         events.push(event);
@@ -91,11 +126,12 @@ async function mainLater() {
             for (const row of classified) {
                 const input = metadata.get(row.id);
                 check(input, 'Missing news metadata.');
-                rows.push({...row, chapter: input.chapter, scope: input.scope});
+                rows.push({...row, chapter: input.chapter, scope: input.scope, what: input.what});
             }
         }
         if (!rows.length) continue;
         const {pack, privateFacts, counts} = buildLaterPack(volume, rows);
+        counts.restrictionEffects = applyRestrictions(pack.events, await readRows('restrict_class.jsonl').catch(() => []));
         await writeFile(new URL(`world_events_v${volume}.json`, privateDir), JSON.stringify(pack, null, 2) + '\n');
         await writeFile(new URL(`private_facts_v${volume}.json`, privateDir), JSON.stringify(privateFacts, null, 2) + '\n');
         console.log(JSON.stringify({volume, events: pack.events.length, privateFacts: privateFacts.length, ...counts}));
@@ -109,9 +145,10 @@ async function main() {
     const rows = classified.map(row => {
         const input = metadata.get(row.id);
         check(input, 'Missing news metadata.');
-        return {...row, chapter: input.chapter, scope: input.scope};
+        return {...row, chapter: input.chapter, scope: input.scope, what: input.what};
     });
     const {pack, privateFacts, counts} = buildPack(scenes, rows);
+    counts.restrictionEffects = applyRestrictions(pack.events, await readRows('restrict_class.jsonl').catch(() => []));
     await writeFile(new URL('world_events_v1.json', privateDir), JSON.stringify(pack, null, 2) + '\n');
     await writeFile(new URL('private_facts.json', privateDir), JSON.stringify(privateFacts, null, 2) + '\n');
     console.log(JSON.stringify({events: pack.events.length, privateFacts: privateFacts.length, ...counts}, null, 2));

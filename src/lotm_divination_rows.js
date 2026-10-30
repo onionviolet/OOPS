@@ -177,8 +177,8 @@ export const LOTM_DIVINATION_OCCASIONS = [
 export const LOTM_DIVINATION_GAPS = [
     {id: 'lotm.craft.child-locating', reason: 'The proposed sympathetic search needs reliable identifying details or a personal link; no completed locating attempt or answer is shown, and the child-based link requires waiting until birth.'},
     {id: 'lotm.rite.blood-kin-search', reason: 'Blood applied to a bone triggers a supernatural manifestation, but the cited passage provides no destination or locating interpretation.'},
-    {id: 'lotm.rite.copper-whistle-summon', reason: 'A summoned being takes a letter; this belongs to a messenger mechanism rather than a question and answer signal.'},
-    {id: 'lotm.rite.copper-whistle-messenger', reason: 'The same letter handoff is a messenger procedure, with no divination question or answer.'},
+    {id: 'lotm.rite.copper-whistle-summon', reason: 'A summoned being takes a letter; this belongs to a messenger mechanism rather than a question and answer signal.', coveredBy: 'lotm.summon.copper-whistle-messenger'},
+    {id: 'lotm.rite.copper-whistle-messenger', reason: 'The same letter handoff is a messenger procedure, with no divination question or answer.', coveredBy: 'lotm.summon.copper-whistle-messenger'},
     {id: 'lotm.craft.pendulum-divination', reason: 'The tea demonstration has no question or interpretation; the performed disclosure check is represented separately.'},
     {id: 'lotm.rite.mirror-divination', reason: 'The lesson and positioning critique provide no performed mirror reading with a stated answer.'},
 ];

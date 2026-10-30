@@ -42,6 +42,17 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 | G15 | Digest `Missed` row | rep reads `feed.heard`; L14 splits witnessed (`present`) from heard by `level`. Bridge maps present to Around, heard to Missed | rep-time: confirm that split |
 | G16 | Wording for event rows | L14 holds `lineKey` only; text is pack data. Bridge takes a `textOf` callback and drops unworded events | sw-calendar/sw-absorb: supply the pack lookup at the host |
 | G17 | A learnable-ability view (stage unlearned/practicing/castable, gates, mastery, next sign) | L10 `learnView(card,{facts})` is ready (de56fe717). rep-abilities defers skills and techniques to a later slice (O2 web), and rep-research mentions teachers but defines no contract | rep-abilities: name the learn view's contract; then a bridge drops `unstated` and shows `nextSignAt` only for signs already felt |
+| G18 | "Who can I ask" / secret checks from L14 `whoKnows` and second-hand spread | engine ready (`9c7fb2ece`). No rep doc on any branch names a consumer (searched all 17 rep docs for whoKnows, who can I ask, gathering). The digest bridge already carries second-hand news as `heard` unchanged | rep-knowledge or rep-relationship-web: name the contract (ask list per person?). Bridge must drop `route` ids and show only people the seat knows |
+| G19 | Backlash walk (L9 `b41eec320`) | design counts only, no new read model | none |
+
+Re-checked after L10 Sequence 5 and typed blockers, L11 multi-city and gatherings, L14 spread, L9 walk: all 11 bridge tests still pass; the ladder bridge takes the longer path unchanged and blockers surface through `refusedBy`.
+
+## Contracts named by the UI coordinator (2026-10-30, after the first notices)
+
+- G15 confirmed: `present` is Around (seen yourself), `heard` is Missed (second-hand); affected and aftermath also go under Missed with their level shown (RPT2). The UI integrator (`ui-integrator`) wires `time_digest_bridge.js` at merge. Affected/aftermath levels are not in L14's `level` yet (`present`/`heard` only): L14 gap if wanted.
+- G14 gatherings and TC12 curfews: the time view's upcoming strip (rep-time), place via the maps departures board. Bridge slice after merge.
+- G17 `learnView`: a Skills and techniques tab in the abilities ladder view (ABILITIES.md), same ladder contract. Bridge slice after merge.
+- G18 `whoKnows`: the knowledge view's Knows home, with an "ask" action to the talk view (rep-talk). Bridge slice after merge.
 
 ## Verification state
 

@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {domainRegistry} from '../src/domain_registry.js';
 import {scopedRestart,RESTART_SCOPES} from '../src/harm_restart_scope.js';
 import {beginContinuation,planContinuation,validateContinuation,COMPATIBLE_MASTERY,nativeMoment} from '../src/continuation_state.js';
 import {validateExpansionState} from '../src/expansion_engine.js';
@@ -167,4 +168,112 @@ test('Frontier restart keeps whole-save semantics and legacy continuation JSON s
     const legacy=copy(s.continuation);delete legacy.deaths;delete legacy.lives['life-1'].ended;
     validateContinuation(JSON.parse(JSON.stringify(legacy)));
     assert.equal(RESTART_SCOPES['base.frontier'].mode,'whole');assert.equal(RESTART_SCOPES.default.mode,'scoped');
+});
+
+
+test('anchor carried resources win while retained receipts and carry rules stay live',()=>{
+    const s=changed(),a=s.continuation.lives['life-1'].initial;
+    a.expansion.actors.player.resources['proto23.purse']=2;
+    s.expansion.actors.player.resources['proto23.purse']=8;
+    s.expansion.actors.player.resources['other.world.item']=1;
+    s.expansion.actors.player.completed['proto23.gift']=true;
+    s.expansion.simulation.custody['proto23.loan']={owner:proto23Definitions.people[0].id,holder:'player',key:'fixture',count:1,at:0};
+    const next=cmd(s,'restart:initial');
+    assert.equal(next.expansion.actors.player.resources['proto23.purse'],2);
+    assert.equal(next.expansion.actors.player.resources['other.world.item'],undefined);
+    assert.equal(next.expansion.actors.player.completed['proto23.gift'],true);
+    assert.equal(next.expansion.simulation.custody['proto23.loan'],undefined);
+    assert.deepEqual(next.expansion.proto23Village.receipts,s.expansion.proto23Village.receipts);
+});
+
+test('foreign-destination travel work is removed with its seat reservation',()=>{
+    const s=fixture(),a=copy(s.continuation.lives['life-1'].initial);
+    s.current_activity={activity_id:'travel',destination:P.world};
+    const job={id:'other.world.travel',actorId:'player',worldId:P.world,participants:['player'],due:30,siteId:'other.world.road'};
+    s.expansion.simulation.jobs.push(job);
+    s.expansion.simulation.sites[job.siteId]={capacity:1,reservations:{[job.id]:'player'}};
+    const before=copy(s),dead=cmd(s,'die:harm'),next=cmd(dead,'restart:initial');
+    assert.equal(next.current_activity,undefined);
+    assert.ok(!next.expansion.simulation.jobs.some(j=>j.id===job.id));
+    assert.deepEqual(next.expansion.simulation.sites[job.siteId].reservations,{});
+    assert.deepEqual(s,before);
+    s.expansion.proto23Village.activeVisitId='travel.visit';const visiting=copy(s);
+    assert.throws(()=>scopedRestart(s,a,W),/retained proto23Village.*active visit/);
+    assert.deepEqual(s,visiting);assert.deepEqual(a,s.continuation.lives['life-1'].initial);
+});
+
+test('pre-change exports import through real validators without creating a clean harm slice',async()=>{
+    for(const harm of [undefined,{schema:1,backlash:{}},{schema:1,backlash:{},parts:{}},{schema:1,backlash:{power:3}}]) {
+        const s=fixture();if(harm===undefined)delete s.harm;else s.harm=harm;
+        delete s.continuation.deaths;delete s.continuation.lives['life-1'].ended;
+        const encoded=encodeSaveFile(JSON.stringify(s));let imported;
+        await importSaveFile(encoded,{currentVersion:VERSION,preflight:s=>validateSaveEnvelope(s,VERSION),storage:{setItem(k,v){imported=JSON.parse(v);}},key:'fixture'});
+        assert.deepEqual(imported.harm,harm);validateContinuation(imported.continuation);
+        const domain=domainRegistry.list().find(d=>d.id==='harm');
+        domain.load(domain.migrate(imported.harm));
+        if(!harm?.backlash?.power)assert.equal(domain.save(),undefined);
+    }
+});
+
+
+test('foreign-namespaced custody follows its physical holder instead of its namespace',()=>{
+    const s=changed(),a=copy(s.continuation.lives['life-1'].initial),owner=proto23Definitions.people[0].id;
+    s.expansion.simulation.custody['proto23.fixture.loan']={owner,holder:'player',key:'fixture',count:1,at:0};
+    const next=scopedRestart(s,a,W);
+    assert.equal(next.expansion.simulation.custody['proto23.fixture.loan'],undefined);
+    assert.deepEqual(next.inventories.person[owner],s.inventories.person[owner]);
+});
+
+
+test('anchor body and retained inventory do not duplicate cross-world loan copies',()=>{
+    const key=JSON.stringify({id:'Stale bread'}),holder=proto23Definitions.people[0].id;
+    for(const returned of [false,true]) {
+        const s=changed(),a=copy(s.continuation.lives['life-1'].initial);
+        a.inventories.person.main_character[key]={count:1};
+        s.inventories.person.main_character={};s.inventories.person[holder][key]={count:1};
+        const loan={owner:returned?holder:'player',holder:returned?'player':holder,key,count:1,at:0};
+        if(returned)a.expansion.simulation.custody['proto23.copy']=loan;
+        else s.expansion.simulation.custody['proto23.copy']=loan;
+        const before=copy(s),anchorBefore=copy(a),next=scopedRestart(s,a,W);
+        assert.equal(next.inventories.person.main_character[key].count,1);
+        assert.equal(next.inventories.person[holder][key]?.count??0,0);
+        validateSaveEnvelope(copy(next),VERSION);
+        assert.deepEqual(s,before);assert.deepEqual(a,anchorBefore);
+    }
+});
+
+
+test('real import rejects hostile harm and ended records before writing storage',async()=>{
+    const badHarm=[{schema:2,backlash:{}},{schema:1,backlash:{power:-1}},
+        JSON.parse('{"schema":1,"backlash":{"__proto__":1}}'),
+        {schema:1,backlash:{},parts:{hands:{rung:'wounded',care:-1}}}];
+    const cases=badHarm.map(harm=>({...fixture(),harm}));
+    const ended=cmd(fixture(),'die:harm');ended.continuation.lives['life-1'].ended.outcome='unconscious';cases.push(ended);
+    for(const s of cases) {
+        let writes=0;const before=copy(s);
+        await assert.rejects(()=>importSaveFile(encodeSaveFile(JSON.stringify(s)),{currentVersion:VERSION,
+            preflight:s=>validateSaveEnvelope(s,VERSION),storage:{setItem(){writes++;}},key:'fixture'}));
+        assert.equal(writes,0);assert.deepEqual(s,before);
+    }
+});
+
+test('a loan copy spent beyond its retained holder refuses without changing either input',()=>{
+    const s=changed(),a=copy(s.continuation.lives['life-1'].initial),holder=proto23Definitions.people[0].id;
+    const key=JSON.stringify({id:'Stale bread'});
+    a.inventories.person.main_character[key]={count:1};
+    s.expansion.simulation.custody['proto23.spent']={owner:'player',holder,key,count:1,at:0};
+    delete s.inventories.person[holder][key];const before=copy(s),anchorBefore=copy(a);
+    assert.throws(()=>scopedRestart(s,a,W),/cross-world loan copy.*recorded holder/);
+    assert.deepEqual(s,before);assert.deepEqual(a,anchorBefore);
+});
+
+
+test('a retained travel leader releases a reservation when the rewound seat was its participant',()=>{
+    const s=changed(),a=copy(s.continuation.lives['life-1'].initial),actor=proto23Definitions.people[0].id;
+    const job={id:'proto23.travel.party',actorId:actor,participants:[actor,'player'],worldId:P.world,siteId:'proto23.road',due:30};
+    s.expansion.simulation.jobs.push(job);
+    s.expansion.simulation.sites[job.siteId]={capacity:1,reservations:{[job.id]:actor}};
+    const next=scopedRestart(s,a,W);
+    assert.ok(!next.expansion.simulation.jobs.some(j=>j.id===job.id));
+    assert.deepEqual(next.expansion.simulation.sites[job.siteId].reservations,{});
 });

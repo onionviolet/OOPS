@@ -27,19 +27,39 @@ for (const line of readFileSync(merged, 'utf8').split('\n')) {
 const src = ['lotm_divination_rows', 'lotm_summons_rows', 'lotm_potion_rule_rows', 'lotm_formula_rows'].map(f => readFileSync(`src/${f}.js`, 'utf8')).join('\n');
 const l4 = new Set(src.match(/lotm\.(?:aid|potionrule|div|summon)\.[a-z0-9-]+/g));
 // L4 rows cite the merged rule they came from only in prose; the join here is by id only, so a sheet rule matches when its id equals an L4 id.
-const counts = {sheets: 0, abilities: 0, l10: 0, l4: 0};
+// Routine is one source: the cast records (sw-absorb). A sheet links to them by cast id and routine/slot ids, and copies nothing.
+const cast = JSON.parse(readFileSync('private_packs/lotm-cast/cast.json', 'utf8'));
+const castOf = new Map(cast.people.filter(p => p.indexId).map(p => [p.indexId, p.id]));
+const routinesOf = new Map(), slotsOf = new Map();
+for (const r of cast.routines) routinesOf.set(r.actor, [...(routinesOf.get(r.actor) ?? []), r.id]);
+for (const r of cast.schedule) slotsOf.set(r.actor, [...(slotsOf.get(r.actor) ?? []), r.id]);
+const linkRoutine = s => {
+    const castId = castOf.get(s.id);
+    if (!castId) return false;
+    s.links = {...s.links, cast: castId, routines: routinesOf.get(castId) ?? [], slots: slotsOf.get(castId) ?? []};
+    return true;
+};
+const counts = {sheets: 0, abilities: 0, l10: 0, l4: 0, routineLinks: 0};
 const files = readdirSync(dir).filter(f => f.endsWith('.json')).map(f => join(dir, f));
 const rec = join(dir, 'recurring/recurring-sheets.json');
 for (const f of files) {
     const s = JSON.parse(readFileSync(f, 'utf8'));
     counts.sheets++;
+    delete s.routine;
+    if (linkRoutine(s)) counts.routineLinks++;
     for (const [k, e] of earliest) if (k.startsWith(`${s.id}|`) && !(s.abilities ?? []).some(a => a.rule === e.rule)) { (s.abilities ??= []).push({rule: e.rule, conditions: [], costs: [], limits: [], from: e.from, view: 'actual', ev: e.ev, loc: e.loc, added: 'join'}); counts.added = (counts.added ?? 0) + 1; }
     for (const a of s.abilities ?? []) {
         counts.abilities++;
+        for (const k of ['conditions', 'costs', 'limits']) if (Array.isArray(a[k]) && !a[k].length) delete a[k];   // unread empties; the rule owner holds conditions
         const rule = typeof a.v === 'string' ? a.v : a.rule ?? a.v?.rule;
         if (rule && l10.has(rule)) { a.ability = l10.get(rule); counts.l10++; }
         if (rule && l4.has(rule)) { a.ruleRow = rule; counts.l4++; }
     }
     writeFileSync(f, JSON.stringify(s, null, 1));
 }
-console.log(JSON.stringify(counts), existsSync(rec) ? '(recurring sheets carry no abilities)' : '');
+if (existsSync(rec)) {
+    const all = JSON.parse(readFileSync(rec, 'utf8'));
+    for (const sh of Object.values(all)) { delete sh.routine; if (linkRoutine(sh)) counts.routineLinks++; }
+    writeFileSync(rec, JSON.stringify(all));
+}
+console.log(JSON.stringify(counts));

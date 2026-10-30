@@ -42,8 +42,9 @@ export function abilityViews(adv, {facts = {}, held = [], readyIn = {}, charges 
 // the ability records, the promotion effects and the conditions to register. advanceLadder (one rung) stays as it was.
 export function advanceLadders(path, pack) {
     let current = path;
-    const rungs = {};
+    const rungs = {}, keys = new Set();
     for(const key of Object.keys(pack?.rungs ?? {})) {
+        for(const a of pack.rungs[key].abilities ?? []) {if(keys.has(a.key)) throw Error(`Ability key ${a.key} repeats across rungs; ids would collide.`); keys.add(a.key);}
         const r = advanceLadder(current, pack, {stageId: key});
         current = r.path;
         rungs[key] = {abilities: r.abilities, promotionEffects: r.promotionEffects[key], conditions: r.conditions};

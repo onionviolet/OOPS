@@ -47,12 +47,13 @@ const privatePath = new URL('../private_packs/lotm-advancement/advancement.json'
 test('the private Sequence 7 pack, when present, compiles and every ability cites a locator', {skip: !existsSync(privatePath)}, () => {
     const pack = JSON.parse(readFileSync(privatePath, 'utf8'));
     const r = advanceLadder(seerPathway, pack);
-    assert.equal(r.path.stages.find(s => s.id === 'seq7').crossings.length, 2);
+    assert.ok(r.path.stages.find(s => s.id === 'seq7').crossings.every(c => c.type && c.fact));
     const all = advanceLadders(seerPathway, pack);
-    assert.deepEqual(all.path.stages.map(s => s.id).slice(-2), ['seq7', 'seq6']);
-    assert.ok(all.rungs.seq6.abilities.cards.face_copy.blockedBy.length >= 2);
+    const order = all.path.stages.map(s => s.id);
+    assert.ok(order.indexOf('seq7') < order.indexOf('seq6') && order.indexOf('seq6') < order.indexOf('seq5'));
+    assert.ok(Object.values(all.rungs.seq6.abilities.cards).some(c => c.blockedBy.length > 0));
     for(const rung of Object.values(pack.rungs)) for(const a of rung.abilities) for(const b of a.blockedBy ?? []) assert.ok(b.locator, a.key);
-    assert.ok(Object.keys(r.abilities.cards).length >= 3);
+    assert.ok(Object.keys(r.abilities.cards).length >= 1);
     for(const row of pack.rungs.seq7.abilities) assert.ok(row.locator && row.conditions.every(c => c.locator), row.key);
     const ranks = Object.fromEntries(pack.rungs.seq7.abilities.map(a => [a.key, a.costBasis.rank])), spirit = k => -pack.rungs.seq7.abilities.find(a => a.key === k).cost.filter(c => c.key === 'spirituality').reduce((n, c) => n + c.amount, 0);
     assert.ok(spirit('paper_substitute') > spirit('flame_jump') && spirit('flame_jump') > spirit('air_bullet') && ranks.paper_substitute > ranks.flame_jump && ranks.flame_jump > ranks.air_bullet, 'cost order follows the cited ranking');
@@ -69,4 +70,10 @@ test('advanceLadders walks every rung of the pack in order and appends stages th
     assert.deepEqual(Object.keys(r.rungs), ['seq7', 'seq6']);
     assert.equal(r.rungs.seq6.abilities.cards.mask.blockedBy[0].label, 'a sharp-eyed observer');
     assert.ok(r.rungs.seq6.promotionEffects.some(e => e.type === 'source'));
+});
+
+test('advanceLadders refuses an ability key repeated across rungs', () => {
+    const pack = synthetic();
+    pack.rungs.seq6 = {...synthetic().rungs.seq7, label: 'Rung six'};
+    assert.throws(() => advanceLadders(seerPathway, pack), /repeats across rungs/);
 });

@@ -1,5 +1,11 @@
 import {registerDomain} from './domain_registry.js';
 
+// Proposed aggregation dial: ten percent preserves residual function even when
+// several impairments stack; hard stops remain explicit action gates. Additive
+// offsets use the existing million-unit integrity budget rather than infinity.
+export const HARM_MODIFIER_LIMITS = Object.freeze({multFloor:0.1,addBound:1_000_000,
+    reason:'Residual effort remains meaningful; action gates express lost function, and finite offsets protect downstream arithmetic.'});
+
 export const HARM_RUNGS = Object.freeze(['shaken','bruised','wounded','maimed','dying']);
 const ACTION_CLASSES = ['appraise','care','craft','explore','fight','other','practice','research','rest','ritual','socialize','study','trade','travel','work'];
 export const HARM_DEATH_CAUSES = Object.freeze(['age','illness','mishap','combat','harm','loss_of_control']);
@@ -192,7 +198,10 @@ export function actionModifiers(save, actionClass) {
         if (modifier.add !== undefined) combined.add = (combined.add ?? 0) + modifier.add;
         combined.cause.push(modifier.cause);axes.set(modifier.axis,combined);
     }
-    return {allowed:blockedBy === null,blockedBy,modifiers:[...axes.values()].map(row=>({...row,cause:row.cause.join('; ')}))};
+    return {allowed:blockedBy === null,blockedBy,modifiers:[...axes.values()].map(row=>({...row,
+        ...(row.mult === undefined ? {} : {mult:Math.max(HARM_MODIFIER_LIMITS.multFloor,Math.min(1,row.mult))}),
+        ...(row.add === undefined ? {} : {add:Math.max(-HARM_MODIFIER_LIMITS.addBound,Math.min(HARM_MODIFIER_LIMITS.addBound,row.add))}),
+        cause:row.cause.join('; ')}))};
 }
 export function resolveDeath(rules, cause, ctx={}) {
     check(HARM_DEATH_CAUSES.includes(cause), 'Unknown death cause.');

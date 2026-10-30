@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildEventBook, happenedOn, endedBy, curfewsOn, knownTo, learnedBetween, newsOn} from '../src/world_events.js';
+import {buildEventBook, happenedOn, endedBy, curfewsOn, knownTo, learnedBetween, newsOn, whoKnows, restrictionsOn, openUnder} from '../src/world_events.js';
 
 const rec = (id, extra) => ({id, key: `k.${id}`, kind: 'public_event', placement: 'dated', scope: 'public', evidence: 'S', when: {day: 10}, ...extra});
 const book = buildEventBook([
@@ -65,4 +65,43 @@ test('invalid records, duplicates and anchor cycles fail closed', () => {
     assert.throws(() => buildEventBook([rec('a', {placement: 'anchored', anchor: {eventId: 'b', offsetDays: 1}, when: undefined}),
         rec('b', {placement: 'anchored', anchor: {eventId: 'a', offsetDays: 1}, when: undefined})]), /cycle/);
     assert.throws(() => buildEventBook([rec('a', {placement: 'anchored', anchor: {eventId: 'zz', offsetDays: 1}, when: undefined})]), /Unknown anchor/);
+});
+
+test('a private event is not delivered by an open channel, only by a named carrier', () => {
+    const b = buildEventBook([rec('pv', {scope: 'private', place: 'den', present: ['spy'], spread: [{route: 'newspaper', delayDays: 0}, {route: 'word', delayDays: 1, via: 'spy', audience: 'bob'}]})]);
+    assert.deepEqual(knownTo(b, 'ann', 99, reader), []);
+    assert.deepEqual(knownTo(b, 'bob', 99, nobody).map(k => [k.route, k.learnedDay]), [['word', 11]]);
+});
+
+test('a curfew-kind event is a curfew over its window', () => {
+    const b = buildEventBook([rec('c', {kind: 'curfew', place: 'ward', when: {day: 4, endDay: 5}})]);
+    assert.deepEqual(curfewsOn(b, 5), [{eventId: 'c', place: 'ward'}]);
+    assert.deepEqual(curfewsOn(b, 6), []);
+});
+
+test('second-hand news travels a delay behind its carrier, through chains, without loops', () => {
+    const b = buildEventBook([rec('chain', {scope: 'private', present: ['a'], when: {day: 10},
+        spread: [{route: 'word', delayDays: 1, via: 'a', audience: 'b'}, {route: 'word', delayDays: 2, via: 'b', audience: 'c'}, {route: 'word', delayDays: 1, via: 'c', audience: 'b'}]})]);
+    assert.deepEqual(knownTo(b, 'b', 99, nobody).map(k => k.learnedDay), [11]);
+    assert.deepEqual(knownTo(b, 'c', 99, nobody).map(k => k.learnedDay), [13]);
+    assert.deepEqual(whoKnows(b, 'chain', 12, ['a', 'b', 'c', 'd'], nobody).map(k => k.person), ['a', 'b']);
+    assert.deepEqual(whoKnows(b, 'chain', 13, ['a', 'b', 'c', 'd'], nobody).map(k => k.person), ['a', 'b', 'c']);
+});
+
+test('restrictions close places, institutions and legs on their days and hours; unstated curfew hours only notify', () => {
+    const b = buildEventBook([
+        rec('cf', {kind: 'curfew', place: 'ward', when: {day: 4, endDay: 6}, effects: [{kind: 'curfew', places: ['ward'], hours: [22, 5], fromDay: 5, toDay: 6}]}),
+        rec('cl', {kind: 'public_event', when: {day: 5}, effects: [{kind: 'closure', institutions: ['bank'], hours: null}, {kind: 'travel_halt', means: ['rail']}]}),
+        rec('vague', {kind: 'curfew', when: {day: 5}}),
+    ]);
+    assert.deepEqual(restrictionsOn(b, 4).map(r => r.eventId), []);
+    const day5 = restrictionsOn(b, 5);
+    assert.deepEqual(day5.map(r => r.eventId).sort(), ['cf', 'cl', 'cl', 'vague']);
+    assert.deepEqual(openUnder(day5, {place: 'ward', hour: 23}).closedBy, ['cf']);
+    assert.equal(openUnder(day5, {place: 'ward', hour: 12}).open, true);
+    assert.deepEqual(openUnder(day5, {place: 'ward', hour: 12}).notices, ['vague']);
+    assert.equal(openUnder(day5, {institution: 'bank', place: 'ward', hour: 12}).open, false);
+    assert.equal(openUnder(day5, {leg: 'l1', means: 'rail', hour: 9}).open, false);
+    assert.equal(openUnder(day5, {leg: 'l2', means: 'road', hour: 9}).open, true);
+    assert.equal(openUnder(restrictionsOn(b, 7), {place: 'ward', hour: 23}).open, true);
 });

@@ -117,3 +117,25 @@ test('harmView returns detached labels, graded axes and recovery on both world d
         for(const axes of Object.values(row.axes))for(const modifier of axes)assert.ok(modifier.reason);
     }
 });
+
+
+test('stacked penalties clamp each axis to ten percent remaining function',()=>{
+    let state=injure(clean(),'hands','dying');state=injure(state,'eyes','dying');state=injure(state,'legs','dying');
+    state.backlash.power=6;
+    for(const action of ['fight','study','travel'])for(const m of actionModifiers(save(state),action).modifiers) {
+        if(m.mult!==undefined)assert.ok(Number.isFinite(m.mult)&&m.mult>=0.1&&m.mult<=1,JSON.stringify(m));
+        if(m.add!==undefined)assert.ok(Number.isFinite(m.add)&&Math.abs(m.add)<=1e6);
+    }
+});
+
+test('care never advances a rung before a complete care budget or improves past healthy',()=>{
+    for(const rung of HARM_RUNGS) {
+        const initial=injure(clean(),'hands',rung);
+        const partial=healPart(initial,rules,'hands',{minutes:239}).state;
+        assert.equal(partial.parts.hands.rung,rung);
+        const step=healPart(JSON.parse(JSON.stringify(partial)),rules,'hands',{minutes:1}).state;
+        assert.equal(step.parts?.hands?.rung??null,HARM_RUNGS[HARM_RUNGS.indexOf(rung)-1]??null);
+        const healthy=healPart(initial,rules,'hands',{minutes:1e6,treated:true,trained:true}).state;
+        assert.deepEqual(healthy,clean());assert.deepEqual(healPart(healthy,rules,'hands',{minutes:1e6}).state,clean());
+    }
+});
