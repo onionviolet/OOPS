@@ -50,7 +50,7 @@ export function makingSpec(d) {
     const held = d.status === 'brewable' && !d.via, tracks = [], notes = [];
     // Materials are a list to gather, not components laid in the circle, so they get their own row.
     if(d.slots.length) tracks.push({id: 'materials', label: 'Materials', role: 'gather', ...(() => { const steps = d.slots.map(s => held
-        ? {label: `${s.name} ${s.held}/${s.need}`, role: 'material', state: s.held >= s.need ? 'done' : 'empty'} : {label: s.name, role: 'material'}); return {steps, progress: held ? progressOf(steps, 'held') : undefined}; })()});
+        ? {label: `${s.name} ${s.held}/${s.need}`, role: 'material', state: s.held >= s.need ? 'done' : 'empty'} : {label: s.name, role: 'material'}); return {steps, progress: progressOf(steps, 'held')}; })()});
     if(held) tracks.push(brewTrack(d));
     if(!d.rite && d.ritual) notes.push({text: d.ritual.needed ? `Rite (${d.ritual.scale}): ${d.ritual.text}` : d.ritual.text});
     if(d.via) notes.push({text: d.via});
