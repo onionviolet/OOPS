@@ -3,10 +3,12 @@
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {whenCastLoaded} from './book_world_lotm_cast_days.js';
 import {validLeadLife} from './book_world_lotm_lives.js';
+import {showWorkingNote,hideWorkingNote,markWorking,resumeWorking} from './working_state.js';
 
 export function createFreshLifeStart(ports){
  const probe=!!ports.token&&ports.freshProbe&&ports.beRequested;
  let captured=null,capturing=false,lockOwned=!!ports.token,packHold=false;
+ resumeWorking();
  const isBe=state=>state?.lotm?.entryProfile===BE_PROFILE_ID;
  const canCapture=plan=>probe&&capturing&&isBe(plan?.state)&&plan.state.lotm.runMode==='canon'&&!plan.state.lotm.entry;
  const storage=(ordinary,plan)=>canCapture(plan)?{setEnvelope:(_key,envelope)=>{captured=structuredClone(envelope);}}:ordinary;
@@ -23,14 +25,18 @@ export function createFreshLifeStart(ports){
  async function start(be){
   if(!ports.canWrite()||ports.busy())throw Error('Finish current work and use the writable game tab. Your current save is kept.');
   const release=ports.freeze();
+  // Preparing the life and reloading take seconds; say so now, and let the loading screen after the reload say it too.
+  const label=be?'Starting your new life. The page reloads when it is ready; your current life is kept until then.':'Starting a new life. The page reloads when it is ready; your current life is kept until then.';
+  showWorkingNote(label);
   try{
    const before=ports.revision(),next=JSON.parse(await ports.fresh({be}));
    if(next.continuation||(be&&(next.expansion?.lotm?.entry||next.expansion?.lotm?.runMode!=='canon')))
     throw Error('The independent life was not prepared. Your current save is kept.');
    await ports.preflight(next);
    if(!ports.canWrite()||ports.revision()!==before)throw Error('The active save changed. Your current save is kept.');
-   ports.publish(next);ports.blockOldRuntime();ports.reload();
-  }finally{ports.thaw(release);}
+   ports.publish(next);ports.blockOldRuntime();markWorking('Entering your new life…');ports.reload();
+  }catch(error){hideWorkingNote();throw error;}
+  finally{ports.thaw(release);}
  }
  function mountMenu(){
   if(!isBe(ports.state()))return;
