@@ -82,7 +82,10 @@ Checks (one line each; input: bundle `c22e3500a15f`, gallery bundle `96316e07947
 - `npm run check:arch`: pass (no new main.js lines, no new cycles). `npm run check:rules`: pass, 5
   existing warnings.
 - `npm test`: 4106 pass, 9 fail, 6 cancelled under load average 220-320 from sibling sessions; the
-  failures are live-integration files hitting the 180 s timeout. RERUN-PENDING.
+  failures are live-integration files hitting the 180 s timeout. The 15 failing files rerun alone at
+  load ~150: same timeouts (worker killed at its 160 s limit, empty output). `cast_body_adapter.test.js`
+  "native sleep, waking, meals" with the worker limit raised: passes in 451 s on this branch. Gap: the
+  other 14 live files were not rerun with a raised limit; a quiet-machine `npm test` is still owed.
 
 AD43 floor: FLR1 bundle `c22e3500a15f`. FLR2 reached from a fresh life by earned steps (elder, begin
 record, drill), plus named fixture `body-record` in the figure gallery. FLR3 no new verb: the figure is
@@ -197,11 +200,29 @@ world. Checked against the body rules only; reading outputs for later volumes no
 The sonnet wave's L9 lane (death, harm and restarts; LSD34 and LSD283 harm ladder; `continuation_*`) owns
 harm. Body views read that owner rather than a model of their own. Today `bodyViewModel` reads simulation
 conditions (`state.simulation.conditions`) and the body owner's definitions (`bodyConditions`,
-`bodySources`). Switch-over seam: when L9 publishes a harm read (carrier, part, severity, stage, cause),
-it replaces the `live` read and the `conditions` parameter in `bodyViewModel`; the view model's shape
-(parts, now, lasting, glance) and the renderer stay. Harm carriers beyond flesh (BHR2) become a grouping
-over parts, and L9's stage and cause fill the stage line and the BHR10 gap below. No L9 design note
-existed when this was written; check it before the next slice.
+`bodySources`). Switch-over seam (confirmed by the L9 lane, 2026-10-30, [L9 design](../gm/dispatch/sonnet-wave-2026-10-30/L9_DEATH_RESTART_DESIGN.md#where-a-body-part-lives-proposal-answers-the-ui-coordinator-user_vision-injuries-overall-hp-plus-part-damage-where-it-matters-2026-10-30)):
+`harmView(save)` in `src/harm_state.js` is the read. Its `parts` (slice 1 reserves `parts:[]`; the write side
+lands with the first combat consumer) become table rows keyed by partId with the rung word; its `carriers`
+(`stageLabel`, `blocked` action classes, `recovers`) become a grouping over parts (BHR2) and the stage line
+under each row; `actionGate` supplies the "needs a steady hand" reason. `bodyViewModel` then takes a harm
+view beside the simulation conditions: the `live` read and the `conditions` parameter are the only lines
+that change, and a condition's `part` names a harm partId rather than a second store. Until parts are
+written, the view keeps reading simulation conditions and `look.slot`. Body views read, never write.
+
+### Injury model (proposals, IM1-IM7)
+
+Follows Weibao's direction in [USER_VISION](../USER_VISION.md#injuries-overall-hp-plus-part-damage-where-it-matters-2026-10-30):
+HP stays the overall pool, part damage is recorded where something reads it, combat first, middle path for now.
+
+| Code | Proposal | How the body view carries it |
+| --- | --- | --- |
+| IM1 | A hit lowers HP and may also leave a part injury. HP is survival; parts shift odds and strength by degree. A part kills only through vital parts the world names (dial per world and body kind, BHR4). | HP bar unchanged and separate; part injuries are rows in the by-part table |
+| IM2 | Consumers decide which parts exist. Defaults: hands and grip (accuracy and force for weapons, tools, writing, gestures), legs (speed, travel time, evasion, fleeing), eyes (precision in reading, searching, aiming), voice (chants, talk). A condition nothing reads stays a plain condition with no part. | The table shows only parts with something to say; a new part arrives as a harm partId or `look.slot`, not view code |
+| IM3 | Degree before gate (Weibao, clarified 2026-10-30): a damaged hand is less accurate and weaker, a hurt leg slower with less evasion, a hurt eye less precise. Gating comes only at the extreme rung, and then the blocked action names the part ("needs a steady hand", MI36, BHR13). Modifiers come from the harm lane as a graded `actionModifiers` beside `actionGate`. | Each row shows its effect in words from `actionModifiers`; a gate reason appears only at the extreme rung |
+| IM4 | Display: the glance line states the effect in words ("Right hand: −accuracy, −force · 6 days"); the by-part view shows the severity rung per part one click away; numbers sit in the row's detail, never alone (UR61). | BC8 chips become that line; the table's Now cell gains the rung word and the modifier list |
+| IM5 | Recovery: treatment and training reduce the modifier; pain fades faster than damage (BHR19), so a row can show "pain eased, still weaker"; healing declares cost and where the harm goes (BHR22); routines reroute around injuries (BHR28); lasting harm warns first (BHR11). | BC9 meter tracks the damage rung; a separate pain line fades sooner; cure buttons keep cost and time from the command |
+| IM6 | Visible injuries are tells: others can read a limp or a bandaged hand, opponents included, shown to the observer only as facts they know (UR36). Persistence lives in the L9 `harm` slice as an optional additive `parts:{<partId>:{rung,cause?}}` (absent when empty, no schema bump); a condition's `part` references those ids. Nothing added here. | "Others see" column carries the tell; reads `harmView(save).parts`, see the seam above |
+| IM7 | Check: if an injury changes no choice in a fixed-seed playthrough, it is too detailed; merge it into a plain condition. | A row with no modifier, no cure and no gate is a merge candidate |
 
 ### Audit gaps (item 10)
 
