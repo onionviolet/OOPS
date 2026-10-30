@@ -63,7 +63,9 @@ const output = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/re
     const craftCard = page.locator('[data-known-person="oldCraftsman"]');
     assert.match(await craftCard.locator('summary').textContent(), /Old craftsman · Familiar · here · owes you/);
     if(!await craftCard.evaluate(n => n.open)) await craftCard.locator('summary').click();
-    assert.match(await craftCard.locator('.meter-bar').textContent(), /Bond: Familiar/);
+    assert.match(await craftCard.locator('.meter-bar').first().textContent(), /Bond: Familiar/);
+    const barsText = await craftCard.locator('.known_person_bars').textContent();
+    assert.match(barsText, /Trust: /); assert.match(barsText, /Their warmth: /); assert.match(barsText, /Debts: (none open|you owe|they owe)/);
     assert.doesNotMatch(await craftCard.textContent(), /Who knows what|Craftsman's trust/);
     await page.locator('#relationship_web > summary').click(); // close the web: the cards are the glance
     await craftCard.scrollIntoViewIfNeeded(); await page.screenshot({path: path.join(output, 'game-craftsman-card-bond.png')});

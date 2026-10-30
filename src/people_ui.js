@@ -5,7 +5,7 @@ import {renderCharacterSheet} from "./ui/character_sheet_view.js";
 import {observerView} from "./observer_view.js";
 import {domainRegistry} from "./domain_registry.js";
 import {relationshipWebPeople} from "./relationship_web_view.js";
-import {relationshipWebSpec, relationshipGlance, relationshipStageMeter} from "./ui/relationship_web.js";
+import {relationshipWebSpec, relationshipGlance, relationshipStageMeter, relationshipBars} from "./ui/relationship_web.js";
 import {renderFigure} from "./ui/figure.js";
 import {createMeterBar} from "./meter_bar.js";
 
@@ -47,19 +47,20 @@ export function createPeopleOverview() {
         for(const row of rows) {
             let card = cards.get(row.id);
             if(!card) {
-                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), location = node("p"), details = node("div"), history = node("ul"), bond = createMeterBar(document);
-                glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true;
+                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), location = node("p"), details = node("div"), history = node("ul"), bond = createMeterBar(document), bars = node("div"), barMeters = [0,1,2].map(() => createMeterBar(document));
+                glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true; bars.className = "known_person_bars"; bars.append(...barMeters.map(m => m.node));
                 // The same character sheet as the You panel, read from what you learned (CHARACTER_SHEET.md).
                 const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.append(node("summary", "Character sheet"), sheetHost);
-                root.dataset.knownPerson = row.id; root.append(heading, bond.node, location, details, history, sheet); list.append(root);
-                card = {root, heading, name, glance, bond, location, details, history, sheetHost, signature:""}; cards.set(row.id, card);
+                root.dataset.knownPerson = row.id; root.append(heading, bond.node, bars, location, details, history, sheet); list.append(root);
+                card = {root, heading, name, glance, bond, bars, barMeters, location, details, history, sheetHost, signature:""}; cards.set(row.id, card);
             }
             const person = bonds.get(row.id), signature = JSON.stringify([title(row), row, person || null]);
             if(signature !== card.signature) {
                 card.signature = signature; card.name.textContent = title(row); card.location.textContent = row.location;
                 // Glance first (stage and what needs attention), the bond bar one click away inside the card.
                 card.glance.textContent = person ? ` · ${relationshipGlance(person)}` : "";
-                card.bond.node.hidden = !person; if(person) card.bond.update(relationshipStageMeter(person));
+                card.bond.node.hidden = !person; card.bars.hidden = !person;
+                if(person) {card.bond.update(relationshipStageMeter(person)); relationshipBars(person).forEach((spec, i) => card.barMeters[i].update(spec));}
                 if(row.accounts?.length){
                     card.details.replaceChildren(node('h4','Known capabilities and services'),node('p','These are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person’s local service for current terms.'));
                     for(const account of row.accounts){const entry=node('div');entry.dataset.personAccount=account.id;entry.append(node('p',account.text),node('small',`${account.basis}${Number.isFinite(account.at)?` · played minute ${account.at}`:''}`));card.details.append(entry);}
