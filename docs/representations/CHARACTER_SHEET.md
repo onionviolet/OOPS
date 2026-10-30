@@ -356,7 +356,7 @@ gallery.
 |---|---|---|
 | You panel expanded view on the sheet (step 16) | Done 2026-10-30, see Follow-up slices | Fresh life: your sheet shows native stats exact, status window as a read after awakening, saved layout with the old panel id still opens it |
 | Reads as actions with cost and stored history (AA9, CRL35-CRL36) | Sonnet medium, persistence slice with migration | Appraise once, save, reload, Import: the read and its time survive; a stale read says so |
-| Opponent card on the projection (UR36) | Sonnet medium | A combat target and the same person met read identical rows at the same means |
+| Opponent card on the projection (UR36) | Done 2026-10-30, see Follow-up slices | A combat target and the same person met read identical rows at the same means |
 | Being-read notice (step 9) | Sonnet low after the above | A sensitive subject's relationship gains a line when appraised |
 | Pinned person inspector beside the People list | Sonnet medium, center controller | 1920×1080: list left, sheet right, Esc returns to the list position |
 
@@ -384,3 +384,25 @@ instead of saying "not read yet" about you.
 
 Known limits: the compact status panel still repeats stats and level in the You box (it is the alias target);
 bio and abilities are not yet sections of the sheet.
+
+### Slice 3: opponent card on the projection (UR36)
+
+`src/opponent_sheet.js` turns a fight's facts into stat rows and reads them through `characterSheetView` at the
+means the fight gives (`COMBAT_READ`: exact numbers, stats only, no names or powers). Both card sources
+(`projectNativeOpponents`, `fromCombatOpponentsProjection` in `opponent_board.js`) now route their facts through it, so a combat
+target and the same person met elsewhere read identical rows at the same means, and a rougher means bands both alike
+and marks the card's values as estimates. A row owner's own wording for an exact value rides on the stat row as `exactText`
+(`character_sheet.js`), so "5 dmg x2" and "31.623" read exactly as the fight shows them today. Facts without a leading
+number, and facts the fight does not know, pass through as given.
+
+| AD43 line | State |
+|---|---|
+| Build identity | Rebuilt bundle; Infested field fight at 1920×1080 from a fresh origin, no page errors |
+| Natural route | Elder lines, travel to Infested field, Opponent panel (`opponent-card-1920.png`) |
+| Shown description and cost | Card rows unchanged for the player: Atk 6 dmg, Spd 0.99 /s, Hit you 32%, Evade 18%, Defense 1 |
+| Consumer | The Opponent panel and the Around-you fight card; `tests/opponent_sheet.test.js` (3 pass) beside the opponent_board, situation and sheet tests |
+| Persistence | Not applicable: display only, no save field |
+| Review | Agent-verified, not human-reviewed |
+
+Gap: no way yet to hand the card a second read (an inspect skill used on the target), so only `COMBAT_READ` reaches it today;
+`opponentFacts(facts, observer, reads)` takes the list when a lane supplies one.
