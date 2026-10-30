@@ -640,3 +640,11 @@ to "dismissal for cause" with the cover-side card marked revoked.
 | --- | --- | --- | --- |
 | Style dials table as data, with a test that each of the ten styles builds a valid package | sonnet | small | Focused test builds ten packages from rows and checks each has an exit line and an enforcer |
 | Check the sect and hunter-association rows against Reverend Insanity and A Regressor's Tale | haiku | small | Ids-only list of rows that confirm or contradict each cell (CLR3); Regressor's Tale needs its registry merged first |
+
+**Round 3 checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/benefits_fixtures.test.js` | 4/4 pass | Focused only; full `npm test` is the committer's gate |
+| `node scripts/build_figure_gallery.mjs` | pass, no game core in the closure | |
+| `slot_run --kind browser -- node scripts/capture_benefits_gallery.mjs` | 3 fixtures x full and effects-off at 1920x1080, 0 page errors, 6 PNG in `evidence/benefits/` | Gallery only; no gameplay wired, so no live walk |
