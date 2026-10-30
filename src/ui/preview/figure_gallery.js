@@ -3,6 +3,7 @@
 import {renderFigure} from '../figure.js';
 import {applyCustomizationProfile, defaultCustomizationState, neutralPresentationSettings} from '../../customization_profiles.js';
 import {FIGURE_FIXTURES} from './figure_fixtures.js';
+import {RELATIONSHIP_WEB_FIXTURES} from './fixtures/relationship_web.js';
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};
@@ -22,7 +23,7 @@ bar.append(el('strong', {}, 'Figure gallery'), select);
 const main = el('main', {id: 'fig_gallery'});
 document.body.append(bar, main);
 
-for (const spec of FIGURE_FIXTURES) {
+for (const spec of [...FIGURE_FIXTURES, ...RELATIONSHIP_WEB_FIXTURES]) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));
     const pair = el('div', {class: 'fig-gallery-pair'});
