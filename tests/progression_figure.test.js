@@ -12,7 +12,7 @@ const draw = spec => {
 const byId = id => PROGRESSION_FIXTURES.find(s => s.id === id);
 
 test('every progression form validates, renders and registers in the gallery list', () => {
-    assert.equal(PROGRESSION_FIXTURES.length, 6);
+    assert.equal(PROGRESSION_FIXTURES.length, 9);
     for (const spec of PROGRESSION_FIXTURES) {
         validateFigureSpec(spec);
         const {text} = draw(spec);
@@ -32,5 +32,5 @@ test('the forms keep their facts in words: grades, cut line, locked rows and the
 
 test('fixtures name no book, character or sealed fact', () => {
     const blob = JSON.stringify(PROGRESSION_FIXTURES);
-    assert.doesNotMatch(blob, /Sunny|Klein|Harry|Zorian|Fang Yuan|Eryk|Lumian|Hogwarts|Sequence/);
+    assert.doesNotMatch(blob, /Sunny|Klein|Harry|Zorian|Fang Yuan|Eryk|Lumian|Hogwarts|Sequence|Dormant|Awakened|Ascended|Aspect|Echo|Memory|Flux|Elixir|Heaven|Rend/);
 });
