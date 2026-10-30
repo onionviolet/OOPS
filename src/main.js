@@ -7,6 +7,7 @@ import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from '.
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureNativeToolDomains} from './native_tool_domains.js';
 import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
+import './harm_state.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
 import {translate, bindTranslationReaders} from './native_translation.js';
