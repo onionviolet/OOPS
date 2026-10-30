@@ -1,0 +1,1 @@
+PASS {"bundle":"v0.6-217f3ef2ee38","withdrew":true,"hiddenAfter":true,"stable":true,"fixtures":45,"box":{"x":371,"y":549.984375,"w":588.609375,"h":297.1875},"log":{"w":497.390625,"h":936.203125,"visible":true}}

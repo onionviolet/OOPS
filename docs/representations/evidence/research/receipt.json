@@ -1,0 +1,34 @@
+{
+ "bundle": "8e29306e3b7f",
+ "viewport": "1920x1080",
+ "steps": [
+  {
+   "step": "introduced: panel",
+   "visible": true
+  },
+  {
+   "step": "introduced: text",
+   "head": "Study\n\n1 to begin. Pick one to see what it needs and what it opens.\n\nWhy the long arm lifts\nCould study · Curious\nAbout 9 min of timed work, plus asking\nWhy the long arm lifts\n\nThe Village craftsman c"
+  },
+  {
+   "step": "gallery full research-map-frontier.lever",
+   "text": "What it takes: Why the long arm lifts\nLeft to right: what has to come first. The star is what finishing opens.\nNodes: Wo"
+  },
+  {
+   "step": "gallery full research-ladder-frontier.lever",
+   "text": "Why the long arm lifts: how far you have got\nYou can say why it works. Supervised practice is now open.\nTrack Understand"
+  },
+  {
+   "step": "gallery off research-map-frontier.lever",
+   "text": "What it takes: Why the long arm lifts\nLeft to right: what has to come first. The star is what finishing opens.\nNodes: Wo"
+  },
+  {
+   "step": "gallery off research-ladder-frontier.lever",
+   "text": "Why the long arm lifts: how far you have got\nYou can say why it works. Supervised practice is now open.\nTrack Understand"
+  },
+  {
+   "step": "errors",
+   "errors": []
+  }
+ ]
+}

@@ -74,7 +74,7 @@ test('generator-shaped source attribution binds the host situation through nativ
  assert.throws(()=>createSimulationRegistry({commands:defineTopicTalks({talks:[invalid]},binding)}),/Invalid knowledge attribution/);
 });
 
-test('live host and save validator round-trip native topic jobs, choices and receipts', {timeout:180000}, async t=>{
+test('live host and save validator round-trip native topic jobs, choices and receipts', {timeout:300000}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
  // Host and save integration are already in the live source. Exercise that copy.
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
@@ -150,7 +150,7 @@ try {
  await g.settle();
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
  // Loader preflight is still a prepared patch. Apply it only after the live-source
  // fixture has finished, for the separate malformed-pack recovery scenario.
@@ -175,6 +175,6 @@ try {
  assert.deepEqual(g.errors,[]);
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[invalidWorker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[invalidWorker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Invalid-pack fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

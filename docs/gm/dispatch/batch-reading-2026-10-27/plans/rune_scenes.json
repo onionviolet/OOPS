@@ -1,0 +1,919 @@
+{
+ "world": "rune",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30",
+  "censusMatch": "^(rune)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "rune-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "runec003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "runec005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "runec007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "runec009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "runec011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "runec013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "runec015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "runec017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "runec019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "runec021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "runec023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "runec025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "runec027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "runec029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "runec031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "runec033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "runec035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch035-036.txt",
+   "base": "03501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "runec037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch037-038.txt",
+   "base": "03701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "runec039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch039-040.txt",
+   "base": "03901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "runec041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "runec043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "runec045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "runec047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "runec049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "runec051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "runec053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch053-054.txt",
+   "base": "05301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "runec055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch055-056.txt",
+   "base": "05501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "runec057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch057-058.txt",
+   "base": "05701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "runec059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch059-060.txt",
+   "base": "05901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "runec061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch061-062.txt",
+   "base": "06101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "runec063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch063-064.txt",
+   "base": "06301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "runec065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch065-066.txt",
+   "base": "06501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "runec067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch067-068.txt",
+   "base": "06701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "runec069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch069-070.txt",
+   "base": "06901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "runec071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch071-072.txt",
+   "base": "07101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "runec073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch073-074.txt",
+   "base": "07301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "runec075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch075-076.txt",
+   "base": "07501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "runec077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch077-078.txt",
+   "base": "07701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "runec079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch079-080.txt",
+   "base": "07901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "runec081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch081-082.txt",
+   "base": "08101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "runec083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch083-084.txt",
+   "base": "08301",
+   "chapters": "83-84"
+  },
+  {
+   "prefix": "runec085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch085-086.txt",
+   "base": "08501",
+   "chapters": "85-86"
+  },
+  {
+   "prefix": "runec087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch087-088.txt",
+   "base": "08701",
+   "chapters": "87-88"
+  },
+  {
+   "prefix": "runec089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch089-090.txt",
+   "base": "08901",
+   "chapters": "89-90"
+  },
+  {
+   "prefix": "runec091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch091-092.txt",
+   "base": "09101",
+   "chapters": "91-92"
+  },
+  {
+   "prefix": "runec093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch093-094.txt",
+   "base": "09301",
+   "chapters": "93-94"
+  },
+  {
+   "prefix": "runec095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch095-096.txt",
+   "base": "09501",
+   "chapters": "95-96"
+  },
+  {
+   "prefix": "runec097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch097-098.txt",
+   "base": "09701",
+   "chapters": "97-98"
+  },
+  {
+   "prefix": "runec099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch099-100.txt",
+   "base": "09901",
+   "chapters": "99-100"
+  },
+  {
+   "prefix": "runec101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch101-102.txt",
+   "base": "10101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "runec103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch103-104.txt",
+   "base": "10301",
+   "chapters": "103-104"
+  },
+  {
+   "prefix": "runec105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch105-106.txt",
+   "base": "10501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "runec107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch107-108.txt",
+   "base": "10701",
+   "chapters": "107-108"
+  },
+  {
+   "prefix": "runec109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch109-110.txt",
+   "base": "10901",
+   "chapters": "109-110"
+  },
+  {
+   "prefix": "runec111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch111-112.txt",
+   "base": "11101",
+   "chapters": "111-112"
+  },
+  {
+   "prefix": "runec113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch113-114.txt",
+   "base": "11301",
+   "chapters": "113-114"
+  },
+  {
+   "prefix": "runec115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch115-116.txt",
+   "base": "11501",
+   "chapters": "115-116"
+  },
+  {
+   "prefix": "runec117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch117-118.txt",
+   "base": "11701",
+   "chapters": "117-118"
+  },
+  {
+   "prefix": "runec119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch119-120.txt",
+   "base": "11901",
+   "chapters": "119-120"
+  },
+  {
+   "prefix": "runec121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch121-122.txt",
+   "base": "12101",
+   "chapters": "121-122"
+  },
+  {
+   "prefix": "runec123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch123-124.txt",
+   "base": "12301",
+   "chapters": "123-124"
+  },
+  {
+   "prefix": "runec125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch125-126.txt",
+   "base": "12501",
+   "chapters": "125-126"
+  },
+  {
+   "prefix": "runec127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch127-128.txt",
+   "base": "12701",
+   "chapters": "127-128"
+  },
+  {
+   "prefix": "runec129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch129-130.txt",
+   "base": "12901",
+   "chapters": "129-130"
+  },
+  {
+   "prefix": "runec131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch131-132.txt",
+   "base": "13101",
+   "chapters": "131-132"
+  },
+  {
+   "prefix": "runec133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch133-134.txt",
+   "base": "13301",
+   "chapters": "133-134"
+  },
+  {
+   "prefix": "runec135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch135-136.txt",
+   "base": "13501",
+   "chapters": "135-136"
+  },
+  {
+   "prefix": "runec137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch137-138.txt",
+   "base": "13701",
+   "chapters": "137-138"
+  },
+  {
+   "prefix": "runec139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch139-140.txt",
+   "base": "13901",
+   "chapters": "139-140"
+  },
+  {
+   "prefix": "runec141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch141-142.txt",
+   "base": "14101",
+   "chapters": "141-142"
+  },
+  {
+   "prefix": "runec143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch143-144.txt",
+   "base": "14301",
+   "chapters": "143-144"
+  },
+  {
+   "prefix": "runec145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch145-146.txt",
+   "base": "14501",
+   "chapters": "145-146"
+  },
+  {
+   "prefix": "runec147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch147-148.txt",
+   "base": "14701",
+   "chapters": "147-148"
+  },
+  {
+   "prefix": "runec149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch149-150.txt",
+   "base": "14901",
+   "chapters": "149-150"
+  },
+  {
+   "prefix": "runec151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch151-152.txt",
+   "base": "15101",
+   "chapters": "151-152"
+  },
+  {
+   "prefix": "runec153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch153-154.txt",
+   "base": "15301",
+   "chapters": "153-154"
+  },
+  {
+   "prefix": "runec155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch155-155.txt",
+   "base": "15501",
+   "chapters": "155-155"
+  },
+  {
+   "prefix": "runec156",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch156-156.txt",
+   "base": "15601",
+   "chapters": "156-156"
+  },
+  {
+   "prefix": "runec157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch157-158.txt",
+   "base": "15701",
+   "chapters": "157-158"
+  },
+  {
+   "prefix": "runec159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch159-160.txt",
+   "base": "15901",
+   "chapters": "159-160"
+  },
+  {
+   "prefix": "runec161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch161-162.txt",
+   "base": "16101",
+   "chapters": "161-162"
+  },
+  {
+   "prefix": "runec163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch163-164.txt",
+   "base": "16301",
+   "chapters": "163-164"
+  },
+  {
+   "prefix": "runec165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch165-166.txt",
+   "base": "16501",
+   "chapters": "165-166"
+  },
+  {
+   "prefix": "runec167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch167-168.txt",
+   "base": "16701",
+   "chapters": "167-168"
+  },
+  {
+   "prefix": "runec169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch169-170.txt",
+   "base": "16901",
+   "chapters": "169-170"
+  },
+  {
+   "prefix": "runec171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch171-172.txt",
+   "base": "17101",
+   "chapters": "171-172"
+  },
+  {
+   "prefix": "runec173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch173-174.txt",
+   "base": "17301",
+   "chapters": "173-174"
+  },
+  {
+   "prefix": "runec175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch175-176.txt",
+   "base": "17501",
+   "chapters": "175-176"
+  },
+  {
+   "prefix": "runec177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch177-178.txt",
+   "base": "17701",
+   "chapters": "177-178"
+  },
+  {
+   "prefix": "runec179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch179-180.txt",
+   "base": "17901",
+   "chapters": "179-180"
+  },
+  {
+   "prefix": "runec181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch181-182.txt",
+   "base": "18101",
+   "chapters": "181-182"
+  },
+  {
+   "prefix": "runec183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch183-184.txt",
+   "base": "18301",
+   "chapters": "183-184"
+  },
+  {
+   "prefix": "runec185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch185-186.txt",
+   "base": "18501",
+   "chapters": "185-186"
+  },
+  {
+   "prefix": "runec187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch187-188.txt",
+   "base": "18701",
+   "chapters": "187-188"
+  },
+  {
+   "prefix": "runec189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch189-190.txt",
+   "base": "18901",
+   "chapters": "189-190"
+  },
+  {
+   "prefix": "runec191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch191-192.txt",
+   "base": "19101",
+   "chapters": "191-192"
+  },
+  {
+   "prefix": "runec193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch193-194.txt",
+   "base": "19301",
+   "chapters": "193-194"
+  },
+  {
+   "prefix": "runec195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch195-196.txt",
+   "base": "19501",
+   "chapters": "195-196"
+  },
+  {
+   "prefix": "runec197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch197-198.txt",
+   "base": "19701",
+   "chapters": "197-198"
+  },
+  {
+   "prefix": "runec199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch199-200.txt",
+   "base": "19901",
+   "chapters": "199-200"
+  },
+  {
+   "prefix": "runec201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch201-202.txt",
+   "base": "20101",
+   "chapters": "201-202"
+  },
+  {
+   "prefix": "runec203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch203-204.txt",
+   "base": "20301",
+   "chapters": "203-204"
+  },
+  {
+   "prefix": "runec205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch205-206.txt",
+   "base": "20501",
+   "chapters": "205-206"
+  },
+  {
+   "prefix": "runec207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch207-208.txt",
+   "base": "20701",
+   "chapters": "207-208"
+  },
+  {
+   "prefix": "runec209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch209-210.txt",
+   "base": "20901",
+   "chapters": "209-210"
+  },
+  {
+   "prefix": "runec211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch211-212.txt",
+   "base": "21101",
+   "chapters": "211-212"
+  },
+  {
+   "prefix": "runec213",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch213-214.txt",
+   "base": "21301",
+   "chapters": "213-214"
+  },
+  {
+   "prefix": "runec215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch215-216.txt",
+   "base": "21501",
+   "chapters": "215-216"
+  },
+  {
+   "prefix": "runec217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch217-218.txt",
+   "base": "21701",
+   "chapters": "217-218"
+  },
+  {
+   "prefix": "runec219",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch219-220.txt",
+   "base": "21901",
+   "chapters": "219-220"
+  },
+  {
+   "prefix": "runec221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch221-222.txt",
+   "base": "22101",
+   "chapters": "221-222"
+  },
+  {
+   "prefix": "runec223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch223-224.txt",
+   "base": "22301",
+   "chapters": "223-224"
+  },
+  {
+   "prefix": "runec225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch225-226.txt",
+   "base": "22501",
+   "chapters": "225-226"
+  },
+  {
+   "prefix": "runec227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch227-228.txt",
+   "base": "22701",
+   "chapters": "227-228"
+  },
+  {
+   "prefix": "runec229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch229-230.txt",
+   "base": "22901",
+   "chapters": "229-230"
+  },
+  {
+   "prefix": "runec231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch231-232.txt",
+   "base": "23101",
+   "chapters": "231-232"
+  },
+  {
+   "prefix": "runec233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch233-234.txt",
+   "base": "23301",
+   "chapters": "233-234"
+  },
+  {
+   "prefix": "runec235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch235-236.txt",
+   "base": "23501",
+   "chapters": "235-236"
+  },
+  {
+   "prefix": "runec237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch237-238.txt",
+   "base": "23701",
+   "chapters": "237-238"
+  },
+  {
+   "prefix": "runec239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch239-240.txt",
+   "base": "23901",
+   "chapters": "239-240"
+  },
+  {
+   "prefix": "runec241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch241-242.txt",
+   "base": "24101",
+   "chapters": "241-242"
+  },
+  {
+   "prefix": "runec243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch243-244.txt",
+   "base": "24301",
+   "chapters": "243-244"
+  },
+  {
+   "prefix": "runec245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch245-246.txt",
+   "base": "24501",
+   "chapters": "245-246"
+  },
+  {
+   "prefix": "runec247",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch247-248.txt",
+   "base": "24701",
+   "chapters": "247-248"
+  },
+  {
+   "prefix": "runec249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch249-250.txt",
+   "base": "24901",
+   "chapters": "249-250"
+  },
+  {
+   "prefix": "runec251",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch251-252.txt",
+   "base": "25101",
+   "chapters": "251-252"
+  },
+  {
+   "prefix": "runec253",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch253-254.txt",
+   "base": "25301",
+   "chapters": "253-254"
+  },
+  {
+   "prefix": "runec255",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch255-256.txt",
+   "base": "25501",
+   "chapters": "255-256"
+  },
+  {
+   "prefix": "runec257",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch257-258.txt",
+   "base": "25701",
+   "chapters": "257-258"
+  },
+  {
+   "prefix": "runec259",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch259-260.txt",
+   "base": "25901",
+   "chapters": "259-260"
+  },
+  {
+   "prefix": "runec261",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch261-262.txt",
+   "base": "26101",
+   "chapters": "261-262"
+  },
+  {
+   "prefix": "runec263",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch263-264.txt",
+   "base": "26301",
+   "chapters": "263-264"
+  },
+  {
+   "prefix": "runec265",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch265-266.txt",
+   "base": "26501",
+   "chapters": "265-266"
+  },
+  {
+   "prefix": "runec267",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch267-268.txt",
+   "base": "26701",
+   "chapters": "267-268"
+  },
+  {
+   "prefix": "runec269",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch269-270.txt",
+   "base": "26901",
+   "chapters": "269-270"
+  },
+  {
+   "prefix": "runec271",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch271-272.txt",
+   "base": "27101",
+   "chapters": "271-272"
+  },
+  {
+   "prefix": "runec273",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch273-274.txt",
+   "base": "27301",
+   "chapters": "273-274"
+  },
+  {
+   "prefix": "runec275",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch275-276.txt",
+   "base": "27501",
+   "chapters": "275-276"
+  },
+  {
+   "prefix": "runec277",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch277-278.txt",
+   "base": "27701",
+   "chapters": "277-278"
+  },
+  {
+   "prefix": "runec279",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch279-280.txt",
+   "base": "27901",
+   "chapters": "279-280"
+  },
+  {
+   "prefix": "runec281",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch281-282.txt",
+   "base": "28101",
+   "chapters": "281-282"
+  },
+  {
+   "prefix": "runec283",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch283-284.txt",
+   "base": "28301",
+   "chapters": "283-284"
+  },
+  {
+   "prefix": "runec285",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch285-286.txt",
+   "base": "28501",
+   "chapters": "285-286"
+  },
+  {
+   "prefix": "runec287",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch287-288.txt",
+   "base": "28701",
+   "chapters": "287-288"
+  },
+  {
+   "prefix": "runec289",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch289-290.txt",
+   "base": "28901",
+   "chapters": "289-290"
+  },
+  {
+   "prefix": "runec291",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch291-292.txt",
+   "base": "29101",
+   "chapters": "291-292"
+  },
+  {
+   "prefix": "runec293",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch293-294.txt",
+   "base": "29301",
+   "chapters": "293-294"
+  },
+  {
+   "prefix": "runec295",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch295-296.txt",
+   "base": "29501",
+   "chapters": "295-296"
+  },
+  {
+   "prefix": "runec297",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch297-298.txt",
+   "base": "29701",
+   "chapters": "297-298"
+  },
+  {
+   "prefix": "runec299",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/lead-run-2026-10-30/shard_rune_b1_ch299-299.txt",
+   "base": "29901",
+   "chapters": "299-299"
+  }
+ ]
+}

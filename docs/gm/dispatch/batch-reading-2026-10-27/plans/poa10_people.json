@@ -1,0 +1,259 @@
+{
+ "world": "poa",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+  "censusMatch": "^(poa1|poa2|poa3|poa4|poa5|poa6|poa7|poa8|poa10|poa11)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "poa10-people",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "poa10c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch001-001.txt",
+   "base": "1000101",
+   "chapters": "1-1"
+  },
+  {
+   "prefix": "poa10c002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch002-002.txt",
+   "base": "1000201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "poa10c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch003-003.txt",
+   "base": "1000301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "poa10c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch004-004.txt",
+   "base": "1000401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "poa10c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch005-005.txt",
+   "base": "1000501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "poa10c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch006-006.txt",
+   "base": "1000601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "poa10c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch007-007.txt",
+   "base": "1000701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "poa10c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch008-008.txt",
+   "base": "1000801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "poa10c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch009-009.txt",
+   "base": "1000901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "poa10c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch010-010.txt",
+   "base": "1001001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "poa10c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch011-011.txt",
+   "base": "1001101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "poa10c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch012-012.txt",
+   "base": "1001201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "poa10c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch013-013.txt",
+   "base": "1001301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "poa10c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch014-014.txt",
+   "base": "1001401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "poa10c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch015-015.txt",
+   "base": "1001501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "poa10c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch016-016.txt",
+   "base": "1001601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "poa10c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch017-017.txt",
+   "base": "1001701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "poa10c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch018-018.txt",
+   "base": "1001801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "poa10c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch019-019.txt",
+   "base": "1001901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "poa10c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch020-020.txt",
+   "base": "1002001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "poa10c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch021-021.txt",
+   "base": "1002101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "poa10c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch022-022.txt",
+   "base": "1002201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "poa10c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch023-023.txt",
+   "base": "1002301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "poa10c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch024-024.txt",
+   "base": "1002401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "poa10c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch025-025.txt",
+   "base": "1002501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "poa10c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch026-026.txt",
+   "base": "1002601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "poa10c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch027-027.txt",
+   "base": "1002701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "poa10c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch028-028.txt",
+   "base": "1002801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "poa10c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch029-029.txt",
+   "base": "1002901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "poa10c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch030-030.txt",
+   "base": "1003001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "poa10c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch031-031.txt",
+   "base": "1003101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "poa10c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch032-032.txt",
+   "base": "1003201",
+   "chapters": "32-32"
+  },
+  {
+   "prefix": "poa10c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch033-033.txt",
+   "base": "1003301",
+   "chapters": "33-33"
+  },
+  {
+   "prefix": "poa10c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch034-034.txt",
+   "base": "1003401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "poa10c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch035-035.txt",
+   "base": "1003501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "poa10c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch036-036.txt",
+   "base": "1003601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "poa10c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch037-037.txt",
+   "base": "1003701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "poa10c038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch038-038.txt",
+   "base": "1003801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "poa10c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch039-039.txt",
+   "base": "1003901",
+   "chapters": "39-39"
+  },
+  {
+   "prefix": "poa10c040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa10_b10_ch040-040.txt",
+   "base": "1004001",
+   "chapters": "40-40"
+  }
+ ]
+}

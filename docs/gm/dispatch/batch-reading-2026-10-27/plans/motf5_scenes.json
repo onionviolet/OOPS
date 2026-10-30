@@ -1,0 +1,265 @@
+{
+ "world": "motf",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+  "censusMatch": "^(motf1|motf2|motf3|motf4|motf5|motf6|motf7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "motf5-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "motf5c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch003-004.txt",
+   "base": "500301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "motf5c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch005-006.txt",
+   "base": "500501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "motf5c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch007-008.txt",
+   "base": "500701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "motf5c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch009-010.txt",
+   "base": "500901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "motf5c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch011-012.txt",
+   "base": "501101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "motf5c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch013-014.txt",
+   "base": "501301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "motf5c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch015-016.txt",
+   "base": "501501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "motf5c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch017-018.txt",
+   "base": "501701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "motf5c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch019-020.txt",
+   "base": "501901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "motf5c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch021-022.txt",
+   "base": "502101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "motf5c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch023-024.txt",
+   "base": "502301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "motf5c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch025-026.txt",
+   "base": "502501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "motf5c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch027-028.txt",
+   "base": "502701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "motf5c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch029-030.txt",
+   "base": "502901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "motf5c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch031-032.txt",
+   "base": "503101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "motf5c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch033-034.txt",
+   "base": "503301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "motf5c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch035-036.txt",
+   "base": "503501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "motf5c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch037-038.txt",
+   "base": "503701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "motf5c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch039-040.txt",
+   "base": "503901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "motf5c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch041-042.txt",
+   "base": "504101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "motf5c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch043-044.txt",
+   "base": "504301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "motf5c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch045-046.txt",
+   "base": "504501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "motf5c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch047-048.txt",
+   "base": "504701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "motf5c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch049-050.txt",
+   "base": "504901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "motf5c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch051-052.txt",
+   "base": "505101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "motf5c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch053-054.txt",
+   "base": "505301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "motf5c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch055-056.txt",
+   "base": "505501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "motf5c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch057-058.txt",
+   "base": "505701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "motf5c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch059-060.txt",
+   "base": "505901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "motf5c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch061-062.txt",
+   "base": "506101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "motf5c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch063-064.txt",
+   "base": "506301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "motf5c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch065-066.txt",
+   "base": "506501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "motf5c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch067-068.txt",
+   "base": "506701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "motf5c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch069-070.txt",
+   "base": "506901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "motf5c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch071-072.txt",
+   "base": "507101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "motf5c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch073-074.txt",
+   "base": "507301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "motf5c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch075-076.txt",
+   "base": "507501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "motf5c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch077-078.txt",
+   "base": "507701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "motf5c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch079-080.txt",
+   "base": "507901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "motf5c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch081-082.txt",
+   "base": "508101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "motf5c083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf5_b5_ch083-083.txt",
+   "base": "508301",
+   "chapters": "83-83"
+  }
+ ]
+}

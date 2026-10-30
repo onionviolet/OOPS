@@ -3,6 +3,7 @@ import {mountRowContextMenu} from './row_context_menu.js';
 import {mountEmptyStates} from './empty_states.js';
 // Importing these registers their domains and panels before the registry initializes (main.js).
 import './known_things.js';
+import './knowledge_home.js';
 import './naming_achievements_ui.js';
 import './statistics_panel.js';
 import './today_strip.js';
@@ -16,6 +17,7 @@ import './hp_brewing_domain.js';
 import './rank_gap_observer_domain.js';
 import './lives_carry_domain.js';
 import './lineage_domain.js';
+import './research_home.js';
 
 // One mount point for the shell-wide helpers that read the DOM the shell already shows: the command
 // palette (GU1) and the row menu (GU9), and it pulls in the reference sections (SX1 to SX6), each a

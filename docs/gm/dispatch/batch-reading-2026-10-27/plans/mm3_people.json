@@ -1,0 +1,277 @@
+{
+ "world": "mm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+  "censusMatch": "^(mm1|mm2|mm3|mm4|mm5)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mm3-people",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "mm3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch001-002.txt",
+   "base": "300101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "mm3c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch003-004.txt",
+   "base": "300301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "mm3c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch005-006.txt",
+   "base": "300501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "mm3c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch007-008.txt",
+   "base": "300701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "mm3c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch009-010.txt",
+   "base": "300901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "mm3c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch011-012.txt",
+   "base": "301101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "mm3c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch013-014.txt",
+   "base": "301301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "mm3c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch015-016.txt",
+   "base": "301501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "mm3c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch017-018.txt",
+   "base": "301701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "mm3c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch019-020.txt",
+   "base": "301901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "mm3c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch021-022.txt",
+   "base": "302101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "mm3c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch023-024.txt",
+   "base": "302301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "mm3c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch025-026.txt",
+   "base": "302501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "mm3c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch027-028.txt",
+   "base": "302701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "mm3c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch029-030.txt",
+   "base": "302901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "mm3c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch031-032.txt",
+   "base": "303101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "mm3c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch033-034.txt",
+   "base": "303301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "mm3c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch035-036.txt",
+   "base": "303501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "mm3c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch037-038.txt",
+   "base": "303701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "mm3c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch039-040.txt",
+   "base": "303901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "mm3c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch041-042.txt",
+   "base": "304101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "mm3c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch043-044.txt",
+   "base": "304301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "mm3c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch045-046.txt",
+   "base": "304501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "mm3c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch047-048.txt",
+   "base": "304701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "mm3c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch049-050.txt",
+   "base": "304901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "mm3c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch051-052.txt",
+   "base": "305101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "mm3c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch053-054.txt",
+   "base": "305301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "mm3c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch055-056.txt",
+   "base": "305501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "mm3c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch057-058.txt",
+   "base": "305701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "mm3c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch059-060.txt",
+   "base": "305901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "mm3c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch061-062.txt",
+   "base": "306101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "mm3c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch063-064.txt",
+   "base": "306301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "mm3c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch065-066.txt",
+   "base": "306501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "mm3c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch067-068.txt",
+   "base": "306701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "mm3c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch069-070.txt",
+   "base": "306901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "mm3c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch071-072.txt",
+   "base": "307101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "mm3c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch073-074.txt",
+   "base": "307301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "mm3c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch075-076.txt",
+   "base": "307501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "mm3c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch077-078.txt",
+   "base": "307701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "mm3c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch079-080.txt",
+   "base": "307901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "mm3c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch081-082.txt",
+   "base": "308101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "mm3c083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch083-084.txt",
+   "base": "308301",
+   "chapters": "83-84"
+  },
+  {
+   "prefix": "mm3c085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/lead-run-2026-10-30/shard_mm3_b3_ch085-085.txt",
+   "base": "308501",
+   "chapters": "85-85"
+  }
+ ]
+}

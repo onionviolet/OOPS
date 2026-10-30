@@ -234,6 +234,12 @@ edit in `GENERATION_FOUNDATION_RULES_2026-10-14.md` (+28/−6), and the modular-
 session's uncommitted cross-link notes in three of the engine thread's review docs.
 Those notes say "M3 remains stopped", which the later M3 resume (B4) superseded.
 
+**Stale primary checkout after worktree merges, 2026-10-30 (D2).** The UI integration worktree moved `master` with `update-ref` (`ed631daa`, `064fd773`, `9b8a166b`) without syncing the primary checkout. The primary index then held an older tree: 389 staged deletions, 41 staged modifications, about 16,900 lines. Its working copies were stale too, and one lane edited a stale `src/book_world_lotm_host.js` and dropped a fix in `51541c7f` (restored in `064fd773`). Repair, with no local edit touched:
+- **Recovery point:** the stale index tree was saved as `db36eac0645f916ad9de3bcd0690ed1dc0492804`.
+- **Synced:** the 430 paths whose working copy still equalled the stale index blob were brought to HEAD with `git checkout HEAD --pathspec-from-file`.
+- **Kept:** 4 paths with live working-tree edits (`dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md`) were unstaged index-only with `git restore --staged`. Their old staged blobs stay recoverable: `cfeca12d6854`, `cb8174b91baa`, `cc77c5086c18` and `0c6ad6142384`.
+- **Rule:** a session that moves `master` from another worktree also syncs the primary checkout's index and unedited working files in the same step, as the guarded-update recipe above says.
+
 ## Receipts and the delivery floor, 2026-10-26
 
 Every lane checkpoint or receipt starts with the front-matter block proposed as
@@ -275,3 +281,16 @@ changed/new prose; `npm run check:descriptions` writes an author inventory,
 `npm run check:generators` reports static generator signals, and
 `npm run report:cycles` groups the existing cycle baseline. These reports do
 not certify writing quality, generation behavior, or completed refactoring.
+
+## Heavy gates take a slot (2026-10-30, RCT5)
+
+Full suites, builds and headless browser captures run through the machine-wide
+slot limiter so concurrent sessions queue instead of piling load onto the machine:
+`npm test` (default since 2026-10-30: it already runs through the limiter with `--test-concurrency=4` and `--max-load 12`; `npm run test:raw` skips it on a quiet machine),
+`node scripts/slot_run.mjs --kind build -- npm run build`,
+`node scripts/slot_run.mjs --kind browser -- <capture command>`.
+Suite and build share 2 slots, browser has 1 (`--slots N` overrides); locks live in
+`~/.cache/yairpg-slots/` (`YAIRPG_SLOT_DIR`), dead holders are reclaimed, and the
+child's exit code passes through. A command run under a slot sets `YAIRPG_SLOT_HELD`, so a nested `slot_run` does not take a second slot. `node scripts/slot_run.mjs --status` lists holders.
+Focused single-file tests need no slot. Add `--max-load N` (or `YAIRPG_SLOT_MAX_LOAD`) to also hold the gate until
+the 1-minute load average is at or below N; overnight gates use `--max-load 40` so they do not time out under load.

@@ -5,7 +5,8 @@
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {eq,gte,all,not,af,has,no,item,attention,know,cmd} from './book_world_lotm_kit.js';
 import {causeHeld} from './book_world_lotm_causes.js';
-import {definePath,pathView} from './ascension_paths.js';
+import {definePath} from './ascension_paths.js';
+import {ladderViewFromRecord} from './read_models/ability_ladder_bridge.js';
 import {lotmRoleOf} from './book_world_lotm_clearance.js';
 import {allRows,pathwayRows,seerRow} from './book_world_lotm_rows.js';
 export const flagOf=(row,name)=>row.prefix?`${row.prefix}.${name}`:name;
@@ -86,7 +87,7 @@ export const rowDescriptor=descriptor;
 export function pathwayView(row,f,flag){
  const k=row.key,position=flag(flagOf(row,'promoted'))?2:flag(flagOf(row,'ingested'))?1:0;
  const facts={heldBase:(f[`lotm.holds.${row.holds.base}`]||0)>0,acting:f[`lotm.${k}.acting`]||0,assessed:flag(flagOf(row,'assessed')),examined:flag(flagOf(row,'examined'))||row.exam?.legacyRelease&&flag(flagOf(row,'assessed'))&&!flag(flagOf(row,'exam.required')),heldNext:(f[`lotm.holds.${row.holds.next}`]||0)>0};
- const v=pathView(descriptor(row),position,facts,{known:3,ceiling:2});
+ const v=ladderViewFromRecord(descriptor(row),{position,facts,known:3,ceiling:2});
  const felt=position!==1?null:f[`lotm.${k}.digested`]?SETTLE[2]:(f[`lotm.${k}.acting`]||0)>0?SETTLE[1]:SETTLE[0];
  const historical=row.exam?.legacyRelease&&flag(flagOf(row,'assessed'))&&!flag(flagOf(row,'exam.required'));
  return {...v,crossings:v.crossings.map(c=>historical&&c.id==='exam'?{...c,label:'Historical promotion-dose release retained'}:c),felt,potion:row.potion};

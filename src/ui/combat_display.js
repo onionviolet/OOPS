@@ -10,10 +10,13 @@ import {selected_stance} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
 import {fighterReadout} from "../combat_readout.js";
 import {registerCombatOpponents} from "../combat_opponents_domain.js";
+import {mountFightSituation} from "../combat_situation_ui.js";
 
 // One readout feeds this view and the observer-safe opponent projection (no second truth read).
 const readoutDeps = {skills, tagSkills: enemy_tag_to_skill_mapping, hitChance: get_hit_chance};
 registerCombatOpponents({getCombat: () => get_current_combat(), readout: (combat, at) => fighterReadout(combat, at, readoutDeps)});
+// LTU7: the fight situation card reads the same readout and projection (home: Here, under Local actions).
+if(typeof document !== 'undefined') mountFightSituation({getCombat: () => get_current_combat(), readout: (combat, at) => fighterReadout(combat, at, readoutDeps)});
 
 //enemy onhit animation
 const onhitAnimation = [

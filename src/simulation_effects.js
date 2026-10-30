@@ -1,3 +1,4 @@
+import {createTemperamentPort} from './person_temperament.js';
 import {derivedBond} from './person_memory_effects.js';
 import {readFactsFrame,invalidateFactsInput,withFactsMutation} from './facts_frame.js';
 import {domainRegistry} from './domain_registry.js';
@@ -218,7 +219,7 @@ function buildSimulationFacts(state, context, registry) {
             facts[`target.knowledge.${id}.seen`] = true;
             facts[`target.knowledge.${id}.understood`] = knowledge.stage === 'understood';
         }
-        for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = Number.isSafeInteger(context.facts?.calendarMinute) ? derivedBond({memory:domainRegistry.command('memory','read')?.(),holder:actor,subject:context.targetId,axis:k,baseline:v,day:Math.floor(context.facts.calendarMinute/1440)}) : v;
+        for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = Number.isSafeInteger(context.facts?.calendarMinute) ? derivedBond({memory:domainRegistry.command('memory','read')?.(),holder:actor,subject:context.targetId,axis:k,baseline:v,temperamentOf:createTemperamentPort(id=>registry?.simulation?.people.get(s.people[id]?.definitionId || id)),day:Math.floor(context.facts.calendarMinute/1440)}) : v;
         // Only observations are exposed here. Actual hidden builds remain private.
         for(const [k,v] of Object.entries(s.knowledge[actor] || {}).filter(([k]) => k.startsWith(`person.${context.targetId}.`))) facts[k] = v.value;
     }
@@ -375,7 +376,7 @@ function applyEffects(plan, effects, context, registry, cause, {spending = false
             const receipt = `${cause}:${actor}:${e.target}:${e.axis}`;
             if(!Object.hasOwn(s.causes, receipt)) {
                 const next = (r.axes[e.axis] || 0) + e.amount; assert(finite(next), "Relationship overflow."); r.axes[e.axis] = next;
-                if(e.amount) (plan.memoryEffects ||= []).push({holder:actor, subject:e.target, cause, axis:e.axis, amount:e.amount, text:e.text, clock:state.clock});
+                if(e.amount) (plan.memoryEffects ||= []).push({holder:actor, subject:e.target, cause, axis:e.axis, amount:e.amount, text:e.text, clock:state.clock, ...(e.silence ? {silence:e.silence} : {}), ...(e.scene ? {scene:e.scene} : {})});
                 r.memories.push({cause, at: state.clock, text: e.text || e.axis}); r.memories = r.memories.slice(-32); s.causes[receipt] = state.clock;
             }
         } else if(e.type === "claim") {

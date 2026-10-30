@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {tmpdir} from 'node:os';
 import {buildCrosswalk, inSlice, hasTime, routineBand, relativeTiming, matchesRoleHours} from './build_crosswalk.mjs';
+import {parseLocator} from './world_profiles.mjs';
 const list = v => Array.isArray(v) ? v : [];
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
     ? Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])])) : value;
@@ -15,17 +16,30 @@ const hash = value => createHash('sha256').update(typeof value === 'string' ? va
 const sorted = rows => [...rows].sort((a,b) => json(a).localeCompare(json(b)));
 const unique = rows => [...new Map(sorted(rows).map(r => [json(r), r])).values()];
 const evidence = row => ({label: ['S','T','I','U','fill'].includes(row.label) ? row.label : 'U', locator: row.locator || row.firstMention});
+// Whole-book identity builds retain their old behavior unless the requested
+// band excludes a known source locator in the same language.
+const outsideBand = (value, slice) => {
+    if (!value || typeof value !== 'object') return false;
+    return Object.entries(value).some(([key, item]) => {
+        if (key === 'locator' || key === 'firstMention') {
+            const loc = parseLocator(item);
+            return loc?.lang === parseLocator(slice.from).lang && !inSlice({locator:item},slice);
+        }
+        return outsideBand(item,slice);
+    });
+};
 
 export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false, placeSeed = null, wholeBook = false}) {
     inSlice({locator: slice.from}, slice); // Validate even empty inputs.
     if (crosswalk.world !== book || json(crosswalk.slice) !== json(slice)) throw new Error('Crosswalk world/slice mismatch; rebuild it for this slice');
+    const routineBandBuild = wholeBook && !placesOnly && outsideBand([registry,scenes,extras],slice);
     const pack = structuredClone(base), conflicts = [], gaps = [];
     const target = id => {
         const v = crosswalk.mapping[id];
         return v?.startsWith('skip:') ? null : v?.replace(/^new:/, '') || null;
     };
     const selectedScenes = scenes.filter(s => s.pov === 'lead' && inSlice(s, slice));
-    const selectedExtras = wholeBook ? [] : extras.filter(r => inSlice(r, slice));
+    const selectedExtras = wholeBook && !routineBandBuild ? [] : extras.filter(r => inSlice(r, slice));
     const counts = new Map();
     for (const scene of selectedScenes) {
         const ids = new Set([...list(scene.present), ...list(scene.touched).filter(t => ['present','partial'].includes(t.status)).map(t => t.id)]);
@@ -179,14 +193,15 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         }
         pack.lifePlaceHints = hints;
     }
-    const hoursRows = placesOnly || wholeBook ? [] : selectedExtras.filter(r => ['services','rules','rules_other'].includes(r.extra) && typeof r.hours === 'string' && r.hours.trim() && !/^(unknown|unstated|none|null|u|\?)$/i.test(r.hours.trim()));
+    const hoursRows = placesOnly || wholeBook && !routineBandBuild ? [] : selectedExtras.filter(r => ['services','rules','rules_other'].includes(r.extra) && typeof r.hours === 'string' && r.hours.trim() && !/^(unknown|unstated|none|null|u|\?)$/i.test(r.hours.trim()));
     const worldHours = unique(hoursRows.map(r => ({id:`${book}.hours.${hash(r).slice(0,20)}`,place:placeId(r.place), indexPlace:r.place || null,role:r.role || null,hours:r.hours,...evidence(r)})));
     const routines = [], orderEdges = [];
-    for (const row of (wholeBook ? [] : peopleRows)) for (const slot of list(row.routine)) {
+    for (const row of (wholeBook && !routineBandBuild ? [] : peopleRows)) for (const slot of list(row.routine)) {
         const locator = slot.locator || row.locator;
         if (!inSlice({locator},slice)) continue;
         if (!allPersonIds.has(personId(row.id))) {gaps.push({id:row.id,reason:'unresolved-routine-actor',locator});continue;}
         const id = `${book}.routine.${hash([row.id,slot]).slice(0,20)}`;
+        if (routineBandBuild && !placeIds.has(placeId(slot.place))) {gaps.push({id,reason:'unresolved-place',locator});continue;}
         const timing = relativeTiming(slot);
         let edge = null;
         if (timing) {
@@ -236,7 +251,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
     pack.buildSourceIdentity = {schema:'cast-pack-build/1', book, slice,
         inputs:Object.fromEntries(Object.entries(sourceInputs).map(([k,v])=>[k,hash(v)]))};
     const oldUsable = routines.filter(r => r.place && hasTime(r.sourceTiming)).length;
-    return {pack:canonical(pack),report:{people:pack.people.length,tiers:pack.people.reduce((m,p)=>(m[p.tier]=(m[p.tier]||0)+1,m),{}),routines:{total:routines.length,oldUsable,newUsable:routines.filter(r=>r.usable).length},orderEdges:orderEdges.length,worldHours:worldHours.length,added:added.length,changed:changed.length,removed:removed.length,conflicts:conflicts.length,gaps:gaps.length}};
+    return {pack:canonical(pack),report:{people:pack.people.length,tiers:pack.people.reduce((m,p)=>(m[p.tier]=(m[p.tier]||0)+1,m),{}),routines:{total:routines.length,oldUsable,newUsable:routines.filter(r=>r.usable).length,...(routineBandBuild?{unresolvedPlace:gaps.filter(g=>g.reason==='unresolved-place').length}:{})},orderEdges:orderEdges.length,worldHours:worldHours.length,added:added.length,changed:changed.length,removed:removed.length,conflicts:conflicts.length,gaps:gaps.length}};
 }
 
 export function run(argv) {

@@ -1,0 +1,18 @@
+{
+  "name": "lotm_divination",
+  "note": "Be seat, then open Rites and questions and run the first enabled divination action, then roundtrip.",
+  "seed": 7,
+  "privatePacks": true,
+  "steps": [
+    {"op": "nav", "id": "lotm"},
+    {"op": "click", "ref": "lotm=pick_be"},
+    {"op": "click", "ref": "lotm=enroll_be", "reload": true},
+    {"op": "nav", "id": "lotm"},
+    {"op": "expect", "selector": "[data-lotm-divinations]", "timeoutMs": 15000},
+    {"op": "click", "selector": "[data-lotm-divinations] summary"},
+    {"op": "click", "selector": "[data-lotm-divinations] button:not([disabled])"},
+    {"op": "expect", "selector": "body", "matches": "min remaining", "timeoutMs": 10000},
+    {"op": "shot", "name": "after-divination"},
+    {"op": "roundtrip"}
+  ]
+}

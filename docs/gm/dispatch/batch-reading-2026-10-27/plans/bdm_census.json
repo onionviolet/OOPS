@@ -1,0 +1,162 @@
+{
+ "world": "bdm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+  "censusMatch": "^(bdm)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "bdm-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "bdmc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "bdmc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "bdmc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "bdmc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "bdmc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "bdmc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "bdmc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "bdmc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "bdmc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "bdmc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "bdmc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "bdmc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "bdmc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "bdmc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "bdmc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "bdmc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "bdmc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch035-036.txt",
+   "base": "03501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "bdmc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch037-038.txt",
+   "base": "03701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "bdmc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch039-040.txt",
+   "base": "03901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "bdmc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "bdmc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "bdmc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "bdmc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "bdmc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  }
+ ]
+}

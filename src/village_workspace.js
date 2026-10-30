@@ -28,9 +28,9 @@ export function sceneClock(frame) {
     const parts=(frame.clock||'').split(' · ');
     if(!Object.hasOwn(frame,'calendar'))return {date:parts[1]||'',season:parts[1]?.split(',')[1]?.trim(),phase:parts[2],weather:parts[3],temperature:parts[4],description:''};
     const local=frame.calendar,home=frame.worldId==='base.frontier';
-    return {date:local?`${home?'':local.label+' · '}${formatCalendar(local,{time:true})}`:'Local date unavailable',
+    return {date:local?`${home?'':local.label+' · '}${formatCalendar(local,{time:true})}`:'Calendar unknown here',
         season:local?.seasonId,phase:home?parts[2]:null,
-        weather:frame.weatherWords??(home?parts[3]:'Local weather unavailable'),temperature:home?parts[4]:null,
+        weather:frame.weatherWords??(home?parts[3]:''),temperature:home?parts[4]:null,
         description:home?'Home calendar · day/month/year; 30-day months. Summer is months 4–6.':local?`${local.label} calendar${local.format==='numeric'?' · day/month/year':''} · ${local.description}`:'No local calendar is known here.'};
 }
 

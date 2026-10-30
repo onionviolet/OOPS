@@ -1,0 +1,38 @@
+locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('[data-dialogue="villageElder"]')
+    - locator resolved to <div tabindex="0" role="button" aria-disabled="false" data-native-keyboard="true" data-dialogue="villageElder" class="start_dialogue location_choice" onclick="start_dialogue(this.getAttribute('data-dialogue'));">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+    at /Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/ui-integration-8e9e92/scripts/_post_combat.cjs:16:125 {
+  log: [
+    `  - waiting for locator('[data-dialogue="villageElder"]')`,
+    `    - locator resolved to <div tabindex="0" role="button" aria-disabled="false" data-native-keyboard="true" data-dialogue="villageElder" class="start_dialogue location_choice" onclick="start_dialogue(this.getAttribute('data-dialogue'));">…</div>`,
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    57 × waiting for element to be visible, enabled and stable',
+    '       - element is not visible',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

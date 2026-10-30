@@ -1,0 +1,13 @@
+What you know: the silent bell
+Only what you hold. Left: known. Middle: your readings. Right: open questions and plans.
+Nodes: The bowl showed still water and a hand… (filled); Warden Ostra says the tower was locked… (filled); The bell rope was cut clean, not frayed. (filled); The harbor bell did not ring at the… (filled); The harbor ledger may list who holds… (pending); Whoever did it wanted the tide… (pending); Someone with a key cut the rope on… (pending); Thinking over: The harbor ledger may… (unknown); You asked who keeps the tower keys.… (unknown); Act on: Someone with a key cut the… (current).
+The harbor ledger may list who holds… to Thinking over: The harbor ledger may…: supports.
+The bowl showed still water and a hand… to Whoever did it wanted the tide…: supports.
+The bell rope was cut clean, not frayed. to Someone with a key cut the rope on…: supports.
+Warden Ostra says the tower was locked… to Someone with a key cut the rope on…: supports.
+Someone with a key cut the rope on… to Act on: Someone with a key cut the…: supports.
+Key: ● filled means known: seen or learned.
+Key: · pending means guessed: your reading, may be wrong.
+Key: ? unknown means open: asked, no answer yet.
+Key: ▶ current means you mean to act on it.
+Key: supports means this led you to that.

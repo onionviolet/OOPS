@@ -6,6 +6,8 @@ import {CHALLENGE_GOALS,challengeProgress,validateChallenge,challengeExport,vali
 // One continuing self; native snapshots are flat records, never nested journeys.
 import {check, copy, natural} from './basics.js';
 import {carryCheats} from './cheat_cards.js';
+import {HARM_WORLDS,HARM_DEATH_CAUSES,resolveDeath} from './harm_state.js';
+import {scopedRestart} from './harm_restart_scope.js';
 export const CONTINUATION_SCHEMA = 1;
 export const STUDY_MINUTES = 10;
 // Worlds whose lives may pause and resume through the connection (RET4). Early Tingen joined 2026-10-27.
@@ -58,6 +60,11 @@ export function validateContinuation(value) {
     validateChallenge(value.challenge);validateChallengeHistory(value.challengeHistory);if(value.challenge)check(value.active===value.challenge.lifeId&&value.lives[value.challenge.parent]?.paused,'Challenge must retain its shelved parent life.');
     if(value.memories!==undefined)check(Array.isArray(value.memories)&&value.memories.every(m=>object(m)&&id(m.lifeId)&&
         object(m.event)&&typeof m.event.text==='string'&&m.event.text.length<=240&&Number.isFinite(m.event.at)), 'Invalid remembered life events.');
+    const safeId=x=>id(x)&&!['__proto__','constructor','prototype'].includes(x);
+    const death=x=>object(x)&&HARM_DEATH_CAUSES.includes(x.cause)&&x.outcome==='final'&&Number.isFinite(x.at);
+    if(value.deaths!==undefined)check(Array.isArray(value.deaths)&&value.deaths.length<=64&&value.deaths.every(x=>
+        object(x)&&safeId(x.lifeId)&&Number.isFinite(x.at)&&(x.kind==='restart' ?
+            ['initial','checkpoint'].includes(x.anchor) : x.kind===undefined&&death(x))), 'Invalid continuation deaths ledger.');
     for(const [key,xp] of Object.entries(value.mastery)) check(typeof key==='string'&&key.length>0&&key.length<=160&&
         !['__proto__','constructor','prototype'].includes(key)&&Number.isFinite(xp)&&xp>=0, 'Invalid remembered mastery.');
     check(value.lives[value.active]&&Object.keys(value.lives).length>0, 'Missing active continuation life.');
@@ -65,6 +72,7 @@ export function validateContinuation(value) {
         check(id(key)&&life.id===key&&id(life.bodyId)&&typeof life.label==='string'&&life.label.length<=120&&
             (life.tether===null||id(life.tether)&&value.lives[life.tether]), 'Invalid continuation life binding.');
         validateExternalEquipment(life);snapshotValid(life.initial);
+        if(life.ended!==undefined)check(death(life.ended),'Invalid ended continuation life.');
         if(life.checkpoint!==null) snapshotValid(life.checkpoint);
         if(life.paused!==null) snapshotValid(life.paused);
         check(key===value.active ? life.paused===null : life.paused!==null, 'Paused/active life disagreement.');
@@ -129,10 +137,32 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     check(expectedSequence===c.sequence,'This continuation choice is stale. Inspect it again.');
     check(id(token),'Missing continuation event identity.');
     check(c.lastTransition?.token!==token,'This return has already been applied.');
-    if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
-    else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
     const life=c.lives[c.active];let next=source;
-    if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
+    // Ended embodiments have no connection actions until their explicit restart.
+    check(!life.ended||command.startsWith('restart:')||command.startsWith('die:')||command.startsWith('resume:'),
+        'This life has ended. Restart from its initial point or checkpoint, or continue as a living tethered life.');
+    if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
+    else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('die:')||command.startsWith('restart:')||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
+    if(command.startsWith('die:')) {
+        check(!(c.deaths||[]).some(entry=>entry.token===token),'This return has already been applied.');
+        check(!life.ended,'This life has already ended.');
+        const cause=command.slice(4),world=source.expansion?.actors?.player?.worldId;
+        const rules=Object.hasOwn(HARM_WORLDS,world)?HARM_WORLDS[world]:HARM_WORLDS.default;
+        const outcome=resolveDeath(rules,cause).default;
+        check(outcome==='final',"This world's outcome is not a death.");
+        life.ended={cause,outcome,at:nativeMoment(source)};
+        c.deaths=[...(c.deaths||[]),{lifeId:c.active,...life.ended,token}].slice(-64);
+    } else if(command.startsWith('restart:')) {
+        check(!(c.deaths||[]).some(entry=>entry.token===token),'This return has already been applied.');
+        const anchor=command.slice(8);check(['initial','checkpoint'].includes(anchor),'Choose an initial or checkpoint restart.');
+        check(life.ended,'This life has not ended.');
+        const target=anchor==='initial'?life.initial:life.checkpoint;
+        check(target,'There is no later checkpoint in this life.');
+        check(nativeMoment(target)<=nativeMoment(source),'That recorded point lies in an abandoned future. This connection does not grant forward travel.');
+        const at=nativeMoment(source);next=restore(source,scopedRestart(source,target,source.expansion?.actors?.player?.worldId),c);
+        delete life.ended;c.arrivalPaused=false;
+        c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at,token}].slice(-64);
+    } else if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
     else if(command.startsWith('intent:')){anchorIntent(source,c,command.slice(7));}
     else if(command.startsWith('law:')){purchaseLawAnchor(source,c,command.slice(4));}
     else if(command.startsWith('retention:')){const [,kind,...encoded]=command.split(':');purchaseAnchor(source,c,kind,decodeURIComponent(encoded.join(':')));}
@@ -181,6 +211,8 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     } else if(command.startsWith('resume:')) {
         const targetId=command.slice(7),target=c.lives[targetId];
         check(target&&target.paused&&(life.tether===targetId||target.tether===c.active),'No reciprocal connection reaches that life.');
+        check(!target.ended,'That life has ended. Only a restart from its own anchor can reopen it.');
+        // An ended life keeps its ended mark while paused: an heir carries on, the dead body does not.
         life.paused=nativeSnapshot(source);
         const targetSave=target.paused;target.paused=null;c.active=targetId;
         next=restore(source,targetSave,c);
@@ -205,9 +237,10 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
 export function continuationView(save) {
     if(!save?.continuation)return {available:false,reason:continuationEligibility(save,{travelOnly:true})};
     const c=validateContinuation(save.continuation),life=c.lives[c.active];
-    return {available:true,reason:continuationEligibility(save),travelReason:continuationEligibility(save,{travelOnly:true}),retention:retentionView(c,save.character?.money||0),laws:lawMemoryView(c,save.character?.money||0),intents:intentMemoryView(c,save.character?.money||0),baggage:baggageView(save,c),challenge:c.challenge?{...copy(c.challenge),...CHALLENGE_GOALS[c.challenge.kind],...challengeProgress(save,c.challenge.kind)}:null,challengeHistory:copy(c.challengeHistory||[]),sequence:c.sequence,life:life.label,active:c.active,
+    return {available:true,reason:continuationEligibility(save),travelReason:continuationEligibility(save,{travelOnly:true}),retention:retentionView(c,save.character?.money||0),laws:lawMemoryView(c,save.character?.money||0),intents:intentMemoryView(c,save.character?.money||0),baggage:baggageView(save,c),challenge:c.challenge?{...copy(c.challenge),...CHALLENGE_GOALS[c.challenge.kind],...challengeProgress(save,c.challenge.kind)}:null,challengeHistory:copy(c.challengeHistory||[]),sequence:c.sequence,life:life.label,activeId:c.active,active:c.active,
+        ended:copy(life.ended||null),deaths:copy(c.deaths||[]).map(d=>({...d,lifeLabel:c.lives[d.lifeId]?.label||'Earlier life'})),
         initialBlocked:externalEquipmentReason(life,life.initial),checkpointBlocked:externalEquipmentReason(life,life.checkpoint),initialDate:copy(life.initial['current time']),checkpointDate:life.checkpoint?copy(life.checkpoint['current time']):null,
         checkpointReachable:!!life.checkpoint&&!externalEquipmentReason(life,life.checkpoint)&&(!save['current time']||nativeMoment(life.checkpoint)<=nativeMoment(save)),
         memories:copy(c.memories||[]).map(m=>({...m,lifeLabel:c.lives[m.lifeId]?.label||'Earlier life'})),arrivalPaused:!!c.arrivalPaused,research:copy(c.research),loop:copy(c.loop),mastery:Object.entries(c.mastery).filter(([skill,xp])=>xp>0&&(c.knownMastery||[]).includes(skill)).map(([skill,xp])=>({skill,xp,usable:COMPATIBLE_MASTERY.includes(skill)})),
-        paused:Object.values(c.lives).filter(x=>x.paused).map(x=>({id:x.id,label:x.label,reachable:life.tether===x.id||x.tether===c.active,date:copy(x.paused['current time'])}))};
+        paused:Object.values(c.lives).filter(x=>x.paused).map(x=>({id:x.id,label:x.label,reachable:life.tether===x.id||x.tether===c.active,date:copy(x.paused['current time']),initialDate:copy(x.initial['current time']),checkpointDate:x.checkpoint?copy(x.checkpoint['current time']):null}))};
 }

@@ -15,6 +15,7 @@ const dialogues = {
     "elder remember answ": "Some of our people found you unconscious in the forest, wounded and with nothing but pants, so they brought you to our village. "
             + "It would seem you were on your way to a nearby town when someone attacked you and hit you really hard in the head.",
     "elder who": "Who are you?",
+    "Ask about the moonlit herb bed": "Ask about the moonlit herb bed",
     "elder who answ": "I'm the unofficial leader of this village. If you have any questions, come to me.",
     "elder leave 1": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more.",
     "elder leave 1 answ": "Nearby lands are dangerous and you are still too weak to leave. Do you plan on getting ambushed again?",

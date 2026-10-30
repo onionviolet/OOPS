@@ -2,6 +2,21 @@
 
 Standing rules for every agent that adds or changes player-facing UI. Weibao, 2026-10-15: "save logical rules to address these and more so similar mistakes wount be made again?" Each rule names the mistake it prevents. Accepted direction lives in [PROJECT](../PROJECT.md#standing-priorities-and-document-authority) and [USER_VISION](USER_VISION.md#format-portraits-and-view-decisions-2026-10-14); detail lives in the owners linked below. These rules are defaults with reasons; a world or feature can propose an exception, but it has to say why.
 
+## Checklist for a small fix
+
+Proposed, in use as the default (CHOICES item 4, 2026-10-30, [packet](audits/UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md) P14). Every code below keeps its wording; a lane brief for a small fix may cite this list alone. Default: read the line for your task, then the codes it names.
+
+- Where does it go? UR1-UR5, UR76-UR79 (before you build, below).
+- Colors, sizes, spacing, controls, layers, type: UR6, UR65-UR68.
+- Buttons, rows, panels, back bars, labels: UR7-UR10, UR13, UR80-UR82 (while you build, below).
+- Text a player reads: UR70-UR75, UR73 (no developer words), UIV1 (visible reasons).
+- Scenes, choices, travel and Reports: SUI1-SUI19 and RPT1-RPT12 ("Scene and report rules").
+- Wording of the always-visible set and navigation: UR11, UR21-UR33.
+- Before you call it done: UR14-UR17 (1920×1080 populated save; name the app, UR16).
+- Lane briefs: UR18-UR20.
+- Reference-guided or parity work: UR45, UR59-UR64.
+- Where the rest lives: the body groups rules by task under "Before you build", "While you build", "Before you call it done", "For coordinators", then dated topic sections. Search by code.
+
 ## Applying the existing rules to a bounded journey, 2026-10-25
 
 This is a routing aid, not another rule set or a selected redesign. In the
@@ -78,19 +93,31 @@ acceptance. A settled production change does not require a new mockup.
 | UR3 | **Respect the main-surface budget:** about seven routine entries in Local actions, one level deep. Adding one means demoting or grouping another | Nested boxes inside boxes and a column that scrolls forever |
 | UR4 | **Give it in-world logic:** who runs it, where it is, when it is open and why it exists in this world. Workstations live at places; most places have a keeper | An abstract "Village mixing counter" with no person or place behind it |
 | UR5 | **Weighty, rare decisions get a full screen; modals only for one-question confirms** | World entry and beginnings sitting in a permanent side panel |
+| UR76 | **Fill the UI contract before building.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: a system card names its home from existing homes and its shape from the shared primitives, with every state's text. Dial: a throwaway lab view in the Projects drawer may skip it. Reason: the per-feature screen starts when nobody decides placement first | Each new system arriving with its own panel and its own idea of empty |
+| UR77 | **Budget the homes in numbers.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: 20 routes, 5 regions, 4 center modes, about 7 Local actions, 7 tabs per route, and a count of panels per home; hidden panels load on first open (UIX6: 83 panels today, 76 hidden but mounted). Dial: raising a count needs a demotion or merge and Weibao's yes, ledgered with a reason. Reason: UR3's budget covered one column; the sprawl risk is now routes, tabs and mounted panels | Route and tab creep, one system at a time, and a page that mounts every panel at load |
+| UR78 | **Content inside an accepted surface is not a promotion.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: rows, lines, chips and tabs in an existing home ship as adopted direction; a new Local actions entry or route still goes through the Projects drawer (UR2). Tuned numbers carry no "(a proposal)" tag (UIX3). Reason: reading adoption as promotion parks small additions in the drawer | Parking a stop-reason line in the drawer |
+| UR79 | **One shape per kind of information.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: accounts use the ledger, dated things the timeline, after-the-fact summaries the note, policies the policy row. Dial: a new primitive needs two existing consumers (UR54). Reason: shapes multiply when each system invents one | Five ledgers with five column orders |
+| UIV2 | **A newly reachable system says where it is.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: when a system first becomes reachable in a life, the Journal records where and the place view shows its entrance. Dial: All panels stays a reference and dev route. Reason: Weibao plays the normal game, not the panel list | Features reachable only through All panels |
 
 ## While you build: one look, one way to move
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| UR6 | **Tokens only.** Colors, radius, fonts, sizes, borders and shadows come from the shared token file. No local `border-radius`, `font-family`, raw colors or `style.cssText`. The UI contract test enforces this | Five corner radii, three font stacks, eight sizes and five button styles on one screen |
-| UR7 | **Use the shared components:** group row, info block, button (with a disabled reason), tab, tooltip. Never leave raw unframed text or an ad hoc button style in a list | Rounded dropdown rows, unframed clerk text and dashed versus solid buttons stacked together |
-| UR8 | **Own your node.** Register through `definePanel`; never `prepend` or `append` into another panel's element | Four panels pushed into the message log box and buried the combat and event lines |
+| UR6 | **Tokens only.** Colors, radius, fonts, sizes, borders and shadows come from the shared token file. No local `border-radius`, `font-family`, raw colors or `style.cssText`. The UI contract test enforces this. *Dial (Proposed, in use as the default (CHOICES item 4, 2026-10-30)): an exception adds a token first, then uses it.* | Five corner radii, three font stacks, eight sizes and five button styles on one screen |
+| UR7 | **Use the shared components:** group row, info block, button (with a disabled reason), tab, tooltip. Never leave raw unframed text or an ad hoc button style in a list. *Dial (Proposed, in use as the default (CHOICES item 4, 2026-10-30)): a missing component is added to the shared set first, then used.* | Rounded dropdown rows, unframed clerk text and dashed versus solid buttons stacked together |
+| UR8 | **Own your node.** Register through `definePanel`; never `prepend` or `append` into another panel's element. *Dial (Proposed, in use as the default (CHOICES item 4, 2026-10-30)): a cross-panel need goes through a registered hook or a new panel, not a direct write.* | Four panels pushed into the message log box and buried the combat and event lines |
 | UR9 | **One center-mode controller.** Every view that replaces the center opens through it and gets the same back bar pinned at the bottom, labelled with the destination ("← Village"), plus Esc. No feature hides its siblings itself | A back button placed mid-row among actions that Weibao could not recognize; two systems toggling the same nodes |
 | UR10 | **Label by destination or outcome**, not by mechanism: "← Village", "Mix one vial · 3 min", not "Back to local actions" | Labels that only make sense to whoever wrote the code |
 | UR11 | **Keep the always-visible set intact:** status, current work and the full-height log. Never shrink or crowd the log column | Losing the attack numbers and random event text Proto23 players expect |
 | UR12 | **Proto23 is the visual/composition baseline** (square frames, gradient fills, hairline rows, You and focus panels on top, clear inventory/action/log regions). Refactor shared layers toward that hierarchy and space allocation; colors and corners alone do not establish fidelity. Other looks are token overrides, never per-panel styling. [Baseline clarification](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md#proto23-baseline-clarification-2026-10-15) | A rounded, generic style, or a Proto23-colored stack of boxes, that loses the reference's readable composition |
-| UR13 | **Nothing disappears silently.** Moving or parking a feature adds a log line and a dot on its new home | Players losing features after a reorganization |
+| UR13 | **Nothing disappears silently.** Moving or parking a feature adds a log line and a dot on its new home. *Dial (Proposed, in use as the default (CHOICES item 4, 2026-10-30)): a purely cosmetic reshuffle that leaves the feature in place may skip the log line.* | Players losing features after a reorganization |
+| UR80 | **Lenses narrow what the player knows.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: overlays, reader dials and observer views filter the player projection (AR8) and sealed-secret rules; sealed outcomes appear by ID and status. Dial: a dev lens may read more if it is labelled and absent from play. Reason: a debug view must not leak a sealed or future fact | A spoiler overlay or debug view leaking a sealed or future fact |
+| UR81 | **Stops and absences explain themselves.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: a stopped routine, a missed clock and a return after absence each get a note line naming what happened and why, linked to its source; when nothing happened, the note says so. This makes the return note (coverage plan B1) required behavior and extends RPT6, which already binds for Reports. Dial: the player may quiet a category. Reason: silent stalls and empty recaps read as bugs | Silent stalls and empty recaps read as bugs |
+| UR82 | **A system shows once a life has something attached.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: a system appears in a life when it has rows attached to that life; once met, its empty state explains how to fill it. Dial: a world may show a layer early with an in-world reason. Reason: unmet layers are noise | Every layer (book, travel, cheat) showing in every life |
+| UIV1 | **A disabled action shows its reason without hovering.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: the reason appears inline or on focus in the pinned box of UR43; a tooltip may repeat it, never hold it alone. SUI5 already binds this for scenes; this extends it to every system. Reason: a player may never hover | Tooltip-only blocked reasons |
+| UIV3 | **Everything under way lives in one list.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: one under-way list on the work line, each row with time left and what travel does to it. Dial: fold to a count when long. SUI7 already binds the upcoming strip for scenes; this covers timed jobs elsewhere. Reason: timed work needs one home (coverage plan B4) | A false "nothing else under way" refusal |
+| UIV4 | **A preview matches commit.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: what a preview shows is what commit does; a change in between is stated or refused before charging. SUI6 already binds quote-before-commit for scenes; this extends it to every system. Reason: a cost that shifts after you agree feels like a cheat | Two-step Find work with different numbers |
+| UIV6 | **One look for known, guessed and unknown.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: extend UR36 beyond combat with one shared marker for assays, forecasts and inspectors, under UR74. Reason: the same doubt should look the same everywhere | Each system marking uncertainty its own way |
 
 ### Small-detail tokens, 2026-10-22
 
@@ -109,7 +136,7 @@ Weibao: "creating base rules for every little thing to make development easier? 
 | --- | --- | --- |
 | UR14 | **Discoverability check:** at the primary target 1920×1080 on a populated save (1366×768 retired 2026-10-19), can a first-time player name the way back, the current work and the main actions from a screenshot alone? Put the screenshot in the report | Technical proof that a button exists, while the player could not find it |
 | UR15 | **Reproduce a reported problem in the player's terms first.** If it does not reproduce, ask what they saw before designing a fix. A report like "no way back" may mean "could not recognize the way back" | Hunting for a dead-end state when the real issue was an unclear label |
-| UR16 | **Proof and taste are separate states.** Report rebuilt, fresh-origin technical proof; human visual/feel review is optional feedback under AD42 | Calling a layout accepted because tests pass |
+| UR16 | **Proof and taste are separate states.** Report rebuilt, fresh-origin technical proof; human visual/feel review is optional feedback under AD42. *Evidence also names which app it ran on (Proposed, in use as the default (CHOICES item 4, 2026-10-30)): the dev build hash, the frozen app he plays, or the screenshot mirror, and says whether the change has reached the app he plays (UIX7).* | Calling a layout accepted because tests pass |
 | UR17 | **Saves first:** reorganizing UI never deletes gameplay, renames internal ids or breaks saved layouts, pins and collapse states without a written compatibility decision | Presentation work silently breaking long-running saves |
 
 ## Getting anywhere, and seeing it without much scrolling
@@ -141,6 +168,7 @@ Measure, don't guess: UR14 reports include page `scrollHeight` against the viewp
 
 - **UR18.** Every UI lane brief links this file and states the surface type, target viewport, visible outcome and deferred scope (AGENTS.md consistency gates).
 - **UR19.** Parallel lanes do not each restyle or place UI on their own. Shared layers (tokens, components, center modes, drawers) have one owner at a time; others consume them.
+- **UIV7.** *Proposed, in use as the default (CHOICES item 4, 2026-10-30).* Default: schedule UI review after source lanes in the same area have landed, and name the inputs that would invalidate it. Reason: a stale screenshot sends styling work after a screen that no longer exists.
 - **UR20.** When Weibao corrects a running lane, write the correction into its brief and confirm the worker actually read it (search its log) before assuming it took effect.
 
 ## Proportions, knowledge and effects, 2026-10-15

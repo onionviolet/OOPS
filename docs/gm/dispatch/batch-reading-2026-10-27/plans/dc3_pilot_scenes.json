@@ -1,0 +1,25 @@
+{
+ "world": "dc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/lead-run-2026-10-30",
+  "censusMatch": "^(dc3|dc4|dc5|dc6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "dc3-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "dc3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/lead-run-2026-10-30/shard_dc3_b3_ch001-002.txt",
+   "base": "300101",
+   "chapters": "1-2"
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+--- a/src/native_battle.js
++++ b/src/native_battle.js
+@@ -56,6 +56,10 @@
+                 battle.last=`${actorId === "player" ? "You" : "Mara"} ${strike.kind === "hit" ? `hit for ${Math.round(damage*10)/10}${strike.critted ? " (critical)" : ""}` : strike.kind === "blocked" ? "met a full block" : "missed"}.`;
+                 plan.native={hpToFull:plan.vitals.player.max_health-plan.vitals.player.health,staminaToFull:plan.vitals.player.max_stamina-plan.vitals.player.stamina};
+                 plan.state.sequence++;
++                // P6: a public strike is seen. The crowd there leaves a group impression and one promoted witness remembers the striker.
++                // Severity rung comes from the share of health lost (0 miss, 1 slight .. 4 yielded); memoryForPlan does the rest.
++                if(damage>0)(plan.memoryEffects ||= []).push({holder:targetId,subject:actorId,cause:`battle:${session.id}:${battle.actions}`,axis:'respect',amount:-Math.max(1,Math.round(damage)),
++                    text:'Struck in a public fight.',clock:plan.state.clock,scene:{place:command.place || 'Road',severity:Math.min(4,1+Math.floor(damage*4/Math.max(1,victim.health+damage)))}});
+                 if(victim.health === 1) {publishResult(targetId === ROAD_RIVAL ? "won" : "lost");if(targetId === "player") plan.defeat=savedBattleLoss(["Mara"]);}
+             }}
+         ]};

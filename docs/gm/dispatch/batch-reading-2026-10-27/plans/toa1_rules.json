@@ -1,0 +1,379 @@
+{
+ "world": "toa",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+  "censusMatch": "^(toa1|toa2|toa3|toa4|toa5|toa6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "toa1-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "toa1c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "toa1c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "toa1c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "toa1c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "toa1c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "toa1c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "toa1c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "toa1c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "toa1c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "toa1c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "toa1c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch021-022.txt",
+   "base": "02101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "toa1c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "toa1c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "toa1c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "toa1c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "toa1c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "toa1c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "toa1c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch035-036.txt",
+   "base": "03501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "toa1c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch037-038.txt",
+   "base": "03701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "toa1c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch039-040.txt",
+   "base": "03901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "toa1c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch041-042.txt",
+   "base": "04101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "toa1c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch043-044.txt",
+   "base": "04301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "toa1c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch045-046.txt",
+   "base": "04501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "toa1c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch047-048.txt",
+   "base": "04701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "toa1c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch049-050.txt",
+   "base": "04901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "toa1c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch051-052.txt",
+   "base": "05101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "toa1c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch053-054.txt",
+   "base": "05301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "toa1c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch055-056.txt",
+   "base": "05501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "toa1c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch057-058.txt",
+   "base": "05701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "toa1c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch059-060.txt",
+   "base": "05901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "toa1c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch061-062.txt",
+   "base": "06101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "toa1c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch063-064.txt",
+   "base": "06301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "toa1c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch065-066.txt",
+   "base": "06501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "toa1c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch067-068.txt",
+   "base": "06701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "toa1c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch069-070.txt",
+   "base": "06901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "toa1c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch071-072.txt",
+   "base": "07101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "toa1c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch073-074.txt",
+   "base": "07301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "toa1c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch075-076.txt",
+   "base": "07501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "toa1c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch077-078.txt",
+   "base": "07701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "toa1c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch079-080.txt",
+   "base": "07901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "toa1c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch081-082.txt",
+   "base": "08101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "toa1c083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch083-084.txt",
+   "base": "08301",
+   "chapters": "83-84"
+  },
+  {
+   "prefix": "toa1c085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch085-086.txt",
+   "base": "08501",
+   "chapters": "85-86"
+  },
+  {
+   "prefix": "toa1c087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch087-088.txt",
+   "base": "08701",
+   "chapters": "87-88"
+  },
+  {
+   "prefix": "toa1c089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch089-090.txt",
+   "base": "08901",
+   "chapters": "89-90"
+  },
+  {
+   "prefix": "toa1c091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch091-092.txt",
+   "base": "09101",
+   "chapters": "91-92"
+  },
+  {
+   "prefix": "toa1c093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch093-094.txt",
+   "base": "09301",
+   "chapters": "93-94"
+  },
+  {
+   "prefix": "toa1c095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch095-096.txt",
+   "base": "09501",
+   "chapters": "95-96"
+  },
+  {
+   "prefix": "toa1c097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch097-098.txt",
+   "base": "09701",
+   "chapters": "97-98"
+  },
+  {
+   "prefix": "toa1c099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch099-100.txt",
+   "base": "09901",
+   "chapters": "99-100"
+  },
+  {
+   "prefix": "toa1c101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch101-102.txt",
+   "base": "10101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "toa1c103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch103-104.txt",
+   "base": "10301",
+   "chapters": "103-104"
+  },
+  {
+   "prefix": "toa1c105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch105-106.txt",
+   "base": "10501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "toa1c107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch107-108.txt",
+   "base": "10701",
+   "chapters": "107-108"
+  },
+  {
+   "prefix": "toa1c109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch109-110.txt",
+   "base": "10901",
+   "chapters": "109-110"
+  },
+  {
+   "prefix": "toa1c111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch111-112.txt",
+   "base": "11101",
+   "chapters": "111-112"
+  },
+  {
+   "prefix": "toa1c113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch113-114.txt",
+   "base": "11301",
+   "chapters": "113-114"
+  },
+  {
+   "prefix": "toa1c115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch115-116.txt",
+   "base": "11501",
+   "chapters": "115-116"
+  },
+  {
+   "prefix": "toa1c117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch117-118.txt",
+   "base": "11701",
+   "chapters": "117-118"
+  },
+  {
+   "prefix": "toa1c119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa1_b1_ch119-120.txt",
+   "base": "11901",
+   "chapters": "119-120"
+  }
+ ]
+}

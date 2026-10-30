@@ -4,6 +4,15 @@ import {createMeterBar} from './meter_bar.js';
 import {decorateActionComponents} from './ui_components.js';
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile} from './observer_view.js';
+import {renderFigure} from './ui/figure.js';
+import {ladderFigureSpec} from './ability_ladder_figure.js';
+import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
+import {walkMapBlock} from './ui/walk_map.js';
+import {walkBoard} from './ui/walk_board.js';
+import {legsFromMoves} from './read_models/travel_legs_bridge.js';
+import {renderCrossingThreshold} from './ui/crossing_threshold.js';
+import {lotmThresholdView} from './book_world_lotm_threshold.js';
+import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -12,8 +21,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
+ // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
+ const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
   const observer=observerForProfile(read(selected)?.entryProfile);
@@ -29,7 +40,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  // Navigation only: focus the existing command row, including its disabled reason.
- const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
+ const tabBlocks={actions,walks,path,work,bench,notebook};
+ // A control on another workroom tab is brought into view first; focusing a tab-hidden row did nothing.
+ const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
+ const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
@@ -45,6 +59,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   bench.append(node('h3',`${d.name} · Sequence ${d.seq} · ${d.pathway}`));
   bench.append(node('p',`${d.status==='brewable'?'Brewable':'Inspect-only (the notes do not name every material)'}${d.price?` · formula copy ${d.price.pence} pence (canon ${d.price.canon.pounds} pounds, scaled)`:''} · ${d.minutes} minutes at the bench · formula ${d.formulaKnown?'held':'not held'}`));
   if(d.via)bench.append(node('p',d.via));
+  // RPX1/RPX2 glance before the reference lines (UR42): the rite circle beside its risk ledger, then the making tracks.
+  // The lines below stay the full text form (UR37) and keep the buy buttons.
+  const circle=riteCircleSpec(d),ledger=riskLedger(d),making=makingSpec(d);
+  if(circle){const r=node('div');r.className='fig-row';r.dataset.lotmFigure=circle.id;const fig=node('div');renderFigure(fig,circle,{idPrefix:`lotm-${circle.id}`});
+   const l=node('div');l.className='fig-ledger';l.dataset.lotmLedger=ledger.grade;l.append(node('p',ledger.headline),node('p',ledger.advice));
+   for(const x of ledger.rows){const row=node('div');row.className=`fig-ledger-row fig-state--${x.status==='met'?'filled':x.status==='substituted'?'strained':'empty'}`;
+    const m=node('meter');m.min=0;m.max=100;m.low=25;m.high=60;m.optimum=0;m.value=x.share;m.setAttribute('aria-label',`${x.label}: ${x.share}% of the added risk`);
+    row.append(node('strong',`${x.label} · ${x.share}% of the added risk`),m,node('small',x.text));l.append(row);}
+   r.append(fig,l);bench.append(r);}
+  if(making){const fig=node('div');fig.dataset.lotmFigure=making.id;renderFigure(fig,making,{idPrefix:`lotm-${making.id}`});bench.append(fig);}
   const list=node('ul');list.dataset.lotmSlots='';
   for(const s of d.slots){
    const li=node('li',`${s.held>=s.need&&d.status==='brewable'?'✓':'○'} ${s.role}: ${s.name}${s.amount?` (${s.amount})`:''}${d.status==='brewable'&&!d.via?` · hold ${s.held}/${s.need}`:''}${s.evidence?` [${s.evidence}]`:''}`);
@@ -95,14 +119,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
      for(const o of axis.options.filter(o=>!o.available)){const off=node('small',` Also listed: ${o.label}. ${o.reason}`);off.dataset.lotmEntryUnwritten=o.id;line.append(off);}
      actions.append(line);}
     for(const pr of v.profiles)actions.append(row(button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable||pr.available===false,pr.available===false?'A fresh book life is unavailable in this host.':v.startable?(pr.independent?'See this new life.':'See what this life keeps and leaves before crossing.'):v.startReasons.join(' '))),node('p',pr.blurb));
-    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
+    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));tabsUi.update(v);return;
    }
-   // The nine entry answers come before the irreversible step (WER3, UR43).
-   const box=node('div');box.dataset.lotmEntryAnswers=pick.key;box.append(node('h3',`${pick.independent?'New life':'Before you cross'} · ${pick.label.replace(/^Begin /,'')}`));
-   for(const [q,a] of pick.answers){const r=node('p');r.append(node('strong',`${q}. `),a);r.dataset.lotmAnswer=q;box.append(r);}
-   actions.append(box,row(button(pick.independent?'Start this new life':'Confirm and cross to Tingen',pick.key==='probationer'?'enroll':`enroll_${pick.key}`,()=>{choosing=null;notice.textContent=pick.independent?'Starting…':'Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{const message=e?.message||'The new life could not start.';notice.textContent=/current save is kept/i.test(message)?message:`${message} Your current save is kept.`;}).finally(()=>{signature='';render();});},!v.startable||pick.available===false,v.startable?(pick.independent?'Start this new life.':'Crossing cannot be undone on this save.'):v.startReasons.join(' ')),
-    button('Back to the lives','entry_back',()=>{choosing=null;signature='';render();},false,'Return to the list of Tingen lives. Nothing changes.')));
-   if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
+   // The nine entry answers come before the irreversible step (WER3, UR43), grouped as a carry list (RPX20).
+   renderCrossingThreshold(actions,lotmThresholdView(v,pick,{onConfirm:()=>{choosing=null;notice.textContent=pick.independent?'Starting…':'Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{const message=e?.message||'The new life could not start.';notice.textContent=/current save is kept/i.test(message)?message:`${message} Your current save is kept.`;}).finally(()=>{signature='';render();});},
+    onBack:()=>{choosing=null;signature='';render();}}));
+   tabsUi.update(v);return;
   }
   const d=v.district,resident=v.resident===true;bench.hidden=resident;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;
@@ -118,16 +140,26 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    const contract=v.records.find(r=>r.id==='book.lotm.contract');
    if(contract)path.append(node('p',contract.text));
   }else{
-  path.append(node('h3',p.label),node('p',p.ladder.map(s=>s.label===p.stage?`[${s.label}]`:s.label).join(' → ')));
-  if(p.felt)path.append(node('p',`The ${p.potion} potion feels ${p.felt}.`));
-  if(p.chosen)path.append(node('p',v.switchNotice));
-  else for(const o of p.others){path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')),node('p',v.switchNotice));}
+  // RPX5: the ladder as a vertical figure; the current rung carries the felt digestion and fills with acts. The plan below keeps the crossings.
+  const fig=node('div'),words=node('details');fig.dataset.lotmLadder='';words.dataset.lotmLadderText='';
+  // RA19: a rung gained pulses for a few seconds of wall time; effects off and reduced keep only the words.
+  const spec=ladderFigureSpec(p,{felt:p.felt,crossings:false});
+  if(lastRung!==null&&p.position>lastRung)pulseUntil=Date.now()+6000;
+  lastRung=p.position;
+  if(Date.now()<pulseUntil)for(const s of spec.tracks[0].steps)if(s.state==='current')s.effect='pulse';
+  const {text}=renderFigure(fig,spec,{idPrefix:'lotm-ladder'});
+  words.append(node('summary','Read the ladder as text'),Object.assign(node('pre',text),{className:'fig-text'}));
+  path.append(node('h3',p.label),fig,words);
+  // Reference prose sits behind one disclosure after the ladders and steps (UR42, round 2 density).
+  const howTo=[v.switchNotice];
+  if(!p.chosen)for(const o of p.others)path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')));
   if(p.next&&!p.capped){
    const plan=node('details');plan.dataset.lotmPlan='';plan.open=planOpen;plan.ontoggle=()=>{planOpen=plan.open;};
-   plan.append(node('summary',`Plan the next crossing · ${p.next}`),node('p',p.ready?'The recorded preparations are met. Taking the dose remains a separate irreversible action.':'Prepare this current body for the next crossing. Met requirements record preparation, not a completed promotion.'));
+   plan.append(node('summary',`Plan the next crossing · ${p.next}`),...(p.ready?[node('p','The recorded preparations are met. Taking the dose remains a separate irreversible action.')]:[]));
+   if(!p.ready)howTo.push('Prepare this current body for the next crossing. Met requirements record preparation, not a completed promotion.');
    for(const c of p.crossings){const r=node('p',`${c.met?'✓':'·'} ${c.label}${typeof c.need==='number'?` (${c.have}/${c.need})`:''}${c.irreversible?' · irreversible':''}`);r.dataset.crossing=c.id;plan.append(r);}
    if(p.failure)plan.append(node('p',`Risk: ${p.failure.signs}. ${p.failure.outcome}.`));
-   plan.append(node('p','Finding a step spends nothing. Review its current terms at the normal control; using it rechecks your body, supplies and available support.'));
+   howTo.push('Finding a step spends nothing. Review its current terms at the normal control; using it rechecks your body, supplies and available support.');
    const steps=v.actions.filter(a=>/\.(report_in|accept_allocation|ingest|request_assessment|request_prescreen|request_exam)/.test(a.id));
    for(const a of steps)plan.append(row(node('span',`${a.label} · ${a.duration?`${a.duration} min`:'immediate'}. ${a.eligible?'Available now.':a.reasons.join(' ')||'Currently unavailable.'}`),button('Find step',`plan_${a.id}`,()=>findControl(a.id),false,'Focus the existing control without starting it.')));
    if(!steps.length)plan.append(node('p','No progression step is currently offered here. Known acting guidance and the normal walking controls below retain their own requirements.'));
@@ -146,10 +178,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    path.append(guidance);
   }
   if(p.capped)path.append(node('p','Later Sequences are not offered in this branch.'));
+  const how=node('details');how.className='lotm-how';how.append(node('summary','How this works'),...howTo.map(t=>node('p',t)));path.append(how);
   }
   }
-  // RET3: the paused Village life is resumed from the connection panel, not from here.
-  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';path.append(r);}
+  // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
+  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
   if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
   if(!resident){
@@ -224,26 +257,17 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));
-  const placeLine=pl=>v.runMode?`${pl.place}${pl.here?' · you are here':` · ${pl.minutes} min`}`:`${pl.place} · ${pl.district}, ${pl.team} (${pl.church})${pl.here?' · you are here':` · ${pl.minutes} min`}`;
+  // RPX14 round 2: one departures board (nearest first, walk buttons in their rows) replaces the Places lists and
+  // per-district walk disclosures; the walking map opens below it on request. Walks with no listed place keep a plain row.
   const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' ')));
-  if(resident){
-   const here=v.places.find(pl=>pl.here)?.district;
-   if(here!==currentDistrict){districtOpen.clear();placesOpen.clear();currentDistrict=here;}
-   walks.append(node('h3','Places and walks'));
-   for(const district of new Set(v.places.map(pl=>pl.district))){
-    const group=node('details');group.dataset.lotmDistrict=district;group.open=districtOpen.get(district)??district===here;
-    group.ontoggle=()=>districtOpen.set(district,group.open);
-    const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places.filter(pl=>pl.district===district))list.append(node('li',placeLine(pl)));
-    const places=node('details');places.open=placesOpen.get(district)??false;places.ontoggle=()=>placesOpen.set(district,places.open);
-    places.append(node('summary','Places'),list);group.append(node('summary',district),places);
-    for(const m of v.moves.filter(m=>m.label.includes(` · ${district}: `)))group.append(walkRow(m));
-    walks.append(group);
-   }
-  }else{
-   if(v.places?.length){const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places)list.append(node('li',placeLine(pl)));walks.append(node('h3','Places'),list);}
-   for(const m of v.moves)walks.append(walkRow(m));
+  const legs=legsFromMoves(v),walkIds=new Set(legs.map(l=>l.moveId));
+  if(v.places?.length){
+   walks.append(walkBoard({...v,legs,elsewhere:[]},{move:id=>run(()=>move(id),'You walk there.'),onToggleMap:()=>{mapOpen=!mapOpen;signature='';render();},mapShown:mapOpen}));
+   if(mapOpen)walks.append(walkMapBlock({...v,legs},{open:true,ontoggle:o=>{if(!o){mapOpen=false;signature='';render();}},onPick:findControl}));
   }
+  for(const m of v.moves.filter(m=>!walkIds.has(m.id)))walks.append(walkRow(m));
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
+  tabsUi.update(v);
  }
  definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};

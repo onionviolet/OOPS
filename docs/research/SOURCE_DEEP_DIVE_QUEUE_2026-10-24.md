@@ -646,3 +646,64 @@ Luna low for mechanical metadata matching with coordinator judgment for conflict
 editions; done when the held hash/member range is bound to the selected published
 or serial cutoff. No new full read is implied. Next native acquisitions wait for
 actual allowance availability, then review P5V2's stopped receipt before reissue.
+
+## More-to-consider round: RR priority and usefulness, 2026-10-29, BMC23–BMC28
+
+Weibao: "focus on RR stuff higher? More to consider? Stuff that would be extremely
+useful for us?" Proposal only; nothing below is accepted or downloaded. Holdings
+were checked against the Source Library `catalogue.sqlite`, the harvest
+`REUSE_INDEX.json` and the 10-26/10-28 receipts; Z-Library availability from
+`source-library search` metadata on 2026-10-29 (`owned:false`, coverage unverified).
+"Useful" means a named consumer in PROJECT.md's current focus: the lead-life run
+(needs a whole series per lead), book-world depth, making/support careers, or the
+dense-interconnected-skills vision.
+
+Ranked tiers:
+
+| Tier | Items | Consumer | Route and state |
+|---|---|---|---|
+| 1 | Continuations of held RR openings: Millennial Mage 3–8 (RR3), Dungeon Life 3–4 (RR15), Chrysalis 2–5 and 7 (RR28; 6 not seen), Beneath the Dragoneye Moons 2–9 (RR29), Azarinth Healer 2–7 (10-26 Z2 opening) | Lead-life run end to end; making/support careers (healer, dungeon, colony) | All listed on Z-Library |
+| 2 | Unfilled top queue rows that are RR-only: RR2 Chaotic Craftsman, RR5 Delve, RR16 The Daily Grind, RR25 Super Minion, RR21 The Last Ship in Suzhou | Crafting career (RR2), stat math and support auras (RR5), workplace life (RR16), nonhuman social learning (RR25) | No Z-Library match except a retry of RR16 (one API error). Otherwise paced browser capture of public chapters (BMC26) |
+| 3 | New RR openers, codes below | Named per row | All listed on Z-Library |
+| 4 | Dungeon Crawler Carl 2–8 (Book 1 held; RR origin unverified); 10-26 non-RR wave 2 (C8, C12, C15, C2) | Book-world depth | Z-Library |
+
+| Code | Work | Why for us | Seen on Z-Library |
+|---|---|---|---|
+| RR31 | Mark of the Fool, J.M. Clarke | Academy life with a handicapped start; a school comparison for the canon-first Harry Potter world | Books 1–8 |
+| RR32 | The Legend of Randidly Ghosthound, puddles4263 / Noret Flood | Skill web where early skills feed later ones: the "ordinary skills stay useful late" vision | Books 1–4, 7, 9, 11 (others not in capped results) |
+| RR33 | Tree of Aeons, Spaizzzer | Rooted nonhuman life that grows a territory and dependents; place-bodied play beside RR15 | Books 1–7 |
+| RR34 | Cinnamon Bun, Ravensdagger | Support and crafting life with social reward; making/support careers | Volumes 1–2 |
+| TR9 | Threadbare, Andrew Seiple (already queued as TR9, "no exact asset found") | Crafted being whose job unlocks come from what it does; class rules visible in text; golem/toy making | Complete Trilogy omnibus and Volume 4. RR origin unverified |
+| RR35 | The Primal Hunter, Zogarth | Alchemy profession inside a combat System | Books 1–8; openers only (BMC27) |
+| RR36 | Defiance of the Fall, TheFirstDefier | Large Dao/class system with many parallel paths | Books 1–6, 10, 11; openers only (BMC27) |
+
+RR origin for RR31–RR36 is from memory, not a checked listing URL; tag each RR only
+after its listing is checked (LATER below).
+
+| Code | New consideration | Disposition |
+|---|---|---|
+| BMC23 | The markdown catalogues miss RR captures and recent downloads: A Practical Guide to Sorcery Book 1 (RR26), Cradle 12 Waybound and Bioshifter 1–3 are held but absent from the md lists | ACT NOW (done): holdings for this round use `catalogue.sqlite` and `REUSE_INDEX.json`; those three are dropped from the wave |
+| BMC24 | A lead run needs the whole life. An opener alone supports book-world sampling but not an end-to-end lead playthrough | ACCOUNT FOR NOW: continuations of held openings (tier 1) outrank new openers |
+| BMC25 | The batch-reading credit expires Nov 1. A new book helps that window only if converted, added to `books.json` and given a run plan within two days | ACCOUNT FOR NOW: Weibao's call per book; acquisition alone does not create a reading plan |
+| BMC26 | RR-only works: the polite HTTP route returns 403 on Royal Road and the polite CLI is Fanqie-only. Super Supportive and The Perfect Run were captured by paced browser DOM extraction (one navigation at a time, 5 s pause, receipts and hashes) | ACCOUNT FOR NOW: reuse that route for tier 2; stubbed listings give free chapters only, so bind the cutoff in the receipt |
+| BMC27 | Very long series (Defiance of the Fall, Primal Hunter, Randidly, Wandering Inn) can swallow a reading budget | ACCOUNT FOR NOW: take openers until AU13 declares a finite whole-source plan |
+| BMC28 | Non-RR leads from the 10-26 list are weaker fits for current consumers | ACCOUNT FOR NOW: below tiers 1–3 |
+
+Proposed first day batch (17 files, under the ~19 left today, unverified): Millennial
+Mage 3–8, Dungeon Life 3–4, Mark of the Fool 1–2, Randidly 1–2, Tree of Aeons 1,
+Threadbare trilogy omnibus and Volume 4, Cinnamon Bun 1, The Daily Grind retry.
+Next day: Chrysalis, Dragoneye and Azarinth continuations. Needs Weibao's yes.
+
+LATER / DELEGATE (not dispatched): RR listing-URL check for RR31–RR36 and TR9,
+haiku, about 10 minutes, done when each row has an RR fiction URL or is relabeled
+non-RR. Tier 2 paced capture, sonnet coordinator with the Super Supportive route,
+done when each work has a hashed raw set and a stated free-chapter cutoff.
+
+Follow-up, 2026-10-29: Weibao ranked RR31 Mark of the Fool, RR33 Tree of Aeons and
+RR32 Randidly above the other options ("Mark of the fool could be good, so would tree
+of aeons and randidly, over some of the other options"). 19 downloaded, interleaved
+across the three: Mark of the Fool 1–7, Tree of Aeons 1–6, Randidly 1–6, all
+SHA-256/CRC/TOC checked. The day's quota ran out on the next request. Next order: Mark of the Fool 8,
+Tree of Aeons 7–8, Randidly 7 and 9–13 (Book 8 not found), then tier 1
+continuations, then the rest of the original 17-file batch. Holdings live in the
+library index.

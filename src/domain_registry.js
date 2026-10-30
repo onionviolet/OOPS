@@ -59,4 +59,4 @@ const memoryDay = envelope => { try { return Math.floor(calendarMinutes(envelope
 const memoryDomain = createMemoryDomain({day: memoryDay});
 // An empty memory writes no save key, so saves without memories keep their shape.
 const memorySave = () => { const slice = memoryDomain.save(); return Object.keys(slice.holders).length ? slice : undefined; };
-registerDomain({...memoryDomain, save: memorySave, commands:{...memoryDomain.commands, read:memoryDomain.save, publish:memoryDomain.load}});
+registerDomain({...memoryDomain, save: memorySave, commands:{...memoryDomain.commands, read:memoryDomain.read, publish:memoryDomain.load}});

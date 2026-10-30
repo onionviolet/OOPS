@@ -6,6 +6,7 @@ import { styleText } from 'node:util';
 import { createHash } from 'node:crypto';
 import { get_game_version } from './src/game_version.js';
 import {execFileSync} from 'node:child_process';
+import {readManifest, renderStylesheets} from './scripts/stylesheet_manifest.mjs';
 
 // A runtime cursor requires this exact authored source/compiler/artifact join.
 execFileSync(process.execPath,['scripts/compile_feature_ink.mjs','--check'],{stdio:'inherit'});
@@ -22,8 +23,6 @@ for(const [marker,noticePath] of [['inkjs-notice','dist/INKJS_NOTICE.txt'],['ink
 }
 
 const bundle_regex = /dist\/bundle\.js\?version=[^&"]+/;
-
-const style_regex = /style\.css\?version=[^&"]+/;
 
 const bundlePath = buildOut ? `${buildOut}/dist/bundle.js` : 'dist/bundle.js';
 const htmlPath = buildOut ? `${buildOut}/index.html` : 'index.html';
@@ -48,27 +47,15 @@ esbuild
             console.error(styleText("red", 'Failed to update the bundle version in .html!'));
             process.exit(1);
         }
-        if(htmlContent.search(style_regex) == -1) {
-            console.error(styleText("red", 'Failed to update the style version in .html!'));
-            process.exit(1);
-        }
 
         const fingerprint = path => createHash('sha256').update(fs.readFileSync(path)).digest('hex').slice(0, 12);
         htmlContent = htmlContent.replace(
             bundle_regex,
             `dist/bundle.js?version=${get_game_version()}-${fingerprint(bundlePath)}`
-        ).replace(
-            style_regex,
-            `style.css?version=${get_game_version()}-${fingerprint('style.css')}`
         );
-        htmlContent=htmlContent.replace(/styles\/action_legibility\.css\?version=[^&"]+/,`styles/action_legibility.css?version=${fingerprint('styles/action_legibility.css')}`);
-        htmlContent=htmlContent.replace(/styles\/workspace\.css(?:\?version=[^&"]+)?/,`styles/workspace.css?version=${fingerprint('styles/workspace.css')}`);
-        htmlContent=htmlContent.replace(/styles\/ui_tokens\.css(?:\?version=[^&"]+)?/,`styles/ui_tokens.css?version=${fingerprint('styles/ui_tokens.css')}`);
-        htmlContent=htmlContent.replace(/styles\/shell_layout\.css(?:\?version=[^&"]+)?/,`styles/shell_layout.css?version=${fingerprint('styles/shell_layout.css')}`);
-        htmlContent=htmlContent.replace(/styles\/inventory\.css(?:\?version=[^&"]+)?/,`styles/inventory.css?version=${fingerprint('styles/inventory.css')}`);
-        htmlContent=htmlContent.replace(/styles\/opponents\.css(?:\?version=[^&"]+)?/,`styles/opponents.css?version=${fingerprint('styles/opponents.css')}`);
-        htmlContent=htmlContent.replace(/styles\/combat_log\.css(?:\?version=[^&"]+)?/,`styles/combat_log.css?version=${fingerprint('styles/combat_log.css')}`);
-        htmlContent=htmlContent.replace(/styles\/shell_chrome\.css(?:\?version=[^&"]+)?/,`styles/shell_chrome.css?version=${fingerprint('styles/shell_chrome.css')}`);
+        // Every sheet in styles/manifest.txt gets a content fingerprint; style.css keeps the game version prefix.
+        htmlContent = renderStylesheets(htmlContent, readManifest(), href =>
+            href === 'style.css' ? `${get_game_version()}-${fingerprint(href)}` : fingerprint(href));
         if (buildOut) {
             // Keep paths within the served output root. Escaping through ../
             // fails when the output lives outside the repository or is served alone.

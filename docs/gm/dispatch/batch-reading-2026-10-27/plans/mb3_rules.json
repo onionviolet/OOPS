@@ -1,0 +1,187 @@
+{
+ "world": "mb",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+  "censusMatch": "^(mb1|mb2|mb3|mb4|mb5|mb6|mb7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mb3-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "mb3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch001-002.txt",
+   "base": "300101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "mb3c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch003-004.txt",
+   "base": "300301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "mb3c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch005-005.txt",
+   "base": "300501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "mb3c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch006-007.txt",
+   "base": "300601",
+   "chapters": "6-7"
+  },
+  {
+   "prefix": "mb3c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch008-009.txt",
+   "base": "300801",
+   "chapters": "8-9"
+  },
+  {
+   "prefix": "mb3c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch010-011.txt",
+   "base": "301001",
+   "chapters": "10-11"
+  },
+  {
+   "prefix": "mb3c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch012-013.txt",
+   "base": "301201",
+   "chapters": "12-13"
+  },
+  {
+   "prefix": "mb3c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch014-015.txt",
+   "base": "301401",
+   "chapters": "14-15"
+  },
+  {
+   "prefix": "mb3c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch016-016.txt",
+   "base": "301601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "mb3c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch017-017.txt",
+   "base": "301701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "mb3c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch018-019.txt",
+   "base": "301801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "mb3c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch020-021.txt",
+   "base": "302001",
+   "chapters": "20-21"
+  },
+  {
+   "prefix": "mb3c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch022-023.txt",
+   "base": "302201",
+   "chapters": "22-23"
+  },
+  {
+   "prefix": "mb3c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch024-024.txt",
+   "base": "302401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "mb3c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch025-026.txt",
+   "base": "302501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "mb3c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch027-028.txt",
+   "base": "302701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "mb3c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch029-029.txt",
+   "base": "302901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "mb3c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch030-031.txt",
+   "base": "303001",
+   "chapters": "30-31"
+  },
+  {
+   "prefix": "mb3c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch032-033.txt",
+   "base": "303201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "mb3c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch034-035.txt",
+   "base": "303401",
+   "chapters": "34-35"
+  },
+  {
+   "prefix": "mb3c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch036-037.txt",
+   "base": "303601",
+   "chapters": "36-37"
+  },
+  {
+   "prefix": "mb3c038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch038-038.txt",
+   "base": "303801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "mb3c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch039-040.txt",
+   "base": "303901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "mb3c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch041-041.txt",
+   "base": "304101",
+   "chapters": "41-41"
+  },
+  {
+   "prefix": "mb3c042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch042-043.txt",
+   "base": "304201",
+   "chapters": "42-43"
+  },
+  {
+   "prefix": "mb3c044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch044-045.txt",
+   "base": "304401",
+   "chapters": "44-45"
+  },
+  {
+   "prefix": "mb3c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch046-046.txt",
+   "base": "304601",
+   "chapters": "46-46"
+  },
+  {
+   "prefix": "mb3c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/lead-run-2026-10-30/shard_mb3_b3_ch047-047.txt",
+   "base": "304701",
+   "chapters": "47-47"
+  }
+ ]
+}

@@ -27,5 +27,5 @@ export const dryingRewardDefinition = {
     ]},
     costs: [{type: 'transfer', from: 'feature_objects.miri', to: 'player', key: JSON.stringify({id: 'Tree sap'}), count: 1}],
     effects: [],
-    description: 'Proposal: every two completed drying batches earn one Tree sap from Eda’s finite stock, useful for edge repair or survey kits. Collection spends those two receipts toward this reward. Further rewards require further work and available stock.',
+    description: 'Every two completed drying batches earn one Tree sap from Eda’s finite stock, useful for edge repair or survey kits. Collection spends those two receipts toward this reward. Further rewards require further work and available stock.',
 };

@@ -1,0 +1,52 @@
+Idle:
+Market courtyard, a household business. 4 people. Nothing is running. Commission someone or accept an order to leave work running while you play. 102 coins on hand. Village standing: Stranger, next Known Face at 4.
+
+People
+Name	Role	Doing
+Mira	courtyard concessioner	free
+Orin	wood-goods maker	free
+Sela	local worker and prospective tenant	free
+Bram	outlying goods buyer	free
+Select a person
+
+Choose a name to see what they are doing and whether they are here.
+
+Operations · 0
+
+Nothing is running. Commission someone or accept an order to leave work running while you play.
+
+102 coins on hand
+
+Village standing: Stranger 0 of 4 for Known Face
+
+Nobody here knows what to make of you yet.
+
+Holdings
+
+Shared workbench · Concession room (not yours yet) · Planting plot
+
+Running:
+Market courtyard, a household business. 4 people. 1 job under way, Accept Bram’s ordinary crate order, 4 played minutes left. 98 coins on hand. Village standing: Stranger, next Known Face at 4.
+
+People
+Name	Role	Doing
+Mira	courtyard concessioner	free
+Orin	wood-goods maker	free
+Sela	local worker and prospective tenant	free
+Bram	outlying goods buyer	Accept Bram’s ordinary crate order
+Bram
+
+outlying goods buyer. Here now. Doing: Accept Bram’s ordinary crate order. Waiting on your job.
+
+Operations · 1
+Accept Bram’s ordinary crate order · you · 4 played minutes left (holds 2 Rough wood log)
+
+98 coins on hand
+
+Village standing: Stranger 0 of 4 for Known Face
+
+Nobody here knows what to make of you yet.
+
+Holdings
+
+Shared workbench · Concession room (not yours yet) · Planting plot

@@ -4,7 +4,11 @@
 //   ring   {id, label, radius 0..1, segments:[{label,state,effect}] | slots:N | count:N, labels:'out'|'in', rotate, visible, state}
 //   node   {id, label, glyph, state, effect, at:'center'|[x,y] | ring + index}      (x, y in -1..1 of the figure radius)
 //   slot   {id, label, ring, index, state, effect}      a node on a ring that is drawn as a place to fill
-//   track  {id, label, steps:[{label,state}]}            progress is counted from the steps' states
+//   track  {id, label, progress, orient:'horizontal'|'vertical', steps:[{label,state,effect,fill,ghost,note}]}
+//          progress is counted from the steps' states unless progress (words) is given; a vertical track runs bottom (first step) to top (a ladder).
+//          fill 0..1 draws a partial ring round the pip (digestion, mastery); note is its words, and the text form
+//          reads the note, or the fill as a percentage when there is no note, so the drawing never holds a fact alone.
+//          ghost 0..1 (at least fill) draws a dashed arc past the fill: what a planned act would add, said in the note.
 //   edge   {from, to, kind, label, state, detail?}       kinds take distinct line patterns in order of first use;
 //                                                        detail is plain words for the text form and hover only
 //   note   {text, state}                                 plain words, e.g. a risk line
@@ -13,10 +17,10 @@
 // UR38) are CSS classes only: glow and pulse never move layout and styles/figure.css switches them off
 // under data-effects off and reduced. The node's own document draws the figure, so it works in pop-outs.
 const SVG_NS = 'http://www.w3.org/2000/svg';
-export const FIGURE_STATES = {filled: '●', empty: '○', broken: '✕', strained: '!', active: '◆', done: '✓', current: '▶', pending: '·', unknown: '?'};
+export const FIGURE_STATES = {filled: '●', empty: '○', broken: '✕', strained: '!', active: '◆', done: '✓', current: '▶', pending: '·', guessed: '~', unknown: '?'};
 export const FIGURE_EFFECTS = ['glow', 'pulse'];
 const EDGE_STYLES = 4;
-const DEFAULT_SIZE = 560, MARKER_R = 18, PIP_R = 12, TRACK_H = 92, NOTE_H = 20, PAD = 56;
+const DEFAULT_SIZE = 560, MARKER_R = 18, PIP_R = 12, TRACK_H = 92, NOTE_H = 20, PAD = 56, RUNG_H = 64, RUNG_TOP = 40;
 
 const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
 const list = (spec, key) => spec[key] === undefined ? [] : spec[key];
@@ -87,7 +91,16 @@ export function validateFigureSpec(input) {
         if (trackIds.has(track.id)) fail(`duplicate track id "${track.id}"`);
         trackIds.add(track.id);
         if (!Array.isArray(track.steps) || !track.steps.length) fail(`track "${track.id}" needs steps`);
-        track.steps.forEach((step, i) => { if (!step || typeof step.label !== 'string') fail(`track "${track.id}" step ${i + 1} needs a label`); checkState(step.state, `track "${track.id}" step ${i + 1}`); });
+        if (track.progress !== undefined && (typeof track.progress !== 'string' || !track.progress)) fail(`track "${track.id}" progress must be words`);
+        if (track.orient !== undefined && !['horizontal', 'vertical'].includes(track.orient)) fail(`track "${track.id}" orient must be horizontal or vertical`);
+        track.steps.forEach((step, i) => {
+            const where = `track "${track.id}" step ${i + 1}`;
+            if (!step || typeof step.label !== 'string') fail(`${where} needs a label`);
+            checkState(step.state, where); checkEffect(step.effect, where);
+            if (step.fill !== undefined && !(Number.isFinite(step.fill) && step.fill >= 0 && step.fill <= 1)) fail(`${where} fill must be a number from 0 to 1`);
+            if (step.ghost !== undefined && !(Number.isFinite(step.ghost) && step.ghost >= (step.fill ?? 0) && step.ghost <= 1)) fail(`${where} ghost must be a number from its fill to 1`);
+            if (step.note !== undefined && (typeof step.note !== 'string' || !step.note)) fail(`${where} note must be words`);
+        });
     });
     spec.edges.forEach((edge, i) => {
         if (!edge || !markers.has(edge.from) || !markers.has(edge.to)) fail(`edge ${i + 1} must join two known nodes or slots`);
@@ -99,8 +112,27 @@ export function validateFigureSpec(input) {
     return spec;
 }
 
-const stepProgress = track => `${track.steps.filter(step => step.state === 'done').length} of ${track.steps.length} done`;
+const stepProgress = track => track.progress || `${track.steps.filter(step => step.state === 'done').length} of ${track.steps.length} done`;
 const tag = state => state ? ` (${state})` : '';
+const stepTag = step => {
+    const parts = [step.state, step.note || [step.fill !== undefined ? `${Math.round(step.fill * 100)}% filled` : null, step.ghost !== undefined ? `${Math.round(step.ghost * 100)}% after the planned act` : null].filter(Boolean).join(', ') || undefined].filter(Boolean);
+    return parts.length ? ` (${parts.join('; ')})` : '';
+};
+// Horizontal labels wrap to the space between steps (end labels turn inward, so they get half of it);
+// the track grows to fit its tallest label.
+const stepWords = step => step.note ? `${step.label} · ${step.note}` : step.label;
+const wrapChars = (track, size, i) => {
+    const n = track.steps.length, gap = n > 1 ? (size - 2 * PAD) / (n - 1) : size - 2 * PAD, edge = n > 1 && (i === 0 || i === n - 1);
+    return Math.max(6, Math.floor(gap * (edge ? .5 : .9) / 9));
+};
+// Vertical rungs: the label wraps beside the pip and the note wraps under it; a rung grows past RUNG_H to fit both.
+const rungRows = (step, size) => {
+    const chars = Math.floor((size - 2 * PAD - PIP_R - 16) / 9);
+    return {label: wrap(step.label, chars), note: step.note ? wrap(step.note, chars) : []};
+};
+const rungHeights = (track, size) => track.steps.map(step => { const r = rungRows(step, size); return Math.max(RUNG_H, (r.label.length + r.note.length) * 16 + 32); });
+const trackHeight = (track, size) => track.orient === 'vertical' ? RUNG_TOP + rungHeights(track, size).reduce((a, b) => a + b, 0)
+    : Math.max(TRACK_H, 38 + PIP_R + 30 + Math.max(...track.steps.map((step, i) => wrap(stepWords(step), wrapChars(track, size, i)).length)) * 16);
 
 /** The same facts as the drawing, as plain lines: the accessible description and the effects-off reading. */
 export function figureText(input) {
@@ -119,7 +151,7 @@ export function figureText(input) {
     }
     const loose = spec.nodes.filter(node => node.ring === undefined);
     if (loose.length) lines.push(`Nodes: ${loose.map(node => `${node.label}${tag(node.state)}`).join('; ')}.`);
-    for (const track of spec.tracks) lines.push(`Track ${track.label || track.id}, ${stepProgress(track)}: ${track.steps.map((step, i) => `${i + 1}. ${step.label}${tag(step.state)}`).join('; ')}.`);
+    for (const track of spec.tracks) lines.push(`Track ${track.label || track.id}, ${stepProgress(track)}: ${track.steps.map((step, i) => `${i + 1}. ${step.label}${stepTag(step)}`).join('; ')}.`);
     for (const edge of spec.edges) lines.push(`${name.get(edge.from)} to ${name.get(edge.to)}: ${edge.kind}${edge.label ? `, ${edge.label}` : ''}${tag(edge.state)}.${edge.detail ? ` ${edge.detail}` : ''}`);
     for (const note of spec.notes) lines.push(`${note.state ? `${word(note.state)}: ` : ''}${note.text}`);
     for (const entry of spec.legend) lines.push(`Key: ${entry.state ? `${FIGURE_STATES[entry.state]} ${entry.state}` : entry.kind} means ${entry.label}.`);
@@ -199,8 +231,10 @@ export function renderFigure(node, input, options = {}) {
     const radial = spec.rings.length > 0 || spec.nodes.length > 0 || spec.slots.length > 0;
     const S = spec.size, R = S / 2 - PAD - 54, cx = S / 2, cy = S / 2, noteWidth = Math.floor((S - PAD) / 9);
     const radialH = radial ? S : 0;
-    const height = radialH + spec.tracks.length * TRACK_H + spec.notes.reduce((sum, note) => sum + wrap(note.text, noteWidth).length * NOTE_H, 0) + (spec.notes.length ? NOTE_H : 0);
+    const tracksH = spec.tracks.reduce((sum, track) => sum + trackHeight(track, S), 0);
+    const height = radialH + tracksH + spec.notes.reduce((sum, note) => sum + wrap(note.text, noteWidth).length * NOTE_H, 0) + (spec.notes.length ? NOTE_H : 0);
     const svg = make('svg', {class: 'fig-svg', xmlns: SVG_NS, viewBox: `0 0 ${S} ${height}`, width: S, height, role: 'img', 'aria-labelledby': `${prefix}-title ${prefix}-desc`, focusable: 'false'});
+    svg.style.setProperty('--fig-units', String(round1(S / 12))); // styles/figure.css scales the drawing with the small type size
     svg.append(make('title', {id: `${prefix}-title`}, spec.title), make('desc', {id: `${prefix}-desc`}, text));
 
     const ringMap = new Map(spec.rings.map(ring => [ring.id, ring]));
@@ -288,26 +322,52 @@ export function renderFigure(node, input, options = {}) {
     svg.append(markerLayer);
 
     // Tracks: ordered steps along a line; the filled stretch runs to the last done or current step.
-    spec.tracks.forEach((track, t) => {
-        const y = radialH + t * TRACK_H, n = track.steps.length, x0 = PAD, x1 = S - PAD, gap = n > 1 ? (x1 - x0) / (n - 1) : 0, rowY = y + 38;
-        const g = make('g', {class: 'fig-track', 'data-track': track.id});
+    // Horizontal tracks run left to right with labels below; vertical tracks climb from the bottom with labels beside.
+    const pip = (parent, step, px, py) => {
+        const s = make('g', {class: `fig-step${stateClass(step.state)}${fx(step)}`});
+        s.append(make('title', {}, `${step.label}${stepTag(step)}`));
+        s.append(make('circle', {class: 'fig-halo', cx: round1(px), cy: round1(py), r: PIP_R + 5}), make('circle', {class: 'fig-body', cx: round1(px), cy: round1(py), r: PIP_R}));
+        if (step.fill > 0) s.append(step.fill >= 1 ? make('circle', {class: 'fig-fill', cx: round1(px), cy: round1(py), r: PIP_R + 5})
+            : make('path', {class: 'fig-fill', d: arc(px, py, PIP_R + 5, -90, -90 + 360 * step.fill)}));
+        const from = step.fill ?? 0;
+        if (step.ghost > from) s.append(make('path', {class: 'fig-ghost', d: arc(px, py, PIP_R + 5, -90 + 360 * from, -90 + 360 * Math.min(step.ghost, .9999))}));
+        s.append(make('text', {class: 'fig-glyph', x: round1(px), y: round1(py + 5), 'text-anchor': 'middle'}, step.state ? FIGURE_STATES[step.state] : ''));
+        parent.append(s); return s;
+    };
+    let trackY = radialH;
+    spec.tracks.forEach(track => {
+        const y = trackY, n = track.steps.length, x0 = PAD, x1 = S - PAD;
+        trackY += trackHeight(track, S);
+        const g = make('g', {class: `fig-track${track.orient === 'vertical' ? ' fig-track--vertical' : ''}`, 'data-track': track.id});
         g.append(make('text', {class: 'fig-track-title', x: x0 - PAD / 2, y: y + 14}, `${track.label || track.id}: ${stepProgress(track)}`));
-        g.append(make('line', {class: 'fig-track-line', x1: x0, y1: rowY, x2: x1, y2: rowY}));
         const last = track.steps.reduce((acc, step, i) => step.state === 'done' || step.state === 'current' ? i : acc, -1);
-        if (last > 0) g.append(make('line', {class: 'fig-track-progress', x1: x0, y1: rowY, x2: x0 + gap * last, y2: rowY}));
-        track.steps.forEach((step, i) => {
-            const px = n > 1 ? x0 + gap * i : (x0 + x1) / 2, s = make('g', {class: `fig-step${stateClass(step.state)}${fx(step)}`});
-            s.append(make('title', {}, `${step.label}${tag(step.state)}`));
-            s.append(make('circle', {class: 'fig-halo', cx: px, cy: rowY, r: PIP_R + 5}), make('circle', {class: 'fig-body', cx: px, cy: rowY, r: PIP_R}));
-            s.append(make('text', {class: 'fig-glyph', x: px, y: rowY + 5, 'text-anchor': 'middle'}, step.state ? FIGURE_STATES[step.state] : ''));
-            lines(s, px, rowY + PIP_R + 16, wrap(step.label, 11), {class: 'fig-label', 'text-anchor': 'middle'});
-            g.append(s);
-        });
+        if (track.orient === 'vertical') {
+            // Rungs stack from the top in reverse order (first step lowest); each is centred in its own height.
+            const heights = rungHeights(track, S), tops = [];
+            for (let i = n - 1, top = y + RUNG_TOP; i >= 0; top += heights[i], i--) tops[i] = top;
+            const px = x0, rungY = i => tops[i] + heights[i] / 2;
+            g.append(make('line', {class: 'fig-track-line', x1: px, y1: rungY(n - 1), x2: px, y2: rungY(0)}));
+            if (last > 0) g.append(make('line', {class: 'fig-track-progress', x1: px, y1: rungY(0), x2: px, y2: rungY(last)}));
+            track.steps.forEach((step, i) => {
+                const s = pip(g, step, px, rungY(i)), {label: rows, note} = rungRows(step, S), top = rungY(i) + 5 - (rows.length + note.length - 1) * 8;
+                lines(s, px + PIP_R + 16, top, rows, {class: 'fig-label', 'text-anchor': 'start'});
+                if (note.length) lines(s, px + PIP_R + 16, top + rows.length * 16, note, {class: 'fig-step-note', 'text-anchor': 'start'});
+            });
+        } else {
+            const gap = n > 1 ? (x1 - x0) / (n - 1) : 0, rowY = y + 38;
+            g.append(make('line', {class: 'fig-track-line', x1: x0, y1: rowY, x2: x1, y2: rowY}));
+            if (last > 0) g.append(make('line', {class: 'fig-track-progress', x1: x0, y1: rowY, x2: x0 + gap * last, y2: rowY}));
+            track.steps.forEach((step, i) => {
+                const px = n > 1 ? x0 + gap * i : (x0 + x1) / 2;
+                const edge = n > 1 && i === 0 ? 'start' : n > 1 && i === n - 1 ? 'end' : 'middle'; // end labels turn inward so they never clip
+                lines(pip(g, step, px, rowY), px + (edge === 'start' ? -PIP_R : edge === 'end' ? PIP_R : 0), rowY + PIP_R + 16, wrap(stepWords(step), wrapChars(track, S, i)), {class: 'fig-label', 'text-anchor': edge});
+            });
+        }
         svg.append(g);
     });
 
     // Notes: plain-words lines (a risk line, a caveat) with their state mark.
-    let noteY = radialH + spec.tracks.length * TRACK_H + NOTE_H;
+    let noteY = radialH + tracksH + NOTE_H;
     for (const note of spec.notes) {
         const rows = wrap(`${note.state ? FIGURE_STATES[note.state] + ' ' : ''}${note.text}`, noteWidth);
         const g = make('g', {class: `fig-note${stateClass(note.state)}`});

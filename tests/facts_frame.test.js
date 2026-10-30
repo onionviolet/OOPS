@@ -100,7 +100,7 @@ async function candidate() {
     return import(pathToFileURL(join(temp,'scripts/headless/runner.mjs')).href);
 }
 test('fixture minutes preserve facts, contexts and create_save bytes with frame on/off',async t=>{
-    const {boot,ROOT}=await candidate();
+    const {boot,ROOT,diffSaves}=await candidate();
     let pack=null;
     try {pack=JSON.parse(await readFile(join(ROOT,'private_packs/lotm-cast/cast.json'),'utf8'));} catch {}
     for(const kind of ['fresh life','mid-wait','beside life with pack']) {
@@ -137,7 +137,13 @@ test('fixture minutes preserve facts, contexts and create_save bytes with frame 
             }
             assert.equal(outputs[0].contexts,outputs[1].contexts,'byte-identical contexts');
             assert.equal(outputs[0].facts,outputs[1].facts,'byte-identical facts');
-            assert.equal(outputs[0].save,outputs[1].save,'byte-identical create_save');
+            const saves=outputs.map(output=>JSON.parse(output.save));
+            // create_save stamps saved_at from the wall clock to second precision.
+            // Confirm the only observed save diff is /saved_at, then compare every other field.
+            const paths=diffSaves(saves[0],saves[1]).map(({path})=>path);
+            assert.ok(paths.every(path=>path==='/saved_at'),`unexpected create_save diff paths: ${paths.join(', ')}`);
+            for(const save of saves)delete save.saved_at;
+            assert.deepEqual(saves[0],saves[1],'create_save matches apart from /saved_at');
         });
     }
 });

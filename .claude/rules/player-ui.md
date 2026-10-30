@@ -31,3 +31,7 @@ use concise narrative for traits and world flavor, then support it with real
 current effects and useful calculations. Trace claims to actual consumers and
 known state. Keep implementation notes in developer docs and reuse the owning
 subject's meaning across surfaces.
+
+For a small fix, start at the checklist at the top of docs/UI_RULES.md. UR76–UR82 and
+UIV1–UIV4, UIV6, UIV7 are proposed, in use as the default (CHOICES item 4, 2026-10-30);
+cite them as proposed.

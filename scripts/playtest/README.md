@@ -40,3 +40,16 @@ controls with no label.
 
 Not part of `npm test` (it needs Chrome). A clean two-run pass takes about 75 to 100 s;
 `--self-test` about 6 minutes.
+
+## Floor runner (AD43 browser floor)
+
+`floor_run.mjs` plays one scenario file in the same headless Chrome stack (`lib.mjs`) and writes a short receipt.
+
+```bash
+node scripts/slot_run.mjs --kind browser -- node scripts/playtest/floor_run.mjs scripts/playtest/scenarios/lotm_be_seat.json [--out dir]
+```
+
+- Scenario: JSON `{name, seed, privatePacks, steps}`. Ops: `nav {id}`, `click`, `wait {ms | target}`, `expect {target, matches?, absent?}`, `step {minutes}`, `shot {name}`, `roundtrip`. A target is `selector`, `ref` (`key=value` means `data-key="value"`) or `text`/`textRe` (matches buttons and summaries), with optional `within` and `nth`. `click` takes `reload: true` when the click starts a new life through a page reload (be seat `enroll_be`).
+- `roundtrip`: Export download, reload twice (no lost or changed data, idempotent loader, same rules as `run.mjs`), then Import of the exported file must load to the reload state.
+- Output (default `$TMPDIR/yairpg-floor/<name>/`, private, screenshots can show sealed text): `receipt.json` (bundle hash, steps passed, page errors, roundtrip), `export.txt`, PNGs, `fail-step-N.png`. Exit 0 only when all steps pass with no page errors. `privatePacks: true` lets the local cast pack load; otherwise the manifest is blocked.
+- Scenarios: `lotm_be_seat.json`, `lotm_divination.json` (both need `private_packs/lotm-cast`). Receipt parsing is tested in `tests/floor_receipt.test.js`.

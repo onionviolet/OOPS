@@ -1,0 +1,25 @@
+{
+ "world": "motf",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+  "censusMatch": "^(motf1|motf2|motf3|motf4|motf5|motf6|motf7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "motf1-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "motf1c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30/shard_motf1_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ]
+}

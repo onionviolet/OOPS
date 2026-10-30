@@ -704,3 +704,72 @@ The [rules index](../RULES_INDEX.md) is already the single front door: 28 regist
 Also waiting: the other lane's uncommitted work in the shared checkout fails 45 tests (`Invalid game calendar for recurring service.`, `src/world_rhythm.js:8`); they pass on clean HEAD and with this session's changes alone, so they belong to that lane (CLR13).
 
 Dispatched 2026-10-29: MDL9, MDL3/MDL11, MDL2 with MDL7, RIX1-RIX2 and MDL16 run as lanes R1-R5 of the [UI refactor wave](../gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md); MDL10 waits for the UI freeze fix.
+
+## Round 13, 2026-10-30: visual distinctiveness and flair
+
+Weibao: "Some stuff should have more visual distinctiveness/flair, rather than just being circles, but that is a long term fleshing out thing, thoughts? /more-to-consider". Proposals. Builds on round 10's figure primitive (MDL2), world skins (MDL6), effects rules (MDL8) and round 2 brief items 13, 18 and 20.
+
+### Findings
+
+| Code | Finding | Default, dial and reason |
+| --- | --- | --- |
+| FLA1 | **Sameness comes from one drawing vocabulary, not from circles.** Every figure today is lines, rings and dots in theme colours, so a ritual, a family and a debt look like cousins. | Default: separate meaning from look. Specs carry semantic roles; a **motif layer** maps role to shape, ornament, texture, symbol and motion. Dial: per world, per subject kind, per player profile. Reason: flair becomes a data pack, so adding it later never touches adapters, tests or text forms. |
+| FLA2 | **Distinctiveness should follow the world and the subject.** A Victorian occult city, a school of magic, a cultivation sect and a frontier village each have a material: brass and ink and tarot cards; parchment and house colours; ink wash and jade; rough wood and chalk. | Default: one motif pack per world (frame, line, ornament, texture, glyph set, motion signature) plus per-subject accents (seals for contracts, thread for relationships, flame for rites). Applied through tokens and an SVG symbol sprite, not per-feature CSS (UR6). |
+| FLA3 | **Flair must not cost reading.** Ornament competes with facts; texture lowers contrast; motion distracts. | Default: motifs stay off the data layer (labels, values, states keep their contrast and words, UR37, UR60); textures sit behind panels; motion follows UR38 and the effects setting; a "plain" motif is always one setting away. |
+| FLA4 | **Assets need a source and a budget.** Hand-drawn SVG symbols are cheap and original; raster textures and illustrations cost bundle size and need a provenance decision. | Default: start with code-drawn SVG symbols and CSS textures; keep each motif pack under a size budget recorded in the gallery; raster art and any generated imagery wait for Weibao's call on source and style, and stay original (no recreation of another game's look). |
+| FLA5 | **Distinct is not inconsistent.** Controls, focus, back bars and blocked reasons must look the same everywhere or players relearn the UI per world. | Default: motifs restyle content surfaces (figures, cards, frames, headers); interaction chrome stays shared (UR7, UR9, UR30). |
+| FLA6 | **The gallery is where flair is judged.** | Default: the figure gallery gains a motif switcher (plain, Luminous, each world pack) at 14 and 21 px with effects on and off, so a pack is reviewed before it ships. |
+
+Weibao, later the same hour: "Rather than Motif, we might need restructure/rerepresentations for stuff, so dont feel too attached to current ways? right now would just be drafts unless its really good". So restructuring a representation (a different shape, home or split) comes before decorating it, the motif layer below is one later option rather than the plan, and everything built so far is a draft unless it proves genuinely good (AD45). Brief item 21 carries this to the sessions.
+
+### ACT NOW (done this round)
+
+- Round 2 brief item 20: every session names roles rather than looks in its specs and sketches flair for its feature in two worlds; sent with the brief at 01:30.
+
+### ACCOUNT FOR NOW
+
+- `figure.js` and `scene_card.js` keep role names in their specs and class names (`data-role`), so a motif layer can hook in without API changes.
+- Sessions adding layouts (tree, grid, timeline) keep shape choice separate from decoration.
+
+### LATER / DELEGATE (ranked)
+
+| Priority | Work | Level / effort / done check |
+| --- | --- | --- |
+| First | Motif layer in `figure.js` and `scene_card.js`: role → symbol, line, ornament, motion through tokens and an SVG sprite; plain and Luminous packs. | Opus or Sonnet medium after the representation sessions merge, one session. Done: two packs restyle every gallery fixture with no adapter change; text forms identical; effects off clean. |
+| Second | First world pack for the lead's world (brass, ink, tarot-card frames for cards and rites). | Sonnet medium, one session, with Weibao's look at the gallery. Done: pack under its size budget, readable at 21 px. |
+| Third | Packs for other worlds as their lead runs land; an art-direction note per world in its world pass. | Per world. |
+| Later | Raster textures, illustrated portraits or generated imagery. | Weibao's call on source, style and budget first. |
+
+## Round 14, 2026-10-30: grow from the current look, and a better build
+
+Weibao: "Better implementation and stuff and more? Expanding from our current visual style and more? more to consider?" Proposals. Context: about eighteen representation branches are landing at once, each with its own figures, layouts and gallery fixtures.
+
+### Grow the current style rather than invent new ones
+
+| Code | Finding | Default, dial and reason |
+| --- | --- | --- |
+| VSX1 | **The game already has a visual grammar, but it lives in tokens and memory, not in one place.** Square frames, hairline rows, gradient fills (the pastel vitals), bitmap Gothic numerals, navy and teal task fields, purple Reports, soft luminous edges, glyph tokens (人, 兽). New figures came out as generic SVG: round nodes, thin strokes, system-looking. | Default: a living style guide page in the gallery that shows the grammar with real tokens (frames, rows, bars, chips, glyph tokens, glow levels, motion set) and the rules for extending it. New representations start from it. Reason: one look that grows, instead of eighteen dialects. |
+| VSX2 | **Figures should look native.** | Default: the figure primitive's default skin follows the grammar: square or chamfered nodes where a circle carries no meaning, hairline 1 px lines on whole pixels, gradient fills like the vitals for progress, bitmap Gothic labels at their native strikes, glow from the Luminous tokens. Circles stay where the subject is cyclic. Dial: a world skin (round 13) may change shapes and ornament. |
+| VSX3 | **A glyph language extends the identity doc's tokens.** | Default: one glyph per subject kind used across chips, figures and Reports (for example 祭 rite, 血 kin, 道 path, 金 money, 契 contract, 夢 dream), each with an English label beside it on first sight and in the text form. Dial: per world glyph sets. Reason: compact, in keeping with the Gothic face, and recognisable at a glance. |
+| VSX4 | **Colour roles, not new hues.** | Default: new subjects map to existing semantic roles (UR37: danger, money, bond, knowledge, progress); a new role needs two consumers. |
+| VSX5 | **One motion vocabulary.** | Default: settle, glow-in, pulse and fade, each with a duration token and an effects-off fallback; no feature-specific animation without a role in the set. |
+
+### A better build for the merge
+
+| Code | Finding | Default, dial and reason |
+| --- | --- | --- |
+| RCT1 | **Eighteen branches will each have touched `figure.js` and `figure_gallery.js`, and several added layouts (tree, grid, timeline).** | Default: merge in a fixed order (shared-primitive changes first, deduped into one layout API with tests, then features), with the coordinator reviewing each layout addition before the next branch rebases onto it. |
+| RCT2 | **Each session proved its own slice; nothing proves all representations keep the contract.** | Default: one representation contract test that runs every gallery fixture: text form present and matching, no global document access, tokens only, effects off keeps every fact, 21 px fits, seat-limited fixture shows less, DOM node count under a budget. Reason: one check replaces eighteen promises. |
+| RCT3 | **Looks can regress silently.** | Default: headless gallery screenshots at a fixed seed with a pixel-diff baseline, run once at merge (not per lane, to protect machine load). |
+| RCT4 | **Read models are converging with the sonnet wave's engine lanes.** | Default: at merge, each adapter that defined its own model either switches to the engine lane's read model or names its switch point (plan section "Read models from the sonnet wave"). |
+| RCT5 | **Machine load decides what can be verified.** | Default: full suites and browser captures run under a small shared slot limit, and the integrator runs the full suite once. |
+
+### LATER / DELEGATE (ranked)
+
+| Priority | Work | Level / effort / done check |
+| --- | --- | --- |
+| First | RCT2 representation contract test over the gallery fixtures. | Sonnet medium, half a session. Done: fails on a fixture with no text form or a global lookup; passes on master's two fixtures. |
+| Second | VSX1 living style guide page and VSX2 native default skin for figures. | Sonnet medium with an Opus review of the look, one session. Done: gallery shows the grammar; both fixtures restyled, text forms unchanged. |
+| Third | RCT1 merge order and layout API review, then merge the representation branches. | Coordinator (this session), with Sonnet subagents per branch. Done: master builds; contract test and full suite pass once. |
+| Fourth | VSX3 glyph language and VSX5 motion set as tokens. | Sonnet low, small. |
+| Fifth | RCT3 visual regression baseline. | Sonnet low, small. |

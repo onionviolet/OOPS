@@ -30,7 +30,7 @@ export function validateLotmState(state){
  const d=state.lotm,s=state.simulation,a=state.actors||{};
  if(d==null){
   assert(!state.worlds?.[I.world]&&!a[I.supervisor]&&!s?.people?.[I.supervisor]&&a.player?.worldId!==I.world,'Tingen presence needs its explicit optional owner.');
-  assert(!(s?.jobs||[]).some(j=>prefix(j.commandId)||[...castBodyCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId)),'Tingen work cannot outlive its owner.');
+  assert(!(s?.jobs||[]).some(j=>prefix(j.commandId)||[...castBodyCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId)),'Tingen work cannot outlive its owner.');
   for(const actor of Object.values(a))assert(!Object.keys(actor.resources||{}).some(prefix)&&!Object.keys(actor.sources||{}).some(prefix)&&!Object.keys(actor.facts||{}).some(prefix)&&!Object.keys(actor.completed||{}).some(prefix),'Tingen means require the matching optional owner.');
   assert(!s?.powers?.player?.[I.method]&&!s?.energies?.player?.[I.energy]&&!Object.keys(s?.knowledge?.player||{}).some(prefix)&&!Object.keys(s?.knowledge?.[I.supervisor]||{}).some(prefix),'Tingen knowledge and powers require the matching optional owner.');
   return true;
@@ -52,7 +52,7 @@ export function validateLotmState(state){
  for(const owner of [state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village,state.mistglassRealm])assert(owner?.activeVisitId==null,'One controlled native body cannot be in the Tingen branch and another retained world.');
  const sup=s.people[I.supervisor];
  if(d.entryProfile!==BE_PROFILE_ID)assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
- for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castBodyCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId))){
+ for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castBodyCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId))){
   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
   const def=castWalkDefinitionById(j.commandId)||[...castBodyCommands,...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].find(c=>c.id===j.commandId);
   assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');

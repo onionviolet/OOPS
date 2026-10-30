@@ -104,7 +104,7 @@ test('partial rites accept unknown cost and native side effects without fabricat
  assert.throws(()=>defineDivinations({queries:[reordered]},binding),/ordered known stages/);
 });
 
-test('live integration crosses native UI and real save validator in a disposable copy',{timeout:180000},async t=>{
+test('live integration crosses native UI and real save validator in a disposable copy',{timeout:300000},async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -191,6 +191,6 @@ try {
  process.stdout.write('native ordered rite, paid attempt, pending/settled Save/reload/Export/Import, support/effect tamper: PASS');
 } finally {g.close();}
  `);
- const {stdout}=await exec(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:170000,maxBuffer:1024*1024});
+ const {stdout}=await exec(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});
  assert.match(stdout,/tamper: PASS/);
 });

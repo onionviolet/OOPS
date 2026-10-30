@@ -214,6 +214,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'customization-sites': surface(UNSET),
         // Round 12 (2026-10-19, proposals): reference sections that read existing state. Opened from
         // More panels or the command palette; none adds a route, so the navigation bar keeps its size.
+        'research': surface('ST6', {home: 'Right dock beside the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'known-things': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['knowledge'], contexts: ['idle', 'travel', 'service']}),
         'statistics': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['work', 'combat', 'inventory'], contexts: ['idle', 'travel', 'service']}),
         'today': surface('ST5', {home: 'Beside the actions; Journal companion space', frequency: 'frequent', status: 'proposal', reads: ['time', 'place', 'work'], contexts: ['idle', 'travel']}),
@@ -223,6 +224,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'family': surface('ST6', {home: 'Side column beside You', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'stock_view': surface('ST6', {home: 'Main column with the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
+        'management': surface('ST2', {home: 'Beside the actions in the Village; its own panel, not inside Location actions (UR8)', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time'], contexts: ['idle', 'service']}),
         'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.
@@ -246,12 +248,14 @@ export const LAYOUT_SPEC = Object.freeze({
         {id: 'records:bestiary', label: 'Bestiary', key: 'b', target: 'records', tab: 'journal_show_bestiary'},
         {id: 'records:books', label: 'Books', key: 'a', target: 'records', tab: 'journal_show_books'},
         {id: 'records:data', label: 'Data', key: 'd', target: 'records', tab: 'journal_show_data'},
+        {id: 'records:knows', label: 'Knows', key: 'f', target: 'records', tab: 'journal_show_knows'},
         {id: 'records:notebook', label: 'Notebook', key: 'n', target: 'notebook'},
         {id: 'skills', label: 'Skills', key: 'k', target: 'skills', pane: 2},
         {id: 'known-people', label: 'People', key: 'p', target: 'known-people'},
         {id: 'village-travelers', label: 'Travelers', key: 't', target: 'village-travelers'},
         {id: 'projects', label: 'Projects', key: 'r', target: 'projects'},
         {id: 'ledger', label: 'Ledger', key: 'l', target: 'ledger'},
+        {id: 'organizations', label: 'Organizations', key: 'x', target: 'management'},
         {id: 'optional-worlds', label: 'Worlds', key: 'w', target: 'optional-worlds'},
         {id: 'beginning', label: 'Beginning', key: 'g', target: 'beginning'},
         {id: 'continuation', label: 'Connection', key: 'y', target: 'continuation', select: 'continuation_open'},

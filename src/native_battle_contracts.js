@@ -1,7 +1,9 @@
 import {check, natural} from './basics.js';
 import {validateFeatureBattle,isFeatureBattleSchema} from './world_completion_battle_validation.js';
+import {TEMPO_SCHEMA,validateTempoBattle} from './tempo_fight_contract.js';
 export const PARTY_HELPER = 'partyPartner', PARTY_METHOD = 'party.guard_control';
 export function validateNativeBattle(battle,session,state) {
+    if(battle?.schema===TEMPO_SCHEMA)return validateTempoBattle(battle,session,state);
     if(isFeatureBattleSchema(battle?.schema))return validateFeatureBattle(battle,session,state);
     check(battle && session?.definitionId==='rival.native_duel' && session.targetId==='roadRival' && session.participants?.includes('roadRival'),'Invalid native battle binding.');
     check(natural(battle.seed)&&battle.seed>0&&battle.seed<=0xffffffff&&natural(battle.actions)&&typeof battle.last==='string'&&battle.last.length<=500,'Invalid saved native battle.');

@@ -35,6 +35,7 @@ function finish(plan,registry,result) {
     s.log.push({at:state.clock,text:`Mara's road contest: ${result}.`,cause});s.log=s.log.slice(-100);
     delete s.sessions.player;
 }
+export {finish as finishRoadContest};
 const roadConflict={id:'road.duel',revision:1,sides:[['player'],[ROAD_RIVAL]],objective:'yield',results:{won:finish,lost:finish,withdrawn:finish},random:legacyConflictRandom,validate:validateExpansionState,
     prepare({state,registry,command,plan,session,battle,random,publishResult}) {
         const {actorId,targetId,attacker,target}=command;

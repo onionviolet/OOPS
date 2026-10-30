@@ -250,6 +250,7 @@
     --ui-line-body: round(calc(var(--custom-size, var(--ui-type-body)) * 1.3), 1px);
     --ui-line-small: round(calc(var(--custom-small-size, var(--ui-type-small)) * 1.3), 1px);
     --ui-line-prose: round(calc(var(--custom-size, var(--ui-type-body)) * 1.45), 1px);
+    --ui-type-heading: round(calc(var(--custom-size, var(--ui-type-body)) * 8 / 7), 1px);
     --ui-weight-regular: 400; --ui-weight-strong: 700;
 }
 
@@ -1706,6 +1707,7 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 :where(:root, .customization-module) {
  --ui-motion-fast: 120ms;
  --ui-motion-normal: 180ms;
+ --ui-motion-settle: 900ms;
  --ui-motion-ease: ease-out;
  --ui-feedback-accent: var(--theme-accent, var(--workspace-accent, var(--ui-accent)));
  --ui-feedback-focus: var(--theme-focus, var(--workspace-focus, var(--ui-accent)));
@@ -1716,8 +1718,8 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 }
 /* DL10 / Q18 P08: reduced motion is one token switch. Every --ui-motion-* consumer turns static
    under the OS preference or the Effects off/reduced setting; static cues stay. */
-:root:is([data-effects="off"],[data-effects="reduced"]), :root:is([data-effects="off"],[data-effects="reduced"]) .customization-module {--ui-motion-fast:0ms;--ui-motion-normal:0ms;}
-@media (prefers-reduced-motion:reduce) {:where(:root, .customization-module) {--ui-motion-fast:0ms;--ui-motion-normal:0ms;}}
+:root:is([data-effects="off"],[data-effects="reduced"]), :root:is([data-effects="off"],[data-effects="reduced"]) .customization-module {--ui-motion-fast:0ms;--ui-motion-normal:0ms;--ui-motion-settle:0ms;}
+@media (prefers-reduced-motion:reduce) {:where(:root, .customization-module) {--ui-motion-fast:0ms;--ui-motion-normal:0ms;--ui-motion-settle:0ms;}}
 #main_content.workspace-active :is(button,select,input,textarea,[role="button"],summary) {
  transition: border-color var(--ui-motion-fast) var(--ui-motion-ease), box-shadow var(--ui-motion-fast) var(--ui-motion-ease), background-color var(--ui-motion-fast) var(--ui-motion-ease);
 }
@@ -1824,3 +1826,12 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active .meter-bar-fill {transition:width var(--ui-motion-normal) var(--ui-motion-ease);}
 :root:is([data-effects="off"],[data-effects="reduced"]) #main_content.workspace-active .meter-bar-fill {transition:none;}
 @media (prefers-reduced-motion:reduce) {#main_content.workspace-active .meter-bar-fill {transition:none;}}
+/* Mixing: what you have learned. Words sit beside every mark; colour only reinforces (UR37). */
+.mixture-discovery { margin: var(--ui-space-2) 0 var(--ui-space-3); }
+.mixture-discovery-table { border-collapse: collapse; width: 100%; font-size: var(--ui-type-small); }
+.mixture-discovery-table :is(th,td) { border-bottom: 1px solid var(--workspace-border); padding: var(--ui-space-1) var(--ui-space-2); text-align: left; font-weight: normal; }
+.mixture-discovery-table thead th, .mixture-discovery-table tr:first-child th { color: var(--workspace-muted); }
+.mixture-cell--known { color: var(--ui-text); }
+.mixture-cell--guessed { color: var(--workspace-muted); font-style: italic; }
+.mixture-cell--unknown { color: var(--workspace-muted); }
+#mixture_next_try { margin: var(--ui-space-2) 0; }

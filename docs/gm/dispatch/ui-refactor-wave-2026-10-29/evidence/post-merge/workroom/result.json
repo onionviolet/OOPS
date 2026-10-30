@@ -1,0 +1,112 @@
+{
+  "bundleSha256": "de328c446f857b16afcc35a585992457dc8e73476e1cd4068439ded3bce91990",
+  "route": "fresh game → Tingen door → pick_probationer → enroll → workroom tabs at 14 and 21 px text (effects off)",
+  "effects": "off via document.documentElement.dataset.effects (set after each Apply and save)",
+  "sizes": [
+    {
+      "size": 14,
+      "baseline": {
+        "chars": 2829,
+        "charsBeforeFirstButton": 898,
+        "buttons": 16
+      },
+      "tabs": [
+        {
+          "id": "here",
+          "label": "Here",
+          "chars": 1009,
+          "charsBeforeFirstButton": 313,
+          "buttons": 11
+        },
+        {
+          "id": "path",
+          "label": "Path",
+          "chars": 1064,
+          "charsBeforeFirstButton": 898,
+          "buttons": 6
+        },
+        {
+          "id": "work",
+          "label": "Work & merit",
+          "chars": 1156,
+          "charsBeforeFirstButton": 1156,
+          "buttons": 9
+        },
+        {
+          "id": "notebook",
+          "label": "Notebook · 1",
+          "chars": 520,
+          "charsBeforeFirstButton": 520,
+          "buttons": 5
+        }
+      ]
+    },
+    {
+      "size": 21,
+      "baseline": {
+        "chars": 2829,
+        "charsBeforeFirstButton": 898,
+        "buttons": 16
+      },
+      "tabs": [
+        {
+          "id": "here",
+          "label": "Here",
+          "chars": 1009,
+          "charsBeforeFirstButton": 313,
+          "buttons": 11
+        },
+        {
+          "id": "path",
+          "label": "Path",
+          "chars": 1064,
+          "charsBeforeFirstButton": 898,
+          "buttons": 6
+        },
+        {
+          "id": "work",
+          "label": "Work & merit",
+          "chars": 1156,
+          "charsBeforeFirstButton": 1156,
+          "buttons": 9
+        },
+        {
+          "id": "notebook",
+          "label": "Notebook · 1",
+          "chars": 520,
+          "charsBeforeFirstButton": 520,
+          "buttons": 5
+        }
+      ]
+    }
+  ],
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   }\n+ ]\n- []\n\n    at file:///Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/ui-integration-8e9e92/scripts/playtest/workroom-density.mjs:85:9",
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

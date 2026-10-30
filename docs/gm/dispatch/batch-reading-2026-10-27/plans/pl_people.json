@@ -1,0 +1,289 @@
+{
+ "world": "pl",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30",
+  "censusMatch": "^(pl)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "pl-people",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "plc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch001-001.txt",
+   "base": "00101",
+   "chapters": "1-1"
+  },
+  {
+   "prefix": "plc002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch002-002.txt",
+   "base": "00201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "plc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch003-003.txt",
+   "base": "00301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "plc004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch004-004.txt",
+   "base": "00401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "plc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch005-005.txt",
+   "base": "00501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "plc006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch006-006.txt",
+   "base": "00601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "plc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch007-007.txt",
+   "base": "00701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "plc008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch008-008.txt",
+   "base": "00801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "plc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch009-009.txt",
+   "base": "00901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "plc010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch010-010.txt",
+   "base": "01001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "plc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch011-011.txt",
+   "base": "01101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "plc012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch012-012.txt",
+   "base": "01201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "plc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch013-013.txt",
+   "base": "01301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "plc014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch014-014.txt",
+   "base": "01401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "plc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch015-015.txt",
+   "base": "01501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "plc016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch016-016.txt",
+   "base": "01601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "plc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch017-017.txt",
+   "base": "01701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "plc018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch018-018.txt",
+   "base": "01801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "plc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch019-019.txt",
+   "base": "01901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "plc020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch020-020.txt",
+   "base": "02001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "plc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch021-021.txt",
+   "base": "02101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "plc022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch022-022.txt",
+   "base": "02201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "plc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "plc024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch024-024.txt",
+   "base": "02401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "plc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch025-025.txt",
+   "base": "02501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "plc026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch026-026.txt",
+   "base": "02601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "plc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch027-027.txt",
+   "base": "02701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "plc028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "plc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch029-029.txt",
+   "base": "02901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "plc030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch030-030.txt",
+   "base": "03001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "plc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch031-031.txt",
+   "base": "03101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "plc032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch032-032.txt",
+   "base": "03201",
+   "chapters": "32-32"
+  },
+  {
+   "prefix": "plc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch033-033.txt",
+   "base": "03301",
+   "chapters": "33-33"
+  },
+  {
+   "prefix": "plc034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch034-034.txt",
+   "base": "03401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "plc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch035-035.txt",
+   "base": "03501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "plc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch036-036.txt",
+   "base": "03601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "plc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch037-037.txt",
+   "base": "03701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "plc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch038-038.txt",
+   "base": "03801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "plc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch039-039.txt",
+   "base": "03901",
+   "chapters": "39-39"
+  },
+  {
+   "prefix": "plc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch040-040.txt",
+   "base": "04001",
+   "chapters": "40-40"
+  },
+  {
+   "prefix": "plc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch041-041.txt",
+   "base": "04101",
+   "chapters": "41-41"
+  },
+  {
+   "prefix": "plc042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch042-042.txt",
+   "base": "04201",
+   "chapters": "42-42"
+  },
+  {
+   "prefix": "plc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch043-043.txt",
+   "base": "04301",
+   "chapters": "43-43"
+  },
+  {
+   "prefix": "plc044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch044-044.txt",
+   "base": "04401",
+   "chapters": "44-44"
+  },
+  {
+   "prefix": "plc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/lead-run-2026-10-30/shard_pl_b1_ch045-045.txt",
+   "base": "04501",
+   "chapters": "45-45"
+  }
+ ]
+}

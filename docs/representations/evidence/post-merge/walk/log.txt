@@ -1,0 +1,1 @@
+{"ok":true,"bundle":"c6e8d87410bc47d2","steps":["reported in","board shown, nearest first","map shown after crossing","click a place","walked 25 min, map recentred"]}

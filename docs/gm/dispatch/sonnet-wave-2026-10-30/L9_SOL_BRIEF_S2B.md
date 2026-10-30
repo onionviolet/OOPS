@@ -1,0 +1,20 @@
+# Lane sw-l9-s2b brief (Sol medium): scoped restart
+
+Repo /Users/weiwei/code/yet-another-idle-rpg (shared checkout; never git stash/checkout/reset; do not commit; no web). Read first: `docs/gm/dispatch/sonnet-wave-2026-10-30/L9_DEATH_RESTART_DESIGN.md`, `src/continuation_state.js` (`restore`, and the `restart:` command already there), `src/expansion_persistence.js` and `src/book_world_lotm_state.js` (`validateLotmState`, how owners and the save are validated).
+
+## Problem
+`restart:<anchor>` currently calls `restore()`, which replaces the WHOLE save, so other worlds, the Village (`expansion.proto23Village`) and other owner slices rewind too. Decision (Weibao, via the wave coordinator): a restart rewinds only the dying life's world and seat slice from its anchor. Other worlds, the Village and cross-world records keep their state unless that world's rule says otherwise (default, dial, reason).
+
+## You own exactly
+1. NEW `src/harm_restart_scope.js` 2. EDIT `src/continuation_state.js` (hunk only: `restart:` calls the scoped function; `initial`, `checkpoint`, `cycle` stay whole-save) 3. NEW `tests/harm_restart_scope.test.js`. Touch nothing else (src/harm_state.js is owned by another lane, do not edit; import from it read-only).
+
+## Build
+- `RESTART_SCOPES` rows by world id, plus a `default`: `{mode:'scoped', replace:[...], retain:[...], reason}`. Default for worlds with a row: scoped. `base.frontier` keeps `mode:'whole'` (its behavior must not change; the existing whole-save semantics stay, with a reason string).
+- `scopedRestart(source, target, worldId)` returns the next save: start from the anchor (`target`) for the dying life's world slice (`expansion.lotm` / `expansion.worlds[worldId]`, the player actor and seat slice, `harm`, and what `restore()` already resets for the body: character, money, items, quests) and then re-overlay from `source` everything the scope retains: every other `expansion.worlds[id]`, `expansion.proto23Village`, `motherOfLearning`, `mistglassRealm`, `realmPrototype`, `featureDestination`, `nestedCampaign`, `bookWorldCampaign` (unless it is the dying world's owner), and cross-world records. Keep `restore()`'s existing carries (cheats, preferences, mastery, anchors, memories, continuation object) exactly.
+- Be rigorous about shared state: `expansion.simulation`, `expansion.actors.player`, the clock and `current time` are shared between worlds. Decide per key whether it is the seat's (replace from anchor) or shared (retain from source), and prefer whichever keeps the real save validators passing. Run the real validators (`validateLotmState`, the expansion/persistence validation used by import, `validateContinuation`) on the scoped result in the test. If retaining a slice whose clock is ahead of the rewound clock makes a validator fail, do not paper over it: choose the consistent rule (for example the seat's clock rewinds only its own world's local time, or the scoped restart refuses with a clear message when a retained owner is mid-visit), document it in the module header, and say so in your report.
+- Refuse (clear message, source untouched) when the player is mid-visit in a retained owner (`activeVisitId`), as existing validators demand.
+
+## Tests (focused: `node --test tests/harm_restart_scope.test.js tests/continuation_state.test.js tests/harm_state.test.js tests/anchor_snapshots.test.js`)
+Build a fixture save with player in `book.lotm.tingen` and `expansion.proto23Village` plus another world's `worlds[...]` value, an enrolled continuation, anchor, then `die:loss_of_control` and `restart:initial`. Assert: the lotm slice, body, money, quests, backlash counter are back at the anchor; the Village value and the other world's value are unchanged (equal to their pre-restart source values); keep table (cheats, preferences, mastery, memories, deaths ledger) as slice 1; JSON save, reload and import round trip passes the validators; a Frontier restart stays whole-save; legacy continuation JSON still validates.
+
+Report files changed, test counts, the shared-key decisions you made and anything you could not make consistent.

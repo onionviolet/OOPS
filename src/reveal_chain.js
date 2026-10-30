@@ -89,6 +89,14 @@ export function observeAcquisition(inventory, items) { acquire(inventory, items)
 let denominations=()=>true;
 export function bindDenominationKnowledge(fn) {denominations=fn;}
 export function denominationsKnown(){return denominations();}
+// Plain-text purse amount: wood/copper/silver/gold once the denominations are known, else raw coins (UR74).
+export function moneyText(num){
+    if(!denominations()||!Number.isFinite(num))return `${num} coins`;
+    const sign=num<0?'-':'',n=Math.abs(num);
+    if(n===0)return 'nothing';
+    const parts=[[Math.floor(n/100000),'G'],[Math.floor(n/1000)%100,'S'],[Math.floor(n/10)%100,'C'],[n%10,'W']];
+    return sign+parts.filter(([v])=>v).map(([v,u])=>`${v}${u}`).join(' ');
+}
 export function createPracticePanel({read,toggleRun,investigate,craft,register,update}) {
     const panel=document.createElement('section'); panel.id='practice_capabilities';
     const title=document.createElement('h3');title.textContent='Practiced actions (proposal)';

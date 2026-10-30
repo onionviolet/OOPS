@@ -1,3 +1,5 @@
+import {simulationDefinitions} from './simulation_content.js';
+import {createTemperamentPort} from './person_temperament.js';
 import {domainRegistry} from './domain_registry.js';
 import {memoryForPlan} from './person_memory_effects.js';
 import {calendarMinutes} from './world_rhythm.js';
@@ -6,6 +8,8 @@ import {writeOwnershipToEnvelope} from "./acquisition.js";
 import {publishDefeat} from "./defeat_domain.js";
 import {writeGameplayToEnvelope} from "./gameplay_transactions.js";
 import {setSavedPurse} from "./money.js";
+
+const memoryDefinitions=new Map(simulationDefinitions.people.map(p=>[p.id,p]));
 
 // Caller publishes plan.state and plan.external only after this succeeds.
 // The existing envelope is copied, retaining unrelated and dormant content.
@@ -55,9 +59,15 @@ function writeExpansionPlan(plan, {createSave, storage, key, bindings, ownership
         target[parts.at(-1)] = structuredClone(value);
     }
     nativePublication?.write(envelope);
-    const memoryCandidate = envelope['current time'] ? memoryForPlan({memory:envelope.memory,plan,minute:calendarMinutes(envelope['current time']),day:Math.floor(calendarMinutes(envelope['current time'])/1440)}) : null;
+    const temperamentOf=createTemperamentPort(id=>memoryDefinitions.get(plan.state.simulation?.people[id]?.definitionId || id));
+    const memoryCandidate = envelope['current time'] ? memoryForPlan({memory:envelope.memory,plan,temperamentOf,minute:calendarMinutes(envelope['current time']),day:Math.floor(calendarMinutes(envelope['current time'])/1440)}) : null;
     if(memoryCandidate && (Object.hasOwn(envelope, 'memory') || Object.keys(memoryCandidate.memory.holders).length)) envelope.memory = memoryCandidate.memory;
     if(memoryCandidate?.causes) envelope.expansion.simulation.causes = memoryCandidate.causes;
+    for(const {holder,trait} of memoryCandidate?.observations || []) {
+        const known=envelope.expansion.simulation.knowledge.player ||= {};
+        const traitKey=`person.${holder}.trait.${trait}`;
+        known[traitKey] ||= {stage:'seen',value:trait,at:plan.state.clock,cause:'memory.observed'};
+    }
     if(validateEnvelope) validateEnvelope(envelope);
     const committed = JSON.stringify(envelope);
     // Native life-save ownership can consume the already detached envelope.

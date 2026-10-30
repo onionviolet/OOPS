@@ -1,0 +1,1447 @@
+{
+ "world": "wtc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30",
+  "censusMatch": "^(wtc)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "wtc-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "wtcc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch001-001.txt",
+   "base": "00101",
+   "chapters": "1-1"
+  },
+  {
+   "prefix": "wtcc002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch002-002.txt",
+   "base": "00201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "wtcc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch003-003.txt",
+   "base": "00301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "wtcc004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch004-004.txt",
+   "base": "00401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "wtcc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch005-005.txt",
+   "base": "00501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "wtcc006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch006-006.txt",
+   "base": "00601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "wtcc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "wtcc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "wtcc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "wtcc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch013-013.txt",
+   "base": "01301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "wtcc014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch014-014.txt",
+   "base": "01401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "wtcc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch015-015.txt",
+   "base": "01501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "wtcc016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch016-016.txt",
+   "base": "01601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "wtcc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch017-017.txt",
+   "base": "01701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "wtcc018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch018-018.txt",
+   "base": "01801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "wtcc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch019-019.txt",
+   "base": "01901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "wtcc020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch020-020.txt",
+   "base": "02001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "wtcc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch021-021.txt",
+   "base": "02101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "wtcc022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch022-022.txt",
+   "base": "02201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "wtcc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "wtcc024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch024-024.txt",
+   "base": "02401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "wtcc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch025-025.txt",
+   "base": "02501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "wtcc026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch026-026.txt",
+   "base": "02601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "wtcc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch027-027.txt",
+   "base": "02701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "wtcc028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "wtcc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch029-029.txt",
+   "base": "02901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "wtcc030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch030-031.txt",
+   "base": "03001",
+   "chapters": "30-31"
+  },
+  {
+   "prefix": "wtcc032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch032-033.txt",
+   "base": "03201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "wtcc034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch034-034.txt",
+   "base": "03401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "wtcc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch035-035.txt",
+   "base": "03501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "wtcc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch036-036.txt",
+   "base": "03601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "wtcc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch037-037.txt",
+   "base": "03701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "wtcc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch038-038.txt",
+   "base": "03801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "wtcc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch039-039.txt",
+   "base": "03901",
+   "chapters": "39-39"
+  },
+  {
+   "prefix": "wtcc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch040-040.txt",
+   "base": "04001",
+   "chapters": "40-40"
+  },
+  {
+   "prefix": "wtcc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch041-041.txt",
+   "base": "04101",
+   "chapters": "41-41"
+  },
+  {
+   "prefix": "wtcc042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch042-043.txt",
+   "base": "04201",
+   "chapters": "42-43"
+  },
+  {
+   "prefix": "wtcc044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch044-044.txt",
+   "base": "04401",
+   "chapters": "44-44"
+  },
+  {
+   "prefix": "wtcc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch045-045.txt",
+   "base": "04501",
+   "chapters": "45-45"
+  },
+  {
+   "prefix": "wtcc046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch046-046.txt",
+   "base": "04601",
+   "chapters": "46-46"
+  },
+  {
+   "prefix": "wtcc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch047-047.txt",
+   "base": "04701",
+   "chapters": "47-47"
+  },
+  {
+   "prefix": "wtcc048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch048-048.txt",
+   "base": "04801",
+   "chapters": "48-48"
+  },
+  {
+   "prefix": "wtcc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch049-049.txt",
+   "base": "04901",
+   "chapters": "49-49"
+  },
+  {
+   "prefix": "wtcc050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch050-050.txt",
+   "base": "05001",
+   "chapters": "50-50"
+  },
+  {
+   "prefix": "wtcc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch051-051.txt",
+   "base": "05101",
+   "chapters": "51-51"
+  },
+  {
+   "prefix": "wtcc052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch052-052.txt",
+   "base": "05201",
+   "chapters": "52-52"
+  },
+  {
+   "prefix": "wtcc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch053-053.txt",
+   "base": "05301",
+   "chapters": "53-53"
+  },
+  {
+   "prefix": "wtcc054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch054-054.txt",
+   "base": "05401",
+   "chapters": "54-54"
+  },
+  {
+   "prefix": "wtcc055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch055-055.txt",
+   "base": "05501",
+   "chapters": "55-55"
+  },
+  {
+   "prefix": "wtcc056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch056-056.txt",
+   "base": "05601",
+   "chapters": "56-56"
+  },
+  {
+   "prefix": "wtcc057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch057-057.txt",
+   "base": "05701",
+   "chapters": "57-57"
+  },
+  {
+   "prefix": "wtcc058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch058-058.txt",
+   "base": "05801",
+   "chapters": "58-58"
+  },
+  {
+   "prefix": "wtcc059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch059-059.txt",
+   "base": "05901",
+   "chapters": "59-59"
+  },
+  {
+   "prefix": "wtcc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch060-060.txt",
+   "base": "06001",
+   "chapters": "60-60"
+  },
+  {
+   "prefix": "wtcc061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch061-061.txt",
+   "base": "06101",
+   "chapters": "61-61"
+  },
+  {
+   "prefix": "wtcc062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch062-062.txt",
+   "base": "06201",
+   "chapters": "62-62"
+  },
+  {
+   "prefix": "wtcc063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch063-063.txt",
+   "base": "06301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "wtcc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch064-064.txt",
+   "base": "06401",
+   "chapters": "64-64"
+  },
+  {
+   "prefix": "wtcc065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch065-065.txt",
+   "base": "06501",
+   "chapters": "65-65"
+  },
+  {
+   "prefix": "wtcc066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch066-066.txt",
+   "base": "06601",
+   "chapters": "66-66"
+  },
+  {
+   "prefix": "wtcc067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch067-067.txt",
+   "base": "06701",
+   "chapters": "67-67"
+  },
+  {
+   "prefix": "wtcc068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch068-068.txt",
+   "base": "06801",
+   "chapters": "68-68"
+  },
+  {
+   "prefix": "wtcc069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch069-069.txt",
+   "base": "06901",
+   "chapters": "69-69"
+  },
+  {
+   "prefix": "wtcc070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch070-070.txt",
+   "base": "07001",
+   "chapters": "70-70"
+  },
+  {
+   "prefix": "wtcc071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch071-071.txt",
+   "base": "07101",
+   "chapters": "71-71"
+  },
+  {
+   "prefix": "wtcc072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch072-072.txt",
+   "base": "07201",
+   "chapters": "72-72"
+  },
+  {
+   "prefix": "wtcc073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch073-073.txt",
+   "base": "07301",
+   "chapters": "73-73"
+  },
+  {
+   "prefix": "wtcc074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch074-075.txt",
+   "base": "07401",
+   "chapters": "74-75"
+  },
+  {
+   "prefix": "wtcc076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch076-076.txt",
+   "base": "07601",
+   "chapters": "76-76"
+  },
+  {
+   "prefix": "wtcc077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch077-077.txt",
+   "base": "07701",
+   "chapters": "77-77"
+  },
+  {
+   "prefix": "wtcc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch078-078.txt",
+   "base": "07801",
+   "chapters": "78-78"
+  },
+  {
+   "prefix": "wtcc079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch079-079.txt",
+   "base": "07901",
+   "chapters": "79-79"
+  },
+  {
+   "prefix": "wtcc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch080-080.txt",
+   "base": "08001",
+   "chapters": "80-80"
+  },
+  {
+   "prefix": "wtcc081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch081-082.txt",
+   "base": "08101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "wtcc083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch083-083.txt",
+   "base": "08301",
+   "chapters": "83-83"
+  },
+  {
+   "prefix": "wtcc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch084-084.txt",
+   "base": "08401",
+   "chapters": "84-84"
+  },
+  {
+   "prefix": "wtcc085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch085-085.txt",
+   "base": "08501",
+   "chapters": "85-85"
+  },
+  {
+   "prefix": "wtcc086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch086-086.txt",
+   "base": "08601",
+   "chapters": "86-86"
+  },
+  {
+   "prefix": "wtcc087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch087-087.txt",
+   "base": "08701",
+   "chapters": "87-87"
+  },
+  {
+   "prefix": "wtcc088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch088-088.txt",
+   "base": "08801",
+   "chapters": "88-88"
+  },
+  {
+   "prefix": "wtcc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch089-089.txt",
+   "base": "08901",
+   "chapters": "89-89"
+  },
+  {
+   "prefix": "wtcc090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch090-090.txt",
+   "base": "09001",
+   "chapters": "90-90"
+  },
+  {
+   "prefix": "wtcc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "wtcc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "wtcc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch093-093.txt",
+   "base": "09301",
+   "chapters": "93-93"
+  },
+  {
+   "prefix": "wtcc094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch094-094.txt",
+   "base": "09401",
+   "chapters": "94-94"
+  },
+  {
+   "prefix": "wtcc095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch095-095.txt",
+   "base": "09501",
+   "chapters": "95-95"
+  },
+  {
+   "prefix": "wtcc096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch096-096.txt",
+   "base": "09601",
+   "chapters": "96-96"
+  },
+  {
+   "prefix": "wtcc097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch097-097.txt",
+   "base": "09701",
+   "chapters": "97-97"
+  },
+  {
+   "prefix": "wtcc098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch098-098.txt",
+   "base": "09801",
+   "chapters": "98-98"
+  },
+  {
+   "prefix": "wtcc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch099-099.txt",
+   "base": "09901",
+   "chapters": "99-99"
+  },
+  {
+   "prefix": "wtcc100",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch100-100.txt",
+   "base": "10001",
+   "chapters": "100-100"
+  },
+  {
+   "prefix": "wtcc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch101-101.txt",
+   "base": "10101",
+   "chapters": "101-101"
+  },
+  {
+   "prefix": "wtcc102",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch102-102.txt",
+   "base": "10201",
+   "chapters": "102-102"
+  },
+  {
+   "prefix": "wtcc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch103-103.txt",
+   "base": "10301",
+   "chapters": "103-103"
+  },
+  {
+   "prefix": "wtcc104",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch104-104.txt",
+   "base": "10401",
+   "chapters": "104-104"
+  },
+  {
+   "prefix": "wtcc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch105-105.txt",
+   "base": "10501",
+   "chapters": "105-105"
+  },
+  {
+   "prefix": "wtcc106",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch106-106.txt",
+   "base": "10601",
+   "chapters": "106-106"
+  },
+  {
+   "prefix": "wtcc107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch107-107.txt",
+   "base": "10701",
+   "chapters": "107-107"
+  },
+  {
+   "prefix": "wtcc108",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch108-108.txt",
+   "base": "10801",
+   "chapters": "108-108"
+  },
+  {
+   "prefix": "wtcc109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch109-109.txt",
+   "base": "10901",
+   "chapters": "109-109"
+  },
+  {
+   "prefix": "wtcc110",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch110-110.txt",
+   "base": "11001",
+   "chapters": "110-110"
+  },
+  {
+   "prefix": "wtcc111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch111-111.txt",
+   "base": "11101",
+   "chapters": "111-111"
+  },
+  {
+   "prefix": "wtcc112",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch112-112.txt",
+   "base": "11201",
+   "chapters": "112-112"
+  },
+  {
+   "prefix": "wtcc113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch113-113.txt",
+   "base": "11301",
+   "chapters": "113-113"
+  },
+  {
+   "prefix": "wtcc114",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch114-114.txt",
+   "base": "11401",
+   "chapters": "114-114"
+  },
+  {
+   "prefix": "wtcc115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch115-115.txt",
+   "base": "11501",
+   "chapters": "115-115"
+  },
+  {
+   "prefix": "wtcc116",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch116-116.txt",
+   "base": "11601",
+   "chapters": "116-116"
+  },
+  {
+   "prefix": "wtcc117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch117-117.txt",
+   "base": "11701",
+   "chapters": "117-117"
+  },
+  {
+   "prefix": "wtcc118",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch118-118.txt",
+   "base": "11801",
+   "chapters": "118-118"
+  },
+  {
+   "prefix": "wtcc119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch119-119.txt",
+   "base": "11901",
+   "chapters": "119-119"
+  },
+  {
+   "prefix": "wtcc120",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch120-120.txt",
+   "base": "12001",
+   "chapters": "120-120"
+  },
+  {
+   "prefix": "wtcc121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch121-121.txt",
+   "base": "12101",
+   "chapters": "121-121"
+  },
+  {
+   "prefix": "wtcc122",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch122-122.txt",
+   "base": "12201",
+   "chapters": "122-122"
+  },
+  {
+   "prefix": "wtcc123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch123-123.txt",
+   "base": "12301",
+   "chapters": "123-123"
+  },
+  {
+   "prefix": "wtcc124",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch124-124.txt",
+   "base": "12401",
+   "chapters": "124-124"
+  },
+  {
+   "prefix": "wtcc125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch125-125.txt",
+   "base": "12501",
+   "chapters": "125-125"
+  },
+  {
+   "prefix": "wtcc126",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch126-126.txt",
+   "base": "12601",
+   "chapters": "126-126"
+  },
+  {
+   "prefix": "wtcc127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch127-127.txt",
+   "base": "12701",
+   "chapters": "127-127"
+  },
+  {
+   "prefix": "wtcc128",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch128-128.txt",
+   "base": "12801",
+   "chapters": "128-128"
+  },
+  {
+   "prefix": "wtcc129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch129-129.txt",
+   "base": "12901",
+   "chapters": "129-129"
+  },
+  {
+   "prefix": "wtcc130",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch130-130.txt",
+   "base": "13001",
+   "chapters": "130-130"
+  },
+  {
+   "prefix": "wtcc131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch131-131.txt",
+   "base": "13101",
+   "chapters": "131-131"
+  },
+  {
+   "prefix": "wtcc132",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch132-132.txt",
+   "base": "13201",
+   "chapters": "132-132"
+  },
+  {
+   "prefix": "wtcc133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch133-133.txt",
+   "base": "13301",
+   "chapters": "133-133"
+  },
+  {
+   "prefix": "wtcc134",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch134-134.txt",
+   "base": "13401",
+   "chapters": "134-134"
+  },
+  {
+   "prefix": "wtcc135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch135-135.txt",
+   "base": "13501",
+   "chapters": "135-135"
+  },
+  {
+   "prefix": "wtcc136",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch136-136.txt",
+   "base": "13601",
+   "chapters": "136-136"
+  },
+  {
+   "prefix": "wtcc137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch137-137.txt",
+   "base": "13701",
+   "chapters": "137-137"
+  },
+  {
+   "prefix": "wtcc138",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch138-138.txt",
+   "base": "13801",
+   "chapters": "138-138"
+  },
+  {
+   "prefix": "wtcc139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch139-139.txt",
+   "base": "13901",
+   "chapters": "139-139"
+  },
+  {
+   "prefix": "wtcc140",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch140-140.txt",
+   "base": "14001",
+   "chapters": "140-140"
+  },
+  {
+   "prefix": "wtcc141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch141-141.txt",
+   "base": "14101",
+   "chapters": "141-141"
+  },
+  {
+   "prefix": "wtcc142",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch142-142.txt",
+   "base": "14201",
+   "chapters": "142-142"
+  },
+  {
+   "prefix": "wtcc143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch143-143.txt",
+   "base": "14301",
+   "chapters": "143-143"
+  },
+  {
+   "prefix": "wtcc144",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch144-144.txt",
+   "base": "14401",
+   "chapters": "144-144"
+  },
+  {
+   "prefix": "wtcc145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch145-145.txt",
+   "base": "14501",
+   "chapters": "145-145"
+  },
+  {
+   "prefix": "wtcc146",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch146-146.txt",
+   "base": "14601",
+   "chapters": "146-146"
+  },
+  {
+   "prefix": "wtcc147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch147-147.txt",
+   "base": "14701",
+   "chapters": "147-147"
+  },
+  {
+   "prefix": "wtcc148",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch148-148.txt",
+   "base": "14801",
+   "chapters": "148-148"
+  },
+  {
+   "prefix": "wtcc149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch149-149.txt",
+   "base": "14901",
+   "chapters": "149-149"
+  },
+  {
+   "prefix": "wtcc150",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch150-150.txt",
+   "base": "15001",
+   "chapters": "150-150"
+  },
+  {
+   "prefix": "wtcc151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch151-151.txt",
+   "base": "15101",
+   "chapters": "151-151"
+  },
+  {
+   "prefix": "wtcc152",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch152-152.txt",
+   "base": "15201",
+   "chapters": "152-152"
+  },
+  {
+   "prefix": "wtcc153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch153-153.txt",
+   "base": "15301",
+   "chapters": "153-153"
+  },
+  {
+   "prefix": "wtcc154",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch154-154.txt",
+   "base": "15401",
+   "chapters": "154-154"
+  },
+  {
+   "prefix": "wtcc155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch155-155.txt",
+   "base": "15501",
+   "chapters": "155-155"
+  },
+  {
+   "prefix": "wtcc156",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch156-156.txt",
+   "base": "15601",
+   "chapters": "156-156"
+  },
+  {
+   "prefix": "wtcc157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch157-157.txt",
+   "base": "15701",
+   "chapters": "157-157"
+  },
+  {
+   "prefix": "wtcc158",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch158-158.txt",
+   "base": "15801",
+   "chapters": "158-158"
+  },
+  {
+   "prefix": "wtcc159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch159-159.txt",
+   "base": "15901",
+   "chapters": "159-159"
+  },
+  {
+   "prefix": "wtcc160",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch160-160.txt",
+   "base": "16001",
+   "chapters": "160-160"
+  },
+  {
+   "prefix": "wtcc161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch161-161.txt",
+   "base": "16101",
+   "chapters": "161-161"
+  },
+  {
+   "prefix": "wtcc162",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch162-162.txt",
+   "base": "16201",
+   "chapters": "162-162"
+  },
+  {
+   "prefix": "wtcc163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch163-163.txt",
+   "base": "16301",
+   "chapters": "163-163"
+  },
+  {
+   "prefix": "wtcc164",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch164-164.txt",
+   "base": "16401",
+   "chapters": "164-164"
+  },
+  {
+   "prefix": "wtcc165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch165-165.txt",
+   "base": "16501",
+   "chapters": "165-165"
+  },
+  {
+   "prefix": "wtcc166",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch166-166.txt",
+   "base": "16601",
+   "chapters": "166-166"
+  },
+  {
+   "prefix": "wtcc167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch167-167.txt",
+   "base": "16701",
+   "chapters": "167-167"
+  },
+  {
+   "prefix": "wtcc168",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch168-168.txt",
+   "base": "16801",
+   "chapters": "168-168"
+  },
+  {
+   "prefix": "wtcc169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch169-169.txt",
+   "base": "16901",
+   "chapters": "169-169"
+  },
+  {
+   "prefix": "wtcc170",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch170-170.txt",
+   "base": "17001",
+   "chapters": "170-170"
+  },
+  {
+   "prefix": "wtcc171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch171-171.txt",
+   "base": "17101",
+   "chapters": "171-171"
+  },
+  {
+   "prefix": "wtcc172",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch172-172.txt",
+   "base": "17201",
+   "chapters": "172-172"
+  },
+  {
+   "prefix": "wtcc173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch173-173.txt",
+   "base": "17301",
+   "chapters": "173-173"
+  },
+  {
+   "prefix": "wtcc174",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch174-174.txt",
+   "base": "17401",
+   "chapters": "174-174"
+  },
+  {
+   "prefix": "wtcc175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch175-175.txt",
+   "base": "17501",
+   "chapters": "175-175"
+  },
+  {
+   "prefix": "wtcc176",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch176-176.txt",
+   "base": "17601",
+   "chapters": "176-176"
+  },
+  {
+   "prefix": "wtcc177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch177-177.txt",
+   "base": "17701",
+   "chapters": "177-177"
+  },
+  {
+   "prefix": "wtcc178",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch178-178.txt",
+   "base": "17801",
+   "chapters": "178-178"
+  },
+  {
+   "prefix": "wtcc179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch179-179.txt",
+   "base": "17901",
+   "chapters": "179-179"
+  },
+  {
+   "prefix": "wtcc180",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch180-180.txt",
+   "base": "18001",
+   "chapters": "180-180"
+  },
+  {
+   "prefix": "wtcc181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch181-181.txt",
+   "base": "18101",
+   "chapters": "181-181"
+  },
+  {
+   "prefix": "wtcc182",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch182-182.txt",
+   "base": "18201",
+   "chapters": "182-182"
+  },
+  {
+   "prefix": "wtcc183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch183-183.txt",
+   "base": "18301",
+   "chapters": "183-183"
+  },
+  {
+   "prefix": "wtcc184",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch184-184.txt",
+   "base": "18401",
+   "chapters": "184-184"
+  },
+  {
+   "prefix": "wtcc185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch185-185.txt",
+   "base": "18501",
+   "chapters": "185-185"
+  },
+  {
+   "prefix": "wtcc186",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch186-186.txt",
+   "base": "18601",
+   "chapters": "186-186"
+  },
+  {
+   "prefix": "wtcc187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch187-187.txt",
+   "base": "18701",
+   "chapters": "187-187"
+  },
+  {
+   "prefix": "wtcc188",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch188-188.txt",
+   "base": "18801",
+   "chapters": "188-188"
+  },
+  {
+   "prefix": "wtcc189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch189-189.txt",
+   "base": "18901",
+   "chapters": "189-189"
+  },
+  {
+   "prefix": "wtcc190",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch190-190.txt",
+   "base": "19001",
+   "chapters": "190-190"
+  },
+  {
+   "prefix": "wtcc191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch191-191.txt",
+   "base": "19101",
+   "chapters": "191-191"
+  },
+  {
+   "prefix": "wtcc192",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch192-192.txt",
+   "base": "19201",
+   "chapters": "192-192"
+  },
+  {
+   "prefix": "wtcc193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch193-193.txt",
+   "base": "19301",
+   "chapters": "193-193"
+  },
+  {
+   "prefix": "wtcc194",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch194-194.txt",
+   "base": "19401",
+   "chapters": "194-194"
+  },
+  {
+   "prefix": "wtcc195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch195-195.txt",
+   "base": "19501",
+   "chapters": "195-195"
+  },
+  {
+   "prefix": "wtcc196",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch196-196.txt",
+   "base": "19601",
+   "chapters": "196-196"
+  },
+  {
+   "prefix": "wtcc197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch197-197.txt",
+   "base": "19701",
+   "chapters": "197-197"
+  },
+  {
+   "prefix": "wtcc198",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch198-198.txt",
+   "base": "19801",
+   "chapters": "198-198"
+  },
+  {
+   "prefix": "wtcc199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch199-199.txt",
+   "base": "19901",
+   "chapters": "199-199"
+  },
+  {
+   "prefix": "wtcc200",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch200-200.txt",
+   "base": "20001",
+   "chapters": "200-200"
+  },
+  {
+   "prefix": "wtcc201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch201-201.txt",
+   "base": "20101",
+   "chapters": "201-201"
+  },
+  {
+   "prefix": "wtcc202",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch202-202.txt",
+   "base": "20201",
+   "chapters": "202-202"
+  },
+  {
+   "prefix": "wtcc203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch203-203.txt",
+   "base": "20301",
+   "chapters": "203-203"
+  },
+  {
+   "prefix": "wtcc204",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch204-204.txt",
+   "base": "20401",
+   "chapters": "204-204"
+  },
+  {
+   "prefix": "wtcc205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch205-205.txt",
+   "base": "20501",
+   "chapters": "205-205"
+  },
+  {
+   "prefix": "wtcc206",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch206-206.txt",
+   "base": "20601",
+   "chapters": "206-206"
+  },
+  {
+   "prefix": "wtcc207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch207-207.txt",
+   "base": "20701",
+   "chapters": "207-207"
+  },
+  {
+   "prefix": "wtcc208",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch208-208.txt",
+   "base": "20801",
+   "chapters": "208-208"
+  },
+  {
+   "prefix": "wtcc209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch209-209.txt",
+   "base": "20901",
+   "chapters": "209-209"
+  },
+  {
+   "prefix": "wtcc210",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch210-210.txt",
+   "base": "21001",
+   "chapters": "210-210"
+  },
+  {
+   "prefix": "wtcc211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch211-211.txt",
+   "base": "21101",
+   "chapters": "211-211"
+  },
+  {
+   "prefix": "wtcc212",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch212-212.txt",
+   "base": "21201",
+   "chapters": "212-212"
+  },
+  {
+   "prefix": "wtcc213",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch213-213.txt",
+   "base": "21301",
+   "chapters": "213-213"
+  },
+  {
+   "prefix": "wtcc214",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch214-214.txt",
+   "base": "21401",
+   "chapters": "214-214"
+  },
+  {
+   "prefix": "wtcc215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch215-215.txt",
+   "base": "21501",
+   "chapters": "215-215"
+  },
+  {
+   "prefix": "wtcc216",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch216-216.txt",
+   "base": "21601",
+   "chapters": "216-216"
+  },
+  {
+   "prefix": "wtcc217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch217-217.txt",
+   "base": "21701",
+   "chapters": "217-217"
+  },
+  {
+   "prefix": "wtcc218",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch218-218.txt",
+   "base": "21801",
+   "chapters": "218-218"
+  },
+  {
+   "prefix": "wtcc219",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch219-219.txt",
+   "base": "21901",
+   "chapters": "219-219"
+  },
+  {
+   "prefix": "wtcc220",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch220-220.txt",
+   "base": "22001",
+   "chapters": "220-220"
+  },
+  {
+   "prefix": "wtcc221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch221-221.txt",
+   "base": "22101",
+   "chapters": "221-221"
+  },
+  {
+   "prefix": "wtcc222",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch222-222.txt",
+   "base": "22201",
+   "chapters": "222-222"
+  },
+  {
+   "prefix": "wtcc223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch223-223.txt",
+   "base": "22301",
+   "chapters": "223-223"
+  },
+  {
+   "prefix": "wtcc224",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch224-224.txt",
+   "base": "22401",
+   "chapters": "224-224"
+  },
+  {
+   "prefix": "wtcc225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch225-225.txt",
+   "base": "22501",
+   "chapters": "225-225"
+  },
+  {
+   "prefix": "wtcc226",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch226-226.txt",
+   "base": "22601",
+   "chapters": "226-226"
+  },
+  {
+   "prefix": "wtcc227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch227-227.txt",
+   "base": "22701",
+   "chapters": "227-227"
+  },
+  {
+   "prefix": "wtcc228",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch228-228.txt",
+   "base": "22801",
+   "chapters": "228-228"
+  },
+  {
+   "prefix": "wtcc229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch229-229.txt",
+   "base": "22901",
+   "chapters": "229-229"
+  },
+  {
+   "prefix": "wtcc230",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch230-230.txt",
+   "base": "23001",
+   "chapters": "230-230"
+  },
+  {
+   "prefix": "wtcc231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch231-231.txt",
+   "base": "23101",
+   "chapters": "231-231"
+  },
+  {
+   "prefix": "wtcc232",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch232-232.txt",
+   "base": "23201",
+   "chapters": "232-232"
+  },
+  {
+   "prefix": "wtcc233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch233-233.txt",
+   "base": "23301",
+   "chapters": "233-233"
+  },
+  {
+   "prefix": "wtcc234",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch234-234.txt",
+   "base": "23401",
+   "chapters": "234-234"
+  },
+  {
+   "prefix": "wtcc235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch235-235.txt",
+   "base": "23501",
+   "chapters": "235-235"
+  },
+  {
+   "prefix": "wtcc236",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch236-236.txt",
+   "base": "23601",
+   "chapters": "236-236"
+  },
+  {
+   "prefix": "wtcc237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch237-237.txt",
+   "base": "23701",
+   "chapters": "237-237"
+  },
+  {
+   "prefix": "wtcc238",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch238-238.txt",
+   "base": "23801",
+   "chapters": "238-238"
+  },
+  {
+   "prefix": "wtcc239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch239-239.txt",
+   "base": "23901",
+   "chapters": "239-239"
+  },
+  {
+   "prefix": "wtcc240",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch240-240.txt",
+   "base": "24001",
+   "chapters": "240-240"
+  },
+  {
+   "prefix": "wtcc241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch241-241.txt",
+   "base": "24101",
+   "chapters": "241-241"
+  },
+  {
+   "prefix": "wtcc242",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch242-242.txt",
+   "base": "24201",
+   "chapters": "242-242"
+  },
+  {
+   "prefix": "wtcc243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch243-243.txt",
+   "base": "24301",
+   "chapters": "243-243"
+  },
+  {
+   "prefix": "wtcc244",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch244-244.txt",
+   "base": "24401",
+   "chapters": "244-244"
+  },
+  {
+   "prefix": "wtcc245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch245-245.txt",
+   "base": "24501",
+   "chapters": "245-245"
+  },
+  {
+   "prefix": "wtcc246",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/lead-run-2026-10-30/shard_wtc_b1_ch246-246.txt",
+   "base": "24601",
+   "chapters": "246-246"
+  }
+ ]
+}

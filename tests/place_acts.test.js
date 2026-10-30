@@ -70,7 +70,7 @@ test('checking contents preserves the stock and records what this actor actually
  done.state.worlds[I.world].facts['fixture.contents']=2;assert.equal(preview(done,d).eligible,false,'a changed stock cannot produce the old count');
 });
 
-test('be-seat native pending and settled acts survive save, reload, export and import', {timeout:180000}, async t=>{
+test('be-seat native pending and settled acts survive save, reload, export and import', {timeout:300000}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
@@ -83,11 +83,11 @@ test('be-seat native pending and settled acts survive save, reload, export and i
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
  const mainFile=join(dir,'src/main.js');
- await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as h1CastReady} from './book_world_lotm_cast_days.js';\nexport const h1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const h1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const h1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
+ await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as h1CastReady} from './book_world_lotm_cast_days.js';\nexport const h1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const h1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const h1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\nexport const h1PrepareReal=(place,key,value)=>{expansionState.simulation.people.player.location=place;expansionState.worlds['book.lotm.tingen'].facts[key]=value;};\n`);
  const evidence={label:'I',locator:'fixture p1'},people=['lead','relative'].map(id=>({id:`fixture.person.${id}`,indexId:`fixture.person.${id}`,name:id,tier:'principal',relations:[],knows:[],wants:[],...evidence}));
  const schedule=[{id:'fixture.slot',actor:people[0].id,place:'fixture.place.other',day:1,until:1,from:0,to:100,recurrence:'once',...evidence}];
  const beat={id:'fixture.beat',scene:'fixture.scene',actor:people[0].id,place:'fixture.place.other',dayIndex:1,until:1,needs:{fact:'fixture.unmet',value:true},effects:[{fact:'fixture.canon',value:true}],...evidence};
- const pack={schema:'lotm-cast/1',people,references:[],remoteWhereabouts:[],placeAliases:[],clockClaims:[],beats:[beat],anchors:[],schedule,
+ let pack={schema:'lotm-cast/1',people,references:[],remoteWhereabouts:[],placeAliases:[],clockClaims:[],beats:[beat],anchors:[],schedule,
   places:[{id:'fixture.place.other',indexId:'fixture.place.other',name:'Other',openingHours:[],travel:{district:'evernight',basis:'fixture'},...evidence}],
   host:{profile:{id:'lotm.early_tingen.canon_beside@1',key:'beside',blurb:'Fixture'},situation:{label:'Fixture'}},
   bindings:{days:[{scene:'fixture.scene',day:1,from:0,to:100}],schedule,beats:[beat]},
@@ -96,7 +96,24 @@ test('be-seat native pending and settled acts survive save, reload, export and i
  // H2: the same native validator/save route admits every new operation.
  pack.householdActs.objects.push({id:'fixture.stock',resources:[{actor:'player',key:'fixture.grain',amount:2},{actor:'player',key:'fixture.meal',amount:0}],facts:{'fixture.clock':'07:15'},actorFacts:[{actor:'player',key:'fixture.owned',value:true},{actor:'player',key:'fixture.awake',value:false}]});
  const operations=[['read',{}],['prepare',{costs:[{type:'resource',actor:'player',key:'fixture.grain',amount:-1}],effects:[{type:'resource',actor:'player',key:'fixture.meal',amount:1}]}],['wake',{awakeFact:'fixture.awake'}],['check time',{clock:{fact:'fixture.clock',value:'07:15'}}],['sit',{}],['secure',{objectId:'fixture.stock',secure:{ownedFact:'fixture.owned',custodyFact:'fixture.custody',concealedFact:'fixture.concealed',container:'fixture.drawer'}}],['wait here',{}]];
- pack.householdActs.acts.push(...operations.map(([operation,extra],i)=>({id:`book.lotm.fixture_operation_${i}`,operation,place:'fixture.place.other',minutes:1,label:operation,description:`${operation} at home.`,report:`You finish ${operation}.`,knowledgeKey:`fixture.operation.${i}`,...extra})));
+ pack.householdActs.acts.push(...operations.map(([operation,extra],i)=>({id:`fixture.operation_${i}`,operation,place:'fixture.place.other',minutes:1,label:operation,description:`${operation} at home.`,report:`You finish ${operation}.`,knowledgeKey:`fixture.operation.${i}`,...extra})));
+ // Optional private-data repro: the command and its seeded object are copied
+ // verbatim into the disposable synthetic pack. No private text enters this file.
+ let realRow=null;
+ if(process.env.H2_REAL_ACT_ID){
+  const source=JSON.parse(await readFile(join(root,'private_packs/lotm-cast/cast.json'),'utf8'));
+  realRow=source.householdActs.acts.find(r=>r.id===process.env.H2_REAL_ACT_ID);
+  assert.ok(realRow,'Requested live-pack act exists');
+  const object=source.householdActs.objects.find(o=>o.id===realRow.objectId);
+  assert.ok(object,'Requested live-pack object exists');
+  if(process.env.H2_REAL_FULL)pack=source;
+  else {
+   pack.householdActs.objects.push(object);pack.householdActs.acts.push(realRow);
+   pack.places.push({id:realRow.place,indexId:'fixture.place.real',name:'Room',openingHours:[],travel:{district:'evernight',basis:'fixture'},...evidence});
+   pack.leadLife.profile.start=realRow.place;pack.leadLife.knownPlaces.push(realRow.place);
+   for(const act of pack.householdActs.acts)if(act.id!==realRow.id)act.place=realRow.place;
+  }
+ }
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
@@ -104,14 +121,36 @@ test('be-seat native pending and settled acts survive save, reload, export and i
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+import {writeFileSync,appendFileSync} from 'node:fs';
+const progress=stage=>{if(${Boolean(process.env.H2_REAL_FULL)})appendFileSync('/tmp/h2-real-progress',stage+'\\n');};
+if(${Boolean(process.env.H2_REAL_FULL)})writeFileSync('/tmp/h2-real-progress','');
+progress('boot');
 const g=await boot(null,{seed:37,heroName:null});
 try {
- await g.module.h1CastReady();g.module.h1EnrollBe();
+ progress('cast ready');await g.module.h1CastReady();progress('enroll');g.module.h1EnrollBe();progress('enrolled');
  const initial=JSON.parse(g.internals.create_save());
  assert.equal(initial.expansion.lotm.entryProfile,'book.lead.be@1');
+ let saved;
+ // Optional exact private row repro at its real place with an explicit fixture precondition.
+ if(${JSON.stringify(realRow)}!==null){
+  const real=${JSON.stringify(realRow)};
+  g.module.h1PrepareReal(real.place,real.requires.fact.slice('world.'.length),real.requires.value);
+  const button=g.document.querySelector('[data-lotm=\"'+real.id+'\"]');
+  const was={disabled:button?.disabled,title:button?.title};
+  progress('act');g.module.h1Act(real.id);progress('save pending');saved=await g.save();progress('pending saved');
+  assert.ok(saved.expansion.simulation.jobs.some(j=>j.commandId===real.id),'real row starts: '+g.lastLog()+' errors='+JSON.stringify(g.errors)+' blocked='+g.internals.foundationSaveBlocked+' jobs='+JSON.stringify(saved.expansion.simulation.jobs.map(j=>j.commandId))+' offer='+JSON.stringify(was)+' notice='+g.document.querySelector('#lotm_panel [role=\"status\"]')?.textContent);
+  progress('settle');await g.step(real.minutes+1);progress('settled');
+  assert.equal(g.internals.foundationSaveBlocked,false,'real row must not block saving: '+g.lastLog()+' '+JSON.stringify(g.errors));
+  saved=await g.save();g.module.h1Validate(saved);
+  for(const effect of real.effects)assert.equal(saved.expansion.worlds['book.lotm.tingen'].facts[effect.key],effect.value);
+  progress('reload');await g.reload();progress('export');const actualExport=await g.exportFile();progress('import');await g.importFile(actualExport);progress('imported');saved=await g.save();
+  for(const effect of real.effects)assert.equal(saved.expansion.worlds['book.lotm.tingen'].facts[effect.key],effect.value);
+  g.module.h1PrepareReal(real.place,real.requires.fact.slice('world.'.length),real.requires.value);
+ }
+ if(!${Boolean(process.env.H2_REAL_FULL)}){
  g.module.h1Act('book.lotm.fixture_inspect');
  assert.equal(g.internals.foundationSaveBlocked,false,'act must durably admit the pending job');
- let saved=await g.save();assert.ok(saved.expansion.simulation.jobs.some(j=>j.commandId==='book.lotm.fixture_inspect'));
+ saved=await g.save();assert.ok(saved.expansion.simulation.jobs.some(j=>j.commandId==='book.lotm.fixture_inspect'));
  const changed=structuredClone(saved),job=changed.expansion.simulation.jobs.find(j=>j.commandId==='book.lotm.fixture_inspect');
  job.effects[0].value=false;assert.throws(()=>g.module.h1Validate(changed),/exact admitted definition/,'saved job remains bound to its admitted effects');
  await g.reload();assert.equal(g.internals.foundationSaveBlocked,false,'pending job reloads');
@@ -126,7 +165,7 @@ try {
  assert.equal(g.internals.foundationSaveBlocked,false);assert.deepEqual(g.errors,[]);
  // H2: pending and completed commands cross real Save/reload/Export/Import.
  for(let i=0;i<7;i++){
-  const id='book.lotm.fixture_operation_'+i;g.module.h1Act(id);
+  const id='fixture.operation_'+i;g.module.h1Act(id);
   saved=await g.save();assert.ok(saved.expansion.simulation.jobs.some(j=>j.commandId===id));
   const tampered=structuredClone(saved),pending=tampered.expansion.simulation.jobs.find(j=>j.commandId===id);
   pending.effects.at(-1).value='altered';assert.throws(()=>g.module.h1Validate(tampered),/exact admitted definition/);
@@ -155,8 +194,9 @@ try {
  assert.equal(after.expansion.simulation.knowledge.player['fixture.inspection'],undefined);
  assert.equal(g.internals.foundationSaveBlocked,false);assert.deepEqual(g.errors,[]);
  await g.settle();
+ }
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:160000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

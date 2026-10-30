@@ -1,0 +1,17 @@
+{
+  "viewport": "1920x1080",
+  "fixture": "fresh life; then tests/fixtures/perf/mid.json plus Cheap leather pants at 60% and 140% (declared test stock, not natural acquisition)",
+  "bundleSha256": "c6e8d87410bc47d22e09faead63fca5351506790b960a5f344fe1f2fbc68e53a",
+  "cases": [
+    {
+      "case": "fresh life, nothing worn",
+      "text": "Legs\nTrash · 40%\n\nNothing worn in legs: this would be your first.\n\nDefense\t0\t＝ no change\nAgility\t×0.99\t▼ −0.01 lost\nCold tolerance\t0.5\t▲ +0.5 gained\nCrit resistance\t0.033\t▲ +0.033 gained\nWhere it has been\n\nNo maker or past is recorded for this one."
+    },
+    {
+      "case": "60% pants against worn 140% pants",
+      "text": "Legs\nCommon · 60%\n\nCompared with your Cheap leather pants (140%).\n\nDefense\t0\t＝ same as worn\nAgility\t×0.99\t▼ −0.09 worse\nCold tolerance\t0.5\t▼ −0.15 worse\nCrit resistance\t0.033\t▼ −0.01 worse\nWhere it has been\n\nNo maker or past is recorded for this one."
+    }
+  ],
+  "result": "PASS",
+  "galleryError": "TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.item-card') to be visible\n"
+}

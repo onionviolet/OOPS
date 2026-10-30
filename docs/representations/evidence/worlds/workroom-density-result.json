@@ -1,0 +1,85 @@
+{
+  "bundleSha256": "b208dc513ad830c8b02af094d352dc86c9f5b12e94b74c60e6c62fe77227290d",
+  "route": "fresh game → Tingen door → pick_probationer → enroll → workroom tabs at 14 and 21 px text (effects off)",
+  "effects": "off via document.documentElement.dataset.effects (set after each Apply and save)",
+  "sizes": [
+    {
+      "size": 14,
+      "baseline": {
+        "chars": 2625,
+        "charsBeforeFirstButton": 653,
+        "buttons": 15
+      },
+      "tabs": [
+        {
+          "id": "here",
+          "label": "Here",
+          "chars": 1050,
+          "charsBeforeFirstButton": 313,
+          "buttons": 10
+        },
+        {
+          "id": "path",
+          "label": "Path",
+          "chars": 819,
+          "charsBeforeFirstButton": 653,
+          "buttons": 6
+        },
+        {
+          "id": "work",
+          "label": "Work & merit",
+          "chars": 1156,
+          "charsBeforeFirstButton": 1156,
+          "buttons": 9
+        },
+        {
+          "id": "notebook",
+          "label": "Notebook · 1",
+          "chars": 520,
+          "charsBeforeFirstButton": 520,
+          "buttons": 5
+        }
+      ]
+    },
+    {
+      "size": 21,
+      "baseline": {
+        "chars": 2625,
+        "charsBeforeFirstButton": 653,
+        "buttons": 15
+      },
+      "tabs": [
+        {
+          "id": "here",
+          "label": "Here",
+          "chars": 1050,
+          "charsBeforeFirstButton": 313,
+          "buttons": 10
+        },
+        {
+          "id": "path",
+          "label": "Path",
+          "chars": 819,
+          "charsBeforeFirstButton": 653,
+          "buttons": 6
+        },
+        {
+          "id": "work",
+          "label": "Work & merit",
+          "chars": 1156,
+          "charsBeforeFirstButton": 1156,
+          "buttons": 9
+        },
+        {
+          "id": "notebook",
+          "label": "Notebook · 1",
+          "chars": 520,
+          "charsBeforeFirstButton": 520,
+          "buttons": 5
+        }
+      ]
+    }
+  ],
+  "status": "PASS",
+  "errors": []
+}

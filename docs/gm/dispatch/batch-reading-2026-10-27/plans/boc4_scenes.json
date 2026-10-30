@@ -1,0 +1,217 @@
+{
+ "world": "boc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+  "censusMatch": "^(boc1|boc2|boc3|boc4|boc5)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "boc4-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "boc4c002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch002-003.txt",
+   "base": "400201",
+   "chapters": "2-3"
+  },
+  {
+   "prefix": "boc4c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch004-004.txt",
+   "base": "400401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "boc4c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch005-006.txt",
+   "base": "400501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "boc4c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch007-008.txt",
+   "base": "400701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "boc4c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch009-010.txt",
+   "base": "400901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "boc4c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch011-012.txt",
+   "base": "401101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "boc4c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch013-014.txt",
+   "base": "401301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "boc4c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch015-016.txt",
+   "base": "401501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "boc4c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch017-018.txt",
+   "base": "401701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "boc4c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch019-020.txt",
+   "base": "401901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "boc4c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch021-022.txt",
+   "base": "402101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "boc4c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch023-024.txt",
+   "base": "402301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "boc4c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch025-026.txt",
+   "base": "402501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "boc4c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch027-028.txt",
+   "base": "402701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "boc4c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch029-030.txt",
+   "base": "402901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "boc4c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch031-032.txt",
+   "base": "403101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "boc4c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch033-034.txt",
+   "base": "403301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "boc4c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch035-036.txt",
+   "base": "403501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "boc4c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch037-038.txt",
+   "base": "403701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "boc4c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch039-040.txt",
+   "base": "403901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "boc4c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch041-042.txt",
+   "base": "404101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "boc4c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch043-044.txt",
+   "base": "404301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "boc4c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch045-046.txt",
+   "base": "404501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "boc4c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch047-048.txt",
+   "base": "404701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "boc4c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch049-050.txt",
+   "base": "404901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "boc4c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch051-052.txt",
+   "base": "405101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "boc4c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch053-054.txt",
+   "base": "405301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "boc4c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch055-056.txt",
+   "base": "405501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "boc4c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch057-058.txt",
+   "base": "405701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "boc4c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch059-060.txt",
+   "base": "405901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "boc4c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch061-062.txt",
+   "base": "406101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "boc4c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch063-063.txt",
+   "base": "406301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "boc4c064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30/shard_boc4_b4_ch064-064.txt",
+   "base": "406401",
+   "chapters": "64-64"
+  }
+ ]
+}

@@ -242,3 +242,99 @@ No generator or validator source edit was needed. Ownership released to the
 coordinator. The remaining gameplay gate is its rebuilt fresh-origin 1920×1080
 browser replay and persistence check on the combined candidate; if the failure
 recurs, preserve that exact input and state for diagnosis.
+
+## Resume 3: arrival at a place without a walking district
+
+Status: **fix prepared in a disposable candidate, not applied to the shared
+checkout**. The requested grants cover the journey arrival hook and tests, but
+not `src/book_world_lotm_host.js` or the separate cast-walk requirement. Both
+are needed for the candidate below; the coordinator has been asked to extend
+the grants. No commit, browser, player-save access or private-pack write.
+Rules: AR3, AR7, AR10, AR14, AD36, AD38, AD43, AD45, CLR3, CLR9-CLR12;
+lead-life rules A, “The lead's life is the main line” and “Results follow the
+book's chain through our systems.”
+
+### Diagnosis
+
+Resume 2 checked pending work and did not step the real row to arrival. That
+missed the failure. With the real live-pack row in a disposable full-game Node
+fixture, the control starts, the pending save succeeds, and advancing the one
+minute fails with saving blocked. The real envelope validator emits exactly
+`The saved place and the Tingen branch body disagree.` The error comes from
+`validateLotmEnvelope` in `book_world_lotm_envelope.js`: its assertion checks
+both membership in `lotmPlaces()` and equality with the simulation body.
+
+The detached arrival plan shows `nativeLocation`, `nativePatch['current location']`,
+the staged saved place and `simulation.people.player.location` all equal to the
+authored destination. The membership test is false: the destination is in the
+pack but lacks `travel` and is excluded from `castPlaces` and `lotmPlaces()`.
+Thus the message does not distinguish an unknown place from an actual mismatch.
+The relocation effect already carries the same `nativeLocation` and native save
+patch that the walk's host publishes, and the existing publisher must retain both.
+
+### Prepared candidate
+
+`/tmp/yairpg-t2-resume3-candidate.patch` (SHA-256
+`7c3160918161670070b6dd3e1228c28c6cb95771c192c0d5ea34bd064cdd2e17`)
+adds non-anchor journey endpoints to `castPlaces`, the existing native
+registration and envelope-validation source. It keeps `castMoves` limited to
+places with authored walking data. The domain's existing validation hook lazily
+registers the destination before native publication and on restore. In the host,
+place listings omit entries without districts and walking controls omit routes
+with no computable walking time. The current place and journey controls remain
+available without inventing a district. This has been tested in a disposable
+candidate, not applied to these shared source files.
+
+The requested walk-then-journey fixture revealed a separate existing be-seat
+walk refusal. `lotmFacts` reprojects the actual profile, overwriting the host's
+beside-seat hint; the walk definition requires the beside seat. The candidate
+allows either existing cast seat in that definition. The pending-walk validator
+checks effects, costs and revision, which remain unchanged. This walk change is
+outside the brief's “journey arrival hook only” grant.
+
+The new granted-path regression in `tests/cast_journeys.test.js` keeps the
+pre-existing timeout edits, uses a generator-shaped no-fare row leading to a
+non-walkable synthetic place, checks start and arrival, native validator,
+Save/reload and literal Export/Import, and checks a walk followed by a journey.
+It also adds one relocation test each for divination and ability, plus native
+fixture journeys for both. Those adapters accept native `relocate` effects, so
+they can hit the same unsupported-place condition when their target is included
+in the journey relocation binding. The body-care adapter emits knowledge and
+optional owner-needed facts, not relocation; sleep does not move the body. A
+relocation destination outside the host's journey binding remains unsupported
+and is not claimed as fixed.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node complete-probe.mjs` in `/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-t2-real-m8IkaH` | Before fix: real row starts and pending save succeeds; next minute blocks saving. Detached actual plan has matching saved/body/native locations, `known:false`, and the exact validator error. | Synthetic start state moved to the row's real origin; not the full browser replay. Private pack copied read-only. |
+| `node complete-probe.mjs` in `/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-t2-real-yz7AnL` with prepared patch | PASS: real row starts, completes, saves, reloads, Exports and Imports; saved and body locations agree, saving unblocked, no captured errors. | Direct origin fixture, no Chrome or full replay. |
+| `node --test tests/cast_journeys.test.js` in `/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-t2-real-AZMFsP` with prepared patch | PASS 10/10, including non-district arrival, walk-then-journey, divination and ability movement, native save and import. | Disposable candidate; its test differs from the shared test only in an extra failure-message diagnostic. |
+| `node --test --test-name-pattern='native place-panel journey' tests/cast_journeys.test.js` on unpatched shared source | FAIL as expected: completing the synthetic non-district journey blocks saving. | The shared tree does not have the candidate fix; this is the intended reproduced regression, not passing evidence. |
+| `node --test --test-name-pattern='relocation uses' tests/cast_journeys.test.js` | PASS 2/2 | Engine-only native movement-result checks for ability and divination. |
+| `BUILD_OUT=/tmp/yairpg-t2-resume3-build npm run build` in disposable candidate | PASS; bundle SHA-256 `17f3f1526acf6092812a9947ba0e35f8e6ef6974fd7fa0c0ca992936b16d799a` | Not browser-exercised. |
+| `npm run check:arch` in disposable candidate | PASS: main -51, display -37, saves 0 growth; 6 grandfathered imports, 205 cycle edges | Baseline retained. |
+| `git apply --check --whitespace=error /tmp/yairpg-t2-resume3-candidate.patch` | PASS | Check only; patch not applied to shared tree. |
+| `git diff --check -- tests/cast_journeys.test.js` | PASS | Tracked test whitespace only. |
+
+Shared test SHA-256 `0bdc49661da44cad41e3c4036deb4669a989d6c88987139728435d56d62a53cf`.
+Shared `src/book_world_lotm_state.js` had another lane's two existing edits and
+was left untouched. The candidate uses the private pack observed at SHA-256
+`9fe7cf49def248e3b54531ffb5a0e2149103258e36dd309d9af309a83c8d52d9`.
+The coordinator should review the candidate and grant the host and cast-walk
+hunks before shared application, then run the focused test against the shared
+candidate and the rebuilt 1920×1080 browser replay. Agent-verified in Node,
+not human-reviewed; the shared gameplay fix remains unimplemented.
+
+## Landing receipt (L-A, sonnet wave, 2026-10-30)
+
+Status: **implemented, below floor** (no 1920×1080 browser run yet). Agent-verified, not human-reviewed.
+The Resume 3 patch and the TH2 test edits were already in the shared tree; nothing was edited since 10-29 19:34.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test` journeys, facts_frame, place_acts, topic_talk, perspective_controls (shared tree) | PASS 32/32 | Before the MR3/P3b edits to `person_memory*`/`simulation_*` landed |
+| `npm run build`, `check:arch`, `check:rules` | PASS (arch: no growth, 205 cycle edges; rules 5 warnings) | |
+| full `npm test` (shared tree) | 4114/4119; fails: 3 in `person_memory_*` tests (other lane's uncommitted edits) and `facts_frame` | facts_frame passed alone on a clean-HEAD copy plus these paths |
+| full `npm test` and 12 cast files in a clean-HEAD worktree | 16 and 10 fails, all native-fixture timeouts; untouched `cast_card_runtime` also failed | Machine load average 100-225 (about nine concurrent suites); not a T2/TH2 signal |
+
+Next exact step: when load drops, rerun `tests/cast_journeys.test.js` and the TH2 files one at a time, then the rebuilt fresh-origin 1920×1080 journey (pending save/reload, arrival, Export/Import).

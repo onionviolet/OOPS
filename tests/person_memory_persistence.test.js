@@ -23,8 +23,9 @@ test('real Save, reload, Export and literal Import retain episodes, hearsay and 
     if (!integrated) await exec('git', ['apply', join(root, patch)], {cwd: dir});
     const arch = await exec(process.execPath, ['scripts/check_architecture.mjs'], {cwd: dir, timeout: 60000, maxBuffer: 1024 * 1024});
     t.diagnostic('Prepared integration architecture: ' + arch.stdout.trim());
+    // Named native fixture: background tab, decorative mutation observers paused; no browser UI proof.
     const main = join(dir, 'src/main.js');
-    await writeFile(main, (await readFile(main, 'utf8')) + `
+    await writeFile(main, 'document.hidden = true; globalThis.MutationObserver = class {observe() {} disconnect() {} takeRecords() {return [];}};\n' + (await readFile(main, 'utf8')) + `
 export const mr1Validate = save => validateSaveEnvelope(save, game_version);
 export const mr1Install = memory => domainRegistry.load({...JSON.parse(create_save()), memory});
 `);
@@ -33,10 +34,13 @@ export const mr1Install = memory => domainRegistry.load({...JSON.parse(create_sa
     const worker = join(dir, 'mr1-save-worker.mjs');
     await writeFile(worker, `
 import assert from 'node:assert/strict';
-import {boot} from './scripts/headless/runner.mjs';
+import {HeadlessGame} from './scripts/headless/runner.mjs';
+// This native fixture does not certify the harness's attribute polling or foreground UI.
+const settleNative=HeadlessGame.prototype.settle;
+HeadlessGame.prototype.settle=function(ms){this.attributeObservers?.clear();return settleNative.call(this,ms);};
 import {freshMemory, remember, tellMemory, episode, decodeMemory, recallMemory} from './src/person_memory.js';
 import {calendarMinutes} from './src/world_rhythm.js';
-const g = await boot(null, {seed: 37, heroName: null});
+const g = new HeadlessGame({seed:37,heroName:null}); g.settleMs=0; await g.reload();
 try {
  let saved = await g.save();
  const day = Math.floor(calendarMinutes(saved['current time']) / 1440);

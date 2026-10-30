@@ -1,5 +1,6 @@
 import {configureHpBrewingDomain} from './hp_brewing_domain.js';
 import {configureCohort} from './cohort_battle_domain.js';
+import {configureTempoFight} from './tempo_fight_domain.js';
 import {configureRootRetuning} from './root_retuning_domain.js';
 import {configureVesselThread} from './vessel_thread_domain.js';
 import {configureIntents} from './cultivation_intents_domain.js';
@@ -24,6 +25,7 @@ import {configureStoryInsight} from './story_insight_domain.js';
 import {configurePledges} from './pledges_domain.js';
 import {configureLifeEvents} from './life_events_domain.js';
 import {configureSkillRecords} from './skill_records_domain.js';
+import {configureReturnDigest} from './return_digest_domain.js';
 
 // Native composition for the two carried-tool owners. Neither domain configures
 // the other. The independent lamp factory receives only its supported operations.
@@ -33,6 +35,7 @@ export function configureNativeToolDomains(operations) {
         assertSpend: operations.assertSpend,
         removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
+    configureTempoFight(operations);
     configureDrainage(operations);
     configureIntents(operations);
     configureRootRetuning({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
@@ -42,6 +45,7 @@ export function configureNativeToolDomains(operations) {
     configureShopLocks({...operations,writable:operations.tradeWritable||operations.writable});
     configureStoryInsight(operations);
     configureSkillRecords({continuation:operations.continuation,root: operations.root, actor: operations.actor, world: operations.world, persist: operations.persist, skills: operations.skills});
+    configureReturnDigest({root: operations.root, persist: operations.persist, writable: operations.writable});
     configurePledges({...operations, clock: () => calendarMinutes(current_game_time)});
     configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});
     configureGearWorkshop({...operations, favorites: favourite_items, temperature: get_current_temperature_smoothed, clock: () => calendarMinutes(current_game_time)});

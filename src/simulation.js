@@ -1,3 +1,4 @@
+import {actionModifiers} from './harm_state.js';
 import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
 import {createWakeQueue} from './wake_queue.js';
 import {AFTERMATH_ID,aftermathPersonPresent} from './story_aftermath.js';
@@ -108,7 +109,22 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
     if(d.group==='proto23' && context.proto23Host!==true)return {visible:false,eligible:false,reasons:['Use the current Proto23 visitor controls.']};
     const s=state.simulation, facts = knownFacts || simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry, [d.requires,d.visibleWhen]), p = person(state, context.actorId);
+    // Integration proposal: the trusted host supplies the current full save and
+    // this command's function class on BOTH preview and execution. Expansion
+    // state alone lacks the body slice; do not read the module-global harm here.
+    // Legacy/native conditions.js remains context-only and imports no domains.
+    const harm = context.actorId === 'player' && context.harmSave && context.harmActionClass
+        ? actionModifiers(context.harmSave,context.harmActionClass) : null;
     const reasons = [...ruleReason(d.requires, facts)];
+    if (harm && !harm.allowed) reasons.push(harm.blockedBy.reason);
+    // Expose axes to the existing numeric expression resolver. Commands opt in
+    // through their own formulas; these are multipliers/offsets, not odds.
+    // The host must rebind harmSave at execution and completion, rather than
+    // trusting a UI quote or freezing a body snapshot in the accepted job.
+    for (const modifier of harm?.modifiers ?? []) {
+        facts[`harm.${modifier.axis}.mult`] = modifier.mult ?? 1;
+        facts[`harm.${modifier.axis}.add`] = modifier.add ?? 0;
+    }
     if(d.group === "original_frontier" && !facts["originalFrontier.clockSupported"]) reasons.push("This local work has no supported clock or contact while you are in another realm.");
     if(d.actorId && d.actorId !== context.actorId) reasons.push("This command belongs to another actor.");
     if(d.actorDefinitionId && d.actorDefinitionId !== p.definitionId) reasons.push("This command belongs to another actor role.");
@@ -139,7 +155,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     // validating counterfactual output for every hidden/completed/busy control.
     // Eligible actions still reserve, freeze and validate all costs/outcomes.
     if(reasons.length || !visible) return {id:d.id,label:d.label,description:d.description || "",visible,eligible:false,reasons,
-        costs:[],duration:commandDuration(state,d,context.actorId),effects:[],weights:null,revision:d.revision,model:null};
+        costs:[],duration:commandDuration(state,d,context.actorId),effects:[],weights:null,revision:d.revision,model:null,...(harm?.modifiers.length?{harm:harm.modifiers}:{})};
     let model = null;
     if(d.powerId) {
         const power = registry.simulation.powers.get(d.powerId), owned = s.powers[context.actorId]?.[d.powerId];
@@ -167,7 +183,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     }
     catch(error) {reasons.push(error.message);}
     return {id: d.id, label: d.label, description: d.description || "", visible: meets(d.visibleWhen, facts), eligible: !reasons.length && meets(d.visibleWhen, facts),
-        reasons, costs, duration: commandDuration(state, d, context.actorId), effects, weights, revision: d.revision, model};
+        reasons, costs, duration: commandDuration(state, d, context.actorId), effects, weights, revision: d.revision, model, ...(harm?.modifiers.length ? {harm: harm.modifiers} : {})};
 }
 
 function startCommand(out, registry, commandId, context, immediatePreview, contexts = {}) {

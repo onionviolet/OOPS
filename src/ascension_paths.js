@@ -53,7 +53,7 @@ export function pathView(path, position, facts = {}, {known = path.stages.length
     const capped = nextIndex !== null && nextIndex > ceiling;
     return {path:path.id, world:path.world, label:path.label, position, stage:path.stages[position].label,
         grants:[...path.stages[position].grants], previous:position > 0 ? name(position - 1) : null,
-        next:nextIndex === null ? null : name(nextIndex), crossings, capped,
+        next:nextIndex === null ? null : name(nextIndex), nextGrants:nextIndex !== null && nextIndex < Math.max(known, position + 1) ? [...next.grants] : [], crossings, capped,
         ready:next !== null && !capped && crossings.every(c => c.met),
         failure:next?.failure ? {...next.failure} : null,
         ladder:path.stages.map((s, i) => ({label:name(i), reached:i <= position}))};
