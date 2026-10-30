@@ -17,10 +17,12 @@ export function livesFigure(view, options = {}) {
             nodes: [{id: 'now', label: 'This life', at: 'center', state: 'current'}],
             notes: [{text: 'Establish the connection to mark a return point. Nothing earlier is invented.'}]};
     }
-    const lives = view.lives.slice(0, MAX_LIVES_DRAWN), hidden = view.lives.length - lives.length;
+    const num = life => Number((/(\d+)$/.exec(life.id) || [])[1]) || 0;
+    const ordered = [...view.lives].sort((a, b) => num(a) - num(b));
+    const lives = ordered.slice(0, MAX_LIVES_DRAWN), hidden = ordered.length - lives.length;
     const cols = Math.min(COLUMNS, lives.length), rows = Math.ceil(lives.length / COLUMNS);
     const at = i => [cols === 1 ? 0 : -.8 + 1.6 * (i % COLUMNS) / (cols - 1), rows === 1 ? 0 : -.55 + 1.1 * Math.floor(i / COLUMNS) / (rows - 1)];
-    const nodes = lives.map((life, i) => ({id: life.id, label: life.label, glyph: String(i + 1), at: at(i), state: lifeState(life), effect: life.active ? 'glow' : undefined}));
+    const nodes = lives.map((life, i) => ({id: life.id, label: life.label, glyph: String(num(life) || i + 1), at: at(i), state: lifeState(life), effect: life.active ? 'glow' : undefined}));
     const edges = [];
     for (const life of lives) if (life.tether && life.reachable !== false && lives.some(o => o.id === life.tether)) edges.push({from: life.id, to: life.tether, kind: life.challenge ? 'shelved parent' : 'route', label: life.challenge ? 'returns here' : undefined});
     const tracks = lives.filter(l => l.active || l.paused).slice(0, MAX_TRACKS).map(life => ({id: `pts-${life.id}`, label: life.label, steps: [

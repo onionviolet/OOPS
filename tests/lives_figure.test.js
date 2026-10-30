@@ -24,6 +24,13 @@ test('lives tree: states, routes, tracks and what carries are all in words', () 
     assert.match(text, /Track Ferryman of Lowmere, 2 of 3 done/);
 });
 
+test('node numbers follow the life ids, not the order the view lists them', () => {
+    const first = LIVES_FIXTURE.nodes.find(n => n.id === 'life-1');
+    assert.equal(first.glyph, '1');
+    assert.equal(first.label, 'First life');
+    assert.deepEqual(LIVES_FIXTURE.nodes.map(n => n.glyph), ['1', '2', '3', '4']);
+});
+
 test('no connection: one node and an honest note, nothing invented', () => {
     const spec = livesFigure(livesFromView({available: false}));
     assert.equal(spec.nodes.length, 1);
