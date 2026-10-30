@@ -43,3 +43,4 @@ styles/gathering_view.css
 styles/pathway_card.css
 styles/world_look.css
 styles/redesign_drafts.css
+styles/people_variants.css

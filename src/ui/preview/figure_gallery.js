@@ -10,6 +10,7 @@ import {mountCharacterSheetGallery} from './character_sheet_gallery.js'; queueMi
 import {mountSkillsTabGallery} from './skills_tab_gallery.js'; queueMicrotask(() => mountSkillsTabGallery(document.getElementById('fig_gallery')));
 import {mountLadderGroupsGallery} from './ladder_groups_gallery.js'; queueMicrotask(() => mountLadderGroupsGallery(document.getElementById('fig_gallery')));
 import {mountRedesigns} from './redesign_gallery.js'; queueMicrotask(() => mountRedesigns(document.getElementById('fig_gallery')));
+import {mountPeopleVariants} from './people_gallery.js'; queueMicrotask(() => mountPeopleVariants(document.getElementById('fig_gallery')));
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};

@@ -142,3 +142,58 @@ Illustrative overlay: the home fixture has no locked room, so the guest room is 
 My pick: H1 as the default home view, with H3's three meters above it only when something is strained (L6). H1 is the clearest reading of rooms and fittings and costs no drawn assets; H2 is the most distinctive and could be an option for worlds that want a place, not a table (AD46). H3 alone hides the missing-fitting fact.
 
 Gaps: no mobile check (deferred); paper skin parked; screens are at 1920x1080 only; the keyboard and screen-reader path for locked blocks is `tabindex` plus an aria-label, not browser-tested; hover reasons were not exercised in a screenshot.
+
+## Round 2: people (R2-3)
+
+Weibao, 2026-10-30: less generic, less wall of text, blocky and abstract; blue Luminous Gothic only. This run covers GF9 (who knows what), GF21 and GF17 (family and lives, one aspect because both are "who is in my line and which life am I in") and GF24 (group standing). Proposals only (AD32); no live view changed. Target 1920x1080, desktop. Captures in [people-variants](../representations/evidence/people-variants/): `who-composite.png`, `family-composite.png`, `standing-composite.png` (current figures plus three variants) and one shot per variant (`W1`-`W3`, `F1`-`F3`, `S1`-`S3`). Block vocabulary shared with the housing and places runs: a filled glowing block is known, close or had; a hairline outline is guessed or possible; a dim block is unknown or lost.
+
+### Reference board
+
+Known means I can state the mechanism; inferred means a recalled pattern I did not recheck.
+
+| Game | What it does | Status | Take |
+| --- | --- | --- | --- |
+| Crusader Kings III | Family tree window: one portrait per person, generations as rows, lines for parent and spouse; icons on a portrait mark a hook, rival or friend; opinion is a number with its reasons in a tooltip. A secret has a panel listing who knows it. | Known (tree, icons, tooltips); inferred (the secret panel's exact layout) | Rows by generation without lines (F1); reasons on hover, not printed. |
+| RimWorld | Social tab per colonist: one row per person with their opinion of you and yours of them as signed numbers, relation words (spouse, parent), sorted by opinion. | Known | Sort the who-knows grid by weight (W1, W3). A row per person is a scan list; the numbers stay behind hover. |
+| Dwarf Fortress | A dwarf's relationships are lines of text ("is the spouse of ..."), with thoughts listed beside them; the Legends view reads lineage as text. | Known (text lines); inferred (current layout in the Steam build) | The anti-pattern this run avoids: a wall of sentences per person. |
+| Persona 5 confidants | Each confidant has a rank 1-10, shown as a numeral on an arcana card with a segmented gauge to the next rank. | Known | Rank card with a big numeral and a pip row (S3). |
+| Stardew Valley | Friendship hearts per villager: a row of ten, filled up to your level, with locked hearts gated on an event. | Known | One block per step, the next step's partial fill (S1). |
+| Return of the Obra Dinn | The crew page: sixty slots, each unknown, guessed or confirmed; a slot only locks when the guess is certain. | Known | Three-state slot per person: dim, hairline, filled (all variants). |
+| RimWorld factions | Goodwill with a faction is one number on a coloured bar from hostile to allied. | Known (bar), inferred (colours) | A rung bar needs no sentence (S1, S2). |
+
+What the board says: the games that read at a glance (CK3 rows, hearts, Obra Dinn slots, Persona's gauge) use a fixed slot per person or per step and state by fill; the ones that need patience (Dwarf Fortress, the RimWorld tab) are text lists. Numbers and reasons live in tooltips.
+
+### Variants (same fixtures as the current figures)
+
+| Variant | Idea | Visible words |
+| --- | --- | --- |
+| W1 who-knows grid | People down, what each knows or holds across: five deeds, "heard", debts they owe and you owe. Filled is seen, hairline is only heard of you, dim is nothing known; strained debt is amber. Rows sorted by weight. | 16 |
+| W2 telling lanes (unusual) | The rumour ripple as a staircase: the deed is one tall block, one lane per chain of telling, one column per hop. Filled is traced, hairline is a guessed link. | 12 |
+| W3 holder stacks | One column per person, heaviest left: debts at the base, deeds they saw above, a hairline cap when they only heard. | 6 |
+| F1 register | Generations as rows, a parent block over its own two parents, you glowing, the heir marked by a bar. Lives as numbered tokens below. | 11 |
+| F2 brick wall | Seven fixed slots (you, two parents, four grandparents) as a nested wall, from the half-remembered family: gaps in the wall are what you do not know. Lives as a column. | 6 |
+| F3 life stack (unusual) | One floor per life, return points as two ticks at its end, kin as a row of small blocks on the life you are in; a no-route life is dim. | 8 |
+| S1 rung bars | One bar per group, one block per rung: reached filled, where you stand glowing, ahead hairline with the next rung's progress filled in. The crew is a roster bar with gaps between roles. | 21 |
+| S2 stairs (unusual) | Each ladder a stair you stand on, steps above you outlined; the crew a pyramid with the boss on top. | 10 |
+| S3 rank cards | Persona-style: group name, rank as a big numeral, a pip row, the next ask in a few words. | 24 |
+
+All under 50. The current figures print 205 to 459 words each; the text forms now sit behind "read as text". No names beyond first names, no sealed truths shown, no canon names.
+
+### Self-critique log (against the board and L1-L6)
+
+- **All, pass 1.** The first build shared a `pv-` class prefix with an existing pathway stylesheet, which drew orange boxes on captions and stretched the F3 ticks; renamed to `ppl-`. Dim blocks read as filled teal, so known and unknown looked alike; dim is now an empty faint outline and known is stronger.
+- **W1, pass 2.** Reads as a constellation: the filled blocks are the answer. Column heads collided ("Promise"), now "Oath". Debt cells stack side by side, not vertically. L1, L5 hold.
+- **W2, pass 2.** The guessed lane reads as a hairline stub then two hairline blocks, which is right. Initials are the only labels; hover names them (an L1 trade). The deed block is labelled "Seal", which names a deed the design may need to keep sealed in other worlds.
+- **W3, pass 2.** Too small and sparse in pass 1; taller slabs and more air help, but it is still the weakest: which block is a debt and which a deed is by colour and position, so it needs hover.
+- **F1, pass 2.** The strongest reading of lineage (CK3's rows, no lines). Grandparents carry no labels, so unknown ones are only empty slots; hover names the relation. The heir bar sits between rows and could read as a divider.
+- **F2, pass 2.** The wall shows what is unknown very well, but it only fits the seat that has little family. A household with kin and heirs needs F1.
+- **F3, pass 2.** Kin row collapsed to slivers in pass 1; fixed. It packs lives, return points and kin into 8 words but the kin are unnamed.
+- **S1, pass 2.** The best read of "where am I and what is next". The crew bar looked like a ladder; gaps between roles now set it apart, but it is still a row, not a hierarchy.
+- **S2, pass 2.** The most distinctive and shows height as rank; steps are unlabelled so the glowing one carries the meaning. Labels under each stair wrap.
+- **S3, pass 2.** Clear first read from the numeral (L2), but 24 words and three boxes in boxes (G3), the closest to the generic card.
+
+### Pick and gaps
+
+My picks. Who knows what: W1 as the default (a grid scales to more people and facts; W2 only suits one deed), with W2 as the "trace a rumour" detail. Family and lives: F1 for the family panel and F3 for the lives panel, since lives need return points and F1 does not. Group standing: S1 as the default; S2 is a good world-flavoured option (AD46).
+
+Gaps: gallery fixtures only, nothing played; 1920x1080 only, mobile deferred; paper skin parked; the family tree for a larger household (more than six per row) is not drawn; the "next ask" strings in S1 and S3 are shortened by hand from the fixture notes (`NEXT_ASK` in the fixture file), not read from the model; the W2 hop names come from the ring ids; crew roles are read from the node labels; hover text was not exercised in a screenshot.
