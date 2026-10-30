@@ -33,7 +33,7 @@ const enrolled=await save(page);assert.ok(enrolled.expansion.chronicle);ok('enro
 let p=await family(page);
 assert.ok(await p.locator('svg.fig-svg').count(),'figure drawn');
 let txt=await p.locator('pre.fig-text').innerText();
-assert.match(txt,/Your family/);assert.match(txt,/Father \(filled\)/);assert.match(txt,/Father's father \(unknown\)/);assert.match(txt,/If this life ended now \(Single successor\)/);
+assert.match(txt,/Your family/);assert.match(txt,/Nodes: You \(active\); Father;/);assert.doesNotMatch(txt,/filled/);assert.match(txt,/Father's father \(unknown\)/);assert.match(txt,/If this life ended now \(Single successor\)/);assert.match(await p.locator('[data-family-succession]').innerText(),/Who would inherit/);
 fs.writeFileSync(path.join(OUT,'01-fresh-life-text.txt'),txt+'\n');
 await p.screenshot({path:path.join(OUT,'01-fresh-life-panel-1920.png')});await page.screenshot({path:path.join(OUT,'01-fresh-life-screen-1920.png')});
 ok('fresh life: Family shows parents known, grandparents unknown, the succession line and its text form');
@@ -53,7 +53,7 @@ await ctx.close();
 // 3 gallery: both fixtures in Luminous and Neutral
 {const ctx3=await b.newContext({viewport:{width:1920,height:1080}});const g=await ctx3.newPage();g.on('pageerror',e=>errs.push(e.message));
 await g.goto(`http://127.0.0.1:${PORT}/figure-gallery.html`);await g.waitForTimeout(800);
-for(const id of ['family-household','family-stranger']){const s=g.locator(`[data-fixture="${id}"]`);await s.scrollIntoViewIfNeeded();await s.screenshot({path:path.join(OUT,`03-gallery-${id}-1920.png`)});}
+for(const id of ['family-household','family-stranger','family-fan-stranger']){const s=g.locator(`[data-fixture="${id}"]`);await s.scrollIntoViewIfNeeded();await s.screenshot({path:path.join(OUT,`03-gallery-${id}-1920.png`)});}
 ok('gallery fixtures captured');await ctx3.close();}
 assert.deepEqual(errs,[]);ok('no page errors');
 await b.close();

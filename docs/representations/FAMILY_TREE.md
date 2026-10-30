@@ -69,3 +69,88 @@ Known gaps: chronicle ancestors and `inherited_traits` members are separate stor
 | First writer of `family.*` keys: a transmigration start sets `family.raised` false | Runtime with a WER answer | The stranger fixture's state is reached from a real start |
 | O2 hearth layout for the manor household (staff and kin under one roof) | UI, sonnet medium | One world chooses O2 by data |
 | O4 estate thread from material lineage "passed" lines | UI plus provenance read | An heirloom's holders shown in order |
+
+## Round 2 (2026-10-30): review against other games, fresh eyes and the whole series
+
+Brief: [round 2](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md). Everything below is a proposal and the current best draft (AD45): open to replacement with a reason. Known limits: the figure primitive draws its radial area as a square, so a three-row tree leaves empty space above it; a generic tree layout in `figure.js` would fix that and is the likely next refactor (coordinator's file).
+
+### How other games do it (item 1)
+
+From a Sonnet summary written from memory, no web check; each "known" means known from play or docs as remembered.
+
+| Reference | What it makes easy | Cost | Idea taken |
+| --- | --- | --- | --- |
+| Crusader Kings III dynasty and succession views (known) | Who inherits and why: the law's name sits beside the ordered heirs | Sprawling canvas, many overlapping laws | **Ranked heir list under a named law** (done this round) |
+| Genealogy pedigree, descendant and fan charts; GEDCOM qualifiers such as ABT, EST, UNKNOWN (known) | Gaps at a glance: slots are fixed per generation | Siblings and in-laws hidden | **Fixed slots with a confidence word on every fact** (the fan form, done) |
+| Dwarf Fortress legends (known) | Following one thread: an artifact's holders, linked | No overview | **Heirloom provenance as a dated holder chain** (LATER) |
+| Rogue Legacy heir choice (known) | Choosing in seconds: each heir card says what they bring | No family over time | **Heir card with gains and costs** (LATER, with the quality test) |
+| King of Dragon Pass clan ring; The Sims household (known; kin tag inferred) | Household as a small cast with jobs | Fixed seats; kin and non-kin look alike | **Household as seats, kinship as a tag** (LATER, the O2 hearth) |
+| Massive Chalice bloodlines (known) | Planning generations: pairing previews the child | Micromanagement | **Preview what an heir would receive** before the life ends (LATER; the life-end screen already lists it) |
+
+Our own history: no earlier OOPS UI doc covers family; the cheat rule CS1 in [UI at scale](../UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) (bloodline cheats live as rows in the body or build view) governs the cheat view below. The abstraction underneath is a **graph with graded nodes** (people), a **ranked list** (succession), a **track** (lives) and later a **chain** (heirloom holders); each is reusable by other features.
+
+### Fresh-player test (item 2), fixes done
+
+- "Father (filled)" in the text form read as jargon. **Fixed**: known people draw plain with their initial; only unknown people carry a state word.
+- The point (who inherits) was a note at the bottom of the figure. **Fixed**: a "Who would inherit" section comes first, with the law in one sentence and a ranked list, or a plain sentence when the law consults no kin.
+- No intro said what the panel is. **Fixed**: one line under the heading.
+- "?" and "≈" now explained in the figure summary.
+- Still open: "Single successor" and "Frontier route" are names a new player has not met; the law's reason sentence carries the meaning.
+
+### Form per part (items 18, 21) and density (items 3, 4)
+
+| Part | Form | Why the others fit worse |
+| --- | --- | --- |
+| Who would inherit | Ranked list with a one-line law (compact, read first) | A picture hides order; a ring has no first place |
+| Descent | Pedigree rows (default) or ancestor fan (alternative, in the gallery) | Rings suit cycles, not descent; a table loses who is whose parent |
+| Line of played lives | Track | Dated and ordered; a tree repeats it |
+| Heirlooms | One line each now; a holder chain later | A tree has no place for objects |
+| Household (manor staff and kin) | Roster with seats later (O2) | Descent lines mean nothing for staff |
+
+Density by frequency (UR42): Family is a rare-use records panel, so it shows everything at once; the text form stays open under "Read as text" (dial: closed by default once Weibao prefers the drawing). A relationship-bar style meter does not fit kinship, which is a fact, not a level; the warmth of each kin tie belongs to the relationship web session.
+
+### Pop-out, cheats, style, flourish (items 5, 6, 7, 13, 20)
+
+- **Pop-out**: not earned; the panel is rare-use. A notification is earned when the heir changes (a birth, a death, a law change): Reports line "Family: Pip would now inherit (Town custom)." LATER, through the Time and chronicle session's Reports shell.
+- **Cheat or insight view**: a bloodline-sight cheat writes `family.<role>` = known with a source tag; the label then reads "Mother's father · Name (revealed)" so cheat-sourced knowledge is marked. Sealed parentage stays behind its discovery route because the adapter drops names for anything not known. Developer inspection stays in the dev inspector.
+- **Alternative style**: the ancestor fan (`familyFanSpec`) beside the pedigree in the gallery. The pedigree reads better for a life with living kin; the fan reads better for a long line of ancestors and shows gaps more honestly.
+- **Semantic roles**: every node carries `role` (self, ancestor, kin, heir). Flair sketch: in a noble or book world, ancestors as small heraldic shields, the heir with a crown mark and parent lines as a gilt thread; in a cultivation world, the line as a jade lineage tablet, unknown ancestors as uncarved tablets and the heir edge as a passed sword. A motif pack restyles roles without touching the adapter or the text form.
+- **Flourish**: a soft settle on a slot when a test or a revelation turns a "?" into a name; nothing moves otherwise (UR38, effects off keeps the words).
+
+### Unconventional option (item 9)
+
+**The family register as a diegetic page**: the panel shown as a ledger page in the household's own hand, where unknown ancestors are blank ruled lines, guessed ones are pencilled, and a death adds a line in a new hand. It reuses the same projection with a document card (RPX13). Worth a later slice once document cards exist.
+
+### Later volumes and larger casts (item 17)
+
+Data-driven already: generations are rows from data, rows over six fold into a note, and laws are rows in `HEIR_LAWS`. Open: a dynasty run past three generations needs O3 (timeline) or paging by generation; a world with clans or sects needs the O2 hearth; book worlds with known canon families would set `family.*` grades from the cast pack (codes only in tracked files, CLR3). Checked: the `inherited_traits` cap of 64 members bounds the tree; the chronicle keeps 24 ancestors.
+
+### Levels and depth (item 19)
+
+A person's depth is how much you know of them: grade (unknown, guessed, known), then tested qualities (the Family qualities panel, one test at a time). Next: show "2 of 5 qualities known" on each person and link to the test, so depth is one click away.
+
+### Fold into existing UI (item 16)
+
+Proposal for the coordinator: merge **Family qualities** into **Family** as a second section, since both answer "what runs in my line". Saved layouts keep the `inherited_traits` id as an alias; a log line says "Family qualities now lives in Family" (UR13, UR17). Not done here: two panels' pins and saved layouts are involved.
+
+### Gaps (item 10)
+
+The SVG is not keyboard-focusable; the succession list, text form and line-of-lives list carry the facts for keyboard and screen readers. 21 px text not captured this round. Render cost: one SVG of under 100 nodes on rare open. Empty state covered; error state (a malformed line) falls back to the founding seed. Persistence unchanged.
+
+### ACT NOW (done), ACCOUNT FOR NOW, LATER
+
+| Code | State | Item | Level, effort | Done check |
+| --- | --- | --- | --- | --- |
+| FT1 | ACT NOW, done | Ranked "Who would inherit" list first, ordered by asking the law again without each chosen heir | UI | Browser proof asserts the section; test covers "then" order |
+| FT2 | ACT NOW, done | Known people plain with initials; no "filled" in text | UI | Test asserts no "filled" |
+| FT3 | ACT NOW, done | Ancestor fan alternative in the gallery | UI | Test checks father's side left, gaps empty |
+| FT4 | ACT NOW, done | Semantic `role` on nodes; intro line; text form under "Read as text" | UI | Fixtures and capture |
+| FT5 | ACCOUNT FOR NOW | Generic tree layout in `figure.js` to remove the empty square area | Coordinator, sonnet small | Tree fills its own height |
+| FT6 | LATER | Merge Family qualities into Family | Sonnet medium | One panel; old pins resolve; log line |
+| FT7 | LATER | Heirloom holder chain from material lineage "passed" lines | Sonnet medium | An heirloom lists holders in order |
+| FT8 | LATER | Heir change in Reports | Via Time and chronicle shell | One line on a real heir change |
+| FT9 | LATER | O2 hearth roster for the manor household | Sonnet medium | Staff and kin share one roster |
+
+Model use this round: one Sonnet subagent for the reference-game study; the code changes were small edits to files this session already owned, so delegating them would have cost more than doing them.
+
+Checks (round 2): `node --test tests/family_figure.test.js tests/figure.test.js` 13/13; `scripts/family_tree_browser.cjs` 6 PASS at 1920×1080, no page errors, local bundle sha256 69a88bed29947c47 (dist not committed); new gallery capture [fan](evidence/family-tree/03-gallery-family-fan-stranger-1920.png).

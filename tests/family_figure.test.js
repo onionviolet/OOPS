@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {renderFigure, figureText} from '../src/ui/figure.js';
-import {familyFigureSpec, familyPeople, MAX_PER_ROW} from '../src/family_figure.js';
+import {familyFigureSpec, familyFanSpec, familyPeople, successionRows, MAX_PER_ROW} from '../src/family_figure.js';
 import {foundLine, heirLine} from '../src/lineage_traits.js';
 import {heirLaw, resolveHeir} from '../src/heir_inheritance.js';
 import {FAMILY_FIXTURES, HOUSEHOLD_PROJECTION, STRANGER_PROJECTION} from '../src/ui/preview/fixtures/family_tree.js';
@@ -13,12 +13,15 @@ test('a fresh line draws known parents, unknown grandparents and you, and nothin
     const spec = familyFigureSpec({line: foundLine('42'), succession: null});
     assert.deepEqual(labels(spec).sort(), ['Father', "Father's father", "Father's mother", 'Mother', "Mother's father", "Mother's mother", 'You'].sort());
     const byLabel = Object.fromEntries(spec.nodes.map(n => [n.label, n]));
-    assert.equal(byLabel.Father.state, 'filled');
+    assert.equal(byLabel.Father.state, undefined, 'known people draw plain, with no state word in the text');
+    assert.equal(byLabel.Father.glyph, 'F');
+    assert.equal(byLabel.Father.role, 'ancestor');
     assert.equal(byLabel["Mother's mother"].state, 'unknown');
     assert.equal(byLabel.You.state, 'active');
     assert.ok(byLabel.Father.at[1] < byLabel.You.at[1] && byLabel["Father's father"].at[1] < byLabel.Father.at[1], 'older generations sit higher');
     assert.ok(byLabel["Father's father"].at[0] < byLabel["Mother's father"].at[0], "father's side stays left");
-    assert.match(figureText(spec), /Only what you know\. 2 known, 4 unknown\./);
+    assert.match(figureText(spec), /Only what you know: 2 known, 4 unknown\./);
+    assert.doesNotMatch(figureText(spec), /filled/);
 });
 
 test('after an heir the old life becomes a parent and the founding parents become grandparents', () => {
@@ -72,4 +75,26 @@ test('gallery fixtures render through the one figure renderer with their text fo
     assert.match(figureText(FAMILY_FIXTURES[0]), /Lives in this line, 2 of 3 done/);
     assert.match(figureText(FAMILY_FIXTURES[0]), /Heirloom: Ashdown pewter lamp/);
     assert.ok(HOUSEHOLD_PROJECTION.kin.length && STRANGER_PROJECTION.line.members.length === 3);
+});
+
+test('succession reads as a ranked list and the note names who comes next', () => {
+    const order = [{id: 'kin:0', name: 'Bree', why: 'eldest child'}, {id: 'kin:1', name: 'Odo', why: 'eldest child'}];
+    assert.deepEqual(successionRows({order}).map(r => r.rank), [1, 2]);
+    const kin = [{id: 'kin:0', name: 'Bree', relation: 'child', age: 24}, {id: 'kin:1', name: 'Odo', relation: 'child', age: 20}];
+    const spec = familyFigureSpec({line: foundLine('5'), kin, succession: {law: 'Primogeniture', reason: 'r.', order, heirId: 'kin:0', heirName: 'Bree'}});
+    assert.match(figureText(spec), /Bree would inherit, then Odo\./);
+    assert.equal(spec.nodes.find(n => n.id === 'kin:0').role, 'heir');
+});
+
+test('the fan form gives every ancestor a fixed slot, father\'s side left, gaps as empty places', () => {
+    const fan = familyFanSpec({line: foundLine('9')});
+    assert.deepEqual(fan.rings.map(r => r.slots), [2, 4]);
+    assert.equal(fan.slots.filter(s => s.state === 'empty').length, 4);
+    const dom = createDom(); dom.loadHTML('<html><body><div id="host"></div></body></html>');
+    const host = dom.document.getElementById('host');
+    renderFigure(host, fan);
+    const cx = id => +host.querySelector(`[data-id="${id}"] .fig-body`).getAttribute('cx');
+    const centre = cx('self');
+    assert.ok(cx('m:father') < centre && cx('m:mother') > centre);
+    assert.ok(cx('u:m.m') < centre && cx('u:f.f') > centre);
 });

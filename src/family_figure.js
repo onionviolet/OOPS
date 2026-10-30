@@ -86,7 +86,16 @@ export function personLabel(p) {
     // Unknown already carries its own mark and word in the figure; guessed has none, so it says so.
     return p.grade === 'guessed' ? `${base} (guessed)` : base;
 }
-const STATE = {known: 'filled', guessed: undefined, unknown: 'unknown'};
+// Known people draw plain with their initial; a guess shows ≈ and says so; unknown takes the figure's ? state.
+// `role` names what a mark means (self, ancestor, kin, heir), so a later motif pack restyles it without
+// touching this adapter (round 2, item 20).
+const markOf = p => p.self ? {state: 'active', effect: 'glow', glyph: 'Y'}
+    : p.grade === 'unknown' ? {state: 'unknown'} : {glyph: p.grade === 'guessed' ? '≈' : (p.name || p.word).charAt(0).toUpperCase()};
+const roleOf = (p, heirId) => p.self ? 'self' : p.id === heirId ? 'heir' : p.gen < 0 ? 'ancestor' : 'kin';
+// Ranked succession rows for a list: [{id, name, why, rank}]. The first is who would inherit now.
+export function successionRows(succession) {
+    return (succession?.order || []).map((r, i) => ({...r, rank: i + 1}));
+}
 
 export function familyFigureSpec(projection, options = {}) {
     const {people, edges} = familyPeople(projection, options);
@@ -104,9 +113,8 @@ export function familyFigureSpec(projection, options = {}) {
         if (extra > 0) notes.push({text: `${extra} more in generation ${gen > 0 ? '+' : ''}${gen}; the list below names them.`});
         kept.forEach((p, i) => { p.at = [round(-0.85 + 1.7 * (i + 0.5) / kept.length), rowY(gen)]; shown.add(p.id); });
     }
-    const nodes = people.filter(p => shown.has(p.id)).map(p => ({id: p.id, label: personLabel(p), at: p.at,
-        ...(p.self ? {state: 'active', effect: 'glow', glyph: 'Y'} : STATE[p.grade] ? {state: STATE[p.grade]} : {})}));
     const s = projection?.succession;
+    const nodes = people.filter(p => shown.has(p.id)).map(p => ({id: p.id, label: personLabel(p), at: p.at, role: roleOf(p, s?.heirId), ...markOf(p)}));
     const figureEdges = edges.filter(e => shown.has(e.from) && shown.has(e.to)).map(e => ({...e}));
     if (s?.heirId && shown.has(s.heirId)) figureEdges.push({from: 'self', to: s.heirId, kind: 'heir', label: 'would inherit'});
     const lives = projection?.lives, tracks = [];
@@ -118,16 +126,17 @@ export function familyFigureSpec(projection, options = {}) {
         for (const a of lives.ancestors) if (a.via === 'apprentice') notes.push({text: `${a.name}'s estate passed to a taught apprentice, not to blood kin.`});
     }
     if (s) {
-        const who = s.heirName ? `${s.heirName} would inherit. ` : '';
+        const next = successionRows(s).slice(1).map(r => r.name);
+        const who = s.heirName ? `${s.heirName} would inherit${next.length ? `, then ${next.join(', then ')}` : ''}. ` : '';
         notes.unshift({text: `If this life ended now (${s.law}): ${who}${s.lifeEstate ? `${s.lifeEstate} keeps the house for life. ` : ''}${s.reason}`});
     }
     for (const h of projection?.heirlooms || []) notes.push({text: `Heirloom: ${h.name}, passes with the estate.`});
     const counts = FAMILY_GRADES.map(g => [g, people.filter(p => !p.self && p.grade === g).length]).filter(([, n]) => n);
     return {
-        id: 'family-tree', size: 900, title: 'Your family',
-        summary: `Only what you know. ${counts.map(([g, n]) => `${n} ${g}`).join(', ') || 'Nobody else recorded'}.`,
+        id: 'family-tree', size: 760, title: 'Your family',
+        summary: `Only what you know: ${counts.map(([g, n]) => `${n} ${g}`).join(', ') || 'nobody else recorded'}. ? marks someone nobody recorded; ≈ marks a guess.`,
         nodes, edges: figureEdges, tracks, notes,
-        legend: [{state: 'active', label: 'you'}, {state: 'filled', label: 'known to you'}, {state: 'unknown', label: 'not known'},
+        legend: [{state: 'active', label: 'you'}, {state: 'unknown', label: 'nobody recorded them'},
             {kind: 'parent', label: 'child to parent'}, ...(figureEdges.some(e => e.kind === 'partner') ? [{kind: 'partner', label: 'partner'}] : []),
             ...(figureEdges.some(e => e.kind === 'sibling') ? [{kind: 'sibling', label: 'sibling'}] : []),
             ...(figureEdges.some(e => e.kind === 'heir') ? [{kind: 'heir', label: 'would inherit'}] : [])],
@@ -141,4 +150,21 @@ function order(p) {
     if (side !== null && p.role.includes('.')) return side + (p.role.split('.')[1] === 'm' ? 1 : 2);
     if (side !== null && p.role.length === 1) return side;
     return {sibling: 40, partner: 60, spouse: 61, kin: 70, child: 50}[p.role] ?? 80;
+}
+
+// Alternative form (round 2, item 7/18): the same people as an ancestor fan, you at the centre and one
+// ring per generation back, each person in a fixed slot so a gap is a visible empty place. Suits a long
+// line of ancestors; descendants and the household have no place in it, so it is never the only view.
+export function familyFanSpec(projection, options = {}) {
+    const {people} = familyPeople(projection, options);
+    const back = people.filter(p => p.gen < 0 && /^[mf](\.[mf])*$/.test(p.role));
+    const depth = Math.max(1, ...back.map(p => -p.gen));
+    const rings = Array.from({length: depth}, (_, i) => ({id: `g${i + 1}`, label: i === 0 ? 'Parents' : i === 1 ? 'Grandparents' : 'Great-grandparents', radius: round((i + 1) / depth), slots: 2 ** (i + 1), rotate: 180 + 180 / 2 ** (i + 1)}));
+    // Slot index from the path: father's side fills the left half, mother's the right; each step halves the arc.
+    const slot = role => role.split('.').reduce((n, sex) => n * 2 + (sex === 'f' ? 1 : 0), 0);
+    const slots = back.map(p => ({id: p.id, ring: `g${-p.gen}`, index: slot(p.role), label: personLabel(p), ...(p.grade === 'unknown' ? {state: 'empty'} : p.grade === 'known' ? {state: 'filled'} : {})}));
+    return {id: 'family-fan', size: 720, title: 'Your ancestors, as a fan',
+        summary: 'Each ring is one generation back; every place is drawn, so a gap shows as an empty slot.',
+        rings, slots, nodes: [{id: 'self', label: 'You', glyph: 'Y', at: 'center', state: 'active'}],
+        legend: [{state: 'filled', label: 'known'}, {state: 'empty', label: 'nobody recorded them'}]};
 }
