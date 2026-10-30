@@ -305,10 +305,55 @@ Detail is a per-world and per-body dial (BHR2, BHR4). Codes HL1-HL6 are proposal
   stop when it is down". With no policy, hits fall where intent and skill put them, and nothing asks
   the player mid-fight (AD16, CBR26).
 - **HL5 One harm record.** Part damage, its stages and recovery belong to the sonnet wave's sw-death
-  lane (L9). The combat adapter reads parts from there and adds no part model of its own. Fields the
+  lane (L9, `src/harm_state.js`, `parts:{<partId>:{rung,cause?}}`). The combat adapter reads parts from there and adds no part model of its own. Fields the
   card will need, proposed to L9 rather than built here: `part` (id and words), `stage` (a word such
   as bruised, limping, useless or lost), `observedBy` (who has seen it, for HL3), `impairs` (the verbs
   or control numbers it lowers, CBR22) and `lasting` (whether recovery is permanent, for HL6).
+- **HL5a Write side: which attack writes which part and rung** (answers the L9 lane; the harm record
+  is `parts:{<partId>:{rung,cause?}}` in the `harm` slice, `src/harm_state.js`). One writer: the
+  native strike path in `src/models/combat.js`, after `takeDamage` settles the HP loss, calls one L9
+  command (proposed name `harmPart(state, {partId, rung, cause})`); the combat card never writes.
+  - Which part: the HL1 location roll. A world row lists the tracked `partIds`; a hit on an untracked
+    part writes nothing and stays plain HP loss.
+  - Which rung: from the share of the part's soak the hit exceeded, after HL2 slot armour. Default
+    ladder per part (L9's words): a hit under about a quarter of current HP writes nothing, a quarter
+    writes `bruised`, half writes `wounded`, a crit past the slot armour at half or more writes
+    `maimed`. A part only moves up a rung, never down, until recovery (`healPart`).
+  - Which attacks: ordinary strikes by their intent (a bite and a claw land on limbs; a swing on arms,
+    torso and head); aimed attacks (HL1) write their named part; a crit raises the rung by one;
+    blunt weapons cap at `wounded` unless the world says bones break. Enemy attacks on the player
+    and the player's attacks on opponents use the same path, so opponent parts exist when tracked.
+  - `cause` is the attacker's name and attack word ("wolf rat bite"), for the log line (HL3) and the
+    body panel.
+- **HL5b Read side.** The adapter `src/ui/combat_situation.js` takes a `parts` input read once per
+  render from `harmView(save).parts` for your side (the combat UI module passes it in; the adapter
+  stays a leaf with no save read). Opponent parts arrive through the opponent projection as observed
+  facts only (HL3), never from the harm slice directly, so an unseen injury cannot leak.
+
+#### Injuries shift odds by degree (Weibao clarified the same night, 2026-10-30)
+
+Injuries mostly shift odds and strength by degree; only the extreme rung gates (L9 `actionGate`).
+
+- **HL7 What shifts.** A damaged hand: lower hit odds, weaker blows (a cut tendon hits weaker), and its
+  strikes are easier to dodge. A hurt leg: lower speed and evasion. A hurt eye: lower precision at
+  range. The source is L9: a graded `actionModifiers(stage, actionClass)` beside `actionGate`,
+  returning factors with their cause; the adapter reads it there and computes nothing of its own.
+- **HL8 The quote shows the shift and its cause.** Odds on the card and on an aimed-attack option carry
+  the adjustment and why: "You hit usually 62% (−8%, injured right hand)" (UR40, UR71). The full
+  breakdown (base, each injury, stance, armour) is one hover away on the chip, never in the glance.
+  The threat chip's bound uses the shifted numbers on both sides.
+- **HL9 What reduces a penalty.** Switching to the off hand (its own skill), a splint or bandage (care
+  items with a stated reduction), and trained one-handed technique each reduce the factor, each named
+  in the breakdown. Pain fades faster than damage: L9 keeps the two apart, so a bandaged hand stops
+  hurting before it is healed, and the quote shows what is left.
+- **HL10 Opponents read injuries too.** A visible limp is a tell for both sides: an opponent with
+  perception favours your injured side, and you get "Aim at its injured leg" as an option once you
+  have seen the limp. The player sees an opponent's injury only as a known fact (UR36): "limping,
+  seen" on its card; unseen injuries are absent, not shown as healthy.
+- **HL11 Masking at a cost.** Adrenaline or a stance can suppress a penalty briefly, shown as
+  "Masked by adrenaline (about 2 min), then +1 rung of fatigue", with the later cost quoted before
+  the stance is chosen (SUI6). The masked factor still appears in the hover breakdown, struck through,
+  so the player knows it is coming back.
 - **HL6 Telegraph before crippling or lethal.** Before a hit that can leave lasting harm, or a part at
   its last stage before loss, the card shows the risk and a retreat route first (LSD384, BHR11, CBR23).
   For example: "! Could cripple your right hand: it is already useless, and the next hit there may
