@@ -20,7 +20,8 @@ export const TEMPO_DIALS = {
     surpriseDelay: {value: 8, why: 'A surprised side loses about two quick moves before it can act.'},
     mishapCap: {value: .35, why: 'Even the worst conditions leave most moves working.'},
     guardBonus: {value: 2, why: 'A braced fighter takes a little less from the next blow.'},
-    logLines: {value: TEMPO_LOG_LINES, why: 'The log is a short readable tail, not history.'}
+    logLines: {value: TEMPO_LOG_LINES, why: 'The log is a short readable tail, not history.'},
+    witnessPerStrike: {value: false, why: 'A witness remembers a fight as one event (LSD351); one memory per strike would fill their record. Tests or a world that wants every blow remembered can turn this on.'}
 };
 // Costs are time units (about seconds). Power scales the existing strike math;
 // safe moves are the only ones an opt-in hand-over may choose (LSD316).
@@ -62,6 +63,8 @@ export function mishapChance(b, f) {
     return Math.min(TEMPO_DIALS.mishapCap.value, p);
 }
 
+const witnessEffect = (plan, b, holder, subject, amount, severity, place, cause) => ({holder, subject, cause, axis: 'respect', amount: -amount,
+    text: 'Struck in a public fight.', clock: plan.state.clock, scene: {place, severity}});
 function say(b, text) {
     b.last = text; b.log.push(text); b.log = b.log.slice(-TEMPO_DIALS.logLines.value);
 }
@@ -93,6 +96,7 @@ export function policyMove(b, actorId, policy) {
 function finishFight(plan, registry, result) {
     const state = plan.state, session = state.simulation.sessions.player, b = session.nativeBattle;
     b.result = result;
+    for(const w of Object.values(b.worst || {})) (plan.memoryEffects ||= []).push(witnessEffect(plan, b, w.holder, w.subject, Math.max(1, Math.round(w.amount)), w.severity, w.place, `battle:${b.id}`));
     for(const [id, f] of Object.entries(b.fighters)) {
         const vitals = id === 'player' ? plan.vitals.player : state.simulation.people[id]?.vitals;
         if(vitals) {vitals.health = Math.max(1, Math.min(vitals.max_health ?? f.maxHp, f.hp)); vitals.stamina = Math.min(vitals.max_stamina ?? f.maxStamina, f.stamina);}
@@ -155,9 +159,16 @@ function runMove(plan, registry, command, publish) {
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; foe.adrenalineUntil = b.now + 10;
             if(foe.hp <= b.floor) foe.status = 'down';
         }
-        // P6 hook: a damaging strike is seen. The crowd leaves a group impression and one promoted witness remembers the striker.
-        if(dmg) (plan.memoryEffects ||= []).push({holder: foeId, subject: id, cause: `battle:${b.id}:${b.actions}`, axis: 'respect', amount: -Math.max(1, Math.round(dmg)),
-            text: 'Struck in a public fight.', clock: plan.state.clock, scene: {place: b.conditions.place || 'Road', severity: Math.min(4, 1 + Math.floor(dmg * 4 / Math.max(1, foe.hp + dmg)))}});
+        // P6 hook: a damaging strike is seen. By default the fight keeps only its worst moment per pair and writes one witnessed memory at the end;
+        // the crowd then leaves a group impression and one promoted witness remembers the striker.
+        if(dmg) {
+            const severity = Math.min(4, 1 + Math.floor(dmg * 4 / Math.max(1, foe.hp + dmg))), place = b.conditions.place || 'Road';
+            if(TEMPO_DIALS.witnessPerStrike.value) (plan.memoryEffects ||= []).push(witnessEffect(plan, b, foeId, id, Math.max(1, Math.round(dmg)), severity, place, `battle:${b.id}:${b.actions}`));
+            else {
+                const w = (b.worst ||= {})[`${foeId}>${id}`] ||= {holder: foeId, subject: id, severity: 0, amount: 0, place};
+                w.amount = round1(w.amount + dmg); w.severity = Math.max(w.severity, severity);
+            }
+        }
         const foeName = foeId === 'player' ? 'you' : foe.name;
         say(b, `${name} ${strike.kind === 'hit' ? `hit${id === 'player' ? '' : 's'} ${foeName} for ${round1(dmg)}${strike.critted ? ' (critical)' : ''}` : strike.kind === 'blocked' ? `meet${id === 'player' ? '' : 's'} a full block` : `miss${id === 'player' ? '' : 'es'}`}.`);
     } else if(move.kind === 'order') {
@@ -180,6 +191,9 @@ function runMove(plan, registry, command, publish) {
         f.status = 'left'; f.yielded = true; say(b, `${name} yield${id === 'player' ? '' : 's'}.`);
     }
     f.ready += cost; b.seconds += cost; plan.state.sequence++;
+    // One home for the player's contest vitals (R3-C11): every view reads the same value while the fight is open.
+    const mine = b.fighters.player, pv = plan.vitals.player;
+    pv.health = Math.max(1, Math.min(pv.max_health ?? mine.maxHp, mine.hp)); pv.stamina = Math.min(pv.max_stamina ?? mine.maxStamina, mine.stamina);
     if(move.kind === 'yield' && !mishap) publish(f.side === 'a' ? 'yielded' : 'won');
     else resolveEnd(b, publish, f, id);
 }

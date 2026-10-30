@@ -23,6 +23,7 @@ const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].
 export function validateTempoBattle(b, session, state) {
     check(b?.schema === TEMPO_SCHEMA && session && typeof session.definitionId === 'string' && typeof b.id === 'string' && b.id, 'Invalid tempo fight binding.');
     check(natural(b.seed) && b.seed > 0 && b.seed <= 0xffffffff && natural(b.actions) && natural(b.now) && natural(b.seconds) && natural(b.held) && natural(b.floor), 'Invalid saved tempo fight.');
+    check(b.worst === undefined || (b.worst && typeof b.worst === 'object' && Object.values(b.worst).every(w => typeof w.holder === 'string' && typeof w.subject === 'string' && Number.isSafeInteger(w.severity) && w.severity >= 0 && w.severity <= 4 && Number.isFinite(w.amount) && w.amount >= 0 && typeof w.place === 'string')), 'Invalid tempo witness record.');
     check(Array.isArray(b.log) && b.log.length <= TEMPO_LOG_LINES && typeof b.last === 'string' && b.last.length <= 500 && b.result === null, 'Invalid tempo log.');
     const ids = Object.keys(b.fighters || {});
     check(ids.includes('player') && b.fighters.player.side === 'a' && ids.some(id => b.fighters[id].side === 'b'), 'Invalid tempo roster.');

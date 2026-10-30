@@ -4,7 +4,7 @@ import '../src/native_battle.js';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
 import {loadExpansionState} from '../src/expansion_engine.js';
 import {createFieldFixture,joinField,fieldContext} from '../scripts/field_fixtures.mjs';
-import {beginTempoFight,commitTempoMove,driveTempoFight,handOverTempoFight,tempoView,mishapChance,recordTempoHold,TEMPO_MOVES} from '../src/tempo_fight.js';
+import {beginTempoFight,commitTempoMove,driveTempoFight,handOverTempoFight,tempoView,mishapChance,recordTempoHold,TEMPO_MOVES,TEMPO_DIALS} from '../src/tempo_fight.js';
 import {validateNativeBattle} from '../src/native_battle_contracts.js';
 
 const stats={attack_points:45,agility:5,intuition:5,defense:1,attack_count:1,crit_rate:.3,crit_multiplier:1.5,stamina_efficiency:1};
@@ -109,7 +109,7 @@ test('a damaging public strike leaves a witnessed memory effect with a severity 
     const plan=driveTempoFight(beginTempoFight(p.state,registry,context,spec()).state,registry,context,'aggressive');
     assert.ok(plan.memoryEffects?.length>0);
     const e=plan.memoryEffects[0];
-    assert.ok(e.scene.severity>=1&&e.scene.severity<=4&&e.cause.startsWith('battle:fx1:'));
+    assert.ok(e.scene.severity>=1&&e.scene.severity<=4&&e.cause==='battle:fx1');
 });
 
 test('away minutes recorded against the open fight survive a reload',()=>{
@@ -118,4 +118,29 @@ test('away minutes recorded against the open fight survive a reload',()=>{
     recordTempoHold(45,plan.state.simulation.sessions.player.nativeBattle);
     const loaded=reload(JSON.parse(JSON.stringify(plan.state)));
     assert.equal(loaded.simulation.sessions.player.nativeBattle.held,45);
+});
+
+test('a fight leaves one witnessed memory per pair (worst moment), survives reload, and the per-strike dial is a documented option',()=>{
+    const run=()=>{const {p,context}=fresh(11);return driveTempoFight(beginTempoFight(p.state,registry,context,spec()).state,registry,context,'aggressive');};
+    const plan=run(),pairs=plan.memoryEffects.map(e=>`${e.holder}>${e.subject}`);
+    assert.equal(new Set(pairs).size,pairs.length,'exactly one episode per holder and subject');
+    assert.ok(pairs.length>=1&&pairs.length<=2);
+    assert.ok(plan.memoryEffects.every(e=>e.scene.severity>=1&&e.amount<0));
+    // mid-fight state round-trips with the worst-moment record
+    const {p,context}=fresh(11);
+    let mid=beginTempoFight(p.state,registry,context,spec());
+    for(let i=0;i<3&&mid.state.simulation.sessions.player;i++)mid=commitTempoMove(mid.state,registry,context,{moveId:'jab'});
+    const b=mid.state.simulation.sessions.player?.nativeBattle;
+    if(b){assert.ok(!mid.memoryEffects?.length,'no per-strike memory while the fight is open');const loaded=reload(mid.state);assert.deepEqual(loaded.simulation.sessions.player.nativeBattle.worst,b.worst);}
+    TEMPO_DIALS.witnessPerStrike.value=true;
+    try{const many=run();assert.ok(many.memoryEffects.length>pairs.length);}finally{TEMPO_DIALS.witnessPerStrike.value=false;}
+});
+test('the player\'s contest vitals are readable from one place while the fight is open',()=>{
+    const {p,context}=fresh(4);
+    let plan=beginTempoFight(p.state,registry,context,spec());
+    for(let i=0;i<4&&plan.state.simulation.sessions.player;i++){
+        plan=commitTempoMove(plan.state,registry,context,{moveId:'guard'});
+        const b=plan.state.simulation.sessions.player?.nativeBattle;
+        if(b)assert.equal(plan.vitals.player.health,Math.max(1,b.fighters.player.hp));
+    }
 });
