@@ -454,7 +454,7 @@ a row per world family, read through `world_look.js` (DESIGN.md DSG14)). The tem
 
 ### Damage types in tempo fights (M1, M6)
 
-- The frame stays structural: `conflict_frame.js` gets no harm step. Pending owner integration, the tempo definition's strike
+- The frame stays structural: `conflict_frame.js` gets no harm step. The tempo definition's strike
   calls `typedHit` in `damage_types.js` (sibling of `typedStrike`, same math, no draws) and passes the
   multiplier as the fifth argument of `mitigateCombatDamageFromStats`.
 - Tempo fighters are saved data, not live actors, so `typeSnapshot(actor)` reads the live hero,
@@ -509,13 +509,16 @@ Other frame users and types:
 ### Round 3 receipt (2026-10-30): implemented, below floor
 
 State: **implemented, below floor** (AD43). Rebased without conflicts onto master
-`11ba659bd8ca978ac6edf1bab3665404f780c41f`. Master includes hit location and per-move
-vitals sync, but not the `p4-fights` typing integration or the domain move command.
-This lane owns `damage_types.js` now. No tempo-engine owner file was edited.
+`11ba659bd8ca978ac6edf1bab3665404f780c41f`, then onto
+`99d997eaaefdedc9028f336ad5ee9ea9fbd8c152` after the one full-suite run. The second
+base includes `p4-fights` typing commit `b96d29d9e`. Git merged duplicate
+`typeSnapshot`/`typedHit` declarations without a conflict; this lane removed the
+identical extra block from its own `damage_types.js`. No tempo-owner file was edited.
+The final candidate still lacks domain `move` and `aim` commands.
 
 Target: populated desktop 1920x1080. Surface: the existing Fight card below Local
 actions, with tempo moves, one versus row, log and optional dev readout. Mobile,
-world-default fight-mode selection, world-voiced fight reports and the wider native
+world-default fight-mode selection, world-voiced fight reports and wider native
 panel consolidation (R3-C10) remain deferred. Rules: DSG6-DSG11, DSG14,
 [UI path rules](../../.claude/rules/player-ui.md), AR2, AR8, AR10, AD36 and AD43.
 Runtime seam: the existing `tempo_fight` projection and domain commands, under
@@ -525,43 +528,65 @@ lines were added; architecture checks found no new cycle edges.
 Changes in this continuation:
 - R3-A1: tempo tests compare `b.hits` by actor/target IDs, the same keyed seed and
   slot, with damage scaled by each hit's multiplier to 0.1 rounding. The named
-  `typedHit` skip guard and exact save/reload test remain.
+  `typedHit` skip guard and exact save/reload test remain. Both now run and pass.
 - R3-A2: dev readout reads `target`, `dmg`, `slot`, with `foe` and `dealt` as legacy
   fallbacks. Multiplier and split render when present. Fixture and assertions
   cover location, absent metadata, legacy fields and a zero multiplier.
 - R3-A3: the Fight card shows an Aim row from `tempoView.aims`. It calls the
   domain's `aim` command when available, with selection read from the projection.
-  Until that command lands, its disabled buttons have a visible reason (DSG10).
+  Until that command lands, its disabled buttons share one visible reason (DSG10).
+  `data-disabled-reason` keeps the shared decorator from printing aim descriptions
+  as extra blockers; UI tokens keep the five controls on one compact row.
 - R3-B2: type words use `worldFamily(fight.worldId)` when supplied and
   `currentWorldFamily()` otherwise. The DOM dataset is no longer an authority.
-  `tempoView` currently supplies no world ID; this is a gap for `p4-fights`.
+  `tempoView` supplies no world ID; this is a gap for `p4-fights`.
 
-Checks on the rebased sources (one line per check):
-- `node --test tests/combat_surface_types.test.js tests/damage_types.test.js tests/combat_situation.test.js tests/combat_versus.test.js tests/conflict_frame.test.js tests/tempo_fight.test.js tests/party_battle.test.js`: PASS, 190 passed, 2 skipped pending `typedHit`, 0 failed.
-- `npm run build`: PASS; bundle SHA256 `88888fe6596a0a4c634811eb86112ae71f4d6d80112ab1b4ffde016e46e83bdc`; generated `dist/` and `index.html` excluded from lane commits.
+Checks (one line per check; final candidate unless stated otherwise):
+- `node --test tests/combat_surface_types.test.js tests/damage_types.test.js tests/combat_situation.test.js tests/combat_versus.test.js tests/conflict_frame.test.js tests/tempo_fight.test.js tests/party_battle.test.js`: PASS, 192 passed, 0 skipped, 0 failed after duplicate-export repair; the first rebase had 190 pass and 2 named typing skips.
+- `npm run build`: PASS; final bundle SHA256 `2c73ac3adc95e016939a915232ae461b2b6d801e7d02ff4ea0a17e5ca316d2de`; existing duplicate `dial` warning in `travel_legs.js`; generated `dist/` and `index.html` excluded from lane commits.
 - `npm run check:arch`: PASS; 205 grandfathered cycle edges, no new edges; core-owner growth at or below baseline.
 - `npm run check:rules`: PASS; 17 existing warnings, 16 receipts, 0 problems.
-- `npm test`: RUNNING, one invocation through the machine-wide limiter; high load delayed its start.
-- `node scripts/combat_surface_browser.mjs docs/representations/evidence/combat-surface`: PENDING, headless, fresh origin, DEV SEEDED route; checks remain strict.
+- `npm test`: FAIL, exactly one run, 4758 passed, 6 failed, 17 skipped, 0 cancelled, 983.7 seconds; pre-second-rebase source checkpoint `31dbc097`, base `11ba659bd`; final integrated inputs were not full-suite tested, per the one-run limit.
+- `node scripts/combat_surface_browser.mjs docs/representations/evidence/combat-surface`: FAIL, final browser bundle `355b9f067470`, headless 1920x1080 fresh origin, named DEV SEEDED field-workshop route; no move command, so no strikes, learned chips or hit readout; checks remain strict.
+- Final Aim layout correction: `node --test tests/combat_surface_types.test.js`: PASS, 10 passed; scoped `scanUiText(styles/combat_versus.css)`: PASS, zero violations; rebuilt capture shows all five aim buttons at the same vertical coordinate, one visible reason.
+
+Full-suite failure findings (no retry): native workers in `cast_inference_adapter`,
+`cast_journeys` and `cast_making_adapter` failed near their hardcoded 270-second
+caps without worker assertion detail, consistent with timeout under load, not
+confirmed. `cast_worksheet` and `lead_run_crosswalk` hit ENOENT for the absent
+worktree `docs/research/novels` directory. `ui_contract` flagged `style.css` token
+exceptions; that file and its allowlist were unchanged from the first rebase base.
+No combat, tempo or damage-type test failed in that full run. Final integration's
+first focused attempt failed to import the duplicated exports; after repair all
+192 focused tests passed. Full logs remain in `/tmp/combat-surface-*.log`.
 
 AD43 floor:
-- FLR1: build proven on the SHA256 above; browser bundle recorded separately below.
-- FLR2: rebuilt browser route pending on the rebased tree; earlier patched-tree evidence is superseded.
-- FLR3: aim's blocked reason is implemented; rebuilt screen proof pending.
-- FLR4: the type calculator and projection have consumers, but live typed tempo strikes await the owner integration.
-- FLR5: persistence shape unchanged in this continuation; the typed save/reload regression is retained but skipped until typing lands; browser round-trip pending.
-- FLR6: source and focused-check verified, not human-reviewed; intended route is the named DEV SEEDED field-workshop fixture, not a natural fresh-life journey.
+- FLR1: build SHA256 above and rebuilt browser bundle `355b9f067470` recorded.
+- FLR2: fresh-origin DEV SEEDED field-workshop fixture reached the real start control and Fight card; earlier patched-tree evidence is superseded.
+- FLR3: rebuilt 1920x1080 capture shows move time/effect text, blocked move reasons and a compact Aim row with one shared blocked reason.
+- FLR4: live typed tempo strikes now have engine consumers and focused proof; the Fight card cannot send moves until the domain commands land.
+- FLR5: persistence shape unchanged in this continuation; typed exact save/reload regression passes; the browser saved, reloaded, exported and imported the open typed fight, identical except deliberately growing `held` (1 to 2 / 1 to 3). No strike was playable on this card.
+- FLR6: agent-verified source/focused checks and browser-exercised surface, strict browser acceptance failed, not human-reviewed. Route is DEV SEEDED, not a natural fresh-life journey.
 
-Owner patches in the shared handover folder: existing `tempo_fight.patch` and
-`tempo_fight_domain.patch` are recipes for `p4-fights` to reconcile with hit
-location and its newer work. New `codex-aim-command.patch` adds a validated domain
-`aim` command, projects the selection and uses it for strike commands. It is an
-additive follow-up to the move-command registration in `tempo_fight_domain.patch`;
-apply or reconcile that typing/domain patch first. Neither patch was applied here.
-The Aim row stays disabled until its command lands. The old tempo panel still
-owns duplicate fight content until the original domain patch's pointer lands.
+Owner patches in the shared handover folder, regenerated against the final
+candidate's `tempo_fight_domain.js` and checked with `git apply --check`:
+`codex-aim-command.patch` exposes validated `aim` and `move` commands, projects aim
+selection and uses it for strike requests. `codex-fight-card-routing.patch` replaces
+duplicate fight controls, log and vitals in the old panel with a pointer, retaining
+injury details that have no home on the card yet. Both are unapplied and can be
+applied independently. They replace the remaining domain-routing portions of the
+old `tempo_fight_domain.patch`; the engine typing recipe has landed through p4.
 
-Remaining: owner typing and move/aim integration, fight-world ID projection,
-then rerun skipped tests and strict browser proof on that integrated candidate.
-Native mode has not been re-proved in the browser this round. Type reveals by
-cheat remain fixture-only. No push or merge to master is authorized by this receipt.
+Evidence: [journey.json](evidence/combat-surface/journey.json) and the three refreshed
+`tempo-card-*.png` captures. The `typed` and `dev` filenames identify requested
+capture stages; this run shows no dealt typed hit and no dev hit lines. The card
+opened at 1130x550 after the Aim correction. The started fight has typed snapshots,
+but stayed at zero actions because the domain move command was unavailable.
+Synthetic intermediate save and duplicate crop were moved to `/tmp/` rather than
+committed. Generated `dist/` and `index.html` were restored after proof.
+
+Remaining: owner move/aim integration and panel routing, fight-world ID projection,
+then strict browser acceptance on that integrated candidate. A full suite on the
+final inputs remains unrun under this request's one-run limit. Native mode has not
+been re-proved in the browser this round. Type reveals by cheat remain fixture-only.
+No push or merge to master is authorized by this receipt.

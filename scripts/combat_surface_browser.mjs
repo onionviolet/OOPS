@@ -73,7 +73,7 @@ const card = () => page.evaluate(() => {
         typeChips: [...s.querySelectorAll('.versus-chip--type')].map(c => ({text: c.textContent, type: c.dataset.damageType, source: c.dataset.source})),
         moves: [...s.querySelectorAll('.scene-card-option')].map(o => o.innerText.replace(/\s+/g, ' ')),
         log: [...s.querySelectorAll('.fight-situation-log li')].map(n => n.textContent), dev: [...s.querySelectorAll('.fight-situation-dev li')].map(n => n.textContent),
-        aims: [...s.querySelectorAll('[data-fight-aim]')].map(b => ({aim: b.dataset.fightAim, disabled: b.disabled, pressed: b.getAttribute('aria-pressed')})),
+        aims: [...s.querySelectorAll('[data-fight-aim]')].map(b => ({aim: b.dataset.fightAim, disabled: b.disabled, pressed: b.getAttribute('aria-pressed'), top: Math.round(b.getBoundingClientRect().top)})),
         aimReason: s.querySelector('.fight-situation-aims span')?.textContent.trim() || '',
         notice: s.querySelector('.fight-situation-notice')?.textContent || '', world: document.documentElement.dataset.worldFamily || null,
         oldPanel: document.getElementById('tempo_fight_panel')?.innerText.slice(0, 160) || null};

@@ -68,6 +68,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             for (const a of [{id: null, label: 'Anywhere', text: 'No particular mark: the blow lands where it lands.'}, ...t.aims]) {
                 const button = document.createElement('button'); button.type = 'button'; button.textContent = a.label;
                 button.dataset.fightAim = a.id ?? 'any'; button.disabled = !!reason;
+                if (reason) button.dataset.disabledReason = reason;
                 button.title = `${a.text}${a.id ? ' Costs a little time; a small mark is easier to avoid.' : ''}`;
                 button.setAttribute('aria-pressed', String(t.aim === a.id));
                 button.onclick = () => {

@@ -56,3 +56,8 @@
 .fight-situation[data-fight-mode="tempo"] .scene-card {display: grid; grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); align-items: start;}
 .fight-situation[data-fight-mode="tempo"] .scene-card > :not(.scene-card-option) {grid-column: 1 / -1;}
 .fight-situation[data-fight-mode="tempo"] .scene-card-option {display: grid; gap: var(--ui-space-1); min-width: 0;}
+
+/* Aim stays a chip row; its one blocked reason is shared by all disabled marks (UIV1). */
+.fight-situation-aims {display: flex; flex-wrap: wrap; align-items: center; gap: var(--ui-space-2); margin: 0;}
+.fight-situation-aims > button {min-height: var(--ui-control-sm);}
+.fight-situation-aims > span {flex-basis: 100%;}
