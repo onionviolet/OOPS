@@ -8,9 +8,9 @@ import {owedLedgerView, gatherOwed} from '/src/owed_ledger_view.js';
 import {renderOwedLedger} from '/src/ui/owed_ledger.js';
 // Invented rows in the shape of COI priced services (currency names only, no book text). Counts: see COI_NEEDS.md row 1.
 const NOW = 40 * 1440, r = (id, kind, debtor, creditor, amount, why, extra = {}) => ({id, kind, debtor, creditor, amount, why, source: 'economy_standing', since: NOW - 3 * 1440, eases: 0, carries: false, ...extra});
-const rows = [r('credit:counting_house', 'coin', 'player', 'counting_house', 7, 'Rent for the week', {unit: 'verl d’or'}),
-    r('credit:market_circle', 'coin', 'player', 'market_circle', 4, 'Borrowed for food', {unit: {one: 'coppet', many: 'coppets'}}),
-    r('claim:1', 'coin', 'insurer', 'player', 1, 'A lost parcel', {unit: 'verl d’or'}), r('credit:x', 'coin', 'player', 'gutter_crews', 2, 'Borrowed')];
+const rows = [r('credit:counting_house', 'coin', 'player', 'counting_house', 7, 'Rent for the week', {unit: 'crown'}),
+    r('credit:market_circle', 'coin', 'player', 'market_circle', 4, 'Borrowed for food', {unit: {one: 'penny', many: 'pennies'}}),
+    r('claim:1', 'coin', 'insurer', 'player', 1, 'A lost parcel', {unit: 'crown'}), r('credit:x', 'coin', 'player', 'gutter_crews', 2, 'Borrowed')];
 const view = owedLedgerView({...gatherOwed({standing: {now: NOW, ledger: rows, factions: [], claims: []}, fortunes: [], grudge: null}), now: NOW, selected: 'credit:counting_house'});
 renderOwedLedger(document.getElementById('host'), view);
 document.title = view.summary;

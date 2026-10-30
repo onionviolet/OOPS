@@ -28,7 +28,7 @@ const SETTLE_KIND = {coin: 'Pay it where it was borrowed.', favor: 'Return the f
 const words = id => String(id).replace(/^book\.[^.]+\.(ledger\.)?/, '').replace(/[_.:-]+/g, ' ').trim();
 const plural = (n, one, many = one + 's') => `${n} ${n === 1 ? one : many}`;
 
-// A coin row may name its currency (`unit: 'verl d\u2019or'` or `{one, many}`) so a world's money is not read as bare "coins" (UR61). Default stays "coin".
+// A coin row may name its currency (`unit: 'crown'` or `{one, many}`) so a world's money is not read as bare "coins" (UR61). Default stays "coin".
 const unitOf = unit => !unit ? {one: 'coin', many: 'coins'} : typeof unit === 'string' ? {one: unit, many: unit} : {one: unit.one, many: unit.many ?? unit.one};
 export function amountText(kind, amount, unit = null) {
     if(kind === 'coin') { const u = unitOf(unit); return plural(amount, u.one, u.many); }
@@ -93,7 +93,7 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
     const kinds = new Set(all.map(r => r.kind));
     const filters = FILTERS.filter(id => !KIND_ORDER.includes(id) || kinds.has(id))
         .map(id => ({id, label: FILTER_LABEL[id], count: all.filter(r => matches(r, id)).length, active: id === f}));
-    // Money totals are per currency: 7 verl d\u2019or and 3 coppets are never added into one number.
+    // Money totals are per currency: 7 crowns and 3 pennies are never added into one number.
     const coins = dir => {
         const by = new Map();
         for(const r of all) if(r.direction === dir && r.kind === 'coin') {
