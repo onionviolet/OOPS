@@ -9,6 +9,13 @@
 // stays shared when bound to a chronicle or retained calendar-driven residents;
 // otherwise it is the replayed body's local date. Seat deadlines use the clock
 // delta, preserving their remaining duration without moving retained deadlines.
+// The anchor body wins for carried items, purse/resources and custody, regardless
+// of the goods' namespace. Retained owners keep their gift/completion receipts,
+// so their grants are not recreated. carry_ledger.js describes boundary rules;
+// it is not a second inventory or a transaction log to replay on a restart.
+// A loan that would otherwise duplicate an anchor copy reconciles the retained
+// holder's actual stock. If that copy has been spent or moved beyond the known
+// custody binding, refuse rather than fabricate stock or erase another item.
 // No second calendar owner is invented. A retained active visit
 // cannot share the restored body. All refusals leave both inputs untouched.
 import {check, copy, deepFreeze} from './basics.js';
@@ -79,14 +86,17 @@ export function scopedRestart(source,target,worldId) {
     state.actors=copy(live.actors||{});
     for(const id of actors){setFrom(state.actors,anchor.actors,id);deadlines(state.actors[id],delta);}
     const prefix=worldId==='book.lotm.tingen'?'book.lotm.':worldId+'.';
-    // Foreign namespaced player means are the retained world's records too.
-    for(const key of ['facts','resources','completed','sources','techniques'])if(state.actors.player)
+    // Foreign knowledge and completion receipts remain live. Consumable resources
+    // belong to the anchor body, even when their names name a retained world.
+    for(const key of ['facts','completed','sources','techniques'])if(state.actors.player)
         for(const [id,value] of Object.entries(live.actors?.player?.[key]||{}))
             if(id.includes('.')&&!id.startsWith(prefix)) {
                 state.actors.player[key] ||= {};state.actors.player[key][id]=copy(value);
             }
     const belongs=(id,row)=> {
-        if(id.startsWith(prefix)||actors.has(id))return true;
+        if(id.startsWith(prefix)||actors.has(id)||actors.has(row?.actorId)||actors.has(row?.context?.actorId)||
+            actors.has(row?.ownerId)||actors.has(row?.owner)||actors.has(row?.holder)||
+            row?.participants?.some(id=>actors.has(id)))return true;
         const world=row?.worldId||row?.context?.worldId;
         if(world)return world===worldId;
         if(id.includes('.'))return false;
@@ -104,6 +114,14 @@ export function scopedRestart(source,target,worldId) {
             if(record(s[key])||record(a[key])||Array.isArray(s[key])||Array.isArray(a[key]))
                 s[key]=partition(s[key],a[key],belongs,x=>deadlines(copy(x),delta));
         }
+        // Jobs bind actual participants, even when the destination's namespace
+        // is retained. Reconcile site reservations with the selected jobs; a
+        // retained road/workshop must not reserve the abandoned body.
+        const jobs=new Map((s.jobs||[]).map(job=>[job.id,job]));
+        for(const site of Object.values(s.sites||{}))for(const id of Object.keys(site.reservations||{}))
+            if(!jobs.has(id))delete site.reservations[id];
+        for(const job of s.jobs||[])if(job.siteId&&s.sites?.[job.siteId])
+            s.sites[job.siteId].reservations[job.id]=job.actorId;
         // Cross-world observations and relationships belong to the continuing
         // record, even though the player's local LOTM facts rewind.
         for(const key of ['knowledge','relationships'])if(s[key])for(const actor of actors) {
@@ -152,5 +170,31 @@ export function scopedRestart(source,target,worldId) {
         for(const [id,value] of Object.entries(rows))if(!actors.has(id)&&!id.startsWith(prefix)&&!localPlaces.has(id)) {
             next.availabilities ||= {};next.availabilities[group] ||= {};next.availabilities[group][id]=copy(value);
         }
+    // Custody binds a physical copy, unlike gift/history receipts. Reconcile
+    // retained holders for seat-owned loans, and remove returned borrowed copies
+    // before restoring the anchor's seat-held loan. Do not refund a later gift.
+    const adjustments=new Map(),borrowed=new Map();
+    const adjust=(actor,key,amount)=>{
+        const byKey=adjustments.get(actor)||new Map();
+        byKey.set(key,(byKey.get(key)||0)+amount);adjustments.set(actor,byKey);
+    };
+    for(const [rows,sign] of [[live.simulation?.custody,-1],[anchor.simulation?.custody,1]])
+        for(const row of Object.values(rows||{})) {
+            if(actors.has(row.owner)&&!actors.has(row.holder))adjust(row.holder,row.key,sign*row.count);
+            if(!actors.has(row.owner)&&actors.has(row.holder)) {
+                const byKey=borrowed.get(row.owner)||new Map();
+                byKey.set(row.key,(byKey.get(row.key)||0)+sign*row.count);borrowed.set(row.owner,byKey);
+            }
+        }
+    for(const [actor,byKey] of borrowed)for(const [key,count] of byKey)if(count>0)adjust(actor,key,-count);
+    for(const [actor,byKey] of adjustments)for(const [key,amount] of byKey)if(amount) {
+        const simulated=state.simulation?.people?.[actor]?.inventory==='simulation';
+        const bag=simulated?state.simulation.owners?.[actor]:next.inventories?.person?.[actor];
+        const row=bag?.[key],count=typeof row==='number'?row:row?.count||0,remaining=count+amount;
+        check(bag&&Number.isSafeInteger(remaining)&&remaining>=0,
+            'Cannot restart: a cross-world loan copy has moved beyond its recorded holder. Settle its custody before restarting.');
+        if(!remaining)delete bag[key];
+        else bag[key]=simulated?remaining:{...(record(row)?row:{}),count:remaining};
+    }
     return next;
 }

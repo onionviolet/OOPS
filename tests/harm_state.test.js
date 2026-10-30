@@ -100,7 +100,7 @@ test('death ends a travel-world life once and exposes an independent read model'
     assert.deepEqual(original,before);
     const death={cause:'loss_of_control',outcome:'final',at:nativeMoment(original)};
     assert.deepEqual(ended.continuation.lives['life-1'].ended,death);
-    assert.deepEqual(ended.continuation.deaths,[{lifeId:'life-1',...death}]);
+    assert.deepEqual(ended.continuation.deaths,[{lifeId:'life-1',...death,token:ended.continuation.lastTransition.token}]);
     assert.throws(()=>cmd(ended,'die:harm'),/already ended/);
     const view=continuationView(ended);assert.deepEqual(view.ended,death);assert.equal(view.deaths[0].lifeLabel,'First life');
     view.ended.cause='age';view.deaths[0].outcome='changed';assert.equal(ended.continuation.deaths[0].outcome,'final');
@@ -136,7 +136,7 @@ test('initial restart enforces the restore keep/reset table and survives JSON sa
     assert.equal(restarted.levels.person.main_character.skill_xp.Weightlifting,0);
     for(const key of ['retention','lawMemory','intentMemory','memories','challengeHistory'])assert.deepEqual(restarted.continuation[key],retained[key]);
     assert.equal(restarted.expansion.actors.player.facts['cultivation.intent.patient'],true);
-    assert.deepEqual(restarted.continuation.deaths,[death,{lifeId:'life-1',kind:'restart',anchor:'initial',at:deathAt}]);
+    assert.deepEqual(restarted.continuation.deaths,[death,{lifeId:'life-1',kind:'restart',anchor:'initial',at:deathAt,token:restarted.continuation.lastTransition.token}]);
     assert.deepEqual(harmView(restarted).lastDeath,{cause:'loss_of_control',outcome:'final'});
     for(const key of ['character','inventories','quests','current time','harm'])assert.deepEqual(restarted[key],anchor[key]);
     assert.deepEqual(restarted.expansion.worlds,anchor.expansion.worlds);assert.equal(restarted.expansion.rng,anchor.expansion.rng);
@@ -189,4 +189,23 @@ test('explicit slice-1 harm save still migrates and round-trips unchanged',()=>{
     harmDomain.load(harmDomain.migrate(JSON.parse(JSON.stringify(old))));
     assert.deepEqual(harmState(),old);assert.equal(harmDomain.save(),undefined);
     assert.throws(()=>harmDomain.migrate({schema:1,backlash:{},parts:{hands:{rung:'missing'}}}));
+});
+
+
+test('an ended life cannot continue acting or restart research through the connection',()=>{
+    const s=cmd(enroll(),'die:harm'),before=structuredClone(s);
+    for(const command of ['continue','study','branch:Escape'])assert.throws(()=>cmd(s,command),/ended/);
+    assert.deepEqual(s,before);
+});
+
+
+test('death and restart tokens remain idempotent across intervening transitions',()=>{
+    let s=cmd(enroll(),'die:harm');const deathToken=s.continuation.lastTransition.token;
+    s=cmd(s,'restart:initial');const restartToken=s.continuation.lastTransition.token;
+    const before=structuredClone(s);
+    assert.throws(()=>planContinuation(s,'die:harm',{expectedSequence:s.continuation.sequence,token:deathToken}),/already been applied/);
+    assert.deepEqual(s,before);
+    s=cmd(s,'die:age');const ended=structuredClone(s);
+    assert.throws(()=>planContinuation(s,'restart:initial',{expectedSequence:s.continuation.sequence,token:restartToken}),/already been applied/);
+    assert.deepEqual(s,ended);
 });
