@@ -176,6 +176,42 @@ Fence: COI is set after LOTM, so its facts can reveal LOTM outcomes. COI rows in
 
 **Load:** load average stays at 150-200 from the representation wave's suites. New lanes run focused tests only and batch their integration hand-offs to `sw-absorb`.
 
+## In-betweens with the UI wave (2026-10-30 02:00)
+
+Weibao: "Consider the implementation details, look at the General UI improvement chat for things I sent and the things they responded and work on the gaps, and the inbetweens, sending out Sonnets accordingly."
+
+**What the UI chat holds:**
+- Round 14 visual grammar (VSX1-VSX5) and a build order (RCT1-RCT5) in the [UI audit](../../../audits/UI_DESIGN_CORE_AUDIT.md).
+- Injury direction: HP plus part injuries only where something reads them. It was sent to body, combat and L9.
+- About 18 representation branches waiting for an ordered merge. Each rep doc in `docs/representations/` has a switch-over note naming the engine lane it will read (maps → L11 legs, abilities → L10 records, combat → L9 and L10, character sheet → L8).
+- The two-slot limiter for full suites and browser captures (RCT5) is still open.
+
+**State:**
+- Engine slices land unwired: L4 x2, L8, L10 and L11 (`09901eab9`, `474608112`, `1f8e04c4d`, `bb4385b97`, `24083307c`).
+- `sw-absorb` is the only host writer and is waiting on builds at load 140-200.
+- L10 and L11 used no Codex lanes, so drafting ran on Sonnet.
+- L11 amended L10's commit locally. The content is intact as `09901eab9`, and nothing was pushed.
+- Claude weekly went from 48% to 51% in about 20 minutes, across this wave and the UI wave.
+
+**The in-betweens, ranked by leverage:**
+
+| Lane | What | Why now | Files |
+| --- | --- | --- | --- |
+| L12 Slot limiter (RCT5) | A machine-wide semaphore (default 2 slots) for full `npm test`, `npm run build` and browser captures, across all worktrees, plus the instruction to use it | Load 140-200 turns every gate into a wait; this is the cheapest speed-up for both waves | `scripts/slot_run.mjs`, test, one hunk in `docs/gm/SHARED_WORKTREE_PRACTICE.md` |
+| L13 Read-model bridges | Pure mappers from engine read models (L8 sheets, L10 ability records and ladder, L11 legs, region kit and persona standing, L9 harm when it lands) to the view contracts the rep branches already define | The rep branches and engine slices meet only here; without it every merge rewrites an adapter | `src/read_models/*.js`, focused tests |
+| L14 Calendar, news and world events | GM36, GM18 and GM38 (as news): dated scenes and news rows to a day-indexed event list the world runs without the lead | The rep-time view needs it; 338 dated volume 1 scenes and about 4,600 news rows across volumes are uncovered | `world_calendar.js` and `event_feed` owners, new event data modules |
+
+**Not staffed now:**
+- GM29 mind effects: the memory lanes own `person_memory*`.
+- GM30 gatherings: needs personas from L11 first.
+- GM33 artifacts.
+- GM35 knowledge: rep-knowledge plus GM3 owners.
+- GM40 spells.
+
+Each comes after this batch reports, or sooner if usage pacing allows.
+
+**Pacing:** the weekly burn is fast, so lanes draft on Codex (Sol) and keep Sonnet for review. That reminder went to L4, L9, L10 and L11.
+
 ## Order and stop rules
 
 1. Before any launch: find the owner of the uncommitted `src/book_world_lotm_{cast_host,host,state}.js` and `tests/cast_*` edits; L3-L5 cut from HEAD and must not clobber them at merge.
