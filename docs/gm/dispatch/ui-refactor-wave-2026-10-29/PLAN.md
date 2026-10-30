@@ -135,3 +135,14 @@ Queue, in order. Stop line raised to weekly 90% (Weibao 2026-10-30, "Raise to 90
 4. RC69 next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME; G14 `upcoming_strip_bridge` into the time strip.
 5. Gathering and seasons representation; COV13 paper-and-ink second skin and COV14 unbuilt screens in the gallery.
 6. COV15 read models gating the Research, Ritual, Combat and Spacetime figures: route to `sw-bridge`.
+
+## Open defect routed out: workshop panel as a catch-all (2026-10-30 evening)
+
+Not a debug page: "Craftsman & workshop" (`src/simulation_ui.js`, `#simulation_panel`) is a player panel that the first-hour gate points to (`src/progression_gates.js` `FOLLOW_LOCAL_PEOPLE`). It acts as a dev dump, because every player command whose group is missing from a hand-kept denylist lands there. Weibao's screenshot (1920 wide, Village) shows other worlds' techniques ("Let the dead take you", "Keep your feet on a heaving deck") beside the craftsman's work, and the blocker notes run together into one paragraph. He called the text meaningless and said it takes away from the game. Owner: the queued "crafting and workshops" representation session. Engine text fixes (WS-1 to WS-3) may land first from the protagonist-life coordinator; the session does the layout (WS-4, WS-5).
+
+- WS-1: Commands get placement by allowlist, not by denylist. A command with no declared home panel goes in a dev-only "Unplaced commands" list, shown only with `config.enable_dev_mode` and labelled as dev, never in a player panel. The other-world filter added today (`d5f48d5f6`) misses techniques without a `worldId`.
+- WS-2: Never print engine reasons to the player. "This command belongs to another world." (`src/simulation.js:131`) and the fallback "The required knowledge, means or circumstances are missing." (`src/simulation.js:46`) are dev text. Hide what is unreachable in this world or life, or name the specific missing thing ("needs 1 log", "learn measured packing first", "the traveler is busy").
+- WS-3: A location blocker ("Return to Shack") becomes a travel chip on the button, not a sentence under it.
+- WS-4: Split the panel into sections: Talk, Work here, Your abilities (collapsed, this world only), Elsewhere (one line each with travel). Each heading shows "n ready / m actions" (`summarizeGroups`). Put the rest in a closed "Not yet (n)" section.
+- WS-5: Keep the scene prose and status apart from the controls. The scene goes in a framed block above, and status becomes one line. Blocker reasons show on hover or focus, not as inline `small.ui-disabled-reason` runs (`src/ui_components.js`).
+- Done check: rebuilt 1920x1080 fresh origin, Village with the craftsman met. No other-world label is visible. No reason note contains either generic string. Each section heading has its count.
