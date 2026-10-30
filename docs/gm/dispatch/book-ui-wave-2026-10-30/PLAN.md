@@ -185,3 +185,24 @@ Weibao: "world map might be useful? We can also look online for more representat
   6. When references disagree, the readings decide, then the official edition, then the wiki, then adaptations.
   7. Prove it at the target viewport (1920x1080) in a rebuilt build before calling it done.
 - **LATER / DELEGATE: the emblem set.** Use the 22 `Foil_Symbol` files as the private icon set (smallest and consistent), recolored per pathway accent from Round 10, and keep `Symbol2` for the non-standard pathways. Script; done when one icon map file names an emblem for every pathway id in the pack.
+
+## Round 12: switching pathways, life outside the lead, and quality gates for the card, ladder and map (2026-10-30, from the lead-life session)
+
+Weibao (recorded in [USER_VISION](../../../USER_VISION.md#pathway-card-ladder-and-map-switching-and-life-outside-the-lead-later-2026-10-30)): the card with its ladder and the map are good, "but all depends on how well the implementation is"; switching pathways and content outside the lead's life for other playthroughs are long term.
+
+**Quality gates for the card, ladder and map (ACCOUNT FOR NOW; these define "well implemented").** Timing: the feature UI backlog waits for the landing and wiring sessions already running (USER_VISION, UI identity, F2), and per-world skins stay lower priority (O2), so the first build uses the shared look and leaves skin tokens for later.
+1. Real data, not fixtures: the ladder reads the pack's actual Seer rungs and the lead's real knowledge state; a fixture is labelled one.
+2. One owner per fact: rung requirements come from existing owners (potion records, knowledge, abilities, ritual and making records) through a read model; the card stores nothing of its own (AR3, LSD440).
+3. Discovery states are right: known, partly known and unknown requirements each show differently, and nothing the lead has not learned leaks (sealed rules, LSD463). A test seeds three states and checks the text.
+4. Desktop proof: rebuilt build, fresh origin, 1920x1080 at the two text sizes the wave uses, screenshots before and after, save, reload and Export/Import if anything persists (AD43 floor).
+5. Taste review before wiring further: one screenshot round against DESIGN.md and the reference rules of Round 11, with fixes, before the map or other pathways build on it.
+6. Public and private builds both render: art and emblems in the private build only; glyphs and the same layout in the public one.
+
+**Switching pathways (LATER, long term; ACCOUNT FOR NOW in data shape).**
+- Canon is richer than the current rule. The wiki capture records switching to a neighbouring pathway as possible (a Sequence 0 reached through a neighbouring switch, a sect that switches at Sequence 5), switching to a non-neighbouring pathway as possible at a cost (people turned half-mad by it), characteristics that still matter after a switch, and abilities that may combine and mutate. The game currently states "one pathway per life" in `src/book_world_lotm_ids.js` and `book_world_lotm_causes.js`; that is right as the low-Sequence default (taking a second pathway's potion early is a stated loss-of-control cause), but written as an absolute. Account for now: the ladder's data shape models pathways as graph nodes with edges (neighbour, cluster, convergence above Sequence 0; Round 6 and 11), so switching is an edge with conditions and costs later, not a rewrite. Rewording the notice as a default with its reason belongs to the owner of those files.
+- Later: the switching edge carries its conditions (which Sequences, neighbour or not, the ritual or method, the risk), the ladder shows a switch as a branch, and the risk feeds loss of control.
+
+**Content outside the lead's life (LATER, long term; ACCOUNT FOR NOW in what lanes write).**
+- Existing owners: world entry rules (WER11 default "live beside protagonists", WER13 one start list), the cast-lives tiers (LSD126-LSD137), the open run and canon pull (LSD233-LSD245), the divergence lane (D2), and world events knowledge. The readings already hold non-lead material: scenes from other points of view (4,961 steps with a non-lead actor in the whole-book tags), places, services, customs and news extras, and CoI as a sibling book behind its era fence (WA48).
+- Account for now: everything built for the lead's run is written as world content (a place, a shop, an institution, a recurring event), not as lead-only content, so a seat beside the lead finds it. The card, ladder and map read "the playing character", never the lead by name.
+- Later: a non-lead seat needs (a) the world's canon events on a clock whether or not the lead sees them, (b) places and work the lead never visits, filled by role and world mechanisms labelled `fill`, (c) starts from the WER start list, and (d) the canon run's pull on the lead as an NPC (CLR8 one record set). A first test: a beside-the-lead seat in Tingen whose week shows two canon events it did not cause.

@@ -6995,3 +6995,5 @@ Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options 
 - **Combat:** combine the old combat screen and the tempo fight in whatever form works best; damage types reach the tempo fights; check which other systems need the same merge.
 - **Feature UI backlog (F2):** waits for the landing and wiring sessions already running.
 - Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
+
+## Pathway card, ladder and map; switching and life outside the lead later (2026-10-30)
