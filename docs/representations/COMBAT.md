@@ -277,6 +277,44 @@ qi-pressure brush strokes. Neither touches the adapter or the text form.
   is header, Withdraw, cards. Not yet exercised at 21 px in the browser (gap).
 - Persistence: none (derived view).
 
+### Hit location (proposals, 2026-10-30)
+
+Direction: [Injuries: overall HP plus part damage where it matters](../USER_VISION.md#injuries-overall-hp-plus-part-damage-where-it-matters-2026-10-30).
+HP stays the overall pool. A part is recorded only when something reads it, and combat reads it first.
+Detail is a per-world and per-body dial (BHR2, BHR4). Codes HL1-HL6 are proposals (AD32).
+
+- **HL1 Where a hit lands.** Default: the location comes from the attack's intent (a swing, a lunge, a
+  bite) weighted by the attacker's skill. Unskilled hits land where they can; skilled ones land where
+  they mean to. Aimed attacks are explicit options on the fight card, each with its cost and odds
+  quoted before the click (UR40, SUI6). For example: "Aim at the legs: stops a flight · hit sometimes
+  (31%) instead of usually (78%) · slower swing", or "Aim at the hand: may disarm". Dial: a world may
+  let some fighters aim freely, or forbid aiming for a body kind with no parts to aim at.
+  Reason: an aimed blow trades accuracy and tempo for a specific outcome, and the player should see
+  that trade before choosing it.
+- **HL2 Armour by slot.** Equipment already carries slots such as [legs]. Coverage decides what a hit on
+  a part soaks, so an unarmoured arm under a good breastplate is a real weakness. The fight card's
+  lethal bound uses the defense of the part likely to be hit once locations exist, and the overall
+  defense until then. Reason: armour that protects everywhere at once makes slots decoration.
+- **HL3 Words in the log and on the card.** The log line names the part, subject first (RPT3):
+  "Wolf rat bites your left leg for 4, limping", grouped like the other combat lines; the log column
+  stays intact (UR11). On the versus row, impaired parts are known facts on both sides (UR36): a chip
+  such as "Left leg: limping" on your side, and "Right arm: hanging" on an opponent card once you have
+  seen it. Parts you have not observed on an opponent stay absent; they are never shown as unhurt.
+- **HL4 Idle fights stay idle.** Auto-combat chooses targets through a policy row (K8): condition, then
+  aim, then what it costs and when it stops. For example "If it flees, aim at the legs (slower swing) ·
+  stop when it is down". With no policy, hits fall where intent and skill put them, and nothing asks
+  the player mid-fight (AD16, CBR26).
+- **HL5 One harm record.** Part damage, its stages and recovery belong to the sonnet wave's sw-death
+  lane (L9). The combat adapter reads parts from there and adds no part model of its own. Fields the
+  card will need, proposed to L9 rather than built here: `part` (id and words), `stage` (a word such
+  as bruised, limping, useless or lost), `observedBy` (who has seen it, for HL3), `impairs` (the verbs
+  or control numbers it lowers, CBR22) and `lasting` (whether recovery is permanent, for HL6).
+- **HL6 Telegraph before crippling or lethal.** Before a hit that can leave lasting harm, or a part at
+  its last stage before loss, the card shows the risk and a retreat route first (LSD384, BHR11, CBR23).
+  For example: "! Could cripple your right hand: it is already useless, and the next hit there may
+  sever it · Withdraw". This extends today's "Could down you" chip with a "Could cripple" stage, and
+  uses the same stated-bound honesty: it names what it cannot see.
+
 ### Switch-over to the sonnet wave's owners (coordinator, 2026-10-30)
 
 Combat views read the shared models rather than one of their own
