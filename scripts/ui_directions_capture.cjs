@@ -11,7 +11,8 @@ const out=process.env.YAIRPG_PROOF_DIR||'docs/audits/evidence/ui-directions-2026
     if(fixture==='tingen'&&(size===21||effects==='off')&&dir!=='d'&&dir!=='a')continue;
     await page.goto(`${base}?dir=${dir}&fixture=${fixture}&size=${size}&effects=${effects}`);await page.waitForSelector('.ud-screen');await page.waitForTimeout(250);
     const m=await page.evaluate(()=>{const s=document.querySelector('.ud-screen');const over=[...s.querySelectorAll('*')].filter(n=>n.scrollWidth>n.clientWidth+2&&getComputedStyle(n).overflow==='visible'&&n.children.length===0).length;
-      return {fontPx:getComputedStyle(s.querySelector('.ud-root')).fontSize,scrollH:s.scrollHeight,clientH:s.clientHeight,leafOverflow:over,facts:['next-step','return-note'].map(k=>!!s.querySelector(`[data-${k}]`)),clickable:s.querySelectorAll('button').length,nodes:s.getElementsByTagName('*').length,chars:s.innerText.length};});
+      const box=s.getBoundingClientRect();const outside=[...s.querySelectorAll('button,[data-next-step],[data-return-note]')].filter(n=>{const r=n.getBoundingClientRect();return r.width>0&&(r.left<box.left-1||r.right>box.right+1||r.bottom>box.bottom-1||r.top<box.top-1);}).length;const clipped=[...s.querySelectorAll('button,li,p,small,span')].filter(n=>n.scrollWidth>n.clientWidth+2&&getComputedStyle(n).overflow!=='visible').length;
+      return {outside,clipped,fontPx:getComputedStyle(s.querySelector('.ud-root')).fontSize,scrollH:s.scrollHeight,clientH:s.clientHeight,leafOverflow:over,facts:['next-step','return-note'].map(k=>!!s.querySelector(`[data-${k}]`)),clickable:s.querySelectorAll('button').length,nodes:s.getElementsByTagName('*').length,chars:s.innerText.length};});
     const file=`${dir}-${fixture}-${size}px-fx-${effects}.png`;
     await page.locator('.ud-screen').screenshot({path:path.join(out,file)});report.push({file,...m});}
   fs.writeFileSync(path.join(out,'capture-report.json'),JSON.stringify({errors,report},null,1));

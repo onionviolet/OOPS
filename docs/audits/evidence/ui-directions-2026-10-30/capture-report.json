@@ -3,6 +3,8 @@
  "report": [
   {
    "file": "a-village-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -17,6 +19,8 @@
   },
   {
    "file": "a-village-21px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "21px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -31,6 +35,8 @@
   },
   {
    "file": "a-village-14px-fx-off.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -45,6 +51,8 @@
   },
   {
    "file": "a-tingen-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -59,6 +67,8 @@
   },
   {
    "file": "a-tingen-21px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "21px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -73,6 +83,8 @@
   },
   {
    "file": "a-tingen-14px-fx-off.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -87,6 +99,8 @@
   },
   {
    "file": "b-village-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -101,6 +115,8 @@
   },
   {
    "file": "b-village-21px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "21px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -115,6 +131,8 @@
   },
   {
    "file": "b-village-14px-fx-off.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -129,6 +147,8 @@
   },
   {
    "file": "b-tingen-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -143,6 +163,8 @@
   },
   {
    "file": "c-village-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -157,6 +179,8 @@
   },
   {
    "file": "c-village-21px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "21px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -171,6 +195,8 @@
   },
   {
    "file": "c-village-14px-fx-off.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -185,6 +211,8 @@
   },
   {
    "file": "c-tingen-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -199,6 +227,8 @@
   },
   {
    "file": "d-village-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -213,6 +243,8 @@
   },
   {
    "file": "d-village-21px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "21px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -227,6 +259,8 @@
   },
   {
    "file": "d-village-14px-fx-off.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -241,6 +275,8 @@
   },
   {
    "file": "d-tingen-14px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -255,6 +291,8 @@
   },
   {
    "file": "d-tingen-21px-fx-full.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "21px",
    "scrollH": 1078,
    "clientH": 1078,
@@ -269,6 +307,8 @@
   },
   {
    "file": "d-tingen-14px-fx-off.png",
+   "outside": 0,
+   "clipped": 0,
    "fontPx": "14px",
    "scrollH": 1078,
    "clientH": 1078,

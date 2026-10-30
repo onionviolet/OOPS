@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {DIRECTIONS, buildScreen, mountGallery} from '../src/ui/preview/ui_directions.js';
-import {FIXTURES, HUBS, ROUTES, VIEWS} from '../src/ui/preview/fixtures/ui_directions.js';
+import {FIXTURES, HUBS, ROUTES, ROUTES_REVEALED, VIEWS} from '../src/ui/preview/fixtures/ui_directions.js';
 
 const dom = createDom(); dom.loadHTML('<html><body></body></html>');
 globalThis.document = dom.document;
@@ -43,10 +43,11 @@ test('effects-off facts: nothing the player needs is carried by a glow or animat
     assert.doesNotMatch(css, /display:\s*none/, 'effects rules hide nothing');
 });
 
-test('the six hubs absorb all thirteen routes exactly once, so saved pins have a home (UR13, UR17)', () => {
+test('the six hubs absorb the 13 fresh-life routes and the 7 revealed ones exactly once, so seen routes keep a home (UR13, UR17)', () => {
     const routed = HUBS.flatMap(h => h.routes);
-    assert.equal(routed.length, ROUTES.length);
-    assert.deepEqual([...routed].sort(), [...ROUTES].sort());
+    const seen = [...ROUTES, ...ROUTES_REVEALED];
+    assert.equal(routed.length, seen.length);
+    assert.deepEqual([...routed].sort(), [...seen].sort());
 });
 
 test('the 21 representation views each land in a hub, a verb and a desk object', () => {

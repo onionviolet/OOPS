@@ -9,7 +9,7 @@ Target: desktop and laptop, 1920×1080, Luminous Gothic default, 14 px and 21 px
 - **Played:** two fresh lives through the `yairpg-game` MCP on this checkout's bundle, which matches `HEAD` (a rebuild produced no diff). Village (seed 3001): first screen, talk route, cross route. Tingen (seed 3002, Nighthawk probationer): the six-life entry page, the "Before you cross" threshold, the first report to Warden Hale, declining the dose, 60 minutes of idle time. That is about ten actions per life, not twenty minutes each; every finding below was seen in those actions and nothing is inferred from other sessions.
 - **Browser walk (rebuilt bundle, headless Chromium, 1920×1080, 14 px, fresh Village life, `scripts/ui_directions_live_probe.cjs`, `evidence/…/live-probe.json`):** 85 workspace modules mounted, 11 visible (You, Stats & equipment, Condition, Around you, Inventory tools, Inventory, Village scene, Current work & saving, Local actions, Center views, Reports), 90 visible controls, 9,335 DOM nodes, and an "All panels…" select of 53 entries (56 after the dialogue). The Tingen cross click showed 10 visible modules and 9,801 nodes. The walk reached the Village and the crossing click only, not the Tingen life itself (that is the MCP play above), and did not measure the MacBook size.
 - **Gaps doc:** `UI_CAPABILITY_GAPS_2026-10-30.md` (`bk-gaps`, branch `claude/bk-gaps-c82fdb`, commit `6fb2db456`) landed while this was being written and is folded in under "Folded in from the capability gaps audit" below. One correction from it: a Ctrl+K palette and a Find button **already exist** (`src/command_palette.js`), so earlier lines in this doc that call the jump unbuilt are corrected to "extend the existing palette".
-- **Mocks:** `ui-directions.html` (`npm run build:directions` equivalent: `node scripts/build_ui_directions.mjs`), module `src/ui/preview/ui_directions.js`, fixture `src/ui/preview/fixtures/ui_directions.js`, test `tests/ui_directions.test.js`. Village and Tingen strings are the played ones; the agenda rows, Village place times and Tingen's next-step line are illustrative and marked so in the fixture. Evidence: [ui-directions-2026-10-30](evidence/ui-directions-2026-10-30/).
+- **Mocks:** `ui-directions.html` (`node scripts/build_ui_directions.mjs`), module `src/ui/preview/ui_directions.js`, fixture `src/ui/preview/fixtures/ui_directions.js`, test `tests/ui_directions.test.js`. Village and Tingen strings are the played ones; the agenda rows, Village place times and Tingen's next-step line are illustrative and marked so in the fixture. Evidence: [ui-directions-2026-10-30](evidence/ui-directions-2026-10-30/).
 
 ## What play showed about the structure
 
@@ -33,7 +33,7 @@ Round 8 ranked O1 (finish shared shapes, then clean) as the default and left O2 
 | --- | --- | --- |
 | O1 + O2 | **A** | UDF1, UDF3 and UDF7 are all solved without moving the centre. Agrees with O1 and the order of O2. |
 | O3 | **B** | UDF6 is the strongest finding in the round: the day page is not a luxury. Moves O3 from "capstone" to "second step", still after the return note (B1) lands. |
-| UR28 jump | **C** | UDF1 and UDF3 are both search problems once a place offers 20+ verbs. Agrees that Ctrl+K belongs; overturns "last" for a first, small version (jump by name, no verbs). |
+| UR28 jump | **C** | UDF1 and UDF3 are both search problems once a place offers 20+ verbs. Agrees that Ctrl+K belongs, and finds it already built (`src/command_palette.js`); what is missing is verbs, the lookup index and a visible place for it in the nav. |
 | O4 | **D** | Does not overturn "not now" for structure. Play shows the Tingen threshold and workroom would gain most from a world-reacting skin, which round 13's motif layer already allows without restructuring. |
 
 ## The four directions
@@ -45,9 +45,9 @@ All four use the same fixtures: Village at 08:00 on day 1, and Tingen at 09:00 o
 - **Idea.** Keep the workspace of docked panels. Replace the 13 route buttons and the 56-entry list with six hubs (You, Belongings, People, Work and time, World, System; round 8 O2), and keep the existing Ctrl+K palette and Find button, shown in the nav strip. Keep one Next step band in every world, put a return note at the top of Reports, fold Local actions into "available now" and "later", and print each blocked reason in words.
 - **First five seconds.** Place, weather and clock; the Next step band with "Show me"; five panels (You, Around you, Local actions, Reports, Belongings) at readable size; six hub buttons, one with a dot. Nothing else needs to be read to act.
 - **The 21 views.** Each view keeps its home route and moves under a hub; the mapping is `VIEWS` in the fixture (First hour and chronicle return under Today/Work and time, character sheet and body under You, talk, web and family under People, maps, spacetime and crossings under World). Panels already registered stay registered.
-- **Density.** Same grid as today: three columns, about 22 / 50 / 28 percent. At 21 px the left column's stat rows and the centre's quote lines wrap; the layout rules (UR35-UR38) already scroll panel bodies.
+- **Density.** Same grid as today: three columns, about 22 / 50 / 28 percent. At 21 px the Tingen capture fits with room below; the longest rows (blocked reasons) stay on one line in the centre. The layout rules (UR35-UR38) already scroll panel bodies for longer content.
 - **Effects off.** Every fact is text. The Next step glow and the "pick" accent are the only effects; both drop to a solid accent border.
-- **Cost and migration.** About two sessions: group the route strip and list (UIW2, UIW3), lazy-mount hidden panels, move Authoring, Layout and density under Settings, add the band to Tingen. Saved layouts and pins load unchanged (UR17); a moved route keeps its id, so `pin` and `collapse` state survive, and each move logs a line and a dot (UR13). The test in `tests/ui_directions.test.js` checks that the six hubs hold the 13 routes exactly once.
+- **Cost and migration.** About two sessions: group the route strip and list (UIW2, UIW3), lazy-mount hidden panels, move Authoring, Layout and density under Settings, add the band to Tingen. Saved layouts and pins load unchanged (UR17); a moved route keeps its id, so `pin` and `collapse` state survive, and each move logs a line and a dot (UR13). `tests/ui_directions.test.js` checks that the six hubs hold the 13 fresh-life routes and the 7 routes revealed in the played Tingen life (Notebook, People, Time & weather, Current location, Statistics, World events, Notes practice & people) exactly once each. These 20 are the routes seen in play, not the registry: routes this round did not see are unmapped, and the first A session maps every id in `layout_spec.js` with a test that reads it.
 - **Patterns drawn from.** VS Code's activity bar and side panels (hubs over a flat list), Cogmind's always-visible dense panels (nothing hidden behind a menu).
 
 ### B. A day or plan hub
@@ -55,7 +55,7 @@ All four use the same fixtures: Village at 08:00 on day 1, and Tingen at 09:00 o
 - **Idea.** The first thing open on a morning or a return is one Today page: a suggested move as a scene card (built from `scene_card.js`), what is due and when, who wants you, and the return note. Panels become drill-ins (a drawer opened from a chip), not the home.
 - **First five seconds.** "Today · 01/04/999", one sentence saying what changed, a framed card whose title is the suggestion and whose rows carry time and cost, the people who want something. The player reads top to bottom once.
 - **The 21 views.** Each one becomes a drill-in off one of five Today sections; the day page owns the first hour, the return note and chronicle digest, the timeline and the agenda directly. Combat and crossings are interrupts that take over the page as scene cards (SUI8).
-- **Density.** A single reading column of about 900 px beside a rail and a side column; at 21 px the card stays on one screen, the two-up lists stack.
+- **Density.** A single reading column of about 900 px beside a rail and a side column; at 21 px the card and the two lists stay on one screen (the lists do not stack; they were checked in the capture).
 - **Effects off.** The card's glow drops to a border; the "now / open / soon" rows keep their words.
 - **Cost and migration.** About four sessions after B1 (return note) and B4 (timeline) land; the page reads their shapes and builds no new model. Panel layouts and pins stay valid because panels still mount, only the default open surface changes (UR17); a "Today" route is added and nothing is removed (UR13).
 - **Patterns drawn from.** Football Manager's inbox and dashboard, Crusader Kings 3's notification stack, the morning summary in management sims. Patterns only.
@@ -67,7 +67,7 @@ All four use the same fixtures: Village at 08:00 on day 1, and Tingen at 09:00 o
 - **The 21 views.** Each view is a result kind ("View: Relationship web"), each action a verb result, each person a Talk result; panels open on demand as slim drawers beside the status.
 - **Density.** Highest information per pixel for a player who knows the verbs; lowest for one who does not, because a blank palette gives no orientation. At 21 px the result list needs only 8 rows.
 - **Effects off.** The highlighted first row keeps a solid fill.
-- **Cost and migration.** About three sessions for the palette, plus the verb tagging on every action row (a data change on registered actions, with a test that each has a verb). Layouts and pins stay valid if panels stay mounted; the risk is that nothing tells the player the palette exists, which is why A takes only the jump-by-name half.
+- **Cost and migration.** About two sessions to extend the existing palette with verb chips and a lookup index, plus the verb tagging on every action row (a data change on registered actions, with a test that each has a verb). Layouts and pins stay valid if panels stay mounted; the risk is that nothing tells the player the palette exists, which is why A takes only the jump-by-name half.
 - **Patterns drawn from.** Command palettes in VS Code and Raycast; NetHack's `#` extended commands.
 
 ### D. One unconventional direction: the desk (diegetic, world-reacting)
@@ -75,8 +75,8 @@ All four use the same fixtures: Village at 08:00 on day 1, and Tingen at 09:00 o
 - **Idea.** The screen is a desk. A notebook holds the next step, today and the return note; a map table holds the places (drawn with `renderFigure`), the people as cards and the actions as a row; letters are Reports; a satchel strip holds items and vitals. The desk re-skins per world by tokens: rough wood and parchment in the Village, brass and ink in Tingen (round 13 FLA2).
 - **First five seconds.** A notebook open to one handwritten line ("Talk to the village elder."), a map with "you are here", two person cards. The metaphor explains where things are; it does not explain what to do.
 - **The 21 views.** Each maps to an object (`VIEWS` column four: notebook, mirror, satchel, bench, corkboard, ledger book, door, map table, letters). This is the hardest direction to scale: 21 views need 21 object types, and many have no natural place on one desk.
-- **Density.** Lowest. The map table's figure and the notebook's margin eat space; at 21 px the notebook wraps past one page.
-- **Effects off.** The skin stays; only glow and rotation drop out. Parchment and ink contrast must be checked at 21 px (measured below).
+- **Density.** Lowest. The map table's figure and the notebook's margin eat space; at 21 px the notebook still fits its page in the Tingen capture, with a taller column than at 14 px.
+- **Effects off.** The skin stays; only glow and rotation drop out. Parchment and ink contrast was not measured this round; the 21 px capture is legible by eye only, and a contrast check belongs in the skin item.
 - **Cost and migration.** Rewrite-scale for structure (round 8 O4 said so), but about half a session as a skin: four tokens per world. Saved layouts and pins would not map to desk objects, so a full D needs a written compatibility decision (UR17) and a "Panels" escape hatch.
 - **Patterns drawn from.** The book and desk in Return of the Obra Dinn and Papers, Please, the journal in 80 Days. Patterns only.
 
@@ -89,7 +89,7 @@ All four use the same fixtures: Village at 08:00 on day 1, and Tingen at 09:00 o
 | 21 views fold in | Under six hubs | Under five sections plus drill-ins | As result kinds | As objects (hard) |
 | Text size 14 / 21 | Fits, panels scroll | Fits | Fits, fewest rows | Wraps first |
 | Effects off | Clean | Clean | Clean | Clean, skin kept |
-| Cost | About 2 sessions | About 4, after B1/B4 | About 3 | Skin 0.5; structure rewrite |
+| Cost | About 2 sessions | About 4, after B1/B4 | About 2, on the existing palette | Skin 0.5; structure rewrite |
 | Saved layouts and pins | Unchanged | Unchanged | Unchanged if panels stay mounted | Needs a decision |
 
 ## Recommendation (a proposal, proceeds unless Weibao objects)
@@ -116,11 +116,14 @@ All four use the same fixtures: Village at 08:00 on day 1, and Tingen at 09:00 o
 
 ## Cheap enough to ship into the current UI now
 
+UR17 note: moved routes keep their ids; the mapping above covers the 20 routes seen in play and the registry mapping is part of item 1 of A's cost.
+
 | Rank | Change | Owner | Level and effort | Done check |
 | --- | --- | --- | --- | --- |
 | 1 | **A Next step band in every world,** with a fallback: the first ready, reversible action; or, when all are blocked, the blocked reason naming what is missing (UDF2, UDF4). | General UI coordinator (first-hour lane) | Sonnet medium, one session | A fresh Tingen life shows a band after the first report; a blocked-only scene names the missing thing; effects off keeps it. |
 | 2 | **Specific blocked reasons and a real header for missing readings** ("The required knowledge…" replaced by the missing thing; "Local weather unavailable" replaced by an in-world line or hidden) (UIW4, UIW5). | `ui-defects` | Haiku or Sonnet low, one session | No generic reason string remains in the Tingen and Village routes; header chips read as the world. |
-| 3 | **Fold reveal notices into one Reports line with a dot, and add the return note** after an absence or a long step (UDF6, UDF7; round 8 coverage B1). | General UI coordinator (time and chronicle lane, reuse `RETURN_DIGEST`) | Sonnet medium, one session | Stepping 60 minutes produces one line saying what changed and what is due; three simultaneous reveals produce one line; UR13 dot on the nav. |
+| 3 | **Fold reveal notices into one Reports line with a dot** (UDF7; UR13): three "now available in navigation" notices with "Related panel ›" links in the first minute become one line per batch. Nobody else owns this. | General UI coordinator (notices) | Sonnet low to medium, half a session | A reveal batch of three produces one Reports line and one nav dot; the count is tested. |
+| Next | **The return note** (UDF6, CG9) is next, not cheap: it needs `away_ledger` and `anchor_snapshots` to reach the UI (G15, via `sw-bridge`) and is rated M by `bk-gaps`. | General UI coordinator with `sw-bridge` | Sonnet medium, one to two sessions | Stepping 60 minutes produces one line saying what changed and what is due. |
 
 ## Features that still lack a design round
 
@@ -191,7 +194,7 @@ Scale 1 (small) to 5 (large). Footprints come from the repo: `src/workspace_layo
 | --- | --- | --- | --- | --- | --- |
 | A refined | 2: nav registration in `layout_spec.js` and `village_workspace.js`; `panel_reveal.js`; Local actions fold; band in each world's shell | 1: route ids stay, hubs are a grouping; pins and layouts load unchanged | 2: hubs-hold-routes test, saved-layout load test, band presence per world | 5-6 of 15 | Cheapest |
 | B day hub | 3: a new Today surface, B1 note and B4 timeline owners, a default-open rule | 2: new default surface; panel layouts keep | 3: return-note and agenda from fixtures, absence rule, scene-card hosting | 8 of 15 | Needs B1 and B4 first |
-| C task-first | 4: palette module, a verb tag on every registered action, index over people, panels, items, views, observer filter | 3: verb tags are data on registered actions; a missing tag must fail a test | 4: search recall, observer safety (no unknown names), keyboard path | 11 of 15 | Index is the hard part; jump-by-name alone scores about 6 |
+| C task-first | 3: extend `command_palette.js`, a verb tag on every registered action, index over people, panels, items, views, observer filter | 3: verb tags are data on registered actions; a missing tag must fail a test | 4: search recall, observer safety (no unknown names), keyboard path | 9-10 of 15 | The palette exists; the observer-safe index (CG2) is the hard part; verbs alone score about 5 |
 | D desk | 5+: new structure, object per view, skin tokens | 5: layouts and pins have no desk home; written decision needed (UR17) | 4: every view reachable from an object; contrast at 21 px | 14 of 15 as structure; 4-5 of 15 as a skin | Skin only |
 
 ### What the UI system itself needs to be as comprehensive as possible
@@ -218,7 +221,7 @@ The default stands: A, with B's return note and C's jump-by-name. Part 2 adds th
 
 ### Libraries that could build these pieces (relayed from `bk-scout`, not verified here)
 
-`bk-scout` reports, with licences and versions checked against npm and GitHub on 2026-10-30 (full doc `docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md` on its branch): **dockview** 8.8.2 (MIT, vanilla, floating panels, popouts, JSON layout save and restore) for tabs, split and pop-out; **@tanstack/virtual-core** and **table-core** (MIT) for long lists and sort, filter and group; **@floating-ui/dom** (MIT) for nested tooltips, with focus-trap and tabbable for keyboard focus; **uFuzzy** plus **tinykeys** (MIT) to build the palette, since no maintained vanilla one exists; **dagre** (MIT) for tree layout. **elkjs** is weak copyleft and Patchouli is CC BY-NC-SA, so both are reference-only. None is adopted. Two cautions before any adoption: dockview is the largest decision (bundle size, and its saved layout JSON would need a migration from today's layouts under UR17), and AD45 asks for a replaceable seam, so any library sits behind a port. Effect on difficulty scores: dockview lowers the tabs and split cost for A but adds a layout-migration line; the palette stack cuts C's jump-by-name (already built) to about 3 of 15.
+`bk-scout` reports, with licences and versions checked against npm and GitHub on 2026-10-30 (full doc `docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md` on its branch): **dockview** 8.8.2 (MIT, vanilla, floating panels, popouts, JSON layout save and restore) for tabs, split and pop-out; **@tanstack/virtual-core** and **table-core** (MIT) for long lists and sort, filter and group; **@floating-ui/dom** (MIT) for nested tooltips, with focus-trap and tabbable for keyboard focus; **uFuzzy** plus **tinykeys** (MIT) to build the palette, since no maintained vanilla one exists; **dagre** (MIT) for tree layout. **elkjs** is weak copyleft and Patchouli is CC BY-NC-SA, so both are reference-only. None is adopted. Two cautions before any adoption: dockview is the largest decision (bundle size, and its saved layout JSON would need a migration from today's layouts under UR17), and AD45 asks for a replaceable seam, so any library sits behind a port. Effect on difficulty scores: dockview lowers the tabs and split cost for A but adds a layout-migration line; the palette stack is not needed for jump-by-name, since the palette exists, and would only help build verb chips and fuzzy ranking.
 
 ### Where several ladders and systems live (Weibao: abilities must not hardcode one path)
 
@@ -237,7 +240,7 @@ Follow-up from Weibao: "not every world is a ladder either ... branching ... mix
 
 ## Measured captures (headless, 1920×1080, `evidence/ui-directions-2026-10-30/capture-report.json`)
 
-Fonts computed at 14 px and 21 px as asked; the 14 px and 21 px PNGs differ byte-for-byte. Zero page errors across 20 captures. A, B and D hold all facts at 21 px with no clipped control; C's palette keeps eight rows at both sizes.
+Fonts computed at 14 px and 21 px as asked; the 14 px and 21 px PNGs differ byte-for-byte. Zero page errors across 20 captures. The capture script also checks that every control, the next-step band and the return note lie inside the 1920×1080 screen at both sizes (`outside` in the report); result: across all 20 captures, 0 controls, bands or notes lie outside the screen and 0 buttons or rows clip their text (`outside` and `clipped` are 0 in the report). This checks position and clipping, not contrast or reading comfort.
 
 | Direction | Visible controls | Text characters, Village / Tingen | DOM nodes | Note |
 | --- | --- | --- | --- | --- |

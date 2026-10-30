@@ -2,13 +2,15 @@
 // Village and Tingen strings are copied from fresh lives played through the game MCP on 2026-10-30 (seeds 3001, 3002;
 // Tingen as a Nighthawk probationer). Illustrative, not played: agenda rows, Village place times, and the Tingen next-step line.
 export const ROUTES = ['Stats', 'Condition', 'Inventory', 'Journal', 'Data', 'Knows', 'Travelers', 'Projects', 'Ledger', 'Worlds', 'Beginning', 'Connection', 'Settings'];
+// Routes that appeared in the played Tingen life (notices "now available in navigation", the nav overflow list).
+export const ROUTES_REVEALED = ['Notebook', 'People', 'Time & weather', 'Current location', 'Statistics', 'World events', 'Notes, practice & people'];
 // The six task hubs from round 8 O2, with the real routes each one absorbs (UR13: each move logs a line and a dot).
 export const HUBS = [
-    {id: 'you', label: 'You', routes: ['Stats', 'Condition', 'Beginning']},
+    {id: 'you', label: 'You', routes: ['Stats', 'Condition', 'Beginning', 'Statistics']},
     {id: 'belongings', label: 'Belongings', routes: ['Inventory']},
-    {id: 'people', label: 'People', routes: ['Knows', 'Travelers']},
-    {id: 'work', label: 'Work and time', routes: ['Journal', 'Projects', 'Ledger']},
-    {id: 'world', label: 'World', routes: ['Worlds', 'Data']},
+    {id: 'people', label: 'People', routes: ['Knows', 'Travelers', 'People']},
+    {id: 'work', label: 'Work and time', routes: ['Journal', 'Projects', 'Ledger', 'Notebook', 'Time & weather', 'Notes, practice & people']},
+    {id: 'world', label: 'World', routes: ['Worlds', 'Data', 'Current location', 'World events']},
     {id: 'system', label: 'System', routes: ['Connection', 'Settings']},
 ];
 export const COUNTS = {routes: 13, registeredPanels: 83, allPanelsList: 56, firstScreenClickables: 145};
@@ -57,6 +59,7 @@ export const FIXTURES = {
             {id: 'formula', verb: 'Study', label: 'A recovered copy of the Sequence 8 Light Supplicant formula', time: '', cost: '8 merit', blocked: 'It costs 8 merit; you hold 0.'},
             {id: 'walk', verb: 'Travel', label: 'Walk to Tingen probationer lodging', time: '2 min', cost: ''},
         ],
+        // Illustrative: the shell's inventory header read 48C; the purse row restates the 2 pounds from the start card.
         items: [{name: 'Clerk purse', count: 1, value: '2 pounds'}],
         money: '2 pounds',
         reports: ['[ Entering Tingen supervised workroom ]', 'Your first day in Tingen begins.', 'You declined. Nothing was spent and no faculty was granted; your post and the supervisor\'s goodwill are unchanged.'],
