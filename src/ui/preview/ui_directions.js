@@ -68,7 +68,7 @@ function buildA(fx, root) {
     add(left, panel({name: 'You', meta: 'Stats & equipment'}, [vitals(fx), rows(fx.stats.slice(0, 4), (li, s) => add(li, el('span', {}, s[0]), el('b', {}, s[1])))]),
         panel({name: 'Around you', meta: `${fx.people.length} people · ${fx.services.length} places`}, [peopleList(fx, false), rows(fx.services.slice(0, 3), (li, s) => add(li, btn(s.name)))]));
     add(mid, nextStepBand(fx), panel({name: 'Local actions', meta: `${fx.actions.length} options`}, rows(fx.actions, (li, a) => li.append(actionRow(a)))),
-        panel({name: 'Scene', meta: fx.place}, el('p', {class: 'ud-prose'}, 'Daylight falls across the path. Choose someone or something here to inspect.')));
+        panel({name: 'Scene', meta: fx.place}, el('p', {class: 'ud-prose'}, `${fx.scene} Choose someone or something here to inspect.`)));
     add(right, reportsPanel(fx, true), panel({name: 'Belongings', meta: fx.money}, itemsList(fx)), panel({name: 'Paths and ladders', meta: `${fx.ladders.length} held or offered`}, laddersList(fx), 'ud-ladders'), panel({name: 'Journal', meta: 'pinned'}, rows(fx.agenda.slice(0, 2), (li, a) => add(li, el('b', {}, a.at), el('span', {}, a.text)))));
     add(grid, left, mid, right); add(root, header(fx), top, grid);
 }
@@ -102,7 +102,7 @@ function buildC(fx, root) {
         ...VIEWS.slice(0, 5).map(v => ({kind: 'View', label: v[0], hint: `${v[1]} hub`})), ...fx.items.map(i => ({kind: 'Item', label: i.name, hint: `x${i.count}`})), ...fx.ladders.map(l => ({kind: 'Ladder', label: l.name, hint: `${l.now} → ${l.next}`}))];
     const hits = pool.filter(r => r.label.toLowerCase().includes(query)).concat(pool.filter(r => !r.label.toLowerCase().includes(query)).slice(0, 5)).slice(0, 7).concat(pool.filter(r => r.kind === 'Ladder').slice(0, 1));
     const quiet = el('div', {class: 'ud-quiet'});
-    add(quiet, header(fx), el('p', {class: 'ud-prose ud-dim'}, 'Daylight falls across the village path.'), vitals(fx), reportsPanel(fx, true));
+    add(quiet, header(fx), el('p', {class: 'ud-prose ud-dim'}, fx.scene), vitals(fx), reportsPanel(fx, true));
     const pal = el('section', {class: 'ud-palette', role: 'dialog', 'aria-label': 'Jump or do'});
     add(pal, el('div', {class: 'ud-search'}, `› ${query}`), add(el('div', {class: 'ud-chips'}), ...['All', 'Talk', 'Work', 'Make', 'Travel', 'Study', 'Inspect', 'Views'].map((t, i) => chip(t, i === 0 ? 'is-on' : ''))));
     const list = rows(hits, (li, r) => { li.className = r.blocked ? 'is-blocked' : ''; add(li, chip(r.kind), el('span', {}, r.label), el('small', {}, r.blocked || r.hint)); });
@@ -125,7 +125,7 @@ function buildD(fx, root) {
     const cards = el('div', {class: 'ud-cards'}); for (const p of fx.people) add(cards, add(el('div', {class: 'ud-card'}), el('strong', {}, p.name), el('small', {}, p.role), p.want ? el('em', {}, p.want) : null));
     add(table, el('h2', {}, `Map table · ${fx.place}`), figHost, cards, add(el('div', {class: 'ud-actions-row'}), ...fx.actions.map(a => actionRow(a))));
     const letters = el('section', {class: 'ud-letters', 'aria-label': 'Letters'}); add(letters, el('h2', {}, 'Letters'), ...fx.reports.map(r => el('p', {class: 'ud-letter'}, r)));
-    const satchel = el('section', {class: 'ud-satchel', 'aria-label': 'Satchel'}); add(satchel, el('strong', {}, `Satchel · ${fx.money}`), ...fx.items.map(i => chip(`${i.name} x${i.count}`)), el('span', {class: 'ud-spacer'}), vitals(fx));
+    const satchel = el('section', {class: 'ud-satchel', 'aria-label': 'Satchel'}); add(satchel, el('strong', {}, `Satchel · ${fx.money}`), ...fx.items.map(i => chip(`${i.name} x${i.count}`)), el('span', {class: 'ud-spacer'}), el('span', {}, `Lv ${fx.vitals.level} · ${fx.vitals.stamina[0]}/${fx.vitals.stamina[1]} stamina · ${fx.vitals.hp[0]}/${fx.vitals.hp[1]} hp`));
     add(desk, book, table, letters, satchel); add(root, header(fx), desk);
 }
 

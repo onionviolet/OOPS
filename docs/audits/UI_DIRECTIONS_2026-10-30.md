@@ -7,7 +7,7 @@ Target: desktop and laptop, 1920×1080, Luminous Gothic default, 14 px and 21 px
 ## Evidence and its limits
 
 - **Played:** two fresh lives through the `yairpg-game` MCP on this checkout's bundle, which matches `HEAD` (a rebuild produced no diff). Village (seed 3001): first screen, talk route, cross route. Tingen (seed 3002, Nighthawk probationer): the six-life entry page, the "Before you cross" threshold, the first report to Warden Hale, declining the dose, 60 minutes of idle time. That is about ten actions per life, not twenty minutes each; every finding below was seen in those actions and nothing is inferred from other sessions.
-- **Not done:** a native browser walk of the same two lives was queued behind another session's browser slot (`scripts/ui_directions_live_probe.cjs`, kept for the integrator). Panel counts below come from the MCP action list and the round 8 count (83 registered panels), not from a rebuilt-browser measurement.
+- **Browser walk (rebuilt bundle, headless Chromium, 1920×1080, 14 px, fresh Village life, `scripts/ui_directions_live_probe.cjs`, `evidence/…/live-probe.json`):** 85 workspace modules mounted, 11 visible (You, Stats & equipment, Condition, Around you, Inventory tools, Inventory, Village scene, Current work & saving, Local actions, Center views, Reports), 90 visible controls, 9,335 DOM nodes, and an "All panels…" select of 53 entries (56 after the dialogue). The Tingen cross click showed 10 visible modules and 9,801 nodes. The walk reached the Village and the crossing click only, not the Tingen life itself (that is the MCP play above), and did not measure the MacBook size.
 - **Gaps doc:** `UI_CAPABILITY_GAPS_2026-10-30.md` (`bk-gaps`) had not landed when this was written. This round designs against UIW1-UIW9 (round 8) and FH1-FH5 ([first hour](../representations/FIRST_HOUR.md)). Fold the gaps doc in when it lands (see LATER).
 - **Mocks:** `ui-directions.html` (`npm run build:directions` equivalent: `node scripts/build_ui_directions.mjs`), module `src/ui/preview/ui_directions.js`, fixture `src/ui/preview/fixtures/ui_directions.js`, test `tests/ui_directions.test.js`. Village and Tingen strings are the played ones; the agenda rows, Village place times and Tingen's next-step line are illustrative and marked so in the fixture. Evidence: [ui-directions-2026-10-30](evidence/ui-directions-2026-10-30/).
 
@@ -15,7 +15,7 @@ Target: desktop and laptop, 1920×1080, Luminous Gothic default, 14 px and 21 px
 
 | Code | Finding (seen in play) | Why it is structural |
 | --- | --- | --- |
-| UDF1 | **The first screen offers 13 route buttons, a 56-entry "All panels…" list and about 145 listed controls**, plus a Next step band that says one thing: "Talk to the village elder." The band is the best part of it. | Counting routes is not the problem; the player must choose between three navigation systems (routes, list, the panels already open). |
+| UDF1 | **The first screen offers 13 route buttons, a 53-entry "All panels…" list, 11 visible panels, 90 visible controls (145 in the MCP action list) and about 9,300 DOM nodes from 85 mounted modules**, plus a Next step band that says one thing: "Talk to the village elder." The band is the best part of it. | Counting routes is not the problem; the player must choose between three navigation systems (routes, list, the panels already open). |
 | UDF2 | **The Next step band disappears in Tingen.** After the first report and declining the dose, the band was removed and nothing replaced it. Both night-watch tasks stayed blocked with no pointer. | The one orientation device exists in one world. Every direction needs it everywhere. |
 | UDF3 | **One click grew Local actions from 7 to 22 entries** in Tingen. An irreversible dose offer sits beside spirit contracts and "Return to Tingen docks" rows that cannot run. | Centre density is set by whatever the last scene registered, with no "available now" fold. |
 | UDF4 | **Blocked reasons come in two grades.** "It costs 8 merit; you hold 0." names the cost; "The required knowledge, means or circumstances are missing." (both watch tasks) names nothing (UIW5 confirmed). | A structure that shows blocked rows must show a next move for each. |
@@ -234,3 +234,16 @@ Weibao, via the coordinator: abilities must not hardcode one path, and a charact
 Default: ladders are data rows in every direction and the ladder figure (`ability_ladder_figure.js`) draws any one of them. Dial: with more than four ladders, show the held ones as rows and fold the offered ones under one "Offered" line.
 
 Follow-up from Weibao: "not every world is a ladder either ... branching ... mix paths ... maybe tree for all of them?" The fixture's `ladders` rows now carry a `shape` (ladder, branch, field; wheel, web and none are allowed values). Village shows a ladder plus a field (everyday skills with no order); Tingen shows its two pathways as branches of one fork and merit as a ladder. Mixing paths is a world-owned risk and cost, so the mocks show the fork, not a mixed state. The shape chip is the only per-shape change in the list; drawing a tree or field belongs to the figure primitive's layouts (`figure.js` has tree and track layouts), and the test accepts any shape but requires at least one non-ladder example per fixture. Default: every direction lists paths with a shape chip and opens the matching figure; dial: a tree for all paths is the default drawing when a world has branches, a plain list otherwise.
+
+## Measured captures (headless, 1920×1080, `evidence/ui-directions-2026-10-30/capture-report.json`)
+
+Fonts computed at 14 px and 21 px as asked; the 14 px and 21 px PNGs differ byte-for-byte. Zero page errors across 20 captures. A, B and D hold all facts at 21 px with no clipped control; C's palette keeps eight rows at both sizes.
+
+| Direction | Visible controls | Text characters, Village / Tingen | DOM nodes | Note |
+| --- | --- | --- | --- | --- |
+| A | 19 / 17 | 1,271 / 1,785 | 149 | Fits at 21 px with room below; the lower third is empty because the mock holds first-screen content only, where the live shell fills it with more panels |
+| B | 14 / 12 | 1,146 / 1,698 | about 120 | Card and lists stay on one screen at 21 px |
+| C | 1 / 1 (plus 8 palette rows) | 851 / 1,246 | about 80 | The quiet screen sits under the modal palette; its header wraps at the narrow quiet column, a mock artefact |
+| D | 5 / 4 | 1,064 / 1,626 | about 120 | The notebook fills its column at 21 px; the map figure is a one-ring placeholder, so D's map table understates what a real map view would need |
+
+For scale, the live Village at 14 px shows 90 controls and 9,335 DOM nodes (above). Every direction drops controls on screen by about 4 to 90 times and nodes by about 60 times, because the mocks mount only what is shown; the live shell mounts 85 modules (UIW2), so that comparison favours the mocks and says nothing about the final cost.

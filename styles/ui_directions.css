@@ -66,7 +66,7 @@ body.ud-page {margin: 0; background: #05060f; color: var(--ui-text); font-family
 .ud-primary {border-color: var(--ui-accent) !important;}
 [data-direction="d"] .ud-root {background: radial-gradient(ellipse at 50% 40%, #2a1f12, #120d08); color: #f0e2c4; --ui-hairline: #8a6a3a; --ui-accent: #ffcf6a; --ui-teal: #3a2a14; --ui-navy: #1a130a; --ui-button-fill: #3a2a14;}
 [data-direction="d"][data-fixture="tingen"] .ud-root {background: radial-gradient(ellipse at 50% 40%, #1c2a2c, #0a1214); color: #d8e6e0; --ui-hairline: #b08d4a; --ui-teal: #14343a; --ui-navy: #0c1a1d; --ui-button-fill: #14343a;}
-.ud-desk {flex: 1; display: grid; grid-template-columns: 26% 1fr 20%; grid-template-rows: 1fr auto; gap: 12px; min-height: 0;}
+.ud-desk {flex: 1; overflow: hidden; display: grid; grid-template-columns: 26% 1fr 20%; grid-template-rows: 1fr auto; gap: 12px; min-height: 0;}
 .ud-notebook {background: #f1e6c8; color: #2a1c0c; padding: 16px 20px; transform: rotate(-.4deg); box-shadow: 4px 6px 0 #0006; min-width: 0;}
 .ud-notebook h2, .ud-notebook h3 {margin: 0 0 6px; font-weight: 400;}
 .ud-notebook .ud-rows li > b {min-width: 4em;}
@@ -81,4 +81,3 @@ body.ud-page {margin: 0; background: #05060f; color: var(--ui-text); font-family
 .ud-letters h2 {margin: 0; font-weight: 400;}
 .ud-letter {margin: 0; padding: 6px 8px; background: #f1e6c822; border-left: 3px solid var(--ui-accent);}
 .ud-satchel {grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; padding: 8px 12px; border-top: 2px solid var(--ui-hairline); background: #0003;}
-.ud-satchel .ud-vitals {min-width: 360px;}

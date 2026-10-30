@@ -16,7 +16,7 @@ export const COUNTS = {routes: 13, registeredPanels: 83, allPanelsList: 56, firs
 export const FIXTURES = {
     village: {
         id: 'village', title: 'Fresh Village life', place: 'Village', world: 'village',
-        clock: '01/04/999 08:00, Mon · ☼ Day', weather: '☀ Summer · Dry · 14.7 °C · comfortable',
+        clock: '01/04/999 08:00, Mon · ☼ Day', scene: 'Daylight falls across the village path.', weather: '☀ Summer · Dry · 14.7 °C · comfortable',
         nextStep: {text: 'Talk to the village elder.', how: 'In Local actions: Talk to someone, then Talk to village elder.'},
         vitals: {level: 0, xp: [0, 10], stamina: [40, 40], hp: [60, 60]},
         stats: [['STR', '12.0'], ['AGL', '8.0'], ['DEX', '10.0'], ['INT', '10.0'], ['Defense', '1.0'], ['Attack', '1.2']],
@@ -44,7 +44,7 @@ export const FIXTURES = {
     },
     tingen: {
         id: 'tingen', title: 'Tingen life, first hour (Nighthawk probationer)', place: 'Tingen supervised workroom', world: 'tingen',
-        clock: 'Day 1 09:00', weather: 'Local weather unavailable · Local date unavailable',
+        clock: 'Day 1 09:00', scene: 'You are at Tingen supervised workroom, North quarter.', weather: 'Local weather unavailable · Local date unavailable',
         // Real Tingen shell has no next-step line once the first report is made (band vanished after declining the dose); this one is a proposal.
         nextStep: {text: 'Find out what the night watch needs.', how: 'Both watch tasks are blocked. Warden Hale issues them; his attention is 6. (Proposed line.)'},
         vitals: {level: 0, xp: [0, 10], stamina: [40, 40], hp: [60, 60]},

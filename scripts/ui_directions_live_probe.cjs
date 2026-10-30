@@ -25,8 +25,8 @@ const out=process.env.YAIRPG_PROOF_DIR||'docs/audits/evidence/ui-directions-2026
   await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(300);
   await page.locator('[data-textline="what happened"]').click();await page.waitForTimeout(1300);
   res.village_dialogue=await measure();await page.screenshot({path:path.join(out,'current-village-dialogue.png')});
-  const w=await page.locator('.end_dialogue_button').count();if(w)await page.locator('.end_dialogue_button').first().click();
-  await page.waitForTimeout(400);
+  // The dialogue's end control can be hidden mid-conversation; a fresh page returns to the Village screen for the cross step.
+  await page.reload();await page.getByText('PLAY',{exact:true}).click();await page.waitForTimeout(1500);
   const cross=page.locator('button.location_choice_dropdown',{hasText:'Tingen'}).first();
   if(await cross.count()){await cross.click();await page.waitForTimeout(1500);
     res.tingen_after_cross_click=await measure();await page.screenshot({path:path.join(out,'current-tingen-cross.png')});
