@@ -53,6 +53,11 @@ runBrowser(async browser => {
     await row.locator('button').click();
     const inspector = await panel.locator('[data-owed="inspector"]').innerText();
     assert.match(inspector, /You owe the Market Circle 10 coins, due in 28 days\./); assert.match(inspector, /Settle: Repay it in Standing and ledger → Credit/);
+    // Round 2: late terms, the house ladder with your rung, and the due bar under the date words.
+    assert.match(inspector, /If late: after 3 days of grace the rate rises 2 points/);
+    assert.match(inspector, /Standing with the Market Circle: Neutral \(0\)\. 20 more reaches Friendly/);
+    assert.equal(await panel.locator('.owed-ladder [aria-current="true"]').innerText(), 'Neutral (you)');
+    assert.equal(await row.locator('[role="meter"]').getAttribute('aria-valuenow'), '100');
     await fits('borrowed'); await page.screenshot({path: `${evidence}/owed-borrowed-1920.png`}); say(`[${w}] earned row: ${(await row.innerText()).replace(/\s+/g, ' ')}`);
 
     // Named fixture owed-seeded: the same save, edited the way a long life would leave it.

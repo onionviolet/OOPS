@@ -5,6 +5,10 @@ import {readPort} from './ui_ports.js';
 import {fromHousehold, fromVillageCareer, obligation} from './obligations_ledger.js';
 import {grudgeNow} from './craft_grudge.js';
 import {gatherOwed} from './owed_ledger_view.js';
+import {DIALS, TIERS, DEEDS} from './economy_standing.js';
+
+const TERMS = Object.freeze({tiers: TIERS.map(t => t.label), cuts: DIALS.tierCuts.value, grace: DIALS.graceDays.value, ratchet: DIALS.ratchet.value,
+    defaulted: -DEEDS.defaulted.amount, paid: DEEDS.paid_debt.amount});
 
 // A kit still out on loan is a duty with a date in words, not coins yet (village_career.js turns an unreturned kit into debt).
 export function careerRows(career) {
@@ -20,5 +24,5 @@ export function readOwedLedger() {
     // The projection lists the household ledger newest first; the adapter reads the newest note from the end.
     const fortunes = [...fromHousehold(home ? {resentment: home.resentment, ledger: [...(home.ledger ?? [])].reverse()} : {}), ...careerRows(readPort('villageCareer'))];
     const grudge = standing?.state?.ledger ? grudgeNow(standing.state.ledger, standing.now) : null;
-    return gatherOwed({standing, fortunes, grudge});
+    return gatherOwed({standing, fortunes, grudge, terms: TERMS});
 }

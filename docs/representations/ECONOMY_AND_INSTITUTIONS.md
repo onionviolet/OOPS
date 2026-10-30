@@ -183,3 +183,229 @@ overdue first, then by date, then you-owe before owed-to-you.
 
 **Next slice:** settle-in-place for coin rows (K1 quotes from `economy_standing`), which also meets FLR4. After it, the O2 ladder
 figure on the Tingen path.
+
+## Round 2 (2026-10-30, review round per the [round 2 brief](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md))
+
+Everything in round 1 and here is the current best draft, open to refactor or replacement with a reason (AD45). Known limits and
+the likely next refactor are at the end of this section.
+
+### R2-1 How other games do it
+
+A Sonnet subagent studied these games; I reviewed the result. "(known)" means from play or docs, "(inferred)" means not checked.
+
+| Code | Game | What the player sees | Idea adapted |
+| --- | --- | --- | --- |
+| G1 | Mount and Blade | One relation number per lord and faction, plus renown (known). It is easy to read who is friendly, but the causes are thin, so it is hard to see why a number moved (inferred) | **Show the causes beside the tier.** Done: the inspector's "Recent:" line lists the last deeds that moved this house |
+| G2 | Patrician / Port Royale | Per-town price tables, route history, loan screens (known). Dense tables need learning (inferred) | **Price history as you saw it, dated and marked stale.** Planned for O3 counter rows (`memoryRows` has the fields) |
+| G3 | Kenshi | Standing is mostly felt through guard and shop behaviour (known). Hard to plan around (inferred) | **Standing speaks through behaviour beyond the ledger.** Already true in trade ("Standing in this price"). The Owed ladder adds the readable side |
+| G4 | Shadows of Doubt | Records tied to source documents, searched by cross-reference (known) | **Every account points at its paper.** "Kept by" names the keeper today; a later row can name the document (the O4 chit wallet) |
+| G5 | Crusader Kings III | Hooks and opinion modifiers as a list with sizes and decay timers (known). Long lists bury the one that matters (inferred) | **Decay clock per grievance.** Done: grievances read "no date; eases by 1 a season"; the list is sorted with what is due first |
+| G6 | Kingdom Come: Deliverance | Reputation per region, read partly from how you look (known) | **Rank shows on your gear.** Planned for O2: a clearance grade as a mark on the institution's issued kit |
+
+The house refs (Proto23, YAIR) have no debt ledger, so this is new ground and there is no baseline parity to keep (UR12, UR49).
+Prior OOPS docs that already cover pieces of this, in `THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md`, "Small contextual bars":
+- BD4 useful band: the standing ladder
+- BD5 free, held and proposed: future settle-in-place
+- BD7 stages: unequal rungs
+- BD8 stale reading
+- BD11 due boundary: the due bar
+- LD6 change has a baseline: the "Recent" causes
+
+**Abstraction underneath (proposal): a Claim.** A Claim is a holder, a counterparty, a kind, a value (an amount, a tier or a
+stage), since, a due or ease clock, causes, transferability and a settlement route.
+- A ledger is a filtered list of Claims.
+- A standing is a Claim valued as a tier.
+- A rank is a Claim valued as a stage, with merit as its currency.
+
+`obligations_ledger.js` rows already carry most of this. A Claim stays a read model and never becomes a second save state.
+
+### R2-2 Fresh-player test (the slice, as a first-time player)
+
+| Code | Finding | Change |
+| --- | --- | --- |
+| FP1 | The Ledger route opens a closed "Work ledger" disclosure, so a click hides the point | ACT NOW: the disclosure opens by default; collapsing stays with the workspace module |
+| FP2 | "Grievance 2" has no meaning on its own | The row's When column already says "eases by 1 a season", and the inspector names the cause. Kept |
+| FP3 | The Money column made a stranger compare numbers to nothing | ACT NOW: amounts are right-aligned with tabular figures, and a due bar sits under the date words |
+| FP4 | "What happens if I am late?" was unanswered | ACT NOW: the inspector states the late terms from the lender's own dials (grace, rate rise, standing drop; ECR21 forgiving defaults) |
+| FP5 | The term "standing" needed knowing | ACT NOW: the inspector shows the ladder of named rungs with "(you)", how far the next rung is, and what moves it |
+
+### R2-3 Space, split and density at 1920×1080
+
+- **Split:** the table and the pinned inspector stay side by side (3:2). That is a list beside a pinned inspector, which suits
+  a ledger (brief item 3).
+- **Density by frequency (UR42):**
+  - The glance is the tab count ("Owed 4") and the summary line.
+  - The rows are the working view.
+  - The ladder, causes and late terms sit one click away in the inspector.
+- **Merge, proposed (UR79):** the Standing and ledger panel's Credit lines answer the same question as Owed. Once
+  settle-in-place lands, Standing keeps houses, terms, insurance and prices, and its credit lines link to Owed. Not done here,
+  because Repay lives there today.
+
+### R2-4 Bars and small signals
+
+- **Due bar:** it answers "how much of the term is left". The words come first and the bar repeats them (UR37). It uses the
+  shared meter tokens (`--ui-meter-track`, and `--ui-meter-limit` when late), so it reads like other tracks (UR74).
+- **Standing ladder chips:** they answer "where do I stand with this house". These are rungs with words, not a scalar bar,
+  because the tiers are unequal bands (BD4, BD7).
+
+### R2-5 Pop-outs and the Electron app
+
+- **No pop-out.** Owed is a short read beside play, not a second-screen view.
+- **Badge (proposal, LATER):** an overdue account could join the attention badge. `src/host.js reportAttention` is one global
+  channel (leads), so this needs the coordinator's call on combining counts.
+- The renderer draws into the node it is given (`renderOwedLedger(parent, …)`), so a pop-out would work if one is wanted
+  (MDL13).
+
+### R2-6 Cheats and insight views
+
+- **Revealed view (proposal):** a continuing-insight cheat could reveal what the lender will actually do, such as the house's
+  hidden patience or whether the Gutter Crews send collectors. It would show as an extra inspector line marked "Insight:" and
+  sourced to the cheat card, under CS1 (a knowledge cheat goes to records).
+- **Today:** the late terms shown are public dials the lender states, so they are not cheat-sourced.
+- The developer inspector stays separate.
+
+### R2-7 Visual style
+
+- **Default:** a ruled ledger table in Luminous Gothic, with amounts in tabular figures, and in Neutral at 14 and 21 px with
+  effects off.
+- **Alternative (proposal, LATER):** a paper "account book" style, with ruled lines, a double rule above totals and a red ink
+  role for overdue, set through tokens as a world skin.
+- **Which reads better:** the account book suits merchant worlds; the default suits system worlds. The roles named for this
+  (R2-20) let one swap for the other.
+- Not built this round, because the figure gallery takes figures only and has no table fixture home.
+
+### R2-8 Use what we have
+
+The slice uses `obligations_ledger.js`, the `economy_standing` projection (credit, factions, deeds, claims), `craft_grudge.grudgeNow`,
+the household projection, the career port, `observer_view.CONTROLLED_ACTOR_ID`, the Work Ledger panel and its
+`syncChildren`/focus restore, and the meter tokens. It adds no new primitive: K3 and K6 are the coverage plan's own shapes.
+
+### R2-9 Unconventional option
+
+**Collectors walk in.** An overdue account becomes a person in the place panel: the Gutter Crews' collector stands in the
+Village with the debt as a dialogue choice (pay, ask grace, refuse). The world reacts instead of the ledger turning red.
+- **What it takes:** a scheduled visitor from the people schedules (sonnet wave) and a talk verb over `repayLoan`.
+- **Worth it:** yes, as a later slice once schedules land. It gives FLR4 a second consumer.
+
+### R2-10 Audit gaps
+
+- **Other seats:** parties come from `CONTROLLED_ACTOR_ID`, and a thin life sees the empty text.
+- **Lead's run:** LTU6 is covered for coin, grievance and duty. Favours wait for a writer, and the Due tab is B4.
+- **Persistence:** none changed.
+- **Accessibility:** tablist roles, `aria-pressed` filters, a meter role with a label, the row button named by its effect, and
+  `aria-current` on the rung.
+- **Performance:** the round 1 suite failures were checked by A/B. With the pre-change `work_ledger_ui.js`,
+  `cast_body_adapter` fails the same way at load average 161 (worker timeout at 165 s). The failures come from machine load,
+  not this slice. The A/B is the same test run back to back on the two `work_ledger_ui.js` versions. With the pre-change file
+  it failed at 168.5 s, and with this change at 165.5 s, both at load about 162. The panel re-read the projections on every poll,
+  so the account sources are now re-read at most every 500 ms unless a click forces a render (ACT NOW).
+
+### R2-14 Reports and the center
+
+- **Reports line (proposal; the time session owns the Reports shell):** taking, repaying and missing a loan each write one
+  subject-first line, for example "Market Circle · borrowed 10 coins, due in 28 days". It carries a coin glyph and links to the
+  Owed row. Today a borrow says so only in the Standing panel's status line.
+- **Center:** Owed opens in the center through the Ledger route and holds one table and one inspector, with no prose before the
+  actions.
+
+### R2-16 Folding into prior UI
+
+- **Done:** Owed lives inside the Work Ledger, whose details now open by default.
+- **Proposal for the coordinator:** rename the module "Work Ledger" to "Ledger", because it now holds accounts too.
+  - Saved layouts keep the id `ledger`, so pins survive (UR17).
+  - A one-time log line would say "The Work Ledger is now the Ledger: Work and Owed tabs" (UR13).
+- Not done here, because the module title is registered in `main.js`.
+
+### R2-17 Later volumes and worlds
+
+The view is data-driven:
+- **Kinds:** a new kind, house, lender or institution adds rows and labels, not code. Favours, sect contribution debts and
+  church merit owed fit as kinds.
+- **Ranks:** the ladder reads any tier list and cut list, so longer sequences and church ranks reuse it.
+- **Rows:** the 256-row cap in `obligations_ledger.js` and the filters scale to long lives.
+
+Checked:
+- Tingen merit and clearance rows from `book_world_lotm_merit.js` and `book_world_lotm_clearance.js` fit the O2 ladder.
+- The book world's credit (`book_world_primordial_credit.js`) writes `obligations@1` rows that this tab would read once its
+  host publishes them.
+
+Open:
+- Cross-world debts, which need ECR33 time horizons on the row.
+
+### R2-18 Form per part
+
+| Part | Form | Why the others fit worse |
+| --- | --- | --- |
+| Accounts | Table plus inspector | Accounts are compared by who, what and when. A ring or graph hides the comparison |
+| Standing | Ladder of named rungs | Tiers are ordered and unequal. A scalar bar implies equal steps |
+| Term left | Bar under words | One value, glanced often |
+| Ranks and clearance (O2) | Vertical ladder with grade rows | Ordered stages with gates. A tree would imply branches the church does not have |
+| Stock (O3) | Rows | Things you act on, compared by price |
+
+### R2-19 Levels and depth
+
+Standing shows its rung, the distance to the next rung, what moves it (deeds and their sizes) and what being late costs. The O2
+ladder carries ranks the same way. The glance stays shallow ("Owed 4").
+
+### R2-20 Roles for later flair
+
+The marks are named by role: `account`, `due`, `late`, `rung`, `rung-current`, `house`.
+- **A merchant world:** ink-ruled pages, a wax-seal glyph per house and a red-ink `late`.
+- **A sect world:** contribution jade slips, with rungs as carved tablets and `late` as a cracked slip.
+
+A motif pack restyles these roles without touching the adapter or the text form.
+
+### R2-21 Draft status
+
+Round 1's structure holds up for accounts: a ledger is the right shape. O2 stays a ladder and is not drawn as a figure, which is a
+deliberate change from round 1's "org figure" wording to a ladder track. It can be built as rows first and gain a figure only if
+rows prove too flat.
+
+### Round 2 lists
+
+- **ACT NOW (done):**
+  - FP1, the disclosure opens by default
+  - FP3, aligned amounts and the due bar
+  - FP4, late terms
+  - FP5, the house ladder with causes
+  - the A/B on the suite failures
+  - the subagent reference study
+  - a throttle on the account-source read (500 ms, forced on click)
+- **ACCOUNT FOR NOW:**
+  - Renaming the Ledger module needs the coordinator, because the title is set in `main.js`.
+  - The Reports line needs the time session's shell.
+- **LATER/DELEGATE:**
+  - **Settle-in-place:** sonnet, medium. Done when Repay from the inspector commits the quoted figure.
+  - **O2 ladder rows on the Tingen path:** sonnet, medium. Coordinate with the worlds session, which owns the workroom's
+    center density.
+    - The worlds session confirmed on 2026-10-30 that merit stays in the workroom's "Work & merit" tab and clearance in "Path".
+    - A `rep-organizations` session now exists. The O2 ladder may belong there, so the coordinator decides the owner before anyone
+      builds it.
+  - **Account-book style as a token skin:** sonnet, small. Done when it is captured at 14 and 21 px with effects off.
+  - **Collectors walk in:** sonnet, medium. Starts after the schedules wave.
+
+### Round 2 receipt
+
+**Files changed:**
+- `src/owed_ledger_view.js`: the house ladder, causes, late terms and term left
+- `src/owed_ledger_sources.js`: the standing dials passed in as terms
+- `src/ui/owed_ledger.js`: the due bar, the ladder and the late lines
+- `src/work_ledger_ui.js`: opens by default, plus the read throttle
+- `styles/settled_text_effects.css`
+- `tests/owed_ledger.test.js`: one new test, 9 in total
+- `scripts/owed_ledger_browser.cjs`: round 2 assertions
+- the evidence PNGs, recaptured
+
+**Checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/owed_ledger.test.js` | 9/9 pass | |
+| `npm run build` | pass | |
+| `npm run check:arch` | pass | |
+| `scripts/owed_ledger_browser.cjs` | PASS at 1920×1080, fresh origin, with the late terms, the ladder rung "Neutral (you)" and the due bar asserted | |
+| `cast_body_adapter` A/B | Same failure and duration with and without this change | The fix is a quiet machine |
+| Focused (AD36): `owed_ledger`, `obligations_ledger`, `economy_standing`, `craft_failure_ledger`, `palette_feedback`, `stepper_life_commit` | 35/35 pass | The full `npm test` was stopped on the coordinator's instruction (machine load 194); the coordinator runs it once at merge |
+
+**Delegation:** one Sonnet subagent did the reference-game and prior-docs study (R2-1). I built the code myself, because each
+piece was smaller than a brief. No Opus session was started.

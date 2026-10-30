@@ -78,3 +78,10 @@
 .owed-empty, .owed-hint, .owed-note { font-size: var(--ui-type-small); }
 .owed-table td, .owed-table th { overflow-wrap: normal; }
 .owed-table td:nth-child(2), .owed-table td:nth-child(3) { white-space: nowrap; }
+.owed-table .owed-amount { text-align: right; font-variant-numeric: tabular-nums; }
+.owed-due-bar { display: block; block-size: var(--ui-space-1); margin-block-start: var(--ui-space-1); background: var(--ui-meter-track-bg); }
+.owed-due-bar::before { content: ''; display: block; block-size: 100%; inline-size: var(--owed-left, 0%); background: var(--ui-meter-track); }
+.owed-late .owed-due-bar::before { background: var(--ui-meter-limit); }
+.owed-ladder { display: flex; flex-wrap: wrap; gap: var(--ui-space-1); padding: 0; margin: 0; list-style: none; font-size: var(--ui-type-small); }
+.owed-ladder > li { padding-inline: var(--ui-space-1); border: var(--ui-space-hairline) solid var(--ui-swatch-113); }
+.owed-ladder > [aria-current="true"] { border-color: var(--ui-accent); font-weight: bold; }

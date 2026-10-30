@@ -10,13 +10,20 @@ import {renderOwedLedger} from './ui/owed_ledger.js';
 export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}, readSettings, readOwed = readOwedLedger}) {
     if (!container || typeof read !== 'function' || typeof command !== 'function') throw new TypeError('Work ledger needs its native host, projection and command path.');
     const panel = document.createElement('details');
-    panel.id = 'work_ledger_panel'; panel.className = 'work-ledger-panel'; panel.open = false;
+    panel.id = 'work_ledger_panel'; panel.className = 'work-ledger-panel'; panel.open = true; // the Ledger route lands on its content (round 2 FP1)
     const summary = document.createElement('summary'); summary.textContent = 'Work ledger'; panel.append(summary);
     const body = document.createElement('div'); body.className = 'work-ledger-body'; panel.append(body);
     const notice = document.createElement('p'); notice.className = 'work-ledger-notice'; notice.setAttribute('role', 'status'); panel.append(notice);
     container.append(panel);
     let signature = '', busy = false, destroyed = false, chosenTab = null, owedFilter = 'all', owedSelected = null;
-    const owedNow = () => { let src = null; try { src = readOwed?.(); } catch { src = null; } return owedLedgerView({...(src || {}), filter: owedFilter, selected: owedSelected}); };
+    // Polled displays render often; the account sources are re-read at most every OWED_READ_MS unless a render is forced (a click).
+    const OWED_READ_MS = 500;
+    let owedSource = null, owedReadAt = -Infinity;
+    const owedNow = (force = false) => {
+        const t = Date.now();
+        if (force || t - owedReadAt >= OWED_READ_MS) { try { owedSource = readOwed?.() || null; } catch { owedSource = null; } owedReadAt = t; }
+        return owedLedgerView({...(owedSource || {}), filter: owedFilter, selected: owedSelected});
+    };
     const options = () => { if(readSettings)return readSettings(); const view = read(); return view?.settings || view?.state?.settings || {effects: 'reduced', sound: false, presentation: 'inline'}; };
     const effects = createSettledTextEffects({container: panel, readSettings: options});
     const cancelEffects=()=>{effects.cancel();cancelExternalEffects();};
@@ -42,7 +49,7 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
         if (destroyed) return;
         const host = container.isConnected ? container : container.id ? document.getElementById(container.id) : null;
         if (host && !workspaceOwns(panel) && panel.parentElement !== host) host.append(panel);
-        const view = read() || {}, state = view.state, owed = owedNow();
+        const view = read() || {}, state = view.state, owed = owedNow(force);
         // Attached or absent (proposed UR82): the panel shows where work can be taken or while any account is open.
         panel.hidden = !view.available && !owed.total;
         const next = JSON.stringify({view, busy, owed, chosenTab});

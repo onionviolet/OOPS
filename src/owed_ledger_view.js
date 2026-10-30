@@ -47,7 +47,7 @@ function dueText(due, row) {
 
 // One row as the player reads it. `due` is {daysLeft, overdue} when the writer keeps a date; `amount` may be a live figure (interest,
 // easing) supplied by the host so the tab never shows a stale balance.
-export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = null, amount = row.amount, now = 0} = {}) {
+export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = null, amount = row.amount, now = 0, house = null, late = null} = {}) {
     const name = id => id === actorId ? 'you' : labels[id] ?? PARTY_LABELS[id] ?? words(id);
     const direction = row.debtor === actorId || row.debtor === 'heir' ? 'owe' : row.creditor === actorId ? 'owed' : 'other';
     const party = direction === 'owed' ? name(row.debtor) : name(row.creditor);
@@ -58,6 +58,9 @@ export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = 
     const days = row.since > 0 && now >= row.since ? Math.floor((now - row.since) / DAY) : null;
     return {id: row.id, kind: row.kind, kindLabel: KIND[row.kind] ?? words(row.kind), direction, party, amount, amountText: what,
         dated: !!due, overdue: !!due?.overdue, daysLeft: due ? due.daysLeft : null, dueText: when, effect,
+        // Share of the term still left (0 when late), for a due bar beside the words; null without a dated term.
+        termLeft: due?.term > 0 ? Math.max(0, Math.min(1, due.daysLeft / due.term)) : null,
+        house, late,
         why: row.why || 'No reason was written down.',
         since: days == null ? 'Since: not recorded.' : days === 0 ? 'Since: today.' : `Since: ${plural(days, 'day')} ago.`,
         carries: row.carries ? 'Passes to an heir if it is still open when this life ends.' : 'Ends with this life.',
@@ -79,7 +82,7 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
     const seen = new Set(), all = [];
     for(const r of rows) {
         if(!r || seen.has(r.id)) continue; seen.add(r.id);
-        const v = owedRow(r, {actorId, labels, now, due: live[r.id]?.due ?? null, amount: live[r.id]?.amount ?? r.amount});
+        const v = owedRow(r, {actorId, labels, now, due: live[r.id]?.due ?? null, amount: live[r.id]?.amount ?? r.amount, house: live[r.id]?.house ?? null, late: live[r.id]?.late ?? null});
         if(v.amount > 0) all.push(v);
     }
     all.sort((a, b) => rank(a) - rank(b) || (a.id < b.id ? -1 : 1));
@@ -101,13 +104,29 @@ export function owedLedgerView({rows = [], live = {}, labels = {}, now = 0, acto
         note: 'This tab only reads. Each account is settled where its row says.'};
 }
 
+// A house's standing as a ladder (RPX18 glance): every rung named, yours marked, and what moves you to the next one.
+const DEED_WORDS = {trade: 'for trade', paid_debt: 'for a debt paid', defaulted: 'for a missed term'};
+export function houseLadder({label, score, tiers, cuts, paid, causes = []}) {
+    const at = cuts.filter(c => score >= c).length, next = cuts[at];
+    return {label, score, rung: tiers[at], rungs: tiers.map((t, i) => ({label: t, current: i === at})),
+        causes: causes.length ? `Recent: ${causes.join('; ')}.` : 'Recent: nothing has moved their regard yet.',
+        text: `Standing with ${label}: ${tiers[at]} (${score}).` + (next == null ? ' This is their highest regard.'
+            : ` ${next - score} more reaches ${tiers[at + 1]}; paying a loan in full on time adds ${paid}.`)};
+}
+
 // Host join over today's projections (pure, so tests feed it fixtures). `standing` is the economy_standing projection; `fortunes` are
 // rows from collectFortuneObligations; `grudge` is the eased verge grudge at `now` (craft_grudge.grudgeNow).
-export function gatherOwed({standing = null, fortunes = [], grudge = null} = {}) {
+// `terms` carries the standing rules' dials (tier cuts and labels, grace, ratchet, deed sizes) so this leaf imports no rules module.
+export function gatherOwed({standing = null, fortunes = [], grudge = null, terms = null} = {}) {
     const rows = [...(standing?.ledger ?? []), ...fortunes], live = {}, labels = {};
     for(const f of standing?.factions ?? []) {
         labels[f.id] = `the ${f.label}`;
-        if(f.loan) live[`credit:${f.id}`] = {amount: f.loan.owed, due: {daysLeft: f.loan.daysLeft, overdue: !!f.loan.overdue}};
+        if(!f.loan) continue;
+        const term = standing.credit?.find(c => c.factionId === f.id)?.termDays ?? null;
+        live[`credit:${f.id}`] = {amount: f.loan.owed, due: {daysLeft: f.loan.daysLeft, overdue: !!f.loan.overdue, term},
+            house: terms ? houseLadder({label: `the ${f.label}`, score: f.score ?? 0, tiers: terms.tiers, cuts: terms.cuts, paid: terms.paid,
+                causes: (standing.deeds ?? []).flatMap(d => (d.moves ?? []).filter(m => m.id === f.id).map(m => `${m.amount > 0 ? '+' : '−'}${Math.abs(m.amount)} ${DEED_WORDS[d.deed] ?? words(d.deed)}${m.backlash ? ' (their rival was favoured)' : ''}`)).slice(-3)}) : null,
+            late: terms ? `If late: after ${plural(terms.grace, 'day')} of grace the rate rises ${Math.round(terms.ratchet * 100)} points for the rest of the loan and standing drops ${terms.defaulted}.` : null};
     }
     for(const c of standing?.claims ?? []) if(standing.now != null) live[c.id] = {amount: c.amount, due: {daysLeft: Math.ceil((c.due - standing.now) / DAY), overdue: false}};
     if(grudge != null) live['craft:verge-grudge'] = {amount: grudge};

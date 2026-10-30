@@ -83,3 +83,21 @@ test('the tab renders text for every state and reports filter and selection', ()
     host.querySelector('[data-owed-row="claim:3"] button').onclick();
     assert.deepEqual(picked, [['f', 'owe'], ['s', null]]);
 });
+
+test('round 2: a credit row carries its term bar, late terms and the house ladder with causes', () => {
+    const terms = {tiers: ['Hostile', 'Cold', 'Neutral', 'Friendly', 'Honoured'], cuts: [-60, -20, 20, 60], grace: 3, ratchet: 0.02, defaulted: 6, paid: 3};
+    const fx = {...OWED_MIXED, terms, standing: {...OWED_MIXED.standing, credit: [{factionId: 'market_circle', termDays: 28}],
+        factions: OWED_MIXED.standing.factions.map(f => f.id === 'market_circle' ? {...f, score: 12} : f),
+        deeds: [{deed: 'trade', moves: [{id: 'market_circle', amount: 2}, {id: 'gutter_crews', amount: -1.2, backlash: true}]}]}};
+    const r = owedLedgerView({...gatherOwed(fx), selected: 'credit:market_circle'}).selected;
+    assert.equal(Math.round(r.termLeft * 28), 25);
+    assert.match(r.late, /after 3 days of grace the rate rises 2 points .* standing drops 6/);
+    assert.equal(r.house.text, 'Standing with the Market Circle: Neutral (12). 8 more reaches Friendly; paying a loan in full on time adds 3.');
+    assert.deepEqual(r.house.rungs.filter(x => x.current).map(x => x.label), ['Neutral']);
+    assert.equal(r.house.causes, 'Recent: +2 for trade.');
+    const dom = createDom(); dom.loadHTML('<html><body><div id="h"></div></body></html>');
+    const host = dom.document.getElementById('h');
+    renderOwedLedger(host, owedLedgerView({...gatherOwed(fx), selected: 'credit:market_circle'}));
+    assert.equal(host.querySelector('[data-owed-row="credit:market_circle"] [role="meter"]').getAttribute('aria-valuenow'), '89');
+    assert.match(host.querySelector('.owed-ladder [aria-current="true"]').textContent, /Neutral \(you\)/);
+});

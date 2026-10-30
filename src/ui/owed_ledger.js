@@ -32,8 +32,15 @@ export function renderOwedLedger(parent, view, {onFilter = () => {}, onSelect = 
             const who = el('button', `${r.direction === 'owed' ? 'From' : 'To'} ${r.party}`, el('td', null, tr),
                 {type: 'button', class: 'owed-pick', 'data-ledger-control': `owed-row-${r.id}`, 'aria-label': r.effect});
             who.onclick = () => onSelect(view.selected?.id === r.id ? null : r.id);
-            el('td', r.amountText, tr); el('td', r.kindLabel, tr);
-            el('td', r.dueText, tr, {class: r.overdue ? 'owed-late' : ''});
+            el('td', r.amountText, tr, {class: 'owed-amount'}); el('td', r.kindLabel, tr);
+            const when = el('td', null, tr, {class: r.overdue ? 'owed-late' : ''});
+            el('span', r.dueText, when);
+            // Due bar (item 4): the share of the term left, beside the words that already say it (UR37).
+            if(r.termLeft != null) {
+                const bar = el('span', null, when, {class: 'owed-due-bar', role: 'meter', 'aria-valuemin': '0', 'aria-valuemax': '100',
+                    'aria-valuenow': String(Math.round(r.termLeft * 100)), 'aria-label': `Term left: ${r.dueText}`});
+                bar.style.setProperty('--owed-left', `${Math.round(r.termLeft * 100)}%`);
+            }
         }
     }
     const inspector = el('aside', null, grid, {class: 'owed-inspector', 'data-owed': 'inspector', 'aria-label': 'Account detail'});
@@ -41,8 +48,15 @@ export function renderOwedLedger(parent, view, {onFilter = () => {}, onSelect = 
     if(!s) el('p', 'Choose an account to see why it is owed, since when, whether it passes to an heir and where to settle it.', inspector, {class: 'owed-hint'});
     else {
         el('h4', s.effect, inspector);
-        for(const [k, line] of [['why', `Why: ${s.why}`], ['since', s.since], ['carries', s.carries], ['source', `Kept by: ${s.source}.`], ['settle', `Settle: ${s.settle}`]])
-            el('p', line, inspector, {'data-owed-detail': k});
+        for(const [k, line] of [['why', `Why: ${s.why}`], ['since', s.since], ['carries', s.carries], ['source', `Kept by: ${s.source}.`], ['settle', `Settle: ${s.settle}`], ['late', s.late]])
+            if(line) el('p', line, inspector, {'data-owed-detail': k});
+        // The lender's regard as a ladder of named rungs, yours marked in words (RPX18 glance; depth stays in Standing and ledger).
+        if(s.house) {
+            el('p', s.house.text, inspector, {'data-owed-detail': 'house'});
+            el('p', s.house.causes, inspector, {'data-owed-detail': 'causes'});
+            const ladder = el('ol', null, inspector, {class: 'owed-ladder', 'aria-label': `Regard of ${s.house.label}`});
+            for(const rung of s.house.rungs) el('li', rung.current ? `${rung.label} (you)` : rung.label, ladder, rung.current ? {'aria-current': 'true'} : {});
+        }
     }
     el('p', view.note, root, {class: 'owed-note'});
     return root;
