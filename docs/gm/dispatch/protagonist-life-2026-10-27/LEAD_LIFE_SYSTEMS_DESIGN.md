@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD378 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD392 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -1052,3 +1052,41 @@ dispatched until Weibao says go.
 | LSD376 | **P1 Chance core** | Key helper that composes subject, period and changed factors (LSD363, LSD365); stratified streams for batches (LSD338); read-only check record for the inspector (LSD349). `src/check_resolver.js`, `src/seeded_streams.js`, their tests | Existing check golden fixture unchanged; a retry with a changed factor gives a new draw and an unchanged retry does not; a 100-run batch at 30% lands within 2 points |
 | LSD377 | **P2 Memory records** then **P3 Memory effects** | P2: the compact record (LSD372), fade curve, recall check, caps and folding (LSD354, LSD374), save migration, on `src/people_knowledge.js` and the relationship memories. P3: bond axes derived from episodes (LSD373), a reaction that names its episode (LSD333, LSD352), gossip copies along bonds (LSD356) | Save, reload and import round trip; the worst-case size test passes its budget; one ally reacts differently because of a remembered episode and names it, in a browser at 1920x1080 |
 | LSD378 | **P4-P8 Fights and the world around them** | P4 tempo runner on `src/native_battle.js` with waiting fights, surprise and mishap conditions (LSD307-LSD317, LSD341-LSD343). P5 allies by goals, orders and plans with chance (LSD319-LSD327). P6 crowd record and promotion (LSD366-LSD369). P7 backing out (LSD368). P8 calibration script against ch1-24 fights (LSD350) | P4: a fight saved mid-tempo resumes exactly after reload. P5: a hireling flees by goals in a replayable seed. P6: a witness promoted in a street fight is the same person on replay and remembers the player. P7: fleeing with each cost reachable. P8: a rate table exists |
+
+## 37. Game-master craft and subtle systems, recorded while cheap (Weibao 2026-10-29; proposal)
+
+Weibao: "MOre subtle systems and idea to record now while things are cheap? ideas from D&D game masters? Other
+stuff?" Checked 2026-10-29: the [rulebooks and GM considerations](../../../RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md)
+already hold the rulebook-level ideas (tag decks, faction turns, downtime, oracles and "pay the price", rulings ledger,
+storyteller styles, GM screen, session zero, clocks, three-clue rule, lazy-GM secrets). This round adds table craft
+those rows do not cover and applies it to the lead's life. Technique names are common tabletop practice, from general
+knowledge, not re-verified this pass.
+
+**How a good GM handles chance and information**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD379 | **Passive values for background noticing.** Noticing things nobody is actively looking for uses a fixed passive value (the 5e passive-perception idea), not a roll each minute; a roll happens only when someone actively searches. Reason: idle and montage time would otherwise run thousands of meaningless rolls (LSD371), and passive values make the result stable and testable | ACCOUNT FOR NOW: P1 |
+| LSD380 | **Secret rolls do not leak.** A failed search or read must look the same as there being nothing there: no "you notice nothing" only when something exists, no odds shown for a check the character does not know is happening. Reason: a leaky failure tells the player a secret exists, which breaks sealed secrets by the back door | ACCOUNT FOR NOW: UI and inspector rule |
+| LSD381 | **Let it ride.** Once a check settles a question, it stands until the situation changes (the Burning Wheel rule); asking again is not a new chance. This is LSD363 said as a table habit, and it applies to talk and research as much as to locks | ACCOUNT FOR NOW |
+| LSD382 | **First impressions are a reaction draw.** When two people meet, a keyed reaction (the old-school 2d6 reaction idea) sets the starting attitude from goals, appearance, reputation and mood, then stays as a fixed fact until events change it (LSD336). Reason: strangers should not all start neutral | ACCOUNT FOR NOW: with P3 |
+| LSD383 | **Tells and reads in talk, not only fights.** A lie, a bluff or a hidden worry leaks tells at the liar's skill; reading them is the listener's check (LSD342 for conversation). Reason: social play needs the same feint-and-read depth as combat | ACCOUNT FOR NOW |
+
+**How a good GM paces danger**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD384 | **Telegraph before lethal.** Serious danger shows signs first at the character's perception (a smell, a wrong silence, a warning from a neighbour), so death or maiming is rarely a surprise roll. Ties CBR27 and fate's traces (LSD240). Reason: a fair death is one the player could have seen coming | ACCOUNT FOR NOW |
+| LSD385 | **Soft move, then hard move.** A threat first warns or worsens a position (soft); if ignored, it lands (hard), as Apocalypse World's moves run. Idle threats escalate the same way over days: a debt collector's note, then a visit, then a beating. Reason: escalation gives the player time to act and makes consequences readable | ACCOUNT FOR NOW: with EP6 clocks |
+| LSD386 | **One time-pressure die per interval.** For dangerous stretches (a search in a ruin, a night watch, a long tail), one draw per interval picks from a few results: an encounter, a sign of one, a resource running down, fatigue, or a local change (the "overloaded encounter die" idea). Reason: one draw folds several pressures together, cheap for idle and lively for active play | LATER: with sites and exploration (SR rules) |
+| LSD387 | **The world does not scale to you, but it warns.** Threats are what the place holds, not matched to the player's strength; LSD384 telegraphs the mismatch. Reason: balance is not forced (AGENTS.md design framing), and running away is a real choice (LSD368) | ACCOUNT FOR NOW |
+
+**How a good GM keeps story moving**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD388 | **Clues and canon beats relocate when skipped.** If the player bypasses the scene that carried a needed clue or meeting, the fact moves to another route (another person, place or day) when its mechanisms allow, like a lazy GM's location-free secrets. This is how a canon thread's redundancy works (LSD243), and robust facts find a new route while fragile ones just fail. Reason: the story should not dead-end on a missed door | ACCOUNT FOR NOW: with threads |
+| LSD389 | **Flashback preparation.** The player can declare "I had bought a spare" or "I left a note" afterwards, if the log shows the character had the time, money and reason then; the cost is paid now, back-dated. As in Blades in the Dark flashbacks, with a check against the real log rather than a stress budget. Reason: it removes tedious pre-planning without breaking causality | LATER: needs P2 log reads |
+| LSD390 | **Spotlight for companions.** The director gives each bonded ally a scene of their own now and then (their goal, worry or past comes up), using their goals and memories (LSD324, LSD351). Reason: allies feel like people when the story turns to them sometimes | LATER: with the director (EP7) |
+| LSD391 | **Off-screen moves for survivors.** A named enemy who escaped does something between meetings (heals, gathers help, moves, plots), on the slow owner (RB2) with their goals and memories of the fight. Reason: a survivor who does nothing makes escape free | ACCOUNT FOR NOW: with P7 |
+| LSD392 | **Acting in character pays a little.** Choices that follow the character's stated beliefs, or the lead's book behaviour in a canon run, earn a small spendable resource (Burning Wheel beliefs, D&D inspiration), spent on a reroll of a margin draw or a better read. Under AD38 it is a world dial with an in-world reason (resolve, conviction), not a meta currency everywhere. Reason: it rewards playing the person, and gives canon play a reason beyond pull | LATER: design note |
