@@ -102,6 +102,12 @@ export const LAYOUT_SPEC = Object.freeze({
             Object.freeze({minWidth: 2800, areas: Object.freeze(['player focus focus log', 'inventory actions actions log']), columns: Object.freeze([420, 200, 700, 460])}),
         ]),
     }),
+    // COV2 / UR69 (2026-10-30): while a center view is open the side regions lend their width back.
+    // Default: You and Inventory keep their home column (`sideEm`, up to `sideMaxPct` of the board),
+    // Reports narrows to `logEm` (up to `logMaxPct`) and the open view takes the rest. Dial: a saved
+    // manual size wins (inline grid columns), and a fight or a selected subject keeps the full grid.
+    // Reason: at 1920 the view the player just asked for got 721 px of 1920. Text size scales the em.
+    centerLend: Object.freeze({sideEm: 24, sideMaxPct: 22, logEm: 27, logMaxPct: 22}),
     // Top-row fit (WX3). The top row takes what You needs, or the opponent cards in a fight, plus
     // a frame. Caps keep the bottom row useful. Rows that yield (secondary stats) may grow it only
     // to the R14 default, so at laptop sizes they yield before inventory and actions (R11 order).
@@ -303,6 +309,13 @@ export function gridTemplate({context = 'idle', atLeast}, spec = LAYOUT_SPEC) {
         columns: band.columns.map(c => `minmax(0,${c}fr)`).join(' '),
         shares: band.columns.map(c => `${(c / total * 100).toFixed(7)}%`),
     };
+}
+
+// COV2: the four column tracks while a center view is open (see `centerLend`). Track 2 is closed:
+// Inventory spans tracks 1-2 there, so it keeps its home width. `size` is the CSS length of one em.
+export function centerLendColumns(size = 'var(--shell-context-size,var(--ui-type-body))', spec = LAYOUT_SPEC) {
+    const {sideEm, sideMaxPct, logEm, logMaxPct} = spec.centerLend;
+    return `minmax(0,min(calc(${size}*${sideEm}),${sideMaxPct}%)) minmax(0,0px) minmax(0,1fr) minmax(0,min(calc(${size}*${logEm}),${logMaxPct}%))`;
 }
 
 // The box a panel belongs to, if any.
