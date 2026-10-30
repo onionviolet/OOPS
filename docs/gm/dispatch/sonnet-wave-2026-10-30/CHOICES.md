@@ -25,3 +25,5 @@ One place for every open question to Weibao. At most five are active. Each has a
 - Reading batches: Weibao said to send the remaining Codex reading batches (2026-10-30).
 - P3c start: done (`a25844ea`; P6 `03e82665`).
 - Body-model default: answered, HP stays overall and part damage matters where a rule reads it ([USER_VISION](../../../USER_VISION.md#injuries-overall-hp-plus-part-damage-where-it-matters-2026-10-30)).
+
+- **bk-hp Q1 (backlog):** Should a first-year charm fizzle? Default: yes, 40% at one drill falling 10 points per extra drill (HP adapter dial), with a visible "it fizzled" line and no lost material. Dial: world-wide chance, or per charm; or none for a gentler start.

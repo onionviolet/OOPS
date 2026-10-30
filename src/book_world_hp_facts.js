@@ -1,6 +1,7 @@
-import {hpSchoolLife,hpTradeLife} from './world_packs/book_hp_life_data.js';
+import {hpSchoolLife,hpTradeLife,hpSpellRows} from './world_packs/book_hp_life_data.js';
 // HP-local clock projection. Shared simulation owns all elapsed time, jobs and skill settlement.
 import {recurringWindow} from './world_rhythm.js';
+import {hpCharmRows} from './read_models/hp_charm_bridge.js';
 export function hpSchoolCalendar(state){
  const P='book.hp.school',opening=state.simulation?.knowledge?.player?.[P+'.opening'];
  if(state.actors?.player?.worldId!==P+'.world'||!opening)return null;
@@ -33,7 +34,8 @@ export function hpLifeStatus(state,context={}){
  if(contribution&&P.endsWith('school'))rows.push({label:'Classroom contribution',value:contribution.value});
  const inv=context.gameplay?.player?.inventory||{},count=n=>inv[JSON.stringify({id:P+'.'+n})]||0;
  if(P.endsWith('trade'))rows.push({label:'Owned stock',value:`${count('glass_shards')} complete fragment sets · ${count('glass_pane')} repaired panes`});
- for(const [id,p]of Object.entries(state.simulation.powers.player||{}))if(id.startsWith(P+'.'))rows.push({label:id.endsWith('levitation')?'Feather levitation':'Glass repair',value:`${p.owned?'learned':'not learned'} · ${p.mastery} practice steps · ${p.executions} executions`});
+ if(P.endsWith('school'))rows.push(...hpCharmRows(state,hpSchoolCalendar(state),hpSpellRows));
+ else for(const [id,p]of Object.entries(state.simulation.powers.player||{}))if(id.startsWith(P+'.'))rows.push({label:'Glass repair',value:`${p.owned?'learned':'not learned'} · ${p.mastery} practice steps · ${p.executions} executions`});
  return rows;
 }
 
