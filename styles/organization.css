@@ -1,0 +1,16 @@
+/* Organization overview in the Market courtyard panel (ORGANIZATIONS.md). Tokens only (UR6); state is in words, colour repeats it (UR37). */
+.organization-overview { display: grid; gap: var(--ui-space-3); margin-block: var(--ui-space-2); }
+.organization-summary { font-size: var(--ui-type-body); }
+.organization-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--ui-space-3); align-items: start; }
+.organization-table { width: 100%; border-collapse: collapse; font-size: var(--ui-type-body); }
+.organization-table th { text-align: left; font-size: var(--ui-type-small); }
+.organization-table td, .organization-table tbody th { padding: var(--ui-space-1); border-bottom: var(--ui-space-hairline) solid var(--ui-swatch-113); vertical-align: top; }
+.organization-table [aria-selected="true"] { outline: var(--ui-space-hairline) solid var(--ui-accent); outline-offset: calc(-1 * var(--ui-space-hairline)); }
+.organization-table button[aria-pressed="true"] { border-color: var(--ui-accent); text-decoration: underline; text-underline-offset: var(--ui-space-1); }
+.organization-inspector { border-inline-start: 2px solid var(--ui-swatch-114); padding-inline-start: var(--ui-space-3); }
+.organization-inspector h4, .organization-overview h3 { margin-block: 0 var(--ui-space-2); }
+.organization-ops ul { margin: 0; padding-inline-start: var(--ui-space-4); }
+.organization-strip { display: flex; flex-wrap: wrap; gap: var(--ui-space-4); align-items: baseline; }
+.organization-standing meter { inline-size: 12em; margin-inline: var(--ui-space-2); vertical-align: middle; }
+.organization-note, .organization-ops small { font-size: var(--ui-type-small); }
+.organization-table tbody th button { white-space: nowrap; }

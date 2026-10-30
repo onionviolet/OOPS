@@ -1045,13 +1045,6 @@
       "count": 1
     },
     {
-      "key": "src/management/ui.js|foreign-host|ae1d6034062d9e90",
-      "path": "src/management/ui.js",
-      "rule": "foreign-host",
-      "snippet": "const host=document.getElementById('location_actions_div');if(host&&element.parentElement!==host)host.append(element);",
-      "count": 1
-    },
-    {
       "key": "src/misc.js|color|00b78cc3e57cb5d3",
       "path": "src/misc.js",
       "rule": "color",

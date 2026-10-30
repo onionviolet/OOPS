@@ -12,6 +12,7 @@ import {mountCharacterSheetGallery} from './character_sheet_gallery.js'; queueMi
 import {BODY_FIXTURES} from './fixtures/body.js'; FIGURE_FIXTURES.push(...BODY_FIXTURES);
 import './fixtures/knowledge.js';
 import './fixtures/research.js';
+import {FIGURE_FIXTURES_ORGANIZATIONS} from './fixtures/organizations.js';
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};
@@ -33,6 +34,7 @@ document.body.append(bar, main);
 
 for (const spec of [...FIGURE_FIXTURES, ...FAMILY_FIXTURES]) {
 for (const spec of [...FIGURE_FIXTURES, ...MAP_FIXTURES]) {
+for (const spec of [...FIGURE_FIXTURES, ...FIGURE_FIXTURES_ORGANIZATIONS]) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));
     const pair = el('div', {class: 'fig-gallery-pair'});
