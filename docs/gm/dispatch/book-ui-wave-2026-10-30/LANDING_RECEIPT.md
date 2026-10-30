@@ -20,15 +20,18 @@ One batch, thirteen lanes, merged in a single integration branch and landed with
 | bk-making-ui | 47b492d6f | landed | design round and fixtures |
 | bk-forms | 8372b2c2f | landed | first tip held: conflict with master's RPX11 `people_ui.js` rewrite; rebased by the lane |
 
+CLR3: added lines in tracked `src/`, `tests/` and `scripts/` carry no canon names that master does not already ship (Cyoria 840 tracked lines on master, Klein 53); one `Klein` is a browser-script click on an existing control and ss's test asserts canon words are absent.
+
 Conflicts resolved by hand (all append-only or one side clearly stale): `CHOICES.md` (kept master queue, added Whole-UI direction), `ECONOMY_AND_INSTITUTIONS.md` (kept both sections), `fixtures/manifest.js` (kept every registration line; `benefits` and `making_forms` added there after `figure_gallery.js` became manifest-based), `figure_gallery.js` (master's skin cells plus forms' `?form=` switch).
 
 ## Gate (merged tree, all through `slot_run.mjs`)
 
 - `npm run build`: exit 0 (bundle v0.6-c51c427de436, not committed).
-- `npm run check:arch`: exit 0. `npm run check:rules`: exit 0.
+- `npm run check:arch`: exit 0. `npm run check:rules`: exit 0 (PASS, 17 receipts checked), rerun on the landing tree including this receipt.
 - `npm test` on the merged tree before the last lane tips: 4797 tests, 4789 pass, 8 fail. Classified:
-  - On bare master too: `facts_frame` (1), `market_life` (2), `world_lead_pipeline` (1), `ui_contract` (only `style.css` hits; master's working copy carries an uncommitted deletion that clears them), `stylesheet_manifest` test 2 (committed `index.html` lacks `cheat_faculty.css`; a rebuild clears it, verified passing after build).
-  - Load-dependent, also failing on a bare-master worktree: `cast_inference_adapter`, `cast_journeys` (disposable-copy workers hit their time limit under machine load of 70-150; 276 s run before failing). Not a lane bug; recheck when the machine is quiet.
+  - On bare master too: `facts_frame` (1), `market_life` (2), `world_lead_pipeline` (1), `ui_contract` (only `style.css` hits; master's working copy carries an uncommitted deletion that clears them).
+  - `cast_inference_adapter` test 6 and `cast_journeys` test 16: paired run at the same time and load on bare master `99d997eaa` and on this tree gave the identical two failures (14 of 16 pass on both). They fail on master, not a lane regression; the disposable-copy workers run 270+ s under machine load of 70-150, so recheck on a quiet machine.
+- `stylesheet_manifest` "index.html loads each manifest stylesheet" fails on the committed `index.html` (also on bare master, which lacks `cheat_faculty.css`; this tree adds the `working_state.css` link) and passes after `npm run build` regenerates `index.html`; it was not among the full-suite failures because the gate build ran first.
 - Tips that changed after that suite ran (bk-gaps `ba24c2bb0`, bk-ui-directions `f384a890e`, bk-mol, bk-forms) were verified by focused tests only: stylesheet_manifest, working_state, palette_browse, ui_directions, ui_contract (only `style.css`), player_text_hygiene, figure_forms, 83 lane tests together.
 
 ## Floor state
@@ -39,4 +42,4 @@ Implemented, below floor unless the lane's own evidence says otherwise: seams (n
 
 - Whoever commits the rebuilt `dist/` and `index.html` also picks up the `working_state.css` link.
 - Rerun the two cast tests on a quiet machine.
-- `bk-recon`: ledger rows for the lanes above (RC1-RC7 and the lane rows) change from "unlanded"/"uncommitted" to landed with these tips.
+- `bk-recon` rows: RC1 coi landed, RC2 hp landed (below floor), RC3 mol landed (below floor), RC4 ss landed (below floor), RC5 party landed, RC6 gaps landed, RC7 rebase done for all (landing is on current master); scout, seams, ui-directions and benefits had no row and are now landed.
