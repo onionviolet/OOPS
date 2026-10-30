@@ -26,7 +26,7 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 | Id | View wants | Engine has | Who |
 | --- | --- | --- | --- |
 | G1 | Witness ladder needs the rung index another person was seen at | L8 `power` entries are `{path, level, title}` with no stage id; a Sequence number counts down, so index is not derivable | L8 adds `stage` (stage id from the path) to `power.v`, or L10 exposes a level-to-stage map |
-| G2 | Abilities held per rung (ladder home, sheet glance) | `abilityViews` filters by held source only; no rung-to-ability index | L10: carry `rung` on each card |
+| G2 | Abilities held per rung (ladder home, sheet glance) | L10 `advanceLadders` now returns abilities per rung; bridge does not consume it until a rep view asks | rep-abilities: ask for per-rung abilities |
 | G3 | Combat threat rung "hurt, downed, maimed, dead" | `harmView().rung` is always `null`; `harmRung` exists but nothing feeds it in-fight. Bridge takes `rungOf` as an argument (importing `harm_state.js` would register a domain) and reaches at most `dying` (AD19) | L9/combat: feed a current-hp fraction into `harmView`; rep passes `harmRung` in |
 | G4 | Typed fight outcomes (unconscious, yielded, fled, dead; CBR2, CBR5) | none on master; `defeated` boolean only | L9. The bridge maps the four words and falls back to `Down` |
 | G5 | Intent from an opponent's readied ability | no "readied ability" state anywhere; no appraisal read object | L10 (readied state) and the knowledge owner (read with a source). Bridge takes both as inputs |
@@ -37,7 +37,7 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 | G10 | Sheet rows tagged as guesses | `subject` rows have no `guess` field; the rep marks guesses only per read | rep-character-sheet: honour `row.guess` (bridge emits it) |
 | G11 | `appearance`, `ties`, `history`, `intent`, `between` | L8 sheets have none; `links` are pointers owned by `sw-absorb` | sw-absorb joins them from cast records; bridge leaves them empty |
 | G12 | Stats as exact numbers | L8 bands are 0 to 9 and coarse; rep bands numerics to 10/5/2/1 | rep: treat world bands as already banded (read precision 3 shows the band) |
-| G13 | Body parts and cures | `harmView().parts` is `[]` in slice 1 and its entry shape is not fixed; no `healPart`, so no cures or time left. Bridge assumes `{id, rung, cause?, gates?[]}` and shows "eases with rest" | L9: fix the part entry shape when the first combat consumer lands |
+| G13 | Body parts and cures | CLOSED for parts (L9 5351071b2): `parts[{id,label,rung,rungLabel,modifiers[],recovers}]`, graded not gated; bridge shows the modifier axes as the felt line. Still open: cures (no cure verbs from L9; the rep's cure list comes from simulation commands) and `time left` (rest rate only, no duration) | L9/body owner: cure commands for `healPart` if the rep should list them |
 | G14 | Gatherings on a board or web (L11 `gatherings.js`) | `seatsOn` returns `{seatId, label: seatId}` only: no persona name, standing or schedule text; no rep branch names a gathering contract | rep-organizations/relationship-web: name the contract; L11: seat labels. No bridge yet |
 | G15 | Digest `Missed` row | rep reads `feed.heard`; L14 splits witnessed (`present`) from heard by `level`. Bridge maps present to Around, heard to Missed | rep-time: confirm that split |
 | G16 | Wording for event rows | L14 holds `lineKey` only; text is pack data. Bridge takes a `textOf` callback and drops unworded events | sw-calendar/sw-absorb: supply the pack lookup at the host |

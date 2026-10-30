@@ -69,14 +69,14 @@ test('legs: rep-maps contract fields, unknown places dropped, hazards and hours 
 
 const harm = {carriers: [{id: 'power', label: 'Power strain', count: 7, stage: 'slipping', stageLabel: 'Slipping', blocked: ['ritual', 'research'], recovers: {rest: .25, treated: 1}},
     {id: 'calm', label: 'Calm', count: 0, stage: 'steady', stageLabel: 'Steady', blocked: [], recovers: {rest: 1, treated: 1}}],
-    rung: 'wounded', parts: [{id: 'hands', rung: 'bruised', gates: ['craft', 'fight']}], lastDeath: null};
+    rung: 'wounded', parts: [{id: 'hands', label: 'Hands', rung: 'bruised', rungLabel: 'Bruised', modifiers: [{axis: 'accuracy', mult: .9, cause: 'Hands: Bruised'}, {axis: 'fineWork', mult: .8, cause: 'Hands: Bruised'}], recovers: {rest: .5, treated: 1, trained: 1}}], lastDeath: null};
 
 test('body: harm becomes the bodyViewModel shape; steady carriers stay silent; other seats get nothing', () => {
-    const v = bodyViewFromHarm(harm, {partLabels: {hands: 'Hands'}});
+    const v = bodyViewFromHarm(harm);
     assert.deepEqual(Object.keys(v), ['title', 'glance', 'parts', 'milestones', 'empty']);
     assert.deepEqual(v.parts.map(p => p.slot), ['whole', 'part:hands', 'carrier:power']);
     assert.equal(v.parts[1].now[0].label, 'Bruised hands');
-    assert.equal(v.parts[1].now[0].felt, 'Makes craft, fight harder.');
+    assert.equal(v.parts[1].now[0].felt, 'Affects accuracy, fineWork.');
     assert.equal(v.parts[2].now[0].felt, 'Blocks: ritual, research.');
     assert.equal(v.glance.length, 3);
     assert.equal(bodyViewFromHarm(harm, {self: false}), null);

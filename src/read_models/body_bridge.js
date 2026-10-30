@@ -1,7 +1,8 @@
 // Bridge: L9 harm read (harm_state.js harmView) -> rep-body view model (claude/rep-body, body_figure.js bodyViewModel; BODY_AND_CONDITIONS.md "Harm owner switch-over").
 // Pure. Output is bodyViewModel's shape {title, glance[], parts[{slot, label, now[], lasting[]}], milestones[], empty} so renderBodyView needs no change.
 // Only the owner's own view is built here: harm (carrier stage, overall rung, part injuries) is felt, not seen, so for another seat it returns null (nothing shown, nothing invented).
-// Part injuries are the optional field from Weibao's middle path (HP plus parts only where something reads them): harmView.parts entries {id, rung, cause?, gates?[]}.
+// Part injuries are the optional field from Weibao's middle path (HP plus parts only where something reads them): harmView.parts entries
+// {id, label, rung, rungLabel, modifiers:[{axis, mult?, add?, cause}], recovers:{rest, treated, trained}} (L9, graded, not gated).
 
 const RUNGS = ['shaken', 'bruised', 'wounded', 'maimed', 'dying'];
 const word = s => String(s).replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
@@ -9,7 +10,7 @@ const EMPTY = 'Nothing is troubling this body right now. Training, work and inju
 
 /**
  * harm: harmView(save) result {carriers[], rung, parts[], lastDeath}. options: {self (default true), partLabels: {id: label}, milestones: []}.
- * Carrier stages named 'steady' (floor) say nothing. A part's `gates` (action classes it blocks) are passed as the felt line.
+ * Carrier stages named 'steady' (floor) say nothing. A part's modifier axes are the felt line ("Affects accuracy, force."); the numbers stay with the quote.
  */
 export function bodyViewFromHarm(harm, {self = true, partLabels = {}, milestones = []} = {}) {
     if (!self || !harm) return null;
@@ -21,9 +22,9 @@ export function bodyViewFromHarm(harm, {self = true, partLabels = {}, milestones
         add('whole', 'Whole body', r); glance.push({id: r.id, label: r.label, slot: r.slot, time: r.time, level: r.level});
     }
     for (const part of harm.parts ?? []) {
-        const label = partLabels[part.id] ?? word(part.id), slot = `part:${part.id}`;
-        const r = row(`harm.part.${part.id}`, `${word(part.rung)} ${label.toLowerCase()}`, slot, {level: RUNGS.indexOf(part.rung) + 1 || null,
-            felt: part.gates?.length ? `Makes ${part.gates.join(', ')} harder.` : null});
+        const label = partLabels[part.id] ?? part.label ?? word(part.id), slot = `part:${part.id}`, axes = [...new Set((part.modifiers ?? []).map(m => m.axis))];
+        const r = row(`harm.part.${part.id}`, `${part.rungLabel ?? word(part.rung)} ${label.toLowerCase()}`, slot, {level: RUNGS.indexOf(part.rung) + 1 || null,
+            time: part.recovers?.rest > 0 ? 'eases with rest' : 'does not ease by itself', felt: axes.length ? `Affects ${axes.join(', ')}.` : null});
         add(slot, label, r); glance.push({id: r.id, label: r.label, slot, time: r.time, level: r.level});
     }
     for (const c of harm.carriers ?? []) {
