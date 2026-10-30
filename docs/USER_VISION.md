@@ -6997,3 +6997,8 @@ Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options 
 - Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
 
 ## Pathway card, ladder and map; switching and life outside the lead later (2026-10-30)
+
+Weibao: "Also need to consider stufff like switching pathways and more but that might be long term stuff, also will eventually need to figure out adding content outside of the main character's life and omre for external playthroughs? More to consider? The card + ;adder is good, along with the map, but all depends on how well the implementation is".
+
+- **Accepted, quality-gated:** the pathway card with its ladder (Round 10 and 11 of the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md)) and the world map tied to journeys. Acceptance of the result depends on how well they are built; the gates are in that plan's Round 12.
+- **Long term:** pathway switching, and content outside the lead's life for other playthroughs. Considerations are saved in Round 12.
