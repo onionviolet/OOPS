@@ -114,12 +114,15 @@ Weibao, via the supervisor: "send out and finish the other sonnet works too, fro
 | Proof scripts (talk, ledger, items, family, body, combat, walk, workroom) | 8 of 8 reached unpatched, `da8e7acc` |
 | Token migration and VSX1 style guide | `18ee8ef7`, `80f548e06`, `67d0ef76b`; full suite cut short by load (failures outside these files) |
 | ABILITIES F1 rung-name leak | Fixed here: a fresh life sees its rung and the next; regression in `tests/lotm_advancement.test.js` |
-| Homes and bases representation | Worker running; owns RC46/RC47 home files |
-| Wiring follow-ups (You panel, Repay, opponent card, People-card dedup) | Worker running |
+| Homes and bases representation | Home at a glance `58b0f84cd`, implemented, below floor (full suite and fold into Homes open) |
+| Wiring follow-ups (You panel, Repay, opponent card, People-card dedup) | `a5387f552`, `2b3d2f5cb`, `c5897cf66`, `501c26434`; full suite pending |
+| COV2 centre width | `f9736d8ac`: open centre panel 721 to 1130 px at 1920, 14 px type |
+| COV3 text walls | `7528c7511`: Effects & sound 857 to 78 words; three more views roughly halved |
+| Full suites | The load gate (12) starves queued suites at load 45-90; lanes commit on focused tests plus browser proof, and one batch suite is queued over all of it |
 | Abilities G17 Skills tab, relationships G18 Knows plus bars | Sent to `rep-abilities` and `rep-relationship-web` (switched to Sonnet), with L13 bridges `learn_tab_bridge`, `knows_ask_bridge` |
 | Companions | Moved to book-UI wave `bk-party` |
 
-Queue, in order. Each stops at weekly 70%, and the rest wait for the 2026-11-02 reset. Source: [coverage audit](../../../audits/gap-audit-2026-10-30/ui_cov.md).
+Queue, in order. Stop line raised to weekly 90% (Weibao 2026-10-30, "Raise to 90, for the ability UI and more", USER_VISION 0f2ef3cb7). COV3 started first because COV2 waits on the homes layout_spec hunk. Source: [coverage audit](../../../audits/gap-audit-2026-10-30/ui_cov.md).
 1. COV2 width back to the centre, plus COV3 three worst text walls into tables or rows (one worker; layout_spec after homes lands).
 2. COV4 open the best figures by default, and non-node forms (Owed table, threshold card, TC2 band, chip and bar rows).
 3. COV5 one "where am I" view; COV6-COV12 labels, verb-first buttons, Effects board, empty-state rule, Reports column, Condition and Inventory merge.
