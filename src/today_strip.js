@@ -77,3 +77,10 @@ function createTodayPanel() {
 
 let panel = null;
 registerDomain({id: 'today', deps: [], initialState: () => null, refresh: () => panel?.render(false), panels: [() => { panel = createTodayPanel(); }]});
+
+// COV11: the few lines the Reports column shows while the log is still short. Same readers as the Today tab.
+export function todayDigest() {
+    if (!here()) return null;
+    const view = readToday();
+    return {clock: view.clock, place: view.place, open: view.rows.filter(r => r.open).map(r => r.name), running: view.work};
+}
