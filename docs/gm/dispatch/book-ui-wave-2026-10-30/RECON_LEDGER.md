@@ -138,12 +138,37 @@ Source: `implemented, below floor` or `read model only` in `docs/gm/dispatch/pro
 | RC72 | `docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/*.md` (9 files, 286 lines) | `cee7415e1` folded 141 intake lines; `sw-death.md` changed after that (`bbac84c50`, L9 slice 5) and `sw-wire.md` has 0 folded marks | Sonnet (`sw-gaps` sweep) | Rerun the sweep; done when each bullet has a `[folded: …]` mark. |
 | RC73 | `docs/gm/dispatch/start-sources-2026-10-14/ideas/CHECKPOINT.md` | complete, document-only | Book UI | Nothing owed. |
 
+## Owner replies folded in (current state per code)
+
+| Code | Update | Owner now | Next step |
+| --- | --- | --- | --- |
+| RC8 | GenUI: obsolete, master's gallery has no such link | GenUI | Drop; branch joins the cleanup batch. |
+| RC15-RC28 | GenUI checked by content (each commit 0-13% missing, explained by later edits; rituals `57c8e648` 84/229 replaced by its round 2); Sonnet confirmed `3287d6a2` is on master as `09901eab` | GenUI, Sonnet | Whole CB-S tier confirmed by content: nothing unique remains. |
+| RC9 | G17 Skills tab built, uncommitted; commit follows one queued full suite; host patch `skills-tab-host.patch` sent to floor-wire (new unapplied patch); below floor at FLR4 | rep-abilities | Commit after the suite. |
+| RC42 | `gate-wire` was made by sw-wire, not floor-wire, idle since | sw-wire (Sonnet) | Sonnet asks sw-wire; then CB-D. |
+| RC44 | p4-fights commits its own set after the 1920x1080 run and one gated suite. Set: `tempo_*` (3), `tempo_allies.js`, `clock_owner.js`, its `enemy:Enemy` hunk in `main.js`, 2 tests. `stepper_batch_validation.test.js` and the `validateEnvelopeInBatch` hunks in `main.js` are perf-waits'. | p4-fights, perf-waits | p4-fights tells bk-party when it lands. |
+| RC45 | p3c-memory has the row (queued, no reply yet) | p3c-memory | Commit set together. |
+| RC46, RC47 | A homes worker under GenUI is finishing its suite, then commits `home_overview_*`, `ui/home_view`, `home_view.css`, test and probably the `home_domain`, `home_building_model`, `layout_spec` hunks. `index.html` hash lines: whoever next builds. `styles/manifest.txt`: tooling-defaults. | GenUI homes worker | Commit. |
+| RC49 | `book_world_lotm_path.js` closed (`14b99beee`); `clock_owner.js` is p4-fights' (RC44); `tests/lotm_advancement.test.js` to floor-wire | p4-fights, floor-wire | Commit or drop. |
+| RC50 | Closed: coverage ledger diff gone from master | none | none |
+| RC51 | `DESCRIPTION_LINT_2026-10-26.md` is `check:descriptions` output | ui-defects `local_2ad52aaa` | Commit it with its run. |
+| RC52 | Leave `src/lotm_summons_rows.js.bak` and `p51/` in place; list for Weibao's yes; Book UI asks the "Sonnet chat wave planning" session (`local_e9811a9a`) whose they are | Book UI | Question sent before deletion. |
+| RC53, RC70 | Done in `ebf3abcd3`. Left out: `cast-lives-lanes/be_seat_floor_probe.cjs.txt`, owner unknown. Sonnet wave briefs (L4_LUNA_V2a3-6, `l8-briefs`) route to the Sonnet wave coordinator. | Indexing (done); Book UI for the probe file | Ask Sonnet who wrote it. |
+| RC55 | Applied in `14b99beee` | none | Closed. |
+| RC56 | floor-wire: not applied, not reviewed, queued behind divination, second city, L9, news; one receipt line each when reached | floor-wire | Route to Book UI if sooner is wanted. |
+| RC57 | `ROUND2_ACTIVE_UI_AMENDMENT` superseded (targets retired 1800x1040 and 1536x864; standing target is 1920x1080); `r3-proposed-regression` already applied | GenUI | Close both. |
+| RC58, RC72 | Route to the Sonnet wave coordinator (C2 card-builder patch, `sw-gaps` ideas sweep) | Sonnet wave coordinator (`local_e9811a9a`) | Apply or close; rerun sweep. |
+| RC60, RC65, RC67, RC68 | floor-wire: host-wired no, browser proof no for AD2, B1, CH1, CR1, CR2, D1, D2, DV1, H1, H2, MK1, S1, G1, T1, T2, GM40 seam, L9 slices 2-5. L9 wiring hunk is in HEAD (`fe6a8e17c`); left: `context.harmSave`, `harmActionClass`, accrual, tick, `loopPlan`. Divination (L4) played once at 1920x1080 and is still below floor (no fact supplier, import not exercised). Bridges for bk-mol, bk-ss, bk-hp registration go to floor-wire one at a time. | floor-wire | Queue per its O1 order. |
+| RC63, RC64, RC66 | sw-bridge (inference, lanes not opened): bridges exist for MF_ABILITY and MF_BODY (consumer: UI integrator at abilities and body views). No bridge for L3M, L4A-E, MF_DIVINATION, MF_INFERENCE, MF_EXCHANGE, MF_MAKING and L-A slices: read-model-only, consumer owner the lane owner, then floor-wire. | sw-bridge, floor-wire | Send sw-bridge a read-model function plus a rep contract per slice it should bridge. |
+| RC69 | GenUI writes next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME after its workers land; rep-abilities and rep-relationship-web write their own | GenUI | Done check: each doc has the line. |
+| RC1-RC7 | bk lane messages not delivered (send limit); see the notes folder `bk-recon-report.md` | Book UI forwards | Forward. |
+
 ## Cleanup batch for Weibao's yes (nothing removed)
 
 Worktrees only (33 of 42). Two tiers, because only patch-id equality or ancestry proves content landed; subject matching proves the message landed, and the whole-diff reverse check failed for all 18 unmerged-by-subject branches (master has since edited the same shared files).
 
 - **CB-P, proven landed, no live session (17):** codex q1, q2, q3, q6, q7, q8, q10, q11, q12, q15 (RC32-RC41); `lotm-entrance`, `m2-blocked-reasons`, `ui-integration` (RC29-RC31); `rep-items`, `rep-mixing`, `rep-economy`, `rep-first-hour` (RC11-RC14). Remove with `git worktree remove` (build-output diffs discarded); delete branches with `-d` for the 13 ancestors, `-D` for the 4 patch-id-equal rep branches.
-- **CB-S, landed by subject only, GenUI confirms first (14):** `great-ritchie` (RC28) and 13 rep branches (RC15-RC27). Same commands with `-D` after GenUI's confirmation.
+- **CB-S, landed by subject; GenUI has since confirmed by content that nothing unique remains (14):** `great-ritchie` (RC28) and 13 rep branches (RC15-RC27). Same commands with `-D`. `rep-character-sheet` (RC8, obsolete) can join them, making 34 if Weibao agrees.
 - **CB-D, detached, after floor-wire finishes (2):** RC42, RC43.
 
 Keep: RC1, RC2-RC6, RC8 (until its commit is placed), RC9, RC10.
