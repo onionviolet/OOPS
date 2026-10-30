@@ -39,10 +39,20 @@ export function collectPaletteEntries() {
     return entries;
 }
 
+// An empty query is a menu, not a search: what the player can do here and now comes first, and no
+// one source (the Known things list runs to hundreds) can crowd the others out of the first screen.
+const BROWSE_ORDER = ['Here', 'Go to', 'Loadouts', 'Panels', 'Items'], BROWSE_CAP = 10, BROWSE_TOTAL = 40;
+export function browseEntries(entries) {
+    const groups = new Map();
+    for (const entry of entries) { const key = entry.group || ''; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(entry); }
+    const rank = key => { const i = BROWSE_ORDER.indexOf(key); return i < 0 ? BROWSE_ORDER.length : i; };
+    return [...groups.entries()].sort((a, b) => rank(a[0]) - rank(b[0])).flatMap(([, rows]) => rows.slice(0, BROWSE_CAP)).slice(0, BROWSE_TOTAL);
+}
+
 // Every word of the query must appear; names that start with it, or a word that does, rank first.
 export function rankEntries(entries, query) {
     const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-    if (!words.length) return entries.slice(0, 40);
+    if (!words.length) return browseEntries(entries);
     const scored = [];
     for (const entry of entries) {
         const text = `${entry.label} ${entry.detail || ''}`.toLowerCase(), name = entry.label.toLowerCase();
