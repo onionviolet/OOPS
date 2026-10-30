@@ -144,3 +144,11 @@ Dispatch: `bk-progression` (design round across the nine read books, plus the ga
 ## Round 8: form fit and interaction (2026-10-30 15:3x)
 
 Weibao: "For Ui implementations, alot of stuff just turned into webs for representaiton, are those even the most effective? can we be more nuanced? hovering, other stuff, and more?" AD46 (`7a194cb35`) is the standing rule. `bk-forms` measures each of the 13 `figure.js` views against alternatives such as table and inspector, matrix, cards, timeline, tree, inline bars and prose. It also builds a shared interaction layer: neighbour highlight, nested hover cards, pin and compare, filter, focus plus context, "why" on hover, and keyboard access. Replacements keep the old form as an alternate view.
+
+## Round 9: making UIs (2026-10-30 15:3x)
+
+Weibao: "what about the UI for crafting or potions or rune rafting and more in the future? or would be abstract into more numerical stuff? more to conisider?"
+
+Proposal: hands-on versus abstract is a dial, not a choice. A new recipe starts hands-on; mastery folds it into numbers and a queue; the player can unfold it at any time. Unique or dangerous work stays hands-on, and trivial work starts abstract. `bk-making-ui` writes `docs/representations/MAKING_FORMS.md`. It covers each craft family's form (potions, smithing, cooking, runes and inscription, enchanting, rites, Gu, artifacts, tailoring and building), mocks the rune composition form, and shows one craft in both modes. It extends CRAFTING, MIXING and RITUALS_AND_MAKING rather than redoing them.
+
+Browser pool: `scripts/slot_run.mjs` now has an uncommitted waiting-queue change from another session on top of `1b08c0928`. Three browser slots are in parallel use.
