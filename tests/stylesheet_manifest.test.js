@@ -31,3 +31,29 @@ test('the figure gallery manifest names each fixture module once', () => {
     const gallery = readFileSync('src/ui/preview/figure_gallery.js', 'utf8');
     assert.doesNotMatch(gallery, /import\s+(?:\{[^}]*\}\s+from\s+)?'\.\/fixtures\/(?!manifest)/);
 });
+
+// A styles/*.css file that is not in the manifest is not loaded by the game page, so it must be listed here with a reason.
+const NOT_LOADED_ON_PURPOSE = {
+    'styles/palette_feedback.css': 'loaded through the @import at the top of style.css',
+    'styles/palette_reports.css': 'loaded through the @import at the top of style.css',
+    'styles/figure_gallery.css': 'only figure-gallery.html and item-card-gallery.html link it',
+    'styles/ui_preview.css': 'only ui-preview.html links it',
+};
+
+test('every styles/*.css file is in the manifest or on the not-loaded-on-purpose list', () => {
+    const manifest = new Set(readManifest());
+    const unlisted = readdirSync('styles').filter(f => f.endsWith('.css')).map(f => `styles/${f}`)
+        .filter(f => !manifest.has(f) && !(f in NOT_LOADED_ON_PURPOSE));
+    assert.deepEqual(unlisted, [], 'add each to styles/manifest.txt, or to NOT_LOADED_ON_PURPOSE with a reason');
+    for (const [f, why] of Object.entries(NOT_LOADED_ON_PURPOSE)) {
+        assert.ok(existsSync(f), `${f} is gone; drop it from the list`);
+        assert.ok(!manifest.has(f), `${f} is in the manifest (${why}); drop it from the list`);
+    }
+});
+
+test('the @import sheets named above really are imported by style.css', () => {
+    const css = readFileSync('style.css', 'utf8');
+    for (const [f, why] of Object.entries(NOT_LOADED_ON_PURPOSE)) {
+        if (why.includes('@import')) assert.ok(css.includes(f), `${f} is not imported by style.css`);
+    }
+});
