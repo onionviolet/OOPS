@@ -124,6 +124,23 @@ async function frozenAndNative(c) {
 }
 
 // O5: game_new({checkout}) plays a git worktree and links the private inputs the worktree lacks.
+// days and until:'event' use the same stepper as minutes (byte equality is tests/headless/advance_equivalence.test.js); scenarios boot copies.
+async function fasterTime(c) {
+    await c.tool('game_new', {scenario: 'perf-fresh', seed: 3, sessionId: 'days'});
+    const a = await c.tool('game_step', {sessionId: 'days', days: 1});
+    assert.ok(a.advance.advanced >= 1440, 'a day is at least 1440 minutes');
+    assert.ok(a.advance.wallMs >= 0 && a.advance.startCalendar < a.advance.endCalendar);
+    const ev = await c.tool('game_step', {sessionId: 'days', until: 'event'});
+    assert.ok(ev.advance.reason === 'no scheduled event' || ev.advance.advanced >= 1, 'until event advances to a boundary or says none');
+    for(const bad of [{days: 1, minutes: 5}, {days: 401}, {until: 'dawn'}, {}]) {
+        const r = (await c.rpc('tools/call', {name: 'game_step', arguments: {sessionId: 'days', ...bad}})).result;
+        assert.equal(r.isError, true, `rejects ${JSON.stringify(bad)}`);
+    }
+    const unknown = (await c.rpc('tools/call', {name: 'game_new', arguments: {scenario: 'nope', sessionId: 'days'}})).result;
+    assert.equal(unknown.isError, true, 'unknown scenario names are refused');
+    await c.tool('game_close', {sessionId: 'days'});
+}
+
 async function worktreeCheckout(c) {
     const wt = join(mkdtempSync(join(tmpdir(), 'yairpg-wt-')), 'tree');
     execFileSync('git', ['worktree', 'add', '--detach', wt, 'HEAD'], {cwd: ROOT, stdio: 'ignore'});
@@ -245,6 +262,9 @@ try {
 
     if(process.argv.includes('--native-only')) {
         await nativeOnly(c);
+    } else if(process.argv.includes('--faster-time-only')) {
+        await fasterTime(c);
+        console.log(JSON.stringify({slice: 'faster-time', result: 'PASS'}));
     } else if(process.argv.includes('--freeze-only')) {
         await frozenAndNative(c);
     } else {
@@ -346,6 +366,7 @@ try {
     const noted = await c.tool('game_report_limit', {wanted: 'a screenshot of the village', blockedBy: 'no browser here', workaround: 'read game_look text'});
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
+    await fasterTime(c);
     await worktreeCheckout(c);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
     }

@@ -12,7 +12,7 @@
  */
 export function enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat,
     translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill,
-    unlock_location, change_location, set_game_speed, currentLocation, activeEffects, setCombat}) {
+    unlock_location, change_location, set_game_speed, currentLocation, activeEffects, setCombat, fastForward, eventMinutes}) {
     const list = (registry) => Object.keys(registry).sort();
 
     const real_add_active_effect = add_active_effect;
@@ -155,10 +155,44 @@ export function enableDevConsole({effect_templates, item_templates, locations, s
         list_flags: () => list(global_flags),
 
         set_speed: (multiplier) => set_game_speed(multiplier),
+
+        // Skips run the engine's own sliced fast-forward (same result as stepping tick by tick), not a faster clock.
+        skip_days: (days = 1) => skipMinutes(Math.round(days * 1440)),
+        skip_minutes: (minutes) => skipMinutes(Math.round(minutes)),
+        skip_to_event: () => {
+            const minutes = eventMinutes();
+            if(minutes == null) { console.warn('Nothing is scheduled; use skip_days().'); return null; }
+            return skipMinutes(minutes);
+        },
     };
+
+    function skipMinutes(minutes) {
+        if(!fastForward || !(minutes > 0)) { console.error('Give a positive amount to skip.'); return; }
+        return fastForward(minutes).then(r => { console.log(`Skipped ${minutes} minutes in ${r.wallMs} ms (${r.slices} slices).`); return r; });
+    }
 
     Object.keys(helpers).forEach(name => { window[name] = helpers[name]; });
 
+    buildSkipPanel();
     console.log("Dev console is active. Available functions:\n");
     console.log(Object.keys(helpers).join("(),\n") + "()");
+}
+
+// Small panel for the time skips; exists only in dev mode (this module runs only then), collapsed by default.
+function buildSkipPanel() {
+    if(typeof document === "undefined" || document.getElementById("dev_time_panel")) return;
+    const panel = document.createElement("details");
+    panel.id = "dev_time_panel";
+    panel.innerHTML = '<summary>Dev time</summary><div class="dev_time_buttons">' +
+        [["skip_days(1)", "+1 day"], ["skip_days(7)", "+7 days"], ["skip_to_event()", "To next event"]]
+            .map(([call, label]) => `<button type="button" data-dev-skip="${call}">${label}</button>`).join("") + '<span class="dev_time_status" role="status"></span></div>';
+    panel.addEventListener("click", event => {
+        const call = event.target.closest?.("[data-dev-skip]")?.dataset.devSkip;
+        if(!call) return;
+        const status = panel.querySelector(".dev_time_status");
+        status.textContent = "Skipping...";
+        Promise.resolve(window[call.split("(")[0]](...JSON.parse("[" + call.slice(call.indexOf("(") + 1, -1) + "]")))
+            .then(r => { status.textContent = r ? `${r.wallMs} ms` : "Nothing scheduled"; }, e => { status.textContent = e.message; });
+    });
+    document.body.append(panel);
 }

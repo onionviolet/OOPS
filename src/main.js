@@ -446,7 +446,7 @@ import {lifeLearningMultiplier,LIFE_LESSONS} from './life_experience.js';
 import {buildLifeHeirSave} from './life_experience_host.js';
 import {deriveHeirLeftovers,heirLeftoverLines} from './heir_inheritance.js';
 import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, setSimulationProgram, pauseSimulationProgram, resumeSimulationProgram, answerSimulationEncounter, withdrawSimulationEncounter,
-    respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js";
+    respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice, nextSimulationBoundary} from "./simulation.js";
 import {prepareNativeUnlocks} from "./native_unlock_transaction.js";
 import {readNativeEquipment, prepareNativeEquipment, nativeEquipmentSnapshot} from "./native_equipment_transaction.js";
 import {stageNativeStorageTransfer, stageCompanionStockTransfer} from "./native_storage_transaction.js";
@@ -10057,7 +10057,8 @@ if(testHooksEnabled) {
     window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
-if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; }});
+if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; },
+    fastForward: n => fastForward(n), eventMinutes: () => {const at = nextSimulationBoundary(expansionState); return Number.isFinite(at) ? Math.max(1, Math.ceil(at - expansionState.clock)) : null;}});
 export { 
     readVillageLedgerSentence,
     current_combat,

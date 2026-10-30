@@ -4,11 +4,14 @@
 // Replies carry what a player could see, plus hashes. Raw saves never leave:
 // export writes a file under the private temp folder and returns only its path.
 import {boot, canonicalSave} from '../headless/runner.mjs';
+import {advanceGame} from '../headless/advance.mjs';
+import {scenarioSave, SCENARIOS} from '../headless/scenarios.mjs';
 import {createHash, randomUUID} from 'node:crypto';
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 
+export const SCENARIO_NAMES = Object.keys(SCENARIOS);
 export const EXPORT_DIR = join(tmpdir(), 'yairpg-mcp');
 const send = process.send.bind(process);
 let game = null, last = [], seen = new Map();   // seen: scope -> {lines, actions} of the last reply, for compact deltas
@@ -117,13 +120,15 @@ const ops = {
         return {command, quote:{eligible:q.eligible,reason:q.reason,action:q.action,spend:q.spend,oil:q.oil}};
     },
     async reload() {await need().reload(); return fresh();},
-    async new({seed = 1, heroName = 'Agent', path, panel, url = 'http://localhost/?test_hooks=1'} = {}) {
+    async new({seed = 1, heroName = 'Agent', path, panel, scenario, url = 'http://localhost/?test_hooks=1'} = {}) {
         const target = new URL(url);
         if(!['localhost', '127.0.0.1'].includes(target.hostname) || target.protocol !== 'http:') throw new Error('Only a localhost test origin is supported.');
         target.searchParams.set('test_hooks', '1');
         if(game) game.close();
         const encoded = path ? readFileSync(safePath(path), 'utf8') : null;
-        game = await boot(null, {seed, heroName, url: target.href});
+        if(scenario && (path || encoded)) throw new Error('Give scenario or path, not both.');
+        // A named scenario boots a copy of a library save; the library file itself is never opened for writing.
+        game = await boot(scenario ? await scenarioSave(scenario, {seed}) : null, {seed, heroName, url: target.href});
         if(encoded) await game.importFile(encoded);
         if(panel) await openPanel(panel);
         return fresh();
@@ -146,11 +151,15 @@ const ops = {
         else throw new Error('Give index, key, text or panel.');
         return look({view});
     },
-    async step({minutes, view}) {
+    async step({minutes, days, until, view}) {
         const g = need();
-        if(!(minutes > 0 && minutes <= 10080)) throw new Error('minutes must be 1 to 10080.');
-        await g.step(minutes);
-        return look({view});
+        if([minutes != null, days != null, until != null].filter(Boolean).length !== 1) throw new Error('Give exactly one of minutes, days or until.');
+        if(until != null && until !== 'event') throw new Error("until must be 'event'.");
+        if(minutes != null && !(minutes > 0 && minutes <= 10080)) throw new Error('minutes must be 1 to 10080; use days for longer.');
+        if(days != null && !(days > 0 && days <= 400)) throw new Error('days must be above 0 and at most 400.');
+        // Same stepper as minutes (RT8: byte-identical to single ticks); days and until:event just lift the per-call cap.
+        const advance = await advanceGame(g, minutes != null ? {minutes} : days != null ? {days} : {untilEvent: true, maxMinutes: 400 * 1440});
+        return {advance, ...look({view})};
     },
     status() {
         const g = need();
