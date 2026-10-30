@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD424 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD440 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -1169,3 +1169,46 @@ memory records.
 | --- | --- | --- |
 | LSD423 | **Save little, derive the rest, key every draw.** Saved: episodes, the silence flag (asker and promised, a small addition to MR1's tuple as schema 2 with a migration), and claims. Derived on read: loyalty, debt, severity, judged intent, the running total of slights. Keyed draws via `checkKey`: holder, subject or secret, listener, situation and period. Severity and act-weight tables are world data with `id@rev` (GR10), so a world tunes them without code | ACCOUNT FOR NOW |
 | LSD424 | **Test each rule by replay, and explain it.** Same history gives the same outcome; changing one factor changes only what it reaches (LSD244). The inspector (LSD349) answers "why did she tell" with the weighed factors. Plan: P3c lane after P3b adds the severity table, the loyalty and debt reads and the silence flag, through the promise route. Done when a person told to keep quiet keeps or breaks it for stated reasons that change with bond and bribe, through save and reload | ACCOUNT FOR NOW: after P3b |
+
+## 40. Determinism, enemies, where numbers come from, and what deriving costs (Weibao 2026-10-29; proposal)
+
+Weibao: "everything is deterministic and more? Someone who is against you, might not be loyal to you and might be very
+ungrateful ... how should we determin numerical stuff and more? Would computed cost too much long term? The
+computations would need the stuff leading up to those to be saved right?" Measured 2026-10-29 by MR1: the worst-case
+memory slice at the caps (300 people x 40 episodes) is 499,711 bytes.
+
+**Deterministic, not predictable**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD425 | **Deterministic means same seed and same history give the same result.** Each life gets its own seed at its start; every draw is keyed by what it is about (LSD55, LSD363). That gives replay, tests and fair saves. It is not predictability: the player does not see the seed or the draws, so outcomes still feel uncertain, and a new life is a new seed. Dial: a world or a player may choose a fresh seed per day for more surprise, recorded in the save so replay still works | ACCOUNT FOR NOW |
+| LSD426 | **What is not deterministic stays outside the rules.** Real time between sessions only matters through the game clock; the order the player clicks things only matters through game time; nothing reads wall-clock time, frame timing or call order (LSD139). Reason: these are the usual ways determinism leaks | ACCOUNT FOR NOW: check in the inspector tests |
+
+**People who are against you**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD427 | **Help from someone you oppose is read differently.** The holder judges the helper's intent (LSD414): from an enemy, help is suspected ("what is his angle?"), discounted, or even resented (owing an enemy is humiliating for the proud). The same act writes a smaller or a negative episode. Reason: gratitude depends on who gives | ACCOUNT FOR NOW |
+| LSD428 | **Opposed goals cap loyalty.** While someone's goals run against yours (a rival for the same post, a side in a feud), loyalty to you stays low however you treat them, and an ungrateful temperament (LSD395) lowers it further. Kindness can still move liking and debt | ACCOUNT FOR NOW |
+| LSD429 | **Turning an enemy is possible, and hard.** It takes repeated acts that cost you, grave enough to count (LSD412), seen by them as sincere, often with a change in the goal that set you apart (the rivalry ends, a shared threat appears). Some temperaments resist it. Reason: redemption arcs should be earned and readable | ACCOUNT FOR NOW |
+| LSD430 | **Being against someone is derived too.** "Against you" is the sum of opposed goals and negative episodes, not a saved flag, so it can soften or harden as things happen. Factions and families can set a starting stance (LSD411) | ACCOUNT FOR NOW |
+
+**Where numbers come from**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD431 | **Use human-readable units.** Fades as half-lives in days, chances as percent, feelings on -100 to 100 with named bands, weights as small integers. Each constant in a world table carries a one-line reason ("harm half-life 120 days: people remember being hurt for months"). Reason: a number a person can read is a number a person can tune | ACCOUNT FOR NOW |
+| LSD432 | **Start from round defaults, then tune by targets.** Each rule gets a target behaviour stated in words and a replay test that measures it: "a grudge holder is still cold a year later", "a stranger's small favour is forgotten in a month", "a friend's betrayal ends the friendship unless amended". Tune constants until the targets hold, never until a single run looks right | ACCOUNT FOR NOW: target tests in P3b and P3c |
+| LSD433 | **Calibrate against the book where it shows behaviour.** Where the readings show how long someone stayed angry, who forgave whom and how fast word travelled, those become targets too (LSD350). Book targets win over taste when they conflict, for that world | LATER: with the calibration script |
+| LSD434 | **Avoid false precision.** Integers and bands, not long decimals; show the player words, not numbers (LSD340). A sensitivity check moves each constant up and down by a quarter and records which targets break, so the fragile constants are known | ACCOUNT FOR NOW: one sweep per table |
+| LSD435 | **Numbers are per world, tables have revisions.** A world overlays the core table (GR8) and each table carries `id@rev` (GR10). Changing a weight changes every derived value in every save that reads that revision, so a save records the revisions it was made under, and moving to a new revision is a stated migration, not a silent shift | ACCOUNT FOR NOW |
+
+**What deriving costs, and what must be saved**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD436 | **Yes, the inputs must be saved; the caps keep them bounded.** Derived values need the episodes they come from, so episodes are saved. Caps (40 per person, 300 people) plus folding into impressions keep the inputs bounded for a whole lifetime and beyond: a decades-long life still has at most 40 records per person, with the old ones summarised. The measured worst case is just under 500 KB | ACCOUNT FOR NOW |
+| LSD437 | **Reads are cheap; loops over everyone are not.** One bond read sums at most 40 terms. The risk is reading every pair every minute. So derive lazily, only when someone is observed, decides or is cued (LSD242), and cache per holder, subject and day, cleared when a new episode for that pair lands | ACCOUNT FOR NOW: cache in P3 or P3b if the route needs it |
+| LSD438 | **Batch the background.** Gossip and other daily steps run once per game day per person with a daily budget (GR11), and offline catch-up runs them in day batches. A budget hit defers work to the next day rather than skipping it | ACCOUNT FOR NOW |
+| LSD439 | **Measure it.** A benchmark test derives every bond for 300 people at the caps and asserts a time budget (start at 50 ms on the dev machine); a second asserts that a 30-day catch-up stays within its budget. Reason: cost claims should be numbers from this code, not estimates | ACCOUNT FOR NOW: add with P3b |
+| LSD440 | **Deriving beats saving totals for this game.** Saved totals drift from their causes, need migrations whenever a formula changes, and cannot explain themselves. Derived values always match their history and can name why. The trade-off is LSD435: a formula change reaches old saves, so formulas are versioned. Snapshots (LSD302) remain the fallback if a measured cost ever gets too high | ACCOUNT FOR NOW |
