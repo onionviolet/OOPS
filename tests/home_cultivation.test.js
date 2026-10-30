@@ -209,3 +209,13 @@ test('actual packet use gradually attenuates the same physical field, and paid m
 test('canceling release/maintenance preserves actual residue and packing the portable cradle does not clean its estate feed-space',()=>{
  const r=prepared();r.run({type:'cultivation_order',service:'release'});let job=r.p.state.simulation.jobs.find(j=>j.commandId==='home.cultivation.release');r.run({type:'cultivation_cancel',job:job.id});assert.equal(r.p.state.actors[STEWARD].resources[CRADLE_FILM]||0,0);r.run({type:'cultivation_order',service:'release'});r.advance(5);r.p.gameplay.player.inventory[k('Charcoal')]=1;const funds=r.p.state.actors[STEWARD].resources['home.estateFunds'];r.run({type:'cultivation_order',service:'clean'});job=r.p.state.simulation.jobs.find(j=>j.commandId==='home.cultivation.clean');r.run({type:'cultivation_cancel',job:job.id});assert.equal(r.p.state.actors[STEWARD].resources[CRADLE_FILM],1);assert.equal(r.p.gameplay.player.inventory[k('Charcoal')],1);assert.equal(r.p.state.actors[STEWARD].resources['home.estateFunds'],funds);r.run({type:'remove',home:'manor',slot:'qi'});assert.equal(r.p.state.actors[STEWARD].resources[CRADLE_FILM],1);assert.equal(activeHouseholdField(r.context()),false);r.run({type:'install',home:'manor',key:k(QI_CRADLE)});assert.equal(r.p.state.actors[STEWARD].resources[CRADLE_FILM],1);
 });
+
+test('IP8: a booked school month names the paid top-up, and the top-up costs coins and delays the next free session',()=>{
+ const r=prepared();r.run({type:'school_fund',amount:40});r.p.gameplay.player.inventory[k('Charcoal')]=2;
+ Object.assign(r.p.state.actors[COOK].resources,{'home.schoolRank':2,'home.schoolReports':2});
+ r.run({type:'school_appoint',office:'records',actor:COOK});r.run({type:'school_month',office:'records',actor:COOK});r.advance(60);
+ assert.throws(()=>r.run({type:'school_month',office:'records',actor:COOK}),/extra session can be paid/);
+ const f=r.p.state.actors[STEWARD].resources['home.estateFunds'];
+ r.run({type:'school_month',office:'records',actor:COOK,early:true});
+ assert.equal(r.p.state.actors[STEWARD].resources['home.estateFunds'],f-4-5,'fee plus the session stipend');
+});

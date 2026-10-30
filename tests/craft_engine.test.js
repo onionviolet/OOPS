@@ -327,3 +327,18 @@ test('bound sources preserve local-day fractional growth, depletion deadlines, f
     assert.throws(()=>validateSourceState({schema:1,nodes:{roots:{...parts,calendar:{...parts.calendar,profileRevision:2}}}},table),/calendar/);
     assert.throws(()=>nodeAt(source,start,1),/coordinate/);
 });
+
+test('IP1: a law may raise batch ceiling and step count; defaults and reasons stay', () => {
+    const base = {id: law.id, revision: law.revision, catalogue: cat, carrier: law.carrier, ops: Object.fromEntries(Object.entries(law.ops).map(([k, v]) => [k, v])),
+        reactions: law.reactions, outputs: law.outputs, tagLaws: law.tagLaws};
+    assert.equal(law.limits.batchCeiling, 999);
+    assert.equal(law.limits.steps, 12);
+    assert.throws(() => resolveBatch(law, {inputs: [{material: water, qty: 1000}]}), /bigger vat/);
+    assert.throws(() => defineCraftLaw({...base, limits: {batchCeiling: 0}}), /Limit batchCeiling/);
+});
+
+test('IP1: a raised ceiling lets a bigger batch resolve', () => {
+    const vat = {...law, limits: {...law.limits, batchCeiling: 5000}};
+    const r = resolveBatch(vat, {inputs: [{material: water, qty: 3000}], process: [{op: 'steep', level: 1}]});
+    assert.ok(r.product);
+});

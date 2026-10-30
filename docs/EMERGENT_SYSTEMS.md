@@ -352,7 +352,7 @@ between two NPCs that no card or script directly caused.
 - [ ] Trait list (about 12) with what each changes
 - [ ] Verb list mapped to existing commands/effects
 - [ ] Level-of-detail tiers and tick rates
-- [ ] Rules for what NPCs may never do (kill the player off-screen? steal
+- [ ] Rules for what NPCs rarely do by default (dial: world or NPC goals, with the reason and cost) (kill the player off-screen? steal
       from the player's home?)
 
 ### Open for Weibao

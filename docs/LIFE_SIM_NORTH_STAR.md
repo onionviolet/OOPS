@@ -519,7 +519,7 @@ gear, contracts and relationships.
 - **Every strong power has a stated price.** No cheat without a drawback
   was found.
 - **Shops:** a grade-tiered VIP store with finite stock and some unique
-  items. It sells goods, never cheats. Point shops sell skills, but using
+  items. It sells goods by default (dial: a system market may sell a cheat-grade item, with grade, price and unique stock as the cost). Point shops sell skills, but using
   them still needs a foundation.
 - **Real eating** is food and rare essences: each gives one guaranteed,
   person-specific benefit, one piece per person, and a large dose can harm.
