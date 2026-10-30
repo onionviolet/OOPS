@@ -11,7 +11,7 @@ import {FIGURE_FIXTURES} from '../src/ui/preview/figure_fixtures.js';
 
 const fixtureDir = new URL('../src/ui/preview/fixtures/', import.meta.url);
 const pairs = [];
-const FIGURE_PARTS = ['rings', 'nodes', 'slots', 'tracks', 'notes', 'edges'];
+const FIGURE_PARTS = ['rings', 'nodes', 'slots', 'tracks', 'notes', 'edges', 'tables', 'cards', 'bands', 'chips', 'bars'];
 const isSpec = v => v && typeof v === 'object' && typeof v.id === 'string' && typeof v.title === 'string' && FIGURE_PARTS.some(k => Array.isArray(v[k]));
 for (const file of readdirSync(fixtureDir).filter(f => f.endsWith('.js')).sort()) {
     const mod = await import(new URL(file, fixtureDir));
@@ -34,6 +34,11 @@ const factWords = spec => [
     ...(spec.nodes || []).map(n => n.label), ...(spec.slots || []).map(s => s.label),
     ...(spec.tracks || []).flatMap(t => [t.label, t.progress, ...t.steps.flatMap(s => [s.label, s.note])]),
     ...(spec.notes || []).map(n => n.text), ...(spec.edges || []).map(e => e.label),
+    ...(spec.tables || []).flatMap(t => [t.label, ...t.rows.flatMap(r => r.cells)]),
+    ...(spec.cards || []).flatMap(c => [c.label, ...c.groups.flatMap(g => [g.label, ...g.rows.flatMap(r => [r.label, r.text])])]),
+    ...(spec.bands || []).flatMap(b => [b.label, ...(b.lanes || []), ...b.spans.flatMap(x => [x.label, x.note])]),
+    ...(spec.chips || []).flatMap(c => [c.label, ...c.items.flatMap(i => [i.label, i.note])]),
+    ...(spec.bars || []).flatMap(b => [b.label, ...b.rows.flatMap(r => [r.label, r.words])]),
 ].filter(Boolean);
 
 test('fixtures were found and every spec validates', () => {

@@ -6968,3 +6968,9 @@ Weibao, 2026-10-30, answering the base-cheat pass (the audit headline: heir succ
 - **Reason:** the played character's life is the main line, and heirs add scope without changing who is being played.
 - Existing heir code (L9's `resume:` of a tethered life) stays; nothing is deleted.
 - Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [world entry rules](WORLD_ENTRY_RULES.md) for the start option.
+
+## No visible windows, as a standing rule (2026-10-30)
+
+Weibao, 2026-10-30, answering whether to make the background-only preference a standing rule: "no visibal windows as standing rule".
+
+- Agents never open a visible window on his screen. Browsers run headless and Electron runs hidden, and native computer control needs his say-so first. Recorded in [AGENTS.md](../AGENTS.md#safety).

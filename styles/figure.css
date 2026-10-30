@@ -147,3 +147,22 @@
 .fig-sentences {margin: 0; padding-inline-start: 1.2em; font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
 .fig-svg .fig-changed > .fig-body {stroke: var(--fig-accent); stroke-width: 3.5;}
 :root:not([data-effects="off"]):not([data-effects="reduced"]) .fig-svg .fig-changed > .fig-halo {animation: fig-pulse 700ms ease-out 2 alternate;}
+/* Non-node forms (src/ui/figure_forms.js, COV4): table, card, band, chips and bar rows. Rects reuse .fig-body and the state
+   classes above, so state looks the same here as on a node; words and marks carry the meaning (UR37). */
+.fig-cell {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
+.fig-cell.fig-body {fill: var(--fig-surface);}
+.fig-cell--head {fill: color-mix(in srgb, var(--fig-accent) 10%, var(--fig-surface));}
+.fig-svg .fig-cell-head {fill: var(--fig-muted);}
+.fig-svg .fig-cell-text {fill: var(--fig-ink);}
+.fig-svg .fig-card-title {fill: var(--fig-ink); font-weight: var(--ui-weight-strong, 700);}
+.fig-svg .fig-body {rx: var(--ui-radius, 0);}
+.fig-bar-track {fill: var(--fig-surface); stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
+.fig-bar-fill {fill: var(--fig-accent); stroke: none;}
+.fig-barrow.fig-state--strained .fig-bar-fill {fill: var(--fig-warn);}
+.fig-barrow.fig-state--broken .fig-bar-fill {fill: var(--fig-danger);}
+.fig-row.fig-state--strained .fig-bar-fill {fill: var(--fig-warn);}
+.fig-row.fig-state--broken .fig-bar-fill {fill: var(--fig-danger);}
+.fig-row.fig-state--strained .fig-label, .fig-card-group.fig-state--strained .fig-cell-head {fill: var(--fig-warn);}
+.fig-band-lane {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke); stroke-dasharray: var(--fig-dash-unknown);}
+.fig-span-rect {stroke-dasharray: none;}
+.fig-svg .fig-label {paint-order: normal;}

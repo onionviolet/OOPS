@@ -4,6 +4,10 @@
 // not source-stated durations or a new accuracy model. No spent costs are stated.
 const held = (name, reason) => ({fact: `actor.lotm.div.${name}`, op: 'eq', value: true, reason});
 
+// A row's answer is supported only when the lead holds the fact the scene turned on (WA51): knowledge key
+// `book.lotm.div.grounds.<name>`. Without it the answer reads as unclear and names the source scene.
+const grounded = (name, source) => ({fact: `actor.lotm.div.grounds.${name}`, source});
+
 export const LOTM_DIVINATION_ROWS = {queries: [
     {
         id: 'lotm.div.coin-divination',
@@ -13,6 +17,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Divine the safety of returning',
         description: 'Use a gold coin to ask about the danger of returning to the address.',
         locator: 'zh 第113章 p11',
+        grounds: grounded('coin-divination', 'zh 第113章 p11'),
         means: held('means.coin', 'Have the gold coin available for the toss.'),
         contact: held('contact.return-address', 'Hold the intended return to 160 Boklund Street in mind.'),
         steps: [
@@ -29,6 +34,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Search with the cane',
         description: 'Use the portrait and clothing as the focus for a search with the cane.',
         locator: 'zh 第46章 p69',
+        grounds: grounded('cane-dowsing', 'zh 第46章 p69'),
         means: held('means.cane', 'Have the black cane with silver inlay available.'),
         contact: held('contact.bieber', 'Have the portrait and the men\'s clothing available as the search focus.'),
         steps: [
@@ -47,6 +53,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Prepare the altar search',
         description: 'Prepare a private bedroom and a written focus for a dream search using the deceased person\'s effects.',
         locator: 'zh 第121章 p59',
+        grounds: grounded('altar-search-divination', 'zh 第121章 p59'),
         means: held('means.altar-search', 'Have paper, writing materials and an altar prepared for prayer in the locked, spiritually sealed bedroom.'),
         contact: held('contact.deceased', 'Have the deceased person\'s effects and the account of the scene Leonard described.'),
         steps: [
@@ -64,6 +71,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Dream about the operation',
         description: 'Use the patient\'s ring and written birth details to seek dream imagery about the operation.',
         locator: 'zh 第82章 p71',
+        grounds: grounded('dream-divination', 'zh 第82章 p71'),
         means: held('means.dream-divination', 'Have writing materials and the ability to enter a divinatory dream.'),
         contact: held('contact.bogda', 'Have Bogda\'s ring and the paper recording his birth details.'),
         steps: [
@@ -80,6 +88,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Consult the pendulum about disclosure',
         description: 'Write the disclosure assertion and use the yellow crystal pendant to check it.',
         locator: 'zh 第136章 p49',
+        grounds: grounded('pendulum-divination', 'zh 第136章 p49'),
         means: held('means.yellow-crystal', 'Have the yellow crystal pendant and writing materials available.'),
         contact: held('contact.azik-disclosure', 'Have the proposed disclosure about Mr. Azik in mind.'),
         steps: [
@@ -96,6 +105,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Check the club visit',
         description: 'Take a brass-colored coin from a trouser pocket and check whether to visit the club today.',
         locator: 'zh 第115章 p21',
+        grounds: grounded('coin-divination-club', 'zh 第115章 p21'),
         means: held('means.brass-coin', 'Have the brass-colored coin available.'),
         contact: held('contact.club-visit', 'Have today\'s proposed club visit in mind.'),
         steps: [
@@ -112,6 +122,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Chart the investment',
         description: 'Use the client\'s account and key timing information to draw an event chart for the investment.',
         locator: 'zh 第62章 p70',
+        grounds: grounded('astrological-chart', 'zh 第62章 p70'),
         means: held('means.chart', 'Have paper, a pen and the ability to construct and read an event chart.'),
         contact: held('contact.iron-mine-investment', 'Have Glacis\'s description of the investment and its key timing information.'),
         steps: [
@@ -128,6 +139,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Read the operation spread',
         description: 'Have the patient shuffle and cut the deck, then lay out an Intis spread for the operation.',
         locator: 'zh 第82章 p61',
+        grounds: grounded('tarot-divination', 'zh 第82章 p61'),
         means: held('means.tarot', 'Have a tarot deck and the ability to read the Intis spread.'),
         contact: held('contact.bogda-operation', 'Have the patient present to ask about the operation and handle the deck.'),
         steps: [
@@ -144,6 +156,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
         label: 'Calculate the date numbers',
         description: 'Use the supplied birth date and the current year to calculate the relevant life and yearly numbers.',
         locator: 'zh 第55章 p12',
+        grounds: grounded('numerology', 'zh 第55章 p12'),
         means: held('means.numerology', 'Have the ability to calculate and interpret the date numbers.'),
         contact: held('contact.joyce-birth-date', 'Have Anna\'s birth information for Joyce and the current year, 1349.'),
         steps: [
@@ -155,7 +168,7 @@ export const LOTM_DIVINATION_ROWS = {queries: [
 ]};
 
 // Host-provided support facts, not initial inventory or grants of ability.
-export const LOTM_DIVINATION_FACTS = [...new Set(LOTM_DIVINATION_ROWS.queries.flatMap(row => [row.means.fact, row.contact.fact]))];
+export const LOTM_DIVINATION_FACTS = [...new Set(LOTM_DIVINATION_ROWS.queries.flatMap(row => [row.means.fact, row.contact.fact, row.grounds.fact]))];
 
 // Other occasions are evidence references, not additional runnable queries.
 // Volume qualifiers restore two references omitted by the typed extraction.

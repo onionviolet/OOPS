@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {buildBundle,serve,Session,sha} from './lib.mjs';
-const out=path.resolve(process.argv[2]||'.');await fs.mkdir(out,{recursive:true});
+const out=path.resolve(process.argv[2]||'.'),mode=process.argv[3]||'unclear';await fs.mkdir(out,{recursive:true});
 const bundle=await buildBundle(),server=await serve(bundle.dir);
 const bundleHash=sha(await fs.readFile(path.join(bundle.dir,'bundle.js')));
 const s=await new Session({url:server.url,opTimeout:30000,seed:7,wall:Date.UTC(2026,9,30)}).start();
@@ -20,6 +20,16 @@ try{
   report.entry=await p.evaluate(()=>window.simulationTestHooks.snapshot().expansion.lotm?.entryProfile);if(report.entry){report.enrollMs=Date.now()-t0;break;}}catch(e){}await pause(1500);}
  report.shot=await p.screenshot({path:path.join(out,'pre-nav.png'),timeout:60000}).then(()=>1,e=>String(e).slice(0,100));await nav('lotm');
  report.btns=await p.evaluate(()=>[...document.querySelectorAll('#lotm_panel button')].map(b=>b.textContent.trim().slice(0,90)).slice(0,40));
+
+ if(mode==='supported'){
+  const text=await p.evaluate(()=>window.save_to_file());report.exportHead=String(text).slice(0,60);
+  const PRE='YAIR-UTF8-1:';const save=JSON.parse(Buffer.from(String(text).slice(PRE.length),'base64').toString('utf8')),sim=save.expansion?.simulation||save.simulation;
+  const known=sim.knowledge.player,tpl=Object.values(known)[0];
+  known['book.lotm.div.grounds.coin-divination']={...structuredClone(tpl),value:'You know why the Boklund address is unsafe.'};
+  await p.evaluate(t=>window.load_progress(t),PRE+Buffer.from(JSON.stringify(save),'utf8').toString('base64'));await pause(3000);
+  for(let i=0;i<60;i++){try{if(await p.locator('#loading_screen_play_button').isVisible())await p.locator('#loading_screen_play_button').click({timeout:3000});if(await p.evaluate(()=>!!window.simulationTestHooks.snapshot().expansion.lotm?.entryProfile))break;}catch(e){}await pause(1500);}
+  report.imported=true;await nav('lotm');
+ }
  const grab=()=>p.evaluate(()=>{const d=document.querySelector('#lotm_panel details[data-lotm-divinations]');if(!d)return null;d.open=true;return [...d.querySelectorAll('p,button')].map(e=>(e.tagName==='BUTTON'?'[BTN'+(e.disabled?' disabled':'')+'] ':'')+e.textContent.trim().slice(0,160));});
  for(let i=0;i<10&&!report.rows;i++){report.rows=await grab();if(!report.rows)await pause(1000);}
  report.hasRites=!!report.rows;

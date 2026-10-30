@@ -160,6 +160,10 @@ compatibility decision.
 Use origin for the personal fork (public) and upstream for the original.
 Inspect the working tree before editing and preserve unrelated changes.
 
+Agent work stays in the background (Weibao, 2026-10-30, standing rule). Never open
+a visible window on his screen: browsers run headless, Electron runs hidden, and
+native computer control needs his say-so first.
+
 ## Sealed secrets
 
 Weibao plays the game too, so world secrets are sealed by default

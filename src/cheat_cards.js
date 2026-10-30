@@ -104,10 +104,20 @@ export function seedBeginningCheats(state, {choice = 'none', at} = {}) {
 }
 // A temporal return restores local inputs from its snapshot; enduring faculty
 // stages follow the continuing self. An heir has fresh per-life inputs.
+// Default dial; a world's inheritance law may change it.
+export const HEIR_REACH = Object.freeze({'system-quests': 'line', 'ring-spirit': 'line'});
 export function carryCheats(source, target = defaultCheatState(), {heir = false} = {}) {
     const from = validateCheatState(source ?? defaultCheatState()), next = validateCheatState(target);
+    // Reach dial per card: the self, or the family line (re-granted dormant, points reset).
+    if(heir) for(const [id, entry] of Object.entries(from.held)) {
+        if(HEIR_REACH[id] !== 'line' || next.held[id]) continue;
+        const card = structuredClone(entry.card);
+        const {claimed, earned, ...kept} = card.state;
+        card.state = {...kept, awakened: false, points: 0}; card.stages = [];
+        next.held[id] = {card, acquired: {route: 'heir-line', at: structuredClone(entry.acquired.at)}, messages: []};
+    }
     const entry = from.held['quiet-faculty'];
-    if(!entry) return next;
+    if(!entry) return validateCheatState(next);
     const carried = structuredClone(entry);
     if(heir) carried.card.state = {...quietFacultyCard().state, awakened: entry.card.state.awakened};
     next.held['quiet-faculty'] = carried;
