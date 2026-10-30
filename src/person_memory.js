@@ -3,55 +3,64 @@ import {address, compareCodePoints} from './gen_kit.js';
 import {checkKey} from './check_keys.js';
 import {resolveCheck} from './check_resolver.js';
 
-export const MEMORY_LIMITS = Object.freeze({holders: 300, episodes: 40, bytes: 500000, idLength: 96});
-export const MEMORY_KINDS = Object.freeze(['helped', 'harmed', 'betrayed', 'witnessed', 'told', 'impression']);
+import {MEMORY_LIMITS, DEFAULT_TEMPERAMENT, TEMPERAMENT_TABLE, tableRevision} from './person_temperament.js';
+export {MEMORY_LIMITS} from './person_temperament.js';
+export const MEMORY_KINDS = Object.freeze(['helped', 'harmed', 'betrayed', 'witnessed', 'told', 'impression', 'amends']);
 const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
 const natural = v => Number.isSafeInteger(v) && v >= 0;
-const id = v => typeof v === 'string' && v.length > 0 && v.length <= MEMORY_LIMITS.idLength;
+const id = (v, limits = MEMORY_LIMITS) => typeof v === 'string' && v.length > 0 && v.length <= limits.idLength;
 const need = (ok, message) => { if (!ok) throw TypeError(message); };
 const fields = (v, keys) => object(v) && Object.keys(v).length === keys.length && keys.every(k => Object.hasOwn(v, k));
 const EPISODE_FIELDS = ['kind', 'about', 'fact', 'source', 'certainty', 'feeling', 'day', 'count'];
+const snapshots = new WeakSet();
+export const isMemorySnapshot = slice => snapshots.has(slice);
+const freezeMemory = s => {Object.freeze(s.ids); if(s.tables) Object.freeze(s.tables); for(const rows of Object.values(s.holders)) {rows.forEach(Object.freeze); Object.freeze(rows);} Object.freeze(s.holders); snapshots.add(s); return Object.freeze(s);};
+export const memorySnapshot = (slice, day, limits = MEMORY_LIMITS) => isMemorySnapshot(slice) ? (validateMemory(slice,day,limits),slice) : freezeMemory(structuredClone(validateMemory(slice,day,limits)));
+const readCache = new WeakMap();
 export const freshMemory = () => ({schema: 1, ids: [], holders: {}});
 // Canon baseline is a read port, deliberately empty until a private pack supplies it.
 export const canonBaseline = () => [];
 
-export function validateEpisode(e, day) {
+export function validateEpisode(e, day, limits = MEMORY_LIMITS) {
     need(natural(day) && fields(e, EPISODE_FIELDS), 'Invalid episode shape or clock.');
-    need(MEMORY_KINDS.includes(e.kind) && id(e.about) && (e.fact === null || id(e.fact)), 'Invalid episode kind or pointer.');
-    need(e.source === 'saw' || e.source === 'inferred' || fields(e.source, ['teller']) && id(e.source.teller), 'Invalid episode source.');
+    need(MEMORY_KINDS.includes(e.kind) && id(e.about, limits) && (e.fact === null || id(e.fact, limits)), 'Invalid episode kind or pointer.');
+    need(e.source === 'saw' || e.source === 'inferred' || fields(e.source, ['teller']) && id(e.source.teller, limits), 'Invalid episode source.');
     need(Number.isInteger(e.certainty) && e.certainty >= 0 && e.certainty <= 100 &&
         Number.isInteger(e.feeling) && Math.abs(e.feeling) <= 100 && natural(e.day) && e.day <= day, 'Invalid episode values or future day.');
     need(e.kind === 'impression' ? e.fact === null && e.source === 'inferred' && natural(e.count) && e.count > 0 :
         e.fact !== null && e.count === 1, 'Invalid episode detail/count.');
     return e;
 }
-export function episode(input, day) {
-    return structuredClone(validateEpisode({count: 1, ...input}, day));
+export function episode(input, day, limits = MEMORY_LIMITS) {
+    return structuredClone(validateEpisode({count: 1, ...input}, day, limits));
 }
 // One dictionary preserves arbitrary opaque IDs without repeating them per episode.
-export function encodeMemory(holders, day) {
-    need(object(holders) && Object.keys(holders).length <= MEMORY_LIMITS.holders, 'Invalid memory holders.');
+export function encodeMemory(holders, day, limits = MEMORY_LIMITS) {
+    need(object(holders) && Object.keys(holders).length <= limits.holders, 'Invalid memory holders.');
     const ids = [], refs = new Map(), ref = value => {
         if (!refs.has(value)) { refs.set(value, ids.length); ids.push(value); }
         return refs.get(value);
     };
     const rows = Object.create(null);
     for (const holder of Object.keys(holders).sort(compareCodePoints)) {
-        need(id(holder) && Array.isArray(holders[holder]) && holders[holder].length <= MEMORY_LIMITS.episodes, 'Memory cap exceeded.');
+        need(id(holder, limits) && Array.isArray(holders[holder]) && holders[holder].length <= limits.episodes, 'Memory cap exceeded.');
         rows[holder] = holders[holder].map(e => {
-            validateEpisode(e, day);
+            validateEpisode(e, day, limits);
             const tuple = [MEMORY_KINDS.indexOf(e.kind), ref(e.about), e.fact === null ? -1 : ref(e.fact),
                 e.source === 'saw' ? -1 : e.source === 'inferred' ? -2 : ref(e.source.teller), e.certainty, e.feeling, e.day];
             if (e.kind === 'impression') tuple.push(e.count);
             return tuple;
         });
     }
-    const slice = {schema: 1, ids, holders: {...rows}};
-    need(estimateMemoryBytes(slice) <= MEMORY_LIMITS.bytes, 'Memory byte budget exceeded.');
-    return validateMemory(slice, day);
+    const slice = {schema: 1, ids, holders: {...rows}, tables:[tableRevision(limits), tableRevision(TEMPERAMENT_TABLE)]};
+    need(estimateMemoryBytes(slice) <= limits.bytes, 'Memory byte budget exceeded.');
+    freezeMemory(validateMemory(slice, day, limits));
+    // Encoding already validated these inputs. Keep a detached decoded read view.
+    readCache.set(slice,{day,limits,rows:structuredClone(holders)});
+    return slice;
 }
-export function decodeMemory(slice, day) {
-    validateMemory(slice, day);
+export function decodeMemory(slice, day, limits = MEMORY_LIMITS) {
+    validateMemory(slice, day, limits);
     const out = Object.create(null);
     for (const [holder, rows] of Object.entries(slice.holders)) out[holder] = rows.map(t => ({kind: MEMORY_KINDS[t[0]],
         about: slice.ids[t[1]], fact: t[2] === -1 ? null : slice.ids[t[2]],
@@ -59,13 +68,14 @@ export function decodeMemory(slice, day) {
         certainty: t[4], feeling: t[5], day: t[6], count: t[7] ?? 1}));
     return out;
 }
-export function validateMemory(slice, day) {
-    need(natural(day) && fields(slice, ['schema', 'ids', 'holders']) && slice.schema === 1 && Array.isArray(slice.ids) &&
-        slice.ids.every(id) && new Set(slice.ids).size === slice.ids.length && object(slice.holders), 'Invalid memory slice.');
-    need(Object.keys(slice.holders).length <= MEMORY_LIMITS.holders && estimateMemoryBytes(slice) <= MEMORY_LIMITS.bytes, 'Memory budget exceeded.');
+export function validateMemory(slice, day, limits = MEMORY_LIMITS) {
+    need(natural(day) && (fields(slice, ['schema', 'ids', 'holders']) || fields(slice, ['schema', 'ids', 'holders', 'tables'])) && slice.schema === 1 && Array.isArray(slice.ids) &&
+        slice.ids.every(value=>id(value,limits)) && new Set(slice.ids).size === slice.ids.length && object(slice.holders), 'Invalid memory slice.');
+    need(Object.keys(slice.holders).length <= limits.holders && estimateMemoryBytes(slice) <= limits.bytes, 'Memory budget exceeded.');
+    if(slice.tables) need(Array.isArray(slice.tables) && slice.tables.length === 2 && (slice.tables[0] === tableRevision(limits) || limits.readRevision === slice.tables[0]) && slice.tables[1] === tableRevision(TEMPERAMENT_TABLE), 'Memory table revision needs an explicit migration.');
     const pointer = n => natural(n) && n < slice.ids.length;
     for (const [holder, rows] of Object.entries(slice.holders)) {
-        need(id(holder) && Array.isArray(rows) && rows.length <= MEMORY_LIMITS.episodes, 'Memory cap exceeded.');
+        need(id(holder, limits) && Array.isArray(rows) && rows.length <= limits.episodes, 'Memory cap exceeded.');
         const impressions = new Set();
         for (const t of rows) {
             need(Array.isArray(t) && (t.length === 7 || t.length === 8) && natural(t[0]) && t[0] < MEMORY_KINDS.length &&
@@ -74,28 +84,29 @@ export function validateMemory(slice, day) {
             need(t.length === (kind === 'impression' ? 8 : 7), 'Invalid memory tuple length.');
             validateEpisode({kind, about: slice.ids[t[1]], fact: t[2] === -1 ? null : slice.ids[t[2]],
                 source: t[3] === -1 ? 'saw' : t[3] === -2 ? 'inferred' : {teller: slice.ids[t[3]]},
-                certainty: t[4], feeling: t[5], day: t[6], count: t[7] ?? 1}, day);
+                certainty: t[4], feeling: t[5], day: t[6], count: t[7] ?? 1}, day, limits);
             if (kind === 'impression') { need(!impressions.has(t[1]), 'Duplicate subject impression.'); impressions.add(t[1]); }
         }
     }
     return slice;
 }
-export function migrateMemory(slice, day) { return slice === undefined ? freshMemory() : structuredClone(validateMemory(slice, day)); }
+export function migrateMemory(slice, day, limits = MEMORY_LIMITS) { return slice === undefined ? freshMemory() : structuredClone(validateMemory(slice, day, limits)); }
 export const estimateMemoryBytes = slice => new TextEncoder().encode(JSON.stringify(slice)).length;
 
 // Hyperbolic fade: no tick state. Harm and strong feelings lengthen the half-life.
-export function vividness(e, day) {
-    validateEpisode(e, day);
-    const halfLife = (['harmed', 'betrayed'].includes(e.kind) ? 120 : 30) * (1 + Math.abs(e.feeling) / 10);
-    return halfLife / (halfLife + day - e.day);
+export function vividness(e, day, temperament = DEFAULT_TEMPERAMENT, limits = MEMORY_LIMITS) {
+    validateEpisode(e, day, limits);
+    const harm = ['harmed', 'betrayed'].includes(e.kind);
+    const halfLife = (harm ? limits.harmDays * temperament.harmFade : limits.otherDays * (e.kind === 'helped' ? temperament.helpFade : 1)) * (1 + Math.abs(e.feeling) / limits.feelingScale);
+    return halfLife / (halfLife + (day - e.day));
 }
-export function tellMemory(e, teller, day, loss = 20) {
-    validateEpisode(e, day);
-    need(id(teller) && Number.isInteger(loss) && loss >= 1 && loss <= 100 && e.kind !== 'impression', 'Invalid telling.');
-    return episode({...e, source: {teller}, certainty: Math.max(0, e.certainty - loss)}, day);
+export function tellMemory(e, teller, day, loss = MEMORY_LIMITS.tellingLoss, limits = MEMORY_LIMITS) {
+    validateEpisode(e, day, limits);
+    need(id(teller, limits) && Number.isInteger(loss) && loss >= 1 && loss <= 100 && e.kind !== 'impression', 'Invalid telling.');
+    return episode({...e, source: {teller}, certainty: Math.max(0, e.certainty - loss)}, day, limits);
 }
 const identity = e => address(e);
-function fold(rows, day) {
+function fold(rows, day, limits = MEMORY_LIMITS) {
     const groups = new Map();
     for (const e of rows) {
         const g = groups.get(e.about) ?? {kind: 'impression', about: e.about, fact: null, source: 'inferred', certainty: 0, feeling: 0, day: 0, count: 0};
@@ -105,43 +116,57 @@ function fold(rows, day) {
         g.certainty = Math.round((g.certainty * g.count + e.certainty * e.count) / total);
         g.count = total; g.day = Math.max(g.day, e.day); groups.set(e.about, g);
     }
-    return [...groups.values()].map(e => episode(e, day));
+    return [...groups.values()].map(e => episode(e, day, limits));
 }
 // Impressions consume slots too. Past 40 different subjects, the weakest
 // impressions are forgotten outright (LSD360): forgetting a minor acquaintance
 // is what a person would lose, and the fact log still holds the truth.
-const strength = (e, day) => (Math.abs(e.feeling) + 1) * vividness(e, day);
-export function remember(slice, holder, input, day) {
-    need(id(holder), 'Invalid memory holder.');
-    const holders = decodeMemory(slice, day), e = episode(input, day);
-    const rank = (a, b) => strength(b, day) - strength(a, day) || b.day - a.day || compareCodePoints(identity(a), identity(b));
-    let rows = [...(holders[holder] ?? []), e].sort(rank);
-    // Forget whole subjects, weakest first, before folding anyone's detail.
-    const subjects = [...new Set(rows.map(m => m.about))];
-    if (subjects.length > MEMORY_LIMITS.episodes) {
-        const kept = new Set(subjects.slice(0, MEMORY_LIMITS.episodes));
-        rows = rows.filter(m => kept.has(m.about));
+const strength = (e, day, limits = MEMORY_LIMITS) => (Math.abs(e.feeling) + 1) * vividness(e, day, DEFAULT_TEMPERAMENT, limits);
+export function remember(slice, holder, input, day, limits = MEMORY_LIMITS) {
+    need(id(holder,limits), 'Invalid memory holder.');
+    // Lowered caps take effect at this write, not during a read of the old save.
+    const readLimits = {...limits, readRevision:tableRevision(MEMORY_LIMITS), holders:Math.max(limits.holders,Object.keys(slice.holders).length), episodes:Math.max(limits.episodes,...Object.values(slice.holders).map(r=>r.length)), bytes:Math.max(limits.bytes,estimateMemoryBytes(slice))};
+    const holders = decodeMemory(slice, day, readLimits), e = episode(input, day, limits);
+    holders[holder] = [...(holders[holder] ?? []), e];
+    for(const holder of Object.keys(holders)) {
+        const rank = (a, b) => strength(b, day, limits) - strength(a, day, limits) || b.day - a.day || compareCodePoints(identity(a), identity(b));
+        let rows = holders[holder].sort(rank);
+        // Forget whole subjects, weakest first, before folding anyone's detail.
+        const subjects = [...new Set(rows.map(m => m.about))];
+        if (subjects.length > limits.episodes) {
+            const kept = new Set(subjects.slice(0, limits.episodes));
+            rows = rows.filter(m => kept.has(m.about));
+        }
+        let keep = rows.length;
+        while (keep > 0 && keep + new Set(rows.slice(keep).map(m => m.about)).size > limits.episodes) keep--;
+        const kept = rows.slice(0, keep), folded = fold(rows.slice(keep), day, limits);
+        // Merge a prior impression with newly folded detail for the same subject.
+        const detail = kept.filter(m => m.kind !== 'impression');
+        holders[holder] = [...detail, ...fold([...kept.filter(m => m.kind === 'impression'), ...folded], day, limits)];
     }
-    let keep = rows.length;
-    while (keep > 0 && keep + new Set(rows.slice(keep).map(m => m.about)).size > MEMORY_LIMITS.episodes) keep--;
-    const kept = rows.slice(0, keep), folded = fold(rows.slice(keep), day);
-    // Merge a prior impression with newly folded detail for the same subject.
-    const detail = kept.filter(m => m.kind !== 'impression');
-    holders[holder] = [...detail, ...fold([...kept.filter(m => m.kind === 'impression'), ...folded], day)];
-    return encodeMemory(holders, day);
+    const weakest = () => Object.keys(holders).sort((a,b)=>Math.max(0,...holders[a].map(e=>strength(e,day,limits)))-Math.max(0,...holders[b].map(e=>strength(e,day,limits))) || compareCodePoints(a,b))[0];
+    while(Object.keys(holders).length > limits.holders) delete holders[weakest()];
+    // A smaller byte budget forgets weakest detail, then empty holders. Truth stays with facts.
+    for(;;) {
+        try {return encodeMemory(holders, day, limits);} catch(error) {
+            if(!/byte budget/.test(error.message) || !Object.keys(holders).length) throw error;
+            const h=weakest(); holders[h].sort((a,b)=>strength(a,day,limits)-strength(b,day,limits)); holders[h].shift();
+            if(!holders[h].length) delete holders[h];
+        }
+    }
 }
 
 const RECALL_PROFILE = Object.freeze({id: 'memory.recall', revision: 1, family: 'roll_under', dice: {count: 1, sides: 100}});
 // Cues carry their own opaque identity and matches, computed by the fact owner.
 // No text/topic truth is duplicated in the memory save. One draw per invocation.
-export function recallMemory({holder, memory, cue, period, day, drawAddress}) {
-    validateEpisode(memory, day);
-    need(id(holder) && fields(cue, ['id', 'person', 'place', 'topic']) && id(cue.id) &&
+export function recallMemory({holder, memory, cue, period, day, drawAddress, temperament = DEFAULT_TEMPERAMENT, limits = MEMORY_LIMITS}) {
+    validateEpisode(memory, day, limits);
+    need(id(holder,limits) && fields(cue, ['id', 'person', 'place', 'topic']) && id(cue.id,limits) &&
         ['person', 'place', 'topic'].every(k => typeof cue[k] === 'boolean') && object(period), 'Invalid recall cue/period.');
     const matches = Number(cue.person) + Number(cue.place) + Number(cue.topic);
     const key = checkKey({subject: holder, method: 'memory.recall@1', period,
         targetState: {memory, cue, day}});
-    const target = matches ? Math.max(1, Math.floor(100 * vividness(memory, day) * Math.min(1, matches / 2))) : 0;
+    const target = matches ? Math.max(1, Math.min(100, Math.floor(100 * vividness(memory, day, temperament, limits) * temperament.recall * (['harmed','betrayed'].includes(memory.kind) ? temperament.harmRecall : 1) * Math.min(1, matches / 2)))) : 0;
     return resolveCheck(RECALL_PROFILE, {id: key, target}, drawAddress);
 }
 
@@ -156,19 +181,22 @@ export function legacyEpisodes(rows, {holder, about, store, toDay}) {
         return {kind: 'legacy-literal', holder, about, store, id: m.id ?? m.cause ?? String(index), day, text: m.text};
     });
 }
-export function readMemories(slice, holder, day, {legacy = [], baseline = canonBaseline} = {}) {
-    need(id(holder) && Array.isArray(legacy) && typeof baseline === 'function', 'Invalid memory reader.');
-    return structuredClone([...(decodeMemory(slice, day)[holder] ?? []), ...baseline(holder, day), ...legacy]);
+export function readMemories(slice, holder, day, {legacy = [], baseline = canonBaseline, limits = MEMORY_LIMITS} = {}) {
+    need(id(holder, limits) && Array.isArray(legacy) && typeof baseline === 'function', 'Invalid memory reader.');
+    let decoded;
+    if(isMemorySnapshot(slice) && readCache.get(slice)?.day <= day && readCache.get(slice)?.limits === limits) decoded = readCache.get(slice).rows;
+    else {decoded = decodeMemory(slice, day, limits); if(isMemorySnapshot(slice)) readCache.set(slice,{day,limits,rows:decoded});}
+    return structuredClone([...(decoded[holder] ?? []), ...baseline(holder, day), ...legacy]);
 }
 
 // Inject the calendar reader; the domain owns state but no clock or save writer.
-export function createMemoryDomain({day}) {
+export function createMemoryDomain({day, limits = MEMORY_LIMITS}) {
     need(typeof day === 'function', 'Memory domain needs its clock port.');
     let state = freshMemory();
     return {id: 'memory', initialState: freshMemory,
-        validate: (slice, envelope) => migrateMemory(slice, day(envelope)),
-        migrate: (slice, envelope) => migrateMemory(slice, day(envelope)),
-        load: slice => { state = structuredClone(slice); }, save: () => structuredClone(state),
-        projection: envelope => decodeMemory(state, day(envelope)),
-        commands: {remember: (holder, input, envelope) => { state = remember(state, holder, input, day(envelope)); }}};
+        validate: (slice, envelope) => migrateMemory(slice, day(envelope), limits),
+        migrate: (slice, envelope) => migrateMemory(slice, day(envelope), limits),
+        load: slice => { state = freezeMemory(structuredClone(slice)); }, read: () => state, save: () => structuredClone(state),
+        projection: envelope => decodeMemory(state, day(envelope), limits),
+        commands: {remember: (holder, input, envelope) => { state = remember(state, holder, input, day(envelope), limits); }}};
 }

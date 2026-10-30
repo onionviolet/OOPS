@@ -1,3 +1,4 @@
+import {createTemperamentPort} from './person_temperament.js';
 import {derivedBond} from './person_memory_effects.js';
 import {readFactsFrame,invalidateFactsInput,withFactsMutation} from './facts_frame.js';
 import {domainRegistry} from './domain_registry.js';
@@ -218,7 +219,7 @@ function buildSimulationFacts(state, context, registry) {
             facts[`target.knowledge.${id}.seen`] = true;
             facts[`target.knowledge.${id}.understood`] = knowledge.stage === 'understood';
         }
-        for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = Number.isSafeInteger(context.facts?.calendarMinute) ? derivedBond({memory:domainRegistry.command('memory','read')?.(),holder:actor,subject:context.targetId,axis:k,baseline:v,day:Math.floor(context.facts.calendarMinute/1440)}) : v;
+        for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = Number.isSafeInteger(context.facts?.calendarMinute) ? derivedBond({memory:domainRegistry.command('memory','read')?.(),holder:actor,subject:context.targetId,axis:k,baseline:v,temperamentOf:createTemperamentPort(id=>registry?.simulation?.people.get(s.people[id]?.definitionId || id)),day:Math.floor(context.facts.calendarMinute/1440)}) : v;
         // Only observations are exposed here. Actual hidden builds remain private.
         for(const [k,v] of Object.entries(s.knowledge[actor] || {}).filter(([k]) => k.startsWith(`person.${context.targetId}.`))) facts[k] = v.value;
     }

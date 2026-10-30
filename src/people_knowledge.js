@@ -42,7 +42,10 @@ export function knownPeopleView(state, facts = {}) {
         if(Object.hasOwn(player.completed, "village.collect")) memories.push({id:"collection", text:"You collected the finished commissioned kit."});
         if(Object.hasOwn(player.completed, "village.working_habits")) memories.push({id:"preferences", text:"You asked how he prefers to work."});
         if(Object.hasOwn(player.completed, "village.interrupt_work")) memories.push({id:"interruption", text:"You interrupted him while he was counting fittings. He asked for quiet."});
+        const knownTraits=Object.entries(knowledge).filter(([key])=>key.startsWith('person.oldCraftsman.trait.')).map(([,record])=>record.value);
+        if(knownTraits.length) details.push(`Seen in his conduct: ${knownTraits.join(', ')}.`);
         add("oldCraftsman", "Old craftsman", "Last known: Village", details, memories);
+        rows[rows.length-1].knownTraits=knownTraits;
     }
     if(player.facts["town.briefed"]) {
         add("town.surveyClerk", "Survey clerk", "Last known: survey office, Town square",

@@ -87,12 +87,12 @@ test('legacy rows remain literal detached reads; canon baseline is empty and all
 
 test('300 holders at the 40 episode cap stay under 500 KB with distinct fact pointers; byte ceiling rejects oversized IDs', t => {
     const holders = Object.create(null);
-    for (let h = 0; h < 300; h++) holders[`p${h}`] = Array.from({length: 40}, (_, i) => episode(sample({
-        about: `p${(h + i) % 300}`, fact: `f${h * 40 + i}`, source: {teller: `p${(h + 1) % 300}`},
+    for (let h = 0; h < MEMORY_LIMITS.holders; h++) holders[`p${h}`] = Array.from({length: MEMORY_LIMITS.episodes}, (_, i) => episode(sample({
+        about: `p${(h + i) % MEMORY_LIMITS.holders}`, fact: `f${h * MEMORY_LIMITS.episodes + i}`, source: {teller: `p${(h + 1) % MEMORY_LIMITS.holders}`},
         feeling: -100, certainty: 100, day: 99999}), 99999));
     const s = encodeMemory(holders, 99999), bytes = estimateMemoryBytes(s);
     t.diagnostic(`300 x 40: ${bytes} UTF-8 JSON bytes including dictionary and envelope`);
-    assert.ok(bytes < 500000); validateMemory(s, 99999);
+    assert.ok(bytes < MEMORY_LIMITS.bytes); validateMemory(s, 99999);
     for (const rows of Object.values(holders)) for (const e of rows) e.fact = e.fact.padEnd(96, 'x');
     assert.throws(() => encodeMemory(holders, 99999), /byte budget/);
 });
