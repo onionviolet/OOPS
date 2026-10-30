@@ -1,6 +1,6 @@
 // RPX14 walk map fixtures (invented names, CLR3). Built by the real adapter from a place-panel view,
 // so the gallery exercises the same path as the game.
-import {walkMapSpec, routeStripSpec} from '../../walk_map.js';
+import {walkMapSpec, walkLadderSpec, routeStripSpec} from '../../walk_map.js';
 
 export const WALK_MAP_VIEW = {
     places: [
@@ -27,4 +27,5 @@ export const WALK_MAP_FIXTURE = walkMapSpec(WALK_MAP_VIEW).spec;
 export const WALK_MAP_ALONE_FIXTURE = {...walkMapSpec({places: [{place: 'Roadside inn', here: true, minutes: 0}]}).spec, id: 'walk-map-alone'};
 export const ROUTE_STRIP_FIXTURE = routeStripSpec({from: 'Lamplighters\' hall', to: 'Saltgate wharf', minutes: 20,
     passed: [{label: 'Mott the tally clerk', at: 'bridge, 6 min'}, {label: 'a hooded figure', at: 'fish market, 14 min', seen: false}]});
-export const MAP_FIXTURES = [WALK_MAP_FIXTURE, WALK_MAP_ALONE_FIXTURE, ROUTE_STRIP_FIXTURE];
+export const WALK_LADDER_FIXTURE = walkLadderSpec(WALK_MAP_VIEW);
+export const MAP_FIXTURES = [WALK_MAP_FIXTURE, WALK_LADDER_FIXTURE, WALK_MAP_ALONE_FIXTURE, ROUTE_STRIP_FIXTURE];

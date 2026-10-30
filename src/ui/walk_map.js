@@ -77,6 +77,15 @@ export function walkMapSpec(view) {
     }};
 }
 
+// Alternative form for the gallery (round 2, item 18): the same walks as one straight ladder, nearest
+// first, so rings and a line can be compared. Steps are evenly spaced; the minutes are in the words.
+export function walkLadderSpec(view) {
+    const places = Array.isArray(view?.places) ? view.places : [], here = places.find(p => p.here);
+    const away = places.filter(p => !p.here && Number.isFinite(p.minutes)).sort((a, b) => a.minutes - b.minutes || a.place.localeCompare(b.place));
+    return {id: 'walk-ladder', size: 720, title: here ? `Walks from ${here.place}, nearest first` : 'Walks, nearest first',
+        tracks: [{id: 'ladder', label: 'Minutes from here', steps: [{label: here ? here.place : 'Here', state: 'current'}, ...away.map(p => ({label: `${p.place} · ${p.minutes} min`}))]}]};
+}
+
 // RPX14 / SUI15 route strip (gallery proposal, not yet fed by the game): one walk as a track, with
 // the people you passed at your witness level. route: {from, to, minutes, passed:[{label, at, seen}]}
 export function routeStripSpec(route) {

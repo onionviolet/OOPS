@@ -24,6 +24,13 @@ try{
  // player reports in first, as the panel offers.
  const reportIn=panel.locator('[data-lotm$="report_in"]');
  if(await reportIn.count()){await reportIn.first().click();await s.step(60);await pause();await nav('lotm');report.steps.push({step:'reported in'});}
+ const board=panel.locator('[data-walk-board]');await board.waitFor();await board.scrollIntoViewIfNeeded();await pause();
+ const rows=await board.locator('[data-walk-rows] > li').evaluateAll(ns=>ns.map(n=>n.dataset.walkPlace+' | '+n.querySelector('.walk-board-minutes').textContent));
+ const mins=rows.map(r=>Number(r.split(' | ')[1].split(' ')[0]));assert.deepEqual(mins,[...mins].sort((a,b)=>a-b),'board is nearest first');
+ assert.equal(await panel.locator('[data-lotm-district]').count(),0,'board replaced the district disclosures');
+ report.steps.push({step:'board shown, nearest first',rows});
+ await board.screenshot({path:path.join(out,'walk-board.png')});
+ await board.locator('[data-walk-map-toggle]').click();await pause();
  const map=panel.locator('[data-walk-map]');await map.waitFor();await map.scrollIntoViewIfNeeded();await pause();
  const text=await map.locator('pre.fig-text').textContent();
  assert.match(text,/^Walks from /);assert.match(text,/walk, \d+ min/);assert.match(text,/\(current\)/);
@@ -33,10 +40,10 @@ try{
  // A click on a far place focuses that place's walk button row (the real verb, SUI14).
  const target=map.locator('.fig-marker[data-id^="place-"]').last();const label=(await target.locator('title').textContent()).replace(/ \(.*\)$/,'');
  await target.click();await pause();
- const focused=await p.evaluate(()=>document.activeElement?.querySelector('button')?.textContent||'');
- assert.ok(focused.startsWith(`Walk to ${label} · `),`click focuses the walk: ${focused}`);
- report.steps.push({step:'click a place',place:label,focusedButton:focused});
- const minutes=Number(focused.match(/· (\d+) min/)[1]);
+ const focused=await p.evaluate(()=>({place:document.activeElement?.dataset.walkPlace||'',button:document.activeElement?.querySelector('button')?.textContent||''}));
+ assert.equal(focused.place,label,`click focuses that place's board row: ${JSON.stringify(focused)}`);
+ report.steps.push({step:'click a place',place:label,focusedRow:focused});
+ const minutes=Number(focused.button.match(/· (\d+) min/)[1]);
  await p.evaluate(()=>document.activeElement.querySelector('button').click());
  await s.step(minutes+2);await pause(600);await nav('lotm');
  const notice=await p.evaluate(()=>document.querySelector('#lotm_panel [role=status]')?.textContent||'');

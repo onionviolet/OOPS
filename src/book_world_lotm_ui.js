@@ -8,6 +8,7 @@ import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
 import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
 import {walkMapBlock} from './ui/walk_map.js';
+import {walkBoard} from './ui/walk_board.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -17,7 +18,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
   const observer=observerForProfile(read(selected)?.entryProfile);
@@ -246,26 +247,14 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));
-  const placeLine=pl=>v.runMode?`${pl.place}${pl.here?' · you are here':` · ${pl.minutes} min`}`:`${pl.place} · ${pl.district}, ${pl.team} (${pl.church})${pl.here?' · you are here':` · ${pl.minutes} min`}`;
+  // RPX14 round 2: one departures board (nearest first, walk buttons in their rows) replaces the Places lists and
+  // per-district walk disclosures; the walking map opens below it on request. Walks with no listed place keep a plain row.
   const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' ')));
-  if(v.places?.length)walks.append(walkMapBlock(v,{open:mapOpen,ontoggle:o=>{mapOpen=o;},onPick:findControl})); // RPX14: walking time from here, known places only.
-  if(resident){
-   const here=v.places.find(pl=>pl.here)?.district;
-   if(here!==currentDistrict){districtOpen.clear();placesOpen.clear();currentDistrict=here;}
-   walks.append(node('h3','Places and walks'));
-   for(const district of new Set(v.places.map(pl=>pl.district))){
-    const group=node('details');group.dataset.lotmDistrict=district;group.open=districtOpen.get(district)??district===here;
-    group.ontoggle=()=>districtOpen.set(district,group.open);
-    const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places.filter(pl=>pl.district===district))list.append(node('li',placeLine(pl)));
-    const places=node('details');places.open=placesOpen.get(district)??false;places.ontoggle=()=>placesOpen.set(district,places.open);
-    places.append(node('summary','Places'),list);group.append(node('summary',district),places);
-    for(const m of v.moves.filter(m=>m.label.includes(` · ${district}: `)))group.append(walkRow(m));
-    walks.append(group);
-   }
-  }else{
-   if(v.places?.length){const list=node('ul');list.dataset.lotmPlaces='';for(const pl of v.places)list.append(node('li',placeLine(pl)));walks.append(node('h3','Places'),list);}
-   for(const m of v.moves)walks.append(walkRow(m));
+  if(v.places?.length){
+   walks.append(walkBoard({...v,elsewhere:[]},{move:id=>run(()=>move(id),'You walk there.'),onToggleMap:()=>{mapOpen=!mapOpen;signature='';render();},mapShown:mapOpen}));
+   if(mapOpen)walks.append(walkMapBlock(v,{open:true,ontoggle:o=>{if(!o){mapOpen=false;signature='';render();}},onPick:findControl}));
   }
+  for(const m of v.moves.filter(m=>!v.places?.some(pl=>m.label.startsWith(`Walk to ${pl.place} · `))))walks.append(walkRow(m));
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
  }
  definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});

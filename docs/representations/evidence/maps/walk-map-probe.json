@@ -1,9 +1,17 @@
 {
- "bundle": "b2dddedfd7fd8ac3",
+ "bundle": "f5cf867cb33cc2f2",
  "viewport": "1920x1080",
  "steps": [
   {
    "step": "reported in"
+  },
+  {
+   "step": "board shown, nearest first",
+   "rows": [
+    "Tingen probationer lodging | 2 min",
+    "Tingen docks | 20 min",
+    "Tingen university area | 25 min"
+   ]
   },
   {
    "step": "map shown after crossing",
@@ -12,7 +20,10 @@
   {
    "step": "click a place",
    "place": "Tingen university area",
-   "focusedButton": "Walk to Tingen university area · 25 min · University area: Machinery team"
+   "focusedRow": {
+    "place": "Tingen university area",
+    "button": "Walk · 25 min"
+   }
   },
   {
    "step": "walk refused by the host",

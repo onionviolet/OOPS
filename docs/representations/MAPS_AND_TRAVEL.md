@@ -123,3 +123,151 @@ already asserts the recentre once the walk lands).
 Next slice: feed people's known usual places (MT-F2) from cast schedules through the host
 view, filtered by the seat's knowledge; then the route strip (MT-D3) during a walk, with
 "on the way" lines from schedules that cross the route.
+
+## Round 2 (2026-10-30): review against other games, fresh eyes and room
+
+Brief: [round 2](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md), items 1-21.
+Everything here, round 1 included, is a draft and the current best, open to replacement with a
+reason (AD45). Codes continue as MT2-*.
+
+### Other games (item 1)
+
+A Sonnet reader summarised these from memory, with no web check this session. "Known" means
+recalled from play or docs, not re-verified.
+
+| Game | What it does | Mechanism we take |
+|---|---|---|
+| Sunless Sea | Sea chart of zones; fuel and supplies tick while you sail (known) | A trip is a priced choice: show what the minutes displace, not only the minutes |
+| Disco Elysium | One district as one place with a mood; places open because someone mentioned them (known) | A place joins your list with its source attached ("Mott told you") |
+| Caves of Qud | Coarse world map plus a journal of places and what you learned there (known) | The journal is the map's memory: each place carries how and when you learned it |
+| Kenshi | Huge map, territory shading, danger learned by walking into it (known) | Route risk as a label from your own last walk ("quiet last time"), never a hidden number |
+| Majora's Mask, Bombers' Notebook | Each person's day as entries of place and hour, filled when witnessed (known) | Who-is-where-when as recorded observations, the core of "usually here" |
+| Pathologic 2 | Every walk costs the day; people are found at their haunts or not (known) | "Usually here at this hour" with a confidence, so a missed meeting reads as normal |
+
+Our own baselines: the native "Move somewhere else" list (YAIR) is a flat menu without
+minutes; the drainage site already draws its own room map. Neither quotes travel time.
+
+### Fresh-player test (item 2)
+
+Opened from a fresh life at 1920×1080 (Village, Tingen probationer, report in). Five-second
+read of round 1: the rings look like a map, but nothing says what the rings are until you read
+the text form, and the district line under the figure is a wall of names. The walk buttons
+sit apart from the map, in per-district disclosures that start closed, so "where can I go" takes
+two clicks. Terms a newcomer must know: "district", the church team names, "vouch". Numbers
+without meaning: none on the map (every number is minutes), but the rings have no scale label.
+
+### Decisions
+
+| Code | Item | Decision | Why |
+|---|---|---|---|
+| MT2-1 | 3, 18, 21 | **The default form is a departures board, not the rings.** One row per known place, nearest first: name, a distance meter, minutes, a district and team chip, chips for people usually there, and the walk button with its reason visible when blocked. The ring map moves behind "Show the walking map", closed by default | "Where can I go and how long" is a sorted-list question; a ring shows the same order with less room for words and no buttons. A table with actions first fits better than a circle (item 18) |
+| MT2-2 | 4 | Distance meter on each row: a thin bar, share of the farthest known walk, with the minutes in words beside it | Answers "how far compared with the rest" at a glance (UR61); the words carry the fact (UR37) |
+| MT2-3 | 18 | Forms by part: board (table) for walking now; rings (figure) for the shape of nearby walks; a positional map (figure, free placement with `at`) only when the seat holds a map (MT-D2); a route strip (track) for a walk under way; swimlanes (places down, hours across) for who is where when (MT5). The ladder alternative (one straight track) is in the gallery and reads worse: `figure.js` tracks count progress ("0 of 5 done"), which a distance scale is not | Each part gets the form of its question; the ladder result is a finding for the figure owner (MT2-F2) |
+| MT2-4 | 3, 16 | The board replaces the Tingen panel's "Places" lists and per-district walk disclosures, keeping each walk button's `data-lotm` id, so saved scripts and the floor run still find them | Two views answered one question; merge them (item 3). Panel shell and center density stay with the Worlds lane (item 14) |
+| MT2-5 | 5 | Pop-out: a "Walks" panel earns a second-screen pop-out once it is its own panel, showing the board and, beside it, the swimlane of who is where now. No badge or notification by default; a notification only for "the person you are waiting for has arrived" in follow mode | The board is consulted between actions; a second screen keeps it open without covering the work. Arrival is the one event worth an interrupt |
+| MT2-6 | 6 | Insight or cheat view: places you have not learned appear as dashed "?" rows marked with the cheat's name (for example "Town sense"), with minutes; people's full schedules fill the swimlane in a cheat colour with the cheat named. Sealed places and sealed people stay out unless the cheat is their discovery route. The developer inspector stays separate | Cheats are features (CS1: knowledge cheats live in records and overlays); the mark keeps earned and granted knowledge apart |
+| MT2-7 | 7, 20 | Alternative style in the gallery: the ladder (MT2-3). Semantic roles in specs today: `current` (you), `walk`, `usually here`, `strained` (blocked). Flair later: in a foggy industrial city, gas-lamp halos on lit routes at night and soot-grey for unknown streets; in a cultivation world, routes as qi paths with sect territory as ink washes. Both restyle roles, not the adapter | Item 20: name roles now, motifs later |
+| MT2-8 | 9 | Unconventional option: **ask for directions.** No map at all until you own one; you ask a person, and they answer in their words with their errors ("past the fish market, about twenty minutes, mind the dock gate after dusk"). Their answer becomes a board row with the person as source. Worth a later slice: it turns knowledge of places into a social act (SR7, SR8) | Diegetic, and it fits "a place joins with its source" from Disco Elysium |
+| MT2-9 | 13 | Flourish: a short settle glow on the row you just arrived at and on a newly learned place, using the existing glow tokens and the `fig-fx--glow` class; off under effects off and reduced | A real event, bound to its subject (UR38, UR62) |
+| MT2-10 | 14 | Reports lines for travel, proposed: "Walked to {place} · {n} min", grouped as "3 walks · 47 min" when repeated, the place name linking to its board row; an "on the way" line names who you passed at your witness level. The Reports shell stays with the Time lane | Subject first, repeats grouped (RPT1-RPT12) |
+| MT2-11 | 17 | Later volumes and worlds: the board and rings read rows, so a later city adds places and a minutes table, not code. Checked: the reading status and other-books readiness notes carry no travel-specific rows yet. Open needs: more cities joined by journeys of hours or days (the existing Journeys block quotes route text, and belongs on the board as a second section "Farther"), districts by the dozen (group rows by district with the nearest group open), travel by vehicle (a mode column: walk, cab, train, with cost), and places that are not on a street (dream or spirit places reached by a method, shown as a row whose cost is the method, not minutes) | The board scales by rows and groups; the rings do not past about twenty places |
+| MT2-12 | 19 | Depth: a place's depth is how well you know it (heard of, found the way, visited, know its hours, know who is there when). The glance shows only minutes and chips; the row opens to that ladder and its sources | Levels beyond "known or not", one click deep (UR42) |
+
+### Audit gaps (item 10)
+
+- Lead run and other seats: the board reads the host view, so resident and classic lives both
+  get it; a thin life with one known place gets the empty line. Seat knowledge comes from the
+  host's filter, resident lives only (round 1 note).
+- Empty and error states: lone place, all walks blocked (each row shows its reason; when every
+  row shares one reason this repeats, so a later pass can lift it to one line).
+- Persistence: none; the map's open state is panel memory only.
+- Performance: the board is one list item per place, rebuilt only on the panel's signature
+  change; the figure stays closed until asked for, so its SVG is built only when opened (MT2-F3).
+- Accessibility: walk buttons are real buttons in reading order; blocked reasons are visible
+  text; the map keeps its text form.
+
+### ACT NOW (done this round)
+
+- MT2-1, MT2-2, MT2-4: `src/ui/walk_board.js` (built by a Sonnet subagent to an exact spec,
+  reviewed and adjusted here) with `styles/walk_board.css`; the Tingen panel's walks block now
+  shows the board, and the walking map opens from "Show the walking map" (closed by default).
+  Walks with no listed place keep a plain button row.
+- MT2-3, MT2-7: `walkLadderSpec` in `src/ui/walk_map.js` and the ladder gallery fixture.
+- Fresh-player fixes: walks are one click away in reading order, nearest first, each with its
+  minutes, district and team on the row; no closed disclosure in the way.
+
+### ACCOUNT FOR NOW
+
+- Keep `data-lotm` ids on walk buttons; floor and replay scripts click them.
+- Keep the rings' spec roles stable (MT2-7) so a motif pack can restyle them.
+
+### LATER / DELEGATE
+
+| Item | Level | Effort | Done check |
+|---|---|---|---|
+| Walks as its own panel with a pop-out (MT2-5) | Sonnet build, Opus review | Medium: panel registration through the domain registry, one `main.js`-neutral line | Pops out in the desktop shell and falls back to a center view in the browser |
+| Swimlane layout in `figure.js` for who is where when (MT2-3, MT5) | Sonnet build, coordinator merge (shared file) | Medium | A generic swimlane spec with a test and a gallery fixture; two consumers named (maps, time) |
+| Ask for directions (MT2-8) | Opus design | Medium | One person answers with an error that the walk later corrects, recorded with its source |
+| Settle glow on arrival and on a newly learned row (MT2-9) | Sonnet build | Small, once walks land (MT-F1) | Glow shows on the arrived row and is absent under effects off |
+| Insight view (MT2-6) | Sonnet build | Small once a cheat exists | A cheat-marked "?" row appears and a sealed place does not |
+| Group rows by district and a "Farther" journeys section (MT2-11) | Sonnet build | Small | A resident life with more than 12 places shows groups, nearest open |
+
+### Round 2 findings
+
+| Code | Finding | Owner |
+|---|---|---|
+| MT2-F1 | MT-F1 still blocks every walk; sent to the coordinator with the exact error and the probe command | LOTM host |
+| MT2-F2 | `figure.js` tracks always count progress ("0 of 5 done"), so a scale or ladder that is not progress reads wrong. A `progress: false` track option would fix it for every session | Figure owner (shared file) |
+| MT2-F3 | The walking map's SVG is built only while it is shown, so a closed map costs nothing per render | This lane, done |
+
+### Round 2 receipt
+
+Files: `src/ui/walk_board.js`, `styles/walk_board.css`, `tests/walk_board.test.js` (new);
+`src/ui/walk_map.js` (ladder spec); `src/ui/preview/fixtures/maps.js` (ladder fixture);
+`src/book_world_lotm_ui.js` (board replaces the Places lists and district walk disclosures);
+`index.html` (one `walk_board.css` link); `scripts/playtest/walk-map-probe.mjs` (board checks);
+evidence in `docs/representations/evidence/maps/` (`walk-board.png`, `gallery-walk-ladder.png`,
+refreshed live captures and probe JSON).
+
+Checks:
+
+- `node --test tests/walk_board.test.js tests/walk_map.test.js`: 11 pass.
+- `node scripts/playtest/walk-map-probe.mjs docs/representations/evidence/maps`: pass on bundle
+  `f5cf867cb33cc2f2`, 1920×1080, fresh origin: report in → board shown nearest first, district
+  disclosures gone → map opens from the board → a map click focuses that place's board row →
+  walk refused by MT-F1.
+- Focused set per AD36 (tests importing changed files): `node --test tests/walk_board.test.js tests/walk_map.test.js tests/observer_view.test.js tests/perspective_controls.test.js tests/lotm_cast_week.test.js tests/figure.test.js`: 42 pass, 0 fail. `npm run check:arch`: pass, growth 0. Full suite not run at the coordinator's request (machine load); `tests/cast_ability_adapter.test.js` also imports the panel and timed out before this change (round 1).
+- Gallery capture at 1920×1080, both themes: no page errors.
+- Not checked: 21 px text and effects off on the live board (the board has no effects; 21 px
+  is a known gap for the next capture).
+
+Floor (AD43): unchanged from round 1, implemented, below floor until MT-F1 lands.
+Agent-verified, not human-reviewed.
+
+## Travel pacing (proposals, 2026-10-30)
+
+Direction: Weibao, recorded in USER_VISION, "Travel time matters but does not decide the
+quality of play (2026-10-30)". Travel time is a real factor and may gate some things through
+travel windows, but by default it does not make play much better or worse. Each line below is a
+default, a dial and an in-world reason.
+
+| Code | Default | Dial | Reason |
+|---|---|---|---|
+| TP1 | **Dead time is the enemy, not distance.** A routine walk compresses to one montage line in Reports ("Walked to the docks · 20 min") with the real minutes still quoted and spent (SUI14). A walk can carry work: reading a held note, an inference, talking with a companion, the "on the way" meetings (SUI15) | How much work fits a walk depends on the means (you cannot read while rowing) and the seat's skills | You think, read and chat while you walk; only the clock moves |
+| TP2 | **Means trade time for cost, and are earned.** Walk (free, slow), cab or carriage (coin, faster, a driver who sees where you went), a learned movement ability (its own cost and risk), a contact who carries word so you need not go. Each works by its mechanism (AD38); the board's row shows each means you actually have, with its minutes and cost | The world's transport and the seat's money, abilities and contacts | Faster travel exists in the world; you get it by paying, learning or knowing someone, not from a menu |
+| TP3 | **A missed window has an aftermath.** The scene settles without you, you learn what happened at your witness level (SUI7, RPT2), and where the world allows there is a later way back in (a second chance, a hearsay lead, an apology) | Loop and deadline worlds can make a window final, with their reason | The world does not wait, but people still talk about what happened |
+| TP4 | **Planning helps.** "Go when ready" leaves at the right minute for a known appointment, and the board shows the next firm clock beside its travel time ("Docks · 20 min · shift ends in 35 min", LTU2), so arriving late is a choice, not a surprise | Off for players who want to manage every step | You know how long the walk takes; a sensible person sets off in time |
+| TP5 | **Windows are wide by default** (the lead-life timing rule: events, order and windows). A loop or deadline world narrows them with its in-world reason | Per world, per scene | Most of life tolerates being a little late |
+| TP6 | **Idle play keeps travelling.** A walk under way continues while you are away, and the return digest says where you are now and who you passed | The Time lane's digest owns the shell | The clock keeps running; the digest is the walk's montage |
+| TP7 | **Measure it.** In a fixed-seed run, compare two lives that differ only in a near or far lodging; a large gap in what the player can reach in a week is a calibration signal for minutes or window widths | The size of the acceptable gap is a tuned number | Travel should shape days, not decide outcomes |
+
+Folded into this slice: TP1's quoted minutes on every board row and button, and TP4's groundwork
+(the board is where the next firm clock will sit). LATER, with done checks:
+
+| Item | Level | Effort | Done check |
+|---|---|---|---|
+| TP1 montage Reports line and walk-time work | Sonnet build after MT-F1 | Small | A walk writes one grouped line; a held note can be read during the walk and the walk's minutes are spent once |
+| TP2 means column on the board | Sonnet build, Opus review of costs | Medium | A cab row shows coin and fewer minutes only when the seat can afford and reach a cab |
+| TP3 missed-window aftermath | Opus design with the scene lane | Medium | Arriving after a window shows what happened, at witness level, and one route back in |
+| TP4 "go when ready" and next firm clock on the row | Sonnet build | Small | The university row shows the gatehouse shift end next to 25 min; "go when ready" leaves in time |
+| TP7 near/far lodging measurement | Sonnet, headless bot | Small | Two fixed-seed runs reported side by side with the reachable-scene counts |

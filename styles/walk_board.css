@@ -1,0 +1,13 @@
+/* RPX14 walk board: departures list, nearest first. Tokens only. */
+[data-walk-board] { color: var(--theme-text, var(--ui-text)); font-size: var(--ui-type-small); line-height: var(--ui-line-small); }
+[data-walk-board] > :is(p, button) { margin: var(--ui-space-2) 0 0; }
+[data-walk-rows] { list-style: none; margin: var(--ui-space-3) 0 0; padding: 0; }
+[data-walk-rows] > li { display: grid; grid-template-columns: minmax(10em, 1.2fr) minmax(3em, 6em) 4.5em minmax(0, 1.6fr) auto; align-items: center; gap: var(--ui-space-2) var(--ui-space-3); padding: var(--ui-space-2) 0; border-bottom: var(--ui-space-hairline) solid var(--theme-border, var(--ui-hairline)); }
+.walk-board-meter { display: block; height: var(--ui-space-2); background: var(--theme-border, var(--ui-hairline)); overflow: hidden; }
+.walk-board-fill { display: block; height: 100%; width: calc(var(--walk-share) * 100%); background: var(--theme-accent, var(--ui-accent)); }
+.walk-board-minutes { white-space: nowrap; color: var(--theme-muted, var(--ui-hairline)); }
+.walk-board-chips { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); min-width: 0; }
+.walk-board-chip { padding: 0 var(--ui-space-2); border: var(--ui-space-hairline) solid var(--theme-border, var(--ui-hairline)); color: var(--theme-muted, var(--ui-hairline)); }
+.walk-board-person { color: var(--theme-text, var(--ui-text)); }
+[data-walk-rows] > li > button { justify-self: end; white-space: nowrap; }
+.walk-board-reason { grid-column: 1 / -1; color: var(--theme-danger, var(--ui-meter-limit)); font-size: var(--ui-type-small); }
