@@ -1,4 +1,6 @@
 import {INVENTORY_KINDS,inventoryRowKind,matchesInventoryFilter} from './inventory_filters.js';
+import {splitReasons,playerReasonText} from './player_reasons.js';
+import {config} from './config.js';
 // Shared display grammar only. Reasons come from the action's existing owner.
 let reasonSequence=0;
 const actionNotes=new WeakMap(),focusable=new WeakMap();
@@ -16,7 +18,10 @@ export function decorateActionComponents(root) {
         const retext=(note,text)=>{const index=byParent.get(note.parentElement);if(index){const old=index.get(note.textContent.trim());if(old){const i=old.indexOf(note);if(i>=0)old.splice(i,1);}const next=index.get(text.trim())||index.set(text.trim(),[]).get(text.trim());next.push(note);next.sort((a,b)=>a.compareDocumentPosition(b)&4?-1:1);}note.textContent=text;};
         for(const button of root.querySelectorAll('button')) {
             // A hidden control shows no blocker: its reasons only cluttered the panel (2026-10-29).
-            const reason=button.disabled&&!button.hidden ? button.dataset.disabledReason || button.title : '';
+            // Engine wording (UR73) never reaches the player; dev mode shows it under a dev label.
+            const raw=button.disabled&&!button.hidden ? button.dataset.disabledReason || button.title : '';
+            const split=raw?splitReasons(raw):null;
+            const reason=!split?'':playerReasonText(raw)||(config.enable_dev_mode&&split.dev.length?'dev: '+split.dev.join(' '):'');
             let note=notes.get(button);
             if(!note) {
                 const existing=(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n?.classList.contains('ui-disabled-reason'));

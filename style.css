@@ -3105,6 +3105,7 @@ i {
 .adventure_notebook .expedition_card p { color: var(--ui-swatch-085); }
 .adventure_notebook .notebook_preparation summary { font-size: var(--ui-type-small); color: var(--ui-swatch-068); padding: round(.35rem, 1px) 0; }
 .adventure_notebook #simulation_panel button { padding: round(.45rem, 1px) round(.6rem, 1px); margin: round(.2rem, 1px) 0; font: inherit; max-width: 100%; white-space: normal; }
+#simulation_panel button[data-place]::after { content: " · at " attr(data-place); color: var(--theme-muted, var(--workspace-muted)); }
 .adventure_notebook .expedition_card .expedition_requirements { color: var(--ui-swatch-086); }
 .adventure_notebook #field_panel [data-field-event] button,
 .adventure_notebook #field_panel > div > section button { display:block; width:100%; text-align:left; padding:round(.4rem, 1px) round(.5rem, 1px); margin:round(.2rem, 1px) 0; box-sizing:border-box; white-space:normal; }
