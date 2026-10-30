@@ -13,6 +13,7 @@ const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.-]*$/.test(v);
 const text = v => typeof v === 'string' && v.length > 0;
 export const edgeKinds = Object.freeze(['advance', 'mix', 'demote', 'swap', 'learn']);
 export const nodeKinds = Object.freeze(['state', 'rung', 'realm', 'substage', 'subject', 'skill', 'power', 'rank', 'collection']);
+export const axes = Object.freeze(['path', 'skill', 'knowledge', 'stat', 'gear', 'standing', 'wealth']);
 export const metricTypes = Object.freeze(['fill', 'quota', 'grade', 'standing', 'capacity', 'mastery']);
 const numbersIn = Object.freeze(['exact', 'felt-words', 'none']);
 const visibleTo = Object.freeze(['none', 'insignia', 'sensed', 'status']);
@@ -22,6 +23,7 @@ const bases = Object.freeze(['stated', 'inferred', 'real']);
 export const KNOWLEDGE = Object.freeze({unaware: 0, exists: 1, name: 2, benefits: 3, costs: 4, odds: 5});
 const level = v => Number.isInteger(v) && v >= 0 && v <= 5;
 function validateMetric(m, where) {
+    check(m.axis === undefined || axes.includes(m.axis), `Invalid axis at ${where}.`);
     check(object(m) && id(m.id) && metricTypes.includes(m.type) && numbersIn.includes(m.numbersInWorld ?? 'exact'), `Invalid metric at ${where}.`);
     check(m.persistsAcrossReset === undefined || typeof m.persistsAcrossReset === 'boolean', `Invalid persistsAcrossReset at ${where}.${m.id}.`);
     if (m.type === 'grade' || m.type === 'mastery') check(Array.isArray(m.scale) && m.scale.length > 1 && m.scale.every(text), `Metric ${where}.${m.id} needs an ordered scale.`);
@@ -39,6 +41,7 @@ export function defineGraph(desc) {
     for (const n of nodes) {
         check(object(n) && id(n.id) && text(n.label) && Array.isArray(n.grants ?? []) && (n.grants ?? []).every(text), `Invalid node in ${desc.id}.`);
         check(!ids.has(n.id), `Duplicate node ${n.id}.`);
+        check(n.axis === undefined || axes.includes(n.axis), `Invalid axis on ${n.id}.`);
         check(n.kind === undefined || nodeKinds.includes(n.kind), `Invalid node kind on ${n.id}.`);
         check(n.system === undefined || id(n.system), `Invalid system on ${n.id}.`);
         check(n.tier === undefined || natural(n.tier), `Invalid tier on ${n.id}.`);
@@ -112,12 +115,27 @@ function edgeView(e, node, facts, level, name) {
 
 // The marker moves along an edge and the history keeps the trail with a cause (also on a demote). The from node is left unless the edge
 // is a mix. A swap, or locksOthers 'locks', also gives up other held nodes of the target's system; 'keeps' (default) and 'dial' leave them.
-export function moveAlong(graph, state, edgeId, {cause = ''} = {}) {
+export function moveAlong(graph, state, edgeId, {cause = '', at: stamp} = {}) {
     const e = graph.edges.find(x => x.id === edgeId), node = Object.fromEntries(graph.nodes.map(n => [n.id, n]));
     check(e && state.at.includes(e.from), `Edge ${edgeId} does not leave a held node.`);
     const sys = node[e.to].system;
     const dropsSystem = e.kind === 'swap' || e.locksOthers === 'locks';
     const keep = n => (n !== e.from || e.kind === 'mix') && !(dropsSystem && sys !== undefined && node[n].system === sys);
     const at = [...state.at.filter(keep), ...(state.at.includes(e.to) ? [] : [e.to])];
-    return {at, trail: [...(state.trail ?? []), {from: e.from, to: e.to, edge: e.id, kind: e.kind, cause}]};
+    return {at, trail: [...(state.trail ?? []), {from: e.from, to: e.to, edge: e.id, kind: e.kind, cause, ...(stamp === undefined ? {} : {at: stamp})}]};
+}
+
+// "What improved since": derived from the trail and from metric changes the host supplies, never stored (AD46). A step along any edge
+// except a demote counts at its target node; `metricChanges` is [{node, metric, at, delta}] and counts when delta > 0. Each item
+// carries its axis (metric, else node, else 'path') so a digest can group by path, skill, knowledge, stat, gear, standing or wealth.
+export function improvements(graph, {trail = [], metricChanges = []} = {}, since = 0) {
+    const node = Object.fromEntries(graph.nodes.map(n => [n.id, n]));
+    const fromTrail = trail.filter(t => t.kind !== 'demote' && Number.isFinite(t.at) && t.at >= since)
+        .map(t => ({axis: node[t.to].axis ?? 'path', id: t.to, label: node[t.to].label, at: t.at, via: t.kind}));
+    const fromMetrics = metricChanges.filter(c => node[c.node] && c.delta > 0 && c.at >= since).map(c => {
+        const m = (node[c.node].metrics ?? []).find(x => x.id === c.metric);
+        check(m, `Unknown metric ${c.node}.${c.metric}.`);
+        return {axis: m.axis ?? node[c.node].axis ?? 'path', id: `${c.node}.${c.metric}`, label: node[c.node].label, at: c.at, via: 'metric'};
+    });
+    return [...fromTrail, ...fromMetrics].sort((a, b) => a.at - b.at);
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {definePath, pathView} from '../src/ascension_paths.js';
-import {defineGraph, ladderToGraph, graphView, moveAlong} from '../src/ascension_graph.js';
+import {defineGraph, ladderToGraph, graphView, moveAlong, improvements} from '../src/ascension_graph.js';
 
 const q = (id, fact, need = 1) => ({id, type: 'quota', label: id, fact, need});
 const ladder = definePath({id: 'sample.line', world: 'sample.world', label: 'Line', shape: 'ladder', stages: [
@@ -96,4 +96,17 @@ test('moves keep a trail; a swap gives up the target system, a mix keeps both', 
     const m = moveAlong(tree, {at: ['left']}, 'mix_lr', {cause: 'mixed'});
     assert.deepEqual(m.at.sort(), ['left', 'right']);
     assert.throws(() => defineGraph({id: 'sample.bad2', world: 'sample.world', label: 'B', shape: 'field', nodes: [{id: 'a', label: 'A', metrics: [{id: 'g', type: 'grade'}]}], edges: []}), /scale/);
+});
+
+test('axes and a derived improvements digest', () => {
+    const g = defineGraph({id: 'sample.axes', world: 'sample.world', label: 'Axes', shape: 'field', entries: [],
+        nodes: [{id: 'a', label: 'A', axis: 'skill', metrics: [{id: 'm', type: 'fill', axis: 'stat'}]}, {id: 'b', label: 'B', axis: 'gear'}, {id: 'c', label: 'C'}],
+        edges: [{id: 'ab', kind: 'learn', from: 'a', to: 'b', crossings: [q('x', 'f')]}, {id: 'bc', kind: 'advance', from: 'b', to: 'c', crossings: [q('y', 'f')]}, {id: 'ca', kind: 'demote', from: 'c', to: 'a'}]});
+    let s = moveAlong(g, {at: ['a']}, 'ab', {at: 10});
+    s = moveAlong(g, s, 'bc', {at: 20});
+    s = moveAlong(g, s, 'ca', {at: 30});
+    const d = improvements(g, {trail: s.trail, metricChanges: [{node: 'a', metric: 'm', at: 25, delta: 0.2}, {node: 'a', metric: 'm', at: 26, delta: -1}]}, 15);
+    assert.deepEqual(d.map(x => [x.axis, x.id]), [['path', 'c'], ['stat', 'a.m']]);
+    assert.equal(improvements(g, {trail: s.trail}, 0).length, 2); // the demote does not count
+    assert.throws(() => defineGraph({id: 'sample.bad3', world: 'sample.world', label: 'B', shape: 'field', nodes: [{id: 'a', label: 'A', axis: 'mood'}], edges: []}), /axis/);
 });
