@@ -13,14 +13,15 @@ const node = (tag, text = "") => {const n = document.createElement(tag); n.textC
 export function createPeopleOverview() {
     const panel = node("section"); panel.id = "known_people_panel"; panel.className = "expedition_panel known_people_panel";
     panel.append(node("h3", "People you know"), node("p", "What you have learned and what happened between you. Locations are last known or agreed, rather than live reports."));
-    // RPX11 web: a sibling of the cards, never inside one; redrawn only when its spec changes. Closed by
-    // default: each card's glance line and bond bar answer the frequent question, the web the rarer one.
+    // RPX11 web: a sibling of the cards, never inside one; redrawn only when its spec changes. It opens once,
+    // the first time two or more people are known (COV4: the best figure is not hidden); after that the player's
+    // own open or close stays. The text form stays closed, so the panel adds few visible words.
     const web = node("details"); web.id = "relationship_web"; web.className = "relationship_web";
     const webSummary = node("summary", "Web of who knows what"), figure = node("div"), textForm = node("details"), text = node("pre");
     textForm.append(node("summary", "Read as text"), text); text.className = "fig-text";
     web.append(webSummary, figure, textForm);
     const list = node("div"); panel.append(web, list);
-    let webSignature = "";
+    let webSignature = "", webSeen = false;
     const cards = new Map();
     function render(state, facts) {
         const rows = knownPeopleView(state, facts);
@@ -40,6 +41,7 @@ export function createPeopleOverview() {
                 if(spec) {text.textContent = renderFigure(figure, spec, {idPrefix: "relationship-web"}).text; webSummary.textContent = `Web of who knows what · ${people.length} ${people.length === 1 ? "person" : "people"}`;}
             }
             web.hidden = !spec;
+            if(people.length > 1 && !webSeen) {webSeen = true; web.open = true;}
         } catch(error) {
             web.hidden = true;
             if(!webSignature.startsWith("error:")) {webSignature = `error:${error.message}`; console.warn("[relationship web]", error);}

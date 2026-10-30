@@ -131,13 +131,14 @@ export function homeOverviewModel(view, {homeId} = {}) {
     return model;
 }
 
-/** Figure spec: the room strip. Horizontal tracks: fittings, then rooms when the home has them. */
+/** Figure spec: the room strip as chip rows (COV4): fittings, then rooms when the home has them. A chip is a tag, not a node. */
 export function homeFigureSpec(model) {
     if (model.empty) return null;
     const done = list => list.filter(s => s.state === 'done').length;
-    const tracks = [{id: 'fittings', label: 'Fittings', orient: 'horizontal', progress: `${done(model.fittings)} of ${model.fittings.length} fitted`, steps: model.fittings}];
-    if (model.rooms.length) tracks.push({id: 'rooms', label: 'Rooms', orient: 'horizontal', progress: `${done(model.rooms)} of ${model.rooms.length} built`, steps: model.rooms});
-    return {id: `home-strip-${model.id}`, title: `${model.header.name}: rooms and fittings`, summary: `${model.header.comfort.label}. ${model.header.where}`, size: 720, tracks,
+    const chip = s => ({label: s.label, state: s.state, ...(s.note ? {note: s.note} : {})});
+    const chips = [{id: 'fittings', label: `Fittings: ${done(model.fittings)} of ${model.fittings.length} fitted`, items: model.fittings.map(chip)}];
+    if (model.rooms.length) chips.push({id: 'rooms', label: `Rooms: ${done(model.rooms)} of ${model.rooms.length} built`, items: model.rooms.map(chip)});
+    return {id: `home-strip-${model.id}`, title: `${model.header.name}: rooms and fittings`, summary: `${model.header.comfort.label}. ${model.header.where}`, size: 720, chips,
         notes: model.fittings.filter(f => f.state === 'broken' || f.state === 'strained').map(f => ({state: f.state, text: `${f.label}: ${f.note}`})),
         legend: [{state: 'done', label: 'fitted or built'}, {state: 'empty', label: 'not yet'}, {state: 'strained', label: 'works, with a problem'}, {state: 'broken', label: 'cannot be used'}]};
 }
