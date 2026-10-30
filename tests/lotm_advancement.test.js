@@ -77,3 +77,15 @@ test('advanceLadders refuses an ability key repeated across rungs', () => {
     pack.rungs.seq6 = {...synthetic().rungs.seq7, label: 'Rung six'};
     assert.throws(() => advanceLadders(seerPathway, pack), /repeats across rungs/);
 });
+
+test('a loaded pack does not name rungs beyond the next one for a fresh life (ABILITIES F1)', async () => {
+    const {setAdvancement, lotmPathView} = await import('../src/book_world_lotm_path.js');
+    const pack = synthetic();
+    pack.rungs.seq6 = {label: 'Rung six', crossings: [{id: 'dose6', type: 'ingest', label: 'Dose', fact: 'heldSix', need: true}], grants: ['Another faculty'], abilities: []};
+    setAdvancement(pack);
+    try {
+        const names = lotmPathView({}, {'lotm.home.evernight': true, 'lotm.enrolled': true}).ladder.map(s => s.label);
+        assert.ok(!names.includes('Rung seven') && !names.includes('Rung six'));
+        assert.ok(names.includes('???'));
+    } finally { setAdvancement(null); }
+});
