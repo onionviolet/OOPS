@@ -152,3 +152,9 @@ L14 needs no lane this round: volumes 2-8 of news and calendar are already done 
 Combined focused run: 25 pass, `check:arch` pass. The full suite has not run.
 
 Luna lanes: C1 (7) and C4 (6) were launched at about 10:40 with Codex at 36%. C5's 19 lanes wait until the load average falls (it was 70-83, driven by other sessions' ugrep and Chrome).
+
+## Floor wave (O1)
+
+| Slice | Floor result |
+| --- | --- |
+| Divination (L4 rows, `div_supply` facts, cast-pack seam; wired by sw-wire `fe6a8e17`) | Played, 1920x1080, fresh origin, lead-life (`be`) start: "Rites and questions" lists the L4 rows; coin divination ran prepare, ask, interpret to the signal and "Your interpretation" lines, no page errors. Save and reload keep the 5 `divination.*` knowledge keys. `node --test` divination slice: 13 pass. Probe: `scripts/playtest/lotm-divination-probe.mjs`. Agent-verified, not human-reviewed. Gaps: import not exercised; screenshots time out on font load; the interpretation is authored text, not backed by a fact supplier (WA51, QR6d); all 8 scenes list at once and disabled steps show one generic reason. Below floor until those are settled. |
