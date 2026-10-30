@@ -838,3 +838,6 @@ body #bottom_panel_div .sl_button {padding-left:var(--ui-space-3);padding-right:
 
 #main_content.workspace-active .workspace-module[data-module="local-actions"]:has(.center-mode-open) { flex: 0 0 auto !important; }
 #main_content.workspace-active .workspace-module[data-module="local-actions"] > .workspace-module-body:has(.center-mode-open) { height: min(var(--workspace-height, 400px), calc(100dvh - 300px)); min-height: 260px; max-height: none; flex: 0 0 auto; }
+#next_step { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ui-space-2) var(--ui-space-4); padding: var(--ui-space-2) var(--ui-space-4); border: 1px solid var(--workspace-border); border-left: 3px solid var(--workspace-accent); background: var(--workspace-surface); }
+#next_step[hidden] { display: none; }
+#next_step small { flex: 1 1 24em; opacity: .85; }

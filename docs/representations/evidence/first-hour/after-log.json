@@ -1,0 +1,14 @@
+[
+ {
+  "stage": "minute0",
+  "nextStep": "Next stepTalk to the village elder.In Local actions: Talk to someone, then Talk to village elder.Show me"
+ },
+ {
+  "stage": "after-first-answer",
+  "nextStep": "Next stepKeep talking: say you want to leave.In the conversation, pick the line about leaving, then \"But I want to leave\".Show me"
+ },
+ {
+  "stage": "sent-to-the-field",
+  "nextStep": "Next stepAsk the elder about the spare weapon and pick one.Talk to the elder, then \"About the spare weapon...\". Your choice goes in your inventory.Show me"
+ }
+]

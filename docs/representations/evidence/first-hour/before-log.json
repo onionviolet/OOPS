@@ -1,0 +1,14 @@
+[
+ {
+  "stage": "minute0",
+  "nextStep": ""
+ },
+ {
+  "stage": "after-first-answer",
+  "nextStep": ""
+ },
+ {
+  "stage": "sent-to-the-field",
+  "nextStep": ""
+ }
+]

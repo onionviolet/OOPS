@@ -93,6 +93,7 @@ import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
 import {foundationInteractionProbeContext,foundationInteractionProbeGuard,FOUNDATION_PROBE_GROUP} from './foundation_interaction_content.js';
 import {createFoundationStartContent,FOUNDATION_START_PACK_ID} from './foundation_start_content.js';
 import {createLocalLivelihoodContent} from './local_livelihood_content.js';import {createWarmHandStartContent} from './warm_hand_start_content.js';import {createLanternLoanStartContent} from './lantern_loan_start_content.js';import {createSlakeBenchStartContent} from './slake_bench_start_content.js';
+import {mountFirstHour} from './first_hour.js';
 import {mountWorkspace,registerWorkspaceModule,registerLayoutSignal,workspaceOwns,openWorkspaceModule,expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
 import {defaultCustomizationState,neutralPresentationSettings,upgradeUntouchedCustomization,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
@@ -9852,6 +9853,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     next.onclick=()=>{openingStep=Math.min(3,openingStep+1);try{localStorage.setItem('yairpg.opening.v1',String(openingStep));}catch{/* Session only. */}renderOpening();updateWorkspace();};
     if(Object.values(character.getLevelableComponent().skill_progress).some(p=>p.total_xp>0)||Object.values(enemy_killcount).some(n=>n>0)||Object.values(book_stats).some(b=>b.accumulated_time>0))openingStep=3;
     subscribeDisplaySettings(()=>{renderOpening();updateWorkspace();});renderOpening();
+    mountFirstHour({host:document.getElementById('main_content'),quests,active:active_quests,killcounts:enemy_killcount,armed:()=>character.getEquipment().weapon||Object.values(character.getItems()).some(r=>r.item?.equip_slot==='weapon'),show:openWorkspaceModule,setting:()=>getDisplaySetting('nextStep'),subscribe:subscribeDisplaySettings});
     const reference=document.createElement('section');reference.id='reading_reference';
     const referenceKnown=()=>['ABC for kids','Old combat manual'].some(id=>item_templates[id].isFinished());
     referenceRender=()=>{

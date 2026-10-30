@@ -7,6 +7,7 @@ export const DISPLAY_KEY = 'yairpg.display.v1';
 
 export const DISPLAY_SETTINGS = [
     {key:'stagedOpening',label:'Staged opening (proposal)',options:[['off','Off'],['on','On']],fallback:'off',description:'Introduce time, character, belongings and local actions in four steps on a fresh opening. Save, reports and settings stay reachable.'},
+    {key:'nextStep',label:'Next-step line (proposal)',options:[['on','On'],['off','Off']],fallback:'on',description:'Shows one line under the top strip saying what to do next while the opening quest is unfinished, and where to click. Presentation only.'},
     {key: 'numberFormat', label: 'Large numbers', options: [['exact', 'Exact'], ['compact', 'Compact'], ['scientific', 'Scientific']], fallback: 'exact',
         description: 'Optional shorter display for large values; the exact value remains available.'},
     {key: 'reveal', label: 'Panel reveal', options: [['full', 'Full'], ['quiet', 'Quiet'], ['off', 'Off']], fallback: 'full',
