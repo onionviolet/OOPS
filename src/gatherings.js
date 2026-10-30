@@ -28,6 +28,12 @@ export function meetsOn(g, day, {book = null} = {}) {
     return day >= g.schedule.offset && (day - g.schedule.offset) % g.schedule.everyDays === 0 &&
         (!g.eventId || !book || happenedOn(book, day).some(e => e.id === g.eventId));
 }
+// The next meeting on or after fromDay (within a year of days), with its hour; null when none falls in that span.
+export function nextMeeting(g, fromDay, {book = null} = {}) {
+    check(natural(fromDay), 'Invalid gathering day.');
+    for(let d = fromDay; d < fromDay + 366; d++) if(meetsOn(g, d, {book})) return {day: d, hour: g.schedule.hour};
+    return null;
+}
 export function seatsOn(g, day, {absent = [], personas = emptyPersonas()} = {}) {
     check(natural(day) && Array.isArray(absent), 'Invalid gathering attendance.');
     return g.seats.filter(s => !absent.includes(s.personaId) && (!s.minStanding || standingOf(personas, s.personaId, s.minStanding.region) >= s.minStanding.atLeast))

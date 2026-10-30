@@ -10,7 +10,7 @@ const hoursOk = h => h === undefined || h === null || Array.isArray(h) && h.leng
 const unique = (rows, what) => {const s = new Set(); for(const r of rows) {check(object(r) && id(r.id) && !s.has(r.id), `Invalid or duplicate ${what} id.`); s.add(r.id);} return s;};
 const amountOk = a => a === 'unstated' || natural(a);
 export const isOpen = (hours, hour) => !hours || (hours[0] < hours[1] ? hour >= hours[0] && hour < hours[1] : hour >= hours[0] || hour < hours[1]);
-export const hoursText = hours => hours ? `${hours[0]}:00-${hours[1]}:00` : 'always open';
+export const hoursText = (hours, unstated = false) => hours ? `${hours[0]}:00-${hours[1]}:00` : unstated ? 'hours not recorded' : 'always open';
 export const priceText = (amount, unit) => amount === 'unstated' || amount === undefined ? 'price not recorded' : amount === 0 ? 'free' : `${amount} ${unit || 'money'}`;
 
 export function defineRegion(row) {
@@ -25,7 +25,7 @@ export function defineRegion(row) {
     for(const p of places) check(text(p.label) && hoursOk(p.hours), `Invalid place ${p.id}.`);
     const ladder = ladderFor(row.id).map(r => r.id);
     for(const i of institutions) {
-        check(text(i.label) && text(i.kind) && placeIds.has(i.place) && hoursOk(i.hours), `Invalid institution ${i.id}.`);
+        check(text(i.label) && text(i.kind) && placeIds.has(i.place) && hoursOk(i.hours) && (i.hoursUnstated === undefined || typeof i.hoursUnstated === 'boolean'), `Invalid institution ${i.id}.`);
         check(i.minRank === undefined || ladder.includes(i.minRank), `Unknown rank in ${i.id}.`);
         const s = new Set();
         for(const svc of i.services || []) {
@@ -52,7 +52,7 @@ export function readRegion(region, {reputation = 0, hour = 12, money = Infinity,
     const places = new Map(region.places.map(p => [p.id, p]));
     const institutions = region.institutions.map(i => {
         const hours = i.hours || places.get(i.place)?.hours || null, open = isOpen(hours, hour), gate = need(i.minRank);
-        return {id: i.id, label: i.label, kind: i.kind, place: i.place, enforcer: i.enforcer || null, open, hoursText: hoursText(hours),
+        return {id: i.id, label: i.label, kind: i.kind, place: i.place, enforcer: i.enforcer || null, open, hoursText: hoursText(hours, i.hoursUnstated === true), hoursKnown: !!hours,
             services: (i.services || []).map(s => {
                 const price = scaled(s.price, level), sg = need(s.minRank), reasons = [];
                 if(!open) reasons.push(`Closed; open ${hoursText(hours)}.`);
@@ -65,6 +65,6 @@ export function readRegion(region, {reputation = 0, hour = 12, money = Infinity,
     const offices = region.offices.map(o => {const g = need(o.minRank); return {id: o.id, label: o.label, institution: o.institution, held: held.includes(o.id), eligible: g.ok, reasons: g.ok ? [] : [g.reason]};});
     const errands = region.errands.map(e => {const g = need(e.minRank); return {id: e.id, label: e.label, institution: e.institution, eligible: g.ok, reasons: g.ok ? [] : [g.reason], payText: priceText(scaled(e.pay, level), e.unit)};});
     const priceList = region.prices.map(p => ({id: p.id, label: p.label, amount: scaled(p.amount, level), text: priceText(scaled(p.amount, level), p.unit), basis: p.basis}));
-    return {id: region.id, label: region.label, rank: {id: rank.id, name: rank.name, feeling: rank.feeling, next: rank.next ? rank.next.id : null},
+    return {id: region.id, label: region.label, era: region.era || null, dial: {...region.dial}, statutes: [...region.statutes], rank: {id: rank.id, name: rank.name, feeling: rank.feeling, next: rank.next ? rank.next.id : null},
         arrival: {...region.arrival}, institutions, offices, errands, priceList, customs: region.customs.map(c => ({...c}))};
 }

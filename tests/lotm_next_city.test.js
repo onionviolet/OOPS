@@ -22,7 +22,9 @@ t('the lead arrives, uses a service in its hours and reads a cited price', () =>
     assert.ok(city);
     const bank = id => readRegion(city.region, {reputation: 0, hour: 11, money: 5}).institutions.find(i => i.id === id);
     assert.equal(bank('backlund.clearing-bank').open, true);
-    assert.equal(readRegion(city.region, {hour: 22}).institutions.find(i => i.id === 'backlund.clearing-bank').open, false);
+    const late = readRegion(city.region, {hour: 22}).institutions.find(i => i.id === 'backlund.clearing-bank');
+    assert.equal(late.hoursText, 'hours not recorded');
+    assert.equal(late.hoursKnown, false);
     const read = readRegion(city.region, {reputation: 0, hour: 11, money: 5});
     assert.equal(read.rank.id, 'stranger');
     const trip = read.institutions.find(i => i.id === 'backlund.public-carriage').services.find(s => s.id === 'cross-district-trip');
@@ -34,6 +36,8 @@ t('the lead arrives, uses a service in its hours and reads a cited price', () =>
     assert.equal(city.provenance['cross-district-trip'].evidence, 'S');
     assert.match(city.provenance['cross-district-trip'].locator, /^zh b\d 第\d+章 p\d+$/);
     assert.equal(read.offices[0].eligible, false);
+    assert.equal(read.era.from, 'volume 1 chapter 80');
+    assert.equal(read.dial.priceLevel, 1);
     assert.equal(read.errands[0].eligible, true);
 });
 t('every pack row is cited and labelled, and the road from the home city takes days away', () => {
@@ -49,12 +53,15 @@ t('every pack row is cited and labelled, and the road from the home city takes d
 });
 t('verified rows keep their label, authored hours and fares stay marked, and the weekly circle meets by persona only', async () => {
     const city = buildNextCity(pack);
-    assert.equal(city.provenance['backlund.clearing-bank'].hoursEvidence, 'I');
+    assert.equal(city.provenance['steam-train'].hoursEvidence, 'I');
+    assert.equal(quoteRoute(city.route, {money: 99, minuteOfDay: 3 * 60, proposedFare: 5}).legs[0].waitMinutes, 4 * 60);
+    assert.ok(city.provenance['steam-train'].hoursLocator);
     assert.equal(city.provenance['steam-train'].fareEvidence, 'I');
     assert.equal(readRegion(city.region, {reputation: 12, hour: 11, money: 5}).institutions[1].services[0].priceText, 'price not recorded');
-    const {meetsOn, seatsOn, trade, leave} = await import('../src/gatherings.js');
+    const {meetsOn, seatsOn, trade, leave, nextMeeting} = await import('../src/gatherings.js');
     const g = city.gathering;
     assert.deepEqual([0, 3, 7, 14].map(d => meetsOn(g, d)), [true, false, true, true]);
+    assert.deepEqual(nextMeeting(g, 1), {day: 7, hour: 14});
     assert.ok(seatsOn(g, 7).every(s => Object.keys(s).sort().join() === 'label,seatId'));
     const tr = trade(g, {}, {from: 'seat.fool', to: 'seat.justice', give: {kind: 'fact', key: 'news.one'}, take: {kind: 'item', key: 'item.one'}});
     assert.equal(tr.ok, true); assert.deepEqual(tr.exposed, []);
