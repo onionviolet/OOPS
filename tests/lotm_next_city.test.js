@@ -90,3 +90,22 @@ const bay = fs.existsSync(BAIYAM) ? JSON.parse(fs.readFileSync(BAIYAM, 'utf8')) 
     const cities = await loadCities(async p => ({ok: !!files[p], json: async () => files[p]}));
     assert.deepEqual(cities.map(c => c.region.id), ['baiyam']);
 });
+
+const FRONTIER = new URL('../private_packs/lotm-afternoon-town/region.json', import.meta.url);
+const frontier = fs.existsSync(FRONTIER) ? JSON.parse(fs.readFileSync(FRONTIER, 'utf8')) : null;
+(frontier ? test : test.skip)('a frontier camp uses the same kit: unstated prices stay unstated and the route meets a creature hazard', () => {
+    const city = buildNextCity(frontier);
+    assert.ok(city);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    const read = readRegion(city.region, {reputation: 0, hour: 3, money: 100});
+    const kitchen = read.institutions.find(i => i.id === 'afternoon-town.camp-kitchen');
+    assert.equal(kitchen.hoursText, 'hours not recorded');
+    assert.equal(kitchen.services[0].priceText, 'price not recorded');
+    assert.equal(read.institutions[0].services[1].available, false);
+    assert.equal(read.offices[0].eligible, false);
+    const q = quoteRoute(city.route, {money: 0});
+    assert.equal(q.totalFare, 0); assert.equal(q.totalDays, 1); assert.equal(q.eligible, true);
+    const kinds = new Set();
+    for(let d = 0; d < 100; d++) for(const e of settleRoute(city.route, {day: d, seed: 5}).events) kinds.add(e.kind);
+    assert.deepEqual([...kinds], ['creature']);
+});

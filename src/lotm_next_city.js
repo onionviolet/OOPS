@@ -8,7 +8,7 @@ import {defineGathering} from './gatherings.js';
 import {deepFreeze, object} from './basics.js';
 export const NEXT_CITY_SUPPLEMENT = 'lotm-next-city/region.json';
 // One entry per city on the lead's path, in order (L11). Each is a private supplement with the same row shape.
-export const CITY_SUPPLEMENTS = Object.freeze([NEXT_CITY_SUPPLEMENT, 'lotm-baiyam/region.json']);
+export const CITY_SUPPLEMENTS = Object.freeze([NEXT_CITY_SUPPLEMENT, 'lotm-baiyam/region.json', 'lotm-afternoon-town/region.json']);
 export function buildNextCity(pack) {
     if(!object(pack) || pack.schema !== 1 || !object(pack.region) || !object(pack.route)) return null;
     try {
