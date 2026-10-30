@@ -3,6 +3,24 @@
 Updated after each wave. Plan: [VOLUME1_READING_PLAN](VOLUME1_READING_PLAN.md). Output is private
 (gitignored); this file carries ids, counts and grades only.
 
+## Correction, 2026-10-29 evening (resume session; nothing read, nothing spent)
+
+The table below stops at 2026-10-27 and is stale. **LOTM volume 1 chapters 1-213 is fully read.** Chapters 115-213 (31 shards, `w4s40`-`w4s41` agent, `b4s42`-`b7s72` batch) went through the Message Batches route on 2026-10-28/29, with schema 1.4 rows for people, rules and texture on all 72 shards and a second medium census (`x2`) on the 31. Owners: [batch campaign](../batch-reading-2026-10-27/PLAN.md), [readiness rounds](../batch-reading-2026-10-27/READINESS_AND_SCOPE.md) C32-C36, [local overnight handoff](../batch-reading-2026-10-27/LOCAL_OVERNIGHT_HANDOFF_2026-10-29.md). A whole-book merge exists (`m4-whole-book-2026-10-29/`).
+
+| Item (ch 121-213, 31 shards, read from the headers) | Count |
+| --- | --- |
+| Scenes pass grade B / C | 19 / 10 (lint failures are 1-9 rows each: `price-amount`, `note-length`, `quote-guard`, `zh-not-at-locator`, four `locator-format`, one `evidence-kind`; name accuracy 0.993-1.0) |
+| Second census (`x2`) grade B / C | 29 / 2 |
+| First census B / C | 1 / 1 listed by header (others carry a different header shape) |
+
+Grade-C scene shards: `b4s42`, `b4s44`, `b4s48`, `b5s50`, `b5s52`, `b5s59`, `b6s63`, `b6s67`, `b6s68`, `b7s70`. By the driver's `repairable` rule only single-issue shards qualify; a script-only set-aside of the failing rows (no model call) is the cheapest fix and has not been applied.
+
+**Budget (AU2) for this resume:** $0 and 0 tokens. October credit is spent (about $97.21 of $100); a paid call needs Weibao's go phrase per run file; the November plans (`plans/overnight_2026-11-01-*.json`) are `approval: PENDING` and the fresh credit arrives Nov 1. An agent haiku reader would cost 130-170k tokens a shard against about $0.02 by batch, so no agent reading is dispatched. Usage before/after: not sampled (no reading run).
+
+**Free lane:** the local COI census queue (tag `n1`, 53 shards done, last entry 2026-10-29 21:05) is not running now; resume with the command in the local handoff when the coordinator's browser checks are done.
+
+**Next step (one line):** Weibao says go on a November run file (Circle of Inevitability `coi` first per C24, or the pending `2026-11-01-*` books); until then, optionally script-repair the 10 grade-C volume 1 shards.
+
 | Wave | Chapters | Shards done | Grades (A / B / C) | Tokens (haiku) | Usage after (5-hour / weekly) | State |
 | --- | --- | --- | --- | --- | --- | --- |
 | Pre-gate (v1) | 1-15 | 6 (+1 re-run) | 0 / 4 / 2 | about 1.05 million | n/a | Read; 165 review items under 1.3 |
