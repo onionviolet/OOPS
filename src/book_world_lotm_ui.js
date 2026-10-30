@@ -6,6 +6,7 @@ import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
+import {riteFigureSpec} from './ui/rite_figure.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -61,6 +62,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    box.append(node('p',`${r.label} if drunk now: ${r.grade} · stated loss-of-control odds ${r.odds} percent (pre-signs stay reversible about ${r.recoveryDays} days). Seq ${d.seq} doses cannot be drunk yet, so this is a preview.`));
    for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}. Principle: ${c.principle}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
    bench.append(box);}
+  // RPX1/RPX2 figure of the same detail: rite conditions and materials as slots, the brew as a track; the lines above stay the text form (UR37).
+  const spec=riteFigureSpec(d);if(spec){const fig=node('div');fig.dataset.lotmFigure=spec.id;renderFigure(fig,spec,{idPrefix:`lotm-${spec.id}`});bench.append(fig);}
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
   if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));
   if(d.doses)bench.append(node('p',`You hold ${d.doses} ${d.product?.name||'dose'}.`));

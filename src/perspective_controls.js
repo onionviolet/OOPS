@@ -79,6 +79,7 @@ const rows = [
     ['rite', 'in-world', 'The character’s preparation preview.'],
     ['rite-condition', 'in-world', 'A preparation condition for this character.'],
     ['slots', 'in-world', 'Materials held for the character’s formula.'],
+    ['figure', 'in-world', 'The character’s rite and brew drawn as a figure.'],
     ['inferences', 'in-world', 'Disclosure group: this character’s evidence and intentions.'],
     ['ability-conflicts', 'in-world', 'Disclosure group: this character’s encounters and held methods.'],
     ['divinations', 'in-world', 'Disclosure group: this character’s rites and questions.'],

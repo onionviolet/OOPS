@@ -4,6 +4,7 @@ import {renderFigure} from '../figure.js';
 import {applyCustomizationProfile, defaultCustomizationState, neutralPresentationSettings} from '../../customization_profiles.js';
 import {FIGURE_FIXTURES} from './figure_fixtures.js';
 import './fixtures/abilities.js'; // RPX5 advancement ladders register into FIGURE_FIXTURES
+import './fixtures/rituals.js'; // registers RPX1/RPX2 fixtures
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};

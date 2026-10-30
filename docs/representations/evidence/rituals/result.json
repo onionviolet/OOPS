@@ -1,0 +1,48 @@
+{
+ "bundle": "02810e8444d5a124",
+ "port": 62010,
+ "viewport": "1920x1080",
+ "route": "fresh life, Village door, earned steps; no save edits",
+ "errors": [],
+ "log": [
+  "fresh life: Village place action \"Cross to another world: Tingen\" opened the panel (no probe parameter)",
+  "probationer enrolled and reported in",
+  "Sequence 5 formula with a rite: both conditions empty, odds at the centre, materials ring, brew track at Formula; 612x968 px",
+  "bought ordinary ice (2 soli from the fresh purse), walked to the lodging: both conditions are stand-ins (strained), odds note names each",
+  "effects off: same text form, figure still drawn"
+ ],
+ "figures": {
+  "absent": {
+   "id": "bench-sun_5",
+   "desc": "Priest of Light · Sequence 5\nPriest of Light rite: 2 conditions, graded absent.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (empty); 2. In pure darkness (empty).\nNodes: Drink now · 90% odds (empty).\nTrack Materials, 0 of 6 done: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 1440 min (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nStrained: Rite absent: stated loss-of-control odds 90 percent if drunk now. Pre-signs stay reversible about 7 days.\nEmpty: Buried in non-melting ice: still needed. Wanted: you hold a block of non-melting ice.\nEmpty: In pure darkness: still needed. Wanted: you hold blackout canvas.\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
+   "width": 612,
+   "height": 968,
+   "styled": true,
+   "glow": 0,
+   "legend": [
+    "○still needed",
+    "▶step now",
+    "·step to come"
+   ],
+   "pageOverflow": false
+  },
+  "absentFilterFull": "none",
+  "substituted": {
+   "id": "bench-sun_5",
+   "desc": "Priest of Light · Sequence 5\nPriest of Light rite: 2 conditions, graded substituted.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (strained); 2. In pure darkness (strained).\nNodes: Drink now · 48% odds (strained).\nTrack Materials, 0 of 6 done: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 1440 min (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nStrained: Rite substituted: stated loss-of-control odds 48 percent if drunk now. Pre-signs stay reversible about 7 days.\nStrained: Buried in non-melting ice: stand-in ordinary ice, which melts over the hours of the rite, fit 0.5.\nStrained: In pure darkness: stand-in your shuttered lodging room by day, fit 0.5.\nKey: ! strained means a stand-in, raises the odds.\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
+   "width": 612,
+   "height": 968,
+   "styled": true,
+   "glow": 0,
+   "legend": [
+    "!a stand-in, raises the odds",
+    "○still needed",
+    "▶step now",
+    "·step to come"
+   ],
+   "pageOverflow": false
+  },
+  "subFilterFull": "none",
+  "subFilterOff": "none"
+ }
+}
