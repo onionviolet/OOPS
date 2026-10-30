@@ -578,6 +578,8 @@ export function openWorkspaceModule(id) {
     if(owner?.context==='authoring'&&!id.startsWith('customization'))setWorkspaceContext('play');
     const module = registry.get(id); if (!module || !seatAllowsPanel(readPort('expansion'),module)) return false;
     if (owner) apply(id, { hidden: false, collapsed: false });
+    // A composed workspace parks panels that have no dock of their own (hidden); they open as a center view, as their navigation route does.
+    if (module.shell?.dataset.compositionParked === 'true' && expandWorkspaceModule(id)) return true;
     if (['notebook','known-routes','known-people'].includes(id)) document.getElementById('journal_show_notebook')?.click();
     for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
     const target = owner && owner.layout.mode !== 'classic' ? module.shell : module.node;

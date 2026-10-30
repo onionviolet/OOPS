@@ -12,7 +12,7 @@ import {walkBoard} from './ui/walk_board.js';
 import {legsFromMoves} from './read_models/travel_legs_bridge.js';
 import {renderCrossingThreshold} from './ui/crossing_threshold.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
-import {mountWorkroomTabs} from './book_world_lotm_tabs.js';
+import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -40,7 +40,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  // Navigation only: focus the existing command row, including its disabled reason.
- const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
+ const tabBlocks={actions,walks,path,work,bench,notebook};
+ // A control on another workroom tab is brought into view first; focusing a tab-hidden row did nothing.
+ const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
+ const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
