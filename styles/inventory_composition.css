@@ -13,6 +13,12 @@
  --inventory-top-share:calc(var(--shell-share-1) + var(--shell-share-2));--inventory-log-share:var(--shell-share-4);
  grid-template-columns:minmax(0,var(--inventory-default-width)) minmax(0,calc(var(--inventory-top-share) - var(--inventory-default-width))) minmax(0,1fr) minmax(0,var(--inventory-log-share));
 }
+/* COV2 / UR69: with a center view open and Around you away, You and Inventory keep their home column
+   and Reports narrows; the view takes the rest. Spec dial: centerLend. A saved manual size (inline
+   columns) still wins. */
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) .workspace-board:not([style*="grid-template-columns"]) {
+ grid-template-columns:var(--shell-lend-columns,var(--shell-columns));
+}
 #main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .inventory_item_name {
  display:flex;flex-wrap:wrap;align-items:baseline;gap:0 round(.35em, 1px);
 }

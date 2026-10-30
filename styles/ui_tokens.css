@@ -250,6 +250,8 @@
     --ui-line-body: round(calc(var(--custom-size, var(--ui-type-body)) * 1.3), 1px);
     --ui-line-small: round(calc(var(--custom-small-size, var(--ui-type-small)) * 1.3), 1px);
     --ui-line-prose: round(calc(var(--custom-size, var(--ui-type-body)) * 1.45), 1px);
+    --ui-type-figure: 12px; /* SVG figures draw text in their own viewBox units at this design base; the figure scales as a whole */
+    --ui-type-heading: round(calc(var(--custom-size, var(--ui-type-body)) * 8 / 7), 1px);
     --ui-weight-regular: 400; --ui-weight-strong: 700;
 }
 
@@ -1706,6 +1708,7 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 :where(:root, .customization-module) {
  --ui-motion-fast: 120ms;
  --ui-motion-normal: 180ms;
+ --ui-motion-settle: 900ms;
  --ui-motion-ease: ease-out;
  --ui-feedback-accent: var(--theme-accent, var(--workspace-accent, var(--ui-accent)));
  --ui-feedback-focus: var(--theme-focus, var(--workspace-focus, var(--ui-accent)));
@@ -1716,8 +1719,8 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 }
 /* DL10 / Q18 P08: reduced motion is one token switch. Every --ui-motion-* consumer turns static
    under the OS preference or the Effects off/reduced setting; static cues stay. */
-:root:is([data-effects="off"],[data-effects="reduced"]), :root:is([data-effects="off"],[data-effects="reduced"]) .customization-module {--ui-motion-fast:0ms;--ui-motion-normal:0ms;}
-@media (prefers-reduced-motion:reduce) {:where(:root, .customization-module) {--ui-motion-fast:0ms;--ui-motion-normal:0ms;}}
+:root:is([data-effects="off"],[data-effects="reduced"]), :root:is([data-effects="off"],[data-effects="reduced"]) .customization-module {--ui-motion-fast:0ms;--ui-motion-normal:0ms;--ui-motion-settle:0ms;}
+@media (prefers-reduced-motion:reduce) {:where(:root, .customization-module) {--ui-motion-fast:0ms;--ui-motion-normal:0ms;--ui-motion-settle:0ms;}}
 #main_content.workspace-active :is(button,select,input,textarea,[role="button"],summary) {
  transition: border-color var(--ui-motion-fast) var(--ui-motion-ease), box-shadow var(--ui-motion-fast) var(--ui-motion-ease), background-color var(--ui-motion-fast) var(--ui-motion-ease);
 }
@@ -1833,3 +1836,26 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 .mixture-cell--guessed { color: var(--workspace-muted); font-style: italic; }
 .mixture-cell--unknown { color: var(--workspace-muted); }
 #mixture_next_try { margin: var(--ui-space-2) 0; }
+/* Paper and ink skin (COV13). Gallery-only second skin, not an Appearance option: Luminous Gothic stays the default.
+   It follows the component-theme mechanism: a node with data-component-theme="paper" gets the --theme-* roles the
+   figures already read, so adding "paper" to COMPONENT_THEMES later exposes it without a rewrite. Rules live in
+   styles/skin_paper.css; colors and the serif stack live here, with the other tokens. */
+:root {
+ --paper-ground: #efe3c6; --paper-sheet: #f6edd6; --paper-ink: #2b2118; --paper-sepia: #7b4b25; --paper-rule: #b49a6a;
+ --paper-warn: #8a4a00; --paper-danger: #8b1e1e; --paper-serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+}
+.customization-module[data-component-theme="paper"] {
+ --theme-bg: var(--paper-ground); --theme-surface: var(--paper-sheet); --theme-control: var(--paper-sheet);
+ --theme-text: var(--paper-ink); --theme-surface-text: var(--paper-ink); --theme-control-text: var(--paper-ink); --theme-muted: color-mix(in srgb, var(--paper-ink) 68%, var(--paper-ground));
+ --theme-accent: var(--paper-sepia); --theme-border: var(--paper-rule); --theme-selected: var(--paper-sepia); --theme-selected-text: var(--paper-sheet); --theme-focus: var(--paper-sepia);
+ --theme-warning: var(--paper-warn); --theme-danger: var(--paper-danger); --theme-radius: 0; --theme-heading-font: var(--paper-serif);
+ --ui-navy: var(--paper-ground); --ui-teal: var(--paper-sheet); --ui-text: var(--paper-ink); --ui-hairline: var(--paper-rule); --ui-accent: var(--paper-sepia);
+ --ui-radius: 0; --ui-shadow: none; --ui-frame: 1px solid var(--paper-rule); --ui-panel-fill: var(--paper-sheet); --ui-log-fill: var(--paper-sheet); --ui-fill: var(--paper-sheet);
+ --ui-meter-track: var(--paper-sepia); --ui-meter-pool: var(--paper-ink); --ui-meter-warn: var(--paper-warn); --ui-meter-limit: var(--paper-danger); --ui-meter-track-bg: var(--paper-ground);
+ --ui-glow-affordance: none; --ui-glow-active: inset 0 -1px var(--paper-sepia); --ui-glow-discovery: none;
+ --fig-stroke: 1; --fig-stroke-strong: 2; --fig-glow-radius: 0px;
+ background: var(--paper-ground); color: var(--paper-ink); font-family: var(--paper-serif);
+}
+:root[data-skin="paper"] body.fig-gallery-page {background: var(--paper-ground); color: var(--paper-ink);}
+:root[data-skin="paper"] :is(.fig-gallery-section > h2, .fig-gallery-cell > h3, .sg-group > h3, .fig-gallery-bar strong) {font-family: var(--paper-serif);}
+.customization-module[data-component-theme="paper"] :is(.fig-card-title, .fig-track-title, .fig-cell-head, .sg-group > h3) {font-family: var(--paper-serif);}

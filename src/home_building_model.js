@@ -2,6 +2,8 @@ import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_WORLD,HOME_SITE,HOME_CAMPS,PAC
 import {progressKey,permitKey,BUILDER} from './home_work_content.js';
 const check=(v,m)=>{if(!v)throw Error('Home: '+m);};
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
+// Roof exposure by home: how fast rain wears the structure (0 or absent: rain does not wear it).
+export const HOME_EXPOSURE=Object.freeze({nest:4,burrow:8,shelter:1,tent:2});
 export const newHomeCondition=clock=>({integrity:100,wetness:0,rainMinutes:0,lastClock:clock});
 export const conditionOf=h=>h?.condition||{integrity:100,wetness:0,rainMinutes:0};
 export const homeSupportsRest=h=>conditionOf(h).integrity>20;
@@ -28,7 +30,7 @@ export function advanceHomeCondition(h,c) {
     // the other world's elapsed time as a native weather catch-up interval.
     if(c.world&&c.world!==(P[h.id].world||HOME_WORLD)){q.lastClock=c.clock;return;}
     // Native played-calendar intervals supply rain. Roof exposure is local data.
-    const exposure={nest:4,burrow:8,shelter:1,tent:2}[h.id]||0;
+    const exposure=HOME_EXPOSURE[h.id]||0;
     for(let at=start;at<c.clock;){const weather=c.weatherAt?.(at),n=Math.min(c.clock-at,weather?.until>at?weather.until-at:1),rain=weather?.raining===true;
         if(rain&&(exposure||q.integrity<80)){
             q.wetness=Math.min(1000,q.wetness+n*(h.weatherproof?1:2));

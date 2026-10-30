@@ -1,0 +1,162 @@
+{
+ "world": "toa",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+  "censusMatch": "^(toa1|toa2|toa3|toa4|toa5|toa6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "toa6-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "toa6c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch003-004.txt",
+   "base": "600301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "toa6c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch005-006.txt",
+   "base": "600501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "toa6c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch007-008.txt",
+   "base": "600701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "toa6c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch009-010.txt",
+   "base": "600901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "toa6c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch011-012.txt",
+   "base": "601101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "toa6c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch013-014.txt",
+   "base": "601301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "toa6c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch015-016.txt",
+   "base": "601501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "toa6c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch017-018.txt",
+   "base": "601701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "toa6c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch019-020.txt",
+   "base": "601901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "toa6c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch021-022.txt",
+   "base": "602101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "toa6c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch023-024.txt",
+   "base": "602301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "toa6c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch025-026.txt",
+   "base": "602501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "toa6c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch027-028.txt",
+   "base": "602701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "toa6c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch029-030.txt",
+   "base": "602901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "toa6c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch031-032.txt",
+   "base": "603101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "toa6c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch033-034.txt",
+   "base": "603301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "toa6c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch035-036.txt",
+   "base": "603501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "toa6c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch037-038.txt",
+   "base": "603701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "toa6c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch039-040.txt",
+   "base": "603901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "toa6c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch041-042.txt",
+   "base": "604101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "toa6c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch043-044.txt",
+   "base": "604301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "toa6c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch045-046.txt",
+   "base": "604501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "toa6c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch047-048.txt",
+   "base": "604701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "toa6c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa6_b6_ch049-049.txt",
+   "base": "604901",
+   "chapters": "49-49"
+  }
+ ]
+}

@@ -125,5 +125,5 @@ registerDomain({id: 'economy_standing', deps: [], initialState: () => null,
     validate: slice => rules.validateStanding(slice),
     migrate: slice => rules.migrateStanding(slice),
     load: slice => setStandingState(slice),
-    tick: tickStanding, refresh: () => panel?.render(), projection: view,
+    tick: tickStanding, refresh: () => panel?.render(), projection: view, commands: {repay},
     panels: [() => { panel = createEconomyStandingPanel({read: view, borrow, repay, insure}); }]});

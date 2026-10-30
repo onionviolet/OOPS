@@ -24,6 +24,7 @@ export function lotmDivinationFacts(state,ctx={}){
   method=state.simulation?.powers?.player?.[I.method]?.owned===true,out={};
  for(const key of LOTM_DIVINATION_FACTS){
   const name=key.slice(PREFIX.length),stock=`book.lotm.div.${name}`,rule=DERIVED[name]?.need;
+  if(name.startsWith('grounds.')){out[key]=!!enrolled&&!!known[`book.lotm.div.${name}`];continue;}
   out[key]=!!enrolled&&((inv[stock]||0)>0||!!known[stock]||rule==='money'&&money||rule==='method'&&method||rule==='mind');
  }
  return out;

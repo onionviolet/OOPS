@@ -1,0 +1,12 @@
+--- a/scripts/headless/lead_runs/lotm_ui_replay.mjs
++++ b/scripts/headless/lead_runs/lotm_ui_replay.mjs
+@@
+             if (r.status === 'mapped' || r.status === 'clean_fold') {
+                 assert.equal(r.loses.length, 0, 'executable folds must be lossless');
+-                assert.ok(r.route?.length && r.anchors?.place && r.anchors?.purseDelta !== undefined);
+-                assert.ok((r.routeMode === 'wait' || r.method === 'wait' ? true : r.route?.length) && r.anchors?.place && r.anchors?.purseDelta !== undefined);
+                 assert.ok(r.route.every(a => a.actionId && a.place), 'real action ids and place anchors required');
+             }
+@@
+-        for (const [i,leg] of row.route.entries()) {
++        for (const [i,leg] of (row.routeMode === 'wait' || row.method === 'wait' ? [] : row.route).entries()) {

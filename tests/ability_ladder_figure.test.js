@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {renderFigure, figureText, validateFigureSpec} from '../src/ui/figure.js';
-import {ladderFigureSpec, ladderGlance, rungFill} from '../src/ability_ladder_figure.js';
+import {ladderFigureSpec, ladderGlance, rungFill, plannedFill, abilityLines} from '../src/ability_ladder_figure.js';
 import {pathView, definePath} from '../src/ascension_paths.js';
 import {lotmPathView} from '../src/book_world_lotm_path.js';
 import {LOTM_DIGEST_ACTS} from '../src/book_world_lotm_ids.js';
-import {ABILITY_FIXTURES, LANTERN_PATH} from '../src/ui/preview/fixtures/abilities.js';
+import {ABILITY_FIXTURES, LANTERN_PATH, LANTERN_ABILITIES} from '../src/ui/preview/fixtures/abilities.js';
 import {FIGURE_FIXTURES} from '../src/ui/preview/figure_fixtures.js';
 
 const draw = spec => {
@@ -127,4 +127,71 @@ test('glance gives one plain line for fresh, digesting and ready views', () => {
     assert.equal(ladderGlance(pathView(bells(5), 1, {hrs: 2}), {felt: 'settling'}), 'Rung 2 · feels settling · 2 of 5 toward Rung 3');
     assert.equal(ladderGlance(pathView(bells(5), 1, {hrs: 5})), 'Rung 2 · 5 of 5 toward Rung 3 · ready for Rung 3');
     assert.equal(ladderGlance(pathView(bells(5), 4, {})), 'Rung 5');
+});
+
+test('a planned act draws a ghost past the fill on the rung and its crossing, in words too; a witness never sees it', () => {
+    const view = pathView(LANTERN_PATH, 1, {acting: 4}, {known: 3, ceiling: 2});
+    const spec = ladderFigureSpec(view, {felt: 'settling', planned: {label: 'the night round'}});
+    const rung = spec.tracks[0].steps.find(s => s.state === 'current'), act = spec.tracks[1].steps.find(s => s.ghost !== undefined);
+    assert.equal(rung.ghost, 5 / 6);
+    assert.match(rung.note, /after the night round: 5 of 6/);
+    assert.equal(act.label, 'Acts in the Lantern-Reader role');
+    const {svg, text} = draw(spec);
+    assert.equal(all(svg, n => cls(n, 'fig-ghost')).length, 2);
+    assert.match(text, /after the night round: 5 of 6/);
+    assert.equal(ladderGlance(view, {planned: {label: 'a round', adds: 3}}), 'First rung · Lantern-Reader · 4 of 6 toward Second rung · Wick-Turner · after a round: 6 of 6');
+    assert.equal(plannedFill(pathView(LANTERN_PATH, 1, {acting: 6}, {known: 3}), {label: 'x'}), null, 'nothing to preview once the count is met');
+    assert.doesNotMatch(figureText(ladderFigureSpec(view, {perspective: 'witness', seen: 1, planned: {label: 'the night round'}})), /after/);
+    assert.match(figureText({id: 'g', title: 'G', tracks: [{id: 't', steps: [{label: 'a', state: 'current', fill: .25, ghost: .5}]}]}), /25% filled, 50% after the planned act/);
+    assert.throws(() => validateFigureSpec({id: 'g', title: 'G', tracks: [{id: 't', steps: [{label: 'a', fill: .5, ghost: .25}]}]}), /ghost/);
+});
+
+test('typed ability records give per-ability lines with inferred costs marked, and unnamed next rungs hide them', () => {
+    assert.deepEqual(abilityLines(LANTERN_ABILITIES.here), ['Read lamp-smoke: 1 lamp oil', 'Steady hands by night: cost not stated']);
+    assert.deepEqual(abilityLines(LANTERN_ABILITIES.next), ['Turn a flame: 2 spirit (inferred); recovers in 15 min (inferred)']);
+    const named = ladderFigureSpec(pathView(LANTERN_PATH, 1, {}, {known: 3}), {abilities: LANTERN_ABILITIES});
+    assert.ok(named.notes.some(n => n.text === 'What the next rung gives: Turn a flame: 2 spirit (inferred); recovers in 15 min (inferred).'));
+    const unnamed = ladderFigureSpec(pathView(LANTERN_PATH, 1, {}, {known: 2}), {abilities: LANTERN_ABILITIES});
+    assert.doesNotMatch(figureText(unnamed), /Turn a flame/);
+    assert.match(figureText(unnamed), /What this rung gives: Read lamp-smoke: 1 lamp oil/);
+});
+
+import {renderSkillsTab, skillsTabText, EMPTY_SKILLS} from '../src/ui/skills_tab.js';
+import {SKILL_ROWS, SKILL_VIEWS} from '../src/ui/preview/fixtures/skills.js';
+
+test('the skills tab shows one row per heard-of card with every fact in words, and nothing for an unheard-of card', () => {
+    assert.deepEqual(SKILL_ROWS.map(r => r.id), ['lamp_read', 'smoke_turn', 'wick_cut']);
+    const text = skillsTabText(SKILL_ROWS);
+    assert.match(text, /Turn the smoke · Practicing · 2 of 6\./);
+    assert.match(text, /Cannot learn yet: The harbour warden has not agreed to teach you\./);
+    assert.match(text, /Not yet: A teacher: the harbour warden/);
+    assert.match(text, /The next sign comes at 3\./, 'an understood card shows its threshold');
+    assert.doesNotMatch(text, /Night oil|hidden cost|night_oil/);
+    assert.equal(skillsTabText([]), EMPTY_SKILLS);
+    const dom = createDom(); dom.loadHTML('<html><body><div id="host"></div></body></html>');
+    const host = dom.document.getElementById('host'), {text: drawn} = renderSkillsTab(host, SKILL_ROWS);
+    assert.equal(drawn, text);
+    assert.equal(all(host, n => n.getAttribute('data-skill')).length, 3);
+    assert.equal(all(host, n => cls(n, 'skills-meter')).length, 1, 'only a practicing row carries a meter');
+    assert.equal(SKILL_VIEWS.length, 4);
+});
+
+import {defineAbilityRecords} from '../src/ability_records.js';
+import {rungCards, skillRows} from '../src/ability_skill_rows.js';
+
+test('the skills feed is path-neutral: a potion rung and a cultivation realm give rows by held source only, and the next rung stays unseen', () => {
+    const teacher = {label: 'A teacher is present', reason: 'No one here can teach it.', requires: {fact: 'actor.teacherHere', op: 'eq', value: true}};
+    const row = (prefix, key, label, source, extra = {}) => ({key, label, sourceId: `${prefix}.${source}`, conditions: [], cost: [], limit: {kind: 'none'},
+        effects: [{type: 'item', actor: 'player', key: `{"id":"${prefix}.${key}"}`, amount: 1}], learn: {teacher, practice: {minutes: 20, mastery: 1}, masteryNeeded: 3, ...extra}});
+    const potion = defineAbilityRecords([row('pot', 'glow', 'Lamp glow', 'r1'), row('pot', 'deep', 'Deep glow', 'r2')], {prefix: 'pot', world: {id: 'pot.w'}});
+    const realm = defineAbilityRecords([row('cul', 'reed_breath', 'Reed breath', 'reed')], {prefix: 'cul', world: {id: 'cul.w'}});
+    const potionRows = skillRows(potion.cards, {facts: {'actor.teacherHere': true}, held: ['pot.r1']});
+    assert.deepEqual(potionRows.map(r => r.label), ['Lamp glow'], 'only the held rung shows');
+    assert.equal(potionRows[0].canLearn, true);
+    assert.deepEqual(skillRows(realm.cards, {held: ['cul.reed']}).map(r => r.label), ['Reed breath']);
+    assert.deepEqual(skillRows(realm.cards, {}), [], 'nothing held, nothing heard of');
+    assert.match(skillsTabText(skillRows(realm.cards, {held: ['cul.reed']})), /Reed breath · Not learned\./);
+    const adv = {path: {stages: [{id: 'a'}, {id: 'b'}, {id: 'c'}]}, rungs: {b: {abilities: potion}, c: {abilities: realm}}};
+    assert.equal(rungCards(adv, 0).next.length, 2, 'the next rung holds its cards');
+    assert.equal(rungCards(adv, 2).here.length, 1);
 });

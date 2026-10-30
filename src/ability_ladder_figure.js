@@ -1,5 +1,5 @@
 // RPX5 advancement ladder as a figure spec (docs/representations/ABILITIES.md). Reads a pathView
-// (ascension_paths.js), so every world's ladder (pathway sequences, cultivation realms, method
+// (ascension_paths.js), so every world's ladder (potion-style sequences, realm tracks, method
 // tracks) draws through one adapter and the figure primitive. Holds no state and saves nothing.
 //
 // Rungs climb a vertical track: reached rungs are done, the current rung carries its fill
@@ -13,6 +13,8 @@
 // through one mapper into this same shape (docs/representations/ABILITIES.md, "Source switch").
 //   {path, label, stage, position, next, grants[], nextGrants[], capped, ready, failure?{signs,outcome},
 //    crossings[{id, type, label, need: true|n, have, met, irreversible}], ladder[{label ('???' if unnamed), reached}]}
+// L10 fills it through ladderViewFromRecord (read_models/ability_ladder_bridge.js); a rung's typed ability records
+// (ability_records.js cards) add per-ability lines through abilityLines(), with costs the source does not state marked inferred.
 const FILLED_BY = new Set(['digest', 'quota']);
 const slug = text => String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -20,6 +22,31 @@ const slug = text => String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').repl
 export function rungFill(view) {
     const counted = view.crossings.find(c => FILLED_BY.has(c.type) && typeof c.need === 'number' && c.need > 0);
     return counted ? {fill: Math.min(1, counted.have / counted.need), have: counted.have, need: counted.need, label: counted.label} : null;
+}
+
+/** What a planned act adds to the counted crossing: {have, need, ghost, words}, or null. planned: {label, adds = 1}. */
+export function plannedFill(view, planned) {
+    const fill = rungFill(view);
+    if (!fill || !planned || fill.have >= fill.need) return null;
+    const after = Math.min(fill.need, fill.have + (planned.adds ?? 1));
+    return {have: after, need: fill.need, ghost: after / fill.need, words: `after ${planned.label}: ${after} of ${fill.need}`};
+}
+
+const INFERRED_COST = /cost|amount/i, INFERRED_LIMIT = /cooldown|charge|recharge/i;
+const limitWords = limit => limit.kind === 'cooldown' ? `recovers in ${limit.minutes} min` : limit.kind === 'charges' ? `${limit.max} uses, then recharges` : null;
+/**
+ * One line per typed ability record (L10 cards): label, cost and limit. A cost or limit the source does not
+ * state but the record proposes (costBasis amounts 'proposal', or named in `unstated`) is marked inferred;
+ * an ability with no cost row reads "cost not stated". Never prints predicates or the failure hook.
+ */
+export function abilityLines(cards = []) {
+    return cards.map(card => {
+        const costInferred = card.costBasis?.amounts === 'proposal' || (card.unstated ?? []).some(u => INFERRED_COST.test(u));
+        const limitInferred = (card.unstated ?? []).some(u => INFERRED_LIMIT.test(u));
+        const cost = card.cost.length ? `${card.cost.map(c => `${-c.amount} ${String(c.key ?? c.type).replace(/_/g, ' ')}`).join(' and ')}${costInferred ? ' (inferred)' : ''}` : 'cost not stated';
+        const limit = limitWords(card.limit ?? {kind: 'none'});
+        return `${card.label}: ${cost}${limit ? `; ${limit}${limitInferred ? ' (inferred)' : ''}` : ''}`;
+    });
 }
 
 /**
@@ -30,15 +57,23 @@ export function rungFill(view) {
  *   seen       witness only: the highest rung index the witness saw used
  *   subject    witness only: whose ladder this is, in the witness's words
  *   id         figure id (defaults from the path id)
- *   crossings  false when the home already lists the next crossing and its risk (the Tingen plan does)
+ *   crossings  false when the home already lists the next crossing and its risk (a host plan block may)
  *   layout     'compact' draws the rungs horizontally (character sheets)
  *   insight    {stages: [label per rung index], thresholds: bool}: a cheat or continuing insight names
  *              rungs the character has not learned; they show as guessed. Never applies to a witness.
+ *   planned    {label, adds = 1}: a planned or running act that counts toward the next crossing; the current rung
+ *              and that crossing gain a ghost fill and the words "after <label>: n of m" (RS15). Never for a witness.
+ *   events     [{at: rung index, kind: 'switch'|'branch'|'loss', label}]: a rung left for a neighbouring path ('switch'), a rung that splits ('branch', label
+ *              lists the choices) or one lost or demoted from ('loss'). Loss draws the rung broken; the others keep its state and add words (a state is
+ *              never the only carrier of the fact, UR37). They are data a world supplies with its cost, never read from a path id.
+ *   abilities  {here: cards[], next: cards[]}: L10 typed ability records for the current and next rung; their
+ *              lines replace the plain grant words. Next-rung records show only when the next rung is named.
  */
 export function ladderFigureSpec(view, options = {}) {
     const witness = options.perspective === 'witness';
     const rumours = options.rumours || {};
     const fill = witness ? null : rungFill(view);
+    const ghost = witness ? null : plannedFill(view, options.planned);
     const insight = !witness && options.insight ? options.insight : null;
     let insightUsed = false;
     const seen = witness ? Math.min(Number.isInteger(options.seen) ? options.seen : -1, view.position) : view.position;
@@ -51,8 +86,9 @@ export function ladderFigureSpec(view, options = {}) {
         if (i < view.position) return {label: rung.label, state: 'done'};
         if (i === view.position) {
             const step = {label: rung.label, state: 'current'};
-            const words = [options.felt ? `feels ${options.felt}` : null, fill ? `${fill.have} of ${fill.need} toward the next rung` : null].filter(Boolean);
+            const words = [options.felt ? `feels ${options.felt}` : null, fill ? `${fill.have} of ${fill.need} toward the next rung` : null, ghost?.words].filter(Boolean);
             if (fill) step.fill = fill.fill;
+            if (ghost) step.ghost = ghost.ghost;
             if (words.length) step.note = words.join(', ');
             return step;
         }
@@ -64,6 +100,13 @@ export function ladderFigureSpec(view, options = {}) {
     if (!witness && view.ladder.length > 7 && view.position >= 3) { // fold old rungs, keep the one just below
         const k = view.position - 1;
         steps.splice(0, k, {label: `${k} rungs crossed`, state: 'done', note: `${view.ladder[0].label} to ${view.ladder[k - 1].label}`});
+    }
+    const EVENT_WORD = {switch: 'switched from here to', branch: 'branches into', loss: 'lost'};
+    if (!witness) for (const ev of options.events ?? []) {
+        const step = steps[ev.at - (view.ladder.length > 7 && view.position >= 3 && ev.at >= 0 ? Math.max(0, view.position - 2) : 0)];
+        if (!step || !EVENT_WORD[ev.kind]) continue;
+        step.note = [step.note, `${EVENT_WORD[ev.kind]} ${ev.label}`].filter(Boolean).join(', ');
+        if (ev.kind === 'loss') step.state = 'broken';
     }
     const shown = steps.filter((step, i, all) => !(step.state === 'unknown' && all[i - 1]?.state === 'unknown')); // one unknown rung, never a count
     const standing = (shown.find(s => s.state === 'current') || shown[0]).label;
@@ -88,20 +131,22 @@ export function ladderFigureSpec(view, options = {}) {
         spec.tracks.push({id: 'next', label: `To reach ${view.next}`, steps: view.crossings.map(c => {
             const counted = typeof c.need === 'number';
             const state = c.met ? 'done' : current ? 'pending' : (current = true, 'current');
-            const words = [counted ? `${c.have} of ${c.need}` : null, c.irreversible ? 'irreversible' : null].filter(Boolean);
-            return {label: c.label, state, ...(counted && !c.met ? {fill: Math.min(1, c.have / c.need)} : {}), ...(words.length ? {note: words.join(', ')} : {})};
+            const planned = ghost && counted && !c.met && c.label === fill.label;
+            const words = [counted ? `${c.have} of ${c.need}` : null, planned ? ghost.words : null, c.irreversible ? 'irreversible' : null].filter(Boolean);
+            return {label: c.label, state, ...(counted && !c.met ? {fill: Math.min(1, c.have / c.need)} : {}), ...(planned ? {ghost: ghost.ghost} : {}), ...(words.length ? {note: words.join(', ')} : {})};
         })});
     }
     if (view.capped) spec.notes.push({text: `${view.next || 'The next rung'} is not open to you here yet.`});
-    if (view.grants.length) spec.notes.push({text: `What this rung gives: ${view.grants.join('; ')}.`});
-    if (view.nextGrants?.length && !view.capped) spec.notes.push({text: `What the next rung gives: ${view.nextGrants.join('; ')}.`});
+    const here = abilityLines(options.abilities?.here), ahead = view.next && view.next !== '???' && !view.capped ? abilityLines(options.abilities?.next) : [];
+    if (here.length || view.grants.length) spec.notes.push({text: `What this rung gives: ${(here.length ? here : view.grants).join('; ')}.`});
+    if ((ahead.length || view.nextGrants?.length) && !view.capped) spec.notes.push({text: `What the next rung gives: ${(ahead.length ? ahead : view.nextGrants).join('; ')}.`});
     if (insightUsed) spec.notes.push({text: 'Some rungs here are shown by insight, not by what you have learned.'});
     if (options.crossings !== false && view.failure) spec.notes.push({state: 'strained', text: `Risk: ${view.failure.signs}. ${view.failure.outcome}.`});
     return spec;
 }
 
 /** One plain line for a compact header or sheet. */
-export function ladderGlance(view, {felt} = {}) {
-    const fill = rungFill(view);
-    return [view.stage, felt ? `feels ${felt}` : null, fill ? `${fill.have} of ${fill.need} toward ${view.next}` : null, view.ready ? `ready for ${view.next}` : null].filter(Boolean).join(' · ');
+export function ladderGlance(view, {felt, planned} = {}) {
+    const fill = rungFill(view), ghost = plannedFill(view, planned);
+    return [view.stage, felt ? `feels ${felt}` : null, fill ? `${fill.have} of ${fill.need} toward ${view.next}` : null, ghost?.words, view.ready ? `ready for ${view.next}` : null].filter(Boolean).join(' · ');
 }

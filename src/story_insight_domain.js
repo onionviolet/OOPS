@@ -4,6 +4,7 @@
 import {registerDomain} from './domain_registry.js';
 import {definePanel} from './panel_kit.js';
 import {recognizeStories} from './story_recognizer.js';
+import {recognizeTropes} from './trope_recognizer.js';
 import {skillSummary,setRust,bindSkillRecordsPanel} from './skill_records_domain.js';
 import {deriveWorldHistory,upgradeWorldEvents,DOCTRINES} from './lore_history_state.js';
 let ports,panel;
@@ -15,6 +16,7 @@ export function storyLines(state){
  return recognizeStories(state).map(s=>({kind:s.kind,with:s.with,
   line:s.kind==='rivalry'?`A rivalry with ${s.with}, ${s.open?'still open':'settled'}, from ${s.causes.map(causeText).join(', ')}.`:`You paid ${s.salience} coin${s.salience===1?'':'s'} toward a debt owed to ${s.with}; it is closed.`}));
 }
+export const tropeLines=state=>recognizeTropes(state).map(t=>({id:t.id,trope:t.trope,name:t.name,line:t.line}));
 const RELATION_TEXT={rival:'a standing rivalry',enemy:'open enmity'};
 export function warLines(history){
  const name=id=>id.charAt(0).toUpperCase()+id.slice(1);
@@ -55,8 +57,9 @@ function createPanel(){
  let signature;
  function render(){
   const state=ports.root(),world=ports.world(),history=state.loreHistory?.worldHistories?.[world];
-  const sk=skillSummary(),next=JSON.stringify([recognizeStories(state),history??null,world,sk]);if(next===signature)return;signature=next;
+  const sk=skillSummary(),next=JSON.stringify([recognizeStories(state),tropeLines(state),history??null,world,sk]);if(next===signature)return;signature=next;
   stories.replaceChildren(...(storyLines(state).map(s=>{const p=node('p',s.line);p.dataset.storyKind=s.kind;return p;})));
+  for(const t of tropeLines(state)){const p=node('p',`${t.name}. ${t.line}`);p.dataset.trope=t.trope;p.dataset.tropeId=t.id;stories.append(p);}
   if(!stories.childElementCount)stories.append(node('p','No story has taken shape yet. Rivalries and debts appear here once the saved record shows them.'));
   rustLabel.hidden=!sk?.rustAvailable;rustBox.checked=!!sk?.rustOn;rustText.textContent=sk?.dial?` Let unpracticed skills go rusty here. ${sk.dial.reason}`:'';
   skillBox.replaceChildren(...skillLines(sk).map(l=>{const p=node('p',l.line);p.dataset.skillKind=l.kind;return p;}));

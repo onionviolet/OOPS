@@ -142,7 +142,7 @@ export function readTraining(state, actor, refId, held) {
     if(d.mode !== 'training') return {ok: false, reason: 'not a training reference', state, grant: null};
     if(!heldSet(held).has(refId)) return {ok: false, reason: 'reference not held', state, grant: null};
     const refs = owner(state), keys = refs.read[actor] ?? [];
-    if(keys.includes(refId)) return {ok: false, reason: 'already read by this actor', state, grant: null};
+    if(keys.includes(refId)) return {ok: false, reason: 'already read by this actor: a second reading adds nothing new; practising the method is what builds on it', state, grant: null};
     return {ok: true, grant: {...d.grant, actor, source: refId},
         state: bump(state, {...refs, read: {...refs.read, [actor]: [...keys, refId].sort(compareCodePoints)}})};
 }

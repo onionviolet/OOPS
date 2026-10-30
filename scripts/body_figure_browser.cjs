@@ -4,14 +4,15 @@
 const root=require('node:path').resolve(__dirname,'..');
 const {launchChrome,advanceGameMinutes}=require('./ui_helpers.cjs');
 const {spawn}=require('node:child_process'),fs=require('node:fs');
-const out=root+'/docs/representations/evidence/body';fs.mkdirSync(out,{recursive:true});
-const port=18531,server=spawn('python3',['-m','http.server',String(port),'--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
+const out=process.env.YAIRPG_PROOF_DIR||root+'/docs/representations/evidence/body';fs.mkdirSync(out,{recursive:true});
+const port=Number(process.env.YAIRPG_PROOF_PORT)||18531,server=spawn('python3',['-m','http.server',String(port),'--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 const step=process.argv[2]||'all';
 (async()=>{await new Promise(r=>setTimeout(r,800));const browser=await launchChrome(),errors=[];try{
  const context=await browser.newContext({viewport:{width:1920,height:1080}});const page=await context.newPage();page.setDefaultTimeout(15000);
  page.on('pageerror',e=>errors.push(String(e.stack||e)));
  await page.goto(`http://localhost:${port}/?test_hooks=1`);await page.getByText('PLAY',{exact:true}).click();
- for(const sel of ['.choice_dialogue','[data-dialogue="villageElder"]','[data-textline="hello"]','[data-textline="where am i"]','#center_mode_back'])await page.locator(sel).first().click();
+ // The talk view covers the native text lines, so choose through its own options.
+ for(const sel of ['.choice_dialogue','[data-dialogue="villageElder"]','#talk_view_host button[data-topic-id="hello"]','#talk_view_host button[data-topic-id="where am i"]','#center_mode_back'])await page.locator(sel).first().click();
  await advanceGameMinutes(page,15);
  const info=await page.evaluate(()=>{const p=document.getElementById('body_panel');const chain=[];for(let n=p;n;n=n.parentElement)chain.push(n.id||n.className||n.tagName);return {exists:!!p,hidden:p?.hidden,chain:chain.slice(0,8),routes:[...document.querySelectorAll('[data-route-id]')].map(b=>b.dataset.routeId+':'+(b.offsetParent?'v':'h')+':'+b.textContent.trim().slice(0,20)),nb:document.getElementById('adventure_notebook')?.offsetParent!=null,mod:document.querySelector('.workspace-module:has(#adventure_notebook)')?.dataset.moduleId,views:[...document.querySelectorAll('[data-notebook-view]')].map(b=>b.dataset.notebookView+':'+(b.offsetParent?'v':'h')),};});
  console.log(JSON.stringify(info));

@@ -18,6 +18,13 @@ export function careerRows(career) {
     return rows;
 }
 
+// Settle one row through the owning domain's own command, the one Standing's Repay button calls. Returns coins paid.
+export function settleOwed(settle) {
+    const command = domainRegistry.command('economy_standing', settle?.command);
+    if(typeof command !== 'function') throw Error('That account cannot be settled here.');
+    return command(settle.factionId, settle.owed);
+}
+
 export function readOwedLedger() {
     const standing = domainRegistry.project('economy_standing') ?? null;
     const home = domainRegistry.project('household_fortunes')?.household;

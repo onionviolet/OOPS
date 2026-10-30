@@ -1,0 +1,19 @@
+{
+ "viewport": "1920x1080",
+ "steps": [
+  "fresh: one new line, quote, empty knows ledger",
+  "after one line: heard row, told row, rapport stage, answer in card",
+  "one of three sibling lines said: one grouped heard row, rapport counts it once",
+  "save, reload: heard rows derived again, no new save field",
+  "21 px text, effects off"
+ ],
+ "options": [
+  "Ask about the moonlit herb bed",
+  "My head hurts.. What happened?Opens more to ask. · Moves one of your journal tasks forward. · Settles the other ways to put this.",
+  "Where am I?Opens more to ask. · Moves one of your journal tasks forward. · Settles the other ways to put this.",
+  "I don't remember how I got here, what happened?Opens more to ask. · Moves one of your journal tasks forward. · Settles the other ways to put this.",
+  "Who are you?"
+ ],
+ "build": "http://127.0.0.1:18861/dist/bundle.js?version=v0.6-217f3ef2ee38",
+ "saveKeysChanged": null
+}

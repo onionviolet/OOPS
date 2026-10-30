@@ -3,14 +3,18 @@
 // Usage: node scripts/slot_run.mjs [--kind suite|build|browser] [--slots N] -- <command...>
 //        node scripts/slot_run.mjs --status
 // Slots are atomic mkdir dirs under YAIRPG_SLOT_DIR (default ~/.cache/yairpg-slots).
-// suite and build share one pool (default 2 slots); browser has its own (default 1).
+// suite and build share one pool (default 2 slots); browser has its own (default 4, so lanes prove their own
+// slices in parallel; each run serves its own worktree on its own free port).
 // --max-load N (or YAIRPG_SLOT_MAX_LOAD) also holds the gate until the 1-minute load average is <= N.
+// --load-wait SECONDS makes that a soft wait: after that long the command runs anyway (slots still apply).
+// Waiters are listed with their queue position and reason by --status.
 import {spawn} from 'node:child_process';
 import {mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
 import {homedir, loadavg} from 'node:os';
 import {join} from 'node:path';
+import {loadGate} from './slot_gate.mjs';
 
-const DEFAULT_SLOTS = {heavy: 2, browser: 1};
+const DEFAULT_SLOTS = {heavy: 2, browser: 4};
 const POLL_MS = Number(process.env.YAIRPG_SLOT_POLL_MS) || 1000;
 
 const slotRoot = () => process.env.YAIRPG_SLOT_DIR || join(homedir(), '.cache', 'yairpg-slots');
@@ -61,8 +65,23 @@ function listHolders() {
   return rows;
 }
 
+const waitDir = () => join(slotRoot(), 'waiting');
+function listWaiters() {
+  let names = [];
+  try { names = readdirSync(waitDir()); } catch { /* none */ }
+  const rows = [];
+  for (const name of names) {
+    let w = null;
+    try { w = JSON.parse(readFileSync(join(waitDir(), name), 'utf8')); } catch { /* mid-write */ }
+    if (!w) continue;
+    if (!pidAlive(w.pid)) { rmSync(join(waitDir(), name), {force: true}); continue; }
+    rows.push(w);
+  }
+  return rows.sort((a, b) => a.since.localeCompare(b.since) || a.pid - b.pid);
+}
+
 function parseArgs(argv) {
-  const out = {kind: 'suite', slots: null, maxLoad: Number(process.env.YAIRPG_SLOT_MAX_LOAD) || null, status: false, command: []};
+  const out = {kind: 'suite', slots: null, maxLoad: Number(process.env.YAIRPG_SLOT_MAX_LOAD) || null, loadWait: null, status: false, command: []};
   const sep = argv.indexOf('--');
   const head = sep === -1 ? argv : argv.slice(0, sep);
   out.command = sep === -1 ? [] : argv.slice(sep + 1);
@@ -71,8 +90,11 @@ function parseArgs(argv) {
     else if (head[i] === '--kind') out.kind = head[++i];
     else if (head[i] === '--slots') out.slots = Number(head[++i]);
     else if (head[i] === '--max-load') out.maxLoad = Number(head[++i]);
+    else if (head[i] === '--load-wait') out.loadWait = Number(head[++i]);
     else throw new Error(`unknown argument ${head[i]}`);
   }
+  // YAIRPG_SLOT_MAX_LOAD is the explicit opt-in: a hard load gate that overrides --max-load and --load-wait.
+  if (Number(process.env.YAIRPG_SLOT_MAX_LOAD)) { out.maxLoad = Number(process.env.YAIRPG_SLOT_MAX_LOAD); out.loadWait = null; }
   if (!['suite', 'build', 'browser'].includes(out.kind)) throw new Error(`bad --kind ${out.kind}`);
   if (out.slots !== null && !(out.slots >= 1)) throw new Error('--slots must be >= 1');
   return out;
@@ -89,6 +111,7 @@ async function main() {
   if (args.status) {
     const rows = listHolders();
     if (!rows.length) console.log(`slot_run: no holders (${slotRoot()})`);
+    listWaiters().forEach((w, i) => console.log(`waiting #${i + 1} pid=${w.pid} kind=${w.kind} since=${w.since} why=${w.why} cwd=${w.cwd}`));
     for (const r of rows) {
       console.log(`${r.pool}/${r.slot} pid=${r.pid} ${r.alive ? 'alive' : 'STALE'} kind=${r.kind} since=${r.started} cwd=${r.cwd} cmd=${r.command}`);
     }
@@ -97,6 +120,13 @@ async function main() {
   if (!args.command.length) {
     console.error('slot_run: no command after --');
     process.exit(2);
+  }
+  // A wrapped command that wraps again (slot_run -- npm test) runs under the outer slot; re-acquiring could deadlock a full pool.
+  if (process.env.YAIRPG_SLOT_HELD) {
+    const inner = spawn(args.command[0], args.command.slice(1), {stdio: 'inherit'});
+    inner.on('error', (e) => { console.error(`slot_run: ${e.message}`); process.exit(127); });
+    inner.on('exit', (code, signal) => process.exit(code ?? (signal ? 128 + 15 : 1)));
+    return;
   }
   const pool = poolOf(args.kind);
   const slots = args.slots || DEFAULT_SLOTS[pool];
@@ -116,19 +146,37 @@ async function main() {
   for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) process.on(sig, () => onSignal(sig));
   process.on('exit', release);
 
-  const calm = () => !args.maxLoad || loadavg()[0] <= args.maxLoad;
-  while (!((calm() && (dir = tryAcquire(pool, slots, info))))) {
+  const t0 = Date.now();
+  const waitFile = join(waitDir(), `${process.pid}.json`);
+  const clearWait = () => rmSync(waitFile, {force: true});
+  process.on('exit', clearWait);
+  let overrode = false;
+  const gate = () => {
+    const g = loadGate({load: loadavg()[0], maxLoad: args.maxLoad, waitedMs: Date.now() - t0, loadWaitMs: args.loadWait == null ? null : args.loadWait * 1000});
+    if (g === 'run-anyway' && !overrode) { overrode = true; console.error(`slot_run: load stayed above ${args.maxLoad} for ${args.loadWait}s; running anyway`); }
+    return g !== 'wait-load';
+  };
+  let lastWhy = '';
+  while (true) {
+    const calm = gate();
+    if (calm && (dir = tryAcquire(pool, slots, info))) break;
+    const held = listHolders().filter((r) => r.pool === pool && r.alive).length;
+    const why = calm ? `${held}/${slots} slots held` : `load ${loadavg()[0].toFixed(0)} > ${args.maxLoad}${args.loadWait == null ? '' : ` (soft, runs anyway after ${args.loadWait}s)`}`;
     if (!announced) {
-      const held = listHolders().filter((r) => r.pool === pool && r.alive).length;
-      const why = calm() ? `${held}/${slots} held` : `load ${loadavg()[0].toFixed(0)} > ${args.maxLoad}`;
-      console.error(`slot_run: waiting for a ${pool} slot (${why}; run --status to see holders)`);
+      console.error(`slot_run: waiting for a ${pool} slot (${why}; run --status to see holders and queue)`);
       announced = true;
+    }
+    if (why !== lastWhy) {
+      mkdirSync(waitDir(), {recursive: true});
+      writeFileSync(waitFile, JSON.stringify({pid: process.pid, kind: args.kind, since: new Date(t0).toISOString(), why, cwd: process.cwd()}));
+      lastWhy = why;
     }
     await sleep(POLL_MS);
   }
+  clearWait();
   if (announced) console.error('slot_run: slot acquired');
 
-  child = spawn(args.command[0], args.command.slice(1), {stdio: 'inherit'});
+  child = spawn(args.command[0], args.command.slice(1), {stdio: 'inherit', env: {...process.env, YAIRPG_SLOT_HELD: '1'}});
   child.on('error', (e) => {
     console.error(`slot_run: ${e.message}`);
     release();

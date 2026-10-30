@@ -5,7 +5,7 @@ import {renderCharacterSheet} from "./ui/character_sheet_view.js";
 import {observerView} from "./observer_view.js";
 import {domainRegistry} from "./domain_registry.js";
 import {relationshipWebPeople} from "./relationship_web_view.js";
-import {relationshipWebSpec, relationshipGlance, relationshipStageMeter} from "./ui/relationship_web.js";
+import {relationshipWebSpec, relationshipGlance, relationshipStageMeter, relationshipBars} from "./ui/relationship_web.js";
 import {renderFigure} from "./ui/figure.js";
 import {createMeterBar} from "./meter_bar.js";
 
@@ -13,14 +13,15 @@ const node = (tag, text = "") => {const n = document.createElement(tag); n.textC
 export function createPeopleOverview() {
     const panel = node("section"); panel.id = "known_people_panel"; panel.className = "expedition_panel known_people_panel";
     panel.append(node("h3", "People you know"), node("p", "What you have learned and what happened between you. Locations are last known or agreed, rather than live reports."));
-    // RPX11 web: a sibling of the cards, never inside one; redrawn only when its spec changes. Closed by
-    // default: each card's glance line and bond bar answer the frequent question, the web the rarer one.
+    // RPX11 web: a sibling of the cards, never inside one; redrawn only when its spec changes. It opens once,
+    // the first time two or more people are known (COV4: the best figure is not hidden); after that the player's
+    // own open or close stays. The text form stays closed, so the panel adds few visible words.
     const web = node("details"); web.id = "relationship_web"; web.className = "relationship_web";
     const webSummary = node("summary", "Web of who knows what"), figure = node("div"), textForm = node("details"), text = node("pre");
     textForm.append(node("summary", "Read as text"), text); text.className = "fig-text";
     web.append(webSummary, figure, textForm);
     const list = node("div"); panel.append(web, list);
-    let webSignature = "";
+    let webSignature = "", webSeen = false;
     const cards = new Map();
     function render(state, facts) {
         const rows = knownPeopleView(state, facts);
@@ -40,6 +41,7 @@ export function createPeopleOverview() {
                 if(spec) {text.textContent = renderFigure(figure, spec, {idPrefix: "relationship-web"}).text; webSummary.textContent = `Web of who knows what · ${people.length} ${people.length === 1 ? "person" : "people"}`;}
             }
             web.hidden = !spec;
+            if(people.length > 1 && !webSeen) {webSeen = true; web.open = true;}
         } catch(error) {
             web.hidden = true;
             if(!webSignature.startsWith("error:")) {webSignature = `error:${error.message}`; console.warn("[relationship web]", error);}
@@ -47,24 +49,22 @@ export function createPeopleOverview() {
         for(const row of rows) {
             let card = cards.get(row.id);
             if(!card) {
-                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), location = node("p"), details = node("div"), history = node("ul"), bond = createMeterBar(document);
-                glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true;
-                // The same character sheet as the You panel, read from what you learned (CHARACTER_SHEET.md).
-                const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.append(node("summary", "Character sheet"), sheetHost);
-                root.dataset.knownPerson = row.id; root.append(heading, bond.node, location, details, history, sheet); list.append(root);
-                card = {root, heading, name, glance, bond, location, details, history, sheetHost, signature:""}; cards.set(row.id, card);
+                const root = node("details"), heading = node("summary"), name = node("span", title(row)), glance = node("span"), bond = createMeterBar(document), bars = node("div"), barMeters = [0,1,2].map(() => createMeterBar(document));
+                glance.className = "known_person_glance"; heading.append(name, glance); bond.node.hidden = true; bars.className = "known_person_bars"; bars.append(...barMeters.map(m => m.node));
+                // The sheet owns where you last saw them, what you know and what you remember (UR73, CHARACTER_SHEET.md);
+                // the card keeps the name, the bond and the way in. Open by default so those lines stay one look away.
+                const sheet = node("details"), sheetHost = node("div"); sheet.dataset.personSheet = row.id; sheet.open = true;
+                sheet.append(node("summary", "Character sheet · where, what you know, what you remember"), sheetHost);
+                root.dataset.knownPerson = row.id; root.append(heading, bond.node, bars, sheet); list.append(root);
+                card = {root, heading, name, glance, bond, bars, barMeters, sheetHost, signature:""}; cards.set(row.id, card);
             }
             const person = bonds.get(row.id), signature = JSON.stringify([title(row), row, person || null]);
             if(signature !== card.signature) {
-                card.signature = signature; card.name.textContent = title(row); card.location.textContent = row.location;
+                card.signature = signature; card.name.textContent = title(row);
                 // Glance first (stage and what needs attention), the bond bar one click away inside the card.
                 card.glance.textContent = person ? ` · ${relationshipGlance(person)}` : "";
-                card.bond.node.hidden = !person; if(person) card.bond.update(relationshipStageMeter(person));
-                if(row.accounts?.length){
-                    card.details.replaceChildren(node('h4','Known capabilities and services'),node('p','These are your learned accounts. Current condition, private possessions and unoffered services are not assessed here. Use the person’s local service for current terms.'));
-                    for(const account of row.accounts){const entry=node('div');entry.dataset.personAccount=account.id;entry.append(node('p',account.text),node('small',`${account.basis}${Number.isFinite(account.at)?` · played minute ${account.at}`:''}`));card.details.append(entry);}
-                }else card.details.replaceChildren(...row.details.map(text => node("p", text)));
-                card.history.replaceChildren(...row.memories.map(m => node("li", m.text))); card.history.hidden = !!row.accounts?.length || !row.memories.length;
+                card.bond.node.hidden = !person; card.bars.hidden = !person;
+                if(person) {card.bond.update(relationshipStageMeter(person)); relationshipBars(person).forEach((spec, i) => card.barMeters[i].update(spec));}
                 renderCharacterSheet(card.sheetHost, characterSheetView(subjectFromKnownPerson(row), observerView(state), [MET_READ]), {layout: "narrow"});
             }
         }

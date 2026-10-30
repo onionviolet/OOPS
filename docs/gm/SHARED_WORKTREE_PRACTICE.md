@@ -286,11 +286,11 @@ not certify writing quality, generation behavior, or completed refactoring.
 
 Full suites, builds and headless browser captures run through the machine-wide
 slot limiter so concurrent sessions queue instead of piling load onto the machine:
-`node scripts/slot_run.mjs --kind suite -- npm test`,
+`npm test` (default since 2026-10-30: it already runs through the limiter with `--slots 1` (one suite at a time), `--test-concurrency=4` and a soft load wait (`--max-load 12 --load-wait 300`: runs anyway after 5 minutes; `YAIRPG_SLOT_MAX_LOAD` makes it a hard gate); `npm run test:raw` skips it on a quiet machine),
 `node scripts/slot_run.mjs --kind build -- npm run build`,
 `node scripts/slot_run.mjs --kind browser -- <capture command>`.
 Suite and build share 2 slots, browser has 1 (`--slots N` overrides); locks live in
 `~/.cache/yairpg-slots/` (`YAIRPG_SLOT_DIR`), dead holders are reclaimed, and the
-child's exit code passes through. `node scripts/slot_run.mjs --status` lists holders.
+child's exit code passes through. A command run under a slot sets `YAIRPG_SLOT_HELD`, so a nested `slot_run` does not take a second slot. `node scripts/slot_run.mjs --status` lists holders.
 Focused single-file tests need no slot. Add `--max-load N` (or `YAIRPG_SLOT_MAX_LOAD`) to also hold the gate until
 the 1-minute load average is at or below N; overnight gates use `--max-load 40` so they do not time out under load.

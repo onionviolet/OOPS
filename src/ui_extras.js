@@ -7,6 +7,7 @@ import './knowledge_home.js';
 import './naming_achievements_ui.js';
 import './statistics_panel.js';
 import './today_strip.js';
+import './reports_dock.js';
 import './region_view.js';
 import './companion_roster.js';
 import './family_tree_panel.js';

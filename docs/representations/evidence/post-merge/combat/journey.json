@@ -1,0 +1,92 @@
+{
+ "viewport": "1920x1080",
+ "route": "fresh life -> Village Elder lines -> Infested field (earned steps)",
+ "bundle": "v0.6-217f3ef2ee38",
+ "first": {
+  "lines": [
+   "Tempo: you and Wolf rat strike at about the same pace."
+  ],
+  "nativeLeaveVisible": true,
+  "text": "Infested field · Fight\n\nInfested field: 1 of 1 opponent standing; you have 60 of 60 hp.\n\nTempo: you and Wolf rat strike at about the same pace.\nWithdraw: Go back to [Village] [15m]\nLeaves this fight\nYou\n\n60/60 hp\n\nvs\nWolf rat\n\n25/30 hp\n\n○ Light\n? Intent unread\nYou hit usually 82% · It hits you sometimes 32%",
+  "cards": [
+   {
+    "threat": "light",
+    "label": "Wolf rat. 25/30 hp. Light. Intent unread. You hit usually 82% · It hits you sometimes 32%."
+   }
+  ],
+  "stakes": "Infested field: 1 of 1 opponent standing; you have 60 of 60 hp.",
+  "option": "Withdraw: Go back to [Village] [15m]",
+  "blocked": "",
+  "box": {
+   "x": 371,
+   "y": 549.984375,
+   "w": 588.609375,
+   "h": 297.1875
+  },
+  "log": {
+   "w": 497.390625,
+   "h": 936.203125,
+   "visible": true
+  }
+ },
+ "stable": true,
+ "changed": true,
+ "later": {
+  "text": "Infested field · Fight\n\nInfested field: 1 of 1 opponent standing; you have 60 of 60 hp.\n\nTempo: you and Wolf rat strike at about the same pace.\nWithdraw: Go back to [Village] [15m]\nLeaves this fight\nYou\n\n60/60 hp\n\nvs\nWolf rat\n\n17/30 hp\n\n○ Light\n? Intent unread\nYou hit usually 82% · It hits you sometimes 28%",
+  "stakes": "Infested field: 1 of 1 opponent standing; you have 60 of 60 hp.",
+  "lines": [
+   "Tempo: you and Wolf rat strike at about the same pace."
+  ]
+ },
+ "withdrew": true,
+ "hiddenAfter": true,
+ "fixtures": [
+  "style-guide",
+  "character-sheet",
+  "versus-row",
+  "ritual-low-lamp",
+  "web-lanternside",
+  "ladder-lantern-self",
+  "ladder-reed-self",
+  "ladder-lantern-witness",
+  "ladder-long-self",
+  "ladder-lantern-compact",
+  "ladder-lantern-planned",
+  "ladder-lantern-records",
+  "ladder-lantern-insight",
+  "bench-bell_5-rite",
+  "bench-bell_5-making",
+  "bell_5-strip",
+  "bench-bell_5_brewing-rite",
+  "bench-bell_5_brewing-making",
+  "fight-duel",
+  "fight-brawl",
+  "chase-fixture.tollman",
+  "knows-harbor-bell",
+  "research-map-frontier.lever",
+  "research-ladder-frontier.lever",
+  "time-return-digest",
+  "lives-tree",
+  "loop-clock-town",
+  "divergence-opt-in",
+  "space-memory-palace",
+  "family-household",
+  "family-stranger",
+  "family-fan-stranger",
+  "walk-map",
+  "walk-ladder",
+  "walk-map-alone",
+  "route-strip",
+  "body-record",
+  "body-channels",
+  "body-second",
+  "org-courtyard-standing",
+  "org-gang-crew",
+  "org-sect-ranks",
+  "craft-flow-blade",
+  "relationship-web-ferry",
+  "rumour-ripple-seal"
+ ],
+ "errors": [],
+ "missing": []
+}

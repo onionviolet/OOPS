@@ -5,7 +5,7 @@
 const fs = require('node:fs'), crypto = require('node:crypto'), assert = require('node:assert/strict');
 const {runBrowser} = require('./ui_helpers.cjs');
 const {startFresh} = require('../docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs');
-const url = `http://127.0.0.1:${process.env.YAIRPG_PORT || 19631}/?test_hooks=1`, evidence = 'docs/representations/evidence/economy';
+const url = `http://127.0.0.1:${process.env.YAIRPG_PORT || 19631}/?test_hooks=1`, evidence = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/economy';
 const DAY = 1440, say = m => console.log(m);
 fs.mkdirSync(evidence, {recursive: true});
 const bundle = crypto.createHash('sha256').update(fs.readFileSync('dist/bundle.js')).digest('hex').slice(0, 12);

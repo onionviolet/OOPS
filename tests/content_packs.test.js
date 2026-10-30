@@ -38,3 +38,8 @@ test('invalid saved work and overlapping visits are rejected without advancing',
  assert.throws(()=>advancePack(emptyPackState(),new Map(),-1));
  const unsafe=JSON.parse('{"schema":1,"packs":{"__proto__":{}}}');assert.throws(()=>validatePackState(unsafe));
 });
+
+test('IP14: pay above the posting cap names its reason and the way out', () => {
+    const big = fake(); big.activities[0].pay = 10001; big.activities[0].duration = 60;
+    assert.throws(() => validatePack(big), /split the work/);
+});

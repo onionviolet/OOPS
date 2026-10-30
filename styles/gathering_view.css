@@ -1,0 +1,10 @@
+/* Gathering view (src/ui/gathering_view.js). Colors come from theme and UI tokens so a world skin restyles it. */
+.gathering-view {
+    --gv-ink: var(--theme-text, var(--ui-text));
+    --gv-muted: var(--theme-muted, var(--ui-hairline));
+    min-width: 0; color: var(--gv-ink); overflow-wrap: break-word;
+}
+.gathering-view-name {margin: 0 0 var(--ui-space-2); font-size: inherit;}
+.gathering-view-glance, .gathering-view-empty {margin: 0 0 var(--ui-space-4); color: var(--gv-muted);}
+.gathering-view-figure {min-width: 0; margin: 0 0 var(--ui-space-5); overflow-x: auto;}
+.gathering-view-foot {margin: var(--ui-space-5) 0 0;}

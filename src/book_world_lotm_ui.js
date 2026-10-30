@@ -1,18 +1,20 @@
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
+import {shortActionLabel} from './ui/action_label.js';
 import {decorateActionComponents} from './ui_components.js';
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
+import {lotmRungAbilities} from './book_world_lotm_path.js';
 import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
 import {walkMapBlock} from './ui/walk_map.js';
 import {walkBoard} from './ui/walk_board.js';
 import {legsFromMoves} from './read_models/travel_legs_bridge.js';
 import {renderCrossingThreshold} from './ui/crossing_threshold.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
-import {mountWorkroomTabs} from './book_world_lotm_tabs.js';
+import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -24,7 +26,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
  const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
   const observer=observerForProfile(read(selected)?.entryProfile);
@@ -37,10 +39,15 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  };
  const seatObserver=new MutationObserver(applySeatFilter);seatObserver.observe(panel,{childList:true,subtree:true});
  const run=(fn,done)=>{try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();};
- const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
+ // COV7 / UR42: a button reads as a short verb phrase. Cost and time ride in a chip after it, a bracketed risk note moves to
+ // the hover text, and an over-long phrase is cut at eight words with the whole line kept in the title.
+ const button=(label,token,onclick,disabled,reason)=>{const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  // Navigation only: focus the existing command row, including its disabled reason.
- const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
+ const tabBlocks={actions,walks,path,work,bench,notebook};
+ // A control on another workroom tab is brought into view first; focusing a tab-hidden row did nothing.
+ const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
+ const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
@@ -78,7 +85,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   bench.append(node('p',d.ritual?(d.ritual.needed?`Rite (${d.ritual.scale}): ${d.ritual.text}${d.ritual.materials.length?` · needs ${d.ritual.materials.join(', ')}`:''} [${d.ritual.evidence}]. This does not stop the brewing; drinking without it is a stated loss-of-control risk.`:d.ritual.text):'Rite: not in the notes.'));
   if(d.rite){const r=d.rite,box=node('div');box.dataset.lotmRite=r.grade;
    box.append(node('p',`${r.label} if drunk now: ${r.grade} · stated loss-of-control odds ${r.odds} percent (pre-signs stay reversible about ${r.recoveryDays} days). Seq ${d.seq} doses cannot be drunk yet, so this is a preview.`));
-   for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}. Principle: ${c.principle}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
+   for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
    bench.append(box);}
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
   if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));
@@ -140,7 +147,9 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   // RPX5: the ladder as a vertical figure; the current rung carries the felt digestion and fills with acts. The plan below keeps the crossings.
   const fig=node('div'),words=node('details');fig.dataset.lotmLadder='';words.dataset.lotmLadderText='';
   // RA19: a rung gained pulses for a few seconds of wall time; effects off and reduced keep only the words.
-  const spec=ladderFigureSpec(p,{felt:p.felt,crossings:false});
+  // RS15 ghost fill: a running acting act, or the one last found from the guidance below, previews its count on the rung.
+  const planned=v.actingGuidance?.find(a=>a.pending)||v.actingGuidance?.find(a=>a.id===plannedAct&&!a.completed);
+  const spec=ladderFigureSpec(p,{felt:p.felt,crossings:false,planned:planned?{label:planned.label.split(' · ')[0].toLowerCase()}:undefined,abilities:p.path==='lotm.seer'?lotmRungAbilities(p.position):undefined});
   if(lastRung!==null&&p.position>lastRung)pulseUntil=Date.now()+6000;
   lastRung=p.position;
   if(Date.now()<pulseUntil)for(const s of spec.tracks[0].steps)if(s.state==='current')s.effect='pulse';
@@ -168,8 +177,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const a of v.actingGuidance){
     const state=a.pending?'In progress; not counted yet.':a.completed?'Already completed.':a.eligible?'Available now.':a.reasons.join(' ')||'Currently unavailable.';
     const r=row(node('span',`${a.label} · ${a.place} · ${a.duration?`${a.duration} min`:'immediate'}${a.free?' · no resource cost':''}. ${state}`));
-    if(a.visible)r.append(button('Find action',`find_${a.id}`,()=>findControl(a.id),false,'Move focus to the existing action. This spends nothing.'));
-    else if(!a.here&&a.moveId)r.append(button(`Find walk to ${a.place}`,`find_${a.moveId}_${a.id}`,()=>findControl(a.moveId),false,'Move focus to the existing walk. This does not start walking.'));
+    if(a.visible)r.append(button('Find action',`find_${a.id}`,()=>{plannedAct=a.id;signature='';render();findControl(a.id);},false,'Move focus to the existing action and preview its count on the ladder. This spends nothing.'));
+    else if(!a.here&&a.moveId)r.append(button(`Find walk to ${a.place}`,`find_${a.moveId}_${a.id}`,()=>{plannedAct=a.id;signature='';render();findControl(a.moveId);},false,'Move focus to the existing walk and preview the act\'s count on the ladder. This does not start walking.'));
     guidance.append(r);
    }
    path.append(guidance);

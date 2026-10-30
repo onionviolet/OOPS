@@ -1,0 +1,101 @@
+{
+ "bundle": "4fe565db53a2d0d7",
+ "port": 54905,
+ "viewport": "1920x1080",
+ "route": "fresh life, Village door, earned steps; no save edits (COV15: rite goes through rite_state_bridge)",
+ "errors": [],
+ "log": [
+  "fresh life: Village place action \"Cross to another world: Tingen\" opened the panel (no probe parameter)",
+  "probationer enrolled and reported in",
+  "Sequence 5 formula with a rite: both conditions empty, odds at the centre, ledger beside it, materials track and brew track at Formula; rite 0x0 px",
+  "bought ordinary ice (2 soli from the fresh purse), walked to the lodging: both conditions are stand-ins (strained), odds note names each; ledger advice starts \"Fix first:\"; making desc names Materials \"of 6 held\"",
+  "effects off by attribute: same text form, figures still drawn"
+ ],
+ "figures": {
+  "absent": {
+   "id": "bench-sun_5-rite",
+   "desc": "Priest of Light rite\n2 conditions, no condition met: 90% chance of losing control if drunk now.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (empty); 2. In pure darkness (empty).\nNodes: 90% risk (empty).\nKey: ○ empty means missing.",
+   "width": 0,
+   "height": 0,
+   "styled": true,
+   "glow": 0,
+   "legend": [
+    "○missing"
+   ],
+   "pageOverflow": false,
+   "ledger": {
+    "grade": "absent",
+    "headline": "90% chance of losing control if drunk now (no condition met). Pre-signs stay reversible about 7 days.",
+    "advice": "Fix first: Buried in non-melting ice, about 50% of the added risk.",
+    "rows": [
+     {
+      "text": "Buried in non-melting ice · 50% of the added risk",
+      "meter": 50
+     },
+     {
+      "text": "In pure darkness · 50% of the added risk",
+      "meter": 50
+     }
+    ]
+   },
+   "making": {
+    "id": "bench-sun_5-making",
+    "desc": "Priest of Light · Sequence 5\nWhat to gather, then the brew from formula to drinking.\nTrack Materials, 0 of 6 held: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 24 h (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
+    "width": 0,
+    "height": 0,
+    "styled": true,
+    "glow": 0,
+    "legend": [
+     "○still needed",
+     "▶step now",
+     "·step to come"
+    ],
+    "pageOverflow": false
+   }
+  },
+  "absentFilterFull": "none",
+  "substituted": {
+   "id": "bench-sun_5-rite",
+   "desc": "Priest of Light rite\n2 conditions, met with stand-ins: 48% chance of losing control if drunk now.\nRing Priest of Light rite, 2 places: 1. Buried in non-melting ice (strained); 2. In pure darkness (strained).\nNodes: 48% risk (strained).\nKey: ! strained means a stand-in, raises the risk.",
+   "width": 0,
+   "height": 0,
+   "styled": true,
+   "glow": 0,
+   "legend": [
+    "!a stand-in, raises the risk"
+   ],
+   "pageOverflow": false,
+   "ledger": {
+    "grade": "substituted",
+    "headline": "48% chance of losing control if drunk now (met with stand-ins). Pre-signs stay reversible about 7 days.",
+    "advice": "Fix first: Buried in non-melting ice, about 50% of the added risk.",
+    "rows": [
+     {
+      "text": "Buried in non-melting ice · 50% of the added risk",
+      "meter": 50
+     },
+     {
+      "text": "In pure darkness · 50% of the added risk",
+      "meter": 50
+     }
+    ]
+   },
+   "making": {
+    "id": "bench-sun_5-making",
+    "desc": "Priest of Light · Sequence 5\nWhat to gather, then the brew from formula to drinking.\nTrack Materials, 0 of 6 held: 1. Red crown of the dawn rooster king 0/1 (empty); 2. Pure-white radiant stone 0/1 (empty); 3. Rosemary 0/1 (empty); 4. Golden bergamot juice 0/1 (empty); 5. Rock water 0/1 (empty); 6. Rooster-king blood 0/1 (empty).\nTrack Brew, 0 of 5 done: 1. Formula (current); 2. Materials (pending); 3. Brew · 24 h (pending); 4. Bottle (pending); 5. Drink with the rite (pending).\nKey: ○ empty means still needed.\nKey: ▶ current means step now.\nKey: · pending means step to come.",
+    "width": 0,
+    "height": 0,
+    "styled": true,
+    "glow": 0,
+    "legend": [
+     "○still needed",
+     "▶step now",
+     "·step to come"
+    ],
+    "pageOverflow": false
+   }
+  },
+  "subFilterFull": "none",
+  "subFilterOff": "none"
+ }
+}

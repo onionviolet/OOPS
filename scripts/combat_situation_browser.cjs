@@ -10,11 +10,14 @@ const base=process.env.PROOF_BASE||'http://127.0.0.1:19477/',out=process.env.PRO
  try{
  const context=await browser.newContext({viewport:{width:1920,height:1080}});await context.route('**/private_packs/manifest.json',r=>r.fulfill({json:{schema:1,packs:[]}}));
  await context.addInitScript(()=>{Date.now=()=>1792108800000;let n=41;Math.random=()=>((n=Math.imul(n,1664525)+1013904223>>>0)/4294967296);});
- const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&!/status of 404/.test(m.text()))errors.push(m.text());});page.on('response',r=>{if(r.status()===404)missing.push(r.url());});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&!/status of 404/.test(m.text()))errors.push(m.text());})/* Known noise: a plain static server has no private fonts or packs, so those 404s log console errors. They are collected in `missing`, not treated as failures. */;page.on('response',r=>{if(r.status()===404)missing.push(r.url());});
  await page.goto(base+'?test_hooks=1');await page.waitForFunction(()=>window.simulationTestHooks);await page.evaluate(()=>window.simulationTestHooks.pause());await startFresh(page);
  const bundle=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name.split('version=')[1]);
- await page.getByText('Talk to someone',{exact:false}).first().click();await page.locator('[data-dialogue="villageElder"]').click();
- for(const key of ['hello','what happened','ask to leave 1','need to']){const line=page.locator(`.dialogue_textline[data-textline="${key}"]`);await line.click();await line.waitFor({state:'detached'});}
+ await page.getByRole('button',{name:'Talk to someone'}).click(); // role, not text: the first text match is a hidden duplicate
+ await page.locator('[data-dialogue="villageElder"]').click();
+ // The talk view (#talk_view_host) covers the native text lines, so choose through its own options.
+ await page.locator('#talk_view_host .talk-view').waitFor({state:'visible'});
+ for(const key of ['hello','what happened','ask to leave 1','need to']){const opt=page.locator(`#talk_view_host button[data-topic-id="${key}"][data-topic-state="new"]`);await opt.click();await opt.waitFor({state:'detached'});}
  await page.locator('#center_mode_back').click();
  await page.locator('#location_actions_div').getByText('Move somewhere else',{exact:false}).first().click();
  await page.locator('#location_actions_div .action_travel[data-travel="Infested field"]').click();await waitLocation(page,'Infested field');

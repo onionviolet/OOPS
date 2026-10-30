@@ -11,7 +11,7 @@ This file turns the wave from hand-dispatched slices into a standing walk throug
 3. **Extract and draft on Codex.** Luna medium extracts the volume's rows of your family with locators (`cite_paragraphs.mjs`) and Sol medium drafts data and code. Sonnet reviews. Source-derived data goes in the private pack.
 4. **Test and hand off.** Run your focused test, commit your own paths, and hand off to `sw-absorb` (wiring) and `sw-bridge` (UI read models).
 5. **Every little idea** goes in your intake file (below) before you take the next volume. Run a short more-to-consider pass on the slice, then write ACT NOW (done in the slice), ACCOUNT FOR NOW (a constraint you applied) and LATER (with level, effort and done check).
-6. **Stop lines.** Stop at Claude weekly 75% or Codex 85%; checkpoint at 80%. The hard end is Monday 2026-11-02 11:00, with the next exact volume and step recorded.
+6. **Stop lines.** Stop at Claude weekly 90% (raised by Weibao 2026-10-30, USER_VISION `0f2ef3cb7`; was 75%) or Codex 85%; checkpoint at 88%. The hard end is Monday 2026-11-02 11:00, with the next exact volume and step recorded.
 
 Gates run through `node scripts/slot_run.mjs` (suite, build, browser).
 
@@ -43,6 +43,10 @@ The coordinator sweeps the intake files and folds lasting items into their owner
 - Weibao-facing choices into a short list for him.
 
 Nothing in an intake file is accepted direction until it is folded and, where needed, approved.
+
+## Questions go here
+
+Lanes add questions for Weibao to [CHOICES.md](CHOICES.md), not to chat. Each entry carries a default and a dial (AD5, no either/or). The default proceeds unless Weibao objects. At most five are active; the rest wait in the ranked backlog below them (2026-10-30, proposal from the done-chats audit O3).
 
 ## Round 2: wiring, floor and improvement pass (2026-10-30 02:30)
 

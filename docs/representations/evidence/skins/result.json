@@ -1,0 +1,108 @@
+{
+ "luminous": {
+  "sections": 72,
+  "circles": 613,
+  "rects": 254,
+  "skins": [
+   "luminous"
+  ],
+  "drafts": [
+   {
+    "id": "draft-insight-view",
+    "circles": 0,
+    "rects": 8
+   },
+   {
+    "id": "draft-walks-panel",
+    "circles": 0,
+    "rects": 11
+   },
+   {
+    "id": "draft-research-feed",
+    "circles": 0,
+    "rects": 13
+   },
+   {
+    "id": "draft-due-orders",
+    "circles": 0,
+    "rects": 13
+   },
+   {
+    "id": "draft-day-threads",
+    "circles": 0,
+    "rects": 11
+   },
+   {
+    "id": "draft-route-strip",
+    "circles": 0,
+    "rects": 7
+   },
+   {
+    "id": "draft-doorstep-card",
+    "circles": 0,
+    "rects": 4
+   },
+   {
+    "id": "draft-borrowed-face",
+    "circles": 0,
+    "rects": 8
+   }
+  ],
+  "errors": []
+ },
+ "liveSwitch": [
+  "paper",
+  "neutral"
+ ],
+ "paper": {
+  "sections": 72,
+  "circles": 613,
+  "rects": 254,
+  "skins": [
+   "paper"
+  ],
+  "drafts": [
+   {
+    "id": "draft-insight-view",
+    "circles": 0,
+    "rects": 8
+   },
+   {
+    "id": "draft-walks-panel",
+    "circles": 0,
+    "rects": 11
+   },
+   {
+    "id": "draft-research-feed",
+    "circles": 0,
+    "rects": 13
+   },
+   {
+    "id": "draft-due-orders",
+    "circles": 0,
+    "rects": 13
+   },
+   {
+    "id": "draft-day-threads",
+    "circles": 0,
+    "rects": 11
+   },
+   {
+    "id": "draft-route-strip",
+    "circles": 0,
+    "rects": 7
+   },
+   {
+    "id": "draft-doorstep-card",
+    "circles": 0,
+    "rects": 4
+   },
+   {
+    "id": "draft-borrowed-face",
+    "circles": 0,
+    "rects": 8
+   }
+  ],
+  "errors": []
+ }
+}

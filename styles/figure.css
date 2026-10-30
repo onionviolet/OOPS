@@ -18,7 +18,7 @@
    token (--fig-units = viewBox width / 12, set by figure.js), so a larger text setting scales labels and spacing together
    instead of growing labels into each other. At the default 12px small type the figure renders at its viewBox size. */
 .fig-svg {display: block; font-size: var(--ui-type-small); width: calc(var(--fig-units, 46.67) * 1em); max-width: 100%; height: auto; margin-inline: auto;}
-.fig-svg text {fill: var(--fig-ink); font-size: 12px; line-height: 1.3;}
+.fig-svg text {fill: var(--fig-ink); font-size: var(--ui-type-figure);}
 
 /* Rings and segments */
 .fig-ring-base, .fig-segment {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke); stroke-linecap: round;}
@@ -60,6 +60,7 @@
 .fig-track-progress {stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong);}
 .fig-svg .fig-track-title {fill: var(--fig-muted);}
 .fig-fill {fill: none; stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong); stroke-linecap: round;}
+.fig-ghost {fill: none; stroke: var(--fig-accent); stroke-width: var(--fig-stroke); stroke-dasharray: var(--fig-dash-empty); opacity: .7;}
 .fig-svg .fig-step-note {fill: var(--fig-muted);}
 /* Guessed (UIV6): a rumour or inference, drawn between known and unknown */
 .fig-state--guessed > .fig-body {stroke: var(--fig-ink); stroke-dasharray: var(--fig-dash-empty); fill: var(--fig-surface);}
@@ -105,8 +106,28 @@
 .fig-ledger p {margin: 0;}
 .fig-ledger-row {display: grid; gap: var(--ui-space-1);}
 .fig-ledger-row meter {inline-size: 100%; block-size: .6em;} /* low, high and optimum set by the caller: a larger share reads as worse */
-.fig-ledger-row meter::-webkit-meter-bar {background: var(--fig-surface); border: 1px solid var(--fig-line); border-radius: 0;}
+.fig-ledger-row meter::-webkit-meter-bar {background: var(--fig-surface); border: 1px solid var(--fig-line); border-radius: var(--ui-radius);}
 .fig-ledger-row meter::-webkit-meter-optimum-value {background: var(--fig-accent);}
 .fig-ledger-row meter::-webkit-meter-suboptimum-value {background: var(--fig-warn);}
 .fig-ledger-row meter::-webkit-meter-even-less-good-value {background: var(--fig-danger);}
 .fig-ledger-row small {color: var(--fig-muted);}
+
+/* Non-node forms (src/ui/figure_forms.js, COV4): table, card, band, chips and bar rows. Rects reuse .fig-body and the state
+   classes above, so state looks the same here as on a node; words and marks carry the meaning (UR37). */
+.fig-cell {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
+.fig-cell.fig-body {fill: var(--fig-surface);}
+.fig-cell--head {fill: color-mix(in srgb, var(--fig-accent) 10%, var(--fig-surface));}
+.fig-svg .fig-cell-head {fill: var(--fig-muted);}
+.fig-svg .fig-cell-text {fill: var(--fig-ink);}
+.fig-svg .fig-card-title {fill: var(--fig-ink); font-weight: var(--ui-weight-strong, 700);}
+.fig-svg .fig-body {rx: var(--ui-radius, 0);}
+.fig-bar-track {fill: var(--fig-surface); stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
+.fig-bar-fill {fill: var(--fig-accent); stroke: none;}
+.fig-barrow.fig-state--strained .fig-bar-fill {fill: var(--fig-warn);}
+.fig-barrow.fig-state--broken .fig-bar-fill {fill: var(--fig-danger);}
+.fig-row.fig-state--strained .fig-bar-fill {fill: var(--fig-warn);}
+.fig-row.fig-state--broken .fig-bar-fill {fill: var(--fig-danger);}
+.fig-row.fig-state--strained .fig-label, .fig-card-group.fig-state--strained .fig-cell-head {fill: var(--fig-warn);}
+.fig-band-lane {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke); stroke-dasharray: var(--fig-dash-unknown);}
+.fig-span-rect {stroke-dasharray: none;}
+.fig-svg .fig-label {paint-order: normal;}

@@ -112,3 +112,23 @@ test('per-volume ledger counts by kind and flags ids new in each volume', () => 
     assert.deepEqual(result.volumes[3].extras, {rules: 1, texture_other: 1});
     assert.deepEqual(result.volumes[3].rules, {rite: 1});
 });
+
+test('price quantity crosswalk counts present carriers without changing output shape or other kinds', () => {
+    const registry = [
+        entity('lotm.price.amt-1-soli', 'price', {zh: '1苏勒'}),
+        entity('lotm.price.weekly-total', 'price', {zh: '3镑'}),
+        entity('lotm.price.half-penny-coin', 'price', {zh: '二分之一便士'}),
+        entity('lotm.price.several-hundred-pounds', 'price', {zh: '几百镑'}),
+        entity('lotm.price.later', 'price', {zh: '1苏勒', shards: [later]}),
+        entity('lotm.person.not-a-price', 'person'),
+    ];
+    const corpus = readFileSync(new URL('../src/book_world_lotm_ids.js', import.meta.url), 'utf8');
+    const result = buildLedger({registry, corpus});
+    assert.deepEqual(result.counts.prices, {total: 4, consumed: 1, missing: 3});
+    assert.equal(result.counts.people.consumed, 0);
+    assert.deepEqual(result.missing.prices.map(row => row.id), [
+        'lotm.price.half-penny-coin', 'lotm.price.several-hundred-pounds', 'lotm.price.weekly-total']);
+    assert.equal(buildLedger({registry, corpus: '12 240 720'}).counts.prices.consumed, 0);
+    const changed = corpus.replace('soli:12', 'soli:13');
+    assert.equal(buildLedger({registry, corpus: changed}).counts.prices.consumed, 0, 'stale carrier identity does not count');
+});

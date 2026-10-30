@@ -346,7 +346,7 @@ gallery.
 |---|---|
 | Band beside your own value ("yours is 7") | UR75: a band needs a baseline |
 | `source: 'cheat'` read style | Cheat reads arrive with rep-abilities' powers |
-| People card repeats location, details and memories in the sheet's Between you (UR73) | Coordinator decides whether the card or the sheet owns those lines |
+| People card repeats location, details and memories in the sheet's Between you (UR73) | Done 2026-10-30: the sheet owns them (Follow-up slice 4) |
 | Shared `guessed` mark in `figure.js` | Coordinator; family tree and this doc use `≈` |
 | Global `.theme-preview dl` rule | Breaks any new `dl` in a themed module |
 
@@ -354,8 +354,76 @@ gallery.
 
 | Item | Level, effort | Done check |
 |---|---|---|
-| You panel expanded view on the sheet (step 16) | Sonnet medium, one slice touching `main.js` once | Fresh life: your sheet shows native stats exact, status window as a read after awakening, saved layout with the old panel id still opens it |
+| You panel expanded view on the sheet (step 16) | Done 2026-10-30, see Follow-up slices | Fresh life: your sheet shows native stats exact, status window as a read after awakening, saved layout with the old panel id still opens it |
 | Reads as actions with cost and stored history (AA9, CRL35-CRL36) | Sonnet medium, persistence slice with migration | Appraise once, save, reload, Import: the read and its time survive; a stale read says so |
-| Opponent card on the projection (UR36) | Sonnet medium | A combat target and the same person met read identical rows at the same means |
+| Opponent card on the projection (UR36) | Done 2026-10-30, see Follow-up slices | A combat target and the same person met read identical rows at the same means |
 | Being-read notice (step 9) | Sonnet low after the above | A sensitive subject's relationship gains a line when appraised |
 | Pinned person inspector beside the People list | Sonnet medium, center controller | 1920×1080: list left, sheet right, Esc returns to the list position |
+
+## Follow-up slices, 2026-10-30
+
+Desktop 1920×1080, Luminous Gothic. Evidence in `docs/representations/evidence/followups/`. Proposals (AD32).
+
+### Slice 1: You expanded view opens on the sheet
+
+`src/you_sheet.js` builds the self subject from what the status window already reads and mounts the sheet at
+the top of the Character & preparation view (Attributes ›). Native stats read exact (CS6i). The status window
+is a read scoped to Standing, added only after the system awakens, so system points and the quest appear then
+and never before. The `status-window` panel id and its compact You-box panel are untouched, so a saved layout
+with the old id still places it. `main.js` was not touched. A self sheet leaves out sections no owner has filled
+instead of saying "not read yet" about you.
+
+| AD43 line | State |
+|---|---|
+| Build identity | Rebuilt bundle served; fresh origin, page errors none |
+| Natural route | Attributes › in You opens the view; sheet first |
+| Shown description and cost | Rows and "How you know" chips; no cost (a read of yourself) |
+| Consumer | `status_window.js` mounts it; `tests/you_sheet.test.js` (3 pass) |
+| Persistence | Reload and Import show the identical sheet; sheet state is not saved, it derives from the save |
+| Review | Agent-verified, not human-reviewed |
+
+Known limits: the compact status panel still repeats stats and level in the You box (it is the alias target);
+bio and abilities are not yet sections of the sheet.
+
+### Slice 3: opponent card on the projection (UR36)
+
+`src/opponent_sheet.js` turns a fight's facts into stat rows and reads them through `characterSheetView` at the
+means the fight gives (`COMBAT_READ`: exact numbers, stats only, no names or powers). Both card sources
+(`projectNativeOpponents`, `fromCombatOpponentsProjection` in `opponent_board.js`) now route their facts through it, so a combat
+target and the same person met elsewhere read identical rows at the same means, and a rougher means bands both alike
+and marks the card's values as estimates. A row owner's own wording for an exact value rides on the stat row as `exactText`
+(`character_sheet.js`), so "5 dmg x2" and "31.623" read exactly as the fight shows them today. Facts without a leading
+number, and facts the fight does not know, pass through as given.
+
+| AD43 line | State |
+|---|---|
+| Build identity | Rebuilt bundle; Infested field fight at 1920×1080 from a fresh origin, no page errors |
+| Natural route | Elder lines, travel to Infested field, Opponent panel (`opponent-card-1920.png`) |
+| Shown description and cost | Card rows unchanged for the player: Atk 6 dmg, Spd 0.99 /s, Hit you 32%, Evade 18%, Defense 1 |
+| Consumer | The Opponent panel and the Around-you fight card; `tests/opponent_sheet.test.js` (3 pass) beside the opponent_board, situation and sheet tests |
+| Persistence | Not applicable: display only, no save field |
+| Review | Agent-verified, not human-reviewed |
+
+Gap: no way yet to hand the card a second read (an inspect skill used on the target), so only `COMBAT_READ` reaches it today;
+`opponentFacts(facts, observer, reads)` takes the list when a lane supplies one.
+
+### Slice 4: the sheet owns the person lines (UR73)
+
+The People card (`src/people_ui.js`) no longer draws the last-known location, the details or accounts, or the
+memories. They are the sheet's Between you rows (`character_sheet_people.js` already built them), drawn once. The card keeps
+the name, the glance, the bond bar and the sheet link, now worded "Character sheet · where, what you know, what you remember"
+and open by default, so the lines stay one look away. A test asserts the card carries no paragraph or list of its own and the
+location appears once (`tests/people_card_sheet.test.js`); `tests/relationship_web.test.js` and `tests/people_knowledge.test.js` still pass.
+
+| AD43 line | State |
+|---|---|
+| Build identity | Rebuilt bundle; fresh origin at 1920×1080, no page errors |
+| Natural route | Elder greeting, People, expand the card (`people-card-sheet-1920.png`) |
+| Shown description and cost | Where, what you know and what you remember read as before, under the sheet |
+| Consumer | The People panel; relationship web and bond bar untouched |
+| Persistence | Not applicable: display only |
+| Review | Agent-verified, not human-reviewed |
+
+Gap: the accounts caveat line ("current condition and private possessions are not assessed here") is gone with the card block;
+each account row still names its basis. `scripts/people_browser.cjs` was tried and stops at its Talk click, which the
+center overlay intercepts in the current shell (before it reaches any card), so it is not evidence for this slice.

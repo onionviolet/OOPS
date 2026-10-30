@@ -1,0 +1,54 @@
+{"exists":true,"hidden":false,"chain":["body_panel","DIV","notebook_view_practice","adventure_notebook","workspace-module-body","workspace-module","workspace-dock parity-region","workspace-board"],"routes":["local-actions:h:Here","preparation:v:Stats","condition:v:Condition","belongings:v:Inventory","crafting:h:Crafting","mixing:h:Mixing","records:quests:v:Journal","records:bestiary:h:Bestiary","records:books:h:Books","records:data:v:Data","records:knows:v:Knows","records:notebook:v:Notebook","skills:h:Skills","known-people:v:People","village-travelers:v:Travelers","projects:v:Projects","ledger:v:Ledger","organizations:v:Organizations","optional-worlds:v:Worlds","beginning:v:Beginning","continuation:v:Connection","customization:v:Settings"],"nb":false,"views":["here:h","practice:h","people:h"]}
+Body by part
+! Sore hands · 8 min left
+By body part
+Part	Now	Others see
+Hands	
+
+! Sore hands · 8 min left
+
+4 of 12 min recovered
+
+Grip drills need recovery; packing and marker work take longer.
+
+Rest your hands · 3 min
+
+Or wait: it fades with time.
+
+	
+
+You flex your hands carefully, favouring them.
+
+Next for this body
+Conditioned grip: 1 of 3 done
+✓
+Drill 1
+▶
+Drill 2
+·
+Keep thegrip
+reduced {
+  chipShadow: 'none',
+  chip: '! Sore hands · 8 min left',
+  fx: 'reduced'
+} {
+  buttonOffsetInPanel: 653.796875,
+  left: 681.65625,
+  panelHeight: 1106.546875
+}
+full {
+  chipShadow: 'rgb(255, 211, 107) 0px 0px 5.6px 0px',
+  chip: '! Sore hands · 8 min left',
+  fx: 'full'
+} {
+  buttonOffsetInPanel: 653.796875,
+  left: 681.65625,
+  panelHeight: 1106.546875
+}
+off { chipShadow: 'none', chip: '! Sore hands · 8 min left', fx: 'off' } {
+  buttonOffsetInPanel: 653.796875,
+  left: 681.65625,
+  panelHeight: 1106.546875
+}
+21px 21px
+errors []

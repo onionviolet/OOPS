@@ -1,5 +1,7 @@
 # Combat and conflict representation (proposals, 2026-10-30)
 
+**Next slice (2026-10-30):** the chase stage track in the pursuit encounter panel (`pursuit_ui.js`) and a duel at a named site, from "Known limits and next slice" below; the intent chip waits on CBR14 learned intent.
+
 Owner of how fights, chases and other conflicts are shown (RPX16, LTU7 in
 [UI design core audit](../audits/UI_DESIGN_CORE_AUDIT.md)). Behavior rules stay in
 [DOMAIN_RULES](../DOMAIN_RULES.md) CBR1-CBR30; this doc only decides display. Everything here
@@ -418,3 +420,5 @@ text-size setting was not exercised); non-lead seat not exercised; the threat-ch
 
 AD43 floor: unchanged from round 1 (bundle named, earned route, shown with text, Withdraw consumer,
 no persistence, agent-verified, not human-reviewed); done at the floor for the native fight slice.
+
+COV15 wiring (2026-10-30, view side): the Encounters and pursuit panel (`src/pursuit_ui.js`, Notebook, People) now draws `chaseSituation` through `withPursuitRange` for each open case. The range track draws only from the meeting request's place once the pursuer has made contact (route minutes by the policy's own routes, place ids are the place names); before contact the figure says "you have not seen where they are". Missing input: a seen-or-sensed sighting fact for the pursuer's place (the pursuer's true position and the pursuit's lead are private and are not used). A closed case draws no figure. Proof: `evidence/cov15/chase_browser.cjs` (generated field-member save, DEV SEEDED as `scripts/o2b_pursuit_browser.cjs`, begin the trail test, wait for contact) with `chase-contact-*.png` and `chase-result.json`; gallery fixtures `fx-chase-range` and `fx-chase-unseen`. AD43 floor: FLR1 bundle rebuilt; FLR2 below floor (the panel needs field membership, so the route is a seeded save, not a fresh life); FLR3 shown with a text form; FLR4 used by the panel; FLR5 no persistence change; FLR6 agent-verified, not human-reviewed. Implemented, below floor on FLR2.

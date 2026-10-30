@@ -38,7 +38,7 @@ Handoffs link to owners rather than copying another competing specification.
 Code areas load their rules automatically from `.claude/rules/` by path. Open the
 [rules index](docs/RULES_INDEX.md) router when a task makes or changes a design
 rule, needs a rule code for a lane brief, or touches an aspect with no path rule;
-AD1–AD45 restate the accepted direction for aspects without their own rulebook.
+AD1–AD46 restate the accepted direction for aspects without their own rulebook.
 Cite codes in task records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
 router rows, and a new or changed accepted decision updates its AD line. Lane
@@ -124,7 +124,9 @@ is reached.
 Runtime completion and pre-commit commands are `npm run build`, `npm test`,
 `npm run check:arch` and `npm run check:rules`, at the stages assigned by AD36
 below. `check:rule-behavior` is an optional focused route into existing tests,
-not an additional universal gate. Docs-only changes use relevant document/link
+not an additional universal gate. `npm test` already runs through the machine-wide
+limiter (`scripts/slot_run.mjs`, one full suite at a time, `--test-concurrency=4`; load above 12 delays the start at most 5 minutes, then it runs anyway; `YAIRPG_SLOT_MAX_LOAD=N` makes load a hard gate); never wrap it again
+and use `npm run test:raw` only on a quiet machine. Docs-only changes use relevant document/link
 checks; changes to the rules index or registered codes run `check:rules`.
 
 Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-verification-ad36).
@@ -157,6 +159,10 @@ compatibility decision.
 
 Use origin for the personal fork (public) and upstream for the original.
 Inspect the working tree before editing and preserve unrelated changes.
+
+Agent work stays in the background (Weibao, 2026-10-30, standing rule). Never open
+a visible window on his screen: browsers run headless, Electron runs hidden, and
+native computer control needs his say-so first.
 
 ## Sealed secrets
 

@@ -6,14 +6,14 @@
     --cs-line: var(--theme-border, var(--ui-hairline));
     --cs-accent: var(--theme-accent, var(--ui-accent));
     --cs-surface: var(--theme-surface, var(--ui-navy));
-    color: var(--cs-ink); min-width: 0; font-size: var(--custom-size, var(--ui-type-body)); line-height: 1.35;
+    color: var(--cs-ink); min-width: 0; font-size: var(--custom-size, var(--ui-type-body)); line-height: var(--ui-line-body);
 }
 .cs-head {display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ui-space-2) var(--ui-space-5); padding-bottom: var(--ui-space-3); border-bottom: 1px solid var(--cs-line);}
-.cs-title {margin: 0; font-size: calc(var(--custom-size, var(--ui-type-body)) * 8 / 7); font-weight: var(--ui-weight-regular);}
+.cs-title {margin: 0; font-size: var(--ui-type-heading); font-weight: var(--ui-weight-regular);}
 .cs-meta {margin: 0; color: var(--cs-muted);}
-.cs-reads {margin: 0; display: flex; flex-wrap: wrap; gap: var(--ui-space-2); align-items: baseline; font-size: var(--custom-small-size, var(--ui-type-small)); line-height: 1.3;}
+.cs-reads {margin: 0; display: flex; flex-wrap: wrap; gap: var(--ui-space-2); align-items: baseline; font-size: var(--custom-small-size, var(--ui-type-small)); line-height: var(--ui-line-small);}
 .cs-reads-label {color: var(--cs-muted);}
-.cs-chip {border: 1px solid var(--cs-line); padding: 0 var(--ui-space-2); border-radius: var(--ui-space-1);}
+.cs-chip {border: 1px solid var(--cs-line); padding: 0 var(--ui-space-2); border-radius: var(--ui-radius);}
 .cs-chip[data-guess] {border-style: dashed;}
 
 .cs-grid {display: grid; gap: var(--ui-space-4); padding-top: var(--ui-space-4);}
@@ -29,17 +29,17 @@
 .cs-label {color: var(--cs-ink); overflow-wrap: anywhere;}
 .cs-row[data-unread] .cs-value {grid-column: 1 / -1;}
 .cs-sheet .cs-value {margin: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere;}
-.cs-sheet .cs-more {grid-column: 1 / -1; margin: 0; display: flex; flex-wrap: wrap; gap: var(--ui-space-1) var(--ui-space-3); font-size: var(--custom-small-size, var(--ui-type-small)); line-height: 1.3; color: var(--cs-muted);}
+.cs-sheet .cs-more {grid-column: 1 / -1; margin: 0; display: flex; flex-wrap: wrap; gap: var(--ui-space-1) var(--ui-space-3); font-size: var(--custom-small-size, var(--ui-type-small)); line-height: var(--ui-line-small); color: var(--cs-muted);}
 .cs-basis::before {content: "from ";}
 .cs-mark {display: inline-block; min-width: 1.2em; color: var(--cs-accent);}
 .cs-state {margin-left: var(--ui-space-2); font-size: var(--custom-small-size, var(--ui-type-small)); color: var(--cs-muted);}
 .cs-state::before {content: "("; } .cs-state::after {content: ")";}
 .cs-row[data-state="guessed"] .cs-text {font-style: italic;}
 .cs-row[data-state="unknown"] .cs-value {color: var(--cs-muted);}
-.cs-text-form pre {white-space: pre-wrap; font-size: var(--custom-small-size, var(--ui-type-small)); line-height: 1.3;}
+.cs-text-form pre {white-space: pre-wrap; font-size: var(--custom-small-size, var(--ui-type-small)); line-height: var(--ui-line-small);}
 
 /* Flourish (UR38, UR62): a row that a new read just firmed up settles in place; no layout move. */
-.cs-row[data-firmed] .cs-value {animation: cs-firm 900ms ease-out 1;}
+.cs-row[data-firmed] .cs-value {animation: cs-firm var(--ui-motion-settle) var(--ui-motion-ease) 1;}
 @keyframes cs-firm {from {text-shadow: 0 0 var(--ui-space-2) var(--cs-accent);} to {text-shadow: none;}}
 :root[data-effects="off"] .cs-row[data-firmed] .cs-value, :root[data-effects="reduced"] .cs-row[data-firmed] .cs-value {animation: none;}
 .cs-sheet :focus-visible {outline: 2px solid var(--cs-accent); outline-offset: 2px;}
@@ -47,6 +47,6 @@
 /* Gallery page only (figure-gallery.html). */
 .cs-gallery-reads {display: flex; flex-wrap: wrap; gap: var(--ui-space-2) var(--ui-space-5); border: 1px solid var(--ui-hairline); margin: 0 0 var(--ui-space-4); padding: var(--ui-space-3) var(--ui-space-4);}
 .cs-gallery-grid {display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--ui-space-6);}
-.cs-source {margin: var(--ui-space-2) 0 0; font-size: var(--custom-small-size, var(--ui-type-small)); line-height: 1.3; color: var(--cs-muted);}
+.cs-source {margin: var(--ui-space-2) 0 0; font-size: var(--custom-small-size, var(--ui-type-small)); line-height: var(--ui-line-small); color: var(--cs-muted);}
 .cs-unread {margin: var(--ui-space-3) 0 0; color: var(--cs-muted);}
 .cs-unread .cs-hint {display: block; font-size: var(--custom-small-size, var(--ui-type-small));}

@@ -32,7 +32,7 @@ is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-pot
 | MR6 | **Free experimentation works in every world, canon ones included.** Any permitted combination resolves to an outcome: original, degraded, failed or known. "Invalid recipe" is not an outcome. | Making canon worlds formula-only and killing discovery play |
 | MR7 | **Formulas are attractors, not gates.** Meeting a known formula's requirements, even by accident, makes that product. Near misses make a labelled degraded version; far attempts make originals. | Canon items minted by vague similarity, or experiments that can never find the real thing |
 | MR8 | **Composition beats catalogs.** Author reusable properties, operations and laws. Fixed recipes stay as discovered shortcuts and canon anchors. | One hand-written template per combination |
-| MR9 | **A standard recipe may declare open slots.** A slot changes strength, duration, side effects or style within the product's family, never its identity. | Slot-ins that turn a healing draught into a different named potion |
+| MR9 | **A standard recipe may declare open slots.** A slot changes strength, duration, side effects or style within the product's family by default. Dial: a maker art where a slot-in makes a different named product, with the mechanism as the reason and the lost original as the cost. | Slot-ins that turn a healing draught into a different named potion |
 | MR10 | **Record what was demonstrated.** A learned method stores the steps that actually worked, with their conditions and limits. | "Known recipe" buttons that know more than the player ever showed |
 
 ## World laws and styles

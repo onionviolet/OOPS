@@ -38,3 +38,13 @@ test('the typed divination rows install and their support facts follow what the 
  const real=simulationFacts(s,{actorId:'player',external:c.external,gameplay:c.gameplay,vitals:{},facts:{location:s.simulation.people.player.location},nativeAlive:true},registry);
  assert.equal(real['actor.lotm.div.means.coin'],true,'the registry facts path carries the supplier');
 });
+
+test('grounds facts are held only by lead knowledge of the scene fact, never by money or method', async () => {
+    const {lotmDivinationFacts: facts}=await import('../src/book_world_lotm_div_supply.js');
+    const base={actors:{player:{worldId:'book.lotm.tingen'}},lotm:{},simulation:{knowledge:{player:{}},powers:{player:{}}}};
+    const none=facts(base,{external:{money:5}});
+    assert.equal(none['actor.lotm.div.grounds.coin-divination'],false);
+    const held=facts({...base,simulation:{...base.simulation,knowledge:{player:{'book.lotm.div.grounds.coin-divination':{value:'x'}}}}},{});
+    assert.equal(held['actor.lotm.div.grounds.coin-divination'],true);
+    assert.equal(held['actor.lotm.div.grounds.cane-dowsing'],false);
+});

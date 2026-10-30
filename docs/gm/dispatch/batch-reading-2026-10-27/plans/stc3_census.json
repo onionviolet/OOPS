@@ -1,0 +1,168 @@
+{
+ "world": "stc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30",
+  "censusMatch": "^(stc2|stc3)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "stc3-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "stc3c002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch002-003.txt",
+   "base": "300201",
+   "chapters": "2-3"
+  },
+  {
+   "prefix": "stc3c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch004-005.txt",
+   "base": "300401",
+   "chapters": "4-5"
+  },
+  {
+   "prefix": "stc3c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch006-007.txt",
+   "base": "300601",
+   "chapters": "6-7"
+  },
+  {
+   "prefix": "stc3c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch008-009.txt",
+   "base": "300801",
+   "chapters": "8-9"
+  },
+  {
+   "prefix": "stc3c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch010-011.txt",
+   "base": "301001",
+   "chapters": "10-11"
+  },
+  {
+   "prefix": "stc3c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch012-013.txt",
+   "base": "301201",
+   "chapters": "12-13"
+  },
+  {
+   "prefix": "stc3c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch014-015.txt",
+   "base": "301401",
+   "chapters": "14-15"
+  },
+  {
+   "prefix": "stc3c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch016-017.txt",
+   "base": "301601",
+   "chapters": "16-17"
+  },
+  {
+   "prefix": "stc3c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch018-019.txt",
+   "base": "301801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "stc3c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch020-021.txt",
+   "base": "302001",
+   "chapters": "20-21"
+  },
+  {
+   "prefix": "stc3c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch022-023.txt",
+   "base": "302201",
+   "chapters": "22-23"
+  },
+  {
+   "prefix": "stc3c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch024-025.txt",
+   "base": "302401",
+   "chapters": "24-25"
+  },
+  {
+   "prefix": "stc3c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch026-027.txt",
+   "base": "302601",
+   "chapters": "26-27"
+  },
+  {
+   "prefix": "stc3c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch028-029.txt",
+   "base": "302801",
+   "chapters": "28-29"
+  },
+  {
+   "prefix": "stc3c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch030-031.txt",
+   "base": "303001",
+   "chapters": "30-31"
+  },
+  {
+   "prefix": "stc3c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch032-033.txt",
+   "base": "303201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "stc3c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch034-035.txt",
+   "base": "303401",
+   "chapters": "34-35"
+  },
+  {
+   "prefix": "stc3c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch036-037.txt",
+   "base": "303601",
+   "chapters": "36-37"
+  },
+  {
+   "prefix": "stc3c038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch038-039.txt",
+   "base": "303801",
+   "chapters": "38-39"
+  },
+  {
+   "prefix": "stc3c040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch040-041.txt",
+   "base": "304001",
+   "chapters": "40-41"
+  },
+  {
+   "prefix": "stc3c042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch042-043.txt",
+   "base": "304201",
+   "chapters": "42-43"
+  },
+  {
+   "prefix": "stc3c044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch044-045.txt",
+   "base": "304401",
+   "chapters": "44-45"
+  },
+  {
+   "prefix": "stc3c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch046-047.txt",
+   "base": "304601",
+   "chapters": "46-47"
+  },
+  {
+   "prefix": "stc3c048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch048-049.txt",
+   "base": "304801",
+   "chapters": "48-49"
+  },
+  {
+   "prefix": "stc3c050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/lead-run-2026-10-30/shard_stc3_b3_ch050-051.txt",
+   "base": "305001",
+   "chapters": "50-51"
+  }
+ ]
+}

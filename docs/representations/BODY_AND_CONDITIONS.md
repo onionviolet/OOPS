@@ -1,5 +1,7 @@
 # Body, conditions and altered states (proposals, 2026-10-30)
 
+**Next slice (2026-10-30):** BC8 chips in the Condition panel Body section. Level and effort: Sonnet, small. Done when: chips visible in Condition at 1920×1080 with words, effects off identical.
+
 Representation round for RPX4 (cultivation and body channels), RPX9 (altered states)
 and RPX10 (disguise and identity) from the
 [UI design audit](../audits/UI_DESIGN_CORE_AUDIT.md), on the MDL2 figure primitive

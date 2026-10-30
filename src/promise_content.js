@@ -44,6 +44,14 @@ export const promiseDefinitions={
         npc({id:"promise.check_name",label:"Tamsin pays a courier to check the mill register",duration:3,requires:all(phase("investigated"),eq("knowledge.promise.slip.seen",true)),costs:[{type:"resource",key:"coins",amount:-1}],
             effects:[shift("investigated","evidence_ready"),know("register","The mill keeper confirmed that Rowan signed for the brace. I confused two travelers at dusk.","observation",visitorId),know("belief","This traveler was not Rowan. I owe them a correction.","inference",visitorId)]}),
         npc({id:"promise.test_cart",label:"Tamsin tests the repaired cart",duration:3,requires:all(phase("helped"),eq("knowledge.promise.help.seen",true),{fact:"body.hands",op:"gte",value:1}),costs:[{type:"vital",key:"stamina",amount:-2}],effects:[shift("helped","help_ready"),know("test","The repaired cart carried a load. I can make my delivery; I still have not checked the old identification.","observation",visitorId)]}),
+        // P3c wave 2 (proposal): the traveler presses the craftsman about the bench, and offers a favour for the story (LSD419).
+        npc({id:"promise.press_craftsman",label:"Tamsin asks the craftsman what happened at the bench",once:true,requires:phase("introduced"),effects:[
+            {type:"relationship",actor:"oldCraftsman",target:visitorId,axis:"familiarity",amount:1,text:"Asked him pointedly what had happened at the bench."}]}),
+        npc({id:"promise.offer_craftsman",label:"Tamsin offers to carry his next load for the story",once:true,requires:phase("introduced"),effects:[
+            {type:"relationship",actor:"oldCraftsman",target:visitorId,axis:"respect",amount:2,text:"Offered a coin to hear what happened at the bench."}]}),
+        command({id:"promise.cover_story",label:"Tell Tamsin you only asked him for a moment",once:true,description:"A cover story: she may repeat it, and what happened is still on record.",
+            requires:all(eq("knowledge.promise.claim.seen",true),eq("village.interrupted",true,"You have not interrupted him.")),visibleWhen:eq("village.interrupted",true),effects:[
+            {type:"relationship",actor:visitorId,target:"player",axis:"trust",amount:1,claim:{speaker:"player",about:"oldCraftsman",topic:"interruption",says:"claim.only_asked"},text:"Heard that you had only asked him for a moment."}]}),
         ...["declined","unanswered"].map(route=>npc({id:"promise.repair_"+route,label:"Tamsin pays for her own cart repair",duration:3,
             requires:route === "declined" ? phase("declined") : all(phase("introduced"),eq("situation."+promiseId+".responseOpen",false)),costs:[{type:"resource",key:"coins",amount:-1}],
             effects:[shift(route === "declined" ? "declined" : "introduced",route+"_ready"),know("repair","I paid a cartwright from my own purse. No agreement with this traveler was made.","observation",visitorId)]})),
@@ -66,6 +74,7 @@ export const promiseDefinitions={
     ],
     controllers:[{id:"promise.visitor_plan",revision:1,label:"Tamsin's current cart plan",actorId:visitorId,interval:1,actions:[
         {commandId:"promise.check_name",priority:3,targetId:"player",when:phase("investigated")},{commandId:"promise.test_cart",priority:2,targetId:"player",when:phase("helped")},
+        {commandId:"promise.press_craftsman",priority:0,targetId:"player",when:phase("introduced")},{commandId:"promise.offer_craftsman",priority:0,targetId:"player",when:phase("introduced")},
         {commandId:"promise.repair_declined",priority:1,targetId:"player",when:phase("declined")},{commandId:"promise.repair_unanswered",priority:1,targetId:"player",when:phase("introduced")}]}]
 };
 

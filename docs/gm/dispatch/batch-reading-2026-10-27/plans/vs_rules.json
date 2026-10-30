@@ -1,0 +1,217 @@
+{
+ "world": "vs",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30",
+  "censusMatch": "^(vs)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "vs-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "vsc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "vsc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "vsc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch005-006.txt",
+   "base": "00501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "vsc007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch007-008.txt",
+   "base": "00701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "vsc009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch009-010.txt",
+   "base": "00901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "vsc011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch011-012.txt",
+   "base": "01101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "vsc013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "vsc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "vsc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch017-018.txt",
+   "base": "01701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "vsc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch019-020.txt",
+   "base": "01901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "vsc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch021-021.txt",
+   "base": "02101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "vsc022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch022-022.txt",
+   "base": "02201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "vsc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch023-024.txt",
+   "base": "02301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "vsc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch025-026.txt",
+   "base": "02501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "vsc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch027-028.txt",
+   "base": "02701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "vsc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch029-030.txt",
+   "base": "02901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "vsc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch031-032.txt",
+   "base": "03101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "vsc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch033-034.txt",
+   "base": "03301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "vsc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch035-035.txt",
+   "base": "03501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "vsc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch036-037.txt",
+   "base": "03601",
+   "chapters": "36-37"
+  },
+  {
+   "prefix": "vsc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch038-039.txt",
+   "base": "03801",
+   "chapters": "38-39"
+  },
+  {
+   "prefix": "vsc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch040-041.txt",
+   "base": "04001",
+   "chapters": "40-41"
+  },
+  {
+   "prefix": "vsc042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch042-043.txt",
+   "base": "04201",
+   "chapters": "42-43"
+  },
+  {
+   "prefix": "vsc044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch044-045.txt",
+   "base": "04401",
+   "chapters": "44-45"
+  },
+  {
+   "prefix": "vsc046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch046-047.txt",
+   "base": "04601",
+   "chapters": "46-47"
+  },
+  {
+   "prefix": "vsc048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch048-049.txt",
+   "base": "04801",
+   "chapters": "48-49"
+  },
+  {
+   "prefix": "vsc050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch050-051.txt",
+   "base": "05001",
+   "chapters": "50-51"
+  },
+  {
+   "prefix": "vsc052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch052-053.txt",
+   "base": "05201",
+   "chapters": "52-53"
+  },
+  {
+   "prefix": "vsc054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch054-055.txt",
+   "base": "05401",
+   "chapters": "54-55"
+  },
+  {
+   "prefix": "vsc056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch056-057.txt",
+   "base": "05601",
+   "chapters": "56-57"
+  },
+  {
+   "prefix": "vsc058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch058-059.txt",
+   "base": "05801",
+   "chapters": "58-59"
+  },
+  {
+   "prefix": "vsc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch060-061.txt",
+   "base": "06001",
+   "chapters": "60-61"
+  },
+  {
+   "prefix": "vsc062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/lead-run-2026-10-30/shard_vs_b1_ch062-062.txt",
+   "base": "06201",
+   "chapters": "62-62"
+  }
+ ]
+}

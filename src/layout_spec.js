@@ -102,6 +102,12 @@ export const LAYOUT_SPEC = Object.freeze({
             Object.freeze({minWidth: 2800, areas: Object.freeze(['player focus focus log', 'inventory actions actions log']), columns: Object.freeze([420, 200, 700, 460])}),
         ]),
     }),
+    // COV2 / UR69 (2026-10-30): while a center view is open the side regions lend their width back.
+    // Default: You and Inventory keep their home column (`sideEm`, up to `sideMaxPct` of the board),
+    // Reports narrows to `logEm` (up to `logMaxPct`) and the open view takes the rest. Dial: a saved
+    // manual size wins (inline grid columns), and a fight or a selected subject keeps the full grid.
+    // Reason: at 1920 the view the player just asked for got 721 px of 1920. Text size scales the em.
+    centerLend: Object.freeze({sideEm: 24, sideMaxPct: 22, logEm: 27, logMaxPct: 22}),
     // Top-row fit (WX3). The top row takes what You needs, or the opponent cards in a fight, plus
     // a frame. Caps keep the bottom row useful. Rows that yield (secondary stats) may grow it only
     // to the R14 default, so at laptop sizes they yield before inventory and actions (R11 order).
@@ -194,12 +200,15 @@ export const LAYOUT_SPEC = Object.freeze({
         'home-layout': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'inventory']}),
         'inherited_traits': surface('ST6', {home: 'Reference dock; family qualities and what a test reveals, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'people']}),
         'lives_carry': surface('ST6', {home: 'Reference dock; opens once a life has ended or a carry exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'people']}),
+        'quest-board': surface('ST6', {home: 'Reference dock beside Records; leads drawn from debts and wants', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'story-insight': surface('ST6', {home: 'Reference dock beside Records; recaps and world history from saved state', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'social-trust': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'people', 'inventory']}),
         'life-events': surface('ST6', {home: 'Reference dock; opens once the Village neighbors are known or a life moment is waiting', frequency: 'occasional', status: 'proposal', reads: ['people', 'time', 'inventory']}),
         'pledges': surface('ST6', {home: 'Reference dock; vows and tempering, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'time']}),
         'rune-bench': surface('ST6', {home: 'Reference dock; rune carving, always available', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time']}),
         'economy_standing': surface('ST6', {home: 'Reference dock; opens once a trade, loan or remembered price exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),
+        'home-overview': surface('ST6', {home: 'Reference dock beside Homes; read-only glance, opens with the first known home', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
+        'gathering': surface('ST6', {home: 'Reference dock after Village experiments; read-only glance, opens where something can be gathered', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),
         'homes': surface('ST2', {home: 'Known residences and Village home supplier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'body', 'rights'], representations: routed}),
         'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
         'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
@@ -217,15 +226,24 @@ export const LAYOUT_SPEC = Object.freeze({
         'research': surface('ST6', {home: 'Right dock beside the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'known-things': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['knowledge'], contexts: ['idle', 'travel', 'service']}),
         'statistics': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['work', 'combat', 'inventory'], contexts: ['idle', 'travel', 'service']}),
-        'today': surface('ST5', {home: 'Beside the actions; Journal companion space', frequency: 'frequent', status: 'proposal', reads: ['time', 'place', 'work'], contexts: ['idle', 'travel']}),
-        'around-place': surface('ST6', {home: 'Reference dock; session return and completed work notes', frequency: 'occasional', status: 'proposal', reads: ['place', 'inventory', 'knowledge', 'work'], contexts: ['idle', 'travel', 'service']}),
         'carcass-processing': surface('ST4', {home:'Place services; native processing owner',frequency:'frequent',status:'proposal',reads:['inventory','work','place'],contexts:['idle','service']}),
-        'region-view': surface('ST2', {home: 'Beside the actions; keeper is the road itself', frequency: 'frequent', status: 'proposal', reads: ['place'], contexts: ['idle', 'travel']}),
+        'region-view': surface('ST2', {home: 'Beside the actions; tabs for today, the roads and session notes', frequency: 'frequent', status: 'proposal', reads: ['place', 'time', 'work', 'inventory', 'knowledge'], contexts: ['idle', 'travel', 'service']}),
         'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
+        'canon-pull': surface('ST6', {home: 'Side column beside You; how the story leans and where it bent', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'family': surface('ST6', {home: 'Side column beside You', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'stock_view': surface('ST6', {home: 'Main column with the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
-        'management': surface('ST2', {home: 'Beside the actions in the Village; its own panel, not inside Location actions (UR8)', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time'], contexts: ['idle', 'service']}),
+        'management': surface('ST2', {home: 'Beside the actions in the Village; its own panel, not inside Location actions (UR8)', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time'], contexts: ['idle', 'service'], representations: routed}),
         'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
+    }),
+    // COV5 / COV12 (2026-10-30), UR13: views folded into one owner (src/panel_folds.js). `retired`: the
+    // module is gone and its id aliases the owner (and `section`, a tab); otherwise the module stays
+    // inside the owner's box and only the All panels list and the palette stop repeating it.
+    folds: Object.freeze({
+        'today': Object.freeze({into: 'region-view', section: 'today', retired: true, label: 'Today'}),
+        'around-place': Object.freeze({into: 'region-view', section: 'notes', retired: true, label: 'Around this place'}),
+        'shell-inventory-tools': Object.freeze({into: 'belongings'}),
+        'combat-controls': Object.freeze({into: 'belongings'}),
+        'shell-character': Object.freeze({into: 'vitals'}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.
     views: Object.freeze({
@@ -255,6 +273,7 @@ export const LAYOUT_SPEC = Object.freeze({
         {id: 'village-travelers', label: 'Travelers', key: 't', target: 'village-travelers'},
         {id: 'projects', label: 'Projects', key: 'r', target: 'projects'},
         {id: 'ledger', label: 'Ledger', key: 'l', target: 'ledger'},
+        {id: 'organizations', label: 'Organizations', key: 'x', target: 'management'},
         {id: 'optional-worlds', label: 'Worlds', key: 'w', target: 'optional-worlds'},
         {id: 'beginning', label: 'Beginning', key: 'g', target: 'beginning'},
         {id: 'continuation', label: 'Connection', key: 'y', target: 'continuation', select: 'continuation_open'},
@@ -301,6 +320,13 @@ export function gridTemplate({context = 'idle', atLeast}, spec = LAYOUT_SPEC) {
         columns: band.columns.map(c => `minmax(0,${c}fr)`).join(' '),
         shares: band.columns.map(c => `${(c / total * 100).toFixed(7)}%`),
     };
+}
+
+// COV2: the four column tracks while a center view is open (see `centerLend`). Track 2 is closed:
+// Inventory spans tracks 1-2 there, so it keeps its home width. `size` is the CSS length of one em.
+export function centerLendColumns(size = 'var(--shell-context-size,var(--ui-type-body))', spec = LAYOUT_SPEC) {
+    const {sideEm, sideMaxPct, logEm, logMaxPct} = spec.centerLend;
+    return `minmax(0,min(calc(${size}*${sideEm}),${sideMaxPct}%)) minmax(0,0px) minmax(0,1fr) minmax(0,min(calc(${size}*${logEm}),${logMaxPct}%))`;
 }
 
 // The box a panel belongs to, if any.

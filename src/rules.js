@@ -26,7 +26,18 @@ export function evaluateRule(rule, facts) {
         (rule.op === "eq" || Number.isFinite(value));
     const met = known && (rule.op === "eq" ? value === rule.value
         : rule.op === "gte" ? value >= rule.value : value <= rule.value);
-    return {met, known, reasons: met ? [] : [rule.reason || `Requires ${rule.fact} ${rule.op} ${rule.value}.`]};
+    return {met, known, reasons: met ? [] : [rule.reason || requirementText(rule)]};
+}
+
+// Plain-language fallback so raw fact ids and operators never reach players (UR70).
+function requirementText(rule) {
+    const parts = rule.fact.split(".");
+    const words = text => text.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[_-]+/g, " ");
+    const name = parts[0] === "skill" && parts[1] ? `${words(parts.slice(1).join(" "))} skill`
+        : words(parts[parts.length - 1]).toLowerCase();
+    if(rule.op === "gte") return `Needs ${name} of at least ${rule.value}.`;
+    if(rule.op === "lte") return `Needs ${name} of at most ${rule.value}.`;
+    return rule.value === true ? `Needs ${name}.` : rule.value === false ? `Needs no ${name}.` : `Needs ${name} to be ${rule.value}.`;
 }
 
 // Caller supplies a draw, allowing tests and future persisted event randomness.

@@ -2,6 +2,8 @@ import {definePanel} from './panel_kit.js';
 import {addSavedPurse} from './money.js';
 import {travelerSourceHint} from './traveler_source_hint.js';
 import {storyRecap} from './lore_history_view.js';
+import {boardFor} from './quest_generator.js';
+import {wantNeeds} from './quest_needs.js';
 import {planStoryRequest,publishStoryRequest,salientRequestPerson,validateStoryRequests} from './story_requests.js';
 import {createGeneratedPeople,advanceGeneratedPeople,validateGeneratedPeople,generatedPeopleView,interactGeneratedPerson} from './generated_people.js';
 import {ensureWorldHistory,villageHistoryContext,originLine,historyBrief} from './world_history_consumers.js';
@@ -51,6 +53,10 @@ export function registerGeneratedPeople({read,save,persist,authoredNames=[],item
         if(signature!==next){signature=next;body.replaceChildren();const disabled=!c.canWrite||!c.inVillage||c.busy;
             const brief=historyBrief(c.expansion);if(brief){const b=node('p',brief);b.dataset.historyBrief='1';body.append(b);}
             if(!current){body.append(node('p','Listen for travelers on the Village road. This starts new visits from now; your existing neighbors keep their lives.'),button('Welcome road travelers',null,'enroll',disabled));}
+            if(current){const raw=generatedPeopleSnapshot(c.at).people,needs=wantNeeds(raw,{world:'village',pending:(current.storyRequests?.requests||[]).filter(r=>['offered','accepted'].includes(r.status)).map(r=>r.issuer)});
+                const board=boardFor({worldSeed:c.seed,world:'village',day:Math.floor(c.at/1440),needs});
+                if(board.length){body.append(node('h4','Leads from what Village needs'));for(const q of board){const card=node('section');card.dataset.questCard=q.id;card.append(node('strong',q.title),node('p',`${q.lead}: ${q.cause.why}`));
+                    const key=q.route.personId;card.append(current.storyRequests?requestButton('Ask about the need','raise',null,disabled):button(`Give ${q.route.item}`,key,'help',disabled||raw.find(p=>p.id===key)?.status==='on_road'));body.append(card);}}}
             for(const p of view){const row=node('details');row.dataset.generatedPerson=p.id;row.open=expanded.has(p.id);row.append(node('summary',`${p.name}, ${p.role}. ${p.status==='on_road'?'Away on the road':`${p.status}; ${p.action}`}.`));row.addEventListener('toggle',()=>{if(row.open)expanded.add(p.id);else expanded.delete(p.id);});
                 const away=disabled||p.status==='on_road';
                 if(!p.met)row.append(button('Meet traveler',p.id,'meet',away));

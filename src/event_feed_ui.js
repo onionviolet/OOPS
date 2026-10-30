@@ -14,7 +14,7 @@ export function createEventFeed({registry, read, open}) {
     const pastSummary = node("summary", "Recent news"), history = node("ol");
     past.append(pastSummary,history);
     // RPT6 home: the top of Reports, which stays on screen; the stream below keeps the raw lines.
-    const digestRow=createReturnDigestRow({markRead:()=>{domainRegistry.command('returnDigest','markRead')();render();},openPerson:()=>openWorkspaceModule('known-people')});
+    const digestRow=createReturnDigestRow({markRead:()=>{domainRegistry.command('returnDigest','markRead')();render();},openPerson:()=>openWorkspaceModule('known-people'),spendBank:async()=>{try{await domainRegistry.command('awayBank','spend')();}finally{render();}}});
     const reports=document.getElementById('message_log_div');
     if(reports)reports.insertBefore(digestRow.node,document.getElementById('message_box_div'));
     panel.append(summary,leads,past);
@@ -26,7 +26,7 @@ export function createEventFeed({registry, read, open}) {
     function render() {
         const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
         const marker=domainRegistry.project('returnDigest'),digest=marker?returnDigest(state,registry,{facts:context.facts,lifeRecord:snapshot.lifeRecord,seenAt:marker.seenAt,feed}):null;
-        digestRow.update(digest,{writable:marker?.writable!==false});
+        digestRow.update(digest,{writable:marker?.writable!==false,bank:domainRegistry.project('awayBank')});
         panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
         const count = feed.leads.filter(e => e.available).length;
         reportAttention(count, feed.leads.find(e => e.available)?.label || "");

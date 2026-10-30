@@ -1,13 +1,17 @@
 import {readPort} from './ui_ports.js';
+import {resolvePanel,selectSection,foldOf} from './panel_folds.js';
 import {seatAllowsPanel,panelPerspective} from './seat_profiles.js';
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,gridTemplate,LAYOUT_SPEC} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,gridTemplate,centerLendColumns,LAYOUT_SPEC} from './layout_spec.js';
 import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl,resizeContext,normalizePlacement} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
+
+import {panelListing} from './panel_directory.js';
+
 const registry = new Map();
 const setProperty=(node,key,value)=>{if(node[key]!==value)node[key]=value;};
 const setAttribute=(node,key,value)=>{value=String(value);if(node.getAttribute(key)!==value)node.setAttribute(key,value);};
@@ -107,13 +111,16 @@ export function setWorkspaceModuleTitle(id, title) {
     }
     updateWorkspace();
 }
-export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason, perspective }) {
+export function registerWorkspaceModule({ id, title, group, role, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason, perspective }) {
+    const listing = panelListing(id, { title, group, role }); title = listing.title; group = listing.group;
+    // UIV1: every module can say what blocks it; the generic line is the last resort, never silence.
+    unavailableReason = unavailableReason || (listing.reason ? () => listing.reason : () => 'Not available at this place or story yet'); 
     if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
     const old = registry.get(id);
     if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; old.perspective = perspective; updateWorkspace(); return old; }
     const placeholder = null;
     const dock = defaultDock || (typeof home === 'string' ? home : home?.dock);
-    const module = { id, title: String(title), node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason, perspective }; registry.set(id, module);
+    const module = { id, title: String(title), group, node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason, perspective }; registry.set(id, module);
     if (owner) { owner.layout = withDefaults(owner.layout); makeShell(module); updateWorkspace(); }
     return module;
 }
@@ -268,7 +275,7 @@ function syncRestore(module, state, known, eligible, classic) {
     if (!known) { restore?.remove(); return; }
     if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); }
     setProperty(restore,'disabled',!eligible); if (!classic) setProperty(restore,'textContent',`${state.hidden ? 'Show' : 'Open'} ${module.title}`);
-    const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available here right now');
+    const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available at this place or story yet');
     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
 }
 // An unchanged pass writes nothing: each setter touches the DOM only when the value differs,
@@ -289,6 +296,7 @@ export function updateWorkspace() {
     // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
     const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches});
     setStyle(owner.board,'--shell-areas',grid.areas);setStyle(owner.board,'--shell-columns',grid.columns);
+    setStyle(owner.board,'--shell-lend-columns',centerLendColumns());
     grid.shares.forEach((share,i)=>setStyle(owner.board,`--shell-share-${i+1}`,share));
     // UM9: each region names the main box placed in it, so region-wide looks follow the box.
     const mainBoxes=Object.entries(LAYOUT_SPEC.boxes).filter(([,def])=>!def.companion).map(([box,def])=>[box,parityRegion(def.lead)]);
@@ -573,11 +581,15 @@ export function unregisterWorkspaceModule(id) {
     if (owner) { owner.layout = normalizeLayout(owner.layout, [...registry.keys()]); owner.picker.querySelector(`[data-module="${id}"]`)?.remove(); save(); updateWorkspace(); }
 }
 
-export function openWorkspaceModule(id) {
+export function openWorkspaceModule(requested) {
+    // Only a retired id redirects here; a folded module that still exists keeps its own layout Show control.
+    const {id,section}=foldOf(requested)?.retired?resolvePanel(requested):{id:requested};if(id!==requested){const opened=openWorkspaceModule(id);if(opened)selectSection(id,section);return opened;}
     if(owner?.context==='play'&&id.startsWith('customization'))setWorkspaceContext('authoring');
     if(owner?.context==='authoring'&&!id.startsWith('customization'))setWorkspaceContext('play');
     const module = registry.get(id); if (!module || !seatAllowsPanel(readPort('expansion'),module)) return false;
     if (owner) apply(id, { hidden: false, collapsed: false });
+    // A composed workspace parks panels that have no dock of their own (hidden); they open as a center view, as their navigation route does.
+    if (module.shell?.dataset.compositionParked === 'true' && expandWorkspaceModule(id)) return true;
     if (['notebook','known-routes','known-people'].includes(id)) document.getElementById('journal_show_notebook')?.click();
     for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
     const target = owner && owner.layout.mode !== 'classic' ? module.shell : module.node;
@@ -614,9 +626,12 @@ export function setWorkspaceContext(context) {
 
 // Focused views borrow the original node. No layout save, clone or second UI owner.
 export function knownWorkspaceModules() {
-    const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return seatAllowsPanel(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,perspective:panelPerspective(state,m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
+    const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return seatAllowsPanel(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
 }
-export function expandWorkspaceModule(id,{title}={}) {
+export function expandWorkspaceModule(requested,{title}={}) {
+    // COV5/COV12, UR13: a folded id opens its owner (and the owner's tab, when one is named).
+    const {id,section}=resolvePanel(requested);
+    if(id!==requested){const opened=expandWorkspaceModule(id,{title});if(opened)selectSection(id,section);return opened;}
     if(id==='local-actions'){centerModes().showHere();return true;}
     const module=registry.get(id);if(!owner||!module||module.eligible()===false||!knownWorkspaceModules().some(m=>m.id===id))return false;
     const mode=`workspace:${id}`,label=title||module.title;

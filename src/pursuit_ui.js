@@ -1,5 +1,8 @@
 import {previewSimulationCommand,previewSimulationResponse} from "./simulation.js";
 import {pursuitView} from "./pursuit.js";
+import {renderFigure} from "./ui/figure.js";
+import {chaseSituation} from "./ui/combat_situation.js";
+import {withPursuitRange} from "./read_models/chase_range_bridge.js";
 const node=(tag,text="")=>{const n=document.createElement(tag);n.textContent=text;return n;};
 export function createPursuitPanel({registry,read,command}) {
     const panel=node("details");panel.id="pursuit_panel";panel.className="expedition_panel";
@@ -10,7 +13,7 @@ export function createPursuitPanel({registry,read,command}) {
     for(const d of registry.simulation.pursuits.values()) {
         if(d.id === "frontier.road_rival") continue;
         const card=node("details"),info=node("p"),actions=node("div");card.dataset.pursuitCase=d.id;
-        card.append(node("summary",d.label),info,actions);panel.append(card);rows.set(d.id,{card,info,actions,definition:d});
+        const figure=node("div");figure.dataset.pursuitFigure=d.id;figure.hidden=true;card.append(node("summary",d.label),info,figure,actions);panel.append(card);rows.set(d.id,{card,info,actions,figure,figureKey:"",definition:d});
     }
     for(const d of registry.simulation.commands.values())if(d.group === "pursuit") {
         const trackId=d.trackId || "village.trail_test",row=rows.get(trackId),b=node("button",d.label);b.type="button";b.dataset.pursuit=d.id;
@@ -27,6 +30,12 @@ export function createPursuitPanel({registry,read,command}) {
             const scheduled=Object.values(s?.checks || {}).find(c=>registry.simulation.events.get(c.definitionId)?.effects.some(e=>e.type === "pursuit" && e.pursuitId === id));
             const text=view ? `${view.text} Last report: minute ${view.observedAt}.` : known ? `${known.value}${scheduled ? ` Opens in ${Math.max(0,scheduled.due-state.clock)} played minutes.` : ""}` : start?.description || row.definition.label;
             if(row.info.textContent !== text)row.info.textContent=text;
+            // COV15: the chase figure with a range track. Where the pursuer was seen is known only once they have made contact (the meeting request names
+            // the place); otherwise the track says so. Place ids here are the places' own names, so labels are the ids.
+            const here=s?.people?.player?.location,policy=s?.pursuits?.[id]?.policy;
+            const spec=view&&view.status!=="closed"?withPursuitRange(chaseSituation(view),{routes:policy?.routes||row.definition.routes||[],here,pursuerSeenAt:view.status==="contact"?view.requestLocation??null:null,labelOf:p=>p}):null;
+            const key=JSON.stringify(spec);
+            if(key!==row.figureKey){row.figureKey=key;row.figure.hidden=!spec;row.figure.replaceChildren();if(spec)renderFigure(row.figure,spec,{idPrefix:`pursuit-${id.replace(/[^a-z0-9]/gi,"-")}`,text:true});}
         }
         for(const [id,b] of buttons) {
             const d=registry.simulation.commands.get(id),view=pursuitView(state,d.trackId || "village.trail_test"),preview=s ? previewSimulationCommand(state,registry,id,{...context,targetId:d.targetId}) : null;

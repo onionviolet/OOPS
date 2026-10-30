@@ -221,7 +221,7 @@ Weibao: "dont forget to consider every little idea and more, and still work thro
 1. Before any launch: find the owner of the uncommitted `src/book_world_lotm_{cast_host,host,state}.js` and `tests/cast_*` edits; L3-L5 cut from HEAD and must not clobber them at merge.
 2. Pilot: L1 (or skip), L2, L3, plus L6. L6 is mostly Codex, so it is cheap on Claude. Sample `get_usage` and `codex_lane.mjs preflight` after about two hours, and write the measured points per lane for both meters here.
 3. Scale: L4, L5 when the pilot shows a lane under 8 points; wave 2 after L2's list.
-4. Stop: weekly 75% (no new lanes), 80% (lanes checkpoint and stop); any lane that fails its focused test twice comes back to the integrator.
+4. Stop: weekly 90% (raised 2026-10-30 from 75/80%; no new lanes at 88%, lanes checkpoint and stop at 90%); any lane that fails its focused test twice comes back to the integrator.
 5. Sunday night: integrator merges what passed; everything else is checkpointed with the next exact step.
 
 ## Ledger

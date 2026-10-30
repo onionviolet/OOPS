@@ -1,0 +1,47 @@
+bundle 217f3ef2ee38
+Work ledger
+Work
+Owed 4
+
+Complete work, claim points, then choose a taught method or a connected assistance service.
+
+Connection: offered. Points: 0.
+
+Commissions
+A cooked meal
+
+available. Create roasted rat meat after accepting this commission.
+
+Recipe: Roasted rat meat.
+
+A wooden hilt
+
+available. Create a short hilt after accepting this commission.
+
+Recipe: Short hilt.
+
+Acquisition and execution
+
+Not taught.
+
+No assist leased.
+
+Connect
+Refuse
+Disconnect
+Reconnect
+Accept A cooked meal
+Claim A cooked meal reward
+Accept A wooden hilt
+Claim A wooden hilt reward
+Learn precision method (2 points)
+Lease woodworking assist (2 points)
+Visual effects
+
+Motion, sound, receipt style and original VFX definitions are saved in Customization profiles.
+
+Cancel active effect
+System reduced motion is respected. Text receipts remain when motion or sound is off. Effects never pause work.
+Saved receipts
+
+No saved receipts yet.

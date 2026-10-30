@@ -1,0 +1,1 @@
+{"result":"PASS","out":"/Users/weiwei/code/yet-another-idle-rpg/docs/representations/evidence/post-merge/items"}

@@ -4,6 +4,7 @@ import {createTemperamentPort} from './person_temperament.js';
 import {domainRegistry} from './domain_registry.js';
 import {reactionLine, silenceLine, recalledPhrase} from './person_memory_effects.js';
 import {witnessView} from './crowd_memory.js';
+import {standingView, standingLines} from './person_standing.js';
 import {generatePersonName} from './name_grammar.js';
 import {crushSocialContext} from './crush_social_facts.js';
 import {promiseReturnRecap, crushSocialActionLine} from './crush_social_views.js';
@@ -12,12 +13,12 @@ const node=(tag,text="",className="")=>{const n=document.createElement(tag);n.te
 export function createPromisePanel({registry,read,command}) {
     const panel=node("details","","expedition_panel");panel.id="promise_panel";
     panel.append(node("summary","A wary traveler"));
-    const intro=node("p"),crowd=node("p","","promise_crowd"),quiet=node("p","","promise_quiet"),records=node("div"),status=node("p","","expedition_status"),recap=node('section','','expedition_card'),
+    const intro=node("p"),standing=node("p","","promise_standing"),crowd=node("p","","promise_crowd"),quiet=node("p","","promise_quiet"),records=node("div"),status=node("p","","expedition_status"),recap=node('section','','expedition_card'),
         recapTitle=node('h4','Returning to Tamsin'),recapRecords=node('div'),recapUseful=node('div'),recapQuotes=node('div'),recapTerms=node('p'),
         socialHistory=node('details'),socialHistoryRecords=node('div');
     socialHistory.append(node('summary','Your remembered cart checks'),socialHistoryRecords);
     recap.append(recapTitle,recapRecords,recapUseful,recapQuotes,recapTerms);
-    status.setAttribute("role","status");quiet.id='promise_quiet_note';crowd.id='promise_crowd_note';panel.append(intro,crowd,quiet,recap,records,socialHistory,status);
+    status.setAttribute("role","status");quiet.id='promise_quiet_note';standing.id='promise_standing_note';crowd.id='promise_crowd_note';panel.append(intro,standing,crowd,quiet,recap,records,socialHistory,status);
     let notice="",signature="";
     const controls=new Map();
     const run=c=>{try{
@@ -49,6 +50,12 @@ export function createPromisePanel({registry,read,command}) {
             : "Tamsin stays beside the cart. Speak again when she has news, or ask about her bracing method.";
         // P3c: what the craftsman will do with a confidence, and how Tamsin treats you if it got out. Derived each render, never saved.
         const people=s?.people||{},day=Number.isSafeInteger(context.facts.calendarMinute)?Math.floor(context.facts.calendarMinute/1440):null,memory=domainRegistry.command('memory','read')?.();
+        standing.textContent="";
+        if(day!==null && memory && s && people.oldCraftsman?.life==='alive' && memory.holders.oldCraftsman) {
+            const port=createTemperamentPort(id=>registry.simulation.people.get(people[id]?.definitionId||id));
+            standing.textContent=standingLines(standingView({memory,holder:"oldCraftsman",subject:"player",day,temperamentOf:port})).join(" ");
+        }
+        standing.hidden=!standing.textContent;
         crowd.textContent="";
         if(day!==null && memory && s) {
             const port=createTemperamentPort(id=>registry.simulation.people.get(people[id]?.definitionId||id));

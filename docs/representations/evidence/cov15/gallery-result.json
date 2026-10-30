@@ -1,0 +1,23 @@
+{
+ "errors": [],
+ "result": {
+  "bench-lantern_5-rite": {
+   "desc": "Rite of the Low Lantern\n2 conditions, some conditions missing: 48% chance of losing control if drunk now.\nRing Rite of the Low Lantern, 2 places: 1. A lantern that never gutters (strained); 2. Before the first bird (empty).\nNodes: 48% risk (strained).\nKey: ! strained means a stand-in, raises the risk.\nKey: ○ empty means missing."
+  },
+  "fx-chase-range": {
+   "desc": "The tollman follows\nSomeone asks to meet you at the weighbridge.\nTrack Pursuit, 1 of 4 done: 1. Following you (done); 2. Makes contact (current); 3. Face to face (pending); 4. Over (pending).\nTrack Range: 37 min by the usual routes, 1 of 3 done: 1. Weighbridge (last seen) (current); 2. Mill lane (pending); 3. Ferry steps (you) (done).\nLast seen 37 min away by the usual routes. That may have changed.\nThe meeting request lapses at minute 610."
+  },
+  "fx-chase-unseen": {
+   "desc": "The tollman follows\nSomeone asks to meet you at the weighbridge.\nTrack Pursuit, 0 of 4 done: 1. Following you (current); 2. Makes contact (pending); 3. Face to face (pending); 4. Over (pending).\nUnknown: Range: you have not seen where they are.\nThe meeting request lapses at minute 610."
+  },
+  "fx-study-bridge-ladder": {
+   "desc": "Glimmer: how far you have got\nYou know how, and are building the skill.\nTrack Understanding, 1 of 3 done: 1. Not learned (done); 2. Practicing (current); 3. Ready to use (pending).\nNext, Ready to use: You can use it when you choose."
+  },
+  "fx-study-bridge-map": {
+   "desc": "What it takes: Glimmer\nLeft to right: what has to come first. The star is what finishing opens.\nNodes: Watched a glimmer cast (done); Had the thread explained (done); Learn Glimmer (done); Practise Glimmer (current); Cast a glimmer (empty).\nWatched a glimmer cast to Learn Glimmer: needs.\nHad the thread explained to Learn Glimmer: needs.\nLearn Glimmer to Practise Glimmer: needs.\nPractise Glimmer to Cast a glimmer: opens.\nKey: ✓ done means finished.\nKey: ▶ current means doing now.\nKey: ◆ active means ready to start.\nKey: · pending means waits on earlier steps.\nKey: ● filled means opened.\nKey: ○ empty means still closed.\nKey: needs means has to come first.\nKey: opens means leads to what it opens."
+  },
+  "fx-place-history": {
+   "desc": "The Low Quay, through the years\n3 things you know happened here.\nTrack The early years, 2 of 2 done: 1. The river took the lower quay. (done); 2. A toll was set on the ferry. (done).\nTrack This season, 0 of 1 done: 1. A lamp fair filled the quay. (current)."
+  }
+ }
+}

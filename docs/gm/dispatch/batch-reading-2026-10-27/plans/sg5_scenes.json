@@ -1,0 +1,79 @@
+{
+ "world": "sg",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+  "censusMatch": "^(sg1|sg2|sg3|sg4|sg5)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "sg5-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "sg5c002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch002-002.txt",
+   "base": "500201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "sg5c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch003-003.txt",
+   "base": "500301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "sg5c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch004-004.txt",
+   "base": "500401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "sg5c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch005-005.txt",
+   "base": "500501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "sg5c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch006-006.txt",
+   "base": "500601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "sg5c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch007-007.txt",
+   "base": "500701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "sg5c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch008-008.txt",
+   "base": "500801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "sg5c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch009-009.txt",
+   "base": "500901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "sg5c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch010-010.txt",
+   "base": "501001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "sg5c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/lead-run-2026-10-30/shard_sg5_b5_ch011-011.txt",
+   "base": "501101",
+   "chapters": "11-11"
+  }
+ ]
+}

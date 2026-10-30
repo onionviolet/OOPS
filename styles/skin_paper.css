@@ -1,0 +1,23 @@
+/* Paper and ink skin rules (COV13), gallery-only. Tokens and colors are in styles/ui_tokens.css; this file uses var() only (UR6).
+   Marks and words still carry every state (UR37): the skin changes line, ground and heading, never meaning. */
+:root[data-skin="paper"] .fig-gallery-bar {border-bottom: var(--ui-space-hairline) solid var(--paper-ink);}
+:root[data-skin="paper"] .fig-gallery-bar select {background: var(--paper-sheet); color: var(--paper-ink); border-color: var(--paper-rule);}
+:root[data-skin="paper"] .fig-gallery-cell {border-color: var(--paper-rule);}
+:root[data-skin="paper"] .fig-gallery-section > h2 {border-bottom: var(--ui-space-hairline) double var(--paper-ink); padding-bottom: var(--ui-space-2);}
+/* Drawing: square, no glow, thin sepia line, ruled rows like an account book instead of boxed cells. */
+.customization-module[data-component-theme="paper"] .fig-svg .fig-body {rx: 0; ry: 0;}
+.customization-module[data-component-theme="paper"] .fig [class*="fig-fx--"], .customization-module[data-component-theme="paper"] .fig [class*="fig-fx--"] > * {filter: none;}
+.customization-module[data-component-theme="paper"] .fig-halo {display: none;}
+.customization-module[data-component-theme="paper"] .fig-cell.fig-body {fill: none;}
+.customization-module[data-component-theme="paper"] .fig-row:nth-of-type(even) .fig-cell.fig-body {fill: color-mix(in srgb, var(--paper-sepia) 6%, var(--paper-sheet));}
+.customization-module[data-component-theme="paper"] .fig-cell--head {fill: color-mix(in srgb, var(--paper-sepia) 14%, var(--paper-sheet)); stroke: var(--paper-ink);}
+.customization-module[data-component-theme="paper"] .fig-card-sheet {fill: var(--paper-sheet); stroke: var(--paper-ink);}
+.customization-module[data-component-theme="paper"] .fig-band-lane {stroke-dasharray: var(--fig-dash-unknown);}
+.customization-module[data-component-theme="paper"] .fig-bar-track {fill: var(--paper-ground); stroke: var(--paper-ink);}
+.customization-module[data-component-theme="paper"] .fig-bar-fill {fill: var(--paper-sepia);}
+.customization-module[data-component-theme="paper"] .fig-ring-base, .customization-module[data-component-theme="paper"] .fig-segment, .customization-module[data-component-theme="paper"] .fig-fill, .customization-module[data-component-theme="paper"] .fig-ghost {stroke-linecap: butt;}
+.customization-module[data-component-theme="paper"] .fig-svg .fig-card-title {fill: var(--paper-ink);}
+.customization-module[data-component-theme="paper"] .fig-svg text {fill: var(--paper-ink);}
+.customization-module[data-component-theme="paper"] .sg-frame, .customization-module[data-component-theme="paper"] .sg-chip, .customization-module[data-component-theme="paper"] .sg-glow {background: var(--paper-sheet);}
+.customization-module[data-component-theme="paper"] .sg-rows li {border-top-style: dotted;}
+.customization-module[data-component-theme="paper"] .sg-bar > i {background: var(--sg-hue);}

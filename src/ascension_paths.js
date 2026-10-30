@@ -13,7 +13,7 @@ const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.-]*$/.test(v);
 const factKey = v => typeof v === 'string' && /^[a-zA-Z][a-zA-Z0-9_.]*$/.test(v);
 const text = v => typeof v === 'string' && v.length > 0;
 
-function validateCrossing(c, where) {
+export function validateCrossing(c, where) {
     check(object(c) && id(c.id) && crossingTypes.includes(c.type) && text(c.label) && factKey(c.fact), `Invalid crossing at ${where}.`);
     check(c.need === true || natural(c.need), `Invalid crossing need at ${where}.${c.id}.`);
     check(c.irreversible === undefined || typeof c.irreversible === 'boolean', `Invalid crossing irreversibility at ${where}.${c.id}.`);
@@ -37,7 +37,7 @@ export function definePath(desc) {
     return deepFreeze(structuredClone(desc));
 }
 
-const met = (c, facts) => c.need === true ? facts[c.fact] === true : natural(facts[c.fact]) && facts[c.fact] >= c.need;
+export const crossingMet = (c, facts) => c.need === true ? facts[c.fact] === true : natural(facts[c.fact]) && facts[c.fact] >= c.need;
 // Observer-safe projection (AR8). `known` is how many stages the observer can
 // name; later ones show as ??? (ASC6, PFA056). `ceiling` is a stage index the
 // owner imposes (a world cap, a flame count); crossings past it are blocked even
@@ -49,7 +49,7 @@ export function pathView(path, position, facts = {}, {known = path.stages.length
     const nextIndex = position + 1 < path.stages.length ? position + 1 : null;
     const next = nextIndex === null ? null : path.stages[nextIndex];
     const crossings = next ? next.crossings.map(c => ({id:c.id, type:c.type, label:c.label, need:c.need,
-        have:c.need === true ? facts[c.fact] === true : (natural(facts[c.fact]) ? facts[c.fact] : 0), met:met(c, facts), irreversible:c.irreversible === true})) : [];
+        have:c.need === true ? facts[c.fact] === true : (natural(facts[c.fact]) ? facts[c.fact] : 0), met:crossingMet(c, facts), irreversible:c.irreversible === true})) : [];
     const capped = nextIndex !== null && nextIndex > ceiling;
     return {path:path.id, world:path.world, label:path.label, position, stage:path.stages[position].label,
         grants:[...path.stages[position].grants], previous:position > 0 ? name(position - 1) : null,

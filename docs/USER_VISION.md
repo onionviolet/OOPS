@@ -6903,3 +6903,102 @@ Recorded: travel time is a real factor (some things are reachable only inside a 
 Weibao's words: "Okay, so hp as overall hp, and the individual damage and more could matter, especially in combat and stuff, middle path is good enough for now".
 Recorded: HP stays the overall survival pool (YAIR and Proto23 parity). Part-level damage is recorded only when an action, check or rule reads that part (grip, hands, legs, eyes, voice, vitals), with combat as the first consumer: hit location, per-slot armour and aimed attacks. Detail is a per-world and per-body dial; body kinds with other layers keep them (BHR2, BHR4). Considerations went to the body and combat representation sessions and to the harm lane (`sw-death`), as proposals.
 Clarified the same night: "I meant, it might not be gapped, but rather we can use a more chance based system of a damaged hand having lower odds of striking right (easier to dodge, not hitting as hard if tendon severed) more little stuff like that we can consider?" Recorded: part damage shifts odds and strength by degree (accuracy, force, speed, evasion, precision), scaled by the injury's rung, and blocks an action only at the extreme rung where the mechanism truly stops it. The modifier shows in the action's quote with its cause.
+
+## Consider similar ideas for each idea where relevant (2026-10-30)
+
+Weibao's words: "Can consider similar ideas for each idea where relevant too".
+Recorded: when an idea is worked, consider its siblings in the same family where they fit (other abilities, other worlds, other rungs), as a default and not a duty: the dial is per idea and the cost is the effort of the extra pass. Siblings go in the owner's palette as ACT NOW, ACCOUNT FOR NOW or LATER, never as a reason to stop. First recorded in [ABILITIES](representations/ABILITIES.md); added here by the done-chats audit F12.
+
+## Abilities: no hardcoded path (2026-10-30)
+
+> for the ability UI and more, we shoudnt hardcode a specific path, sonce there is multiple possibilities and more? more to consider?
+
+Reading: the ability and advancement UI, and the systems feeding it, take the character's path as data. A path is any pathway, realm track, class or school a world offers, and a character may hold several at once, switch, branch or lose rungs. The lead's book path is the default start, not the only route. Today the LOTM host hand-writes one pathway (`src/book_world_lotm_path.js`) and stubs the next rung. Owners: [ABILITIES](representations/ABILITIES.md) (view), the L10 advancement note (data), and the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md) round 5 (dispatch).
+
+Follow-up, same day:
+
+> not every world is a latter either? Also consider branching and more for the paths stuff, since things can branch, and of course one can attempt to mix paths, to their own disaster? but then we should make things possible and more? maybe tree for all of them? /more-to-consider  little stuff and more? maybe if we learn about it it can also show the benefits of stuff and paths and more?
+
+Reading: a path has a shape set by its world (ladder, tree, web, wheel, stack, field, or none), and branching is ordinary. Mixing paths is possible, with the costs and failures that world's mechanisms give it (AD38). A general graph can hold every shape, a ladder being the simplest case. What a character has learned decides how much the view shows: the benefits, costs and risks of a path or ability, including ones they do not yet hold.
+
+Second follow-up, same day:
+
+> We can use different progression systems/progression UI rather than just forcing the LOTM one? we can choose/add nuance for each world accordingly? More to consider? Other representations?
+
+Reading: each world chooses its own progression system and its own progression UI, with nuance per world. The LOTM sequence ladder is one example among many, not a template. The shared path graph is the plumbing underneath, not a shared look.
+
+## Each world chooses its own systems and their UI (standing rule, 2026-10-30)
+
+> Taking'We can use different progression systems/progression UI rather than just forcing the LOTM one? we can choose/add nuance for each world accordingly? More to consider? Other representations?' into consideration as a long term implementation rule and apply the same ideas for other stuff too?
+>
+> progression might just be working on improving skills knowledge and stats and equipement in general and more?
+
+Reading: this is a lasting rule for every system, not only progression. Each world chooses its own version of each system, and that version's UI, with nuance. Examples: progression, economy and institutions, combat, making, magic, social standing, law, time, travel, knowledge. No world's version is the template for the others. Shared engine seams stay world-neutral plumbing underneath. Progression in particular is broader than paths and ranks: it is any lasting improvement, whether skills, knowledge, stats, equipment, relationships, standing or wealth. A world may have no rank system at all and still have progression. Owner: [AD46](RULES_INDEX.md#accepted-direction-rules-ad).
+
+## Asks recovered from chats (recorded 2026-10-30)
+
+Weibao's words, kept verbatim with typos. Recovered by gap audit items G13 and G14
+([audit](audits/GAP_AUDIT_2026-10-30.md)) from chats where he asked and no entry here
+carried the ask. Each is a request to consider and record, not an accepted decision;
+the owner named holds the follow-through.
+
+- 2026-10-20 (Brushsworn): "any inspirations we can get from this? 'https://stonebell.itch.io/brushsworn"" then "save these ideas accordingly, the most important and useful stuffs". Owner: [NICHE_GAME_REFERENCES](NICHE_GAME_REFERENCES.md) and the IDEA_INDEX row.
+- 2026-10-20 (world-specific meters): "different bars and stuff for each world? like corruption for lotm, mana for hp, other stuff for other stuff". Owner: the meter bar work in [UI_RULES](UI_RULES.md) and the dials palette ([WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md)).
+- 2026-10-20 (Discord idea list, with screenshots): "send new chat to look for more ideas in discord too, and also take a look at the pictures for any ui inspirations like" a list that included "Wine fermenting", "Cat armor", "Pacifism is supported via bribing the enemy", "Internal Alchemy (cultivation)", "Cat breeding for getting optimal cat stats" and "VR support". Owner: [PROTOLIKE_DISCORD_SWEEP_2026-10-24](research/PROTOLIKE_DISCORD_SWEEP_2026-10-24.md) feeding the making palette ([MAKING_RULES](MAKING_RULES.md)) and companions palette.
+- 2026-10-13 (authoring and minigames): "add FA22 minigames too" and "add FA21 authoring too". Owner: the lane or palette that holds FA21 and FA22, indexed in [IDEA_INDEX](IDEA_INDEX.md).
+- 2026-10-10 (more genres): "features to add and more? mini games? citi building? other stuff? more to consider? There are so many possibilities" and "Other little mini games? Romance? other genres not considered?". Owner: [IDEA_INDEX](IDEA_INDEX.md) genre rows with [RESEARCH_GENRE_SWEEP](RESEARCH_GENRE_SWEEP.md).
+- 2026-10-23 (EMC as a cheat): "the emc sytem could be an possible cheat to implement". Owner: [CHEAT_LIBRARY](CHEAT_LIBRARY.md).
+- 2026-10-08 (concepts and daos): "one thing can lead to multiple daos and more? Tiers Of concepts and more like in A death a day in royal road?". Owner: [DEEP_CONCEPTS](DEEP_CONCEPTS.md).
+- 2026-10-08 (hidden stats and longevity): "Hidden stats like Sanity stat?" (01:49 message) and, in the same chat, "what about stuff like life extension, body replacement, other stuff and more?". Owner: [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) for body and longevity; the dials palette for hidden stats.
+- 2026-10-09 (staged rescue): "\"staged rescue\" can possibly earn gratitude if they dont know about it, it feels unethical but this is simply the case". Owner: [RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md).
+- 2026-10-14 (traveler asks): "send out agents to setup reasonable traveler asks based on the world and more? more to consider?". Owner: [PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md).
+- 2026-10-26 (Roblox scouting): "look into the latest roblox games that are working on bringing anime stuff into game and if there is anything we can absorb there?". Owner: [ROBLOX_ANIME_SCOUT_2026-10-26](research/ROBLOX_ANIME_SCOUT_2026-10-26.md) with the IDEA_INDEX row.
+- 2026-10-27 (saves per world and returning to the Village): "Is it possible to go back to playing through 'villiage'? Maybe we can just use the fact that it is a electron app accordingly?" then "maybe we can use a save system for each world? organize in some way locally in the files?  More to consider?". Owner: [ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md) and the start-menu lane.
+- 2026-10-29 (active fight mode): "So maybe we can set up a seperate combat system for 'non idle' fights? where idle attack on attack is used to farm and stuff, but there is an option for a more indepth fighting system?" and "be able to setup fight stuff and more? like if x then y styles?" and "With types of harm, then we would then need to consider types of healing?". Owner: [COMBAT_RULES](COMBAT_RULES.md).
+- 2026-10-30 (grudges, loyalty, bystanders, memory size): "what about traits and more? people who hold grudges holding grudges and more? future deepening of these and more?", "loyalty can go up and more? other subtle interactions and more? Severity of events and more? warning people not to say things and other stuff and more?", "how to even implement bystanders? LSD345 might not always be true but they can try and back out with varying consequences" and "Wont memory cause storage balooning?". Owner: [LEAD_LIFE_GUIDE](LEAD_LIFE_GUIDE.md) LSD rows and [RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md).
+- 2026-10-23 (book reader): "we can use kavita as the reader accordingly,". Owner: [SOURCE_ACQUISITION_TOOLS](research/SOURCE_ACQUISITION_TOOLS.md) and [LIBRARY_INDEX](research/LIBRARY_INDEX.md).
+- 2026-10-09 (no stop gate): "Remove the 'stop gate' you wrote down, I never asked for that". Owner: [GROUND_RULES](GROUND_RULES.md); agents do not invent stop gates he did not ask for.
+
+## Heirs deferred; the cheat stays with whoever is played (2026-10-30)
+
+Weibao, 2026-10-30, answering the base-cheat pass (the audit headline: heir succession drops the cheat): "Defer heirs, unless as a different start or something? so its just whoever is being played as?"
+
+- **Default:** the cheat belongs to the character being played. Heir succession is deferred as a main-line feature, so cheat lanes don't build heir carry-over now.
+- **Dial:** an heir can return as a start option, "start as the heir of an earlier life", with that start's own rules for what passes down.
+- **Reason:** the played character's life is the main line, and heirs add scope without changing who is being played.
+- Existing heir code (L9's `resume:` of a tethered life) stays; nothing is deleted.
+- Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [world entry rules](WORLD_ENTRY_RULES.md) for the start option.
+
+## No visible windows, as a standing rule (2026-10-30)
+
+Weibao, 2026-10-30, answering whether to make the background-only preference a standing rule: "no visibal windows as standing rule".
+
+- Agents never open a visible window on his screen. Browsers run headless and Electron runs hidden, and native computer control needs his say-so first. Recorded in [AGENTS.md](../AGENTS.md#safety).
+
+## Base cheat versus other cheats; cheat work deferred long term (2026-10-30)
+
+Weibao, 2026-10-30, answering whether the ring elder should become a form of the base cheat: "Ring spirit is NOT the base cheat, but ratherm it is a certain type of cheat that will be out there, there are so many possible cheats, base cheat is the standard stuff that makes our guy beyond a normal person, but then, the world can have so much more, more cheats and more? We did consider this already, we can defer cheat works long term"
+
+- **The base cheat** is the standard part that makes the played character more than a normal person. It carries between lives along with memories, as in the earlier entries on base-cheat carryover and lore.
+- **Other cheats** are separate things the world can offer: a ring spirit, a system, and many more. Each is its own cheat, not a form or skin of the base cheat.
+- **Deferred long term:** further cheat work, after the commits already landed today (growth view, look by type, the ring-elder premise grant). Nothing is deleted.
+- Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [cheat library](CHEAT_LIBRARY.md).
+
+## UI identity, per-world basics and combat surfaces (2026-10-30)
+
+Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options O1-O3, lanes A1-A3): "We need to send opus to focus on fixing F1, F2 we can wait till the stuff is done? F3 we can combine accordingly but need to consider what will work best for what we need? ... F4 we will need to update that. O1 sounds right. O2, that is lower priority, but will be important in the future. O3 maybe worth considering, but we need the most basic Ui working for each world accordingly? A1 yes, also consider setting up world specific flourish and more, and also for the reports section, flavour or specific useful text that pops up accordingly too, and not just using the generic ones? A3, yep, consider if others need similer merge too?"
+
+- **One owner for the look (O1, accepted):** a DESIGN.md that states the visual identity and the requirements every feature UI meets.
+- **Per-world skins (O2):** lower priority now, important later.
+- **Diegetic world UI (O3):** worth considering, after the most basic UI works for each world.
+- **World flourish and report text:** each world gets its own flourish and its own report lines (flavour and useful, specific text), not only generic ones.
+- **Combat:** combine the old combat screen and the tempo fight in whatever form works best; damage types reach the tempo fights; check which other systems need the same merge.
+- **Feature UI backlog (F2):** waits for the landing and wiring sessions already running.
+- Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
+
+## Pathway card, ladder and map; switching and life outside the lead later (2026-10-30)
+
+Weibao: "Also need to consider stufff like switching pathways and more but that might be long term stuff, also will eventually need to figure out adding content outside of the main character's life and omre for external playthroughs? More to consider? The card + ;adder is good, along with the map, but all depends on how well the implementation is".
+
+- **Accepted, quality-gated:** the pathway card with its ladder (Round 10 and 11 of the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md)) and the world map tied to journeys. Acceptance of the result depends on how well they are built; the gates are in that plan's Round 12.
+- **Long term:** pathway switching, and content outside the lead's life for other playthroughs. Considerations are saved in Round 12.

@@ -3,6 +3,8 @@ import {commitSimulationCommand, previewSimulationCommand} from './simulation.js
 import {pursuitView} from './pursuit.js';
 import {ROAD_RIVAL, RIVAL_PURSUIT} from './frontier_campaign.js';
 import {readNativeFighter} from './native_battle.js';
+import {partyHelperReasons, initializePartyBattle} from './party_battle.js';
+import {PARTY_HELPER} from './native_battle_contracts.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
 
 // Road-duel tempo route: the same pursuit and encounter, driven by the tempo clock (LSD307-LSD317).
@@ -23,31 +25,56 @@ function startQuote() {
             reason: hurt ? 'Both fighters need recovery before another contest.' : context.busy ? 'Finish your current activity first.' : (view?.reasons || []).join(' ')};
     } catch(error) {return {visible: false};}
 }
-function start() {
+// Lio can stand beside the player when the existing party terms hold (consent, kit, body, fee). Goals are defaults from who he is: a hired,
+// trained porter who values staying whole, keeps faith with a friend, and wants little glory (LSD324). Bond reads the relationship axes.
+function lioQuote() {
+    try {
+        const state = ports.root(), reasons = partyHelperReasons(state, ports.campaignContext());
+        return {offered: !!state.actors?.[PARTY_HELPER]?.facts['party.willing'] && !!state.simulation?.people?.[PARTY_HELPER], reasons};
+    } catch(error) {return {offered: false, reasons: []};}
+}
+function lioAlly(state) {
+    const axes = {...state.simulation.relationships?.player?.[PARTY_HELPER]?.axes, ...state.simulation.relationships?.[PARTY_HELPER]?.player?.axes};
+    const bond = Math.min(1, Math.max(0, .4 + Object.values(axes).reduce((a, v) => a + v, 0) / 10));
+    return {goals: {survive: .5, protect: .55, aim: .2, pay: .4}, bond, discipline: .4, protectId: 'player', order: null};
+}
+function start(request = {}) {
     const state = ports.root(), context = {...ports.campaignContext(), targetId: ROAD_RIVAL}, quote = startQuote();
     if(!quote.eligible) throw Error(quote.reason || 'The contest is not available.');
     const requestId = pursuitView(state, RIVAL_PURSUIT)?.requestId;
-    const adopt = commitSimulationCommand(state, ports.registry, {id: 'rival.confront', requestId}, context);
+    const withLio = !!request.withLio;
+    const adopt = withLio ? initializePartyBattle(state, ports.registry, {requestId}, context) : commitSimulationCommand(state, ports.registry, {id: 'rival.confront', requestId}, context);
     const rival = adopt.state.simulation.people[ROAD_RIVAL], me = readNativeFighter(ports.actor()), v = context.vitals.player, body = rival.body;
-    // Approximation until rival stats come from the same derivation as the player's (known limit).
-    const rivalProfile = {stats: {attack_points: body.attack * 9, agility: body.agility, intuition: body.intuition, defense: body.defense, attack_count: body.attack_count,
-        crit_rate: body.crit_rate, crit_multiplier: body.crit_multiplier, stamina_efficiency: 1}, attackPower: body.attack * 1.6, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5};
-    const plan = beginTempoFight(adopt.state, ports.registry, context, {adopt, id: 'road-rival', title: "Mara's road contest", floor: 1, fighters: [
+    // Same derivation as the road duel's rival (native_battle_host): an Enemy built from the saved body and vitals.
+    const foe = new ports.enemy({id: ROAD_RIVAL, name: 'Mara', description: 'A rival association scout', add_to_bestiary: false, tags: ['living', 'person'],
+        stats: {...body, health: rival.vitals.max_health, max_stamina: rival.vitals.max_stamina}});
+    foe.init(); Object.assign(foe.getFullStats(), rival.vitals);
+    const rivalProfile = readNativeFighter(foe);
+    let lio = [];
+    if(withLio) {
+        const person = adopt.state.simulation.people[PARTY_HELPER];
+        const friend = new ports.enemy({id: PARTY_HELPER, name: 'Lio', description: 'A consenting braced porter', add_to_bestiary: false, tags: ['living', 'person'],
+            stats: {...person.body, health: person.vitals.max_health, max_stamina: person.vitals.max_stamina}});
+        friend.init(); Object.assign(friend.getFullStats(), person.vitals);
+        lio = [{id: PARTY_HELPER, name: 'Lio', side: 'a', speed: 100, hp: person.vitals.health, maxHp: person.vitals.max_health, stamina: person.vitals.stamina, maxStamina: person.vitals.max_stamina,
+            profile: readNativeFighter(friend), perception: person.body.intuition ?? 5, stealth: person.body.agility ?? 5, moves: ['guard', 'tend', 'jab', 'withdraw'], ally: lioAlly(adopt.state)}];
+    }
+    const plan = beginTempoFight(adopt.state, ports.registry, context, {adopt, id: 'road-rival', title: "Mara's road contest", floor: 1, fighters: [...lio,
         {id: 'player', name: 'You', side: 'a', speed: 100, hp: v.health, maxHp: v.max_health, stamina: v.stamina, maxStamina: v.max_stamina, profile: me, perception: me.stats.intuition ?? 5, stealth: me.stats.agility ?? 5},
         {id: ROAD_RIVAL, name: 'Mara', side: 'b', speed: Math.round(100 * (body.attack_speed ?? 1) / .8), hp: rival.vitals.health, maxHp: rival.vitals.max_health, stamina: rival.vitals.stamina, maxStamina: rival.vitals.max_stamina,
             profile: rivalProfile, perception: body.intuition, stealth: body.agility}]});
     ports.commit(plan);
 }
 function move(request) {
-    const state = ports.root();
-    ports.commit(request.handOver ? handOverTempoFight(state, ports.registry, ports.campaignContext()) : commitTempoMove(state, ports.registry, ports.campaignContext(), {moveId: request.moveId, targetId: request.targetId}, state.sequence));
+    const state = ports.root(), ctx = ports.campaignContext();
+    ports.commit(request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx, {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId}, state.sequence));
 }
 function view() {
     if(!ports) return {visible: false};
     const b = open();
     if(b) return {visible: true, fight: tempoView(b), held: b.held};
     const quote = startQuote(), facts = ports.root().actors.player.facts;
-    return {visible: !!quote.visible, start: quote, last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
+    return {visible: !!quote.visible, start: quote, lio: lioQuote(), last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
 }
 function mount() {
     const root = node('details'); root.id = 'tempo_fight_panel'; root.className = 'expedition_panel';
@@ -66,14 +93,17 @@ function mount() {
             const log = node('ol'); log.dataset.tempoLog = ''; for(const line of f.lines) log.append(node('li', line)); body.append(log);
             const strip = node('p', 'Who acts next: ' + f.next.join(' → ')); strip.dataset.tempoNext = ''; body.append(strip);
             body.append(node('p', 'Opponents: ' + f.foes.map(x => `${x.name} (${x.hurt})`).join(', ')));
+            if(f.allies.length) body.append(node('p', 'Beside you: ' + f.allies.map(x => `${x.name} (${x.hurt}${x.order ? `, told: ${x.order}` : ''})`).join(', ')));
             if(f.yourTurn) {
                 for(const m of f.moves) body.append(button(`${m.label} · ${m.cost} time`, m.id, `${m.text}${m.why ? ' ' + m.why : ''}${m.safe ? ' Safe.' : ''}`, !m.usable || !ports.writable(), () => act(move, {moveId: m.id})));
+                for(const o of f.orders) body.append(button(`${o.label} · ${o.cost} time · ${o.odds}`, `order:${o.orderId}:${o.allyId}`, `${o.text} Whether it is heard is not certain.`, !ports.writable(), () => act(move, {moveId: 'order', allyId: o.allyId, orderId: o.orderId})));
                 body.append(button('Let a careful policy take one safe turn', 'handover', 'Plays only brace, tend or back away for you; never a new attack.', !ports.writable(), () => act(move, {handOver: true})));
             }
         } else {
             body.append(node('p', 'Settle the road challenge move by move. Quick moves cost little time and light harm; heavy ones leave you open longer. Who notices first sets the opening.'));
             if(v.last) body.append(node('p', `Last tempo contest: ${v.last}.${v.owed ? ` ${v.owed} minutes of held time are still owed to the world.` : ''}`));
             if(v.start.visible) body.append(button('Accept the road duel as a tempo contest', 'start', v.start.reason, !v.start.eligible, () => act(start)));
+            if(v.start.visible && v.lio.offered) body.append(button('Accept it with Lio beside you', 'start_lio', v.lio.reasons.join(' ') || 'Lio fights by his own goals and hears orders by chance. The fee and terms are the party contest\'s.', !v.start.eligible || v.lio.reasons.length > 0, () => act(start, {withLio: true})));
         }
     };
     document.getElementById('location_actions_div')?.append(root);

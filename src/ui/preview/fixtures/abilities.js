@@ -4,6 +4,7 @@
 import {definePath, pathView} from '../../../ascension_paths.js';
 import {ladderFigureSpec} from '../../../ability_ladder_figure.js';
 import {FIGURE_FIXTURES} from '../figure_fixtures.js';
+import {defineAbilityRecords} from '../../../ability_records.js';
 
 // A potion-style pathway: drink, act the role until the potion settles, be assessed, drink again.
 export const LANTERN_PATH = definePath({id: 'fixture.lantern', world: 'fixture.harbour', label: 'Lantern-Reader pathway', shape: 'ladder', stages: [
@@ -37,12 +38,30 @@ export const BELL_PATH = definePath({id: 'fixture.bells', world: 'fixture.harbou
     crossings: i === 0 ? [] : [{id: 'practice', type: 'quota', label: 'Ring the hours', fact: 'hours', need: 10 * i}]}))});
 const bellView = pathView(BELL_PATH, 6, {hours: 41}, {known: 10});
 
+// Typed ability records (the L10 row shape) for the lantern rungs: one stated cost, one inferred cost with an inferred
+// cooldown, one with no cost row. Invented, like the paths.
+const held = {fact: 'actor.awake', op: 'eq', value: true};
+const lanternRecords = rows => Object.values(defineAbilityRecords(rows, {prefix: 'fixture.lantern', world: {id: 'fixture.harbour'}}).cards);
+export const LANTERN_ABILITIES = {
+    here: lanternRecords([
+        {key: 'smoke_read', label: 'Read lamp-smoke', sourceId: 'fixture.lantern.r1', conditions: [{label: 'awake', requires: held}],
+            cost: [{type: 'resource', scope: 'actor', key: 'lamp_oil', amount: -1}], effects: [{type: 'condition', id: 'fixture.lantern.smoke_read', operation: 'apply', duration: 5}]},
+        {key: 'night_hands', label: 'Steady hands by night', sourceId: 'fixture.lantern.r1', conditions: [], cost: [], effects: [{type: 'condition', id: 'fixture.lantern.steady', operation: 'apply', duration: 5}]}]),
+    next: lanternRecords([
+        {key: 'flame_turn', label: 'Turn a flame', sourceId: 'fixture.lantern.r2', conditions: [{label: 'a flame in reach', requires: held}],
+            cost: [{type: 'resource', scope: 'actor', key: 'spirit', amount: -2}], limit: {kind: 'cooldown', minutes: 15},
+            unstated: ['cooldown length', 'absolute cost amounts'], costBasis: {cited: 'called tiring', rank: 1, amounts: 'proposal'},
+            effects: [{type: 'condition', id: 'fixture.lantern.flame_turned', operation: 'apply', duration: 5}]}]),
+};
+
 export const ABILITY_FIXTURES = [
     ladderFigureSpec(lanternView, {id: 'ladder-lantern-self', felt: 'settling', rumours: {3: 'Third rung · Glass-Warden'}}),
     ladderFigureSpec(reedView, {id: 'ladder-reed-self', rumours: {3: 'Hollow Bell'}}),
     ladderFigureSpec(lanternView, {id: 'ladder-lantern-witness', perspective: 'witness', seen: 1, subject: 'the night clerk'}),
     ladderFigureSpec(bellView, {id: 'ladder-long-self', felt: 'steady'}),
     ladderFigureSpec(lanternView, {id: 'ladder-lantern-compact', felt: 'settling', layout: 'compact'}),
+    ladderFigureSpec(lanternView, {id: 'ladder-lantern-planned', felt: 'settling', planned: {label: 'the night lamp round'}}),
+    ladderFigureSpec(lanternView, {id: 'ladder-lantern-records', felt: 'settling', abilities: LANTERN_ABILITIES}),
     ladderFigureSpec(lanternView, {id: 'ladder-lantern-insight', felt: 'settling', insight: {stages: [, , , 'Third rung · Glass-Warden', 'Fourth rung · Mirror-Speaker'], thresholds: true}}),
 ];
 for (const spec of ABILITY_FIXTURES) if (!FIGURE_FIXTURES.some(f => f.id === spec.id)) FIGURE_FIXTURES.push(spec);

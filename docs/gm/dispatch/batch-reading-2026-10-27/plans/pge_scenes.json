@@ -1,0 +1,163 @@
+{
+ "world": "pge",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30",
+  "censusMatch": "^(pge)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "pge-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "pgec002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch002-002.txt",
+   "base": "00201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "pgec003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch003-003.txt",
+   "base": "00301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "pgec004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch004-004.txt",
+   "base": "00401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "pgec005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch005-005.txt",
+   "base": "00501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "pgec006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch006-006.txt",
+   "base": "00601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "pgec007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch007-007.txt",
+   "base": "00701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "pgec009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch009-009.txt",
+   "base": "00901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "pgec010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch010-010.txt",
+   "base": "01001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "pgec011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch011-011.txt",
+   "base": "01101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "pgec012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch012-012.txt",
+   "base": "01201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "pgec013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch013-014.txt",
+   "base": "01301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "pgec015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch015-015.txt",
+   "base": "01501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "pgec016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch016-016.txt",
+   "base": "01601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "pgec017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch017-017.txt",
+   "base": "01701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "pgec018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch018-018.txt",
+   "base": "01801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "pgec019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch019-019.txt",
+   "base": "01901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "pgec020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch020-020.txt",
+   "base": "02001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "pgec022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch022-022.txt",
+   "base": "02201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "pgec023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "pgec024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch024-024.txt",
+   "base": "02401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "pgec025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch025-025.txt",
+   "base": "02501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "pgec026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch026-026.txt",
+   "base": "02601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "pgec027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch027-027.txt",
+   "base": "02701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "pgec028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30/shard_pge_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  }
+ ]
+}

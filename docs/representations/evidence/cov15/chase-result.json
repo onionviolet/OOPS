@@ -1,0 +1,46 @@
+{
+ "shots": {
+  "first": [
+   "village.trail_test:false:Neri's field test\nNeri found your trail and asks for a nonlethal footwork test. Finish your current activity before responding.\nTrack Pursuit, 1 of 4 done: 1. F",
+   "village.ink_test:true:",
+   "village.heavenly_summons:true:",
+   "village.workshop_review:true:"
+  ],
+  "second": [
+   "village.trail_test:false:Neri's field test\nNeri found your trail and asks for a nonlethal footwork test. Finish your current activity before responding.\nTrack Pursuit, 0 of 4 done: 1. F",
+   "village.ink_test:true:",
+   "village.heavenly_summons:true:",
+   "village.workshop_review:true:"
+  ]
+ },
+ "bundleUrl": "http://127.0.0.1:18541/dist/bundle.js?version=v0.6-9ce61d974c9f",
+ "before": {
+  "panelParent": "",
+  "panelBox": 0,
+  "hiddenChain": [
+   "notebook_view_people [hidden attr]"
+  ],
+  "hidden": true,
+  "desc": null,
+  "text": ""
+ },
+ "following": {
+  "panelParent": "",
+  "panelBox": 0,
+  "hiddenChain": [
+   "notebook_view_people [hidden attr]"
+  ],
+  "hidden": false,
+  "desc": "Neri's field test\nNeri saw you begin the agreed field test in Village. A witnessed departure can provide a lead. The Shack is private shelter; you may also keep a low profile or call off the test.\nTrack Pursuit, 0 of 4 done: 1. Following you (current); 2. Makes contact (pending); 3. Face to face (pending); 4. Over (pending).\nUnknown: Range: you have not seen where they are.",
+  "text": "Neri's field testNeri's field test\nNeri saw you begin the agreed field test in Village. A witnessed departure can provide a lead. The Shack is private shelter; you may also keep a low profile or call off the test.\nTrack Pursuit, 0 of 4 done: 1. Following you (current); 2. Makes contact (pending); 3. Face to face (pending); 4. Over (pending).\nUnknown: Range: you have not seen where they are.Pursuit: 0 of 4 doneFollowing you (current)▶FollowingyouMakes contact (pending)·MakescontactFace to face (p"
+ },
+ "contact": {
+  "panelParent": "",
+  "panelBox": 1058,
+  "hiddenChain": [],
+  "hidden": false,
+  "desc": "Neri's field test\nNeri found your trail and asks for a nonlethal footwork test. Finish your current activity before responding.\nTrack Pursuit, 1 of 4 done: 1. Following you (done); 2. Makes contact (current); 3. Face to face (pending); 4. Over (pending).\nTrack Range: here by the usual routes, 0 of 1 done: 1. Village (last seen) (current).\nLast seen right where you are. That may have changed.\nThe meeting request lapses at minute 28.",
+  "text": "Neri's field testNeri's field test\nNeri found your trail and asks for a nonlethal footwork test. Finish your current activity before responding.\nTrack Pursuit, 1 of 4 done: 1. Following you (done); 2. Makes contact (current); 3. Face to face (pending); 4. Over (pending).\nTrack Range: here by the usual routes, 0 of 1 done: 1. Village (last seen) (current).\nLast seen right where you are. That may have changed.\nThe meeting request lapses at minute 28.Pursuit: 1 of 4 doneFollowing you (done)✓Followi"
+ },
+ "errors": []
+}

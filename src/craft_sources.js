@@ -255,13 +255,15 @@ export function harvest(table, {root, world, location, source: sourceId, at, act
 
 // Idle gathering: repeat at an interval from `from` to `to`, stopping on
 // depletion, gating or the GR11 budget. Pure; combines identical stacks.
-export function gatherIdle(table, {root, world, location, source, from, to, every, actor, node, calendarAt}) {
+export function gatherIdle(table, {root, world, location, source, from, to, every, actor, node, calendarAt, budget = MAX_IDLE_HARVESTS}) {
+    // Dial: default 500 harvests per run; stamina, food or a crew raise it (hard stop at 100000 for the save-size and time guard).
+    if(!pos(budget) || budget > 100000) fail('The harvest budget must be a whole number from 1 to 100000.');
     if(!nat(from) || !nat(to) || to < from || !pos(every)) fail('Idle gathering needs from <= to and a positive interval.');
     if(table.sources[source]?.calendar && typeof calendarAt !== 'function') fail('Idle source needs a local calendar projection at every step.');
     let current = node, at = from, count = 0, stopped = 'time';
     const stacks = new Map();
     while(at <= to) {
-        if(count >= MAX_IDLE_HARVESTS) { stopped = 'budget'; break; }
+        if(count >= budget) { stopped = 'budget'; break; }
         const step = harvest(table, {root, world, location, source, at, actor, node: current, calendar: calendarAt?.(at)});
         current = step.node;
         if(!step.result.items.length) {

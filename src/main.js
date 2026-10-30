@@ -375,6 +375,7 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
+import {applyStartGrants} from './cheat_cards.js';
 import {cheatState,setCheatState,readCheatSave,configureCheatHost,commandCheat,seedCheatBeginning,observeCheats as awakenOptionalStart} from './cheat_host.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
@@ -446,7 +447,7 @@ import {lifeLearningMultiplier,LIFE_LESSONS} from './life_experience.js';
 import {buildLifeHeirSave} from './life_experience_host.js';
 import {deriveHeirLeftovers,heirLeftoverLines} from './heir_inheritance.js';
 import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, setSimulationProgram, pauseSimulationProgram, resumeSimulationProgram, answerSimulationEncounter, withdrawSimulationEncounter,
-    respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js";
+    respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice, nextSimulationBoundary} from "./simulation.js";
 import {prepareNativeUnlocks} from "./native_unlock_transaction.js";
 import {readNativeEquipment, prepareNativeEquipment, nativeEquipmentSnapshot} from "./native_equipment_transaction.js";
 import {stageNativeStorageTransfer, stageCompanionStockTransfer} from "./native_storage_transaction.js";
@@ -566,6 +567,7 @@ let titlesPanel;
 let title_check_ticks = 0;
 import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_lives.js';
 import {createVillageLivesPanel} from './npc_lives_ui.js';
+import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
 import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
@@ -1864,7 +1866,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
     readFrame?.invalidate(); // Life observations publish through the durable owner.
     try {persistExpansionPlan(plan, {createSave: create_save, storage: freshLifeStart.storage(lifeSaveStorage,plan), bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
-        validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
+        validateEnvelope: data => validateEnvelopeInBatch(data, plan.state.clock), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
         lifeStorageFailure = error.code === 'SAVE_STORAGE_FULL';
         expansionError = lifeStorageFailure ? error.message : "Progress paused because saving failed. Free storage and reload before continuing.";
@@ -6603,6 +6605,26 @@ function save_to_file() {
  * @param {Boolean} is_manual 
  */
 let stepperSaves = null;
+// Inside a stepper batch the per-minute envelope check runs at the batch's first write, then once per
+// in-game hour of clock and at close (the last skipped envelope), so a failed save still blocks within an hour.
+const BATCH_VALIDATE_MINUTES = 60;
+let batchValidatedAt = null, batchPendingEnvelope = null;
+function validateEnvelopeInBatch(data, clock) {
+    if(!stepperSaves || batchValidatedAt === null || clock - batchValidatedAt >= BATCH_VALIDATE_MINUTES) {
+        validateSaveEnvelope(data, game_version); batchPendingEnvelope = null; if(stepperSaves) batchValidatedAt = clock; return;
+    }
+    batchPendingEnvelope = data;
+}
+function settleBatchValidation() {
+    const pending = batchPendingEnvelope; batchPendingEnvelope = null; batchValidatedAt = null;
+    if(!pending) return;
+    try {validateSaveEnvelope(pending, game_version);}
+    catch(error) {
+        expansionError = "Progress paused because saving failed. Free storage and reload before continuing.";
+        foundationSaveBlocked = true;
+        throw error;
+    }
+}
 function save_to_localStorage({key, is_manual}) {
     if(freshLifeStart.isHeld()) return;
     if(stepperSaves && !is_manual) {stepperSaves.add(key); return;}
@@ -9095,6 +9117,7 @@ function openStepperBatch(render) {
     if(stepperSaves) throw new Error('Cannot nest advanceTicks.');
     const restore = [];
     stepperSaves = new Set();
+    batchValidatedAt = null; batchPendingEnvelope = null;
     if(!render) {
         beginSimulationRenderBatch();
         stepperRenderSuppressed=true;
@@ -9109,13 +9132,15 @@ function openStepperBatch(render) {
     }
     return () => {
         const saves = stepperSaves; stepperSaves = null;
-        for(const key of saves) {
+        let failure = null; try {settleBatchValidation();} catch(error) {failure = error;}
+        if(!failure) for(const key of saves) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
         stepperRenderSuppressed=false;
         for(const reset of restore) reset();
         if(!render) endSimulationRenderBatch(expansionState);
+        if(failure) throw failure;
         return saves.size;
     };
 }
@@ -9152,6 +9177,9 @@ function fastForward(n, {sliceMs = 30, onProgress} = {}) {
         // Outside a run, stepping() is true exactly while the engine is paused.
         const started = performance.now(), wasPaused = stepping();
         let ticks = 0, callbacks = 0, slices = 0, maxSliceMs = 0, autosaves = 0, close = null;
+        // Each tick builds and drops several whole-save strings and buffers. Only idle time lets the browser release
+        // that off-heap memory, so a long unbroken batch grows by gigabytes and crashes the page; rest briefly now and then.
+        let lastRest = performance.now();
         pauseEngine();
         try {
             close = openStepperBatch(false);
@@ -9164,6 +9192,7 @@ function fastForward(n, {sliceMs = 30, onProgress} = {}) {
                 do {callbacks += runEngineTicks(1).callbacks; ticks++; count++; elapsed = performance.now() - sliceStart;}
                 while(ticks < n && elapsed + elapsed / count < sliceMs);
                 slices++; maxSliceMs = Math.max(maxSliceMs, elapsed);
+                if(performance.now() - lastRest >= 500) {await new Promise(resolve => setTimeout(resolve, 25)); lastRest = performance.now();}
                 onProgress?.({ticks, total: n});
             }
         } finally {
@@ -9435,7 +9464,7 @@ configureCraftingDomain({actor:()=>character,read:()=>({body:currentNativeBody()
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
-configureNativeToolDomains({cohortBattle:{resume:()=>featureBattleHost.resume(featureBattleToken(expansionState)),act:c=>featureBattleHost.act(c),view:()=>featureBattleHost?.view(),running:()=>featureBattleHost?.isRunning()||false},lifeRecord:()=>lifeRecord,refreshPractice:()=>mistglassPanel?.render(),worldWorkBlocked:nativeOccupationReason,locations,SafeLocation:OptionalPackLocation,body:currentNativeBody,refreshScene:()=>{if(current_location){update_pathing();if(current_location.tags.safe_zone)update_displayed_normal_location(current_location);}},tradeWritable:()=>workLedgerCanWrite()&&!restoringNativeSave&&!lifeStorageFailure&&character.is_alive,trader:id=>NPCRegistry.get(id).getTraderComponent(),currentTrader:()=>current_trader,refreshTrade:()=>update_displayed_trader_inventory(),trainingAction:(id,options)=>actTraining(id,options),trainingProfile:()=>p23EncounterProfile,combat:()=>current_combat,continuation:()=>continuationState,villageLives:()=>npcLives,setVillageLives:value=>{npcLives=value;},root:()=>expansionState,skills:()=>skills,plan:minutes=>{const p=p23Plan();return minutes?advanceChroniclePlan(p,minutes,true):p;},commit:persistExpansion,campaignContext:()=>campaignContext(),registry:expeditionRegistry,actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+configureNativeToolDomains({fastForward:n=>fastForward(n),furnaceAssigned:()=>!!cheatState?.held?.['patient-furnace']?.card.state.away.assigned,cohortBattle:{resume:()=>featureBattleHost.resume(featureBattleToken(expansionState)),act:c=>featureBattleHost.act(c),view:()=>featureBattleHost?.view(),running:()=>featureBattleHost?.isRunning()||false},lifeRecord:()=>lifeRecord,refreshPractice:()=>mistglassPanel?.render(),worldWorkBlocked:nativeOccupationReason,locations,SafeLocation:OptionalPackLocation,body:currentNativeBody,refreshScene:()=>{if(current_location){update_pathing();if(current_location.tags.safe_zone)update_displayed_normal_location(current_location);}},tradeWritable:()=>workLedgerCanWrite()&&!restoringNativeSave&&!lifeStorageFailure&&character.is_alive,trader:id=>NPCRegistry.get(id).getTraderComponent(),currentTrader:()=>current_trader,refreshTrade:()=>update_displayed_trader_inventory(),trainingAction:(id,options)=>actTraining(id,options),trainingProfile:()=>p23EncounterProfile,combat:()=>current_combat,continuation:()=>continuationState,villageLives:()=>npcLives,setVillageLives:value=>{npcLives=value;},root:()=>expansionState,skills:()=>skills,plan:minutes=>{const p=p23Plan();return minutes?advanceChroniclePlan(p,minutes,true):p;},commit:persistExpansion,campaignContext:()=>campaignContext(),enemy:Enemy,registry:expeditionRegistry,actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables,expansionState.streams,NPCRegistry.get('oldCraftsman').getItems()],assertSpend:id=>assertNativeItemDisposition(expansionState,id.startsWith('{')?id:item_templates[id].getInventoryKey()),
     addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
@@ -9542,6 +9571,7 @@ if(newGameBeginning) {
         }
         const choice = newGameBeginning.cheatChoice();
         seedCheatBeginning({choice, at: cheatCalendarTime()});
+        {const grants=startProbe?.selected()?.snapshot.grants;if(grants?.length)setCheatState(applyStartGrants(cheatState,grants,{at:cheatCalendarTime()}).state);}
         lifeRecord = appendLifeMilestone(lifeRecord, {year: current_game_time.year,
             at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
             text: choice === 'none' ? 'You chose an ordinary beginning without a system.' :
@@ -9761,6 +9791,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:(key,quantity=1)=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=quantity,
         publishSupply:(key,quantity=1)=>{character.removeFromInventory([{item_key:key,item_count:quantity}]);update_displayed_character_inventory();},publishReward:add_money_to_character,publishMint:key=>{character.addToInventory([{item_key:key,count:1}]);update_displayed_character_inventory();},publishCost:(cost,source)=>add_money_to_character(-cost,source)});
+    registerQuestBoard({read:()=>({world:expansionState.lotm?'lotm':null,seed:generatedPeopleSeed(),day:Math.floor(calendarMinutes(current_game_time)/1440)})});
     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:hard=>{
         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
@@ -10028,7 +10059,8 @@ if(testHooksEnabled) {
     window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
-if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; }});
+if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; },
+    fastForward: n => fastForward(n), eventMinutes: () => {const at = nextSimulationBoundary(expansionState); return Number.isFinite(at) ? Math.max(1, Math.ceil(at - expansionState.clock)) : null;}});
 export { 
     readVillageLedgerSentence,
     current_combat,

@@ -1,5 +1,6 @@
 import {registerShortcut} from './shortcut_registry.js';
 import {controlLabel} from './dom_text.js';
+import {playerReasonText} from './player_reasons.js';
 
 // GU9: a right-click (or the Menu key, or Shift+F10) on a row lists that row's own buttons in one
 // place. The menu holds no command of its own. Each entry clicks the real visible button, so its
@@ -34,10 +35,10 @@ export function rowCommands(row) {
         if (native) {
             if (control.hidden || control.closest('[hidden]')) continue;
             const disabled = control.getAttribute('aria-disabled') === 'true';
-            add(native.label(row), native.target ? native.target(control) : control, disabled, control.dataset.disabledReason || control.title || '');
+            add(native.label(row), native.target ? native.target(control) : control, disabled, playerReasonText(control.dataset.disabledReason || control.title || ''));
         } else if (shows(control)) {
             const disabled = control.disabled || control.getAttribute('aria-disabled') === 'true';
-            add(labelOf(control), control, !!disabled, control.dataset.disabledReason || control.title || '');
+            add(labelOf(control), control, !!disabled, playerReasonText(control.dataset.disabledReason || control.title || ''));
         }
     }
     // A row that is itself a clickable control (a travel or activity choice) offers its own action.

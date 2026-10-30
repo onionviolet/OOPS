@@ -115,7 +115,7 @@ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar ord
     const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Condition','o','condition'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
         ['Data','d','records','journal_show_data'],['Knows','f','records','journal_show_knows'],['Notebook','n','notebook'],['Skills','k','skills'],
-        ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],
+        ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],['Organizations','x','management'],
         ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Connection','y','continuation'],['Settings','s','customization']];
     assert.deepEqual(routeTable().map(r => [r.label, r.key, r.target, ...(r.tab ? [r.tab] : [])]), r21);
     assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Here', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
@@ -251,4 +251,14 @@ test('UM3 a composition with a sixth region and its own grid is data only', () =
     assert.deepEqual(workspaceRegions(spec).map(r => r.id), ['player', 'focus', 'inventory', 'actions', 'log', 'map']);
     assert.equal(gridTemplate({context: 'travel', atLeast: () => true}, spec).areas, '"player focus map log" "inventory actions actions log"');
     assert.equal(gridTemplate({context: 'idle', atLeast: () => true}, spec).areas, gridTemplate({context: 'idle', atLeast: () => true}).areas);
+});
+
+// COV2 / UR69: the lend dial is spec data; the host writes one variable and CSS has one rule.
+test('COV2 center lend gives the view the rest: two side tracks, a closed track 2, a one-fr center', async () => {
+    const {centerLendColumns} = await import('../src/layout_spec.js');
+    const cols = centerLendColumns('14px');
+    assert.equal(cols, 'minmax(0,min(calc(14px*24),22%)) minmax(0,0px) minmax(0,1fr) minmax(0,min(calc(14px*27),22%))');
+    assert.equal(cols.split(' ').length, 4);
+    const tight = centerLendColumns('14px', {...LAYOUT_SPEC, centerLend: {sideEm: 20, sideMaxPct: 18, logEm: 22, logMaxPct: 18}});
+    assert.match(tight, /\*20\),18%\)/);
 });

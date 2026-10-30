@@ -1,0 +1,26 @@
+/* Home at a glance (src/ui/home_view.js). Colors come from theme and UI tokens so a world skin restyles it;
+   the only effect is a soft chip glow under data-effects full (box-shadow, never layout). */
+.home-view {
+    --hv-ink: var(--theme-text, var(--ui-text));
+    --hv-muted: var(--theme-muted, var(--ui-hairline));
+    --hv-line: var(--theme-border, var(--ui-hairline));
+    --hv-accent: var(--theme-accent, var(--ui-accent));
+    --hv-warn: var(--theme-warning, var(--ui-meter-warn));
+    min-width: 0; color: var(--hv-ink); overflow-wrap: break-word;
+}
+.home-view-switch {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); margin: 0 0 var(--ui-space-5);}
+.home-view-home[aria-pressed="true"] {border-color: var(--hv-accent); color: var(--hv-accent);}
+.home-view-name {margin: 0 0 var(--ui-space-2); font-size: inherit;}
+.home-view-glance {margin: 0 0 var(--ui-space-4); color: var(--hv-muted);}
+.home-view-empty, .home-view-note {color: var(--hv-muted); margin: var(--ui-space-2) 0;}
+.home-view-next {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); margin: 0 0 var(--ui-space-5); padding: 0; list-style: none;}
+.home-view-chip {padding: var(--ui-space-1) var(--ui-space-4); border: 1px solid var(--hv-warn); color: var(--hv-warn);}
+:root[data-effects="full"] .home-view-chip {box-shadow: 0 0 0.4em var(--hv-warn);}
+.home-view-strip {min-width: 0; margin: 0 0 var(--ui-space-5);}
+.home-view-heading {margin: var(--ui-space-5) 0 var(--ui-space-2); font-size: inherit; color: var(--hv-muted);}
+.home-view-meter-row {display: grid; grid-template-columns: 9em 12em 1fr; align-items: center; gap: var(--ui-space-4); margin: var(--ui-space-2) 0;}
+.home-view-meter {width: 100%; accent-color: var(--hv-accent);}
+.home-view-warn .home-view-meter {accent-color: var(--hv-warn);}
+.home-view-warn .home-view-meter-words {color: var(--hv-warn);}
+.home-view-line {margin: var(--ui-space-1) 0;}
+.home-view-foot {margin: var(--ui-space-5) 0 0;}

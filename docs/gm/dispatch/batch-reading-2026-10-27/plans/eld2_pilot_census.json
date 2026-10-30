@@ -1,0 +1,24 @@
+{
+ "world": "eld",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30",
+  "censusMatch": "^(eld1|eld2|eld3)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "eld2-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "eld2c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld2_b2_ch001-002.txt",
+   "base": "200101",
+   "chapters": "1-2"
+  }
+ ]
+}

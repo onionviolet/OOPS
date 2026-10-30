@@ -1,5 +1,7 @@
 # UI rules acceptance packet, 2026-10-29
 
+Status 2026-10-30: applied as proposals in use (CHOICES item 4); awaiting Weibao.
+
 Everything below is proposed and waiting on Weibao. Nothing here binds until
 he says yes ([UI audit round 9](UI_DESIGN_CORE_AUDIT.md#round-9-2026-10-29-the-rulebook-itself-reconciliation-and-improvement), UIX4).
 Agents cite these as "proposed" until then.

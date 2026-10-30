@@ -6,7 +6,8 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
-import {mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {existsSync, mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, dirname, resolve} from 'node:path';
 
@@ -122,6 +123,39 @@ async function frozenAndNative(c) {
     console.log(JSON.stringify({slice:'frozen/native',frozen,native}));
 }
 
+// O5: game_new({checkout}) plays a git worktree and links the private inputs the worktree lacks.
+// days and until:'event' use the same stepper as minutes (byte equality is tests/headless/advance_equivalence.test.js); scenarios boot copies.
+async function fasterTime(c) {
+    await c.tool('game_new', {scenario: 'perf-fresh', seed: 3, sessionId: 'days'});
+    const a = await c.tool('game_step', {sessionId: 'days', days: 1});
+    assert.ok(a.advance.advanced >= 1440, 'a day is at least 1440 minutes');
+    assert.ok(a.advance.wallMs >= 0 && a.advance.startCalendar < a.advance.endCalendar);
+    const ev = await c.tool('game_step', {sessionId: 'days', until: 'event'});
+    assert.ok(ev.advance.reason === 'no scheduled event' || ev.advance.advanced >= 1, 'until event advances to a boundary or says none');
+    for(const bad of [{days: 1, minutes: 5}, {days: 401}, {until: 'dawn'}, {}]) {
+        const r = (await c.rpc('tools/call', {name: 'game_step', arguments: {sessionId: 'days', ...bad}})).result;
+        assert.equal(r.isError, true, `rejects ${JSON.stringify(bad)}`);
+    }
+    const unknown = (await c.rpc('tools/call', {name: 'game_new', arguments: {scenario: 'nope', sessionId: 'days'}})).result;
+    assert.equal(unknown.isError, true, 'unknown scenario names are refused');
+    await c.tool('game_close', {sessionId: 'days'});
+}
+
+async function worktreeCheckout(c) {
+    const wt = join(mkdtempSync(join(tmpdir(), 'yairpg-wt-')), 'tree');
+    execFileSync('git', ['worktree', 'add', '--detach', wt, 'HEAD'], {cwd: ROOT, stdio: 'ignore'});
+    try {
+        const first = await c.tool('game_new', {sessionId: 'wt', seed: 3, checkout: wt});
+        assert.equal(first.build.kind, 'live');
+        assert.match(first.build.checkout, /tree$/, 'reply names the played checkout');
+        assert.equal(first.started, true);
+        for(const rel of ['private_packs', 'node_modules']) if(existsSync(join(ROOT, rel))) assert.ok(existsSync(join(wt, rel)), `${rel} is linked into the worktree`);
+        await c.tool('game_close', {sessionId: 'wt'});
+        const outside = (await c.rpc('tools/call', {name: 'game_new', arguments: {sessionId: 'wt', checkout: tmpdir()}})).result;
+        assert.equal(outside.isError, true, 'a folder that is not a worktree of this repo is refused');
+    } finally { execFileSync('git', ['worktree', 'remove', '--force', wt], {cwd: ROOT, stdio: 'ignore'}); }
+}
+
 async function greetElder(c, seed) {
     const fresh = await c.tool('game_new', {seed});
     assert.equal(fresh.started, true, 'game_new auto-starts PLAY');
@@ -228,6 +262,9 @@ try {
 
     if(process.argv.includes('--native-only')) {
         await nativeOnly(c);
+    } else if(process.argv.includes('--faster-time-only')) {
+        await fasterTime(c);
+        console.log(JSON.stringify({slice: 'faster-time', result: 'PASS'}));
     } else if(process.argv.includes('--freeze-only')) {
         await frozenAndNative(c);
     } else {
@@ -329,6 +366,8 @@ try {
     const noted = await c.tool('game_report_limit', {wanted: 'a screenshot of the village', blockedBy: 'no browser here', workaround: 'read game_look text'});
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
+    await fasterTime(c);
+    await worktreeCheckout(c);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
     }
 } finally { await c.close(); }
