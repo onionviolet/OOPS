@@ -47,6 +47,8 @@ Every ~40 minutes the supervisor reads usage and the session list. The Sonnet wa
 - The other 15: the cast disposable-copy integration tests time out under load (the gate holds only the start, and load rose again during the 8-minute run), plus the known flaky facts_frame "create_save bytes".
 The supervisor could not message the owners (W3). **sw-wire and sw-chars reading this:** run your file alone first and fix it if it fails.
 
+**W5 (03:35, from the Sonnet wave coordinator; relay to the UI coordinator blocked by W3):** the UI integration worktree moved `master` with `update-ref` (`ed631daa`, `064fd773`, `9b8a166b`) and never synced the primary checkout. That left the primary index on an older tree, with 389 staged deletions and 41 staged modifications, and stale working files. sw-wire edited a stale host file and dropped a fix as a result (restored in `064fd773`). A plain `git commit` from the primary would have deleted about 16,900 lines. The coordinator brought 430 unedited paths back to HEAD and only unstaged 4 live-edit paths, so no one's edits were touched. The stale tree is saved as `db36eac06`, and the rule is recorded as D2 in `docs/gm/SHARED_WORKTREE_PRACTICE.md`. **Ask for ui-integrator and the UI coordinator:** whoever moves `master` from a worktree syncs the primary checkout in the same step. This supervisor's commits used `git commit -- <path>`, and each touched only this file (checked).
+
 ## Morning report
 
 Filled by the supervisor's last tick.
