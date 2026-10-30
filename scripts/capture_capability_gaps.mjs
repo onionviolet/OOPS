@@ -89,7 +89,8 @@ try {
     await lead.waitForFunction(() => /Moretti/.test(document.getElementById('location_name_span')?.innerText || ''), null, {timeout: 30000}); await lead.waitForTimeout(500);
     note('life start duration ms', {ms: Date.now() - t0});
     await shot(lead, 't03-lead-first-screen');
-    for (let i = 1; i <= 3; i++) { await lead.evaluate(() => advanceTicks(60)); await lead.waitForTimeout(500); await shot(lead, `t0${3 + i}-lead-hour-${i}`); }
+    // The life start reloads the page; a stale handle here is a finding, not a crash.
+    for (let i = 1; i <= 3; i++) { try { await lead.evaluate(() => advanceTicks(60)); await lead.waitForTimeout(500); await shot(lead, `t0${3 + i}-lead-hour-${i}`); } catch (e) { note(`lead-hour-${i} skipped`, {error: e.message.slice(0, 120)}); } }
     note('page-errors', {errors});
     await writeFile(resolve(out, 'receipt.json'), JSON.stringify(receipt, null, 1) + '\n');
 } finally { await browser.close(); server.close(); }
