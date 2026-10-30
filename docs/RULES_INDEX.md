@@ -128,7 +128,7 @@ line they restate.
 | Saves and persistence | Rulebook 9, AR6, MR3, MR30, MR33, SR22, AGENTS safety, LSD142–LSD143 (book pack revisions and save deltas, proposed), qualified by the 2026-10-17 decision | [Old-save compatibility is currently deferred](USER_VISION.md#old-save-compatibility-deferred-2026-10-17); new state still needs Save/reload/Export/Import. Unknown retired IDs follow the [2026-10-18 decision](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18) |
 | Research passes and sources | AD35, AD37, AU1–AU15 for readers; AGENTS scope and source acquisition | [Tool registry and launchers](TOOL_REGISTRY.md), [saved-source modes and playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first), [source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
 | Checkout selection and worktree retirement | AD41, AD32; shared-worktree ownership | [Primary checkout default](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21) |
-| Current feature delivery, publication and cross-chat reconciliation | AD32, AD36, AD41; existing task ownership | [PROJECT current delivery](../PROJECT.md#current-delivery-routing-reconciled-2026-10-23); [C7/C9/C10 incorporation and coordinated proof](research/additional-cultivation-2026-10-22/IMPLEMENTATION.md); [2026-10-22 reconciliation and evidence limits](reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md). Dated task reports retain their original input boundaries. |
+| Current feature delivery, publication and cross-chat reconciliation | AD32, AD36, AD41; existing task ownership | [PROJECT current delivery](gm/PROJECT_LOG_2026-10-29.md#current-delivery-routing-reconciled-2026-10-23); [C7/C9/C10 incorporation and coordinated proof](research/additional-cultivation-2026-10-22/IMPLEMENTATION.md); [2026-10-22 reconciliation and evidence limits](reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md). Dated task reports retain their original input boundaries. |
 | Shared engine gaps for different lives and niche specialties | AD1–AD8, AD15–AD19, AD22–AD23, AD32–AD38; AR1–AR16, WA1–WA21, relevant SLR/ECR/PIR/MR/SR | [BF71–BF94 round](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21): 14 gap rows and specialty composition proposals; existing native owners and one playable slice at a time, no new runtime dispatch. |
 | Selected W1–W4 signature-loop implementation | AD1–8/15–19/23/32–38/41; WA1–21; AR1–16; relevant MR/SR/UR | [Later user instruction](USER_VISION.md#w1w4-signature-loop-implementation-2026-10-22); [execution and shared-writer status](gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md). Research proposals are now selected for these four finite journeys; delivery still requires native proof. |
 | Dispatching or coordinating agents | AU1–AU15, AD32, AD37; AGENTS multi-agent | [Agent usage rules](AGENT_USAGE_RULES.md), [GM prompt](GAME_MASTER_PROMPT.md) |
@@ -140,7 +140,7 @@ line they restate.
 
 Each line restates an accepted decision. "Means" follows AD6: what a skill,
 power, item, contact, access or prior knowledge actually supports. Sources are
-the bold entry names in [PROJECT accepted decisions](../PROJECT.md#accepted-decisions)
+the bold entry names in [accepted decisions in the project log](gm/PROJECT_LOG_2026-10-29.md#accepted-decisions)
 unless another owner is linked.
 
 ### Worlds and canon

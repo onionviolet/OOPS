@@ -7,9 +7,9 @@ AGENTS.md is the shared rulebook for Codex and Claude. Edit it there, not here.
 For book/fanwork downloads, follow AGENTS.md's source acquisition tools link;
 it identifies the existing polite scraper and bridges before a new collector.
 
-PROJECT.md is a current-priorities and accepted-decisions summary (about 1,500
-lines as of 2026-10-19, so read the sections you need). The full pre-2026-10-07 history is in
-`docs/gm/PROJECT_LOG.md` (about 170 KB): search it, do not read it whole.
+PROJECT.md is a short current-state summary (under 200 lines, test-enforced; read it
+whole). Dated history is in `docs/gm/PROJECT_LOG_2026-10-29.md` (2026-10-07 to
+2026-10-29) and `docs/gm/PROJECT_LOG.md` (earlier): search them, do not read them whole.
 
 Codex history for this repo lives in `~/.codex/sessions/` (session_meta cwd
 `/Users/weiwei/code/yet-another-idle-rpg`) and `~/.codex/memories/MEMORY.md`.

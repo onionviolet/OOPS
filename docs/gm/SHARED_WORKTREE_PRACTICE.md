@@ -3,7 +3,7 @@
 Current checkout note, checked 2026-10-22: ordinary work uses primary `master`
 under AD41. The `codex/gameplay-foundations` branch named in the introduction
 below is the original shared-branch context, not today's branch selection.
-Read [PROJECT's current delivery](../../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+Read [PROJECT's current delivery](PROJECT_LOG_2026-10-29.md#current-delivery-routing-reconciled-2026-10-23)
 and the relevant live checkpoint before resuming; inspect live Git status and
 ownership rather than restoring an older task snapshot. The
 [shared-doc audit](../reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md) records

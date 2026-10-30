@@ -1,12 +1,14 @@
 # Agent instructions
 
 Read [GROUND_RULES](docs/GROUND_RULES.md) (one page, 2026-10-26), then the
-PROJECT.md summary and the relevant source before changing this project.
+PROJECT.md summary and the relevant source before changing this project. That
+is the whole startup read; everything else below is looked up when a task needs it.
 
 ## Standing direction and consistency gates
 
 `docs/USER_VISION.md` preserves Weibao's goals, reasons and original requests;
-`PROJECT.md` surfaces current priorities and accepted decisions. Relevant design
+`PROJECT.md` is the short current-state summary: current focus and standing
+priorities. Accepted decisions live as AD lines in the rules index or their rulebook. Relevant design
 owners translate that direction into behavior. Checkpoints and verification
 reports record execution and evidence, not new product authority.
 
@@ -24,14 +26,17 @@ record. Before completion or handoff, check both the result and remaining gates
 against the accepted direction. Rebuilt browser evidence at the target viewport
 is required for UI behavior claims; mobile checks cannot substitute for it.
 
-When direction changes, update its owner and PROJECT.md's summary, reconcile
-affected active instructions, and preserve superseded wording as dated history.
+When direction changes, update its owner, replace the affected PROJECT.md line
+(never append a dated section; `tests/project_md_shape.test.js` enforces the
+200-line cap), reconcile affected active instructions, and move superseded wording
+to [the project log](docs/gm/PROJECT_LOG_2026-10-29.md) as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
-Start every task at the [rules index](docs/RULES_INDEX.md) (2026-10-16): its
-router names the rule codes that apply to the task, and AD1–AD45 restate the
-accepted direction for aspects without their own rulebook. Cite codes in task
-records and handoffs. The rulebooks below keep their own detail. Keep the index
+Code areas load their rules automatically from `.claude/rules/` by path. Open the
+[rules index](docs/RULES_INDEX.md) router when a task makes or changes a design
+rule, needs a rule code for a lane brief, or touches an aspect with no path rule;
+AD1–AD45 restate the accepted direction for aspects without their own rulebook.
+Cite codes in task records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
 router rows, and a new or changed accepted decision updates its AD line. Lane
 briefs and task packets name the codes they apply. Shared guidance lives here and
@@ -58,7 +63,9 @@ playable results. Do not impose a coached coding workflow unless he asks to
 learn the implementation.
 
 Make reasonable reversible prototype choices, label them as proposals and show
-the playable result. Record accepted decisions in PROJECT.md.
+the playable result. Record accepted decisions in USER_VISION (his words) and the
+owning rulebook or AD line; touch PROJECT.md only when the current focus or a
+standing priority changes.
 
 ## Design framing
 

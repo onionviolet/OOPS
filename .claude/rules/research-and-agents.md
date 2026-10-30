@@ -8,7 +8,8 @@ paths:
 ---
 
 Original worlds and specific book references are both allowed design sources.
-Follow PROJECT.md on attribution, source verification, and inspiration versus
+Follow the accepted decisions (the rules index AD lines, with the dated originals under
+[Accepted decisions in the project log](../../docs/gm/PROJECT_LOG_2026-10-29.md#accepted-decisions)) on attribution, source verification, and inspiration versus
 a requested direct adaptation. Do not block on a finalized favorite-book list.
 Reading a supplied book in full is allowed; never modify the source library or
 commit raw prose. Keep `docs/research/novels/` out of git. For a deep dive
