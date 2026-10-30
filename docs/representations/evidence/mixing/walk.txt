@@ -1,0 +1,52 @@
+FRESH
+Effects you have observed, by ingredient:
+River bellleaf (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Emberseed (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Mellow salt (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Spring water (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Vials drunk: 0 steeped, 0 boiled.
+Next try: Mix River bellleaf with Spring water and drink one dose. That shows what the plant does on its own.
+
+TRY 1: Next try: Mix River bellleaf with Spring water and drink one dose. That shows what the plant does on its own.
+
+AFTER try 1
+Effects you have observed, by ingredient:
+River bellleaf (known): Health regeneration steady steeped; Stamina regeneration none seen steeped; Agility drag slight steeped.
+Emberseed (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Mellow salt (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Spring water (guessed): Health regeneration guessed; Stamina regeneration guessed; Agility drag guessed.
+Vials drunk: 1 steeped, 0 boiled.
+Next try: You have not seen Emberseed yet. Mix it with Spring water alone (no other plant), then drink one dose.
+
+TRY 2: Next try: You have not seen Emberseed yet. Mix it with Spring water alone (no other plant), then drink one dose.
+
+AFTER try 2
+Effects you have observed, by ingredient:
+River bellleaf (known): Health regeneration steady steeped; Stamina regeneration none seen steeped; Agility drag slight steeped.
+Emberseed (known): Health regeneration none seen steeped; Stamina regeneration strong steeped; Agility drag slight steeped.
+Mellow salt (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Spring water (guessed): Health regeneration guessed; Stamina regeneration guessed; Agility drag guessed.
+Vials drunk: 2 steeped, 0 boiled.
+Next try: You know River bellleaf steeped. Boil the same vial: the process changes how much of each effect reaches you.
+
+TRY 3: Next try: You know River bellleaf steeped. Boil the same vial: the process changes how much of each effect reaches you.
+
+AFTER try 3
+Effects you have observed, by ingredient:
+River bellleaf (known): Health regeneration steady boiled; steady steeped; Stamina regeneration none seen boiled; none seen steeped; Agility drag slight boiled; slight steeped.
+Emberseed (known): Health regeneration none seen steeped; Stamina regeneration strong steeped; Agility drag slight steeped.
+Mellow salt (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Spring water (guessed): Health regeneration guessed; Stamina regeneration guessed; Agility drag guessed.
+Vials drunk: 2 steeped, 1 boiled.
+Next try: You know Emberseed steeped. Boil the same vial: the process changes how much of each effect reaches you.
+
+TRY 4: Next try: You know Emberseed steeped. Boil the same vial: the process changes how much of each effect reaches you.
+
+AFTER try 4
+Effects you have observed, by ingredient:
+River bellleaf (known): Health regeneration steady boiled; steady steeped; Stamina regeneration none seen boiled; none seen steeped; Agility drag slight boiled; slight steeped.
+Emberseed (known): Health regeneration none seen boiled; none seen steeped; Stamina regeneration steady boiled; strong steeped; Agility drag slight boiled; slight steeped.
+Mellow salt (unknown): Health regeneration unknown; Stamina regeneration unknown; Agility drag unknown.
+Spring water (guessed): Health regeneration guessed; Stamina regeneration guessed; Agility drag guessed.
+Vials drunk: 2 steeped, 2 boiled.
+Next try: Add Mellow salt to a plant mix you already know, then compare the dose with the one before.

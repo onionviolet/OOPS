@@ -5,12 +5,14 @@ import {projectMixtureFeedback,mixtureFailureText} from './mixture_feedback.js';
 import {projectMixtureDestinations,MIXTURE_DESTINATIONS} from './mixture_destinations.js';
 import {quoteMixtureAction} from './mixture_native.js';
 import {RESPONSIVE_METHOD} from './mixture_rules.js';
+import {projectMixtureDiscovery,describeVial} from './mixture_discovery.js';
 import {INGREDIENTS,getMixtureOwner,createMixtureState,mixturePresentation,mixtureKey} from './mixture_state.js';
 export function createMixturePanel({craftingContainer,actionContainer,read,act}){
     const launch=document.createElement('button');launch.id='village_mixing_open';launch.textContent='Mix at the Village counter';actionContainer.append(launch);
     const panel=document.createElement('section');panel.id='village_mixing_panel';
     craftingContainer.before(panel);const title=document.createElement('h3');title.textContent='Village mixing counter';panel.append(title);
     const help=document.createElement('p');help.textContent='Whole packs: water + plants. Drink to observe the dose. Responsive follows local laws.';panel.append(help);
+    const learned=document.createElement('section');learned.id='mixture_discovery';learned.className='mixture-discovery';panel.append(learned);
     const rows=document.createElement('div');rows.className='mixture-ingredients';panel.append(rows);
     const amounts={};const stockLabels={};
     const notice=document.createElement('p');notice.id='mixture_notice';notice.setAttribute('role','status');
@@ -50,11 +52,25 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         for(const [id,node]of Object.entries(feedbackNodes))node.textContent=data[id].text;
     }
     function preview(){let q;try{const frame=read(),s=getMixtureOwner()??createMixtureState(frame.seed);q=quoteMixtureAction({...frame,owner:s,request:selection()});currentQuote=q.token;prediction.textContent=mixturePresentation(s,q.product).description;}catch(error){q={error:error.message};currentQuote=null;prediction.textContent=mixtureFailureText(error.message);}updateFeedback(q);renderDestinations();}
+    // What each drunk vial taught, as an ingredient by effect table plus the next sensible try (derived, nothing saved).
+    function renderDiscovery(s){const d=projectMixtureDiscovery(s),table=document.createElement('table');table.className='mixture-discovery-table';
+        const head=document.createElement('tr'),corner=document.createElement('th');corner.textContent='Ingredient';head.append(corner);
+        for(const e of d.effects){const th=document.createElement('th');th.textContent=e.label;head.append(th);}table.append(head);
+        for(const row of d.rows){const tr=document.createElement('tr');tr.dataset.ingredient=row.id;tr.dataset.state=row.state;const name=document.createElement('th');name.textContent=row.id;tr.append(name);
+            for(const c of row.cells){const td=document.createElement('td');td.dataset.state=c.state;td.className='mixture-cell mixture-cell--'+c.state;td.title=c.text;td.textContent=`${c.state==='known'?'●':c.state==='guessed'?'≈':'?'} ${c.state==='unknown'?'unknown':c.state==='guessed'?'guessed':c.word}`;tr.append(td);}
+            table.append(tr);}
+        const title=document.createElement('strong');title.textContent='What you have learned';
+        const next=document.createElement('p');next.id='mixture_next_try';next.textContent='Next try: '+d.suggestion.text;
+        const set=document.createElement('button');set.id='mixture_next_set';set.type='button';set.textContent='Set up this try';
+        set.onclick=()=>{for(const i of INGREDIENTS)amounts[i.id].value=d.suggestion.prefill.inputs[i.id]??0;process.value=d.suggestion.prefill.process;render();};
+        const parts=[title,table,next,set];const last=Object.values(s?.products??{}).filter(p=>s.knowledge[p.id]).pop();
+        if(last){const v=describeVial(last),line=document.createElement('p');line.id='mixture_last_vial';line.textContent=`Last vial you drank: ${v.potency}${v.side.length?`, with ${v.side.join(', ')}`:''}, ${v.minutes} minutes.`;parts.splice(4,0,line);}
+        learned.replaceChildren();learned.append(...parts);learned.dataset.text=d.text;}
     let outputSignature=null;
     function render(){const frame=read();launch.hidden=!frame.visible;mix.disabled=!frame.ready;for(const i of INGREDIENTS)stockLabels[i.id].textContent=` (${frame.inventory[JSON.stringify({id:i.id})]?.count??0} owned) `;preview();
         const s=getMixtureOwner();const signature=JSON.stringify([s?.sequence,Object.entries(frame.inventory).map(([k,v])=>[k,v.count]),frame.ready]);
         const jobNode=output.querySelector?.('#mixture_job');if(jobNode&&s?.job)jobNode.textContent=`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`;
-        if(signature===outputSignature)return;outputSignature=signature;output.replaceChildren();if(!s)return;
+        if(signature===outputSignature)return;outputSignature=signature;renderDiscovery(s);output.replaceChildren();if(!s)return;
         const job=document.createElement('p');job.id='mixture_job';job.textContent=s.job?`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`:'Mixing vessel free.';output.append(job);
         if(s.job){const cancel=document.createElement('button');cancel.id='mixture_cancel';cancel.textContent='Cancel and return held ingredients';cancel.onclick=()=>run({type:'cancel'});output.append(cancel);}
         for(const p of Object.values(s.products).reverse()){const key=mixtureKey(p),n=frame.inventory[key]?.count??0,known=!!s.knowledge[p.id];if(!n&&!known)continue;const line=document.createElement('div');line.dataset.mixtureProduct=key;

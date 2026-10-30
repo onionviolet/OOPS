@@ -5,10 +5,10 @@ import {currentProductAppearanceView} from './product_appearance_view.js';
 // Original Village law revision 1. Truth is retained, knowledge is independent.
 export const MIXTURE_ID = 'Village mixture';
 export const INGREDIENTS = [
-    {id:'River bellleaf', price:8, route:'Forest road herbalism'},
-    {id:'Emberseed', price:10, route:'Forest road herbalism'},
-    {id:'Mellow salt', price:4, route:'Village mixing counter'},
-    {id:'Spring water', price:2, route:'Village mixing counter'},
+    {id:'River bellleaf', price:8, role:'plant', route:'Forest road herbalism'},
+    {id:'Emberseed', price:10, role:'plant', route:'Forest road herbalism'},
+    {id:'Mellow salt', price:4, role:'carrier', route:'Village mixing counter'},
+    {id:'Spring water', price:2, role:'carrier', base:true, route:'Village mixing counter'},
 ];
 const fail = message => {throw new Error(message);};
 export function localMixtureSeed(seed, scope) {

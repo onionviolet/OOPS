@@ -1824,3 +1824,12 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active .meter-bar-fill {transition:width var(--ui-motion-normal) var(--ui-motion-ease);}
 :root:is([data-effects="off"],[data-effects="reduced"]) #main_content.workspace-active .meter-bar-fill {transition:none;}
 @media (prefers-reduced-motion:reduce) {#main_content.workspace-active .meter-bar-fill {transition:none;}}
+/* Mixing: what you have learned. Words sit beside every mark; colour only reinforces (UR37). */
+.mixture-discovery { margin: var(--ui-space-2) 0 var(--ui-space-3); }
+.mixture-discovery-table { border-collapse: collapse; width: 100%; font-size: var(--ui-type-small); }
+.mixture-discovery-table :is(th,td) { border-bottom: 1px solid var(--workspace-border); padding: var(--ui-space-1) var(--ui-space-2); text-align: left; font-weight: normal; }
+.mixture-discovery-table thead th, .mixture-discovery-table tr:first-child th { color: var(--workspace-muted); }
+.mixture-cell--known { color: var(--ui-text); }
+.mixture-cell--guessed { color: var(--workspace-muted); font-style: italic; }
+.mixture-cell--unknown { color: var(--workspace-muted); }
+#mixture_next_try { margin: var(--ui-space-2) 0; }
