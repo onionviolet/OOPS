@@ -1,0 +1,25 @@
+{
+ "world": "rg",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+  "censusMatch": "^(rg1|rg2|rg3|rg4|rg5|rg6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "rg1-pilot-scenes",
+ "pass": "scenes",
+ "shards": [
+  {
+   "prefix": "rg1c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg1_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ]
+}

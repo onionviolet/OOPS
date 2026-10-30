@@ -1,0 +1,252 @@
+{
+ "world": "dl",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30",
+  "censusMatch": "^(dl1|dl2)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "dl2-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "dl2c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch003-004.txt",
+   "base": "200301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "dl2c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch005-006.txt",
+   "base": "200501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "dl2c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch007-008.txt",
+   "base": "200701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "dl2c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch009-010.txt",
+   "base": "200901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "dl2c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch011-012.txt",
+   "base": "201101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "dl2c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch013-014.txt",
+   "base": "201301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "dl2c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch015-016.txt",
+   "base": "201501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "dl2c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch017-018.txt",
+   "base": "201701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "dl2c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch019-020.txt",
+   "base": "201901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "dl2c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch021-022.txt",
+   "base": "202101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "dl2c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch023-024.txt",
+   "base": "202301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "dl2c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch025-026.txt",
+   "base": "202501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "dl2c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch027-028.txt",
+   "base": "202701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "dl2c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch029-030.txt",
+   "base": "202901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "dl2c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch031-032.txt",
+   "base": "203101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "dl2c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch033-034.txt",
+   "base": "203301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "dl2c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch035-036.txt",
+   "base": "203501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "dl2c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch037-038.txt",
+   "base": "203701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "dl2c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch039-040.txt",
+   "base": "203901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "dl2c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch041-042.txt",
+   "base": "204101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "dl2c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch043-044.txt",
+   "base": "204301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "dl2c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch045-046.txt",
+   "base": "204501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "dl2c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch047-048.txt",
+   "base": "204701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "dl2c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch049-050.txt",
+   "base": "204901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "dl2c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch051-052.txt",
+   "base": "205101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "dl2c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch053-054.txt",
+   "base": "205301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "dl2c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch055-056.txt",
+   "base": "205501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "dl2c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch057-058.txt",
+   "base": "205701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "dl2c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch059-060.txt",
+   "base": "205901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "dl2c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch061-062.txt",
+   "base": "206101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "dl2c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch063-064.txt",
+   "base": "206301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "dl2c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch065-066.txt",
+   "base": "206501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "dl2c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch067-068.txt",
+   "base": "206701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "dl2c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch069-070.txt",
+   "base": "206901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "dl2c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch071-072.txt",
+   "base": "207101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "dl2c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch073-074.txt",
+   "base": "207301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "dl2c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch075-076.txt",
+   "base": "207501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "dl2c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch077-078.txt",
+   "base": "207701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "dl2c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/lead-run-2026-10-30/shard_dl2_b2_ch079-079.txt",
+   "base": "207901",
+   "chapters": "79-79"
+  }
+ ]
+}

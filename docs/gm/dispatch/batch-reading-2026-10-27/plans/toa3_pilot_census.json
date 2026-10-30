@@ -1,0 +1,24 @@
+{
+ "world": "toa",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+  "censusMatch": "^(toa1|toa2|toa3|toa4|toa5|toa6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "toa3-pilot-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "toa3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30/shard_toa3_b3_ch001-002.txt",
+   "base": "300101",
+   "chapters": "1-2"
+  }
+ ]
+}

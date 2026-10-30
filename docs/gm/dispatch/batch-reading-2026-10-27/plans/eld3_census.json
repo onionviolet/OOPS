@@ -1,0 +1,288 @@
+{
+ "world": "eld",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30",
+  "censusMatch": "^(eld1|eld2|eld3)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "eld3-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "eld3c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch003-004.txt",
+   "base": "300301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "eld3c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch005-006.txt",
+   "base": "300501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "eld3c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch007-008.txt",
+   "base": "300701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "eld3c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch009-010.txt",
+   "base": "300901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "eld3c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch011-012.txt",
+   "base": "301101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "eld3c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch013-014.txt",
+   "base": "301301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "eld3c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch015-016.txt",
+   "base": "301501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "eld3c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch017-018.txt",
+   "base": "301701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "eld3c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch019-020.txt",
+   "base": "301901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "eld3c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch021-022.txt",
+   "base": "302101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "eld3c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch023-024.txt",
+   "base": "302301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "eld3c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch025-026.txt",
+   "base": "302501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "eld3c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch027-028.txt",
+   "base": "302701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "eld3c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch029-030.txt",
+   "base": "302901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "eld3c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch031-032.txt",
+   "base": "303101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "eld3c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch033-034.txt",
+   "base": "303301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "eld3c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch035-036.txt",
+   "base": "303501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "eld3c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch037-038.txt",
+   "base": "303701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "eld3c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch039-040.txt",
+   "base": "303901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "eld3c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch041-041.txt",
+   "base": "304101",
+   "chapters": "41-41"
+  },
+  {
+   "prefix": "eld3c042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch042-042.txt",
+   "base": "304201",
+   "chapters": "42-42"
+  },
+  {
+   "prefix": "eld3c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch043-043.txt",
+   "base": "304301",
+   "chapters": "43-43"
+  },
+  {
+   "prefix": "eld3c044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch044-045.txt",
+   "base": "304401",
+   "chapters": "44-45"
+  },
+  {
+   "prefix": "eld3c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch046-047.txt",
+   "base": "304601",
+   "chapters": "46-47"
+  },
+  {
+   "prefix": "eld3c048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch048-049.txt",
+   "base": "304801",
+   "chapters": "48-49"
+  },
+  {
+   "prefix": "eld3c050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch050-051.txt",
+   "base": "305001",
+   "chapters": "50-51"
+  },
+  {
+   "prefix": "eld3c052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch052-053.txt",
+   "base": "305201",
+   "chapters": "52-53"
+  },
+  {
+   "prefix": "eld3c054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch054-055.txt",
+   "base": "305401",
+   "chapters": "54-55"
+  },
+  {
+   "prefix": "eld3c056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch056-057.txt",
+   "base": "305601",
+   "chapters": "56-57"
+  },
+  {
+   "prefix": "eld3c058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch058-059.txt",
+   "base": "305801",
+   "chapters": "58-59"
+  },
+  {
+   "prefix": "eld3c060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch060-061.txt",
+   "base": "306001",
+   "chapters": "60-61"
+  },
+  {
+   "prefix": "eld3c062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch062-063.txt",
+   "base": "306201",
+   "chapters": "62-63"
+  },
+  {
+   "prefix": "eld3c064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch064-065.txt",
+   "base": "306401",
+   "chapters": "64-65"
+  },
+  {
+   "prefix": "eld3c066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch066-067.txt",
+   "base": "306601",
+   "chapters": "66-67"
+  },
+  {
+   "prefix": "eld3c068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch068-069.txt",
+   "base": "306801",
+   "chapters": "68-69"
+  },
+  {
+   "prefix": "eld3c070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch070-071.txt",
+   "base": "307001",
+   "chapters": "70-71"
+  },
+  {
+   "prefix": "eld3c072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch072-073.txt",
+   "base": "307201",
+   "chapters": "72-73"
+  },
+  {
+   "prefix": "eld3c074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch074-075.txt",
+   "base": "307401",
+   "chapters": "74-75"
+  },
+  {
+   "prefix": "eld3c076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch076-077.txt",
+   "base": "307601",
+   "chapters": "76-77"
+  },
+  {
+   "prefix": "eld3c078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch078-079.txt",
+   "base": "307801",
+   "chapters": "78-79"
+  },
+  {
+   "prefix": "eld3c080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch080-081.txt",
+   "base": "308001",
+   "chapters": "80-81"
+  },
+  {
+   "prefix": "eld3c082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch082-083.txt",
+   "base": "308201",
+   "chapters": "82-83"
+  },
+  {
+   "prefix": "eld3c084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch084-085.txt",
+   "base": "308401",
+   "chapters": "84-85"
+  },
+  {
+   "prefix": "eld3c086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch086-087.txt",
+   "base": "308601",
+   "chapters": "86-87"
+  },
+  {
+   "prefix": "eld3c088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/lead-run-2026-10-30/shard_eld3_b3_ch088-088.txt",
+   "base": "308801",
+   "chapters": "88-88"
+  }
+ ]
+}

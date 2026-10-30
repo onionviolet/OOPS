@@ -5,7 +5,10 @@ Modes: worm (every spine file after the first table of contents is a chapter, ti
 wus (Wish Upon the Stars: `Chapter <Number-Word>` only, stops at the Afterword), gc (Godclads: `CHAPTER N` + title, prologue as 0, stops at the Afterword),
 ri (Reverend Insanity, Calibre 15: optional 4th argument V keeps only nav "Volume V", a 100-chapter block of the site's chapter numbering; the Translator/Editor line is dropped),
 rtoc (A Regressor's Tale of Cultivation, Calibre 17: titles come from toc.ncx, files are renumbered 0..N in reading order with the prologue as 0, Author's Q&A files are skipped, and the site's
-own number is appended to the title as `[site ch N]` when it differs; site ad, Discord and translator lines at the start and end of each file are dropped)."""
+own number is appended to the title as `[site ch N]` when it differs; site ad, Discord and translator lines at the start and end of each file are dropped),
+gen (any EPUB whose chapters open with a `Chapter N` block, `Chapter N: Title`, or `Chapter N` then a short title block; running count 1..N, source number kept as `[ch N]` when it differs;
+stops at back matter or a numbering restart after 10 chapters),
+spine (one chapter per spine file of enough text), auto (gen, else spine when gen finds fewer than 4)."""
 import sys, re, zipfile, html, posixpath
 from urllib.parse import unquote
 
@@ -73,7 +76,69 @@ def rtoc_chapters(z):
         out.append((n, title, b))
     return out
 
+HEAD = re.compile(r'^(?:chapter|ch\.?)\s+(\d+|[a-z]+(?:[- ][a-z]+){0,3})\s*(?:[:.\u2013\u2014-]\s*(.*))?$', re.I)
+STOP = re.compile(r'^(thank you for reading|thanks for reading|afterword|about the author|acknowledg|also by |end of book|the end$|preview|sneak peek|excerpt|bonus chapter|glossary|appendix)', re.I)
+
+def gen_chapters(z):
+    """Flat scan of the spine: a block `Chapter N`, `Chapter N: Title` or `Chapter N - Title` opens a chapter (title may be the next short block); the source number is kept as
+    `[ch N]` when it differs from the running count; stops at back matter once chapters have started, or when numbering restarts low after 10 chapters (next-book preview)."""
+    flat = [t for p in spine(z) for t in blocks(z.read(p).decode('utf8'))]
+    out, cur, i, last = [], None, 0, 0
+    while i < len(flat):
+        t = flat[i]; m = HEAD.match(t) if len(t) < 120 else None
+        num = None
+        if m:
+            g = m.group(1); num = int(g) if g.isdigit() else (word_num(g) or None)
+        if num is not None:
+            if len(out) >= 10 and num <= 2 and last > 10: break
+            title = (m.group(2) or '').strip()
+            if not title and i + 1 < len(flat) and len(flat[i + 1]) < 90 and not HEAD.match(flat[i + 1]) and not flat[i + 1].rstrip().endswith(('.', ',', '!', '?', '"', '\u201d')): title = flat[i + 1]; i += 1
+            cur = [len(out) + 1, (title or 'Untitled') + ('' if num == len(out) + 1 else ' [ch %d]' % num), []]; out.append(cur); last = num
+        elif cur is not None and out and len(out) >= 3 and STOP.match(t) and len(t) < 90: break
+        elif cur is not None: cur[2].append(t)
+        i += 1
+    return [tuple(c) for c in out if len(c[2]) >= 3]
+
+FRONT = re.compile(r'^(contents|table of contents|copyright|dedication|title page|cover|map|maps|prologue to|also in series|also by|about|acknowledg|thank|newsletter|glossary|appendix|credits|preview|author.s note|join|patreon|review)', re.I)
+
+def spine_chapters(z):
+    """One chapter per spine file with enough text (`_split_` halves merged): the first short block is the title (a bare number or `Chapter N` line is dropped and the next block used);
+    front matter by title, stops at back matter once chapters have started."""
+    files, out = [], []
+    for p in spine(z):
+        key = re.sub(r'_split_\d+', '', p)
+        b = blocks(z.read(p).decode('utf8'))
+        if files and files[-1][0] == key: files[-1][1].extend(b)
+        else: files.append([key, b])
+    for key, b in files:
+        if sum(map(len, b)) < 1500 or not b: continue
+        if out and STOP.match(b[0]) and len(b[0]) < 90: break
+        t = b[0]
+        if FRONT.match(t) and len(t) < 60: continue
+        body = b[1:]
+        if (re.fullmatch(r'(chapter\s*)?[\d.ivxlc]+', t, re.I) or HEAD.match(t)) and body and len(body[0]) < 90:
+            t = (HEAD.match(t).group(2) if HEAD.match(t) and HEAD.match(t).group(2) else '') or body[0]; body = body[1:] if t == body[0] else body
+        elif len(t) > 90: t, body = 'Untitled', b
+        out.append((len(out) + 1, t.strip(), body))
+    return out
+
+def doc_title(z):
+    opf = re.search(r'full-path="([^"]+)"', z.read('META-INF/container.xml').decode()).group(1)
+    m = re.search(r'<dc:title[^>]*>([^<]*)</dc:title>', z.read(opf).decode('utf8'))
+    return html.unescape(m.group(1)).strip().lower() if m else ''
+
+def auto_chapters(z):
+    g = gen_chapters(z)
+    if len(g) < 4: g = spine_chapters(z)
+    dt = doc_title(z)
+    # a leading title page that carried enough text to pass the size test is not chapter 1
+    if g and len(g[0][1]) > 6 and g[0][1].lower() in dt: g = [(i + 1, t, b) for i, (_, t, b) in enumerate(g[1:])]
+    return g
+
 def chapters(mode, z, vol=0):
+    if mode == 'auto': return auto_chapters(z)
+    if mode == 'spine': return spine_chapters(z)
+    if mode == 'gen': return gen_chapters(z)
     if mode == 'ri': return ri_chapters(z, vol)
     if mode == 'rtoc': return rtoc_chapters(z)
     out = []

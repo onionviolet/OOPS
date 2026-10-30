@@ -66,4 +66,14 @@ each window's starting level: the 5-hour window reset to 1% before wave 3, so it
 the weekly window started at 12%, so its stop is 27%). Stop on a wave with more than two grade-C shards, name accuracy under 0.9 on any
 shard, or three consecutive failures of one kind.
 
-**Blockers:** none. Reading continues in a fresh coordinator per the [handoff](READING_HANDOFF.md). Wave estimate from wave 4: 150,000 tokens per shard under v2 (stop line 1.65 million per wave of 10).
+## Luna queue, 2026-10-30 (Codex subscription, $0 API)
+
+One lane per shard (census, people, rules, texture), 4 lanes, stop at Codex 85%, one retry at high. Wave 1 (`books_wave1.txt`, 46 books: `coi`, `yas1-5`, `wus1-8`, `worm`, `sup`, `rtoc`, `ttks1-5`, `ss`, `ss9-11`, `ri5-24`) started 2026-10-30 05:15 UTC; at 13:46 UTC `coi`, `yas1-5` and `wus1-6` were finished, no shard failed after retry. About 60 shards an hour measured on `wus6`.
+
+**Wave 2, go "Send the rest of the codex reading batches too" (2026-10-30, relayed by the supervisor chat).** Source Library epubs not yet read were registered in `plans/books.json` with `scripts/lead_run/register_sl_books.mjs` (chapter finder: `normalize_epub_chapters.py auto`), plans written by `make_book_plans.mjs --prepare --schema 1.5` (no run files, nothing sent). 75 books, 3,545 shards, about 59 Codex hours at the measured rate, spread over several days by the 85% stop. Order in `books_wave2.txt`: Mark of the Fool 1-7, Tree of Aeons 1-6, Randidly Ghosthound 1-6, Elydes 1-3, Street Cultivation 2-3, Raksura (1,079 shards), then Pale Lights, A Practical Guide to Evil, 12 Miles Below 1-7, Beware of Chicken 1-5, Skill-Grinder 1-5, Path of Ascension (1-8, 10, 11), Mana Mirror 1-5, Dungeon Core 3-6, Dungeon Life 1-2, Azarinth Healer, He Who Fights with Monsters, Small Town Hero, Virtuous Sons, Beneath the Dragoneye Moons, Forge of Destiny 2, and last Worth the Candle (237), The Runesmith (150), The Wandering Inn vol 1 (224), Ar'Kendrithyst (493). A supervisor (PID 31389) starts the combined list when driver 6790 exits and retries every 30 minutes after a cap stop.
+
+Not registered (chapter finder found too few chapters): Street Cultivation 1, Vita Nostra, Forge of Destiny 1, Dragon's Egg, The Steerswoman 1-2, Chrysalis, Cradle 4-10, the Log Horizon and anime light novels. Scenes pass for these books stays on the Haiku batch route.
+
+Spot check of 15 rows over 3 new books: not yet done (first new-book ingest comes after the wave 1 list ends).
+
+**Next step (one line):** Luna queue runs wave 1 then wave 2 unattended; spot-check 15 rows in 3 new books at the first wave 2 ingest, then Weibao's go on November Haiku run files for scenes.

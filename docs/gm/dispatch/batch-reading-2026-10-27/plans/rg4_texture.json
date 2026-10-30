@@ -1,0 +1,373 @@
+{
+ "world": "rg",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+  "censusMatch": "^(rg1|rg2|rg3|rg4|rg5|rg6)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "rg4-texture",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "rg4c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch001-002.txt",
+   "base": "400101",
+   "chapters": "1-2"
+  },
+  {
+   "prefix": "rg4c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch003-004.txt",
+   "base": "400301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "rg4c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch005-006.txt",
+   "base": "400501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "rg4c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch007-008.txt",
+   "base": "400701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "rg4c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch009-010.txt",
+   "base": "400901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "rg4c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch011-012.txt",
+   "base": "401101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "rg4c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch013-014.txt",
+   "base": "401301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "rg4c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch015-016.txt",
+   "base": "401501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "rg4c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch017-018.txt",
+   "base": "401701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "rg4c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch019-020.txt",
+   "base": "401901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "rg4c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch021-022.txt",
+   "base": "402101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "rg4c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch023-024.txt",
+   "base": "402301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "rg4c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch025-026.txt",
+   "base": "402501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "rg4c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch027-028.txt",
+   "base": "402701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "rg4c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch029-030.txt",
+   "base": "402901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "rg4c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch031-032.txt",
+   "base": "403101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "rg4c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch033-034.txt",
+   "base": "403301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "rg4c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch035-036.txt",
+   "base": "403501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "rg4c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch037-038.txt",
+   "base": "403701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "rg4c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch039-040.txt",
+   "base": "403901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "rg4c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch041-042.txt",
+   "base": "404101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "rg4c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch043-044.txt",
+   "base": "404301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "rg4c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch045-046.txt",
+   "base": "404501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "rg4c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch047-048.txt",
+   "base": "404701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "rg4c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch049-050.txt",
+   "base": "404901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "rg4c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch051-052.txt",
+   "base": "405101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "rg4c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch053-054.txt",
+   "base": "405301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "rg4c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch055-056.txt",
+   "base": "405501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "rg4c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch057-058.txt",
+   "base": "405701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "rg4c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch059-060.txt",
+   "base": "405901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "rg4c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch061-062.txt",
+   "base": "406101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "rg4c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch063-064.txt",
+   "base": "406301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "rg4c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch065-066.txt",
+   "base": "406501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "rg4c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch067-068.txt",
+   "base": "406701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "rg4c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch069-070.txt",
+   "base": "406901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "rg4c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch071-072.txt",
+   "base": "407101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "rg4c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch073-074.txt",
+   "base": "407301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "rg4c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch075-076.txt",
+   "base": "407501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "rg4c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch077-078.txt",
+   "base": "407701",
+   "chapters": "77-78"
+  },
+  {
+   "prefix": "rg4c079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch079-080.txt",
+   "base": "407901",
+   "chapters": "79-80"
+  },
+  {
+   "prefix": "rg4c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch081-082.txt",
+   "base": "408101",
+   "chapters": "81-82"
+  },
+  {
+   "prefix": "rg4c083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch083-084.txt",
+   "base": "408301",
+   "chapters": "83-84"
+  },
+  {
+   "prefix": "rg4c085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch085-086.txt",
+   "base": "408501",
+   "chapters": "85-86"
+  },
+  {
+   "prefix": "rg4c087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch087-088.txt",
+   "base": "408701",
+   "chapters": "87-88"
+  },
+  {
+   "prefix": "rg4c089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch089-090.txt",
+   "base": "408901",
+   "chapters": "89-90"
+  },
+  {
+   "prefix": "rg4c091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch091-092.txt",
+   "base": "409101",
+   "chapters": "91-92"
+  },
+  {
+   "prefix": "rg4c093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch093-094.txt",
+   "base": "409301",
+   "chapters": "93-94"
+  },
+  {
+   "prefix": "rg4c095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch095-096.txt",
+   "base": "409501",
+   "chapters": "95-96"
+  },
+  {
+   "prefix": "rg4c097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch097-098.txt",
+   "base": "409701",
+   "chapters": "97-98"
+  },
+  {
+   "prefix": "rg4c099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch099-100.txt",
+   "base": "409901",
+   "chapters": "99-100"
+  },
+  {
+   "prefix": "rg4c101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch101-102.txt",
+   "base": "410101",
+   "chapters": "101-102"
+  },
+  {
+   "prefix": "rg4c103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch103-104.txt",
+   "base": "410301",
+   "chapters": "103-104"
+  },
+  {
+   "prefix": "rg4c105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch105-106.txt",
+   "base": "410501",
+   "chapters": "105-106"
+  },
+  {
+   "prefix": "rg4c107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch107-108.txt",
+   "base": "410701",
+   "chapters": "107-108"
+  },
+  {
+   "prefix": "rg4c109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch109-110.txt",
+   "base": "410901",
+   "chapters": "109-110"
+  },
+  {
+   "prefix": "rg4c111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch111-112.txt",
+   "base": "411101",
+   "chapters": "111-112"
+  },
+  {
+   "prefix": "rg4c113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch113-114.txt",
+   "base": "411301",
+   "chapters": "113-114"
+  },
+  {
+   "prefix": "rg4c115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch115-116.txt",
+   "base": "411501",
+   "chapters": "115-116"
+  },
+  {
+   "prefix": "rg4c117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30/shard_rg4_b4_ch117-117.txt",
+   "base": "411701",
+   "chapters": "117-117"
+  }
+ ]
+}

@@ -1114,6 +1114,1206 @@
    "duplicateCalibreIds": [
     43
    ]
+  },
+  {
+   "key": "motf1",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-23093902, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-23093902",
+   "title": "Mark of the Fool"
+  },
+  {
+   "key": "motf2",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-23791567, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-23791567",
+   "title": "Mark of the Fool 2"
+  },
+  {
+   "key": "motf3",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25472672, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25472672",
+   "title": "Mark of the Fool 3"
+  },
+  {
+   "key": "motf4",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25472673, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25472673",
+   "title": "Mark of the Fool 4"
+  },
+  {
+   "key": "motf5",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26421468, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26421468",
+   "title": "Mark of the Fool 5"
+  },
+  {
+   "key": "motf6",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-27719433, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-27719433",
+   "title": "Mark of the Fool 6"
+  },
+  {
+   "key": "motf7",
+   "world": "motf",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mark-of-the-fool/private/source/motf7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/mark-of-the-fool/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-28585876, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-28585876",
+   "title": "Mark of the Fool 7"
+  },
+  {
+   "key": "toa1",
+   "world": "toa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/source/toa1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25890599, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25890599",
+   "title": "Tree of Aeons"
+  },
+  {
+   "key": "toa2",
+   "world": "toa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/source/toa2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25315222, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25315222",
+   "title": "Tree of Aeons 2"
+  },
+  {
+   "key": "toa3",
+   "world": "toa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/source/toa3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26274040, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26274040",
+   "title": "Tree of Aeons 3"
+  },
+  {
+   "key": "toa4",
+   "world": "toa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/source/toa4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-27409313, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-27409313",
+   "title": "Tree of Aeons 4"
+  },
+  {
+   "key": "toa5",
+   "world": "toa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/source/toa5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-28359744, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-28359744",
+   "title": "Tree of Aeons 5"
+  },
+  {
+   "key": "toa6",
+   "world": "toa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/tree-of-aeons/private/source/toa6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/tree-of-aeons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-30323283, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-30323283",
+   "title": "Tree of Aeons 6"
+  },
+  {
+   "key": "rg1",
+   "world": "rg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/source/rg1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-18220078, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-18220078",
+   "title": "The Legend of Randidly Ghosthound"
+  },
+  {
+   "key": "rg2",
+   "world": "rg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/source/rg2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26260517, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26260517",
+   "title": "LORG-02. Randidly Ghosthound 2"
+  },
+  {
+   "key": "rg3",
+   "world": "rg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/source/rg3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-22244484, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-22244484",
+   "title": "The Legend of Randidly Ghosthound 3"
+  },
+  {
+   "key": "rg4",
+   "world": "rg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/source/rg4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25665075, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25665075",
+   "title": "The Legend of Randidly Ghosthound 4"
+  },
+  {
+   "key": "rg5",
+   "world": "rg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/source/rg5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25702789, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25702789",
+   "title": "The Legend of Randidly Ghosthound 5"
+  },
+  {
+   "key": "rg6",
+   "world": "rg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/randidly-ghosthound/private/source/rg6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/randidly-ghosthound/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-27051682, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-27051682",
+   "title": "The Legend of Randidly Ghosthound 6"
+  },
+  {
+   "key": "eld1",
+   "world": "eld",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/source/eld1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/elydes/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-28899683, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-28899683",
+   "title": "Elydes"
+  },
+  {
+   "key": "eld2",
+   "world": "eld",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/source/eld2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/elydes/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-30323277, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-30323277",
+   "title": "Elydes 2"
+  },
+  {
+   "key": "eld3",
+   "world": "eld",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/elydes/private/source/eld3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/elydes/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-123576017, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-123576017",
+   "title": "Elydes 3"
+  },
+  {
+   "key": "stc2",
+   "world": "stc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/source/stc2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/street-cultivation/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-17056975, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-17056975",
+   "title": "Street Cultivation 2"
+  },
+  {
+   "key": "stc3",
+   "world": "stc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/street-cultivation/private/source/stc3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/street-cultivation/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-17056976, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-17056976",
+   "title": "Street Cultivation 3"
+  },
+  {
+   "key": "rak",
+   "world": "rak",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/raksura/private/source/rak.epub",
+   "book": 1,
+   "dir": "docs/research/novels/raksura/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-3767630, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-3767630",
+   "title": "The Books of the Raksura"
+  },
+  {
+   "key": "pl",
+   "world": "pl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/pale-lights/private/source/pl.epub",
+   "book": 1,
+   "dir": "docs/research/novels/pale-lights/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124948736, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124948736",
+   "title": "Pale Lights"
+  },
+  {
+   "key": "pge",
+   "world": "pge",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/practical-guide-to-evil/private/source/pge.epub",
+   "book": 1,
+   "dir": "docs/research/novels/practical-guide-to-evil/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-19250326, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-19250326",
+   "title": "A Practical Guide to Evil"
+  },
+  {
+   "key": "wtc",
+   "world": "wtc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/worth-the-candle/private/source/wtc.epub",
+   "book": 1,
+   "dir": "docs/research/novels/worth-the-candle/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-24266328, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-24266328",
+   "title": "Worth the Candle"
+  },
+  {
+   "key": "mb1",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25297946, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25297946",
+   "title": "12 Miles Below"
+  },
+  {
+   "key": "mb2",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26272662, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26272662",
+   "title": "12 Miles Below II"
+  },
+  {
+   "key": "mb3",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-101808742, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-101808742",
+   "title": "12 Miles Below III"
+  },
+  {
+   "key": "mb4",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-72512824, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-72512824",
+   "title": "12 Miles Below IV"
+  },
+  {
+   "key": "mb5",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-117131114, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-117131114",
+   "title": "12 Miles Below V"
+  },
+  {
+   "key": "mb6",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-118936924, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-118936924",
+   "title": "12 Miles Below VI"
+  },
+  {
+   "key": "mb7",
+   "world": "mb",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/12-miles-below/private/source/mb7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/12-miles-below/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-120609941, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-120609941",
+   "title": "12 Miles Below VII"
+  },
+  {
+   "key": "boc1",
+   "world": "boc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/source/boc1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-22092011, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-22092011",
+   "title": "Beware of Chicken"
+  },
+  {
+   "key": "boc2",
+   "world": "boc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/source/boc2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26107509, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26107509",
+   "title": "Beware of Chicken 2"
+  },
+  {
+   "key": "boc3",
+   "world": "boc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/source/boc3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-119967740, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-119967740",
+   "title": "Beware of Chicken 3"
+  },
+  {
+   "key": "boc4",
+   "world": "boc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/source/boc4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124169323, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124169323",
+   "title": "Beware of Chicken 4"
+  },
+  {
+   "key": "boc5",
+   "world": "boc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/beware-of-chicken/private/source/boc5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/beware-of-chicken/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-121156239, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-121156239",
+   "title": "Beware of Chicken 5"
+  },
+  {
+   "key": "sg1",
+   "world": "sg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/source/sg1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-117535143, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-117535143",
+   "title": "The Stubborn Skill-Grinder In a Time Loop"
+  },
+  {
+   "key": "sg2",
+   "world": "sg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/source/sg2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-118936951, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-118936951",
+   "title": "The Stubborn Skill-Grinder In a Time Loop 2"
+  },
+  {
+   "key": "sg3",
+   "world": "sg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/source/sg3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124288050, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124288050",
+   "title": "The Stubborn Skill-Grinder In a Time Loop 3"
+  },
+  {
+   "key": "sg4",
+   "world": "sg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/source/sg4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-126893758, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-126893758",
+   "title": "The Stubborn Skill-Grinder In a Time Loop 4"
+  },
+  {
+   "key": "sg5",
+   "world": "sg",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/skill-grinder/private/source/sg5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/skill-grinder/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-128986384, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-128986384",
+   "title": "The Stubborn Skill-Grinder In a Time Loop 5"
+  },
+  {
+   "key": "poa1",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-23254559, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-23254559",
+   "title": "The Path of Ascension"
+  },
+  {
+   "key": "poa2",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-24266618, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-24266618",
+   "title": "The Path of Ascension 2"
+  },
+  {
+   "key": "poa3",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-25075656, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-25075656",
+   "title": "The Path of Ascension 3"
+  },
+  {
+   "key": "poa4",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26111394, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26111394",
+   "title": "The Path of Ascension 4"
+  },
+  {
+   "key": "poa5",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-27121153, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-27121153",
+   "title": "The Path of Ascension 5"
+  },
+  {
+   "key": "poa6",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-28347695, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-28347695",
+   "title": "The Path of Ascension 6"
+  },
+  {
+   "key": "poa7",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-29377463, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-29377463",
+   "title": "The Path of Ascension 7"
+  },
+  {
+   "key": "poa8",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-116462975, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-116462975",
+   "title": "The Path of Ascension 8"
+  },
+  {
+   "key": "poa10",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa10.epub",
+   "book": 10,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-119782898, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-119782898",
+   "title": "The Path of Ascension 10"
+  },
+  {
+   "key": "poa11",
+   "world": "poa",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/source/poa11.epub",
+   "book": 11,
+   "dir": "docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124740692, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124740692",
+   "title": "The Path of Ascension 11"
+  },
+  {
+   "key": "mm1",
+   "world": "mm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/source/mm1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-115050751, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-115050751",
+   "title": "Mana Mirror 1"
+  },
+  {
+   "key": "mm2",
+   "world": "mm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/source/mm2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-115050756, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-115050756",
+   "title": "Mana Mirror 2"
+  },
+  {
+   "key": "mm3",
+   "world": "mm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/source/mm3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-116820353, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-116820353",
+   "title": "Mana Mirror"
+  },
+  {
+   "key": "mm4",
+   "world": "mm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/source/mm4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-119285506, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-119285506",
+   "title": "Mana Mirror"
+  },
+  {
+   "key": "mm5",
+   "world": "mm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mana-mirror/private/source/mm5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/mana-mirror/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-127745245, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-127745245",
+   "title": "The Third Portal (Mana Mirror Book 5)"
+  },
+  {
+   "key": "dc3",
+   "world": "dc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/source/dc3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/dungeon-core/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124467458, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124467458",
+   "title": "Dungeon Core"
+  },
+  {
+   "key": "dc4",
+   "world": "dc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/source/dc4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/dungeon-core/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124467455, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124467455",
+   "title": "Dungeon Core"
+  },
+  {
+   "key": "dc5",
+   "world": "dc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/source/dc5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/dungeon-core/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124467462, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124467462",
+   "title": "Dungeon Core"
+  },
+  {
+   "key": "dc6",
+   "world": "dc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-core/private/source/dc6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/dungeon-core/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-124461381, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-124461381",
+   "title": "Dungeon Core"
+  },
+  {
+   "key": "dl1",
+   "world": "dl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/source/dl1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/dungeon-life/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-27691131, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-27691131",
+   "title": "Dungeon Life"
+  },
+  {
+   "key": "dl2",
+   "world": "dl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-life/private/source/dl2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/dungeon-life/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-29188348, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-29188348",
+   "title": "Dungeon Life 2"
+  },
+  {
+   "key": "az",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az.epub",
+   "book": 1,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-23752490, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-23752490",
+   "title": "Azarinth Healer"
+  },
+  {
+   "key": "hwfwm",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm.epub",
+   "book": 1,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-11770171, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-11770171",
+   "title": "He Who Fights with Monsters"
+  },
+  {
+   "key": "sth",
+   "world": "sth",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/small-town-hero/private/source/sth.epub",
+   "book": 1,
+   "dir": "docs/research/novels/small-town-hero/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-118724390, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-118724390",
+   "title": "Small Town Hero"
+  },
+  {
+   "key": "vs",
+   "world": "vs",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/virtuous-sons/private/source/vs.epub",
+   "book": 1,
+   "dir": "docs/research/novels/virtuous-sons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-27058429, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-27058429",
+   "title": "Virtuous Sons"
+  },
+  {
+   "key": "bdm",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm.epub",
+   "book": 1,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-24158732, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-24158732",
+   "title": "Beneath the Dragoneye Moons 1"
+  },
+  {
+   "key": "fod2",
+   "world": "fod",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/source/fod2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-26224573, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-26224573",
+   "title": "Forge of Destiny Volume 2 (Destiny Cycle)"
+  },
+  {
+   "key": "rune",
+   "world": "rune",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/runesmith/private/source/rune.epub",
+   "book": 1,
+   "dir": "docs/research/novels/runesmith/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-128506530, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-128506530",
+   "title": "The Runesmith c1-302"
+  },
+  {
+   "key": "twi",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi.epub",
+   "book": 1,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-5056858, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-5056858",
+   "title": "The Wandering Inn"
+  },
+  {
+   "key": "ark",
+   "world": "ark",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/source/ark.epub",
+   "book": 1,
+   "dir": "docs/research/novels/arkendrithyst/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-37346841, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "book-37346841",
+   "title": "Ar'Kendrithyst"
   }
  ]
 }

@@ -1,0 +1,108 @@
+{
+ "world": "fod",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30",
+  "censusMatch": "^(fod2)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "fod2-census",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "fod2c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch003-004.txt",
+   "base": "200301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "fod2c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch005-006.txt",
+   "base": "200501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "fod2c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch007-008.txt",
+   "base": "200701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "fod2c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch009-010.txt",
+   "base": "200901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "fod2c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch011-012.txt",
+   "base": "201101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "fod2c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch013-014.txt",
+   "base": "201301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "fod2c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch015-016.txt",
+   "base": "201501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "fod2c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch017-018.txt",
+   "base": "201701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "fod2c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch019-020.txt",
+   "base": "201901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "fod2c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch021-022.txt",
+   "base": "202101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "fod2c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch023-024.txt",
+   "base": "202301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "fod2c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch025-026.txt",
+   "base": "202501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "fod2c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch027-028.txt",
+   "base": "202701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "fod2c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch029-030.txt",
+   "base": "202901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "fod2c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/forge-of-destiny/private/lead-run-2026-10-30/shard_fod2_b2_ch031-032.txt",
+   "base": "203101",
+   "chapters": "31-32"
+  }
+ ]
+}
