@@ -59,17 +59,22 @@ test("channels stay unknown until measured; the second body appears only while a
     assert.match(figureText(secondBodyFigureSpec({effect:null,condition:{id:"animal_features",daysLeft:3}})),/Animal features \(strained\)[\s\S]*3 days to clear/);
 });
 
-test("the Body & recovery panel shows the figure with its text form and redraws only on change",async()=>{
+test("the Body & recovery panel shows the body by part, acts through its cards and redraws only on change",async()=>{
     const dom=createDom();dom.loadHTML('<html><body><div id="location_actions_div"></div></body></html>');
     const saved={document:globalThis.document};globalThis.document=dom.document;
     try{
         const {createBodyPanel}=await import("../src/body_ui.js");
-        let p=drill(begin());
+        let p=drill(begin()),sent=[];
         const read=()=>({state:p.state,context:context(p),enabled:true,error:"",inDialogue:false});
-        const panel=createBodyPanel({registry:expeditionRegistry,read,command:()=>{}});
-        const root=dom.document.getElementById("body_panel"),figure=root.querySelector(".body-figure");
-        assert.equal(figure.hidden,false);assert.match(figure.querySelector(".fig-text").textContent,/Sore hands \(hands, 12 min left\)/);
-        const svg=figure.querySelector("svg");panel.render();assert.equal(figure.querySelector("svg"),svg);
-        p=advance(p,12);panel.render();assert.notEqual(figure.querySelector("svg"),svg);assert.doesNotMatch(figure.querySelector(".fig-text").textContent,/Sore hands/);
+        const panel=createBodyPanel({registry:expeditionRegistry,read,command:c=>sent.push(c)});
+        const root=dom.document.getElementById("body_panel"),view=root.querySelector(".body-figure");
+        assert.equal(view.hidden,false);
+        assert.match(view.querySelector(".body-chip").textContent,/Sore hands · 12 min left/);
+        const hands=view.querySelector('tr[data-part="hands"]');assert.match(hands.textContent,/0 of 12 min recovered/);
+        const cure=hands.querySelector('[data-body-cure="body.recover"]');assert.equal(cure.disabled,false);
+        cure.click();assert.deepEqual(sent.at(-1),{type:"command",id:"body.recover",targetId:undefined});
+        const table=view.querySelector("table");panel.render();assert.equal(view.querySelector("table"),table);
+        p=advance(p,12);panel.render();assert.notEqual(view.querySelector("table"),table);assert.equal(view.querySelector(".body-chip"),null);
+        assert.match(view.querySelector(".body-view-empty").textContent,/Nothing is troubling/);
     }finally{globalThis.document=saved.document;}
 });

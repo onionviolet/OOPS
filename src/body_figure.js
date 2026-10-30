@@ -81,3 +81,36 @@ export function secondBodyFigureSpec(view) {
         notes: [{text: 'Your memory, skills and knowledge stay yours under the borrowed face; only appearance and voice change.'}],
         legend: [{kind: 'sees', label: 'what they see'}, {kind: 'knows', label: 'what you know'}, {kind: 'worn over', label: 'time left'}, {state: 'active', label: 'borrowed now'}, {state: 'pending', label: 'hidden underneath'}]};
 }
+
+// Round 2 (BC7): the body by part, health-panel style. One row per part that has something to say, with
+// what is wrong now, how far recovery has come and which known verb clears it, beside what others can see.
+// Durations and cures are read from the commands that apply or remove each condition, so new body
+// content shows its own recovery and treatment without view code.
+const effectsOf = d => d.effects || [];
+// `cureCommands` narrows the listed cures to verbs the showing surface can run (default: every command).
+export function bodyViewModel(state, {commands = [], cureCommands = commands, sources = bodySources, conditions = bodyConditions} = {}) {
+    const seat = observerView(state), actor = state?.actors?.[seat.actorId];
+    if (!actor?.facts?.['body.enrolled']) return null;
+    const clock = state.clock ?? 0, live = state.simulation?.conditions?.[seat.actorId] || {};
+    const current = x => x && (x.expiresAt == null || x.expiresAt > clock);
+    const slotOf = c => c.look?.slot || 'hands';
+    const now = conditions.filter(c => c.bioVisible === true && current(live[c.id]) && live[c.id].intensity > 0).map(c => {
+        const record = live[c.id], left = record.expiresAt == null ? null : record.expiresAt - clock;
+        const lengths = [...new Set(commands.flatMap(d => effectsOf(d).filter(e => e.type === 'condition' && e.id === c.id && e.operation === 'apply' && e.duration).map(e => e.duration)))];
+        const total = lengths.length === 1 && left != null && left <= lengths[0] ? lengths[0] : null;
+        const cures = cureCommands.filter(d => effectsOf(d).some(e => e.type === 'condition' && e.id === c.id && e.operation === 'remove')).map(d => ({id: d.id, label: d.label}));
+        return {id: c.id, label: c.label, slot: slotOf(c), level: record.intensity > 1 ? record.intensity : null,
+            time: left == null ? 'until treated' : `${left} min left`, recovered: total ? {done: total - left, of: total} : null,
+            felt: c.bioDetail, seen: c.look?.text || null, cures, waits: left != null};
+    });
+    const held = sources.filter(s => s.look && current(actor.sources?.[s.id]) && !(s.supersededBy && current(actor.sources?.[s.supersededBy])))
+        .map(s => ({id: s.id, label: s.label, slot: s.look.slot, origin: s.origin, seen: s.look.text, felt: s.bioDetail}));
+    const order = [...Object.keys(REGIONS)];
+    const slots = [...new Set([...now.map(c => c.slot), ...held.map(s => s.slot)])].sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
+    const parts = slots.map(slot => ({slot, label: (REGIONS[slot] || {label: slot.charAt(0).toUpperCase() + slot.slice(1)}).label,
+        now: now.filter(c => c.slot === slot), lasting: held.filter(s => s.slot === slot)}));
+    const milestones = MILESTONES.filter(m => !actor.facts[m.done] && (!m.when || actor.facts[m.when]) && (actor.resources?.[m.resource] || 0) > 0)
+        .map(m => ({id: m.id, label: m.label, done: Math.min(m.need, actor.resources[m.resource]), need: m.need, step: m.step, keep: m.keep}));
+    return {title: 'Your body', glance: now.map(({id, label, slot, time, level}) => ({id, label, slot, time, level})), parts, milestones,
+        empty: parts.length ? null : 'Nothing is troubling this body right now. Training, work and injuries will show here by body part.'};
+}

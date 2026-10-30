@@ -1,0 +1,34 @@
+/* Body-by-part view (src/ui/body_view.js). Colors come from theme and UI tokens, so a world skin restyles it.
+   The only effect is a soft chip glow under data-effects full (box-shadow, never layout). */
+.body-view {
+    --bv-ink: var(--theme-text, var(--ui-text));
+    --bv-muted: var(--theme-muted, var(--ui-hairline));
+    --bv-line: var(--theme-border, var(--ui-hairline));
+    --bv-accent: var(--theme-accent, var(--ui-accent));
+    --bv-warn: var(--theme-warning, var(--ui-meter-warn));
+    min-width: 0; color: var(--bv-ink); overflow-wrap: break-word;
+}
+.body-view-glance {display: flex; flex-wrap: wrap; gap: 0.4em; margin: 0 0 0.75em; padding: 0; list-style: none;}
+.body-chip {display: inline-block; padding: 0.15em 0.6em; border: 1px solid var(--bv-warn); border-radius: 999px; color: var(--bv-warn);}
+:root[data-effects="full"] .body-chip {box-shadow: 0 0 0.4em var(--bv-warn);}
+.body-view-empty {color: var(--bv-muted); margin: 0.5em 0;}
+.body-view-parts {width: 100%; border-collapse: collapse; table-layout: auto;}
+.body-view-caption {caption-side: top; text-align: left; font-size: 0.8em; color: var(--bv-muted); padding-bottom: 0.3em;}
+.body-view-parts th, .body-view-parts td {text-align: left; vertical-align: top; padding: 0.3em 0.6em 0.3em 0; border-bottom: 1px solid var(--bv-line);}
+.body-view-parts thead th {font-weight: normal; font-size: 0.8em; color: var(--bv-muted);}
+.body-view-parts tbody th {font-weight: 600; width: 7em; hyphens: none;}
+.body-view-seen {width: 32%;}
+.body-view-parts p {margin: 0.1em 0;}
+.body-view-cond + .body-view-cond {margin-top: 0.5em;}
+.body-view-warn {color: var(--bv-warn);}
+.body-view-felt, .body-view-wait, .body-view-reason, .body-view-recovered, .body-view-none {color: var(--bv-muted);}
+.body-view-felt, .body-view-wait {font-size: 0.9em;}
+.body-view-reason {font-size: 0.85em; margin-left: 0.5em;}
+.body-view-recovered {margin-left: 0.5em; font-size: 0.9em;}
+.body-view-meter {width: 8em; max-width: 100%; vertical-align: middle; accent-color: var(--bv-accent);}
+.body-view-cure {margin: 0.25em 0.25em 0 0; font: inherit;}
+.body-view-heading {margin: 1em 0 0.3em; font-size: 1em;}
+.body-view-milestones {min-width: 0;}
+.body-view-meter::-webkit-meter-bar {background: var(--bv-line); border: 0; border-radius: 999px; height: 0.5em;}
+.body-view-meter::-webkit-meter-optimum-value, .body-view-meter::-webkit-meter-suboptimum-value {background: var(--bv-accent); border-radius: 999px;}
+.body-view-meter::-moz-meter-bar {background: var(--bv-accent);}
