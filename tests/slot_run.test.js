@@ -9,7 +9,9 @@ import {fileURLToPath} from 'node:url';
 const SCRIPT = fileURLToPath(new URL('../scripts/slot_run.mjs', import.meta.url));
 
 function env(dir) {
-  return {...process.env, YAIRPG_SLOT_DIR: dir, YAIRPG_SLOT_POLL_MS: '50'};
+  // The suite itself may run under a held slot; these tests need a clean environment.
+  const {YAIRPG_SLOT_HELD, ...rest} = process.env;
+  return {...rest, YAIRPG_SLOT_DIR: dir, YAIRPG_SLOT_POLL_MS: '50'};
 }
 function start(dir, args) {
   const child = spawn(process.execPath, [SCRIPT, ...args], {env: env(dir), stdio: ['ignore', 'pipe', 'pipe']});
@@ -94,4 +96,11 @@ test('--max-load holds the gate while the load average is above it, without taki
   const ok = spawnSync(process.execPath, [SCRIPT, '--max-load', '100000', '--', process.execPath, '-e', '0'], {env: env(dir)});
   assert.equal(ok.status, 0);
   rmSync(dir, {recursive: true, force: true});
+});
+
+test('a nested slot_run under a held slot runs without taking another slot', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'slots-'));
+    const inner = `node ${SCRIPT} --slots 1 -- node -e "process.exit(7)"`;
+    const r = spawnSync(process.execPath, [SCRIPT, '--slots', '1', '--', 'sh', '-c', inner], {env: env(dir), encoding: 'utf8', timeout: 15000});
+    assert.equal(r.status, 7);
 });

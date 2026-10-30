@@ -98,6 +98,13 @@ async function main() {
     console.error('slot_run: no command after --');
     process.exit(2);
   }
+  // A wrapped command that wraps again (slot_run -- npm test) runs under the outer slot; re-acquiring could deadlock a full pool.
+  if (process.env.YAIRPG_SLOT_HELD) {
+    const inner = spawn(args.command[0], args.command.slice(1), {stdio: 'inherit'});
+    inner.on('error', (e) => { console.error(`slot_run: ${e.message}`); process.exit(127); });
+    inner.on('exit', (code, signal) => process.exit(code ?? (signal ? 128 + 15 : 1)));
+    return;
+  }
   const pool = poolOf(args.kind);
   const slots = args.slots || DEFAULT_SLOTS[pool];
   const info = {
@@ -128,7 +135,7 @@ async function main() {
   }
   if (announced) console.error('slot_run: slot acquired');
 
-  child = spawn(args.command[0], args.command.slice(1), {stdio: 'inherit'});
+  child = spawn(args.command[0], args.command.slice(1), {stdio: 'inherit', env: {...process.env, YAIRPG_SLOT_HELD: '1'}});
   child.on('error', (e) => {
     console.error(`slot_run: ${e.message}`);
     release();

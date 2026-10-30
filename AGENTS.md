@@ -124,7 +124,9 @@ is reached.
 Runtime completion and pre-commit commands are `npm run build`, `npm test`,
 `npm run check:arch` and `npm run check:rules`, at the stages assigned by AD36
 below. `check:rule-behavior` is an optional focused route into existing tests,
-not an additional universal gate. Docs-only changes use relevant document/link
+not an additional universal gate. `npm test` already runs through the machine-wide
+limiter (`scripts/slot_run.mjs`, `--test-concurrency=4`, max-load gate); never wrap it again
+and use `npm run test:raw` only on a quiet machine. Docs-only changes use relevant document/link
 checks; changes to the rules index or registered codes run `check:rules`.
 
 Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-verification-ad36).

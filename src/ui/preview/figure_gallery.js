@@ -3,20 +3,8 @@
 import {renderFigure} from '../figure.js';
 import {applyCustomizationProfile, defaultCustomizationState, neutralPresentationSettings} from '../../customization_profiles.js';
 import {FIGURE_FIXTURES} from './figure_fixtures.js';
-import './fixtures/abilities.js'; // RPX5 advancement ladders register into FIGURE_FIXTURES
-import './fixtures/rituals.js'; // registers RPX1/RPX2 fixtures
-import {FAMILY_FIXTURES} from './fixtures/family_tree.js';
-import './fixtures/combat.js';
-import {MAP_FIXTURES} from './fixtures/maps.js';
+import {FIXTURE_MANIFEST} from './fixtures/manifest.js';
 import {mountCharacterSheetGallery} from './character_sheet_gallery.js'; queueMicrotask(() => mountCharacterSheetGallery(document.getElementById('fig_gallery')));
-import {BODY_FIXTURES} from './fixtures/body.js'; FIGURE_FIXTURES.push(...BODY_FIXTURES);
-import './fixtures/knowledge.js';
-import './fixtures/research.js';
-import {FIGURE_FIXTURES_ORGANIZATIONS} from './fixtures/organizations.js';
-import {CRAFTING_FIXTURES} from './fixtures/crafting.js'; FIGURE_FIXTURES.push(...CRAFTING_FIXTURES);
-import './fixtures/time.js'; // TIME_AND_CHRONICLE return digest registers into FIGURE_FIXTURES
-import './fixtures/spacetime.js';
-import {RELATIONSHIP_WEB_FIXTURES} from './fixtures/relationship_web.js';
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};
@@ -36,8 +24,10 @@ bar.append(el('strong', {}, 'Figure gallery'), select);
 const main = el('main', {id: 'fig_gallery'});
 document.body.append(bar, main);
 
-// Fixtures register by import (FIGURE_FIXTURES) or export their own list; one id appears once.
-const GALLERY = [...new Map([...FIGURE_FIXTURES, ...FAMILY_FIXTURES, ...MAP_FIXTURES, ...FIGURE_FIXTURES_ORGANIZATIONS, ...RELATIONSHIP_WEB_FIXTURES].map(spec => [spec.id, spec])).values()];
+// Fixtures register by import (FIGURE_FIXTURES) or export their own list; fixtures/manifest.js names each module; one id appears once.
+const listed = [];
+for (const [load, name] of FIXTURE_MANIFEST) { const mod = await load(); if (name) listed.push(...mod[name]); }
+const GALLERY = [...new Map([...FIGURE_FIXTURES, ...listed].map(spec => [spec.id, spec])).values()];
 for (const spec of GALLERY) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));

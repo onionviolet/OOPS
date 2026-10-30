@@ -1,0 +1,27 @@
+# Stylesheet load order for index.html, one href per line. Append one line to add a sheet.
+# build.js writes the <link> block between the stylesheets markers in index.html; do not hand-edit it.
+styles/settled_text_effects.css
+styles/customization.css
+styles/workspace.css
+styles/workspace_discovery.css
+styles/display_settings.css
+styles/status_window.css
+style.css
+styles/action_legibility.css
+styles/crafting_detail.css
+styles/component_themes.css
+styles/start_probe.css
+styles/ui_tokens.css
+styles/shell_layout.css
+styles/inventory.css
+styles/opponents.css
+styles/combat_log.css
+styles/oops_branding.css
+styles/shell_chrome.css
+styles/inventory_composition.css
+styles/nearby_context_view.css
+styles/ui_extras.css
+styles/scene_card.css
+styles/meter_bar.css
+styles/corc_readability.css
+styles/material_icons.css

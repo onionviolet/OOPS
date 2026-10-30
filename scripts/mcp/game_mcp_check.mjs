@@ -6,7 +6,8 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
-import {mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {existsSync, mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, dirname, resolve} from 'node:path';
 
@@ -120,6 +121,22 @@ async function frozenAndNative(c) {
     assert.equal((await c.tool('game_status',{sessionId:'frozen'})).stateHash,before,'native mirror cannot mutate game session');
     await c.tool('game_close',{sessionId:'frozen'});
     console.log(JSON.stringify({slice:'frozen/native',frozen,native}));
+}
+
+// O5: game_new({checkout}) plays a git worktree and links the private inputs the worktree lacks.
+async function worktreeCheckout(c) {
+    const wt = join(mkdtempSync(join(tmpdir(), 'yairpg-wt-')), 'tree');
+    execFileSync('git', ['worktree', 'add', '--detach', wt, 'HEAD'], {cwd: ROOT, stdio: 'ignore'});
+    try {
+        const first = await c.tool('game_new', {sessionId: 'wt', seed: 3, checkout: wt});
+        assert.equal(first.build.kind, 'live');
+        assert.match(first.build.checkout, /tree$/, 'reply names the played checkout');
+        assert.equal(first.started, true);
+        for(const rel of ['private_packs', 'node_modules']) if(existsSync(join(ROOT, rel))) assert.ok(existsSync(join(wt, rel)), `${rel} is linked into the worktree`);
+        await c.tool('game_close', {sessionId: 'wt'});
+        const outside = (await c.rpc('tools/call', {name: 'game_new', arguments: {sessionId: 'wt', checkout: tmpdir()}})).result;
+        assert.equal(outside.isError, true, 'a folder that is not a worktree of this repo is refused');
+    } finally { execFileSync('git', ['worktree', 'remove', '--force', wt], {cwd: ROOT, stdio: 'ignore'}); }
 }
 
 async function greetElder(c, seed) {
@@ -329,6 +346,7 @@ try {
     const noted = await c.tool('game_report_limit', {wanted: 'a screenshot of the village', blockedBy: 'no browser here', workaround: 'read game_look text'});
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
+    await worktreeCheckout(c);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
     }
 } finally { await c.close(); }
