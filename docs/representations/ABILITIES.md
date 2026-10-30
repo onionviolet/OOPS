@@ -442,7 +442,7 @@ default in [CHOICES](../gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md) item 2. P
 | Headless Chrome 1920x1080, disposable copy (HEAD + this change + the host patch, private advancement pack removed so no later rung names reach tracked evidence), fresh origin | gallery: planned fixture 4 ghost arcs, records fixture lines with "(inferred)"; game: PLAY, probationer, dose, lesson, "Find action" on the reading act gives "after answer a client ...: 1 of 6" and one ghost arc; it persists while the act runs; no page errors | ability lines in game need a promoted Sequence 8 life (not reached); `evidence/abilities/ghost-*` |
 
 Findings for other owners (not changed here):
-- F1. With the private advancement pack present, `lotmPathView` passes `known` as the whole path, so a
+- F1 (fixed on master by the coordinator, `known = max(3, position+2)`). With the private advancement pack present, `lotmPathView` passed `known` as the whole path, so a
   fresh Sequence 9 life sees every later rung named in the ladder (`book_world_lotm_path.js`, `known:
   ladder.path.stages.length`). L10 confirmed it and does not own that file (host wiring: sw-wire or
   floor-wire). Its suggested fix: `known = position + 2` (the next rung's name only), or a count driven
@@ -452,3 +452,93 @@ Findings for other owners (not changed here):
 - F3. The first Round 4 commit (`2bae890d`) carried in-game captures made with the private advancement
   pack present, so they showed later rung names; the follow-up commit replaces them, but the old blobs
   stay in history. Decide before pushing.
+
+## Round 5 (2026-10-30): Skills and techniques tab (G17)
+
+Ordered by the General UI coordinator (book UI wave F2). Proposals; agent-verified, not human-reviewed.
+
+- **What it is.** `src/ui/skills_tab.js` draws the rows `skillsTabRows()` (`read_models/learn_tab_bridge.js`, from L10 `learnView`)
+  builds: one `<details>` per card the seat has heard of, "Label · stage · n of m" as the summary, a meter for a practicing row, and
+  inside it the gates (Met / Not yet), why it cannot be learned yet, practice minutes, the current sign and, only for a card the world
+  marks understood, the next sign. A "Read the skills as text" disclosure holds the same facts as lines (UR37). Empty state: "No
+  techniques known yet." A card the seat has not heard of has no row, and `unstated` never leaves the bridge (ABR19).
+- **Where.** A "Ladder | Skills and techniques" sub-tab pair inside the Tingen Path block, not a fifth workroom tab. Gallery: two
+  sections in `figure-gallery.html` (populated, empty) from `fixtures/skills.js`.
+- **Home is a patch.** `docs/representations/patches/skills-tab-host.patch` touches `book_world_lotm_ui.js` (sub-tabs, `v.skills`) and
+  `perspective_controls.js` (tag `data-lotm-skills`); not applied here (host files). `v.skills` is `skillsTabRows()` output the host
+  builds from held and heard-of cards only; no host view carries it yet, so the tab shows its empty state.
+- **Open to every path (Weibao's ask).** Nothing in the tab, the figure or the feeds names a world or path. `src/ability_skill_rows.js`
+  takes any ladder's typed ability records: `skillRows(cards, {facts, held, known, understood})` for the tab (a card is heard of
+  only when its held source is in `held`, never every card in a pack) and `rungCards(adv, position)` for the ladder's per-rung lines.
+  A test runs a potion rung and a cultivation realm through the same functions. The two Seer-only spots are in the host: the
+  `p.path==='lotm.seer'` guard and `lotmRungAbilities` (both in `book_world_lotm_*`, applied by floor-wire). A world's host should
+  call `rungCards`/`skillRows` with its own ladder and held sources instead; other LOTM pathways, Mistglass, cultivation and spell
+  schools then need no change here, only a ladder with typed records.
+- **Why empty in game.** No advancement rung in the private pack (Sequence 7, 6, 5) has a `learn` block, and the spell packs
+  (`learnable-spells`) belong to other worlds with no Tingen consumer. Populated rows are gallery-only until L10 or a world adapter
+  supplies learn views. I did not invent a learn record for the native `book.lotm.lesson` (L10's data).
+
+Floor (AD43), line by line:
+
+| Line | State |
+|---|---|
+| FLR1 Build | Proven on a disposable copy of master plus this change and the host patch, bundle rebuilt there (no private packs); not the primary bundle |
+| FLR2 Route | Gallery populated and empty rows read; in game from a fresh origin (PLAY, probationer, dose, Path tab, Skills sub-tab) the empty state shows and the ladder pane hides; populated rows not reachable from any life |
+| FLR3 Shown | Visible text and reasons for each row; no action to run, so no cost line applies |
+| FLR4 Used | **Below floor.** The tab has no consumer in game: no learn view reaches the Tingen host yet |
+| FLR5 Kept | No persistence change |
+| FLR6 Labelled | Browser-verified (headless 1920x1080) for the empty state and the gallery; route kind: gallery fixture plus fresh-life empty state |
+
+Verdict: implemented, below floor (FLR4). Evidence: `evidence/abilities/skills-*`.
+
+## Round 6 (2026-10-30): no hardcoded path (P2, P4, P5)
+
+Weibao's direction, relayed by the book UI wave: the ability UI must not hardcode a specific path (USER_VISION "Abilities: no hardcoded
+path"; proposals P1-P6 in the book UI wave PLAN round 5). View side only; the data side (descriptors from rows, several ladders, swaps)
+is `sw-adv`'s. Proposals; agent-verified, not human-reviewed.
+
+- **P2 several ladders (built).** `src/ability_ladders.js` `groupLadders(entries)`: entries `{system, source, view}` group by the world's own
+  system word, then by where the ability comes from (`rung`, `learned`, `item`, `contract`, `cheat`; a world may add kinds). The first ladder
+  is full size and the rest compact; figure ids stay unique. `src/ui/ladder_groups.js` draws them with each figure's text form.
+- **P4 knowledge gates the picker (built).** `pathPicker(entries)` lists only paths with `heard: true`, names only the rungs a view names, and
+  collapses unknown rungs to one "Not yet known"; it never says how many paths exist. `pathPickerText` is its words.
+- **Switch, branch and loss as states (built).** `ladderFigureSpec(view, {events: [{at, kind, label}]})`: `loss` draws the rung broken with
+  "lost <how>"; `switch` and `branch` add words ("switched from here to ...", "branches into ..."). A witness is not told. A world
+  supplies events as data with their cost; nothing is read from a path id.
+- **P5 ratchet (built).** `tests/ability_ui_neutral.test.js` fails if an ability UI module names a world, pathway or system (Tingen, a
+  potion-sequence number, a `book.*.*` id and similar), as `observer_view` is held.
+- **Not done.** The host still builds one ladder and passes `p.path==='lotm.seer'`; showing several ladders in a world needs that host
+  to supply entries (a patch for floor-wire, after `sw-adv` has several ladders as data). Picker and groups are gallery-proven only
+  (`evidence/abilities/ladders-*`), so below floor at FLR2 and FLR4 until a host consumes them.
+
+## Round 7 (2026-10-30): not every path is a ladder (G5-G7)
+
+Weibao's addendum (USER_VISION; proposals G1-G7, book UI wave PLAN round 6): not every world is a ladder; branching, mixing paths to their
+own disaster, maybe a tree for all of them, and what we learn can show the benefits of paths. View side only; `sw-adv` extends
+`ascension_paths.js` to the graph, so these read its descriptors once they exist. Proposals; agent-verified, not human-reviewed.
+
+- **G5 the form follows the shape (built).** `src/ui/figure_graph.js` is one generic layout for the figure primitive (`layoutGraph`, `withLayout`):
+  `chain` (a ladder as nodes), `tree` (layered, a DAG, cycles cut from the roots), `wheel`, `web` (most-linked node in the centre) and `list`
+  (no path); an unknown shape is a list, never a guess. It sets node `at` positions only, so every session's nodes and edges draw through
+  `figure.js` unchanged, with their text form. It lives in its own file, not inside `figure.js`, so it ships without touching the shared renderer.
+- **G6 knowledge gates depth (built).** `src/ability_graph.js` `graphFigureSpec(graph)`: each node and edge carries what the character has learned
+  (`exists`, `name`, `benefits`, `costs`, `mix`, `odds`). An unnamed node reads "Unknown" and never leaks its name; benefits, costs, a mix outcome
+  and its odds each appear only at their level. A node from a cheat or insight, and a rumoured one, say so. The adapter must not be handed
+  what the character cannot know (sealed secrets stay sealed upstream); nothing here reads a secret.
+- **G7 small details (built).** "You are here" (the current state plus words), a trail of taken nodes that survives demotion, rumoured versus
+  confirmed, warning chips on mix edges (strained state plus "warning: ..."), and the source of a node. **Not built:** known paths of the cast.
+- **Evidence.** 1920x1080 headless gallery captures `evidence/abilities/graph-*` (tree, wheel, web, list). One crowded tree layer needed a
+  stagger; edge labels near the figure's left edge can clip (a `figure.js` placement matter, left alone).
+- **Floor.** Gallery-proven only: no host builds a graph path yet (below floor at FLR2 and FLR4). The ratchet test covers the new modules.
+- **AD46 plug-in point (built).** Each world chooses its own systems and their UI; progression is any lasting improvement, not only ranks.
+  `src/progression_forms.js` `progressionForms(forms)` returns `figure(kind, data)`: built-in kinds `ladder`, `graph`, `list`, plus whatever a world
+  registers (a stat sheet, an equipment tier, a knowledge tree) with no shared-module edit. An unregistered kind throws; it never falls
+  back to a ladder. bk-progression will send each world's default form; the view side needs only that registration.
+- **bk-progression needs, taken (built).** `systemGlance(entries, {limit: 3})` gives the sheet's one line per system in that system's own words, then
+  "and N more"; `sourceList(items)` is the no-path list grouped by source. Already covered by earlier rounds: form by shape (`figure_graph.js`), knowledge
+  levels and the guessed marker, cheat and insight marks, mix edges with odds only at the odds level, a demotion trail. **Not built:**
+  `numbersInWorld` metric display (exact, felt words, or nothing) and `persistsAcrossReset`, the breakthrough moment (UR38 effects with a plain-text
+  outcome line), and per-world default form ids; those wait for bk-progression's PROGRESSION_BY_WORLD.md and a host.
+
+Suite status for Rounds 5 to 7: **full suite pending (coordinator's batch run).** My own queued run starved at the limiter's load gate (machine load 50 to 65 against a limit of 12) and was stopped. Focused checks that did pass: `ability_ui_neutral` 8, `figure_graph` 3, `ability_ladder_figure` 16, `figure` and `read_models_upcoming_learn_ask`. The host patches (`ladder-ghost-host.patch` applied; `skills-tab-host.patch` for floor-wire, not applied) mean none of Rounds 5 to 7 is visible in the game yet.
+

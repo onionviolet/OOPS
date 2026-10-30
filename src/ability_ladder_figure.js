@@ -1,5 +1,5 @@
 // RPX5 advancement ladder as a figure spec (docs/representations/ABILITIES.md). Reads a pathView
-// (ascension_paths.js), so every world's ladder (pathway sequences, cultivation realms, method
+// (ascension_paths.js), so every world's ladder (potion-style sequences, realm tracks, method
 // tracks) draws through one adapter and the figure primitive. Holds no state and saves nothing.
 //
 // Rungs climb a vertical track: reached rungs are done, the current rung carries its fill
@@ -57,12 +57,15 @@ export function abilityLines(cards = []) {
  *   seen       witness only: the highest rung index the witness saw used
  *   subject    witness only: whose ladder this is, in the witness's words
  *   id         figure id (defaults from the path id)
- *   crossings  false when the home already lists the next crossing and its risk (the Tingen plan does)
+ *   crossings  false when the home already lists the next crossing and its risk (a host plan block may)
  *   layout     'compact' draws the rungs horizontally (character sheets)
  *   insight    {stages: [label per rung index], thresholds: bool}: a cheat or continuing insight names
  *              rungs the character has not learned; they show as guessed. Never applies to a witness.
  *   planned    {label, adds = 1}: a planned or running act that counts toward the next crossing; the current rung
  *              and that crossing gain a ghost fill and the words "after <label>: n of m" (RS15). Never for a witness.
+ *   events     [{at: rung index, kind: 'switch'|'branch'|'loss', label}]: a rung left for a neighbouring path ('switch'), a rung that splits ('branch', label
+ *              lists the choices) or one lost or demoted from ('loss'). Loss draws the rung broken; the others keep its state and add words (a state is
+ *              never the only carrier of the fact, UR37). They are data a world supplies with its cost, never read from a path id.
  *   abilities  {here: cards[], next: cards[]}: L10 typed ability records for the current and next rung; their
  *              lines replace the plain grant words. Next-rung records show only when the next rung is named.
  */
@@ -97,6 +100,13 @@ export function ladderFigureSpec(view, options = {}) {
     if (!witness && view.ladder.length > 7 && view.position >= 3) { // fold old rungs, keep the one just below
         const k = view.position - 1;
         steps.splice(0, k, {label: `${k} rungs crossed`, state: 'done', note: `${view.ladder[0].label} to ${view.ladder[k - 1].label}`});
+    }
+    const EVENT_WORD = {switch: 'switched from here to', branch: 'branches into', loss: 'lost'};
+    if (!witness) for (const ev of options.events ?? []) {
+        const step = steps[ev.at - (view.ladder.length > 7 && view.position >= 3 && ev.at >= 0 ? Math.max(0, view.position - 2) : 0)];
+        if (!step || !EVENT_WORD[ev.kind]) continue;
+        step.note = [step.note, `${EVENT_WORD[ev.kind]} ${ev.label}`].filter(Boolean).join(', ');
+        if (ev.kind === 'loss') step.state = 'broken';
     }
     const shown = steps.filter((step, i, all) => !(step.state === 'unknown' && all[i - 1]?.state === 'unknown')); // one unknown rung, never a count
     const standing = (shown.find(s => s.state === 'current') || shown[0]).label;
