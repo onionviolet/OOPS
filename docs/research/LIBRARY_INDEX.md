@@ -45,6 +45,29 @@ Registered in `books.json` from Calibre or a Royal Road capture, converted to a 
 
 Two further ttks captures, registered nowhere yet: 我有一个修仙模拟器 (author 不是星期天, 285 chapters, `woyouyigexiuxianmoniqi/`; not the same as 我有个修仙模拟器 by another author) and 凡人：从极阴岛开始的修仙模拟器 (44 chapters, `fanrencongjiyindao-moniqi/`). Do not confuse the simulator-cultivation books with each other.
 
+## Wave 1 acquired 2026-10-29 (Source Library, Z-Library `provider_api`; not batch-registered, not read)
+
+Eleven English EPUBs from the 10-26 discovery shortlist (C4, C7, C9-C11, C13), one edition each. Checks: SHA-256 matched the job record, zip CRC clean, TOC readable. Not run: EPUB preparation, reading, `books.json` registration. Files sit in the Source Library; the Calibre library is untouched.
+
+| Work | Held | Notes |
+|---|---|---|
+| Elydes (Drew Wells) | Books 1-3 | A New Dawn, Tides of Change, Whispers of the Isles |
+| Street Cultivation (Sarah Lin) | Books 1-3 | Trilogy complete |
+| The Books of the Raksura (Martha Wells) | One omnibus, 85 TOC entries | Contains The Cloud Roads, The Serpent Sea and The Siren Depths (the Cloud Roads edition is the omnibus, not a single novel) |
+| The Steerswoman (Rosemary Kirstein) | Books 1-2 | The Steerswoman, The Outskirter's Secret; books 3-4 not fetched |
+| Vita Nostra (Dyachenko) | One novel | Harper Voyager edition; translator not exposed by provider metadata |
+| Dragon's Egg (Robert L. Forward) | One novel | Del Rey edition |
+
+## RR priority wave acquired 2026-10-29 (same route and checks; not batch-registered, not read)
+
+Weibao picked these three over the other RR options. 19 files; the daily quota ran out on the 20th request (Tree of Aeons 7).
+
+| Work | Held | Still to fetch |
+|---|---|---|
+| Mark of the Fool (J.M. Clarke) | Books 1-7 | Book 8 |
+| Tree of Aeons (Spaizzzer) | Books 1-6 | Books 7-8 |
+| The Legend of Randidly Ghosthound (puddles4263 / Noret Flood) | Books 1-6 | Books 7, 9-13; Book 8 not found on Z-Library |
+
 ## Not on disk, or unverified (the one pending list)
 
 Source Library search of 2026-10-28 (metadata only, local and Z-Library providers, nothing downloaded). Z-Library results are premium-tier and `owned: false`; a download needs Weibao's go and the usual pacing.

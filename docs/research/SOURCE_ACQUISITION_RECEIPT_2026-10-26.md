@@ -71,3 +71,45 @@ purchase, commit or push. Agent-verified, not human-reviewed.
 
 Later Log Horizon and the established ranked continuation gaps remain open;
 the current request's eleven linked missing Bookworm volumes are complete.
+
+## Z-Library follow-up, 2026-10-26 evening
+
+Weibao asked for the next ranked Royal Road openings and more RR books through
+Source Library's Z-Library route (`source-library download`, `provider_api`).
+28 downloads used 28 of the 30 daily allowance (assumed limit; not re-read from
+the desktop account). Bioshifter Vol 1 deduplicated against an existing copy.
+
+| Code | Result | Evidence |
+|---|---|---|
+| Z1 | RR openings downloaded | Forge of Destiny 1–2, 12 Miles Below 1–3, Mana Mirror 1, Path of Ascension 1, Dungeon Life 1–2, Ar'Kendrithyst (all chapters), Pale Lights, Beware of Chicken 1, Chrysalis 1, Dragoneye Moons 1, Butcher of Gadobhra 1, Virtuous Sons 1, The Runesmith c1–302 (found by author Kuropon; user crawl of RR) |
+| Z2 | Added from the wider RR/LitRPG set | A Practical Guide to Evil (complete), Worth the Candle (complete), Wandering Inn 1, Azarinth Healer 1, He Who Fights with Monsters 1 |
+| Z3 | Log Horizon 6–11 | Downloaded before Weibao said it was not useful; no further Log Horizon |
+| Z4 | Checked | 28 of 28 new files: SHA-256 matches job record, zip CRC clean, OPF/spine readable. Not run: EPUB preparation, catalogue-registration review, semantic reading |
+| Z5 | Still unmatched | Super Minion, Chaotic Craftsman Worships the Cube, The Daily Grind, The Last Ship in Suzhou, Delve (SenescentSoul). Bookracy (browser timeout) and JNovel (HTTP 509) searches failed once each and were stopped; Forge of Destiny Vol 3 absent on Z-Library |
+
+## Z-Library follow-up, 2026-10-28
+
+Weibao authorized the remaining RR downloads through Source Library's Z-Library
+route (`provider_api`). 25 downloads used today (stopped at the 25 ceiling; no
+quota error seen). One edition per book, preferring titles carrying the book
+number and "A LitRPG Adventure".
+
+| Code | Result | Evidence |
+|---|---|---|
+| Z6 | Skill-Grinder 1–5 downloaded | The Stubborn Skill-Grinder in a Time Loop, Books 1–5 (X-RHODEN-X); keys 117535143:54d99c, 118936951:6fd6ea, 124288050:13ad67, 126893758:42b342, 128986384:5ab218; the 1290510xx duplicate listings were not downloaded |
+| Z7 | Later volumes downloaded | 12 Miles Below 4–7; Life of a Dungeon Core 3–6; Mana Mirror Second Gate, Twin Trials, Third Gate (edition numbering inconsistent on Z-Library; mapping to book numbers unchecked); Path of Ascension 2–6; Beware of Chicken 2–5 |
+| Z8 | Still unmatched | Super Minion, Chaotic Craftsman Worships the Cube (empty result), The Daily Grind (`api_http_error`, not retried), The Last Ship in Suzhou, Delve (SenescentSoul; only Jacob Chance's unrelated Delve), Forge of Destiny Vol 3 (absent), Player 0.4, The Flower That Bloomed Nowhere. Ar'Kendrithyst already held (Z1 all chapters), skipped |
+| Z9 | Checked | 25 of 25 new files: SHA-256 matches job record, zip CRC clean on copies, OPF/spine readable. Not run: EPUB preparation, catalogue-registration review, semantic reading. Not downloaded for quota: Path of Ascension 7+, Beware of Chicken 6+, Mana Mirror Third Portal, 12 Miles Below later |
+
+## Z-Library follow-up, 2026-10-28 (second run)
+
+Weibao authorized the last 5 downloads of the day (desktop-status: 25/30 used,
+5 remaining before; 0 remaining after; no CAPTCHA, login or quota error). No
+omnibus or boxset edition showed up for any of the series.
+
+| Code | Result | Evidence |
+|---|---|---|
+| Z10 | Path of Ascension 7, 8, 10, 11 downloaded | C. Mantis; keys 29377463:82df9e (7), 116462975:61ed2b (8), 119782898:866211 (10), 124740692:273226 (11). Book 9 did not appear in searches for "Path of Ascension 9"; a Book 12 listing exists (128727135:a74e17), not downloaded |
+| Z11 | Mana Mirror Book 5 downloaded | The Third Portal (Mana Mirror Book 5), Tobias Begley, key 127745245:594dfd (a second listing, 127943083:72555d, was not downloaded). A search for Book 6 returned nothing new |
+| Z12 | No match | Beware of Chicken 6 (searched twice, only Books 1-5 listings), Life of a Dungeon Core 7 (latest is Book 6), 12 Miles Below VIII (latest is VII) |
+| Z13 | Checked | 5 of 5 new files: SHA-256 matches job record, zip CRC clean on copies, OPF/spine readable; each TOC shows a single volume (title page then chapters), no omnibus. Not run: EPUB preparation, catalogue-registration review, semantic reading |

@@ -1,6 +1,6 @@
 # Description lint inventory (generated)
 
-Generated from the current authored source tree. Source SHA-256: `e6f634bdf7d121dcb34c45a02a0e62799ca19f9bb997e092c8d7cc07d5e1de87`.
+Generated from the current authored source tree. Source SHA-256: `f6e2eb03fb83e45d947f7eacffae4ac4b2c66d699a259b32f6e84a2e420a75f5`.
 
 Descriptions checked: 1439. With mechanical flags: 1. Missing description fields inventoried for applicability review: 1985.
 

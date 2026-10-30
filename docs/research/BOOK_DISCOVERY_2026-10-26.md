@@ -174,3 +174,56 @@ Zero downloads, transfers, extractions or source chapters read; zero gameplay,
 save, shared acquisition-receipt or provider-refusal edits. No purchase, commit,
 push or publication. Next acquisition depends on selected work/edition and live
 route/quota, not on a claim that this discovery already obtained it.
+
+## More-to-consider round, 2026-10-28 (RR acquisition gaps)
+
+Evidence: Source Library jobs list, HOLDINGS.json (predates the Z-Library
+downloads, so its `no_exact_asset_found` rows for held series are stale) and the
+receipt's Z1–Z9 rows. No new downloads in this round.
+
+ACT NOW (done): none beyond recording this round.
+
+ACCOUNT FOR NOW
+- G1: 53 Z-Library files from Oct 26–28 are verified (hash, CRC, spine) but not
+  EPUB-prepared or catalogue-registered; prepare and register before any reading.
+- G2: Edition versus serial cutoff. Published books are edited and cut from RR;
+  Skill-Grinder (RR stubbed at Book 5), Mana Mirror (numbering mismatch,
+  Third Gate versus Third Portal), Runesmith (c1–302 crawl) each need a
+  cutoff map before a source claim cites them.
+- G3: HOLDINGS.json needs a refresh so stale "not held" rows stop steering searches.
+
+LATER / DELEGATE
+- G4: RR-direct route for titles Z-Library lacks (Super Minion, Daily Grind,
+  Delve, Chaotic Craftsman, Last Ship in Suzhou, Flower That Bloomed Nowhere,
+  Player 0.4): existing lncrawl-polite fork, first chapters only, haiku-level.
+- G5: Forge of Destiny Book 3 (Aethon 2026 listed in metadata, absent on
+  Z-Library) via publisher/other supported route.
+- G6: The Menocht Loop (RH2, rank 7) is a second time-loop RR title still unheld.
+- G7: Continuations once quota allows: Path of Ascension 7+, Beware of Chicken 6+,
+  Mana Mirror 5+, later Dungeon Life and 12 Miles Below.
+- G8: Candidate RR/serial titles not yet in the discovery lists, unverified
+  against holdings and rankings: The Perfect Run, The Primal Hunter, Defiance of
+  the Fall, Super Supportive, Everybody Loves Large Chests, Cinder (Mother of
+  Learning is already referenced in repo docs). Needs a metadata check, not a download.
+
+### Long-term quota plan, 2026-10-28 (searches and metadata only, zero downloads)
+
+- Daily limit 30 confirmed by desktop status (premium through Nov 11, 2026).
+  One download = one slot, so a combined edition saves slots only when its
+  spine is verified to contain every volume it claims.
+- P1: Azarinth Healer has one 8.03 MB "RoyalRoad web novel version, Ch. 1-936"
+  edition (key 118717505:3b270d): one slot for the whole serial to that cutoff,
+  versus Books 2–7 as six slots. Chapter-count and cutoff date still to verify.
+- P2: A Practical Guide to Evil is already held complete; do not buy volumes I–VII.
+- P3: The Wandering Inn exists in three shapes: old "Volume N" EPUBs (1–5 English;
+  the 6–12 entries under id 116410xxx are Portuguese translations, skip), numbered
+  Books 01–18 (one per slot; Book 01 4.91 MB), and a 2026 Harper "Book One, Part
+  One" edition. Held: Volume 1 only. Full coverage via ebooks is ~17 more slots;
+  RR-direct crawl (lncrawl-polite) is the cheaper route for the whole serial.
+  Plan: decide ebook versus crawl per purpose, then spend slots only on Books
+  whose sections matter.
+- P4: He Who Fights with Monsters Books 2–13 are individually listed (12 slots);
+  no omnibus seen. Held: Book 1.
+- P5: Daily plan: at most 5–10 slots per day on series with a named reading
+  need; keep 5 spare for repairs. Each purchase must name its series,
+  volume range and edition cutoff in the receipt.
