@@ -25,7 +25,7 @@ UI coordinator state (02:40): ui-integrator merges the eighteen finished rep-* b
 
 ## Supervisor tick
 
-Every ~40 minutes the supervisor reads usage and the session list. An idle coordinator with queue left gets one nudge to continue. Above the stop lines it sends "checkpoint and hold" instead. It does not write code, start workers or edit other owners' files.
+Every ~40 minutes the supervisor reads usage and the session list. The Sonnet wave coordinator hits its cross-session send cap without a user turn, so the tick nudges idle `sw-*` lanes directly (QUEUE Round 2), at most 8 sends per tick; `sw-death` and `sw-chars` wake from their Codex watchers and get nudged only after an hour idle. `sw-gaps` is nudged when `ideas/` grows by 50+ lines (baseline 224 lines at 02:45). The UI and reading coordinators get a nudge only after 30 minutes idle with queue left. Above the stop lines it sends "checkpoint and hold" instead. It does not write code, start workers or edit other owners' files.
 
 ## Morning report
 
