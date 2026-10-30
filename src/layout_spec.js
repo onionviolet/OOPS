@@ -208,6 +208,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'rune-bench': surface('ST6', {home: 'Reference dock; rune carving, always available', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time']}),
         'economy_standing': surface('ST6', {home: 'Reference dock; opens once a trade, loan or remembered price exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),
         'home-overview': surface('ST6', {home: 'Reference dock beside Homes; read-only glance, opens with the first known home', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
+        'gathering': surface('ST6', {home: 'Reference dock after Village experiments; read-only glance, opens where something can be gathered', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),
         'homes': surface('ST2', {home: 'Known residences and Village home supplier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'body', 'rights'], representations: routed}),
         'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
         'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
