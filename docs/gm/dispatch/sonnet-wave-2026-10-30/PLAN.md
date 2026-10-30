@@ -156,6 +156,26 @@ Options weighed:
   - Sealed fields are gated.
 - **Order:** it starts now. The schema samples rows directly (WA48) and absorbs L7's person-touching families as they land.
 
+## Gap workers past volume 1 (2026-10-30 01:50)
+
+Weibao: "Sonnet stuff for implementing death and restarts and more? Other aspects? ... do we have sonnet workers working on the rest of the book of LOTM? Also consider if COI volumes has details that can help with current implementations." He showed the "General UI improvements" representation sessions (maps, rituals, research, knowledge, worlds, time, economy, relationship web, potions, crafting, organizations, character sheet, abilities, combat, body, family tree).
+
+**State:** L7 landed `2e2cfcb7a`: GM22-GM40 for all 8 LOTM volumes and a family-by-book table over 9 books. Until now no lane built past volume 1. The representation sessions are UI. Our lanes build engine and data only, and each names the UI session that will consume it, so no seam gets built twice.
+
+| Lane | Gaps | Engine owners to extend | Consumed by (UI session) | Boundary |
+| --- | --- | --- | --- | --- |
+| L9 Death, harm and restarts | GM11, GM32; LSD34 and LSD283 harm ladder | `continuation_*`, `anchor_snapshots.js`, `continuation_retention.js` | Body and conditions; Time and chronicle | No UI. Doesn't touch cast or schedule files |
+| L10 Advancement and abilities | GM25 (ladder above the first rung, GM9), GM26 (typed abilities, world-neutral: 6-9 books) | `book_world_lotm_path.js` (Sequence 7 stub), ability owners | Abilities and advancement; Combat and conflict; Character sheet | `sw-rites` owns potion and recipe rows, including promotion rows; L10 owns the ladder mechanism and consumes those ids |
+| L11 Second city and the road | GM22 (second-city kit, world-neutral), GM31 (long travel), GM24 (personas), GM23 (jurisdiction) | `known_routes.js`, `faction_rank.js`, region pack files | Maps and travel; Economy and institutions; Worlds and crossings; Organizations | New region pack files. Doesn't touch Tingen cast files |
+
+**Circle of Inevitability (COI):** it is read (people, rules and texture on Luna; census locally) and sits in the family table. It helps current implementations in two ways:
+- As WA48 shape samples. It is a second era of the same world, so pathways, potions, institutions and prices show how shapes vary by era.
+- As second-world data for GM25, GM26 and GM22 world-neutral seams.
+
+Fence: COI is set after LOTM, so its facts can reveal LOTM outcomes. COI rows inform shape only. Nothing from COI enters LOTM-tracked data, names or player text, and COI-era facts never backfill the LOTM era.
+
+**Load:** load average stays at 150-200 from the representation wave's suites. New lanes run focused tests only and batch their integration hand-offs to `sw-absorb`.
+
 ## Order and stop rules
 
 1. Before any launch: find the owner of the uncommitted `src/book_world_lotm_{cast_host,host,state}.js` and `tests/cast_*` edits; L3-L5 cut from HEAD and must not clobber them at merge.
