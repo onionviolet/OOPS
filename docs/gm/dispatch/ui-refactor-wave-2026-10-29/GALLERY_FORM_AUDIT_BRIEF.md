@@ -51,3 +51,21 @@ Round 2 method:
 Order: housing first (the weakest), then owed ledger, crossing, ladder and versus, then gathering (largest unbuilt gain).
 
 Model: a Sonnet drafter with the advisor for taste calls; if two Sonnet rounds still fall short, one Opus pass on the board and the critique, with the reason stated (agent usage rules).
+
+### Round 2 queue: other aspects with the same gap (Weibao 2026-10-30: "we need to consider similar runs like this but for other aspects too that have similar gaps")
+
+Grouped by family so one run shares a grammar and a reference board. Each run: board, three Luminous variants (one unusual), two self-critique passes, side-by-side shot, Weibao picks. Ranked by gap (visible words now against the audit's target, and how often the player sees it). GF codes are rows in the [gallery audit](../../../audits/GALLERY_FORM_AUDIT_2026-10-30.md).
+
+| Run | Family and GF rows | Words now, target | Reference games to board (check each) | Variant seeds |
+| --- | --- | --- | --- | --- |
+| R2-0 | Housing, GF25 | 120-192, 15 | CK3 holdings, RimWorld rooms, Melvor Township, A Dark Room, Darkest Dungeon hamlet | Running now |
+| R2-1 | Places and sources: gathering GF30, walks GF22 | 259-530, 40-80 | Stardew forage and seasons calendar, Melvor skilling rows, Dwarf Fortress site lists, Kenshi map | site blocks with a stock fill; a season strip with open spans; a nearest-first departure board |
+| R2-2 | Away and time: return digest GF16, day band GF28, loop GF18 | 131-325, 50-70 | Fallout Shelter and idle "while you were away" summaries, Majora's Mask clock, Frostpunk day bar | a tally block per source; a sky strip; a three-day dial |
+| R2-3 | People: who knows GF9, family GF21, lives GF17, standing GF24 | 101-459, 40-90 | CK3 family tree and relations, Dwarf Fortress relationships, Rimworld social tab | a who-knows matrix of blocks; a register with blocks per kin; a standing rung bar |
+| R2-4 | Progress: ladders GF4/GF10, study GF15, knowledge GF14, character sheet GF2 | 151-344, 40-80 | Path of Exile and Grim Dawn trees, Disco Elysium thought cabinet, Melvor mastery, Persona confidant ranks | one rung bar per ladder; a slot rack for thoughts; a progress block per study |
+| R2-5 | Body and making: body GF23, benches GF8/GF11, recipe flow GF12 | 87-278, 40-90 | Dwarf Fortress health, Darkest Dungeon afflictions, Potion Craft, Factorio flow | a block body (head, torso, limbs as blocks); an ingredient slot row with missing as outlines |
+| R2-6 | Fights: versus GF7, chase GF13 | 82-401, 25-40 | Slay the Spire intents, Into the Breach, Darkest Dungeon ranks, FTL | two block columns facing; a road strip with distance blocks |
+
+Also the live panels the coverage audit flagged as still long (Village experiments 181, Standing and ledger 122, Vows and trials 111): they ride with R2-5, R2-3 and R2-4.
+
+Order: wait for R2-0 and Weibao's pick to check that the method works, then R2-1 and R2-3 (largest gaps), then the rest. Budget: each run is about 1-2% of the week; all six would pass the weekly cap, so after R2-0 they run from the 2026-11-02 reset unless Weibao says otherwise.
