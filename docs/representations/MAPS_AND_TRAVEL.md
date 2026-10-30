@@ -271,3 +271,24 @@ Folded into this slice: TP1's quoted minutes on every board row and button, and 
 | TP3 missed-window aftermath | Opus design with the scene lane | Medium | Arriving after a window shows what happened, at witness level, and one route back in |
 | TP4 "go when ready" and next firm clock on the row | Sonnet build | Small | The university row shows the gatehouse shift end next to 25 min; "go when ready" leaves in time |
 | TP7 near/far lodging measurement | Sonnet, headless bot | Small | Two fixed-seed runs reported side by side with the reachable-scene counts |
+
+## Data source and switch-over to the region kit (2026-10-30)
+
+The coordinator assigned the travel model to the sonnet wave's L11 lane ("Second city and the
+road": region kit and travel legs, `known_routes.js` and region pack files; PLAN row in
+`docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md`). The board and the walking map are readers
+and keep no travel model of their own. When this was written, L11's design note was not yet in
+that folder, so the field names below are this lane's request, not L11's decision.
+
+- **Today:** `walkMapSpec` and `walkBoard` read the place panel's view: `places` (place,
+  district, team, here, minutes) and `moves` (id, label, eligible, reasons). Moves are matched
+  to places by the label prefix `Walk to {place} · `. That match is the fragile seam.
+- **Switch point:** once L11 projects legs into the host view, both readers take
+  `legs: [{to, minutes, means, cost?, moveId, eligible, reasons, window?}]` and drop the label
+  match. `means` feeds the board's means column (TP2), `window` feeds the next firm clock (TP4),
+  and legs to another city fill the "Farther" section (MT2-11). Places with no leg stay as
+  rows with no button.
+- **Unchanged by the switch:** seat filtering stays in the host projection; ring and board
+  layout, text form, roles and `data-lotm` button ids stay as they are.
+- **Done check for the switch:** `tests/walk_board.test.js` and `tests/walk_map.test.js` run
+  on a legs-shaped fixture, and the label-prefix match is deleted.
