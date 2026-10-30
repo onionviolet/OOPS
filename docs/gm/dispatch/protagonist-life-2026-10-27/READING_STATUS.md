@@ -17,6 +17,8 @@ Grade-C scene shards: `b4s42`, `b4s44`, `b4s48`, `b5s50`, `b5s52`, `b5s59`, `b6s
 
 **Budget (AU2) for this resume:** $0 and 0 tokens. October credit is spent (about $97.21 of $100); a paid call needs Weibao's go phrase per run file; the November plans (`plans/overnight_2026-11-01-*.json`) are `approval: PENDING` and the fresh credit arrives Nov 1. An agent haiku reader would cost 130-170k tokens a shard against about $0.02 by batch, so no agent reading is dispatched. Usage before/after: not sampled (no reading run).
 
+**Luna pilot (2026-10-29, $0 API, Codex window 26% before and after):** a full scenes reread on Luna at 1.5 graded C/B/C on 3 shards with scenes about half as fine as Haiku's, so it is not the reread route. The better route is enrich-in-place: script tags (16,679 steps), then Luna fills only the 1.5 step fields on the fixed scenes. Pilot on 3 shards: 65 of 65 steps returned, 13 of 15 spot-checked steps supported, 2 partial, 0 contradicted. Details and requirements: [Luna lane](READING_LUNA_LANE.md). The grade-C shards above are fixed by the script set-aside, not by a reread.
+
 **Free lane:** the local COI census queue (tag `n1`, 53 shards done, last entry 2026-10-29 21:05) is not running now; resume with the command in the local handoff when the coordinator's browser checks are done.
 
 **Next step (one line):** Weibao says go on a November run file (Circle of Inevitability `coi` first per C24, or the pending `2026-11-01-*` books); until then, optionally script-repair the 10 grade-C volume 1 shards.
