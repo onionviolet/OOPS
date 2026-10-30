@@ -7006,13 +7006,13 @@ Weibao: "Also need to consider stufff like switching pathways and more but that 
 
 ## Gallery: less generic, less wall of text (2026-10-30)
 
+Weibao, 2026-10-30, after the round 3 gallery: "better but not quite, I feel like it can be so much better, but idk how, can we send these indeas into something to audit each of them, to be less generic and also less wall of text? what liberties do we need to take in that case?"
+
+- Each representation gets audited for genericness and text density; proposals feed the look owner (DESIGN.md, `ui-identity`).
+- Liberties L1-L6 (text form off screen, type hierarchy, bespoke objects per world, drawn assets, say it once, show what matters now) are proposals for gallery redesign drafts: [brief](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md).
+
 Weibao, 2026-10-30, after the five redesign drafts: "We dont need the bright style, work mainly on the blue one, the housing stil lstucks, rather than odd representation, it can just be like a blocky or more abstract? How do other games do it? These are better in some ways but still not the best they can be? HWat can we do to address this?"
 
 - **Luminous Gothic (the blue) is the one look to develop.** The paper skin is parked: the code stays, no further work or captures.
 - **Housing goes blocky and abstract**, not a drawn floor plan with icons.
 - **Process:** several variants per section from a reference board, judged side by side ([brief, round 2](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md#round-2-blocky-luminous-variants)).
-
-Weibao, 2026-10-30, after the round 3 gallery: "better but not quite, I feel like it can be so much better, but idk how, can we send these indeas into something to audit each of them, to be less generic and also less wall of text? what liberties do we need to take in that case?"
-
-- Each representation gets audited for genericness and text density; proposals feed the look owner (DESIGN.md, `ui-identity`).
-- Liberties L1-L6 (text form off screen, type hierarchy, bespoke objects per world, drawn assets, say it once, show what matters now) are proposals for gallery redesign drafts: [brief](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md).
