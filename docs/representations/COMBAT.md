@@ -1,5 +1,7 @@
 # Combat and conflict representation (proposals, 2026-10-30)
 
+**Next slice (2026-10-30):** none listed; ask the coordinator.
+
 Owner of how fights, chases and other conflicts are shown (RPX16, LTU7 in
 [UI design core audit](../audits/UI_DESIGN_CORE_AUDIT.md)). Behavior rules stay in
 [DOMAIN_RULES](../DOMAIN_RULES.md) CBR1-CBR30; this doc only decides display. Everything here

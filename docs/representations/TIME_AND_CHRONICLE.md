@@ -1,5 +1,7 @@
 # Time and chronicle representations (proposals, 2026-10-30)
 
+**Next slice (2026-10-30):** in progress: TC12 upcoming strip, being built by another worker now. Level and effort: not stated in the doc. Done when: not stated in the doc.
+
 Status: agent proposals. Nothing here is accepted until Weibao says so (AD32).
 Covers RPX15 (time) and RPX19 (chronicle of a life) from the
 [UI design audit](../audits/UI_DESIGN_CORE_AUDIT.md), LTU2 (upcoming strip),

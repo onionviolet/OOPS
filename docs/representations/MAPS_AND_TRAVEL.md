@@ -1,5 +1,7 @@
 # Maps, routes and travel (RPX14)
 
+**Next slice (2026-10-30):** Walks as its own panel with a pop-out (MT2-5). Level and effort: sonnet build, Opus review, medium. Done when: pops out in the desktop shell and falls back to a center view in the browser.
+
 Proposals, 2026-10-30, from the UI overhaul wave (one session per representation).
 Applies RPX14 ([UI design audit round 12](../audits/UI_DESIGN_CORE_AUDIT.md)), SUI6 and
 SUI13-SUI16 ([UI rules, scene section](../UI_RULES.md)), SR1, SR6-SR9 and SR24

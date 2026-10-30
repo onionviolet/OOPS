@@ -1,5 +1,7 @@
 # Knowledge, investigation and perception: representation (proposal)
 
+**Next slice (2026-10-30):** Insight view. Level and effort: sonnet, small. Done when: a cheat-sourced knowledge row renders with its mark and a sealed fixture still stays hidden.
+
 Status: **proposal**, 2026-10-30, from the UI representation wave; it binds nothing until
 Weibao says yes (AD32). Codes cited: LTU4 (Journal → Knows home), RPX6 divination results,
 RPX7 spirit or second sight, RPX8 dreams and visions, RPX12 investigation board, RPX13
