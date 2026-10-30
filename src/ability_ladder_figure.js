@@ -7,6 +7,12 @@
 // guessed and unnamed ones unknown (UIV6). The next crossing is a second, horizontal track.
 // A witness (another seat looking at someone else's ladder) gets only the rungs it saw used: no
 // fill, no crossings, no grants, and nothing above what it saw (ABR19).
+//
+// Input contract ("ladder view"), so the source can change without touching the views: today it is
+// pathView() from ascension_paths.js; the sonnet wave's L10 typed ability record and ladder replaces it
+// through one mapper into this same shape (docs/representations/ABILITIES.md, "Source switch").
+//   {path, label, stage, position, next, grants[], nextGrants[], capped, ready, failure?{signs,outcome},
+//    crossings[{id, type, label, need: true|n, have, met, irreversible}], ladder[{label ('???' if unnamed), reached}]}
 const FILLED_BY = new Set(['digest', 'quota']);
 const slug = text => String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 

@@ -388,3 +388,23 @@ Ranked, adding to round 2's list without displacing its first two items:
 3. RS14 window around the current rung as an alternative to the fold, tested on a 10-rung fixture; compare both in the gallery and keep the clearer.
 4. RS19 shared tier-versus-fill rule handed to rep-crafting and rep-rituals as one line each in their docs (theirs to accept).
 5. RS5 inner-voice refusal lines, after the Reports voice line (round 2 second item) lands.
+
+## Source switch: the L10 typed ability record (gap, 2026-10-30)
+
+The coordinator routed the ladder mechanism above the first rung and the typed, world-neutral ability
+record to the sonnet wave's L10 lane (`docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md`, GM25, GM26). These
+views read that record, not a model of their own. At this commit L10 has no design note or code on
+master, so the views still read `pathView`.
+
+- **Seam:** every view here (`ladderFigureSpec`, `ladderGlance`, the witness and insight options) takes
+  one "ladder view" object whose shape is written in the header of `src/ability_ladder_figure.js`. It is
+  exactly what `pathView` returns today.
+- **Switch:** when L10 lands, add one mapper `ladderViewFromRecord(record, observer)` beside L10's owner
+  that returns that shape, and point the Tingen panel at it. No figure, fixture or text-form change.
+  The tests' real-facts case moves to the mapper's output.
+- **Fields L10 should carry for these views**, all optional: the next rung's grants when nameable
+  (`nextGrants`), crossing counts with a type (`digest`, `quota`) so fill works, a `failure` risk line,
+  `known` for how many rungs the character can name, and per-person dated `power` entries with `path`
+  and `level` separate from `title` (L8 sheet schema), which the witness view needs for others.
+- **Open:** typed abilities held per rung (costs, cooldowns, synergies, conflicts: RA24, RA25) belong to
+  L10's record and appear here only once it exists.
