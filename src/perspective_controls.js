@@ -71,6 +71,8 @@ const rows = [
     ['merit-row', 'in-world', 'An available merit use.'],
     ['object-acts', 'in-world', 'Things at hand the character can act on here.'],
     ['path', 'in-world', 'Current pathway information.'],
+    ['ladder', 'in-world', 'This character’s pathway ladder as a figure.'],
+    ['ladder-text', 'in-world', 'This character’s pathway ladder in words.'],
     ['paused-life', 'crossing', 'This line exposes a connection to another life.'],
     ['places', 'in-world', 'Places in the current world.'],
     ['plan', 'in-world', 'Preparation for this character’s next step.'],

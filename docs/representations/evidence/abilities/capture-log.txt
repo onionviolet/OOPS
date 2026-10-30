@@ -1,0 +1,18 @@
+gallery ladder-lantern-self effects=full: true
+gallery ladder-reed-self effects=full: true
+gallery ladder-lantern-witness effects=full: true
+gallery ladder-lantern-self effects=off: true
+play: clicked
+picked
+enrolled
+select: chose Tingen workroom from Other known panels
+game: {"ladder":true,"visible":true,"fig":[687,123,675,362],"panel":[675,-52,699,2201],"text":"Read the ladder as textSeer pathway\nNow: Ordinary clerk. Next: Sequence 9 · Seer.\nTrack Rungs, standing on Ordinary clerk: 1. Ordinary clerk (current); 2. Sequence 9 · Seer (pending); 3. Sequence 8 · Clown (pending); 4. Not yet known (unknown).\nWhat this rung gives: No Beyonder source.\nKey: ✓ done means crossed.\nKey: ▶ current means where you stand.\nKey: · pending means known, ahead.\nKey: ? unknow"}
+chain: [["lotm_panel",false,"block","visible"],["expanded-panel-view",false,"block","visible"],["center_mode_content",false,"block","visible"],["location_related_div",false,"flex","visible"],["workspace-module-body",false,"flex","visible"],["workspace-module",false,"flex","visible"],["workspace-dock parity-region",false,"flex","visible"],["workspace-board",false,"grid","visible"],["main_content",false,"flex","visible"]]
+module: "class=workspace-module data-module=local-actions tabindex=-1 data-composition-parked=false style=--workspace-width: 400px; --workspace-height: 400px; data-pinned=false"
+openers: []
+where: ["<button type=\"button\" data-lotm=\"lotm.move.lodging\">Walk to Tingen probationer lodging · 2 min · North quarter: Nighthawks</button>","<button type=\"button\" data-lotm=\"lotm.move.docks\">Walk to Tingen docks · 20 min · Docks: Mandated Punishers</button>","<button type=\"button\" data-lotm=\"lotm.move.university\">Walk to Tingen university area · 25 min · University area: Machinery team</button>","<button id=\"center_mode_back\" type=\"button\" aria-label=\"← Tingen supervised workroom\">← Tingen supervised workroom</button>"]
+step report_in: clicked book.lotm.report_in
+step accept_allocation: clicked book.lotm.accept_allocation
+step ingest: clicked book.lotm.ingest
+after: Seer pathway | Now: Sequence 9 · Seer. Next: Sequence 8 · Clown. | Track Rungs, standing on Sequence 9 · Seer: 1. Ordinary clerk (done); 2. Sequence 9 · Seer (current; feels unsettled, 0 of 6); 3. Sequence 8 · Clown (pending); 4. Not yet known (unknown). | What this rung gives: Spirituality pool; Material perception once taught.
+errors: []

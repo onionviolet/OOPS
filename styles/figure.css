@@ -56,6 +56,11 @@
 .fig-track-line, .fig-track-progress {stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
 .fig-track-progress {stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong);}
 .fig-svg .fig-track-title {fill: var(--fig-muted);}
+.fig-fill {fill: none; stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong); stroke-linecap: round;}
+.fig-svg .fig-step-note {fill: var(--fig-muted);}
+/* Guessed (UIV6): a rumour or inference, drawn between known and unknown */
+.fig-state--guessed > .fig-body {stroke: var(--fig-ink); stroke-dasharray: var(--fig-dash-empty); fill: var(--fig-surface);}
+.fig-svg .fig-state--guessed .fig-label {font-style: italic;}
 
 /* Edges: kinds take distinct patterns by order of first use, so kind is never color alone */
 .fig-edge-line {fill: none; stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong);}

@@ -4,6 +4,8 @@ import {createMeterBar} from './meter_bar.js';
 import {decorateActionComponents} from './ui_components.js';
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile} from './observer_view.js';
+import {renderFigure} from './ui/figure.js';
+import {ladderFigureSpec} from './ability_ladder_figure.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -118,8 +120,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    const contract=v.records.find(r=>r.id==='book.lotm.contract');
    if(contract)path.append(node('p',contract.text));
   }else{
-  path.append(node('h3',p.label),node('p',p.ladder.map(s=>s.label===p.stage?`[${s.label}]`:s.label).join(' → ')));
-  if(p.felt)path.append(node('p',`The ${p.potion} potion feels ${p.felt}.`));
+  // RPX5: the ladder as a vertical figure; the current rung carries the felt digestion and fills with acts. The plan below keeps the crossings.
+  const fig=node('div'),words=node('details');fig.dataset.lotmLadder='';words.dataset.lotmLadderText='';
+  const {text}=renderFigure(fig,ladderFigureSpec(p,{felt:p.felt,crossings:false}),{idPrefix:'lotm-ladder'});
+  words.append(node('summary','Read the ladder as text'),Object.assign(node('pre',text),{className:'fig-text'}));
+  path.append(node('h3',p.label),fig,words);
   if(p.chosen)path.append(node('p',v.switchNotice));
   else for(const o of p.others){path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')),node('p',v.switchNotice));}
   if(p.next&&!p.capped){
