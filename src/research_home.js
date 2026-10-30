@@ -7,6 +7,8 @@ import {centerModes} from './center_modes.js';
 import {observerView} from './observer_view.js';
 import {createMeterBar} from './meter_bar.js';
 import {renderFigure} from './ui/figure.js';
+import {mountFormSwitch} from './ui/figure_forms.js';
+const mapForms = new Map(); // form chosen per map, kept across redraws (bk-forms)
 import {researchView, researchLadderSpec, researchMapSpec, findingLine, stepLine} from './research_view.js';
 
 // The Study panel (proposal, docs/representations/RESEARCH.md). A list of what you are studying
@@ -71,7 +73,7 @@ function createPanel() {
         for (const f of p.findings) findings.append?.(node('li', findingLine(f), {'data-stage': f.stage}));
         const ladder = node('div'), map = node('div');
         renderFigure(ladder, researchLadderSpec(p, {size: 640}), {idPrefix: `study-ladder-${p.id}`, text: true});
-        renderFigure(map, researchMapSpec(p, {size: 720}), {idPrefix: `study-map-${p.id}`, text: true});
+        mountFormSwitch(map, researchMapSpec(p, {size: 720}), {idPrefix: `study-map-${p.id}`, text: true, memory: mapForms, forms: ['web', 'table', 'sentences']});
         const whereButton = node('button', next ? `Show me where: ${next.label}` : 'Nothing left to do', {type: 'button', class: 'research-where'});
         whereButton.disabled = !next; whereButton.onclick = () => showWhere(p);
         const mapBox = node('details', null, {class: 'research-map'}); mapBox.append(node('summary', 'Map: what needs what'), map, ladder);

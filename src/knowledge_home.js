@@ -3,7 +3,9 @@ import {readPort, whenPortsReady} from './ui_ports.js';
 import {node, visibleRenderer} from './reference_kit.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 import {observerView} from './observer_view.js';
-import {renderFigure, figureText} from './ui/figure.js';
+import {figureText} from './ui/figure.js';
+import {mountFormSwitch} from './ui/figure_forms.js';
+const boardForms = new Map(); // form chosen per board, kept across redraws (bk-forms)
 import {knowledgeView, knowsLine, caseLine} from './knowledge_view.js';
 import {whoKnowsFor, whoKnowsLine, askRows} from './who_knows_view.js';
 import {relationshipWebPeople} from './relationship_web_view.js';
@@ -103,7 +105,7 @@ function mountKnowsTab() {
             list.append(section);
         }
         if (view.mode === 'board' && view.board) {
-            renderFigure(board, view.board, {idPrefix: 'knows-board', text: true});
+            mountFormSwitch(board, view.board, {idPrefix: 'knows-board', text: true, memory: boardForms, forms: ['web', 'table', 'sentences']});
             board.dataset.text = figureText(view.board);
         } else board.replaceChildren();
     });
