@@ -6,8 +6,60 @@ import {bindSubjectGesture} from './recipe_connections.js';
 
 export const UNKNOWN_MATERIAL_LABEL = 'Unfamiliar material';
 import {craftCue} from './craft_cues.js';
+import {craftGlance, GLANCE_MARKS} from './ui/craft_glance.js';
 
 let resultDetailsOpen = false;
+
+const mark = state => GLANCE_MARKS[state] || GLANCE_MARKS.info;
+
+// The glance: one status line (the blocked reason lives here, once) and the facts weighed before Craft.
+function renderGlance(model) {
+    const glance = craftGlance(model);
+    const wrap = el('section', 'craft_glance');
+    wrap.setAttribute('data-craft-glance', '');
+    wrap.setAttribute('aria-label', 'Before you craft');
+    const status = el('p', 'craft_glance_status', '');
+    status.dataset.state = glance.status.state;
+    status.append(el('span', 'craft_mark', mark(glance.status.state)), el('span', '', glance.status.text));
+    if(!model.available) {
+        status.classList.add('craft_blocked_reason');
+        status.setAttribute('data-craft-blocked-reason', '');
+        status.tabIndex = -1;
+    }
+    if(Number.isFinite(model.attempts)) status.setAttribute('data-craft-attempts', '');
+    wrap.append(status);
+    const attrs = {result: 'data-craft-output', station: 'data-craft-station'};
+    const grid = el('div', 'craft_glance_grid');
+    for(const row of glance.rows) {
+        const cell = el('div', 'craft_glance_row');
+        cell.dataset.glance = row.key;
+        if(row.state) cell.dataset.state = row.state;
+        if(attrs[row.key]) cell.setAttribute(attrs[row.key], '');
+        cell.append(el('span', 'craft_detail_label', row.label));
+        if(row.chips) {
+            const chips = el('span', 'craft_glance_chips');
+            for(const c of row.chips) {
+                const chip = el('span', 'craft_chip');
+                chip.dataset.state = c.state;
+                chip.append(el('span', 'craft_mark', mark(c.state)), el('span', '', `${c.text} · ${c.note}`));
+                chips.append(chip);
+            }
+            if(!row.chips.length) chips.append(el('span', '', 'Nothing'));
+            cell.append(chips);
+        } else {
+            const value = el('span', 'craft_detail_value', row.number ?? row.value);
+            if(row.key === 'chance') {
+                value.setAttribute('data-craft-chance', '');
+                cell.classList.add('craft_detail_odds');
+                cell.append(value);
+                if(row.word) cell.append(el('span', 'craft_chance_word', `· ${row.word}`));
+            } else cell.append(value);
+        }
+        grid.append(cell);
+    }
+    wrap.append(grid);
+    return wrap;
+}
 
 function el(tag, className, text) {
     const node = document.createElement(tag);
@@ -54,8 +106,11 @@ export function renderCraftingDetail(root, model, handlers) {
     title.setAttribute('data-craft-title', '');
     body.append(title);
 
-    const uses = el('div', 'craft_detail_section');
-    uses.append(el('div', 'craft_detail_label', model.requirements.every(req=>req.stockKnown) ? 'Input stock · owned / unblocked / blocked' : 'Input stock · carried / needed'));
+    body.append(renderGlance(model));
+    const uses = el('details', 'craft_detail_section craft_detail_stock');
+    uses.open = model.requirements.some(req => req.missing || req.held_back);
+    uses.append(el('summary', '', 'Input stock'));
+    uses.append(el('div', 'craft_detail_label', model.requirements.every(req=>req.stockKnown) ? 'owned / unblocked / blocked' : 'carried / needed'));
     for(const req of model.requirements) {
         const row = el('div', 'craft_req');
         row.setAttribute('data-craft-req', '');
@@ -72,8 +127,6 @@ export function renderCraftingDetail(root, model, handlers) {
         uses.append(row);
     }
     body.append(uses);
-
-    body.append(fact(model.output.uncertain ? 'Possible result' : 'Makes', `${model.output.name} x${model.output.count}${model.output.scaled ? ' (partial results possible)' : ''}`, 'data-craft-output'));
     if(model.effects?.length) {
         // Known effects of using the result, before committing (same data as Result details).
         const effects = el('div', 'craft_detail_effects');
@@ -88,20 +141,11 @@ export function renderCraftingDetail(root, model, handlers) {
         }
         body.append(effects);
     }
-    const odds = el('div', 'craft_detail_fact craft_detail_odds');
-    odds.append(el('span', 'craft_detail_label', model.chance_label ?? 'Success'), el('span', 'craft_detail_value', Number.isFinite(model.chance) ? `${model.chance}%` : 'Unassessed'));
-    odds.querySelector('.craft_detail_value').setAttribute('data-craft-chance', '');
-    if(Number.isFinite(model.attempts)) {
-        // Attempts the materials allow now, not guaranteed outputs. Zero when the native guard refuses.
-        const attempts = el('span', 'craft_detail_attempts', `Can craft now: ${model.attempts} attempt${model.attempts === 1 ? '' : 's'}`);
-        attempts.setAttribute('data-craft-attempts', '');
-        odds.append(attempts);
-    }
-    body.append(odds);
-    const quiet = el('div', 'craft_detail_quiet');
-    quiet.append(fact('Station', model.station, 'data-craft-station'), fact('XP', model.xp, 'data-craft-xp'));
-    body.append(quiet);
-    if(model.policy) body.append(el('p', 'craft_detail_policy', model.policy));
+    const about = el('details', 'craft_detail_about');
+    about.append(el('summary', '', 'About this recipe'));
+    about.append(fact('XP', model.xp, 'data-craft-xp'));
+    if(model.policy) about.append(el('p', 'craft_detail_policy', model.policy));
+    body.append(about);
     if(model.related?.length) {
         const related = el('div', 'craft_detail_section craft_detail_related');
         related.setAttribute('data-craft-related-list', '');
@@ -135,12 +179,6 @@ export function renderCraftingDetail(root, model, handlers) {
     root.append(body);
 
     const actions = el('div', 'craft_detail_actions');
-    if(!model.available) {
-        const reason = el('p', 'craft_blocked_reason', model.blocked_reason);
-        reason.setAttribute('data-craft-blocked-reason', '');
-        reason.tabIndex = -1;
-        actions.append(reason);
-    }
     const buttons = el('div', 'craft_detail_buttons');
     const preview=el('p','craft_batch_proposal','Focus or hover a batch choice to preview its maximum input use. The preview reserves nothing.');
     actions.append(preview);

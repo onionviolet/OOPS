@@ -3366,7 +3366,7 @@ function build_item_recipe_model(selection) {
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
-        chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
+        chance, time: "Instant: no game time passes", spendsOnFailure: true, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
         xp, policy: materialPolicyText(game_options.stop_crafting_on_material_change), available: state.available, blocked_reason, receipt, cue, goal:craftBatchGoal.read()?.key===item_recipe_key(selection)?craftBatchGoal.read():null,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
 }

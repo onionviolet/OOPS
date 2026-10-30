@@ -13,6 +13,7 @@ import {BODY_FIXTURES} from './fixtures/body.js'; FIGURE_FIXTURES.push(...BODY_F
 import './fixtures/knowledge.js';
 import './fixtures/research.js';
 import {FIGURE_FIXTURES_ORGANIZATIONS} from './fixtures/organizations.js';
+import {CRAFTING_FIXTURES} from './fixtures/crafting.js'; FIGURE_FIXTURES.push(...CRAFTING_FIXTURES);
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};

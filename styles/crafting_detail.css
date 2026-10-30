@@ -130,3 +130,22 @@
 #crafting_engine_home .crafting-trial-material {display:flex;align-items:center;gap:round(.5rem, 1px);flex-wrap:wrap;margin:round(.5rem, 1px) 0;}
 #crafting_engine_home .crafting-trial-quantity {width:4em;}
 #crafting_engine_home [data-craft-detail] {margin-top:round(.75rem, 1px);}
+
+/* CF1 glance (proposal): one status line and the facts weighed before Craft. Words beside every mark (UR37). */
+.craft_glance {margin: 0 0 round(.4rem, 1px); padding-bottom: round(.35rem, 1px); border-bottom: 1px solid var(--workspace-border, var(--ui-swatch-100));}
+.craft_glance_status {display: flex; gap: round(.4em, 1px); align-items: baseline; margin: 0 0 round(.3rem, 1px); padding: var(--ui-space-hairline) var(--ui-space-2); border-left: 3px solid var(--sem-gain, var(--ui-swatch-001)); font-weight: 700;}
+.craft_glance_status[data-state="blocked"] {border-left-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004));}
+.craft_glance_status:focus {outline: 2px solid var(--sem-blocked, var(--ui-swatch-004));}
+.craft_glance .craft_glance_status.craft_blocked_reason {margin-bottom: round(.3rem, 1px);}
+.craft_glance_grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: round(.15rem, 1px) round(.8rem, 1px);}
+.craft_glance_row {display: flex; flex-wrap: wrap; gap: 0 round(.4em, 1px); align-items: baseline; min-width: 0;}
+.craft_glance_row[data-glance="needs"], .craft_glance_row[data-glance="cost"] {grid-column: 1 / -1;}
+.craft_glance_row .craft_detail_label {margin-right: 0;}
+.craft_glance_row .craft_detail_label::after {content: ":";}
+.craft_glance_chips {display: flex; flex-wrap: wrap; gap: round(.2rem, 1px) round(.35rem, 1px);}
+.craft_chip {display: inline-flex; gap: round(.3em, 1px); padding: 0 round(.4em, 1px); border: 1px solid var(--workspace-border, var(--ui-swatch-100)); font-variant-numeric: tabular-nums;}
+.craft_chip[data-state="blocked"] {border-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: 700;}
+.craft_chip[data-state="ok"] .craft_mark {color: var(--sem-gain, var(--ui-swatch-001));}
+.craft_detail_stock > summary, .craft_detail_about > summary {cursor: pointer; font-weight: 700;}
+.craft_detail_about {margin: round(.3rem, 1px) 0;}
+.craft_detail_about .craft_detail_policy {margin: round(.2rem, 1px) 0; opacity: .85;}
