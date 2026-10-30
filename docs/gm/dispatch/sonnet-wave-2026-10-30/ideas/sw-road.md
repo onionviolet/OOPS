@@ -34,3 +34,12 @@ Append-only. Format and rules: [QUEUE](../QUEUE.md#idea-intake).
 **LATER**
 - L7. Wire a customs `effect` (stay-in, evacuate-deck) to the calendar curfew reader in `world_events.js` so a custom closes outdoor services at night. Level: seam. Effort: low. Done check: a service reads closed on a fog night.
 - L8. A real `hours` range for a last train needs a source row; until then the quote's wait only knows the first departure. Level: content. Effort: low (a Luna search per later volume). Done check: the leg's `hoursEvidence` becomes S or T.
+
+## 2026-10-30 night, slices 6-8 (frontier camp, rail stop, walled city)
+
+**ACT NOW (done):** three more city shapes through the unchanged kit; a city with no cited route is a valid pack (`route: null`); a cited morning departure makes a late arrival wait; a creature hazard on a road leg is cited once (the camp).
+**ACCOUNT FOR NOW:** extras rows can state a figure the cited paragraph does not confirm (a pay of about 50 pounds), so a Luna paragraph check is the gate before a number enters a pack; dossier picks by Luna were good for slot choice but two picks cited the wrong paragraph, so locators are verified too.
+**LATER**
+- L9. In-city hazards (a dark street, a patrol with injuries) are not road hazards. A region `hazards` list read by `readRegion` and settled by the same keyed draw per day would carry them. Level: seam. Effort: low-medium. Done check: one keyed in-city hazard result repeats on replay for the same day.
+- L10. A second currency per city (merit) needs a conversion row type, `{from, to, rate}`, even when the rate is unstated, so a purse owner can say "no rate". Level: seam. Effort: low. Done check: a price in merit reads as such and refuses conversion with a reason.
+- L11. Walled or closed cities need an entry rule (who may come in) as an institution gate on `arrival`; none is cited in the rows. Level: content gap. Effort: Luna search per volume. Done check: an arrival row gains an access condition with a locator.

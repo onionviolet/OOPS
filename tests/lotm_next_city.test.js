@@ -127,3 +127,19 @@ const rail = fs.existsSync(RAIL) ? JSON.parse(fs.readFileSync(RAIL, 'utf8')) : n
     for(let d = 0; d < 100; d++) for(const e of settleRoute(city.route, {day: d, money: 99, minuteOfDay: 8 * 60, seed: 9, proposedFare: 5, money: 99}).events) kinds.add(e.kind);
     assert.ok(kinds.has('weather'));
 });
+
+const WALLED = new URL('../private_packs/lotm-silver-city/region.json', import.meta.url);
+const walled = fs.existsSync(WALLED) ? JSON.parse(fs.readFileSync(WALLED, 'utf8')) : null;
+(walled ? test : test.skip)('a city with no cited way in loads without a route and prices in its own unit', () => {
+    const city = buildNextCity(walled);
+    assert.ok(city);
+    assert.equal(city.route, null);
+    for(const [id, p] of Object.entries(city.provenance)) assert.ok(['S', 'T', 'I'].includes(p.evidence) && p.locator, `row ${id} lacks evidence`);
+    const read = readRegion(city.region, {reputation: 0, hour: 12, money: 20000});
+    const merit = read.institutions.find(i => i.id === 'silver-city.patrols').services.find(s => s.id === 'merit-for-food');
+    assert.equal(merit.priceText, 'price not recorded');
+    assert.equal(read.priceList.find(p => p.id === 'clearing-team-pay').text, 'price not recorded');
+    assert.equal(read.offices[0].eligible, false);
+    assert.equal(readRegion(city.region, {reputation: 12}).offices[0].eligible, true);
+    assert.equal(buildNextCity({...walled, route: 'no'}), null);
+});
