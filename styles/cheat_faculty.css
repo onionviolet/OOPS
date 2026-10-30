@@ -1,0 +1,17 @@
+/* Cheat looks follow the cheat's own kind (USER_VISION 2026-10-16), not its world. */
+.cheat-growth,.cheat-companion{border-left:4px solid var(--cheat-accent,currentColor);padding-left:.75rem}
+.cheat-growth progress{width:100%;height:.6rem}
+.cheat-facets{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;margin:.4rem 0;padding:0}
+.cheat-facets li{border:1px solid currentColor;border-radius:999px;padding:.1rem .6rem;font-size:.9em}
+.cheat-facets li[data-state="next"]{border-style:dashed}
+.cheat-facets li[data-state="undiscovered"]{opacity:.5}
+.cheat-limits{opacity:.75;font-size:.9em}
+[data-cheat-kind="mark"]{--cheat-accent:#b08a4a}
+[data-cheat-frame="etched"]{background-image:repeating-linear-gradient(135deg,transparent 0 6px,rgba(176,138,74,.08) 6px 7px)}
+[data-cheat-kind="hologram"]{--cheat-accent:#33c7d6;font-family:ui-monospace,Menlo,monospace}
+[data-cheat-frame="scanline"]{background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(51,199,214,.08) 3px 4px)}
+[data-cheat-kind="ring-spirit"]{--cheat-accent:#8a6a4a;font-style:italic}
+[data-cheat-frame="ink-wash"]{background-image:linear-gradient(100deg,rgba(60,50,40,.14),transparent 70%)}
+[data-cheat-kind="ledger"]{--cheat-accent:#7a8a5a}
+[data-cheat-frame="ruled"]{background-image:repeating-linear-gradient(0deg,transparent 0 1.4rem,rgba(122,138,90,.15) 1.4rem calc(1.4rem + 1px))}
+[data-cheat-voice="unreliable"]{text-decoration:underline wavy rgba(138,106,74,.5);text-underline-offset:3px}
