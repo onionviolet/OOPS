@@ -54,7 +54,7 @@ Forms weighed and picked per part:
 - Gallery fixtures `src/ui/preview/fixtures/spacetime.js` (one import line in `figure_gallery.js`): lives tree (through the adapter), loop, divergence ledger (design only), memory palace (abstract space).
 - Tests: `tests/lives_figure.test.js` (6) with `figure.test.js`, `observer_view.test.js`, `continuation_state.test.js`.
 - Evidence: `docs/representations/evidence/spacetime/*.png` (1920×1080, Luminous and Neutral side by side, effects full and off; `scripts/capture_spacetime_gallery.mjs`).
-- **Verification state:** gallery fixtures rendered in headless Chrome (0 page errors). The Lives tab was exercised in a rebuilt game from a fresh origin at 1920×1080 with `scripts/capture_spacetime_game.mjs`: one life, then a second life through "Begin a fresh life"; asserts the figure, the text form and real dates (`game-lives-one.png`, `game-lives-two.png`). Not exercised: resume, rewind, loop on, challenge, reload and import. The adapter reads existing fields only, so no persistence change. `check:arch` exit 0; the game capture timed out once at hero creation before passing, so it is a flaky check, not a stable gate; the full suite was not run (machine load).
+- **Verification state:** gallery fixtures rendered in headless Chrome (0 page errors). The Lives tab was exercised in a rebuilt game from a fresh origin at 1920×1080 with `scripts/capture_spacetime_game.mjs`: one life, then a second life through "Begin a fresh life"; asserts the figure, the text form and real dates (`game-lives-one.png`, `game-lives-two.png`). Not exercised: resume, rewind, loop on, challenge, reload and import. The adapter reads existing fields only, so no persistence change. `check:arch` exit 0; the game capture is flaky under machine load (about 3 passes in 8 runs; failures at hero creation and after the first screenshot, cause not isolated), so it is not a stable gate; the full suite was not run (machine load).
 - Fixed after review: paused lives first showed placeholder dates in the game (the view lacked them); `continuationView` now returns each paused life's start and checkpoint dates (read-only) and the fixture goes through the same adapter.
 
 ## Round 2
@@ -87,6 +87,7 @@ Items 1-21, short. Everything is a draft.
 Lives adapter and tab, four fixtures, tests, evidence.
 
 ### ACCOUNT FOR NOW
+- Brief item 7: an alternative style (paper and ink, glyph-and-line) is described here but not built in the gallery.
 - Lives as default tab; check `scripts/continuation_*browser.mjs` clicks first (low effort).
 - Exercise the tab in a rebuilt game from a continuation fixture (medium).
 - Add a shared `guessed` figure state (coordinator; knowledge and family sessions asked for it).
