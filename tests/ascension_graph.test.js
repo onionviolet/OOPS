@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {definePath, pathView} from '../src/ascension_paths.js';
-import {defineGraph, ladderToGraph, graphView} from '../src/ascension_graph.js';
+import {defineGraph, ladderToGraph, graphView, moveAlong} from '../src/ascension_graph.js';
 
 const q = (id, fact, need = 1) => ({id, type: 'quota', label: id, fact, need});
 const ladder = definePath({id: 'sample.line', world: 'sample.world', label: 'Line', shape: 'ladder', stages: [
@@ -57,4 +57,43 @@ test('observer rule hides unknown nodes and authoring rejects bad graphs', () =>
     assert.throws(() => defineGraph({...base, edges: [{id: 'e', kind: 'mix', from: 'a', to: 'b', crossings: [q('x', 'f')]}]}), /mix/);
     assert.throws(() => defineGraph({...base, edges: [{id: 'e', kind: 'advance', from: 'a', to: 'b', crossings: [q('x', 'f')], lock: {dial: 'tight'}}]}), /lock/);
     assert.throws(() => defineGraph({...base, entries: ['zz'], edges: []}), /unknown entry/);
+});
+
+const field = defineGraph({id: 'sample.field', world: 'sample.world', label: 'Field', shape: 'field', selfKnowledge: 'felt', competitive: true, entries: [],
+    nodes: [
+        {id: 'math1', label: 'Maths I', kind: 'subject', system: 'subjects', tier: 1, knowledge: 5, metrics: [{id: 'grade', type: 'grade', scale: ['C', 'B', 'A'], numbersInWorld: 'exact'}]},
+        {id: 'math2', label: 'Maths II', kind: 'subject', system: 'subjects', tier: 2, knowledge: 4},
+        {id: 'art', label: 'Artifice', kind: 'skill', system: 'crafts', visibleToOthers: 'insignia', metrics: [{id: 'hours', type: 'quota', unit: 'hours', persistsAcrossReset: true, numbersInWorld: 'felt-words'}]},
+        {id: 'hidden', label: 'Hidden', kind: 'power', knowledge: 0}],
+    edges: [
+        {id: 'learn_m2', kind: 'learn', from: 'math1', to: 'math2', crossings: [q('study', 'hours', 3)], knowledge: 4, locksOthers: 'dial', odds: {basis: 'inferred', value: 'likely'}, outcome: 'no_effect'},
+        {id: 'swap_art', kind: 'swap', from: 'math1', to: 'art', crossings: [q('apprentice', 'master')], odds: {basis: 'real', value: 0.4}, outcome: 'demotion', trail: true},
+        {id: 'to_hidden', kind: 'advance', from: 'math1', to: 'hidden', crossings: [q('h', 'fh')]}]});
+
+test('node and edge fields: knowledge levels gate the view, no path is valid', () => {
+    const v = graphView(field, ['math1'], {hours: 3});
+    assert.equal(v.selfKnowledge, 'felt');
+    assert.equal(v.competitive, true);
+    assert.equal(v.at[0].metrics[0].type, 'grade');
+    assert.equal(v.exits.some(e => e.id === 'to_hidden'), false); // level 0: unaware
+    const learn = v.exits.find(e => e.id === 'learn_m2');
+    assert.equal(learn.to, 'Maths II');
+    assert.equal(learn.ready, true);
+    assert.equal(learn.odds, null); // level 4: costs, but not odds
+    assert.deepEqual(graphView(field, ['math1'], {hours: 3}, {knowledge: {math2: 2}}).exits.find(e => e.id === 'learn_m2').crossings, []); // name only
+    const swap = v.exits.find(e => e.id === 'swap_art');
+    assert.deepEqual(swap.odds, {basis: 'real', value: 0.4});
+    assert.equal(graphView(field, ['math1'], {}, {knowledge: {swap_art: 1}}).exits.find(e => e.id === 'swap_art').to, 'Artifice'.replace(/.*/, '???'));
+    assert.equal(graphView(field, []).state, 'none');
+});
+
+test('moves keep a trail; a swap gives up the target system, a mix keeps both', () => {
+    const s0 = {at: ['math1'], trail: []};
+    const s1 = moveAlong(field, s0, 'learn_m2', {cause: 'term finished'});
+    assert.deepEqual(s1.at, ['math2']);
+    assert.deepEqual(s1.trail.map(t => t.cause), ['term finished']);
+    assert.throws(() => moveAlong(field, s1, 'swap_art'), /does not leave/);
+    const m = moveAlong(tree, {at: ['left']}, 'mix_lr', {cause: 'mixed'});
+    assert.deepEqual(m.at.sort(), ['left', 'right']);
+    assert.throws(() => defineGraph({id: 'sample.bad2', world: 'sample.world', label: 'B', shape: 'field', nodes: [{id: 'a', label: 'A', metrics: [{id: 'g', type: 'grade'}]}], edges: []}), /scale/);
 });
