@@ -11,7 +11,20 @@ Weibao, 2026-10-30: "Consider gaps and impossibilities, we can just implement th
 | IP1 | `src/craft_resolver.js` | Batch of 999 per lot and 12 steps, fixed for every law | Default 999 and 12. Dial: `limits.batchCeiling` and `limits.steps` on a law (a bigger vat or crew). Refusal now says what would lift it. Test: `tests/craft_engine.test.js` (IP1 x2) |
 | IP2 | `src/home_school_offices.js` | "already booked this school month" with no way forward | Default one funded session per 30 days. Dial: a paid top-up (4 estate coins, button "Pay for an extra session now"), which pushes the next free session back by a third of a month. Refusal now names the top-up. Test: `tests/home_cultivation.test.js` (IP8 test) |
 
-## Queue for owner lanes (not built here; ranked)
+## Second batch (2026-10-30, tests pass; agent-verified, not human-reviewed)
+
+| Code | Change |
+| --- | --- |
+| IP3 | `planProcessRepeat` names the missing tool, skill (have of need) or stock, with a `shortfall` field |
+| IP5 | Re-read refusal explains that practice, not rereading, builds on a method (reason only; a `rereadYield` dial is still open) |
+| IP6 | `gatherIdle` takes `budget` (default 500, hard guard 100000) |
+| IP10 | Warehouse and office pauses name the way out (reason only; a partial fill is still open) |
+| IP11 | Missing credential names the means and the friend route (reason only; the favour mechanism is still open) |
+| IP14 | Pack pay cap and its checks give separate reasons (reason only) |
+
+Hand-offs sent: IP7 to floor-wire (patch request), IP12 and IP13 to the General UI session, IP4 as CHOICES item 12 with a default.
+
+## Queue for owner lanes (ranked; rows marked above are partly done)
 
 | Code | Location | Current behaviour | Mechanism | Cost | Dial |
 | --- | --- | --- | --- | --- | --- |

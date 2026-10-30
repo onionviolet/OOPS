@@ -194,3 +194,14 @@ test('demonstrated apparatus capabilities admit a fitting replacement and refuse
     assert.equal(planProcessRepeat(method, {means: maker}).ok, false, 'apparatus name alone cannot establish its capabilities');
     assert.throws(() => demonstrateProcessMethod(record, {id: 'invalid', requirements: {...requirements, stock: {herb: -1}}, result}), /nonnegative/);
 });
+test('IP3: a failed repeat names the missing tool, skill or stock and the amount short', () => {
+    const record = recordProcessStep(recordProcessStep(newRecord(), event(1)), event(2));
+    const method = demonstrateProcessMethod(record, {id: 'trial1', requirements, result});
+    const tools = planProcessRepeat(method, {means: {...maker, tools: []}});
+    assert.match(tools.reason, /missing/);
+    assert.ok(tools.shortfall.tools.length);
+    const skill = planProcessRepeat(method, {means: {...maker, skills: {control: 1}}});
+    assert.match(skill.reason, /control 1 of \d+/);
+    const stock = planProcessRepeat(method, {means: {...maker, stock: {herb: 1}}});
+    assert.match(stock.reason, /herb 1 of \d+/);
+});
