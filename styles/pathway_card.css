@@ -1,0 +1,52 @@
+/* Pathway card (src/ui/pathway_card_view.js). Shared look; per-world skins set the tokens later. Unknown, partial and known lines differ in
+   mark, word and border style, never in color alone (UR37). Spacing from the UR65 scale. */
+.pwc {
+    --pwc-ink: var(--theme-text, var(--ui-text)); --pwc-muted: var(--theme-muted, var(--ui-hairline)); --pwc-line: var(--theme-border, var(--ui-hairline));
+    --pwc-surface: var(--theme-surface, var(--ui-navy)); --pwc-accent: var(--theme-accent, var(--ui-accent)); --pwc-warn: var(--theme-warning, var(--ui-meter-warn));
+    color: var(--pwc-ink); font-size: var(--ui-type-body); max-width: 60em; border: 1px solid var(--pwc-line); background: var(--pwc-surface); padding: var(--ui-space-3);
+    display: grid; gap: var(--ui-space-3); --pwc-glyph: calc(var(--ui-space-6) * 2); --pwc-glyph-art: calc(var(--ui-space-6) * 3);
+}
+.pwc-head { display: grid; grid-template-columns: 5.5em minmax(0, 1fr) 8em; gap: var(--ui-space-3); align-items: start; border-bottom: 1px solid var(--pwc-line); padding-bottom: var(--ui-space-3); }
+.pwc-emblem, .pwc-art { display: grid; place-items: center; border: 1px solid var(--pwc-line); background: color-mix(in srgb, var(--pwc-surface) 70%, var(--ui-swatch-018)); overflow: hidden; }
+.pwc-emblem { aspect-ratio: 1; }
+.pwc-art { aspect-ratio: 5 / 7; align-self: start; }
+.pwc-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pwc-glyph { color: var(--pwc-accent); font-size: var(--pwc-glyph); line-height: 1; }
+.pwc-art .pwc-glyph { font-size: var(--pwc-glyph-art); opacity: .55; }
+.pwc-group { margin: 0; color: var(--pwc-muted); font-size: var(--ui-type-small); text-transform: uppercase; letter-spacing: .12em; }
+.pwc-name { margin: 0; color: var(--pwc-accent); font-size: var(--ui-type-heading); font-weight: normal; }
+.pwc-summary { margin: var(--ui-space-1) 0 0; line-height: var(--ui-line-prose); }
+.pwc-note { margin: var(--ui-space-1) 0 0; color: var(--pwc-muted); font-size: var(--ui-type-small); }
+.pwc-ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ui-space-2); }
+.pwc-rung { border-left: 3px solid var(--pwc-line); padding: var(--ui-space-1) var(--ui-space-3); }
+.pwc-rung-held { border-left-color: var(--pwc-accent); background: color-mix(in srgb, var(--pwc-accent) 8%, transparent); }
+.pwc-rung-next { border-left-color: var(--pwc-warn); }
+.pwc-rung-crossed, .pwc-rung-ahead { opacity: .8; }
+.pwc-rung-head { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); align-items: baseline; }
+.pwc-pip { width: var(--ui-space-4); color: var(--pwc-accent); }
+.pwc-rung-state { color: var(--pwc-muted); font-size: var(--ui-type-small); }
+.pwc-gives { margin: var(--ui-space-1) 0 0 var(--ui-space-5); color: var(--pwc-muted); font-size: var(--ui-type-small); }
+.pwc-lines, .pwc-routes { list-style: none; margin: var(--ui-space-1) 0 0 var(--ui-space-5); padding: 0; display: grid; gap: var(--ui-space-1); }
+.pwc-line { border-left: 2px solid var(--pwc-line); padding-left: var(--ui-space-2); }
+.pwc-line-partial { border-left-style: dashed; font-style: italic; }
+.pwc-line-unknown { border-left-style: dotted; color: var(--pwc-muted); }
+.pwc-line-met { border-left-color: var(--ui-swatch-001); }
+.pwc-line-short { border-left-color: var(--pwc-warn); }
+.pwc-line-row { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); align-items: baseline; }
+.pwc-mark { width: 1.1em; text-align: center; }
+.pwc-family { color: var(--pwc-muted); font-size: var(--ui-type-small); min-width: 8.5em; flex: none; }
+.pwc-amount { font-variant-numeric: tabular-nums; }
+.pwc-chip { border: 1px solid var(--pwc-line); padding: 0 var(--ui-space-2); font-size: var(--ui-type-small); color: var(--pwc-muted); font-style: normal; }
+.pwc-chip-ready { color: var(--ui-swatch-001); border-color: var(--ui-swatch-001); }
+.pwc-chip-blocked { color: var(--pwc-warn); border-color: var(--pwc-warn); }
+.pwc-routes { margin-left: var(--ui-space-4); }
+.pwc-route { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); align-items: baseline; font-size: var(--ui-type-small); }
+.pwc-route::before { content: "Way:"; color: var(--pwc-muted); }
+.pwc-route-state { color: var(--pwc-muted); }
+.pwc-route-go { font-size: var(--ui-type-small); padding: 0 var(--ui-space-2); }
+.pwc-noway, .pwc-short, .pwc-risk { margin: var(--ui-space-1) 0 0 var(--ui-space-4); font-size: var(--ui-type-small); color: var(--pwc-muted); }
+.pwc-risk { margin-left: var(--ui-space-5); color: var(--pwc-warn); }
+.pwc-steps { border-top: 1px solid var(--pwc-line); padding-top: var(--ui-space-2); }
+.pwc-steps-title { margin: 0 0 var(--ui-space-1); font-size: var(--ui-type-body); font-weight: normal; color: var(--pwc-accent); }
+.pwc-steps ol { margin: 0; padding-left: var(--ui-space-6); }
+.pwc-text summary { cursor: pointer; color: var(--pwc-muted); font-size: var(--ui-type-small); }

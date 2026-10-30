@@ -40,3 +40,4 @@ styles/material_icons.css
 styles/home_view.css
 styles/cheat_faculty.css
 styles/gathering_view.css
+styles/pathway_card.css
