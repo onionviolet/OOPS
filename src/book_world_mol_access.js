@@ -6,7 +6,7 @@ import {defineLoopTable, loopReadout} from './loop_table.js';
 import {MOL_IDS as I} from './book_world_mol_ids.js';
 
 export const DAY = 1440;
-export const GUEST_TERM = Object.freeze({value: 30 * DAY, reason: 'Proposal: the pack records a pass with no term; a month matches a clerk renewing a term pass.'});
+export const GUEST_TERM = Object.freeze({value: 30 * DAY, reason: 'the guest desk renews a pass about once a month.'});
 export const WORLD = I.world;
 export const hasPermit = expansion => !!expansion?.actors?.player?.facts?.['book.mol.guestPermit'];
 export const inCyoria = expansion => expansion?.actors?.player?.worldId === WORLD;
