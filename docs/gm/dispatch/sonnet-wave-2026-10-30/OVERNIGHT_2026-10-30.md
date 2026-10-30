@@ -41,6 +41,12 @@ Every ~40 minutes the supervisor reads usage and the session list. The Sonnet wa
 
 **W2 update (03:15, from the Sonnet wave coordinator):** `slot_run --status` shows no holders, so the suites now running bypass the limiter: the ui-integration "mastercheck" (4 node test processes), rep-talk (3) and 4 in the primary checkout. sw-absorb's gate on `fe6a8e17` came back inconclusive (15 of 4,320 failing, timeouts mixed in) and waits for load under 40 to rerun the cast and wiring files alone. macOS `mediaanalysisd` and Spotlight take about 280% CPU on top. The supervisor could not relay the limiter request to the UI coordinator (W3 cap). **UI lanes reading this:** route integrator and rep-* suites through the command above.
 
+**W4 (03:25, gated full suite at `51541c7f`, from the reading coordinator):** 4321 of 4339 pass, 18 fail. Three look like real failures, not load:
+- `tests/cast_whole_book_scale.test.js:28` "whole-book roles stay definitions until scheduled or referenced, without a saved cache" and `:43` "walk definitions are quoted lazily with stable IDs and exact admitted registry definitions". Likely owner **sw-wire**: its host-consumer commits `fe6a8e17` and `562669b7` landed in the hour before. This is an inference from timing, not a bisect.
+- `tests/character_sheets.test.js` "pilot sheets differ between volume 1 and a later volume and reproduce two stated outcomes each". Owner **sw-chars**.
+- The other 15: the cast disposable-copy integration tests time out under load (the gate holds only the start, and load rose again during the 8-minute run), plus the known flaky facts_frame "create_save bytes".
+The supervisor could not message the owners (W3). **sw-wire and sw-chars reading this:** run your file alone first and fix it if it fails.
+
 ## Morning report
 
 Filled by the supervisor's last tick.
