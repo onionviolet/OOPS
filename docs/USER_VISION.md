@@ -6891,3 +6891,15 @@ Recorded:
 - The coarse pass is proposed as WA49. Lane L7 (`sw-gaps`) runs it for all 8 LOTM volumes, then Mother of Learning, Harry Potter and Shadow Slave. Its results land as GM rows in the [reading gap map](research/READING_GAP_MAP_2026-10-28.md), which is the long-term register gap workers take from.
 - Then: "send both, dont duplicate work tho". WA49 and WA50 are accepted, and L7 and L8 run in parallel with a split of who owns what.
 - Per-character digitization is WA50 (accepted): dated character records, deep by tier, built on WA23, WA33, WA40, WA42 and WA43.
+- Then: "We are considering stuff read in COI to help stuff so we dont need to rewire stuff in the future? DOnt duplicate work". WA48's sample now includes same-world sibling books already read, such as Circle of Inevitability for LOTM. It is shape only, behind a spoiler and era fence, and taken from the existing family pass rather than a new read.
+
+## Travel time matters but does not decide the quality of play (2026-10-30)
+
+Weibao's words: "consider gameplaywise, at least for the travel, some stuff could be gated between travel timelines and stuff, but then it shouldnt cause direastic difference in quality of gamelay/experience que to travel time between places and more? Although it should play some factor, mroe to consider?"
+Recorded: travel time is a real factor (some things are reachable only inside a travel window, and distance shapes plans) but by default it does not make the experience much better or worse; the dial is per world (a loop or deadline world can weigh it more). Considerations went to the maps and time sessions to save in their owner docs as proposals.
+
+## Injuries: overall HP plus part damage where it matters (2026-10-30)
+
+Weibao's words: "Okay, so hp as overall hp, and the individual damage and more could matter, especially in combat and stuff, middle path is good enough for now".
+Recorded: HP stays the overall survival pool (YAIR and Proto23 parity). Part-level damage is recorded only when an action, check or rule reads that part (grip, hands, legs, eyes, voice, vitals), with combat as the first consumer: hit location, per-slot armour and aimed attacks. Detail is a per-world and per-body dial; body kinds with other layers keep them (BHR2, BHR4). Considerations went to the body and combat representation sessions and to the harm lane (`sw-death`), as proposals.
+Clarified the same night: "I meant, it might not be gapped, but rather we can use a more chance based system of a damaged hand having lower odds of striking right (easier to dodge, not hitting as hard if tendon severed) more little stuff like that we can consider?" Recorded: part damage shifts odds and strength by degree (accuracy, force, speed, evasion, precision), scaled by the injury's rung, and blocks an action only at the extreme rung where the mechanism truly stops it. The modifier shows in the action's quote with its cause.
