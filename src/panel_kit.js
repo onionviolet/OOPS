@@ -10,7 +10,7 @@ export function definePanel({id, title, group, role, node, home, discovered, eli
     if (!Object.hasOwn(roleIcons, role)) throw new Error(`Unknown panel role: ${role}`);
     let settingsRegistered = false;
     return registerWorkspaceModule({id, title, group, role, node, home, discovered, eligible,
-        unavailableReason: unavailableReason || (() => emptyText || 'This panel has no content here'), after, defaultDock, perspective, decorateShell(shell, known) {
+        unavailableReason: unavailableReason || (emptyText ? () => emptyText : undefined), after, defaultDock, perspective, decorateShell(shell, known) {
             if (known && settings.length && !settingsRegistered) {
                 settingsRegistered = true; registerPanelSettings({id, title, settings});
             }

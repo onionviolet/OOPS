@@ -16,7 +16,7 @@ const DIRECTORY = Object.freeze({
     beginning: ['Your beginning', RECORDS], notebook: ['Notebook', RECORDS], 'quest-board': ['Leads', RECORDS],
     memories: ['Remembered years', RECORDS], messages: ['Reports', RECORDS], ledger: ['Ledger', RECORDS],
     homes: ['Homes', WORLD], 'home-overview': ['Home at a glance', WORLD], economy_standing: ['Trade standing', WORLD],
-    fields: ['Spills and smoke', WORLD], today: ['Today', WORLD], 'region-view': ['Where I am', WORLD], 'around-place': ['Around this place', WORLD],
+    fields: ['Spills and smoke', WORLD], 'region-view': ['Where I am', WORLD],
     'optional-worlds': ['Other worlds', WORLD], 'village-travelers': ['Travelers', WORLD], 'village-neighbors': ['Neighbors', WORLD],
     time: ['Time & weather', WORLD], location: ['Current location', WORLD], 'local-actions': ['Local actions', WORLD],
     focus: ['Focus', WORLD], 'village-scene': ['Scene', WORLD],
@@ -26,7 +26,14 @@ const DIRECTORY = Object.freeze({
 });
 const ROLE_GROUP = Object.freeze({character: ME, records: RECORDS, actions: WORLD, optional: GAME, log: RECORDS});
 
+// The blocker a greyed row names when the panel gives none of its own (UIV1).
+const REASONS = Object.freeze({
+    homes: 'Village only', 'home-overview': 'Village only', 'drainage-site': 'Village only',
+    'optional-worlds': 'No optional world installed', ledger: 'Nothing owed or recorded yet',
+    'shell-detail': 'Pick an item first', 'village-travelers': 'Village only', 'village-neighbors': 'Village only', 'cultivation-insights': 'Needs finished work in your home world',
+});
+
 export function panelListing(id, {title, group, role} = {}) {
     const known = DIRECTORY[id];
-    return {title: known?.[0] || title, group: PANEL_GROUPS.includes(group) ? group : known?.[1] || ROLE_GROUP[role] || WORLD};
+    return {title: known?.[0] || title, group: PANEL_GROUPS.includes(group) ? group : known?.[1] || ROLE_GROUP[role] || WORLD, reason: REASONS[id] || ''};
 }

@@ -72,7 +72,7 @@ export function createLamplightDomain(operations) {
         const out = {eligible: false, reason: '', action: null, spend: 0, oil: state?.oil ?? 0};
         if (disposed || !ports) return {...out, reason: 'This lamplight domain is inactive.'};
         if (!held()) return {...out, reason: 'You need an oil lamp in your pack.'};
-        if (!ports.writable()) return {...out, reason: 'Saving is paused, so the lamp cannot change now.'};
+        if (!ports.writable()) return {...out, reason: 'The game cannot take changes right now (it may be saving, loading or paused). Try the lamp again in a moment.'};
         if (state.lit) return {...out, eligible: true, action: 'out'};
         if (state.oil > 0) return {...out, eligible: true, action: 'light'};
         if (ports.count(OIL) < 1) return {...out, reason: 'Your lamp is dry and you have no lamp oil.'};

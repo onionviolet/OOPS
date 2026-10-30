@@ -1,0 +1,156 @@
+{
+ "village_ui": {
+  "pageOverflow": 0,
+  "clipped": [],
+  "unlabeled": [],
+  "bareToggles": [],
+  "disabledNoReason": []
+ },
+ "groups": [
+  "All panels…",
+  "Me: Family qualities | Cultivation insights | Projects | Study · Nothing here can be studied yet [off] | Vitals | Stats | Condition",
+  "Things: Tools | Gear workshop | Inventory | Equipment comparison | Item details · Pick an item first [off]",
+  "Records: Journal | Stories and history | Vows and trials | Rune bench | Known things | Names and achievements | Past lives | Your beginning | Remembered years | Reports | Ledger",
+  "World: Homes | Home at a glance | Village experiments | Trade standing | Polyjuice bench | Riverside exploration | Spills and smoke | Where I am | Tingen workroom | Other worlds · No optional world installed [off] | Market courtyard | Patrol & custody | Travelers | Neighbors | Local actions | Focus | Scene",
+  "Game: Current work & saving | Appearance | Effects & sound | Your own rules | Preview of your changes | Your own places | Continuing connection"
+ ],
+ "dock": "Right now\n\nNext step: Talk to the village elder.\nIn Local actions: Talk to someone, then Talk to village elder.\n\nShow me\n\nNow: Mon, Summer, Day · 08:00 at Village",
+ "nextStepHidden": "none",
+ "headers": [
+  [
+   "personal-journal",
+   "Journal",
+   "Journal"
+  ],
+  [
+   "fields",
+   "Spills and smoke",
+   "Spills and smoke"
+  ],
+  [
+   "customization-effects",
+   "Effects & sound",
+   "Effects & sound"
+  ],
+  [
+   "belongings",
+   "Inventory",
+   "Inventory"
+  ],
+  [
+   "preparation",
+   "Stats",
+   "Stats"
+  ],
+  [
+   "pledges",
+   "Vows and trials",
+   "Vows and trials"
+  ],
+  [
+   "known-things",
+   "Known things",
+   "Known things"
+  ],
+  [
+   "messages",
+   "Reports",
+   "Reports"
+  ]
+ ],
+ "pledgeUi": {
+  "pageOverflow": 0,
+  "clipped": [],
+  "unlabeled": [],
+  "bareToggles": [],
+  "disabledNoReason": [
+   "Guarded preparation · 5 rations"
+  ]
+ },
+ "swear": [
+  "Swear / Swear the Long watch vow",
+  "Swear / Swear the Plain table vow",
+  "Swear / Swear the Open hand vow"
+ ],
+ "tingen_ui": {
+  "pageOverflow": 0,
+  "clipped": [],
+  "unlabeled": [],
+  "bareToggles": [],
+  "disabledNoReason": []
+ },
+ "tingen_opts": [
+  "Cultivation insights · Needs finished work in your home world",
+  "Study · Nothing here can be studied yet",
+  "Gear workshop · Visit a native forging station to work on…",
+  "Item details · Pick an item first",
+  "Ledger · Nothing owed or recorded yet",
+  "Homes · Village only",
+  "Home at a glance · Village only",
+  "Village experiments · Return to the frontier world first",
+  "Riverside exploration · Village only",
+  "Other worlds · No optional world installed",
+  "Market courtyard · Return to the Village to use the market c…",
+  "Patrol & custody · not here",
+  "Travelers · not here",
+  "Neighbors · not here"
+ ],
+ "lotm_btns": [
+  [
+   "Here",
+   "",
+   1
+  ],
+  [
+   "Path",
+   "",
+   1
+  ],
+  [
+   "Work & merit",
+   "",
+   3
+  ],
+  [
+   "Notebook · 1",
+   "",
+   3
+  ],
+  [
+   "Got it",
+   "Hide the note about the workroom tabs",
+   2
+  ],
+  [
+   "Open Continuing connection",
+   "Resuming pauses this Tingen life in turn.",
+   3
+  ],
+  [
+   "Report to the supervisor in the workroom and…",
+   "Report to the supervisor in the workroom and read the terms",
+   8
+  ],
+  [
+   "Walk · 2 min",
+   "Report in at the workroom before you walk the district.",
+   4
+  ],
+  [
+   "Walk · 20 min",
+   "Report in at the workroom before you walk the district.",
+   4
+  ],
+  [
+   "Walk · 25 min",
+   "Report in at the workroom before you walk the district.",
+   4
+  ],
+  [
+   "Hide the walking map",
+   "",
+   4
+  ]
+ ],
+ "tingen_dock": null
+}

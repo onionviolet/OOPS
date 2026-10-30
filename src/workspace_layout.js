@@ -113,6 +113,8 @@ export function setWorkspaceModuleTitle(id, title) {
 }
 export function registerWorkspaceModule({ id, title, group, role, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason, perspective }) {
     const listing = panelListing(id, { title, group, role }); title = listing.title; group = listing.group;
+    // UIV1: every module can say what blocks it; the generic line is the last resort, never silence.
+    unavailableReason = unavailableReason || (listing.reason ? () => listing.reason : () => 'Not available at this place or story yet'); 
     if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
     const old = registry.get(id);
     if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; old.perspective = perspective; updateWorkspace(); return old; }
@@ -273,7 +275,7 @@ function syncRestore(module, state, known, eligible, classic) {
     if (!known) { restore?.remove(); return; }
     if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); }
     setProperty(restore,'disabled',!eligible); if (!classic) setProperty(restore,'textContent',`${state.hidden ? 'Show' : 'Open'} ${module.title}`);
-    const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available here right now');
+    const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available at this place or story yet');
     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
 }
 // An unchanged pass writes nothing: each setter touches the DOM only when the value differs,

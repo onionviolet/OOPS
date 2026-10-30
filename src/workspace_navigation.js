@@ -4,7 +4,7 @@ import {knownWorkspaceModules,expandWorkspaceModule} from './workspace_layout.js
 import {listable,movedNotices} from './panel_folds.js';
 import {PANEL_GROUPS} from './panel_directory.js';
 // A disabled row keeps the module's own reason, cut to a short clause so the list stays one line each.
-const shortReason=reason=>{const text=String(reason||'').replace(/\.$/,'');return !text||/^(Return to the relevant place|This panel has no content here|Unavailable)/.test(text)?'not here':text.length>44?text.slice(0,41).trimEnd()+'…':text;};
+const shortReason=reason=>{const text=String(reason||'').replace(/\.$/,'');return !text||/^(Return to the relevant place|This panel has no content here|Not available at this place|Unavailable)/.test(text)?'not here':text.length>44?text.slice(0,41).trimEnd()+'…':text;};
 import {centerModes} from './center_modes.js';
 import {decorateInventoryList,summarizeGroups} from './ui_components.js';
 import {mountGameBar} from './game_bar.js';
