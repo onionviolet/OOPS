@@ -1,0 +1,14 @@
+--- a/src/domain_registry.js
++++ b/src/domain_registry.js
+@@ -1,3 +1,5 @@
++import {createMemoryDomain} from './person_memory.js';
++import {calendarMinutes} from './world_rhythm.js';
+ import {deferSimulationRender} from './simulation_render.js';
+ // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
+ export function createDomainRegistry() {
+@@ -51,3 +53,5 @@
+ }
+ export const domainRegistry=createDomainRegistry();
+ export const registerDomain=domainRegistry.registerDomain;
++
++registerDomain(createMemoryDomain({day: envelope => Math.floor(calendarMinutes(envelope['current time']) / 1440)}));
