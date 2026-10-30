@@ -19,9 +19,10 @@ fixture.leadLife={actorId:'fixture.person.arden'};
 for(let n=0;n<1497;n++)fixture.people.push({...person('fixture.person.role'+n,'Role '+n),tier:'role'});
 const actualFetch=globalThis.fetch;
 globalThis.fetch=async path=>({ok:true,json:async()=>path.endsWith('manifest.json')?{schema:1,supplements:['lotm-cast/cast.json']}:structuredClone(fixture)});
-const {castNeedsFullContext,syncLotmCast,castSettledPeople,castEnrollmentPeople,castPeople,castWalkCommands,castWalkDefinition,castWalkDefinitionById,installCastWalk,castSyncDue,restoreUnavailableCast,castJourneyOffers,castObjectOffers,castTopicOffers}=await import('../src/book_world_lotm_cast_host.js');
+// Live exports are read after the pack has loaded: destructuring earlier would capture the empty arrays.
 const {whenCastLoaded}=await import('../src/book_world_lotm_cast_days.js');
 await whenCastLoaded();globalThis.fetch=actualFetch;
+const {castNeedsFullContext,syncLotmCast,castSettledPeople,castEnrollmentPeople,castPeople,castWalkCommands,castWalkDefinition,castWalkDefinitionById,installCastWalk,castSyncDue,restoreUnavailableCast,castJourneyOffers,castObjectOffers,castTopicOffers}=await import('../src/book_world_lotm_cast_host.js');
 const role=fixture.people[1].id;
 const state=()=>({clock:1,lotm:{entryProfile:'lotm.early_tingen.canon_beside@1',initializedAt:0},worlds:{[I.world]:{facts:{}}},simulation:{people:{player:{location:'fixture.place.home'},...Object.fromEntries(fixture.people.map(p=>[p.id,{location:'unplaced',inventory:'simulation'}]))},knowledge:{player:{}},jobs:[],sessions:{},controllers:{},programs:{}}});
 

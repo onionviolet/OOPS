@@ -1,15 +1,15 @@
 --- a/src/book_world_lotm_cast_days.js
 +++ b/src/book_world_lotm_cast_days.js
-@@ -2,6 +2,8 @@
- // No world registration, source rows or Node filesystem path enters the bundle.
- import {deepFreeze} from './basics.js';
+@@ -4,6 +4,8 @@ import {deepFreeze} from './basics.js';
  import {validateLotmCast} from './book_world_lotm_cast.js';
+ import {loadCities} from './lotm_next_city.js';
+ import {withCities,setCities} from './book_world_lotm_cities.js';
 +import {defineTopicTalks} from './cast_topic_talk.js';
 +import {createSimulationRegistry} from './simulation_contracts.js';
  export async function loadPrivateCast(kind,validate,fetchFile=globalThis.fetch){
   try{
    const manifest=await fetchFile('private_packs/manifest.json');if(!manifest.ok)return null;
-@@ -10,6 +12,10 @@
+@@ -12,6 +14,10 @@ export async function loadPrivateCast(kind,validate,fetchFile=globalThis.fetch){
    const file=await fetchFile('private_packs/'+path);if(!file.ok)return null;
    const pack=await file.json();if(validate(pack).length)return null;
    if(kind==='lotm'&&(!pack.bindings?.days?.length||!pack.host?.profile||!pack.host?.situation))return null;
