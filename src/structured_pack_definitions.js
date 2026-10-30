@@ -7,6 +7,7 @@ import {validateStructuredEquipmentDefinition} from './structured_equipment_runt
 import {validateStructuredRenewalDefinition} from './structured_renewal.js';
 import {createContentRegistry} from './expansion_engine.js';
 import {validateStructuredBootstrap} from './structured_pack_runtime.js';
+import {validateLadderPresentation} from './structured_ladder_view.js';
 import {jsonData, stableId,validatePredicate} from './simulation_contracts.js';
 
 const contentFamilies = ['worlds', 'actions', 'opportunities', 'capabilities', 'sources', 'rollTables', 'techniques'];
@@ -82,6 +83,7 @@ export function compileStructuredPack(raw, existingRegistry = null) {
     check(Object.keys(presentation.people).every(id => people.has(id)), 'Unknown structured presentation person.');
     for(const id of people) check(object(presentation.people[id]) && ownedId(presentation.people[id].introductionKnowledgeKey), 'Structured person needs an introduction knowledge key.');
     validateRows(presentation.status, 'status');
+    validateLadderPresentation(presentation.ladders);
     for(const row of presentation.status) check(typeof row.label === 'string' && ownedId(row.knowledgeKey), 'Structured status needs held knowledge.');
     for(const command of d.simulation.commands || []) {
         check(Array.isArray(command.audience) && command.audience.length > 0, 'Structured commands require an explicit observer audience.');

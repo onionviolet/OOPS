@@ -1,5 +1,6 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
+import {renderFigure} from './ui/figure.js';
 // The host supplies an observer-safe projection. This panel never reads pack
 // definitions. Explicit session repeats dispatch through normal host commands.
 // Optional `changed()` returns the host's cheap change token (an array compared
@@ -16,7 +17,7 @@ export function createStructuredPackPanel({read,command,changed}) {
     const projected=()=>{const v=read();return {
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
-        status:(v.status||[]).map(s=>({label:s.label,value:s.value})),
+        status:(v.status||[]).map(s=>({label:s.label,value:s.value})),ladders:v.ladders||[],
         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
@@ -63,6 +64,10 @@ export function createStructuredPackPanel({read,command,changed}) {
         const rows=new Map([[info,[]],[plans,[]],[renewal,[]]]);
         const p=(text,parent=info)=>{if(text==null||text==='')return;const n=node('p',parent);n.textContent=String(text);rows.get(parent).push(['p',n.textContent]);return n;};
         const add=(parent,label,data,request,disabled)=>{parent.append(button(label,data,request,disabled));rows.get(parent).push(['b',label,data,request,disabled]);};
+        const ladderBlock=(parent,ladder)=>{const fig=node('div',parent),words=node('details',parent);fig.dataset.structuredLadder='';words.dataset.structuredLadderText='';
+            const {text}=renderFigure(fig,ladder.spec,{idPrefix:'structured-ladder-'+ladder.id});
+            words.append(Object.assign(document.createElement('summary'),{textContent:'Read the ladder as text'}),Object.assign(document.createElement('pre'),{textContent:text,className:'fig-text'}));
+            rows.get(parent).push(['ladder',text]);};
         live.info.hidden=work.hidden=live.plans.hidden=live.renewal.hidden=actions.hidden=!(view.available||view.active);
         if(view.available||view.active){
             p(view.arrival?.label||view.title);if(!view.arrival)p(view.description);
@@ -88,6 +93,7 @@ export function createStructuredPackPanel({read,command,changed}) {
                 for(const site of view.expeditions)p(`${site.label}: ${site.phase}${site.injury>0?' · treatment needed':''}`);
                 for(const person of view.people){p(person.name);for(const detail of person.details)p(detail);}
                 for(const row of view.status)p(`${row.label}: ${row.value}`);
+                for(const l of view.ladders)ladderBlock(info,l);
                 for(const e of view.extensions){
                     p(e.description);for(const reason of e.reasons)p(reason);
                     add(info,'Choose '+e.label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
