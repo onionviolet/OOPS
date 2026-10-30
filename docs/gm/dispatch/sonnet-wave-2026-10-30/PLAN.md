@@ -81,6 +81,50 @@ Weibao: "Go ahead, watch for overlap with other concurrent chats." The overlap c
 
 Pilot as launched: **L-A** (absorption successor and integrator), **L2** (ledger; new files only, shared checkout), **L6** (follow-up to the readings session). L4 and L5 wait for L2's ranked list and go to L-A's queue.
 
+## Whole-book gaps pass, more to consider round 1 (2026-10-30 01:30)
+
+Weibao: "how hard to go beyond just vol one, or at least have a coarse gaps pass through the entire book so that gaps workers can begin addressing? more to consider? That would be important to make features be more comprehensive?"
+
+**Evidence [S]:**
+- All 8 LOTM volumes are already read and merged in `m4-whole-book-2026-10-29/merged`.
+  - Extras rows by volume: 5,450 / 27,633 / 25,547 / 21,836 / 19,899 / 11,309 / 8,766 / 3,840.
+  - Scenes: 4,899. Registry: 12,294 ids.
+- Shard grades are mostly B, with about 10% C per volume (volume 2 has 121 B and 16 C).
+- `coverage_ledger.mjs` filters to volume 1 at line 8. Volumes 2-8 are about 22 times volume 1's rows.
+
+**Effort:** low for a coarse pass. The rows exist; the work is a script change plus a clustering pass. That is about one Sonnet lane, a Sol draft and 8-16 free Luna lanes.
+
+**Findings:**
+
+ACT NOW
+- **WB1, shape seams on the whole book.** The seams being built now (L4 rites and potions, L-A schedules) are being shaped from volume 1 alone. That risks a refactor once later volumes show wider shapes (AD45 allows it, but it is avoidable). Lanes sample later-volume rows of their kind before fixing a schema. Sent to `sw-rites` and `sw-absorb`.
+
+ACCOUNT FOR NOW
+- **WB2, coarse means mechanism grain, not row grain.** The game has only Tingen, so a row ledger over volumes 2-8 would read nearly 100% missing and tell a gap worker nothing. Each mechanism family gets one of three labels:
+  - **has seam, content gap:** fill it with data.
+  - **mechanism gap:** needs a new or extended seam.
+  - **outside the seat:** not the lead's life.
+
+  Example families: sequence advancement beyond 8 (HR2), the acting method, cities and regions, sea and long travel, secret gatherings, identities and personas, sealed artifacts, factions, wars and city-scale events.
+- **WB3, script first, then Luna, then Sonnet.**
+  1. A script counts rows per volume by kind, place, organization and rule kind, and flags ids new in each volume. This is free.
+  2. Luna clusters each volume's rule and texture rows into families, citing ids and returning counts only. One lane per volume or half-volume, $0 API.
+  3. Sonnet merges the families into the register and sets the labels against `src/`.
+- **WB4, extend the existing gap register; don't fork it (PRF5).** Results go in as new rows of `docs/research/READING_GAP_MAP_2026-10-28.md`, codes GM20 onward, plus a whole-book section in LEDGER.md. Each row cites the volumes and counts that justify it.
+- **WB5, spoilers.** Weibao plays this book's life. Gap names describe mechanisms ("a second persona with its own reputation"), not plot ("X is secretly Y"). Changed or randomized truths stay sealed by ID. Public franchise twists are not sealed, but they still stay out of gap titles.
+- **WB6, order by the lead's path.** The register lists gaps in the order the lead's run meets them: the next city, the next sequence rungs, the first long journey. That way gap workers start where play will go next, not where row counts are biggest.
+
+LATER / DELEGATE
+- **WB7, repair grade-C shards in volumes 2-8.** Use the same script set-aside as volume 1. Free, mechanical. Level: Luna low or script. Done check: lint-clean counts per volume.
+- **WB8, the same coarse pass over other books.** Mother of Learning, Harry Potter and Shadow Slave rows are read but unmerged; merging is free. A cross-book family table shows which seams serve several worlds, which is the strongest case for making a feature general. Level: Sonnet plus Luna. Done check: a family-by-book table in the gap map.
+- **WB9, schema 1.5 step enrich for volumes 2-8.** Use the Luna enrich route proven on volume 1. Only needed when a slice replays those scenes. Level: Luna medium. Done check: the `luna_enrich.mjs check` counts.
+
+**Proposed lane L7, whole-book gaps** (needs Weibao's go):
+- Model: Sonnet, plus a Sol draft of `--volumes all` and the per-volume and new-id counts in `coverage_ledger.mjs`, plus Luna clustering lanes.
+- Files: the coverage script and its test, the gap map rows from GM20 on, and a LEDGER.md whole-book section.
+- Done check: every volume has its families labelled and ordered by the lead's path, ready to hand to gap workers.
+- Estimated cost: one Sonnet lane (a few weekly points) and 8-16 Luna lanes.
+
 ## Order and stop rules
 
 1. Before any launch: find the owner of the uncommitted `src/book_world_lotm_{cast_host,host,state}.js` and `tests/cast_*` edits; L3-L5 cut from HEAD and must not clobber them at merge.
