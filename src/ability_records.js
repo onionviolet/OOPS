@@ -7,7 +7,7 @@
 import {assert, record, stableId, jsonData, validatePredicate, meets} from './simulation_contracts.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 
-const fields = new Set(['key', 'label', 'description', 'sourceId', 'acquisition', 'kind', 'fn', 'conditions', 'cost', 'limit', 'effects', 'price', 'failure', 'unstated', 'locator']);
+const fields = new Set(['key', 'label', 'description', 'sourceId', 'acquisition', 'kind', 'fn', 'conditions', 'cost', 'limit', 'effects', 'price', 'failure', 'unstated', 'locator', 'costBasis']);
 const limitKinds = new Set(['none', 'cooldown', 'charges']);
 const text = v => typeof v === 'string' && v.trim().length > 0;
 const nat = v => Number.isSafeInteger(v) && v > 0;
@@ -56,7 +56,7 @@ export function defineAbilityRecords(rows, {prefix, world, group = 'ability_reco
         if(!sources.has(row.sourceId)) sources.set(row.sourceId, {id: row.sourceId, revision: 1, label: row.sourceId, kind: 'trait', origin: 'acquired', grants: []});
         commands.push(command); abilities.push(ab);
         cards[k] = {id: ab.id, key: k, label: row.label, sourceId: row.sourceId, conditions: row.conditions.map(c => ({label: c.label, requires: structuredClone(c.requires)})),
-            cost: structuredClone(row.cost), limit: structuredClone(limit), price: structuredClone(row.price ?? []), failureHook: row.failure?.hook ?? null, unstated: [...(row.unstated ?? [])], locator: row.locator ?? null};
+            cost: structuredClone(row.cost), limit: structuredClone(limit), price: structuredClone(row.price ?? []), failureHook: row.failure?.hook ?? null, unstated: [...(row.unstated ?? [])], locator: row.locator ?? null, costBasis: row.costBasis ? structuredClone(row.costBasis) : null};
     }
     const definition = {id: prefix, world: {id: world.id}, sources: [...sources.values()], abilities, simulation: {powers, commands}};
     const compiled = compileStructuredAbilities(definition);

@@ -50,5 +50,7 @@ test('the private Sequence 7 pack, when present, compiles and every ability cite
     assert.equal(r.path.stages.find(s => s.id === 'seq7').crossings.length, 2);
     assert.ok(Object.keys(r.abilities.cards).length >= 3);
     for(const row of pack.rungs.seq7.abilities) assert.ok(row.locator && row.conditions.every(c => c.locator), row.key);
+    const ranks = Object.fromEntries(pack.rungs.seq7.abilities.map(a => [a.key, a.costBasis.rank])), spirit = k => -pack.rungs.seq7.abilities.find(a => a.key === k).cost.filter(c => c.key === 'spirituality').reduce((n, c) => n + c.amount, 0);
+    assert.ok(spirit('paper_substitute') > spirit('flame_jump') && spirit('flame_jump') > spirit('air_bullet') && ranks.paper_substitute > ranks.flame_jump && ranks.flame_jump > ranks.air_bullet, 'cost order follows the cited ranking');
     assert.ok(pack.rungs.seq7.abilities.some(a => a.limit.kind === 'cooldown') && pack.rungs.seq7.abilities.some(a => a.limit.kind === 'charges'));
 });
