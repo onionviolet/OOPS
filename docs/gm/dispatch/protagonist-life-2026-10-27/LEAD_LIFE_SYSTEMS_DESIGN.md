@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD334 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD350 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -938,3 +938,40 @@ already say the same for enemies, so one rule serves everyone in a fight.
 | LSD332 | **Experience changes policies.** Veterans hold under fear longer and read intent better; a green recruit freezes or panics. Fights grow skills and steady nerve (LSD301 deltas), so allies improve by living. Reason: competence is earned and is part of who someone is | LATER |
 | LSD333 | **Show why, at perception.** One line explains an ally's surprising act where the player could tell ("Neil hangs back, pale"), never a hidden number. Reason: goal-driven people must read as people, not as a bug | ACCOUNT FOR NOW: with LSD314 |
 | LSD334 | **Keep it cheap.** First slice: a few goals with weights that reorder existing policy rules (LSD295), picked by a simple score; no planner and no search. The full goal set grows as registries (LSD305). Reason: this is the most expensive kind of NPC logic, and weights over rules give most of the feel | ACCOUNT FOR NOW: F1 scope |
+
+## 33. Chance everywhere, and the subtle parts of a fight (Weibao 2026-10-29; proposal)
+
+Weibao: "Consider more subtle stuff and more? Lots of stuff could be on chance too? more to consider?" Code checked
+2026-10-29: `src/check_resolver.js` already has one keyed resolver (`resolveCheck`, `replayCheck`, `spendAfterCheck`)
+that any system can call; "luck" appears only in crafting sources and two book expansions, not as a general stat.
+
+**Chance across all systems**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD335 | **One chance shape for every system.** Fights, crafting, talk, divination, travel, weather, prices, gossip spreading and an NPC's mood all go through the one keyed resolver: competence sets a band, and chance lives at the margin of that band. Reason: one shape keeps odds comparable across systems and keeps one test harness | ACCOUNT FOR NOW: route new checks through `resolveCheck` |
+| LSD336 | **Do not roll what is already fixed.** Three kinds of uncertainty: chance (the swing that has not happened), hidden state (whether a guard takes bribes is already true once he exists; finding out is a perception or talk check, not a roll on the fact) and misjudgment (the player or character reads it wrong). Hidden state is generated once on first need, keyed by subject (LSD131, LSD139), and stays. Reason: rolling a fixed fact twice makes the world forget itself | ACCOUNT FOR NOW |
+| LSD337 | **Long chains of rolls collapse at coarser grains.** Ten checks in a row make results wildly swingy (the chances multiply). At outcome level a chain resolves as one draw with the same expected result (LSD278 level-agreement test). Reason: the same fight must feel equally likely at every zoom level | ACCOUNT FOR NOW: level-agreement test covers chains |
+| LSD338 | **Repeated idle actions use smoothed draws; one-off moments use plain draws.** For batches (crafting runs, farming, practice), keyed draws are stratified over the stream so 30% comes out near 30% over a run; a single important check stays a plain draw. Dial per world and per system. Reason: idle play should not punish streaks, and big moments should still be uncertain | ACCOUNT FOR NOW |
+| LSD339 | **Luck is a mechanism where a world has one, not a free stat.** A charm, fate's attention, a blessing or a divined omen shifts a draw's band or a fact's pull (LSD239) with its source and cost (AD38). Without a mechanism, there is no luck number. Reason: luck that does not come from somewhere cannot be read, resisted or traded | ACCOUNT FOR NOW |
+| LSD340 | **Odds are shown as the character judges them.** "Likely", "a long shot", "no idea": words at the character's appraisal level (CBR13, CBR14), and a temperament can bias the judgment (the overconfident misread long shots as fair). Exact numbers only where the character could know them, plus the dev inspector (LSD349) | ACCOUNT FOR NOW: with LSD333 |
+
+**Subtle parts of a fight**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD341 | **Who notices whom first sets the opening.** Perception against stealth decides surprise; a surprised side starts with its ready times pushed back on the tempo clock (LSD307), and a mutual surprise starts level. Reason: ambushes and being caught off guard are most of how book fights begin | ACCOUNT FOR NOW: F1 runner |
+| LSD342 | **Intent can lie.** A feint or a bluff shows a false windup; whether the observer sees the true intent is their perception or appraisal check against the feinter's skill. Extends LSD294. Reason: if shown intent were always true, skilled fighters would lose their best tool | ACCOUNT FOR NOW |
+| LSD343 | **Mishaps come from conditions, not a flat roll.** No fixed 5% fumble for an expert. Mishap chance rises with strain, fatigue, pain (harm rungs, LSD283), unfamiliar tools, bad footing, dark and rain; adrenaline briefly offsets pain. Reason: experts fail when conditions are bad, not at random | ACCOUNT FOR NOW |
+| LSD344 | **The place takes part.** Footing, light, cover, crowds and weather modify checks, and bystanders act by their own goals (flee, scream, call the authorities, film or remember it). Witnesses write facts (the schema 1.5 `witnesses` field, LSD206), and those facts reach reputation and investigators later. Reason: a fight in a street is a public event | ACCOUNT FOR NOW |
+| LSD345 | **Fights have goals other than winning.** Capture, theft, delay, escape, protecting a carrier, delivering a message, or killing one target and leaving. A side that meets its goal stops fighting (LSD324 applies to sides as well as people). Reason: many fights end when someone gets what they came for | ACCOUNT FOR NOW |
+| LSD346 | **Gear and supplies run out and fail.** Ammunition and remedies come from real stock (CBR26); weapons jam, dull or break with use and conditions (LSD343); a dropped item stays where it fell and someone may pick it up. Reason: attrition is where tension and later plot come from | ACCOUNT FOR NOW |
+| LSD347 | **Aftermath runs on chance too.** A wound may get infected, a dropped item may be found, a witness may talk or keep quiet (by their goals, LSD324), and a rumour spreads by who heard it. All keyed by subject and date. Reason: a fight's consequences should keep unfolding after the last blow | ACCOUNT FOR NOW |
+| LSD348 | **Pressure and panic.** Under fear or time pressure, the policy's later rules are tried less carefully: a panicked fighter takes the first rule that fits, not the best. Discipline and experience (LSD332) resist this. Reason: people make worse choices under pressure, and policies should too | LATER |
+
+**Making it checkable**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD349 | **A dev inspector for every check.** For any resolved check: its key, factors, band, draw and result, plus why a policy chose what it chose. Read-only, behind the dev route, and it respects sealed secrets (shows IDs, not truths). Reason: with chance everywhere, every surprise needs to be explainable when debugging | ACCOUNT FOR NOW: with the F1 runner |
+| LSD350 | **Calibrate odds against the book.** Run canon fights and canon days at pull 0 across many seeds and compare rates (the lead survives, an ally flees, a witness talks) with what the book shows (LSD236). Large gaps mean a factor or a goal weight is wrong, not that pull should hide it. Reason: chance that keeps contradicting the book means the mechanisms are off | LATER/DELEGATE: Luna lane after F1, script-run, done when a rate table exists for ch1-24 fights |
