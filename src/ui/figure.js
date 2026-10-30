@@ -288,7 +288,7 @@ export function renderFigure(node, input, options = {}) {
         const a = at.get(edge.from), b = at.get(edge.to), dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
         const t = .55 + (i - (group.length - 1) / 2) * .3, ux = dx / len, uy = dy / len, shift = (i - (group.length - 1) / 2) * 24, nx = -uy * shift, ny = ux * shift;
         const x1 = a.x + ux * MARKER_R + nx, y1 = a.y + uy * MARKER_R + ny, x2 = b.x - ux * MARKER_R + nx, y2 = b.y - uy * MARKER_R + ny;
-        const g = make('g', {class: `fig-edge ${kindClass(edge.kind)}${stateClass(edge.state)}`, 'data-kind': edge.kind});
+        const g = make('g', {class: `fig-edge ${kindClass(edge.kind)}${stateClass(edge.state)}`, 'data-kind': edge.kind, 'data-from': edge.from, 'data-to': edge.to});
         g.append(make('title', {}, `${edge.kind}${edge.label ? `: ${edge.label}` : ''}${tag(edge.state)}${edge.detail ? `. ${edge.detail}` : ''}`));
         g.append(make('line', {class: 'fig-edge-line', x1: round1(x1), y1: round1(y1), x2: round1(x2), y2: round1(y2)}));
         if (edge.label || edge.state) {

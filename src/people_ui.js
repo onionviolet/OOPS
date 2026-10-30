@@ -6,7 +6,9 @@ import {observerView} from "./observer_view.js";
 import {domainRegistry} from "./domain_registry.js";
 import {relationshipWebPeople} from "./relationship_web_view.js";
 import {relationshipWebSpec, relationshipGlance, relationshipStageMeter} from "./ui/relationship_web.js";
-import {renderFigure} from "./ui/figure.js";
+import {figureText} from "./ui/figure.js";
+import {mountFormSwitch} from "./ui/figure_forms.js";
+const webForms = new Map(); // form chosen per figure id, kept across redraws (bk-forms)
 import {createMeterBar} from "./meter_bar.js";
 
 const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
@@ -37,7 +39,7 @@ export function createPeopleOverview() {
             const spec = people.length ? relationshipWebSpec(people) : null, signature = JSON.stringify(spec);
             if(signature !== webSignature) {
                 webSignature = signature;
-                if(spec) {text.textContent = renderFigure(figure, spec, {idPrefix: "relationship-web"}).text; webSummary.textContent = `Web of who knows what · ${people.length} ${people.length === 1 ? "person" : "people"}`;}
+                if(spec) {mountFormSwitch(figure, spec, {idPrefix: "relationship-web", memory: webForms, forms: ["web", "table", "matrix"]}); text.textContent = figureText(spec); webSummary.textContent = `Web of who knows what · ${people.length} ${people.length === 1 ? "person" : "people"}`;}
             }
             web.hidden = !spec;
         } catch(error) {

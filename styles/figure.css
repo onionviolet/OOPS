@@ -111,3 +111,39 @@
 .fig-ledger-row meter::-webkit-meter-suboptimum-value {background: var(--fig-warn);}
 .fig-ledger-row meter::-webkit-meter-even-less-good-value {background: var(--fig-danger);}
 .fig-ledger-row small {color: var(--fig-muted);}
+
+/* Interaction layer (src/ui/figure_interact.js) and alternate forms (src/ui/figure_forms.js). Dimming is an instant
+   opacity change; motion exists only on a real change and only when effects are on (UR38, UR62). */
+.fig-interact-bar {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); align-items: center; margin-block-end: var(--ui-space-3); font-size: var(--ui-type-small);}
+.fig-filter {min-width: 12em;}
+.fig-filter-count, .fig-interact-hint {color: var(--fig-muted); font-size: var(--ui-type-small);}
+.fig-interact-hint {margin: var(--ui-space-3) 0 0;}
+.fig-interactive {cursor: pointer;}
+.fig-interactive:focus-visible {outline: none;}
+.fig-interactive:focus-visible > .fig-body, .fig-pinned > .fig-body {stroke: var(--fig-accent); stroke-width: 3.5;}
+.fig-pinned > .fig-halo {stroke: var(--fig-accent); stroke-width: 1.5; opacity: .9;}
+.fig-svg .fig-dim, .fig-svg .fig-edge.fig-dim {opacity: .28;}
+.fig-svg .fig-edge.fig-hl .fig-edge-line {stroke-width: 4;}
+.fig-svg .fig-far .fig-label {display: none;}
+.fig-svg .fig-far {opacity: .18;}
+.fig-cards {display: grid; gap: var(--ui-space-3); margin-block-start: var(--ui-space-3);}
+.fig-card, .fig-compare, .fig-inspector {border: 1px solid var(--fig-line); border-radius: var(--ui-radius); background: var(--fig-surface); padding: var(--ui-space-3) var(--ui-space-4); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.fig-card--nested {border-style: dashed;}
+.fig-card p, .fig-compare p, .fig-inspector p {margin: var(--ui-space-1) 0;}
+.fig-card h4, .fig-compare h4, .fig-inspector h4 {margin: 0 0 var(--ui-space-1);}
+.fig-card-state, .fig-card-kind, .fig-card-none, .fig-inspector-empty {color: var(--fig-muted);}
+.fig-card-list {list-style: none; margin: var(--ui-space-2) 0 0; padding: 0; display: grid; gap: var(--ui-space-1);}
+.fig-card-link, .fig-sort, .fig-form-choice, .fig-focus-toggle, .fig-clear, .fig-matrix-mark {font: inherit; color: var(--fig-ink); background: transparent; border: 1px solid var(--fig-line); border-radius: var(--ui-radius); padding: 0 var(--ui-space-2); cursor: pointer;}
+.fig-form-choice[aria-pressed="true"], .fig-focus-toggle[aria-pressed="true"] {border-color: var(--fig-accent); color: var(--fig-accent);}
+.fig-form-switch {display: flex; gap: var(--ui-space-2); margin-block-end: var(--ui-space-3);}
+.fig-form--table {display: grid; grid-template-columns: minmax(0, 3fr) minmax(14em, 2fr); gap: var(--ui-space-4); align-items: start;}
+.fig-table, .fig-matrix {border-collapse: collapse; font-size: var(--ui-type-small); width: 100%;}
+.fig-table th, .fig-table td, .fig-matrix th, .fig-matrix td {border-bottom: 1px solid var(--fig-line); padding: var(--ui-space-1) var(--ui-space-3); text-align: start;}
+.fig-table tbody tr {cursor: pointer;}
+.fig-table tbody tr:focus-visible, .fig-row-selected {outline: 2px solid var(--fig-accent); outline-offset: -2px;}
+.fig-matrix-col {vertical-align: bottom; max-width: 3.5em;} .fig-matrix-col span {display: block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;}
+.fig-matrix-on {background: color-mix(in srgb, var(--fig-accent) 22%, var(--fig-surface)); text-align: center;}
+.fig-matrix-note {min-height: 1.5em; color: var(--fig-muted);}
+.fig-sentences {margin: 0; padding-inline-start: 1.2em; font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.fig-svg .fig-changed > .fig-body {stroke: var(--fig-accent); stroke-width: 3.5;}
+:root:not([data-effects="off"]):not([data-effects="reduced"]) .fig-svg .fig-changed > .fig-halo {animation: fig-pulse 700ms ease-out 2 alternate;}

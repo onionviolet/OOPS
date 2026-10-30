@@ -4,6 +4,7 @@ import {renderFigure} from '../figure.js';
 import {applyCustomizationProfile, defaultCustomizationState, neutralPresentationSettings} from '../../customization_profiles.js';
 import {FIGURE_FIXTURES} from './figure_fixtures.js';
 import {FIXTURE_MANIFEST} from './fixtures/manifest.js';
+import {mountFormSwitch} from '../figure_forms.js';
 import {mountStyleGuide} from './style_guide.js';
 import {mountCharacterSheetGallery} from './character_sheet_gallery.js'; queueMicrotask(() => mountCharacterSheetGallery(document.getElementById('fig_gallery')));
 
@@ -13,6 +14,7 @@ states.neutral.profiles.Default.settings = neutralPresentationSettings();
 delete states.neutral.profiles.Default.modules.messages;
 
 const params = new URLSearchParams(location.search);
+{ const textSize = Number(params.get('size')); if ([14, 17.5, 21].includes(textSize)) for (const state of Object.values(states)) state.profiles.Default.settings.typography.size = textSize; } // evidence at 14 and 21 px text
 const effects = ['full', 'reduced', 'off'].includes(params.get('effects')) ? params.get('effects') : 'full';
 document.documentElement.dataset.effects = effects;
 document.body.classList.add('fig-gallery-page');
@@ -30,7 +32,9 @@ mountStyleGuide(main);
 const listed = [];
 for (const [load, name] of FIXTURE_MANIFEST) { const mod = await load(); if (name) listed.push(...mod[name]); }
 const GALLERY = [...new Map([...FIGURE_FIXTURES, ...listed].map(spec => [spec.id, spec])).values()];
-for (const spec of GALLERY) {
+// ?only=<fixture id> draws one fixture; ?form=web|table|matrix|sentences wraps each figure in the form switch with the interaction layer (bk-forms).
+const only = params.get('only'), formParam = params.get('form');
+for (const spec of GALLERY.filter(item => !only || item.id === only)) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));
     const pair = el('div', {class: 'fig-gallery-pair'});
@@ -40,7 +44,9 @@ for (const spec of GALLERY) {
         host.append(module); cell.append(el('h3', {}, theme === 'luminous' ? 'Luminous Gothic' : 'Neutral'), host);
         pair.append(cell);
         applyCustomizationProfile(states[theme], {moduleNodes: {vitals: module}});
-        renderFigure(module, spec, {idPrefix: `${spec.id}-${theme}`, text: true});
+        if (formParam === 'webplain') renderFigure(module, spec, {idPrefix: `${spec.id}-${theme}`}); // the figure alone, no switch, no interaction layer
+        else if (formParam) mountFormSwitch(module, spec, {idPrefix: `${spec.id}-${theme}`, initial: formParam, forms: ['web', 'table', 'matrix', 'sentences']});
+        else renderFigure(module, spec, {idPrefix: `${spec.id}-${theme}`, text: true});
     }
     section.append(pair);
     main.append(section);
