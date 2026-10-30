@@ -1,7 +1,7 @@
 {
  "ok": true,
  "url": "http://127.0.0.1:18741/",
- "fingerprint": "http://127.0.0.1:18741/dist/bundle.js?version=v0.6-a29b50b1a910",
+ "fingerprint": "http://127.0.0.1:18741/dist/bundle.js?version=v0.6-911f1ffea6dc",
  "findings": [
   "Stance hold saved, shown in roster, kept through reload and Import; contest read it."
  ],

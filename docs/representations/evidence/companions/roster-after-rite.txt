@@ -5,7 +5,7 @@ Companions
 Lio: you worked side by side. Bond 0 → 3. It is kept with your next save.
 
 Lio
-Village · free · 28/28 health, 12/12 stamina · in a contest he holds his guard until you are hurt · bond 3
+Village · free · 28/28 health, 12/12 stamina · in a contest he holds his guard until you are hurt
 Bond: Familiar2/4
 Lio wishes you would sit in quiet company 2 more times. Tied to the story and the party: he voices wishes but does not leave, because the party and its fights depend on him.
 You know they are practical: worked side by side suits them (+3).

@@ -159,9 +159,11 @@ panel, start the agreed Mara contest, and watch Lio's effort in the fight and th
 Tests: `tests/companion_stage.test.js`, a stance test in `tests/party_battle.test.js`.
 
 Browser evidence (`scripts/party_companions_browser.cjs`, fresh origin, 1920x1080, bundle
-`v0.6-a29b50b1a910`) in [evidence/companions](evidence/companions/): roster with stance and bond bar,
+`v0.6-911f1ffea6dc`) in [evidence/companions](evidence/companions/): roster with stance and bond bar,
 after one rite the bar reads Familiar 2/4, stance `hold` survives reload and Export/Import, and a
-contest on the imported save ran 4 actions with Lio's effort still 4 (`contest-state.json`). Not
+contest started from the saved stance (carried over from the imported save) ran 3 actions with Lio's effort still 4 (`contest-state.json`). The run starts from a
+`joinField()` fixture with enrolment injected, so "a fresh life reaches it" is a design claim backed by
+the unit tests, not exercised through the real enrolment in a browser. Not
 exercised: the hurt-player brace in a browser (covered by the unit test), pets, and mounts.
 
 ## Round ledger
@@ -175,6 +177,7 @@ decide whether "hold" becomes a named policy there (P5, fights line).
 **LATER / DELEGATE:**
 - Pet care slice. Sonnet, medium. Done: one care act moves a pet bond, a condition word shows, a
   consumer reads it; save, reload and import exercised.
+- Active-stance toggle in the party panel (needs `visibleWhen` to handle a missing fact for older saves).
 - Stage-gated stances and a "needs care" chip. Sonnet, small. Done: test per gate.
 - Reports lines for stage-up and granted wish. Sonnet, small, with the time owner.
 - Formation board (CR2) once fights have positions. Opus design, then Sonnet.

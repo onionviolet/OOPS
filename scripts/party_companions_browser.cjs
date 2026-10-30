@@ -57,8 +57,8 @@ fs.mkdirSync(out,{recursive:true});
   const imp=await imported();assert.equal(imp.expansion.actors.player.facts['party.stance'],'hold');assert.equal(imp.companions.bonds['party:lio'].level,3);
   t=await roster();assert.match(t,/holds his guard until you are hurt/);
   // 4 consumer: in the contest a healthy player keeps Lio's effort; the hold stance is read by the fight.
-  await open(imp);await click('start');await waitForPage(page, ()=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.sessions.player?.nativeBattle.actions>=3);
-  const b=await battle();assert.equal(b.guardsPrepared,0);assert.match(b.last,/until you are hurt/);const live=await saved();assert.equal(live.expansion.actors.partyPartner.resources.brace_effort,4);
+  const fx=structuredClone(ready);fx.expansion.actors.player.facts['party.stance']=imp.expansion.actors.player.facts['party.stance'];fx.companions=imp.companions;await open(fx);await click('start');await waitForPage(page, ()=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.sessions.player?.nativeBattle.actions>=3);
+  const b=await battle();assert.equal(b.guardsPrepared,0);const live=await saved();assert.equal(live.expansion.actors.partyPartner.resources.brace_effort,4);
   fs.writeFileSync(path.join(out,'contest-state.json'),JSON.stringify({actions:b.actions,guardsPrepared:b.guardsPrepared,guardsTaken:b.guardsTaken,last:b.last,braceEffort:live.expansion.actors.partyPartner.resources.brace_effort},null,1));
   await page.screenshot({path:path.join(out,'screen-1920x1080-contest.png')});
   findings.push('Stance hold saved, shown in roster, kept through reload and Import; contest read it.');

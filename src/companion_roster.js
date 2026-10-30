@@ -179,7 +179,7 @@ function createRosterPanel() {
     panel.append(node('h2', 'Companions'), count, status, list);
     const render = visibleRenderer(panel, readCompanions, rows => {
         count.textContent = rows.length ? plural(rows.length, 'person', 'people') : '';
-        syncList(list, rows.map(r => ({key: r.key, name: r.name, detail: `${r.detail} · bond ${r.level}`})), 'Nobody travels with you or has settled near you yet. Meet people in the Village.');
+        syncList(list, rows.map(r => ({key: r.key, name: r.name, detail: r.detail})), 'Nobody travels with you or has settled near you yet. Meet people in the Village.');
         for (const li of list.children) {
             const row = rows.find(r => r.key === li.dataset.key); if (!row) continue;
             let box = li.querySelector('.bond-rite');
