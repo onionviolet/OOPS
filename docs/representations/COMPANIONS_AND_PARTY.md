@@ -157,7 +157,12 @@ How a fresh life reaches it: enrol, meet Lio from the Village (earned), set a st
 panel, start the agreed Mara contest, and watch Lio's effort in the fight and the roster.
 
 Tests: `tests/companion_stage.test.js`, a stance test in `tests/party_battle.test.js`.
-Floor status and browser evidence: see the ledger below.
+
+Browser evidence (`scripts/party_companions_browser.cjs`, fresh origin, 1920x1080, bundle
+`v0.6-a29b50b1a910`) in [evidence/companions](evidence/companions/): roster with stance and bond bar,
+after one rite the bar reads Familiar 2/4, stance `hold` survives reload and Export/Import, and a
+contest on the imported save ran 4 actions with Lio's effort still 4 (`contest-state.json`). Not
+exercised: the hurt-player brace in a browser (covered by the unit test), pets, and mounts.
 
 ## Round ledger
 
