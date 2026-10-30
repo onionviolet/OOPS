@@ -6983,3 +6983,15 @@ Weibao, 2026-10-30, answering whether the ring elder should become a form of the
 - **Other cheats** are separate things the world can offer: a ring spirit, a system, and many more. Each is its own cheat, not a form or skin of the base cheat.
 - **Deferred long term:** further cheat work, after the commits already landed today (growth view, look by type, the ring-elder premise grant). Nothing is deleted.
 - Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [cheat library](CHEAT_LIBRARY.md).
+
+## UI identity, per-world basics and combat surfaces (2026-10-30)
+
+Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options O1-O3, lanes A1-A3): "We need to send opus to focus on fixing F1, F2 we can wait till the stuff is done? F3 we can combine accordingly but need to consider what will work best for what we need? ... F4 we will need to update that. O1 sounds right. O2, that is lower priority, but will be important in the future. O3 maybe worth considering, but we need the most basic Ui working for each world accordingly? A1 yes, also consider setting up world specific flourish and more, and also for the reports section, flavour or specific useful text that pops up accordingly too, and not just using the generic ones? A3, yep, consider if others need similer merge too?"
+
+- **One owner for the look (O1, accepted):** a DESIGN.md that states the visual identity and the requirements every feature UI meets.
+- **Per-world skins (O2):** lower priority now, important later.
+- **Diegetic world UI (O3):** worth considering, after the most basic UI works for each world.
+- **World flourish and report text:** each world gets its own flourish and its own report lines (flavour and useful, specific text), not only generic ones.
+- **Combat:** combine the old combat screen and the tempo fight in whatever form works best; damage types reach the tempo fights; check which other systems need the same merge.
+- **Feature UI backlog (F2):** waits for the landing and wiring sessions already running.
+- Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
