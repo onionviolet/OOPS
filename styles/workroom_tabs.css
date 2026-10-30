@@ -1,0 +1,6 @@
+/* Workroom in-panel tabs: tokens only. data-tab-off hides blocks without touching `hidden`. */
+[data-tab-off] { display: none !important; }
+.workroom-tabs [role="tablist"] { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); margin-bottom: var(--ui-space-2); }
+.workroom-tabs [role="tab"] { min-height: var(--ui-control-sm); color: var(--ui-text); background: none; border: 0; border-bottom: var(--ui-space-hairline) solid transparent; }
+.workroom-tabs [role="tab"][aria-selected="true"] { border-bottom: var(--ui-space-hairline) solid var(--ui-accent); color: var(--ui-accent); }
+.workroom-moved { font-size: var(--ui-type-small); line-height: var(--ui-line-small); }

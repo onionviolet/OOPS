@@ -36,19 +36,20 @@ const rows = [
   {id: 'control.continuation', kind: 'panel-block', anchor: '[data-lotm="open_connection"]', tag: 'crossing', basis: 'Continuing connection switches to another life.'},
 
   {id: 'header.place-title', kind: 'header-line', anchor: '#location_name_span', tag: 'in-world', basis: 'It names the place the character occupies.'},
-  {id: 'header.local-clock', kind: 'header-line', anchor: '#lotm_panel > :nth-child(2)', tag: 'in-world', basis: 'It shows the lead’s local day and time.'},
+  {id: 'header.local-clock', kind: 'header-line', anchor: '#lotm_panel > :nth-child(3)', tag: 'in-world', basis: 'It shows the lead’s local day and time.'},
   {id: 'header.home-calendar', kind: 'header-line', anchor: '#time_div', tag: 'crossing', basis: 'The native home calendar belongs to the paused Village life.'},
 
   // The nine stable content regions appended to the LOTM place panel.
-  {id: 'lotm.block.status', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(2)', tag: 'in-world', basis: 'Current place and condition of this life.'},
-  {id: 'lotm.block.meters', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(3)', tag: 'in-world', basis: 'Character resources and strain.'},
-  {id: 'lotm.block.path', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(4)', tag: 'in-world', basis: 'Current duties and pathway.'},
-  {id: 'lotm.block.work', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(5)', tag: 'in-world', basis: 'Work, custody and ongoing jobs.'},
+  {id: 'lotm.block.tabs', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(2)', tag: 'in-world', basis: 'Sections of this character’s workroom.'},
+  {id: 'lotm.block.status', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(3)', tag: 'in-world', basis: 'Current place and condition of this life.'},
+  {id: 'lotm.block.meters', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(4)', tag: 'in-world', basis: 'Character resources and strain.'},
+  {id: 'lotm.block.path', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(5)', tag: 'in-world', basis: 'Current duties and pathway.'},
+  {id: 'lotm.block.work', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(6)', tag: 'in-world', basis: 'Work, custody and ongoing jobs.'},
   {id: 'lotm.block.bench', kind: 'panel-block', anchor: '#lotm_panel [data-lotm-bench]', tag: 'in-world', basis: 'Disclosure group: the character’s brewing bench.'},
-  {id: 'lotm.block.actions', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(7)', tag: 'in-world', basis: 'Actions available to this character.'},
-  {id: 'lotm.block.walks', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(8)', tag: 'in-world', basis: 'Nearby places and walks.'},
-  {id: 'lotm.block.notebook', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(9)', tag: 'in-world', basis: 'What this character knows.'},
-  {id: 'lotm.block.notice', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(10)', tag: 'in-world', basis: 'Feedback from this character’s actions.'},
+  {id: 'lotm.block.actions', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(8)', tag: 'in-world', basis: 'Actions available to this character.'},
+  {id: 'lotm.block.walks', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(9)', tag: 'in-world', basis: 'Nearby places and walks.'},
+  {id: 'lotm.block.notebook', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(10)', tag: 'in-world', basis: 'What this character knows.'},
+  {id: 'lotm.block.notice', kind: 'panel-block', anchor: '#lotm_panel > :nth-child(11)', tag: 'in-world', basis: 'Feedback from this character’s actions.'},
 
   // Every data-lotm family is included; dynamic suffixes are represented by the attribute token.
   ...[

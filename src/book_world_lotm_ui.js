@@ -11,6 +11,7 @@ import {walkMapBlock} from './ui/walk_map.js';
 import {walkBoard} from './ui/walk_board.js';
 import {renderCrossingThreshold} from './ui/crossing_threshold.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
+import {mountWorkroomTabs} from './book_world_lotm_tabs.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -19,6 +20,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
+ // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
+ const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
  let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
@@ -112,12 +115,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
      for(const o of axis.options.filter(o=>!o.available)){const off=node('small',` Also listed: ${o.label}. ${o.reason}`);off.dataset.lotmEntryUnwritten=o.id;line.append(off);}
      actions.append(line);}
     for(const pr of v.profiles)actions.append(row(button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable||pr.available===false,pr.available===false?'A fresh book life is unavailable in this host.':v.startable?(pr.independent?'See this new life.':'See what this life keeps and leaves before crossing.'):v.startReasons.join(' '))),node('p',pr.blurb));
-    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
+    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));tabsUi.update(v);return;
    }
    // The nine entry answers come before the irreversible step (WER3, UR43), grouped as a carry list (RPX20).
    renderCrossingThreshold(actions,lotmThresholdView(v,pick,{onConfirm:()=>{choosing=null;notice.textContent=pick.independent?'Starting…':'Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{const message=e?.message||'The new life could not start.';notice.textContent=/current save is kept/i.test(message)?message:`${message} Your current save is kept.`;}).finally(()=>{signature='';render();});},
     onBack:()=>{choosing=null;signature='';render();}}));
-   return;
+   tabsUi.update(v);return;
   }
   const d=v.district,resident=v.resident===true;bench.hidden=resident;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;
@@ -143,14 +146,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   const {text}=renderFigure(fig,spec,{idPrefix:'lotm-ladder'});
   words.append(node('summary','Read the ladder as text'),Object.assign(node('pre',text),{className:'fig-text'}));
   path.append(node('h3',p.label),fig,words);
-  if(p.chosen)path.append(node('p',v.switchNotice));
-  else for(const o of p.others){path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')),node('p',v.switchNotice));}
+  // Reference prose sits behind one disclosure after the ladders and steps (UR42, round 2 density).
+  const howTo=[v.switchNotice];
+  if(!p.chosen)for(const o of p.others)path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')));
   if(p.next&&!p.capped){
    const plan=node('details');plan.dataset.lotmPlan='';plan.open=planOpen;plan.ontoggle=()=>{planOpen=plan.open;};
-   plan.append(node('summary',`Plan the next crossing · ${p.next}`),node('p',p.ready?'The recorded preparations are met. Taking the dose remains a separate irreversible action.':'Prepare this current body for the next crossing. Met requirements record preparation, not a completed promotion.'));
+   plan.append(node('summary',`Plan the next crossing · ${p.next}`),...(p.ready?[node('p','The recorded preparations are met. Taking the dose remains a separate irreversible action.')]:[]));
+   if(!p.ready)howTo.push('Prepare this current body for the next crossing. Met requirements record preparation, not a completed promotion.');
    for(const c of p.crossings){const r=node('p',`${c.met?'✓':'·'} ${c.label}${typeof c.need==='number'?` (${c.have}/${c.need})`:''}${c.irreversible?' · irreversible':''}`);r.dataset.crossing=c.id;plan.append(r);}
    if(p.failure)plan.append(node('p',`Risk: ${p.failure.signs}. ${p.failure.outcome}.`));
-   plan.append(node('p','Finding a step spends nothing. Review its current terms at the normal control; using it rechecks your body, supplies and available support.'));
+   howTo.push('Finding a step spends nothing. Review its current terms at the normal control; using it rechecks your body, supplies and available support.');
    const steps=v.actions.filter(a=>/\.(report_in|accept_allocation|ingest|request_assessment|request_prescreen|request_exam)/.test(a.id));
    for(const a of steps)plan.append(row(node('span',`${a.label} · ${a.duration?`${a.duration} min`:'immediate'}. ${a.eligible?'Available now.':a.reasons.join(' ')||'Currently unavailable.'}`),button('Find step',`plan_${a.id}`,()=>findControl(a.id),false,'Focus the existing control without starting it.')));
    if(!steps.length)plan.append(node('p','No progression step is currently offered here. Known acting guidance and the normal walking controls below retain their own requirements.'));
@@ -169,10 +174,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    path.append(guidance);
   }
   if(p.capped)path.append(node('p','Later Sequences are not offered in this branch.'));
+  const how=node('details');how.className='lotm-how';how.append(node('summary','How this works'),...howTo.map(t=>node('p',t)));path.append(how);
   }
   }
-  // RET3: the paused Village life is resumed from the connection panel, not from here.
-  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';path.append(r);}
+  // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
+  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
   if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
   if(!resident){
@@ -256,6 +262,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   for(const m of v.moves.filter(m=>!v.places?.some(pl=>m.label.startsWith(`Walk to ${pl.place} · `))))walks.append(walkRow(m));
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
+  tabsUi.update(v);
  }
  definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};
