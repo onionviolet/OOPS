@@ -443,8 +443,10 @@ default in [CHOICES](../gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md) item 2. P
 
 Findings for other owners (not changed here):
 - F1. With the private advancement pack present, `lotmPathView` passes `known` as the whole path, so a
-  fresh Sequence 9 life sees every later rung named in the ladder. If that is not intended, `known`
-  belongs to L10 or floor-wire (ABR19).
+  fresh Sequence 9 life sees every later rung named in the ladder (`book_world_lotm_path.js`, `known:
+  ladder.path.stages.length`). L10 confirmed it and does not own that file (host wiring: sw-wire or
+  floor-wire). Its suggested fix: `known = position + 2` (the next rung's name only), or a count driven
+  by a "rung seen" fact once one exists; `ceiling` can stay (ABR19).
 - F2. Most L10 rows state no cost (CHOICES item 2). Until the inferred costs land in the data, the
   lines read "cost not stated", which is honest but sparse.
 - F3. The first Round 4 commit (`2bae890d`) carried in-game captures made with the private advancement
