@@ -9,6 +9,8 @@ import {applySimulationEffects} from './simulation_effects.js';
 import {validateExpansionState} from './expansion_engine.js';
 import {rollCombatStrike,mitigateCombatDamageFromStats} from './combat_math.js';
 import {ROAD_RIVAL,RIVAL_PURSUIT} from './frontier_campaign.js';
+// Stance "hold" (bk-party proposal): Lio braces only once the player is at or under this share of health.
+export const PARTY_HOLD_BELOW=.6;
 const kit=JSON.stringify({id:'Prepared survey kit'});
 function supportReasons(state) {
     const s=state.simulation,p=s?.people[PARTY_HELPER],a=state.actors[PARTY_HELPER],source=a?.sources[PARTY_METHOD],faculty=s?.faculties[PARTY_HELPER]?.[PARTY_METHOD];
@@ -75,6 +77,7 @@ const partyConflict={id:'party.braced_contest',revision:1,sides:[['player',PARTY
             {id:'guard',when:()=>actorId===PARTY_HELPER,apply(){
                 check(command.type==='guard'&&command.targetId==='player','Lio guards the player; he does not attack or guard an enemy.');
                 check(!b.guard,'The existing guard is still held.');
+                if(plan.state.actors.player.facts['party.stance']==='hold'&&hp('player').health>PARTY_HOLD_BELOW*hp('player').max_health){b.last='Lio watches and keeps his effort until you are hurt.';return;}
                 const unsupported=supportReasons(plan.state);
                 if(unsupported.length){helperLeaves(plan,hp(PARTY_HELPER).health<=1?'yielded':'unsupported');b.last=unsupported.join(' ')+' Lio steps out.';}
                 else if(hp(PARTY_HELPER).stamina<2||plan.state.actors[PARTY_HELPER].resources.brace_effort<1){helperLeaves(plan,'exhausted');b.last='Lio has no guard effort left and steps out.';}

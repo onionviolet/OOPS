@@ -104,3 +104,15 @@ test('CBL3: a lost Lio party battle stages one unconscious record; a win or Lio 
  assert.equal(defeatState()?.last??null,null);
  persistExpansionPlan(lost,{createSave:()=>bytes,key:'x',storage:{setItem(){}},bindings});assert.deepEqual(defeatState().counts,{unconscious:1});setDefeatState(null);
 });
+test('bk-party: the hold stance keeps Lio\'s effort while you are healthy and braces once you are hurt; ready braces at once',()=>{
+ let p=setup();assert.equal(p.state.actors.player.facts['party.stance'],undefined);
+ p=fieldCommand(p,'party.stance.hold');assert.equal(p.state.actors.player.facts['party.stance'],'hold');
+ let b=begin(p);const effort=b.state.actors[PARTY_HELPER].resources.brace_effort;
+ b=action(b,PARTY_HELPER,'guard');assert.equal(b.state.actors[PARTY_HELPER].resources.brace_effort,effort);assert.equal(b.state.simulation.sessions.player.nativeBattle.guard,null);assert.match(b.state.simulation.sessions.player.nativeBattle.last,/until you are hurt/);
+ const hurt=begin(p);const ctx=context(hurt);ctx.vitals.player.health=10;
+ const session=hurt.state.simulation.sessions.player;
+ const guarded=commitPartyBattleAction(hurt.state,registry,{actorId:PARTY_HELPER,type:'guard',targetId:'player',sessionId:session.id,sequence:hurt.state.sequence,action:session.nativeBattle.actions,fighters},ctx);
+ assert.equal(guarded.state.actors[PARTY_HELPER].resources.brace_effort,effort-1);
+ let r=fieldCommand(setup(),'party.stance.hold');r=fieldCommand(r,'party.stance.ready');assert.equal(r.state.actors.player.facts['party.stance'],'ready');
+ const ready=action(begin(r),PARTY_HELPER,'guard');assert.equal(ready.state.actors[PARTY_HELPER].resources.brace_effort,effort-1);
+});

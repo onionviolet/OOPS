@@ -14,6 +14,9 @@ export const partyDefinitions={
             effects:[{type:'spawn',personId:PARTY_HELPER,definitionId:PARTY_HELPER},fact('party.met'),fact('party.willing',true,PARTY_HELPER),
                 {type:'item',actor:PARTY_HELPER,key:kit,amount:1},{type:'source',actor:PARTY_HELPER,sourceId:PARTY_METHOD,operation:'grant',origin:'trained',awakened:true,active:true},
                 {type:'knowledge',key:'party.lio',stage:'seen',value:'Lio offers braced support for an agreed contest. He reports 28 HP, 12 stamina and four guard efforts, and offers to keep his condition visible during this agreed contest. He uses his own harness and trained control; he will stop when exhausted or wounded.'}]}),
+        // Companion stance (bk-party, proposal): how Lio holds his guard in an agreed contest. Default "ready" is the old behaviour.
+        command({id:'party.stance.ready',label:'Lio braces at once · default',visibleWhen:eq('actor.party.met'),requires:eq('actor.party.met'),effects:[fact('party.stance','ready')]}),
+        command({id:'party.stance.hold',label:'Lio holds his guard until you are hurt · saves his effort',visibleWhen:eq('actor.party.met'),requires:eq('actor.party.met'),effects:[fact('party.stance','hold')]}),
         command({id:'party.prepare',label:'Prepare a peaceful settlement kit · 1 log + 2 stamina + 3 min',duration:3,cancellation:'refund',visibleWhen:eq('actor.party.met'),requires:eq('actor.field.member'),
             costs:[{type:'item',key:wood,amount:-1},{type:'vital',key:'stamina',amount:-2}],effects:[{type:'item',key:kit,amount:1},fact('party.prepared')]}),
         command({id:'party.rest',label:'Help Lio rest and re-rig one guard · 1 kit + 3 min',targetId:PARTY_HELPER,coLocated:true,participants:['$target'],duration:3,cancellation:'refund',visibleWhen:eq('actor.party.met'),requires:eq('actor.party.met'),
