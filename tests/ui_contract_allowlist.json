@@ -2,6 +2,22 @@
   "note": "Exact existing exceptions, never file-wide. Token consumers and unresolved inline styles are retained explicitly. Remove exceptions when migrated. Integration 2026-10-30: draft rep-branch styles (body_view, character_sheet, crafting_detail, figure, item_card, research, settled_text_effects, style.css) merged with literal values; migrate them to tokens (see MERGE_RECEIPT).",
   "entries": [
     {
+      "key": "styles/redesign_drafts.css|declaration|cf94225da1e41e60",
+      "path": "styles/redesign_drafts.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--rd-face-hand)",
+      "count": 3,
+      "reason": "Gallery redesign drafts (2026-10-30): hand and display faces are the L2 type hierarchy proposal; both read tokens defined in the same file."
+    },
+    {
+      "key": "styles/redesign_drafts.css|declaration|d820fbe5697f2518",
+      "path": "styles/redesign_drafts.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--rd-face-display)",
+      "count": 8,
+      "reason": "Gallery redesign drafts (2026-10-30): hand and display faces are the L2 type hierarchy proposal; both read tokens defined in the same file."
+    },
+    {
       "key": "index.html|color|10126e14ba0e4189",
       "path": "index.html",
       "rule": "color",
