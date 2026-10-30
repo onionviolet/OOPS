@@ -41,6 +41,7 @@ Pure mappers in `src/read_models/` from engine read models to the view contracts
 | G14 | Gatherings on a board or web (L11 `gatherings.js`) | `seatsOn` returns `{seatId, label: seatId}` only: no persona name, standing or schedule text; no rep branch names a gathering contract | rep-organizations/relationship-web: name the contract; L11: seat labels. No bridge yet |
 | G15 | Digest `Missed` row | rep reads `feed.heard`; L14 splits witnessed (`present`) from heard by `level`. Bridge maps present to Around, heard to Missed | rep-time: confirm that split |
 | G16 | Wording for event rows | L14 holds `lineKey` only; text is pack data. Bridge takes a `textOf` callback and drops unworded events | sw-calendar/sw-absorb: supply the pack lookup at the host |
+| G17 | A learnable-ability view (stage unlearned/practicing/castable, gates, mastery, next sign) | L10 `learnView(card,{facts})` is ready (de56fe717). rep-abilities defers skills and techniques to a later slice (O2 web), and rep-research mentions teachers but defines no contract | rep-abilities: name the learn view's contract; then a bridge drops `unstated` and shows `nextSignAt` only for signs already felt |
 
 ## Verification state
 
