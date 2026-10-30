@@ -45,6 +45,13 @@ export const HARM_WORLDS = freeze({
                 modifiers:[{axis:'precision',mult:0.75,reason:'Proposed dial: unstable control reduces precision before it stops other activity.'}]},
             {id:'lost',label:'Lost control',at:9,blocks:ACTION_CLASSES.filter(id=>!['rest','care','travel'].includes(id))}
         ],floor:0,restPerHour:0.25,treatedPerHour:1,riseScale:1}},
+        sources:{
+            cast:{carrier:'power',base:0.5,perRankGap:0.5,reason:'Proposed dial: a cast strains the caster a little, and reaching past its comfortable rank strains more; worlds and sequences replace both numbers.'},
+            act:{carrier:'power',base:1,reason:'Proposed dial: a rite or craft row names its own weight; this is the fallback when the row omits one.'},
+            cycle:{carrier:'power',base:1,reason:'Proposed dial: a recurring curse or residue adds this per elapsed cycle.'}
+        },
+        lossOfControl:{carrier:'power',stage:'lost',graceMinutes:30,
+            reason:'Proposed dial: half an hour unattended at the lost stage ends the life; attended or treated time pauses the clock. A world, rank or protection can lengthen or remove it (AD5).'},
         death:{default:'final',alternatives:[{kind:'rescued',requires:['harm.rescuer.present'],cost:'a debt the rescuer names'}]}
     },
     'base.frontier': {
@@ -75,8 +82,13 @@ const fresh = () => ({schema:1,backlash:{}});
 const MAX_CARRIERS = 32, MAX_COUNT = 1_000_000;
 export function validateHarm(slice) {
     if (slice == null) return slice;
-    check(object(slice) && ['backlash,schema','backlash,parts,schema'].includes(Object.keys(slice).sort().join(',')) && slice.schema === 1 &&
-        object(slice.backlash) && Object.keys(slice.backlash).length <= MAX_CARRIERS, 'Invalid harm slice.');
+    check(object(slice) && Object.keys(slice).every(key=>['schema','backlash','parts','lostFor'].includes(key)) &&
+        slice.schema === 1 && object(slice.backlash) && Object.keys(slice.backlash).length <= MAX_CARRIERS, 'Invalid harm slice.');
+    if (Object.hasOwn(slice,'lostFor')) {
+        check(object(slice.lostFor) && Object.keys(slice.lostFor).length <= MAX_CARRIERS, 'Invalid loss-of-control timers.');
+        for (const [id,minutes] of Object.entries(slice.lostFor))
+            check(safeId(id) && Number.isFinite(minutes) && minutes >= 0 && minutes <= MAX_COUNT, 'Invalid loss-of-control timer.');
+    }
     for (const [id,count] of Object.entries(slice.backlash))
         check(safeId(id) && Number.isFinite(count) && count >= 0 && count <= MAX_COUNT, 'Invalid backlash counter.');
     if (Object.hasOwn(slice,'parts')) {
@@ -165,7 +177,7 @@ export function healPart(value, rules, partId, {minutes,treated=false,trained=fa
     validateHarm(next);
     return {state:next,record:{part:partId,minutes,treated,trained,before,after:next.parts?.[partId]?.rung ?? null}};
 }
-function worldRules(save) {
+export function harmRules(save) {
     const world = save?.expansion?.actors?.player?.worldId;
     return Object.hasOwn(HARM_WORLDS,world) ? HARM_WORLDS[world] : HARM_WORLDS.default;
 }
@@ -175,7 +187,7 @@ const partModifiers = (row,part) => (row.axes[part.rung] ?? []).map(({axis,mult,
 export function actionModifiers(save, actionClass) {
     check(ACTION_CLASSES.includes(actionClass), 'Unknown harm action class.');
     validateHarm(save?.harm);
-    const rules = worldRules(save), all = [];
+    const rules = harmRules(save), all = [];
     let blockedBy = null;
     for (const [id,row] of Object.entries(rules.carriers)) {
         const stage = backlashStage(rules,id,save?.harm?.backlash?.[id] ?? row.floor);
@@ -211,7 +223,7 @@ export function resolveDeath(rules, cause, ctx={}) {
         restartOffered:!!ctx.continuationEnrolled};
 }
 export function harmView(save) {
-    const rules = worldRules(save);
+    const rules = harmRules(save);
     validateHarm(save?.harm);
     const carriers = Object.entries(rules.carriers).map(([id,row])=>{
         const count = save?.harm?.backlash?.[id] ?? row.floor, stage = backlashStage(rules,id,count);
@@ -229,9 +241,10 @@ export function harmView(save) {
 
 registerDomain({id:'harm',deps:[],initialState:()=>null,
     save:()=>{
-        if (!Object.values(state.backlash).some(n=>n>0) && !Object.keys(state.parts ?? {}).length) return undefined;
+        if (!Object.values(state.backlash).some(n=>n>0) && !Object.keys(state.parts ?? {}).length && !Object.values(state.lostFor ?? {}).some(n=>n>0)) return undefined;
         const saved = structuredClone(state);
         if (saved.parts && !Object.keys(saved.parts).length) delete saved.parts;
+        if (saved.lostFor && !Object.values(saved.lostFor).some(n=>n>0)) delete saved.lostFor;
         return saved;
     },
     validate:validateHarm,

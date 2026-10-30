@@ -139,8 +139,8 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     check(c.lastTransition?.token!==token,'This return has already been applied.');
     const life=c.lives[c.active];let next=source;
     // Ended embodiments have no connection actions until their explicit restart.
-    check(!life.ended||command.startsWith('restart:')||command.startsWith('die:'),
-        'This life has ended. Restart from its initial point or checkpoint before acting.');
+    check(!life.ended||command.startsWith('restart:')||command.startsWith('die:')||command.startsWith('resume:'),
+        'This life has ended. Restart from its initial point or checkpoint, or continue as a living tethered life.');
     if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
     else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('die:')||command.startsWith('restart:')||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
     if(command.startsWith('die:')) {
@@ -211,6 +211,8 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     } else if(command.startsWith('resume:')) {
         const targetId=command.slice(7),target=c.lives[targetId];
         check(target&&target.paused&&(life.tether===targetId||target.tether===c.active),'No reciprocal connection reaches that life.');
+        check(!target.ended,'That life has ended. Only a restart from its own anchor can reopen it.');
+        // An ended life keeps its ended mark while paused: an heir carries on, the dead body does not.
         life.paused=nativeSnapshot(source);
         const targetSave=target.paused;target.paused=null;c.active=targetId;
         next=restore(source,targetSave,c);

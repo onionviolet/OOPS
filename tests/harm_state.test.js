@@ -209,3 +209,17 @@ test('death and restart tokens remain idempotent across intervening transitions'
     assert.throws(()=>planContinuation(s,'restart:initial',{expectedSequence:s.continuation.sequence,token:restartToken}),/already been applied/);
     assert.deepEqual(s,ended);
 });
+
+test('an heir carries on: an ended life resumes a living tethered life, and the dead body stays closed',()=>{
+    let s=cmd(enroll(),'branch:Heir');assert.equal(s.continuation.active,'life-2');
+    s=cmd(s,'die:harm');
+    assert.throws(()=>cmd(s,'study'),/ended/);
+    const heir=cmd(s,'resume:life-1');
+    assert.equal(heir.continuation.active,'life-1');
+    assert.equal(heir.continuation.lives['life-2'].ended.cause,'harm');
+    assert.equal(heir.continuation.lives['life-2'].paused!==null,true);
+    assert.equal(continuationView(heir).ended,null);
+    assert.equal(continuationView(heir).deaths.length,1);
+    assert.throws(()=>cmd(heir,'resume:life-2'),/has ended/);
+    validateContinuation(JSON.parse(JSON.stringify(heir.continuation)));
+});
