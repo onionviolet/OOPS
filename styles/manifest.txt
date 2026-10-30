@@ -1,6 +1,7 @@
 # Stylesheet load order for index.html, one href per line. Append one line to add a sheet.
 # build.js writes the <link> block between the stylesheets markers in index.html; do not hand-edit it.
 styles/settled_text_effects.css
+styles/organization.css
 styles/customization.css
 styles/workspace.css
 styles/workspace_discovery.css
@@ -19,9 +20,19 @@ styles/combat_log.css
 styles/oops_branding.css
 styles/shell_chrome.css
 styles/inventory_composition.css
+styles/item_card.css
 styles/nearby_context_view.css
 styles/ui_extras.css
 styles/scene_card.css
+styles/figure.css
+styles/combat_versus.css
+styles/walk_board.css
+styles/crossing_threshold.css
+styles/workroom_tabs.css
+styles/character_sheet.css
+styles/body_view.css
+styles/research.css
 styles/meter_bar.css
 styles/corc_readability.css
+styles/talk_view.css
 styles/material_icons.css
