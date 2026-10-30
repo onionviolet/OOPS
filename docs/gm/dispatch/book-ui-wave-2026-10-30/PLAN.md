@@ -140,3 +140,7 @@ Notes:
 - Nuance per world: what the numbers mean, whether numbers show at all, what failure looks like, and who else can see your rank.
 
 Dispatch: `bk-progression` (design round across the nine read books, plus the gallery). Model work stays with `sw-adv` and view work with `rep-abilities`. This round gives each world its default.
+
+## Round 8: form fit and interaction (2026-10-30 15:3x)
+
+Weibao: "For Ui implementations, alot of stuff just turned into webs for representaiton, are those even the most effective? can we be more nuanced? hovering, other stuff, and more?" AD46 (`7a194cb35`) is the standing rule. `bk-forms` measures each of the 13 `figure.js` views against alternatives such as table and inspector, matrix, cards, timeline, tree, inline bars and prose. It also builds a shared interaction layer: neighbour highlight, nested hover cards, pin and compare, filter, focus plus context, "why" on hover, and keyboard access. Replacements keep the old form as an alternate view.
