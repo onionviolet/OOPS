@@ -197,3 +197,47 @@ All under 50. The current figures print 205 to 459 words each; the text forms no
 My picks. Who knows what: W1 as the default (a grid scales to more people and facts; W2 only suits one deed), with W2 as the "trace a rumour" detail. Family and lives: F1 for the family panel and F3 for the lives panel, since lives need return points and F1 does not. Group standing: S1 as the default; S2 is a good world-flavoured option (AD46).
 
 Gaps: gallery fixtures only, nothing played; 1920x1080 only, mobile deferred; paper skin parked; the family tree for a larger household (more than six per row) is not drawn; the "next ask" strings in S1 and S3 are shortened by hand from the fixture notes (`NEXT_ASK` in the fixture file), not read from the model; the W2 hop names come from the ring ids; crew roles are read from the node labels; hover text was not exercised in a screenshot.
+
+## Round 2: places (R2-1)
+
+Gathering (GF30) and walks (GF22), three Luminous variants each, one unusual. Code: `src/ui/preview/fixtures/places_variants.js`, `styles/places_variants.css`, gallery sections `places-gathering` and `places-walks`. Same data as the current fixtures (Willow bank in Bloom and in Fall; the Lamplighters' hall walks). Block vocabulary shared with housing and people: filled glowing block = have or open, hairline = gated or coming, dim hatched = shut or gone, dashed = unknown. Proposals only; live views untouched; paper skin not drawn. Evidence: `docs/representations/evidence/places-variants/` (`gathering-bloom-composite.png`, `gathering-fall-composite.png`, `walks-composite.png`, one shot per variant). Agent-verified, not human-reviewed.
+
+### Reference board
+
+K = known (I can state the mechanism), I = inferred (recalled pattern, not checked).
+
+| Game | Gathering sites and seasons | Travel and distance | Take for us |
+| --- | --- | --- | --- |
+| Stardew Valley | Forage spawns per season and map; the calendar is a month grid with a season colour and day icons (K). The wiki tabulates forage by season, which players keep open beside the game (I). | Maps are screens joined by exits; no walking time shown (K). | A season is a column, an item is a row, an open span is a filled cell (G2). |
+| Melvor Idle | Skill screens list rows per resource with level gate, mastery and a locked row dimmed with its requirement (K). Seasons exist as a Season skill's rows rather than a calendar (I). | Not a travel game. | A gated row stays visible, dimmed, with the gate as a short token (G1, G2). |
+| Dwarf Fortress | Site and world-map lists are long text tables; the embark screen colours biome tiles and shows season-dependent flora as text (K for the lists, I for the colours). | Travel time is in days of the world map, read by eye (I). | The cautionary case: a lot of true text, no first read. Avoid. |
+| Kenshi | World map with towns as markers and travel as a real-time walk across the terrain; the distance is felt from the line length and the clock (K). | Distance is a length on a map, no quoted minutes (K). | Make distance a length or a mass, quote one numeral (W2, W3). |
+| Kittens Game / A Dark Room | Resource rows with a number and a rate; the list grows as you unlock (K). | none | Counts as countable things, not bars of percent (G3). |
+| Citizen Sleeper, Pathologic | Travel tied to a cycle or day clock, a blocked route is a closed door with a reason (K for Citizen Sleeper's clocks, I for Pathologic). | | A blocked walk is a hairline block with one word (dusk) (W1 to W3). |
+| Departure boards (rail and airport) | not a game | One row per departure, soonest first, a time numeral at the edge, a status word only when abnormal (K). | The seed for W1. |
+
+### Variants
+
+| Id | Form | Visible words, Bloom (Fall) |
+| --- | --- | --- |
+| G1 | Site blocks: a tall block per site filled to its stock, a dashed step above for what regrows by tomorrow, mini blocks under for what it gives (filled open now, hairline gated, dim out of season, dashed unknown). | 14 (10) |
+| G2 | Season strip: four season columns, a row per thing a site gives, a filled span where open, a hairline span where gated now, a dim span where the season is shut, a tick for now. | 22 (18) |
+| G3 (unusual) | A counted bed: every unit of capacity is a cell; filled = left, hairline = back by tomorrow, dim = gone, outline-only = shut by season. | 15 (10) |
+| W1 | Departure board: nearest first, a run of five-minute blocks and one numeral per row, blocked as a hairline run with one word. | 16 |
+| W2 (unusual) | A road at true scale: one line, a tick block per five minutes, each place stands at its minutes on a stem, so equal distances stand side by side. | 20 |
+| W3 | Mass blocks by district: a square whose side grows with walking time, grouped under the district. | 21 |
+
+Counts exclude the three words of "read as text". Current forms for comparison: gathering 152 (Bloom), 131 (Fall); walks 79. Each says its words once: stock, minutes and season appear as the drawing plus at most one numeral; everything else is hover and the text toggle.
+
+### Self-critique log (against the board and L1 to L6)
+
+1. First capture: every row and name drew as a filled block because the state selector matched containers, and the season grid put the yield label in the last column. Fixed: states apply to block classes only, the site name row spans the grid. Revision 1.
+2. Second capture: the season header ran "Long light" into "Fall", G3 cells were square 40 px tiles that made the page tall, W1 put the person pip on its own row, and the walks "min" unit sat alone at the foot. Fixed with a narrower label column, fixed cell height, the pip inside the place cell and the unit in the header (L5: say it once). Revision 2.
+3. Third capture: G1 said stock but not what comes back, unlike G3, so it was the weakest on "show what matters now" (L6). Added the dashed regrowth step. Revision 3. The cell screenshots were clipped before the fonts settled, so the capture waits 600 ms after scrolling.
+4. Still open: W2's two blocks at 0 and 2 minutes touch at this width; G1's mini blocks are wordless and rely on hover; the person pips use an initial, which R2-3 may replace.
+
+### Pick and gaps
+
+Gathering: G3 as the default (counts are literal, the three states carry stock, regrowth and shut seasons at once), with G2 as the season view one click away, because G3 cannot say when a shut season returns. Walks: W1 as the default (fastest read, closest to the live walk list, minutes as one numeral); W2 is the one to keep as the unusual option because it is the only form where "these two are equally far" is visible without reading.
+
+Gaps: 1920x1080 only, Luminous only, no mobile; the hour gate of Dawn dew and the sickle gate are hover-only; no insight or odds view yet (the odds bars in `gather-insight` are not redrawn); the rare find is not drawn; the weather is one "rain" tag with the sentence on hover; no keyboard or screen-reader pass beyond titles and aria-labels; reference claims marked I were not checked against the games.

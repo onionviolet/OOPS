@@ -1,0 +1,91 @@
+/* Places variants (gathering G1-G3, walks W1-W3). Proposals only: nothing here styles a live view. Luminous only; the paper skin is parked.
+   One block vocabulary shared with housing: filled glowing block = have or open, hairline block = possible, gated or coming, dim hatched block = locked, shut or gone.
+   Colours come from the theme roles through the .rd tokens in redesign_drafts.css; sizes are tokens and one unit that scales with the body size. */
+.pv-compare {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ui-space-5); align-items: start; margin-bottom: var(--ui-space-5);}
+.pv {--pv-unit: calc(var(--ui-type-body) * 1.5); --pv-glow: 0 0 var(--ui-space-3) var(--rd-rule), inset 0 0 var(--ui-space-3) var(--rd-rule); display: grid; gap: var(--ui-space-4); align-content: start;}
+.pv-head {margin: 0; color: var(--rd-accent); font-size: var(--ui-type-body);}
+.pv-word, .pv-rowname {text-align: center; color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.pv-head {display: flex; justify-content: space-between; align-items: center;}
+.pv-unit {color: var(--rd-muted); font-size: var(--ui-type-small);}
+.pv-num, .pv-min {font-weight: var(--ui-weight-regular); color: var(--rd-accent);}
+.pv-tag {display: inline-block; justify-self: start; padding: 0 var(--ui-space-2); border: var(--ui-space-hairline) solid var(--rd-warn); color: var(--rd-warn); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.pv-pip {display: inline-grid; place-items: center; width: var(--ui-space-5); height: var(--ui-space-5); margin-inline-start: var(--ui-space-2); border: var(--ui-space-hairline) solid var(--rd-accent); color: var(--rd-accent); font-size: var(--ui-type-small); line-height: 1;}
+
+/* States on every block, cell and span. */
+.pv :is(.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass)[data-state="lit"] {border-color: var(--rd-accent); background: color-mix(in srgb, var(--rd-accent) 34%, transparent); box-shadow: var(--pv-glow);}
+.pv :is(.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass)[data-state="soon"], .pv :is(.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass)[data-state="veil"] {border-color: var(--rd-accent); background: transparent;}
+.pv :is(.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass)[data-state="veil"] {border-style: dashed;}
+.pv :is(.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass)[data-state="shut"] {border-color: var(--rd-muted); background: transparent;}
+.pv :is(.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass)[data-state="dim"] {border-color: var(--rd-faint); background: repeating-linear-gradient(135deg, var(--rd-faint) 0, var(--rd-faint) var(--ui-space-1), transparent var(--ui-space-1), transparent var(--ui-space-3));}
+.pv-cell, .pv-mini, .pv-tank, .pv-span, .pv-block, .pv-mass {display: block; box-sizing: border-box; border: var(--ui-space-hairline) solid var(--rd-accent);}
+
+/* G1: site blocks with a stock fill. */
+.pv-sites {display: flex; flex-wrap: nowrap; gap: var(--ui-space-4); justify-content: space-between;}
+.pv-site {display: grid; gap: var(--ui-space-3); justify-items: center; align-content: start; width: calc(var(--pv-unit) * 3.4);}
+.pv-tank {position: relative; overflow: hidden; width: calc(var(--pv-unit) * 3); height: calc(var(--pv-unit) * 5);}
+.pv .pv-tank[data-state="lit"] {background: transparent;}
+.pv-fill {position: absolute; inset-inline: 0; inset-block-end: 0; height: var(--pv-fill); background: color-mix(in srgb, var(--rd-accent) 38%, transparent); box-shadow: var(--pv-glow);}
+.pv .pv-tank[data-state="dim"] .pv-fill {background: color-mix(in srgb, var(--rd-faint) 100%, transparent); box-shadow: none;}
+.pv-tank .pv-num {position: absolute; inset-block-start: var(--ui-space-2); inset-inline: 0; text-align: center; font-size: var(--ui-type-title);}
+.pv-back {position: absolute; inset-inline: 0; inset-block-end: var(--pv-fill); height: var(--pv-back); border-block-start: var(--ui-space-hairline) dashed var(--rd-accent); background: color-mix(in srgb, var(--rd-accent) 10%, transparent);}
+.pv-minis {display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ui-space-2);}
+.pv-mini {width: var(--ui-space-5); height: var(--ui-space-5);}
+.pv-g1 .pv-tag {margin-top: calc(var(--ui-space-2) * -1);}
+
+/* G2: season strip. */
+.pv-strip {display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(var(--pv-cols), minmax(0, 1fr)); gap: var(--ui-space-2); align-items: center;}
+.pv-season {position: relative; min-width: 0; overflow: hidden; text-overflow: clip; white-space: nowrap; padding-block-end: var(--ui-space-2); color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small); border-bottom: var(--ui-space-hairline) solid var(--rd-faint);}
+.pv-season[data-now="true"] {color: var(--rd-accent); border-bottom-color: var(--rd-accent);}
+.pv-now {position: absolute; inset-block-end: calc(var(--ui-space-2) * -1); inset-inline-start: var(--pv-at); width: 0; height: var(--ui-space-4); border-inline-start: var(--ui-space-1) solid var(--rd-accent); box-shadow: var(--pv-glow);}
+.pv-site-name {grid-column: 1 / -1; margin-top: var(--ui-space-3); color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.pv-site-name[data-state="dim"] {color: var(--rd-muted);}
+.pv-yield {color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.pv-span {height: var(--pv-unit); display: grid; place-items: center; color: var(--rd-accent);}
+.pv-span--all {grid-column: 2 / -1;}
+
+/* G3: a counted bed. */
+.pv-bed {display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: var(--ui-space-2) var(--ui-space-3);}
+.pv-bedname {color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.pv-bed[data-state="dim"] .pv-bedname {color: var(--rd-muted);}
+.pv-cells {grid-column: 1 / -1; display: grid; grid-template-columns: repeat(var(--pv-cap), minmax(0, 1fr)); gap: var(--ui-space-2);}
+.pv-cells .pv-cell {height: calc(var(--pv-unit) * 1.4);}
+
+/* W1: departure board. */
+.pv-board {display: grid; gap: var(--ui-space-3);}
+.pv-leg {display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 2fr) auto; align-items: center; gap: var(--ui-space-3);}
+.pv-leg .pv-tag {grid-column: 2 / -1;}
+.pv-place {color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.pv-leg[data-state="dim"] .pv-place {color: var(--rd-muted);}
+.pv-run {display: flex; gap: var(--ui-space-1);}
+.pv-run .pv-cell {flex: 0 0 var(--ui-space-5); height: var(--pv-unit);}
+.pv-leg .pv-min {font-size: var(--ui-type-title);}
+
+/* W2: a road at true scale. Stems carry the names so near places do not collide. */
+.pv-road {position: relative; height: calc(var(--pv-unit) * 6); margin-inline: var(--ui-space-3);}
+.pv-ticks {position: absolute; inset-inline: 0; inset-block-start: 50%; display: flex; gap: var(--ui-space-1); transform: translateY(-50%);}
+.pv-ticks .pv-cell {flex: 1; height: var(--ui-space-3);}
+.pv-stand {position: absolute; inset-inline-start: calc(var(--pv-at) * 100%); inset-block-start: 50%; width: 0; height: 0;}
+.pv-block {position: absolute; inset-inline-start: calc(var(--ui-space-5) / -2); inset-block-start: calc(var(--ui-space-5) / -2); width: var(--ui-space-5); height: var(--ui-space-5);}
+.pv-stand[data-state="lit"] .pv-block {background: color-mix(in srgb, var(--rd-accent) 55%, transparent); box-shadow: var(--pv-glow);}
+.pv-stand[data-state="soon"] .pv-block {background: var(--rd-ground);}
+.pv-label {position: absolute; inset-inline-start: 0; display: flex; align-items: center; white-space: nowrap; color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small); padding-inline-start: var(--ui-space-2); border-inline-start: var(--ui-space-hairline) solid var(--rd-muted);}
+.pv-stand[data-end="true"] .pv-label {inset-inline-start: auto; inset-inline-end: 0; padding-inline-start: 0; padding-inline-end: var(--ui-space-2); border-inline-start: 0; border-inline-end: var(--ui-space-hairline) solid var(--rd-muted);}
+.pv-stand[data-side="above"] .pv-label {inset-block-end: var(--ui-space-3);}
+.pv-stand[data-side="below"] .pv-label {inset-block-start: var(--ui-space-3);}
+.pv-stand[data-side="above"][data-reach="1"] .pv-label {height: calc(var(--pv-unit) * 1.2);}
+.pv-stand[data-side="above"][data-reach="2"] .pv-label {height: calc(var(--pv-unit) * 2.4);}
+.pv-stand[data-side="below"][data-reach="1"] .pv-label {height: calc(var(--pv-unit) * 1.2);}
+.pv-stand[data-side="below"][data-reach="2"] .pv-label {height: calc(var(--pv-unit) * 2.4);}
+.pv-stand[data-side="above"] .pv-label {align-items: flex-start;}
+.pv-stand[data-side="below"] .pv-label {align-items: flex-end;}
+
+/* W3: mass blocks by district. */
+.pv-groups {display: flex; flex-wrap: nowrap; gap: var(--ui-space-5); align-items: flex-end;}
+.pv-group {display: grid; gap: var(--ui-space-2); align-content: end;}
+.pv-masses {display: flex; align-items: flex-end; gap: var(--ui-space-4);}
+.pv-massbox {display: grid; gap: var(--ui-space-2); justify-items: center; align-content: end; width: calc(var(--pv-unit) * 3.2);}
+.pv-mass {--pv-px: calc(var(--pv-unit) * 4.2); position: relative; width: max(calc(var(--pv-px) * var(--pv-side)), var(--ui-space-5)); aspect-ratio: 1; display: grid; place-items: center;}
+.pv-mass .pv-min {font-size: var(--ui-type-title);}
+.pv-mass .pv-pip {position: absolute; inset-block-start: var(--ui-space-2); inset-inline-end: var(--ui-space-2); margin: 0;}
+@media (max-width: 1500px) {.pv-compare {grid-template-columns: repeat(2, minmax(0, 1fr));}}
+:root:is([data-effects="off"], [data-effects="reduced"]) .pv * {animation: none;}
