@@ -451,8 +451,8 @@ test('a pack resolving after registry construction enables validated native enro
  const {execFileSync}=await import('node:child_process');
  execFileSync(process.execPath,['--input-type=module','-e',`
  import fs from 'node:fs';import assert from 'node:assert/strict';
- const fixture=JSON.parse(fs.readFileSync(0,'utf8'));let release;
- globalThis.fetch=path=>path.endsWith('manifest.json')?new Promise(resolve=>{release=()=>resolve({ok:true,json:async()=>({schema:1,supplements:['lotm-cast/cast.json']})});}):Promise.resolve({ok:true,json:async()=>fixture});
+ const fixture=JSON.parse(fs.readFileSync(0,'utf8'));let held=false;const releases=[];const release=()=>{held=true;releases.splice(0).forEach(r=>r());};
+ globalThis.fetch=path=>path.endsWith('manifest.json')?new Promise(resolve=>{const go=()=>resolve({ok:true,json:async()=>({schema:1,supplements:['lotm-cast/cast.json']})});held?go():releases.push(go);}):Promise.resolve({ok:true,json:async()=>fixture});
  const {bare,hostOver,registry}=await import('./tests/lotm_helpers.js');
  const {whenCastLoaded}=await import('./src/book_world_lotm_cast_days.js');
  const {validateLotmEnvelope}=await import('./src/book_world_lotm_envelope.js');

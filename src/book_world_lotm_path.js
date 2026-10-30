@@ -50,7 +50,7 @@ export function lotmPathView(state,f){
  if(!seerHome&&homeRows.length&&!flag('allocated')&&!flag('ingested')){const [first,...rest]=homeRows;return {...pathwayView(first,f,flag),chosen:false,others:rest.map(r=>pathView(rowDescriptor(r),0,{},{known:3,ceiling:2}))};}
  const position=flag('promoted')?2:flag('ingested')?1:0;
   const rungFacts=ladder?{acting7:position>=2?f['lotm.acting']||0:0,heldMagician:(f['lotm.holds.magicianDose']||0)>0}:{};
- const v=ladderViewFromRecord(ladder?ladder.path:seerPathway,{position,facts:{heldSeer:(f['lotm.holds.dose']||0)>0,acting:f['lotm.acting']||0,assessed:flag('assessed'),examined:flag('examined')||flag('assessed')&&!flag('exam.required'),heldClown:(f['lotm.holds.clownDose']||0)>0,...rungFacts},known:3,ceiling:ladder?ladder.path.stages.length-1:2});
+ const v=ladderViewFromRecord(ladder?ladder.path:seerPathway,{position,facts:{heldSeer:(f['lotm.holds.dose']||0)>0,acting:f['lotm.acting']||0,assessed:flag('assessed'),examined:flag('examined')||flag('assessed')&&!flag('exam.required'),heldClown:(f['lotm.holds.clownDose']||0)>0,...rungFacts},known:ladder?ladder.path.stages.length:3,ceiling:ladder?ladder.path.stages.length-1:2});
  // Canon: you know a potion is digested by feel, so the felt state is words; the act count is a plain record of what you did.
  const felt=position!==1?null:f['lotm.digested']?SETTLE[2]:(f['lotm.acting']||0)>0?SETTLE[1]:SETTLE[0];
  const chosen=flag('allocated')||flag('ingested');
