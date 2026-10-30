@@ -77,3 +77,27 @@ test('quoted action groups keep unavailable alternatives and one shared reason w
         const current=buttons.find(b=>b.dataset.quotedAction==='current');current.focus();assert.equal(document.activeElement,current);assert.equal(current.getAttribute('aria-disabled'),'true');assert.equal(current.getAttribute('aria-pressed'),'true');
     } finally {globalThis.document=saved;}
 });
+
+test('disabled reasons stay linear on a panel with thousands of disabled buttons', () => {
+    // 2026-10-29: the workshop area held about 2,000 disabled buttons in one container, and a
+    // per-button scan of every sibling made each pass quadratic; at about 30 passes a second the
+    // page froze. Growth from 200 to 2,000 buttons must look linear (about 10x), not quadratic (100x).
+    const saved = {document:globalThis.document, MutationObserver:globalThis.MutationObserver};
+    const pass = count => {
+        const dom = createDom(); dom.loadHTML('<body><section id="root"><div id="many"></div></section></body>');
+        globalThis.document = dom.document;
+        const many = document.getElementById('many');
+        for (let i = 0; i < count; i++) { const b = document.createElement('button'); b.disabled = true; b.title = `Reason ${i}.`; many.append(b); }
+        const decoration = decorateActionComponents(document.getElementById('root'));
+        const times = [0, 1, 2].map(() => { const started = performance.now(); decoration.refresh(); return performance.now() - started; }).sort((x, y) => x - y);
+        const visible = [...many.querySelectorAll('.ui-disabled-reason')].filter(n => !n.hidden);
+        assert.equal(visible.length, count, 'one visible note per distinct reason');
+        for (const b of many.querySelectorAll('button')) assert.equal(document.getElementById(b.getAttribute('aria-describedby')).textContent, b.title);
+        decoration.destroy(); return times[1];
+    };
+    try {
+        globalThis.MutationObserver = class {observe() {} disconnect() {}};
+        const small = pass(200), large = pass(2000);
+        assert.ok(large < Math.max(small, 0.5) * 40, `200 buttons ${small.toFixed(1)} ms, 2000 buttons ${large.toFixed(1)} ms`);
+    } finally {Object.assign(globalThis, saved);}
+});

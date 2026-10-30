@@ -6,7 +6,13 @@
 const waiting = new Map();
 let observer = null;
 export const rendered = element => !element?.isConnected || typeof element.checkVisibility !== 'function' || element.checkVisibility();
-function wake() {
+// Renders rewrite hidden, class and style with unchanged values on every pass. Such a write
+// still queues a record; treating it as a reveal re-ran every waiting check (forced layout)
+// and every revealed render, whose own unchanged writes queued the next round: a page-wide
+// busy loop. Only a record whose value actually changed can reveal anything.
+const changed = r => r.type !== 'attributes' || r.oldValue !== r.target.getAttribute(r.attributeName);
+function wake(records) {
+    if(records && !records.some(changed)) return;
     for(const [render, shown] of [...waiting]) {
         if(!shown()) continue;
         waiting.delete(render);
@@ -21,7 +27,7 @@ export function shownOrDeferred(render, shown) {
     waiting.set(render, shown);
     if(!observer) {
         observer = new MutationObserver(wake);
-        observer.observe(document.documentElement, {subtree: true, attributes: true, attributeFilter: ['hidden', 'open', 'class', 'style']});
+        observer.observe(document.documentElement, {subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['hidden', 'open', 'class', 'style']});
     }
     return false;
 }

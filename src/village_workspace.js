@@ -260,14 +260,18 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         // Classic keeps its native text (GU5); projection-only frames derive it from the shape.
         const enemy=picked&&{...picked,hp:row?.hp??healthText(picked),stats:row?.stats??(picked.facts||[]).filter(factShown).map(f=>`${f.label}: ${factText(f)}`).join(' · ')};
         const target=villageFocus({...frame,enemy},selected),next=JSON.stringify(target||{place:frame.place,people:frame.people,things:frame.things});
-        focus.dataset.focusEmpty=String(!target);
-        focus.closest('.workspace-module')?.setAttribute('data-focus-empty',String(!target));
         const heading=focus.closest('.workspace-module')?.querySelector('.workspace-module-header > strong');
         const shell=document.getElementById('main_content').dataset.presentation==='proto23-shell';
-        if(shell&&!target){focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');}
+        // Write each value once per render. Writing a provisional value and then the shell's value
+        // made two real changes per render, which woke other observers into re-rendering this
+        // panel about 30 times a second (page-wide freeze, 2026-10-29).
+        const empty=shell?'false':String(!target);
+        if(focus.dataset.focusEmpty!==empty)focus.dataset.focusEmpty=empty;
+        const module=focus.closest('.workspace-module');if(module&&module.getAttribute('data-focus-empty')!==empty)module.setAttribute('data-focus-empty',empty);
         const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,board);const groupHeading=nativeEncounter,enemyCount=board.opponents.length;
-        if(heading){setText(heading,groupHeading?(target?.ended?'Inspection ended':enemyCount>1&&listShown()?'Inspecting':enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
-        focus.dataset.subjectHeading=String(shell&&!!target);
+        // The shell's place view below sets its own heading; only other views use this one.
+        if(heading&&(!shell||nativeEncounter)){setText(heading,groupHeading?(target?.ended?'Inspection ended':enemyCount>1&&listShown()?'Inspecting':enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
+        if(!shell||nativeEncounter)focus.dataset.subjectHeading=String(shell&&!!target);
         if(nativeEncounter){delete focus.dataset.nearbySummary;focusSignature=next;return;}
         {const root=document.getElementById('main_content');if(root.dataset.enemyCards==='true')root.dataset.enemyCards='false';if(root.dataset.opponentBoard)delete root.dataset.opponentBoard;}
         // A2: one observer-safe place list/detail surface, over the same native action owner.
@@ -276,8 +280,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             if(selected&&!frame.dialogue)selected=nearby.selectedId;
             if(nearbyContext.node.parentNode!==focus)focus.replaceChildren(nearbyContext.node);
             focus.dataset.nearbySummary=nearby.summary;
-            focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');
-            focus.dataset.subjectHeading='false';
+            if(focus.dataset.subjectHeading!=='false')focus.dataset.subjectHeading='false';
             if(heading){setText(heading,'Around you');setTitle(heading,nearby.summary);}
             focusSignature='';return;
         }

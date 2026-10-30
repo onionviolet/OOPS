@@ -146,3 +146,34 @@ predates MR2. A CPU profile puts the time in `refresh` of `decorateActionCompone
 disabled-reason decorator, last changed 2026-10-27): its MutationObserver keeps re-triggering itself on the workshop
 panel. Until that is fixed, the workshop line has headless route evidence only. State: implemented, below floor;
 agent-verified, not human-reviewed.
+
+## Workshop freeze fix and browser floor (2026-10-29/30, coordinator)
+
+The freeze that blocked FLR2/FLR3 predated MR2 (reproduced with MR2 reversed). Cause, from a CPU profile against a kept
+unminified copy of the exact served bundle: `refresh` in `src/ui_components.js` (disabled-reason decorator) scanned
+every sibling's text for every disabled button. The workshop area holds 2,716 buttons, 2,058 in one container with
+4,105 children and 2,418 disabled, and refresh re-ran many times a second, so the page blocked for 19-41 s per call.
+
+Fixes (each value now computed once and written only on change):
+- `src/ui_components.js`: a per-parent text index replaces the quadratic sibling scan, with the same matching rules;
+  a hidden button shows no blocker reason, and the observer also watches `hidden`.
+- `src/village_workspace.js`: the focus panel wrote `data-focus-empty` and its heading twice per render (provisional,
+  then shell value), a real flip each render.
+- `src/workspace_navigation.js`: Crafting and Mixing route buttons wrote disabled and title twice per refresh.
+- `src/workspace_layout.js`: four root `data-*` attributes rewritten unchanged each pass; the vitals heading title
+  written twice.
+- `src/panel_reveal.js`: the page-wide reveal observer ignores attribute records whose value did not change.
+
+Checks:
+- `tests/ui_components.test.js` new growth test (200 vs 2,000 distinct disabled reasons): fails on the old decorator,
+  passes on the new. Six UI test files: PASS.
+- A/B in Chrome at 1920x1080: visible workshop buttons identical (125) with and without the hidden-button rule;
+  visible reason notes 420 before, 23 after.
+- `npm test`: 4117/4119, the two failures the known-flaky `facts_frame` save-bytes test. `npm run check:arch`: PASS.
+- **Browser floor met for MR2:** rebuilt bundle (SHA-256 `3321fd91…f4035c`), fresh origin, headless Chrome 1920x1080, real
+  clicks: page call 0-1 ms after joining the workshop (was 19-41 s); after "Ask about his working habits" the panel
+  reads "More at ease with you since you asked about his working habits."; the same line after Save and reload; one
+  saved episode for the craftsman. Screenshots private in
+  `docs/research/novels/lord-of-mysteries/private/cast-evidence-2026-10-29/mr2/`. The craftsman meeting used the named
+  prerequisite fixture (availability flag), not the earned field route.
+- State: MR2 at the floor for this route; agent-verified, not human-reviewed.

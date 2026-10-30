@@ -77,11 +77,13 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
             const controlId=controlForRoute(route.id);
             if(controlId&&!observer.sees({control:controlId}))hidden=true;
             if(b.hidden!==hidden){if(hold)held=true;else b.hidden=hidden;}
-            const module=known.find(m=>m.id===id);b.disabled=!!module&&!module.eligible;
+            // Compute disabled and title once, then write only a change: writing the module's value and
+            // then the crafting or mixing override flip-flopped them every refresh (2026-10-29 freeze).
+            const module=known.find(m=>m.id===id);let disabled=!!module&&!module.eligible,title=`${route.label} · Alt+${route.key.toUpperCase()}${disabled?' · '+module.reason:''}`;
             if(arrivals.has(id))b.dataset.newHome='true';
-            b.title=`${route.label} · Alt+${route.key.toUpperCase()}${b.disabled?' · '+module.reason:''}`;
-            if(route.open==='crafting'){b.disabled=!document.querySelector('.choice_craft');b.title=b.disabled?'Crafting · Alt+C · no available station or finish this conversation.':`Crafting · Alt+C`;}
-            if(route.open==='mixing'){const launch=document.getElementById('village_mixing_open');b.disabled=!launch||launch.hidden;b.title=b.disabled?'Mixing · Alt+M · return to Village and finish your conversation.':'Mixing · Alt+M';}
+            if(route.open==='crafting'){disabled=!document.querySelector('.choice_craft');title=disabled?'Crafting · Alt+C · no available station or finish this conversation.':`Crafting · Alt+C`;}
+            if(route.open==='mixing'){const launch=document.getElementById('village_mixing_open');disabled=!launch||launch.hidden;title=disabled?'Mixing · Alt+M · return to Village and finish your conversation.':'Mixing · Alt+M';}
+            if(b.disabled!==disabled)b.disabled=disabled;if(b.title!==title)b.title=title;
             b.setAttribute('aria-current',centerModes().mode===`workspace:${id}`?'page':'false');
         }
         pollBadges();for(const [route,b]of buttons)paintBadge(b,badgeCount(route.id),route.label);

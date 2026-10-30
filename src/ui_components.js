@@ -8,8 +8,15 @@ export function decorateActionComponents(root) {
     function refresh() {
         queued=false; observer.disconnect();
         const liveNotes=new Set();
+        // Per-parent index of non-button children by text, built once per pass. A linear scan of
+        // every sibling for every disabled button was quadratic: a 2,000-button panel froze the
+        // page (2026-10-29). Lists keep document order and are kept current as notes change text.
+        const byParent=new Map();
+        const indexOf=parent=>{let index=byParent.get(parent);if(!index){index=new Map();for(const n of parent?.children||[]){if(n.localName==='button')continue;const t=n.textContent.trim();(index.get(t)||index.set(t,[]).get(t)).push(n);}byParent.set(parent,index);}return index;};
+        const retext=(note,text)=>{const index=byParent.get(note.parentElement);if(index){const old=index.get(note.textContent.trim());if(old){const i=old.indexOf(note);if(i>=0)old.splice(i,1);}const next=index.get(text.trim())||index.set(text.trim(),[]).get(text.trim());next.push(note);next.sort((a,b)=>a.compareDocumentPosition(b)&4?-1:1);}note.textContent=text;};
         for(const button of root.querySelectorAll('button')) {
-            const reason=button.disabled ? button.dataset.disabledReason || button.title : '';
+            // A hidden control shows no blocker: its reasons only cluttered the panel (2026-10-29).
+            const reason=button.disabled&&!button.hidden ? button.dataset.disabledReason || button.title : '';
             let note=notes.get(button);
             if(!note) {
                 const existing=(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n?.classList.contains('ui-disabled-reason'));
@@ -25,10 +32,10 @@ export function decorateActionComponents(root) {
                 liveNotes.add(note);
                 if(button.nextSibling!==note)button.after(note);
                 // UIV1: a row that already prints this reason is the description; no duplicate note.
-                const shown=reason?[...(button.parentElement?.children||[])].find(n=>n!==button&&n!==note&&n.localName!=='button'&&!n.hidden&&n.textContent.trim()===reason):null;
+                const shown=reason?(indexOf(button.parentElement).get(reason)||[]).find(n=>n!==note&&n.parentElement===button.parentElement&&!n.hidden):null;
                 if(shown&&!shown.id)shown.id=`ui-disabled-${++reasonSequence}`;
                 const visible=reason&&!shown?note:shown;
-                if(note.hidden!==(!reason||!!shown))note.hidden=!reason||!!shown;if(note.textContent!==reason)note.textContent=reason;
+                if(note.hidden!==(!reason||!!shown))note.hidden=!reason||!!shown;if(note.textContent!==reason)retext(note,reason);
                 // Disabled buttons leave the Tab order, so the visible reason takes the stop.
                 if(visible&&visible.tabIndex!==0){visible.tabIndex=0;visible.dataset.uiReasonFocus='';}
                 if(note!==visible&&note.hasAttribute('tabindex'))note.removeAttribute('tabindex');
@@ -43,7 +50,7 @@ export function decorateActionComponents(root) {
             }
         }
         for(const note of root.querySelectorAll('.ui-disabled-reason'))if(!liveNotes.has(note))note.remove();
-        observer.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','title','data-disabled-reason']});
+        observer.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','hidden','title','data-disabled-reason']});
     }
     const observer=new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(refresh);}});
     refresh();return {refresh,destroy:()=>observer.disconnect()};

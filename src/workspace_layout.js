@@ -282,9 +282,9 @@ export function updateWorkspace() {
     if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
     if (!owner) return;
     const densityToggle=owner.toolbar.querySelector('[data-workspace-action=toggle-density]');if(densityToggle){setProperty(densityToggle,'textContent',owner.layout.density==='compact'?'Compact':'Comfortable');setProperty(densityToggle,'title','Change spacing density. Keeps your chosen font size.');setAttribute(densityToggle,'aria-pressed',owner.layout.density==='compact');}
-    owner.root.dataset.presentation=owner.shell&&owner.context==='play'?'proto23-shell':'';
-    owner.root.dataset.parity=owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'';
-    owner.root.dataset.parityCombat=String(!!registry.get('combat')?.eligible());
+    setData(owner.root,'presentation',owner.shell&&owner.context==='play'?'proto23-shell':'');
+    setData(owner.root,'parity',owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'');
+    setData(owner.root,'parityCombat',String(!!registry.get('combat')?.eligible()));
     setData(owner.root,'layoutContext',placementContext());
     // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
     const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches});
@@ -293,7 +293,7 @@ export function updateWorkspace() {
     // UM9: each region names the main box placed in it, so region-wide looks follow the box.
     const mainBoxes=Object.entries(LAYOUT_SPEC.boxes).filter(([,def])=>!def.companion).map(([box,def])=>[box,parityRegion(def.lead)]);
     for(const [id,region] of Object.entries(owner.regions))setData(region,'mainBox',mainBoxes.filter(([,at])=>at===id).map(([box])=>box).join(' '));
-    owner.root.dataset.parityItem=String(!!registry.get('shell-detail')?.eligible());
+    setData(owner.root,'parityItem',String(!!registry.get('shell-detail')?.eligible()));
     // Companions the player placed beside the actions show there even where the context would not
     // recommend them (WX11); shell_composition.js reads this list.
     setAttribute(owner.root,'data-shell-companions-placed',Object.entries(currentPlacement()?.companions||{}).filter(([,slot])=>slot==='actions').map(([box])=>LEADS[box]).join(' '));
@@ -340,7 +340,7 @@ export function updateWorkspace() {
         // R21c: a panel the layout spec puts in a box (the status window under You) has a home there.
         const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&(companionPanels().includes(state.id)||boxOf(state.id)));
         setData(shell,'compositionParked',String(parked));
-        if(known&&['vitals','belongings'].includes(state.id)){const heading=shell.querySelector('.workspace-module-header > strong'),text=composed?(state.id==='vitals'?'You':'Inventory'):module.title;setProperty(heading,'textContent',text);setProperty(heading,'title',text);}
+        if(known&&['vitals','belongings'].includes(state.id)){const heading=shell.querySelector('.workspace-module-header > strong'),text=composed?(state.id==='vitals'?'You':'Inventory'):module.title;setProperty(heading,'textContent',text);if(state.id!=='vitals')setProperty(heading,'title',text);} // vitals sets its own title below; two writes flip-flopped
         if(known&&companionPanels().includes(state.id)){const heading=shell.querySelector('.workspace-module-header > strong'),text=owner.parity?(LAYOUT_SPEC.boxes[boxOf(state.id)]?.title||module.title):module.title;setProperty(heading,'textContent',text);setProperty(heading,'title',text);}
         if(known&&state.id==='vitals'){
             const race=document.getElementById('character_race_div');
