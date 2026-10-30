@@ -36,3 +36,4 @@ styles/meter_bar.css
 styles/corc_readability.css
 styles/talk_view.css
 styles/material_icons.css
+styles/home_view.css

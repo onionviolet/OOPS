@@ -14,8 +14,12 @@ import {emptyHomes,validateHomes,planHome,homeAt,homeUsable,homeRestable,homeBen
 import {createSimulationState} from './simulation_contracts.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
 import {createHomePanel} from './home_panel.js';
+import {createHomeOverviewPanel} from './home_overview_panel.js';
+import {observerView} from './observer_view.js';
+import {readPort} from './ui_ports.js';
+import {expandWorkspaceModule} from './workspace_layout.js';
 import {stageFortunes,configureFortunes} from './household_fortunes_domain.js';
-let state=null,ports,panel,needsPlaceRefresh=false;
+let state=null,ports,panel,overview,needsPlaceRefresh=false;
 export const residenceState=()=>state;
 const bodyControlled=c=>c.body.ownerId==='player'&&c.body.controllerId==='player';
 export function configureHomes(operations) {
@@ -156,7 +160,8 @@ registerDomain({id:'homes',initialState:()=>({...emptyHomes(),beginning:true}),s
         for(const h of Object.values(slice?.properties||{}))if(h.household&&h.household.lastClock!==envelope.expansion.clock)throw Error('Home household clock must match the native played clock.');
         for(const h of Object.values(slice?.properties||{}))for(const key of [...Object.keys(h.stock),...Object.values(h.fixtures).map(r=>r.key)])ports.itemFactory(key);
         for(const project of Object.values(slice?.projects||{}))for(const key of Object.keys(project.materials))ports.itemFactory(key);},
-    load:(slice,envelope)=>publish(envelope&&!Object.hasOwn(envelope,'homes')?null:slice?structuredClone(slice):null),refresh:()=>{syncHomeLocations();panel?.render();},
+    load:(slice,envelope)=>publish(envelope&&!Object.hasOwn(envelope,'homes')?null:slice?structuredClone(slice):null),refresh:()=>{syncHomeLocations();panel?.render();overview?.render();},
     commands:{quote:quoteHome,execute:executeHome},projection:projectHomes,
-    panels:[()=>{panel=createHomePanel({read:projectHomes,quote:quoteHome,execute:executeHome});}],
+    panels:[()=>{panel=createHomePanel({read:projectHomes,quote:quoteHome,execute:executeHome});},
+        ()=>{overview=createHomeOverviewPanel({read:()=>({...projectHomes(),observer:observerView(readPort('expansion'))}),openHomes:()=>expandWorkspaceModule('homes')});}],
 });
