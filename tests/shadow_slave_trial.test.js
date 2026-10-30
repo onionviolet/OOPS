@@ -4,7 +4,8 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {ssRankPath, SS_KNOWN_RUNGS} from '../src/ascension_paths_ss.js';
 import {pathView} from '../src/ascension_paths.js';
-import {structuredLadderView} from '../src/structured_ladder_view.js';
+import {structuredLadderViews, validateLadderPresentation} from '../src/structured_ladder_view.js';
+import {definePath} from '../src/ascension_paths.js';
 import {ladderFigureSpec} from '../src/ability_ladder_figure.js';
 import {validateFigureSpec} from '../src/ui/figure.js';
 import {shadowSlaveTrial as raw} from '../src/world_packs/book_shadow_slave_trial.js';
@@ -50,33 +51,44 @@ const run = (f, n, mins) => {f.start(n); f.step(mins);};
 test('second world ladder works on the shared seam with no LOTM code', () => {
     for (const file of ['ascension_paths_ss.js', 'structured_ladder_view.js']) assert.doesNotMatch([...readFileSync(new URL('../src/' + file, import.meta.url), 'utf8').matchAll(/from '([^']+)'/g)].map(m => m[1]).join(' '), /lotm/i);
     const v = pathView(ssRankPath, 1, {}, {known: SS_KNOWN_RUNGS});
-    assert.deepEqual(v.ladder.map(r => r.label), ['Dormant', 'Awakened', 'Ascended', 'Transcendent', '???', '???', '???']);
-    assert.equal(v.next, 'Ascended'); assert.equal(v.crossings[0].irreversible, true); assert.equal(v.ready, false);
-    assert.equal(pathView(ssRankPath, 1, {secondNightmare: true}).ready, true);
+    assert.deepEqual(v.ladder.map(r => r.label), ['Unwoken', 'Woken', 'Risen', 'Crowned', '???', '???', '???']);
+    assert.equal(v.next, 'Risen'); assert.equal(v.crossings[0].irreversible, true); assert.equal(v.ready, false);
+    assert.equal(pathView(ssRankPath, 1, {secondTrial: true}).ready, true);
     validateFigureSpec(ladderFigureSpec(v));
 });
 
 test('trial: rushed crossing costs health and injury, settling promotes the ladder, treatment gates the next attempt', () => {
     const f = setup(); validateStructuredEnvelope(f.envelope());
-    assert.equal(structuredLadderView(f.d, facts(f)).stage, 'Awakened');
+    assert.equal(structuredLadderViews(f.d, facts(f))[0].stage, 'Woken');
     assert.equal(f.quote('enter').eligible, false); assert.equal(f.quote('shallows').eligible, false);
     run(f, 'prepare', 5); assert.equal(f.p.gameplay.player.inventory[key('supplies')], 2);
     run(f, 'enter', 10); assert.equal(f.quote('steady').eligible, true);
     const before = hp(f); run(f, 'rushed', 5);
     assert.equal(before - hp(f), 25); assert.equal(facts(f)[id('injury')], 1);
-    assert.equal(structuredLadderView(f.d, facts(f)).stage, 'Awakened', 'rank holds until the trial is settled');
+    assert.equal(structuredLadderViews(f.d, facts(f))[0].stage, 'Woken', 'rank holds until the trial is settled');
     run(f, 'settle', 5);
-    const view = structuredLadderView(f.d, facts(f));
-    assert.equal(view.stage, 'Ascended'); assert.equal(f.p.gameplay.player.inventory[key('fragment')], 1);
-    assert.equal(f.quote('prepare').eligible, false, 'injury blocks another attempt');
+    const view = structuredLadderViews(f.d, facts(f))[0];
+    assert.equal(view.stage, 'Risen'); assert.equal(f.p.gameplay.player.inventory[key('fragment')], 1);
+    assert.equal(f.quote('prepare').eligible, false, 'injury and rank block another attempt');
     assert.equal(f.quote('shallows').eligible, true);
     run(f, 'treat', 5); assert.equal(facts(f)[id('injury')], 0); assert.equal(f.p.gameplay.player.inventory[key('salve')], undefined);
     validateStructuredEnvelope(f.envelope());
 });
 
+test('a character can hold a second ladder beside the rank ladder, one figure per path with its own ids', () => {
+    const second = definePath({id: 'test.track', world: 'book.ss', label: 'Method track', shape: 'ladder', stages: [
+        {id: 'a', label: 'Learning', crossings: [], grants: []}, {id: 'b', label: 'Practiced', crossings: [{id: 'p', type: 'quota', label: 'Practice', fact: 'minutes', need: 10}], grants: []}]});
+    const d = structuredClone(raw); d.presentation.ladders.push({id: 'track', path: second, positionKey: 'x.track', facts: {minutes: 'x.minutes'}});
+    validateLadderPresentation(d.presentation.ladders);
+    const views = structuredLadderViews(d, {[id('rank')]: 2, 'x.track': 0, 'x.minutes': 4});
+    assert.deepEqual(views.map(v => [v.id, v.stage]), [['rank', 'Risen'], ['track', 'Learning']]);
+    assert.notEqual(views[0].spec.id, views[1].spec.id);
+    assert.throws(() => validateLadderPresentation([d.presentation.ladders[0], d.presentation.ladders[0]]));
+});
+
 test('retreat brings you home with no promotion; steady route leaves no injury', () => {
     const f = setup(); run(f, 'prepare', 5); run(f, 'enter', 10); run(f, 'retreat', 5);
-    assert.equal(structuredLadderView(f.d, facts(f)).stage, 'Awakened'); assert.equal(facts(f)[id('phase')], 4);
+    assert.equal(structuredLadderViews(f.d, facts(f))[0].stage, 'Woken'); assert.equal(facts(f)[id('phase')], 4);
     run(f, 'prepare', 5); run(f, 'enter', 10); run(f, 'steady', 12); assert.equal(facts(f)[id('injury')], 0);
-    run(f, 'settle', 5); assert.equal(structuredLadderView(f.d, facts(f)).stage, 'Ascended');
+    run(f, 'settle', 5); assert.equal(structuredLadderViews(f.d, facts(f))[0].stage, 'Risen');
 });

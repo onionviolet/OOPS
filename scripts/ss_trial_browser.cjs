@@ -1,4 +1,4 @@
-// Shadow Slave Second Nightmare trial: fresh origin, 1920x1080, real Save/reload/Export/Import. Evidence in argv[2].
+// Shadow Slave Second Trial: fresh origin, 1920x1080, real Save/reload/Export/Import. Evidence in argv[2].
 const fs=require('node:fs'),http=require('node:http'),path=require('node:path'),assert=require('node:assert/strict');
 const {launchChrome,advanceGameMinutes}=require('./ui_helpers.cjs');
 const out=process.argv[2]||'docs/gm/dispatch/book-ui-wave-2026-10-30/evidence/ss';fs.mkdirSync(out,{recursive:true});
@@ -20,20 +20,20 @@ const server=http.createServer((req,res)=>{const p=path.join(root,decodeURICompo
   await page.locator('#workspace_navigation select').first().selectOption('beginning');
   await page.locator('[data-structured-choice="life"]').selectOption('book.ss.trial');
   await page.getByRole('button',{name:'Confirm arrival',exact:true}).click();await page.waitForTimeout(500);
-  ok('ladder figure drawn at Awakened',await page.locator('[data-structured-ladder]').count()===1&&/Awakened/.test(await panel()));
+  ok('ladder figure drawn at Woken',await page.locator('[data-structured-ladder]').count()===1&&/Woken/.test(await panel()));
   await page.screenshot({path:`${out}/01-start-1920x1080.png`});
   await act('prepare');await act('enter');
   ok('route cost and risk are shown before choosing',/Costs 25 health/.test(await panel()));
   await page.screenshot({path:`${out}/02-in-realm-1920x1080.png`});
   await act('rushed');await act('settle');
-  ok('settling promoted the ladder to Ascended',/Rank: Ascended/.test(await panel()));
+  ok('settling promoted the ladder to Risen, no doubled label',/Rank: Risen/.test(await panel())&&!/Rank: Rank:/.test(await panel()));
   await page.screenshot({path:`${out}/03-ascended-1920x1080.png`});
   const s1=await save();const rank=s1.expansion.actors.player.facts['book.ss.trial.rank'];ok('saved rank is 2',rank===2);
   await page.reload();await boot();await page.locator('#workspace_navigation select').first().selectOption('beginning');
-  ok('reload keeps Ascended',/Rank: Ascended/.test(await panel()));
+  ok('reload keeps Risen',/Rank: Risen/.test(await panel()));
   const [dl]=await Promise.all([page.waitForEvent('download'),page.locator('#save_to_file_button').click()]);const file=`${out}/export.txt`;await dl.saveAs(file);
   await Promise.all([page.waitForEvent('load'),page.locator('#saved_file_input').setInputFiles(file)]);await boot();await page.locator('#workspace_navigation select').first().selectOption('beginning');
-  ok('import keeps Ascended and the ladder',/Rank: Ascended/.test(await panel())&&await page.locator('[data-structured-ladder]').count()===1);
+  ok('import keeps Risen and the ladder',/Rank: Risen/.test(await panel())&&await page.locator('[data-structured-ladder]').count()===1);
   await page.screenshot({path:`${out}/04-after-import-1920x1080.png`});
   ok('no page errors',result.errors.length===0);
  }finally{fs.writeFileSync(`${out}/browser-result.json`,JSON.stringify(result,null,2));await browser.close();server.close();}

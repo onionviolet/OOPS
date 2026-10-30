@@ -1,10 +1,10 @@
 {
-  "base": "http://127.0.0.1:53770",
+  "base": "http://127.0.0.1:57567",
   "errors": [],
   "checks": [
     "ladder figure drawn at Awakened",
     "route cost and risk are shown before choosing",
-    "settling promoted the ladder to Ascended",
+    "settling promoted the ladder to Ascended, no doubled label",
     "saved rank is 2",
     "reload keeps Ascended",
     "import keeps Ascended and the ladder",
