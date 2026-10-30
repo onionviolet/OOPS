@@ -49,7 +49,7 @@ The current statement of each accepted decision is its AD line in the [rules ind
 
 ## Release state
 
-Published master is runtime `6077f785a`; the normal app serves frozen `v0.6-948bd45d09cd` ([adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md)). Work since then is local until Weibao says to push.
+Published master is `5dcd2240c` (Luminous Gothic default); the normal app serves frozen `v0.6-e7f0aa4029ca` ([adoption receipt](docs/gm/dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md)). Work since then is local until Weibao says to push.
 
 ## Where to look
 

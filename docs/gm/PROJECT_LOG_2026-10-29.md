@@ -2224,3 +2224,7 @@ Weibao selected PC7–PC14 and G2 findings/expansions for implementation through
 ## Connected lore implementation selected, 2026-10-26
 
 Weibao selected the applicable PC54–PC60 lore details and their necessary connections for implementation, following the completed G7 audit. [Direction](../USER_VISION.md#lore-and-idea-source-details-selected-for-implementation-2026-10-26) and [shared brief](dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/COMMON.md) preserve the complete selection. L1/L2 extend Cyoria's attributed documents and supported guide preparations; L3 owns historical apparatus, bounded institutional interpretation and the joined useful lamp journey. [Integration checkpoint](dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3.md) records exact source/browser/persistence states. Current status: selected G7 coverage is agent-verified on the exact frozen QA artifact, including joined J1, persistence, desktop and combined-check repair evidence. The original full-suite diagnostics are retained beside passing affected-file repairs; later other-group primary changes keep their own gates. No normal-app adoption, commit or push is selected.
+
+## Release state replaced, 2026-10-29
+
+Superseded PROJECT.md line: "Published master is runtime `6077f785a`; the normal app serves frozen `v0.6-948bd45d09cd`." The app had already moved to `v0.6-439dd061a3cb` on 2026-10-27 without the line changing; it now serves `v0.6-e7f0aa4029ca` from master `5dcd2240c` ([receipt](dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md)).

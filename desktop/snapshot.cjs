@@ -68,6 +68,12 @@ function listFiles(root) {
         for (const pack of new Set(packs.filter(p => typeof p === 'string' && /^[a-z0-9_-]+\/pack\.json$/i.test(p)).map(p => p.split('/')[0]))) {
             if (fs.existsSync(path.join(root, 'private_packs', pack))) walk(`private_packs/${pack}`);
         }
+        // Supplements (cast data and the like) are single listed files the page fetches by path.
+        let supplements = [];
+        try { supplements = JSON.parse(fs.readFileSync(path.join(root, manifest), 'utf8')).supplements || []; } catch { /* as above */ }
+        for (const file of supplements.filter(p => typeof p === 'string' && /^[a-z0-9_-]+\/[a-z0-9_.-]+\.json$/i.test(p))) {
+            if (fs.existsSync(path.join(root, 'private_packs', file))) files.push(`private_packs/${file}`);
+        }
     }
     return [...new Set(files)].sort();
 }

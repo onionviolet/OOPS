@@ -16,7 +16,8 @@ function fakeRoot() {
     put('src/game_version.js', 'const game_version = "v9";');
     put('src/main.js', 'not served');
     put('styles/a.css', 'a{}');
-    put('private_packs/manifest.json', JSON.stringify({ schema: 1, packs: ['p1/pack.json'] }));
+    put('private_packs/manifest.json', JSON.stringify({ schema: 1, packs: ['p1/pack.json'], supplements: ['c1-cast/cast.json'] }));
+    put('private_packs/c1-cast/cast.json', '{}');
     put('private_packs/p1/pack.json', '{}');
     put('private_packs/unlisted/pack.json', '{}');
     return { root, put };
@@ -28,7 +29,7 @@ test('copies page files and listed packs, keyed by content', () => {
     const a = makeSnapshot(root, userData);
     assert.match(a.id, /^v9-[0-9a-f]{12}$/);
     assert.equal(readPointer(userData, 'latest.json'), a.id);
-    for (const rel of ['index.html', 'dist/bundle.js', 'styles/a.css', 'src/game_version.js', 'private_packs/p1/pack.json']) {
+    for (const rel of ['index.html', 'dist/bundle.js', 'styles/a.css', 'src/game_version.js', 'private_packs/p1/pack.json', 'private_packs/c1-cast/cast.json']) {
         assert.ok(fs.existsSync(path.join(a.root, rel)), rel);
     }
     assert.ok(!fs.existsSync(path.join(a.root, 'src/main.js')));
