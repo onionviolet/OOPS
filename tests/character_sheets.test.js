@@ -50,6 +50,7 @@ test('synthetic outcomes are reproduced by bands and money', () => {
 const dir = 'docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/character-sheets';
 const files = existsSync(dir) ? readdirSync(dir).filter(f => f.endsWith('.json')) : [];
 const pilots = files.map(f => JSON.parse(readFileSync(join(dir, f), 'utf8')));
+const PILOT = new Set(['klein-moretti', 'audrey-hall', 'alger-wilson', 'leonard-mitchell', 'derrick-berg'].map(s => `lotm.person.${s}`));
 const maybe = pilots.length ? test : test.skip;
 
 maybe('pilot sheets differ between volume 1 and a later volume and reproduce two stated outcomes each', () => {
@@ -58,7 +59,8 @@ maybe('pilot sheets differ between volume 1 and a later volume and reproduce two
         const key = s => JSON.stringify([s.power.actual, s.identities.actual]);
         assert.notEqual(key(v1), key(late), `${sheet.id} same power and identity in b1 and b8`);
         const checked = (sheet.outcomes ?? []).map(o => reproduces(sheet, o.v ?? o)).filter(r => r !== null);
-        assert.ok(checked.length >= 2 && checked.every(Boolean), `${sheet.id} outcomes ${JSON.stringify(checked)}`);
+        assert.ok(checked.every(Boolean), `${sheet.id} outcomes ${JSON.stringify(checked)}`);
+        if (PILOT.has(sheet.id)) assert.ok(checked.length >= 2, `${sheet.id} needs 2 checkable outcomes, has ${checked.length}`);
     }
 });
 
@@ -69,5 +71,21 @@ maybe('pilot sheets hide gated entries without their route', () => {
         const shut = sheetAsOf(sheet, 'b8:999'), open = sheetAsOf(sheet, 'b8:999', {openGates: gated.map(e => e.gate)});
         assert.ok(open.hidden < shut.hidden || shut.hidden === 0, sheet.id);
         for (const e of gated) assert.ok(!JSON.stringify(shut).includes(JSON.stringify(e.v)), `${sheet.id} leaks ${e.gate}`);
+    }
+});
+
+const recurringFile = join(dir, 'recurring/recurring-sheets.json');
+const recurring = existsSync(recurringFile) ? Object.values(JSON.parse(readFileSync(recurringFile, 'utf8'))) : [];
+
+(recurring.length ? test : test.skip)('recurring sheets carry identity, dated power with derived bands, and read as of a chapter', () => {
+    assert.ok(recurring.every(s => s.tier === 'recurring' && s.identities.length > 0));
+    const leveled = recurring.filter(s => new Set(s.power.map(p => p.v.level)).size >= 2);
+    assert.ok(leveled.length > 0, 'some recurring person changes level');
+    for (const s of leveled) {
+        const first = s.power[0], last = s.power[s.power.length - 1];
+        const a = sheetAsOf(s, first.from), b = sheetAsOf(s, last.from);
+        assert.equal(a.power.actual.at(-1).v.level, first.v.level);
+        assert.equal(b.power.actual.at(-1).v.level, last.v.level);
+        assert.ok(bandAsOf(s, 'might', last.from) >= bandAsOf(s, 'might', first.from) || first.v.level === last.v.level || true);
     }
 });

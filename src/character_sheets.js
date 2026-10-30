@@ -1,6 +1,6 @@
 // Dated character sheets (WA50): a pure read model over sheet objects. Sheets are data (private pack); this module never reads files or holds plot text.
 // Chapter refs are 'bN:CH' (volume, chapter; chapters restart per volume). Docs: docs/gm/dispatch/sonnet-wave-2026-10-30/L8_CHARACTER_SHEET_SCHEMA.md
-export const LIST_FIELDS = ['identities', 'affiliation', 'power', 'abilities', 'stats', 'skills', 'held', 'money', 'condition', 'outcomes'];
+export const LIST_FIELDS = ['identities', 'affiliation', 'power', 'abilities', 'stats', 'skills', 'held', 'money', 'condition', 'outcomes', 'routine'];
 export const STAT_AXES = ['might', 'speed', 'resilience', 'mind', 'perception', 'lore', 'influence', 'wealth'];
 
 /** 'b5:12' -> sortable number; null for anything else. */
