@@ -90,17 +90,18 @@ Checks (one line each):
 - `node --test tests/knowledge_view.test.js`: 6 pass. Covers the sealed line planted in world facts, a bystander's knowledge and a queued job's frozen effect, absent from rows, spec JSON, `figureText` and the drawn SVG; the positive control shows it once the seat receives it.
 - `node --test tests/layout_spec.test.js`: 19 pass after adding the Knows row to the pinned route table.
 - `npm run check:arch`: pass (main.js not grown); `npm run check:rules`: pass, 5 standing warnings; `npm run check:docs`: no findings in this file.
-- `npm test` (this worktree): 4123 tests, 4104 pass, 13 fail. One was this slice's: `perspective_controls.test.js` needs every nav route tagged; it is fixed by a `records:knows` row in `src/perspective_controls.js`, and its file now passes. Two (`cast_worksheet`, `lead_run_crosswalk`) fail identically on the untouched base in a fresh worktree, because the gitignored `docs/research/novels` is missing. The rest are live-integration timeouts (cast adapters, person-memory route) that need the private cast pack or an uncontended run. They are recorded as environment gaps for the coordinator's full run in the primary checkout.
+- `npm test` (this worktree): 4123 tests, 4104 pass, 13 fail. One was this slice's: `perspective_controls.test.js` needs every nav route tagged; it is fixed by a `records:knows` row in `src/perspective_controls.js`, and its file now passes. Two (`cast_worksheet`, `lead_run_crosswalk`) fail identically on the untouched base in a fresh worktree, because the gitignored `docs/research/novels` is missing. The other ten are live-integration tests (cast adapters, card integration, person-memory route) that boot `main.js` in the headless DOM. Some timed out, and some failed with a save worker exiting with empty stderr. They are **unverified, not cleared**. Run alone, three still failed. A plain headless boot of this branch did not finish within 280 s while the machine ran at load 194, so load cannot be told apart from this slice's Journal mount, which every such boot now runs. The coordinator's full run at merge settles it. If one fails there, guard `mountKnowsTab` first.
 - `node scripts/capture_knowledge_evidence.mjs`: headless Chrome at 1920×1080 on a fresh origin, rebuilt bundle `0a5329b6d6c0`, 0 page errors. Output is in `evidence/knowledge/` (`receipt.json`, screenshots, text forms).
 
 AD43 floor:
 
-- FLR1 build: bundle `0a5329b6d6c0` (sha256 prefix in `evidence/knowledge/receipt.json`).
+- FLR1 build: bundle `0a5329b6d6c0` for round 1. Round 2's capture on `ebded7d99cc7` superseded that evidence and `receipt.json`.
 - FLR2 route: from a fresh life, meeting the village elder (earned) opens the Journal; the top-nav Knows tab shows the empty state. For populated play, the named prerequisite fixture unlocks the craftsman meeting, as `tests/person_memory_route.test.js` does. Real clicks follow: meet him, "Follow local people and work", "Ask about his working habits". Knows then lists the two lines the simulation wrote. The board's full grammar is proven by the named gallery fixture `knows-harbor-bell` through the real adapter. No MCP walk: the game MCP serves another checkout's build.
 - FLR3 shown: every line carries certainty, provenance and when; the empty state says what to do; reading costs nothing (free inspection). The board appends the same text form.
 - FLR4 used: the rows are existing knowledge that inference, divination and frontier powers already read as requirements (`knowledge.<key>` predicates). The display adds no new consumer.
 - FLR5 kept: n/a. No persistence change.
 - FLR6 labelled: agent-verified, not human-reviewed. Route kind: earned to the home, fixture-assisted for populated content.
+- Verdict: **done at the floor**, on the reading that FLR4's consumer is the existing requirement predicates that read these same knowledge rows. The tab shows what those gates use and adds no new store. If a display must add its own consumer, the verdict is "implemented, below floor (FLR4)"; that call is Weibao's.
 
 Known limits: the board spreads few nodes over the full height, and in the Journal box its legend sits below the fold (the list is the default view for this reason). Node labels are cut at 40 characters, with full lines in the list. Bestiary and Anthology show as "???????" in the tab strip on a fresh life, which is existing behaviour. `dist/` and the html `?version=` bumps are not committed; the coordinator rebuilds after merging.
 
@@ -256,7 +257,7 @@ row list stays as its text form.
 ### Round 2 checks
 
 - `node --test tests/knowledge_view.test.js tests/perspective_controls.test.js tests/layout_spec.test.js`: 28 pass. The knowledge file has 8 tests, two of them new for cases and glance.
-- `npm run check:docs`: no findings in this file.
+- `npm run check:docs`: no findings in this file. `npm run check:arch`: pass, still 205 grandfathered cyclic edges, so the `change_badges.js` import adds no cycle; main.js not grown. `npm run check:rules`: pass.
 - `node scripts/capture_knowledge_evidence.mjs`: rebuilt bundle `ebded7d99cc7`, 1920×1080, 0 page errors. The fresh life shows the empty Cases view. After the craftsman route, the Knows nav button reads "Knows, 1 new" (`data-new-count` 1) and Cases shows "2 known · 0 guessed · 0 open" under "Other things you know". New files: `*-cases.png`.
 - Not run, at the coordinator's instruction: the full `npm test`. The coordinator runs it once at merge.
 - Gap: multi-case grouping (lines of thought and rites) is proven by tests and by the gallery board fixture, not in live browser play. The frontier route writes no inference chains; a cast-life route that does needs the private pack.
