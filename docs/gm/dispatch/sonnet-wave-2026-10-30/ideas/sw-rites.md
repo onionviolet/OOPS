@@ -36,3 +36,13 @@ Shape check against the sibling book's existing rule rows (14 sampled by structu
 | ACCOUNT FOR NOW | Checked for absolutes: no never/always/only in mechanism text; the "cannot" uses restate a source limit tied to a stated condition. Authored numbers (minutes, spirituality threshold) are labelled proposals. |
 | ACCOUNT FOR NOW | Fields nobody reads yet: all five files are unwired, so `proposals`, `evidence` and `effects` are read only by tests. Wiring (`sw-wire`) decides which are consumed; unused ones go in the next pass after wiring, not before. |
 | LATER (level: data; effort: S; done: wiring shows `craft.ritual-essence-oil` and `aid.ritual-oil-bath` overlap or not, then merge or cross-reference) | The craft row for ritual essence oil and the aid row for the ritual bath oil may describe one product from two sides. |
+
+## 2026-10-30 (slice 6, volume 3)
+
+| Class | Entry |
+| --- | --- |
+| ACT NOW | Volume 3 rite rows add families `contract`, `contact`, `offering`, `blessing`, `entry`, `concealment`; craft rows add a `kind` field (making, cooking, communication, disguise, concealment, training, item_use). `-v3` id suffix marks the merged volume 3 group of a method that also exists in volume 1 or 2. |
+| ACCOUNT FOR NOW | The same methods recur across volumes (messenger summoning, self-summon to the grey fog, sacrifice door, crystal ball contact). Rows carry per-volume ids; a wiring layer should group them by method (a `method` key) rather than the ids. |
+| ACCOUNT FOR NOW | Codex Sol can fail with "model at capacity" and leave an empty report; check `run.log` and relaunch rather than trusting an empty exit. |
+| LATER (level: schema; effort: S; done: rows gain `method` key shared across volumes; test asserts every `-v3` row names its earlier-volume sibling) | Add a shared `method` key so volume 1-3 siblings group. |
+| LATER (level: data; effort: M; done: volumes 4-8 extracted in 28-id chunks and the usable rows appended to the rite and craft files) | Walk volumes 4-8 with `mkchunks.py`/`runchunks.sh` style chunking (scratchpad scripts; move to scripts/lead_run if reused). |
