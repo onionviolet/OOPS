@@ -26,7 +26,7 @@ The first thing seen after selecting a recipe was a stack of labelled rows with 
 
 Code: `src/ui/craft_glance.js` (pure `craftGlance(model)`, `needChips`, `chanceWord`, `glanceText`; the text form is the same data), one renderer function in `crafting_detail.js`, two optional model fields in `display.js` (`time`, `spendsOnFailure`), CSS at the end of `styles/crafting_detail.css`. A surface that passes neither field (the bench) reads "Not stated" for Time and omits the failure clause: honest, not wrong. No persistence change, no engine change.
 
-Evidence: `docs/representations/evidence/crafting/glance-{blocked,ready}-{14px,21px}.png` (headless Chrome, 1920×1080, fresh seeded origin; the 21 px shots apply a root font-size override, so they approximate the Settings text size). Script: `scripts/craft_glance_browser.cjs` asserts the glance text, that the Craft button sits inside the viewport, and that a ready recipe has no blocked reason.
+Evidence: `docs/representations/evidence/crafting/glance-{blocked,ready}-{14px,21px}.png` (headless Chrome, 1920×1080, fresh seeded origin; the 21 px shots set the context module's font size to 21 px and the script asserts the detail's computed size). Script: `scripts/craft_glance_browser.cjs` asserts the glance text, that the Craft button sits inside the viewport, that a ready recipe has no blocked reason, and runs one real Craft 1 (a failed attempt in the captured run: inputs spent, receipt shown, glance re-rendered, game clock unchanged, `glance-after-craft-14px.png`). At 21 px the Craft controls stay in view but the Success and At rows scroll below the first screen; the glance grid is one column there.
 
 ## CF2: forms per part (item 18)
 
@@ -69,6 +69,8 @@ Checked: the engine owner `docs/CRAFTING_ENGINE.md` rounds 2-10 (world rulebook 
 
 Five-second read before: the detail opened on "Input stock · owned / unblocked / blocked" and a 4% success with a long policy paragraph; the blocked reason sat below the fold of the content. Terms needing knowing: unblocked versus blocked, "attempts versus outputs", "material-stop", "Unfamiliar material". Fixed cheaply: reason now at the top once; time, cost and failure spending stated; stock breakdown only when something is short; policy prose behind "About this recipe". Not fixed: "Unfamiliar material" gives no hint what to try (needs the knowledge ladder, CF3); "Missing" in the list does not say what is missing (ACCOUNT FOR NOW below).
 
+Note on the engine claim in CF1: "instant, no game time" is exercised by the evidence script (clock unchanged across a craft); "failure still spends inputs" was seen in the same run.
+
 ### 3. Space, split and density
 
 At 1920×1080 the workspace gives the center column about 700 px; the list (44%) and inspector are already side by side, and the inspector has unused height below the disclosures. Decision: keep list plus pinned inspector (merge, since both answer "what can I make"); use the spare height for a "Chain" disclosure holding the flow graph, not for more text. Density by frequency (UR42): status and Craft controls are glance-density (looked at every craft); needs and chance are one line each; stock, XP, policy and results are one click.
@@ -99,7 +101,7 @@ Reused: `itemRecipeStatus`, the model builder, `craftBatchProposal`, `figure.js`
 
 ### 10. Audit gaps
 
-Lead's run (LTU): the items detail has no knowledge ladder, so a fresh lead cannot tell what an unfamiliar material is for. Other seats: a thin life with no station sees a disabled nav button and a title attribute only; give the disabled route a visible reason. Empty and error states: no recipes selected shows one prompt (fine); a missing model field now reads "Not stated". Persistence: no change. Performance: the glance adds about 20 DOM nodes per render; the renderer rebuilds all children on each refresh, as before. Accessibility: the status is focusable only when blocked, focus restore list unchanged; 21 px checked at an approximate root-size override.
+Lead's run (LTU): the items detail has no knowledge ladder, so a fresh lead cannot tell what an unfamiliar material is for. Other seats: a thin life with no station sees a disabled nav button and a title attribute only; give the disabled route a visible reason. Empty and error states: no recipes selected shows one prompt (fine); a missing model field now reads "Not stated". Persistence: no change. Performance: the glance adds about 20 DOM nodes per render; the renderer rebuilds all children on each refresh, as before. Accessibility: the status is focusable only when blocked, focus restore list unchanged; 21 px checked with the real detail size (see CF1): controls stay visible, lower glance rows scroll.
 
 ### 11. Prior implementations and abstraction
 

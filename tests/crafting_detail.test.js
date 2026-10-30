@@ -63,3 +63,8 @@ test('crafting flow fixtures validate and keep every fact in the text form', () 
         assert.match(text, /missing 1 Binding strip/);
     }
 });
+
+test('an input blocked only by heat reads blocked, not enough', () => {
+    const [chip] = needChips([{label: 'Ore', need: 1, have: 3, heat_reason: 'needs a hotter fire'}]);
+    assert.deepEqual(chip, {state: 'blocked', text: 'Ore 3/1', note: 'wrong heat'});
+});

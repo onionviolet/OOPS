@@ -20,8 +20,8 @@ export function needChips(requirements = []) {
     return requirements.map(req => {
         const have = req.stockKnown ? req.usable : req.have;
         const short = Math.max(0, req.need - have);
-        const state = short || req.held_back ? 'blocked' : 'ok';
-        const note = short ? `short ${short}` : req.held_back ? 'reserved' : 'enough';
+        const state = short || req.held_back || req.heat_reason ? 'blocked' : 'ok';
+        const note = short ? `short ${short}` : req.held_back ? 'reserved' : req.heat_reason ? 'wrong heat' : 'enough';
         return {state, text: `${req.label} ${have}/${req.need}`, note};
     });
 }
