@@ -1,0 +1,16 @@
+{
+  "name": "lotm_be_seat",
+  "note": "Be seat (canon lead life, needs the private cast pack): pick, enroll through the reload, open the panel, walk if one is offered, then save/reload/Export/Import.",
+  "seed": 7,
+  "privatePacks": true,
+  "steps": [
+    {"op": "nav", "id": "lotm"},
+    {"op": "click", "ref": "lotm=pick_be"},
+    {"op": "click", "ref": "lotm=enroll_be", "reload": true},
+    {"op": "nav", "id": "lotm"},
+    {"op": "expect", "selector": "#lotm_panel [data-lotm]"},
+    {"op": "step", "minutes": 60},
+    {"op": "shot", "name": "be-seat"},
+    {"op": "roundtrip"}
+  ]
+}
