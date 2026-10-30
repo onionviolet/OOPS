@@ -7,6 +7,7 @@ import './fixtures/abilities.js'; // RPX5 advancement ladders register into FIGU
 import './fixtures/rituals.js'; // registers RPX1/RPX2 fixtures
 import {FAMILY_FIXTURES} from './fixtures/family_tree.js';
 import './fixtures/combat.js';
+import {MAP_FIXTURES} from './fixtures/maps.js';
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
 const states = {luminous: defaultCustomizationState(), neutral: defaultCustomizationState()};
@@ -27,6 +28,7 @@ const main = el('main', {id: 'fig_gallery'});
 document.body.append(bar, main);
 
 for (const spec of [...FIGURE_FIXTURES, ...FAMILY_FIXTURES]) {
+for (const spec of [...FIGURE_FIXTURES, ...MAP_FIXTURES]) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));
     const pair = el('div', {class: 'fig-gallery-pair'});

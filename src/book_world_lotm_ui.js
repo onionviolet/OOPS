@@ -7,6 +7,7 @@ import {observerForProfile} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
 import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
+import {walkMapBlock} from './ui/walk_map.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -16,7 +17,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
   const observer=observerForProfile(read(selected)?.entryProfile);
@@ -247,6 +248,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));
   const placeLine=pl=>v.runMode?`${pl.place}${pl.here?' · you are here':` · ${pl.minutes} min`}`:`${pl.place} · ${pl.district}, ${pl.team} (${pl.church})${pl.here?' · you are here':` · ${pl.minutes} min`}`;
   const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' ')));
+  if(v.places?.length)walks.append(walkMapBlock(v,{open:mapOpen,ontoggle:o=>{mapOpen=o;},onPick:findControl})); // RPX14: walking time from here, known places only.
   if(resident){
    const here=v.places.find(pl=>pl.here)?.district;
    if(here!==currentDistrict){districtOpen.clear();placesOpen.clear();currentDistrict=here;}
