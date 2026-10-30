@@ -45,6 +45,10 @@ Everything here is a proposal (AD32) and a draft: each choice is the current bes
 - **Drink effects and assays** use the same known, guessed, unknown grammar (UIV6, one shared wording under UR74); this table is the first consumer. An assay that reports an ingredient's properties would feed the same row shape (`{id, state, cells[]}`); the appraisal vocabulary (actual, observed, forecast) lives in `MEANS_AND_APPRAISAL.md` and is not yet wired here (ACCOUNT FOR NOW, small).
 - **Polyjuice-style bench** (`src/hp_brewing_*`, rituals-owned): its own slice and panel, a track of timed steps. A bench that has steps shows them as a **track** (the figure `track` already exists), not as this table; what it can share is the discovery grammar for its ingredients. **MR29** (shared knowledge projection, separate product logics) supports a bridge adapter from the bench's observed facts to the same projection; the rituals session decides if and when. **MR9:** open slots change strength within a product family, which maps to the dose scale here.
 
+## Boundary with LOTM potions (coordinator, 2026-10-30)
+
+The Village mixing counter's own mixture model (`src/mixture_*.js`) stays the source for Village mixing. Potion formula, recipe and divination rows for LOTM belong to the sonnet wave's sw-rites lane; a LOTM potion view reads those rows and defines none here. The discovery projection is a consumer shape only: a later adapter can map observed facts from those rows into the same `{id, state, cells[]}` rows.
+
 ## What shipped (slice)
 
 On the Village mixing counter (center mode `mixing`), above the ingredient rows:
