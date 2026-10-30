@@ -27,7 +27,7 @@ Integration branch `claude/ui-integration-8e9e92` (cherry-picks with `-x`, so ea
 
 | 19 | rep-items (f95a65bc) | Item card in Item details, comparison against the worn slot | none |
 | 20 | rep-first-hour (446045ac) | Next-step line under the top strip while the opening quest is unfinished | UR17 checked: adds one display setting `nextStep` with fallback `on`, and a `#next_step` strip outside the workspace modules; no layout, pin or collapse state changes. Frozen UI-freeze files untouched |
-| 21 | rep-talk | **not merged**: its commit had not landed (only a staged TALK.md and a modified dist in its worktree) | take it when the session commits |
+| 21 | rep-talk (2d490fa8, de3b13ce) | Conversation view for the Village elder, covered ledger, grouped locked lines | landed after the first landing; its uncommitted dist/index bumps left out; `talk_view` tests 38/38 with contract, ui_contract and layout_spec; `check:arch` 0 |
 
 ## Shared primitives (RCT1)
 
