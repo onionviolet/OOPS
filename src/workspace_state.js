@@ -1,3 +1,4 @@
+import {retiredAliases} from './panel_folds.js';
 /** Layout data contains registered presentation IDs only, never game state or text. */
 export const WORKSPACE_VERSION = 1;
 export const DOCKS = ['left', 'center', 'right', 'float'];
@@ -13,6 +14,8 @@ export function defaultModule(id, index = 0) {
 export function normalizeLayout(raw, ids) {
     const source = raw?.version === WORKSPACE_VERSION && Array.isArray(raw.modules) ? raw.modules : [];
     const known = new Map(source.filter(v => v && typeof v.id === 'string').map(v => [v.id, v]));
+    // COV5/UR13: a panel folded into another keeps its saved placement under the owner's id, unless the owner has one.
+    for (const [old, into] of Object.entries(retiredAliases())) if (known.has(old) && !known.has(into)) known.set(into, {...known.get(old), id: into});
     return { version: WORKSPACE_VERSION, mode: raw?.mode === 'dock' ? 'dock' : 'classic', columns: normalizeColumns(raw?.columns), density: ['compact','comfortable','inspection'].includes(raw?.density) ? raw.density : 'comfortable', ...(Number.isInteger(raw?.spec) && raw.spec > 0 ? { spec: Math.min(raw.spec, 1000) } : {}), modules: [...new Set(ids)].map((id, index) => {
         const base = defaultModule(id, index), value = known.get(id) || {};
         return { ...base, dock: DOCKS.includes(value.dock) ? value.dock : base.dock,

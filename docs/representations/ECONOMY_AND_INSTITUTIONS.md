@@ -1,5 +1,7 @@
 # Economy and institutions: representations (proposals, 2026-10-30)
 
+**Next slice (2026-10-30):** O2 ladder rows on the Tingen path. Level and effort: sonnet, medium. Done when: no done check is written in the doc; the owner is still open.
+
 Status: agent proposals. Nothing here is accepted until Weibao says so. One playable slice is built (Ledger → Owed); the other
 representations are designed for later slices.
 

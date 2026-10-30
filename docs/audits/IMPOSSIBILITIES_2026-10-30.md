@@ -9,9 +9,23 @@ Weibao, 2026-10-30: "Consider gaps and impossibilities, we can just implement th
 | Code | Where | Was | Now (default, dial, reason) |
 | --- | --- | --- | --- |
 | IP1 | `src/craft_resolver.js` | Batch of 999 per lot and 12 steps, fixed for every law | Default 999 and 12. Dial: `limits.batchCeiling` and `limits.steps` on a law (a bigger vat or crew). Refusal now says what would lift it. Test: `tests/craft_engine.test.js` (IP1 x2) |
-| IP2 | `src/home_school_offices.js` | "already booked this school month" with no way forward | Default one funded session per 30 days. Dial: a paid top-up (4 estate coins, button "Pay for an extra session now"), which pushes the next free session back by a third of a month. Refusal now names the top-up. Test: `tests/home_cultivation.test.js` (IP8 test) |
+| IP2 | `src/home_school_offices.js` | "already booked this school month" with no way forward | Default one funded session per 30 days. Dial: a paid top-up (4 estate coins, button "Pay for an extra session now"), which pushes the next free session back by a third of a month. Refusal now names the top-up. Test: `tests/home_cultivation.test.js` (IP8 test). Browser: `scripts/ip2_school_topup_browser.cjs` renders the real offices panel on a fresh origin at 1920x1080 and clicks the top-up (panel-level harness, not the full seeded household; no persistence change, so save/reload/import not run) |
 
-## Queue for owner lanes (not built here; ranked)
+## Second batch (2026-10-30, tests pass; agent-verified, not human-reviewed)
+
+| Code | Change |
+| --- | --- |
+| IP3 | `planProcessRepeat` names the missing tool, skill (have of need) or stock, with a `shortfall` field |
+| IP5 | Re-read refusal explains that practice, not rereading, builds on a method (reason only; a `rereadYield` dial is still open) |
+| IP6 | `gatherIdle` takes `budget` (default 500, hard guard 100000) |
+| IP10 | Warehouse and office pauses name the way out (reason only; a partial fill is still open) |
+| IP11 | Missing credential names the means and the friend route (reason only; the favour mechanism is still open) |
+| IP7 | Same-day second sect mission is a paid rush posting (`rushFee` dial, default 2 CP, AUTHORED prototype); default refusal stays and names the fee. Floor-wire does not own this file, so I built it. Test in `tests/primordial_credit.test.js`; browser: `scripts/ip7_rush_posting_browser.cjs` (real host and panel, fresh origin, 1920x1080) |
+| IP14 | Pack pay cap and its checks give separate reasons (reason only) |
+
+Hand-offs sent: IP12 and IP13 to the General UI session, IP4 as CHOICES item 12 with a default.
+
+## Queue for owner lanes (ranked; rows marked above are partly done)
 
 | Code | Location | Current behaviour | Mechanism | Cost | Dial |
 | --- | --- | --- | --- | --- | --- |

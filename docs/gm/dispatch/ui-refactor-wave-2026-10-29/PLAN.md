@@ -119,6 +119,17 @@ Weibao, via the supervisor: "send out and finish the other sonnet works too, fro
 | COV2 centre width | `f9736d8ac`: open centre panel 721 to 1130 px at 1920, 14 px type |
 | COV3 text walls | `7528c7511`: Effects & sound 857 to 78 words; three more views roughly halved |
 | Full suites | The load gate (12) starves queued suites at load 45-90; lanes commit on focused tests plus browser proof, and one batch suite is queued over all of it |
+| Batch suite (HEAD `cd811c30`, slot pool, no load gate) | 4629/4662 pass. Of the 30 failures: 9 test files failed whole on a transient duplicate import that existed only mid-edit; they re-pass 19/19. 9 save-worker integration tests fail under concurrency; one passes alone 6/6, so memory pressure, not a regression. Real and not ours: `core_ratchets` Math.random 29 > 28 (`src/spell_seam.js:5`, GM40 lane) and `ui_contract` colours in other lanes' CSS |
+| COV5/COV12 merges | `053dd6276`: Today and Around are tabs of Where I am; duplicate panels fold to their owners |
+| COV6-COV11 labels plus IP12/IP13 | `3c9b068a1`/`ea921d032` (repaired a tool misfire in workspace_layout.js), `805de8c5b`, `5310b0800`, `56162a67b`, `2030a7ccc`, `b0f4b20d0` |
+| COV4 forms | `a98b2bc0e`: table, threshold card, band, chip and bar rows; Home strip 36 circles to 0; gallery circle share 72% to 66% |
+| RC69 next-slice lines | `b95524c93`, combat fixed in `001b80913` |
+| G14 upcoming strip | `650a7ab5d`: "Coming up" under the place view calendar; found that the private lotm-events pack is rejected in play (evidence label), routed to the coordinator |
+| Gathering and seasons | `122180071`: Gathering at a glance in the Village (site table, stock bar, regrowth words); season band appears only for worlds with seasons; below floor |
+| Relationship web round 3 | Bars proven at 1920 (`ac4f8a932`, `c91471442` on its branch); asked to land on master |
+| COV15 figure wiring | `048426846`: rite figure live on the Tingen brewing bench (stand-in for a per-condition learned fact) and chase range live in the pursuit panel; Research (no learn-view feed) and place history (no world defines eras) stay empty, gallery fixtures for all four |
+| ui_contract | Green again after `54fda9ed2` (strip used an undefined token with a raw fallback) |
+| Tool note | `commit_own_paragraphs.py --para` is for docs; on a JS file holding another lane's hunks it duplicated about 570 lines. Code commits with shared files use the manual hunk method |
 | Abilities G17 Skills tab, relationships G18 Knows plus bars | Sent to `rep-abilities` and `rep-relationship-web` (switched to Sonnet), with L13 bridges `learn_tab_bridge`, `knows_ask_bridge` |
 | Companions | Moved to book-UI wave `bk-party` |
 
@@ -128,4 +139,15 @@ Queue, in order. Stop line raised to weekly 90% (Weibao 2026-10-30, "Raise to 90
 3. COV5 one "where am I" view; COV6-COV12 labels, verb-first buttons, Effects board, empty-state rule, Reports column, Condition and Inventory merge.
 4. RC69 next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME; G14 `upcoming_strip_bridge` into the time strip.
 5. Gathering and seasons representation; COV13 paper-and-ink second skin and COV14 unbuilt screens in the gallery.
-6. COV15 read models gating the Research, Ritual, Combat and Spacetime figures: route to `sw-bridge`.
+6. COV15 read models gating the Research, Ritual, Combat and Spacetime figures: route to `sw-bridge`. Bridges landed (rite_state, chase_range, study, place_history; see L13_BRIDGES.md); still to do: view wiring, gallery fixtures, and a fresh-life route that shows Research or Rituals.
+
+## Open defect routed out: workshop panel as a catch-all (2026-10-30 evening)
+
+Not a debug page: "Craftsman & workshop" (`src/simulation_ui.js`, `#simulation_panel`) is a player panel that the first-hour gate points to (`src/progression_gates.js` `FOLLOW_LOCAL_PEOPLE`). It acts as a dev dump, because every player command whose group is missing from a hand-kept denylist lands there. Weibao's screenshot (1920 wide, Village) shows other worlds' techniques ("Let the dead take you", "Keep your feet on a heaving deck") beside the craftsman's work, and the blocker notes run together into one paragraph. He called the text meaningless and said it takes away from the game. Owner: the queued "crafting and workshops" representation session. Engine text fixes (WS-1 to WS-3) may land first from the protagonist-life coordinator; the session does the layout (WS-4, WS-5).
+
+- WS-1: Commands get placement by allowlist, not by denylist. A command with no declared home panel goes in a dev-only "Unplaced commands" list, shown only with `config.enable_dev_mode` and labelled as dev, never in a player panel. The other-world filter added today (`d5f48d5f6`) misses techniques without a `worldId`.
+- WS-2: Never print engine reasons to the player. "This command belongs to another world." (`src/simulation.js:131`) and the fallback "The required knowledge, means or circumstances are missing." (`src/simulation.js:46`) are dev text. Hide what is unreachable in this world or life, or name the specific missing thing ("needs 1 log", "learn measured packing first", "the traveler is busy").
+- WS-3: A location blocker ("Return to Shack") becomes a travel chip on the button, not a sentence under it.
+- WS-4: Split the panel into sections: Talk, Work here, Your abilities (collapsed, this world only), Elsewhere (one line each with travel). Each heading shows "n ready / m actions" (`summarizeGroups`). Put the rest in a closed "Not yet (n)" section.
+- WS-5: Keep the scene prose and status apart from the controls. The scene goes in a framed block above, and status becomes one line. Blocker reasons show on hover or focus, not as inline `small.ui-disabled-reason` runs (`src/ui_components.js`).
+- Done check: rebuilt 1920x1080 fresh origin, Village with the craftsman met. No other-world label is visible. No reason note contains either generic string. Each section heading has its count.

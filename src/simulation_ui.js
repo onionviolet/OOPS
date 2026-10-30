@@ -5,6 +5,7 @@ import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {previewSimulationCommand, inspectSimulationEvents} from "./simulation.js";
 import {everydayScene} from "./everyday_life.js";
 import {knownPeopleView} from "./people_knowledge.js";
+import {splitReasons, playerReasonText} from "./player_reasons.js";
 const node = (tag, text) => {const n = document.createElement(tag); if(text) n.textContent = text; return n;};
 export function createSimulationPanel({registry, read, command}) {
     const panel = node("details"); panel.id = "simulation_panel"; panel.className = "expedition_panel";
@@ -41,8 +42,13 @@ export function createSimulationPanel({registry, read, command}) {
             if(!s) {b.hidden = true; continue;}
             const d = registry.simulation.commands.get(id), ctx = {...context, targetId: d.targetId || null};
             const p = previewSimulationCommand(state, registry, id, ctx); // A command bound to another world is never actionable here; listing it only buried the local ones (2026-10-30).
-            b.hidden = !p.visible || !!(d.worldId && state.actors.player?.worldId !== d.worldId) || !!(d.once && state.actors.player.completed[id]) || !!(d.claim && s.claims[d.claim]) || d.group === "social" && d.location !== context.facts.location;
-            b.disabled = !enabled || !!error || !p.eligible; b.title = p.reasons.join(" ");
+            // Unreachable here (another world or actor, or an unmet requirement the command never names) means
+            // hidden, not explained: those reasons are engine text (UR73, UR82; Weibao 2026-10-30).
+            const why = splitReasons(p.reasons);
+            b.hidden = !p.visible || why.dev.length > 0 || !!(d.worldId && state.actors.player?.worldId !== d.worldId) || !!(d.once && state.actors.player.completed[id]) || !!(d.claim && s.claims[d.claim]) || d.group === "social" && d.location !== context.facts.location;
+            b.disabled = !enabled || !!error || !p.eligible; b.title = why.player.join(" ");
+            // A place blocker is a tag on the button ("· at Shack"), not a sentence under it.
+            if(why.place && !p.eligible) b.dataset.place = why.place; else delete b.dataset.place;
             if(b.hidden && document.activeElement === b) (d.group === "social" ? conversation : panel).querySelector("summary").focus();
         }
         conversation.hidden = !s || ![...controls].some(([id,b]) => registry.simulation.commands.get(id).group === "social" && !b.hidden);
@@ -77,7 +83,7 @@ export function createSimulationPanel({registry, read, command}) {
             for(const [d,b] of row.actions) {
                 const preview = previewSimulationCommand(state,registry,d.id,{...context,targetId:id});
                 b.hidden = p.life !== "alive" || p.location !== context.facts.location;
-                b.disabled = !enabled || !!error || !preview.eligible; b.title = preview.reasons.join(" ");
+                b.disabled = !enabled || !!error || !preview.eligible; b.title = playerReasonText(preview.reasons);
             }
         }
         for(const [id,row] of participantRows) if(!s?.people[id]) {row.section.remove(); participantRows.delete(id);}

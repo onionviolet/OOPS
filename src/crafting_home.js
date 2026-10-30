@@ -35,7 +35,7 @@ export function createCraftingHome({read,quote,execute,forecast}) {
   const gather=quote({type:'harvest'});harvest.disabled=!gather.eligible;harvest.title=gather.reason;harvestWhy.textContent=gather.eligible?'':gather.reason;harvestWhy.hidden=gather.eligible||!gather.reason;
   const act=(label,request,id)=>{const b=node('button',label),q=quote(request);b.type='button';b.dataset[id]=request.ref??request.key;b.disabled=!q.eligible;b.title=q.reason;b.onclick=()=>run(q);return b;};
   shelf.replaceChildren(node('h3','Village shelf'));
-  for(const o of view.shelf??[]){const b=act('Take a copy',{type:'acquire',ref:o.id},'shelfTake');shelf.append(infoRow({label:o.name,actions:[b,...(b.disabled&&b.title?[reasonLine(b.title)]:[])],more:o.blurb,moreLabel:'What it does'}));}
+  for(const o of view.shelf??[]){const b=act('Take a copy',{type:'acquire',ref:o.id},'shelfTake');b.setAttribute('aria-label',`Take a copy of ${o.name}`);shelf.append(infoRow({label:o.name,actions:[b,...(b.disabled&&b.title?[reasonLine(b.title)]:[])],more:o.blurb,moreLabel:'What it does'}));}
   refs.replaceChildren(node('h3','Carried books and slates'));
   for(const r of view.references??[]){const chips=[chip(`${r.count} carried`)];if(r.read)chips.push(chip('read',{tone:'good'}));if(r.mode==='access')chips.push(chip('method available while carried'));
    const acts=[];if(r.mode==='learn')acts.push(act('Study and learn',{type:'learn',key:r.key},'refLearn'));if(r.mode==='training')acts.push(act('Read',{type:'read',key:r.key},'refRead'));acts.push(act('Put back on shelf',{type:'return',key:r.key},'refReturn'));

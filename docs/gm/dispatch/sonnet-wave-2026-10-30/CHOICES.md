@@ -18,6 +18,7 @@ One place for every open question to Weibao. At most five are active. Each has a
 9. **Daily scheduled download job** (C44). Default: no scheduled job; downloads run when a lane needs a title and the quota allows, within the polite-transport rules.
 10. **Chinese collated full text for the Circle of Inevitability.** Default: add it as a reference source only when a lane hits a translation gap; no bulk collation.
 11. **Save compatibility for new rows** (rumour and presumed-death chronicle rows, `knownVia` chains, carried standing). Default: optional fields, old saves read as "nothing heard second-hand yet". Old-save compatibility is already deferred ([USER_VISION](../../../USER_VISION.md#old-save-compatibility-deferred-2026-10-17)).
+12. **Judging a tool with the wrong means (IP4).** Today "You cannot judge the head with these means" refuses. Default: a coarse look gives a vague condition word only ("looks sound", "something off"), never hidden numbers and never a diagnosis, and a better look depends on the means (a forge, a hand lens). Dial: confidence band per tool and per skill. Source: [impossibilities IP4](../../../audits/IMPOSSIBILITIES_2026-10-30.md).
 
 ## Answered or done (dropped from the queue)
 

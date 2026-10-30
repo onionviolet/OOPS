@@ -342,3 +342,13 @@ test('IP1: a raised ceiling lets a bigger batch resolve', () => {
     const r = resolveBatch(vat, {inputs: [{material: water, qty: 3000}], process: [{op: 'steep', level: 1}]});
     assert.ok(r.product);
 });
+
+test('IP6: the idle harvest budget is a dial; the default stops at 500 and a larger budget goes on', () => {
+    const args = {root: 11, ...where, source: 'reed-patch', from: 0, to: 1440 * 60, every: 1};
+    const small = gatherIdle(sources, {...args, budget: 3});
+    assert.equal(small.harvests, 3);
+    assert.equal(small.stopped, 'budget');
+    const wide = gatherIdle(sources, {...args, budget: 2000});
+    assert.ok(wide.harvests > small.harvests);
+    assert.throws(() => gatherIdle(sources, {...args, budget: 0}), /budget/);
+});

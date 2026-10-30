@@ -17,9 +17,9 @@ export function createPrimordialHost({now, onChange = () => {}}) {
         // Contribution points buy from the treasure hall (DWF162). Refusals carry every reason and change nothing.
         buy(rowId) { settleNow(); const out = R.buy(state, rowId); last = out.ok ? last : {itemId: rowId, ok: false, hall: true, reasons: out.reasons, shown: [], routes: []}; if(out.ok) set(out.state); else onChange(); return out; },
         askHowCreditIsWeighed() { set(R.askHowCreditIsWeighed(state)); },
-        startShift() {
+        startShift(opts) {
             const at = t(); if(at == null) throw Error('The calendar is unavailable.');
-            const out = R.startShift(R.settle(state, at), at);
+            const out = R.startShift(R.settle(state, at), at, opts);
             if(!out.ok) { settleNow(); throw Error(out.reason); }
             set(out.state);
         },

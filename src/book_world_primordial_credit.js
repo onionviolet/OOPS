@@ -31,6 +31,7 @@ export const DIALS = Object.freeze({
     taskPay: dial(5, 'AUTHORED', 'Prototype pay for one Library shelving mission. Source: missions pay mostly single digits of CP (c0003 p33, STATED); the exact figure is authored. At one mission a day (30-day month) it is about 120 CP a month, enough to meet the 460 CP yearly installment in about four months of missions, so a borrower can repay without grinding.', 'single digits c0003 p33 (STATED); 5 AUTHORED'),
     taskCost: dial(1, 'AUTHORED', 'Prototype cost of one mission: lamp oil and wax, deducted from the pay when the shift ends (so a disciple with 0 CP can still start), on top of the time.', 'AUTHORED'),
     taskMinutes: dial(480, 'AUTHORED', 'Prototype length of one mission: eight game hours of normal game time. It completes through ordinary game ticks; other play continues, but the mission cannot be started again until it ends.', 'AUTHORED'),
+    rushFee: dial(2, 'AUTHORED', 'Prototype fee in CP for the elder to post an extra mission on a day that already had one. Default one posting a day; the fee is the cost path, so a player short of calendar time can pay for it.', 'AUTHORED'),
     taskPerDay: dial(1, 'AUTHORED', 'Prototype limit: one mission per game day, so repaying takes calendar time and the interest keeps running.', 'AUTHORED'),
 });
 export const TASK = Object.freeze({id: 'book.primordial.task.library_shelving', label: 'Sect mission: shelve scrolls in the Library',
@@ -152,11 +153,13 @@ export const askHowCreditIsWeighed = state => ({...state, knowsRule: true});
 // clock the pay (minus the cost) lands in the CP in hand. Settling is driven by ticks (and by any command),
 // never by wall time, so it follows time spent sleeping, working or travelling.
 export const dayOf = now => Math.floor(now / DAY);
-export function startShift(state, now) {
+export function startShift(state, now, {rush = false} = {}) {
     if(!Number.isFinite(now)) throw Error('The calendar is unavailable.');
     if(state.shift) return {ok: false, reason: 'A mission is already under way.'};
-    if(state.lastShiftDay === dayOf(now)) return {ok: false, reason: `The elder posts ${DIALS.taskPerDay.value} mission a day (prototype). Come back tomorrow.`};
-    return {ok: true, state: {...state, shift: {startedAt: now}, lastShiftDay: dayOf(now)}};
+    const sameDay = state.lastShiftDay === dayOf(now);
+    if(sameDay && !rush) return {ok: false, reason: `The elder posts ${DIALS.taskPerDay.value} mission a day (prototype). Come back tomorrow, or pay ${DIALS.rushFee.value} CP for a rush posting today.`};
+    if(sameDay && state.cp < DIALS.rushFee.value) return {ok: false, reason: `A rush posting costs ${DIALS.rushFee.value} CP and you hold ${state.cp}. Come back tomorrow.`};
+    return {ok: true, state: {...state, shift: {startedAt: now}, lastShiftDay: dayOf(now), cp: sameDay ? state.cp - DIALS.rushFee.value : state.cp}};
 }
 export function settle(state, now) {
     if(!state.shift || !Number.isFinite(now) || now < state.shift.startedAt + DIALS.taskMinutes.value) return state;

@@ -261,3 +261,21 @@ and the structured-pack terminal death now publish through `publishDefeat` ([DRC
   HP resolved `won` with an empty slice. Sluice and structured death are covered by the unit regressions only
   (implemented-unverified in the browser).
 - Not done: BHL7 injury consumer, per-battle outcomes other than unconscious (yield, escape), a CBL4 display.
+
+## Round 4, 2026-10-30: depth and nuance pass (queued)
+
+Weibao, 2026-10-30: "Might need a depth and nuance pass in the future, incorporating coating weapons with stuff, spar vs combat, other stuff and more?" Queued, not started: it opens after `combat-surface` lands the typed tempo fights and the combined fight surface ([wave plan](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md)), because most rows ride on that type mix and that surface. Every row is a palette entry (default, dial, reason), not a spec.
+
+### LATER / DELEGATE (reopen when combat-surface is merged)
+
+| Code | Idea | Level, effort | Done check |
+|---|---|---|---|
+| CBD11 | **Coatings.** Poison, oil, silver, blessed or alchemical coats (a potion poured on a blade where the world allows it) add a temporary layer to the attack mix through `damage_types.js`. Default: a set number of hits or minutes, worn faster by hard blocks; dials per world for strength, self-risk on a fumble and how visible it is to a watcher. Reason: preparation should matter as much as stats | Sonnet, M | A coated tempo fight shows the coat in the move mix and log, and the coat wears off on its stated schedule |
+| CBD12 | **Spar versus real fight as a stakes dial.** Spar, first blood, yield, to the death. Agreed rules (blunted weapons, no coats, a referee or witnesses) cap harm and set what is learned: technique and opponent knowledge in a spar, toughness and standing in a real fight. Extends CBC36. Reason: one engine, many social meanings | Sonnet, M | The same opponent fought at two stakes gives different harm caps, lessons and report lines |
+| CBD13 | **Breaking the terms.** A spar that turns real, a hidden coat, a second who steps in. Witnesses remember (P3c memory), standing and law react, and the other side may escalate. Reason: rules only matter if breaking them costs something in the world | Sonnet, M | Breaking an agreed term writes a remembered fact and changes the next meeting |
+| CBD14 | **Fight culture per world.** Duels, arenas, sect challenges, dueling law, whether killing is legal, honor codes and what counts as cowardice, all declared per world (AD46) | Sonnet, S per world | Two worlds answer the same challenge with different terms and consequences |
+| CBD15 | **Weapon and body condition.** Dull or notched edges, wet bowstrings, maintenance between fights, fatigue across a long fight, wounds by location (BHR) feeding the next fight | Sonnet, M | A neglected weapon and a tired fighter both show as named penalties with a reason |
+| CBD16 | **Ways to win without killing.** Disarm, grapple, pin, capture, rout by intimidation, a bargain mid-fight; links CBC-G and the morale stages in COMBAT.md | Sonnet, M | A tempo fight can end in each of these, each with its own report line |
+| CBD17 | **Place and conditions.** Terrain, light, weather, footing, reach and range as moves and modifiers, chosen by the place, not by a fixed table | Sonnet, M | One fixture place changes which moves are offered and their odds |
+| CBD18 | **Fights that are not physical.** Spiritual, mental and social duels (a curse contest, a debate, a staring match) on the same tempo frame with their own harm kinds | Opus or Sonnet, L | One non-physical contest runs on the frame with its own vocabulary and settles a real stake |
+| CBD19 | **Fights in the world's voice.** Report lines for blows, coats, yields and broken terms come from the per-world report voice table (`ui-identity` M4) | Sonnet, S | A LOTM fight and a fallback-world fight write differently worded but equally useful lines |

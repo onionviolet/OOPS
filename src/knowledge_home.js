@@ -7,6 +7,8 @@ import {figureText} from './ui/figure.js';
 import {mountFormSwitch} from './ui/figure_forms.js';
 const boardForms = new Map(); // form chosen per board, kept across redraws (bk-forms)
 import {knowledgeView, knowsLine, caseLine} from './knowledge_view.js';
+import {whoKnowsFor, whoKnowsLine, askRows} from './who_knows_view.js';
+import {relationshipWebPeople} from './relationship_web_view.js';
 import {registerChangeCounter} from './change_badges.js';
 
 // LTU4: the Journal's Knows tab. It sits beside Quests and Anthology in the existing Journal tab
@@ -27,11 +29,11 @@ function mountKnowsTab() {
     const boardButton = node('button', 'Board', {type: 'button', class: 'journal_control_button', 'aria-pressed': 'false'});
     views.append(casesButton, listButton, boardButton);
     const status = node('p', '', {role: 'status', 'aria-live': 'polite', class: 'reference-empty'});
-    const cases = node('div', null, {class: 'knows-cases'}), list = node('div', null, {class: 'knows-list'}), board = node('div', null, {class: 'knows-board'});
+    const canAsk = node('section', null, {class: 'knows-ask', 'aria-label': 'Who you can ask'}), who = node('section', null, {class: 'knows-who', 'aria-label': 'Who else knows'}), cases = node('div', null, {class: 'knows-cases'}), list = node('div', null, {class: 'knows-list'}), board = node('div', null, {class: 'knows-board'});
     list.hidden = true; board.hidden = true;
     const people = node('button', 'Open People', {type: 'button', title: 'What you know about each person is kept in the People panel'});
     people.onclick = () => expandWorkspaceModule('known-people');
-    box.append(node('h3', 'What you know'), node('p', 'What you know, how you came to know it, and what is still open.'), views, status, cases, list, board, people);
+    box.append(node('h3', 'What you know'), node('p', 'What you know, how you came to know it, and what is still open.'), views, status, cases, canAsk, who, list, board, people);
     const notebook = document.getElementById('journal_show_notebook');
     bar.insertBefore(tab, notebook || null);
     content.append(box);
@@ -48,9 +50,32 @@ function mountKnowsTab() {
     const render = visibleRenderer(box, () => {
         const state = readPort('expansion');
         if (!state) return {mode, rows: [], groups: [], cases: [], glance: '', board: null};
-        return {mode, ...knowledgeView(observerView(state), {clock: state.clock})};
+        const observer = observerView(state), base = knowledgeView(observer, {clock: state.clock});
+        let whoRows = [], askList = [];
+        try { whoRows = whoKnowsFor(observer, state, base.rows, relationshipWebPeople(state, observer.facts())); askList = askRows(observer, state, relationshipWebPeople(state, observer.facts())); } catch { whoRows = []; askList = []; }
+        return {mode, ...base, whoRows, askList};
     }, view => {
         status.textContent = view.rows.length ? `${view.glance}. Open lines are questions you asked that have no answer yet.` : 'Nothing learned yet. Look around, ask, read or think, and it is kept here.';
+        canAsk.replaceChildren(); canAsk.hidden = !view.askList?.length;
+        if (view.askList?.length) {
+            const ul = node('ul');
+            for (const a of view.askList) {
+                const li = node('li', `${a.name}: ${a.topic} `), ask = node('button', 'Ask', {type: 'button', title: a.reason, 'data-ask': a.personId});
+                ask.disabled = !a.canAsk; ask.onclick = () => globalThis.start_dialogue?.(a.personId);
+                li.append(ask); ul.append(li);
+            }
+            canAsk.append(node('h4', 'Who you can ask'), ul);
+        }
+        who.replaceChildren(); who.hidden = !view.whoRows?.length;
+        for (const entry of view.whoRows || []) {
+            const section = node('div', null, {class: 'knows-who-row', 'data-who-key': entry.key}), ul = node('ul');
+            for (const w of entry.who) {
+                const li = node('li', whoKnowsLine(entry, w) + ' '), ask = node('button', 'Ask', {type: 'button', title: w.askReason, 'data-ask': w.id});
+                ask.disabled = !w.canAsk; ask.onclick = () => globalThis.start_dialogue?.(w.id);
+                li.append(ask); ul.append(li);
+            }
+            section.append(node('h4', `Who else knows: ${entry.text}`), ul); who.append(section);
+        }
         cases.replaceChildren();
         for (const c of view.cases) {
             const section = node('section', null, {class: 'knows-case', 'data-case': c.id});

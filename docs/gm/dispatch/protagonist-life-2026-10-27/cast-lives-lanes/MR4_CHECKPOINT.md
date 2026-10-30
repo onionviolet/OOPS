@@ -39,3 +39,23 @@ Evidence: `p3c_evidence/p3c-full-1920.png`, `p3c-ask-1920.png`, the harness `p3c
 - Telling reaches a listener only while their derived bond to the holder stays at 1 or more, so Tamsin's `familiarity` is authored at 3.
 - Draws hold for a 30-day block, so a longer wait re-weighs the choice; a 45-day Chrome run crashed the page at 90000 ticks, so only the day-1 to day-7 weighing is browser-shown.
 - Machine load was high; tests ran standalone.
+
+## Wave 2 (2026-10-30, supervisor request): more ways to secure silence, and severity, loyalty, debt and lies in Chrome
+
+| Piece | Where | Default, dial, reason |
+| --- | --- | --- |
+| Threat, oath, pressure, rival offer | `src/person_silence.js` (`memory.silence@1`: `fear` 6, `oath` 25, `pressure` 10, `rival` 12), `silenceCase` in `src/person_memory_effects.js` | Derived from episodes by topic, no new saved state. Threat writes a harm (the bond falls) and a fear factor; an oath is a promise with a log set against it (set `oath` to 0 in a world with nothing to bind a word); pressure and a rival offer are about the listener and lower the chance. The deal itself, threat and cover story are never gossiped |
+| Commands | `src/everyday_life.js` (`village.threaten_quiet`, `village.swear_quiet`), `src/promise_content.js` (`promise.press_craftsman`, `promise.offer_craftsman` as Tamsin's controller actions, once each, proposals; `promise.cover_story`) | Pressure and the rival offer cost Tamsin nothing, so her later repairs keep their coin |
+| Standing read | `src/person_standing.js`, shown in `src/promise_ui.js` | Severity rung and reach, loyalty (a guess until tested), debt, and any claim beside the record |
+| Loyalty both ways | `noteConfidence` | Keeping a costly secret now also writes the holder's own `kept_quiet` episode, so his loyalty reads as tested |
+| Lies | `claim` field on a relationship effect, `addClaim` | `promise.cover_story` records the claim and Tamsin's account; the record still shows the interruption |
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/person_silence.test.js tests/crowd.test.js tests/person_memory_effects.test.js` | PASS 20/20, including factor-by-factor sensitivity for threat, oath, pressure and rival, standing lines, and loyalty tested on both sides | |
+| Chrome 1920x1080 (browser pool), promise + log + cover story | "He weighs the interruption as a minor slight; it would travel as far as the household. His loyalty to you is tested: 9.7. He feels he owes you a little (2.4). You told Tamsin you only asked him for a moment, but the record shows you interrupted his counting at the bench." Identical after Save, reload and literal Import; memory slice equal | One seed |
+| Chrome, threat route | 62% keep ("is afraid of you"), he told someone anyway; oath route 97% ("swore to keep it") and kept | The oath route run hit a flaky dialogue click in the new talk UI: the harness falls back to a DOM click for the two prerequisite "Hello?" lines only |
+| 45-day wait | **Not met.** `fastForward(72000)` still crashes the page ("Target crashed"); waits on the perf-waits batched save validation | Retry when that lands |
+| Fight hook in a real fight | **Not met.** The patch applies to HEAD; p4-fights was asked to apply it and name a route | Waiting on that session |
+
+Full suite for wave 2: queued behind the load gate (`slot_run`, 2/1 heavy slots held at load 150-215) when this was committed; output lands in the session scratchpad `suite3.txt`. Focused set (crowd, person_*, promise, everyday_life, people_knowledge) passed immediately before the commit. The last completed full run (P6, 05:33) had 14 failures, none in these areas.

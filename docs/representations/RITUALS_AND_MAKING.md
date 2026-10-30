@@ -1,5 +1,7 @@
 # Rituals and making: representation (proposals)
 
+**Next slice (2026-10-30):** Brew-ready desktop notification (item 5). Level and effort: Sonnet, small. Done when: the brew-ready transition raises one presence notification; the browser fallback logs one line.
+
 Status: agent proposals, 2026-10-30, from the UI representation wave
 ([plan](../gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md); audit rows RPX1, RPX2, RPX3,
 MDL2, MDL7, MDL8 in [UI design core audit](../audits/UI_DESIGN_CORE_AUDIT.md)). Nothing here is
@@ -308,3 +310,5 @@ browser journey and gallery capture are in the evidence folder with the bundle h
 
 AD43 floor: unchanged from round 1. Implemented, below floor on FLR2's MCP-first walk only;
 agent-verified, not human-reviewed.
+
+COV15 wiring (2026-10-30, view side): the Tingen brewing bench now builds its rite through `benchWithRite` (`src/read_models/rite_state_bridge.js`) in `src/book_world_lotm_host.js`, so the circle, ledger and text lines draw only from the bridge's fields: no principle, no rejected substitutes, and no odds for a rite whose conditions the seat has not read. The seat counts as having read a condition when the formula notes it holds name the rite (`row.ritual.needed`); those notes state the same conditions, so nothing new is revealed. Missing input: a per-condition learned fact (nothing records it yet). The text line no longer prints `Principle:`. Proof: `evidence/cov15/rituals_browser.cjs` (fresh life, Village door, probationer, docks, Sequence 5 formula; absent and substituted states, effects off keeps every fact) with `cov15-rite-*.png` at 1920x1080 headless; gallery fixture `bench-lantern_5-rite` from `src/ui/preview/fixtures/bridges.js`. AD43 floor: FLR1 bundle rebuilt; FLR2 fresh life, earned steps, no save edits, rebuilt browser (MCP walk not run); FLR3 shown; FLR4 used by the bench lines; FLR5 not applicable; FLR6 agent-verified, not human-reviewed. Implemented, below floor on the MCP-first part of FLR2 only.

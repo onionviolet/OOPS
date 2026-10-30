@@ -286,7 +286,7 @@ not certify writing quality, generation behavior, or completed refactoring.
 
 Full suites, builds and headless browser captures run through the machine-wide
 slot limiter so concurrent sessions queue instead of piling load onto the machine:
-`npm test` (default since 2026-10-30: it already runs through the limiter with `--test-concurrency=4` and `--max-load 12`; `npm run test:raw` skips it on a quiet machine),
+`npm test` (default since 2026-10-30: it already runs through the limiter with `--slots 1` (one suite at a time), `--test-concurrency=4` and a soft load wait (`--max-load 12 --load-wait 300`: runs anyway after 5 minutes; `YAIRPG_SLOT_MAX_LOAD` makes it a hard gate); `npm run test:raw` skips it on a quiet machine),
 `node scripts/slot_run.mjs --kind build -- npm run build`,
 `node scripts/slot_run.mjs --kind browser -- <capture command>`.
 Suite and build share 2 slots, browser has 1 (`--slots N` overrides); locks live in

@@ -82,3 +82,13 @@ button[data-new-count]::after {
 .ui-row:has(> .ui-row-label:empty) > .ui-row-actions {justify-content: flex-start;}
 .crafting-trial-checks {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); margin: var(--ui-space-2) 0;}
 .crafting-trial-fields {margin-bottom: var(--ui-space-2);}
+
+/* Dev time skips: created only when config.enable_dev_mode is on. */
+#dev_time_panel { position: fixed; left: var(--ui-space-3); bottom: var(--ui-space-3); z-index: var(--ui-layer-floating); background: var(--theme-surface); color: var(--theme-surface-text); border: var(--ui-space-hairline) solid currentColor; padding: var(--ui-space-1) var(--ui-space-3); font-size: var(--ui-type-small); }
+#dev_time_panel .dev_time_buttons { display: flex; gap: var(--ui-space-2); align-items: center; padding: var(--ui-space-2) 0; }
+
+/* COV11: Reports column content while the log is short. */
+#reports_dock{padding:var(--ui-space-2) var(--ui-space-3);display:flex;flex-direction:column;gap:var(--ui-space-1);border-bottom:1px solid currentColor}
+#reports_dock p{margin:0}
+#reports_dock small{opacity:.8}
+#reports_dock button{align-self:flex-start}

@@ -33,7 +33,8 @@ export function createPledgesPanel({read, commands}) {
             const actions = [];
             if(vow.kept) actions.push(s.button('Break vow', {breakVow: vow.id}, () => { s.act(() => commands.breakVow(vow.id), 'The vow is broken.'); render(); }));
             else {
-                actions.push(s.button('Swear', {takeVow: vow.id}, () => { s.act(() => commands.takeVow(vow.id), 'You swear the vow.'); render(); }, full, full ? 'Break a kept vow first.' : ''));
+                const swear = s.button('Swear', {takeVow: vow.id}, () => { s.act(() => commands.takeVow(vow.id), 'You swear the vow.'); render(); }, full, full ? 'Break a kept vow first.' : '');
+                swear.setAttribute('aria-label', `Swear the ${cap(vow.id.replace('-', ' '))} vow`); actions.push(swear);
                 if(full) actions.push(reasonLine('Break a kept vow first.'));
             }
             const row = infoRow({label: cap(vow.id.replace('-', ' ')), chips: [chip(`+${vow.bonus / 10}% ${vow.track}`, {tone: 'accent'}), chip(`scar ${vow.scar} if broken`), state], actions, more: `${vow.text} ${vow.reason}`, moreLabel: 'The vow'});
@@ -68,7 +69,7 @@ export function createPledgesPanel({read, commands}) {
                 row.append(s.button(n ? `Temper, laying in ${n}` : 'Temper without rations', {temper: String(n)}, () => { s.act(() => commands.temper(n), r => r.passed ? 'The tempering holds.' : 'The tempering failed. The heart demon stirs.'); render(); }, !!o || !t.ready || v.rations < n, o?'Finish the active ordeal.':!t.ready ? 'Not ready yet.' : ''));
             }
             if(!t.ready) { const missing = node('details', '', 'ui-row-more'); missing.dataset.trialMissing = ''; missing.append(node('summary', `Not ready: ${t.shown.length} ${t.shown.length === 1 ? 'thing' : 'things'} missing`)); for(const line of t.shown) missing.append(node('p', line, 'expedition_requirements')); row.append(missing); }
-            row.append(s.button('Guarded preparation · 5 rations',{guardedTempering:''},()=>{s.act(()=>commands.guarded(),'The guarded sequence holds. Five rations were spent; no performance grade was awarded.');render();},!!o||!t.ready||v.rations<5));
+            row.append(s.button('Guarded preparation · 5 rations',{guardedTempering:''},()=>{s.act(()=>commands.guarded(),'The guarded sequence holds. Five rations were spent; no performance grade was awarded.');render();},!!o||!t.ready||v.rations<5,o?'An ordeal is already under way.':!t.ready?'Your body is not ready for another trial yet.':v.rations<5?`Needs 5 rations; you have ${v.rations}.`:''));
             s.body.append(row);
             if(!o){
                 const graded=node('details');graded.dataset.gradedOrdeal='';graded.open=gradedOpen;graded.ontoggle=()=>{gradedOpen=graded.open;};graded.append(node('summary','Graded ordeal (optional)'));

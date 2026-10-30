@@ -6974,3 +6974,31 @@ Weibao, 2026-10-30, answering the base-cheat pass (the audit headline: heir succ
 Weibao, 2026-10-30, answering whether to make the background-only preference a standing rule: "no visibal windows as standing rule".
 
 - Agents never open a visible window on his screen. Browsers run headless and Electron runs hidden, and native computer control needs his say-so first. Recorded in [AGENTS.md](../AGENTS.md#safety).
+
+## Base cheat versus other cheats; cheat work deferred long term (2026-10-30)
+
+Weibao, 2026-10-30, answering whether the ring elder should become a form of the base cheat: "Ring spirit is NOT the base cheat, but ratherm it is a certain type of cheat that will be out there, there are so many possible cheats, base cheat is the standard stuff that makes our guy beyond a normal person, but then, the world can have so much more, more cheats and more? We did consider this already, we can defer cheat works long term"
+
+- **The base cheat** is the standard part that makes the played character more than a normal person. It carries between lives along with memories, as in the earlier entries on base-cheat carryover and lore.
+- **Other cheats** are separate things the world can offer: a ring spirit, a system, and many more. Each is its own cheat, not a form or skin of the base cheat.
+- **Deferred long term:** further cheat work, after the commits already landed today (growth view, look by type, the ring-elder premise grant). Nothing is deleted.
+- Owners: [cheat audit](audits/CHEAT_CORE_AUDIT.md), [cheat library](CHEAT_LIBRARY.md).
+
+## UI identity, per-world basics and combat surfaces (2026-10-30)
+
+Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options O1-O3, lanes A1-A3): "We need to send opus to focus on fixing F1, F2 we can wait till the stuff is done? F3 we can combine accordingly but need to consider what will work best for what we need? ... F4 we will need to update that. O1 sounds right. O2, that is lower priority, but will be important in the future. O3 maybe worth considering, but we need the most basic Ui working for each world accordingly? A1 yes, also consider setting up world specific flourish and more, and also for the reports section, flavour or specific useful text that pops up accordingly too, and not just using the generic ones? A3, yep, consider if others need similer merge too?"
+
+- **One owner for the look (O1, accepted):** a DESIGN.md that states the visual identity and the requirements every feature UI meets.
+- **Per-world skins (O2):** lower priority now, important later.
+- **Diegetic world UI (O3):** worth considering, after the most basic UI works for each world.
+- **World flourish and report text:** each world gets its own flourish and its own report lines (flavour and useful, specific text), not only generic ones.
+- **Combat:** combine the old combat screen and the tempo fight in whatever form works best; damage types reach the tempo fights; check which other systems need the same merge.
+- **Feature UI backlog (F2):** waits for the landing and wiring sessions already running.
+- Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
+
+## Pathway card, ladder and map; switching and life outside the lead later (2026-10-30)
+
+Weibao: "Also need to consider stufff like switching pathways and more but that might be long term stuff, also will eventually need to figure out adding content outside of the main character's life and omre for external playthroughs? More to consider? The card + ;adder is good, along with the map, but all depends on how well the implementation is".
+
+- **Accepted, quality-gated:** the pathway card with its ladder (Round 10 and 11 of the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md)) and the world map tied to journeys. Acceptance of the result depends on how well they are built; the gates are in that plan's Round 12.
+- **Long term:** pathway switching, and content outside the lead's life for other playthroughs. Considerations are saved in Round 12.

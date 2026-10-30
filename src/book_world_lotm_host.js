@@ -23,6 +23,7 @@ import {entryRecord,entryAnswers,LOTM_ENTRY_AXES} from './book_world_lotm_entry.
 import {causeView} from './book_world_lotm_causes.js';
 import {brokerView} from './book_world_lotm_broker.js';
 import {gradeRiteAtTransition} from './book_world_lotm_ritual.js';
+import {benchWithRite} from './read_models/rite_state_bridge.js';
 import {meritView} from './book_world_lotm_merit.js';
 import {BENCH_PREFIX,INGREDIENT_BY_NAME,benchRowList,seedBenchStock,stockSeeded,characteristicBrewId} from './book_world_lotm_bench.js';
 import {LOTM_TIERS,rowById} from './lotm_formula_rows.js';
@@ -31,6 +32,7 @@ import {abilitySourceOf} from './book_world_lotm_abilities.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
 import {lotmRegionAt} from './book_world_lotm_cities.js';
 import {lotmRestrictions} from './book_world_lotm_events.js';
+import {lotmUpcoming} from './book_world_lotm_upcoming.js';
 import {lotmSheetsFor} from './book_world_lotm_sheets.js';
 import {harmContext,accrueHarm,restHarm,lostControlOutcome} from './book_world_lotm_harm.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
@@ -83,7 +85,10 @@ function benchDetail(s,c,id,{registry,asleep}){
   if(summary.brewing)actions.push(prev(`book.lotm.bf_collect_${id}`));
   if(summary.doses&&row.product.sellPence)actions.push(prev(`book.lotm.bf_sell_${id}`));
  }
- return {...summary,rite:gradeRiteAtTransition(id,f),minutes:row.minutes,price:row.price||null,formulaRoute:!row.price&&brewable&&!viaMain?row.route:null,route:row.route,ritual:row.ritual||null,gaps:row.gaps,evidence:row.evidence,
+ // COV15: the rite figure's input goes through the bridge. The seat has read a condition when the formula notes it holds name the rite (row.ritual.needed): those
+ // notes state the same conditions. A per-condition learned fact does not exist yet, so a rite the notes do not name draws no figure and no odds.
+ const graded=gradeRiteAtTransition(id,f),riteKnown=new Set(row.ritual?.needed&&graded?graded.conditions.map(c=>c.id):[]);
+ return {...summary,...benchWithRite({},graded,{label:graded?.label,known:riteKnown}),minutes:row.minutes,price:row.price||null,formulaRoute:!row.price&&brewable&&!viaMain?row.route:null,route:row.route,ritual:row.ritual||null,gaps:row.gaps,evidence:row.evidence,
   slots,actions,product:brewable&&!viaMain?{name:row.product.name,sellPence:row.product.sellPence}:null,
   via:viaMain?`Brewed at Hale's bench with the Corpse Collector actions in the list above (${CC_BREW.minutes} minutes, formula ${CC_BREW.formulaPence} pence).`:null,
   drinkOptions:summary.doses&&generatedDrinkIds[id]?generatedDrinkIds[id].map(prev).filter(o=>o&&o.visible):null,
@@ -291,7 +296,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!castBodyCommands.some(d=>d.id===job.commandId&&d.bodyCare.kind==='sleep'))return false;ports.beginSleep();return true;}
- return {enroll,cross,act,cancel,move,wake,tick,view,startable,restoreSleep,inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,act,cancel,move,wake,tick,view,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){const c=castCalendar(s).calendar;return `Day ${c.day_count}, ${c.hour<6?'night':c.hour<12?'morning':c.hour<18?'afternoon':'evening'}`;}

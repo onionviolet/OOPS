@@ -7,7 +7,9 @@ import {computeAway} from './away_ledger.js';
 // Dials (proposals, not accepted numbers): capacity 7 days, drop beyond it, 60 minutes per spend.
 // Capacity is the AD18 improvement hook: ports.capacity() may return a larger value.
 // Compatibility: a save without the slice starts at an empty bank with lastSeen = now, so old
-// saves never receive a retroactive bank. Every save rewrites lastSeen, so played time never banks.
+// saves never receive a retroactive bank. The last-seen time is the save's own `saved_at` stamp (local
+// time, second precision), so the slice holds no wall time and the durable writer's unchanged-bytes
+// dedupe (D3) and byte-equal save tests keep working. Every save restamps it, so played time never banks.
 // Patient Furnace rule: while its routine is assigned it accrues the same wall time itself, so
 // this ledger only rebases and does not also credit it.
 export const AWAY_BANK_DEFAULTS=Object.freeze({capacity:7*24*60,spendMinutes:60,minReport:1});
@@ -16,10 +18,14 @@ let ports=null,state=null,pending=null,busy=false,lastSpend='';
 export function configureAwayBank(operations){ports=operations;}
 const now=()=>ports?.now?.()??Date.now();
 const capacity=()=>Math.max(AWAY_BANK_DEFAULTS.capacity,ports?.capacity?.()??0);
+export function savedAtMs(stamp){
+    const m=/^(\d{4})-(\d{2})-(\d{2}) (\d{2})_(\d{2})_(\d{2})$/.exec(stamp??'');
+    return m?new Date(+m[1],+m[2]-1,+m[3],+m[4],+m[5],+m[6]).getTime():NaN;
+}
 export function validateAwayBank(slice){
     if(slice==null)return slice;
-    if(typeof slice!=='object'||Array.isArray(slice)||Object.keys(slice).sort().join(',')!=='bankedMinutes,lastSeen,remainderMs,schema'||slice.schema!==1||
-        !Number.isFinite(slice.lastSeen)||slice.lastSeen<0||!natural(slice.bankedMinutes)||!natural(slice.remainderMs)||slice.remainderMs>=60000)throw new Error('Invalid away bank.');
+    if(typeof slice!=='object'||Array.isArray(slice)||Object.keys(slice).sort().join(',')!=='bankedMinutes,remainderMs,schema'||slice.schema!==1||
+        !natural(slice.bankedMinutes)||!natural(slice.remainderMs)||slice.remainderMs>=60000)throw new Error('Invalid away bank.');
     return slice;
 }
 // Credits the wall time since the load once the other domains (cheats) exist. Idempotent.
@@ -49,12 +55,12 @@ export async function spendAwayBank(minutes=AWAY_BANK_DEFAULTS.spendMinutes){
     return {requested:n,consumed};
 }
 export const awayBankDomain=registerDomain({id:'awayBank',initialState:()=>null,
-    save:()=>{if(!state)return undefined;settle();return {schema:1,lastSeen:now(),bankedMinutes:state.bankedMinutes,remainderMs:state.remainderMs};},
+    save:()=>{if(!state)return undefined;settle();return {schema:1,bankedMinutes:state.bankedMinutes,remainderMs:state.remainderMs};},
     validate:slice=>{validateAwayBank(slice);},
-    load:slice=>{
-        validateAwayBank(slice);const at=now();
-        state={lastSeen:slice?.lastSeen??at,bankedMinutes:slice?.bankedMinutes??0,remainderMs:slice?.remainderMs??0,lastReturn:null};
-        pending=slice?{lastSeen:slice.lastSeen,at}:null;lastSpend='';
+    load:(slice,envelope)=>{
+        validateAwayBank(slice);const at=now(),seen=savedAtMs(envelope?.saved_at);
+        state={lastSeen:at,bankedMinutes:slice?.bankedMinutes??0,remainderMs:slice?.remainderMs??0,lastReturn:null};
+        pending=slice&&Number.isFinite(seen)?{lastSeen:seen,at}:null;lastSpend='';
     },
     projection:()=>{
         if(!state)return null;settle();
