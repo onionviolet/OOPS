@@ -19,7 +19,9 @@ export const campaignDefinitions={
     powers:[RF1_DEFINITION],
     people:[{id:ROAD_RIVAL,revision:1,label:"Mara, road rival",worldId:"base.frontier",location:"Village",inventory:"simulation",provision:false,
         resources:{provisions:6},vitals:{health:26,max_health:26,stamina:12,max_stamina:12},
-        body:{attack:5,agility:5,dexterity:6,intuition:5,attack_speed:.8,defense:1,crit_rate:.05,crit_multiplier:1.3,attack_count:1}}],
+        body:{attack:5,agility:5,dexterity:6,intuition:5,attack_speed:.8,defense:1,crit_rate:.05,crit_multiplier:1.3,attack_count:1},
+        // Damage types (proposal values, damage_types.js): a scout's short blade; a leather jerkin turns edges, not blows. Read by the tempo contest only.
+        attack_types:{slashing:.6,piercing:.4},defense_types:{slashing:.85,bludgeoning:1.15}}],
     pursuits:[{id:RIVAL_PURSUIT,revision:1,label:"Mara's road challenge",actorId:ROAD_RIVAL,targetId:"player",encounterCommand:"rival.confront",supply:"provisions",
         investigationMinutes:1,investigationSupply:1,movementSupply:1,searchMinutes:2,searchSupply:1,leadLifetime:20,requestLifetime:20,pollMinutes:1,
         routes:[{from:"Village",to:"Shack",minutes:3},{from:"Shack",to:"Village",minutes:3}],sanctuaries:["Shack"],noticeKey:"rival.notice",contactText:"Mara followed your witnessed trail and requests the agreed road duel. Finish your current activity before accepting."}],

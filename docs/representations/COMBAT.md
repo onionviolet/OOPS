@@ -422,3 +422,125 @@ AD43 floor: unchanged from round 1 (bundle named, earned route, shown with text,
 no persistence, agent-verified, not human-reviewed); done at the floor for the native fight slice.
 
 COV15 wiring (2026-10-30, view side): the Encounters and pursuit panel (`src/pursuit_ui.js`, Notebook, People) now draws `chaseSituation` through `withPursuitRange` for each open case. The range track draws only from the meeting request's place once the pursuer has made contact (route minutes by the policy's own routes, place ids are the place names); before contact the figure says "you have not seen where they are". Missing input: a seen-or-sensed sighting fact for the pursuer's place (the pursuer's true position and the pursuit's lead are private and are not used). A closed case draws no figure. Proof: `evidence/cov15/chase_browser.cjs` (generated field-member save, DEV SEEDED as `scripts/o2b_pursuit_browser.cjs`, begin the trail test, wait for contact) with `chase-contact-*.png` and `chase-result.json`; gallery fixtures `fx-chase-range` and `fx-chase-unseen`. AD43 floor: FLR1 bundle rebuilt; FLR2 below floor (the panel needs field membership, so the route is a seeded save, not a fresh life); FLR3 shown with a text form; FLR4 used by the panel; FLR5 no persistence change; FLR6 agent-verified, not human-reviewed. Implemented, below floor on FLR2.
+
+## Round 3 (2026-10-30): one fight surface, damage types in tempo, merge census
+
+Lane `combat-surface` of the [UI identity and combat wave](../gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md)
+(M1, M2, M6, M7, M9). Weibao's words: [USER_VISION](../USER_VISION.md#ui-identity-per-world-basics-and-combat-surfaces-2026-10-30).
+Everything here is a proposal (AD32). Codes R3-xx are new.
+
+### Forms weighed for one fight surface (M2)
+
+| Code | Form | Good at | Weak at | Verdict |
+|---|---|---|---|---|
+| R3-O1 | **One surface, two modes.** A shared header (versus row with threat, type and odds chips), one log, one move area. The native auto-fight and the tempo contest are modes of it, chosen per world and encounter (AD46). One read model: the `fightSituation` adapter takes either the native opponent board or a tempo board. | One place to read any fight in any world; damage types shown once; a world picks its mode without a second UI | The native mode's move area holds only Withdraw (it is an auto-fight), so the two modes look different in the lower half | **Default** |
+| R3-O2 | **Two surfaces sharing parts.** Native card and tempo panel stay separate; both reuse `combat_versus.js` and a shared log-row renderer. | Cheapest; no mode switch to design | Keeps the drift this round is meant to end: two homes, two wordings, types shown twice in two ways | Rejected: the census below would keep a "native vs tempo" row forever |
+| R3-O3 | **Unusual: one engine.** Native auto-fight becomes the tempo engine under an auto policy (`driveTempoFight` with `steady`), so there is one engine and one surface by construction. | Truly one fight model; replays and types in one place | Changes native timing, the three legacy replays and every Proto23 balance number; the plan says combine presentation, not engines (M2) | Palette: revisit when a world wants native fights to pause for orders |
+| R3-O4 | **Unusual: the fight as a ledger.** No cards; each exchange is a ledger row (who, move, type split, harm, what you learned), with a running total line at the top. | Very honest; shows types and learning naturally; text-native | Weak at "who is still standing" at a glance; long fights scroll | Folded in: the log uses this row shape for typed hits |
+
+Why R3-O1: the player asks the same questions in both modes (who is here, what can down me, what
+does my blow do to it), so the answers should sit in one place with one wording. The modes differ
+only in who chooses the next move, which is exactly the move area. A world declares its default
+mode; an encounter can override it with an in-world reason (a formal duel is move by move, a
+brawl in the rat field runs on its own).
+
+What is built (first slice): the Fight card (`#fight_situation`, under Local actions) has a mode. In tempo
+mode it reads the `tempo_fight` projection and plays moves through that domain's `move` command; in auto
+mode it reads the native opponent projection as before. Today the encounter picks the mode (the road
+contest offers tempo; field fights run native). A per-world default mode is a dial not yet wired (later:
+a row per world family, read through the same `data-world-family` hook as DESIGN.md DSG11). The tempo
+`<details>` panel keeps only the start offer and a pointer while a contest is open.
+
+### Damage types in tempo fights (M1, M6)
+
+- The frame stays structural: `conflict_frame.js` gets no harm step. The tempo definition's strike
+  calls `typedHit` in `damage_types.js` (sibling of `typedStrike`, same math, no draws) and passes the
+  multiplier as the fifth argument of `mitigateCombatDamageFromStats`.
+- Tempo fighters are saved data, not live actors, so `typeSnapshot(actor)` reads the live hero,
+  rival or ally once at the start of the fight and stores `profile.types = {attack, defense}`.
+  **Compatibility decision:** an open fight saved before this change has no `profile.types` and reads
+  as untyped physical with no modifiers, which is the old math. No migration.
+- Native fights are typed once, in `models/combat.js` through `takeDamage(type_multiplier)`. The tempo
+  path does not call `typedStrike`, and the native path does not call `typedHit`, so no hit is typed twice.
+- The three legacy frame battles (road duel, party, sluice) do not opt in; their saved replay contract
+  stays identical (`tests/conflict_frame.test.js`).
+- Per-world names (M6): `damage_types.js` holds a world table of display names and glyphs. A world
+  declares rows for the types it uses and may add its own type ids (a curse, mystical harm); an
+  undeclared world shows physical plus the effect_dsl types under their plain names. Nothing is saved.
+
+### What the surface shows about types
+
+- On moves: the attack mix ("slashing 70% · piercing 30%").
+- In the log: what was dealt by type and whether it bit ("hit Mara for 4.2 slashing, resisted").
+- On opponents: resistances you have learned by sizing them up in this fight (a typed hit that was
+  resisted or found a weak spot teaches that row). A cheat that reveals them shows every row with the
+  marked source glyph (R2-C1); nothing unmarked is ever revealed.
+- Dev readout (M7): with dev view on, each typed hit adds a line with the per-type split and the multiplier.
+
+### Merge census (M9)
+
+One row per old/new pair that drifts. Verdicts are proposals.
+
+| Code | Pair | Evidence | Proposal |
+|---|---|---|---|
+| R3-C1 | Native auto-fight (`models/combat.js`, `ui/combat_display.js`, `combat_situation_ui.js`) vs tempo contest (`tempo_fight*.js`, its `<details>` panel) | Two homes, two logs, types only on the native side | **Merge presentation** into R3-O1; keep both engines |
+| R3-C2 | Pursuit stages (`pursuit.js`, `pursuit_ui.js`) vs chase stage track (`chaseSituation`, fixture only) vs a tempo chase (not built) | `chaseSituation` has no live caller; no tempo chase exists | **Merge** the stage track into `pursuit_ui.js` (already the next slice); a tempo chase, when built, is a mode of the fight surface, not a third chase UI |
+| R3-C3 | `away_ledger.js` vs the away bank | `away_bank_domain.js:2` imports `computeAway`; not orphaned | **Keep**: the ledger is the bank's calculator, not a rival |
+| R3-C4 | `anchor_snapshots.js` vs live state | Imported only by `tests/anchor_snapshots.test.js` | **Retire or wire**: give it a consumer (world lint in `check:rules`) in the next world pass, else retire with its test |
+| R3-C5 | Return digest (`return_digest*.js`, event feed) vs Reports dock (`reports_dock.js`) | Both mounted from `main.js`, both list recent events | **Merge**: the digest's grouped rows become dock rows with the world voice table (M4); one report surface |
+| R3-C6 | `Enemy.takeDamage` vs `Person.takeDamage` | Same mitigation call in `enemies.js` and `models/person.js` | **Merge** into one helper so a new layer (types, location) lands once |
+| R3-C7 | Inline strike math in `cohort_battle.js` and `causal_story_core.js` | Each repeats roll, mitigation and stamina by hand | **Merge** onto a shared strike step; opt into `typedHit` when they do |
+| R3-C8 | Native combat log (`combat_log.js` events) vs tempo log (`b.log`, 12 lines) | Different shapes and wordings for the same hit | **Merge presentation**: one log row shape (R3-O4) in the surface; engine logs stay |
+| R3-C9 | `combat_readout.js` vs `combat_opponents_domain.js` | Own exact numbers vs observer-safe projection (AD8) | **Keep**: layered on purpose |
+| R3-C10 | Native fight screen: top Opponent panel, Opponents list, Encounter box and the Fight card (reported by the damage-types session from a 1920x1080 River crab fight, 2026-10-30) | Opponent hp in three places, hit chances twice, "Could down you" as a sentence and a chip, the remaining count three times | **Merge**: one home per fact. Done in the card: the threat chip carries the bound and the per-opponent sentence is gone. Unowned, waiting on Weibao's go-ahead: the top Opponent panel stops repeating hp and odds during a fight, the Opponents list becomes one compact row per enemy (hp, attack with type) with details on click, and the Encounter box folds into one header line |
+
+Other frame users and types:
+
+| Frame user | Harm today | Opt into types? |
+|---|---|---|
+| `native_battle` (road duel) | `mitigateCombatDamageFromStats`, legacy stream | **No** while legacy: values are part of the saved replay. The tempo contest already stands in for it |
+| `party_battle` | Same, legacy | **No** for the same reason; a tempo party contest (Lio) is typed |
+| `feature_expansion_battle` (sluice) | Same, legacy, twice (guard check) | **No** until a revision bump with new content that declares types |
+| `cast_ability_adapter` | No harm step; commits the ability | **Yes, through the ability**: when an ability deals harm, its effect_dsl damage type feeds `typedHit` |
+
+### Round 3 receipt (checkpoint, 2026-10-30): implemented, below floor
+
+State: **implemented, below floor** (AD43). The tempo engine half and `damage_types.js` belong to two
+sessions whose work was still uncommitted on primary at checkpoint: `p4-fights` owns `src/tempo_fight*.js`
+and applies this lane's patches itself after its witness and hit-location changes (its choice, option a);
+the damage-types session owns `src/damage_types.js` until its commit, then hands it to this lane. So this
+checkpoint commits only this lane's paths, and the branch does not build alone until both land.
+
+Not in this commit (kept as patches in the wave's shared notes folder, applied locally for the checks below):
+`tempo_fight.patch` (typed strike, learned rows, hit records, tempoView fields), `tempo_fight_domain.patch`
+(type snapshots at start, `commands.move`, panel defers to the card), `damage_types_additions.diff`
+(`typeSnapshot`, `typedHit`, per-world names with LOTM as the first row, `mixText`).
+
+In this commit: the Fight card's tempo mode (`src/combat_situation_ui.js`), the tempo adapter and type chips
+(`src/ui/combat_situation.js`), type and bound chips (`src/ui/combat_versus.js`, `styles/combat_versus.css`),
+the M7 fixture (`src/ui/preview/fixtures/combat.js`), Mara's declared types (`src/frontier_campaign.js`, data
+read only by the tempo contest), `tests/combat_surface_types.test.js`, `scripts/combat_surface_browser.mjs`,
+evidence under `evidence/combat-surface/`.
+
+Checks (all on the worktree with the owners' working files and the three patches applied locally):
+- `node --test tests/combat_surface_types.test.js`: 9 pass (typedHit equals typedStrike; untyped saved fight
+  keeps the old math; native typed once; frame untouched; world names; tempo chips, reveal marks, dev readout;
+  typed tempo engine harm, learned row, split, save and reload).
+- `node --test tests/conflict_frame.test.js tests/tempo_fight.test.js tests/damage_types.test.js tests/combat_versus.test.js tests/combat_situation.test.js tests/party_battle.test.js`:
+  177 pass, including the three legacy old/runner replays (road, party, sluice).
+- `node scripts/combat_surface_browser.mjs` (headless, 1920x1080, fresh origin, DEV SEEDED field fixture as in
+  the P4 proof, then real clicks): PASS, bundle `1bc871cfaab9`. Card opens with moves showing their mix; four
+  quick strikes log "You hit Mara for 1 bludgeoning, weak spot."; Mara's card gains "weak to bludgeoning"
+  (learned); dev readout shows each hit's split; save and reload identical; Export and Import identical; the
+  old panel only points to the card after Import; the fight finishes (won) and the card hides.
+- Not run: full `npm test`, `npm run build`, `check:arch`, `check:rules` (they wait for the rebased tree).
+
+Gaps: native mode not re-proved in the browser this round (the stale-hp report in R3-C10 is unverified; the
+card polls every 400 ms, so a screenshot can catch one hit's gap); `data-world-family` comes from the
+`ui-identity` lane and was not on this tree, so the LOTM words are covered by the unit test only; no cheat
+source reveals types in play yet (the fixture shows the marked form); the hero panel shows native hp during a
+tempo contest because the contest applies harm at its end (existing behavior). Agent-verified, not human-reviewed.
+
+Remaining gate, in order: damage-types commit, then `p4-fights` commits with both patches, then rebase this
+branch, run the full `npm test`, `npm run build`, `check:arch`, `check:rules` and the browser script again,
+then merge on Weibao's yes.

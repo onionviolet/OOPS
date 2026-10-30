@@ -1,0 +1,209 @@
+{
+ "bundleHash": "1bc871cfaab9",
+ "viewport": "1920x1080",
+ "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
+ "started": {
+  "actions": 0,
+  "typed": {
+   "you": {
+    "attack": {
+     "bludgeoning": 1
+    },
+    "defense": {}
+   },
+   "mara": {
+    "attack": {
+     "slashing": 0.6,
+     "piercing": 0.4
+    },
+    "defense": {
+     "slashing": 0.85,
+     "bludgeoning": 1.15
+    }
+   }
+  }
+ },
+ "open": {
+  "visible": true,
+  "box": [
+   377,
+   159,
+   1130,
+   423
+  ],
+  "stakes": "Village: 1 of 1 opponent standing; you have 60 of 60 hp.",
+  "next": "Who acts next: You → Mara",
+  "you": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread."
+  ],
+  "typeChips": [],
+  "moves": [
+   "Quick strike 3 time · A fast, light blow. Cheap in time, small in harm. Strikes bludgeoning 100%.",
+   "Heavy swing 6 time · A slow, hard blow. Leaves you open longer. Strikes bludgeoning 100%.",
+   "Brace 2 time · Take the next blow better. Costs a little time. Safe.",
+   "Tend a wound 5 time · Stop the worst of the bleeding. Needs two stamina. Safe.",
+   "Back away 4 time · Leave the fight. Ends it for you; injuries remain. Safe.",
+   "Yield 2 time · Give up the contest while you can still stand. Safe.",
+   "Let a careful policy take one safe turn Plays only brace, tend or back away for you; never a new attack."
+  ],
+  "log": [
+   "Both sides see each other at once."
+  ],
+  "dev": [],
+  "notice": "",
+  "world": null,
+  "oldPanel": "Road contest · tempo\n\nThe contest is open in the Fight card below. The world clock holds until it ends."
+ },
+ "afterMoves": {
+  "visible": true,
+  "box": [
+   377,
+   159,
+   1130,
+   573
+  ],
+  "stakes": "Village: 1 of 1 opponent standing; you have 55.4 of 60 hp.",
+  "next": "Who acts next: You → Mara",
+  "you": "You\n\n55.4/60 hp\n\nStrikes: bludgeoning 100%",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread. ◼ weak to bludgeoning."
+  ],
+  "typeChips": [
+   {
+    "text": "◼ weak to bludgeoning",
+    "type": "bludgeoning",
+    "source": "learned"
+   }
+  ],
+  "moves": [
+   "Quick strike 3 time · A fast, light blow. Cheap in time, small in harm. Strikes bludgeoning 100%.",
+   "Heavy swing 6 time · A slow, hard blow. Leaves you open longer. Strikes bludgeoning 100%.",
+   "Brace 2 time · Take the next blow better. Costs a little time. Safe.",
+   "Tend a wound 5 time · Stop the worst of the bleeding. Needs two stamina. Safe.",
+   "Back away 4 time · Leave the fight. Ends it for you; injuries remain. Safe.",
+   "Yield 2 time · Give up the contest while you can still stand. Safe.",
+   "Let a careful policy take one safe turn Plays only brace, tend or back away for you; never a new attack."
+  ],
+  "log": [
+   "Both sides see each other at once.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara hits you for 2.5 slashing.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara hits you for 2.1 slashing.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara misses.",
+   "You hit Mara for 0.8 bludgeoning, weak spot."
+  ],
+  "dev": [],
+  "notice": "",
+  "world": null,
+  "oldPanel": "Road contest · tempo\n\nThe contest is open in the Fight card below. The world clock holds until it ends."
+ },
+ "dev": [
+  "You → Mara: 1 at x1.15 (bludgeoning 100%)",
+  "Mara → You: 2.5 at x1 (slashing 60%, piercing 40%)",
+  "You → Mara: 1 at x1.15 (bludgeoning 100%)",
+  "Mara → You: 2.1 at x1 (slashing 60%, piercing 40%)",
+  "You → Mara: 1 at x1.15 (bludgeoning 100%)",
+  "You → Mara: 0.8 at x1.15 (bludgeoning 100%)"
+ ],
+ "reloadIdentical": true,
+ "afterReload": {
+  "visible": true,
+  "box": [
+   371,
+   638,
+   1009,
+   607
+  ],
+  "stakes": "Village: 1 of 1 opponent standing; you have 55.4 of 60 hp.",
+  "next": "Who acts next: You → Mara",
+  "you": "You\n\n55.4/60 hp\n\nStrikes: bludgeoning 100%",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread. ◼ weak to bludgeoning."
+  ],
+  "typeChips": [
+   {
+    "text": "◼ weak to bludgeoning",
+    "type": "bludgeoning",
+    "source": "learned"
+   }
+  ],
+  "moves": [
+   "Quick strike 3 time · A fast, light blow. Cheap in time, small in harm. Strikes bludgeoning 100%.",
+   "Heavy swing 6 time · A slow, hard blow. Leaves you open longer. Strikes bludgeoning 100%.",
+   "Brace 2 time · Take the next blow better. Costs a little time. Safe.",
+   "Tend a wound 5 time · Stop the worst of the bleeding. Needs two stamina. Safe.",
+   "Back away 4 time · Leave the fight. Ends it for you; injuries remain. Safe.",
+   "Yield 2 time · Give up the contest while you can still stand. Safe.",
+   "Let a careful policy take one safe turn Plays only brace, tend or back away for you; never a new attack."
+  ],
+  "log": [
+   "Both sides see each other at once.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara hits you for 2.5 slashing.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara hits you for 2.1 slashing.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara misses.",
+   "You hit Mara for 0.8 bludgeoning, weak spot."
+  ],
+  "dev": [],
+  "notice": "",
+  "world": null,
+  "oldPanel": "Road contest · tempoThe contest is open in the Fight card below. The world clock holds until it ends."
+ },
+ "importIdentical": true,
+ "afterImport": {
+  "visible": true,
+  "box": [
+   371,
+   638,
+   1009,
+   607
+  ],
+  "stakes": "Village: 1 of 1 opponent standing; you have 55.4 of 60 hp.",
+  "next": "Who acts next: You → Mara",
+  "you": "You\n\n55.4/60 hp\n\nStrikes: bludgeoning 100%",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread. ◼ weak to bludgeoning."
+  ],
+  "typeChips": [
+   {
+    "text": "◼ weak to bludgeoning",
+    "type": "bludgeoning",
+    "source": "learned"
+   }
+  ],
+  "moves": [
+   "Quick strike 3 time · A fast, light blow. Cheap in time, small in harm. Strikes bludgeoning 100%.",
+   "Heavy swing 6 time · A slow, hard blow. Leaves you open longer. Strikes bludgeoning 100%.",
+   "Brace 2 time · Take the next blow better. Costs a little time. Safe.",
+   "Tend a wound 5 time · Stop the worst of the bleeding. Needs two stamina. Safe.",
+   "Back away 4 time · Leave the fight. Ends it for you; injuries remain. Safe.",
+   "Yield 2 time · Give up the contest while you can still stand. Safe.",
+   "Let a careful policy take one safe turn Plays only brace, tend or back away for you; never a new attack."
+  ],
+  "log": [
+   "Both sides see each other at once.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara hits you for 2.5 slashing.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara hits you for 2.1 slashing.",
+   "You hit Mara for 1 bludgeoning, weak spot.",
+   "Mara misses.",
+   "You hit Mara for 0.8 bludgeoning, weak spot."
+  ],
+  "dev": [],
+  "notice": "",
+  "world": null,
+  "oldPanel": "Road contest · tempoThe contest is open in the Fight card below. The world clock holds until it ends."
+ },
+ "finished": {
+  "session": null,
+  "tempoLast": "won",
+  "cardHidden": true
+ },
+ "errors": []
+}

@@ -9,6 +9,7 @@
 //   - the ring is who is in the fight, not distance; native combat has no range data
 import {letterFor, factShown, knowledgeOf} from '../opponent_board.js';
 import {mitigateCombatDamage, scaleByType} from '../combat_math.js';
+import {damageTypeLabel, mixText} from '../damage_types.js';
 
 // The native roll is power x (0.8..1.2), rounded to a tenth, per strike (combat_math.rollBaseCombatDamage).
 const HARDEST_ROLL = 1.2;
@@ -157,4 +158,43 @@ export function chaseSituation(view) {
         tracks: [{id: 'stages', label: 'Pursuit', steps: CHASE_STAGES.map(([, label], i) => ({label, state: i < at ? 'done' : i === at ? (view.status === 'closed' ? 'done' : 'current') : 'pending'}))}],
         notes: [{state: 'unknown', text: 'Distance: not modelled here; stages only.'}, ...(view.expiresAt != null ? [{text: `The meeting request lapses at minute ${view.expiresAt}.`}] : [])],
     };
+}
+
+// Tempo mode of the one fight surface (COMBAT.md round 3, R3-O1). Input is tempo_fight.js tempoView(b): the
+// engine's own knowledge-limited view (hurt words, not hp numbers, for foes). It goes through fightSituation
+// so both modes share one versus model; tempo adds damage types (learned per foe, or revealed by a marked
+// cheat), the move area and the log. worldId only picks type names and glyphs (AD46); no world ids live here.
+const LEARNED_WORD = {resisted: 'resists', 'weak spot': 'weak to', 'no effect': 'unharmed by', normal: 'takes normal'};
+export function typeChips(learned = {}, {reveal = null, worldId = null, label = damageTypeLabel} = {}) {
+    const rows = Object.entries(learned).map(([type, note]) => ({type, note, source: 'learned'}));
+    if (reveal?.defense) for (const [type, m] of Object.entries(reveal.defense)) {
+        if (rows.some(r => r.type === type)) continue;
+        rows.push({type, note: m === 0 ? 'no effect' : m < 1 ? 'resisted' : m > 1 ? 'weak spot' : 'normal', source: reveal.source || 'cheat'});
+    }
+    return rows.map(r => {
+        const {name, glyph} = label(r.type, worldId);
+        return {type: r.type, name, glyph, source: r.source, word: `${LEARNED_WORD[r.note] || r.note} ${name}`};
+    });
+}
+export function tempoSituation(view, {place = '', worldId = null, dev = false} = {}) {
+    const f = view?.fight;
+    if (!f) return {active: false, mode: 'tempo'};
+    const opponents = f.foes.map((o, i) => ({id: o.id, slot: i, letter: letterFor(i), name: o.name, knowledge: 'native', defeated: false,
+        health: {text: o.hurt, progress: null, knowledge: 'native'}, facts: []}));
+    const me = f.you || {};
+    const base = fightSituation({source: 'tempo', opponents}, {name: 'You', health: Number.isFinite(me.hp) ? {current: me.hp, max: me.maxHp} : undefined,
+        sideSize: 1 + (f.allies?.length || 0)}, {place});
+    if (!base.active) return {active: false, mode: 'tempo', result: f.result || null};
+    const byId = new Map(f.foes.map(o => [o.id, o]));
+    for (const o of base.versus.opponents) {
+        const foe = byId.get(o.id);
+        o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: null};
+        o.types = typeChips(foe.learned, {reveal: foe.reveal, worldId});
+    }
+    base.versus.you.mix = me.mix ? mixText(me.mix, worldId) : null;
+    if (f.allies?.length) base.versus.you.alliesText = f.allies.map(a => `${a.name} (${a.hurt}${a.order ? `, told: ${a.order}` : ''})`).join(', ');
+    const moves = (f.moves || []).map(m => ({...m, mixText: m.mix ? mixText(m.mix, worldId) : ''}));
+    const hits = dev ? (f.hits || []).map(h => `${h.actor} → ${h.foe}: ${h.dealt} at x${Math.round(h.multiplier * 100) / 100} (${Object.entries(h.split).map(([t, s]) => `${damageTypeLabel(t, worldId).name} ${Math.round(s * 100)}%`).join(', ')})`) : [];
+    return {active: true, mode: 'tempo', summary: base.summary, versus: base.versus, next: f.next || [], yourTurn: !!f.yourTurn,
+        moves, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
 }

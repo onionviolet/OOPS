@@ -1,6 +1,6 @@
 // RPX16 / LTU7 combat fixtures. Invented names only. Each runs the same adapter the game runs
 // (src/ui/combat_situation.js) on a board in the projection shape, so the gallery proves the game's path.
-import {fightSituation, chaseSituation} from '../../combat_situation.js';
+import {fightSituation, chaseSituation, tempoSituation} from '../../combat_situation.js';
 import {FIGURE_FIXTURES} from '../figure_fixtures.js';
 
 const fact = (label, value, knowledge = 'native') => ({label, value, knowledge});
@@ -33,7 +33,19 @@ FIGURE_FIXTURES.push(...COMBAT_FIXTURES);
 // figure_gallery.js renders FIGURE_FIXTURES in its module body after this module loads, so DOM work is deferred.
 const DUEL_VERSUS = fightSituation(DUEL_BOARD, you(14), {place: 'Reed causeway'}).versus;
 const BRAWL_VERSUS = fightSituation(BRAWL_BOARD, you(5), {place: 'Sunken lane'}).versus;
-export const VERSUS_FIXTURES = [DUEL_VERSUS, BRAWL_VERSUS];
+// Tempo mode of the same card (COMBAT.md round 3): a move-by-move contest in the tempoView shape, with a typed
+// hit learned on one foe, a resistance revealed by a marked cheat on the other, and the dev type-split readout.
+export const TEMPO_VIEW = {fight: {title: 'Contest at the ford', result: null, yourTurn: true, next: ['You', 'Ford warden', 'Reed cutter'],
+    you: {hp: 21, maxHp: 30, stamina: 7, maxStamina: 10, mix: {slashing: .7, piercing: .3}},
+    moves: [{id: 'jab', label: 'Quick strike', text: 'A fast, light blow.', cost: 3, safe: false, usable: true, why: '', mix: {slashing: .7, piercing: .3}},
+        {id: 'guard', label: 'Brace', text: 'Take the next blow better.', cost: 2, safe: true, usable: true, why: ''}],
+    orders: [], allies: [],
+    foes: [{id: 'fx-warden', name: 'Ford warden', hurt: 'hurt', learned: {slashing: 'resisted'}},
+        {id: 'fx-cutter', name: 'Reed cutter', hurt: 'fresh', learned: {}, reveal: {source: 'insight', defense: {bludgeoning: 1.3, piercing: .8}}}],
+    lines: ['Both sides see each other at once.', 'You hit Ford warden for 3.6 slashing, resisted.', 'Ford warden hits you for 4 piercing.'],
+    hits: [{actor: 'You', foe: 'Ford warden', dealt: 3.6, multiplier: .9, split: {slashing: .65, piercing: .35}}, {actor: 'Ford warden', foe: 'You', dealt: 4, multiplier: 1, split: {piercing: .6, slashing: .4}}]}};
+export const TEMPO_FIXTURE = tempoSituation(TEMPO_VIEW, {place: 'Shallow ford', dev: true});
+export const VERSUS_FIXTURES = [DUEL_VERSUS, BRAWL_VERSUS, TEMPO_FIXTURE.versus];
 
 if (typeof document !== 'undefined') {
     queueMicrotask(async () => {
@@ -46,7 +58,7 @@ if (typeof document !== 'undefined') {
         states.neutral.profiles.Default.settings = neutralPresentationSettings();
         delete states.neutral.profiles.Default.modules.messages;
         const section = el('section', {class: 'fig-gallery-section', 'data-fixture': 'versus-row'});
-        section.append(el('h2', {}, 'Versus row: duel and brawl'));
+        section.append(el('h2', {}, 'Versus row: duel and brawl (auto mode), contest at the ford (tempo mode)'));
         const pair = el('div', {class: 'fig-gallery-pair'});
         for (const theme of ['luminous', 'neutral']) {
             const cell = el('div', {class: 'fig-gallery-cell'});
@@ -61,6 +73,10 @@ if (typeof document !== 'undefined') {
                 module.append(el('pre', {class: 'fig-text'}, versusText(versus)));
             }
         }
+        // Tempo mode extras: the move area, the log and the dev type-split readout, as text under the rows.
+        section.append(el('pre', {class: 'fig-text', 'data-fixture': 'tempo-mode'}, [
+            'Moves: ' + TEMPO_FIXTURE.moves.map(m => `${m.label} · ${m.cost} time${m.mixText ? ` · ${m.mixText}` : ''}`).join(' | '),
+            'Log:', ...TEMPO_FIXTURE.log.map(l => `  ${l}`), 'Dev readout:', ...TEMPO_FIXTURE.dev.map(l => `  ${l}`)].join('\n')));
         section.append(pair);
         main.append(section);
     });

@@ -11,16 +11,21 @@ const oddsText = odds => {
     if (odds.them != null) parts.push(`It hits you ${odds.themWord} ${odds.them}%`);
     return parts.join(' · ');
 };
-const threatText = t => `${MARKS[t.level] || ''} ${t.word}${t.rung ? ` · reaches ${t.rung}` : ''}`.trim();
+// Damage types (COMBAT.md round 3): what you learned by sizing it up, or what a marked cheat revealed.
+const typeText = t => `${t.glyph} ${t.word}${t.source === 'learned' ? '' : ` (◈ ${t.source})`}`;
+const fmtHp = n => Number.isInteger(n) ? String(n) : n.toFixed(1);
+const threatText = t => `${MARKS[t.level] || ''} ${t.word}${Number.isFinite(t.blow) ? ` · up to ${fmtHp(t.blow)} hp` : ''}${t.rung ? ` · reaches ${t.rung}` : ''}`.trim();
+const BOUND_NOTE = 'The hardest normal hit after your defense. Crits, armor piercing or elements can add more.';
 
 function youLine(you) {
-    return `${you.name}${you.hp ? `, ${you.hp.text}` : ''}${you.allies > 0 ? `, +${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}` : ''}`;
+    return `${you.name}${you.hp ? `, ${you.hp.text}` : ''}${you.allies > 0 ? `, +${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}` : ''}${you.mix ? `, strikes ${you.mix}` : ''}`;
 }
 function opponentLine(o) {
     const bits = o.down ? [o.name, 'Down'] : [o.name, o.hp.text, `${o.threat.word}${o.threat.rung ? ` · reaches ${o.threat.rung}` : ''}`];
     if (o.intent) bits.push(o.intent.word);
     if (o.odds) { const t = oddsText(o.odds); if (t) bits.push(t); }
     if (o.target === 'unread') bits.push('Target unread');
+    for (const t of o.types || []) bits.push(typeText(t));
     return bits.join('. ') + '.';
 }
 
@@ -59,7 +64,8 @@ function youSide(doc, you) {
         side.append(make(doc, 'p', 'versus-hp', you.hp.text));
         if (you.hp.max > 0) side.append(meter(doc, 'versus-bar versus-bar--you', `${you.name} hit points`, you.hp.current / you.hp.max, you.hp.text));
     }
-    if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
+    if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', you.alliesText ? `Beside you: ${you.alliesText}` : `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
+    if (you.mix) side.append(make(doc, 'p', 'versus-mix', `Strikes: ${you.mix}`));
     return side;
 }
 
@@ -74,10 +80,16 @@ function card(doc, o) {
     c.append(make(doc, 'p', 'versus-hp', o.hp.text));
     if (o.hp.fraction !== null && o.hp.fraction !== undefined) c.append(meter(doc, 'versus-bar', `${o.name} hit points`, o.hp.fraction, o.hp.text));
     const chips = make(doc, 'div', 'versus-chips');
-    chips.append(chip(doc, 'threat', threatText(o.threat), o.threat.level === 'lethal' ? 'fig-fx--pulse' : ''));
+    const threat = chip(doc, 'threat', threatText(o.threat), o.threat.level === 'lethal' ? 'fig-fx--pulse' : '');
+    if (Number.isFinite(o.threat.blow)) threat.setAttribute('title', BOUND_NOTE);
+    chips.append(threat);
     if (o.intent) chips.append(chip(doc, 'intent', `${FIGURE_STATES.unknown} ${o.intent.word}`));
     if (o.odds) { const t = oddsText(o.odds); if (t) chips.append(chip(doc, 'odds', t)); }
     if (o.target === 'unread') chips.append(chip(doc, 'target', `${FIGURE_STATES.unknown} Target unread`));
+    for (const t of o.types || []) {
+        const c2 = chip(doc, 'type', typeText(t), t.source === 'learned' ? '' : 'versus-chip--revealed');
+        c2.dataset.damageType = t.type; c2.dataset.source = t.source; chips.append(c2);
+    }
     c.append(chips);
     return c;
 }

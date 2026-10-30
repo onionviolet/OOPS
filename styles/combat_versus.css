@@ -42,3 +42,17 @@
 :root:is([data-effects="off"], [data-effects="reduced"]) .versus-row .fig-fx--pulse {animation: none;}
 @media (prefers-reduced-motion: reduce) {.versus-row .fig-fx--pulse {animation: none;}}
 @media (max-width: 40em) {.versus-row {grid-template-columns: minmax(0, 1fr);} .versus-sep {justify-self: center;}}
+
+/* Damage types (COMBAT.md round 3): learned chips are solid, revealed ones carry the ◈ source mark and a dotted edge. */
+.versus-mix {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--versus-muted);}
+.versus-chip--type {color: var(--versus-ink);}
+.versus-chip--revealed {border-style: dotted; color: var(--versus-accent);}
+
+/* Tempo mode of the fight card: who acts next, the log as short ledger rows, and the dev readout. */
+.fight-situation[data-fight-mode="tempo"] .fight-situation-next {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.fight-situation-log {margin: 0; padding: 0; list-style-position: inside; display: grid; gap: var(--ui-space-1); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.fight-situation-dev {margin: 0; padding-left: var(--ui-space-5); font-size: var(--ui-type-small); color: var(--theme-muted, var(--ui-hairline));}
+/* Moves as a compact grid at desktop width: label and time on the button row, the effect line under it. */
+.fight-situation[data-fight-mode="tempo"] .scene-card {display: grid; grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); align-items: start;}
+.fight-situation[data-fight-mode="tempo"] .scene-card > :not(.scene-card-option) {grid-column: 1 / -1;}
+.fight-situation[data-fight-mode="tempo"] .scene-card-option {display: grid; gap: var(--ui-space-1); min-width: 0;}
