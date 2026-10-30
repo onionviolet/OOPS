@@ -62,7 +62,8 @@ const schemaOk = (read, row) => (read.schemas || ['native']).includes(row.schema
 
 function rowsFor(section, subject, read, level, observer, mine) {
     const rows = [], basis = read.label || read.means || 'Read';
-    const state = s => read.guess && s === 'known' ? 'guessed' : s;
+    // A whole read can be inference (read.guess), and a single row can too (row.guess: a believed entry from the L13 sheet bridge, G10).
+    const state = (s, row) => (read.guess || row?.guess) && s === 'known' ? 'guessed' : s;
     const need = row => row.reveal ?? defaultReveal(section, row);
     const learned = row => row.knowKey && observer?.knows?.(row.knowKey);
     for (const row of list(subject[section])) {
@@ -70,14 +71,14 @@ function rowsFor(section, subject, read, level, observer, mine) {
         if (!inScope(read, section) || level < need(row) || !channelOk(read, row)) continue;
         if (section === 'stats') {
             if (!Number.isFinite(row.value)) continue;
-            if (level >= 3) { const b = bandText(row.value, read.precision, row.unit); rows.push({id: row.id, label: row.label, state: state(b.state), text: b.text, basis, desc: row.desc, width: b.width}); }
+            if (level >= 3) { const b = bandText(row.value, read.precision, row.unit); rows.push({id: row.id, label: row.label, state: state(b.state, row), text: b.text, basis, desc: row.desc, width: b.width}); }
             continue;
         }
         if (section === 'abilities' && !schemaOk(read, row)) {
             rows.push({id: 'unread-power', key: row.id, label: '???', state: 'unknown', text: 'Something your read cannot name.', basis});
             continue;
         }
-        const out = {id: row.id, label: row.label, state: state('known'), text: row.value ?? '', basis};
+        const out = {id: row.id, label: row.label, state: state('known', row), text: row.value ?? '', basis};
         // Detail (an ability's level and rules, a blade's quality) is one level deeper than the name.
         if (section === 'abilities') {
             out.text = level >= 5 ? [row.level != null ? `Level ${row.level}` : '', row.tier].filter(Boolean).join(' · ') : '';

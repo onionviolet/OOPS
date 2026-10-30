@@ -122,3 +122,11 @@ test('narrow layout stacks sections as disclosures and opens only read ones', ()
     assert.ok(!boxes.some(b => b.dataset.section === 'stats'));
     assert.match(host.find(n => n.className === 'cs-unread')[0].textContent, /Not read yet: Stats, Abilities and powers/);
 });
+
+test('a row marked guess shows as guessed even under a plain read (L13 sheet bridge, G10)', () => {
+    const subject = {id: 'x', name: 'X', gear: [{id: 'g1', label: 'Lamp', value: 'brass'}, {id: 'g2', label: 'Knife', value: 'long', guess: true}]};
+    const view = characterSheetView(subject, observerView({}), [{means: 'eye', label: 'Looking', level: 9, precision: 3}]);
+    const gear = view.sections.find(s => s.id === 'gear').rows;
+    assert.equal(gear.find(r => r.id === 'g1').state, 'known');
+    assert.equal(gear.find(r => r.id === 'g2').state, 'guessed');
+});
