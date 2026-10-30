@@ -94,3 +94,17 @@ L10 ability records use `P.ability.k` (`P = book.lotm.adv`). Pilot sheets cite t
 ## Persona ids (L11, schema bump 2026-10-30)
 
 `personaIds: []` on the sheet lists `persona.<slug>` ids; each persona `identities` entry carries `v.persona` with the same id. `sheetAsOf` returns `personaIds` held at the ref (persona entry in force and not gated shut). Standing stays keyed by persona in `standingOf` (`src/persona_standing.js`); the sheet stores no standing.
+
+## Sibling-book check (WA48 same-world rule, 2026-10-30)
+
+Shape only, from the Circle of Inevitability merge's counts (no text read, nothing carried into LOTM sheets):
+
+| Seen in the sibling book | Result |
+| --- | --- |
+| Same row families: 140 registry persons; person rows carry `relations`, `knows`, `wants`, `reacts`, `speech`; `routine` is rare (38 of 394) and `reveals` rarer (12) | Schema fits; `routine` stays optional, reveal gates stay sparse |
+| `ability` rows: 120, with `who` on 98, `conditions` on 104, `limits` on 51, `costs` on 2 | Matches LOTM (costs almost never stated); ability entries keep `costs` optional |
+| Rank and power terms appear in about 4% of fact rows, pathway/school terms in 2% | `power.level` stays a free string; add `power.scale` (the world's own ladder id) so one reader serves several ladders |
+| Locator form `en bN cN pN` | `refOfLocator` in the loader converts all three forms to `bN:CH` |
+| Money kinds include wages and fees | `money.kind` already holds wage; add `fee` |
+
+Bump applied in place (AD45): `power.v.scale` optional, `money.v.kind` gains `fee`, `refOfLocator` in the loader. No LOTM sheet changes.

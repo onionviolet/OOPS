@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {existsSync, readdirSync, readFileSync} from 'node:fs';
 import {join} from 'node:path';
-import {LIST_FIELDS, bandAsOf, chapterRank, reproduces, sheetAsOf} from '../src/character_sheets.js';
+import {LIST_FIELDS, bandAsOf, chapterRank, refOfLocator, reproduces, sheetAsOf} from '../src/character_sheets.js';
 
 const entry = (v, from, extra = {}) => ({v, from, ev: 'S', loc: 'x', ...extra});
 const synthetic = {
@@ -88,4 +88,11 @@ const recurring = existsSync(recurringFile) ? Object.values(JSON.parse(readFileS
         assert.equal(b.power.actual.at(-1).v.level, last.v.level);
         assert.ok(bandAsOf(s, 'might', last.from) >= bandAsOf(s, 'might', first.from) || first.v.level === last.v.level || true);
     }
+});
+
+test('locator forms convert to chapter refs', () => {
+    assert.equal(refOfLocator('zh 第31章 p41'), 'b1:31');
+    assert.equal(refOfLocator('zh b5 第3章 p9'), 'b5:3');
+    assert.equal(refOfLocator('en b2 c14 p7'), 'b2:14');
+    assert.equal(refOfLocator('none'), null);
 });

@@ -9,6 +9,12 @@ export function chapterRank(ref) {
     return m ? Number(m[1]) * 100000 + Number(m[2]) : null;
 }
 
+/** Locator string -> 'bN:CH'. Forms: 'zh 第N章 pP' (b1), 'zh bV 第N章 pP', 'en bV cN pP' (sibling books). Null when none matches. */
+export function refOfLocator(loc) {
+    const s = String(loc ?? ''), m = /\bb(\d+) c(\d+)\b/.exec(s) ?? /(?:\bb(\d+) )?第(\d+)章/.exec(s);
+    return m ? `b${m[1] ?? 1}:${m[2]}` : null;
+}
+
 /** Is the entry in force at `at`? An open `to` means still true; `to` is exclusive. */
 export function inForce(entry, at) {
     const from = chapterRank(entry.from), to = entry.to == null ? Infinity : chapterRank(entry.to);
