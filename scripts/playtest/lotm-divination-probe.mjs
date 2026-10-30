@@ -7,7 +7,7 @@ import {buildBundle,serve,Session,sha} from './lib.mjs';
 const out=path.resolve(process.argv[2]||'.'),mode=process.argv[3]||'unclear';await fs.mkdir(out,{recursive:true});
 const bundle=await buildBundle(),server=await serve(bundle.dir);
 const bundleHash=sha(await fs.readFile(path.join(bundle.dir,'bundle.js')));
-const s=await new Session({url:server.url,opTimeout:30000,seed:7,wall:Date.UTC(2026,9,30)}).start();
+const s=await new Session({url:server.url,opTimeout:240000,seed:7,wall:Date.UTC(2026,9,30)}).start();
 const pause=(ms=350)=>s.page.waitForTimeout(ms);
 const nav=async id=>{await s.page.keyboard.press('Escape');await s.page.evaluate(v=>{const e=document.querySelector('select[aria-label="Other known panels"]');e.value=v;e.dispatchEvent(new Event('change',{bubbles:true}));},id);await pause();};
 const report={bundle:bundleHash,viewport:'1920x1080',steps:[]};
@@ -25,7 +25,7 @@ try{
   const text=await p.evaluate(()=>window.save_to_file());report.exportHead=String(text).slice(0,60);
   const PRE='YAIR-UTF8-1:';const save=JSON.parse(Buffer.from(String(text).slice(PRE.length),'base64').toString('utf8')),sim=save.expansion?.simulation||save.simulation;
   const known=sim.knowledge.player,tpl=Object.values(known)[0];
-  known['book.lotm.div.grounds.coin-divination']={...structuredClone(tpl),value:'You know why the Boklund address is unsafe.'};
+  if(mode==='rail')sim.people.player.location='lotm.place.tingen-station';else known['book.lotm.div.grounds.coin-divination']={...structuredClone(tpl),value:'You know why the Boklund address is unsafe.'};
   await p.evaluate(t=>window.load_progress(t),PRE+Buffer.from(JSON.stringify(save),'utf8').toString('base64'));await pause(3000);
   for(let i=0;i<60;i++){try{if(await p.locator('#loading_screen_play_button').isVisible())await p.locator('#loading_screen_play_button').click({timeout:3000});if(await p.evaluate(()=>!!window.simulationTestHooks.snapshot().expansion.lotm?.entryProfile))break;}catch(e){}await pause(1500);}
   report.imported=true;await nav('lotm');
@@ -46,12 +46,17 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
  if(mode==='rail'){
   const btns=()=>p.evaluate(()=>[...document.querySelectorAll('#lotm_panel button')].map(b=>(b.disabled?'[disabled] ':'')+b.textContent.trim().slice(0,110)));
   const click=async re=>p.evaluate(src=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&new RegExp(src).test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;},re);
-  report.rail=[];
-  for(let i=0;i<30;i++){
-   const all=await btns();const j=all.filter(t=>/^(\[disabled\] )?Travel to /.test(t));
+  report.rail=[];await click('^Show the walking map');await pause(1000);report.walkList=(await btns()).filter(t=>/Walk|station|Station/.test(t)).slice(0,60);report.placedAt=await p.evaluate(()=>window.simulationTestHooks.snapshot().expansion.simulation.people.player.location);
+  const seen=new Set();
+  for(let i=0;i<60;i++){
+   const all=await btns();await fs.appendFile(path.join(out,'progress.log'),`${new Date().toISOString()} step ${i} ${all.filter(t=>/Walk|Travel/.test(t)).slice(0,6).join(' | ')}\n`);const j=all.filter(t=>/^(\[disabled\] )?Travel from Tingen railway station/.test(t));
    if(j.length){report.rail.push({step:i,journeys:j});break;}
-   const t=await click('^Walk to Tingen railway station');report.rail.push({step:i,walked:t});if(!t){report.railButtons=all.filter(x=>/Walk/.test(x)).slice(0,30);break;}
-   await pause(2500);
+   const stationTravel=all.find(t=>/^Travel from .* to Tingen railway station/i.test(t));if(stationTravel&&!report.stationVia){report.stationVia=stationTravel;}
+   const walks=all.filter(t=>/^(Walk|Travel from)/.test(t)&&!/^Travel from Tingen railway station/.test(t));
+   const pick=(stationTravel?[stationTravel]:[]).concat(walks.filter(t=>/railway station/i.test(t))).find(Boolean)||walks.find(t=>!seen.has(t))||walks[0];
+   if(!pick){if(all.some(t=>/^\[disabled\] /.test(t))&&i<59){await pause(5000);continue;}report.rail.push({step:i,stuck:all.slice(0,20)});break;}
+   seen.add(pick);const t=await click('^'+pick.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').slice(0,60));report.rail.push({step:i,walked:t});
+   await pause(3500);
   }
   report.reports=await p.evaluate(()=>document.body.innerText.match(/halted[^\n]{0,80}/ig));
  }
