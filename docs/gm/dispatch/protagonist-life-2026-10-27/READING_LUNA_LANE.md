@@ -41,3 +41,18 @@ Route: `derive_step_tags.mjs` over the merged scenes (16,679 steps, no model cal
 | Spot check, 15 steps read against the cited paragraph | 13 supported, 2 partial (one carriage ride whose actor is a guess; one step with a price id as `using` and no actor), 0 contradicted. The sample is biased to steps that carry a target or item, and the paragraph alone was checked |
 
 **Verdict (proposal):** this is the better shape than a fresh scenes reread, because the scene granularity stays Haiku's and Luna only adds fields. Next: run it on the 72 volume 1 shards (about 25 lanes of 3 shards, or give each lane several prompts), merge by union with the reader's own fields winning (LSD151), and re-spot-check 15 steps from the full set. Cost $0 API. Codex window after the pilot: 26% used (before: 26%).
+
+## Enrich-in-place, all 72 volume 1 shards (2026-10-29, `gpt-6-luna` medium, $0 API, Codex window 26% before and after)
+
+First pass: 23 lanes of 3 shards; 13 shards came back incomplete (ids only, locators absent from the shard, or no reply). One fresh retry of those 13 in 5 lanes; no third try. Lanes that report not finishing are caught by `luna_enrich.mjs check`, not by their own summary: **always run check, never trust the lane's one-line report.**
+
+| Check (all 72 shards, 1,768 steps) | Result |
+| --- | --- |
+| Step ids returned / expected | 1,768 / 1,768; 0 unknown step ids |
+| Locator present / locator not in shard | 1,766 / 3 (one shard, `w6s61`) |
+| Actor / target / using / witnesses | 1,750 / 846 / 457 / 342 |
+| Ids outside the shard's known-names table | 6 |
+| Spot check, 15 steps spread over the book, read against the cited paragraph | 11 supported, 3 partial (an item the cited paragraph does not show), 1 wrong (a step targeting its own actor), 0 contradicted |
+
+Output: private `enrich15/steps15_sidecar.jsonl` (one row per step: Luna fields plus the script's actor, kind and habit for comparison). Scenes are untouched. The 1.3 scene rows carry no reader 1.5 fields, so nothing of the reader's own is overridden yet; later Haiku 1.5 reads win on union (LSD151).
+**Open:** the 3 bad locators and 6 unknown ids should be dropped or reviewed at merge; target and item fields are the weak spot, so downstream consumers should treat them as unreviewed (label `I`) until a larger spot check.

@@ -19,9 +19,11 @@ Grade-C scene shards: `b4s42`, `b4s44`, `b4s48`, `b5s50`, `b5s52`, `b5s59`, `b6s
 
 **Luna pilot (2026-10-29, $0 API, Codex window 26% before and after):** a full scenes reread on Luna at 1.5 graded C/B/C on 3 shards with scenes about half as fine as Haiku's, so it is not the reread route. The better route is enrich-in-place: script tags (16,679 steps), then Luna fills only the 1.5 step fields on the fixed scenes. Pilot on 3 shards: 65 of 65 steps returned, 13 of 15 spot-checked steps supported, 2 partial, 0 contradicted. Details and requirements: [Luna lane](READING_LUNA_LANE.md). The grade-C shards above are fixed by the script set-aside, not by a reread.
 
+**Luna enrich, all 72 shards (2026-10-29):** 1,768 of 1,768 steps carry 1.5 fields in a private sidecar after one retry of 13 shards; 3 locators outside the shard, 6 ids outside the table; 15-step spot check 11 supported, 3 partial, 1 wrong. $0 API; Codex window 26% before and after. Scenes unchanged. See [Luna lane](READING_LUNA_LANE.md).
+
 **Free lane:** the local COI census queue (tag `n1`, 53 shards done, last entry 2026-10-29 21:05) is not running now; resume with the command in the local handoff when the coordinator's browser checks are done.
 
-**Next step (one line):** Weibao says go on a November run file (Circle of Inevitability `coi` first per C24, or the pending `2026-11-01-*` books); until then, optionally script-repair the 10 grade-C volume 1 shards.
+**Next step (one line):** script-set-aside the failing rows of the 10 grade-C volume 1 shards, then Weibao's go on a November run file (Circle of Inevitability `coi` first per C24).
 
 | Wave | Chapters | Shards done | Grades (A / B / C) | Tokens (haiku) | Usage after (5-hour / weekly) | State |
 | --- | --- | --- | --- | --- | --- | --- |
