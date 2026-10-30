@@ -437,3 +437,242 @@ Settled in the browser from a fresh origin: borrow 10 in Standing, open Owed, th
 
 Gap: the quote is checked at a zero-interest moment in the browser; with accrued interest both read the same
 `loan.owed` field (unit test), but no browser run advanced days first.
+
+## Round 3: membership, benefits and debts (2026-10-30, lane `bk-benefits`, design round)
+
+Status: agent proposals (AD32). Nothing here is accepted. No gameplay is wired; three forms are drawn as figure fixtures.
+
+Weibao: "Debt and stuff can be part of corporation, or like the benefits system, more to consider?" Reading: a debt is often not a
+free-standing account. It is one line in what an institution gives and takes from a member. The Owed tab stays the one place that
+lists every account (UR79), and the same account also shows inside the institution that holds it.
+
+Codes continued: O6-O9 (forms), G7-G8 (reference games), R3-1 to R3-12. Extends R2-1's Claim abstraction, GM6 in the
+[reading gap map](../research/READING_GAP_MAP_2026-10-28.md), and the O2 ladder.
+
+### R3-1 Evidence from several worlds
+
+The merged reading rows say how common institutions are; they do not hold the pay scales (CLR3: counts and ids only).
+
+| World | Source and count | What employment, membership and benefits look like |
+| --- | --- | --- |
+| A Soldier's Life | `soldiers-life/.../wb8-merged-2026-10-30/registry.jsonl`: 4670 rows, 204 `organization`, 385 `price`, e.g. `asl.person.eryk` (a legionnaire) | The strongest case. A legion pays, issues kit and rations, quarters, treats the wounded, takes a cut for upkeep and advances against pay. Leaving by desertion or discharge settles each of these differently |
+| Mother of Learning | `mother-of-learning/...`: 2309 rows, 172 `organization`; GM6 row cites 73 institution rules | An academy gives a badge, a housing key, a mentor quota and electives (the GM6 `W1` gap). Suspension closes access and leaves skill. bk-mol builds exactly this |
+| Harry Potter | `harry-potter/...`: 3687 rows, 173 `organization`; GM6 row cites 147 institution rules | A school: house points as merit, quarters by house, a prefect's keys, detention as a duty owed, a fee or scholarship |
+| Shadow Slave | `shadow-slave/...`: 5394 rows, 285 `organization`; GM6 row cites 137 rules | An Academy and Awakened corps: rank, a stipend, quarters, medical care and a contribution owed upward |
+| Circle of Inevitability | `circle-of-inevitability/...`: 867 rows, 49 `organization`, 91 `price` | Smaller, cultivation-flavoured: sect contribution and stipend, the cheapest case for dues |
+| Lord of the Mysteries | no wb8 registry. Source is `src/book_world_lotm_merit.js`, `book_world_lotm_clearance.js` and `lord-of-mysteries/private/wb-gaps-2026-10-30` | The church pays merit for assignments and spends it at an evidence store; a clearance grade says who may handle what; a clerk by contract is the lowest rung |
+
+Keyword hits for pay words over those registries are noisy (aliases included), so no wage counts are claimed here. Measuring
+how many rows hold a real pay, upkeep or dues fact is a LATER item below.
+
+### R3-2 One general model: the package
+
+No new noun. The package is declared data like `defineInstitution`; the three kinds of line map onto what already exists.
+
+| Part | Is | Lives in |
+| --- | --- | --- |
+| **Package** | An institution's offer to a role: a list of lines, each with a cycle (per period, once, on event) | New declared data, beside `institution_store.defineInstitution` |
+| **Entitlement** | A Claim the member holds on the institution: wage, stipend, ration, quarters, medical care, death benefit, a right of access | Wage and stipend pay into the existing `Claim` shape; access rights are bk-mol's grants (`institution_access.js`: issuer, scope, expiry, suspension, `retained`) |
+| **Duty** | A Claim the institution holds on the member that is not coin: attend, serve a watch, return kit | `obligations@1` kind `duty` |
+| **Dues and upkeep** | Coin the member owes each cycle | `obligations@1` kind `coin` |
+| **Advance or loan against pay** | Coin owed, repaid out of the next entitlement | `obligations@1` coin row with `source` naming the package line |
+| **Merit** | The institution's own currency | Stays in `institution_store` |
+| **Membership** | Role, joined at, status (`active`, `suspended`, `left`), grant ids | One small record per institution |
+
+**bk-mol fit (in progress, uncommitted in its worktree when read).** An access right is a bk-mol grant, so this model does not
+build a second one. A package line of kind `access` holds a `grantId`; `accessStatus` supplies the state and the `retained`
+skill list. Suspension by default closes the access lines, and wage and dues lines keep their own rules (R3-6). The package
+does not import `institution_access.js` in this round; the join is a reference by id when both land.
+
+**Recurrence.** `obligations@1` rows have no recurrence field. Payday and dues cycles live on the package line (period in days,
+next due), and the host writes one row per cycle or one entitlement per payday. A row stays a snapshot (R2-1: a Claim is a read
+model).
+
+**Default, dial and reason.** The default package for a book-world employer or school has one pay line, one issue line, one
+access line, one dues or upkeep line and one leaving rule. The dial is how many lines the world's own institution has, from a
+village watch with kit only to a legion with eight. In-world reason: an institution that wants someone to stay ties them to it
+with things they would lose, and the deductions are how it keeps its money safe (ECR22).
+
+### R3-3 Where it shows
+
+| Place | What it shows | Form |
+| --- | --- | --- |
+| Ledger → Owed | Every account, as now. A row gains a "Part of:" line naming the institution and the package line, and a link to it | O1 ledger, unchanged shape |
+| Organizations view (member side) | The institution's package for your role, entitlements held, duties, next payday, rank, what leaving does | O7 card as default, O6 statement one click in |
+| Character sheet | One line per membership: role, standing, next payday or due date, a warning if suspended | A compact chip row, no new form |
+| Reports | One subject-first line per payday, dues, advance, deduction or suspension, e.g. "Third Foot · pay 9 silver after kit and advance" | Existing Reports feed (the time session owns the shell) |
+| Journal or letters | An institution's formal word on a hard event | O9 letter |
+
+The Standing and ledger panel keeps houses, terms and prices; credit lines point to Owed (R2-3).
+
+### R3-4 Four forms
+
+| Code | Form | Best at | Weakness |
+| --- | --- | --- | --- |
+| O6 | **Statement or payslip.** One period as lines: gross, issued in kind, deductions, advances, next payday, net | Salaried and wage worlds: "what did I actually get this month" | Says little of non-pay perks |
+| O7 | **Membership card.** The member in the middle, each perk and duty around them, revoked ones marked, a line for what survives | Schools, orders and sects, and any suspension or leaving case | Pay periods are awkward on it |
+| O8 | **Accounts by counterparty.** You in the middle, every party that holds a claim on you or that you hold on them | A character with several institutions and lenders; who comes knocking | Hides what a single package contains |
+| O9 | **Diegetic letter.** The employer's own formal letter or notice: appointment, payday notice, summons about a late account, suspension, discharge | The moments that matter; carries the voice of a house. Reuses journal and letters | Prose is slow to scan, so it never holds the only copy of a number |
+
+Prototypes: O6 `benefits-statement-company`, O7 `benefits-card-academy`, O8 `benefits-counterparties` (figure gallery,
+`src/ui/preview/fixtures/benefits.js`, evidence in `docs/representations/evidence/benefits/`). The figure has no table part, so
+O6 is a vertical track whose steps are lines with notes; a real build would be a ledger table of the O1 shape.
+
+**Default: O7 on arrival and when anything changes; O6 as the "this period" tab; O8 as a lens on Owed; O9 for events.** The
+dial is the number of institutions: one is a card and a statement; three or more adds the counterparty lens. In-world reason:
+a member thinks of an institution as what they get, and of a creditor as someone who will come asking (R2-9).
+
+### R3-5 Reference games (patterns only)
+
+| Code | Game | Pattern | Idea adopted |
+| --- | --- | --- | --- |
+| G1 (ext.) | Mount and Blade | Troop wages are a running cost with a stated total, and unpaid troops desert; renown raises what a lord offers | The statement shows the wage bill and a consequence line for missing it |
+| G3 (ext.) | Kenshi | A squad shares food and pay; debts follow people | Counterparty lens: a debt is one party |
+| G4 (ext.) | Shadows of Doubt | Employer records: job, salary, clock-in | Statement lines cite their paper; the letter form |
+| G5 (ext.) | Crusader Kings III | Council duties, vassal obligations, debt via a creditor's hook | Duty rows with a clock; a debt can become a hook the creditor holds |
+| G7 | EVE Online corporations | Roles, taxes on income, a wallet per division | Dues as a rate of income, shown as a line; the role decides what is visible |
+| G8 | Darkest Dungeon | The stagecoach: upkeep paid to keep a roster and a lodging | Upkeep is a recurring cost named for what it keeps; unpaid upkeep has a visible cost |
+
+### R3-6 Failure and leaving
+
+Default per situation, with a dial per world (ECR21 forgiving defaults, AD38). Each cell is what the institution does by default.
+
+| Situation | Persists | Revoked | Owed back |
+| --- | --- | --- | --- |
+| Suspension (bk-mol) | The member's own skill (`retained`), paid dues, rank | Access lines (reading room, housing key) | Anything issued against the closed access, such as the key |
+| Missed due | Membership | Newly accruing perks pause after a grace | The due plus the lender's late terms (R2-2 FP4) |
+| Discharge or graduation | Skill, rank record, a pension if the world has one | Wage, ration, quarters, medical care | Kit, advance balance; the death benefit passes to named heirs |
+| Dismissal for cause | Skill and any debts | Wage, standing in the institution, often arrears | Everything issued, the advance in full |
+| Desertion or leaving a sect | Skill, the debt | Everything, plus standing | The advance and kit, and the institution may pursue (a collector walks in, R2-9) |
+| Death | Death benefit to heirs, debts as `carries` allows | Membership | Heirs take the debt where the row carries (`carries` field) |
+| Institution falls | Skill and kit you hold | Wage and perks | A creditor's claim may pass to a successor |
+
+Defaults: personal skill is not one of the revoked lines; a debt follows the person unless the row says it does not (`carries`);
+a benefit is revoked in the form it was given. Each is a default with a dial per world: an institution that seals or strips a
+skill (a binding oath, a memory wipe) can, with an in-world reason and cost.
+
+### R3-7 Save shape (proposal)
+
+```text
+membership@1: {family, rows: [{id, institution, role, joinedAt, status, grantIds[], nextDue: {lineId: minutes}, history[]}]}
+package (declared data, not saved): {id, institution, role, lines: [{id, kind, label, cycleDays|null, amount|null, item|null, grantId|null, leaving: 'revoke'|'keep'|'return'|'owed', deduct: 'pay'|null}]}
+```
+
+- Rows in `obligations@1` are written as now; `source` is `membership:<id>:<lineId>`.
+- Optional field, absent in old saves, which read as "no memberships". No migration (AD for persistence).
+- Package cycles are declared; only `nextDue` is saved.
+
+### R3-8 Engine seams it would extend
+
+| Seam | Today | Extension |
+| --- | --- | --- |
+| `institution_store.defineInstitution` | missions, store, merit currency | Add `packages` to its declaration |
+| `obligations_ledger` | coin, favor, grievance, duty | None needed; `source` string and `eases` already fit |
+| `economy_standing` | loans, claims, insurance | An advance against pay as a loan whose repayment is a deduction |
+| `institution_access` (bk-mol) | grants with scope, expiry, suspension, `retained` | A package line references a grant id |
+| `faction_rank` and clearance | ladder per region | A role is a rung; a package belongs to a role |
+| `owed_ledger_view` | rows with parties and effect sentences | A "Part of" field |
+| Reports (time session) | subject-first lines | Payday, dues and suspension line kinds |
+| `observer_view` | CONTROLLED_ACTOR_ID | Members are read against it, never a lead id |
+
+### R3-9 Other things worth considering
+
+- A pension is a one-time promise: the package pays it after N years, so a dismissal in year N-1 loses it. A good place to
+  surface "you are 11 months from it".
+- Wages in kind (rations, quarters) have a coin worth for the statement, but they cannot be saved up or sold; the line says so.
+- A guarantor or sponsor is a second party on a Claim (a sect elder vouches). It is the O8 lens that shows who stands behind whom.
+- Inflation: a wage fixed in a currency that loses worth; the statement can show last-period worth beside it (ECR17).
+- A cheat or insight that reveals a package's real terms (hidden clauses) follows R2-6: an "Insight:" line sourced to the card.
+- Multiple memberships can conflict: two employers claim the same hours. This is a schedule fact, not a package one.
+
+### R3-10 ACT NOW, ACCOUNT FOR NOW, LATER/DELEGATE
+
+**ACT NOW (done):** this round written; three forms prototyped; fixtures validated and tested; evidence captured.
+
+**ACCOUNT FOR NOW:**
+- bk-mol's grant must remain a leaf with no knowledge of packages; the join is by `grantId`.
+- Reports lines need the time session's shell.
+- The Owed row "Part of" field needs a view change only; no save change.
+
+**LATER/DELEGATE:**
+
+| Item | Level | Effort | Done check |
+| --- | --- | --- | --- |
+| Package data and `membership@1` leaf (pure, no UI) | sonnet | medium | Focused test: a payday writes an entitlement and a deduction; a missed due writes a coin row; leaving applies the R3-6 row |
+| "Part of" line in Owed and the statement tab in the organization view | sonnet | medium | Browser at 1920x1080: a seeded member sees net pay and a coin row linked to the same line |
+| One real package: Soldier's Life company (pay, rations, kit upkeep, advance, desertion) | sonnet | medium | Fresh-origin walk: a payday, an advance, a desertion that leaves the kit debt |
+| Academy package on bk-mol grants (key, reading room, suspension keeps skill) | sonnet | small | Suspended student sees closed lines and a kept skill, on the same card |
+| O8 counterparty lens on Owed | sonnet | small | Lens groups the mixed fixture by party with a count |
+| O9 letters from the journal | sonnet | medium | Suspension and late-account letters appear once, with the numbers also on the ledger |
+| Measure real pay, upkeep and dues facts in the six readings | haiku | small | A count by world of rows with a stated amount, ids only (CLR3) |
+| Reports payday and dues lines | sonnet | small | A payday writes one line linked to its Owed row |
+
+### R3-11 Draft status
+
+Open to replacement with a reason (AD45). A sweep of this section for never/always/only wording found the scoped uses fixed; leaving rules read as defaults with dials.
+
+### R3-12 Receipt
+
+Files: this section, `src/ui/preview/fixtures/benefits.js`, a one-line import in `src/ui/preview/figure_gallery.js`,
+`tests/benefits_fixtures.test.js`, `scripts/capture_benefits_gallery.mjs`, evidence in `docs/representations/evidence/benefits/`,
+`docs/gm/dispatch/book-ui-wave-2026-10-30/ideas/bk-benefits.md`. AD43: design round, not a runtime slice, so no floor claim.
+
+### R3-13 Institution styles (added on Weibao's follow-up: "Different 'corporation' styles, from company, to sect, to other similar stuff and more?")
+
+One model, ten styles. A style is a row of dials over the R3-2 package, so a new style is data and not code. Each cell is a default,
+and a world changes any of them with an in-world reason and cost (AD5, AD38).
+
+**Evidence for the styles.** Reverend Insanity has a merged registry of 3686 rows (kinds led by `measure`, `item`, `creature`, `person`,
+`place`, `price` 238). `organization` is outside its six largest kinds, so its sect and clan rules need the GM6-style class read, not a
+count. A Regressor's Tale has `source` and `lead-run-2026-10-29` folders but no merged registry yet. Neither is read for pay terms in
+this round; the sect row below is a premise from the request and the existing Tingen, Shadow Slave and Circle of Inevitability
+institutions, and the sect and hunter-association rows are the first to check against those two books (LATER, below).
+
+**The dials**
+
+| Dial | Question | Values it takes |
+| --- | --- | --- |
+| Entry | How do you get in | contract, exam, sponsor, oath, purchase, birth, conscription |
+| Owed | What does the member give each cycle | time, coin (dues, tithe), contribution, service, tribute, silence |
+| Given | What does the member get | wage, stipend, rations, quarters, kit, medical care, access, protection, a ladder |
+| Rank | What the ladder is | grade, merit, quota, seniority, blood |
+| Exit | What leaving costs | notice, forfeit, return kit, debt, penalty, pursuit |
+| Enforcement | Who collects and how | HR and courts, elders, the order's keepers, a clerk, family, force, a quiet word |
+
+**Styles**
+
+| Style | Entry | Owed | Given | Rank | Exit | Enforcement | Default form (R3-4) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Company or employer | contract | time and work | wage, contract terms, benefits through HR | grade and tenure | notice period; clawback of an advance | HR, then courts | O6 statement, with O9 letters (notice, review) |
+| Cultivation sect | sponsor or trial | contribution points, missions | resource stipend by grade, cave or peak, techniques at a price | outer, inner, core, elder | forfeit techniques learned there; betrayal usually draws the heaviest penalty, with a pursuit | elders, a disciplinary hall | O7 card by grade; a contribution ledger beside it |
+| Church or order | oath or ordination | tithe, service, vows | sanctuary, care, ranks, a living | rank and merit | the order releases you, or it does not | the order's own keepers | O7 card; the Tingen merit and clearance ladder (O2) |
+| Guild | apprenticeship, fee | dues, a cut of jobs | licence, job board, tools, a name | apprentice, journeyman, master | licence lapses; dues arrears follow | guild officers, a code | O6 statement of dues and jobs; O8 when you owe several guilds |
+| Academy or school | exam or fee | fees, attendance, behaviour | access (library, rooms, mentors), meals, a degree | year, house, grade | suspension keeps skill; expulsion strips access | dean, prefects | O7 card, as in the prototype |
+| Military unit | conscription or enlistment | service, obedience | pay, rations, kit, quarters, medical care, a pension | rank | desertion forfeits arrears and keeps the debts; discharge returns kit | the chain of command | O6 statement; the A Soldier's Life case |
+| Noble house or clan | birth, marriage, oath | loyalty, service, levy | a stipend, lodging, protection, a name | blood and favour | disinheritance; obligations by blood outlast leaving | the head of house, family | O8 by counterparty (kin and creditors) with O7 for the retainer's own place |
+| Crime family or gang | introduction, a deed | tribute, protection money, silence | protection, territory, work, a loan | made, soldier, captain | pursuit; debts collected by force; a bounty | the crew's collector | O8 ("who comes knocking"), with collectors walking in (R2-9) |
+| Secret organization | recruitment | secrecy, assignments | a cover identity, resources, safe houses, a handler | cover rank and clearance | silence; a cover that burns; erased records | handlers, sealed oaths | O7 card kept cover-side; the real terms are an Insight line (R2-6), sealed per the world |
+| Adventurer or hunter association | registration, a test | quotas, a cut of bounties | licence, jobs, a rank card, storage, medical aid | rank by quota and bounties | quota missed means demotion, then cancellation | the guild hall, a ledger | O6 statement of quotas and bounties; O7 for the rank card |
+
+**How it stays data.** A style is a row in a table of dials plus a package of lines (R3-2). The UI reads the default form from the
+style row and the lines from the package, so a new style needs rows and a word for each dial, and no new view. A world picks a style
+or mixes two (a church that is also a bank, a gang that runs a guild), and a member may hold several memberships, shown through O8.
+
+**Per-style failure cases** reuse the R3-6 table: the sect row maps betrayal to the "leaving a sect" line; the gang row maps
+collection by force to "desertion", with the pursuit shown as a collector who walks in; the secret organization maps a burned cover
+to "dismissal for cause" with the cover-side card marked revoked.
+
+**LATER/DELEGATE (additions)**
+
+| Item | Level | Effort | Done check |
+| --- | --- | --- | --- |
+| Style dials table as data, with a test that each of the ten styles builds a valid package | sonnet | small | Focused test builds ten packages from rows and checks each has an exit line and an enforcer |
+| Check the sect and hunter-association rows against Reverend Insanity and A Regressor's Tale | haiku | small | Ids-only list of rows that confirm or contradict each cell (CLR3); Regressor's Tale needs its registry merged first |
+
+**Round 3 checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/benefits_fixtures.test.js` | 4/4 pass | Focused only; full `npm test` is the committer's gate |
+| `node scripts/build_figure_gallery.mjs` | pass, no game core in the closure | |
+| `slot_run --kind browser -- node scripts/capture_benefits_gallery.mjs` | 3 fixtures x full and effects-off at 1920x1080, 0 page errors, 6 PNG in `evidence/benefits/` | Gallery only; no gameplay wired, so no live walk |
