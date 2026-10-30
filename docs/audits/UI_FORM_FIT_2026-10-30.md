@@ -105,7 +105,7 @@ Form switch (`mountFormSwitch`): buttons Figure, Table, Matrix, Sentences (the c
 | Item | State |
 |---|---|
 | `figure_interact.js`, `figure_forms.js`, CSS in `styles/figure.css`, `data-from` and `data-to` hunk in `figure.js` | Implemented; `tests/figure_interact.test.js` (9 tests: neighbours, filter, compare, cards, arrow moves, change diff, attach and destroy with titles restored, keyboard, form switch). Browser-proven on the gallery at 1920x1080, 14 px and 21 px, effects off (42 screenshots, 0 page errors) |
-| Wired into People web, Knowledge board and Study map (`people_ui.js`, `knowledge_home.js`, `research_home.js`) | Implemented; the three views' existing tests pass. **Live-route browser proof of those panels: not done by this lane.** Labelled "implemented, below floor" until the bundle is rebuilt and the People, Journal Knows and Study routes are walked (FLR2, FLR1) |
+| Wired into People web, Knowledge board and Study map (`people_ui.js`, `knowledge_home.js`, `research_home.js`) | Implemented; the three views' existing tests pass. **People web: proven live** on rebuilt bundle `38532b70c739`, fresh life, earned elder greeting, 1920x1080 (`scripts/form_fit_live.cjs`; hover card, pin, Table and back to the Figure, text form kept; `evidence/.../live-people/`). The old `scripts/relationship_web_browser.cjs` no longer reaches the web (a Talk row is covered by the center panel before the click; unrelated to this change). **Knowledge board and Study map: implemented, below floor** (unit tests and gallery only; not walked in the game) |
 | Replacements | None. No measured gain was large; see short answer |
 | Measurement and capture scripts | `scripts/form_fit_measure.mjs`, `scripts/form_fit_capture.mjs` (rerunnable) |
 
@@ -120,8 +120,8 @@ Level: S small, M medium, L large. Done check is what proves the item.
 | Code | When | Item | Level, effort | Done check |
 |---|---|---|---|---|
 | A1 | ACT NOW (done) | Interaction layer and form switch with tests | M, shipped | `node --test tests/figure_interact.test.js` passes; gallery screenshots |
-| A2 | ACT NOW (done) | Wire into People web, Knowledge board, Study map | S, shipped | existing view tests pass; **below floor until walked in the rebuilt app** |
-| A3 | ACT NOW | Walk the three wired routes in the rebuilt game at 1920x1080 and attach the screenshots | S, 1 session | FLR1 hash named; hover, pin, table switch seen on each route |
+| A2 | ACT NOW (done) | Wire into People web, Knowledge board, Study map | S, shipped | People proven live; the other two **below floor** until walked (A3) |
+| A3 | ACT NOW | Walk the Journal Knows board and Study map routes in the rebuilt game at 1920x1080 and attach the screenshots (People is done) | S, 1 session | FLR1 hash named; hover, pin, table switch seen on each route |
 | N1 | ACCOUNT FOR NOW | Specs that want "why on hover" must carry `why` (relationship web edges, family heir mark, lives return block). Say so in each owner's next brief | S | each owner's spec builder sets `why` where it already holds the reason |
 | N2 | ACCOUNT FOR NOW | `rep-abilities` graph layout: keep `data-from` and `data-to` and `data-id` on whatever it draws so the layer attaches unchanged | S | `attachFigureInteract` on a layout-drawn figure in `figure_interact.test.js` |
 | N3 | ACCOUNT FOR NOW | UR proposal: any figure with edges ships through `mountFormSwitch` or names why it cannot (no new code UR until Weibao accepts) | S | UR text drafted in this doc, not accepted |

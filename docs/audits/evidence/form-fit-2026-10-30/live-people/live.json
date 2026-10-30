@@ -1,0 +1,17 @@
+{
+ "viewport": "1920x1080",
+ "route": "fresh life, elder greeting, People route",
+ "bundle": "http://127.0.0.1:18731/dist/bundle.js?version=v0.6-38532b70c739",
+ "steps": {
+  "switchButtons": [
+   "Figure",
+   "Table",
+   "Matrix"
+  ],
+  "figureDefault": "Figure",
+  "cardAfterHover": "You◆ ActiveNo links drawn.",
+  "pinned": "true",
+  "inspector": "Village elderKnownNo links drawn."
+ },
+ "pageErrors": []
+}
