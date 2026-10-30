@@ -23,3 +23,11 @@ Checked: Luna model in lane.json for all 11 later-volume lanes is gpt-6-luna. Sp
 - 2026-10-30, GM35: second-hand spread done: a `via` route waits for the carrier to learn by any route, chains allowed and loop-guarded; `whoKnows` answers "who could I ask by day D". ACT NOW (done). Existing person books already label a `reported` basis as a received account, so no change to `people_knowledge.js`.
 - 2026-10-30, GM35: a person's knowledge of an event can go stale (a rumour corrected by a later notice). LATER; level: engine; effort: small; done check: a later event with `supersedes: id` replaces the line's value in the knowledge write for people who learn both.
 - 2026-10-30, GM35: ordinary gossip links between named people come from the cast's relationships, not the pack; the host should generate `via` entries from relationship edges at bind time. LATER; level: host; effort: medium; owner: sw-wire with the person-memory lane.
+
+- 2026-10-30, GM38: only 11 of 155 placed city-scale rows are real restrictions; most war and raid news is just news. Region-wide effects load as enforced; text-only scopes load `unmapped` (shown, never enforced). ACT NOW (done). LATER: map `scopeText` to place and institution ids with the region pack (sw-absorb data line / sw-road); level: data; effort: small; done check: a closure closes a named institution in `region_kit` on its day.
+- 2026-10-30, v1: the merged volume 1 scenes are 316, not 338; 291 are the lead's own beats (the cast owns them), 25 happen without the lead and now run as world events with `present`. The 338 in the ledger counts raw beat rows before merging. ACCOUNT FOR NOW.
+
+## Morning block (L14, last commit)
+- **Committed:** `ae77aafda` reader and note, `650d3e775` volume 1 pack, `a2dc5ce6c` knowledge writes, `699a87eb6`/`f4b04a599` volumes 2-8, `bdc9de9b6` improvement pass, `9c7fb2ece` second-hand spread and `whoKnows`, `d9ce26b8b` restrictions, `1868f12ba` scene presence, and the final restriction-merge commit. 20 focused tests pass. Nothing pushed.
+- **Waiting on others:** host wiring (`sw-wire`), `scopeText` to place ids (region pack), `ctx.presence` and `ctx.channels` per person.
+- **Codex:** 30% at the last launch; one Luna lane this round.

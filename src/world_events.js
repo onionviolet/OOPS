@@ -61,7 +61,7 @@ export function restrictionsOn(book, day) {
         }
         return listed.filter(f => (f.fromDay ?? e.window.day) <= day && day <= (f.toDay ?? e.window.endDay)).map(f => ({eventId: e.id, kind: f.kind,
             places: f.places ?? (f.place ? [f.place] : e.place ? [e.place] : null), institutions: f.institutions ?? null, legs: f.legs ?? null, means: f.means ?? null,
-            hours: f.hours ?? null, hoursKnown: f.hoursKnown ?? f.hours != null, lineKey: e.lineKey ?? null}));
+            hours: f.hours ?? null, hoursKnown: f.hoursKnown ?? f.hours != null, unmapped: f.unmapped === true, scopeText: f.scopeText ?? null, lineKey: e.lineKey ?? null}));
     });
 }
 export const curfewsOn = (book, day) => restrictionsOn(book, day).filter(r => r.kind === 'curfew').map(r => ({eventId: r.eventId, place: r.places?.[0] ?? null}));
@@ -71,13 +71,14 @@ export const curfewsOn = (book, day) => restrictionsOn(book, day).filter(r => r.
 // reported in `notices` but do not close anything (default; the source gave no hours).
 export function openUnder(restrictions, {place = null, institution = null, leg = null, means = null, hour}) {
     const hits = restrictions.filter(r => {
+        if (r.unmapped) return true;   // scope known only as text: shown, never enforced, until place data names it
         if (r.kind === 'travel_halt') return (leg && r.legs?.includes(leg)) || (means && r.means?.includes(means)) || (!r.legs && !r.means && !!leg);
         if (r.institutions) return !!institution && r.institutions.includes(institution);
         if (r.legs || r.means) return false;
         return !r.places || (place && r.places.includes(place));
     });
     const inHours = h => !h || (h[0] < h[1] ? hour >= h[0] && hour < h[1] : hour >= h[0] || hour < h[1]);
-    const closing = hits.filter(r => r.kind === 'closure' ? !r.hours || inHours(r.hours) : r.hoursKnown && inHours(r.hours) || r.kind === 'travel_halt');
+    const closing = hits.filter(r => !r.unmapped && (r.kind === 'closure' ? !r.hours || inHours(r.hours) : r.hoursKnown && inHours(r.hours) || r.kind === 'travel_halt'));
     return {open: closing.length === 0, closedBy: closing.map(r => r.eventId), notices: hits.filter(r => !closing.includes(r) && !r.hoursKnown).map(r => r.eventId)};
 }
 

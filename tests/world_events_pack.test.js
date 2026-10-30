@@ -112,3 +112,20 @@ test('scenes the lead is not in happen anyway and are known only to those presen
     assert.deepEqual(knownTo(book, 'aly', 99, ctx).map(k => k.eventId), ['ev.s']);
     assert.deepEqual(knownTo(book, 'lead', 99, ctx).map(k => k.eventId), ['ev.r']);
 });
+
+test('restriction rows attach as effects; text-only scopes are unmapped notices, region scopes are enforced', async () => {
+    const {applyRestrictions, buildLaterPack} = await import('../scripts/world_events_build.mjs');
+    const {restrictionsOn, openUnder} = await import('../src/world_events.js');
+    const base = {kind: 'public_event', placement: 'ordinal', chapter: 3, scope: 'public', evidence: 'S', route: 'newspaper', delayDays: 0, what: 'x'};
+    const {pack} = buildLaterPack(2, [{id: 'a', ...base}, {id: 'b', ...base}]);
+    const n = applyRestrictions(pack.events, [
+        {id: 'a', kind_fix: 'curfew', effects: [{kind: 'curfew', scope: 'region', hours: [21, 5]}]},
+        {id: 'b', effects: [{kind: 'closure', scope: 'place', scope_text: 'a named hall'}]}, {id: 'ghost', effects: [{kind: 'closure', scope: 'region'}]}]);
+    assert.equal(n, 2);
+    const book = loadEventPack(pack, {bindings: {'lotm.v2.ch3': 9}});
+    const day = restrictionsOn(book, 9);
+    assert.equal(openUnder(day, {place: 'x', hour: 22}).open, false);
+    const unmapped = openUnder(day, {place: 'x', hour: 12});
+    assert.equal(unmapped.open, true);
+    assert.deepEqual(unmapped.notices, ['b']);
+});

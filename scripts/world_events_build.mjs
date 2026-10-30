@@ -22,6 +22,28 @@ const witnessed = row => row.route === 'witness' || row.route === 'overheard';
 // Reading acts ("content not stated") carry no event.
 const emptyRead = row => /content not stated/i.test(row.what ?? '');
 
+// Luna restriction rows (GM38) become event effects. A scope given only as text has no place id yet, so the effect is
+// `unmapped`: shown as a notice, never enforced, until place data names it. Region scope needs no ids.
+export function applyRestrictions(events, restrictRows) {
+    const byId = new Map(events.map(e => [e.id, e]));
+    let applied = 0;
+    for (const row of restrictRows) {
+        const event = byId.get(row.id);
+        if (!event) continue;
+        if (row.kind_fix) event.kind = row.kind_fix;
+        for (const f of row.effects ?? []) {
+            const effect = {kind: f.kind};
+            if (f.scope !== 'region') {effect.unmapped = true; effect.scopeText = f.scope_text ?? null;}
+            if (f.means) effect.means = [f.means];
+            if (Array.isArray(f.hours)) effect.hours = f.hours;
+            if (Number.isSafeInteger(f.durationDays) && event.window == null) effect.durationDays = f.durationDays;
+            (event.effects ??= []).push(effect);
+            applied++;
+        }
+    }
+    return applied;
+}
+
 // newsRows includes the source's id/chapter/scope metadata joined by the CLI.
 // Return the pack separately from facts so facts cannot enter the calendar.
 export function buildPack(sceneRows, newsRows) {
@@ -109,6 +131,7 @@ async function mainLater() {
         }
         if (!rows.length) continue;
         const {pack, privateFacts, counts} = buildLaterPack(volume, rows);
+        counts.restrictionEffects = applyRestrictions(pack.events, await readRows('restrict_class.jsonl').catch(() => []));
         await writeFile(new URL(`world_events_v${volume}.json`, privateDir), JSON.stringify(pack, null, 2) + '\n');
         await writeFile(new URL(`private_facts_v${volume}.json`, privateDir), JSON.stringify(privateFacts, null, 2) + '\n');
         console.log(JSON.stringify({volume, events: pack.events.length, privateFacts: privateFacts.length, ...counts}));
@@ -125,6 +148,7 @@ async function main() {
         return {...row, chapter: input.chapter, scope: input.scope, what: input.what};
     });
     const {pack, privateFacts, counts} = buildPack(scenes, rows);
+    counts.restrictionEffects = applyRestrictions(pack.events, await readRows('restrict_class.jsonl').catch(() => []));
     await writeFile(new URL('world_events_v1.json', privateDir), JSON.stringify(pack, null, 2) + '\n');
     await writeFile(new URL('private_facts.json', privateDir), JSON.stringify(privateFacts, null, 2) + '\n');
     console.log(JSON.stringify({events: pack.events.length, privateFacts: privateFacts.length, ...counts}, null, 2));
