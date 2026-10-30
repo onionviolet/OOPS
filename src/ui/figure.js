@@ -8,7 +8,8 @@
 //          progress is counted from the steps' states unless progress (words) is given; a vertical track runs bottom (first step) to top (a ladder).
 //          fill 0..1 draws a partial ring round the pip (digestion, mastery); note is its words, and the text form
 //          reads the note, or the fill as a percentage when there is no note, so the drawing never holds a fact alone.
-//   edge   {from, to, kind, label, state}                kinds take distinct line patterns in order of first use
+//   edge   {from, to, kind, label, state, detail?}       kinds take distinct line patterns in order of first use;
+//                                                        detail is plain words for the text form and hover only
 //   note   {text, state}                                 plain words, e.g. a risk line
 //   legend [{state|kind, label}]                         optional; derived from what is drawn when absent
 // States carry a mark glyph and a word, so no fact lives in shape or color alone (UR37). Effects (MDL8,
@@ -143,7 +144,7 @@ export function figureText(input) {
     const loose = spec.nodes.filter(node => node.ring === undefined);
     if (loose.length) lines.push(`Nodes: ${loose.map(node => `${node.label}${tag(node.state)}`).join('; ')}.`);
     for (const track of spec.tracks) lines.push(`Track ${track.label || track.id}, ${stepProgress(track)}: ${track.steps.map((step, i) => `${i + 1}. ${step.label}${stepTag(step)}`).join('; ')}.`);
-    for (const edge of spec.edges) lines.push(`${name.get(edge.from)} to ${name.get(edge.to)}: ${edge.kind}${edge.label ? `, ${edge.label}` : ''}${tag(edge.state)}.`);
+    for (const edge of spec.edges) lines.push(`${name.get(edge.from)} to ${name.get(edge.to)}: ${edge.kind}${edge.label ? `, ${edge.label}` : ''}${tag(edge.state)}.${edge.detail ? ` ${edge.detail}` : ''}`);
     for (const note of spec.notes) lines.push(`${note.state ? `${word(note.state)}: ` : ''}${note.text}`);
     for (const entry of spec.legend) lines.push(`Key: ${entry.state ? `${FIGURE_STATES[entry.state]} ${entry.state}` : entry.kind} means ${entry.label}.`);
     return lines.join('\n');
@@ -167,6 +168,32 @@ function wrap(text, max) {
 function anchorFor(deg, outward) {
     const cos = Math.cos(deg * Math.PI / 180), sin = Math.sin(deg * Math.PI / 180), s = outward ? 1 : -1;
     return {anchor: cos * s > .3 ? 'start' : cos * s < -.3 ? 'end' : 'middle', dy: sin * s > .3 ? 1 : sin * s < -.3 ? -1 : 0, dx: cos * s > .3 ? 1 : cos * s < -.3 ? -1 : 0};
+}
+
+// Edge labels: greedy, deterministic placement from estimated boxes (no layout reads). Each label tries points
+// along its own edge, then a small sideways shift, and takes the first that clears every marker and every label
+// already placed; when none is clear it takes the least overlapped one. Draw order decides who yields. Widths
+// assume the widest shipped face (Luminous bitmap, about 8.4 units a character), so narrower themes only gain room.
+const LABEL_CHAR_W = 8.5, LABEL_H = 16, LABEL_TS = [0, -.1, .1, -.2, .2, -.3, .3, -.4], LABEL_SIDE = [0, 13, -13, 26, -26, 40, -40];
+function edgeLabelPlacer(markerPoints, fixedBoxes = []) {
+    const boxes = [...fixedBoxes], pad = MARKER_R + 4;
+    const overlap = (a, b) => Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) * Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+    const cost = box => markerPoints.reduce((sum, m) => sum + overlap(box, {x0: m.x - pad, x1: m.x + pad, y0: m.y - pad, y1: m.y + pad}), 0) +
+        boxes.reduce((sum, other) => sum + overlap(box, other), 0);
+    return ({x1, y1, x2, y2, t, words}) => {
+        const w = words.length * LABEL_CHAR_W + 6, len = Math.hypot(x2 - x1, y2 - y1) || 1, nx = -(y2 - y1) / len, ny = (x2 - x1) / len;
+        const at = (dt, side) => { const s = Math.min(.85, Math.max(.15, t + dt)); return {x: x1 + (x2 - x1) * s + nx * side, y: y1 + (y2 - y1) * s + ny * side}; };
+        const box = p => ({x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y - LABEL_H / 2, y1: p.y + LABEL_H / 2});
+        // First clear candidate in preference order; otherwise the least overlapped one.
+        let best = null;
+        search: for (const side of LABEL_SIDE) for (const dt of LABEL_TS) {
+            const p = at(dt, side), c = cost(box(p));
+            if (!best || c < best.c) best = {p, c};
+            if (c === 0) break search;
+        }
+        boxes.push(box(best.p));
+        return best.p;
+    };
 }
 
 /**
@@ -243,14 +270,23 @@ export function renderFigure(node, input, options = {}) {
     const edgeLayer = make('g', {class: 'fig-edges'});
     const pairs = new Map();
     for (const edge of spec.edges) { const key = [edge.from, edge.to].sort().join('|'); pairs.set(key, [...(pairs.get(key) || []), edge]); }
+    // Loose markers put their label under themselves, often where spokes meet; keep edge labels off it.
+    const looseLabels = markers.filter(({marker}) => marker.ring === undefined).map(({marker, at: p}) => {
+        const w = Math.max(...wrap(marker.label, 14).map(row => row.length)) * LABEL_CHAR_W + 6, rows = wrap(marker.label, 14).length;
+        return {x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y + MARKER_R + 4, y1: p.y + MARKER_R + 6 + rows * LABEL_H};
+    });
+    const placeLabel = edgeLabelPlacer(markers.map(entry => entry.at), looseLabels);
     for (const group of pairs.values()) group.forEach((edge, i) => {
         const a = at.get(edge.from), b = at.get(edge.to), dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
         const t = .55 + (i - (group.length - 1) / 2) * .3, ux = dx / len, uy = dy / len, shift = (i - (group.length - 1) / 2) * 24, nx = -uy * shift, ny = ux * shift;
         const x1 = a.x + ux * MARKER_R + nx, y1 = a.y + uy * MARKER_R + ny, x2 = b.x - ux * MARKER_R + nx, y2 = b.y - uy * MARKER_R + ny;
         const g = make('g', {class: `fig-edge ${kindClass(edge.kind)}${stateClass(edge.state)}`, 'data-kind': edge.kind});
-        g.append(make('title', {}, `${edge.kind}${edge.label ? `: ${edge.label}` : ''}${tag(edge.state)}`));
+        g.append(make('title', {}, `${edge.kind}${edge.label ? `: ${edge.label}` : ''}${tag(edge.state)}${edge.detail ? `. ${edge.detail}` : ''}`));
         g.append(make('line', {class: 'fig-edge-line', x1: round1(x1), y1: round1(y1), x2: round1(x2), y2: round1(y2)}));
-        if (edge.label || edge.state) g.append(make('text', {class: 'fig-edge-label', x: round1(x1 + (x2 - x1) * t), y: round1(y1 + (y2 - y1) * t + 4), 'text-anchor': 'middle'}, `${edge.state ? FIGURE_STATES[edge.state] + ' ' : ''}${edge.label || edge.kind}`));
+        if (edge.label || edge.state) {
+            const words = `${edge.state ? FIGURE_STATES[edge.state] + ' ' : ''}${edge.label || edge.kind}`, p = placeLabel({x1, y1, x2, y2, t, words});
+            g.append(make('text', {class: 'fig-edge-label', x: round1(p.x), y: round1(p.y + 4), 'text-anchor': 'middle'}, words));
+        }
         edgeLayer.append(g);
     });
     svg.append(edgeLayer);
@@ -264,8 +300,10 @@ export function renderFigure(node, input, options = {}) {
         g.append(make('circle', {class: 'fig-body', cx: round1(p.x), cy: round1(p.y), r: MARKER_R}));
         g.append(make('text', {class: 'fig-glyph', x: round1(p.x), y: round1(p.y + 5), 'text-anchor': 'middle'}, marker.glyph || (marker.state ? FIGURE_STATES[marker.state] : '')));
         if (marker.glyph && marker.state) g.append(make('text', {class: 'fig-badge', x: round1(p.x + MARKER_R - 2), y: round1(p.y - MARKER_R + 4), 'text-anchor': 'middle'}, FIGURE_STATES[marker.state]));
-        const rows = wrap(marker.label, marker.kind === 'slot' ? 9 : 14);
         const centred = marker.ring === undefined, outward = marker.kind !== 'slot', a = anchorFor(p.deg, outward);
+        // A label beside its marker wraps to the room left before the figure's edge, so wide faces never clip.
+        const room = a.dx > 0 ? S - (p.x + MARKER_R + 8) : a.dx < 0 ? p.x - MARKER_R - 8 : Infinity;
+        const rows = wrap(marker.label, Math.max(5, Math.min(marker.kind === 'slot' ? 9 : 14, Math.floor(room / LABEL_CHAR_W))));
         if (centred) lines(g, p.x, p.y + MARKER_R + 16, rows, {class: 'fig-label', 'text-anchor': 'middle'});
         else {
             const gap = MARKER_R + 8, top = a.dy === 0 ? p.y + 4 - (rows.length - 1) * 8 : a.dy > 0 ? p.y + gap + 8 : p.y - gap - (rows.length - 1) * 16;

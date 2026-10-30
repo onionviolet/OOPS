@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:18617/",
+  "viewport": "1920x1080",
+  "fingerprint": "http://127.0.0.1:18617/dist/bundle.js?version=v0.6-f0b79723b9f2",
+  "findings": [
+    "Fresh life, earned route: greeting the elder shows the web in People route (known-people) with the elder and the text form: [\"Who knows what about you\",\"Only what you have seen, agreed or can read from them now. Hover a line for detail.\",\"Ring Known, 1 places: 1. Village elder.\",\"Nodes: You (active).\",\"No agreement or shared event yet with Village elder.\",\"Unknown: Manner is read only face to face; nothing read now for anyone you know.\"]",
+    "Fixture route (generated save, craftsman greeting): enrolling, asking his habits and paying the commission adds \"owes you: a commissioned kit\" and \"saw\" edges; his hidden trust axis (1) does not appear."
+  ],
+  "errors": [],
+  "generatedSavesOnly": true,
+  "text": {
+    "fresh": "Who knows what about you\nOnly what you have seen, agreed or can read from them now. Hover a line for detail.\nRing Known, 1 places: 1. Village elder.\nNodes: You (active).\nNo agreement or shared event yet with Village elder.\nUnknown: Manner is read only face to face; nothing read now for anyone you know.\nKey: ? unknown means heard from someone you cannot name, or not known to you.",
+    "commissioned": "Who knows what about you\nOnly what you have seen, agreed or can read from them now. Hover a line for detail.\nRing Known, 2 places: 1. Village elder; 2. Old craftsman (current).\nNodes: You (active).\nOld craftsman to You: owes, owes you: a commissioned kit (pending).\nOld craftsman to You: saw, saw 2 deeds. Saw: You supplied the agreed wood and payment for a kit; and You asked how he prefers to work.\nOld craftsman to You: manner, warmer. Seen here now: Warmer toward you since you asked about his working habits.\nNo agreement or shared event yet with Village elder.\nUnknown: Manner is read only face to face; nothing read now for 1 of them.\nKey: owes means who owes whom.\nKey: saw means what they saw you do.\nKey: manner means their manner, seen here now.\nKey: · pending means still open.\nKey: ▶ current means here now.\nKey: ? unknown means heard from someone you cannot name, or not known to you."
+  }
+}
