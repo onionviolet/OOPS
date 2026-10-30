@@ -53,7 +53,7 @@ One `figure.js` API: `track.orient`, `track.progress` (words), step `fill` and `
 - `check:arch` exit 0 and `check:rules` PASS (5 warnings), run after the merge.
 - Focused tests per branch pass (figure, contract, rite, ladder, family, combat, walk board/map, character sheet, body, relationship web, return digest, items, first hour).
 - `tests/cast_journeys.test.js` test 10 (native place-panel journey) **fails identically on bare master** (checked in a scratch worktree of master HEAD 562669b7: 9 pass, 1 fail), so it is not from this merge.
-- Full suite: see the last line of this section.
+- Full suite (load-gated, concurrency 4, 4476 tests): 4455 pass, 15 skipped, 6 fail. Fixed after the run, each re-run alone and green: `ui_contract` (49 literal-style entries from the draft rep CSS added to `tests/ui_contract_allowlist.json` as a named integration reset: body_view, character_sheet, crafting_detail, figure, item_card, research, settled_text_effects, style.css; **migrate them to tokens**), `ui_contract` surface check (`research` surface added to `LAYOUT_SPEC`), `seat_profiles` route count 20 to 21 (the Knows route). Remaining 3 are the same on bare master: `cast_journeys` test 10 (verified in a scratch master worktree) and two private-root CLI tests (pre-existing per the coordinator).
 
 ## Floor state
 

@@ -1,5 +1,5 @@
 {
-  "note": "Exact existing exceptions, never file-wide. Token consumers and unresolved inline styles are retained explicitly. Remove exceptions when migrated.",
+  "note": "Exact existing exceptions, never file-wide. Token consumers and unresolved inline styles are retained explicitly. Remove exceptions when migrated. Integration 2026-10-30: draft rep-branch styles (body_view, character_sheet, crafting_detail, figure, item_card, research, settled_text_effects, style.css) merged with literal values; migrate them to tokens (see MERGE_RECEIPT).",
   "entries": [
     {
       "key": "index.html|color|10126e14ba0e4189",
@@ -2412,7 +2412,7 @@
       "path": "style.css",
       "rule": "type",
       "snippet": "font-weight: bold",
-      "count": 31
+      "count": 33
     },
     {
       "key": "style.css|type|d2817955e00ce038",
@@ -2967,7 +2967,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "spacing",
       "snippet": "margin: round(.3rem, 1px) 0",
-      "count": 1,
+      "count": 2,
       "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
     },
     {
@@ -2999,7 +2999,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "spacing",
       "snippet": "gap: 0 round(.4em, 1px)",
-      "count": 1,
+      "count": 2,
       "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
     },
     {
@@ -3095,7 +3095,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "spacing",
       "snippet": "margin-bottom: round(.3rem, 1px)",
-      "count": 1,
+      "count": 2,
       "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
     },
     {
@@ -3151,7 +3151,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "spacing",
       "snippet": "margin: 0 0 round(.3rem, 1px)",
-      "count": 2,
+      "count": 3,
       "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
     },
     {
@@ -3199,7 +3199,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "spacing",
       "snippet": "gap: round(.3em, 1px)",
-      "count": 1,
+      "count": 2,
       "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
     },
     {
@@ -3239,7 +3239,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "spacing",
       "snippet": "gap: round(.2rem, 1px) round(.35rem, 1px)",
-      "count": 1,
+      "count": 2,
       "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
     },
     {
@@ -3261,7 +3261,7 @@
       "path": "styles/crafting_detail.css",
       "rule": "type",
       "snippet": "font-weight: 700",
-      "count": 4
+      "count": 7
     },
     {
       "key": "styles/crafting_detail.css|type|68f438bc70ebd824",
@@ -4558,7 +4558,7 @@
       "path": "styles/settled_text_effects.css",
       "rule": "type",
       "snippet": "font-weight: bold",
-      "count": 3
+      "count": 5
     },
     {
       "key": "styles/settled_text_effects.css|type|be13156b7af9a5d7",
@@ -6255,6 +6255,286 @@
       "snippet": "transition-duration: .001ms !important",
       "count": 1,
       "reason": "The reduced-motion kill switch itself."
+    },
+    {
+      "key": "styles/body_view.css|declaration|132965843c70d140",
+      "path": "styles/body_view.css",
+      "rule": "declaration",
+      "snippet": "border-radius: 999px",
+      "count": 3
+    },
+    {
+      "key": "styles/body_view.css|spacing|00b886b7240c3ac7",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin: 1em 0 0.3em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|186f1ecdc94c081e",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "padding: 0.15em 0.6em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|2e9c1d062e7a6e21",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 0.5em",
+      "count": 2
+    },
+    {
+      "key": "styles/body_view.css|spacing|34c0e57383afa01d",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 0.75em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|777f935868d60729",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin: 0.5em 0",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|7c327069ec74bddb",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: 0.3em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|8d94a979725932ff",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 0.5em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|acbe287e42c6b9d6",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin: 0.1em 0",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|ba58dcf8ff0c7f5c",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "padding: 0.3em 0.6em 0.3em 0",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|cd5e14a93f636742",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "margin: 0.25em 0.25em 0 0",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|spacing|d6375e4befcb6141",
+      "path": "styles/body_view.css",
+      "rule": "spacing",
+      "snippet": "gap: 0.4em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|type|018e18ec8e7c21d3",
+      "path": "styles/body_view.css",
+      "rule": "type",
+      "snippet": "font-weight: 600",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|type|42b63dc4b1915d8b",
+      "path": "styles/body_view.css",
+      "rule": "type",
+      "snippet": "font-size: 1em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|type|c7907c16b5f41244",
+      "path": "styles/body_view.css",
+      "rule": "type",
+      "snippet": "font-size: 0.8em",
+      "count": 2
+    },
+    {
+      "key": "styles/body_view.css|type|d90fb9c3142e8931",
+      "path": "styles/body_view.css",
+      "rule": "type",
+      "snippet": "font-size: 0.85em",
+      "count": 1
+    },
+    {
+      "key": "styles/body_view.css|type|ec46f02e62f36073",
+      "path": "styles/body_view.css",
+      "rule": "type",
+      "snippet": "font-size: 0.9em",
+      "count": 2
+    },
+    {
+      "key": "styles/character_sheet.css|declaration|fff194f53b06025f",
+      "path": "styles/character_sheet.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-space-1)",
+      "count": 1
+    },
+    {
+      "key": "styles/character_sheet.css|motion|428646c522528a4a",
+      "path": "styles/character_sheet.css",
+      "rule": "motion",
+      "snippet": "animation: cs-firm 900ms ease-out 1",
+      "count": 1
+    },
+    {
+      "key": "styles/character_sheet.css|type|19184b18838e1dd5",
+      "path": "styles/character_sheet.css",
+      "rule": "type",
+      "snippet": "font-size: calc(var(--custom-size, var(--ui-type-body)) * 8 / 7)",
+      "count": 1
+    },
+    {
+      "key": "styles/character_sheet.css|type|29b663753f3e5e96",
+      "path": "styles/character_sheet.css",
+      "rule": "type",
+      "snippet": "line-height: 1.3",
+      "count": 4
+    },
+    {
+      "key": "styles/character_sheet.css|type|78bc37c63880baab",
+      "path": "styles/character_sheet.css",
+      "rule": "type",
+      "snippet": "line-height: 1.35",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|038cfabfb9fcefe9",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.4em, 1px)",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|2f8472f7e73b1ebe",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(.4em, 1px)",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|6773ab9c12219142",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.4rem, 1px)",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|bc3eb6f1ee3ba2c6",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.15rem, 1px) round(.8rem, 1px)",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|c21ddda23f2847e0",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: round(.35rem, 1px)",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|f57177bbffc2eacd",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.2rem, 1px) 0",
+      "count": 1
+    },
+    {
+      "key": "styles/figure.css|declaration|32572dd612f5c850",
+      "path": "styles/figure.css",
+      "rule": "declaration",
+      "snippet": "border-radius: 0",
+      "count": 1
+    },
+    {
+      "key": "styles/figure.css|type|29b663753f3e5e96",
+      "path": "styles/figure.css",
+      "rule": "type",
+      "snippet": "line-height: 1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/figure.css|type|8d3349edbb282da0",
+      "path": "styles/figure.css",
+      "rule": "type",
+      "snippet": "font-size: 12px",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|spacing|0510c9e273c65446",
+      "path": "styles/item_card.css",
+      "rule": "spacing",
+      "snippet": "padding:.1em .3em .1em 0",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|spacing|13ae3b99475e62f1",
+      "path": "styles/item_card.css",
+      "rule": "spacing",
+      "snippet": "padding:0 .45em",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|spacing|508df737085914da",
+      "path": "styles/item_card.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 .15em",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|spacing|a82099ff0aa25d7e",
+      "path": "styles/item_card.css",
+      "rule": "spacing",
+      "snippet": "padding:.1em .6em",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|spacing|bab0d81075497e91",
+      "path": "styles/item_card.css",
+      "rule": "spacing",
+      "snippet": "padding-left:1.2em",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|type|1dac370ff8f63e75",
+      "path": "styles/item_card.css",
+      "rule": "type",
+      "snippet": "line-height:1.5",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|type|ab4e75a8e357205d",
+      "path": "styles/item_card.css",
+      "rule": "type",
+      "snippet": "font-size:.9em",
+      "count": 1
+    },
+    {
+      "key": "styles/item_card.css|type|c1109e0d129e4ad3",
+      "path": "styles/item_card.css",
+      "rule": "type",
+      "snippet": "font-size:.85em",
+      "count": 1
+    },
+    {
+      "key": "styles/research.css|spacing|bab0d81075497e91",
+      "path": "styles/research.css",
+      "rule": "spacing",
+      "snippet": "padding-left:1.2em",
+      "count": 1
     }
   ]
 }

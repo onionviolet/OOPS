@@ -214,6 +214,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'customization-sites': surface(UNSET),
         // Round 12 (2026-10-19, proposals): reference sections that read existing state. Opened from
         // More panels or the command palette; none adds a route, so the navigation bar keeps its size.
+        'research': surface('ST6', {home: 'Right dock beside the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'known-things': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['knowledge'], contexts: ['idle', 'travel', 'service']}),
         'statistics': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['work', 'combat', 'inventory'], contexts: ['idle', 'travel', 'service']}),
         'today': surface('ST5', {home: 'Beside the actions; Journal companion space', frequency: 'frequent', status: 'proposal', reads: ['time', 'place', 'work'], contexts: ['idle', 'travel']}),
