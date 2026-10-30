@@ -71,3 +71,25 @@ Also the live panels the coverage audit flagged as still long (Village experimen
 Order: wait for R2-0 and Weibao's pick to check that the method works, then R2-1 and R2-3 (largest gaps), then the rest. Budget: each run is about 1-2% of the week; all six would pass the weekly cap, so after R2-0 they run from the 2026-11-02 reset unless Weibao says otherwise.
 
 State 2026-10-30 night: R2-1 done `8e777f646` (picks: gathering G3 counted bed with G2 season strip, walks W1 departure board); R2-3 done `193409638` (picks: W1 who-knows grid, F1 register for family, F3 life stack for lives, S1 rung bars or S3 rank cards). Lesson: blocks need a word under them; bare blocks and initials (H2, W2, W3, F2) push meaning into hover. Remaining runs R2-2, R2-4, R2-5, R2-6 wait for the 2026-11-02 reset.
+
+## How much abstraction (Weibao 2026-10-30: "HOw much abstraction is too much abstraction? Just the right amount of detail?" then "MOre to consider?")
+
+Base answer (round 0): name the noun in words, encode the state in shape; the two-second test (answer the view's one question without hover; hover is for why and how, never what); detail set by the decision it serves, how often the view is seen, how many items (about seven before grouping) and the stakes; earned abstraction (words first, blocks once familiar).
+
+### Round 1 (proposals; codes AB1-AB12)
+
+ACCOUNT FOR NOW (constraints on the coming variant runs and on wiring the picks):
+- AB1. Detail follows knowledge. What the character knows is drawn crisp; what is guessed is outlined; what is unknown is fog or a dim block. Abstraction carries the knowledge model (observerView, UR80, sealed secrets) instead of fighting it.
+- AB2. Precision is earned. Numbers can be bands ("about 20 min", "a few left") until a skill, tool or cheat gives the exact value (the COMBAT note that appraisal turns a word into a number). Default: exact where the game already knows and the character would; bands elsewhere.
+- AB3. Exceptions break the abstraction. A strained, late, dangerous or closing thing expands itself with words (H3's meters appear only when strained; OVERDUE stamps). Quiet when fine, loud when not.
+- AB4. One state grammar everywhere: glowing filled = have or know, hairline = possible or guessed, dim or hatched = locked, lost or unknown, amber = needs care. A block means the same thing in housing, people and places; the style guide shows it once.
+- AB5. Three densities per representation: glance (a side column or strip, 1-5 words), panel (the variants, 10-40 words), inspector (full detail and the text form). Each figure spec can render at any of the three.
+
+LATER / DELEGATE (level, effort, done check):
+- AB6. Earned abstraction as a mechanism: a per-system familiarity count (opens, uses) switches labels from explained to terse; hover keeps the words. Sonnet medium; done when a fresh life shows explained labels and the same view after N uses shows terse ones, saved across reload.
+- AB7. Player density dial in Appearance (Explained, Standard, Terse), adjective not fixed (AD22). Sonnet low after AB5; done when the dial changes the three densities live.
+- AB8. Per-world abstraction level (AD46): a bureaucratic world shows ledgers in detail, a wild world shows blocks; a world-look token picks the default density. With `ui-identity` per-world skins (O2).
+- AB9. Measure it: a gallery and UI check reporting visible words per view, blocks without an accessible name, and facts reachable only by hover. Extends `uiCheck`. Sonnet low; done when the check flags H2's pips and W2's initials.
+- AB10. Search over hidden text: one search box over the "read as text" forms so detail moved off screen is still findable. Sonnet low.
+- AB11. The smallest surfaces: the Electron window title, dock badge and tray show the glance density (what needs you now). Sonnet low; done when a strained state shows in the title while the window is hidden.
+- AB12. Motion carries change: a block filling or dimming as time passes says "changed" without a sentence; respects the effects setting. Fold into FLA work.
