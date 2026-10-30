@@ -38,7 +38,7 @@ Handoffs link to owners rather than copying another competing specification.
 Code areas load their rules automatically from `.claude/rules/` by path. Open the
 [rules index](docs/RULES_INDEX.md) router when a task makes or changes a design
 rule, needs a rule code for a lane brief, or touches an aspect with no path rule;
-AD1–AD45 restate the accepted direction for aspects without their own rulebook.
+AD1–AD46 restate the accepted direction for aspects without their own rulebook.
 Cite codes in task records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
 router rows, and a new or changed accepted decision updates its AD line. Lane

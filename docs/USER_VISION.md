@@ -6927,6 +6927,14 @@ Second follow-up, same day:
 
 Reading: each world chooses its own progression system and its own progression UI, with nuance per world. The LOTM sequence ladder is one example among many, not a template. The shared path graph is the plumbing underneath, not a shared look.
 
+## Each world chooses its own systems and their UI (standing rule, 2026-10-30)
+
+> Taking'We can use different progression systems/progression UI rather than just forcing the LOTM one? we can choose/add nuance for each world accordingly? More to consider? Other representations?' into consideration as a long term implementation rule and apply the same ideas for other stuff too?
+>
+> progression might just be working on improving skills knowledge and stats and equipement in general and more?
+
+Reading: this is a lasting rule for every system, not only progression. Each world chooses its own version of each system, and that version's UI, with nuance. Examples: progression, economy and institutions, combat, making, magic, social standing, law, time, travel, knowledge. No world's version is the template for the others. Shared engine seams stay world-neutral plumbing underneath. Progression in particular is broader than paths and ranks: it is any lasting improvement, whether skills, knowledge, stats, equipment, relationships, standing or wealth. A world may have no rank system at all and still have progression. Owner: [AD46](RULES_INDEX.md#accepted-direction-rules-ad).
+
 ## Asks recovered from chats (recorded 2026-10-30)
 
 Weibao's words, kept verbatim with typos. Recovered by gap audit items G13 and G14
