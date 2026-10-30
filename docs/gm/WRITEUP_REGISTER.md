@@ -125,6 +125,10 @@ the writeups with their codes. Default recommendations are proposals, not accept
 - **Not changed:** GM_PLAN, PROJECT.md and the master plan were not edited in this pass;
   routed cards wait for Weibao's decisions, then the owners get dated hunks.
 
+### Pass 2, 2026-10-30
+
+- **Added:** [done-chats audit](../audits/DONE_CHATS_AUDIT_2026-10-30.md), covering 49 chats from 2026-10-29 to 2026-10-30 morning. Its findings are F1-F12, its proposals O1-O10, and its asks of Weibao A1-A5. Not yet read by him. Nothing has been routed to owners yet: the proposals wait on A2 (the next wave) and A4 (the hook and limiter).
+
 ## 5b. Adoption (2026-10-27)
 
 Weibao's words are in [USER_VISION](../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27).
