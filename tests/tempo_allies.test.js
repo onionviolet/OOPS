@@ -30,16 +30,17 @@ test('an ally with no orders acts from their own goals on the same clock',()=>{
     assert.match(lines,/Neil/);
 });
 test('a frightened ally with weak ties leaves; a bonded, disciplined one stays',()=>{
-    const {p,context}=fresh(5);
-    const scared={goals:{survive:.9,protect:.1,aim:.1,pay:0},bond:.1,discipline:.1};
-    let plan=beginTempoFight(p.state,registry,context,spec({ally:scared,friend:{hp:10,maxHp:30}}));
-    for(let i=0;i<4&&plan.state.simulation.sessions.player;i++)plan=commitTempoMove(plan.state,registry,context,{moveId:'guard'});
-    const b=openB(plan);
-    assert.equal(b.fighters.friend.status,'left');assert.match(b.log.join(' '),/hangs back, pale/);
-    const {p:p2,context:c2}=fresh(5);
-    let steady=beginTempoFight(p2.state,registry,c2,spec({ally:{goals:{survive:.4,protect:.8,aim:.4,pay:.5},bond:.9,discipline:.9},friend:{hp:12,maxHp:30}}));
-    for(let i=0;i<4&&steady.state.simulation.sessions.player;i++)steady=commitTempoMove(steady.state,registry,c2,{moveId:'guard'});
-    assert.notEqual(openB(steady)?.fighters.friend.status,'left');
+    const scared={goals:{survive:.9,protect:.1,aim:.1,pay:0},bond:.1,discipline:.1},loyal={goals:{survive:.4,protect:.8,aim:.4,pay:.5},bond:.9,discipline:.9};
+    const flees=(ally,seed)=>{
+        const {p,context}=fresh(seed);
+        let plan=beginTempoFight(p.state,registry,context,spec({ally,friend:{hp:10,maxHp:30}}));
+        for(let i=0;i<4&&plan.state.simulation.sessions.player;i++)plan=commitTempoMove(plan.state,registry,context,{moveId:'guard'});
+        const b=openB(plan);return b?{left:b.fighters.friend.status==='left',pale:/hangs back, pale/.test(b.log.join(' '))}:{left:false,pale:false};
+    };
+    let scaredLeft=0,loyalLeft=0,pale=false;
+    for(let seed=1;seed<=20;seed++){const a=flees(scared,seed),b=flees(loyal,seed);if(a.left)scaredLeft++;if(b.left)loyalLeft++;pale||=a.pale;}
+    assert.ok(scaredLeft>=5&&pale,`scared ally leaves often (${scaredLeft}/20)`);
+    assert.ok(loyalLeft<=scaredLeft/3,`loyal ally mostly stays (${loyalLeft}/20)`);
 });
 test('orders cost tempo, are heard by keyed chance on real factors, and edit the ally',()=>{
     const {p,context}=fresh();

@@ -159,3 +159,10 @@ test('a fight left by withdrawing still writes its one witnessed memory per pair
     const pairs=found.memoryEffects.map(e=>`${e.holder}>${e.subject}`);
     assert.equal(new Set(pairs).size,pairs.length);
 });
+
+test('an exact tie in ready time and speed is settled per fight, not by name (calibration finding)',()=>{
+    let first={player:0,foe1:0};
+    for(let seed=1;seed<=60;seed++){const {p,context}=fresh(seed);const plan=beginTempoFight(p.state,registry,context,spec({player:{perception:20,stealth:20},foe:{perception:20,stealth:20}}));
+        const b=plan.state.simulation.sessions.player?.nativeBattle;if(b)first[b.actions===0?'player':'foe1']++;}
+    assert.ok(first.player>10&&first.foe1>10,`both fighters get the first move sometimes (${JSON.stringify(first)})`);
+});

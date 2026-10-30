@@ -1,0 +1,13 @@
+{
+  "note": "Archetype matchups for the tempo fight engine. Bands are proposals (LSD350) set before the first run; there is no canon fight in chapters 1-24 of the first lead book to calibrate against (see P8_CALIBRATION.md), so bands change only on a stated reason.",
+  "policy": "steady",
+  "cases": [
+    {"id": "even-duel", "say": "Two equal fighters, no edge.", "player": {"hp": 40, "attack": 1}, "foes": [{"hp": 40, "attack": 1}], "bands": {"won": [0.35, 0.65]}},
+    {"id": "outmatched", "say": "The foe hits twice as hard with the same health.", "player": {"hp": 40, "attack": 1}, "foes": [{"hp": 40, "attack": 2}], "bands": {"lost": [0.6, 1]}},
+    {"id": "overmatching", "say": "The player hits twice as hard.", "player": {"hp": 40, "attack": 2}, "foes": [{"hp": 40, "attack": 1}], "bands": {"won": [0.6, 1]}},
+    {"id": "ambushed", "say": "Even fighters, but the player is caught off guard.", "player": {"hp": 40, "attack": 1, "perception": 1, "stealth": 1}, "foes": [{"hp": 40, "attack": 1, "perception": 30, "stealth": 30}], "bands": {"won": [0.2, 0.5]}},
+    {"id": "bonded-ally-two-foes", "say": "A bonded, disciplined friend beside the player against two equal foes.", "player": {"hp": 40, "attack": 1}, "ally": {"bond": 0.9, "discipline": 0.9, "goals": {"survive": 0.4, "protect": 0.8, "aim": 0.4, "pay": 0.5}}, "foes": [{"hp": 40, "attack": 1}, {"hp": 40, "attack": 1}], "bands": {"allyFled": [0, 0.15]}},
+    {"id": "fearful-ally-two-foes", "say": "A hireling who values his skin and has little tie to the player.", "player": {"hp": 40, "attack": 1}, "ally": {"bond": 0.1, "discipline": 0.1, "goals": {"survive": 0.9, "protect": 0.1, "aim": 0.1, "pay": 0}}, "foes": [{"hp": 40, "attack": 1}, {"hp": 40, "attack": 1}], "bands": {"allyFled": [0.4, 1]}},
+    {"id": "careful-retreat", "say": "The player plays safe: brace, tend, back away when hurt, against a stronger foe.", "policy": "safe", "player": {"hp": 40, "attack": 1}, "foes": [{"hp": 40, "attack": 1.6}], "bands": {"withdrawn": [0.25, 0.9]}}
+  ]
+}

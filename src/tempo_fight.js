@@ -20,7 +20,7 @@ export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateT
 // not laws. Draws are keyed (LSD139): same situation, same result on replay.
 export const TEMPO_DIALS = {
     heldCapMinutes: {value: 7 * 24 * 60, why: 'Away time is kept, but a week is the longest one fight can bank.'},
-    surpriseDelay: {value: 8, why: 'A surprised side loses about two quick moves before it can act.'},
+    surpriseDelay: {value: 3, why: 'A surprised side loses about one quick move before it can act. Calibration (P8) found two moves made an ambush a near-certain loss.'},
     mishapCap: {value: .35, why: 'Even the worst conditions leave most moves working.'},
     guardBonus: {value: 2, why: 'A braced fighter takes a little less from the next blow.'},
     logLines: {value: TEMPO_LOG_LINES, why: 'The log is a short readable tail, not history.'},
@@ -44,11 +44,14 @@ const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].
 const round1 = n => Math.round(n * 10) / 10;
 const scaled = (move, f) => Math.max(1, Math.round(move.cost * 100 / (f.speed * oddsOf(f).speed)));
 
+// Equal ready time and speed is settled by a per-fight shuffle, never by name: calibration (P8) showed an id-order tie handed the first blow to the foe every time.
+const tieRank = (b, id) => { let h = (b.seed ^ 0x9e3779b9) >>> 0; for(const ch of id) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0; return h; };
+const byTurn = b => (x, y) => b.fighters[x].ready - b.fighters[y].ready || b.fighters[y].speed - b.fighters[x].speed || tieRank(b, x) - tieRank(b, y) || (x < y ? -1 : 1);
 export function nextActor(b) {
-    return active(b).sort((x, y) => b.fighters[x].ready - b.fighters[y].ready || b.fighters[y].speed - b.fighters[x].speed || (x < y ? -1 : 1))[0] || null;
+    return active(b).sort(byTurn(b))[0] || null;
 }
 export function actingOrder(b, count = 3) {
-    return active(b).sort((x, y) => b.fighters[x].ready - b.fighters[y].ready || b.fighters[y].speed - b.fighters[x].speed || (x < y ? -1 : 1)).slice(0, count);
+    return active(b).sort(byTurn(b)).slice(0, count);
 }
 const draw = (b, method, subject, extra = {}) => drawFraction(b.seed, checkKey({subject: `${b.id}:${subject}`, method, period: {at: b.actions}, targetState: extra, attemptState: {now: b.now}}));
 
