@@ -12,6 +12,7 @@ import {favourite_items} from './runtime_state.js';
 import './material_lineage_domain.js';
 import './beat_ledger.js';
 import './canon_pull.js';
+import './canon_pull_panel.js';
 import {configureFields} from './field_layer_domain.js';
 import {domainRegistry} from './domain_registry.js';
 import {configureGearWorkshop} from './gear_workshop_domain.js';
@@ -27,10 +28,12 @@ import {configurePledges} from './pledges_domain.js';
 import {configureLifeEvents} from './life_events_domain.js';
 import {configureSkillRecords} from './skill_records_domain.js';
 import {configureReturnDigest} from './return_digest_domain.js';
+import {configureAwayBank} from './away_bank_domain.js';
 
 // Native composition for the two carried-tool owners. Neither domain configures
 // the other. The independent lamp factory receives only its supported operations.
 export function configureNativeToolDomains(operations) {
+    configureAwayBank({root: operations.root, persist: operations.persist, writable: operations.writable, fastForward: operations.fastForward, furnaceAssigned: operations.furnaceAssigned});
     configureHpBrewingDomain({persist: operations.persist, writable: operations.tradeWritable || operations.writable,
         world: operations.world, inventory: () => operations.actor().getItems(), itemOwners: operations.itemOwners,
         assertSpend: operations.assertSpend,

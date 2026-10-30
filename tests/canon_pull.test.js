@@ -98,3 +98,22 @@ test('save slice: absent loads empty, empty writes no key, export/import round-t
 test('seat table covers the five seats with the lead highest', () => {
     assert.equal(Math.max(...Object.values(PULL_SEATS)), PULL_SEATS.be);
 });
+
+test('host tick: a declined dose is pulled back or stands, once per day, and an accepted one needs no pull', async () => {
+    const {canonPullTick, PULL_DECLINED} = await import('../src/canon_pull_host.js');
+    const outcomes = [];
+    for (let seed = 0; seed < 400; seed++) {
+        const first = canonPullTick(emptyPull(), {facts: {[PULL_DECLINED]: true}, day: 2, worldSeed: seed});
+        if (first.records[0].outcome === 'restored') {
+            assert.deepEqual(first.effects[0], {type: 'fact', scope: 'actor', actor: 'player', key: PULL_DECLINED, value: false});
+            assert.equal(first.pull.beats.day, 2);
+            assert.equal(canonPullTick(first.pull, {facts: {[PULL_DECLINED]: true}, day: 2, worldSeed: seed}).records.length, 0);   // idempotent per day
+            outcomes.push('restored');
+        }
+        if (first.records[0].outcome === 'deviated') outcomes.push('deviated');
+    }
+    assert.ok(outcomes.includes('restored') && outcomes.includes('deviated'));
+    const held = canonPullTick(emptyPull(), {facts: {[PULL_DECLINED]: false}, day: 2, worldSeed: 1});
+    assert.deepEqual(held.records, []);
+    assert.equal(held.pull.beats.done['lotm.v1.pull.b1'].status, 'carried');
+});

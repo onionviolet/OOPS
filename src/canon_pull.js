@@ -22,7 +22,8 @@ export const PULL_SLICE = 'canonPull';
 const clamp01 = x => Math.max(0, Math.min(1, x));
 const LIMITS = Object.freeze({records: 200, disturbance: 200, string: 200});
 
-export const emptyPull = () => ({schema: 1, disturbance: [], spent: {}, records: []});
+// beats: the resolver's own {done, day} for host-ticked pulls (facts are re-read from the game each tick).
+export const emptyPull = () => ({schema: 1, disturbance: [], spent: {}, records: [], beats: {done: {}, day: 0}});
 
 // One push from the player or the world: it reaches the beats it names and what hangs on them,
 // halving per causal hop (LSD222), and stops where no link carries it.
@@ -151,15 +152,16 @@ export function deviationChronicle(pull) {
 const plain = v => v !== null && typeof v === 'object' && !Array.isArray(v) && Object.getPrototypeOf(v) === Object.prototype;
 export function validateCanonPull(slice) {
     if (slice == null) return;
-    check(plain(slice) && slice.schema === 1 && Object.keys(slice).every(k => ['schema', 'disturbance', 'spent', 'records'].includes(k)), 'Invalid canon pull slice.');
+    check(plain(slice) && slice.schema === 1 && Object.keys(slice).every(k => ['schema', 'disturbance', 'spent', 'records', 'beats'].includes(k)), 'Invalid canon pull slice.');
     check(Array.isArray(slice.disturbance) && slice.disturbance.length <= LIMITS.disturbance, 'Invalid canon pull disturbance.');
     for (const d of slice.disturbance) check(plain(d) && typeof d.id === 'string' && d.id.length <= LIMITS.string && natural(d.day) && d.weight > 0 && d.weight <= 1 && Array.isArray(d.reaches) && d.reaches.every(r => typeof r === 'string') && (d.label == null || typeof d.label === 'string'), 'Invalid canon pull push.');
     check(plain(slice.spent) && Object.entries(slice.spent).every(([k, v]) => k && k !== '__proto__' && natural(v)), 'Invalid canon pull spend.');
     check(Array.isArray(slice.records) && slice.records.length <= LIMITS.records, 'Invalid canon pull records.');
+    if (slice.beats != null) check(plain(slice.beats) && natural(slice.beats.day) && plain(slice.beats.done) && Object.values(slice.beats.done).every(r => plain(r) && typeof r.status === 'string' && natural(r.day)), 'Invalid canon pull beats.');
     for (const r of slice.records) check(plain(r) && typeof r.beat === 'string' && natural(r.day) && PULL_OUTCOMES.includes(r.outcome), 'Invalid canon pull record.');
 }
-export const isEmptyPull = s => !s.disturbance.length && !s.records.length && !Object.keys(s.spent).length;
-const restore = slice => slice == null ? emptyPull() : (validateCanonPull(slice), structuredClone(slice));
+export const isEmptyPull = s => !s.disturbance.length && !s.records.length && !Object.keys(s.spent).length && !(s.beats?.day > 0);
+const restore = slice => slice == null ? emptyPull() : (validateCanonPull(slice), {...emptyPull(), ...structuredClone(slice)});
 
 let held = emptyPull();
 registerDomain({id: PULL_SLICE, initialState: () => null,
