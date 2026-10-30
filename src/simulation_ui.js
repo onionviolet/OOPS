@@ -1,3 +1,5 @@
+import {domainRegistry} from './domain_registry.js';
+import {reactionLine} from './person_memory_effects.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {previewSimulationCommand, inspectSimulationEvents} from "./simulation.js";
 import {everydayScene} from "./everyday_life.js";
@@ -32,7 +34,8 @@ export function createSimulationPanel({registry, read, command}) {
         if(panel.hidden)return;
         enroll.hidden = !!s; enroll.disabled = !enabled || !!error;
         description.textContent = s ? "His supplies, work and agreements are remembered between visits." : "Follow the craftsman's work and local changes. This begins now, with no invented past history or closed-browser losses.";
-        personal.textContent = s ? everydayScene(state, context.facts) : ""; personal.hidden = !personal.textContent;
+        const memoryManner = s && s.people.oldCraftsman?.life === 'alive' && s.people.oldCraftsman.location === context.facts.location && Number.isSafeInteger(context.facts.calendarMinute) ? reactionLine({memory:domainRegistry.command('memory','read')?.(),holder:'oldCraftsman',subject:'player',day:Math.floor(context.facts.calendarMinute/1440),root:s.seed,baseline:s.relationships.oldCraftsman?.player?.axes}) : '';
+        personal.textContent = s ? [everydayScene(state, context.facts), memoryManner].filter(Boolean).join(' ') : ""; personal.hidden = !personal.textContent;
         for(const [id,b] of controls) {
             if(!s) {b.hidden = true; continue;}
             const d = registry.simulation.commands.get(id), ctx = {...context, targetId: d.targetId || null};

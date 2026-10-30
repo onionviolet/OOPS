@@ -1,3 +1,5 @@
+import {createMemoryDomain} from './person_memory.js';
+import {calendarMinutes} from './world_rhythm.js';
 import {deferSimulationRender} from './simulation_render.js';
 // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
 export function createDomainRegistry() {
@@ -51,3 +53,10 @@ export function createDomainRegistry() {
 }
 export const domainRegistry=createDomainRegistry();
 export const registerDomain=domainRegistry.registerDomain;
+
+// Envelopes without a game calendar (tests, partial saves) validate with no future-day bound.
+const memoryDay = envelope => { try { return Math.floor(calendarMinutes(envelope?.['current time']) / 1440); } catch { return Number.MAX_SAFE_INTEGER; } };
+const memoryDomain = createMemoryDomain({day: memoryDay});
+// An empty memory writes no save key, so saves without memories keep their shape.
+const memorySave = () => { const slice = memoryDomain.save(); return Object.keys(slice.holders).length ? slice : undefined; };
+registerDomain({...memoryDomain, save: memorySave, commands:{...memoryDomain.commands, read:memoryDomain.save, publish:memoryDomain.load}});

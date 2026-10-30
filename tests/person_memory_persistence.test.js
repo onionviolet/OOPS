@@ -17,8 +17,9 @@ test('real Save, reload, Export and literal Import retain episodes, hearsay and 
             await symlink(join(root, entry.name), join(dir, entry.name), entry.isDirectory() ? 'dir' : 'file');
     }
     const patch = 'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR1_INTEGRATION.patch';
-    let integrated = true;
-    try { await exec('git', ['apply', '-R', '--check', join(root, patch)], {cwd: root}); } catch { integrated = false; }
+    // MR2's combined patch carries this registration forward; either form counts as integrated.
+    let integrated = (await readFile(join(root, 'src/domain_registry.js'), 'utf8')).includes('createMemoryDomain');
+    if (!integrated) try { await exec('git', ['apply', '-R', '--check', join(root, patch)], {cwd: root}); integrated = true; } catch {}
     if (!integrated) await exec('git', ['apply', join(root, patch)], {cwd: dir});
     const arch = await exec(process.execPath, ['scripts/check_architecture.mjs'], {cwd: dir, timeout: 60000, maxBuffer: 1024 * 1024});
     t.diagnostic('Prepared integration architecture: ' + arch.stdout.trim());
@@ -39,10 +40,10 @@ const g = await boot(null, {seed: 37, heroName: null});
 try {
  let saved = await g.save();
  const day = Math.floor(calendarMinutes(saved['current time']) / 1440);
- assert.deepEqual(saved.memory, freshMemory());
+ assert.deepEqual(saved.memory ?? freshMemory(), freshMemory()); // empty memory writes no key
  const old = structuredClone(saved); delete old.memory;
  g.module.mr1Validate(old); await g.importFile('YAIR-UTF8-1:' + Buffer.from(JSON.stringify(old)).toString('base64'));
- assert.deepEqual((await g.save()).memory, freshMemory(), 'absent slice loads empty');
+ assert.deepEqual((await g.save()).memory ?? freshMemory(), freshMemory(), 'absent slice loads empty');
  const record = episode({kind:'helped',about:'person.b',fact:'fact.a',source:'saw',certainty:90,feeling:40,day}, day);
  let memory = freshMemory();
  for(let i = 0; i < 45; i++) memory = remember(memory, 'person.a', {...record, fact:'fact.' + i}, day);

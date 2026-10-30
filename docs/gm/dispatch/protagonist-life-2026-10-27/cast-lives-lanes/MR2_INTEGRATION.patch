@@ -1,0 +1,97 @@
+diff --git a/src/domain_registry.js b/src/domain_registry.js
+index 5ce4d6548..907a054c4 100644
+--- a/src/domain_registry.js
++++ b/src/domain_registry.js
+@@ -1,3 +1,5 @@
++import {createMemoryDomain} from './person_memory.js';
++import {calendarMinutes} from './world_rhythm.js';
+ import {deferSimulationRender} from './simulation_render.js';
+ // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
+ export function createDomainRegistry() {
+@@ -51,3 +53,10 @@ export function createDomainRegistry() {
+ }
+ export const domainRegistry=createDomainRegistry();
+ export const registerDomain=domainRegistry.registerDomain;
++
++// Envelopes without a game calendar (tests, partial saves) validate with no future-day bound.
++const memoryDay = envelope => { try { return Math.floor(calendarMinutes(envelope?.['current time']) / 1440); } catch { return Number.MAX_SAFE_INTEGER; } };
++const memoryDomain = createMemoryDomain({day: memoryDay});
++// An empty memory writes no save key, so saves without memories keep their shape.
++const memorySave = () => { const slice = memoryDomain.save(); return Object.keys(slice.holders).length ? slice : undefined; };
++registerDomain({...memoryDomain, save: memorySave, commands:{...memoryDomain.commands, read:memoryDomain.save, publish:memoryDomain.load}});
+diff --git a/src/expansion_persistence.js b/src/expansion_persistence.js
+index db281bbf9..ab19a7e65 100644
+--- a/src/expansion_persistence.js
++++ b/src/expansion_persistence.js
+@@ -1,3 +1,6 @@
++import {domainRegistry} from './domain_registry.js';
++import {memoryForPlan} from './person_memory_effects.js';
++import {calendarMinutes} from './world_rhythm.js';
+ import {validateExpansionState} from "./expansion_engine.js";
+ import {writeOwnershipToEnvelope} from "./acquisition.js";
+ import {publishDefeat} from "./defeat_domain.js";
+@@ -52,11 +55,15 @@ function writeExpansionPlan(plan, {createSave, storage, key, bindings, ownership
+         target[parts.at(-1)] = structuredClone(value);
+     }
+     nativePublication?.write(envelope);
++    const memoryCandidate = envelope['current time'] ? memoryForPlan({memory:envelope.memory,plan,minute:calendarMinutes(envelope['current time']),day:Math.floor(calendarMinutes(envelope['current time'])/1440)}) : null;
++    if(memoryCandidate && (Object.hasOwn(envelope, 'memory') || Object.keys(memoryCandidate.memory.holders).length)) envelope.memory = memoryCandidate.memory;
++    if(memoryCandidate?.causes) envelope.expansion.simulation.causes = memoryCandidate.causes;
+     if(validateEnvelope) validateEnvelope(envelope);
+     const committed = JSON.stringify(envelope);
+     // Native life-save ownership can consume the already detached envelope.
+     // Keep the serialized return and validation point identical to string stores.
+     if(storage.setEnvelope) storage.setEnvelope(key, envelope);
+     else storage.setItem(key, committed);
++    if(memoryCandidate) domainRegistry.command('memory','publish')?.(memoryCandidate.memory);
+     return committed;
+ }
+diff --git a/src/simulation_effects.js b/src/simulation_effects.js
+index 7f1afa2cf..911428dea 100644
+--- a/src/simulation_effects.js
++++ b/src/simulation_effects.js
+@@ -1,3 +1,4 @@
++import {derivedBond} from './person_memory_effects.js';
+ import {readFactsFrame,invalidateFactsInput,withFactsMutation} from './facts_frame.js';
+ import {domainRegistry} from './domain_registry.js';
+ import {hpFacts} from './book_world_hp_facts.js';
+@@ -217,7 +218,7 @@ function buildSimulationFacts(state, context, registry) {
+             facts[`target.knowledge.${id}.seen`] = true;
+             facts[`target.knowledge.${id}.understood`] = knowledge.stage === 'understood';
+         }
+-        for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = v;
++        for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = Number.isSafeInteger(context.facts?.calendarMinute) ? derivedBond({memory:domainRegistry.command('memory','read')?.(),holder:actor,subject:context.targetId,axis:k,baseline:v,day:Math.floor(context.facts.calendarMinute/1440)}) : v;
+         // Only observations are exposed here. Actual hidden builds remain private.
+         for(const [k,v] of Object.entries(s.knowledge[actor] || {}).filter(([k]) => k.startsWith(`person.${context.targetId}.`))) facts[k] = v.value;
+     }
+@@ -372,8 +373,9 @@ function applyEffects(plan, effects, context, registry, cause, {spending = false
+             const relations = s.relationships[actor] ||= {}, r = relations[e.target] ||= {axes: {}, memories: []};
+             // A repeated delivery of a cause cannot farm favorability.
+             const receipt = `${cause}:${actor}:${e.target}:${e.axis}`;
+-            if(!s.causes[receipt]) {
++            if(!Object.hasOwn(s.causes, receipt)) {
+                 const next = (r.axes[e.axis] || 0) + e.amount; assert(finite(next), "Relationship overflow."); r.axes[e.axis] = next;
++                if(e.amount) (plan.memoryEffects ||= []).push({holder:actor, subject:e.target, cause, axis:e.axis, amount:e.amount, text:e.text, clock:state.clock});
+                 r.memories.push({cause, at: state.clock, text: e.text || e.axis}); r.memories = r.memories.slice(-32); s.causes[receipt] = state.clock;
+             }
+         } else if(e.type === "claim") {
+diff --git a/src/simulation_ui.js b/src/simulation_ui.js
+index ab1247e56..643077d9d 100644
+--- a/src/simulation_ui.js
++++ b/src/simulation_ui.js
+@@ -1,3 +1,5 @@
++import {domainRegistry} from './domain_registry.js';
++import {reactionLine} from './person_memory_effects.js';
+ import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
+ import {previewSimulationCommand, inspectSimulationEvents} from "./simulation.js";
+ import {everydayScene} from "./everyday_life.js";
+@@ -32,7 +34,8 @@ export function createSimulationPanel({registry, read, command}) {
+         if(panel.hidden)return;
+         enroll.hidden = !!s; enroll.disabled = !enabled || !!error;
+         description.textContent = s ? "His supplies, work and agreements are remembered between visits." : "Follow the craftsman's work and local changes. This begins now, with no invented past history or closed-browser losses.";
+-        personal.textContent = s ? everydayScene(state, context.facts) : ""; personal.hidden = !personal.textContent;
++        const memoryManner = s && s.people.oldCraftsman?.life === 'alive' && s.people.oldCraftsman.location === context.facts.location && Number.isSafeInteger(context.facts.calendarMinute) ? reactionLine({memory:domainRegistry.command('memory','read')?.(),holder:'oldCraftsman',subject:'player',day:Math.floor(context.facts.calendarMinute/1440),root:s.seed,baseline:s.relationships.oldCraftsman?.player?.axes}) : '';
++        personal.textContent = s ? [everydayScene(state, context.facts), memoryManner].filter(Boolean).join(' ') : ""; personal.hidden = !personal.textContent;
+         for(const [id,b] of controls) {
+             if(!s) {b.hidden = true; continue;}
+             const d = registry.simulation.commands.get(id), ctx = {...context, targetId: d.targetId || null};

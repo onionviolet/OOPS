@@ -1,3 +1,6 @@
+import {domainRegistry} from './domain_registry.js';
+import {memoryForPlan} from './person_memory_effects.js';
+import {calendarMinutes} from './world_rhythm.js';
 import {validateExpansionState} from "./expansion_engine.js";
 import {writeOwnershipToEnvelope} from "./acquisition.js";
 import {publishDefeat} from "./defeat_domain.js";
@@ -52,11 +55,15 @@ function writeExpansionPlan(plan, {createSave, storage, key, bindings, ownership
         target[parts.at(-1)] = structuredClone(value);
     }
     nativePublication?.write(envelope);
+    const memoryCandidate = envelope['current time'] ? memoryForPlan({memory:envelope.memory,plan,minute:calendarMinutes(envelope['current time']),day:Math.floor(calendarMinutes(envelope['current time'])/1440)}) : null;
+    if(memoryCandidate && (Object.hasOwn(envelope, 'memory') || Object.keys(memoryCandidate.memory.holders).length)) envelope.memory = memoryCandidate.memory;
+    if(memoryCandidate?.causes) envelope.expansion.simulation.causes = memoryCandidate.causes;
     if(validateEnvelope) validateEnvelope(envelope);
     const committed = JSON.stringify(envelope);
     // Native life-save ownership can consume the already detached envelope.
     // Keep the serialized return and validation point identical to string stores.
     if(storage.setEnvelope) storage.setEnvelope(key, envelope);
     else storage.setItem(key, committed);
+    if(memoryCandidate) domainRegistry.command('memory','publish')?.(memoryCandidate.memory);
     return committed;
 }
