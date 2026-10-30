@@ -58,9 +58,52 @@ export function buildPack(sceneRows, newsRows) {
     }};
 }
 
+// Volumes 2-8 have no scene frames: a placed row runs at its chapter, bound by the host as beat `lotm.v<N>.ch<chapter>`.
+export function buildLaterPack(volume, newsRows) {
+    const events = [], privateFacts = [];
+    for (const row of newsRows) {
+        // A route with no stated delay (a diary, say) has no delivery day, so it spreads nowhere.
+        const spread = row.route === 'none' || !Number.isSafeInteger(row.delayDays) ? [] : [{route: row.route, delayDays: row.delayDays,
+            ...(row.via ? {via: row.via, audience: row.audience} : {})}];
+        const event = {id: row.id, key: `lotm.v${volume}.${row.id}`, lineKey: `news.${row.id}`, kind: row.kind,
+            placement: row.placement === 'ordinal' && Number.isSafeInteger(row.chapter) ? 'ordinal' : 'unplaced',
+            scope: row.scope, evidence: row.evidence, spread};
+        if (row.chapter != null) event.chapter = row.chapter;
+        if (row.kind === 'private_fact') {privateFacts.push({...event, durationDays: row.durationDays}); continue;}
+        if (event.placement === 'ordinal') event.ordinal = {beat: `lotm.v${volume}.ch${row.chapter}`};
+        events.push(event);
+    }
+    const pack = {schema: 1, world: 'lotm', events};
+    loadEventPack(pack);
+    return {pack, privateFacts, counts: {kind: tally([...events, ...privateFacts], 'kind'), placement: tally(events, 'placement'), route: tally(newsRows, 'route')}};
+}
+
 const readRows = async name => (await readFile(new URL(name, privateDir), 'utf8')).split(/\r?\n/).filter(line => line.trim()).map(JSON.parse);
 
+async function mainLater() {
+    for (const volume of [2, 3, 4, 5, 6, 7, 8]) {
+        const parts = [''].concat(['a', 'b']).map(x => `v${volume}${x}`);
+        const rows = [];
+        for (const part of parts) {
+            let source, classified;
+            try {[source, classified] = await Promise.all([`news_in_${part}.jsonl`, `news_class_${part}.jsonl`].map(readRows));} catch {continue;}
+            const metadata = new Map(source.map(row => [row.id, row]));
+            for (const row of classified) {
+                const input = metadata.get(row.id);
+                check(input, 'Missing news metadata.');
+                rows.push({...row, chapter: input.chapter, scope: input.scope});
+            }
+        }
+        if (!rows.length) continue;
+        const {pack, privateFacts, counts} = buildLaterPack(volume, rows);
+        await writeFile(new URL(`world_events_v${volume}.json`, privateDir), JSON.stringify(pack, null, 2) + '\n');
+        await writeFile(new URL(`private_facts_v${volume}.json`, privateDir), JSON.stringify(privateFacts, null, 2) + '\n');
+        console.log(JSON.stringify({volume, events: pack.events.length, privateFacts: privateFacts.length, ...counts}));
+    }
+}
+
 async function main() {
+    if (process.argv.includes('--later')) return mainLater();
     const [scenes, classified, source] = await Promise.all(['scene_days.jsonl', 'news_class.jsonl', 'news_in.jsonl'].map(readRows));
     const metadata = new Map(source.map(row => [row.id, row]));
     const rows = classified.map(row => {
@@ -75,5 +118,5 @@ async function main() {
 }
 
 if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
-    main().catch(() => {console.error('World event pack build failed; inspect the private input metadata.'); process.exitCode = 1;});
+    main().catch(e => {if (process.env.DEBUG_BUILD) console.error(e); console.error('World event pack build failed; inspect the private input metadata.'); process.exitCode = 1;});
 }

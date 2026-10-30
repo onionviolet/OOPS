@@ -73,3 +73,12 @@ test('loader rejects malformed envelopes and delegates invalid records and ancho
     assert.throws(() => frameBindings(pack, ['a'], () => -1), /binding day/);
     assert.throws(() => buildPack(scenes, [news('bad', {placement: 'ordinal', frame: 'missing'})]), /Unknown news frame/);
 });
+
+test('later volumes place a row at its chapter beat and keep private facts off the calendar', async () => {
+    const {buildLaterPack} = await import('../scripts/world_events_build.mjs');
+    const row = (id, extra) => ({id, kind: 'public_event', placement: 'ordinal', chapter: 7, scope: 'public', evidence: 'S', route: 'newspaper', delayDays: 1, ...extra});
+    const {pack, privateFacts} = buildLaterPack(3, [row('a'), row('b', {kind: 'private_fact', route: 'none'}), row('c', {chapter: null}), row('d', {placement: 'unplaced'})]);
+    assert.deepEqual(pack.events.map(e => [e.id, e.placement]), [['a', 'ordinal'], ['c', 'unplaced'], ['d', 'unplaced']]);
+    assert.equal(pack.events[0].ordinal.beat, 'lotm.v3.ch7');
+    assert.deepEqual(privateFacts.map(f => f.id), ['b']);
+});
