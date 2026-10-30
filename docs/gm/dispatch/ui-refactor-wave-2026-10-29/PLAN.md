@@ -33,11 +33,65 @@ Shared weekly pool with the proposed [sonnet wave](../sonnet-wave-2026-10-30/PLA
 
 Results: R1 seat seam `src/observer_view.js` (4 sites migrated, ratchet tests); R2 `src/ui/scene_card.js` drawing the Village encounter cards; R3 `src/ui/figure.js` with the figure gallery (`npm run build:figures`, evidence PNGs here); R4 SUI, RPT, CLR and CX moved to standing rulebooks with stubs; R5 `scripts/adopt_candidate.mjs` (first load: PLAY screen about 2.3 s, workspace 0.14 s after PLAY, bundle 7.8 MB, about 8,900 DOM nodes). Browser floor for R2 in the live game is still owed.
 
-## Open defect routed out (receipt, 2026-10-30)
+## Representation sessions (Opus, one worktree each)
 
-LOTM classic walks refused in the browser with "Knowledge needs its actual situation context." Fixed on branch `claude/great-ritchie-bf0b79` (commit message "LOTM: walks wait for report_in..."). If the maps branch carries its own copy of this heading, keep one and merge the receipt below into it.
+Started 2026-10-30 00:2x from `a742581ac`: relationship web, family tree, abilities, combat, rituals and making, maps, time and chronicle, knowledge, body and conditions, economy and institutions, worlds and crossings. Started 01:2x: character sheet and inspection. Round 2 brief: [ROUND2_BRIEF](ROUND2_BRIEF.md), sent at 01:30.
 
-- Cause: the browser start state is enrolled, not yet reported in. Walks need only enrollment, but their arrival record cites the workroom situation (`I.situation`), which begins at `report_in`; the saved-state check (`simulation_contracts.js:245`) then rejected the commit. Node tests always reported in first. After a real report-in the walk already worked (the earlier "persists after report" came from a probe selector matching a "Find step" button).
-- Fix (host only, definitions untouched because `tests/lotm_commands_golden.test.js` pins them): `book_world_lotm_host.js` `move()` refuses a classic walk before the situation exists, and `view()` lists it ineligible with "Report in at the workroom before you walk the district." Cast lives are unchanged. Behaviour change: a new probationer walks only after reporting in.
-- Checks: `tests/lotm_districts.test.js` 8/8 (new test fails without the fix, 7/8); `lotm_commands_golden`, `lotm_examination`, `lotm_cast_week` pass. `scripts/playtest/lotm-walk-probe.mjs` through the slot limiter, bundle `97d5486515298bee`, 1920x1080 headless: report in, then walk, "You walk there.". `tests/cast_journeys.test.js` test 10 (native place-panel journey) fails identically with the host change reverted, so it is not caused by this fix (a worker subprocess dies under machine load; not investigated).
-- Gaps: probe does not assert the disabled walk before report-in (unit test covers it). No state shape change, so no save/reload/export/import run. Review state: agent-verified, not human-reviewed.
+Staggered queue (Weibao: "stagger them"), one started as a running session finishes: crafting and workshops; potion mixing and alchemy; items and inventory; talk and dialogue; homes and base building; gathering, nature and seasons; quests, goals and the first hour; companions and party. Each gets the round 1 brief shape plus round 2.
+
+| Time | Event | Weekly | 5-hour |
+| --- | --- | --- | --- |
+| 10-30 01:24 | Eleven running; character sheet started | 45% | 84% (resets 01:29) |
+
+## Open defect routed out (2026-10-30 01:3x)
+
+MT-F1 from the maps session: on master `4a83cac9a`, every `book.lotm.walk_*` command in a fresh Tingen probationer life is refused with "Knowledge needs its actual situation context.", thrown at `src/causal_situations.js:57` (`validateKnowledgeBasis`) from `move()` in `src/book_world_lotm_host.js:200`. It persists after "Report to the supervisor" and without the maps change; `tests/lotm_districts.test.js` passes in node, so the browser start state differs. Lead: `know()` in `src/book_world_lotm_kit.js:16` cites `I.situation`, which starts only at report-in. Repro: `node scripts/playtest/walk-map-probe.mjs <out>` on branch `claude/rep-maps-be2acb`. Owner: the LOTM host lane (cast lives); this wave does not edit those files.
+
+## Read models from the sonnet wave (2026-10-30 01:5x)
+
+From the sonnet wave coordinator ([plan](../sonnet-wave-2026-10-30/PLAN.md), "Gap workers past volume 1"): representation sessions read these engine read models rather than defining their own. Merge review checks each branch against this list.
+
+| Representation | Read model owner |
+| --- | --- |
+| Character sheet, inspection | `sw-chars`: `src/character_sheets.js`, `sheetAsOf(personId, chapterRef)` (WA50) |
+| Abilities, combat | `sw-adv`: typed ability record and ladder (L10 note) |
+| Rituals, potion mixing | `sw-rites`: `src/lotm_divination_rows.js`, summons, formula and recipe rows |
+| Body, time and chronicle | `sw-death`: harm, backlash, death and restart (L9 note) |
+| Maps, economy, worlds, organizations | `sw-road`: region kit, travel legs, personas (L11 note) |
+| Relationship web | `sw-absorb`: cast records (knows, relations, wants) |
+
+`sw-absorb` owns `src/book_world_lotm_{host,state,cast_host}.js`; the walks fix coordinates with it before editing them.
+
+## Heavy gates (2026-10-30 02:0x)
+
+Full suites, builds and browser captures run through the machine-wide slot limiter `scripts/slot_run.mjs` (L12; suite and build share 2 slots, browser 1; worktrees older than it use the absolute path `/Users/weiwei/code/yet-another-idle-rpg/scripts/slot_run.mjs`). Sent to the seven working sessions; the idle ones get it with their next message, and the merge uses it.
+
+## Read-model bridges (L13, master `6ed148ae4`)
+
+At merge, each representation switches to its bridge in `src/read_models/` with one import (RCT1, RCT4): abilities `ability_ladder_bridge.js` (`ladderViewFromRecord`), combat `combat_situation_bridge.js` (`versusWithEngine`), maps `travel_legs_bridge.js` (`legsFromRoute`, and delete the label-prefix match), character sheet `character_sheet_bridge.js` (`subjectFromDatedSheet`, `standingRows`), body `body_bridge.js` (`bodyViewFromHarm`). Gaps G1-G13 in `docs/gm/dispatch/sonnet-wave-2026-10-30/L13_BRIDGES.md`. Open asks to the representation side: honour `row.guess` on sheet rows (G10, character sheet) and confirm the maps window shape `{hours,text,waitMinutes}` (G6, maps). Messages to those sessions wait for the cap to clear.
+
+## Next wave (2026-10-30 02:3x, weekly 53%)
+
+Started on Sonnet: the integrator (merges the eighteen branches in RCT1 order, builds the contract test, switches adapters to the L13 bridges, lands the walks fix after checking with `sw-absorb`, receipt in `MERGE_RECEIPT.md`, no push), plus items and inventory, quests and the first hour, and talk and dialogue. Still queued: homes and base building, gathering and seasons, companions and party. After the merge, each finished feature's next slice comes from its own LATER list as a Sonnet session on merged master; the Opus feature sessions retire.
+
+L13 additions: `time_digest_bridge.js` (present goes to Around; heard, affected and aftermath to Missed; G15) wired at merge. Post-merge contracts named for unbridged models: G14 gatherings and TC12 curfews go to the upcoming strip (time); G17 `learnView` to a Skills and techniques tab in the abilities ladder; G18 `whoKnows` to the Knows home with an ask action into talk.
+
+## Morning block (2026-10-30, master `9b8a166b`, not pushed)
+
+**Playable now (agent-verified, not human-reviewed):** 21 feature views merged; the post-merge 1920×1080 pass reached 7 of 8 checked views (talk, Ledger Owed, items, family, body, walking board, Tingen workroom tabs). Full suite before landing: 4455 of 4476, failures fixed. Walks work again (the fix was overwritten once by a later commit and restored at `064fd773`).
+
+**Below floor:** the Village encounter card was not reached by its proof script (likely the script's fixed date); the other features rely on branch evidence and unit and contract tests.
+
+**Found, not fixed:**
+- The talk view's center content covers the native "hello" line, so clicks on it are intercepted.
+- A hidden duplicate `report_in` button sits behind the workroom tabs.
+- Tingen header shows "Local weather unavailable" and "Local date unavailable" (round 8 UIW4).
+- The first-visit tab hint reads as panel text.
+- 49 style literals allowlisted instead of tokens (UR6 debt); four proof scripts are stale against the talk view and workroom tabs.
+
+**Needs Weibao (at most five):**
+1. Push master (it carries other sessions' commits too).
+2. Adopt the new build into the Electron app (`scripts/adopt_candidate.mjs`).
+3. Answer the UI rules packet P1-P16.
+4. Start the queued Sonnet lanes: token migration and proof-script refresh, then homes, gathering and companions.
+5. Look at the figure gallery and the new views and say which drafts are worth keeping.
