@@ -234,6 +234,12 @@ edit in `GENERATION_FOUNDATION_RULES_2026-10-14.md` (+28/−6), and the modular-
 session's uncommitted cross-link notes in three of the engine thread's review docs.
 Those notes say "M3 remains stopped", which the later M3 resume (B4) superseded.
 
+**Stale primary checkout after worktree merges, 2026-10-30 (D2).** The UI integration worktree moved `master` with `update-ref` (`ed631daa`, `064fd773`, `9b8a166b`) without syncing the primary checkout. The primary index then held an older tree: 389 staged deletions, 41 staged modifications, about 16,900 lines. Its working copies were stale too, and one lane edited a stale `src/book_world_lotm_host.js` and dropped a fix in `51541c7f` (restored in `064fd773`). Repair, with no local edit touched:
+- **Recovery point:** the stale index tree was saved as `db36eac0645f916ad9de3bcd0690ed1dc0492804`.
+- **Synced:** the 430 paths whose working copy still equalled the stale index blob were brought to HEAD with `git checkout HEAD --pathspec-from-file`.
+- **Kept:** 4 paths with live working-tree edits (`dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md`) were unstaged index-only with `git restore --staged`. Their old staged blobs stay recoverable: `cfeca12d6854`, `cb8174b91baa`, `cc77c5086c18` and `0c6ad6142384`.
+- **Rule:** a session that moves `master` from another worktree also syncs the primary checkout's index and unedited working files in the same step, as the guarded-update recipe above says.
+
 ## Receipts and the delivery floor, 2026-10-26
 
 Every lane checkpoint or receipt starts with the front-matter block proposed as
