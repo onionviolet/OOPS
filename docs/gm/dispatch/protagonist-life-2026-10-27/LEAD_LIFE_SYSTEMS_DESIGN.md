@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD407 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD424 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -1124,3 +1124,48 @@ traits; `src/person_memory.js` (MR1) has fixed fade, telling-loss and cap consta
 | LSD405 | **Keep it cheap and testable.** Traits are multipliers on functions that already exist; no per-trait branches. One test per trait: the same history with and without the trait gives different vividness or a different line, and replays the same | ACCOUNT FOR NOW |
 | LSD406 | **Deeper later, ranked.** (1) Short-term emotions feeding recall and reactions. (2) More bond axes kept apart: affection, respect, fear, trust. (3) Secrets kept, traded and used for blackmail. (4) Shared memory of a place or group: a famine, a festival, a local legend. (5) Dreams and nightmares replaying vivid harm. Further: memory of places (homesickness), memory decline with age, false memories from mind powers (LSD355) | LATER |
 | LSD407 | **Plan: P3b trait temperament.** After MR2 lands, a small lane adds the temperament port to `person_memory.js`, maps the six existing trait words and a `grudging`/`forgiving` pair, adds `amends`, and drives LSD394-LSD396, LSD398, LSD399 and LSD401 through the MR2 route. Done when two people with the same history and different traits show different lines in the browser at 1920x1080, through save and reload | ACCOUNT FOR NOW: after MR2 |
+
+## 39. Loyalty that grows, severity, keeping quiet, and the deterministic shape of it (Weibao 2026-10-29; proposal)
+
+Weibao: "loyalty can go up and more? other subtle interactions and more? Severity of events and more? warning people
+not to say things and other stuff and more? Procedural and deterministic stuff?" Code checked 2026-10-29: a promise
+situation already writes trust changes (`src/promise_content.js`); vows and pledges already trade a cost for a bond or
+bonus and leave a scar when broken (`src/vow_rules.js`, `src/pledges.js`). These rows build on those and on the MR1
+memory records.
+
+**Loyalty**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD408 | **Loyalty is earned, with diminishing returns.** It is its own axis, apart from liking (you can like someone you would not risk anything for). Repeated small favours add less each time; risk taken for someone, shared hardship and kept promises add a lot; time together adds slowly. It is derived from episodes (LSD373), so it replays | ACCOUNT FOR NOW |
+| LSD409 | **Loyalty is proven by tests.** A test is a situation where staying costs them: danger, a bribe, a rival's better offer, a secret worth selling. Passing writes an episode that raises loyalty on both sides; failing writes a betrayal. Untested loyalty is shown as a guess (LSD340) | ACCOUNT FOR NOW |
+| LSD410 | **Favours create debts.** Help writes a felt obligation that fades; some traits feel debts strongly; repaying clears it; a debt left unpaid sours into resentment. Promises and pledges are the formal version (`promise_content.js`, `pledges.js`) | ACCOUNT FOR NOW |
+| LSD411 | **Loyalty has objects, and they conflict.** To a person, a family, a group or a cause. When two pull opposite ways, the ranked goals (LSD324) decide, and the choice writes episodes for both sides | ACCOUNT FOR NOW |
+
+**Severity**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD412 | **Events have severity rungs.** Trivial, minor, serious, grave, life-changing. The rung sets the feeling band, how slowly it fades, how far it travels as gossip (household, street, town), and whether it can become a goal. The rung comes from a table over the effect (harm rung LSD283, money as a share of the person's wealth, public or private), not from authoring each event | ACCOUNT FOR NOW: severity table in P3c |
+| LSD413 | **Severity is relative to the person.** Ten coins is grave to a labourer and trivial to a merchant; an insult cuts the proud deeper; harm to a child is worse to its parent. Computed from the holder's state and traits | ACCOUNT FOR NOW |
+| LSD414 | **Intent and context change it.** Accident or deliberate, public or private, provoked or not, by a friend or a stranger (a friend's harm counts as betrayal, scaled by the bond). The holder judges intent at their own perception and can misjudge it (LSD326) | ACCOUNT FOR NOW |
+| LSD415 | **Responses scale with severity.** A minor slight gets a cold shoulder, a grave harm can start a revenge goal (LSD401). Over-reacting is a trait (hot-tempered), not the default | ACCOUNT FOR NOW |
+| LSD416 | **Small things add up.** Many minor slights cross a threshold into serious: the last straw. The sum is over current weights, so time can also pull it back under | ACCOUNT FOR NOW |
+
+**Keeping quiet, warnings and lies**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD417 | **Asking for silence marks the memory.** "Don't tell anyone" is a speech act that flags the listener's episode with who asked and whether they promised. When a chance to tell comes up, keeping quiet is weighed: bond to the asker against bond to the listener, traits (discreet, sociable), the severity, fear of the asker, any reward on offer | ACCOUNT FOR NOW: silence flag in P3c |
+| LSD418 | **Ways to secure silence, each with its mechanism and price.** Ask (bond), promise (trust), bribe (greed; can be outbid), threaten (fear; writes harm and may start a grudge), an oath or binding where the world has one (AD38), keep witnesses from existing, or worse. Each leaves its own traces | ACCOUNT FOR NOW |
+| LSD419 | **Pressure breaks silence.** Questioning, drink, a better offer, guilt, or the confidant's own confidant. The leak check is keyed by holder, secret, listener and situation, and leaks can be partial (bent, unsure) | ACCOUNT FOR NOW |
+| LSD420 | **A broken confidence is a betrayal once found out,** and how it is found out is itself a trail: whoever repeats it names a source. Keeping a costly secret is a loyalty test passed (LSD409) | ACCOUNT FOR NOW |
+| LSD421 | **Warnings go the other way too.** Someone tells the player "don't mention the inspector to her": the player learns another person's sore spot, and ignoring the warning has the predicted cost. Warnings are knowledge with a source like any other | ACCOUNT FOR NOW |
+| LSD422 | **Lies are claims, not facts.** A cover story or a lie is a claim in the log that differs from the fact; the listener's memory points at the claim. Investigators, and the player, can compare claims with each other and with traces (LSD355). Reason: deception needs a place to live that is not the truth | ACCOUNT FOR NOW |
+
+**Procedural and deterministic shape**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD423 | **Save little, derive the rest, key every draw.** Saved: episodes, the silence flag (asker and promised, a small addition to MR1's tuple as schema 2 with a migration), and claims. Derived on read: loyalty, debt, severity, judged intent, the running total of slights. Keyed draws via `checkKey`: holder, subject or secret, listener, situation and period. Severity and act-weight tables are world data with `id@rev` (GR10), so a world tunes them without code | ACCOUNT FOR NOW |
+| LSD424 | **Test each rule by replay, and explain it.** Same history gives the same outcome; changing one factor changes only what it reaches (LSD244). The inspector (LSD349) answers "why did she tell" with the weighed factors. Plan: P3c lane after P3b adds the severity table, the loyalty and debt reads and the silence flag, through the promise route. Done when a person told to keep quiet keeps or breaks it for stated reasons that change with bond and bribe, through save and reload | ACCOUNT FOR NOW: after P3b |
