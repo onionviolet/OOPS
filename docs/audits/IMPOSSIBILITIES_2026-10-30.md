@@ -20,9 +20,10 @@ Weibao, 2026-10-30: "Consider gaps and impossibilities, we can just implement th
 | IP6 | `gatherIdle` takes `budget` (default 500, hard guard 100000) |
 | IP10 | Warehouse and office pauses name the way out (reason only; a partial fill is still open) |
 | IP11 | Missing credential names the means and the friend route (reason only; the favour mechanism is still open) |
+| IP7 | Same-day second sect mission is a paid rush posting (`rushFee` dial, default 2 CP, AUTHORED prototype); default refusal stays and names the fee. Floor-wire does not own this file, so I built it. Test in `tests/primordial_credit.test.js`; browser: `scripts/ip7_rush_posting_browser.cjs` (real host and panel, fresh origin, 1920x1080) |
 | IP14 | Pack pay cap and its checks give separate reasons (reason only) |
 
-Hand-offs sent: IP7 to floor-wire (patch request), IP12 and IP13 to the General UI session, IP4 as CHOICES item 12 with a default.
+Hand-offs sent: IP12 and IP13 to the General UI session, IP4 as CHOICES item 12 with a default.
 
 ## Queue for owner lanes (ranked; rows marked above are partly done)
 
