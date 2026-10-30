@@ -1045,7 +1045,7 @@ and `src/memory_messages.js` stores memories as a key plus a small payload, rend
 Weibao: "Save accordingly and plan implement." Order follows dependencies; each phase is one playable or testable
 slice (AGENTS.md: finish one slice before the next). Lanes default to Codex Luna (ON14) with focused tests only; the
 committer runs the full gates (AD36). Browser checks at 1920x1080 for anything visible (UR rules). Nothing here is
-dispatched until Weibao says go.
+dispatched until Weibao says go. Live status of each phase (lanes, commits, floor state) is kept in [the guide, section 6](../../../LEAD_LIFE_GUIDE.md#6-implementation-order-and-cost), not here.
 
 | Code | Phase | Scope and files | Done check |
 | --- | --- | --- | --- |
