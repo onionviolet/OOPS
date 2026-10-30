@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD362 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD378 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -964,7 +964,7 @@ that any system can call; "luck" appears only in crafting sources and two book e
 | LSD342 | **Intent can lie.** A feint or a bluff shows a false windup; whether the observer sees the true intent is their perception or appraisal check against the feinter's skill. Extends LSD294. Reason: if shown intent were always true, skilled fighters would lose their best tool | ACCOUNT FOR NOW |
 | LSD343 | **Mishaps come from conditions, not a flat roll.** No fixed 5% fumble for an expert. Mishap chance rises with strain, fatigue, pain (harm rungs, LSD283), unfamiliar tools, bad footing, dark and rain; adrenaline briefly offsets pain. Reason: experts fail when conditions are bad, not at random | ACCOUNT FOR NOW |
 | LSD344 | **The place takes part.** Footing, light, cover, crowds and weather modify checks, and bystanders act by their own goals (flee, scream, call the authorities, film or remember it). Witnesses write facts (the schema 1.5 `witnesses` field, LSD206), and those facts reach reputation and investigators later. Reason: a fight in a street is a public event | ACCOUNT FOR NOW |
-| LSD345 | **Fights have goals other than winning.** Capture, theft, delay, escape, protecting a carrier, delivering a message, or killing one target and leaving. A side that meets its goal stops fighting (LSD324 applies to sides as well as people). Reason: many fights end when someone gets what they came for | ACCOUNT FOR NOW |
+| LSD345 | **Fights have goals other than winning.** Capture, theft, delay, escape, protecting a carrier, delivering a message, or killing one target and leaving. A side that meets its goal stops fighting (LSD324 applies to sides as well as people). Reason: many fights end when someone gets what they came for | Revised by LSD368 (2026-10-29): backing out is an attempt with costs, not a clean end |
 | LSD346 | **Gear and supplies run out and fail.** Ammunition and remedies come from real stock (CBR26); weapons jam, dull or break with use and conditions (LSD343); a dropped item stays where it fell and someone may pick it up. Reason: attrition is where tension and later plot come from | ACCOUNT FOR NOW |
 | LSD347 | **Aftermath runs on chance too.** A wound may get infected, a dropped item may be found, a witness may talk or keep quiet (by their goals, LSD324), and a rumour spreads by who heard it. All keyed by subject and date. Reason: a fight's consequences should keep unfolding after the last blow | ACCOUNT FOR NOW |
 | LSD348 | **Pressure and panic.** Under fear or time pressure, the policy's later rules are tried less carefully: a panicked fighter takes the first rule that fits, not the best. Discipline and experience (LSD332) resist this. Reason: people make worse choices under pressure, and policies should too | LATER |
@@ -998,3 +998,57 @@ LSD144, and the step `witnesses` field is LSD196. This round joins them; it does
 | LSD360 | **Saving and compaction.** Episodes are saved events with pointers; beliefs and vividness are derived from them and the date (LSD301, LSD245). Compaction (LSD302) folds old faint episodes into a belief or impression. That loss of detail is acceptable because it is forgetting, except where a later canon need reserves the memory (LSD109). Reason: saves stay small, and what is lost is what a person would lose | ACCOUNT FOR NOW |
 | LSD361 | **First slice.** Five memory kinds (helped me, harmed me, betrayed me, saw them do X, was told Y) for bonded allies, named cast and surviving enemies, on the existing relationship memories; fade curve and recall check; gossip copying along bonds. Done when one ally's reaction changes because of a remembered episode, names that episode, and survives save and reload | ACCOUNT FOR NOW: F1 scope |
 | LSD362 | **Inspect it.** The dev inspector (LSD349) answers "what does X remember about Y, how sure, and from whom", with sealed facts shown by ID. Reason: memory bugs look like random behaviour without this view | ACCOUNT FOR NOW: with LSD349 |
+
+## 35. Rerolls, bystanders, backing out, and what memory costs to store (Weibao 2026-10-29; proposal)
+
+Weibao: "reroll each time it makes sense for a re roll? ... how to even implement bystanders? LSD345 might not always
+be true but they can try and back out with varying consequences ... More rolls? ... So will memories be lines of text
+that has impacts on certain stat and stuff? Wont memory cause storage balooning?" Code checked 2026-10-29:
+`src/life_events.js` already caps village memory (`MEMORY_CAP = 12` per person, `EVENT_CAP = 24`, `BROADCAST_CAP = 8`),
+and `src/memory_messages.js` stores memories as a key plus a small payload, rendered to text on read.
+
+**When to reroll**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD363 | **Reroll when something real changed.** A draw's key includes what the attempt depends on: the minute, the method, the tool, who helps and the state of the target. A retry after time passes, with another tool, another approach or a helper is a new draw. The same attempt at the same moment with nothing changed gives the same answer, so clicking again does nothing. Clarifies LSD336 and LSD328 | ACCOUNT FOR NOW: key helper in P1 |
+| LSD364 | **Retries cost, and searches converge.** Each retry spends time and adds fatigue and strain (LSD343), and a noisy retry can be noticed. For searching, a hidden thing that is there is found with enough effort (the draw is against cumulative effort, not a fresh coin each time); for opposed acts (a lock, a person) the target can change too (the guard gets suspicious). Reason: trying again should be a choice with a price, not a slot machine | ACCOUNT FOR NOW |
+| LSD365 | **Changing things reroll on their own clock.** Mood (daily), weather (hours), prices (weekly), a rumour's reach (daily, LSD37) each have a period; the key includes the period, so a new day can bring a new answer. Fixed facts (LSD336) have no clock. Reason: some things really are different tomorrow, and some never are | ACCOUNT FOR NOW |
+
+**Bystanders**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD366 | **A crowd is one record, not many people.** When a fight starts in a place, a crowd record is generated from who is around at that hour (the place's schedule and any event on): size, role mix (vendors, workers, children, a constable), and mood. It acts as one agent on the tempo clock: each step, a draw splits it into fleeing, frozen, watching, helping and fetching the authorities, by role and how bad it looks. Reason: one record per crowd keeps a street fight cheap | ACCOUNT FOR NOW: P6 |
+| LSD367 | **Individuals step out of the crowd only when they matter.** Someone who intervenes, gets hurt, picks up a dropped item or sees a face clearly is promoted to a person, keyed by place, time and slot so replay gives the same person (LSD139). The rest stay a count. Reason: lazy promotion is how a nameless witness can become a later plot without storing everyone | ACCOUNT FOR NOW |
+| LSD368 | **Backing out is an attempt with consequences.** Revises LSD345. Any side can try to disengage, flee, yield or bargain to leave, and the other side may refuse by its own goals (revenge, silencing a witness, a bounty). Costs vary: a free hit as you turn, a pursuit check, dropped gear or loot, an ally left behind (LSD331), lost face (reputation), being followed home (tracking, CBR12), or a grudge that comes back later. Reason: leaving a fight is often the right choice, and its price is a story | ACCOUNT FOR NOW |
+| LSD369 | **Bystanders raise the stakes.** Harm to a bystander writes facts (injury, law, reputation); bystanders can be shields or hostages; the authorities' arrival time is a draw on how close and how bothered they are. The crowd's memory is one group impression plus the promoted witnesses' episodes; when an investigator asks, a draw decides how many come forward and what they say (LSD355). Reason: a public fight has a public aftermath | ACCOUNT FOR NOW |
+
+**More rolls, and a limit on rolls**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD370 | **Further places chance belongs.** Pursuit and losing a tail, tracking later, recognition, a morale break, where a wound lands and how bad, the state of loot (cracked, bloodied), a stray shot hitting something, an authority's response, a rumour's reach. Each uses the one resolver (LSD335) | ACCOUNT FOR NOW: as each system lands |
+| LSD371 | **A roll must earn its place.** Roll only where the result is uncertain to the people in it, changes something visible, and comes from named factors. If none of those, decide it by rule. Reason: too many rolls make outcomes noise (LSD337) and cost time and checks | ACCOUNT FOR NOW |
+
+**What a memory is in the save, and storage**
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD372 | **Memories are small structured records, not lines of text.** One record: kind, about whom, the fact it points to, source (saw, told by whom, worked out), certainty, feeling, day. About 30 to 40 bytes as a compact tuple. Text is rendered from the kind and payload when shown, as `memory_messages.js` already does, so changing the wording or the language changes no save. Reason: text is the most expensive and least checkable way to store a memory | ACCOUNT FOR NOW: P2 schema |
+| LSD373 | **Memories do not add to stats directly; derived values read them.** A bond axis is the canon baseline plus the sum over remembered episodes of kind weight × feeling × current vividness (LSD301, LSD352), computed when needed. Where a memory really changes someone lastingly (trauma lowers nerve, a lesson raises a skill), that change is its own saved delta and the memory explains it. Reason: one source of truth, and fading a memory then naturally softens its effect | ACCOUNT FOR NOW |
+| LSD374 | **Storage stays bounded by five rules.** (1) Canon memories are not saved; they are derived from the pack and the date (LSD359, LSD245), and only the player's changes are saved. (2) Pointers, not copies: a gossip copy is one record pointing at the same fact. (3) Per-person caps by importance, like the existing `MEMORY_CAP = 12`: keep the strongest and most recent; push lesser ones into a belief or impression (LSD360). (4) Crowds and background people keep group impressions only (LSD353, LSD366). (5) Vividness and beliefs are derived from the day and feeling, never saved | ACCOUNT FOR NOW |
+| LSD375 | **Size budget, estimated (not measured).** 300 named people × a cap of 40 episodes × about 35 bytes is about 420 KB before compression, and much less in practice because most cast members meet the player rarely. That fits inside browser storage with room to spare. P2 adds a test that builds a worst-case save at the caps and checks it stays under a stated budget. Reason: the risk is real only if caps are missing, so the test pins the caps | ACCOUNT FOR NOW: size test in P2 |
+
+## 36. Implementation plan for sections 30-35 (Weibao 2026-10-29; proposal)
+
+Weibao: "Save accordingly and plan implement." Order follows dependencies; each phase is one playable or testable
+slice (AGENTS.md: finish one slice before the next). Lanes default to Codex Luna (ON14) with focused tests only; the
+committer runs the full gates (AD36). Browser checks at 1920x1080 for anything visible (UR rules). Nothing here is
+dispatched until Weibao says go.
+
+| Code | Phase | Scope and files | Done check |
+| --- | --- | --- | --- |
+| LSD376 | **P1 Chance core** | Key helper that composes subject, period and changed factors (LSD363, LSD365); stratified streams for batches (LSD338); read-only check record for the inspector (LSD349). `src/check_resolver.js`, `src/seeded_streams.js`, their tests | Existing check golden fixture unchanged; a retry with a changed factor gives a new draw and an unchanged retry does not; a 100-run batch at 30% lands within 2 points |
+| LSD377 | **P2 Memory records** then **P3 Memory effects** | P2: the compact record (LSD372), fade curve, recall check, caps and folding (LSD354, LSD374), save migration, on `src/people_knowledge.js` and the relationship memories. P3: bond axes derived from episodes (LSD373), a reaction that names its episode (LSD333, LSD352), gossip copies along bonds (LSD356) | Save, reload and import round trip; the worst-case size test passes its budget; one ally reacts differently because of a remembered episode and names it, in a browser at 1920x1080 |
+| LSD378 | **P4-P8 Fights and the world around them** | P4 tempo runner on `src/native_battle.js` with waiting fights, surprise and mishap conditions (LSD307-LSD317, LSD341-LSD343). P5 allies by goals, orders and plans with chance (LSD319-LSD327). P6 crowd record and promotion (LSD366-LSD369). P7 backing out (LSD368). P8 calibration script against ch1-24 fights (LSD350) | P4: a fight saved mid-tempo resumes exactly after reload. P5: a hireling flees by goals in a replayable seed. P6: a witness promoted in a street fight is the same person on replay and remembers the player. P7: fleeing with each cost reachable. P8: a rate table exists |
