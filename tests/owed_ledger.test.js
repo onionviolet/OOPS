@@ -122,6 +122,7 @@ test('settle in place: a credit row quotes the figure Standing shows and hands i
     assert.equal(broke.quote.blocked, 'You have no coins to repay with.');
     const claim = owedLedgerView({...gatherOwed(fx), selected: 'claim:3'}).selected;
     assert.equal(claim.quote, null);
+});
 
 test('a coin row names its own currency and totals never mix currencies (UR61, COI money)', () => {
     const row = (id, amount, unit) => ({id, kind: 'coin', debtor: 'player', creditor: 'counting_house', amount, since: 0, unit});
