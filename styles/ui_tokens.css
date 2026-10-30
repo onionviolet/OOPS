@@ -250,6 +250,7 @@
     --ui-line-body: round(calc(var(--custom-size, var(--ui-type-body)) * 1.3), 1px);
     --ui-line-small: round(calc(var(--custom-small-size, var(--ui-type-small)) * 1.3), 1px);
     --ui-line-prose: round(calc(var(--custom-size, var(--ui-type-body)) * 1.45), 1px);
+    --ui-type-figure: 12px; /* SVG figures draw text in their own viewBox units at this design base; the figure scales as a whole */
     --ui-type-heading: round(calc(var(--custom-size, var(--ui-type-body)) * 8 / 7), 1px);
     --ui-weight-regular: 400; --ui-weight-strong: 700;
 }

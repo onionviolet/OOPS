@@ -16,6 +16,6 @@
 .research-step[data-status="locked"] {opacity:.75;}
 .research-step[data-status="ready"] {border-left:var(--ui-space-1) solid var(--ui-accent);padding-left:var(--ui-space-2);}
 .research-step[data-status="doing"] {font-weight:var(--ui-weight-strong);}
-.research-findings {margin:0;padding-left:1.2em;}
+.research-findings {margin:0;padding-left:var(--ui-space-6);}
 .research-opens[data-state="open"] {font-weight:var(--ui-weight-strong);}
 .research-map > summary {cursor:pointer;width:fit-content;}

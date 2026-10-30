@@ -76,6 +76,14 @@ Started on Sonnet: the integrator (merges the eighteen branches in RCT1 order, b
 
 L13 additions: `time_digest_bridge.js` (present goes to Around; heard, affected and aftermath to Missed; G15) wired at merge. Post-merge contracts named for unbridged models: G14 gatherings and TC12 curfews go to the upcoming strip (time); G17 `learnView` to a Skills and techniques tab in the abilities ladder; G18 `whoKnows` to the Knows home with an ask action into talk.
 
+Token migration and VSX1 style guide (session `tokens`, 2026-10-30, 1920x1080 target, mobile deferred; rules UR6, UR65-UR68):
+- Migrated: character_sheet, body_view, crafting_detail, item_card, research, settled_text_effects, figure, style.css (2 literals) to tokens. New tokens: `--ui-type-heading`, `--ui-type-figure`, `--ui-motion-settle` (zero under reduced motion). Allowlist 869 to 772 entries; the 49-entry reset is gone, only 4 `border-radius: var(--ui-radius)` token consumers remain in these files.
+- `node --test tests/ui_contract.test.js`: 2 of 3 pass; the route-table test fails on the `management` route lacking a route representation, same as before this work (another lane).
+- Focused views (body_view, crafting_detail, item_card, research_view, character_sheet(s), figure, body_figure, representation_contract): 62 of 62 pass.
+- `npm run build` and `npm run build:figures`: pass. New CSS stays in styles/figure_gallery.css (stylesheet manifest not yet committed).
+- Headless 1920x1080: `scripts/token_style_guide_browser.cjs` (style guide with 9 groups, character sheet, no page errors) and `scripts/body_figure_browser.cjs` (body view, no errors); shots in docs/representations/evidence/tokens/.
+- Full suite `node scripts/slot_run.mjs --kind suite -- npm test`: started, machine load 40 to 90; 10 failures seen before I stopped waiting, all outside my files (native save integration workers timed out at 279 s, `core_ratchets` Math.random count from src/main.js, route-table test). Not a clean full-suite pass: implemented, below floor on that gate.
+
 ## Morning block (2026-10-30, master `9b8a166b`, not pushed)
 
 **Playable now (agent-verified, not human-reviewed):** 21 feature views merged; the post-merge 1920×1080 pass reached 7 of 8 checked views (talk, Ledger Owed, items, family, body, walking board, Tingen workroom tabs). Full suite before landing: 4455 of 4476, failures fixed. Walks work again (the fix was overwritten once by a later commit and restored at `064fd773`).

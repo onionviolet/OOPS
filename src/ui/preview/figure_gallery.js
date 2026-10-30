@@ -4,6 +4,7 @@ import {renderFigure} from '../figure.js';
 import {applyCustomizationProfile, defaultCustomizationState, neutralPresentationSettings} from '../../customization_profiles.js';
 import {FIGURE_FIXTURES} from './figure_fixtures.js';
 import {FIXTURE_MANIFEST} from './fixtures/manifest.js';
+import {mountStyleGuide} from './style_guide.js';
 import {mountCharacterSheetGallery} from './character_sheet_gallery.js'; queueMicrotask(() => mountCharacterSheetGallery(document.getElementById('fig_gallery')));
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
@@ -23,6 +24,7 @@ select.addEventListener('change', () => { document.documentElement.dataset.effec
 bar.append(el('strong', {}, 'Figure gallery'), select);
 const main = el('main', {id: 'fig_gallery'});
 document.body.append(bar, main);
+mountStyleGuide(main);
 
 // Fixtures register by import (FIGURE_FIXTURES) or export their own list; fixtures/manifest.js names each module; one id appears once.
 const listed = [];

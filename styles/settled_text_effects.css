@@ -1,28 +1,28 @@
 /* Isolated panel geometry follows its workspace host when moved or resized. */
-.work-ledger-panel { position: relative; overflow: hidden; border: 1px solid var(--border-color, var(--ui-swatch-113)); border-radius: var(--ui-radius); margin-block: round(.6rem, 1px); padding: round(.55rem, 1px); text-align: left; min-width: 0; }
-.work-ledger-panel > summary { cursor: pointer; font-weight: bold; }
+.work-ledger-panel { position: relative; overflow: hidden; border: 1px solid var(--border-color, var(--ui-swatch-113)); border-radius: var(--ui-radius); margin-block: var(--ui-space-4); padding: var(--ui-space-4); text-align: left; min-width: 0; }
+.work-ledger-panel > summary { cursor: pointer; font-weight: var(--ui-weight-strong); }
 .work-ledger-body { overflow-wrap: anywhere; }
-.work-ledger-body p { margin-block: round(.45rem, 1px); }
-.work-ledger-body h4 { margin-block: round(.7rem, 1px) round(.35rem, 1px); }
-.work-ledger-status { font-weight: bold; }
-.work-ledger-commission { padding: round(.4rem, 1px); margin-block: round(.4rem, 1px); border-left: 2px solid var(--ui-swatch-114); background: var(--ui-swatch-115); }
-.work-ledger-actions { display: flex; flex-wrap: wrap; gap: round(.35rem, 1px); margin-block: round(.7rem, 1px); }
+.work-ledger-body p { margin-block: var(--ui-space-3); }
+.work-ledger-body h4 { margin-block: var(--ui-space-4) var(--ui-space-2); }
+.work-ledger-status { font-weight: var(--ui-weight-strong); }
+.work-ledger-commission { padding: var(--ui-space-3); margin-block: var(--ui-space-3); border-left: 2px solid var(--ui-swatch-114); background: var(--ui-swatch-115); }
+.work-ledger-actions { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); margin-block: var(--ui-space-4); }
 .work-ledger-actions button { flex: 0 1 auto; white-space: normal; }
 .work-ledger-actions small { flex-basis: 100%; }
-.work-ledger-presentation { display: flex; flex-wrap: wrap; gap: round(.55rem, 1px); padding: round(.55rem, 1px); min-width: 0; }
+.work-ledger-presentation { display: flex; flex-wrap: wrap; gap: var(--ui-space-4); padding: var(--ui-space-4); min-width: 0; }
 .work-ledger-presentation legend { font-size: var(--ui-type-body); }
-.work-ledger-presentation label { display: inline-flex; align-items: center; gap: round(.3rem, 1px); }
+.work-ledger-presentation label { display: inline-flex; align-items: center; gap: var(--ui-space-2); }
 .work-ledger-presentation select { max-width: 100%; }
 .work-ledger-presentation small { flex-basis: 100%; }
-.work-ledger-history ol { padding-inline-start: round(1.5rem, 1px); max-height: 14rem; overflow: auto; }
-.work-ledger-history li { margin-block: round(.3rem, 1px); }
+.work-ledger-history ol { padding-inline-start: var(--ui-space-7); max-height: 14rem; overflow: auto; }
+.work-ledger-history li { margin-block: var(--ui-space-2); }
 .work-ledger-notice { min-height: 1em; }
-.work-ledger-effect { pointer-events: none; position: absolute; box-sizing: border-box; inset: 2.3rem .5rem auto; display: flex; align-items: center; gap: round(.6rem, 1px); padding: round(.7rem, 1px); background: var(--ui-swatch-116); color: var(--ui-swatch-117); border: 1px solid var(--ui-swatch-118); border-radius: var(--ui-radius); z-index: 2; font: inherit; overflow-wrap: anywhere; box-shadow: var(--ui-shadow); }
+.work-ledger-effect { pointer-events: none; position: absolute; box-sizing: border-box; inset: 2.3rem .5rem auto; display: flex; align-items: center; gap: var(--ui-space-4); padding: var(--ui-space-4); background: var(--ui-swatch-116); color: var(--ui-swatch-117); border: 1px solid var(--ui-swatch-118); border-radius: var(--ui-radius); z-index: var(--ui-layer-raised); font: inherit; overflow-wrap: anywhere; box-shadow: var(--ui-shadow); }
 .work-ledger-effect[hidden] { display: none; }
 .work-ledger-effect-glyph { flex: 0 0 auto; font-size: var(--ui-type-title); }
 .work-ledger-effect[data-motif='guidance'] { border-color: var(--ui-swatch-120); }
 .work-ledger-effect[data-motif='closing'] { border-color: var(--ui-swatch-121); }
-.work-ledger-effect[data-presentation='margin'] { inset: 2.3rem .5rem auto auto; width: fit-content; max-width: calc(100% - 1rem); padding: round(.3rem, 1px) round(.7rem, 1px); }
+.work-ledger-effect[data-presentation='margin'] { inset: 2.3rem .5rem auto auto; width: fit-content; max-width: calc(100% - 1rem); padding: var(--ui-space-2) var(--ui-space-4); }
 @media (max-width: 480px) { .work-ledger-presentation label { width: 100%; flex-wrap: wrap; } .work-ledger-actions button { flex-basis: 100%; } }
 .work-ledger-effect-glyph { width: 48px; height: 48px; color: var(--ui-swatch-122); }
 .work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: var(--ui-swatch-123); }
@@ -40,25 +40,25 @@
 .work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: var(--settled-color, var(--ui-swatch-124)); }
 .work-ledger-effect[data-motif='guidance'], .work-ledger-effect[data-motif='closing'] { border-color: var(--settled-color, var(--ui-swatch-118)); }
 
-#cancel_craft_visual_effect {position:absolute;right:.5rem;bottom:2.8rem;z-index:4;max-width:calc(100% - 1rem);white-space:normal;}
+#cancel_craft_visual_effect {position:absolute;right:.5rem;bottom:2.8rem;z-index:var(--ui-layer-sticky);max-width:calc(100% - 1rem);white-space:normal;}
 
 /* Original paper receipt and decorative ink. No item/reward implication. */
 .work-ledger-effect[data-craft-receipt='true'] { border-radius: var(--ui-radius); border-inline-start-width: 3px; }
-.quiet-place-detail { display:block; font-size: var(--ui-type-small); line-height:1.3; color:var(--text-color); opacity:.8; padding:round(.15rem, 1px) round(.35rem, 1px); overflow-wrap:anywhere; }
+.quiet-place-detail { display:block; font-size: var(--ui-type-small); line-height: var(--ui-line-body); color:var(--text-color); opacity:.8; padding:var(--ui-space-1) var(--ui-space-2); overflow-wrap:anywhere; }
 .quiet-place-detail[hidden] { display:none; }
 
 /* A first learned skill gets a small line signature, not a panel spectacle. */
 .native-discovery-host {position:relative;}
 .native-discovery-host > .work-ledger-effect[data-discovery='true'] {
     inset:auto .35rem .35rem auto; max-width:calc(100% - .7rem);
-    padding:round(.25rem, 1px) round(.4rem, 1px); gap:round(.35rem, 1px); font-size: var(--ui-type-body);
+    padding:var(--ui-space-2) var(--ui-space-3); gap:var(--ui-space-2); font-size: var(--ui-type-body);
 }
 .work-ledger-effect[data-discovery='true'] .work-ledger-effect-glyph {width:20px;height:20px;flex-shrink:0;}
 .native-discovery-host > .work-ledger-target-pulse {border-width:1px;}
-.native-discovery-cancel {position:static;flex:0 0 auto;pointer-events:auto;margin:0;padding:0 round(.25em, 1px);font-size: var(--ui-type-title);line-height:1.2;}
+.native-discovery-cancel {position:static;flex:0 0 auto;pointer-events:auto;margin:0;padding:0 var(--ui-space-2);font-size: var(--ui-type-title);line-height: var(--ui-line-compact);}
 .native-discovery-cancel[hidden] {display:none;}
 /* Coin spend float (I6): anchored beside the purse line, decorative only. */
-.coin-float { position: fixed; z-index: var(--ui-layer-region); pointer-events: none; white-space: nowrap; font-weight: bold; font-size: var(--ui-type-title); padding: 0 round(.3em, 1px); border-radius: var(--ui-radius); color: var(--sem-loss, var(--ui-swatch-126)); }
+.coin-float { position: fixed; z-index: var(--ui-layer-region); pointer-events: none; white-space: nowrap; font-weight: var(--ui-weight-strong); font-size: var(--ui-type-title); padding: 0 var(--ui-space-2); border-radius: var(--ui-radius); color: var(--sem-loss, var(--ui-swatch-126)); }
 /* Ledger tab strip and the Owed tab (LTU6, coverage B2). Tokens only (UR6); state is in text, colour repeats it (UR37). */
 .work-ledger-tabs { display: flex; gap: var(--ui-space-1); margin-block: var(--ui-space-2); border-bottom: var(--ui-space-hairline) solid var(--ui-hairline); }
 .work-ledger-tabs > [role="tab"] { border-bottom-width: 0; }
@@ -72,7 +72,7 @@
 .owed-table td { padding: var(--ui-space-1); border-bottom: var(--ui-space-hairline) solid var(--ui-swatch-113); vertical-align: top; }
 .owed-table [aria-selected="true"] { outline: var(--ui-space-hairline) solid var(--ui-accent); outline-offset: calc(-1 * var(--ui-space-hairline)); }
 .owed-pick { text-align: left; white-space: normal; }
-.owed-late { color: var(--ui-meter-limit); font-weight: bold; }
+.owed-late { color: var(--ui-meter-limit); font-weight: var(--ui-weight-strong); }
 .owed-inspector { border-inline-start: 2px solid var(--ui-swatch-114); padding-inline-start: var(--ui-space-3); }
 .owed-inspector h4 { margin-block: 0 var(--ui-space-2); }
 .owed-empty, .owed-hint, .owed-note { font-size: var(--ui-type-small); }
@@ -84,4 +84,4 @@
 .owed-late .owed-due-bar::before { background: var(--ui-meter-limit); }
 .owed-ladder { display: flex; flex-wrap: wrap; gap: var(--ui-space-1); padding: 0; margin: 0; list-style: none; font-size: var(--ui-type-small); }
 .owed-ladder > li { padding-inline: var(--ui-space-1); border: var(--ui-space-hairline) solid var(--ui-swatch-113); }
-.owed-ladder > [aria-current="true"] { border-color: var(--ui-accent); font-weight: bold; }
+.owed-ladder > [aria-current="true"] { border-color: var(--ui-accent); font-weight: var(--ui-weight-strong); }

@@ -4,8 +4,8 @@
 #crafting_window > * {flex: none;}
 #crafting_window .crafting_body {
     flex: 1 1 auto; min-height: 220px; height: 330px;
-    display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: round(.5rem, 1px);
-    margin-top: round(.25rem, 1px);
+    display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: var(--ui-space-4);
+    margin-top: var(--ui-space-2);
 }
 #crafting_window[data-craft-view="other"] .crafting_body {grid-template-columns: minmax(0, 1fr);}
 #crafting_window .crafting_body > #recipe_categories {min-height: 0; display: flex; flex-direction: column;}
@@ -15,11 +15,11 @@
 #crafting_window .recipe_div[role=option] {cursor: pointer;}
 /* The whole row is the control; its name span is plain text (beats the generic control skin). */
 #crafting_window.crafting_window.customization-module .recipe_div[role=option] .recipe_item_name, #crafting_window.crafting_window .recipe_div[role=option] .recipe_item_name {width: auto; display: inline; padding: 0; background: none !important; border: 0 !important; min-height: 0; color: inherit !important; font-weight: inherit;}
-#crafting_window .recipe_div[role=option] {padding: round(.25rem, 1px) round(.4rem, 1px);}
+#crafting_window .recipe_div[role=option] {padding: var(--ui-space-2) var(--ui-space-3);}
 #crafting_window .recipe_div[aria-selected="true"] {background: var(--active_button_color, var(--ui-swatch-099));}
 /* The detail replaces the hover tooltip for item recipes, so nothing covers the Craft button. */
 #crafting_window .recipe_div[role=option]:hover .items_recipe_tooltip.recipe_tooltip {display: none;}
-#exit_crafting_button {position: static; top: auto; width: auto; margin-top: round(.4rem, 1px); float: none;}
+#exit_crafting_button {position: static; top: auto; width: auto; margin-top: var(--ui-space-3); float: none;}
 /* Settled receipts stay over the list column; the detail carries its own receipt line. */
 #crafting_window .work-ledger-effect {max-width: calc(44% - 1rem);}
 
@@ -32,63 +32,63 @@
 /* Detail region */
 .crafting_detail {
     display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-sizing: border-box;
-    padding: round(.4rem, 1px) round(.55rem, 1px); border: 1px solid var(--workspace-border, var(--ui-swatch-100)); border-radius: var(--ui-radius);
+    padding: var(--ui-space-3) var(--ui-space-4); border: 1px solid var(--workspace-border, var(--ui-swatch-100)); border-radius: var(--ui-radius);
     background: var(--theme-surface, var(--ui-swatch-101)); color: var(--theme-surface-text, var(--ui-swatch-102));
-    font-size: var(--shell-context-size, var(--ui-type-body)); line-height: 1.35;
+    font-size: var(--shell-context-size, var(--ui-type-body)); line-height: var(--ui-line-body);
 }
 .crafting_detail[hidden] {display: none;}
-.craft_detail_empty {margin: round(.3rem, 1px) 0; color: var(--theme-surface-text, var(--ui-swatch-102));}
+.craft_detail_empty {margin: var(--ui-space-2) 0; color: var(--theme-surface-text, var(--ui-swatch-102));}
 .craft_detail_body {flex: 1 1 auto; min-height: 0; overflow-y: auto;}
-.crafting_detail .craft_detail_title {margin: 0 0 round(.3rem, 1px); font-size: 1.12em; color: var(--theme-surface-text, var(--ui-swatch-102));}
-.craft_detail_section {margin-bottom: round(.3rem, 1px);}
-.craft_detail_label {font-weight: 700; margin-right: round(.4rem, 1px);}
-.craft_detail_fact {margin: round(.12rem, 1px) 0;}
-.craft_req {display: flex; flex-wrap: wrap; gap: 0 round(.5rem, 1px); padding: var(--ui-space-hairline) var(--ui-space-2); border-radius: var(--ui-radius);}
+.crafting_detail .craft_detail_title {margin: 0 0 var(--ui-space-2); font-size: var(--ui-type-heading); color: var(--theme-surface-text, var(--ui-swatch-102));}
+.craft_detail_section {margin-bottom: var(--ui-space-2);}
+.craft_detail_label {font-weight: var(--ui-weight-strong); margin-right: var(--ui-space-3);}
+.craft_detail_fact {margin: var(--ui-space-1) 0;}
+.craft_req {display: flex; flex-wrap: wrap; gap: 0 var(--ui-space-4); padding: var(--ui-space-hairline) var(--ui-space-2); border-radius: var(--ui-radius);}
 .craft_req_count {font-variant-numeric: tabular-nums;}
 .craft_req[data-missing] .craft_req_count,
-.craft_req[data-missing] .craft_req_short {color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: 700;}
+.craft_req[data-missing] .craft_req_short {color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: var(--ui-weight-strong);}
 .craft_req[data-unknown] .craft_req_name {font-style: italic;}
 .craft_req:focus {outline: 2px solid var(--sem-blocked, var(--ui-swatch-004)); outline-offset: 1px;}
 .craft_detail_more summary {cursor: pointer;}
 .crafting_detail .craft_detail_more summary {color: var(--theme-surface-text, var(--ui-swatch-102));}
 .craft_detail_result .coin_wood {color: var(--ui-swatch-103);}
-.craft_detail_result {font-size: 1em; padding: round(.3rem, 1px); border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
-.craft_detail_actions {flex: none; border-top: 1px solid var(--workspace-border, var(--ui-swatch-100)); padding-top: round(.35rem, 1px); margin-top: round(.25rem, 1px);}
-.craft_blocked_reason {margin: 0 0 round(.3rem, 1px); color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: 700;}
+.craft_detail_result {font-size: inherit; padding: var(--ui-space-2); border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
+.craft_detail_actions {flex: none; border-top: 1px solid var(--workspace-border, var(--ui-swatch-100)); padding-top: var(--ui-space-2); margin-top: var(--ui-space-2);}
+.craft_blocked_reason {margin: 0 0 var(--ui-space-2); color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: var(--ui-weight-strong);}
 .craft_blocked_reason:focus {outline: 2px solid var(--sem-blocked, var(--ui-swatch-004));}
-.craft_detail_buttons {display: flex; flex-wrap: wrap; gap: round(.3rem, 1px);}
-.craft_detail_buttons button {cursor: pointer; padding: round(.2rem, 1px) round(.6rem, 1px); font: inherit;}
-.craft_detail_buttons .craft_commit {flex: 1 1 6rem; font-weight: 700;}
+.craft_detail_buttons {display: flex; flex-wrap: wrap; gap: var(--ui-space-2);}
+.craft_detail_buttons button {cursor: pointer; padding: var(--ui-space-1) var(--ui-space-4); font: inherit;}
+.craft_detail_buttons .craft_commit {flex: 1 1 6rem; font-weight: var(--ui-weight-strong);}
 .craft_detail_buttons button[aria-disabled="true"] {cursor: not-allowed;}
-.craft_receipt {margin: round(.3rem, 1px) 0 0; color: var(--theme-surface-text, var(--ui-swatch-102));}
-.crafting_detail[data-state="ready"] .craft_receipt {border-left: 3px solid var(--sem-gain, var(--ui-swatch-001)); padding-left: round(.4rem, 1px);}
+.craft_receipt {margin: var(--ui-space-2) 0 0; color: var(--theme-surface-text, var(--ui-swatch-102));}
+.crafting_detail[data-state="ready"] .craft_receipt {border-left: 3px solid var(--sem-gain, var(--ui-swatch-001)); padding-left: var(--ui-space-3);}
 
 /* Layout > Crafting detail: below the list (AJ8). */
 :root[data-craft-detail-place="below"] #crafting_window .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(90px, 1fr) fit-content(62%);}
 :root[data-craft-detail-place="below"] #crafting_window .craft_detail_section,
-:root[data-craft-detail-place="below"] #crafting_window .craft_detail_fact {display: inline-block; margin-right: round(1rem, 1px); vertical-align: top;}
+:root[data-craft-detail-place="below"] #crafting_window .craft_detail_fact {display: inline-block; margin-right: var(--ui-space-6); vertical-align: top;}
 
 /* R12 (2026-10-15): known result effects, attempts, related recipes and local return.
    Text follows the chosen size; color repeats a word, never replaces it. */
-.craft_detail_effects {display: flex; flex-wrap: wrap; align-items: baseline; gap: round(.2rem, 1px) round(.35rem, 1px); margin: round(.12rem, 1px) 0;}
-.craft_effect {display: inline-flex; gap: round(.3em, 1px); padding: 0 round(.35em, 1px); border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
+.craft_detail_effects {display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ui-space-1) var(--ui-space-2); margin: var(--ui-space-1) 0;}
+.craft_effect {display: inline-flex; gap: var(--ui-space-2); padding: 0 var(--ui-space-2); border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
 .craft_effect_duration {opacity: .8; font-variant-numeric: tabular-nums;}
 .craft_effect[data-effect-kind="debuff"] {border-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004));}
 .craft_effect[data-effect-kind="buff"] {border-color: var(--sem-gain, var(--ui-swatch-001));}
-.craft_detail_odds {display: flex; flex-wrap: wrap; gap: 0 round(.9rem, 1px); align-items: baseline;}
+.craft_detail_odds {display: flex; flex-wrap: wrap; gap: 0 var(--ui-space-5); align-items: baseline;}
 .craft_detail_attempts {font-variant-numeric: tabular-nums;}
-.craft_detail_quiet {opacity: .82; font-size: .92em;}
-.craft_detail_related {margin-top: round(.35rem, 1px); border-top: 1px solid var(--workspace-border, var(--ui-swatch-100)); padding-top: round(.25rem, 1px);}
+.craft_detail_quiet {opacity: .82; font-size: var(--ui-type-small);}
+.craft_detail_related {margin-top: var(--ui-space-2); border-top: 1px solid var(--workspace-border, var(--ui-swatch-100)); padding-top: var(--ui-space-2);}
 .crafting_detail .craft_related, .crafting_detail .craft_detail_back {
-    display: flex; flex-wrap: wrap; gap: 0 round(.5em, 1px); width: 100%; min-height: 0; margin: 0; padding: round(.1em, 1px) round(.25em, 1px); box-sizing: border-box;
+    display: flex; flex-wrap: wrap; gap: 0 var(--ui-space-4); width: 100%; min-height: 0; margin: 0; padding: var(--ui-space-1) var(--ui-space-2); box-sizing: border-box;
     font: inherit; text-align: left; cursor: pointer; background: transparent !important; color: inherit !important; border: 0 !important;
 }
 .crafting_detail .craft_related:hover, .crafting_detail .craft_detail_back:hover {background: var(--active_button_color, var(--ui-swatch-099)) !important;}
 .crafting_detail .craft_related:focus-visible, .crafting_detail .craft_detail_back:focus-visible {outline: 2px solid var(--theme-surface-text, var(--ui-swatch-102)); outline-offset: -2px;}
 .craft_related_name {text-decoration: underline; text-underline-offset: 2px;}
-.craft_related_via {opacity: .78; font-size: .92em;}
+.craft_related_via {opacity: .78; font-size: var(--ui-type-small);}
 .craft_related[data-unavailable] .craft_related_name {opacity: .7;}
-.crafting_detail .craft_detail_back {width: auto; margin-bottom: round(.2rem, 1px); text-decoration: underline;}
+.crafting_detail .craft_detail_back {width: auto; margin-bottom: var(--ui-space-1); text-decoration: underline;}
 
 /* R12: in the workspace the window fills its pane, so the list and the detail body scroll
    while the Craft controls stay visible. Below about 12 lines of room it falls back to the
@@ -97,15 +97,15 @@
 #main_content.workspace-active #center_mode_content > #crafting_window[style*="block"] {flex: 1 0 auto; min-height: 0;}
 #main_content.workspace-active #crafting_window[style*="block"] .crafting_body {flex: 1 1 0; min-height: 12em; height: auto;}
 #main_content.workspace-active #crafting_window .crafting_body > .crafting_detail {min-height: 0;}
-#main_content.workspace-active #crafting_window .crafting_filter {margin: round(.2rem, 1px) var(--ui-space-2);}
-#main_content.workspace-active #crafting_makeable_filter {min-height: 0; height: auto; margin: 0 round(.3em, 1px) 0 0; vertical-align: middle;}
+#main_content.workspace-active #crafting_window .crafting_filter {margin: var(--ui-space-1) var(--ui-space-2);}
+#main_content.workspace-active #crafting_makeable_filter {min-height: 0; height: auto; margin: 0 var(--ui-space-2) 0 0; vertical-align: middle;}
 /* The cancel control appears only while a crafting visual effect is playing. */
 #main_content.workspace-active #crafting_window:not(:has(> .work-ledger-effect:not([hidden]))) > #cancel_craft_visual_effect {display: none;}
 /* Narrow in text units (large text or a slim column): list above detail, both scrolling,
    so neither column wraps every word. Width is measured in the chosen text size. */
 #main_content.workspace-active #crafting_window[style*="block"] {container-type: inline-size;}
 @container (max-width: 28em) {
-    #main_content.workspace-active #crafting_window[data-craft-view="items"] .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(3.2em, 30%) minmax(0, 1fr); gap: round(.3rem, 1px);}
+    #main_content.workspace-active #crafting_window[data-craft-view="items"] .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(3.2em, 30%) minmax(0, 1fr); gap: var(--ui-space-2);}
 }
 #main_content.workspace-active #crafting_subpage_buttons[data-choices="1"] {display: none;}
 @container (max-width: 28em) {
@@ -113,7 +113,7 @@
 }
 
 /* R14: names and native attempt readiness share each item row, never a second control. */
-#crafting_window .recipe_div[role=option] {display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 round(.4em, 1px);}
+#crafting_window .recipe_div[role=option] {display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--ui-space-3);}
 #crafting_window .recipe_div[role=option] .recipe_item_name {flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere;}
 #crafting_window .recipe_readiness {margin-left: auto; white-space: nowrap; color: var(--theme-surface-muted, var(--ui-swatch-102));}
 #crafting_window .recipe_readiness[data-ready="true"] {color: var(--sem-gain, var(--ui-swatch-001));}
@@ -121,31 +121,31 @@
 /* Peers stay on one scrolling strip at larger text. The selected native tab
    and focus remain available without spending a second row on one category. */
 #main_content.workspace-active #crafting_mainpage_buttons {display:flex;flex-wrap:nowrap;overflow-x:auto;outline:none;flex-shrink:0;}
-#main_content.workspace-active #crafting_mainpage_buttons > .crafting_mainpage_button {float:none;flex:0 0 auto;white-space:nowrap;padding-inline:round(.55em, 1px);}
+#main_content.workspace-active #crafting_mainpage_buttons > .crafting_mainpage_button {float:none;flex:0 0 auto;white-space:nowrap;padding-inline:var(--ui-space-4);}
 #main_content.workspace-active #crafting_window .recipe_div[role="option"] {border:0;border-bottom:1px solid var(--ui-hairline);}
 #main_content.workspace-active #crafting_window .recipe_div[role="option"]:focus-visible {outline:2px solid var(--theme-focus,var(--workspace-focus));outline-offset:-2px;}
 
 /* Original herbal trial: its own expanded center view, using shared tokens. */
-#crafting_engine_home {color:var(--ui-text);padding:round(.75rem, 1px);max-width:100%;box-sizing:border-box;}
-#crafting_engine_home .crafting-trial-material {display:flex;align-items:center;gap:round(.5rem, 1px);flex-wrap:wrap;margin:round(.5rem, 1px) 0;}
+#crafting_engine_home {color:var(--ui-text);padding:var(--ui-space-5);max-width:100%;box-sizing:border-box;}
+#crafting_engine_home .crafting-trial-material {display:flex;align-items:center;gap:var(--ui-space-4);flex-wrap:wrap;margin:var(--ui-space-4) 0;}
 #crafting_engine_home .crafting-trial-quantity {width:4em;}
-#crafting_engine_home [data-craft-detail] {margin-top:round(.75rem, 1px);}
+#crafting_engine_home [data-craft-detail] {margin-top:var(--ui-space-5);}
 
 /* CF1 glance (proposal): one status line and the facts weighed before Craft. Words beside every mark (UR37). */
-.craft_glance {margin: 0 0 round(.4rem, 1px); padding-bottom: round(.35rem, 1px); border-bottom: 1px solid var(--workspace-border, var(--ui-swatch-100));}
-.craft_glance_status {display: flex; gap: round(.4em, 1px); align-items: baseline; margin: 0 0 round(.3rem, 1px); padding: var(--ui-space-hairline) var(--ui-space-2); border-left: 3px solid var(--sem-gain, var(--ui-swatch-001)); font-weight: 700;}
+.craft_glance {margin: 0 0 var(--ui-space-3); padding-bottom: var(--ui-space-2); border-bottom: 1px solid var(--workspace-border, var(--ui-swatch-100));}
+.craft_glance_status {display: flex; gap: var(--ui-space-3); align-items: baseline; margin: 0 0 var(--ui-space-2); padding: var(--ui-space-hairline) var(--ui-space-2); border-left: 3px solid var(--sem-gain, var(--ui-swatch-001)); font-weight: var(--ui-weight-strong);}
 .craft_glance_status[data-state="blocked"] {border-left-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004));}
 .craft_glance_status:focus {outline: 2px solid var(--sem-blocked, var(--ui-swatch-004));}
-.craft_glance .craft_glance_status.craft_blocked_reason {margin-bottom: round(.3rem, 1px);}
-.craft_glance_grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: round(.15rem, 1px) round(.8rem, 1px);}
-.craft_glance_row {display: flex; flex-wrap: wrap; gap: 0 round(.4em, 1px); align-items: baseline; min-width: 0;}
+.craft_glance .craft_glance_status.craft_blocked_reason {margin-bottom: var(--ui-space-2);}
+.craft_glance_grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: var(--ui-space-1) var(--ui-space-5);}
+.craft_glance_row {display: flex; flex-wrap: wrap; gap: 0 var(--ui-space-3); align-items: baseline; min-width: 0;}
 .craft_glance_row[data-glance="needs"], .craft_glance_row[data-glance="cost"] {grid-column: 1 / -1;}
 .craft_glance_row .craft_detail_label {margin-right: 0;}
 .craft_glance_row .craft_detail_label::after {content: ":";}
-.craft_glance_chips {display: flex; flex-wrap: wrap; gap: round(.2rem, 1px) round(.35rem, 1px);}
-.craft_chip {display: inline-flex; gap: round(.3em, 1px); padding: 0 round(.4em, 1px); border: 1px solid var(--workspace-border, var(--ui-swatch-100)); font-variant-numeric: tabular-nums;}
-.craft_chip[data-state="blocked"] {border-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: 700;}
+.craft_glance_chips {display: flex; flex-wrap: wrap; gap: var(--ui-space-1) var(--ui-space-2);}
+.craft_chip {display: inline-flex; gap: var(--ui-space-2); padding: 0 var(--ui-space-3); border: 1px solid var(--workspace-border, var(--ui-swatch-100)); font-variant-numeric: tabular-nums;}
+.craft_chip[data-state="blocked"] {border-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: var(--ui-weight-strong);}
 .craft_chip[data-state="ok"] .craft_mark {color: var(--sem-gain, var(--ui-swatch-001));}
-.craft_detail_stock > summary, .craft_detail_about > summary {cursor: pointer; font-weight: 700;}
-.craft_detail_about {margin: round(.3rem, 1px) 0;}
-.craft_detail_about .craft_detail_policy {margin: round(.2rem, 1px) 0; opacity: .85;}
+.craft_detail_stock > summary, .craft_detail_about > summary {cursor: pointer; font-weight: var(--ui-weight-strong);}
+.craft_detail_about {margin: var(--ui-space-2) 0;}
+.craft_detail_about .craft_detail_policy {margin: var(--ui-space-1) 0; opacity: .85;}
