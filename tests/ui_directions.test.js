@@ -25,9 +25,10 @@ test('every direction renders both fixtures with the facts a player needs, from 
     }
 });
 
-test('every direction shows each held or offered ladder, not one hardcoded path', () => {
+test('every direction shows each held or offered path, in more than one shape, never one hardcoded ladder', () => {
     for (const fixture of Object.values(FIXTURES)) {
         assert.ok(fixture.ladders.length >= 1);
+        assert.ok(fixture.ladders.some(l => l.shape !== 'ladder'), `${fixture.id}: one branching or field example`);
         for (const {id} of DIRECTIONS) {
             const text = textOf(buildScreen(id, fixture.id, {size: 14}));
             const names = fixture.ladders.filter(l => text.includes(l.name)).length;

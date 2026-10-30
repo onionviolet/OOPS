@@ -52,7 +52,7 @@ function peopleList(fx, withWant = true) {
     return rows(fx.people, (li, p) => add(li, btn(p.name), el('small', {}, p.role), withWant && p.want ? chip(p.want, 'ud-want') : null));
 }
 function laddersList(fx) {
-    return rows(fx.ladders, (li, l) => add(li, el('b', {}, l.name), el('span', {}, l.now), el('small', {}, `next: ${l.next}`)));
+    return rows(fx.ladders, (li, l) => add(li, el('b', {}, l.name), chip(l.shape || 'ladder'), el('span', {}, l.now), el('small', {}, `next: ${l.next}`)));
 }
 function itemsList(fx) {
     return rows(fx.items, (li, i) => add(li, el('span', {}, `${i.name} x${i.count}`), el('small', {}, i.value)));

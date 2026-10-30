@@ -39,7 +39,7 @@ export const FIXTURES = {
         returnNote: 'First morning. Nothing has changed while you were away.',
         places: [{id: 'v-path', name: 'Village', x: 50, y: 52, here: true}, {id: 'v-willow', name: 'Wild willow stand', x: 22, y: 30, time: '~10 min'}, {id: 'v-field', name: 'Infested field', x: 80, y: 28, time: '~25 min'}, {id: 'v-tingen', name: 'Tingen (another world)', x: 24, y: 76, time: 'crossing'}],
         // Village has no ladder yet: skills are one flat list, shown as one ladder of ordinary practice.
-        ladders: [{name: 'Practice', now: 'Level 0', next: 'Level 1 at 10 xp'}],
+        ladders: [{name: 'Practice', shape: 'ladder', now: 'Level 0', next: 'Level 1 at 10 xp'}, {name: 'Everyday skills', shape: 'field', now: 'none practised', next: 'any skill grows with use; no order'}],
         blocked: null, discoveryDots: ['Journal', 'Knows'],
     },
     tingen: {
@@ -64,8 +64,8 @@ export const FIXTURES = {
         agenda: [{at: '09:00', text: 'Notebook has 2 new entries.', state: 'now'}, {at: 'Open', text: 'Night watch, 60 min: blocked, reason unnamed.', state: 'open'}, {at: 'Later', text: 'Evidence store: 3 merit buys crystal sunflower.', state: 'soon'}],
         returnNote: 'An hour passed. Statistics and World events are now available in navigation.',
         places: [{id: 't-work', name: 'Tingen supervised workroom', x: 46, y: 50, here: true}, {id: 't-lodging', name: 'Probationer lodging', x: 22, y: 70, time: '2 min'}, {id: 't-docks', name: 'Tingen docks', x: 78, y: 28, time: '20 min'}, {id: 't-uni', name: 'University area', x: 24, y: 24, time: '25 min'}],
-        // Both pathways were listed in the played workroom; one pathway per life is the stated rule, so the second is shown as offered, not held.
-        ladders: [{name: 'Seer pathway', now: 'Ordinary clerk', next: 'Sequence 9 · Seer (dose offered)'}, {name: 'Corpse Collector pathway', now: 'Ordinary clerk', next: 'Sequence 9 · Corpse Collector (offered)'}, {name: 'Nighthawk merit', now: '0 merit', next: '2 merit per watch'}],
+        // Both pathways were listed in the played workroom; one pathway per life is the stated rule, so the two pathways are shown as branches of one fork; mixing is possible by the world's own risk and cost, not drawn here. Shapes: ladder, branch (tree), field (no order), wheel, web, none.
+        ladders: [{name: 'Seer pathway', shape: 'branch', now: 'Ordinary clerk', next: 'Sequence 9 · Seer (dose offered)'}, {name: 'Corpse Collector pathway', shape: 'branch', now: 'Ordinary clerk', next: 'Sequence 9 · Corpse Collector (offered)'}, {name: 'Nighthawk merit', shape: 'ladder', now: '0 merit', next: '2 merit per watch'}],
         blocked: 'The required knowledge, means or circumstances are missing.', discoveryDots: ['Ledger'],
     },
 };
