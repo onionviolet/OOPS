@@ -70,7 +70,7 @@
    "outside": 0,
    "clipped": 0,
    "fontPx": "21px",
-   "scrollH": 1078,
+   "scrollH": 1093,
    "clientH": 1078,
    "leafOverflow": 0,
    "facts": [
@@ -238,8 +238,8 @@
     true
    ],
    "clickable": 5,
-   "nodes": 121,
-   "chars": 1064
+   "nodes": 125,
+   "chars": 1151
   },
   {
    "file": "d-village-21px-fx-full.png",
@@ -254,8 +254,8 @@
     true
    ],
    "clickable": 5,
-   "nodes": 121,
-   "chars": 1064
+   "nodes": 125,
+   "chars": 1151
   },
   {
    "file": "d-village-14px-fx-off.png",
@@ -270,8 +270,8 @@
     true
    ],
    "clickable": 5,
-   "nodes": 121,
-   "chars": 1064
+   "nodes": 125,
+   "chars": 1151
   },
   {
    "file": "d-tingen-14px-fx-full.png",
@@ -286,8 +286,8 @@
     true
    ],
    "clickable": 4,
-   "nodes": 125,
-   "chars": 1626
+   "nodes": 129,
+   "chars": 1701
   },
   {
    "file": "d-tingen-21px-fx-full.png",
@@ -302,8 +302,8 @@
     true
    ],
    "clickable": 4,
-   "nodes": 125,
-   "chars": 1626
+   "nodes": 129,
+   "chars": 1701
   },
   {
    "file": "d-tingen-14px-fx-off.png",
@@ -318,8 +318,8 @@
     true
    ],
    "clickable": 4,
-   "nodes": 125,
-   "chars": 1626
+   "nodes": 129,
+   "chars": 1701
   }
  ]
 }

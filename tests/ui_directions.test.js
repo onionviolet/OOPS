@@ -64,6 +64,7 @@ test('the gallery mounts one screen per direction and a single screen with dir',
     mountGallery(one, new URLSearchParams('dir=d&fixture=tingen&size=21'));
     assert.equal(one.children.length, 1);
     assert.equal(textOf(one).includes('Map table'), true);
+    for (const place of FIXTURES.tingen.places.filter(p => !p.here)) assert.ok(textOf(one).includes(place.name), `map table lists ${place.name}`);
 });
 
 test('the gallery touches no live shell file', () => {

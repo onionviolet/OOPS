@@ -123,7 +123,7 @@ function buildD(fx, root) {
         slots: fx.places.map((p, i) => ({id: p.id, ring: 'near', index: i, label: p.here ? `${p.name} (you)` : `${p.name} · ${p.time}`, state: p.here ? 'active' : 'empty', effect: p.here ? 'glow' : undefined}))};
     const figHost = el('div', {class: 'ud-figure'}); try { renderFigure(figHost, fig); } catch { figHost.append(el('p', {}, fig.summary)); }
     const cards = el('div', {class: 'ud-cards'}); for (const p of fx.people) add(cards, add(el('div', {class: 'ud-card'}), el('strong', {}, p.name), el('small', {}, p.role), p.want ? el('em', {}, p.want) : null));
-    add(table, el('h2', {}, `Map table · ${fx.place}`), figHost, cards, add(el('div', {class: 'ud-actions-row'}), ...fx.actions.map(a => actionRow(a))));
+    add(table, el('h2', {}, `Map table · ${fx.place}`), figHost, add(el('div', {class: 'ud-chips'}), ...fx.places.filter(p => !p.here).map(p => chip(`${p.name} · ${p.time}`))), cards, add(el('div', {class: 'ud-actions-row'}), ...fx.actions.map(a => actionRow(a))));
     const letters = el('section', {class: 'ud-letters', 'aria-label': 'Letters'}); add(letters, el('h2', {}, 'Letters'), ...fx.reports.map(r => el('p', {class: 'ud-letter'}, r)));
     const satchel = el('section', {class: 'ud-satchel', 'aria-label': 'Satchel'}); add(satchel, el('strong', {}, `Satchel · ${fx.money}`), ...fx.items.map(i => chip(`${i.name} x${i.count}`)), el('span', {class: 'ud-spacer'}), el('span', {}, `Lv ${fx.vitals.level} · ${fx.vitals.stamina[0]}/${fx.vitals.stamina[1]} stamina · ${fx.vitals.hp[0]}/${fx.vitals.hp[1]} hp`));
     add(desk, book, table, letters, satchel); add(root, header(fx), desk);
