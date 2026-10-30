@@ -1,0 +1,14 @@
+{
+  "viewport": "1920x1080",
+  "cases": [
+    {
+      "case": "fresh life, nothing worn",
+      "text": "Legs\nTrash · 40%\n\nNothing worn in legs: this would be your first.\n\nDefense\t0\t＝ no change\nAgility\t×0.99\t▼ −0.01 lost\nCold tolerance\t0.5\t▲ +0.5 gained\nCrit resistance\t0.033\t▲ +0.033 gained\nWhere it has been\n\nNo maker or past is recorded for this one."
+    },
+    {
+      "case": "60% pants against worn 140% pants",
+      "text": "Legs\nCommon · 60%\n\nCompared with your Cheap leather pants (140%).\n\nDefense\t0\t＝ same as worn\nPart defense value\t0\t＝ same as worn\nAgility\t×0.99\t▼ −0.09 worse\nCold tolerance\t0.5\t▼ −0.15 worse\nCrit resistance\t0.033\t▼ −0.01 worse\nWhere it has been\n\nNo maker or past is recorded for this one."
+    }
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'No such element with availability as \"recipe\" -> \"undefined\"'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   }\n+ ]\n- []\n\n    at file:///Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/rep-items-6f02d9/scripts/playtest/items-card-proof.mjs:33:9"
+}

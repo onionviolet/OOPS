@@ -15,6 +15,7 @@ import {can_work, enough_time_for_earnings} from './activity_time.js';
 import {global_flags, languages, language, current_location, travel_times, unlocked_beds, last_location_with_bed, last_combat_location, active_effects, selected_stance, faved_stances, favourite_consumables, favourite_items, game_options, setLanguage, setCurrentLocation, setTravelTimes, setLastLocationWithBed, setLastCombatLocation, setSelectedStance} from './runtime_state.js';
 import {readNativeCombatFocus} from './combat_focus.js';
 import {mountProto23Shell} from './proto23_shell.js';
+import {makeItemCardReader} from './item_card_reader.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
 import {createVillageWorkspace} from './village_workspace.js';
 import {projectPlaceTypes} from './place_types_projection.js';
@@ -9886,7 +9887,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         if(base?.type!=='JOB')return label;
         return enough_time_for_earnings(activity)?`${label} · next full-round pay in ${format_working_time(activity.gathering_time_needed-activity.gathering_time%activity.gathering_time_needed)}`:`${label} · no time for another full paid round`;
     };
-    mountProto23Shell({transferStorage:commitNativeStorage,compareWorn:key=>structuredEquipmentView(key),read:()=>{
+    mountProto23Shell({transferStorage:commitNativeStorage,compareWorn:key=>structuredEquipmentView(key),readItemCard:makeItemCardReader({getItemFromKey,getItemRarity,equipmentOf:()=>character.getEquipment(),durability}),read:()=>{
         const stats=character.getFullStats();
         return {stats:[['STR',stats.strength],['AGL',stats.agility],['DEX',stats.dexterity],['INT',stats.intuition],['Attack',character.getAttackPower()],['Defense',stats.defense]].map(([label,value])=>[label,Number.isFinite(value)?Number(value.toFixed(1)):'???']),
             equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),

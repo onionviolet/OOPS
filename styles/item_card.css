@@ -1,0 +1,21 @@
+/* Item card (src/ui/item_card.js). Shared tokens only (UR6); every mark has words beside it (UR37). */
+.item-card {display:grid;gap:var(--ui-space-2, .4em);padding:var(--ui-space-2, .4em);border:1px solid var(--p23-line, currentColor);color:var(--p23-text, inherit);}
+.item-card-chips {display:flex;flex-wrap:wrap;gap:var(--ui-space-1, .25em);}
+.item-card-chip {padding:0 .45em;border:1px solid var(--p23-line, currentColor);font-size:.85em;line-height:1.5;text-transform:capitalize;}
+.item-card-chip[data-role="slot"] {color:var(--p23-item-equipment, inherit);border-color:currentColor;}
+.item-card-chip[data-role="band"][data-band="trash"] {color:var(--p23-muted, inherit);}
+.item-card-chip[data-role="band"][data-band="uncommon"],.item-card-chip[data-role="band"][data-band="rare"],.item-card-chip[data-role="band"][data-band="epic"],.item-card-chip[data-role="band"][data-band="legendary"],.item-card-chip[data-role="band"][data-band="mythical"] {color:var(--p23-value, inherit);border-color:currentColor;}
+.item-card-chip[data-state="unknown"] {border-style:dashed;color:var(--p23-muted, inherit);font-style:italic;}
+.item-card-chip[data-role="condition"][data-state="low"] {color:var(--p23-loss, inherit);border-color:currentColor;}
+.item-card-versus,.item-card-note,.item-card-unknown,.item-card-worth {margin:0;color:var(--p23-muted, inherit);}
+.item-card-unknown {font-style:italic;}
+.item-card-rows {width:100%;border-collapse:collapse;}
+.item-card-rows th {text-align:left;font-weight:normal;padding:.1em .3em .1em 0;}
+.item-card-value {font-variant-numeric:tabular-nums;text-align:right;padding:.1em .6em;}
+.item-card-delta {white-space:nowrap;}
+.item-card-row[data-direction="better"] .item-card-delta {color:var(--p23-gain, inherit);}
+.item-card-row[data-direction="worse"] .item-card-delta {color:var(--p23-loss, inherit);}
+.item-card-row[data-direction="same"] .item-card-delta {color:var(--p23-muted, inherit);}
+.item-card-trail h4 {margin:0 0 .15em;font-size:.9em;color:var(--p23-muted, inherit);font-weight:normal;}
+.item-card-trail ol {margin:0;padding-left:1.2em;}
+[data-effects="off"] .item-card *,[data-effects="reduced"] .item-card * {transition:none;animation:none;}

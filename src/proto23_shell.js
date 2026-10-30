@@ -13,6 +13,7 @@ import {mountShellControlBoxes} from './shell_control_boxes.js';
 import {mountShellStripBoxes} from './shell_strip_boxes.js';
 import {rendered} from './panel_reveal.js';
 import {descriptionCopy} from './shell_item_description.js';
+import {renderItemCard} from './ui/item_card.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit ×',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
 const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
@@ -97,7 +98,7 @@ function mountAttributeInspector(){
 }
 // Presentation only: authoritative values come from the supplied native reader;
 // item commands delegate to the original row control, with its native guards.
-export function mountProto23Shell({read,transferStorage,compareWorn}) {
+export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard}) {
     const player=node('section',null,'shell-character');player.id='proto23_character';
     const statline=node('div',null,'shell-statline shell-core-stats'),equipment=node('div',null,'shell-equipment');
     const secondary=node('section',null,'shell-secondary-stats'),secondaryHeading=node('div',null,'shell-secondary-heading'),secondaryGrid=node('div',null,'shell-secondary-grid');secondary.hidden=true;secondary.setAttribute('aria-label','Secondary attributes');secondary.append(secondaryHeading,secondaryGrid);
@@ -402,7 +403,9 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         meta.textContent=selected.slot?`${occupied?'Equipped':'Empty'} · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
         meta.title=selected.slot?'Follows the current item in this equipment slot.':'Follows this exact carried stack.';
         body.replaceChildren();
-        if(tooltip)body.append(descriptionCopy(tooltip));
+        const card=!selected.slot&&selected.key&&tooltip?readItemCard?.(selected.key):null;
+        if(card){const holder=node('div');renderItemCard(holder,card);body.append(holder);const full=node('details',null,'shell-item-fulltext');full.append(node('summary','Full description'),descriptionCopy(tooltip));body.append(full);}
+        else if(tooltip)body.append(descriptionCopy(tooltip));
         else if(selected.slot&&!occupied){
             const fitting=[...document.querySelectorAll('#inventory_content_div > [data-character_item]')].filter(n=>n.dataset.item_slot===selected.slot);
             body.append(node('p',fitting.length?'Choose carried equipment for this slot:':'No carried equipment fits this slot. Find or buy fitting gear, then inspect it here.'));
