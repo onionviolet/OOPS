@@ -7007,3 +7007,7 @@ Weibao: "Also need to consider stufff like switching pathways and more but that 
 ## Gallery: less generic, less wall of text (2026-10-30)
 
 Weibao, 2026-10-30, after the five redesign drafts: "We dont need the bright style, work mainly on the blue one, the housing stil lstucks, rather than odd representation, it can just be like a blocky or more abstract? How do other games do it? These are better in some ways but still not the best they can be? HWat can we do to address this?"
+
+- **Luminous Gothic (the blue) is the one look to develop.** The paper skin is parked: the code stays, no further work or captures.
+- **Housing goes blocky and abstract**, not a drawn floor plan with icons.
+- **Process:** several variants per section from a reference board, judged side by side ([brief, round 2](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md#round-2-blocky-luminous-variants)).
