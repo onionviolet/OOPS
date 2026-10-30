@@ -82,15 +82,14 @@ export function familyPeople(projection, {knows = () => undefined} = {}) {
 
 export function personLabel(p) {
     if (p.self) return p.name === 'You' ? 'You' : `You · ${p.name}`;
-    const base = p.name ? `${p.word} · ${p.name}` : p.word;
-    // Unknown already carries its own mark and word in the figure; guessed has none, so it says so.
-    return p.grade === 'guessed' ? `${base} (guessed)` : base;
+    // Guessed and unknown are figure states: the mark and the text form's "(guessed)" come from the primitive.
+    return p.name ? `${p.word} · ${p.name}` : p.word;
 }
-// Known people draw plain with their initial; a guess shows ≈ and says so; unknown takes the figure's ? state.
+// Known people draw plain with their initial; a guess takes the figure's guessed (~) state, unknown its ? state.
 // `role` names what a mark means (self, ancestor, kin, heir), so a later motif pack restyles it without
 // touching this adapter (round 2, item 20).
 const markOf = p => p.self ? {state: 'active', effect: 'glow', glyph: 'Y'}
-    : p.grade === 'unknown' ? {state: 'unknown'} : {glyph: p.grade === 'guessed' ? '≈' : (p.name || p.word).charAt(0).toUpperCase()};
+    : p.grade === 'unknown' ? {state: 'unknown'} : p.grade === 'guessed' ? {state: 'guessed'} : {glyph: (p.name || p.word).charAt(0).toUpperCase()};
 const roleOf = (p, heirId) => p.self ? 'self' : p.id === heirId ? 'heir' : p.gen < 0 ? 'ancestor' : 'kin';
 // Ranked succession rows for a list: [{id, name, why, rank}]. The first is who would inherit now.
 export function successionRows(succession) {
