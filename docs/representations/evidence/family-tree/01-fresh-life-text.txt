@@ -1,0 +1,14 @@
+Your family
+Only what you know. 2 known, 4 unknown.
+Nodes: You (active); Father (filled); Father's father (unknown); Father's mother (unknown); Mother (filled); Mother's father (unknown); Mother's mother (unknown).
+You to Father: parent.
+Father to Father's father: parent.
+Father to Father's mother: parent.
+You to Mother: parent.
+Mother to Mother's father: parent.
+Mother to Mother's mother: parent.
+If this life ended now (Single successor): The original Frontier route: one successor, the apprentice when one was taught, else next of kin.
+Key: ◆ active means you.
+Key: ● filled means known to you.
+Key: ? unknown means not known.
+Key: parent means child to parent.
