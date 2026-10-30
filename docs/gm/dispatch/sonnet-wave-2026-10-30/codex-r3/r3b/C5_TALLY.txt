@@ -1,0 +1,2 @@
+{"mode":"fold","sourceSha256":"bc07779fbea9f79c0a044746351544ae0a643a007dcaf1014a8ea01848caeeae","rows":51194,"texture":28987,"rulesOther":22207,"news":0,"briefs":19,"labelled":8614,"unread":42580,"pendingRepairs":96,"tallyExit":0,"semanticClassificationVerified":false}
+Incomplete: repair explicit unread ids before integration
