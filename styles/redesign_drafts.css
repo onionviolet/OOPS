@@ -152,3 +152,53 @@
 .rd-together-hp {position: absolute; inset-block: calc(var(--ui-space-2) * -1); inset-inline-start: var(--rd-hp); border-inline-start: var(--ui-space-1) solid var(--rd-accent);}
 .rd-together b {position: absolute; inset-inline-end: var(--ui-space-3); inset-block-start: 0; font-weight: var(--ui-weight-regular); line-height: var(--rd-gauge-line); font-size: var(--ui-type-small); color: var(--rd-danger);}
 :root:is([data-effects="off"], [data-effects="reduced"]) .rd * {animation: none;}
+
+/* 6. Housing variants H1-H3 (blocky, abstract, Luminous only). A filled block is built, a hairline block can be built, a dim hatched block is locked.
+   One block unit scales with the body size so the blocks stay square. */
+.hv-compare {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ui-space-5); align-items: start;}
+.hv {--hv-unit: calc(var(--ui-type-body) * 4.4); --hv-glow: 0 0 var(--ui-space-4) var(--rd-rule), inset 0 0 var(--ui-space-4) var(--rd-rule); display: grid; gap: var(--ui-space-4); align-content: start;}
+.hv-head {color: var(--rd-muted); font-size: var(--ui-type-body);}
+.hv-head b {display: block; color: var(--rd-accent); font-weight: var(--ui-weight-regular); font-size: var(--ui-type-title); line-height: var(--ui-line-body);}
+.hv-rowname {margin: 0 0 var(--ui-space-2); color: var(--rd-muted); font-size: var(--ui-type-small); font-weight: var(--ui-weight-regular); line-height: var(--ui-line-small);}
+.hv-word {color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small); text-align: center;}
+.hv-block, .hv-mass, .hv-pip, .hv-mini {display: block; box-sizing: border-box; border: var(--ui-space-hairline) solid var(--rd-accent); background: transparent;}
+.hv [data-state="built"] {border-color: var(--rd-accent); background: color-mix(in srgb, var(--rd-accent) 46%, transparent); box-shadow: var(--hv-glow);}
+.hv [data-state="strained"] {border-color: var(--rd-warn); background: color-mix(in srgb, var(--rd-warn) 28%, transparent);}
+.hv [data-state="broken"] {border-color: var(--rd-danger); background: color-mix(in srgb, var(--rd-danger) 28%, transparent);}
+.hv [data-state="open"] {border-color: color-mix(in srgb, var(--rd-accent) 62%, transparent);}
+.hv [data-state="locked"] {border-color: color-mix(in srgb, var(--rd-ink) 24%, transparent); background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--rd-ink) 14%, transparent) 0, color-mix(in srgb, var(--rd-ink) 14%, transparent) var(--ui-space-1), transparent var(--ui-space-1), transparent var(--ui-space-3)); opacity: .8;}
+.hv [data-state="locked"]:focus-visible {outline: var(--ui-space-hairline) solid var(--rd-accent);}
+
+/* H1: slot grid. */
+.hv-h1 .hv-slots {display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--hv-unit), 1fr)); gap: var(--ui-space-4) var(--ui-space-3);}
+.hv-slot {display: grid; gap: var(--ui-space-2); justify-items: center;}
+.hv-h1 .hv-block {width: var(--hv-unit); height: var(--hv-unit);}
+
+/* H2: block skyline. Columns share one baseline; built masses sit on it, ghosts stand above or beside. */
+.hv-h2 {--hv-unit: calc(var(--ui-type-body) * 5.2);}
+.hv-sky {display: flex; align-items: flex-end; justify-content: center; gap: var(--ui-space-3); padding-top: var(--ui-space-3); border-bottom: var(--ui-space-hairline) solid var(--rd-accent); box-shadow: 0 var(--ui-space-hairline) var(--ui-space-3) var(--rd-rule);}
+.hv-col {display: grid; gap: var(--ui-space-3); align-content: end; margin-bottom: var(--ui-space-2);}
+.hv-mass {position: relative; width: var(--hv-unit); height: var(--hv-unit); display: grid; place-items: end center; padding-bottom: var(--ui-space-2);}
+.hv-mass--house {width: calc(var(--hv-unit) * 1.5); height: calc(var(--hv-unit) * 1.7); place-items: center; padding: 0;}
+.hv-roof {display: block; box-sizing: border-box; width: calc(var(--hv-unit) * .9); height: calc(var(--hv-unit) * .5); justify-self: center; border: var(--ui-space-hairline) solid var(--rd-accent);}
+.hv-col--house {gap: 0;}
+.hv-mass[data-state="open"], .hv-mass[data-state="locked"] {border-style: dashed;}
+.hv-pips {display: grid; grid-template-columns: repeat(2, var(--ui-space-6)); gap: var(--ui-space-3);}
+.hv-pips--one {position: absolute; inset-block-start: var(--ui-space-3); inset-inline: 0; justify-content: center; grid-template-columns: var(--ui-space-6);}
+.hv-pip {width: var(--ui-space-6); height: var(--ui-space-6); background: transparent;}
+.hv-mass .hv-word {position: static;}
+
+/* H3: stat-first card. */
+.hv-meters {display: grid; gap: var(--ui-space-5);}
+.hv-meter {display: grid; grid-template-columns: auto auto 1fr; grid-template-areas: "label label label" "big say say" "segs segs segs"; align-items: baseline; column-gap: var(--ui-space-3);}
+.hv-label {grid-area: label; color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.hv-big {grid-area: big; font-weight: var(--ui-weight-regular); font-size: var(--rd-big); line-height: var(--rd-big-line); color: var(--rd-accent);}
+.hv-say {grid-area: say; color: var(--rd-ink);}
+.hv-segs {grid-area: segs; display: flex; gap: var(--ui-space-1);}
+.hv-seg {flex: 1; height: var(--ui-space-5); border: var(--ui-space-hairline) solid var(--rd-muted);}
+.hv-seg[data-on="true"] {border-color: var(--rd-accent); background: color-mix(in srgb, var(--rd-accent) 34%, transparent); box-shadow: 0 0 var(--ui-space-2) var(--rd-rule);}
+.hv-strip {display: flex; flex-wrap: wrap; gap: var(--ui-space-4) var(--ui-space-5); padding-top: var(--ui-space-3); border-top: var(--ui-space-hairline) solid var(--rd-rule);}
+.hv-run {display: flex; gap: var(--ui-space-2);}
+.hv-mini {width: var(--ui-space-6); height: var(--ui-space-6);}
+.hv-mini[data-state="built"] {box-shadow: 0 0 var(--ui-space-2) var(--rd-rule);}
+@media (max-width: 1500px) {.hv-compare {grid-template-columns: repeat(2, minmax(0, 1fr));}}

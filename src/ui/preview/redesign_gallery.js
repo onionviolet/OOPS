@@ -5,6 +5,7 @@ import {renderVersusRow, versusText} from '../combat_versus.js';
 import {applyCustomizationProfile, defaultCustomizationState} from '../../customization_profiles.js';
 import {applySkin} from './skins/paper.js';
 import {REDESIGNS} from './fixtures/redesigns.js';
+import {mountHousingVariants} from './housing_gallery.js';
 
 export function mountRedesigns(main) {
     const doc = main.ownerDocument, state = defaultCustomizationState();
@@ -33,4 +34,5 @@ export function mountRedesigns(main) {
         section.append(note, pair);
         if (after) { after.after(section); after = section; } else main.append(section);
     }
+    mountHousingVariants(main);
 }

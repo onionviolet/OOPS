@@ -99,3 +99,46 @@ All proposed, all default, dial and reason, in the same style as DSG1 to DSG19. 
 - The ladder overlays (planned, records, insight, witness) and the wax-seal settled state are described, not drawn.
 - Rows GF2, GF8 to GF9, GF11 to GF24 are judged from captures and fixture text, not from a fresh player session; reference-game claims marked inferred were not checked against the games.
 - Next round candidates by gain: gathering (GF30), day band (GF28), recipe flow (GF12), then relationships (GF9).
+
+## Round 2: housing
+
+Weibao, 2026-10-30: drop the bright skin, work in blue Luminous Gothic only; housing "can just be like a blocky or more abstract". Round 1's icon floor plan is rejected. Everything below is a proposal (AD32); the live `home_view.js` is untouched and Weibao picks first. Target viewport 1920x1080, desktop. Captures: [composite and one per variant](../representations/evidence/housing-variants/housing-variants-composite.png). Code: `src/ui/preview/fixtures/housing_variants.js`, `src/ui/preview/housing_gallery.js`, section 6 of `styles/redesign_drafts.css`.
+
+### Reference board
+
+Known means I can state the mechanism; inferred means a recalled pattern I did not recheck.
+
+| Game | What it does for a home or holdings | Status | Take for H1-H3 |
+| --- | --- | --- | --- |
+| Crusader Kings III | A holding shows a fixed row of equal building slots: a filled slot with its building, an empty slot you can build, and slots you cannot yet use. Meaning lives in the slot's state, the name is a tooltip. | Known | H1 copies the three states and puts the name in one word. |
+| RimWorld | A room is an area on the map with a handful of stats (impressiveness, cleanliness, beauty) read as words and a number. The room is a labelled rectangle, not a drawing. | Known | H3's stat-first read; H2's rooms as plain masses. |
+| Melvor Idle (Township) and Kittens Game | Building rows: name, count or level, effect, with a button to add one. A tidy list that grows. | Known (rows); inferred (exact fields) | Counts and a level read as numerals, not sentences. |
+| A Dark Room | A plain list of buildings and a number that grows; nothing is drawn. The page itself becomes the home as you build. | Known | The skyline (H2) lets the home itself grow with no icons. |
+| Darkest Dungeon (Hamlet) | Each building has a row of upgrade pips; filled pips are bought. | Known | Pips for fittings inside a room (H2) and segmented meters (H3). |
+
+What the board says: every reference shows state by fill, outline and dimness, and puts words at one tier (a name or a number), never a sentence. None draws furniture.
+
+### Variants (same home, Willow House, from `homeOverviewModel`)
+
+| Variant | Idea | Visible words | Words with "read as text" |
+| --- | --- | --- | --- |
+| H1 slot grid | Two rows of equal square blocks (Rooms, Fittings): filled and glowing is built, hairline is buildable, hatched and dim is locked (reason on hover). One word under each. | 15 | 18 |
+| H2 block skyline | The main house is a mass with a roof block and four fitting pips; the side room is a built block; unbuilt rooms stand as dashed ghosts above and beside it. Study fitting is a pip inside the study ghost. | 8 | 11 |
+| H3 stat-first card | Comfort, upkeep and storage as three big numerals over segmented meters, then a thin strip of small blocks (rooms, fittings). | 14 | 17 |
+
+Illustrative overlay: the home fixture has no locked room, so the guest room is marked locked ("needs the quiet study first") to show the third state. The real rule needs a design owner. Comfort has no cap in the model, so its meter shows the four named bands, not a score out of ten.
+
+### Self-critique log (against the board and L1-L6)
+
+- **H1, pass 1.** Matches CK3 states, but built glow is faint, buildable blocks vanish into the panel, and the headline has no hierarchy. Revised: stronger glow, brighter buildable outline, name set in a larger tier over a muted tenure and comfort line.
+- **H1, pass 2.** Reads in two seconds: filled, outline, hatched. L1, L5 and L6 hold (no text form, nothing said twice). Remaining cost: Study appears in both rows, one word each, which is right but could confuse; hover title carries the full name.
+- **H2, pass 1.** A lone block with pips did not read as a skyline and half the cell was empty. Revised: added a roof block, enlarged the unit, centred the row, set ghosts at matching heights.
+- **H2, pass 2.** Now reads as a house with room to grow, the closest to A Dark Room's "the page becomes the home". Costs: fittings are unlabelled pips (hover only, so an L1 trade), and which room holds which fitting is my inference (study fitting in the study ghost).
+- **H3, pass 1.** The strongest at a glance; big numerals give a clear first read (L2). The block strip was tiny and cramped under the meters. Revised: more gap between meters, small blocks keep a glow.
+- **H3, pass 2.** Good. Cost: it says little about which fittings are missing; the small strip needs a hover for that.
+
+### Pick and gaps
+
+My pick: H1 as the default home view, with H3's three meters above it only when something is strained (L6). H1 is the clearest reading of rooms and fittings and costs no drawn assets; H2 is the most distinctive and could be an option for worlds that want a place, not a table (AD46). H3 alone hides the missing-fitting fact.
+
+Gaps: no mobile check (deferred); paper skin parked; screens are at 1920x1080 only; the keyboard and screen-reader path for locked blocks is `tabindex` plus an aria-label, not browser-tested; hover reasons were not exercised in a screenshot.
