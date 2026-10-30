@@ -163,6 +163,17 @@ Source: `implemented, below floor` or `read model only` in `docs/gm/dispatch/pro
 | RC69 | GenUI writes next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME after its workers land; rep-abilities and rep-relationship-web write their own | GenUI | Done check: each doc has the line. |
 | RC1-RC7 | bk lane messages not delivered (send limit); see the notes folder `bk-recon-report.md` | Book UI forwards | Forward. |
 
+## Later wave lanes (started after the snapshot)
+
+| Code | Kind | Evidence | State | Owner | Next step and done check |
+| --- | --- | --- | --- | --- | --- |
+| RC74 | worktree + branch | `bk-scout-cc90b8`, 2 unmerged commits (`49e8e7188` plus a follow-up), clean, unpushed; docs only: `docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md` (new), pointers in `LIBRARIES_TO_INCORPORATE_2026-10-14.md` and `docs/TOOL_REGISTRY.md` | unlanded | bk-scout `local_fef6b2ab` (running); merge owner: Book UI | Integrator merges those three paths. Done: `git cherry master claude/bk-scout-cc90b8` empty. |
+| RC75 | worktree | `bk-seams-5e4ce1`, 4 uncommitted, on `c8244211` | in progress | bk-seams `local_2ff55b52` | Commit own paths, rebase before merge (RC7). |
+| RC76 | worktree | `bk-ui-directions-65b80d`, 13 uncommitted, on `c8244211`, idle | in progress | bk-ui-directions `local_4a85e652` | Commit own paths or hand to Book UI; rebase (RC7). |
+| RC77 | worktree | `bk-benefits-5b89ef`, 7 uncommitted, on `c8244211`, idle | in progress | bk-benefits `local_cf3a9013` | Same as RC76. |
+
+RC1 update: bk-coi's branch has two commits (`205df106`, `09aa46a5`) touching 7 files (`COI_NEEDS.md`, `evidence/coi/*`, `src/owed_ledger_view.js`, `tests/owed_ledger.test.js`); the tracked tree is clean (the earlier "3 uncommitted" were private symlinks). bk-coi rebases in its own worktree, then Book UI lands it; GenUI must OK first because rep-economy lists the owed ledger files. RC7 is resolved for bk-hp, bk-party and bk-gaps (on `e90e12a1`).
+
 ## Cleanup batch for Weibao's yes (nothing removed)
 
 Worktrees only (33 of 42). Two tiers, because only patch-id equality or ancestry proves content landed; subject matching proves the message landed, and the whole-diff reverse check failed for all 18 unmerged-by-subject branches (master has since edited the same shared files).
