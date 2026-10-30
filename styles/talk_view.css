@@ -1,0 +1,28 @@
+/* Conversation view (src/ui/talk_view.js): tokens only, so it follows display settings, themes, 14-21 px text and effects. */
+.talk-view-host {container-type:inline-size;}
+.talk-view {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1fr);gap:var(--ui-space-3);align-items:start;min-width:0;color:var(--ui-text);font-size:var(--ui-type-body);line-height:var(--ui-line-body);}
+.talk-view h3,.talk-view h4 {margin:0 0 var(--ui-space-2);font-size:var(--ui-type-small);line-height:var(--ui-line-small);color:var(--ui-accent);font-weight:var(--ui-weight-strong);}
+.talk-covered,.talk-knows {display:grid;gap:var(--ui-space-2);padding:var(--ui-space-3);border:var(--ui-space-hairline) solid var(--ui-hairline);min-width:0;overflow-wrap:anywhere;}
+.talk-empty,.talk-more {margin:0;font-size:var(--ui-type-small);line-height:var(--ui-line-small);font-style:italic;}
+.talk-covered-row summary {cursor:pointer;}
+.talk-covered-row small {display:block;margin-top:var(--ui-space-1);padding-left:var(--ui-space-3);font-size:var(--ui-type-small);line-height:var(--ui-line-small);}
+.talk-covered-row[data-topic-state="heard"] summary {opacity:1;}
+.talk-covered-row[data-topic-state="closed"] summary {opacity:.7;}
+.talk-knows-list {display:grid;gap:var(--ui-space-2);margin:0;padding:0;list-style:none;}
+.talk-knows-row {display:grid;gap:var(--ui-space-1);}
+.talk-knows-row small {font-size:var(--ui-type-small);line-height:var(--ui-line-small);color:var(--ui-accent);}
+.talk-rapport p {margin:0;font-size:var(--ui-type-small);line-height:var(--ui-line-small);}
+.talk-cheat {margin:0;font-size:var(--ui-type-small);border-left:var(--ui-space-1) dashed var(--ui-accent);padding-left:var(--ui-space-2);}
+.talk-answer {margin:0;padding-left:var(--ui-space-2);border-left:var(--ui-space-1) solid var(--ui-hairline);font-style:italic;}
+/* The three looks (PIR16): new is a small accent, never the disabled look. */
+.talk-view .scene-card-option > button[data-topic-state="new"] {border-inline-start:var(--ui-space-1) solid var(--ui-accent);}
+.talk-view .scene-card-option > button:hover:not(:disabled),.talk-view .scene-card-option > button:focus-visible {box-shadow:var(--ui-glow-affordance);}
+:root:is([data-effects="off"],[data-effects="reduced"]) .talk-view .scene-card-option > button:hover:not(:disabled) {box-shadow:none;}
+/* Native lines stay in the DOM for keyboard parity and existing hooks, but the view owns the display. */
+.talk-native-list {position:absolute;width:var(--ui-space-hairline);height:var(--ui-space-hairline);overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+.talk-answer:empty {display:none;}
+/* Narrow host (the centre column): the card leads, the two ledgers sit side by side beneath it. */
+@container (max-width: 64em) {
+  .talk-view {grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .talk-card-slot {grid-column:1 / -1;grid-row:1;}
+}

@@ -49,6 +49,7 @@ import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
 import {readPort} from './ui_ports.js';
+import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
 import {renderCraftingDetail, focusFirstBlocker, craftReceiptText, UNKNOWN_MATERIAL_LABEL} from "./crafting_detail.js";
 import { effect_templates } from "./active_effects.js";
@@ -4973,6 +4974,7 @@ function update_displayed_dialogue({npc_id, textlines, origin}) {
         end_dialogue_div.setAttribute("onclick", "end_dialogue()");
 
         action_div.appendChild(end_dialogue_div);
+        mountTalkView({actionDiv: action_div, npcId: npc_id, name: capitalize_first_letter(npc.getName({is_mofu_mofu_enabled: global_flags.is_mofu_mofu_enabled})), place: current_location?.name, dialogue, translate, choose: key => window.start_textline(key)});
     } else {
         //textlines are passed, use only them instead of all the dialogue has (minus branches)
         for(let i = 0; i < textlines.length; i++) {
