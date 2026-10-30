@@ -25,6 +25,7 @@ styles/nearby_context_view.css
 styles/ui_extras.css
 styles/scene_card.css
 styles/figure.css
+styles/skin_paper.css
 styles/combat_versus.css
 styles/walk_board.css
 styles/crossing_threshold.css
