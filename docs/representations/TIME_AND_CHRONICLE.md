@@ -386,3 +386,29 @@ the digest). Likely next refactor: when a second note exists, move
 - Built by: TC18 by a Sonnet subagent (reviewed here); TC17, TC20 and this doc by this session. No other session started.
 
 AD43 floor for round 2: TC17 meets FLR1-FLR6 (agent-verified, not human-reviewed); TC18 and TC20 are implemented, below floor (FLR2 browser route not exercised).
+
+## Travel time on time surfaces (proposals, 2026-10-30)
+
+From Weibao's [travel time direction](../USER_VISION.md#travel-time-matters-but-does-not-decide-the-quality-of-play-2026-10-30)
+(recorded on master): travel time is a real factor, but by default it does not make play much
+better or worse; the dial is per world. The maps session owns travel pacing; these are the time
+surfaces' side.
+
+- **TC23. Leave-by beside every firm clock.** The upcoming strip (TC12) and the week calendar
+  (TC13) show when to leave, not just when it happens: "the market, tomorrow morning · leave by
+  dawn (about 2 hours on the road)". The travel figure comes from the maps owner's quoted route
+  time from where you are now, as a phrase, and is recomputed when you move. Unknown routes
+  read "route unknown", never a guessed number.
+- **TC24. Windows read as ranges.** A dated thing shows its open and close ("open from this
+  evening until tomorrow noon"), and the strip orders by the latest time you can still leave.
+  A point-in-time event keeps a single time.
+- **TC25. A missed window leaves an aftermath line.** When a window you knew about closes while
+  you are away or on the road, the digest gets a Missed line with what follows ("The ferry left
+  without you; the next one runs in three days"), from the owner that settled the miss. The
+  chronicle's existing missed and heard records already do this for Village invitations (shown
+  only once heard); other owners adopt the same shape. Silence is reserved for windows you never
+  knew about (TC11).
+- **TC26. Dial and reason.** Default: travel is shown and costs time, but no window is so tight
+  that ordinary travel alone loses it; a missed window has a later chance or a fair substitute.
+  A loop or deadline world raises the dial (tight windows, no repeat) with the in-world reason
+  stated on the strip ("the loop resets in two days"). Cost: one route-time read per strip item.
