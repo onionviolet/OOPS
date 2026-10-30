@@ -54,28 +54,39 @@ export const curfewsOn = (book, day) => book.events.flatMap(e => {
     return listed.filter(f => f.fromDay <= day && day <= f.toDay).map(f => ({eventId: e.id, place: f.place ?? e.place}));
 });
 
-// ctx = {presence(person, day) -> place|null, channels(person) -> Set, knownVia(personId, eventId, day) -> bool}.
+// ctx = {presence(person, day) -> place|null, channels(person) -> Set}.
 // Present: in the event's place on any day of its window, or listed in `present`. Heard: through the first
-// spread route the person can use, no earlier than the window's end plus the route's delay. Private events
-// with no usable route are never learned.
-export function learnedDay(book, person, eventId, ctx) {
+// spread route the person can use, no earlier than the window's end plus the route's delay. A `via` route delivers
+// to `audience` (a person id or a channel they hold) once the carrier has learned the event by any route, so
+// second-hand news travels a delay behind the first teller. Private events with no usable carrier are never learned.
+export function learnedDay(book, person, eventId, ctx, seen = new Set()) {
     const e = book.byId.get(eventId);
     if (!e?.window) return null;
     const {day, endDay} = e.window;
     if (e.present.includes(person)) return {eventId, learnedDay: day, route: 'present', level: 'present'};
     if (e.place) for (let d = day; d <= endDay; d++) if (ctx.presence?.(person, d) === e.place) return {eventId, learnedDay: d, route: 'present', level: 'present'};
+    const guard = `${person}|${eventId}`;
+    if (seen.has(guard)) return null;
+    seen.add(guard);
     const channels = ctx.channels?.(person) ?? new Set();
     let best = null;
     for (const s of e.spread) {
-        // Private events leave the room only through a named carrier (WA37 scope); an open channel never delivers them.
-        if (e.scope === 'private' && !s.via) continue;
-        const open = s.via ? e.present.includes(s.via) && ctx.knownVia?.(s.via, eventId, endDay + s.delayDays) !== false && (!s.audience || s.audience === person || channels.has(s.audience))
-            : channels.has(s.route) || (s.audience === person);
-        if (!open) continue;
-        const d = endDay + s.delayDays;
+        let start = endDay;
+        if (s.via) {
+            if (s.audience && s.audience !== person && !channels.has(s.audience)) continue;
+            const carrier = learnedDay(book, s.via, eventId, ctx, seen);
+            if (!carrier) continue;
+            start = Math.max(endDay, carrier.learnedDay);
+        } else if (e.scope === 'private' || !channels.has(s.route)) continue;   // private events leave the room only through a carrier
+        const d = start + s.delayDays;
         if (!best || d < best.learnedDay) best = {eventId, learnedDay: d, route: s.route, level: 'heard'};
     }
+    seen.delete(guard);
     return best;
+}
+// Inverse query: who among `people` knows the event by `day`, with when and how. Drives who-can-I-ask and secret checks.
+export function whoKnows(book, eventId, day, people, ctx) {
+    return people.map(p => ({person: p, ...learnedDay(book, p, eventId, ctx)})).filter(k => k.eventId && k.learnedDay <= day);
 }
 export function knownTo(book, person, day, ctx) {
     return book.events.map(e => learnedDay(book, person, e.id, ctx)).filter(k => k && k.learnedDay <= day);

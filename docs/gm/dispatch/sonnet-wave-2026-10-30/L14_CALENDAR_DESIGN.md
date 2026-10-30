@@ -46,7 +46,8 @@ Rules:
 - `buildEventBook(records)` validates, resolves anchors, returns a frozen book. Throws on duplicate ids, cycles, bad windows.
 - `happenedOn(book, day)`: events whose window contains the day.
 - `endedBy(book, day)`: events whose window has closed.
-- `knownTo(book, person, day, ctx)`: `{eventId, learnedDay, route, level}[]`; level is `present` or `heard`. `ctx = {presence(person, day) -> place|null, channels(person) -> Set, knownVia(personId, eventId, day)}`.
+- `knownTo(book, person, day, ctx)`: `{eventId, learnedDay, route, level}[]`; level is `present` or `heard`. `ctx = {presence(person, day) -> place|null, channels(person) -> Set}`. A `via` route delivers to its `audience` once the carrier has learned the event by any route, so second-hand news arrives a delay behind the first teller (chains allowed, loops guarded).
+- `whoKnows(book, eventId, day, people, ctx)`: the inverse, for who-can-I-ask and secret checks (GM35).
 - `learnedBetween(book, person, fromDay, toDay, ctx)`: lines newly known in `(fromDay, toDay]`, grouped for the RPT6 "While you were away" digest.
 - `newsOn(book, person, day, ctx)`: what shows in the strip on this day.
 
@@ -64,5 +65,5 @@ Luna medium extracts the dated and anchored scene and news rows with locators in
 ## Gaps this does not close
 
 - Mapping ordinal beats to days needs the host (cast beats).
-- Spread through rumour between ordinary people needs the person-memory owner (GM29, GM35).
+- Which people carry which `via` links outside the pack data (ordinary gossip) needs the person-memory owner (GM29, GM35).
 - War beyond news and curfews (GM38) has no mechanism here.

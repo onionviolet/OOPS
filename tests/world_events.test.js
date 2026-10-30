@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildEventBook, happenedOn, endedBy, curfewsOn, knownTo, learnedBetween, newsOn} from '../src/world_events.js';
+import {buildEventBook, happenedOn, endedBy, curfewsOn, knownTo, learnedBetween, newsOn, whoKnows} from '../src/world_events.js';
 
 const rec = (id, extra) => ({id, key: `k.${id}`, kind: 'public_event', placement: 'dated', scope: 'public', evidence: 'S', when: {day: 10}, ...extra});
 const book = buildEventBook([
@@ -77,4 +77,13 @@ test('a curfew-kind event is a curfew over its window', () => {
     const b = buildEventBook([rec('c', {kind: 'curfew', place: 'ward', when: {day: 4, endDay: 5}})]);
     assert.deepEqual(curfewsOn(b, 5), [{eventId: 'c', place: 'ward'}]);
     assert.deepEqual(curfewsOn(b, 6), []);
+});
+
+test('second-hand news travels a delay behind its carrier, through chains, without loops', () => {
+    const b = buildEventBook([rec('chain', {scope: 'private', present: ['a'], when: {day: 10},
+        spread: [{route: 'word', delayDays: 1, via: 'a', audience: 'b'}, {route: 'word', delayDays: 2, via: 'b', audience: 'c'}, {route: 'word', delayDays: 1, via: 'c', audience: 'b'}]})]);
+    assert.deepEqual(knownTo(b, 'b', 99, nobody).map(k => k.learnedDay), [11]);
+    assert.deepEqual(knownTo(b, 'c', 99, nobody).map(k => k.learnedDay), [13]);
+    assert.deepEqual(whoKnows(b, 'chain', 12, ['a', 'b', 'c', 'd'], nobody).map(k => k.person), ['a', 'b']);
+    assert.deepEqual(whoKnows(b, 'chain', 13, ['a', 'b', 'c', 'd'], nobody).map(k => k.person), ['a', 'b', 'c']);
 });
