@@ -129,6 +129,8 @@ Weibao, via the supervisor: "send out and finish the other sonnet works too, fro
 | Relationship web round 3 | Bars proven at 1920 (`ac4f8a932`, `c91471442` on its branch); asked to land on master |
 | COV15 figure wiring | `048426846`: rite figure live on the Tingen brewing bench (stand-in for a per-condition learned fact) and chase range live in the pursuit panel; Research (no learn-view feed) and place history (no world defines eras) stay empty, gallery fixtures for all four |
 | ui_contract | Green again after `54fda9ed2` (strip used an undefined token with a raw fallback) |
+| COV13 paper skin and COV14 drafts | `3069bf7c8`: `figure-gallery.html?skin=paper` or the gallery Skin select (gallery only, Luminous stays default; one `COMPONENT_THEMES` entry exposes it later); eight "Draft:" screens with 0 circles (Insight, Walks, Study, Due and Orders, Day threads, Route strip, Collector at the door, Own body and borrowed face) |
+| Round 3 closed | All COV2-COV15 items landed or routed (COV1 ui-defects, COV15 bridges sw-bridge). Remaining gate: one full suite on the final HEAD, then Weibao's look at the gallery |
 | Tool note | `commit_own_paragraphs.py --para` is for docs; on a JS file holding another lane's hunks it duplicated about 570 lines. Code commits with shared files use the manual hunk method |
 | Abilities G17 Skills tab, relationships G18 Knows plus bars | Sent to `rep-abilities` and `rep-relationship-web` (switched to Sonnet), with L13 bridges `learn_tab_bridge`, `knows_ask_bridge` |
 | Companions | Moved to book-UI wave `bk-party` |
