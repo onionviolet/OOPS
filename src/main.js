@@ -1865,7 +1865,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
     readFrame?.invalidate(); // Life observations publish through the durable owner.
     try {persistExpansionPlan(plan, {createSave: create_save, storage: freshLifeStart.storage(lifeSaveStorage,plan), bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
-        validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
+        validateEnvelope: data => validateEnvelopeInBatch(data, plan.state.clock), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
         lifeStorageFailure = error.code === 'SAVE_STORAGE_FULL';
         expansionError = lifeStorageFailure ? error.message : "Progress paused because saving failed. Free storage and reload before continuing.";
@@ -6604,6 +6604,26 @@ function save_to_file() {
  * @param {Boolean} is_manual 
  */
 let stepperSaves = null;
+// Inside a stepper batch the per-minute envelope check runs at the batch's first write, then once per
+// in-game hour of clock and at close (the last skipped envelope), so a failed save still blocks within an hour.
+const BATCH_VALIDATE_MINUTES = 60;
+let batchValidatedAt = null, batchPendingEnvelope = null;
+function validateEnvelopeInBatch(data, clock) {
+    if(!stepperSaves || batchValidatedAt === null || clock - batchValidatedAt >= BATCH_VALIDATE_MINUTES) {
+        validateSaveEnvelope(data, game_version); batchPendingEnvelope = null; if(stepperSaves) batchValidatedAt = clock; return;
+    }
+    batchPendingEnvelope = data;
+}
+function settleBatchValidation() {
+    const pending = batchPendingEnvelope; batchPendingEnvelope = null; batchValidatedAt = null;
+    if(!pending) return;
+    try {validateSaveEnvelope(pending, game_version);}
+    catch(error) {
+        expansionError = "Progress paused because saving failed. Free storage and reload before continuing.";
+        foundationSaveBlocked = true;
+        throw error;
+    }
+}
 function save_to_localStorage({key, is_manual}) {
     if(freshLifeStart.isHeld()) return;
     if(stepperSaves && !is_manual) {stepperSaves.add(key); return;}
@@ -9096,6 +9116,7 @@ function openStepperBatch(render) {
     if(stepperSaves) throw new Error('Cannot nest advanceTicks.');
     const restore = [];
     stepperSaves = new Set();
+    batchValidatedAt = null; batchPendingEnvelope = null;
     if(!render) {
         beginSimulationRenderBatch();
         stepperRenderSuppressed=true;
@@ -9110,13 +9131,15 @@ function openStepperBatch(render) {
     }
     return () => {
         const saves = stepperSaves; stepperSaves = null;
-        for(const key of saves) {
+        let failure = null; try {settleBatchValidation();} catch(error) {failure = error;}
+        if(!failure) for(const key of saves) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
         stepperRenderSuppressed=false;
         for(const reset of restore) reset();
         if(!render) endSimulationRenderBatch(expansionState);
+        if(failure) throw failure;
         return saves.size;
     };
 }
@@ -9153,6 +9176,9 @@ function fastForward(n, {sliceMs = 30, onProgress} = {}) {
         // Outside a run, stepping() is true exactly while the engine is paused.
         const started = performance.now(), wasPaused = stepping();
         let ticks = 0, callbacks = 0, slices = 0, maxSliceMs = 0, autosaves = 0, close = null;
+        // Each tick builds and drops several whole-save strings and buffers. Only idle time lets the browser release
+        // that off-heap memory, so a long unbroken batch grows by gigabytes and crashes the page; rest briefly now and then.
+        let lastRest = performance.now();
         pauseEngine();
         try {
             close = openStepperBatch(false);
@@ -9165,6 +9191,7 @@ function fastForward(n, {sliceMs = 30, onProgress} = {}) {
                 do {callbacks += runEngineTicks(1).callbacks; ticks++; count++; elapsed = performance.now() - sliceStart;}
                 while(ticks < n && elapsed + elapsed / count < sliceMs);
                 slices++; maxSliceMs = Math.max(maxSliceMs, elapsed);
+                if(performance.now() - lastRest >= 500) {await new Promise(resolve => setTimeout(resolve, 25)); lastRest = performance.now();}
                 onProgress?.({ticks, total: n});
             }
         } finally {
