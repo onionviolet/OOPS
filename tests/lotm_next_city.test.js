@@ -47,3 +47,16 @@ t('every pack row is cited and labelled, and the road from the home city takes d
     assert.equal(s.fareCharged, 30);
     assert.ok(s.minutes >= 360);
 });
+t('verified rows keep their label, authored hours and fares stay marked, and the weekly circle meets by persona only', async () => {
+    const city = buildNextCity(pack);
+    assert.equal(city.provenance['backlund.clearing-bank'].hoursEvidence, 'I');
+    assert.equal(city.provenance['steam-train'].fareEvidence, 'I');
+    assert.equal(readRegion(city.region, {reputation: 12, hour: 11, money: 5}).institutions[1].services[0].priceText, 'price not recorded');
+    const {meetsOn, seatsOn, trade, leave} = await import('../src/gatherings.js');
+    const g = city.gathering;
+    assert.deepEqual([0, 3, 7, 14].map(d => meetsOn(g, d)), [true, false, true, true]);
+    assert.ok(seatsOn(g, 7).every(s => Object.keys(s).sort().join() === 'label,seatId'));
+    const tr = trade(g, {}, {from: 'seat.fool', to: 'seat.justice', give: {kind: 'fact', key: 'news.one'}, take: {kind: 'item', key: 'item.one'}});
+    assert.equal(tr.ok, true); assert.deepEqual(tr.exposed, []);
+    assert.equal(leave(g, 'seat.fool').bodyRevealed, false);
+});

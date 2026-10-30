@@ -4,19 +4,21 @@
 // nextCity() through readRegion/quoteRoute.
 import {defineRegion} from './region_kit.js';
 import {defineRoute} from './travel_legs.js';
+import {defineGathering} from './gatherings.js';
 import {deepFreeze, object} from './basics.js';
 export const NEXT_CITY_SUPPLEMENT = 'lotm-next-city/region.json';
 export function buildNextCity(pack) {
     if(!object(pack) || pack.schema !== 1 || !object(pack.region) || !object(pack.route)) return null;
     try {
-        const strip = row => {const {locator, evidence, minutesEvidence, ...rest} = row; return rest;};
+        const strip = row => {const {locator, evidence, minutesEvidence, hoursEvidence, fareEvidence, ...rest} = row; return rest;};
         const region = {...pack.region, arrival: strip(pack.region.arrival), places: pack.region.places.map(strip), customs: (pack.region.customs || []).map(strip),
             institutions: pack.region.institutions.map(i => ({...strip(i), services: i.services.map(strip)})),
             offices: pack.region.offices.map(strip), errands: pack.region.errands.map(strip), prices: pack.region.prices.map(strip)};
         const route = {...pack.route, legs: pack.route.legs.map(strip)};
         const provenance = Object.fromEntries([pack.region.arrival, ...pack.region.places, ...pack.region.institutions, ...pack.region.offices,
-            ...pack.region.errands, ...pack.region.prices, ...pack.route.legs].map(r => [r.id, {evidence: r.evidence || null, locator: r.locator || null, ...(r.minutesEvidence ? {minutesEvidence: r.minutesEvidence} : {})}]));
-        return deepFreeze({region: defineRegion(region), route: defineRoute(route), provenance});
+            ...pack.region.errands, ...pack.region.prices, ...pack.route.legs].map(r => [r.id, {evidence: r.evidence || null, locator: r.locator || null, ...(r.minutesEvidence ? {minutesEvidence: r.minutesEvidence} : {}), ...(r.hoursEvidence ? {hoursEvidence: r.hoursEvidence} : {}), ...(r.fareEvidence ? {fareEvidence: r.fareEvidence} : {})}]));
+        const g = pack.gathering ? (({locator, evidence, scheduleNote, ...rest}) => defineGathering(rest))(pack.gathering) : null;
+        return deepFreeze({region: defineRegion(region), route: defineRoute(route), gathering: g, provenance});
     } catch { return null; }
 }
 export async function loadNextCity(fetchFile = globalThis.fetch) {

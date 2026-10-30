@@ -100,3 +100,9 @@ For `sw-absorb` (integrator), all patches outside my files:
 4. Persona state (`persona_standing.js`) needs a save slice with a migration if a host persists it; none is wired.
 
 For `sw-chars`: persona ids are `persona.<slug>`; a sheet stores `personaIds: []` only and reads standing with `standingOf(state, personaId, region)`.
+
+## Slices 3 and 4 (2026-10-30)
+
+**Slice 3, GM30 gatherings** (`src/gatherings.js`, drafted by Sol medium `sw-l11-gather`, reviewed by Sonnet; brief `L11_SOL_GATHERING_BRIEF.md`; `tests/gatherings.test.js`, 6 tests). A gathering has a schedule (`everyDays`, `offset`, `hour`), an optional world-event id that must be active (reads `happenedOn` from `world_events.js`, L14), and seats keyed to persona ids. `seatsOn` returns seat ids only, admits by `standingOf`; `trade` returns exchange receipts and exposes a persona only when an offer sets `reveal: true`; `leave` reports whether a body was revealed. The host applies receipts; nothing is stored here. LOTM's weekly circle is the first data row (private pack `gathering` key; seat names stay private). COI shape only; none of it in tracked text.
+
+**Slice 4, Luna verification** (`sw-l11-verify`, verdicts private). 19 pack rows against their cited paragraphs: 10 supported, 5 partly, 4 not in text, 0 contradicted. Corrections made: the North District place, the bank's opening hours, the anonymous-account service (its price is now `unstated`; the text gives a balance, not a fee), the Night Watch liaison office and the six-hour train leg stay marked authored (I) with `hoursEvidence` and `fareEvidence` fields carried into provenance; the newspaper and guide-fee labels lost details the text does not state. Read model unchanged.
