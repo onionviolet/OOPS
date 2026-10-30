@@ -55,7 +55,7 @@ function createRegionPanel() {
             const row = view.rows.find(r => r.key === li.dataset.key); if (!row) continue;
             let go = li.querySelector('button');
             if (!go) { go = node('button', 'Go', {type: 'button'}); li.append(go); }
-            go.dataset.target = row.id; go.setAttribute('aria-label', `Go: ${row.name}`);
+            go.dataset.target = row.id; go.textContent = `Go to ${row.name}`; go.setAttribute('aria-label', `Go to ${row.name}`);
             go.onclick = () => {
                 const control = travelControl(go.dataset.target);
                 if (!control) { note.textContent = 'Open Here to travel; the road is shown but its button is not on screen.'; return; }
