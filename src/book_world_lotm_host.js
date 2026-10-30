@@ -31,6 +31,8 @@ import {abilitySourceOf} from './book_world_lotm_abilities.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
+// A walk's arrival record cites the workroom situation, which begins when you report in (or your life's own first report).
+const WALK_AFTER_REPORT='Report in at the workroom before you walk the district.';
 const SLEEP='book.lotm.sleep',MOVES=Object.fromEntries(Object.entries(L).map(([k,place])=>[`lotm.move.${k}`,place]));
 export const lotmMoveLabels=()=>({...Object.fromEntries(Object.entries(L).map(([k,place])=>[`lotm.move.${k}`,{workroom:'Walk to the supervised workroom',lodging:'Walk to your probationer lodging'}[k]||`Walk to ${place.replace(/^Tingen /,'the ')}`])),...Object.fromEntries(castPlaces.map(p=>[`lotm.move.${p.id}`,`Walk to ${p.name}`]))});
 // Meters are views of the energy record, which already owns reserve, strain and the limit
@@ -200,6 +202,7 @@ export function createLotmHost(ports){
  function move(id){
   writable();const s=castState(state()),to=(lotmCastLife(s)?{...MOVES,...castMoves}:MOVES)[id];assert(s.lotm&&to,'No such walk.');
   assert(!s.simulation.jobs.length&&!ports.sleeping()&&!ports.busy(),'Finish or stop your current work first.');
+  assert(lotmCastLife(s)||s.simulation.situations?.[I.situation],WALK_AFTER_REPORT);
   const from=s.simulation.people.player.location;assert(from!==to,'You are already there.');
   const def=installCastWalk(registry,from,to)||registry.simulation.commands.get(walkId(s,from,to));assert(def,'There is no walk from here to there.');
   const canon=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());assert(canon.allowed,canon.reason);
@@ -261,7 +264,7 @@ export function createLotmHost(ports){
    const remembered=s.actors.player.completed[def.id]>0&&def.effects.some(e=>e.type==='knowledge'&&know[e.key]);
    if(actingCrossing&&!actingCrossing.met&&actingKey&&def.effects.some(e=>e.type==='resource'&&e.actor==='player'&&e.key===actingKey&&e.amount>0)&&(p.visible||remembered))
     actingGuidance.push({...action,visible:p.visible,place:def.location,moveId:Object.keys(MOVES).find(id=>MOVES[id]===def.location),here:def.location===at,pending:s.simulation.jobs.some(j=>j.actorId==='player'&&j.commandId===def.id),completed:!!def.once&&!!s.actors.player.completed[def.id],free:p.eligible&&p.costs.length===0});}
-  const moves=Object.entries(lotmCastLife(s)&&!castAvailable&&!districtOfPlace(at)?{}:lotmCastLife(s)?{...MOVES,...castMoves}:MOVES).filter(([,to])=>to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to);return {id,label:`Walk to ${castPlaceLabel(to)} · ${m} min · ${dd.qlabel}: ${dd.q2team}`,eligible:!s.simulation.jobs.length&&!ports.sleeping(),reasons:s.simulation.jobs.length||ports.sleeping()?['Finish or stop your current work first.']:[]};});
+  const moves=Object.entries(lotmCastLife(s)&&!castAvailable&&!districtOfPlace(at)?{}:lotmCastLife(s)?{...MOVES,...castMoves}:MOVES).filter(([,to])=>to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to),busy=s.simulation.jobs.length||ports.sleeping(),unreported=!lotmCastLife(s)&&!s.simulation.situations?.[I.situation];return {id,label:`Walk to ${castPlaceLabel(to)} · ${m} min · ${dd.qlabel}: ${dd.q2team}`,eligible:!busy&&!unreported,reasons:busy?['Finish or stop your current work first.']:unreported?[WALK_AFTER_REPORT]:[]};});
   // Plain places list (SR rules): every place, its district, which team answers there and how far it is.
   const places=[...Object.values(L),...(lotmCastLife(s)?castPlaces.map(p=>p.id):[])].filter(pl=>districtOfPlace(pl)).map(pl=>{const dd=districtOfPlace(pl);return {place:castPlaceLabel(pl),district:dd.qlabel,team:dd.q2team,church:dd.church,here:pl===at,minutes:pl===at?0:lotmWalkMinutes(at,pl)};});
   if(lotmCastLife(s)&&!castAvailable)actions.push({id:'book.lotm.cast_unavailable',label:'Cast unavailable: private pack absent',eligible:false,reasons:['Restore the private cast pack to resume meetings.'],duration:0});

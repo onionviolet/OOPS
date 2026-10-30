@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {fresh,run,wait,at,holds,save,def,hostOver,lotmFacts,ctx,registry,I} from './lotm_helpers.js';
+import {fresh,bare,run,wait,at,holds,save,def,hostOver,lotmFacts,ctx,registry,I} from './lotm_helpers.js';
 import {lotmWalkMinutes} from '../src/book_world_lotm_districts.js';
 import {LOTM_LOCATIONS as L} from '../src/book_world_lotm_ids.js';
 import {LOTM_DISTRICTS,districtOfPlace,respondersFor} from '../src/book_world_lotm_districts.js';
@@ -66,4 +66,16 @@ test('a life reads its own district as home: no endorsement owed, and its own te
  const m=hostOver(run(fresh(500,'machinery'),'report_in_machinery'));go(m,'docks');const w=m.host.view().district;
  assert.equal(w.home,false);assert.equal(w.endorsed,false);assert.match(w.responders,/Machinery team answer for their own.*Mandated Punishers are told/);
  const home=hostOver(run(fresh(),'report_in')).host.view().district;assert.equal(home.endorsed,true);assert.match(home.responders,/Nighthawks answer here/);
+});
+// Browser start state: enrolled through the host, Hale not yet reported to. The arrival record cites the workroom situation, which begins at report_in,
+// so a walk before it used to throw "Knowledge needs its actual situation context." from the saved-state check.
+test('a walk before reporting in is refused with a reason, and works once the situation has begun',()=>{
+ const {host,box}=hostOver(bare());host.enroll('probationer');
+ const docks=host.view().moves.find(m=>m.id==='lotm.move.docks');
+ assert.equal(docks.eligible,false);assert.match(docks.reasons.join(' '),/./);
+ assert.doesNotMatch(docks.reasons.join(' '),/situation context/);
+ assert.throws(()=>host.move('lotm.move.docks'),e=>!/situation context/.test(e.message));
+ host.act('book.lotm.report_in');host.move('lotm.move.docks');
+ box.p=wait(box.p,lotmWalkMinutes(L.workroom,L.docks));
+ assert.equal(host.view().at,L.docks);assert.ok(validateLotmState(box.p.state));
 });
