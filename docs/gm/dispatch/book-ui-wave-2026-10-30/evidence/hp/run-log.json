@@ -1,0 +1,41 @@
+{
+ "errors": [],
+ "log": [
+  {
+   "step": "1-fresh",
+   "rows": [
+    "Feather levitation: Not learned yet. The charms lesson is open now: attend it with Mara.",
+    "Reparo · practice pane: Not learned yet. The charms lesson is open now: attend it with Mara."
+   ]
+  },
+  {
+   "step": "2-taught",
+   "rows": [
+    "Feather levitation: Taught by Mara. Practised 0 of 1 drills needed before you can cast it. Next: Practice (3 min, 1 stamina, needs your wand).",
+    "Reparo · practice pane: Not learned yet. The charms lesson is open now: attend it with Mara."
+   ]
+  },
+  {
+   "step": "3-practised",
+   "rows": [
+    "Feather levitation: Ready to cast (practised 1 drill; 0 casts so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect.",
+    "Reparo · practice pane: Not learned yet. The charms lesson is open now: attend it with Mara."
+   ]
+  },
+  {
+   "step": "4-cast",
+   "rows": [
+    "Feather levitation: Ready to cast (practised 1 drill; 1 cast so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect.",
+    "Reparo · practice pane: Not learned yet. The charms lesson is open now: attend it with Mara."
+   ]
+  },
+  {
+   "step": "5-after-reload",
+   "rows": [
+    "Feather levitation: Ready to cast (practised 1 drill; 1 cast so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect.",
+    "Reparo · practice pane: Not learned yet. The charms lesson is open now: attend it with Mara."
+   ]
+  }
+ ],
+ "saveBytes": 160907
+}
