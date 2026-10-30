@@ -52,7 +52,7 @@ export function groupDigest({clock, seenAt, people = [], own = [], around = [], 
 
 // Adapter from real state. `facts` and `lifeRecord` are the same inputs the World events feed uses;
 // a caller that already built that feed passes it as `feed`.
-export function returnDigest(state, registry, {facts = {}, lifeRecord = null, seenAt = null, threshold, feed: given = null} = {}) {
+export function returnDigest(state, registry, {facts = {}, lifeRecord = null, seenAt = null, threshold, feed: given = null, events = null} = {}) {
     const clock = state.clock;
     const people = knownPeopleView(state, facts);
     const feed = given ?? eventFeed(state, registry, facts, lifeRecord);
@@ -61,6 +61,8 @@ export function returnDigest(state, registry, {facts = {}, lifeRecord = null, se
     const missed = [...feed.heard];
     const reports = feed.leads.find(e => e.id === 'chronicle:reports');
     if (reports) missed.push({text: `${reports.label}. ${reports.detail}`, at: reports.at});
+    // L14 world events, already worded by the host: digestRowsFromEvents (read_models/time_digest_bridge.js) gives {around, missed}.
+    if (events) { around.push(...events.around); missed.push(...events.missed); }
     return groupDigest({clock, seenAt, people, own, around, missed, threshold});
 }
 

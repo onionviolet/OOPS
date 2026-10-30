@@ -64,6 +64,11 @@ test('adapter reads real state: your finished work and a known person, read only
     assert.equal(d.groups[0].label, 'Village elder');
     assert.ok(d.groups[1].lines.some(l => /waypost/i.test(l.text)));
     assert.deepEqual(done, before, 'read only');
+    // Bridge rows from L14 world events join Around and Missed without touching the other groups.
+    const events = {around: [{id: 'event:bell', text: 'The harbour bell rang twice.', at: 250}], missed: [{id: 'event:fire', text: 'A fire took the net loft.', at: 260}]};
+    const withEvents = returnDigest(done, registry, {facts: {location: 'Village', 'village.elderMet': true}, seenAt: 0, events});
+    assert.ok(withEvents.groups.find(g => g.kind === 'around')?.lines.some(l => /bell/.test(l.text)));
+    assert.ok(withEvents.groups.find(g => g.kind === 'missed')?.lines.some(l => /net loft/.test(l.text)));
 });
 
 test('marker slice: validated, baselined to the clock, clamped, and written on Mark as read', () => {
