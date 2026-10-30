@@ -3,6 +3,7 @@
 // functions: no clock, location, purse or save (AR3, AR12). Rank is faction_rank.js's derived band over the region's own reputation.
 import {check, natural, object, deepFreeze} from './basics.js';
 import {rankOf, ladderFor} from './faction_rank.js';
+import {openUnder} from './world_events.js';
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !['__proto__', 'constructor', 'prototype'].includes(v);
 const text = v => typeof v === 'string' && v.length > 0;
 const LABELS = ['S', 'T', 'I'];
@@ -42,7 +43,7 @@ export function defineRegion(row) {
 
 const scaled = (amount, level) => amount === 'unstated' || amount === undefined ? amount : Math.round(amount * level);
 /** ctx: {reputation, hour, money, held: office ids}. Returns the read model; every refusal carries its reason. */
-export function readRegion(region, {reputation = 0, hour = 12, money = Infinity, held = []} = {}) {
+export function readRegion(region, {reputation = 0, hour = 12, money = Infinity, held = [], restrictions = []} = {}) {
     const rank = rankOf(region.id, reputation), level = region.dial.priceLevel;
     const need = (min) => {
         if(!min) return {ok: true, reason: ''};
@@ -51,11 +52,14 @@ export function readRegion(region, {reputation = 0, hour = 12, money = Infinity,
     };
     const places = new Map(region.places.map(p => [p.id, p]));
     const institutions = region.institutions.map(i => {
-        const hours = i.hours || places.get(i.place)?.hours || null, open = isOpen(hours, hour), gate = need(i.minRank);
-        return {id: i.id, label: i.label, kind: i.kind, place: i.place, enforcer: i.enforcer || null, open, hoursText: hoursText(hours, i.hoursUnstated === true), hoursKnown: !!hours,
+        const hours = i.hours || places.get(i.place)?.hours || null, gate = need(i.minRank);
+        // The day's restrictions (world_events.js) are ANDed with the base hours; a curfew with no recorded hours is a notice, not a closure.
+        const under = openUnder(restrictions, {place: i.place, institution: i.id, hour}), open = isOpen(hours, hour) && under.open;
+        return {id: i.id, label: i.label, kind: i.kind, place: i.place, enforcer: i.enforcer || null, open, hoursText: hoursText(hours, i.hoursUnstated === true), hoursKnown: !!hours, notices: under.notices, closedBy: under.closedBy,
             services: (i.services || []).map(s => {
                 const price = scaled(s.price, level), sg = need(s.minRank), reasons = [];
-                if(!open) reasons.push(`Closed; open ${hoursText(hours)}.`);
+                if(!under.open) reasons.push("Closed by the day's restriction.");
+                else if(!open) reasons.push(`Closed; open ${hoursText(hours)}.`);
                 if(!gate.ok) reasons.push(gate.reason);
                 if(!sg.ok) reasons.push(sg.reason);
                 if(natural(price) && money < price) reasons.push(`Needs ${price} money.`);
