@@ -83,3 +83,5 @@ Written 07:20 from git log (127 commits since 02:30, all local, none pushed), th
 - W5: repaired. Primary checkout synced; rule D2 is in shared worktree practice.
 
 **Relay (morning, on Weibao's "Yes, relay them"):** W6 failures sent to sw-wire (`cast_topic_talk`, `cast_whole_book_scale` 1-2, with both fix routes) and the `character_sheets` test 10 failure to sw-chars (Dated character records pilot session). Both messages were delivered to inboxes; neither lane has replied yet.
+
+**W6 fixed (08:26):** sw-wire `417fccc1`. The scale test read live exports before the pack finished loading, and the patch context had gone stale; the patch is regenerated. Supervisor rerun at load 4: `cast_topic_talk` and `cast_whole_book_scale` 12 of 12 pass. The patch context now includes the city imports, so it breaks again if those lines change. W4 (`character_sheets` test 10, sw-chars) is still open, and no full suite has run.
