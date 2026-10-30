@@ -1,0 +1,38 @@
+# L10 advancement and abilities: design note (2026-10-30)
+
+Lane L10 of the [Sonnet wave](PLAN.md). Gaps GM25 (ladder above the first rung, extends GM9 and GM17) and GM26 (typed abilities) from the [gap map](../../../research/READING_GAP_MAP_2026-10-28.md). Codes: WA27, WA33, WA47, WA48, MR1-MR36. Proposal; nothing here is an accepted decision.
+
+## What the rows show (sampled, ids and counts only)
+
+- **Ability rows (ABL, LOTM `rules` kind `ability`) by volume:** 363 / 496 / 578 / 563 / 554 / 485 / 204 / 174. Volumes 2-6 carry about 1.5 times volume 1; the family stays dense through volume 8.
+- **Shape of one ability across volumes** (`flame-jump` 19 rows over 6 volumes, `paper-doll-substitute` 13, `air-bullet` 10): `conditions` are small typed tests (a fire at hand, a prepared figure carried, aimed at a target); `limits` are mostly counters (blocked by rain, a blocked mind, a stated range, limited supply); `costs` are almost always empty (0 of 19 rows state one). So a record must allow an unstated cost and say so, not invent it.
+- **Failure is by mechanism, not by roll:** the same ability is cancelled by a named condition (weather, an enemy's aura, a spirit-world property), refused, or draws a consequence. That maps to the engine's refusal (condition), a limit, and an opaque `failure.hook` for the owner of backlash (GM32, `sw-death`).
+- **Ladder rows:** the potion rows for a rung give a formula, a digestion plan (play the role, keep its rules) and a rule such as "no unprepared performance". They fit the existing crossing vocabulary (`ingest`, `digest`, `recognition`, `trial`).
+- **Other books:** Circle of Inevitability rows showed the same ability shape and per-era pathway ladders (shape only; nothing from it is in LOTM data, per the fence). Shadow Slave (2,596 ability rows) and Harry Potter (183 ability, 653 spell rows) state costs and cooldowns more often, so the `cost`, `limit` fields are the ones that must stay optional per world (WA48).
+
+## Decisions (proposals)
+
+| Code | Decision | Reason |
+| --- | --- | --- |
+| D1 | **No new engine.** An ability record lowers to a native command (cost and effects in the ordinary ledger), a held-source ability binding, and for a limit a power cooldown (the engine's "Power recovers in N minutes") or a charge pool with a recharge rule. | The engine already refuses, charges and recovers; GM26's gap was a typed row and a read model, not a runtime. |
+| D2 | **Default, dial, reason.** Default: conditions all hold, cost paid on use, limit `none`. Dial: `limit.kind` and numbers per world. Reason: rows rarely state costs, so unstated fields are listed in `unstated`, never filled silently. | Things work by how they work (AD38); limits are adjectives. |
+| D3 | **Ladder = `ascension_paths` stages; abilities unlock by the held source a promotion grants.** `advanceLadder` fills a stub stage from a pack and returns `promotionEffects` (source grant plus learned power). | Reuses ASC crossing semantics; keeps the Sequence 8 slice byte-identical with no pack (WA27). |
+| D4 | **Source-derived rung data is private** (`private_packs/lotm-advancement/advancement.json`). Tracked code holds only mechanism and a synthetic-pack test. | WB5 spoilers. |
+| D5 | **Backlash is a hook, not a model.** `failure.hook` on a record and `failure` text on a stage pass through. | `sw-death` owns GM32. |
+| D6 | **Scaling by rung** (the same ability stronger later) is left as a gap: author a second record at the higher rung with its own limit, or use WA33 bands once `sw-chars` lands them. | Rows show scale as prose, not numbers. |
+
+## Id scheme (for `sw-chars` and consumers)
+
+For a record set with prefix `P` and key `k`: ability `P.ability.k`, command `P.use.k`, power `P.power.k`, charge pool `P.limit.k`, price condition `P.price.k`. LOTM uses `P = book.lotm.adv`; held source `book.lotm.adv.<source>`. A person's sheet lists ability **record ids** (`P.ability.k`); whether they can use it is the engine's held-source and condition test, so a sheet never copies conditions.
+
+## Read model (for Abilities and advancement, Combat and conflict, Character sheet)
+
+- `abilityView(card, {facts, quote, charges, readyIn})` in `src/ability_records.js` returns `{id, label, conditions:[{label, met}], cost:[{what, amount}], limit:{kind, minutes|readyIn|max|left}, price, ready, refusedBy:[labels], failureHook, unstated}`. It never exposes the predicate (AR8). With a `quote` from `previewSimulationCommand`, `ready` is the engine's own answer.
+- `abilityViews(adv, {facts, held, readyIn, charges})` in `src/lotm_advancement.js` lists only abilities whose source is held.
+- `pathView` (existing) carries the ladder; stage `failure` is the promotion risk text.
+
+## Verification states
+
+- Slice 1: `src/ability_records.js`, `tests/ability_records.test.js` (5 pass): condition refusal, cost paid, cooldown and charge limits through the native engine, read model, authoring rejects.
+- Slice 2: `src/lotm_advancement.js`, `tests/lotm_advancement.test.js` (4 pass; one reads the private pack and skips if absent). Seq 7 for the lead's pathway: a digest crossing, an ingest crossing citing the sw-rites formula row id, three ability records with cited conditions and a cooldown and a charge limit.
+- **Not done:** wiring `advanceLadder` into `lotmPathView` and the host (ceiling stays at Sequence 8 so play is unchanged), no browser run, costs are authored proposals (WPR5). Patch for the integrator is in the hand-off.

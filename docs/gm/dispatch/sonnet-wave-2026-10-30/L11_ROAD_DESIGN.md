@@ -88,3 +88,15 @@ Ids for `sw-chars`: persona records are `{id: 'persona.<slug>', bodyId, link}`; 
 2. LOTM's second city as a thin pack: arrival, two institutions, one office, one errand, a price list; every row cited by id and locator; source-derived names and numbers in `private_packs/lotm-next-city/`.
 
 Deferred: more cities, sea voyages as multi-day events with a ship cast, church structure rows (GM34), city-scale events (GM38). Not wired into any host in this lane.
+
+## Slice 2 and hand-off (2026-10-30)
+
+Built: `src/lotm_next_city.js` (validator and loader, mechanism only) and the private pack `private_packs/lotm-next-city/region.json` (gitignored): arrival by steam train, two institutions (public transport, a clearing bank with hours), one office (rank-gated, evidence I), one errand, a five-row price list, one custom and a one-leg route from Tingen. Every row carries an S/T/I label and a zh locator; the leg's minutes are authored (I). Test: `tests/lotm_next_city.test.js` (the pack tests skip when the private pack is absent).
+
+For `sw-absorb` (integrator), all patches outside my files:
+1. Add `"lotm-next-city/region.json"` to `supplements` in `private_packs/manifest.json`, then call `loadNextCity()` at boot beside the cast loader and keep the result.
+2. Feed `readRegion(city.region, {reputation, hour, money})` from the lead's per-region reputation (`faction_rank.js` derives rank per region id `backlund`; the default ladder applies, no entry needed).
+3. Turn `city.route.legs` into `defineJourneys` rows in `cast_journeys.js` (one row per leg, `fare` from `quoteRoute`, hours from the leg) and apply `settleRoute().minutes` through the clock; `events` go to the continuation owner (L9) as harm rows.
+4. Persona state (`persona_standing.js`) needs a save slice with a migration if a host persists it; none is wired.
+
+For `sw-chars`: persona ids are `persona.<slug>`; a sheet stores `personaIds: []` only and reads standing with `standingOf(state, personaId, region)`.

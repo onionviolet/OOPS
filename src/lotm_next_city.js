@@ -1,8 +1,7 @@
 // LOTM's second city as a thin region pack (L11 slice 2, GM22/GM31). This file holds mechanism only: the validator and the loader.
 // Names, prices and locators come from the private pack (private_packs/lotm-next-city/region.json), fetched if present like the cast
 // supplement and never bundled (sealed-secret and source rules). No host wiring: the integrator registers the supplement path and reads
-// nextCity() through readRegion/quoteRoute. Pound sums in pence (12 pence to a soli, 20 soli to a pound is the pack's own unit row).
-import {defineRegion} from './region_kit.js';
+// nextCity() through readRegion/quoteRoute.import {defineRegion} from './region_kit.js';
 import {defineRoute} from './travel_legs.js';
 import {deepFreeze, object} from './basics.js';
 export const NEXT_CITY_SUPPLEMENT = 'lotm-next-city/region.json';
