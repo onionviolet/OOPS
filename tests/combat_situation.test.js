@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {fightSituation, chaseSituation, hardestBlow, chanceWord} from '../src/ui/combat_situation.js';
+import {fightSituation, chaseSituation, hardestBlow, chanceWord, pickLeaveChoice} from '../src/ui/combat_situation.js';
 import {validateFigureSpec, figureText} from '../src/ui/figure.js';
 import {fromCombatOpponentsProjection} from '../src/opponent_board.js';
 import {projectOpponents} from '../src/combat_opponents_domain.js';
@@ -88,4 +88,19 @@ test('chase is stages, with distance stated as not modelled', () => {
 
 test('every combat fixture is a valid figure spec with a text form', () => {
     for (const spec of COMBAT_FIXTURES) { validateFigureSpec(spec); assert.ok(figureText(spec).length > 40); }
+});
+
+test('Withdraw picks the leave branch, never Quick return', () => {
+    const choice = (classes, text) => ({classList: {contains: c => classes.includes(c)}, textContent: text});
+    const back = choice(['action_travel', 'travel_normal'], 'Go back to [Village] [15m]');
+    assert.equal(pickLeaveChoice([choice(['action_travel', 'travel_normal'], 'Quick return to [Inn] [1h]'), back]), back);
+    assert.equal(pickLeaveChoice([choice(['action_travel', 'travel_normal'], 'Quick return to [Inn] [1h]')]), null);
+    assert.equal(pickLeaveChoice([]), null);
+});
+
+test('only a lethal line carries the could-down-you mark; every bound names what it leaves out', () => {
+    const heavy = fightSituation(DUEL_BOARD, you(30));
+    assert.equal(heavy.lethal[0].level, 'heavy');
+    assert.equal(heavy.spec.notes.find(n => /^Heavy/.test(n.text)).state, undefined);
+    for (const l of [...heavy.lethal, ...fightSituation(DUEL_BOARD, you(14)).lethal]) assert.match(l.text, /before crits, armor piercing or element/);
 });

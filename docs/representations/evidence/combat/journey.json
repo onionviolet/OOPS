@@ -1,23 +1,23 @@
 {
  "viewport": "1920x1080",
  "route": "fresh life -> Village Elder lines -> Infested field (earned steps)",
- "bundle": "v0.6-a947c6cd1d2f",
+ "bundle": "v0.6-e20ff4c1a672",
  "first": {
   "lines": [
-   "◆ Odds: you hit usually (90%); Starving wolf rat hits you rarely (22%).",
-   "Tempo: you strike about 1.3 times for each of Starving wolf rat's blows.",
+   "◆ Odds: you hit usually (82%); Wolf rat hits you sometimes (32%).",
+   "Tempo: you and Wolf rat strike at about the same pace.",
    "? Intent: no windups read yet; what each opponent plans next is unassessed."
   ],
   "nativeLeaveVisible": true,
-  "text": "Fight situation\nInfested field: 1 of 1 opponent standing; you have 58 of 60 hp.\nRing In this fight (no range data), 1 places: 1. Starving wolf rat · 12/20 hp.\nNodes: You 58/60 hp (active).\nStarving wolf rat · 12/20 hp to You 58/60 hp: strikes.\nKey: ◆ active means you.\nKey: ! strained means could down you.\nKey: ✕ broken means down.\nKey: ? unknown means not assessed.\nKey: strikes means who strikes whom.",
-  "stakes": "Infested field: 1 of 1 opponent standing; you have 58 of 60 hp.",
+  "text": "Fight situation\nInfested field: 1 of 1 opponent standing; you have 44 of 60 hp.\nRing In this fight (no range data), 1 places: 1. Wolf rat · 24/30 hp.\nNodes: You 44/60 hp (active).\nWolf rat · 24/30 hp to You 44/60 hp: strikes.\nKey: ◆ active means you.\nKey: ! strained means could down you.\nKey: ✕ broken means down.\nKey: ? unknown means not assessed.\nKey: strikes means who strikes whom.",
+  "stakes": "Infested field: 1 of 1 opponent standing; you have 44 of 60 hp.",
   "option": "Withdraw: Go back to [Village] [15m]",
   "blocked": "",
   "box": {
    "x": 371,
    "y": 466.1875,
    "w": 588.609375,
-   "h": 864.1875
+   "h": 846.1875
   },
   "log": {
    "w": 497.390625,
@@ -26,9 +26,15 @@
   }
  },
  "stable": true,
+ "changed": true,
  "later": {
-  "text": "Fight situation\nInfested field: 1 of 1 opponent standing; you have 30 of 60 hp.\nRing In this fight (no range data), 1 places: 1. Wolf rat · 27/30 hp.\nNodes: You 30/60 hp (active).\nWolf rat · 27/30 hp to You 30/60 hp: strikes.\nKey: ◆ active means you.\nKey: ! strained means could down you.\nKey: ✕ broken means down.\nKey: ? unknown means not assessed.\nKey: strikes means who strikes whom.",
-  "stakes": "Infested field: 1 of 1 opponent standing; you have 30 of 60 hp."
+  "text": "Fight situation\nInfested field: 1 of 1 opponent standing; you have 44 of 60 hp.\nRing In this fight (no range data), 1 places: 1. Wolf rat · 16/30 hp.\nNodes: You 44/60 hp (active).\nWolf rat · 16/30 hp to You 44/60 hp: strikes.\nKey: ◆ active means you.\nKey: ! strained means could down you.\nKey: ✕ broken means down.\nKey: ? unknown means not assessed.\nKey: strikes means who strikes whom.",
+  "stakes": "Infested field: 1 of 1 opponent standing; you have 44 of 60 hp.",
+  "lines": [
+   "◆ Odds: you hit usually (82%); Wolf rat hits you sometimes (28%).",
+   "Tempo: you and Wolf rat strike at about the same pace.",
+   "? Intent: no windups read yet; what each opponent plans next is unassessed."
+  ]
  },
  "withdrew": true,
  "hiddenAfter": true,

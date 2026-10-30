@@ -7,47 +7,51 @@
 // choice, which keeps that choice's own guards (UR35).
 import {domainRegistry} from './domain_registry.js';
 import {fromCombatOpponentsProjection} from './opponent_board.js';
-import {fightSituation} from './ui/combat_situation.js';
+import {fightSituation, pickLeaveChoice} from './ui/combat_situation.js';
 import {renderFigure, figureText, FIGURE_STATES} from './ui/figure.js';
 import {renderSceneCard} from './ui/scene_card.js';
 
-const leaveChoice = () => [...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')].find(n => !/^\s*Quick return/i.test(n.textContent)) || null;
+const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
 export function mountFightSituation({getCombat, readout, every = 400}) {
     const section = document.createElement('section');
     section.id = 'fight_situation'; section.className = 'fight-situation'; section.setAttribute('aria-label', 'Fight situation');
     section.hidden = true;
-    let signature = '';
+    // The card and its Withdraw row are built once per fight and leave choice; ticks only swap the
+    // stakes text, the lines and the drawing, so the button never moves or rebuilds under a pointer (UR52).
+    let cardKey = '', textKey = '', stakes = null, lines = null, figure = null;
     function render() {
         // The native reader binds after modules load (bindNativeView); until then there is no fight to read.
         let combat = null; try { combat = getCombat(); } catch { combat = null; }
         const actions = document.getElementById('location_actions_div');
         if (actions && section.previousElementSibling !== actions) actions.after(section);
         const shown = !!actions && !!combat && !combat.is_ended && combat.attackers?.[0]?.tags?.main_character && actions.checkVisibility?.() !== false;
-        if (!shown) { if (!section.hidden) section.hidden = true; signature = ''; return; }
+        if (!shown) { if (!section.hidden) section.hidden = true; cardKey = textKey = ''; return; }
         const own = readout(combat, {fighter_index: 0, is_attacker: true}), board = fromCombatOpponentsProjection(domainRegistry.project('combat-opponents'));
         const place = document.getElementById('location_name_span')?.textContent.trim() || '';
         const situation = fightSituation(board, {name: 'You', health: own.health, speed: Number(own.speed), defense: own.defense,
             minDamageShare: own.protection?.minDamageShare, damageTaken: own.protection?.damageTaken, sideSize: combat.attackers.length}, {place});
-        const leave = leaveChoice(), leaveText = leave?.textContent.replace(/\s+/g, ' ').trim() || '';
-        const next = situation.active ? `${figureText(situation.spec)}\n${leaveText}` : '';
-        section.hidden = !situation.active;
-        if (next === signature) return;
-        signature = next; section.replaceChildren();
+        if (section.hidden === situation.active) section.hidden = !situation.active;
         if (!situation.active) return;
-        const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', header: {title: 'Fight', place},
-            stakes: situation.summary,
-            options: [{id: 'leave', label: leaveText ? `Withdraw: ${leaveText}` : 'Withdraw', affects: 'Leaves this fight', attrs: {fightOption: 'leave'},
-                blocked: leave ? '' : 'No way out is shown from here.', onChoose: () => leaveChoice()?.click()}]});
-        // Text first (LTU7): the lethal, odds, tempo and intent lines sit above the drawing, with their
-        // state mark and word; the drawing below keeps only who is in the fight and its own text form.
-        const lines = document.createElement('ul'); lines.className = 'fight-situation-lines';
-        for (const note of situation.spec.notes) {
-            const li = document.createElement('li'); li.className = `fig-note${note.state ? ` fig-state--${note.state}` : ''}`;
-            li.textContent = `${note.state ? `${FIGURE_STATES[note.state]} ` : ''}${note.text}`; lines.append(li);
+        const leave = leaveChoice(), leaveText = leave?.textContent.replace(/\s+/g, ' ').trim() || '';
+        if (cardKey !== `${place}\n${leaveText}`) {
+            cardKey = `${place}\n${leaveText}`; textKey = ''; section.replaceChildren();
+            const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', header: {title: 'Fight', place}, stakes: ' ',
+                options: [{id: 'leave', label: leaveText ? `Withdraw: ${leaveText}` : 'Withdraw', affects: 'Leaves this fight', attrs: {fightOption: 'leave'},
+                    blocked: leave ? '' : 'No way out is shown from here.', onChoose: () => leaveChoice()?.click()}]});
+            stakes = card.querySelector('.scene-card-stakes');
+            // Text first (LTU7): lethal, odds, tempo and intent lines sit above the drawing.
+            lines = document.createElement('ul'); lines.className = 'fight-situation-lines'; stakes.after(lines);
+            figure = document.createElement('div'); card.append(figure);
         }
-        card.querySelector('.scene-card-stakes').after(lines);
-        const figure = document.createElement('div'); card.append(figure);
+        const next = figureText(situation.spec);
+        if (next === textKey) return;
+        textKey = next;
+        if (stakes.textContent !== situation.summary) stakes.textContent = situation.summary;
+        lines.replaceChildren(...situation.spec.notes.map(note => {
+            const li = document.createElement('li'); li.className = `fig-note${note.state ? ` fig-state--${note.state}` : ''}`;
+            li.textContent = `${note.state ? `${FIGURE_STATES[note.state]} ` : ''}${note.text}`; return li;
+        }));
         renderFigure(figure, {...situation.spec, notes: []}, {idPrefix: 'fight-situation', text: true});
     }
     const timer = setInterval(render, every);

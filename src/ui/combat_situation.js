@@ -4,7 +4,8 @@
 // What it will not claim, by design (docs/representations/COMBAT.md):
 //   - chances only one on one; with several opponents the native view gives ratings, not chances (UR40)
 //   - intent is unassessed until an appraisal source exists (CBR14, LSD294); never guessed from speed
-//   - the lethal line is a stated bound: hardest ordinary blow after your defense, crits excluded (LSD384)
+//   - the lethal line is a stated bound: hardest ordinary blow after your defense, before crits, armor
+//     piercing or element, which the opponent's hidden stats can add (LSD384)
 //   - the ring is who is in the fight, not distance; native combat has no range data
 import {letterFor, factShown, knowledgeOf} from '../opponent_board.js';
 import {mitigateCombatDamage} from '../combat_math.js';
@@ -28,11 +29,18 @@ export function attackOf(opp) {
     const fact = factOf(opp, 'Attack'), m = fact && /(\d+(?:\.\d+)?)\s*dmg(?:\s*x(\d+))?/.exec(String(fact.value));
     return m ? {power: Number(m[1]), count: m[2] ? Number(m[2]) : 1} : null;
 }
-// Hardest ordinary blow after your own defense layers. Crits are excluded and said so in the text.
+// Hardest ordinary blow after your own defense layers. Native enemy strikes use damage modifier 1;
+// crits, the attacker's armor piercing and elemental or pledge modifiers are excluded and the text says so.
 export function hardestBlow(attack, you = {}) {
     if (!attack) return null;
     const one = Math.round(10 * HARDEST_ROLL * attack.power) / 10;
     return mitigateCombatDamage(Array(attack.count).fill(one), you.defense || 0, {floorShare: you.minDamageShare ?? .05, taken: you.damageTaken ?? 1});
+}
+// The native leave choice in a fight: the leave branch (travel_normal, "Go back to" or the place's
+// leave text), never Quick return. Safe only because display.js skips onward links while is_combat,
+// so in a fight the travel list is the leave branch plus Quick return; the card shows only in a fight.
+export function pickLeaveChoice(choices = []) {
+    return choices.find(n => n.classList?.contains('travel_normal') && !/^\s*Quick return/i.test(n.textContent || '')) || null;
 }
 const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(1);
 const nameOf = (opp, kin) => kin > 1 ? `${opp.name} ${opp.letter}` : opp.name;
@@ -71,8 +79,8 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
         const blow = hardestBlow(attackOf(o), you);
         if (blow === null) { combinedKnown = false; continue; }
         combined += blow;
-        if (Number.isFinite(hp.current) && blow >= hp.current) lethal.push({id: o.id, level: 'lethal', text: `Lethal: ${label(o)}'s hardest ordinary blow could take ${fmt(blow)} hp after your defense, and you have ${fmt(hp.current)}.`});
-        else if (Number.isFinite(hp.current) && blow * 2 >= hp.current) lethal.push({id: o.id, level: 'heavy', text: `Heavy: ${label(o)}'s hardest ordinary blow could take ${fmt(blow)} of your ${fmt(hp.current)} hp.`});
+        if (Number.isFinite(hp.current) && blow >= hp.current) lethal.push({id: o.id, level: 'lethal', text: `Lethal: ${label(o)}'s hardest ordinary blow could take ${fmt(blow)} hp after your defense, and you have ${fmt(hp.current)} (before crits, armor piercing or element).`});
+        else if (Number.isFinite(hp.current) && blow * 2 >= hp.current) lethal.push({id: o.id, level: 'heavy', text: `Heavy: ${label(o)}'s hardest ordinary blow could take ${fmt(blow)} of your ${fmt(hp.current)} hp (before crits, armor piercing or element).`});
     }
     // Together: only shown attacks count; an unassessed opponent makes it a lower bound.
     if (standing.length > 1 && combined > 0 && Number.isFinite(hp.current) && combined >= hp.current && !lethal.some(l => l.level === 'lethal'))
@@ -104,7 +112,8 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
         id: 'fight-situation', size: opponents.length > 2 ? 560 : 380, title: 'Fight situation', summary,
         rings: [ring], nodes, edges,
         notes: [
-            ...lethal.map(l => ({state: 'strained', text: l.text})),
+            // Only a lethal line carries the could-down-you mark; a heavy blow cannot down you by itself.
+            ...lethal.map(l => l.level === 'lethal' ? {state: 'strained', text: l.text} : {text: l.text}),
             {state: odds.shown ? 'active' : 'unknown', text: odds.text},
             {text: tempo},
             {state: 'unknown', text: intent},

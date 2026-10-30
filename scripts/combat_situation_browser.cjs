@@ -29,10 +29,11 @@ const base=process.env.PROOF_BASE||'http://127.0.0.1:19477/',out=process.env.PRO
  const first=await read();
  await page.screenshot({path:`${out}/fight-1920x1080.png`});
  await card.screenshot({path:`${out}/fight-card.png`});
- // Stable between ticks with no state change: the card does not rebuild (UR52).
- const marker=await page.evaluate(()=>{const n=document.querySelector('#fight_situation .scene-card');n.dataset.probe='1';return true;});
- await page.waitForTimeout(1000);const stable=await page.evaluate(()=>document.querySelector('#fight_situation .scene-card')?.dataset.probe==='1');
- await page.evaluate(()=>window.advanceTicks(40,{render:true}));const later=await read();
+ // UR52: as hp changes over live ticks, the lines and drawing update but the Withdraw button is the same node.
+ await page.evaluate(()=>{document.querySelector('#fight_situation [data-fight-option="leave"]').dataset.probe='1';});
+ let later=first;for(let i=0;i<20&&later.text===first.text;i++){await page.evaluate(()=>window.advanceTicks(10,{render:true}));await page.waitForTimeout(500);later=await read();}
+ const stable=await page.evaluate(()=>document.querySelector('#fight_situation [data-fight-option="leave"]')?.dataset.probe==='1');
+ const changed=later.text!==first.text;
  // Withdraw goes through the native leave choice.
  let withdrew=false;
  if(await page.locator('#fight_situation [data-fight-option="leave"]:not([disabled])').count()){await page.locator('#fight_situation [data-fight-option="leave"]').click();await page.waitForTimeout(800);
@@ -42,9 +43,9 @@ const base=process.env.PROOF_BASE||'http://127.0.0.1:19477/',out=process.env.PRO
  const g=await context.newPage();g.on('pageerror',e=>errors.push(e.message));await g.goto(base+'figure-gallery.html');
  const fixtures=await g.evaluate(()=>[...document.querySelectorAll('[data-fixture]')].map(n=>n.dataset.fixture));
  for(const id of ['fight-duel','fight-brawl','chase-fixture.tollman']){const s=g.locator(`[data-fixture="${id}"]`);await s.scrollIntoViewIfNeeded();await s.screenshot({path:`${out}/gallery-${id.replace(/\W+/g,'-')}.png`});}
- const report={viewport:'1920x1080',route:'fresh life -> Village Elder lines -> Infested field (earned steps)',bundle,first,stable,later:{text:later.text,stakes:later.stakes},withdrew,hiddenAfter,fixtures,errors,missing};
+ const report={viewport:'1920x1080',route:'fresh life -> Village Elder lines -> Infested field (earned steps)',bundle,first,stable,changed,later:{text:later.text,stakes:later.stakes,lines:later.lines},withdrew,hiddenAfter,fixtures,errors,missing};
  fs.writeFileSync(`${out}/journey.json`,JSON.stringify(report,null,1)+'\n');
- assert.ok(first.text.includes('Fight situation'),'text form shown');assert.ok(stable,'card stable without change');assert.ok(fixtures.includes('fight-duel'));assert.deepEqual(errors,[]);
+ assert.ok(first.text.includes('Fight situation'),'text form shown');assert.ok(changed,'text form changed over live ticks');assert.ok(stable,'Withdraw button survived the change');assert.ok(fixtures.includes('fight-duel'));assert.deepEqual(errors,[]);
  console.log('PASS',JSON.stringify({bundle,withdrew,hiddenAfter,stable,fixtures:fixtures.length,box:first.box,log:first.log}));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

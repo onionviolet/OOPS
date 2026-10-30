@@ -48,8 +48,11 @@ its blows. Intent: no windups read yet." When it cannot say something, it says s
   with an appraisal skill may show estimated chances marked "~". Reason: the native group view
   gives attack and evasion ratings, which are not chances.
 - **D4 Lethal telegraph.** Default: a stated bound: an opponent's hardest ordinary roll (1.2x shown
-  attack, per strike) after your own defense layers, crits excluded, marked `!` with the word
-  "Lethal" or "Heavy". A group line adds the assessed opponents' blows and says "at least" when
+  attack, per strike; native enemy strikes use damage modifier 1) after your own defense layers.
+  Each line says what it leaves out: "before crits, armor piercing or element", because the
+  attacker's crit, armor piercing, elemental and pledge modifiers are hidden or situational. Only a
+  "Lethal" line carries the `!` could-down-you mark; a "Heavy" line (half your hp or more) is plain
+  text. A group line adds the assessed opponents' blows and says "at least" when
   one is unassessed. Dial: harsher worlds may add crit risk; a perception source may telegraph
   earlier (LSD384). Reason: a fair death is one the player could have seen coming, and the bound
   never claims more than the shown numbers support.
@@ -75,7 +78,7 @@ Known and unknown stay distinct (UR36): an opponent with unknown knowledge draws
 | Shape | K5 scene card (header, stakes, lines, one option) plus the MDL2 figure with its text form |
 | Empty | Hidden when there is no fight or Local actions is hidden (another center mode) |
 | Unknown | `?` mark, `??? hp`, "unassessed", "not shown as chances" |
-| Action | "Withdraw: Go back to [place] [time]" presses the native leave choice through its own guards; blocked with a reason when no leave choice is shown |
+| Action | "Withdraw: Go back to [place] [time]" presses the native leave choice through its own guards; blocked with a reason when no leave choice is shown. It takes the leave branch, never Quick return; during a fight `display.js` lists no onward links, so it cannot step deeper |
 | Log | Untouched; the Reports column keeps full height (UR11) |
 | Seat | Reads only the observer-safe projection and the controlled fighter's own readout (AD8, LSD226) |
 
@@ -94,13 +97,16 @@ Change surface (FND2): no core-owner file touched beyond the two registration li
 `main.js` untouched; new cycle edges: none (`check:arch`); no save slice.
 
 Checks:
-- `node --test tests/combat_situation.test.js`: 10 pass (odds one on one only, ratings never become
-  chances, intent unassessed, lethal bound arithmetic, unknown facts never leak, allies make
-  targets unread, lower-bound group line, real projection path, chase stages, fixtures valid).
-- `npm run build`: bundle `v0.6-a947c6cd1d2f`. `npm run build:figures`: gallery bundle, `gameCore: false`.
+- `node --test tests/combat_situation.test.js`: 12 pass (odds one on one only, ratings never become
+  chances, intent unassessed, lethal bound arithmetic and its stated exclusions, heavy lines unmarked,
+  unknown facts never leak, allies make targets unread, lower-bound group line, real projection
+  path, Withdraw never picks Quick return, chase stages, fixtures valid).
+- `npm run build`: bundle `v0.6-e20ff4c1a672`. `npm run build:figures`: gallery bundle, `gameCore: false`.
 - `node scripts/combat_situation_browser.cjs` (headless, 1920x1080, fresh origin): PASS twice.
   Route: fresh life, Village Elder lines, Infested field (earned steps). The card shows with its
-  text form; it does not rebuild across a second with no change; Withdraw left the field through
+  text form; over live ticks the hp and lines change while the Withdraw button stays the same DOM
+  node (the card is built once per fight and leave choice; only stakes, lines and drawing update,
+  UR52); Withdraw left the field through
   the native choice; the card hid afterwards; the log column stayed 987 px tall. Only 404s were
   the private font files absent from this checkout. Evidence: `evidence/combat/fight-1920x1080.png`,
   `fight-card.png`, `gallery-*.png`, `journey.json`.
