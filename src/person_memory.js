@@ -121,6 +121,16 @@ export function addClaim(slice, claim, day, limits = MEMORY_LIMITS) {
     if (claims.some(c => c.speaker === claim.speaker && c.fact === claim.fact && c.says === claim.says)) return slice;
     return encodeMemory(decodeMemory(slice, day, readLimits), day, limits, [...claims, {...claim, day}]);
 }
+// One group impression per holder and subject (LSD353): a later one merges by weight instead of duplicating.
+export function mergeImpression(slice, holder, imp, day, limits = MEMORY_LIMITS) {
+    const readLimits = {...limits, readRevision:tableRevision(MEMORY_LIMITS), holders:Math.max(limits.holders,Object.keys(slice.holders).length), episodes:Math.max(limits.episodes,...Object.values(slice.holders).map(r=>r.length)), bytes:Math.max(limits.bytes,estimateMemoryBytes(slice))};
+    const holders = decodeMemory(slice, day, readLimits), rows = holders[holder] ??= [], at = rows.findIndex(e => e.kind === 'impression' && e.about === imp.about);
+    const next = episode(imp, day, limits);
+    if (at < 0) rows.push(next);
+    else { const o = rows[at], n = o.count + next.count;
+        rows[at] = episode({...o, feeling: Math.round((o.feeling * o.count + next.feeling * next.count) / n), certainty: Math.round((o.certainty * o.count + next.certainty * next.count) / n), count: n, day: Math.max(o.day, next.day)}, day, limits); }
+    return encodeMemory(holders, day, limits, decodeClaims(slice));
+}
 export function migrateMemory(slice, day, limits = MEMORY_LIMITS) { return slice === undefined ? freshMemory() : structuredClone(validateMemory(slice, day, limits)); }
 export const estimateMemoryBytes = slice => new TextEncoder().encode(JSON.stringify(slice)).length;
 

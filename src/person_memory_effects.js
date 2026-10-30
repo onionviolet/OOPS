@@ -2,6 +2,7 @@
 import {freshMemory, readMemories, remember, tellMemory, vividness, isMemorySnapshot, memorySnapshot, flagSilence} from './person_memory.js';
 import {silenceVerdict, silenceExplanation} from './person_silence.js';
 import {loyaltyOf} from './person_loyalty.js';
+import {witnessScene} from './crowd_memory.js';
 import {standingRung, rungIndex, SEVERITY_TABLE} from './person_severity.js';
 import {checkKey} from './check_keys.js';
 import {address, hash64, drawFraction, compareCodePoints} from './gen_kit.js';
@@ -83,6 +84,11 @@ export function observedMemoryTraits({memory = freshMemory(), holder, subject, d
     const vividHarm=rows.some(e=>harm(e) && weight(e,rows,day,t,limits)>=limits.reactionVividness);
     const repaired=rows.some(e=>e.kind==='amends') && rows.some(harm) && rows.filter(harm).every(e=>weight(e,rows,day,t,limits)<limits.reactionVividness);
     return traits.filter(trait=>trait==='grudging' && vividHarm && rows.some(e=>harm(e) && day-e.day>=limits.traitObservationDays) || trait==='forgiving' && repaired);
+}
+// What a holder remembers seeing, in words, even when it is too faint to change their manner.
+export function recalledPhrase({memory = freshMemory(), holder, subject, day, limits = MEMORY_LIMITS}) {
+    const e=readMemories(memory,holder,day,{limits}).filter(r=>r.about===subject && payload(r)).sort((a,b)=>b.day-a.day||compareCodePoints(a.fact,b.fact))[0];
+    return e ? `${e.source==='saw'?'Saw':'Heard'} that ${PHRASES[payload(e).topic]||PHRASES[e.kind]||'something happened'}.` : '';
 }
 export function revengeStub({memory = freshMemory(), holder, subject, day, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
     const t=temperamentOf(holder);
@@ -188,7 +194,16 @@ export function gossipStep({memory, simulation, actors, day, root, temperamentOf
 // Produce an envelope candidate. Nothing live changes until durable publication.
 export function memoryForPlan({memory = freshMemory(), plan, day, minute = day*1440, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
     memory=memorySnapshot(memory,day,limits);
-    for(const input of plan.memoryEffects || []) memory = rememberEffect(memory,{...input,day:Math.max(0,Math.floor((minute-(plan.state.clock-input.clock))/1440))},day,limits);
+    for(const input of plan.memoryEffects || []) {
+        const at=minute-(plan.state.clock-input.clock), effect={...input,day:Math.max(0,Math.floor(at/1440))};
+        memory = rememberEffect(memory,effect,day,limits);
+        // A public scene (P6): the crowd there leaves a group impression and one promoted witness remembers the player.
+        const sim=plan.state.simulation, e=input.scene && sim ? episodeFromEffect(effect) : null;
+        if(e) {
+            const named=Object.entries(sim.people||{}).filter(([id,p])=>id!=='player' && p.life==='alive' && p.location===input.scene.place).length;
+            memory = witnessScene({memory,scene:input.scene,subject:input.subject,fact:e.fact,feeling:e.feeling,minute:Math.max(0,Math.floor(at)),day:effect.day,root:sim.seed,namedHere:named,limits}).memory;
+        }
+    }
     if(!plan.state.simulation) return {memory, causes:null};
     const result=gossipStep({memory, simulation:plan.state.simulation,actors:plan.state.actors,day,root:plan.state.simulation.seed,temperamentOf,limits});
     result.observations=[];

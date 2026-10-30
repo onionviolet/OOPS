@@ -39,7 +39,7 @@ export const socialCommands = [
         visibleWhen: eq("village.craftsmanBusy", true), requires: {all: [met, eq("village.craftsmanBusy", true, "He is not working at the bench now.")]},
         effects: [condition(IRRITATED, "apply", "$target", 20), condition(UNSETTLED, "apply", null, 15),
             condition(REASSURED, "remove"), {type: "relationship", actor: "$target", target: "$actor", axis: "respect", amount: -1,
-                text: "Interrupted him while he was counting fittings. He asked for quiet."}]}),
+                scene: {place: "Village", severity: 1}, text: "Interrupted him while he was counting fittings. He asked for quiet."}]}),
     social({id: "village.give_space", label: "Give him a quiet moment · 3 min", duration: 3, cancellation: "forfeit",
         visibleWhen: eq("village.craftsmanIrritated", true), requires: {all: [met, eq("village.craftsmanIrritated", true)]},
         effects: [...settle, respect("Gave him space after the interruption; the earlier exchange remains remembered.")]}),

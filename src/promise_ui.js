@@ -2,7 +2,9 @@ import {previewSimulationCommand} from "./simulation.js";
 import {promiseView, promiseId, visitorId} from "./promise_content.js";
 import {createTemperamentPort} from './person_temperament.js';
 import {domainRegistry} from './domain_registry.js';
-import {reactionLine, silenceLine} from './person_memory_effects.js';
+import {reactionLine, silenceLine, recalledPhrase} from './person_memory_effects.js';
+import {witnessView} from './crowd_memory.js';
+import {generatePersonName} from './name_grammar.js';
 import {crushSocialContext} from './crush_social_facts.js';
 import {promiseReturnRecap, crushSocialActionLine} from './crush_social_views.js';
 const node=(tag,text="",className="")=>{const n=document.createElement(tag);n.textContent=text;n.className=className;return n;};
@@ -10,12 +12,12 @@ const node=(tag,text="",className="")=>{const n=document.createElement(tag);n.te
 export function createPromisePanel({registry,read,command}) {
     const panel=node("details","","expedition_panel");panel.id="promise_panel";
     panel.append(node("summary","A wary traveler"));
-    const intro=node("p"),quiet=node("p","","promise_quiet"),records=node("div"),status=node("p","","expedition_status"),recap=node('section','','expedition_card'),
+    const intro=node("p"),crowd=node("p","","promise_crowd"),quiet=node("p","","promise_quiet"),records=node("div"),status=node("p","","expedition_status"),recap=node('section','','expedition_card'),
         recapTitle=node('h4','Returning to Tamsin'),recapRecords=node('div'),recapUseful=node('div'),recapQuotes=node('div'),recapTerms=node('p'),
         socialHistory=node('details'),socialHistoryRecords=node('div');
     socialHistory.append(node('summary','Your remembered cart checks'),socialHistoryRecords);
     recap.append(recapTitle,recapRecords,recapUseful,recapQuotes,recapTerms);
-    status.setAttribute("role","status");quiet.id='promise_quiet_note';panel.append(intro,quiet,recap,records,socialHistory,status);
+    status.setAttribute("role","status");quiet.id='promise_quiet_note';crowd.id='promise_crowd_note';panel.append(intro,crowd,quiet,recap,records,socialHistory,status);
     let notice="",signature="";
     const controls=new Map();
     const run=c=>{try{
@@ -47,6 +49,14 @@ export function createPromisePanel({registry,read,command}) {
             : "Tamsin stays beside the cart. Speak again when she has news, or ask about her bracing method.";
         // P3c: what the craftsman will do with a confidence, and how Tamsin treats you if it got out. Derived each render, never saved.
         const people=s?.people||{},day=Number.isSafeInteger(context.facts.calendarMinute)?Math.floor(context.facts.calendarMinute/1440):null,memory=domainRegistry.command('memory','read')?.();
+        crowd.textContent="";
+        if(day!==null && memory && s) {
+            const port=createTemperamentPort(id=>registry.simulation.people.get(people[id]?.definitionId||id));
+            const v=witnessView({memory,place:"Village",subject:"player",day,root:s.seed,nameOf:(seed,id)=>generatePersonName({seed,key:id}).name,
+                lineOf:holder=>reactionLine({memory,holder,subject:"player",day,root:s.seed,temperamentOf:port})||recalledPhrase({memory,holder,subject:"player",day})});
+            crowd.textContent=[v.group&&`Villagers who saw you: ${v.group.count} watched.`,...v.witnesses.map(w=>`${w.name} (${w.role}) remembers you.${w.line?" "+w.line:""}`)].filter(Boolean).join(" ");
+        }
+        crowd.hidden=!crowd.textContent;
         quiet.textContent="";
         if(view.introduced && day!==null && memory && people.oldCraftsman?.life==='alive' && people[visitorId]?.life==='alive'){
             const port=createTemperamentPort(id=>registry.simulation.people.get(people[id]?.definitionId||id)),baselineOf=(h,o)=>s.relationships?.[h]?.[o]?.axes||{};
