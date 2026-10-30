@@ -12,8 +12,8 @@ This doc adds a played first-timer log, a representation choice and one shipped 
 
 Route: `game_new`, look, Talk to someone, elder, four dialogue lines. About 8 clicks and no
 game time passes, so "15 in-game minutes" is really "the first 8 clicks"; time only moves
-once the player walks to the field. Real Electron screenshot of minute 0 is
-[before-minute0.png](evidence/first-hour/before-minute0.png).
+once the player walks to the field. Real Electron screenshot of minute 0 (main-checkout build, before any change) is
+[before-electron-minute0.png](evidence/first-hour/before-electron-minute0.png).
 
 | Code | Point of confusion | Evidence | Fix |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ Reading (PRF1): a first-timer should see, at minute 0, one sentence saying what 
 
 | Item | Where |
 | --- | --- |
-| Derived next-step line; rows are data keyed on the opening quest's per-task finished flags, so there is one authority and no new save fields | `src/first_hour.js`, 1 mount line in `src/main.js` |
+| Derived next-step line; rows are data keyed on the opening quest's per-task finished flags and on the elder's own conversation lines (field cleared, field reported, cave cleared), so the line never asks for a report the elder cannot take; one authority, no new save fields. Shown only in the home Village world (`base.frontier`), so a player who crossed elsewhere sees nothing | `src/first_hour.js`, 1 mount line in `src/main.js` |
 | Display setting "Next-step line (proposal)", default On, per browser, in "This browser" | `src/display_settings.js` |
 | Style from workspace tokens only (UR6); sits under the top strip; hidden when the quest is done or the setting is off | `styles/workspace.css` |
 | Fix: raw "text not found" dialogue option | `locales/english.js` |
@@ -75,16 +75,16 @@ Player sentence (PRF2): "Next step: Talk to the village elder. In Local actions:
 Saved layouts (UR17): untouched; the card is not a workspace module. Existing saves with the quest in progress get the matching line; finished saves see nothing.
 Rows beyond this world: add rows keyed on another opening quest (FND5: data first).
 
-Evidence at 1920×1080, bundle sha256 prefix `0863ca8a87fc7982` (built from this branch, vanilla Village start, headless Chromium via `scripts/first_hour_browser.cjs`, route kind: browser, earned steps):
+Evidence at 1920×1080, bundle sha256 prefix `aad58a34f98adbb1` (built from this branch, vanilla Village start, headless Chromium via `scripts/first_hour_browser.cjs`, route kind: browser, earned steps; the script also asserts that no dialogue option shows `text not found`, which proves FH4):
 - before (setting Off): `evidence/first-hour/before-minute0.png`, `before-after-first-answer.png`, `before-sent-to-the-field.png`
 - after (setting On): `evidence/first-hour/after-minute0.png`, `after-after-first-answer.png`, `after-sent-to-the-field.png`; step texts in `after-log.json`
 
-Checks: `node --test tests/first_hour.test.js` (3, key on the task flag not a count, fight-before-weapon does not loop back, every row has words and a known module); reveal_chain, condition, combat_log, known_detail tests 31 pass; `check:arch` pass (main.js net -46 vs baseline); `check:rules` pass. Not run: full `npm test`, persistence (nothing persisted changes). Review state: agent-verified, not human-reviewed.
+Checks: `node --test tests/first_hour.test.js` (3, key on the task flag not a count, fight-before-weapon does not loop back, every row has words and a known module); reveal_chain, condition, combat_log, known_detail tests 31 pass; `check:arch` pass (`main.js` +2 lines, the import and the mount call, unpaid, inside the master baseline slack); `check:rules` pass. Not run: full `npm test` (the integrator runs it at merge, per the coordinator, 2026-10-30; my queued run was stopped), persistence (nothing persisted changes). Review state: agent-verified, not human-reviewed.
 
 ### ACT NOW / ACCOUNT FOR NOW / LATER
 
 - **ACT NOW (done):** next-step line, setting, locale fix, tests, evidence.
-- **ACCOUNT FOR NOW:** the card only covers the vanilla opening quest; other worlds' starts show nothing until rows exist (silent by design, FH empty state is "no card"). Journal eligibility during the opening quest left unchanged (one-line change in the registration loop in `main.js`; existing saves unaffected since they have already met the elder).
+- **ACCOUNT FOR NOW:** the card only covers the vanilla opening quest; other worlds' starts show nothing until rows exist (silent by design, FH empty state is "no card"). Decisions left to Weibao: the `stagedOpening` default and Journal eligibility. Journal eligibility during the opening quest left unchanged (one-line change in the registration loop in `main.js`; existing saves unaffected since they have already met the elder).
 - **LATER/DELEGATE:** (a) event-driven staged reveal replacing the click counter, Sonnet, medium, done when a fresh life shows 5 panels and each new one logs its reason; (b) Journal *Leads* and *Where things are*, Sonnet, medium, done when a fresh Frontier life lists the elder's lead and Tingen's entrance; (c) optional main-goal row and persisted choice, Opus design plus migration, done when save, reload, Export and Import keep it; (d) Talk from the inspected person, small.
 
 ## Round 2 (review, brief items 1-21)
@@ -113,4 +113,4 @@ Checks: `node --test tests/first_hour.test.js` (3, key on the task flag not a co
 
 ### Gaps and limits (honest list)
 
-Played only the vanilla Village start; Frontier and book-world starts were not walked. The headless MCP serves the main checkout, so the after captures use a Chromium script against this branch's bundle. Steps 4 to 6 (fight, report, Journal) are unit-tested but were not played end to end in a browser this round. The `stagedOpening` flip is proposed, not made.
+Played only the vanilla Village start; Frontier and book-world starts were not walked. The headless MCP serves the main checkout, so the after captures use a Chromium script against this branch's bundle. Steps after the weapon (fight, report the field, clear the cave, report, Journal) are unit-tested against the elder's real chain (the quest's third task finishes on the cave report, not the field) but were not played end to end in a browser this round. The `stagedOpening` flip is proposed, not made.

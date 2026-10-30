@@ -9,6 +9,6 @@
  },
  {
   "stage": "sent-to-the-field",
-  "nextStep": "Next stepAsk the elder about the spare weapon and pick one.Talk to the elder, then \"About the spare weapon...\". Your choice goes in your inventory.Show me"
+  "nextStep": "Next stepAsk the elder about the spare weapon and pick one, or go without.Talk to the elder, then \"About the spare weapon...\". Your choice goes in your inventory.Show me"
  }
 ]

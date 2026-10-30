@@ -1,7 +1,8 @@
 // First-hour guidance (proposal, docs/representations/FIRST_HOUR.md). One derived line saying what
 // to do next and where to click. It reads quest progress and never stores anything, so saves,
 // saved layouts and the opening quest are untouched. Rows are data: a later opening adds rows.
-// `state.tasks` is the opening quest's per-task finished flags; `armed` and `fought` are plain facts.
+// `state.tasks` is the opening quest's per-task finished flags; the rest are plain facts read from the
+// elder's own conversation lines, so the line never asks for a report the elder cannot take.
 export const FIRST_HOUR_QUEST = 'Lost memory';
 
 // First row whose `when` is true wins. `where` names a workspace module for the Show me button.
@@ -12,14 +13,20 @@ export const FIRST_HOUR_STEPS = [
     {id: 'ask-to-leave', when: s => !s.tasks[1], where: 'local-actions',
         line: 'Keep talking: say you want to leave.',
         how: 'In the conversation, pick the line about leaving, then "But I want to leave".'},
-    {id: 'get-weapon', when: s => !s.tasks[2] && !s.armed && !s.fought, where: 'local-actions',
-        line: 'Ask the elder about the spare weapon and pick one.',
+    {id: 'get-weapon', when: s => !s.tasks[2] && !s.armed && !s.fieldCleared, where: 'local-actions',
+        line: 'Ask the elder about the spare weapon and pick one, or go without.',
         how: 'Talk to the elder, then "About the spare weapon...". Your choice goes in your inventory.'},
-    {id: 'fight-rats', when: s => !s.tasks[2] && !s.fought, where: 'local-actions',
+    {id: 'fight-rats', when: s => !s.tasks[2] && !s.fieldCleared, where: 'local-actions',
         line: 'Clear the wolf rats in the Infested field.',
         how: 'Local actions, then Move somewhere else, then Infested field. Fights run on their own; watch your health.'},
-    {id: 'report-back', when: s => !s.tasks[2], where: 'local-actions',
-        line: 'Tell the elder how the rats went.',
+    {id: 'report-field', when: s => !s.tasks[2] && !s.fieldReported, where: 'local-actions',
+        line: 'The field is clear. Tell the elder.',
+        how: 'Back in the village: Local actions, Talk to someone, Talk to village elder.'},
+    {id: 'clear-cave', when: s => !s.tasks[2] && !s.caveCleared, where: 'local-actions',
+        line: 'Clear the Nearby cave, then tell the elder.',
+        how: 'Local actions, then Move somewhere else, then Nearby cave. Rest first if your health is low.'},
+    {id: 'report-cave', when: s => !s.tasks[2], where: 'local-actions',
+        line: 'The cave is clear. Tell the elder.',
         how: 'Back in the village: Local actions, Talk to someone, Talk to village elder.'},
     {id: 'journal', when: s => !s.tasks[3], where: 'records',
         line: 'Your next lead is in the Journal.',
@@ -56,13 +63,13 @@ export function createNextStepCard({host, read, show, enabled = () => true}) {
     return {card, render};
 }
 
-// The one wiring call main.js makes. Reads quest state; refreshes on a slow tick and on setting change.
-export function mountFirstHour({host, quests, active, killcounts, armed, show, setting, subscribe}) {
+// The one wiring call main.js makes. `facts()` returns {armed, fieldCleared, fieldReported, caveCleared};
+// `here()` says whether the opening's elder is in reach (the home Village world).
+export function mountFirstHour({host, quests, active, facts, here, show, setting, subscribe}) {
     const read = () => {
         const quest = quests[FIRST_HOUR_QUEST];
-        if (!quest || !(FIRST_HOUR_QUEST in active) || quest.isFinished()) return null;
-        return {tasks: quest.quest_tasks.map(task => task.isFinished()), armed: !!armed(),
-            fought: Object.values(killcounts).some(n => n > 0)};
+        if (!quest || !(FIRST_HOUR_QUEST in active) || quest.isFinished() || !here()) return null;
+        return {tasks: quest.quest_tasks.map(task => task.isFinished()), ...facts()};
     };
     const view = createNextStepCard({host, read, show, enabled: () => setting() !== 'off'});
     subscribe(view.render);
