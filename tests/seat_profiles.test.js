@@ -65,7 +65,7 @@ test('lead controls keep only in-world and Menu system controls', () => {
 
 test('ordinary and original book entry profiles preserve all existing routes', () => {
     const routeIds=routeTable().map(route=>route.id);
-    assert.equal(routeIds.length,21); // the Knows route (rep-knowledge) joined the original 20
+    assert.equal(routeIds.length,22); // the Knows route (rep-knowledge) and Organizations joined the original 20
     assert.equal(PROFILE_IDS.length,6);
     // The be seat filters crossing and other-seat routes by design; every other profile keeps them all.
     const states=[{}, ...PROFILE_IDS.filter(id=>id!==BE_PROFILE_ID).map(entryProfile=>({lotm:{entryProfile}}))];

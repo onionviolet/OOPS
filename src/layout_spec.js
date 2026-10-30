@@ -200,6 +200,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'pledges': surface('ST6', {home: 'Reference dock; vows and tempering, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'time']}),
         'rune-bench': surface('ST6', {home: 'Reference dock; rune carving, always available', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time']}),
         'economy_standing': surface('ST6', {home: 'Reference dock; opens once a trade, loan or remembered price exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),
+        'home-overview': surface('ST6', {home: 'Reference dock beside Homes; read-only glance, opens with the first known home', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
         'homes': surface('ST2', {home: 'Known residences and Village home supplier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'body', 'rights'], representations: routed}),
         'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
         'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
@@ -224,7 +225,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'family': surface('ST6', {home: 'Side column beside You', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'stock_view': surface('ST6', {home: 'Main column with the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
-        'management': surface('ST2', {home: 'Beside the actions in the Village; its own panel, not inside Location actions (UR8)', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time'], contexts: ['idle', 'service']}),
+        'management': surface('ST2', {home: 'Beside the actions in the Village; its own panel, not inside Location actions (UR8)', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time'], contexts: ['idle', 'service'], representations: routed}),
         'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.
