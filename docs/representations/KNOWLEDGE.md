@@ -106,3 +106,158 @@ Known limits: the board spreads few nodes over the full height, and in the Journ
 
 Next slice: KR6 doubt ledger on the inference adapter (name a test act per guessed line), then
 KR3 fragment cards grouped by `basis.queryId`.
+
+## Round 2 (2026-10-30, proposal)
+
+Run against the [round 2 brief](../gm/dispatch/ui-refactor-wave-2026-10-29/ROUND2_BRIEF.md).
+Everything here, round 1 included, is the current best draft and open to replacement with a
+reason (AD45).
+
+### K2-1 How other games do it
+
+Game claims are labelled **known** (from play or published docs) or **inferred**. The adapted
+ideas are mechanisms, not looks.
+
+| Game | What the player sees | Makes easy | Costs | Idea taken |
+|---|---|---|---|---|
+| Return of the Obra Dinn | A ledger: one page per event, fates filled in by the player, confirmed in threes (known) | Certainty arrives in batches, so guessing is safe and a confirmation feels earned | Strict one-answer truth; no room for partial readings | **Cases as ledger pages**: each line of thought is a page, clues to readings to plan (done) |
+| Shadows of Doubt | A pinboard per case, notes and string links the player draws, evidence items with sources (known) | Spatial memory of a case; the player owns the links | Gets messy; the player maintains it | **Board stays, but per case and optional**; links come from `basis.evidence`, not hand string (round 1 board) |
+| Disco Elysium | Thought cabinet: thoughts researched over time, then internalised with effects (known) | A thought has a lifecycle and a cost while forming | Effects hidden until done | **Intention lifecycle** (considering, active, set aside) shown as the case status (done) |
+| Heaven's Vault | A lexicon of glyph guesses, each marked confirmed or not, refined by reuse (known) | Guesses stay visible and improve with evidence | Slow; needs many uses | **Doubt shown in the line** ("doubt: ...") and "from N clues" (done); confirmation by reuse is LATER |
+| Her Story | Search box over clips; results show just what you searched (known) | Knowledge comes from your own questions | Hard to know what you missed | **Search over Knows** is LATER; open questions already mark what you asked and lack |
+| Proto23 / YAIR baseline | Journal tabs for quests, bestiary, books (known, our code) | Familiar Journal home | Tabs answer "what have I met", not "what do I believe" | Knows joins the Journal tabs rather than a new panel (round 1) |
+
+Abstraction underneath: a **ledger of claims with provenance** (claim, certainty, source,
+time, cites), grouped into **cases**. The same ledger serves appraisal results (character
+sheet), forecasts and assays, so the grammar lives in one export (`CERTAINTY` in
+`src/knowledge_view.js`).
+
+### K2-2 Fresh-player test
+
+A first look at the round 1 tab asked three things: what "Knows" means, what "Guessed" is
+measured against, and why the board had two dots in a tall empty space. Done: an intro sentence
+under the heading, a glance line ("4 known · 3 guessed · 1 open · 1 plan"), cases by default
+so each line sits under what it is about, "from N clues" on readings, and "(understood)" where
+a known line was understood rather than only seen. Terms the player meets: known, guessed,
+open, plan; each says its meaning in the board legend and the status line.
+
+### K2-3 Space, split and density (1920×1080)
+
+The Knows tab sits in the center expanded Journal (about 720 px wide). Density by frequency
+(UR42): the **glance line** is the frequent read; **cases** are the default detail; the **flat
+list** grouped by certainty answers "what is still open across everything"; the **board**
+answers "what led to what" and is the occasional view. One view per question, so the three stay
+separate. LATER: a pinned inspector beside the cases (a clicked line shows its full source chain
+and the acts that could test it) once KR6 lands.
+
+### K2-4 Bars and small signals
+
+A change badge on the Knows nav button counts lines added since the tab was last on screen,
+through the existing `registerChangeCounter` used by Quests. It answers "did I learn something?"
+and is words plus a number (UR37). Certainty chips per line stay words, not colours.
+
+### K2-5 Pop-outs and the desktop app
+
+The board earns a pop-out on a second screen for a long investigation (MDL13: `renderFigure`
+draws into its own node's document). LATER, with the browser fallback unchanged. No
+notification: learning something is already a Reports line from the adapters.
+
+### K2-6 Cheats and insight views
+
+Knowledge or foresight cheats land in the Records tab (CS1), so an insight view is a **fourth
+Knows view marked "Insight"** with a cheat glyph on every line and the cheat's name as the
+provenance ("Shown by <cheat>"). A cheat reveals by **writing knowledge through its own
+mechanism** (an observation with `basis.kind` and a cheat source), so it passes the same seat
+gate and sealed truths still arrive only through their discovery route; a cheat that is itself
+a discovery route for a secret is allowed to reveal it, by that route's rule. The developer
+inspector (raw keys, world facts) stays separate and is never styled as play. LATER, effort
+small once a cheat writes knowledge.
+
+### K2-7 Visual style
+
+Default: list and cases in the Journal's type, which works in Luminous and Neutral at 14 and 21
+px with effects off (no motion used). Alternative, LATER: **paper and ink** for cases (a case as
+a note card with a ruled line per row, ink colour from tokens), which reads better for
+documents (KR5) and worse for dense lists. Proposed in this doc only; no new CSS this round.
+
+### K2-8 Use what we have
+
+Used: `observer_view.js` (seat gate), `figure.js` (board), `reference_kit.js` (`node`,
+`visibleRenderer`), the Journal tab bar and nav routes, `change_badges.js`. Not used yet:
+`scene_card.js` fits KR3 divination fragments and RPX8 dreams (one card per rite with
+"seen in the bowl" provenance), so no new shape is needed for them.
+
+### K2-9 Unconventional option
+
+**The case as a conversation with yourself**: each case renders as a short inner dialogue in
+the character's voice ("The rope was cut clean. Ostra swears the tower was locked. So someone
+had a key, unless the lock was picked."), generated from the same rows by a template, later by
+the local-AI prose pass. Worth a later slice: it makes inference feel like thinking, and the
+row list stays as its text form.
+
+### K2-10 Audit gaps
+
+- Other seats: the adapter is seat-neutral, reading the observer; a bystander with few lines gets the
+  same view with fewer cases. Not yet shown with a non-lead fixture in the browser.
+- Empty and error states: empty state in words; an error state has nothing to report, since the view is a projection.
+- Persistence: none. Performance: one render per visible refresh, nodes bounded by row count;
+  the board caps six per column. Large saves (hundreds of lines) need paging: LATER.
+- Accessibility: buttons with `aria-pressed`, status `role="status"`, text form for the board.
+  Keyboard: the nav route has Alt+F. Not yet checked at 21 px.
+
+### K2-11 to K2-21
+
+- **Prior implementations (K2-11):** `known_things.js` is the "what you have met" sibling;
+  Knows is "what you believe". They stay separate tabs with distinct questions.
+- **Open for improvement (K2-12):** known limits are the board spacing for few nodes, 40-char
+  board labels, no search, and case labels guessed from text when a host gives none. The
+  likely next refactor passes chain labels from `castInferenceCommands` as `labels`.
+- **Flourish (K2-13):** a soft settle glow on a line when it arrives, bound to the new row,
+  off under effects off and reduced (UR38). LATER, reusing `settled_text_effects.js`.
+- **Reports and center (K2-14):** proposed Reports line shape "◇ Learned: <text>" and
+  "◆ Worked out: <text> (from 2 clues)" with a link to the Knows case. The Reports look stays
+  with the time session.
+- **Fold into existing UI (K2-16):** done by joining the Journal tab bar and nav. Proposal for
+  the coordinator: the People panel's "what you know about them" could read the same ledger
+  filtered by subject, so the two never disagree (UR74).
+- **Later volumes (K2-17):** cases key on adapter addresses (`inference.<chain>`,
+  `divination.<query>`), so a later book adds rows, not code. Long series need paging, case
+  archiving (settled cases fold away) and subject filters (person, place, power). The reading
+  outputs were not opened this round; that check is LATER.
+- **Form fits subject (K2-18):** cases are cards (things you act on); certainty groups are a
+  list; what-led-to-what is a graph (the board), drawn in columns, not a ring. The who-knows-what
+  matrix belongs to the relationship web session (people by subject); Knows is one seat's
+  claims, so a matrix fits it worse.
+- **Levels and depth (K2-19):** three depths today: seen, read into (guessed), understood; plus
+  divination status and the evidence count. Later depth: confirmed by N independent sources,
+  contradicted lines (two readings that cannot both hold), and the AP level of the means that
+  produced it (MEANS_AND_APPRAISAL).
+- **Roles, not looks (K2-20):** board nodes carry `role: clue | reading | question | plan`, so a
+  motif pack can restyle them. Flair sketch: in a gaslit city world, cases as a detective's
+  notebook with pencil underlines and a wax-seal glyph for sealed-source lines; in a
+  cultivation world, clues as jade slips and readings as incense smoke that clears as a reading
+  is confirmed.
+- **Draft status (K2-21):** round 1's certainty-grouped list was replaced as the default by
+  cases, because a player asks "what do I know about this?" before "what is open overall?".
+
+### Round 2 actions
+
+- ACT NOW (done): cases view as default, glance line, intro sentence, "from N clues",
+  "(understood)" depth word, plan line without a repeat, board node roles, tests for cases.
+- ACCOUNT FOR NOW: the shared certainty grammar with the character-sheet session (appraise and
+  identify write knowledge rows and reuse `CERTAINTY`); chain labels from the host.
+- LATER/DELEGATE:
+  - Insight view: sonnet, small. Done when a cheat-sourced knowledge row renders with its mark and a sealed fixture still stays hidden.
+  - KR6 doubt ledger with test acts: opus design plus sonnet build, medium. Done when a guessed line offers an act and the act's result confirms or breaks it.
+  - Board pop-out: sonnet, small. Done when it is drawn in the desktop pop-out with the browser fallback unchanged.
+  - Search and paging: sonnet, small. Done when 300 rows stay responsive and are searchable.
+  - 21 px check: haiku, small.
+
+### Round 2 checks
+
+- `node --test tests/knowledge_view.test.js tests/perspective_controls.test.js tests/layout_spec.test.js`: 28 pass. The knowledge file has 8 tests, two of them new for cases and glance.
+- `npm run check:docs`: no findings in this file.
+- `node scripts/capture_knowledge_evidence.mjs`: rebuilt bundle `ebded7d99cc7`, 1920×1080, 0 page errors. The fresh life shows the empty Cases view. After the craftsman route, the Knows nav button reads "Knows, 1 new" (`data-new-count` 1) and Cases shows "2 known · 0 guessed · 0 open" under "Other things you know". New files: `*-cases.png`.
+- Not run, at the coordinator's instruction: the full `npm test`. The coordinator runs it once at merge.
+- Gap: multi-case grouping (lines of thought and rites) is proven by tests and by the gallery board fixture, not in live browser play. The frontier route writes no inference chains; a cast-life route that does needs the private pack.
+- Build: the sonnet subagent built the home's case rendering and capture changes from a bounded brief, and I reviewed the diff. The adapter, tests, badge and doc are mine.

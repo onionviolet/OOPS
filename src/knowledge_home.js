@@ -1,10 +1,11 @@
 import {registerDomain} from './domain_registry.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
-import {node, visibleRenderer, plural} from './reference_kit.js';
+import {node, visibleRenderer} from './reference_kit.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 import {observerView} from './observer_view.js';
 import {renderFigure, figureText} from './ui/figure.js';
-import {knowledgeView, knowsLine} from './knowledge_view.js';
+import {knowledgeView, knowsLine, caseLine} from './knowledge_view.js';
+import {registerChangeCounter} from './change_badges.js';
 
 // LTU4: the Journal's Knows tab. It sits beside Quests and Anthology in the existing Journal tab
 // bar, so the native tab switcher and active-button styling apply unchanged. The list is the text
@@ -19,34 +20,50 @@ function mountKnowsTab() {
     const box = node('section', null, {id: 'knows_box_div', class: 'knows-box', 'aria-label': 'What you know'});
     box.style.display = 'none';
     const views = node('div', null, {role: 'group', 'aria-label': 'Knows view', class: 'flex_wrap'});
-    const listButton = node('button', 'List', {type: 'button', class: 'journal_control_button active_selection_button', 'aria-pressed': 'true'});
+    const casesButton = node('button', 'Cases', {type: 'button', class: 'journal_control_button active_selection_button', 'aria-pressed': 'true'});
+    const listButton = node('button', 'List', {type: 'button', class: 'journal_control_button', 'aria-pressed': 'false'});
     const boardButton = node('button', 'Board', {type: 'button', class: 'journal_control_button', 'aria-pressed': 'false'});
-    views.append(listButton, boardButton);
+    views.append(casesButton, listButton, boardButton);
     const status = node('p', '', {role: 'status', 'aria-live': 'polite', class: 'reference-empty'});
-    const list = node('div', null, {class: 'knows-list'}), board = node('div', null, {class: 'knows-board'});
-    board.hidden = true;
+    const cases = node('div', null, {class: 'knows-cases'}), list = node('div', null, {class: 'knows-list'}), board = node('div', null, {class: 'knows-board'});
+    list.hidden = true; board.hidden = true;
     const people = node('button', 'Open People', {type: 'button', title: 'What you know about each person is kept in the People panel'});
     people.onclick = () => expandWorkspaceModule('known-people');
-    box.append(node('h3', 'What you know'), views, status, list, board, people);
+    box.append(node('h3', 'What you know'), node('p', 'What you know, how you came to know it, and what is still open.'), views, status, cases, list, board, people);
     const notebook = document.getElementById('journal_show_notebook');
     bar.insertBefore(tab, notebook || null);
     content.append(box);
 
-    let mode = 'list';
+    let mode = 'cases';
     const setMode = next => {
-        mode = next; list.hidden = mode !== 'list'; board.hidden = mode !== 'board';
-        for (const [button, id] of [[listButton, 'list'], [boardButton, 'board']]) { button.setAttribute('aria-pressed', String(mode === id)); button.classList.toggle('active_selection_button', mode === id); }
+        mode = next; cases.hidden = mode !== 'cases'; list.hidden = mode !== 'list'; board.hidden = mode !== 'board';
+        for (const [button, id] of [[casesButton, 'cases'], [listButton, 'list'], [boardButton, 'board']]) { button.setAttribute('aria-pressed', String(mode === id)); button.classList.toggle('active_selection_button', mode === id); }
         render(true);
     };
-    listButton.onclick = () => setMode('list'); boardButton.onclick = () => setMode('board');
+    casesButton.onclick = () => setMode('cases'); listButton.onclick = () => setMode('list'); boardButton.onclick = () => setMode('board');
     tab.onclick = () => { for (const child of content.children) child.style.display = 'none'; box.style.display = 'block'; render(true); };
 
     const render = visibleRenderer(box, () => {
         const state = readPort('expansion');
-        if (!state) return {mode, rows: [], groups: [], board: null};
+        if (!state) return {mode, rows: [], groups: [], cases: [], glance: '', board: null};
         return {mode, ...knowledgeView(observerView(state), {clock: state.clock})};
     }, view => {
-        status.textContent = view.rows.length ? `${plural(view.rows.length, 'thing')} you hold. Open lines are questions you asked that have no answer yet.` : 'Nothing learned yet. Look around, ask, read or think, and it is kept here.';
+        status.textContent = view.rows.length ? `${view.glance}. Open lines are questions you asked that have no answer yet.` : 'Nothing learned yet. Look around, ask, read or think, and it is kept here.';
+        cases.replaceChildren();
+        for (const c of view.cases) {
+            const section = node('section', null, {class: 'knows-case', 'data-case': c.id});
+            section.style.marginBlock = 'var(--ui-space-2)';
+            const ul = node('ul');
+            for (const row of c.rows) {
+                const li = node('li', caseLine(row));
+                li.dataset.certainty = row.certainty;
+                ul.append(li);
+            }
+            const h = node('h4', `${c.label} · `);
+            h.append(node('span', c.status, {class: 'knows-case-status'}));
+            section.append(h, ul);
+            cases.append(section);
+        }
         list.replaceChildren();
         for (const group of view.groups) {
             if (!group.rows.length) continue;
@@ -71,3 +88,7 @@ function mountKnowsTab() {
 
 let home = null;
 registerDomain({id: 'knowledge-home', deps: [], initialState: () => null, refresh: () => home?.render(false), panels: [() => { home = mountKnowsTab(); }]});
+
+// GU8: a count on the Knows route of lines learned since the tab was last on screen.
+registerChangeCounter('records:knows', {read: () => { const state = readPort('expansion'); return state ? Object.keys(observerView(state).knowledge()) : null; },
+    showing: () => !!home?.box.checkVisibility?.()});

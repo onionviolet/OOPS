@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {renderFigure, figureText, validateFigureSpec} from '../src/ui/figure.js';
 import {observerView} from '../src/observer_view.js';
-import {knowledgeView, knowsLine, knowsRows} from '../src/knowledge_view.js';
+import {knowledgeView, knowsLine, knowsRows, knowsCases, caseLine, knowsGlance} from '../src/knowledge_view.js';
 import {knowledgeFixtureState, SEALED_LINE, KNOWLEDGE_FIXTURE} from '../src/ui/preview/fixtures/knowledge.js';
 
 const view = state => knowledgeView(observerView(state), {clock: state.clock});
@@ -73,4 +73,29 @@ test('a long column is capped on the board and points to the list', () => {
     assert.equal(v.rows.length, 9);
     assert.equal(v.board.nodes.length, 6);
     assert.match(figureText(v.board), /3 more known lines are in the list/);
+});
+
+test('cases gather a line of thought with its clues, readings, open questions and plan in that order', () => {
+    const v = view(knowledgeFixtureState());
+    assert.equal(v.glance, '4 known · 3 guessed · 1 open · 1 plan');
+    const bell = v.cases.find(c => c.id === 'inference.bell');
+    assert.deepEqual(bell.rows.map(r => r.certainty), ['known', 'known', 'guessed', 'guessed']);
+    assert.equal(bell.status, 'You mean to act');
+    assert.match(bell.label, /^Thinking about: Someone with a key/);
+    assert.equal(caseLine(bell.rows.at(-1)), 'You mean to act on it.');
+    assert.equal(v.cases.find(c => c.id === 'divination.ledger').status, '1 open');
+    assert.equal(v.cases.find(c => c.id === 'divination.tide').label, 'Asked by water bowl');
+    const loose = v.cases.at(-1);
+    assert.equal(loose.id, 'loose');
+    assert.deepEqual(loose.rows.map(r => r.key), ['harbor.bell.silent']);
+    // Every row lands in exactly one case, so the case view hides nothing the list shows.
+    assert.equal(v.cases.flatMap(c => c.rows).length, v.rows.length);
+    assert.ok(!JSON.stringify(v.cases).includes(SEALED_LINE));
+});
+
+test('a host can name its cases; an empty seat has one plain glance line', () => {
+    const rows = knowsRows(observerView(knowledgeFixtureState()), {});
+    assert.equal(knowsCases(rows, {labels: {'inference.bell': 'Who silenced the bell'}}).find(c => c.id === 'inference.bell').label, 'Who silenced the bell');
+    assert.equal(knowsGlance([]), 'Nothing learned yet.');
+    assert.match(knowsLine(rows.find(r => r.key === 'inference.bell.someone')), /from 2 clues/);
 });

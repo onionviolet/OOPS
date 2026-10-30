@@ -24,6 +24,9 @@ async function knows(page, name) {
     await page.locator('button[data-route-id="records:knows"]').click();
     await page.waitForTimeout(400);
     const text = await page.locator('#knows_box_div').innerText();
+    await page.locator('#knows_box_div').screenshot({path: resolve(out, `${name}-cases.png`)});
+    await page.locator('#knows_box_div').getByRole('button', {name: 'List', exact: true}).click();
+    await page.waitForTimeout(200);
     await page.locator('#knows_box_div').screenshot({path: resolve(out, `${name}-list.png`)});
     await page.screenshot({path: resolve(out, `${name}-screen.png`)});
     let board = '';
@@ -32,8 +35,8 @@ async function knows(page, name) {
         await page.waitForTimeout(200);
         board = await page.locator('#knows_box_div .knows-board').evaluate(n => n.dataset.text || '');
         await page.locator('#knows_box_div').screenshot({path: resolve(out, `${name}-board.png`)});
-        await page.locator('#knows_box_div').getByRole('button', {name: 'List', exact: true}).click();
     }
+    await page.locator('#knows_box_div').getByRole('button', {name: 'Cases', exact: true}).click();
     await writeFile(resolve(out, `${name}.txt`), `${text}\n\n--- board text form ---\n${board}\n`);
     return {text, board};
 }
@@ -78,6 +81,8 @@ try {
     note('working habits control', {count: await ask.count(), disabled: await ask.first().isDisabled().catch(() => null)});
     await ask.first().evaluate(n => n.click()); await page.evaluate(() => advanceTicks(2)); await page.waitForTimeout(400);
     note('saved knowledge', await page.evaluate(() => Object.keys(simulationTestHooks.snapshot().expansion?.simulation?.knowledge?.player || {})));
+    await page.waitForTimeout(1500);
+    note('knows nav badge', await page.locator('button[data-route-id="records:knows"]').evaluate(b => ({newCount: b.dataset.newCount || '0', label: b.getAttribute('aria-label') || b.textContent})));
     note('asked-craftsman', await knows(page, 'asked-craftsman'));
     note('page-errors', {errors});
     // Gallery: the named fixture through the real adapter, both themes.
