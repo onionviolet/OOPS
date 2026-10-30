@@ -64,3 +64,11 @@ card schema. Old saves load unchanged; an existing heir save simply has no line 
 
 **Verification.** `tests/cheat_growth.test.js` and the updated `tests/cheat_carry.test.js`; browser floor recorded in the
 [checkpoint](../gm/dispatch/cheats-2026-10-25/CHECKPOINT.md) once run.
+
+### Checkpoint 2026-10-30 (cheat work parked)
+
+Direction (Weibao, 2026-10-30): the ring spirit is not the base cheat but one type of cheat that will exist among many; the base cheat is the standard faculty that makes the protagonist more than an ordinary person. Cheat work is deferred long term. The ring spirit and the system stay separate cards.
+
+**Landed today** (own commits, tests green, 1920x1080 floor passed for the base faculty): growth track and kind skins on the Continuing insight panel (IM37, IM38); system voice and unreliable ring-elder voice, unit-tested (IM39); start hook `seedBeginningCheats` choice `ring-spirit` and `applyStartGrants`; premise `ring-elder` in `premises_frontier.js` (IM44, cheat side). Heir line-reach code (IM36) is dormant.
+
+**Parked, deferred long term by Weibao 2026-10-30:** wiring `applyStartGrants` into PLAY (one line in `main.js` after `seedCheatBeginning`, owned by gap-generators; until then the premise shows text but grants no card; no browser floor for the unreliable voice); IM36 heir route; IM40 tier effects; IM41 mark lore; IM42 entry warnings; IM43 trade-workaround cheat; IM45 heir-as-start; IM46 longer talking cheats.
