@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD392 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD407 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -1099,3 +1099,28 @@ contract already exists ([GR1-GR17 and SB rows](../../../GENERATION_FOUNDATION_R
 `src/world_pack_population.js`. GR2 addressed draws, GR3 freeze on reveal and GR4 lazy addresses are the same ideas as
 LSD336, LSD363 and LSD367. So no new procedural deep dive is proposed. P1 (LSD376) starts with a short fit map: each
 of LSD335-LSD387 against its GR row and existing module, with gaps named, before any code.
+
+## 38. Traits shape memory: grudges, gratitude, gossip, forgiveness (Weibao 2026-10-29; proposal)
+
+Weibao: "what about traits and more? people who hold grudges holding grudges and more? future deepening of these and
+more?" Code checked 2026-10-29: `src/generated_people.js` already gives people 2-3 traits (kind, curious, patient,
+practical, sociable, reserved) that the player discovers (`knownTraits`); `src/lineage_traits.js` holds inherited
+traits; `src/person_memory.js` (MR1) has fixed fade, telling-loss and cap constants that this round turns into dials.
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD393 | **Traits are dials on the memory functions, not new code paths.** Each trait maps to parameters: fade speed per kind, how readily a cue recalls a kind, how often they tell and to whom, how much they trust hearsay. MR1's constants become the defaults, and a per-holder temperament read (a port, derived from traits, never saved separately) overrides them. Trait words live in a registry a world extends (LSD305) | ACCOUNT FOR NOW: port in P3b |
+| LSD394 | **Grudge holders hold grudges.** For them, harm and betrayal fade very slowly, harm cues recall easily, and an apology counts for little. Forgiving people let harm fade faster, and faster again after amends. Same history, different person, different behaviour, replayable | ACCOUNT FOR NOW |
+| LSD395 | **Gratitude mirrors it.** Loyal people keep help vivid for years; the ungrateful forget it in days. A favour is worth what the person you did it for will remember | ACCOUNT FOR NOW |
+| LSD396 | **Forgiveness is an event, not a deletion.** Apology, restitution, time, a shared hardship or a go-between writes an `amends` episode that lowers the harm episode's weight in derived reads (LSD373). The harm stays remembered. Each path has a cost, and how much it counts depends on the holder's traits. Default: most people forgive something with enough amends; dial: a world or a person where some things are never forgiven, with the reason stated | ACCOUNT FOR NOW |
+| LSD397 | **Memory follows mood and temperament.** Pessimists recall harm more readily, the vain remember praise, the fearful believe rumours of threats faster. Current mood tilts recall toward memories of the same feeling. Reason: people do not remember evenly | LATER: needs a mood state |
+| LSD398 | **Gossip has a temperament.** Sociable people tell more often and to more people; reserved ones rarely; liars bend the feeling as they tell; a teller known to be reliable is believed more; a gullible listener raises certainty, a sceptic lowers it (LSD356) | ACCOUNT FOR NOW |
+| LSD399 | **Traits are discovered by seeing them work.** The existing `knownTraits` fills when the player sees a trait act ("she still brings up the well, a year on"), so a grudge holder reveals themselves by holding one (LSD333). Appraisal can guess early, and can be wrong | ACCOUNT FOR NOW |
+| LSD400 | **Traits drift from what happens.** Repeated betrayal makes someone suspicious, being rescued many times makes them trusting, trauma can add a trait. Each drift is a dated delta with its cause (LSD301), slow, and inherited traits (`lineage_traits.js`) set the starting point. Reason: people are shaped by their lives | LATER |
+| LSD401 | **A strong grudge becomes a goal.** In a grudge holder, a vivid harm memory turns into a revenge goal (LSD324) that waits for a chance rather than striking at once. Told to kin, it carries high certainty (kin trust kin), so a feud can outlive the first person who held it (with heirs, `heir_inheritance.js`) | ACCOUNT FOR NOW |
+| LSD402 | **Grudges spread to groups.** For some traits, harm from one member of a group also writes an impression of the group (LSD353), which is how prejudice and loyalty to a side form, and how one fight can sour a street | LATER |
+| LSD403 | **Your own character remembers by temperament too.** The player character's traits tune their own memory, and guilt is a harm episode about oneself. Character memory stays separate from what Weibao read (LSD358) | LATER |
+| LSD404 | **Canon people keep canon temperaments.** A book character's traits come from the readings with canon pull (LSD233), so someone the book shows holding a grudge holds it in play unless something changes them | ACCOUNT FOR NOW: with the cast packs |
+| LSD405 | **Keep it cheap and testable.** Traits are multipliers on functions that already exist; no per-trait branches. One test per trait: the same history with and without the trait gives different vividness or a different line, and replays the same | ACCOUNT FOR NOW |
+| LSD406 | **Deeper later, ranked.** (1) Short-term emotions feeding recall and reactions. (2) More bond axes kept apart: affection, respect, fear, trust. (3) Secrets kept, traded and used for blackmail. (4) Shared memory of a place or group: a famine, a festival, a local legend. (5) Dreams and nightmares replaying vivid harm. Further: memory of places (homesickness), memory decline with age, false memories from mind powers (LSD355) | LATER |
+| LSD407 | **Plan: P3b trait temperament.** After MR2 lands, a small lane adds the temperament port to `person_memory.js`, maps the six existing trait words and a `grudging`/`forgiving` pair, adds `amends`, and drives LSD394-LSD396, LSD398, LSD399 and LSD401 through the MR2 route. Done when two people with the same history and different traits show different lines in the browser at 1920x1080, through save and reload | ACCOUNT FOR NOW: after MR2 |
