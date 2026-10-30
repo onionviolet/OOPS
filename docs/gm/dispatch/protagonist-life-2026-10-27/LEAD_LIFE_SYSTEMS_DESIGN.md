@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD440 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD441 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -1212,3 +1212,7 @@ memory slice at the caps (300 people x 40 episodes) is 499,711 bytes.
 | LSD438 | **Batch the background.** Gossip and other daily steps run once per game day per person with a daily budget (GR11), and offline catch-up runs them in day batches. A budget hit defers work to the next day rather than skipping it | ACCOUNT FOR NOW |
 | LSD439 | **Measure it.** A benchmark test derives every bond for 300 people at the caps and asserts a time budget (start at 50 ms on the dev machine); a second asserts that a 30-day catch-up stays within its budget. Reason: cost claims should be numbers from this code, not estimates | ACCOUNT FOR NOW: add with P3b |
 | LSD440 | **Deriving beats saving totals for this game.** Saved totals drift from their causes, need migrations whenever a formula changes, and cannot explain themselves. Derived values always match their history and can name why. The trade-off is LSD435: a formula change reaches old saves, so formulas are versioned. Snapshots (LSD302) remain the fallback if a measured cost ever gets too high | ACCOUNT FOR NOW |
+
+| Code | Line | Disposition |
+| --- | --- | --- |
+| LSD441 | **Memory limits are adjustable (Weibao 2026-10-29: "We can make the limits adjustable into the future").** MR1's caps (300 holders, 40 records per holder, 500 KB) and the fade, telling-loss and reaction thresholds are defaults in one limits table, set per world and changeable in settings later, with the byte budget following the caps. A lower cap folds or forgets on the next write (LSD360); a higher one only allows more. The size test reads the table, so a changed limit is checked like the default | ACCOUNT FOR NOW: with P3b |
