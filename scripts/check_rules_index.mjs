@@ -6,7 +6,7 @@ import {dirname, resolve, relative} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const root = process.env.RULES_INDEX_ROOT ? resolve(process.env.RULES_INDEX_ROOT) : resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const docs = resolve(root, 'docs');
 const indexPath = resolve(docs, 'RULES_INDEX.md');
 const failures = [], warnings = [];
@@ -36,6 +36,21 @@ for (const r of register) for (const l of links(r[4] || '')) registered.add(reso
 const ruleFiles = readdirSync(docs).filter(f => /_RULES(_|\.)|^(UI|MAKING|ARCHITECTURE)_RULES|RULES_\d{4}/.test(f) && f.endsWith('.md') && !/^RULES_(INDEX|FROM_SCRATCH)\.md$/.test(f));
 for (const f of ruleFiles) {
   if (!registered.has(resolve(docs, f))) fail(`rulebook docs/${f} has no row in the Register of rule sets`);
+}
+
+// 1b. Routing and ownership warnings (RIX2): a code family no router row names,
+// and an owner link under docs/gm/dispatch/ (a dated working document).
+const routerText = sectionOf(index, 'Router: what applies to my task');
+for (const r of register) {
+  const name = r[0] || r[1];
+  for (const fam of new Set([...(r[1] || '').matchAll(/\b([A-Z]{2,4})\d+/g)].map(m => m[1]))) {
+    if (!new RegExp(`\\b${fam}\\d`).test(routerText)) warn(`${name}: code family ${fam} appears in no router row`);
+  }
+  for (const l of links(r[4] || '')) {
+    if (/^(https?:|#)/.test(l)) continue;
+    const target = resolve(docs, l.split('#')[0]);
+    if (target.startsWith(resolve(docs, 'gm', 'dispatch') + '/')) warn(`${name}: owner link ${l.split('#')[0]} is under docs/gm/dispatch/ (a dated working document)`);
+  }
 }
 
 // 2. Registered ranges vs highest defined code.

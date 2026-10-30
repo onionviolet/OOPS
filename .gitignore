@@ -72,3 +72,6 @@ disposable-profile/
 
 # Inventory publication: local backups and disposable save bytes stay private.
 /docs/gm/dispatch/inventory-overhaul-2026-10-21/private/
+/dist/figure-gallery.js
+/dist/figure-gallery.js.map
+/dist/figure-gallery.receipt.json

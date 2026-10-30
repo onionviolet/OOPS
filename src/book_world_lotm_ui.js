@@ -3,7 +3,7 @@ import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.
 import {createMeterBar} from './meter_bar.js';
 import {decorateActionComponents} from './ui_components.js';
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
-import {seatAllows} from './seat_profiles.js';
+import {observerForProfile} from './observer_view.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -16,12 +16,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  let signature='',selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
-  const state={lotm:{entryProfile:read(selected)?.entryProfile}};
+  const observer=observerForProfile(read(selected)?.entryProfile);
   for(const item of PERSPECTIVE_CONTROLS){
    if(item.kind!=='panel-block')continue;
    const selector=item.anchor.startsWith('#lotm_panel')?item.anchor.replace('#lotm_panel',':scope'):item.anchor;
    let targets=[];try{targets=panel.querySelectorAll(selector);}catch{}
-   for(const node of targets){const target=node.closest('[data-panel-row]')||node;target.hidden=!seatAllows(state,{control:item.id});}
+   for(const node of targets){const target=node.closest('[data-panel-row]')||node;target.hidden=!observer.sees({control:item.id});}
   }
  };
  const seatObserver=new MutationObserver(applySeatFilter);seatObserver.observe(panel,{childList:true,subtree:true});

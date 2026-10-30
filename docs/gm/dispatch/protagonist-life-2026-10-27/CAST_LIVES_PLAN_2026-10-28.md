@@ -596,20 +596,7 @@ These turn a book scene into what the player sees. They restate and apply existi
 UR70-UR75, AR7, AR8, PX49, PLAN 17.4) for this case; proposals until Weibao accepts them. Target:
 1920×1080 desktop first; mobile deferred.
 
-| Code | Rule (default, dial and reason) | Restates |
-| --- | --- | --- |
-| SUI1 | **A scene is state, not prose.** The UI draws place, time band, who is here, available actions and results from game state; every line is our own wording generated from fields. Source text never reaches the screen. Reason: copyright and one truth (AR8) | AR8, research rules |
-| SUI2 | **Pick the surface by what the scene asks of the player** (UR41): a routine moment lives in the location panel; a scene with a choice opens a scene card in the center view through the shared controller with the back bar and Esc; a fight uses the existing combat surface; a scene the player is not in becomes a log line | UR41, PLAN 17.4 |
-| SUI3 | **Witness level decides the text** (PX49): present gets the card; affected gets the outcome and its effect on you; aftermath gets what you find afterwards; heard gets a rumor line marked as told to you. Never more than the player perceived | PX49, AR8 |
-| SUI4 | **No canon labels by default.** Options are not marked "what the book did"; the opt-in overlay shows past and current canon scenes only | PLAN 17.4, sealed-secrets rule |
-| SUI5 | **Untaken options stay visible** as actions with their cost, or as a quiet "not possible yet: [what is missing]" line; never silently absent (WA28) | WA28, UR72 |
-| SUI6 | **Quote before commit.** Every scene action shows time, cost, who is affected and, where weighted, the observable resistance (CL40) before the click, and rechecks on commit | AR7, UR71, CL40 |
-| SUI7 | **Scenes keep their window, not the player's attention.** A scene you are part of waits within its window and shows in the calendar and an "upcoming" strip; past the window it settles without you (CL6a) and reaches you at your witness level. No forced pause; an optional notice for appointments | NPC absence report, CL6 |
-| SUI8 | **One card at a time.** Several live scenes queue in the upcoming strip in time order; cards never stack | UR42 |
-| SUI9 | **Lead with meaning** (UR70): the card's first line says what is at stake for you in one sentence; mechanics follow (UR71) | UR70, UR71 |
-| SUI10 | **People on the card are links** to their person view (CL36, CL37): where they usually are, why they act toward you as they do | UR43, UR47 |
-| SUI11 | **The log line is the receipt.** Every settled scene writes one compact subject-first log line (UR44) through the name resolver, so a missed scene is still traceable | UR44, CAE-E1 |
-| SUI12 | **Each new scene kind earns browser evidence** at 1920×1080 on a populated save before it is called done (AD43) | AD43, UR rules |
+Moved 2026-10-29 to [UI_RULES, scene and report rules](../../../UI_RULES.md#scene-and-report-rules-sui-rpt); codes and wording unchanged.
 
 | Code | Disposition |
 | --- | --- |
@@ -684,12 +671,7 @@ Or should we finish playthrough first and then set up the NPC versioon? More to 
 
 ### 17.4 Travel from one scene to the next (UI)
 
-| Code | Rule (proposed, extends SUI1-SUI12) |
-| --- | --- |
-| SUI13 | **Every closed scene points onward.** The card's close shows what is next that the player knows of: an appointment, a lead, a person's usual place, each with the travel action and its time quoted (SUI6) |
-| SUI14 | **Travel is the real move verb**, with real minutes (district links), never a jump to the next scene. Arriving early means waiting or doing something else; arriving late means the scene settled without you (SUI7) |
-| SUI15 | **The route is a place too.** People whose schedules cross the route can be met on the way; a short "on the way" line shows who you passed, at your witness level |
-| SUI16 | **Follow mode:** "follow [person]" moves the player with them by the same verbs, at a distance the world sets (shadowing is a skill check where it matters), so watching the lead's day is one action, not many |
+Moved 2026-10-29 to [UI_RULES, scene and report rules](../../../UI_RULES.md#scene-and-report-rules-sui-rpt); codes and wording unchanged.
 
 | Code | Disposition |
 | --- | --- |
@@ -743,11 +725,7 @@ player commands.
 
 ### 18.2 What this adds to the UI rules
 
-| Code | Rule (proposed, extends SUI1-SUI16) |
-| --- | --- |
-| SUI17 | **Every lead step has a reachable control or a named fold.** A world is UI-complete for a slice when its step table has no unmapped, unfolded step |
-| SUI18 | **The next step is findable from the current screen.** Where the lead's next action happens elsewhere, the current screen offers the route (SUI13, SUI14); where it needs an item or knowledge, the screen shows what is missing (SUI5) |
-| SUI19 | **Folded actions show their parts.** A folded action's description lists the book steps it stands for, in our words, so the player sees the lead's morning as it happened |
+Moved 2026-10-29 to [UI_RULES, scene and report rules](../../../UI_RULES.md#scene-and-report-rules-sui-rpt); codes and wording unchanged.
 
 ### 18.3 Lane
 
@@ -865,20 +843,7 @@ knowledge note.
 
 ### 21.1 Rules (proposed RPT1-RPT12)
 
-| Code | Rule (default, dial and reason) | Restates |
-| --- | --- | --- |
-| RPT1 | **Reuse the existing kinds.** Witnessed canon beats and talks go under events; heard news and off-screen life go under background. A new "People" kind waits for a second consumer (relationships, rumors) and then pays its one `main.js` line under AR1 | AR1, FND5 |
-| RPT2 | **Only what the player perceived, at its witness level.** Present: what you saw ("Dunn hands the clerk a sealed file."). Affected: the effect on you. Aftermath: what you find. Heard: marked as told ("Word at the market: ..."). No line about what nobody told you | SUI3, PX49, AR8 |
-| RPT3 | **Subject first, compact** (MC1): who, did what, result, place if it matters, in one line | UR44, MC1 |
-| RPT4 | **Names as the player knew them then.** Someone not yet introduced is "a tall officer" until you learn the name, and the old line keeps what you knew when it was written. Names resolve through the reference resolver at read time (PL-E2's known limit: the chronicle renders at write time with an empty context, so a read-time render is needed) | CAE-E1/E4, MC note on recorded subject |
-| RPT5 | **Movement is not news.** Cast moving by schedule writes nothing. Leaving or arriving writes a line only when the player sees it and knows the person; repeats in one band fold into one line ("Morning: Melissa left for school; the bakery opened.") | MC2, MC3 |
-| RPT6 | **Coming back gets a digest.** After idle or away time, one "While you were away" row lists what you could know, grouped by person, with the raw lines kept in the stream | MC4, NPC absence report |
-| RPT7 | **No canon labels, no future.** Reports never say what the book did or will do; the "what the book did" overlay is the only place for that | SUI4, sealed-secrets rule |
-| RPT8 | **Reports are written once, by the settling event.** Previews, syncs, reloads, re-filters and replays write nothing and never duplicate a line | MC note on re-expansion, AR3 |
-| RPT9 | **The log forgets; the person view remembers.** The stream prunes by kind, so a person's history lives in the person view and chronicle (CL38); a report row links there | UR43, CL38 |
-| RPT10 | **Book text stays out of the log by default.** The line is the receipt and is ours (SUI11); quoted book text belongs on the scene card and in descriptions (CL144-CL145). Dial: a private-pack world may show a short quoted line for a canon scene the player was present at, marked as from the book | CL144, AD1 |
-| RPT11 | **No developer text.** Evidence labels, fill notes, locators and ids never appear in Reports; they live in the inspector (CL19, CL42) | UR73 |
-| RPT12 | **Varied but deterministic wording.** Routine lines draw their wording from the world's texture rows keyed by place, band and day, so the same moment reads the same after a reload and different days read differently | CL49, WA37 |
+Moved 2026-10-29 to [UI_RULES, scene and report rules](../../../UI_RULES.md#scene-and-report-rules-sui-rpt); codes and wording unchanged.
 
 ### 21.2 More to consider
 

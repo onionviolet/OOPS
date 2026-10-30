@@ -1,0 +1,12 @@
+/* Scene card slots (SUI2): tokens only, so the card follows display settings and themes. */
+.scene-card {display:grid;gap:var(--ui-space-2);min-width:0;padding:var(--ui-space-3);border:var(--ui-space-hairline) solid var(--ui-hairline);color:var(--ui-text);font-size:var(--ui-type-body);line-height:var(--ui-line-body);overflow-wrap:anywhere;}
+.scene-card > p {margin:0;}
+.scene-card-header {color:var(--ui-accent);font-size:var(--ui-type-small);line-height:var(--ui-line-small);}
+.scene-card-stakes {font-weight:var(--ui-weight-strong);}
+.scene-card-people,.scene-card-onward {display:flex;flex-wrap:wrap;gap:var(--ui-space-2);}
+.scene-card-person {min-height:var(--ui-control-sm);}
+.scene-card-option {display:grid;gap:var(--ui-space-1);}
+.scene-card-option > button {min-height:var(--ui-control-md);text-align:left;}
+.scene-card-quote {color:var(--ui-text);font-size:var(--ui-type-small);line-height:var(--ui-line-small);}
+.scene-card-blocked {font-size:var(--ui-type-small);line-height:var(--ui-line-small);font-style:italic;}
+.scene-card-result {border-left:var(--ui-space-1) solid var(--ui-accent);padding-left:var(--ui-space-2)!important;}

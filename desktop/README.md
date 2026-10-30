@@ -47,6 +47,18 @@ rings logo is preserved in `resources/img/branding/` as the beta identity.
 save mirror, presence and pop-out, offline). `node scripts/desktop_soak.cjs --seconds 28800` is the overnight soak.
 Never run these against the player's userData.
 
+## Adopting a build
+
+`scripts/adopt_candidate.mjs` (MDL16) moves a commit into the normal app in three steps; each runs hidden and
+none writes the real profile until the last.
+
+1. `node scripts/adopt_candidate.mjs prepare --commit <sha>`: scratch worktree, build, snapshot into a scratch profile, and the
+   files missing from or added to the player's current snapshot.
+2. `node scripts/adopt_candidate.mjs verify`: hidden frozen Electron on a copy of the profile; PLAY, Save, reload; reports served
+   build id, page errors, missing files and save facts (never contents). `measure` times first paint, PLAY screen and workspace on a fresh profile.
+3. `node scripts/adopt_candidate.mjs swap --yes [--label <name>]`: needs Weibao's explicit yes and a closed app. Verified SHA-256
+   backup under `~/.codex/reconciliation-backups/`, then snapshot and pointers; it prints rollback steps.
+
 ## Agent tools
 
 `npm run mcp:game` serves the headless game over MCP (`scripts/mcp/`). Register it in a client yourself, for example

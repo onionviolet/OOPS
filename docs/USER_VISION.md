@@ -6871,3 +6871,8 @@ Recorded: write the lead-life rulebook holding accepted lines only ([LEAD_LIFE_R
 
 Weibao's words: "what happened to the glow and pastel and stuff in the hero's stat", then, after hearing that the glow was an opt-in Appearance profile, "making luminous gothic as default? save accordingly and push".
 Recorded: Luminous Gothic (glow frames, navy and teal fields, purple Reports) is the default look for new games and for saves whose only profile is the untouched old Neutral default. A save carries a `customization_default` marker after its first save on this build, so a Neutral chosen later stays Neutral. Explicit Appearance choices are kept. The theme's own palette no longer counts as a custom palette, so Luminous keeps the pastel HP, XP and stamina fills that Neutral had. Owner: [typography, component styling and glow](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#typography-component-style-and-glow-implementation-2026-10-20) and [UI audit round 11](audits/UI_DESIGN_CORE_AUDIT.md#round-11-2026-10-29-luminous-default-and-refactors-to-plan-for).
+
+## UI refactors now, in parallel sonnet lanes (2026-10-29)
+
+Weibao's words: "save the stuff for future accordingly, refactor now? more to consider? Work in parallel using sonnet agents?"
+Recorded: the future UI work stays saved in [UI audit rounds 8-12](audits/UI_DESIGN_CORE_AUDIT.md); the refactors that get expensive later start now as parallel sonnet lanes under the [UI refactor wave plan](gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md): seat seam, scene card slots, figure primitive and gallery, rules in one place, and a snapshot adoption routine. Mount on first open waits for the UI freeze fix.

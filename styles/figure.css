@@ -1,0 +1,90 @@
+/* MDL2 figure primitive (src/ui/figure.js). Colors and widths come from the theme and UI tokens, so a
+   world skin (MDL6) restyles every figure by setting tokens. Effects (MDL8, UR38) are classes only,
+   never move layout, and switch off under data-effects off and reduced. */
+.fig {
+    --fig-ink: var(--theme-text, var(--ui-text));
+    --fig-muted: var(--theme-muted, var(--ui-hairline));
+    --fig-line: var(--theme-border, var(--ui-hairline));
+    --fig-surface: var(--theme-surface, var(--ui-navy));
+    --fig-accent: var(--theme-accent, var(--ui-accent));
+    --fig-warn: var(--theme-warning, var(--ui-meter-warn));
+    --fig-danger: var(--theme-danger, var(--ui-meter-limit));
+    --fig-stroke: 1.5; --fig-stroke-strong: 2.5;
+    --fig-dash-empty: 4 3; --fig-dash-unknown: 1 4;
+    --fig-glow-radius: 5px; --fig-pulse-time: 1800ms;
+    display: block; min-width: 0; color: var(--fig-ink);
+}
+.fig-svg {display: block; max-width: 100%; height: auto; margin-inline: auto;}
+.fig-svg text {fill: var(--fig-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+
+/* Rings and segments */
+.fig-ring-base, .fig-segment {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke); stroke-linecap: round;}
+.fig-segment {stroke-width: var(--fig-stroke-strong);}
+.fig-segment.fig-state--active {stroke: var(--fig-accent);}
+.fig-segment.fig-state--strained {stroke: var(--fig-warn);}
+.fig-segment.fig-state--broken {stroke: var(--fig-danger); stroke-dasharray: var(--fig-dash-empty);}
+.fig-segment.fig-state--unknown {stroke-dasharray: var(--fig-dash-unknown);}
+.fig-ring.fig-state--strained .fig-segment:not([class*="fig-state--"]) {stroke: var(--fig-warn);}
+.fig-segment-label {fill: var(--fig-muted);}
+.fig-segment-label.fig-state--active {fill: var(--fig-accent);}
+.fig-segment-label.fig-state--strained {fill: var(--fig-warn);}
+.fig-segment-label.fig-state--broken {fill: var(--fig-danger);}
+.fig-svg .fig-segment-label {fill: var(--fig-muted);}
+.fig-svg .fig-segment-label.fig-state--active {fill: var(--fig-accent);}
+.fig-svg .fig-segment-label.fig-state--strained {fill: var(--fig-warn);}
+.fig-svg .fig-segment-label.fig-state--broken {fill: var(--fig-danger);}
+
+/* Markers (nodes, slots) and track steps share a body, glyph and state set */
+.fig-body {fill: var(--fig-surface); stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
+.fig-halo {fill: none; stroke: none; opacity: 0;}
+.fig-marker--slot .fig-body {stroke-dasharray: var(--fig-dash-empty);}
+.fig-svg .fig-badge {fill: var(--fig-accent);}
+.fig-state--filled > .fig-body, .fig-state--done > .fig-body, .fig-state--active > .fig-body {fill: color-mix(in srgb, var(--fig-accent) 28%, var(--fig-surface)); stroke: var(--fig-accent); stroke-dasharray: none;}
+.fig-state--current > .fig-body {stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong); fill: var(--fig-surface);}
+.fig-state--empty > .fig-body {stroke-dasharray: var(--fig-dash-empty); fill: var(--fig-surface);}
+.fig-state--pending > .fig-body {stroke: var(--fig-muted); stroke-dasharray: var(--fig-dash-empty);}
+.fig-state--unknown > .fig-body {stroke: var(--fig-muted); stroke-dasharray: var(--fig-dash-unknown);}
+.fig-state--strained > .fig-body {stroke: var(--fig-warn); stroke-dasharray: none; stroke-width: var(--fig-stroke-strong);}
+.fig-state--broken > .fig-body {stroke: var(--fig-danger); stroke-dasharray: none; stroke-width: var(--fig-stroke-strong); fill: color-mix(in srgb, var(--fig-danger) 16%, var(--fig-surface));}
+.fig-svg .fig-state--strained > .fig-glyph, .fig-svg .fig-state--strained > .fig-badge {fill: var(--fig-warn);}
+.fig-svg .fig-state--broken > .fig-glyph, .fig-svg .fig-state--broken > .fig-badge {fill: var(--fig-danger);}
+.fig-svg .fig-state--pending > .fig-glyph, .fig-svg .fig-state--unknown > .fig-glyph {fill: var(--fig-muted);}
+.fig-svg .fig-label {fill: var(--fig-ink);}
+.fig-svg .fig-state--pending .fig-label, .fig-svg .fig-state--empty .fig-label, .fig-svg .fig-state--unknown .fig-label {fill: var(--fig-muted);}
+
+/* Tracks */
+.fig-track-line, .fig-track-progress {stroke: var(--fig-line); stroke-width: var(--fig-stroke);}
+.fig-track-progress {stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong);}
+.fig-svg .fig-track-title {fill: var(--fig-muted);}
+
+/* Edges: kinds take distinct patterns by order of first use, so kind is never color alone */
+.fig-edge-line {fill: none; stroke: var(--fig-accent); stroke-width: var(--fig-stroke-strong);}
+.fig-edge--k1 .fig-edge-line {stroke: var(--fig-warn); stroke-dasharray: var(--fig-dash-empty);}
+.fig-edge--k2 .fig-edge-line {stroke: var(--fig-ink); stroke-width: var(--fig-stroke); stroke-dasharray: var(--fig-dash-unknown); stroke-linecap: round;}
+.fig-edge--k3 .fig-edge-line {stroke: var(--fig-danger); stroke-dasharray: 8 3 2 3;}
+.fig-edge.fig-state--unknown .fig-edge-line {stroke-dasharray: var(--fig-dash-unknown); stroke: var(--fig-muted); stroke-linecap: round;}
+.fig-svg .fig-edge-label {paint-order: stroke; stroke: var(--fig-surface); stroke-width: 5; stroke-linejoin: round;}
+.fig-svg .fig-edge.fig-state--unknown .fig-edge-label {fill: var(--fig-muted);}
+
+/* Notes and legend */
+.fig-svg .fig-note.fig-state--strained .fig-note-text {fill: var(--fig-warn);}
+.fig-svg .fig-note.fig-state--broken .fig-note-text {fill: var(--fig-danger);}
+.fig-legend {display: flex; flex-wrap: wrap; gap: var(--ui-space-2) var(--ui-space-5); list-style: none; margin: var(--ui-space-3) 0 0; padding: 0; font-size: var(--ui-type-small); color: var(--fig-muted);}
+.fig-legend-item {display: inline-flex; align-items: center; gap: var(--ui-space-2);}
+.fig-legend-mark {display: inline-block; min-width: 1.4em; text-align: center; color: var(--fig-ink);}
+.fig-legend-mark.fig-state--strained {color: var(--fig-warn);}
+.fig-legend-mark.fig-state--broken {color: var(--fig-danger);}
+.fig-legend-mark.fig-state--active, .fig-legend-mark.fig-state--done, .fig-legend-mark.fig-state--filled, .fig-legend-mark.fig-state--current {color: var(--fig-accent);}
+.fig-legend-swatch {flex: none;}
+.fig-text {margin: var(--ui-space-4) 0 0; white-space: pre-wrap; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--fig-muted);}
+
+/* Effects: classes only, no layout movement. Facts stay in marks and words when they are off. */
+.fig-fx--glow > .fig-body, .fig-fx--glow.fig-segment, .fig-fx--glow .fig-body {filter: drop-shadow(0 0 var(--fig-glow-radius) var(--fig-accent));}
+.fig-fx--glow.fig-state--broken .fig-body {filter: drop-shadow(0 0 var(--fig-glow-radius) var(--fig-danger));}
+.fig-fx--glow.fig-state--strained .fig-body {filter: drop-shadow(0 0 var(--fig-glow-radius) var(--fig-warn));}
+.fig-fx--pulse > .fig-halo {stroke: var(--fig-accent); stroke-width: var(--fig-stroke); animation: fig-pulse var(--fig-pulse-time) ease-in-out infinite alternate;}
+.fig-fx--pulse.fig-state--broken > .fig-halo {stroke: var(--fig-danger);}
+@keyframes fig-pulse {from {opacity: .15;} to {opacity: .85;}}
+:root:is([data-effects="off"], [data-effects="reduced"]) .fig [class*="fig-fx--"], :root:is([data-effects="off"], [data-effects="reduced"]) .fig [class*="fig-fx--"] > * {filter: none;}
+:root:is([data-effects="off"], [data-effects="reduced"]) .fig .fig-halo {animation: none; opacity: 0; stroke: none;}
+@media (prefers-reduced-motion: reduce) {.fig .fig-halo {animation: none; opacity: .5;}}

@@ -1,4 +1,5 @@
 import {pocketRealmView, previewPocketRealmAction, pocketRealmActions, POCKET_LOCATION} from './pocket_realm_host.js';
+import {observerView} from './observer_view.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 export function createPocketRealmPanel({registry,read,command}) {
  const panel=node('details');panel.id='pocket_realm_panel';panel.className='expedition_panel';
@@ -8,7 +9,7 @@ export function createPocketRealmPanel({registry,read,command}) {
  for(const action of pocketRealmActions){const row=node('div'),button=node('button',action.label),reason=node('p');row.className='expedition_card';button.type='button';button.dataset.pocketRealm=action.id;
   button.addEventListener('click',()=>{try{const snapshot=read();command({id:action.id,sequence:snapshot.state.sequence});message=action.id==='pocket.observation.replay'?'Stored viewing evidence displayed.':'Progress saved.';}catch(error){message=error.message;}render();});row.append(button,reason);panel.append(row);controls.set(action.id,{row,button,reason});}
  function render(){const focused=document.activeElement,snapshot=read(),{state,context,error,canWrite}=snapshot,view=pocketRealmView(state);
-  panel.hidden=(!view.discovered&&!state.simulation?.knowledge.player?.['exchange.lens_lead'])||snapshot.inDialogue||snapshot.inCombat||!['Village','Shack',POCKET_LOCATION].includes(context.facts.location);
+  panel.hidden=(!view.discovered&&!observerView(state).knows('exchange.lens_lead'))||snapshot.inDialogue||snapshot.inCombat||!['Village','Shack',POCKET_LOCATION].includes(context.facts.location);
   illustration.hidden=!(view.inside||view.observation.active);summary.textContent=view.inside?'Folded Glasshouse':'A folded doorway';intro.textContent=view.inside?'The room beyond the frame has its own bench and caretaker. Your carried belongings came with you; its stored materials stayed here.':'Iona’s viewing instruments include a narrow doorway. Looking through a paired glass and carrying your body through a route require different means.';
   place.textContent=view.description||'Opening the frame accepts no work. You can leave it closed and return later.';
   viewStatus.hidden=!view.observation.acquiredDevice;viewStatus.textContent=view.observation.description+(view.observation.active?` ${view.observation.remaining} played minutes remain. Close the slit before traveling.`:'');

@@ -95,16 +95,7 @@ rules"). Original wording, preserved: "proposed ... none is accepted product
 authority until Weibao accepts it." The deferral register entries remain proposals. They limit **when** depth
 arrives, not **how much** depth the game may eventually have.
 
-| Code | Guardrail | Test |
-| --- | --- | --- |
-| CX1 | **Depth on demand.** A place, person or system gains detail only when a player choice uses it. | Can you name the choice the new detail serves? |
-| CX2 | **Connect, don't add.** A new system plugs into existing verbs, tags and owners before it adds new ones. | Does it reuse at least one existing verb and one existing consumer? |
-| CX3 | **Rules over pairs.** Prefer one rule on tags over many pairwise interactions. | Would adding the tenth content item need new code? |
-| CX4 | **Promote, don't pre-simulate.** Unconstrained detail can remain counts or addresses until observed (GR3, GR4). Hidden causes already consumed by an event retain their actor/resource/time/custody bindings; see [GW5](../../../../GENERATION_FOUNDATION_RULES_2026-10-14.md#gw5-causal-commitment-before-observation-2026-10-15). | Does anything tick that the player cannot affect or learn about? |
-| CX5 | **Budget declared.** Each generator and simulation states entity, draw and time budgets (GR11). | Is there a number that fails a test when exceeded? |
-| CX6 | **Honest coverage.** Background, inspectable and playable are distinct (P9K4). Unfinished content is not disguised as a fictional lock. | Does every travel button resolve to real play? |
-| CX7 | **One slice at a time.** Finish a playable slice before widening (AGENTS.md). | Can Weibao play the last slice now? |
-| CX8 | **Deferral register.** Every deferred feature records its reopen trigger. | Does each LATER item say what evidence reopens it? |
+Moved 2026-10-29 to [GROUND_RULES, complexity guardrails CX1-CX8](../../../../GROUND_RULES.md#complexity-guardrails-cx1-cx8); codes and wording unchanged.
 
 **P9Z41, proposed deferral register for Part 9.** Seed list; owners keep their
 own entries.

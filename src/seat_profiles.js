@@ -50,6 +50,13 @@ export function seatOf(state) {
     return 'ordinary';
 }
 
+// What a seat is shown, as data: null means unrestricted. Read through
+// observer_view.js; UI modules never branch on the seat itself.
+export function seatScope(seat) {
+    const known = SEATS.includes(seat) ? seat : 'ordinary';
+    return Object.freeze({seat: known, tags: tags[known] && [...tags[known]], audiences: audiences[known] && [...audiences[known]]});
+}
+
 export function seatAllows(state, request = {}) {
     const seat = seatOf(state);
     if (request.capability !== undefined) {

@@ -42,21 +42,7 @@ not; be at the household flat at dawn on day 1 and Reports tells you what you sa
 
 Each line restates an accepted code where one exists; only CLR2, CLR3, CLR6, CLR8 and CLR9 are new.
 
-| Code | Rule | Restates or extends |
-| --- | --- | --- |
-| CLR1 | Implement from the cited paragraph, not the row; drop a row its paragraph does not support | Round 8 (accepted), PL-A46 |
-| CLR2 | **Every brief opens with a data probe**: count the fields the lane depends on against stated expectations; stop if a count is under half, but only for counts named as gates | New (CL124, CL100); IPC77 |
-| CLR3 | **Every brief states each output's publication class**: public code (name-free), private pack (canon data, book text), or private research. Canon people, names and beats never land in tracked `src/` or `tests/` | AD1, PROJECT book worlds (new as a brief line, CL141) |
-| CLR4 | Absent means silent: a missing field is unknown, never "no" | WA8, schema 1.4 note |
-| CLR5 | Fills come from the role's mechanism, labelled `fill` with a basis, and pass the forward-anchor lint | WA24, WA38 |
-| CLR6 | **Map, fold or gap, with the fold-loss test**: a fold keeps choices, inputs and outputs, time and order, who was there, place, outcomes and what was noticed; a lossy fold is a gap and becomes build work | New (CL162, CL171-CL177) |
-| CLR7 | Fix a gap at the cheapest layer; a new verb needs a second case | FND5, IPC60, AD38 |
-| CLR8 | **One record set, several drivers**: the NPC lead, the bot playthrough and the player seat run the same records and commands; where two disagree, one is wrong | New (CL160, CL168); LP10 |
-| CLR9 | **Codex lanes never commit; the coordinator reviews the diff, runs the focused test and one data spot check, and commits each lane's own paths** (the Codex sandbox cannot write `.git`) | New (CL119, CL127); IPC29 |
-| CLR10 | Name the seam and the one location authority; no second store or clock | AR3, AR14, IPC12 |
-| CLR11 | Receipts carry build hash, route kind (natural or fixture) and review state; below the floor is said plainly | AD43, IPC8, IPC9 |
-| CLR13 | A page error or test failure during a lane's run is the lane's until a clean-HEAD run proves otherwise | IPC10 (CL205) |
-| CLR12 | A lane's stop is a finding, not a failure: give the default for the known ambiguity in the next brief so the same stop does not recur | CL99 |
+Moved 2026-10-29 to [LEAD_LIFE_RULES, lane rules CLR1-CLR13](../../../LEAD_LIFE_RULES.md#f-lane-rules-clr1-clr13); codes and wording unchanged.
 
 ## Where to look
 

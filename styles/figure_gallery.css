@@ -1,0 +1,9 @@
+/* Figure gallery page only (figure-gallery.html). */
+body.fig-gallery-page {margin: 0; background: var(--ui-navy); color: var(--ui-text); font-size: var(--ui-type-body);}
+.fig-gallery-bar {display: flex; align-items: center; gap: var(--ui-space-5); padding: var(--ui-space-3) var(--ui-space-6); border-bottom: 1px solid var(--ui-hairline);}
+.fig-gallery-bar select {font: inherit; color: inherit; background: var(--ui-navy); border: 1px solid var(--ui-hairline); min-height: var(--ui-control-md);}
+.fig-gallery-section {padding: var(--ui-space-5) var(--ui-space-6);}
+.fig-gallery-section > h2 {margin: 0 0 var(--ui-space-4); font-size: var(--ui-type-title); font-weight: var(--ui-weight-regular);}
+.fig-gallery-pair {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ui-space-6);}
+.fig-gallery-cell {border: 1px solid var(--ui-hairline); padding: var(--ui-space-4); min-width: 0;}
+.fig-gallery-cell > h3 {margin: 0 0 var(--ui-space-3); font-size: var(--ui-type-small); font-weight: var(--ui-weight-regular); opacity: .8;}

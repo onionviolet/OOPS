@@ -18,6 +18,7 @@
     "report:cycles": "node scripts/cycle_ledger.mjs",
     "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
     "build:preview": "node scripts/build_ui_preview.mjs",
+    "build:figures": "node scripts/build_figure_gallery.mjs",
     "desktop": "npm run build && npm run desktop:snapshot && electron .",
     "desktop:snapshot": "node desktop/snapshot.cjs",
     "check:desktop": "node scripts/check_desktop.mjs",

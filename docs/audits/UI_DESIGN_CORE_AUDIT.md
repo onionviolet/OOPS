@@ -702,3 +702,5 @@ The [rules index](../RULES_INDEX.md) is already the single front door: 28 regist
 5. **Rules moves RIX1-RIX2**, docs and a check, one small session.
 
 Also waiting: the other lane's uncommitted work in the shared checkout fails 45 tests (`Invalid game calendar for recurring service.`, `src/world_rhythm.js:8`); they pass on clean HEAD and with this session's changes alone, so they belong to that lane (CLR13).
+
+Dispatched 2026-10-29: MDL9, MDL3/MDL11, MDL2 with MDL7, RIX1-RIX2 and MDL16 run as lanes R1-R5 of the [UI refactor wave](../gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md); MDL10 waits for the UI freeze fix.
