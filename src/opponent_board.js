@@ -98,6 +98,18 @@ export function fromCombatOpponentsProjection(projection, {groupsLeft = '', clea
         id: o.id || o.slot, slot: o.index, letter: letterFor(o.index), name: o.name, knowledge: shown, defeated: !!o.defeated,
         health: o.health ? {text: `${o.health.current}/${o.health.max} hp`, progress: Math.round(o.health.fraction * 1000) / 10, knowledge: shown} : {text: '', progress: null, knowledge: 'unknown'},
         cycle: null,
-        facts: viaSheet((o.facts || []).map(f => ({label: f.label, value: f.known ? f.value : null, knowledge: f.known ? shown : 'unknown'}))),
+        facts: viaSheet((o.facts || []).map(f => ({label: f.label, value: f.known ? f.value : null, knowledge: f.known ? shown : 'unknown',
+            ...(f.known && f.damageType ? {damageType: f.damageType} : {}), ...(f.known && f.typeHelp ? {typeHelp: f.typeHelp} : {}), ...(f.known && f.typeMultiplier != null ? {typeMultiplier: f.typeMultiplier} : {})}))),
     }))};
+}
+
+// The native-row board reads text, so it lacks the Attack fact's damage type. This copies the type fields from the
+// combat-opponents projection (same subject ids) onto the Attack fact; rows the projection lacks are unchanged.
+export function withAttackTypes(board, projection) {
+    const by = new Map((projection?.opponents || []).map(o => [o.id, (o.facts || []).find(f => f.id === 'attack')]));
+    if (![...by.values()].some(f => f && (f.damageType || f.typeHelp))) return board;
+    return {...board, opponents: board.opponents.map(o => {
+        const src = by.get(o.id);
+        return !src ? o : {...o, facts: o.facts.map(f => f.label === 'Attack' ? {...f, ...(src.damageType ? {damageType: src.damageType} : {}), ...(src.typeHelp ? {typeHelp: src.typeHelp} : {})} : f)};
+    })};
 }

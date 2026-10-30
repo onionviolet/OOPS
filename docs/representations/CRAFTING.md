@@ -2,6 +2,8 @@
 
 Branch `claude/rep-crafting-c0b04e`. Everything here is a proposal (AD32) and a draft (brief item 21); every choice is the current best and open to refactor or replacement with a reason (AD45, item 12). Rules applied: UR63, UR42, UR37, UR61, MR4 (preview consumes nothing), MR18 (quick, guided, deep), MR21 (skill improves control, not truth), MR32 (a reader for every maker), CLR3 (no canon names in tracked code). Desktop 1920×1080 first; mobile deferred.
 
+Design palette for weapons, runes, inscription, maker arts and their reveal cheats (owner, 2026-10-30): [Weaponcraft, runes and inscription](../WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30). This file covers the screen only.
+
 ## What exists today (SHOWN, read from the code)
 
 - `src/crafting_detail.js` renders one recipe's detail beside the list; `src/display.js` `build_item_recipe_model` builds the model from `itemRecipeStatus` (the same availability the row and the native guard read). The Village common bench (`src/crafting_home.js`) calls the same renderer with its own model.

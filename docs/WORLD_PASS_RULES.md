@@ -13,9 +13,11 @@ session, Claude or Codex, repeats it without the chat that started it.
 It composes existing owners and adds only what none of them covers: pass shape,
 the coverage checklist, review gates and durable saving.
 
+**Reading order (tiering, Weibao 2026-10-30; no rule text changed, [audit](audits/RULES_RECONCILIATION_AUDIT_2026-10-30.md) reading load).** Read first, for every pass: this file's rules and checklist, then the router rows for WPR, WA and WER. In [World absorption rules](WORLD_ABSORPTION_RULES.md) read Shape (WA1-WA6) plus the group for the pass kind: Gaps and truth for audits and reviews, Crossing and time for entries and travel, Proof and process for build slices, Census and off-page entities for cast or whereabouts work, Lead runs for book lives. Read by trigger: [World entry rules](WORLD_ENTRY_RULES.md) when starts or crossings are in scope; the [completion standard](WORLD_COMPLETION_STANDARD.md) Sections and Completion levels when a pass sets or claims a level; agent usage rules when the pass spawns readers or lanes (GROUND_RULES Process covers ordinary lanes); lead-life rules for a book world; site rules for a site. Default: a pass reads the first tier plus its triggers. Dial: a full world audit or a rulebook revision reads every owner whole. Reason: reading all four world rulebooks for every pass costs about 15,000 words, most of them off-topic for one pass kind.
+
 | Owner | What it keeps | Used here as |
 | --- | --- | --- |
-| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1-WA21 | Source to pack to proof | The implementation half of a pass |
+| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1-WA53 | Source to pack to proof | The implementation half of a pass |
 | [Source deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) | Reading once, evidence modes | The reading half of a pass |
 | [Topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md), [world core kit playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md) | Rounds, lanes, triggers | Round and lane mechanics |
 | [Agent usage rules](AGENT_USAGE_RULES.md) AU1-AU15 | Budgets, readers, model routing | Cost bounds |

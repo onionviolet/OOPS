@@ -48,6 +48,8 @@
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) small {grid-column:1/-1;font-size:.85em;color:var(--p23-actor);}
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail[data-facts="grid"] > dl, .enemy-card-facts) small,
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) small:empty {display:none;}
+/* A damage type lengthens the Attack value; the row takes two tracks so its label is not clipped. */
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div[data-typed="true"] {grid-column:span 2;}
 /* Not yet learned: ??? in a quiet tone, with the word in the title (factText, KNOWLEDGE_LABEL). */
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div[data-knowledge="unknown"] dd {color:var(--p23-muted);font-weight:400;}
 #main_content.workspace-active[data-parity="r3"] .opponent-detail > p {margin:round(.2em, 1px) 0 0;color:var(--p23-muted);}

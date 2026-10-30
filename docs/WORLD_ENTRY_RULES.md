@@ -22,7 +22,7 @@ It composes existing owners:
 | Owner | What it keeps | Used here as |
 | --- | --- | --- |
 | [Rulebook 4–5, 8](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10); AD10–AD13, AD23 | Bodies, carriers, lives, guided random entry | The accepted floor these rules apply |
-| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1–WA21 | Turning a source into a pack; carry per edge (WA14) | Where a world's entry facts land |
+| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1–WA53 | Turning a source into a pack; carry per edge (WA14) | Where a world's entry facts land |
 | [World pass rules](WORLD_PASS_RULES.md) WPR1–WPR32 | How a world pass runs | Entry becomes a pass coverage item (WER14) |
 | [Progression gate rules](PROGRESSION_GATE_RULES.md) GTR1–GTR35 | Start and admission gates | Age and access gates (WER10) |
 | Pack `starts[]` records | Location, body, effects | The record that carries WER2–WER9 fields |

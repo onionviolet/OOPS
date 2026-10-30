@@ -1,5 +1,7 @@
 # Idle RPG references: discovery, ordinary adventure and economical depth
 
+*Later survey (2026-10-30): non-protolike games with mechanism-by-owner table in [SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30](research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md).*
+
 Research date: 2026-09-30, America/New_York. Research and proposals only; creative acceptance and integration belong to the parent chat.
 
 **Recommendation:** first build an ordinary expedition that turns a clue into a useful technique or route. Make equipment, preparation and exploration offer different solutions to that expedition. Then add bounded automation that remembers the player's plan. Cultivation can be an earned optional path later; it should not become the universal XP amplifier.

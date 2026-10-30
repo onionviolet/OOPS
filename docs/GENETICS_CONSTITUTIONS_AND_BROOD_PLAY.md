@@ -1660,7 +1660,7 @@ Evidence read from the repo; nothing built.
 | OW2 | Beast and pet breeding | Genetics GN10 (the companions doc already defers: "Breeding beasts is GN10") | Transmission rules; companions owns breeders, trainers and the companion economy (K7) | Companions doc lines 11, 224 |
 | OW3 | Bloodline-shaped selves and visions | [Selves and echoes](SELVES_AND_ECHOES.md) | BP3 ancestral memory and MS6 soul lineage as the carriers a self-generator reads | Selves doc lines 148, 162 |
 | OW4 | Shapeshifting and metamorphosis | [Nonhuman transformation](worlds/NONHUMAN_TRANSFORMATION_AND_BODY_CHANGE_2026-10-14.md) | G6 body detail and BM modification; link, do not restate |  |
-| OW5 | Body parts as materials | [Maker arts](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md) and consumables for crafting use | OB1 and SO sourcing (where it comes from, custody) | Bone and blood mentions in both |
+| OW5 | Body parts as materials | [Maker arts](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30) and consumables for crafting use | OB1 and SO sourcing (where it comes from, custody) | Bone and blood mentions in both |
 | OW6 | Per-world body checklist | [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) | Palette rows the kit's body part can pick from; B1's fit matrix is the input |  |
 
 ### ACCOUNT FOR NOW: stability across updates and reloads

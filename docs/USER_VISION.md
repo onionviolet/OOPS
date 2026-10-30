@@ -6994,6 +6994,7 @@ Weibao, 2026-10-30, answering the UI-cleanup follow-up (findings F1-F4, options 
 - **World flourish and report text:** each world gets its own flourish and its own report lines (flavour and useful, specific text), not only generic ones.
 - **Combat:** combine the old combat screen and the tempo fight in whatever form works best; damage types reach the tempo fights; check which other systems need the same merge.
 - **Feature UI backlog (F2):** waits for the landing and wiring sessions already running.
+- **One home per fact (relayed by the repository review session, 2026-10-30):** a fact on screen, such as opponent health, hit chances, threat or opponents left, has one owning place and one read model rather than copies that drift. In Weibao's words as relayed: this "should have been considered already in design.md". Owner: [DESIGN.md](../DESIGN.md) DSG11.
 - Plan and lanes: [UI identity and combat wave](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md).
 
 ## Pathway card, ladder and map; switching and life outside the lead later (2026-10-30)
@@ -7002,3 +7003,16 @@ Weibao: "Also need to consider stufff like switching pathways and more but that 
 
 - **Accepted, quality-gated:** the pathway card with its ladder (Round 10 and 11 of the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md)) and the world map tied to journeys. Acceptance of the result depends on how well they are built; the gates are in that plan's Round 12.
 - **Long term:** pathway switching, and content outside the lead's life for other playthroughs. Considerations are saved in Round 12.
+
+## Gallery: less generic, less wall of text (2026-10-30)
+
+Weibao, 2026-10-30, after the round 3 gallery: "better but not quite, I feel like it can be so much better, but idk how, can we send these indeas into something to audit each of them, to be less generic and also less wall of text? what liberties do we need to take in that case?"
+
+- Each representation gets audited for genericness and text density; proposals feed the look owner (DESIGN.md, `ui-identity`).
+- Liberties L1-L6 (text form off screen, type hierarchy, bespoke objects per world, drawn assets, say it once, show what matters now) are proposals for gallery redesign drafts: [brief](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md).
+
+Weibao, 2026-10-30, after the five redesign drafts: "We dont need the bright style, work mainly on the blue one, the housing stil lstucks, rather than odd representation, it can just be like a blocky or more abstract? How do other games do it? These are better in some ways but still not the best they can be? HWat can we do to address this?"
+
+- **Luminous Gothic (the blue) is the one look to develop.** The paper skin is parked: the code stays, no further work or captures.
+- **Housing goes blocky and abstract**, not a drawn floor plan with icons.
+- **Process:** several variants per section from a reference board, judged side by side ([brief, round 2](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md#round-2-blocky-luminous-variants)).

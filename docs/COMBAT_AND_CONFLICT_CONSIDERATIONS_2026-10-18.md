@@ -262,6 +262,54 @@ and the structured-pack terminal death now publish through `publishDefeat` ([DRC
   (implemented-unverified in the browser).
 - Not done: BHL7 injury consumer, per-battle outcomes other than unconscious (yield, escape), a CBL4 display.
 
+## Round 3, 2026-10-30: damage and protection types, and skills worth borrowing
+
+Asked by Weibao: absorb the good ideas from the two sibling forks and the checker, by implementing damage types
+and protection types and more, with the skills as long-term inspiration. Proposals below stay proposals (AD32);
+numbers marked proposal are agent-authored. Rules: AR3, AR9, AD5, AD38, CX2, CX8, CBR11.
+
+### SHOWN (code read before building)
+
+- `src/effect_dsl.js` already carried the 13 SRD damage types and a `resistance` op, but native combat used none of it. Every
+  native hit was untyped "physical" text; `takeDamage` in `person.js` and `enemies.js` carried a TODO for damage types.
+- `src/absorb_e3/elemental_affinities.js` (off by default) adds flat defense against air, earth and water attacks from worn gear. It
+  stays; the new scalar applies after it (module header of `src/damage_types.js` lists the layer order).
+- `combat.js` has a second, older type guess for harvest records (hammer is `blunt`, else `cut`). Left alone; a later pass can read
+  `attackMix` instead (AR3).
+
+### ACT NOW (done 2026-10-30, agent-verified at source level)
+
+- **CBD1. Typed attack, typed protection.** `src/damage_types.js` (new, leaf): an attack is a weight mix over the SRD types plus an
+  untyped `physical` bucket; a defender has per-type multipliers (above 1 weak, below 1 resists). Hit damage after the flat defense and
+  chip floor is multiplied by the mix-weighted multiplier, one scalar through `mitigateCombatDamageFromStats(..., typeMultiplier)`.
+  Default: undeclared attackers are all `physical` and undeclared defenders are 1, so existing content, saves and the three saved-battle
+  engines behave as before. Dials: `PROTECTION_CAP` .5 and `WEAKNESS_CAP` 3 (reason: stacking pieces must not erase a type).
+- **CBD2. Sources of the mix.** Enemy data: `attack_types`, `defense_types`. The hero: weapon family (sword slashing/piercing,
+  axe slashing/bludgeoning, dagger piercing/slashing, spear piercing, hammer bludgeoning, unarmed bludgeoning; all proposal values).
+  Worn armor: per-piece protection from the item's `protection_types` or, today, from its material name (chainmail, shell, alligator,
+  hide, pelt, leather; proposal values), summed over worn slots.
+- **CBD3. Shown.** The hit line names the type and, when the target's protection moved the hit by 5% or more, says "resisted", "weak
+  spot" or "no effect". Enemy cards show the attack type and a tooltip with the defense multipliers (the Opponent card in `village_workspace.js` shows it on the Atk row; the Reports compact line carries type and note, 2026-10-30).
+- **CBD4. Reward-key check.** `tests/reward_keys.test.js` walks every native location, dialogue and quest reward and fails on a key that
+  `process_rewards` does not read (idea from Kuroiteiken/yairp). It found no real mistakes in current content.
+
+### ACCOUNT FOR NOW
+
+- Declared enemies today: wolf rats and wolves, boar, forest bear, red ants (acid share), river and stone crab, alligator, snapping
+  turtle, suspicious wall. Every new enemy template states `attack_types` and, if armored, `defense_types` (CBR11, CBC7).
+- Weapon and armor content declares `protection_types` directly instead of extending the name table (CX3: rules over pairs).
+
+### LATER / DELEGATE (long-term palette; none selected, reopen triggers stated per CX8)
+
+| Code | Idea | Level, effort | Done check and reopen trigger |
+|---|---|---|---|
+| CBD5 | **Unreachable-content check** (Kuroiteiken): a test that walks locations, quests, recipes and items and names any that no earned route reaches | Medium, S–M | Reports zero or a named allow list. Reopen when a content wave adds a gate |
+| CBD6 | **Failure expert, auto-return** (SchokoKaramel): after fainting and fully resting, return to the combat zone on its own; a manual bed does not trigger it. Fits the idle-combat policy in CBL8 and the recovery setting in CBR6 | Medium, M | Off by default; a trained skill or setting turns it on; a fresh-life journey faints, rests, returns once. Reopen with CBL8 |
+| CBD7 | **Skill palette from SchokoKaramel**: Cultivation (global XP multiplier trained by an activity), Gather efficiency (random extra yield), Gather speed (about -10% gather time per level), Lucky loot (drop chance x(1+.2 per level), XP when loot drops), Efficient training (training XP x(1+.1 per level)). Treat as a menu of ordinary-skills-stay-useful candidates (PROJECT.md vision), each a multiplier on an existing consumer | Low–Medium, S each | Each names its consumer, its trained-by activity and a cap or diminishing dial before it is built. Reopen when a skill-density pass starts |
+| CBD8 | **Shield versus evasion.** Today `combat.js` rolls a block instead of an evade when a shield is held, so a weak shield can be worse than none. Typed protection does not resolve it: this is avoid versus mitigate. Default proposal: a failed block gets the evade roll at a penalty, and a shield's block chance never falls below the evade chance it replaced. Not built because it shifts balance for existing saves | Medium, S | Golden fight: shield-with-low-block is not worse than none; undo path via a setting. Reopen when combat balance is next tuned |
+| CBD9 | Heavier type use: elements and magic (fire, cold, poison) on enemies and spells, immunities and per-world vocabularies (a world may drop or rename types, AD46), resistance skills trained by being hit (the TODO in `takeDamage`), armor piercing as a type-specific share, a block that stops only some types | Medium–High, M | Reopen when a book world needs an element or a ward |
+| CBD10 | **Done 2026-10-30 (source level).** The lethal bound now applies the hero's per-type protection to the enemy's attack mix: the Attack fact carries `typeMultiplier` from `damage_types.js` and `hardestBlow` scales through `combat_math.scaleByType`, the same rounding as the hit. Elements stay excluded and the caveat says so. Still open from the original: learned-fact gating (CBL5, AD8), since native disclosure shows the attack today | Low, S | Bound number matches a typed fight (tests/combat_situation.test.js) |
+
 ## Round 4, 2026-10-30: depth and nuance pass (queued)
 
 Weibao, 2026-10-30: "Might need a depth and nuance pass in the future, incorporating coating weapons with stuff, spar vs combat, other stuff and more?" Queued, not started: it opens after `combat-surface` lands the typed tempo fights and the combined fight surface ([wave plan](gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md)), because most rows ride on that type mix and that surface. Every row is a palette entry (default, dial, reason), not a spec.

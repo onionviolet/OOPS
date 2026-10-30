@@ -113,7 +113,7 @@ function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
         rollBaseCombatDamage: (...args) => rollBaseCombatDamage(...args, () => draw), nextAttackTiming, get_hit_chance,
         config: {}, document: {getElementById: () => null}, character: {addToInventory() {}}, skills: {Combat: {}}, enemy_tag_to_skill_mapping: {}, item_templates: {},
         game_options: {}, game_stats: {total_hits_taken: 0, total_hits_done: 0, total_crits_taken: 0, total_crits_done: 0, strongest_hit: 0},
-        durability: {landedHit: () => false}, accessoryDropModifier: x => x, getElementalDefenseModifier: () => 0,
+        durability: {landedHit: () => false}, accessoryDropModifier: x => x, getElementalDefenseModifier: () => 0, typedStrike: () => ({multiplier: 1, kind: 'physical', note: ''}),
         add_xp_to_character: () => calls.xp++, add_xp_to_skill: () => false,
         kill_target: () => { calls.kills++; target.is_alive = false; }, kill_player() {},
         finish_combat_round: () => calls.rounds++, selected_stance: {id: 'normal', stamina_cost: 1}, current_stance: {id: 'normal', stamina_cost: 1},

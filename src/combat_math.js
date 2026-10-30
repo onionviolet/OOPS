@@ -37,14 +37,20 @@ export function mitigateCombatDamage(values, defense = 0, {floorShare = BASE_MIN
 
 // Actual actor snapshots share these defensive layers. Callers keep local guard,
 // shield and world policy in the supplied stats/defense modifier.
-export function mitigateCombatDamageFromStats(values, stats, defenseModifier = 0, armorPenetration = 0) {
+export function mitigateCombatDamageFromStats(values, stats, defenseModifier = 0, armorPenetration = 0, typeMultiplier = 1) {
     // Native points bypass that many points of nonnegative flat armor. Guard
     // modifiers, shields, the chip floor and percent resistance keep their laws.
     const armor=stats.defense??0,penetration=Number.isFinite(armorPenetration)?Math.max(0,armorPenetration):0;
-    return mitigateCombatDamage(values, armor-Math.min(Math.max(0,armor),penetration) + defenseModifier, {
+    // typeMultiplier is the damage_types.js scalar (attack mix x defender per-type modifier); 1 is the original math.
+    const mitigated = mitigateCombatDamage(values, armor-Math.min(Math.max(0,armor),penetration) + defenseModifier, {
         floorShare: stats.min_damage_share,
         taken: effectiveDamageTaken(stats.damage_taken),
     });
+    return scaleByType(mitigated, typeMultiplier);
+}
+// The damage_types.js scalar applied after the percent layer; shared with the "Could down you" bound so they cannot drift.
+export function scaleByType(mitigated, typeMultiplier = 1) {
+    return typeMultiplier === 1 || !Number.isFinite(typeMultiplier) ? mitigated : Math.round(10*mitigated*Math.max(0,typeMultiplier))/10;
 }
 
 // Every caller passes a draw from a saved stream; an unseeded call fails loudly

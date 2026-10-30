@@ -7,6 +7,7 @@ import {combatHitText} from '../ui_polish.js';
 import {combatLogEvent} from '../combat_log.js';
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
+import {typedStrike} from '../damage_types.js';
 import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 import {accessoryDropModifier} from '../absorb_c1/accessories.js';
 "use strict";
@@ -618,7 +619,9 @@ class Combat {
         if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
         if(!this.is_special_combat&&this.nativeExchangeHost){const charge=domainRegistry.command('pledges','resolvedCharge')?.({fighter,target});if(charge)damages_dealt=damages_dealt.map(n=>n*charge.multiplier);}
         const harvestHealth=target.getFullStats().health;
-        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+        // Damage types (damage_types.js): the attack's type mix against the defender's per-type protection; 1 when nothing is declared.
+        const typed = typedStrike({fighter, target});
+        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, type_multiplier: typed.multiplier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
 
         if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('pledges','resolvedSiphon')?.({fighter,target,damage:Math.max(0,Math.min(damage_taken,harvestHealth-Math.max(0,target.getFullStats().health)))});
 
@@ -646,10 +649,10 @@ class Combat {
         // Native damage is physical and has no body-part roll. Do not invent one.
         const condt = (!this.is_special_combat && target.tags.main_character);
         log_message(combatHitText({target: target.name, damage: damage_taken,
-            count: damages_dealt.length, critical: critted, blocked: partially_blocked}),
+            count: damages_dealt.length, critical: critted, blocked: partially_blocked, kind: typed.kind, note: typed.note}),
             condt ? (critted ? "hero_attacked_critically" : "hero_attacked")
-                : (critted ? "enemy_attacked_critically" : "enemy_attacked"), {damageType: "physical",
-                combat: logEvent("hit", {amount: damage_taken, hits: damages_dealt.length, critical: critted, partial: partially_blocked})});
+                : (critted ? "enemy_attacked_critically" : "enemy_attacked"), {damageType: "physical", damageKind: typed.kind,
+                combat: logEvent("hit", {amount: damage_taken, hits: damages_dealt.length, critical: critted, partial: partially_blocked, kind: typed.kind, note: typed.note})});
 
         if(game_options.do_enemy_onhit_animations) {
             do_onhit_animation({fighter_index: (is_attacker ? this.defenders : this.attackers).findIndex(x => x === target), is_attacker: !is_attacker});

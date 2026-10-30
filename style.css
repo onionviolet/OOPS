@@ -3173,11 +3173,11 @@ i {
 #upcoming_strip .upcoming-when { opacity: .8; }
 
 /* Workshop panel layout (WS-4, WS-5): scene in a frame, one status line, sections with counts. */
-#simulation_panel .workshop_scene {margin: round(.4rem, 1px) 0; padding: round(.5rem, 1px) round(.7rem, 1px); border: 1px solid var(--ui-swatch-080); border-radius: var(--ui-radius);}
+#simulation_panel .workshop_scene {margin: var(--ui-space-3) 0; padding: var(--ui-space-3) var(--ui-space-4); border: 1px solid var(--ui-swatch-080);}
 #simulation_panel .workshop_scene p {margin: 0;}
 #simulation_panel .workshop_scene:has(p[hidden]) {display: none;}
-#simulation_panel [role="status"], #simulation_panel [data-theme-state="error"] {margin: round(.3rem, 1px) 0;}
-#simulation_panel .workshop_section {border-top: 1px solid var(--ui-swatch-080); padding: round(.15rem, 1px) 0;}
-#simulation_panel .workshop_section > summary {cursor: pointer; font-weight: 700; padding: round(.3rem, 1px) 0;}
-#simulation_panel .workshop_section > summary [data-group-status] {margin-left: round(.6rem, 1px); font-weight: 400; color: var(--theme-muted, var(--workspace-muted));}
+#simulation_panel [role="status"], #simulation_panel [data-theme-state="error"] {margin: var(--ui-space-2) 0;}
+#simulation_panel .workshop_section {border-top: 1px solid var(--ui-swatch-080); padding: var(--ui-space-1) 0;}
+#simulation_panel .workshop_section > summary {cursor: pointer; font-weight: var(--ui-weight-strong); padding: var(--ui-space-2) 0;}
+#simulation_panel .workshop_section > summary [data-group-status] {margin-left: var(--ui-space-3); font-weight: var(--ui-weight-regular); color: var(--theme-muted, var(--workspace-muted));}
 #simulation_panel .workshop_practice {display: block; color: var(--theme-muted, var(--workspace-muted));}

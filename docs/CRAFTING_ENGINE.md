@@ -1509,3 +1509,24 @@ Later user direction selects the applicable PC7–PC14 and G2 audit details for 
 ### G7 connected lore implementation evidence, 2026-10-26
 
 Weibao selected PC54–PC60 and their applicable details after the source audit. [Direction](USER_VISION.md#lore-and-idea-source-details-selected-for-implementation-2026-10-26), [shared brief](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/COMMON.md) and [joined receipt](gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L3/REPORT.md) own that selected implementation and its exact evidence. L1's copied/contradictory accounts feed actual strip trials; L2's ink-and-paper guides feed the existing lamp; L3's historical stop trace and actual repair restore one method, while scoped academy review changes a finite paper allocation without altering the device or granting competence. Historical audit conclusions remain history, not a competing implementation receipt. This bounded ORIGINAL Cyoria branch preserves book/menu priority and does not define a universal certification or preparation rule.
+
+## Round 18 (2026-10-30): craft risk and tiers from the similar-games surveys, proposal only
+
+Source: [similar games beyond protolikes](research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md) F8, F11, F15;
+ranked in the [absorption plan](research/ABSORPTION_PLAN_SIMILAR_GAMES_2026-10-30.md). Proposals (AD32). SWGEmu is
+AGPL-3.0: design reading only, no code and no constants copied (its failure formula was read through a summary).
+Already covered, not repeated: substitution by property (`src/craft_recipes.js`, TQ7, G2 selection, Round 12 and 15) and
+failure that keeps what was learned (domain table "Failure gives", DP4).
+
+ACCOUNT FOR NOW
+
+| Code | Item | Default, dial and reason |
+|---|---|---|
+| PC61 | **Correction: ingredient quality already lives in the tag and axis system; this is a connection, not a new stat.** Harvest quality (0-100) rides on graded stacks (CE4, SC11, NX12; `src/harvest.js`, `consumedHarvestQuality`) and reaches butchering/craft output quality (`treatedRecipeQuality` in `src/main.js`). Freshness is PD5 and TQ3 (condition derived from age and clock), look-alike appearance is TQ12, residue is TQ11, hazards are PD7. What is missing is the reader: CE4 says quality "does not change material truth or batch chemistry yet". SWGEmu's lesson is only that the same axis can also set baseline risk and tool tier. | Default: declare risk as a TQ1 derived tag ("unstable" fires when quality or freshness crosses a threshold) read by PD7 hazards, with tool quality (TQ9 capability) shifting the tier. Dial: threshold and weight per world; the receipt names which threshold fired. Reason: CX2 says connect before adding; no new axis, tag kind or ledger. |
+| PC62 | **Reaction rows with a thermal gate and energy cost** (Space Station 14). | Fits the GEAR_DEPTH chemistry round. Default: rows over existing heat sources; no new simulation. Needs a named heat source and a consumer. |
+
+LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| PC63 | Playable slice "ingredient quality has a consequence": wire one existing graded input (CE4 quality, or PD5 freshness) into one existing hazard (PD7 or TQ11 residue) in HP brewing, shown in the brew preview. Reuse the graded stack and derived-tag path; add no field. | Sonnet, medium | FLR1-FLR6: the preview names the risk source and the threshold; the tier or hazard has an existing consumer; save/reload/export/import. First read `src/hp_brewing_domain.js` and `src/harvest.js` to confirm what reaches the brew (the quality search of the brew file returned nothing, so the wire may be the whole slice). Reopen when Weibao selects it. |

@@ -1,0 +1,16 @@
+/* DSG12 / DSG13 per-world flourish (DESIGN.md). Tokens per family in ui_tokens.css; only
+   :root[data-world-flourish="on"] matches, so every other world keeps the plain Luminous look.
+   Flourish stays off the data layer: no value, label or state colour changes here (FLA3, DSG16). */
+:root[data-world-flourish="on"] #village_scene > .scene-location-header {
+ border-bottom: var(--ui-space-hairline) solid var(--world-rule);
+}
+:root[data-world-flourish="on"] #village_scene > .scene-location-header > strong::before {
+ content: var(--world-glyph) " "; color: var(--world-accent);
+}
+:root[data-world-flourish="on"] #village_scene > .scene-location-header::after {
+ content: var(--world-epithet); grid-column: 1 / -1; flex-basis: 100%;
+ color: var(--world-accent); font-size: var(--ui-type-small); line-height: var(--ui-line-small);
+}
+/* A voiced Reports line: the receipt stays first; flavour and the useful part sit under it. */
+.message_common > .report-voice { display: block; font-size: var(--ui-type-small); line-height: var(--ui-line-small); }
+.message_common > .report-voice > .report-voice-flavour { color: var(--world-accent, var(--ui-text)); }

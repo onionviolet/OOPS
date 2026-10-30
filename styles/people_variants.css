@@ -1,0 +1,102 @@
+/* People variants W1-W3, F1-F3, S1-S3 (gallery only, Luminous only; the paper skin is parked). Proposals: nothing here styles a live view.
+   Block vocabulary shared with the housing and places runs: a filled glowing block is known, close or had; a hairline outline is guessed or
+   possible; a dim block is unknown or lost. Tokens only (UR65, UR68); colours come from the .rd theme roles in redesign_drafts.css. */
+.ppl-compare {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ui-space-5); align-items: start;}
+.ppl-current {display: grid; gap: var(--ui-space-5); min-width: 0;}
+.ppl {--ppl-u: calc(var(--ui-type-body) * 2.6); --ppl-fill-lit: color-mix(in srgb, var(--rd-accent) 34%, transparent); --ppl-dim: color-mix(in srgb, var(--rd-ink) 22%, transparent);
+    --ppl-glow: 0 0 var(--ui-space-3) var(--rd-rule), inset 0 0 var(--ui-space-3) var(--rd-rule); display: grid; gap: var(--ui-space-4); align-content: start;}
+.ppl-colhead, .ppl-gname, .ppl-rowname, .ppl-next, .ppl-note, .ppl-cap {color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.ppl-gname {color: var(--rd-accent);}
+.ppl-rowname[data-here="true"]::before {content: ""; display: inline-block; width: var(--ui-space-3); height: var(--ui-space-3); margin-inline-end: var(--ui-space-2); background: var(--rd-accent); box-shadow: var(--ppl-glow);}
+.ppl-rowname[data-here="true"] {color: var(--rd-ink);}
+
+/* The block. */
+.ppl-b {display: flex; align-items: center; justify-content: center; box-sizing: border-box; position: relative; min-width: 0; min-height: var(--ppl-u);
+    border: var(--ui-space-hairline) solid var(--rd-accent); background: transparent; color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.ppl-b[data-state="known"] {background: color-mix(in srgb, var(--rd-accent) 46%, transparent); box-shadow: var(--ppl-glow);}
+.ppl-b[data-state="you"] {background: color-mix(in srgb, var(--rd-accent) 72%, transparent); box-shadow: var(--ppl-glow); color: var(--rd-ground);}
+.ppl-b[data-state="guessed"] {background: transparent;}
+.ppl-b[data-state="unknown"] {border-color: var(--ppl-dim); background: transparent; box-shadow: none; color: var(--rd-muted);}
+.ppl-b[data-state="warn"] {border-color: var(--rd-warn); background: color-mix(in srgb, var(--rd-warn) 30%, transparent); box-shadow: none;}
+.ppl-b[data-state="settled"] {background: var(--rd-faint); box-shadow: none;}
+.ppl-b--tok {min-width: var(--ppl-u); font-weight: var(--ui-weight-regular);}
+.ppl-b--mini {min-height: var(--ppl-u); flex: 1;}
+.ppl-b--kin {min-height: calc(var(--ppl-u) * .8); flex: 1;}
+.ppl-b--pip {min-height: var(--ui-space-5); flex: 1;}
+
+/* W1: the grid. */
+.ppl-grid {display: grid; grid-template-columns: auto repeat(5, minmax(0, 1fr)) repeat(3, minmax(0, 1.2fr)); gap: var(--ui-space-2); align-items: center;}
+.ppl-grid .ppl-colhead {text-align: center; align-self: end;}
+.ppl-cell {display: flex; flex-wrap: nowrap; gap: var(--ui-space-1); min-width: 0;}
+.ppl-cell .ppl-b {flex: 1; min-height: var(--ppl-u);}
+.ppl-rowname {padding-inline-end: var(--ui-space-3);}
+
+/* W2: telling lanes. */
+.ppl-lanes {display: flex; gap: var(--ui-space-3); align-items: stretch;}
+.ppl-deed {width: calc(var(--ppl-u) * 1.4); align-self: stretch; margin-top: var(--ui-line-small);}
+.ppl-lanegrid {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ui-space-3) var(--ui-space-2); flex: 1; align-items: center;}
+.ppl-lanegrid .ppl-colhead {text-align: center;}
+.ppl-lanecell {display: flex; align-items: center; min-width: 0; min-height: var(--ppl-u);}
+.ppl-link {flex: none; width: var(--ui-space-5); min-height: 0; height: var(--ui-space-3);}
+.ppl-link--wide {width: 100%;}
+.ppl-lanecell .ppl-b--tok {flex: 1;}
+
+/* W3: holder stacks. */
+.ppl-stacks {display: flex; gap: var(--ui-space-4); align-items: flex-end; min-height: calc(var(--ppl-u) * 4.2);}
+.ppl-stack {display: grid; gap: var(--ui-space-2); flex: 1; min-width: 0; justify-items: center; align-content: end;}
+.ppl-pile {display: grid; gap: var(--ui-space-1); width: 100%; align-content: end;}
+.ppl-b--slab {min-height: calc(var(--ppl-u) * .85);}
+.ppl-b--you.ppl-b--slab {border-style: solid;}
+
+/* F1: register, four equal columns. */
+.ppl-reg, .ppl-wall {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ui-space-3);}
+.ppl-reg .ppl-b, .ppl-wall .ppl-b {min-height: calc(var(--ppl-u) * 1.2); flex-direction: column;}
+.ppl-col-1 {grid-column-start: 1;} .ppl-col-2 {grid-column-start: 2;} .ppl-col-3 {grid-column-start: 3;} .ppl-col-4 {grid-column-start: 4;}
+.ppl-span-1 {grid-column-end: span 1;} .ppl-span-2 {grid-column-end: span 2;} .ppl-span-4 {grid-column-end: span 4;}
+.ppl-cap {position: absolute; inset-block-end: calc(var(--ui-space-4) * -1 - var(--ui-line-small) / 2); inset-inline: 0; text-align: center;}
+.ppl-reg .ppl-b, .ppl-wall .ppl-b {margin-bottom: var(--ui-line-small);}
+.ppl-heir::after {content: ""; position: absolute; inset-block-start: calc(var(--ui-space-2) * -1); inset-inline: var(--ui-space-3); height: var(--ui-space-2); background: var(--rd-accent); box-shadow: var(--ppl-glow);}
+.ppl-lifeline {display: grid; gap: var(--ui-space-2); padding-top: var(--ui-space-3); border-top: var(--ui-space-hairline) solid var(--rd-rule);}
+.ppl-lives {display: flex; gap: var(--ui-space-2);}
+.ppl-lives .ppl-b {flex: 1; max-width: calc(var(--ppl-u) * 1.4);}
+.ppl-lives--col {flex-direction: column;}
+
+/* F2: wall plus a lives column. */
+.ppl-f2 {grid-template-columns: minmax(0, 1fr) auto; align-items: start;}
+.ppl-lifecol {display: grid; gap: var(--ui-space-2); justify-items: center;}
+
+/* F3: life stack. */
+.ppl-tower {display: grid; gap: var(--ui-space-3);}
+.ppl-floor {display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--ui-space-3); align-items: stretch;}
+.ppl-slab {display: flex; gap: var(--ui-space-1); padding: var(--ui-space-2); min-height: calc(var(--ppl-u) * 1.2);}
+.ppl-slab .ppl-b--kin {min-height: calc(var(--ppl-u) * .9);}
+.ppl-gap {flex: none; width: var(--ui-space-3);}
+.ppl-ticks {display: flex; flex-direction: column; gap: var(--ui-space-1); justify-content: center;}
+.ppl-tick {width: var(--ui-space-6); min-height: var(--ui-space-4);}
+
+/* S1: rung bars. */
+.ppl-rung {display: grid; gap: var(--ui-space-2);}
+.ppl-bar {display: flex; gap: var(--ui-space-1);}
+.ppl-seg {flex: 1; min-height: calc(var(--ppl-u) * 1.2);}
+.ppl-seg[data-state="guessed"][style] {background: linear-gradient(90deg, var(--ppl-fill-lit) var(--ppl-fill), transparent var(--ppl-fill));}
+
+/* S2: stairs. */
+.ppl-stairs {display: flex; gap: var(--ui-space-5); align-items: flex-end;}
+.ppl-stair {display: grid; gap: var(--ui-space-2); flex: 1; min-width: 0; align-content: end;}
+.ppl-treads {display: flex; gap: var(--ui-space-1); align-items: flex-end;}
+.ppl-tread {flex: 1; min-height: 0;}
+.ppl-h1 {height: calc(var(--ppl-u) * .6);} .ppl-h2 {height: calc(var(--ppl-u) * 1.0);} .ppl-h3 {height: calc(var(--ppl-u) * 1.4);}
+.ppl-h4 {height: calc(var(--ppl-u) * 1.8);} .ppl-h5 {height: calc(var(--ppl-u) * 2.2);} .ppl-h6 {height: calc(var(--ppl-u) * 2.6);}
+.ppl-tiers {display: grid; gap: var(--ui-space-1); justify-items: center;}
+.ppl-tier {display: flex; gap: var(--ui-space-1); justify-content: center; width: 100%;}
+.ppl-tier .ppl-b {max-width: calc(var(--ppl-u) * 1.6);}
+
+/* S3: rank cards. */
+.ppl-s3 {grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ui-space-3);}
+.ppl-card {display: grid; gap: var(--ui-space-2); align-content: start; padding: var(--ui-space-3); border: var(--ui-space-hairline) solid var(--rd-rule); min-width: 0;}
+.ppl-rank {font-weight: var(--ui-weight-regular); font-size: var(--rd-big); line-height: var(--rd-big-line); color: var(--rd-accent);}
+.ppl-say {color: var(--rd-ink); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.ppl-pips {display: flex; gap: var(--ui-space-1);}
+.ppl-ask {color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+@media (max-width: 1500px) {.ppl-compare {grid-template-columns: repeat(2, minmax(0, 1fr));}}
+.ppl-bar .ppl-gapb {flex: none; width: var(--ui-space-4);}

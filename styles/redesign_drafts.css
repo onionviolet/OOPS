@@ -1,0 +1,204 @@
+/* Gallery redesign drafts (src/ui/preview/fixtures/redesigns.js). Proposals only: nothing here styles a live view.
+   Colours come from the theme roles, so Luminous Gothic and paper both read; no new hues. Tokens only (UR6, UR65, UR68).
+   L2: a big numeral face and a hand face for the few figures a person would write; the bitmap face stays for labels. */
+.rd {
+    --rd-ink: var(--theme-text, var(--ui-text));
+    --rd-muted: var(--theme-muted, var(--ui-hairline));
+    --rd-line: var(--theme-border, var(--ui-hairline));
+    --rd-sheet: var(--theme-surface, var(--ui-navy));
+    --rd-ground: var(--theme-bg, var(--ui-navy));
+    --rd-accent: var(--theme-accent, var(--ui-accent));
+    --rd-warn: var(--theme-warning, var(--ui-meter-warn));
+    --rd-danger: var(--theme-danger, var(--ui-meter-limit));
+    --rd-rule: color-mix(in srgb, var(--rd-accent) 38%, transparent);
+    --rd-faint: color-mix(in srgb, var(--rd-ink) 10%, transparent);
+    --rd-face-display: inherit;
+    --rd-face-hand: "Bradley Hand", "Segoe Print", "Noteworthy", "Comic Sans MS", cursive;
+    --rd-big: calc(var(--ui-type-body) * 2.8);
+    --rd-mid: calc(var(--ui-type-body) * 1.6);
+    --rd-svg-text: 4.4px; --rd-svg-title: 6px; --rd-svg-q: 14px; --rd-gauge-line: calc(var(--ui-space-5) - 2px);
+    --rd-big-line: calc(var(--ui-type-body) * 3.2);
+    --rd-mid-line: calc(var(--ui-type-body) * 1.9);
+    display: block; min-width: 0; color: var(--rd-ink); font-size: var(--ui-type-body); line-height: var(--ui-line-body);
+}
+:root[data-skin="paper"] .rd {--rd-face-display: var(--paper-serif);}
+.rd-hand {font-family: var(--rd-face-hand);}
+.rd-display {font-family: var(--rd-face-display);}
+.rd :is(h4, p) {margin: 0;}
+.rd-text {margin-top: var(--ui-space-4); color: var(--rd-muted);}
+.rd-text > summary {cursor: pointer; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--rd-muted);}
+.rd-text > .fig-text {margin-top: var(--ui-space-3);}
+.rd-mark {margin-inline-start: var(--ui-space-2); color: var(--rd-warn); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+
+/* 1. Owed ledger: two facing pages of a pawnbroker's book. Ruled lines, a hand-written figure, a rubber stamp for late,
+   a burn-down rule under each account for the term left. */
+.rd-spread {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: var(--ui-space-hairline) solid var(--rd-line); background: var(--rd-sheet);}
+.rd-page {display: grid; align-content: start; padding: var(--ui-space-4) var(--ui-space-5); min-width: 0;}
+.rd-page--owed {border-inline-start: var(--ui-space-hairline) solid var(--rd-rule); box-shadow: inset var(--ui-space-4) 0 var(--ui-space-4) calc(var(--ui-space-4) * -1) var(--rd-faint);}
+.rd-page-head {font-family: var(--rd-face-display); font-size: var(--ui-type-heading); color: var(--rd-accent); padding-bottom: var(--ui-space-2); border-bottom: var(--ui-space-hairline) solid var(--rd-rule); margin-bottom: var(--ui-space-2);}
+.rd-line {position: relative; display: grid; row-gap: var(--ui-space-2); border-bottom: var(--ui-space-hairline) solid var(--rd-faint); grid-template-columns: 1.6em auto minmax(1em, 1fr) auto; align-items: baseline; column-gap: var(--ui-space-2); padding: var(--ui-space-2) 0 var(--ui-space-3);}
+.rd-glyph {color: var(--rd-muted); font-size: var(--ui-type-small);}
+.rd-who {overflow-wrap: anywhere;}
+.rd-leader {border-bottom: var(--ui-space-hairline) dotted var(--rd-muted); align-self: end; margin-bottom: var(--ui-space-1);}
+.rd-fig {font-family: var(--rd-face-hand); font-size: var(--rd-mid); color: var(--rd-accent); text-align: end; min-width: 2.2em;}
+.rd-fig--note {font-size: var(--ui-type-body); color: var(--rd-muted);}
+.rd-when {grid-column: 2 / -1; font-family: var(--rd-face-hand); font-size: var(--ui-type-small); color: var(--rd-muted);}
+.rd-stamp {grid-column: 2 / -1; justify-self: start; transform: rotate(-4deg); padding: 0 var(--ui-space-3); border: var(--ui-space-hairline) solid var(--rd-danger); outline: var(--ui-space-hairline) solid var(--rd-danger); outline-offset: var(--ui-space-hairline); color: var(--rd-danger); text-transform: uppercase; letter-spacing: .12em; font-size: var(--ui-type-small); font-weight: var(--ui-weight-strong);}
+.rd-burn {position: absolute; inset-inline: 0; bottom: 0; height: var(--ui-space-1); background: linear-gradient(90deg, var(--rd-accent) var(--rd-term, 0%), transparent var(--rd-term, 0%)); opacity: .8;}
+.rd-burn[data-gone="true"] {background: repeating-linear-gradient(90deg, var(--rd-danger) 0, var(--rd-danger) var(--ui-space-2), transparent var(--ui-space-2), transparent var(--ui-space-4)); width: 14%;}
+.rd-line[data-state="strained"] .rd-who {color: var(--rd-warn);}
+.rd-total {display: flex; justify-content: flex-end; align-items: baseline; gap: var(--ui-space-3); margin-top: var(--ui-space-3); padding-top: var(--ui-space-2); border-top: var(--ui-space-hairline) double var(--rd-ink);}
+.rd-total .rd-fig {font-size: var(--rd-big); line-height: var(--rd-big-line);}
+
+/* 2. Crossing ticket: the perforation is the crossing. Left of it stays, tags across it go with you, right of it waits. */
+.rd-ticket {border: var(--ui-space-hairline) solid var(--rd-line); background: var(--rd-sheet); padding: var(--ui-space-4) var(--ui-space-5);}
+.rd-ticket-head {display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ui-space-4); padding-bottom: var(--ui-space-3); border-bottom: var(--ui-space-hairline) dashed var(--rd-muted);}
+.rd-place {font-family: var(--rd-face-display); font-size: var(--rd-mid); color: var(--rd-accent);}
+.rd-arrow {color: var(--rd-muted); font-size: var(--rd-mid);}
+.rd-as {margin-inline-start: auto; padding: 0 var(--ui-space-3); border: var(--ui-space-hairline) solid var(--rd-muted); color: var(--rd-muted); font-size: var(--ui-type-small); text-transform: uppercase; letter-spacing: .1em;}
+.rd-ticket-body {display: grid; grid-template-columns: minmax(0, 1fr) minmax(8em, auto) minmax(0, 1fr); gap: 0; padding-top: var(--ui-space-4);}
+.rd-side, .rd-seam {display: grid; gap: var(--ui-space-3); align-content: start; padding: 0 var(--ui-space-4);}
+.rd-seam {border-inline: var(--ui-space-hairline) dashed var(--rd-muted); background: linear-gradient(var(--rd-faint), var(--rd-faint));}
+.rd-side--behind {color: var(--rd-muted);}
+.rd-side--ahead {text-align: start;}
+.rd-tag {border: var(--ui-space-hairline) solid var(--rd-line); background: var(--rd-ground); clip-path: polygon(0 0, calc(100% - var(--ui-space-4)) 0, 100% 50%, calc(100% - var(--ui-space-4)) 100%, 0 100%);}
+.rd-tag > summary {display: flex; justify-content: space-between; gap: var(--ui-space-3); cursor: pointer; padding: var(--ui-space-2) calc(var(--ui-space-4) + var(--ui-space-2)) var(--ui-space-2) var(--ui-space-3); list-style: none; color: inherit;}
+.rd-tag > summary::-webkit-details-marker {display: none;}
+.rd-detail {padding: 0 var(--ui-space-4) var(--ui-space-3) var(--ui-space-3); font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--rd-muted);}
+.rd-seam .rd-tag {border-color: var(--rd-accent); color: var(--rd-accent); box-shadow: 0 0 var(--ui-space-3) var(--rd-rule);}
+.rd-side--behind .rd-tag {border-style: dashed;}
+.rd-side--ahead .rd-tag {border-style: dotted;}
+.rd-fine {margin-top: var(--ui-space-4); color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+
+/* 3. Floor plan: the home as rooms, fittings as pictograms. Fitted is solid, empty is a dashed outline. */
+.rd-plan {border: var(--ui-space-hairline) solid var(--rd-line); background: var(--rd-sheet); padding: var(--ui-space-4);}
+.rd-plan-svg {display: block; width: 100%; max-width: 46em; height: auto; margin-inline: auto; font-size: var(--ui-type-small);}
+.rd-plan-svg text {fill: var(--rd-ink); font-size: var(--rd-svg-text);}
+.rd-room {fill: none; stroke: var(--rd-ink); stroke-width: 1.4;}
+.rd-room--ghost {stroke: var(--rd-muted); stroke-width: .8; stroke-dasharray: 2 1.6;}
+.rd-room--built {fill: var(--rd-faint);}
+.rd-room-name {fill: var(--rd-muted) !important;}
+.rd-plan-name {font-family: var(--rd-face-display); fill: var(--rd-accent) !important; font-size: var(--rd-svg-title) !important;}
+.rd-door {stroke: var(--rd-sheet); stroke-width: 1.6;}
+.rd-icon path {fill: none; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter;}
+.rd-icon--fitted path {stroke: var(--rd-accent); filter: drop-shadow(0 0 1px var(--rd-accent));}
+.rd-icon--empty path {stroke: var(--rd-muted); stroke-dasharray: 1.6 1.6; stroke-width: 1;}
+.rd-gauge {fill: none; stroke: var(--rd-muted); stroke-width: .4;}
+.rd-gauge-fill {fill: var(--rd-accent);}
+.rd-plus {stroke: var(--rd-muted); stroke-width: 1;}
+.rd-here {fill: var(--rd-accent);}
+.rd-here-label {fill: var(--rd-accent) !important;}
+
+/* 4. Lantern stair: rungs are lanterns climbing right; lit is behind or here, cold is ahead, a veil is unknown. */
+.rd-stair {padding: var(--ui-space-4); border: var(--ui-space-hairline) solid var(--rd-line); background: var(--rd-sheet);}
+.rd-climb {list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ui-space-2);}
+.rd-rung, .rd-wicks {--rd-indent: calc(var(--rd-step, 0) * var(--ui-space-6)); margin-inline-start: var(--rd-indent);}
+.rd-rung {display: flex; align-items: center; gap: var(--ui-space-3); border-inline-start: var(--ui-space-hairline) solid var(--rd-rule); padding-inline-start: var(--ui-space-3);}
+.rd-rung-name {font-family: var(--rd-face-display); font-size: var(--ui-type-title);}
+.rd-lantern {width: calc(var(--ui-type-body) * 3.2); margin: var(--ui-space-3); height: auto; overflow: visible; flex: none;}
+.rd-lantern path, .rd-lantern circle {fill: none; stroke: var(--rd-muted); stroke-width: 1.5;}
+.rd-lantern .rd-flame {fill: var(--rd-faint); stroke: none;}
+.rd-lantern-q {fill: var(--rd-muted); stroke: none; text-anchor: middle; font-size: var(--rd-svg-q);}
+.rd-rung--done .rd-flame {fill: var(--rd-accent); opacity: .55;}
+.rd-rung--done .rd-lantern-cage {stroke: var(--rd-accent); opacity: .7;}
+.rd-rung--current {color: var(--rd-accent);}
+.rd-rung--current .rd-lantern-cage {stroke: var(--rd-accent);}
+.rd-rung--current .rd-flame {fill: var(--rd-accent); filter: drop-shadow(0 0 4px var(--rd-accent));}
+.rd-rung--current .rd-ring {stroke: var(--rd-rule); stroke-width: 2;}
+.rd-rung--current .rd-ring-fill {stroke: var(--rd-accent); stroke-width: 2; transform: rotate(-90deg); transform-origin: 16px 22px;}
+.rd-rung--guessed .rd-lantern-cage, .rd-rung--unknown .rd-lantern-cage {stroke-dasharray: 2 2;}
+.rd-rung--unknown {opacity: .6;}
+.rd-wicks {display: flex; flex-wrap: wrap; gap: var(--ui-space-5); padding: var(--ui-space-3) var(--ui-space-3); border-inline-start: var(--ui-space-hairline) dashed var(--rd-rule);}
+.rd-wick {display: grid; grid-auto-flow: column; align-items: center; gap: var(--ui-space-2); color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.rd-wick-flame {display: block; width: var(--ui-space-4); height: var(--ui-space-5); border: var(--ui-space-hairline) dashed var(--rd-muted); background: linear-gradient(to top, var(--rd-accent) var(--rd-fill, 0%), transparent var(--rd-fill, 0%));}
+.rd-wick--current {color: var(--rd-ink);}
+.rd-wick--current .rd-wick-flame {border-style: solid; border-color: var(--rd-accent);}
+.rd-count {color: var(--rd-accent);}
+.rd-note {margin-top: var(--ui-space-3); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.rd-note--warn {color: var(--rd-warn);}
+
+/* 5. Face-off: you on the left, them on the right, the odds as arrows between. The big numeral is the hit points. */
+.rd-versus {display: grid; gap: var(--ui-space-5);}
+.rd-faceoff {display: grid; gap: var(--ui-space-3);}
+.rd-face {display: grid; grid-template-columns: minmax(8em, 12em) minmax(7em, 11em) minmax(0, 1fr); align-items: center; gap: var(--ui-space-4); padding: var(--ui-space-4); border: var(--ui-space-hairline) solid var(--rd-line); background: var(--rd-sheet);}
+.rd-you {display: grid; gap: var(--ui-space-1); justify-items: end; text-align: end;}
+.rd-name {font-size: var(--ui-type-body); font-weight: var(--ui-weight-regular); color: var(--rd-muted);}
+.rd-hp--big {font-family: var(--rd-face-display); font-size: var(--rd-big); line-height: var(--rd-big-line); color: var(--rd-accent);}
+.rd-hp-max {color: var(--rd-muted); font-size: var(--ui-type-small);}
+.rd-bar {display: block; width: 100%; height: var(--ui-space-3); border: var(--ui-space-hairline) solid var(--rd-line); background: linear-gradient(90deg, var(--rd-accent) var(--rd-fill, 0%), transparent var(--rd-fill, 0%));}
+.rd-bar--you {background: linear-gradient(270deg, var(--rd-accent) var(--rd-fill, 0%), transparent var(--rd-fill, 0%));}
+.rd-mid {display: grid; gap: var(--ui-space-2); justify-items: center; color: var(--rd-muted);}
+.rd-vs {font-family: var(--rd-face-display); font-size: var(--rd-mid);}
+.rd-odds {display: grid; width: 100%; gap: var(--ui-space-1); font-size: var(--ui-type-small);}
+.rd-odds-bar {display: block; height: var(--ui-space-3); width: var(--rd-fill); background: var(--rd-accent); clip-path: polygon(0 0, calc(100% - var(--ui-space-3)) 0, 100% 50%, calc(100% - var(--ui-space-3)) 100%, 0 100%);}
+.rd-odds--in {justify-items: end;}
+.rd-odds--in .rd-odds-bar {background: var(--rd-warn); clip-path: polygon(var(--ui-space-3) 0, 100% 0, 100% 100%, var(--ui-space-3) 100%, 0 50%);}
+.rd-odds b {font-weight: var(--ui-weight-regular); color: var(--rd-ink);}
+.rd-foes {display: grid; grid-template-columns: repeat(auto-fill, minmax(8em, 1fr)); gap: var(--ui-space-3);}
+.rd-foe {display: grid; gap: var(--ui-space-1); padding: var(--ui-space-2) var(--ui-space-3); border-inline-start: var(--ui-space-2) solid var(--rd-muted); background: var(--rd-faint);}
+.rd-foe[data-threat="lethal"] {border-inline-start-color: var(--rd-danger);}
+.rd-foe[data-threat="heavy"] {border-inline-start-color: var(--rd-warn);}
+.rd-foe[data-threat="unknown"] {border-inline-start-style: dotted;}
+.rd-foe[data-down="true"] {opacity: .55; border-inline-start-color: var(--rd-line);}
+.rd-foe[data-down="true"] .rd-name {text-decoration: line-through;}
+.rd-foe .rd-hp {font-family: var(--rd-face-display); font-size: var(--rd-mid); line-height: var(--rd-mid-line);}
+.rd-foe .rd-bar {height: var(--ui-space-2);}
+.rd-down {font-size: var(--ui-type-small); color: var(--rd-muted);}
+.rd-threat {display: flex; gap: var(--ui-space-2); align-items: baseline; font-size: var(--ui-type-small); color: var(--rd-muted);}
+.rd-foe[data-threat="lethal"] .rd-threat {color: var(--rd-danger);}
+.rd-foe[data-threat="heavy"] .rd-threat {color: var(--rd-warn);}
+.rd-together {position: relative; display: block; height: var(--ui-space-5); margin: 0 var(--ui-space-4); border: var(--ui-space-hairline) solid var(--rd-line);}
+.rd-together-blows {position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--rd-blows); background: repeating-linear-gradient(135deg, var(--rd-danger) 0, var(--rd-danger) var(--ui-space-2), transparent var(--ui-space-2), transparent var(--ui-space-3));}
+.rd-together-hp {position: absolute; inset-block: calc(var(--ui-space-2) * -1); inset-inline-start: var(--rd-hp); border-inline-start: var(--ui-space-1) solid var(--rd-accent);}
+.rd-together b {position: absolute; inset-inline-end: var(--ui-space-3); inset-block-start: 0; font-weight: var(--ui-weight-regular); line-height: var(--rd-gauge-line); font-size: var(--ui-type-small); color: var(--rd-danger);}
+:root:is([data-effects="off"], [data-effects="reduced"]) .rd * {animation: none;}
+
+/* 6. Housing variants H1-H3 (blocky, abstract, Luminous only). A filled block is built, a hairline block can be built, a dim hatched block is locked.
+   One block unit scales with the body size so the blocks stay square. */
+.hv-compare {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ui-space-5); align-items: start;}
+.hv {--hv-unit: calc(var(--ui-type-body) * 4.4); --hv-glow: 0 0 var(--ui-space-4) var(--rd-rule), inset 0 0 var(--ui-space-4) var(--rd-rule); display: grid; gap: var(--ui-space-4); align-content: start;}
+.hv-head {color: var(--rd-muted); font-size: var(--ui-type-body);}
+.hv-head b {display: block; color: var(--rd-accent); font-weight: var(--ui-weight-regular); font-size: var(--ui-type-title); line-height: var(--ui-line-body);}
+.hv-rowname {margin: 0 0 var(--ui-space-2); color: var(--rd-muted); font-size: var(--ui-type-small); font-weight: var(--ui-weight-regular); line-height: var(--ui-line-small);}
+.hv-word {color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small); text-align: center;}
+.hv-block, .hv-mass, .hv-pip, .hv-mini {display: block; box-sizing: border-box; border: var(--ui-space-hairline) solid var(--rd-accent); background: transparent;}
+.hv [data-state="built"] {border-color: var(--rd-accent); background: color-mix(in srgb, var(--rd-accent) 46%, transparent); box-shadow: var(--hv-glow);}
+.hv [data-state="strained"] {border-color: var(--rd-warn); background: color-mix(in srgb, var(--rd-warn) 28%, transparent);}
+.hv [data-state="broken"] {border-color: var(--rd-danger); background: color-mix(in srgb, var(--rd-danger) 28%, transparent);}
+.hv [data-state="open"] {border-color: color-mix(in srgb, var(--rd-accent) 62%, transparent);}
+.hv [data-state="locked"] {border-color: color-mix(in srgb, var(--rd-ink) 24%, transparent); background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--rd-ink) 14%, transparent) 0, color-mix(in srgb, var(--rd-ink) 14%, transparent) var(--ui-space-1), transparent var(--ui-space-1), transparent var(--ui-space-3)); opacity: .8;}
+.hv [data-state="locked"]:focus-visible {outline: var(--ui-space-hairline) solid var(--rd-accent);}
+
+/* H1: slot grid. */
+.hv-h1 .hv-slots {display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--hv-unit), 1fr)); gap: var(--ui-space-4) var(--ui-space-3);}
+.hv-slot {display: grid; gap: var(--ui-space-2); justify-items: center;}
+.hv-h1 .hv-block {width: var(--hv-unit); height: var(--hv-unit);}
+
+/* H2: block skyline. Columns share one baseline; built masses sit on it, ghosts stand above or beside. */
+.hv-h2 {--hv-unit: calc(var(--ui-type-body) * 5.2);}
+.hv-sky {display: flex; align-items: flex-end; justify-content: center; gap: var(--ui-space-3); padding-top: var(--ui-space-3); border-bottom: var(--ui-space-hairline) solid var(--rd-accent); box-shadow: 0 var(--ui-space-hairline) var(--ui-space-3) var(--rd-rule);}
+.hv-col {display: grid; gap: var(--ui-space-3); align-content: end; margin-bottom: var(--ui-space-2);}
+.hv-mass {position: relative; width: var(--hv-unit); height: var(--hv-unit); display: grid; place-items: end center; padding-bottom: var(--ui-space-2);}
+.hv-mass--house {width: calc(var(--hv-unit) * 1.5); height: calc(var(--hv-unit) * 1.7); place-items: center; padding: 0;}
+.hv-roof {display: block; box-sizing: border-box; width: calc(var(--hv-unit) * .9); height: calc(var(--hv-unit) * .5); justify-self: center; border: var(--ui-space-hairline) solid var(--rd-accent);}
+.hv-col--house {gap: 0;}
+.hv-mass[data-state="open"], .hv-mass[data-state="locked"] {border-style: dashed;}
+.hv-pips {display: grid; grid-template-columns: repeat(2, var(--ui-space-6)); gap: var(--ui-space-3);}
+.hv-pips--one {position: absolute; inset-block-start: var(--ui-space-3); inset-inline: 0; justify-content: center; grid-template-columns: var(--ui-space-6);}
+.hv-pip {width: var(--ui-space-6); height: var(--ui-space-6); background: transparent;}
+.hv-mass .hv-word {position: static;}
+
+/* H3: stat-first card. */
+.hv-meters {display: grid; gap: var(--ui-space-5);}
+.hv-meter {display: grid; grid-template-columns: auto auto 1fr; grid-template-areas: "label label label" "big say say" "segs segs segs"; align-items: baseline; column-gap: var(--ui-space-3);}
+.hv-label {grid-area: label; color: var(--rd-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.hv-big {grid-area: big; font-weight: var(--ui-weight-regular); font-size: var(--rd-big); line-height: var(--rd-big-line); color: var(--rd-accent);}
+.hv-say {grid-area: say; color: var(--rd-ink);}
+.hv-segs {grid-area: segs; display: flex; gap: var(--ui-space-1);}
+.hv-seg {flex: 1; height: var(--ui-space-5); border: var(--ui-space-hairline) solid var(--rd-muted);}
+.hv-seg[data-on="true"] {border-color: var(--rd-accent); background: color-mix(in srgb, var(--rd-accent) 34%, transparent); box-shadow: 0 0 var(--ui-space-2) var(--rd-rule);}
+.hv-strip {display: flex; flex-wrap: wrap; gap: var(--ui-space-4) var(--ui-space-5); padding-top: var(--ui-space-3); border-top: var(--ui-space-hairline) solid var(--rd-rule);}
+.hv-run {display: flex; gap: var(--ui-space-2);}
+.hv-mini {width: var(--ui-space-6); height: var(--ui-space-6);}
+.hv-mini[data-state="built"] {box-shadow: 0 0 var(--ui-space-2) var(--rd-rule);}
+@media (max-width: 1500px) {.hv-compare {grid-template-columns: repeat(2, minmax(0, 1fr));}}

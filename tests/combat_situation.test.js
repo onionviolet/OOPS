@@ -119,3 +119,27 @@ test('versus model: derived chips only, threat levels, odds only one on one, unk
     assert.equal(brawl.opponents[0].intent, null);
     assert.ok(brawl.opponents.every(o => !('facts' in o)));
 });
+
+test('CBD10: the lethal bound applies the hero\'s per-type protection to the enemy mix, from the real projection', () => {
+    const gear = {tags: {main_character: true}, is_alive: true, name: 'Hero', getEquipment: () => ({torso: {id: 'chainmail', equip_slot: 'torso'}})};
+    const bite = {name: 'Crab', is_alive: true, tags: {}, attack_types: {slashing: 1}};
+    const readout = () => ({name: 'Crab', defeated: false, health: {current: 8, max: 10, bar: 80}, attack: {power: 20, count: 1}, speed: 1,
+        solo: true, opposingShield: false, hitPct: 40, shield: false, evadePct: 10, defense: 0, youHitPct: 90});
+    const bound = hero => fightSituation(fromCombatOpponentsProjection(projectOpponents({is_ended: false, attackers: [hero], defenders: [bite]}, readout)), you(15)).lethal[0]?.blow;
+    const bare = bound({...gear, getEquipment: () => ({})}), armored = bound(gear);
+    assert.ok(armored < bare, `${armored} < ${bare}`);
+    assert.equal(armored, hardestBlow({power: 20, count: 1, typeMultiplier: .92}, you(100)));
+});
+
+test('an enemy that declares a type shows it on its Attack fact; an undeclared one stays plain', () => {
+    const hero = {name: 'Hero', is_alive: true, tags: {main_character: true}, getEquipment: () => ({})};
+    const readout = () => ({name: 'X', defeated: false, health: {current: 8, max: 10, bar: 80}, attack: {power: 5, count: 2}, speed: 1,
+        solo: true, opposingShield: false, hitPct: 40, shield: false, evadePct: 10, defense: 0, youHitPct: 90});
+    const attackFact = e => projectOpponents({is_ended: false, attackers: [hero], defenders: [{name: 'X', is_alive: true, tags: {}, ...e}]}, readout).opponents[0].facts.find(f => f.id === 'attack');
+    const typed = attackFact({attack_types: {bludgeoning: 1}, defense_types: {slashing: .8}});
+    assert.equal(typed.damageType, 'bludgeoning');
+    assert.match(typed.typeHelp, /100% bludgeoning.*slashing x0\.8/);
+    assert.equal(typed.value, '5 dmg x2');
+    assert.equal(attackFact({}).damageType, undefined);
+    assert.equal(attackFact({}).typeHelp, undefined);
+});

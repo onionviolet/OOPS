@@ -19,7 +19,7 @@ Read these first; this doc does not restate them.
 | [P8 resources](gm/dispatch/procgen-2026-10-13/p8/REPORT.md) | Deposits, yields, ecology, creature and magical resources, logistics, idle gathering |
 | [P11 more domains](gm/dispatch/procgen-2026-10-13/p11/MORE.md) | Services, research questions, apprenticeships, artifact provenance, maintenance; P5 owns item affixes and per-save unidentified appearances |
 
-Sibling palette: [weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) is canonical (lanes R1-R3 in `gm/dispatch/weaponcraft-runes-2026-10-14/`, UI-at-scale session). The [reveal-cheats companion](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md) holds the RV and XA codes cited below; its WR lanes were stopped.
+Sibling palette: [weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) is canonical (lanes R1-R3 in `gm/dispatch/weaponcraft-runes-2026-10-14/`, UI-at-scale session). The reveal-cheats companion (merged there 2026-10-30, [Round 4](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30)) holds the RV and XA codes cited below; its WR lanes were stopped.
 
 Code state (updated 2026-10-14): P1-P4 merged into `codex/gameplay-foundations` as `4e13f97f`. Original note: P2 procedural Village mixing (ratio-sensitive generated potions, one
 discovered property, timed repeat) is committed on branch `proc/p2-mixing`
@@ -283,7 +283,7 @@ implciations and more? Abstaction thats needed? Merging, commiting or pushing?"
 Division of work: the [comic worlds palette](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)
 (another session, lanes K1-K6) owns comic traditions, industry laws (CL), comic
 cheats (CK) and comic presentation. The canonical [weaponcraft palette](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-owns weapons and runes (lanes R1-R3); its [reveal companion](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+owns weapons and runes (lanes R1-R3); its reveal companion (merged there, [Round 4](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30))
 holds reveal cheats RV1-RV8 and abstractions XA1-XA8 (WR lanes stopped). This round adds only the **making** side of comics and what CR1-CR4 found.
 
 CR1-CR4 finished (docs only): [CR1 consumables](gm/dispatch/procgen-2026-10-13/cr1/REPORT.md),
@@ -437,7 +437,7 @@ tooltips. Remaining gate for any builder: rebuilt port 21700 at 1366x768 and
 
 These lanes belong to the weaponcraft owner session; its
 [canonical palette](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-and [maker-arts palette](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md)
+and maker-arts palette (merged there, [Round 4](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30))
 own their content. This section records only how they relate to crafting codes
 here. Everything stays proposal.
 

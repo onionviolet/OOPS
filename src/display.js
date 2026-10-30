@@ -14,6 +14,8 @@ import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {reportRepeatKey} from './report_repeats.js';
+import {currentWorldFamily} from './world_look.js';
+import {reportVoice} from './world_report_voice.js';
 import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot, hostileSubject} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
 import {denominationsKnown} from './reveal_chain.js';
@@ -1193,6 +1195,15 @@ export function setNativeLogBufferReader(reader) {
     const compact_node=compact_log_target(message,message_type);
     if(details.combat&&renderCombatLine(compact_node,details.combat))mark_combat_line(message,details.combat);
     else decorate_log_subjects(compact_node,log_subject_snapshots(message_to_add,message_type,details.subjects),message_type);
+    // DSG13: a world that voices this kind adds its flavour and the useful part under the receipt.
+    const world_family=currentWorldFamily(),voice=reportVoice({family:world_family,kind:message_type,text:message_to_add});
+    if(voice){
+        message.dataset.world=world_family;
+        const line=document.createElement('span');line.className='report-voice';
+        const flavour=document.createElement('i');flavour.className='report-voice-flavour';flavour.textContent=voice.flavour;
+        const useful=document.createElement('span');useful.className='report-voice-useful';useful.textContent=voice.useful;
+        line.append(flavour,' ',useful);message.append(line);
+    }
     const panelId=details.panelId||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
     if(panelId){
         const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent='Open';

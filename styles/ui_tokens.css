@@ -1859,3 +1859,10 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 :root[data-skin="paper"] body.fig-gallery-page {background: var(--paper-ground); color: var(--paper-ink);}
 :root[data-skin="paper"] :is(.fig-gallery-section > h2, .fig-gallery-cell > h3, .sg-group > h3, .fig-gallery-bar strong) {font-family: var(--paper-serif);}
 .customization-module[data-component-theme="paper"] :is(.fig-card-title, .fig-track-title, .fig-cell-head, .sg-group > h3) {font-family: var(--paper-serif);}
+
+/* DSG12 per-world flourish tokens (DESIGN.md). Only flourished families; the rules live in styles/world_look.css.
+   LOTM, early Tingen: brass, ink and fog. Decorative layer only; data colours stay the player's (DSG16). */
+:root[data-world-family="lotm"], .message_common[data-world="lotm"] {
+ --world-accent: #d2b072; --world-rule: color-mix(in srgb, #d2b072 55%, transparent);
+ --world-glyph: "☾"; --world-epithet: "Tingen · fog, gaslight and church bells";
+}

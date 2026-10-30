@@ -794,7 +794,7 @@ is built, or the stores will fork.
 Request: "Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
 show stuff like these ... Overarching stuff? Implementation implications and more?
 Abstraction that's needed?" Saved as its own palette:
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+[weaponcrafting, runes and reveal](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30)
 (WC weaponcrafting, RN runes and inscriptions, RV reveal cheats, OV overarching, XA
 abstractions, IM implementation). It extends the crafting session's palette and P6
 rather than duplicating them. Lanes WR1 to WR4.
@@ -823,7 +823,7 @@ Abstraction that's needed? Merging, committing or pushing?"
 **Coordination.** The same request reached several sessions. Weapons and runes
 are canonical in [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
 (lanes R1 to R3); this session's WR lanes were stopped as duplicates, and
-[the companion doc](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+[the companion doc, merged into the owner](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-4-the-three-companion-palettes-merged-here-2026-10-30)
 keeps the reveal-lens rules and story tie-ins. This round stays on story.
 
 **Lane results folded in.** [P32](gm/dispatch/procgen-2026-10-13/p32/REPORT.md)

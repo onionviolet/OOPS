@@ -38,3 +38,23 @@ Codes M1-M10 are new to this round.
 | `combat-surface` | `src/damage_types.js` and the tempo definition's harm call (frame untouched), tempo fight UI, `combat_versus` / situation read model | M1 types through the frame (tempo first), M6 per-world type names, the combined fight surface (M2) after weighing forms, M7 inspector, M9 census | Focused tests for typed harm in tempo and one other frame user; 1920 browser proof of a tempo fight showing types, versus row and log with save, reload, import; census table in its doc |
 
 The combat lane builds UI against the DESIGN.md draft once `ui-identity` sends it. Until then it does the engine side (M1, M6) and the form choice.
+
+## Lane receipt: `ui-identity` (2026-10-30)
+
+Implemented, below floor (AD43): FLR4 holds for the flourish and arrival voice. The M5 census has unchecked rows, and LOTM work writes no Reports line to voice (census K1). Agent-verified, not human-reviewed.
+
+- Correction to M3: a root hook already existed. `workspace_views.js` writes `data-world` with the world id, or `native` for the frontier. The lane added `data-world-family` and `data-world-flourish` beside it rather than a second writer.
+- DESIGN.md DSG1-DSG19, linked from AGENTS.md and UI_RULES, with a RULES_INDEX register row, router entry and reserved DSG prefix. DSG11 (one home per fact) is Weibao's request, relayed by the repository review session. No AD line: O1 is recorded through the register row.
+- M3: `src/world_look.js`, LOTM tokens in `styles/ui_tokens.css`, rules in `styles/world_look.css` (manifest line). M4: `src/world_report_voice.js`, applied once at write time in `display.js` `log_message`. Save-neutral: Reports lines are not saved.
+- M5: [kit census](../../../audits/WORLD_UI_KIT_CENSUS_2026-10-30.md).
+- Follow-up fixes, after an advisor review: `worldFamily` maps `hp.world` to `hp` rather than `world`; the LOTM fallback for unlisted places was dropped, so the other five lives' places stay generic until they are checked in play (UR72); DSG status reads proposed (AD32); Weibao's relayed DSG11 request is recorded in USER_VISION.
+
+| Check | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/world_look.test.js` | 5/5 pass | none |
+| `node --test tests/ui_contract.test.js tests/stylesheet_manifest.test.js` | 9/9 pass | none |
+| `node scripts/playtest/world-look-probe.mjs` at 1920x1080, bundle `3d7ee038fca60de4`, rerun on `d97f7729fdaa460f` after the follow-up fixes, fresh origin | Frontier: family `frontier`, flourish off, 0 voiced lines. LOTM after crossing: family `lotm`, flourish on, header glyph and epithet, 1 voiced arrival line. Back in the Village after resume: flourish off, 0 voiced lines, 0 page errors | The frontier same-kind arrival line was not captured, because the resume reload clears the log. The unit test covers it |
+| `npm run check:rules` | PASS (18 warnings, all pre-existing kinds) | none |
+| `npm run check:arch` | exit 0 | none |
+| `npm test` (full), branch on base fc066ee2d | 4717/4726 pass, 6 fail | Same failure on clean fc066ee2d, so not this branch: `ui_contract` (style.css rgba from 650a7ab5d, since fixed in 54fda9ed2), `cast_journeys` native place-panel journey, `cast_worksheet` and `lead_run_crosswalk` (no private `docs/research/novels` in worktrees). Open: `facts_frame` "fixture minutes … mid-wait" failed on the branch three times and passed once on clean master at a lower load; one branch rerun also failed "fresh life", which points to load (load average 100-130). The clean-master "passes" do not count: the scratch master checkout has no `private_packs/`, so mid-wait skips there. A later branch run passed mid-wait and failed "beside life with pack" instead. The failing subtest moves between runs (fresh life, mid-wait, beside life), which points to load flakiness, not a fixed regression. Still to confirm on a master checkout with `private_packs/lotm-cast` linked |
+| Rebase onto 0308a4a95 (tip 6fb32f310), focused: world_look, stylesheet_manifest, ui_contract; `check:rules`, `check:arch` | world_look and manifest pass; rules PASS; arch exit 0; `ui_contract` fails only on style.css spacing and radius from 6c97ec39e, which also fails on clean 0308a4a95 | Not merged: weekly usage reached 88%, past the 86% checkpoint line. Next: rebase onto the master tip (19a48e65d or later), run `facts_frame` on branch and master at the same load, then the guarded merge if it is not the branch's |

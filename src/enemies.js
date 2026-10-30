@@ -75,6 +75,8 @@ class Enemy {
         tags = [],
         equipment_keys = {},
         equipment_drop_chance = .25,
+        attack_types, //optional {type: weight}; undeclared = untyped physical (src/damage_types.js)
+        defense_types, //optional {type: multiplier}; >1 weak, <1 resists
         on_hit = (attacker) => { },
         on_damaged = (target) => { },
         on_death = (attacker) => { },
@@ -94,6 +96,8 @@ class Enemy {
         this.#levelable = new LevelableComponent(stats);
         this.equipment_keys = equipment_keys;
         this.equipment_drop_chance = equipment_drop_chance;
+        this.attack_types = attack_types;
+        this.defense_types = defense_types;
         this.#equipment = {};
 
         if(tags.length) {
@@ -171,7 +175,7 @@ class Enemy {
      * @param {*}
      * @returns [actual damage taken; Boolean if target should faint] 
      */
-    takeDamage({damage_values, can_faint = true, defense_modifier = 0, armor_penetration = 0}) {
+    takeDamage({damage_values, can_faint = true, defense_modifier = 0, armor_penetration = 0, type_multiplier = 1}) {
 
         //TODO: move this to levelable, only make a shortcut in Person?
 
@@ -186,7 +190,7 @@ class Enemy {
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier, armor_penetration);
+        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier, armor_penetration, type_multiplier);
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {
@@ -281,6 +285,7 @@ const enemy_abilites = {
         rank: 1,
         size: "small",
         tags: ["living", "beast", "wolf rat"],
+        attack_types: {piercing: .7, slashing: .3},
         stats: {health: 20, attack: 4, agility: 5, dexterity: 4, magic: 0, intuition: 5, attack_speed: .8, defense: 0},
         loot_list: [
             {item_name: "Rat tail", chance: 0.04},
@@ -296,6 +301,7 @@ const enemy_abilites = {
         rank: 1,
         size: "small",
         tags: ["living", "beast", "wolf rat"],
+        attack_types: {piercing: .7, slashing: .3},
         stats: {health: 30, attack: 6, agility: 6, dexterity: 5, intuition: 6, magic: 0, attack_speed: 1, defense: 1},
         loot_list: [
             {item_name: "Rat tail", chance: 0.04},
@@ -352,6 +358,7 @@ const enemy_abilites = {
         xp_value: 5,
         rank: 2,
         tags: ["living", "beast"],
+        attack_types: {piercing: .7, slashing: .3},
         stats: {health: 200, attack: 22, agility: 34, dexterity: 34, intuition: 32, magic: 0, attack_speed: 1, defense: 12},
         loot_list: [
             {item_name: "Wolf fang", chance: 0.03},
@@ -366,6 +373,7 @@ const enemy_abilites = {
         xp_value: 5,
         rank: 2,
         tags: ["living", "beast"],
+        attack_types: {piercing: .7, slashing: .3},
         stats: {health: 150, attack: 25, agility: 34, dexterity: 30, intuition: 24, magic: 0, attack_speed: 1.4, defense: 6},
         loot_list: [
             {item_name: "Wolf fang", chance: 0.03},
@@ -380,6 +388,7 @@ const enemy_abilites = {
         xp_value: 8,
         rank: 3,
         tags: ["living", "beast"],
+        attack_types: {piercing: .7, slashing: .3},
         stats: {health: 250, attack: 40, agility: 50, dexterity: 50, intuition: 40, magic: 0, attack_speed: 1.3, defense: 20},
         loot_list: [
             {item_name: "Wolf fang", chance: 0.04},
@@ -428,6 +437,7 @@ const enemy_abilites = {
         xp_value: 10,
         rank: 5,
         tags: ["living", "beast"],
+        attack_types: {piercing: .6, bludgeoning: .4},
         stats: {health: 600, attack: 50, agility: 30, dexterity: 50, intuition: 60, magic: 0, attack_speed: 1, defense: 35},
         loot_list: [
             {item_name: "Boar hide", chance: 0.04},
@@ -460,6 +470,7 @@ const enemy_abilites = {
         xp_value: 60,
         rank: 8,
         tags: ["living", "beast"],
+        attack_types: {slashing: .6, bludgeoning: .4},
         stats: {health: 6000, attack: 600, agility: 160, dexterity: 200, intuition: 200, magic: 0, attack_speed: 0.8, defense: 500},
         loot_list: [
             {item_name: "Bear hide", chance: 0.05},
@@ -514,6 +525,7 @@ const enemy_abilites = {
         xp_value: 20,
         rank: 7,
         tags: ["living", "insect"],
+        attack_types: {piercing: .6, acid: .4},
         stats: {health: 600, attack: 4, agility: 100, dexterity: 200, intuition: 100, magic: 0, attack_speed: 1.5, attack_count: 30, defense: 10},
         size: enemy_sizes.SMALL,
         loot_list: [
@@ -585,6 +597,8 @@ const enemy_abilites = {
         rank: 7,
         size: enemy_sizes.SMALL,
         tags: ["living", "beast", "aquatic"],
+        attack_types: {bludgeoning: 1},
+        defense_types: {slashing: .8, piercing: .7, bludgeoning: 1.2},
         stats: {health: 2000, attack: 75, agility: 120, dexterity: 90, intuition: 50, magic: 0, attack_speed: 1.3, attack_count: 2, defense: 145},
         loot_list: [
             {item_name: "Crab meat", chance: 0.02},
@@ -598,6 +612,8 @@ const enemy_abilites = {
         rank: 8,
         size: enemy_sizes.MEDIUM,
         tags: ["living", "beast", "aquatic"],
+        attack_types: {bludgeoning: 1},
+        defense_types: {slashing: .7, piercing: .6, bludgeoning: 1.25},
         stats: {health: 7000, attack: 160, agility: 180, dexterity: 160, intuition: 120, magic: 0, attack_speed: 1.7, attack_count: 2, defense: 700},
         loot_list: [
             {item_name: "Crab meat", chance: 0.05},
@@ -613,6 +629,8 @@ const enemy_abilites = {
         rank: 9,
         size: enemy_sizes.LARGE,
         tags: ["living", "beast", "aquatic"],
+        attack_types: {piercing: .6, bludgeoning: .4},
+        defense_types: {piercing: .8},
         stats: {health: 16750, attack: 830, agility: 250, dexterity: 350, intuition: 120, magic: 0, attack_speed: 1.6, defense: 545},
         loot_list: [
             {item_name: "Alligator meat", chance: 0.02},
@@ -627,6 +645,8 @@ const enemy_abilites = {
         rank: 10,
         size: enemy_sizes.MEDIUM,
         tags: ["living", "beast", "aquatic"],
+        attack_types: {piercing: .7, bludgeoning: .3},
+        defense_types: {slashing: .6, piercing: .6, bludgeoning: 1.25},
         stats: {health: 22000, attack: 525, agility: 230, dexterity: 220, intuition: 130, magic: 0, attack_speed: 0.9, defense: 1000},
         loot_list: [
             {item_name: "Turtle meat", chance: 0.02},
@@ -738,6 +758,7 @@ const enemy_abilites = {
         xp_value: 1,
         rank: 1,
         tags: ["inanimate"],
+        defense_types: {slashing: .7, piercing: .5, bludgeoning: 1.3},
         size: enemy_sizes.LARGE,
         stats: {health: 10000, attack: 0, agility: 0, dexterity: 0, magic: 0, intuition: 0, attack_speed: 0.000001, defense: 100},
     });

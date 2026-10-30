@@ -24,14 +24,14 @@ function participant(fighter, sideFighters, slot, isAttackerSide) {
     return {name: you ? 'You' : name, you, side: isAttackerSide ? 'ally' : 'hostile', slot, letter, hue, ordinal, kindCount};
 }
 
-export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, target, outcome, amount = null, hits = 1, critical = false, partial = false}) {
+export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, target, outcome, amount = null, hits = 1, critical = false, partial = false, kind = '', note = ''}) {
     const actorSide = isAttacker ? combat.attackers : combat.defenders, targetSide = isAttacker ? combat.defenders : combat.attackers;
     const actor = participant(fighter, actorSide, fighterIndex, isAttacker);
     const struck = participant(target, targetSide, targetSide.indexOf(target), !isAttacker);
     actor.subject = combatSubject(combat,fighter);struck.subject = combatSubject(combat,target);
     const direction = actor.side === 'ally' && struck.side === 'hostile' ? 'dealt' : actor.side === 'hostile' && struck.side === 'ally' ? 'taken' : 'other';
     return {encounter: encounterSerial(combat), outcome, actor, target: struck, direction,
-        amount: amount == null ? null : Math.ceil(10 * amount) / 10, hits, critical: !!critical, partial: !!partial};
+        amount: amount == null ? null : Math.ceil(10 * amount) / 10, hits, critical: !!critical, partial: !!partial, kind: kind === 'physical' ? '' : kind, note};
 }
 
 // UX18: equivalent means same encounter, same actor and target slots, same outcome, amount, hit
@@ -41,9 +41,12 @@ export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, targe
 export function combatLogKey(event, {byKind = false} = {}) {
     if (!event || event.outcome === 'defeat') return '';
     const who = p => `${p.side}:${p.you ? 'you' : byKind ? `name:${p.name}` : p.slot}`;
-    return [event.encounter, event.outcome, who(event.actor), who(event.target), event.amount ?? '', event.hits, event.critical ? 1 : 0, event.partial ? 1 : 0].join('|');
+    return [event.encounter, event.outcome, who(event.actor), who(event.target), event.amount ?? '', event.hits, event.critical ? 1 : 0, event.partial ? 1 : 0, event.kind || '', event.note || ''].join('|');
 }
 
+// Damage type (not the untyped default) and the weak spot / resisted / no effect note, as the full log line carries them.
+const kindWord = event => event.kind ? ` ${event.kind}` : '';
+const extraOf = event => [event.hits > 1 ? `${event.hits} hits` : '', event.partial ? 'part blocked' : '', event.note || ''].filter(Boolean).join(', ');
 const label = p => p.letter ? `${p.name} ${p.letter}` : p.name;
 // R22c: which opponent an occurrence was, without letters ("Wolf rat 2 of 3").
 export function occurrenceLabel(event) {
@@ -56,9 +59,9 @@ export const hostileSlot = event => [event.actor, event.target].find(x => x && x
 // Wording without DOM, for tests and accessible names.
 export function combatLogText(event) {
     const a = event.actor, t = event.target, you = p => p.you ? 'you' : label(p), verb = (p, plain, third) => p.you ? plain : third;
-    const extra = [event.hits > 1 ? `${event.hits} hits` : '', event.partial ? 'part blocked' : ''].filter(Boolean).join(', ');
+    const extra = extraOf(event);
     switch (event.outcome) {
-        case 'hit': return `${label(a)} ${verb(a, event.critical ? 'crit' : 'hit', event.critical ? 'crits' : 'hits')} ${you(t)} for ${event.amount}${extra ? ` (${extra})` : ''}`;
+        case 'hit': return `${label(a)} ${verb(a, event.critical ? 'crit' : 'hit', event.critical ? 'crits' : 'hits')} ${you(t)} for ${event.amount}${kindWord(event)}${extra ? ` (${extra})` : ''}`;
         case 'miss': return `${label(a)} ${verb(a, 'miss', 'misses')} ${you(t)}`;
         case 'block': return `${label(t)} ${verb(t, 'block', 'blocks')} ${you(a)}`;
         case 'defeat': return `${label(t)} defeated`;
@@ -93,7 +96,8 @@ export function renderCombatLine(compact, event) {
     switch (event.outcome) {
         case 'hit': {
             parts.push(nameNode(a), ` ${verb(a, event.critical ? 'crit' : 'hit', event.critical ? 'crits' : 'hits')} `, nameNode(t, true), ' for ', valueNode(event));
-            const extra = [event.hits > 1 ? `${event.hits} hits` : '', event.partial ? 'part blocked' : ''].filter(Boolean).join(', ');
+            if (event.kind) parts.push(kindWord(event));
+            const extra = extraOf(event);
             if (extra) parts.push(` (${extra})`);
             break;
         }

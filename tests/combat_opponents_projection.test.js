@@ -38,6 +38,6 @@ test('inactive or ended combat projects an empty board', () => {
 test('no internal ids, tags, levels, loot, XP or sealed fields leak into the projection', () => {
     const text = JSON.stringify(projectOpponents({attackers: [hero()], defenders: [fighter({name: 'Wolf rat', tags: {beast: true, sealed_kind: true}, secret})]}, readout));
     for(const leak of ['sealed_template_x', 'Hidden relic', 'SEALED-TRUTH', 'sealed_kind', 'beast', 'xp_value', 'loot', 'level', 'tags', '"77"', ':77', ':9,']) assert.ok(!text.includes(leak), leak);
-    const allowed = new Set(['schema', 'active', 'disclosure', 'count', 'alive', 'opponents', 'slot', 'index', 'name', 'defeated', 'health', 'current', 'max', 'fraction', 'facts', 'id', 'label', 'known', 'value', 'number', 'shield']);
+    const allowed = new Set(['schema', 'active', 'disclosure', 'count', 'alive', 'opponents', 'slot', 'index', 'name', 'defeated', 'health', 'current', 'max', 'fraction', 'facts', 'id', 'label', 'known', 'value', 'number', 'shield', 'damageType', 'typeHelp', 'typeMultiplier']);
     JSON.parse(text, (key, v) => {if(key && !/^\d+$/.test(key)) assert.ok(allowed.has(key), key); return v;});
 });

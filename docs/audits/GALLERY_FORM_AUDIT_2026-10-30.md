@@ -1,0 +1,243 @@
+# Gallery form audit (2026-10-30)
+
+Brief: [GALLERY_FORM_AUDIT_BRIEF](../gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md). Weibao, after seeing the gallery: it is "better but not quite", and each idea should be "less generic and also less wall of text".
+
+Everything below is a proposal (AD32). It feeds `DESIGN.md`, which the `ui-identity` lane owns and decides. Target viewport is 1920x1080, desktop first; mobile is deferred. Inputs: the 1920x1080 captures in both skins, the 81 gallery sections (the redesign drafts add five more), `src/ui/figure.js` and the fixtures. Earlier rounds already said that sameness comes from one drawing vocabulary (FLA1), that a world pack should carry a motif (FLA2) and that flair must not cost reading (FLA3, [UI_DESIGN_CORE_AUDIT](UI_DESIGN_CORE_AUDIT.md)); VSX1 and VSX2 asked for a native look. This audit does not repeat them. It adds what they did not cover: the shape of each object, how many words it costs, and what the page shows by default.
+
+## What is generic, in codes
+
+| Code | The sameness | Where it shows |
+| --- | --- | --- |
+| G1 | The text form prints under every figure, so each section is a wall even when the drawing is clear. | Every `renderFigure(..., {text: true})` section. The text form is 55 to 75 percent of the words in most (see the table below). |
+| G2 | One bitmap face at one size for titles, labels, values and prose. Nothing reads first. | Every figure and form. |
+| G3 | Boxes in boxes with the same hairline frame, so a ledger, a crossing and a home look like one dashboard. | Tables, cards, chip rows. |
+| G4 | The same fact is said more than once: a count, then the chips, then a key, then the text line. | Home ("4 of 5 fitted" plus chips plus key plus text), owed (term bar plus "0% of term left" plus text row). |
+| G5 | No object, place or hand: nothing looks like a page, a ticket, a plan, a lantern, two sides facing. | Everything except the maps. |
+| G6 | A key printed under the drawing for marks the drawing already shows (✓ done, ▶ current). | Every figure with a legend. |
+| G7 | Defect, not form: the gallery page links no `combat_versus.css`, so the current versus row drew as bare stacked text in the captures; the character sheet cell also draws unstyled. | `figure-gallery.html`. The versus link is fixed in this change, so the redesign sections compare against the styled version. The character sheet cell is not fixed here. |
+
+## Measured words (luminous cell, Chrome headless, 1920x1080, 2026-10-30)
+
+"As shown" counts every visible word in the cell, including the printed text form. "Drawing only" removes the text-form block. The draft numbers count what is visible with "read as text" closed.
+
+| Redesign | As shown now | Drawing only now | Draft | Cut vs as shown | Cut vs drawing only |
+| --- | --- | --- | --- | --- | --- |
+| Owed ledger, pawnbroker's page | 209 | 72 | 42 | 80 percent | 42 percent |
+| Crossing ticket | 415 | 183 | 34 | 92 percent | 81 percent |
+| Home floor plan | 192 | 85 | 14 | 93 percent | 84 percent |
+| Lantern stair | 306 | 131 | 23 | 92 percent | 82 percent |
+| Versus face-off (duel and brawl together) | 154 | 69 | 40 | 74 percent | 42 percent |
+
+The cut against "drawing only" is the honest test of L5 and L6, because hiding the text form (L1) alone would pass the half bar and change nothing about the form. Owed and versus fall just short of half there; both keep names and numbers that carry the fact. Screens: `docs/representations/evidence/redesigns/redesign-<name>-<luminous|paper>.png`.
+
+## Audit table
+
+Columns: **Read** is the two-second need. **Words** is as shown now, then a target for the default view. **Generic** uses G1 to G7. **Bespoke form** gives the object, then one reference game with the claim marked known (I can state the exact mechanism) or inferred (a recalled pattern I did not check). **Liberty and cost** names L1 to L6 and what each costs. **Effort, owner** is gallery draft, DESIGN.md rule, or a lane.
+
+Every default here has a dial and a reason in the same cell or the proposals list at the end. A world may depart from any of them with an in-world reason (AD5, AD46).
+
+| Code | Sections | Read | Words | Generic | Bespoke form, reference | Liberty, cost | Effort, owner |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| GF1 | Style guide | Which tokens exist. | 1071, keep | Reference page, not a player view. | None. Add the five redesign objects as examples once accepted. | None. | Done by `ui-identity`; out of scope here. |
+| GF2 | Character sheet (you, and someone you met) | Who I am now, what changed. | 151, target 60 | G2, G7 (unstyled in the capture), G3. Eight headed blocks of label over value over sentence. | A name plate with a big level numeral, then stats as a small strip of values with the sentence on hover, and abilities as chips with levels. Rimworld's character tab puts skills as a labelled grid of numerals with a flame icon for passion (known). Hades-style codex pages keep prose behind a click (inferred). | L2, L5, L6. Cost: the sentences move to hover and to a text toggle, which the sheet already has. | M. Lane (character sheet), DESIGN.md rule for a name plate. |
+| GF3 | Skills and techniques, none known | What I can do, what I lack. | 30 and 14, keep | Short already. | Keep. The empty state says how to fill it (DSG9). | None. | None. |
+| GF4 | Several ladders; ladder events | Which of my ladders is closest to a step. | 306 and 141, target 60 and 40 | G1, G3, G5. Grouped boxes of the same stair. | One rack of lanterns per ladder (see GF14), the closest-to-next one lit brightest; events as a thread joining two racks. Path of Exile shows a passive web with allocated nodes lit (known). | L3, L6. Cost: the system and source grouping becomes a small caption instead of a heading. | M. Lane (ladders). |
+| GF5 | Path picker | Which path I have heard of. | 50, keep | Short. | Cards that are partly drawn: heard-of paths show a silhouette. Hollow Knight's Hunter's Journal shows silhouettes until you meet the creature (known). | L4. Cost: one silhouette per path. | S. Gallery draft later. |
+| GF6 | Path shapes: tree, wheel, web, list | The shape of a path: forks, loops, order. | 85, 65, 43, 36, keep | Shapes carry the meaning; mostly fine. G2 on the labels. | Keep the shapes, give the node a lantern or rune from the world pack. Civilization-style tech trees draw prerequisite lines between icon nodes (known). | L4. Cost: one icon per node kind. | S. World pack (DSG17). |
+| GF7 | Versus row: duel and brawl; Fight: duel; Fight: brawl; chase (3 variants) | Who can hurt me, how soon, and can I win. | 154, 235, 401, 82, 137, 83; target 40 | G1, G3, G4 (hp said as a number, a bar and a chip; threat said as a chip and a sentence), G5. | **Redesign: Versus row as a face-off** (built). You left, them right, hit points as a big numeral, the odds as two arrows between, the combined danger as one stacked gauge against your remaining hit points. Darkest Dungeon lines heroes up on the left and enemies on the right (known); Slay the Spire shows enemy intent as an icon with a number above the enemy (known); Into the Breach telegraphs the hit on the board (known). | L1, L2, L3, L5. Cost: needs `together` to carry the numbers (the draft sums `threat.blow`, 5.6 against 5); the `combat-surface` lane owns the read model and `combat_versus.js`. | Draft done. Owner: `combat-surface` lane for build, DESIGN.md for the face-off default. |
+| GF8 | Ritual: Rite of the Low Lamp; the four Bell and Lantern rite benches | When to start, what is missing, what goes wrong. | 260 and 87, target 90 | G1, G6 (six legend entries), G4 (the risk sentence repeats what the broken slot and the waning ring show). | The rings stay (a circle is right for a cycle). Make it an altar: the hour ring as a lamp-dial, components as laid objects on a cloth, the chant as a row of beads. Inscryption plays its rules on a physical table of cards and candles (known). | L1, L3, L4. Cost: four small component icons. | M. World pack; draft later. |
+| GF9 | Who knows what (Lanternside); Ferry Row relationship web; rumour ripple | Who holds my secret or my debt. | 205, 459, 248; target 80 | G1, G2, G3, G4, G6. Spokes with a label each plus a sentence per edge. | A table-of-faces: portraits in a ring, the debt as a coin thread, the secret as a sealed letter pinned to their face. Hearts per villager in Stardew Valley are a one-glance warmth count (known); Crusader Kings draws kin and rival lines between portraits (known). | L3, L4, L5. Cost: portrait art or a glyph per person. | L. Lane (relationships). |
+| GF10 | Lantern-Reader ladder (self, witness, compact, planned, records, insight); Reed-breath realms; Bell-Ringer ladder | Where I stand, what the next step needs, what could go wrong. | 306, 201, 99, 242, 275, 310, 292, 344; target 25 | G1, G3, G5, G6. Six variants of one thing, each restating the rung names in the stair, the track, the notes and the text. | **Redesign: Ability ladder as a lantern stair** (built). One stair with an overlay per variant: crossed rungs hold a dim lit lantern, the current rung glows with a ring for how settled it is, ahead rungs are cold, rumours are dashed, unknowns are a veil. The three requirements are wicks in two words each. Gifts and risk are behind one click. Path of Exile shows allocated and unallocated nodes by brightness (known). | L1, L3, L4, L6. Cost: paths need an optional `short` label per crossing (the draft hardcodes three). The six variants collapse to overlays. | Draft done. Lane (ladders) for the `short` field; DESIGN.md for the overlay rule. |
+| GF11 | Bench: Rite of the Still Bell; Bell Warden Sequence 5 (making); strip; brewing variants (five sections) | Can I make it now, and what is missing. | 87, 132, 101, 65, 128; target 40 | G1, G3. Five near-duplicates of one bench. | A workbench in plan view: the recipe's inputs sit on the bench, missing ones as dashed outlines, the product at the right end. Monster Hunter's smithy and Stardew's crafting grid both show needed items as slots filled or empty (known for Stardew; inferred for Monster Hunter). | L3, L4, L5. Cost: item glyphs. | M. Lane (crafting). |
+| GF12 | Recipe flow: ore to blade | What blocks the blade. | 197, target 50 | G1, G4 (the blocker said in the note, the node and the text). | A flow on the bench: stations as drawn tools (furnace, workbench), materials as pieces moving along, the blocked step shown as a gap with the missing piece's outline. Factorio-style belts show flow and blockage visually (known). | L3, L4. Cost: tool icons. | M. Draft candidate for the next round. |
+| GF13 | Chase: The tollman follows (fx range, unseen) | How close is the follower. | 83 to 137, target 25 | G5, G1. | A road strip with you and a follower mark; distance in steps, unseen shown as a fog bar. Into the Breach and Loop Hero both draw movement as position on a path (known). | L3, L5. Cost: needs a distance in the model (the pursuit model has none yet; see the combat docs). | M. `combat-surface` lane. |
+| GF14 | What you know: the silent bell; Draft: Insight view | What I have worked out and what is still a guess. | 324 and 209, target 80 | G1, G2, G3. A graph whose node labels are cut off with an ellipsis. | A corkboard: clue cards pinned, red thread between them, guesses on a different paper, open questions as blank cards. Outer Wilds' ship log is a rumour map of cards joined by lines with colour for progress (known); Return of the Obra Dinn's book fills in as you deduce (known). | L3, L5. Cost: cards need a one-line gist (the draft labels are truncated now). | L. Lane (knowledge). |
+| GF15 | What it takes: Why the long arm lifts; how far you have got; Glimmer (3 sections) | Which study step is next. | 224, 97, 74, 166; target 40 | G1, G3. | A reading list on a desk: books with bookmarks at the page reached, the next one open. Disco Elysium's Thought Cabinet shows a thought slot with a timer to internalise (known). | L3, L6. | M. Lane (research). |
+| GF16 | While you were away (return digest) | What changed while I was gone, and what needs me. | 325, target 70 | G1, G2, G6. A ring of sources with a list of sentences. | A mail tray: one envelope per source with a count badge, the urgent one on top and open. Fallen London's notifications arrive as cards with a count on the storylet (known); Majora's Mask shows only what the cycle reset in a short summary (inferred). | L5, L6. Cost: the digest becomes click-to-open. | M. Lane (away bank), DESIGN.md rule: lead with what needs a decision. |
+| GF17 | Your lives and return points; your lives tree | Which life I am in, who inherits, where I can return. | 350, target 90 | G1, G3, G6. A tree plus a track plus three sentences plus a text form. | A family register page: the household tree small, the lives as a row of dated bookmarks, the heir marked with a wax seal. Crusader Kings shows heirs by a succession panel with the heir portrait first (known). | L2, L3, L5. | M. Lane (lives). |
+| GF18 | Loop of the Clockwork Town; Where your run differs from the book | When the loop resets and what carries. | 243 and 235, target 60 | G1, G5. | A three-day dial that fills as the loop passes, with the carried items listed under it. Majora's Mask puts the three-day clock on the bottom of the screen at all times (known). For the divergence view, a margin note beside the book's page (inferred; Pentiment sets marginalia and calendar notes beside a manuscript, known). | L3, L6. | M. Lane (loop and divergence). |
+| GF19 | A memory palace (abstract space) | Which memory I stored where. | 257, target 60 | G1, G5. | A building floor plan with stored objects on shelves, the unstored as bare shelves, same grammar as GF25. Disco Elysium's Thought Cabinet is the nearest slot metaphor (known); the palace metaphor itself is unusual, so inferred for fit. | L3, L4. | M. Lane (spacetime). |
+| GF20 | The Low Quay, through the years | How a place changed over time. | 90, target 40 | G1. | A strip of the same quay drawn at three dates with changes marked. Sunless Sea shows the same port with different text across visits (inferred, not a drawing). | L3, L4. Cost: one quay drawing per place, or a generic place frame. | L. | 
+| GF21 | The Ashdown household; family stranger; ancestors as a fan | Who is in my family, what I know of them. | 359, 149, 83; target 90 | G1, G3, G6. | The household as a register page with a hand-written tree; unknown kin as torn-away corners. Crusader Kings draws the tree with portraits and lines (known). | L2, L3, L4. | M. Lane (family). |
+| GF22 | Walks from Lamplighters' hall (map, nearest first, alone); route strip; draft walks panel; draft route strip | How far, and is the way blocked. | 259, 68, 81, 87, 141, 111; target 40 | G1, G4 (minutes on the edge and in the key and in the text), G2. | A street plan with walking time as a ribbon, the blocked road crossed with a bar and a closing time. Citizen Sleeper's Cycle clock and Pathologic's day clock both tie travel to the day (inferred for Pathologic; known for Citizen Sleeper's clocks). | L3, L5. | M. Lane (maps). |
+| GF23 | Your body; measured channels; who sees which body; draft borrowed face | What is wrong with me now, what is healing. | 278, 136, 149, 153; target 60 | G1, G3, G4. | A body silhouette with the strained parts lit and the recovery track as a bandage strip. Rimworld's health tab lists body parts with injury icons (known); Darkest Dungeon draws a hero's stress and wounds on the portrait (known). | L3, L4, L5. Cost: one silhouette per form; human first. | L. Lane (body). |
+| GF24 | Market courtyard standing; Ash Lane crew roster; Quiet Orchard grade ladder | Where I stand with a group and what that gets me. | 101, 138, 85; target 40 | G2, G3. A graph of five circles with one-letter glyphs. | The crew as a wall of pinned portraits with the captain's hat, the owed cut as a coin by their name; the sect as a jade-slip rack with one slip per grade. Persona's social links are drawn as a rank card with a step bar (known). | L3, L4. | M. World pack (sect, gang). |
+| GF25 | Home: Willow House, Canopy nest, Riverside rented room | What is fitted, what is not, am I safe here. | 192, 134, 120; target 15 | G3, G4, G5. Chips boxed in groups with a count, a key and a text line. | **Redesign: Home as a floor plan** (built). Rooms as outlines, fittings as pictograms (solid fitted, dashed empty), unbuilt rooms as dashed extensions with a plus. The Sims' build mode shows rooms as a plan with items placed in it (known). | L1, L3, L4, L5. Cost: five pictograms and a plan layout rule. | Draft done. Lane (homes). |
+| GF26 | Ledger: Owed, as a table | Who I owe, how much, which is late. | 209, target 45 | G1, G2, G3, G4. A grid with five columns for five rows, the kind written out, and a term bar plus its percentage. | **Redesign: Owed ledger as a pawnbroker's page** (built). Two facing pages, "you owe" and "owed you", ruled lines, a margin glyph for the kind, a dotted leader to a hand-written figure, a rubber stamp for late, a burn-down rule for the term left, a page total at the foot in a large hand. A wax seal for settled is the next state (no data in the fixture yet). Papers, Please uses stamps for approved and denied (known). | L1, L2, L3, L5. Cost: a hand face stack (system fonts, no new asset) and a kind-glyph set per world. | Draft done. Lane (ledger), DESIGN.md for the glyph set. |
+| GF27 | Before you cross (clerk, envoy) | What goes with me, what stays, what waits. | 415 and 445, target 35 | G1, G3, G4. Four stacked boxes, each row a label plus a sentence, then a key. | **Redesign: Crossing threshold as a ticket** (built). The perforation is the crossing: stays and paused on the left, tags that go with you across the seam, what waits on the far side on the right. Each tag shows its label; the sentence is one click or a hover. Papers, Please frames the crossing as documents handed over a counter (known). | L1, L3, L5, L6. Cost: the card's summary rule moves into the layout ("only tagged items cross"). | Draft done. Lane (worlds), DESIGN.md for the ticket as the crossing form. |
+| GF28 | A day on a band | What I did, what is coming, what the weather does. | 131, target 50 | G1, G6. The band itself is good. | A sky band: dawn to night as a gradient, the weather as clouds along the top, work as marks on a ground line, now as a sun position. Rimworld's schedule is a 24-hour coloured grid (known). This is the next draft candidate; the object is already almost there. | L3, L4. | S. Gallery draft in the next round. |
+| GF29 | Chip row; bar rows | What is true of me now; what is in progress. | 89 and 88, keep | G6, G3. Chips are fine at this size. | Keep. Remove the repeated words in the bars ("6 of 10 sittings" beside a 6/10 bar). | L5. | S. DESIGN.md rule: a bar says its numbers once. |
+| GF30 | Gathering: bloom, fall, plain, insight (odds and freshness) | What is open to gather now, what is coming. | 388, 356, 131, 530; target 80 | G1, G3, G4. Four stacked blocks (table, band, two chip rows) repeating the same stock in every one. | A field almanac: sites as small illustrated plots with a jar for stock, the season as a year ring with a window arc per item, the weather note as a tag. Stardew Valley's calendar shows seasons as a month grid with crop icons (known). This is the largest unbuilt gain, so first in line for the next round. | L3, L4, L5, L6. | M. Gallery draft next; lane (gathering). |
+| GF31 | Draft: Insight view, Study fed, Due and Orders, Day threads, Doorstep card | Mixed; each is a draft panel. | 209, 171, 180, 152, 202; target 60 | G1, G3. | Fold into their parent rows (GF14, GF15, GF16, GF28, GF26). A collector at the door: a visitor card with the demand as a ticket stub. Papers, Please shows a person at the booth with their documents (known). | L3, L6. | S each. Owners as listed. |
+
+## Row notes that need more than a cell
+
+**GF7 versus.** The captures showed the current versus row without its stylesheet (G7). Fixing that makes the current column honest and also changes the old section, which now draws as the real cards. The draft reads the same view the current one reads and never edits `combat_versus.js`. The `combat-surface` lane (M2 in the PLAN) owns the combined fight surface, so any build must start there.
+
+**GF10 ladder.** The six Lantern-Reader sections differ only in which overlay they show: planned (a ghost fill), records (a page mark), insight (a revealed rung) and witness (what someone else has seen). The draft shows one stair and the overlay idea; the overlays themselves are not drawn yet (gap).
+
+**GF26 and GF27 glyphs.** The ledger kind glyphs (金 money, 務 duty, 怨 grievance) follow VSX3 and DSG4, with the English word on hover and in the text form. They are a draft set. A world picks its own.
+
+## Proposals for DESIGN.md (sent to `ui-identity`)
+
+All proposed, all default, dial and reason, in the same style as DSG1 to DSG19. Codes DP1 to DP6 are new to this audit.
+
+| Code | Default | Dial | Reason |
+| --- | --- | --- | --- |
+| DP1 | A figure prints no text form. The text form sits behind a "read as text" toggle, hover and screen readers. A key prints only for marks the drawing does not explain. | A text-first display setting prints it; a dense debug view keeps it. | G1 and G6: the text form is 55 to 75 percent of the words in the gallery and the figure already carries the meaning (UR37 still holds, since every fact has a word in the toggle and in the accessible name). |
+| DP2 | A bespoke object per system and per world over one shared grammar (a ledger page, a crossing ticket, a floor plan, a lantern stair, a face-off). The shared grammar is states, glyph marks and colour roles. | A world swaps the object (a sect keeps a jade slip rack instead of a lantern stair) with a reason; the plain table stays one setting away. | G5. Builds on AD46 and DSG17 and answers "less generic". |
+| DP3 | Two type voices: the bitmap face for labels, a second face for headings and big numerals, and a hand face used only for figures a person would write. Faces are tokens, so a skin swaps them. | Luminous Gothic keeps the bitmap face for display too if Weibao prefers; hand is off in a skin that has no handwriting. | G2. The hierarchy gives each object a first read. Touches DSG2 and UR68, so Weibao decides. |
+| DP4 | Say a fact once. A count, a bar and a chip do not repeat each other; a number beside a bar names units, never restates the fill. | A detail view may show both. | G4. |
+| DP5 | A default view shows what changed and the next decision; the inventory sits behind a disclosure (L6). | A first-time player or a "show everything" setting opens it. | Matches DSG7, DSG8 and UR41. |
+| DP6 | The gallery page loads every stylesheet its sections need, and a check fails when a section draws unstyled. | None. | G7: the versus row and the character sheet drew unstyled in the captures, which hid the real current form. |
+
+## Gaps and costs
+
+- Draft numbers measure the default luminous cell in Chrome; the paper skin gives the same word counts. Nothing was played in the game; every draft draws gallery fixtures only. Agent-verified, not human-reviewed.
+- The drafts use system fonts (a hand face stack and the page's own serif); a real hand face is an asset decision for Weibao.
+- The ladder draft hardcodes three short labels. Playable form needs an optional `short` on crossings.
+- The ladder overlays (planned, records, insight, witness) and the wax-seal settled state are described, not drawn.
+- Rows GF2, GF8 to GF9, GF11 to GF24 are judged from captures and fixture text, not from a fresh player session; reference-game claims marked inferred were not checked against the games.
+- Next round candidates by gain: gathering (GF30), day band (GF28), recipe flow (GF12), then relationships (GF9).
+
+## Round 2: housing
+
+Weibao, 2026-10-30: drop the bright skin, work in blue Luminous Gothic only; housing "can just be like a blocky or more abstract". Round 1's icon floor plan is rejected. Everything below is a proposal (AD32); the live `home_view.js` is untouched and Weibao picks first. Target viewport 1920x1080, desktop. Captures: [composite and one per variant](../representations/evidence/housing-variants/housing-variants-composite.png). Code: `src/ui/preview/fixtures/housing_variants.js`, `src/ui/preview/housing_gallery.js`, section 6 of `styles/redesign_drafts.css`.
+
+### Reference board
+
+Known means I can state the mechanism; inferred means a recalled pattern I did not recheck.
+
+| Game | What it does for a home or holdings | Status | Take for H1-H3 |
+| --- | --- | --- | --- |
+| Crusader Kings III | A holding shows a fixed row of equal building slots: a filled slot with its building, an empty slot you can build, and slots you cannot yet use. Meaning lives in the slot's state, the name is a tooltip. | Known | H1 copies the three states and puts the name in one word. |
+| RimWorld | A room is an area on the map with a handful of stats (impressiveness, cleanliness, beauty) read as words and a number. The room is a labelled rectangle, not a drawing. | Known | H3's stat-first read; H2's rooms as plain masses. |
+| Melvor Idle (Township) and Kittens Game | Building rows: name, count or level, effect, with a button to add one. A tidy list that grows. | Known (rows); inferred (exact fields) | Counts and a level read as numerals, not sentences. |
+| A Dark Room | A plain list of buildings and a number that grows; nothing is drawn. The page itself becomes the home as you build. | Known | The skyline (H2) lets the home itself grow with no icons. |
+| Darkest Dungeon (Hamlet) | Each building has a row of upgrade pips; filled pips are bought. | Known | Pips for fittings inside a room (H2) and segmented meters (H3). |
+
+What the board says: every reference shows state by fill, outline and dimness, and puts words at one tier (a name or a number), never a sentence. None draws furniture.
+
+### Variants (same home, Willow House, from `homeOverviewModel`)
+
+| Variant | Idea | Visible words | Words with "read as text" |
+| --- | --- | --- | --- |
+| H1 slot grid | Two rows of equal square blocks (Rooms, Fittings): filled and glowing is built, hairline is buildable, hatched and dim is locked (reason on hover). One word under each. | 15 | 18 |
+| H2 block skyline | The main house is a mass with a roof block and four fitting pips; the side room is a built block; unbuilt rooms stand as dashed ghosts above and beside it. Study fitting is a pip inside the study ghost. | 8 | 11 |
+| H3 stat-first card | Comfort, upkeep and storage as three big numerals over segmented meters, then a thin strip of small blocks (rooms, fittings). | 14 | 17 |
+
+Illustrative overlay: the home fixture has no locked room, so the guest room is marked locked ("needs the quiet study first") to show the third state. The real rule needs a design owner. Comfort has no cap in the model, so its meter shows the four named bands, not a score out of ten.
+
+### Self-critique log (against the board and L1-L6)
+
+- **H1, pass 1.** Matches CK3 states, but built glow is faint, buildable blocks vanish into the panel, and the headline has no hierarchy. Revised: stronger glow, brighter buildable outline, name set in a larger tier over a muted tenure and comfort line.
+- **H1, pass 2.** Reads in two seconds: filled, outline, hatched. L1, L5 and L6 hold (no text form, nothing said twice). Remaining cost: Study appears in both rows, one word each, which is right but could confuse; hover title carries the full name.
+- **H2, pass 1.** A lone block with pips did not read as a skyline and half the cell was empty. Revised: added a roof block, enlarged the unit, centred the row, set ghosts at matching heights.
+- **H2, pass 2.** Now reads as a house with room to grow, the closest to A Dark Room's "the page becomes the home". Costs: fittings are unlabelled pips (hover only, so an L1 trade), and which room holds which fitting is my inference (study fitting in the study ghost).
+- **H3, pass 1.** The strongest at a glance; big numerals give a clear first read (L2). The block strip was tiny and cramped under the meters. Revised: more gap between meters, small blocks keep a glow.
+- **H3, pass 2.** Good. Cost: it says little about which fittings are missing; the small strip needs a hover for that.
+
+### Pick and gaps
+
+My pick: H1 as the default home view, with H3's three meters above it only when something is strained (L6). H1 is the clearest reading of rooms and fittings and costs no drawn assets; H2 is the most distinctive and could be an option for worlds that want a place, not a table (AD46). H3 alone hides the missing-fitting fact.
+
+Gaps: no mobile check (deferred); paper skin parked; screens are at 1920x1080 only; the keyboard and screen-reader path for locked blocks is `tabindex` plus an aria-label, not browser-tested; hover reasons were not exercised in a screenshot.
+
+## Round 2: people (R2-3)
+
+Weibao, 2026-10-30: less generic, less wall of text, blocky and abstract; blue Luminous Gothic only. This run covers GF9 (who knows what), GF21 and GF17 (family and lives, one aspect because both are "who is in my line and which life am I in") and GF24 (group standing). Proposals only (AD32); no live view changed. Target 1920x1080, desktop. Captures in [people-variants](../representations/evidence/people-variants/): `who-composite.png`, `family-composite.png`, `standing-composite.png` (current figures plus three variants) and one shot per variant (`W1`-`W3`, `F1`-`F3`, `S1`-`S3`). Block vocabulary shared with the housing and places runs: a filled glowing block is known, close or had; a hairline outline is guessed or possible; a dim block is unknown or lost.
+
+### Reference board
+
+Known means I can state the mechanism; inferred means a recalled pattern I did not recheck.
+
+| Game | What it does | Status | Take |
+| --- | --- | --- | --- |
+| Crusader Kings III | Family tree window: one portrait per person, generations as rows, lines for parent and spouse; icons on a portrait mark a hook, rival or friend; opinion is a number with its reasons in a tooltip. A secret has a panel listing who knows it. | Known (tree, icons, tooltips); inferred (the secret panel's exact layout) | Rows by generation without lines (F1); reasons on hover, not printed. |
+| RimWorld | Social tab per colonist: one row per person with their opinion of you and yours of them as signed numbers, relation words (spouse, parent), sorted by opinion. | Known | Sort the who-knows grid by weight (W1, W3). A row per person is a scan list; the numbers stay behind hover. |
+| Dwarf Fortress | A dwarf's relationships are lines of text ("is the spouse of ..."), with thoughts listed beside them; the Legends view reads lineage as text. | Known (text lines); inferred (current layout in the Steam build) | The anti-pattern this run avoids: a wall of sentences per person. |
+| Persona 5 confidants | Each confidant has a rank 1-10, shown as a numeral on an arcana card with a segmented gauge to the next rank. | Known | Rank card with a big numeral and a pip row (S3). |
+| Stardew Valley | Friendship hearts per villager: a row of ten, filled up to your level, with locked hearts gated on an event. | Known | One block per step, the next step's partial fill (S1). |
+| Return of the Obra Dinn | The crew page: sixty slots, each unknown, guessed or confirmed; a slot only locks when the guess is certain. | Known | Three-state slot per person: dim, hairline, filled (all variants). |
+| RimWorld factions | Goodwill with a faction is one number on a coloured bar from hostile to allied. | Known (bar), inferred (colours) | A rung bar needs no sentence (S1, S2). |
+
+What the board says: the games that read at a glance (CK3 rows, hearts, Obra Dinn slots, Persona's gauge) use a fixed slot per person or per step and state by fill; the ones that need patience (Dwarf Fortress, the RimWorld tab) are text lists. Numbers and reasons live in tooltips.
+
+### Variants (same fixtures as the current figures)
+
+| Variant | Idea | Visible words |
+| --- | --- | --- |
+| W1 who-knows grid | People down, what each knows or holds across: five deeds, "heard", debts they owe and you owe. Filled is seen, hairline is only heard of you, dim is nothing known; strained debt is amber. Rows sorted by weight. | 16 |
+| W2 telling lanes (unusual) | The rumour ripple as a staircase: the deed is one tall block, one lane per chain of telling, one column per hop. Filled is traced, hairline is a guessed link. | 12 |
+| W3 holder stacks | One column per person, heaviest left: debts at the base, deeds they saw above, a hairline cap when they only heard. | 6 |
+| F1 register | Generations as rows, a parent block over its own two parents, you glowing, the heir marked by a bar. Lives as numbered tokens below. | 11 |
+| F2 brick wall | Seven fixed slots (you, two parents, four grandparents) as a nested wall, from the half-remembered family: gaps in the wall are what you do not know. Lives as a column. | 6 |
+| F3 life stack (unusual) | One floor per life, return points as two ticks at its end, kin as a row of small blocks on the life you are in; a no-route life is dim. | 8 |
+| S1 rung bars | One bar per group, one block per rung: reached filled, where you stand glowing, ahead hairline with the next rung's progress filled in. The crew is a roster bar with gaps between roles. | 21 |
+| S2 stairs (unusual) | Each ladder a stair you stand on, steps above you outlined; the crew a pyramid with the boss on top. | 10 |
+| S3 rank cards | Persona-style: group name, rank as a big numeral, a pip row, the next ask in a few words. | 24 |
+
+All under 50. The current figures print 205 to 459 words each; the text forms now sit behind "read as text". No names beyond first names, no sealed truths shown, no canon names.
+
+### Self-critique log (against the board and L1-L6)
+
+- **All, pass 1.** The first build shared a `pv-` class prefix with an existing pathway stylesheet, which drew orange boxes on captions and stretched the F3 ticks; renamed to `ppl-`. Dim blocks read as filled teal, so known and unknown looked alike; dim is now an empty faint outline and known is stronger.
+- **W1, pass 2.** Reads as a constellation: the filled blocks are the answer. Column heads collided ("Promise"), now "Oath". Debt cells stack side by side, not vertically. L1, L5 hold.
+- **W2, pass 2.** The guessed lane reads as a hairline stub then two hairline blocks, which is right. Initials are the only labels; hover names them (an L1 trade). The deed block is labelled "Seal", which names a deed the design may need to keep sealed in other worlds.
+- **W3, pass 2.** Too small and sparse in pass 1; taller slabs and more air help, but it is still the weakest: which block is a debt and which a deed is by colour and position, so it needs hover.
+- **F1, pass 2.** The strongest reading of lineage (CK3's rows, no lines). Grandparents carry no labels, so unknown ones are only empty slots; hover names the relation. The heir bar sits between rows and could read as a divider.
+- **F2, pass 2.** The wall shows what is unknown very well, but it only fits the seat that has little family. A household with kin and heirs needs F1.
+- **F3, pass 2.** Kin row collapsed to slivers in pass 1; fixed. It packs lives, return points and kin into 8 words but the kin are unnamed.
+- **S1, pass 2.** The best read of "where am I and what is next". The crew bar looked like a ladder; gaps between roles now set it apart, but it is still a row, not a hierarchy.
+- **S2, pass 2.** The most distinctive and shows height as rank; steps are unlabelled so the glowing one carries the meaning. Labels under each stair wrap.
+- **S3, pass 2.** Clear first read from the numeral (L2), but 24 words and three boxes in boxes (G3), the closest to the generic card.
+
+### Pick and gaps
+
+My picks. Who knows what: W1 as the default (a grid scales to more people and facts; W2 only suits one deed), with W2 as the "trace a rumour" detail. Family and lives: F1 for the family panel and F3 for the lives panel, since lives need return points and F1 does not. Group standing: S1 as the default; S2 is a good world-flavoured option (AD46).
+
+Gaps: gallery fixtures only, nothing played; 1920x1080 only, mobile deferred; paper skin parked; the family tree for a larger household (more than six per row) is not drawn; the "next ask" strings in S1 and S3 are shortened by hand from the fixture notes (`NEXT_ASK` in the fixture file), not read from the model; the W2 hop names come from the ring ids; crew roles are read from the node labels; hover text was not exercised in a screenshot.
+
+## Round 2: places (R2-1)
+
+Gathering (GF30) and walks (GF22), three Luminous variants each, one unusual. Code: `src/ui/preview/fixtures/places_variants.js`, `styles/places_variants.css`, gallery sections `places-gathering` and `places-walks`. Same data as the current fixtures (Willow bank in Bloom and in Fall; the Lamplighters' hall walks). Block vocabulary shared with housing and people: filled glowing block = have or open, hairline = gated or coming, dim hatched = shut or gone, dashed = unknown. Proposals only; live views untouched; paper skin not drawn. Evidence: `docs/representations/evidence/places-variants/` (`gathering-bloom-composite.png`, `gathering-fall-composite.png`, `walks-composite.png`, one shot per variant). Agent-verified, not human-reviewed.
+
+### Reference board
+
+K = known (I can state the mechanism), I = inferred (recalled pattern, not checked).
+
+| Game | Gathering sites and seasons | Travel and distance | Take for us |
+| --- | --- | --- | --- |
+| Stardew Valley | Forage spawns per season and map; the calendar is a month grid with a season colour and day icons (K). The wiki tabulates forage by season, which players keep open beside the game (I). | Maps are screens joined by exits; no walking time shown (K). | A season is a column, an item is a row, an open span is a filled cell (G2). |
+| Melvor Idle | Skill screens list rows per resource with level gate, mastery and a locked row dimmed with its requirement (K). Seasons exist as a Season skill's rows rather than a calendar (I). | Not a travel game. | A gated row stays visible, dimmed, with the gate as a short token (G1, G2). |
+| Dwarf Fortress | Site and world-map lists are long text tables; the embark screen colours biome tiles and shows season-dependent flora as text (K for the lists, I for the colours). | Travel time is in days of the world map, read by eye (I). | The cautionary case: a lot of true text, no first read. Avoid. |
+| Kenshi | World map with towns as markers and travel as a real-time walk across the terrain; the distance is felt from the line length and the clock (K). | Distance is a length on a map, no quoted minutes (K). | Make distance a length or a mass, quote one numeral (W2, W3). |
+| Kittens Game / A Dark Room | Resource rows with a number and a rate; the list grows as you unlock (K). | none | Counts as countable things, not bars of percent (G3). |
+| Citizen Sleeper, Pathologic | Travel tied to a cycle or day clock, a blocked route is a closed door with a reason (K for Citizen Sleeper's clocks, I for Pathologic). | | A blocked walk is a hairline block with one word (dusk) (W1 to W3). |
+| Departure boards (rail and airport) | not a game | One row per departure, soonest first, a time numeral at the edge, a status word only when abnormal (K). | The seed for W1. |
+
+### Variants
+
+| Id | Form | Visible words, Bloom (Fall) |
+| --- | --- | --- |
+| G1 | Site blocks: a tall block per site filled to its stock, a dashed step above for what regrows by tomorrow, mini blocks under for what it gives (filled open now, hairline gated, dim out of season, dashed unknown). | 14 (10) |
+| G2 | Season strip: four season columns, a row per thing a site gives, a filled span where open, a hairline span where gated now, a dim span where the season is shut, a tick for now. | 22 (18) |
+| G3 (unusual) | A counted bed: every unit of capacity is a cell; filled = left, hairline = back by tomorrow, dim = gone, outline-only = shut by season. | 15 (10) |
+| W1 | Departure board: nearest first, a run of five-minute blocks and one numeral per row, blocked as a hairline run with one word. | 16 |
+| W2 (unusual) | A road at true scale: one line, a tick block per five minutes, each place stands at its minutes on a stem, so equal distances stand side by side. | 20 |
+| W3 | Mass blocks by district: a square whose side grows with walking time, grouped under the district. | 21 |
+
+Counts exclude the three words of "read as text". Current forms for comparison: gathering 152 (Bloom), 131 (Fall); walks 79. Each says its words once: stock, minutes and season appear as the drawing plus at most one numeral; everything else is hover and the text toggle.
+
+### Self-critique log (against the board and L1 to L6)
+
+1. First capture: every row and name drew as a filled block because the state selector matched containers, and the season grid put the yield label in the last column. Fixed: states apply to block classes only, the site name row spans the grid. Revision 1.
+2. Second capture: the season header ran "Long light" into "Fall", G3 cells were square 40 px tiles that made the page tall, W1 put the person pip on its own row, and the walks "min" unit sat alone at the foot. Fixed with a narrower label column, fixed cell height, the pip inside the place cell and the unit in the header (L5: say it once). Revision 2.
+3. Third capture: G1 said stock but not what comes back, unlike G3, so it was the weakest on "show what matters now" (L6). Added the dashed regrowth step. Revision 3. The cell screenshots were clipped before the fonts settled, so the capture waits 600 ms after scrolling.
+4. Still open: W2's two blocks at 0 and 2 minutes touch at this width; G1's mini blocks are wordless and rely on hover; the person pips use an initial, which R2-3 may replace.
+
+### Pick and gaps
+
+Gathering: G3 as the default (counts are literal, the three states carry stock, regrowth and shut seasons at once), with G2 as the season view one click away, because G3 cannot say when a shut season returns. Walks: W1 as the default (fastest read, closest to the live walk list, minutes as one numeral); W2 is the one to keep as the unusual option because it is the only form where "these two are equally far" is visible without reading.
+
+Gaps: 1920x1080 only, Luminous only, no mobile; the hour gate of Dawn dew and the sickle gate are hover-only; no insight or odds view yet (the odds bars in `gather-insight` are not redrawn); the rare find is not drawn; the weather is one "rain" tag with the sentence on hover; no keyboard or screen-reader pass beyond titles and aria-labels; reference claims marked I were not checked against the games.

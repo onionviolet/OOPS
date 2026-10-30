@@ -97,3 +97,11 @@ test('combat repeat preference normalizes and shares browser reset/export/import
     assert.equal(getDisplaySetting('combatRepeatMode'), 'stack', 'explicit local choice wins imported preference');
     resetDisplaySettings();globalThis.localStorage = priorStorage;
 });
+
+test('the compact hit line carries the damage type and the weak-spot note, and stays plain when untyped', () => {
+    const c = fight(rat('River crab')), crab = c.defenders[0];
+    const ev = o => combatLogEvent(c, {fighter: hero, fighterIndex: 0, isAttacker: true, target: crab, outcome: 'hit', amount: 3.1, ...o});
+    assert.equal(combatLogText(ev({kind: 'bludgeoning', note: 'weak spot', hits: 3})), 'You hit River crab for 3.1 bludgeoning (3 hits, weak spot)');
+    assert.equal(combatLogText(ev({kind: 'physical'})), 'You hit River crab for 3.1');
+    assert.notEqual(combatLogKey(ev({kind: 'bludgeoning'})), combatLogKey(ev({kind: 'slashing'})));
+});

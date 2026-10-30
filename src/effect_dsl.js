@@ -4,7 +4,7 @@ export const SRD521_ATTRIBUTION = 'This work includes material from the System R
 export const CONDITION_IDS = Object.freeze(['blinded','charmed','deafened','exhaustion','frightened','grappled','incapacitated','invisible','paralyzed','petrified','poisoned','prone','restrained','stunned','unconscious']);
 export const SCHOOLS = Object.freeze(['abjuration','conjuration','divination','enchantment','evocation','illusion','necromancy','transmutation']);
 const abilities = ['str','dex','con','int','wis','cha'];
-const damageTypes = ['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder'];
+export const damageTypes = ['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder'];
 const assert = (test, path, message) => { if (!test) throw new TypeError(`${path}: ${message}`); };
 const text = (v,p) => assert(typeof v === 'string' && v.trim().length > 0 && v.length <= 8000,p,'expected nonempty text');
 const integer = (v,p,min=0,max=1000000) => assert(Number.isSafeInteger(v) && v>=min && v<=max,p,`expected integer ${min}..${max}`);

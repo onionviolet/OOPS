@@ -1,0 +1,38 @@
+diff --git a/src/book_world_lotm_path.js b/src/book_world_lotm_path.js
+index 7f21e401b..2781baf7a 100644
+--- a/src/book_world_lotm_path.js
++++ b/src/book_world_lotm_path.js
+@@ -31,6 +31,8 @@ const ADVANCEMENT='lotm-advancement/advancement.json';
+ let ladder=null;
+ export function setAdvancement(pack){ladder=pack?.rungs?advanceLadders(seerPathway,pack):null;}
+ export const advancementRungs=()=>ladder?.rungs??null;
++// The descriptor behind the current ladder view (the Seer path, or the advancement ladder when its pack is present), for the pathway card.
++export const lotmPathDescriptor=()=>ladder?ladder.path:seerPathway;
+ // RPX5: the typed ability records (L10 cards) of the Seer rung at a position and the next one, for the ladder figure's
+ // per-ability lines (costs the source does not state read as inferred). Empty without the pack.
+ export function lotmRungAbilities(position){const stages=ladder?.path.stages,cards=i=>Object.values(ladder?.rungs?.[stages?.[i]?.id]?.abilities?.cards??{});return {here:cards(position),next:cards(position+1)};}
+diff --git a/src/book_world_lotm_ui.js b/src/book_world_lotm_ui.js
+index 8435e8752..2f097aa14 100644
+--- a/src/book_world_lotm_ui.js
++++ b/src/book_world_lotm_ui.js
+@@ -7,7 +7,9 @@ import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
+ import {observerForProfile} from './observer_view.js';
+ import {renderFigure} from './ui/figure.js';
+ import {ladderFigureSpec} from './ability_ladder_figure.js';
+-import {lotmRungAbilities} from './book_world_lotm_path.js';
++import {lotmRungAbilities,lotmPathDescriptor} from './book_world_lotm_path.js';
++import {lotmPathwayCard} from './book_world_lotm_card.js';
++import {renderPathwayCard} from './ui/pathway_card_view.js';
+ import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
+ import {walkMapBlock} from './ui/walk_map.js';
+ import {walkBoard} from './ui/walk_board.js';
+@@ -156,6 +158,9 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
+   const {text}=renderFigure(fig,spec,{idPrefix:'lotm-ladder'});
+   words.append(node('summary','Read the ladder as text'),Object.assign(node('pre',text),{className:'fig-text'}));
+   path.append(node('h3',p.label),fig,words);
++  // Pathway card: the ladder's requirements as known, partly known and locked lines, with the ways the character knows (Round 13). Reads this view; stores nothing.
++  const cardModel=lotmPathwayCard(v,lotmPathDescriptor());
++  if(cardModel){const cardBox=node('div');cardBox.dataset.lotmCard='';renderPathwayCard(cardBox,cardModel,{onRoute:findControl});path.append(cardBox);}
+   // Reference prose sits behind one disclosure after the ladders and steps (UR42, round 2 density).
+   const howTo=[v.switchNotice];
+   if(!p.chosen)for(const o of p.others)path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')));

@@ -781,3 +781,27 @@ one covered-to-unbuilt boundary, parks with its real stock and time receipt,
 then resumes after coverage is added without duplicate consequences. Level:
 strong runtime/authoring agent, medium; current-state persistence and rebuilt
 1920×1080 plus 1366×768 evidence, with no sealed truth in public fixtures.
+
+## Round 7 (2026-10-30): relationship fade and bounty autonomy from the similar-games surveys, proposal only
+
+Source: [similar games beyond protolikes](research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md) F2 and F10; ranked in the
+[absorption plan](research/ABSORPTION_PLAN_SIMILAR_GAMES_2026-10-30.md). Proposals (AD32). Both are NPC-heavy and AD33 defers
+NPC-heavy work, so they are LATER.
+
+ACCOUNT FOR NOW
+
+- **RLU5, fade is a dial on familiarity, not on trust.** Veloren moves each stored feeling toward zero, and strong feelings
+  fade more slowly (`rtsim/src/data/sentiment.rs`, raw-checked; its real-time constants are not copied). RLI4 already says
+  familiarity decays to a floor and trust does not decay while away. So the only addition is the shape: the fade rate falls as
+  the value grows, and a cap per person keeps the weakest ties from persisting forever. Default: off for the lead's circle.
+  Dial: rate and cap per world. Reason: a world with a long memory (gods, grudge cultures) turns it down; a gossip town turns
+  it up.
+- **RLU6, a persistent tie list has a cap.** Veloren caps stored sentiments per NPC and drops the weakest. Our equivalent is
+  a cap on stored acquaintance ties, never on kin or bonded ties. Default cap set by the world's population dial.
+
+LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| RLU7 | Posted-task autonomy: a follower scores a posted task by reward, distance, danger and temperament, and the UI names the refusal reason (Majesty, developer-documented; formula unverified). | Sonnet, medium; AD33 later | A follower declines one task for a named reason and takes another; no new ledger beside PIR. Reopen when AD33 is lifted or a companion slice needs it. |
+| RLU8 | Veloren "simulated NPCs drop queued actions": when the player is away, keep an explicit list of which NPC actions survive. | Sonnet, low doc | A short table in the away-ledger owner naming each action kind as survives, drops or resumes. Waits for the away-bank lane. |

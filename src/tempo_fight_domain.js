@@ -3,14 +3,27 @@ import {commitSimulationCommand, previewSimulationCommand} from './simulation.js
 import {pursuitView} from './pursuit.js';
 import {ROAD_RIVAL, RIVAL_PURSUIT} from './frontier_campaign.js';
 import {readNativeFighter} from './native_battle.js';
+import {typeSnapshot} from './damage_types.js';
 import {partyHelperReasons, initializePartyBattle} from './party_battle.js';
 import {PARTY_HELPER} from './native_battle_contracts.js';
+import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
+import {harmPart} from './harm_engine.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
 
 // Road-duel tempo route: the same pursuit and encounter, driven by the tempo clock (LSD307-LSD317).
 // Text-first (LSD314): one line per step, a who-acts-next strip, moves with their time cost.
-let ports, panel;
+let ports, panel, aim = null;
+// The fight's injuries reach the L9 ladder through its one door after the commit (default parts rows; a world without its own rows keeps them for when it has).
+function applyHarm(plan) {
+    for(const e of plan?.harmEffects || []) {
+        let save = {harm: harmState(), expansion: {actors: {player: {worldId: 'default'}}}};
+        save = harmPart(save, e).save; setHarmState(save.harm);
+    }
+}
+const carriedParts = () => Object.fromEntries(Object.entries(harmState().parts || {}).filter(([, p]) => HARM_RUNGS.includes(p.rung)).map(([id, p]) => [id, p.rung]));
 export const configureTempoFight = operations => {ports = operations;};
+// Damage types are read once from the live actors and kept on the saved profile; a fight saved without them reads as untyped physical.
+const withTypes = (profile, actor) => ({...profile, types: typeSnapshot(actor)});
 const node = (tag, text = '') => {const n = document.createElement(tag); n.textContent = text; return n;};
 const open = () => ports.root().simulation?.sessions.player?.nativeBattle?.schema === TEMPO_SCHEMA ? ports.root().simulation.sessions.player.nativeBattle : null;
 
@@ -44,12 +57,12 @@ function start(request = {}) {
     const requestId = pursuitView(state, RIVAL_PURSUIT)?.requestId;
     const withLio = !!request.withLio;
     const adopt = withLio ? initializePartyBattle(state, ports.registry, {requestId}, context) : commitSimulationCommand(state, ports.registry, {id: 'rival.confront', requestId}, context);
-    const rival = adopt.state.simulation.people[ROAD_RIVAL], me = readNativeFighter(ports.actor()), v = context.vitals.player, body = rival.body;
+    const rival = adopt.state.simulation.people[ROAD_RIVAL], me = withTypes(readNativeFighter(ports.actor()), ports.actor()), v = context.vitals.player, body = rival.body;
     // Same derivation as the road duel's rival (native_battle_host): an Enemy built from the saved body and vitals.
     const foe = new ports.enemy({id: ROAD_RIVAL, name: 'Mara', description: 'A rival association scout', add_to_bestiary: false, tags: ['living', 'person'],
         stats: {...body, health: rival.vitals.max_health, max_stamina: rival.vitals.max_stamina}});
     foe.init(); Object.assign(foe.getFullStats(), rival.vitals);
-    const rivalProfile = readNativeFighter(foe);
+    const rivalProfile = withTypes(readNativeFighter(foe), foe);
     let lio = [];
     if(withLio) {
         const person = adopt.state.simulation.people[PARTY_HELPER];
@@ -57,17 +70,19 @@ function start(request = {}) {
             stats: {...person.body, health: person.vitals.max_health, max_stamina: person.vitals.max_stamina}});
         friend.init(); Object.assign(friend.getFullStats(), person.vitals);
         lio = [{id: PARTY_HELPER, name: 'Lio', side: 'a', speed: 100, hp: person.vitals.health, maxHp: person.vitals.max_health, stamina: person.vitals.stamina, maxStamina: person.vitals.max_stamina,
-            profile: readNativeFighter(friend), perception: person.body.intuition ?? 5, stealth: person.body.agility ?? 5, moves: ['guard', 'tend', 'jab', 'withdraw'], ally: lioAlly(adopt.state)}];
+            profile: withTypes(readNativeFighter(friend), friend), perception: person.body.intuition ?? 5, stealth: person.body.agility ?? 5, moves: ['guard', 'tend', 'jab', 'withdraw'], ally: lioAlly(adopt.state)}];
     }
     const plan = beginTempoFight(adopt.state, ports.registry, context, {adopt, id: 'road-rival', title: "Mara's road contest", floor: 1, fighters: [...lio,
-        {id: 'player', name: 'You', side: 'a', speed: 100, hp: v.health, maxHp: v.max_health, stamina: v.stamina, maxStamina: v.max_stamina, profile: me, perception: me.stats.intuition ?? 5, stealth: me.stats.agility ?? 5},
+        {id: 'player', name: 'You', side: 'a', speed: 100, parts: carriedParts(), hp: v.health, maxHp: v.max_health, stamina: v.stamina, maxStamina: v.max_stamina, profile: me, perception: me.stats.intuition ?? 5, stealth: me.stats.agility ?? 5},
         {id: ROAD_RIVAL, name: 'Mara', side: 'b', speed: Math.round(100 * (body.attack_speed ?? 1) / .8), hp: rival.vitals.health, maxHp: rival.vitals.max_health, stamina: rival.vitals.stamina, maxStamina: rival.vitals.max_stamina,
             profile: rivalProfile, perception: body.intuition, stealth: body.agility}]});
-    ports.commit(plan);
+    ports.commit(plan); applyHarm(plan);
 }
 function move(request) {
     const state = ports.root(), ctx = ports.campaignContext();
-    ports.commit(request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx, {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId}, state.sequence));
+    const plan = request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx,
+        {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId, aim: request.aim}, state.sequence);
+    ports.commit(plan); applyHarm(plan);
 }
 function view() {
     if(!ports) return {visible: false};
@@ -92,10 +107,19 @@ function mount() {
             body.append(node('p', 'The fight waits for you. The world clock holds until it ends; time away is kept and applied afterwards.'));
             const log = node('ol'); log.dataset.tempoLog = ''; for(const line of f.lines) log.append(node('li', line)); body.append(log);
             const strip = node('p', 'Who acts next: ' + f.next.join(' → ')); strip.dataset.tempoNext = ''; body.append(strip);
-            body.append(node('p', 'Opponents: ' + f.foes.map(x => `${x.name} (${x.hurt})`).join(', ')));
+            body.append(node('p', 'Opponents: ' + f.foes.map(x => `${x.name} (${x.hurt}${x.injuries.length ? '; ' + x.injuries.map(i => `${i.label.toLowerCase()} ${i.rung}`).join(', ') : ''})`).join(', ')));
+            if(f.hurt.length) {const h = node('p', 'Your injuries: ' + f.hurt.map(x => `${x.label.toLowerCase()} ${x.rung}${x.shift.length ? ' (' + x.shift.map(m => `${m.axis} ${Math.round(m.delta * 100)}%`).join(', ') + ')' : ''}`).join(', ') + '. They change your next actions.'); h.dataset.tempoHurt = ''; body.append(h);}
             if(f.allies.length) body.append(node('p', 'Beside you: ' + f.allies.map(x => `${x.name} (${x.hurt}${x.order ? `, told: ${x.order}` : ''})`).join(', ')));
             if(f.yourTurn) {
-                for(const m of f.moves) body.append(button(`${m.label} · ${m.cost} time`, m.id, `${m.text}${m.why ? ' ' + m.why : ''}${m.safe ? ' Safe.' : ''}`, !m.usable || !ports.writable(), () => act(move, {moveId: m.id})));
+                if(f.aims.length) {
+                    const row = node('p', 'Aim: '); row.dataset.tempoAims = '';
+                    for(const a of [{id: null, label: 'Anywhere', text: 'No particular mark: the blow lands where it lands.'}, ...f.aims]) {
+                        const b = button(a.label, `aim:${a.id ?? 'any'}`, `${a.text}${a.id ? ' Costs a little time; a small mark is easier to avoid.' : ''}`, false, () => {aim = a.id; panel?.render(true);});
+                        b.setAttribute('aria-pressed', String(aim === a.id)); row.append(b);
+                    }
+                    body.append(row);
+                }
+                for(const m of f.moves) body.append(button(`${m.label} · ${m.cost} time${m.odds ? ' · ' + m.odds : ''}`, m.id, `${m.text}${m.why ? ' ' + m.why : ''}${m.safe ? ' Safe.' : ''}`, !m.usable || !ports.writable(), () => act(move, {moveId: m.id, aim: m.id === 'jab' || m.id === 'swing' ? aim : null})));
                 for(const o of f.orders) body.append(button(`${o.label} · ${o.cost} time · ${o.odds}`, `order:${o.orderId}:${o.allyId}`, `${o.text} Whether it is heard is not certain.`, !ports.writable(), () => act(move, {moveId: 'order', allyId: o.allyId, orderId: o.orderId})));
                 body.append(button('Let a careful policy take one safe turn', 'handover', 'Plays only brace, tend or back away for you; never a new attack.', !ports.writable(), () => act(move, {handOver: true})));
             }
