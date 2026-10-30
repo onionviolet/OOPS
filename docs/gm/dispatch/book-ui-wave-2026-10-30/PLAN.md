@@ -82,3 +82,19 @@ Weibao: "Other stuff that would benefit from drawing from miltiple books ... For
 - UI direction: `bk-ui-directions` was told to cover information-dense games, Minecraft mod UIs (JEI/EMI, FTB Quests, Patchouli, Ponder, AE2 terminals), implementation difficulty, sectioning, creativity, and the UI-system capabilities needed for full comprehensiveness.
 - Corporation styles: `bk-benefits` was told to cover company, sect, church, guild, academy, military, clan, gang, secret order and adventurer association as dials on one model.
 - Scouting: `bk-scout` searches GitHub and the web, extends the 10-14 and 10-15 scout docs, and adds no dependency.
+
+## Round 5: stop line 90%, abilities with no hardcoded path (2026-10-30 15:1x, weekly 67%)
+
+Weibao: "Raise to 90, for the ability UI and more, we shoudnt hardcode a specific path, sonce there is multiple possibilities and more? more to consider?" The lanes' stop line is now weekly 90%, with a checkpoint at 85%. Direction recorded in [USER_VISION](../../../USER_VISION.md#abilities-no-hardcoded-path-2026-10-30).
+
+Evidence: `src/book_world_lotm_path.js` hand-writes the Seer pathway's rungs and stubs Sequence 7 as "Not offered in this slice". Other pathways are already row descriptors (`book_world_lotm_pathways.js`), and the ladder figure is world-neutral.
+
+More to consider (proposals):
+- P1. The path is a choice made from data: any pathway, realm track, class or school. The lead's book path is the default; other paths are reachable through their in-world means (WER).
+- P2. One character can hold several ladders at once (sequence, learned spells, cultivation, a class), shown grouped by system and by ability source (rung, learned, item, contract, cheat).
+- P3. Switches, branches and loss: neighbouring-path swaps, branching rungs, demotion or loss, mixed or wrong-order intake with its failure. All of these are data with costs, not code paths.
+- P4. Knowledge gates the view. Unknown rungs show as unknown to the character (the spoiler fix the General UI coordinator committed), and a path picker shows only paths the character has heard of.
+- P5. A ratchet test fails if an ability UI module names a pathway or world id, like the `observer_view` ratchet.
+- P6. Other worlds prove it: `bk-ss` (ranks on the shared seam), `bk-hp` (spells), and later cultivation (Reverend Insanity).
+
+Routing: data side (P1, P3, the Sequence 7 stub) to `sw-adv`, with a heads-up to floor-wire about the host file. View side (P2, P4, P5) to `rep-abilities`, under the General UI coordinator.

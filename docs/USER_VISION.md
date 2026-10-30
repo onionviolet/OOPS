@@ -6909,6 +6909,12 @@ Clarified the same night: "I meant, it might not be gapped, but rather we can us
 Weibao's words: "Can consider similar ideas for each idea where relevant too".
 Recorded: when an idea is worked, consider its siblings in the same family where they fit (other abilities, other worlds, other rungs), as a default and not a duty: the dial is per idea and the cost is the effort of the extra pass. Siblings go in the owner's palette as ACT NOW, ACCOUNT FOR NOW or LATER, never as a reason to stop. First recorded in [ABILITIES](representations/ABILITIES.md); added here by the done-chats audit F12.
 
+## Abilities: no hardcoded path (2026-10-30)
+
+> for the ability UI and more, we shoudnt hardcode a specific path, sonce there is multiple possibilities and more? more to consider?
+
+Reading: the ability and advancement UI, and the systems feeding it, take the character's path as data. A path is any pathway, realm track, class or school a world offers, and a character may hold several at once, switch, branch or lose rungs. The lead's book path is the default start, not the only route. Today the LOTM host hand-writes one pathway (`src/book_world_lotm_path.js`) and stubs the next rung. Owners: [ABILITIES](representations/ABILITIES.md) (view), the L10 advancement note (data), and the [book UI wave plan](gm/dispatch/book-ui-wave-2026-10-30/PLAN.md) round 5 (dispatch).
+
 ## Asks recovered from chats (recorded 2026-10-30)
 
 Weibao's words, kept verbatim with typos. Recovered by gap audit items G13 and G14
