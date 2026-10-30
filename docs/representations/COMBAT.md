@@ -298,8 +298,11 @@ Checks:
   the log column is 987 px. Evidence: `fight-1920x1080.png`, `fight-card.png`, `gallery-versus-row.png`,
   `gallery-versus-row-effects-off.png`, `journey.json`.
 - `check:arch` PASS (no new cycles), `check:rules` PASS.
-- Full `npm test`: the round 1 run was stopped once round 2 edits began (it would have tested mixed code);
-  one fresh run on the round 2 commit is recorded below when it lands.
+- Full `npm test` on `a2a56e01f`: killed by an outside signal (exit 144) after 2,990 of about 4,127
+  tests, at load average 140-185. Of those, 2,981 passed and 9 failed: the same `cast_*` live-integration
+  workers timing out as in round 1 (A/B-checked then as not caused by this slice). No new failure.
+  The rest of the suite was not reached (gap). The round 1 run was stopped once round 2 edits began,
+  because it would have tested mixed code.
 
 Gaps: 21 px text not verified (the gallery page does not scale with the root font size; the in-game
 text-size setting was not exercised); non-lead seat not exercised; the threat-change settle glow
