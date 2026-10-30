@@ -1,0 +1,55 @@
+// C2 focused data checks. Run from the shared checkout root. Reads private inputs;
+// applies the proposed builder diff in memory, without changing shared scripts.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+const here='docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c2';
+const base='docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27', out=base+'/routine-r3';
+const json=f=>JSON.parse(fs.readFileSync(f,'utf8'));
+const lines=f=>fs.readFileSync(f,'utf8').split('\n').filter(Boolean).map(JSON.parse);
+const summary=json(out+'/summary.json'), cards=lines(base+'/cards-2026-10-29/cards-ch1-24.jsonl'), cast=json('private_packs/lotm-cast/cast.json');
+const days=new Set(cast.bindings.days.map(d=>d.scene));
+const missing=cards.filter(c=>!days.has(c.scene)), decisions=lines(out+'/card-bindings.jsonl');
+const sameIds=(a,b)=>assert.deepEqual(a.map(r=>r.id).sort(),b.map(r=>r.id).sort());
+assert.equal(missing.length,91);assert.equal(new Set(decisions.map(r=>r.id)).size,91);sameIds(missing,decisions);
+assert.ok(decisions.every(r=>r.status==='decided_gap'&&r.reason==='foreign_volume_locator_collision'&&r.sourceVolume>1&&r.dayIndex===null&&r.binding===null));
+const scenes=lines(base+'/m4-whole-book-2026-10-29/merged/scenes.jsonl'), byBeat=new Map(scenes.map(s=>[s.beat,s]));
+for(const d of decisions) assert.equal(Number(/^lotm([2-8])c/.exec(byBeat.get(d.scene).shard)?.[1]),d.sourceVolume);
+const dispositions=fs.readFileSync(here+'/card-dispositions.tsv','utf8').trim().split('\n').slice(1).map(l=>({id:l.split('\t')[0]}));sameIds(decisions,dispositions);
+console.log('PASS cards: 91 unique decided gaps; TSV/private ids match; provenance volumes checked.');
+const slots=lines(out+'/klein-slots.jsonl'), ledger=json(out+'/live-ledger.json');
+const wanted=ledger.missing.routines.filter(r=>r.id==='lotm.person.klein-moretti').map(r=>({id:`slot:${r.id}@${r.locator}`}));
+sameIds(slots,wanted);assert.equal(new Set(slots.map(r=>r.id)).size,322);assert.equal(slots.filter(r=>r.status==='filled').length,240);assert.equal(slots.filter(r=>r.status==='gap').length,82);
+assert.equal(slots.filter(r=>r.chapter>30&&r.status==='filled').length,231);
+assert.ok(slots.every(r=>r.runtimeReady===false&&r.dayIndex===null&&(r.status==='filled'||!!r.reason)));
+for(const r of slots) {
+ assert.ok(r.variants.length);
+ for(const v of r.variants) {assert.equal(v.slot.locator,r.locator);for(const k of ['from','to']) if(v.timing.window?.[k]!==undefined) assert.equal(v.timing.window[k],v.slot[k]);if(v.slot.label==='I')assert.ok(v.inferred&&r.inferred);}
+}
+assert.equal(slots.find(r=>r.locator==='zh 第26章 p86-p88').timingCorrection.band,'noon');
+assert.equal(slots.find(r=>r.locator==='zh 第151章 p1').reason,'transit_requires_route_binding');
+sameIds(slots.filter(r=>r.status==='gap'),json(out+'/remaining-slots.json'));
+console.log('PASS slots: 322 unique missing slots; 240 fills, 82 reasoned gaps; source bounds/inference labels preserved.');
+const sourceFile='scripts/lead_run/build_event_cards.mjs',source=fs.readFileSync(sourceFile,'utf8');
+const patch=fs.readFileSync(here+'/build_event_cards_volume.patch','utf8').split('\n');
+const body=patch.slice(patch.findIndex(l=>l.startsWith('@@'))+1).filter(l=>l!==''&&!l.startsWith('\\'));
+const before=body.filter(l=>!l.startsWith('+')).map(l=>l.slice(1)).join('\n')+'\n';
+const after=body.filter(l=>!l.startsWith('-')).map(l=>l.slice(1)).join('\n')+'\n';
+assert.equal(source.split(before).length,2,'Patch base changed: coordinator must reconcile before folding.');
+const patched=source.replace(before,after).replaceAll('fileURLToPath(import.meta.url)',JSON.stringify(path.resolve(sourceFile))).replace(/from '\.\/([^']+)'/g,(_,f)=>`from '${pathToFileURL(path.resolve('scripts/lead_run',f)).href}'`);
+const proposed=await import('data:text/javascript;base64,'+Buffer.from(patched).toString('base64'));
+assert.equal(proposed.sceneVolumeChapter({shard:'lotm6c001m',evidence:[{locator:'zh 第1章 p1'}]}).book,6);
+assert.equal(proposed.sceneVolumeChapter({shard:'w1s01m',evidence:[{locator:'zh 第1章 p1'}]}).book,0);
+assert.equal(proposed.sceneVolumeChapter({evidence:[{locator:'zh b2 第1章 p1'}]}).book,2);
+const retained=cards.filter(c=>proposed.inVolumeOneChapters(byBeat.get(c.scene),24));
+assert.equal(retained.length,66);assert.ok(retained.every(c=>days.has(c.scene)));sameIds(cards.filter(c=>!retained.includes(c)),decisions);
+const mappings=[{rows:cards.map(c=>({id:c.stepId,status:'event_card',packPlaceId:c.packPlaceId,lockedOptions:c.lockedOptions}))}];
+const rebuilt=proposed.buildEventCards(scenes,mappings);sameIds(rebuilt.cards,retained);
+for(const c of rebuilt.cards)assert.deepEqual(c.effects,retained.find(r=>r.id===c.id).effects);
+console.log('PASS proposed patch in memory: 66 retained card ids/effects unchanged; 91 foreign-volume cards excluded; legacy/qualified locators checked.');
+for(const [file,expected] of Object.entries(summary.inputs))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),expected,`Live input changed: ${file}`);
+assert.deepEqual(json(here+'/counts.json'),{cards:summary.cards,slots:summary.slots});
+for(const name of fs.readdirSync(here))assert.ok(!/[\u3400-\u9fff]{6,}/.test(fs.readFileSync(here+'/'+name,'utf8')),`Source-prose guard: ${name}`);
+console.log('PASS input SHA256 identities and tracked counts/prose guard. No runtime adoption asserted.');

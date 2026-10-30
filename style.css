@@ -2960,10 +2960,10 @@ i {
 	#world_event_feed li { margin-bottom: var(--ui-space-3); }
 	#return_digest { flex: none; max-height: 40%; overflow-y: auto; box-sizing: border-box; padding: var(--ui-space-3) var(--ui-space-4); border-bottom: 1px solid var(--ui-swatch-076); }
 	#return_digest[hidden] { display: none; }
-	#return_digest button.return-digest-who { font: inherit; font-weight: bold; padding: 0; background: none; border: 0; color: inherit; text-decoration: underline; cursor: pointer; }
+	#return_digest button.return-digest-who { font: inherit; font-weight: var(--ui-weight-strong); padding: 0; background: none; border: 0; color: inherit; text-decoration: underline; cursor: pointer; }
 	#return_digest ul { margin: var(--ui-space-2) 0; padding-left: var(--ui-space-6); }
 	#return_digest li { margin-bottom: var(--ui-space-1); }
-	#return_digest .return-digest-who { font-weight: bold; }
+	#return_digest .return-digest-who { font-weight: var(--ui-weight-strong); }
 	#return_digest .return-digest-status:empty { display: none; }
 	.message_background {
 		display: var(--message_background_display);

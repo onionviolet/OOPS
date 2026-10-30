@@ -7,3 +7,47 @@ body.fig-gallery-page {margin: 0; background: var(--ui-navy); color: var(--ui-te
 .fig-gallery-pair {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ui-space-6);}
 .fig-gallery-cell {border: 1px solid var(--ui-hairline); padding: var(--ui-space-4); min-width: 0;}
 .fig-gallery-cell > h3 {margin: 0 0 var(--ui-space-3); font-size: var(--ui-type-small); font-weight: var(--ui-weight-regular); opacity: .8;}
+
+/* Living style guide (VSX1): every swatch below reads a shared token, so a theme or world skin changes it here first.
+   Tokens only (UR6); the page is the reference a new representation starts from. */
+.sg {display: grid; gap: var(--ui-space-6);}
+.sg-group {display: grid; gap: var(--ui-space-3);}
+.sg-group > h3 {margin: 0; font-size: var(--ui-type-title); font-weight: var(--ui-weight-regular); color: var(--ui-accent);}
+.sg-note {margin: 0; color: var(--ui-hairline); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
+.sg-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(16em, 1fr)); gap: var(--ui-space-4);}
+.sg-cell {display: grid; gap: var(--ui-space-2); align-content: start; min-width: 0;}
+.sg-cell > code {color: var(--ui-hairline); font-size: var(--ui-type-small); overflow-wrap: anywhere;}
+.sg-frame {border: var(--ui-frame); box-shadow: var(--ui-shadow); background: var(--ui-panel-fill, var(--ui-fill)); padding: var(--ui-space-4);}
+.sg-frame--log {background: var(--ui-log-fill);}
+.sg-frame, .sg-chip, .sg-glow, .sg-motion button, .sg-ctl {border-radius: var(--ui-radius);}
+.sg-rows {margin: 0; padding: 0; list-style: none;}
+.sg-rows li {display: flex; justify-content: space-between; gap: var(--ui-space-4); padding: var(--ui-space-2) 0; border-top: var(--ui-space-hairline) solid var(--ui-hairline);}
+.sg-rows li:first-child {border-top: 0;}
+.sg-rows output {font-variant-numeric: tabular-nums;}
+.sg-bar {display: block; height: var(--ui-space-4); border: var(--ui-space-hairline) solid var(--ui-hairline); background: var(--ui-meter-track-bg);}
+.sg-bar > i {display: block; height: 100%; width: var(--sg-fill, 60%); background: linear-gradient(90deg, color-mix(in srgb, var(--sg-hue) 45%, var(--ui-text)), var(--sg-hue));}
+.sg-chip {display: inline-block; padding: 0 var(--ui-space-3); border: var(--ui-space-hairline) solid var(--ui-hairline);}
+.sg-chip[data-tone="warn"] {border-color: var(--ui-meter-warn); color: var(--ui-meter-warn);}
+.sg-chip[data-tone="limit"] {border-color: var(--ui-meter-limit); color: var(--ui-meter-limit);}
+.sg-chip[data-tone="accent"] {border-color: var(--ui-accent); color: var(--ui-accent);}
+.sg-chip[data-guess] {border-style: dashed;}
+.sg-chips {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); align-items: baseline;}
+.sg-glyphs {display: grid; grid-template-columns: repeat(auto-fill, minmax(7em, 1fr)); gap: var(--ui-space-3);}
+.sg-glyph {display: flex; align-items: baseline; gap: var(--ui-space-3); padding: var(--ui-space-2) var(--ui-space-3); border: var(--ui-space-hairline) solid var(--ui-hairline);}
+.sg-glyph b {font-weight: var(--ui-weight-regular); font-size: var(--ui-type-heading); color: var(--ui-accent);}
+.sg-glow {padding: var(--ui-space-4); border: var(--ui-space-hairline) solid var(--ui-hairline); background: var(--ui-reading-fill);}
+.sg-glow[data-level="affordance"] {box-shadow: var(--ui-glow-affordance);}
+.sg-glow[data-level="active"] {box-shadow: var(--ui-glow-active);}
+.sg-glow[data-level="discovery"] {text-shadow: var(--ui-glow-discovery);}
+.sg-motion {display: grid; gap: var(--ui-space-3);}
+.sg-motion-lane {display: grid; grid-template-columns: 8em minmax(0, 1fr); gap: var(--ui-space-4); align-items: center;}
+.sg-motion-lane > span {display: block; height: var(--ui-space-4); border: var(--ui-space-hairline) solid var(--ui-hairline);}
+.sg-motion-lane > span > i {display: block; height: 100%; width: 0; background: var(--ui-accent); transition: width var(--sg-time) var(--ui-motion-ease);}
+.sg-motion[data-on] .sg-motion-lane > span > i {width: 100%;}
+.sg-motion button {justify-self: start; min-height: var(--ui-control-md); font: inherit; color: inherit; background: var(--ui-button-fill); border: var(--ui-space-hairline) solid var(--ui-hairline);}
+.sg-scale {display: flex; align-items: center; gap: var(--ui-space-4);}
+.sg-scale > i {display: block; height: var(--ui-space-4); background: var(--ui-accent);}
+.sg-ctl {display: flex; align-items: center; justify-content: center; border: var(--ui-space-hairline) solid var(--ui-hairline); min-width: 8em;}
+.sg-extend {margin: 0; padding-left: var(--ui-space-6);}
+.sg-extend li {margin: var(--ui-space-2) 0; line-height: var(--ui-line-prose);}
+@media (forced-colors: active) {.sg-bar > i {background: Highlight;}}

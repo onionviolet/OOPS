@@ -18,6 +18,7 @@ const routeRows = [
   ['travelers', 'village-travelers', 'crossing', 'Travelers belong to the Village route between lives.'],
   ['projects', 'projects', 'in-world', 'Projects are available work in the current life.'],
   ['ledger', 'ledger', 'in-world', 'The work ledger records this life.'],
+  ['organizations', 'organizations', 'in-world', 'Organizations are households and businesses of the current life.'],
   ['worlds', 'optional-worlds', 'crossing', 'World selection crosses between lives.'],
   ['beginning', 'beginning', 'crossing', 'Beginning chooses a life outside the lead’s current world.'],
   ['connection', 'continuation', 'crossing', 'Continuing connection switches between lives.'],

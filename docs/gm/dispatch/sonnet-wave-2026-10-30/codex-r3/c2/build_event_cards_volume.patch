@@ -1,0 +1,14 @@
+--- a/scripts/lead_run/build_event_cards.mjs
++++ b/scripts/lead_run/build_event_cards.mjs
+@@ -16,7 +16,10 @@
+ 
+ /** First parseable evidence locator's volume (book) and chapter; Chinese volume 1 is book 0. */
+ export function sceneVolumeChapter(scene) {
+-  for (const e of scene?.evidence || []) { const p = parseLocator(e.locator); if (p) return {book: p.book, ch: p.ch}; }
++  // Earlier readers omitted bN in some later-volume locators. Shard provenance
++  // retains the source volume and prevents these scenes entering the opening slice.
++  const shardBook = /^lotm([2-8])c\d+m?$/.exec(scene?.shard ?? '');
++  for (const e of scene?.evidence || []) { const p = parseLocator(e.locator); if (p) return {book: shardBook ? Number(shardBook[1]) : p.book, ch: p.ch}; }
+   return null;
+ }
+ export const inVolumeOneChapters = (scene, maxChapter) => { const v = sceneVolumeChapter(scene); return !!v && v.book === 0 && v.ch <= maxChapter; };

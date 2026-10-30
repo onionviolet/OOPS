@@ -18,7 +18,7 @@
    token (--fig-units = viewBox width / 12, set by figure.js), so a larger text setting scales labels and spacing together
    instead of growing labels into each other. At the default 12px small type the figure renders at its viewBox size. */
 .fig-svg {display: block; font-size: var(--ui-type-small); width: calc(var(--fig-units, 46.67) * 1em); max-width: 100%; height: auto; margin-inline: auto;}
-.fig-svg text {fill: var(--fig-ink); font-size: 12px; line-height: 1.3;}
+.fig-svg text {fill: var(--fig-ink); font-size: var(--ui-type-figure);}
 
 /* Rings and segments */
 .fig-ring-base, .fig-segment {fill: none; stroke: var(--fig-line); stroke-width: var(--fig-stroke); stroke-linecap: round;}
@@ -106,7 +106,7 @@
 .fig-ledger p {margin: 0;}
 .fig-ledger-row {display: grid; gap: var(--ui-space-1);}
 .fig-ledger-row meter {inline-size: 100%; block-size: .6em;} /* low, high and optimum set by the caller: a larger share reads as worse */
-.fig-ledger-row meter::-webkit-meter-bar {background: var(--fig-surface); border: 1px solid var(--fig-line); border-radius: 0;}
+.fig-ledger-row meter::-webkit-meter-bar {background: var(--fig-surface); border: 1px solid var(--fig-line); border-radius: var(--ui-radius);}
 .fig-ledger-row meter::-webkit-meter-optimum-value {background: var(--fig-accent);}
 .fig-ledger-row meter::-webkit-meter-suboptimum-value {background: var(--fig-warn);}
 .fig-ledger-row meter::-webkit-meter-even-less-good-value {background: var(--fig-danger);}

@@ -6,6 +6,7 @@ import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
+import {lotmRungAbilities} from './book_world_lotm_path.js';
 import {riteCircleSpec,makingSpec,riskLedger} from './ui/rite_figure.js';
 import {walkMapBlock} from './ui/walk_map.js';
 import {walkBoard} from './ui/walk_board.js';
@@ -24,7 +25,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
  const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',lastRung=null,pulseUntil=0,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  const applySeatFilter=()=>{
   const observer=observerForProfile(read(selected)?.entryProfile);
@@ -143,7 +144,9 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   // RPX5: the ladder as a vertical figure; the current rung carries the felt digestion and fills with acts. The plan below keeps the crossings.
   const fig=node('div'),words=node('details');fig.dataset.lotmLadder='';words.dataset.lotmLadderText='';
   // RA19: a rung gained pulses for a few seconds of wall time; effects off and reduced keep only the words.
-  const spec=ladderFigureSpec(p,{felt:p.felt,crossings:false});
+  // RS15 ghost fill: a running acting act, or the one last found from the guidance below, previews its count on the rung.
+  const planned=v.actingGuidance?.find(a=>a.pending)||v.actingGuidance?.find(a=>a.id===plannedAct&&!a.completed);
+  const spec=ladderFigureSpec(p,{felt:p.felt,crossings:false,planned:planned?{label:planned.label.split(' · ')[0].toLowerCase()}:undefined,abilities:p.path==='lotm.seer'?lotmRungAbilities(p.position):undefined});
   if(lastRung!==null&&p.position>lastRung)pulseUntil=Date.now()+6000;
   lastRung=p.position;
   if(Date.now()<pulseUntil)for(const s of spec.tracks[0].steps)if(s.state==='current')s.effect='pulse';
@@ -171,8 +174,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const a of v.actingGuidance){
     const state=a.pending?'In progress; not counted yet.':a.completed?'Already completed.':a.eligible?'Available now.':a.reasons.join(' ')||'Currently unavailable.';
     const r=row(node('span',`${a.label} · ${a.place} · ${a.duration?`${a.duration} min`:'immediate'}${a.free?' · no resource cost':''}. ${state}`));
-    if(a.visible)r.append(button('Find action',`find_${a.id}`,()=>findControl(a.id),false,'Move focus to the existing action. This spends nothing.'));
-    else if(!a.here&&a.moveId)r.append(button(`Find walk to ${a.place}`,`find_${a.moveId}_${a.id}`,()=>findControl(a.moveId),false,'Move focus to the existing walk. This does not start walking.'));
+    if(a.visible)r.append(button('Find action',`find_${a.id}`,()=>{plannedAct=a.id;signature='';render();findControl(a.id);},false,'Move focus to the existing action and preview its count on the ladder. This spends nothing.'));
+    else if(!a.here&&a.moveId)r.append(button(`Find walk to ${a.place}`,`find_${a.moveId}_${a.id}`,()=>{plannedAct=a.id;signature='';render();findControl(a.moveId);},false,'Move focus to the existing walk and preview the act\'s count on the ladder. This does not start walking.'));
     guidance.append(r);
    }
    path.append(guidance);
