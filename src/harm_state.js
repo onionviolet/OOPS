@@ -48,7 +48,11 @@ export const HARM_WORLDS = freeze({
         sources:{
             cast:{carrier:'power',base:0.5,perRankGap:0.5,reason:'Proposed dial: a cast strains the caster a little, and reaching past its comfortable rank strains more; worlds and sequences replace both numbers.'},
             act:{carrier:'power',base:1,reason:'Proposed dial: a rite or craft row names its own weight; this is the fallback when the row omits one.'},
-            cycle:{carrier:'power',base:1,reason:'Proposed dial: a recurring curse or residue adds this per elapsed cycle.'}
+            line:{carrier:'power',base:0.25,perProne:0.25,reason:'Proposed dial: a pathway line with a harsher slope adds this per use; perProne scales by the line proneness the host supplies (0 when none).'},
+            object:{carrier:'power',base:0.5,cycleMinutes:1440,reason:'Proposed dial: carrying a strained object adds this per elapsed day it is held.'},
+            place:{carrier:'power',base:0.5,cycleMinutes:60,reason:'Proposed dial: staying in a strained place adds this per hour.'},
+            residue:{carrier:'power',base:0.25,cycleMinutes:1440,reason:'Proposed dial: a lingering residue adds this per elapsed day until cleared.'},
+            cycle:{carrier:'power',base:1,cycleMinutes:10080,reason:'Proposed dial: a recurring curse or residue adds this per elapsed cycle.'}
         },
         lossOfControl:{carrier:'power',stage:'lost',graceMinutes:30,
             reason:'Proposed dial: half an hour unattended at the lost stage ends the life; attended or treated time pauses the clock. A world, rank or protection can lengthen or remove it (AD5).'},

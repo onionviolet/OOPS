@@ -18,3 +18,4 @@ Append-only. Format and rules: [QUEUE](../QUEUE.md#idea-intake).
 - Loss-of-control clock `lostFor` is saved in the harm slice so reload keeps the countdown. Idea: a ward/protection row that lengthens `graceMinutes` per sequence.
 - `sources` row kinds so far: cast, act, cycle. Still to add: line, object, place, residue (per volume walk); `cycleBacklash` and `transferBacklash` not built yet.
 - Combat `odds.shift` splits chance axes from strength axes (ODDS_AXES); a world can re-class an axis by editing that list.
+- Slice 5: loop rows are archetype ids (`loop.time-bound`, `loop.perfect-run`); a world binds to one by id. Idea: a tries budget counter for perfect-run (cost dial) once a world binds it; witnesses who keep memory (GM29 note for memory lanes).

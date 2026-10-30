@@ -2,22 +2,22 @@
 // save value: nothing here registers, ticks or touches a clock. A host (floor-wire)
 // calls these and writes the returned save back. World rows own every number
 // (AD5: default, dial, reason); this module only reads them.
-import {HARM_RUNGS,addBacklash,injurePart,actionModifiers,harmRules,resolveDeath} from './harm_state.js';
+import {HARM_RUNGS,addBacklash,restBacklash,injurePart,actionModifiers,harmRules,resolveDeath} from './harm_state.js';
 const check=(ok,message)=>{if(!ok)throw Error(message);};
 const withHarm=(save,harm)=>({...save,harm});
 
 // Weight of one strain source from the world's `sources` row. `weight` overrides the
 // base (a rite row names its own); `rankGap` scales a cast's reach past comfort.
-export function accrualFor(rules,kind,{weight,rankGap=0}={}){
+export function accrualFor(rules,kind,{weight,rankGap=0,prone=0}={}){
  const row=rules.sources?.[kind];
  check(row,'This world has no backlash source of that kind.');
  check(rankGap===undefined||Number.isFinite(rankGap)&&rankGap>=0,'Invalid rank gap.');
- const w=weight??row.base+(row.perRankGap??0)*rankGap;
+ const w=weight??row.base+(row.perRankGap??0)*rankGap+(row.perProne??0)*(prone??0);
  check(Number.isFinite(w)&&w>=0,'Invalid backlash weight.');
  return {carrier:row.carrier,weight:w};
 }
-export function accrueBacklash(save,kind,{source,weight,rankGap}={}){
- const rules=harmRules(save),due=accrualFor(rules,kind,{weight,rankGap});
+export function accrueBacklash(save,kind,{source,weight,rankGap,prone}={}){
+ const rules=harmRules(save),due=accrualFor(rules,kind,{weight,rankGap,prone});
  const r=addBacklash(save.harm,rules,due.carrier,{source:source??kind,weight:due.weight});
  return {save:withHarm(save,r.state),record:r.record};
 }
@@ -68,4 +68,30 @@ export function harmPart(save,{partId,rung,cause}){
  check(HARM_RUNGS.includes(rung),'Unknown harm rung.');
  const r=injurePart(save.harm,harmRules(save),partId,{rung,cause});
  return {save:withHarm(save,r.state),record:r.record};
+}
+
+// Cyclic sources (a curse, a held object, a place, a residue) add `base` per whole
+// cycle of the row's `cycleMinutes` crossed between two native minutes. Crossing is
+// by boundary, so ticking in small steps and in one long step give the same total.
+const MAX_CYCLES=1000;
+export function cycleBacklash(save,kind,{fromMinute,toMinute,source,weight}={}){
+ const rules=harmRules(save),row=rules.sources?.[kind];
+ check(row?.cycleMinutes>0,'This source does not recur.');
+ check(Number.isFinite(fromMinute)&&Number.isFinite(toMinute)&&toMinute>=fromMinute,'Invalid cycle span.');
+ const cycles=Math.min(MAX_CYCLES,Math.floor(toMinute/row.cycleMinutes)-Math.floor(fromMinute/row.cycleMinutes));
+ if(cycles<=0)return {save,record:null,cycles:0};
+ const per=accrualFor(rules,kind,{weight}),r=addBacklash(save.harm,rules,per.carrier,{source:source??kind,weight:per.weight*cycles});
+ return {save:withHarm(save,r.state),record:r.record,cycles};
+}
+// Move strain between carriers (a curse passed on, a vessel taking it). The source
+// carrier cannot fall below its floor; the target rises by `amount*ratio*riseScale`.
+// `rules` may be supplied for worlds with several carriers; default is the save's world.
+export function transferBacklash(save,{from,to,amount,ratio=1,rules=harmRules(save)}){
+ check(from!==to,'Transfer needs two carriers.');
+ check(Number.isFinite(amount)&&amount>=0&&Number.isFinite(ratio)&&ratio>=0,'Invalid transfer amount.');
+ const src=rules.carriers[from];check(src,'Unknown backlash carrier.');
+ const have=(save.harm?.backlash?.[from]??src.floor)-src.floor,moved=Math.min(amount,have);
+ const down=restBacklash(save.harm,rules,from,{minutes:moved*60/src.restPerHour});
+ const up=addBacklash(down.state,rules,to,{source:`transfer:${from}`,weight:moved*ratio});
+ return {save:withHarm(save,up.state),moved,records:[down.record,up.record]};
 }

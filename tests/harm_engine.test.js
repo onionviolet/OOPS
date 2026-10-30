@@ -63,3 +63,41 @@ test('combat view: odds shift only for chance axes, strength mods separate, inju
  assert.throws(()=>harmPart(s,{partId:'hands',rung:'gone'}),/rung/);
  assert.equal(harmView(s).parts[0].id,'hands');
 });
+
+import {cycleBacklash,transferBacklash} from '../src/harm_engine.js';
+import {LOOP_RESETS,loopRule,loopPlan,validateLoopRows} from '../src/harm_loops.js';
+
+test('line, object, place and residue sources accrue; cycles count boundaries, not tick size',()=>{
+ const t=tingen();
+ assert.equal(accrueBacklash(t,'line',{prone:2}).save.harm.backlash.power,0.75);
+ const once=cycleBacklash(t,'object',{fromMinute:100,toMinute:3000});
+ assert.equal(once.cycles,2);assert.equal(once.save.harm.backlash.power,1);
+ let s=t;for(let m=100;m<3000;m+=7)s=cycleBacklash(s,'object',{fromMinute:m,toMinute:Math.min(3000,m+7)}).save;
+ assert.equal(s.harm.backlash.power,1);
+ assert.equal(cycleBacklash(t,'place',{fromMinute:5,toMinute:30}).cycles,0);
+ assert.throws(()=>cycleBacklash(t,'cast',{fromMinute:0,toMinute:9}),/does not recur/);
+});
+
+test('transfer moves strain between carriers, never below a floor, and leaves the input alone',()=>{
+ const rules={carriers:{a:{label:'A',stages:[{id:'s',label:'S',at:0,blocks:[]}],floor:1,restPerHour:1,treatedPerHour:2,riseScale:1},
+  b:{label:'B',stages:[{id:'s',label:'S',at:0,blocks:[]}],floor:0,restPerHour:1,treatedPerHour:2,riseScale:2}}};
+ const save={...tingen(),harm:{schema:1,backlash:{a:4}}},before=structuredClone(save);
+ const r=transferBacklash(save,{from:'a',to:'b',amount:2,rules});
+ assert.equal(r.moved,2);assert.equal(r.save.harm.backlash.a,2);assert.equal(r.save.harm.backlash.b,4);
+ const cap=transferBacklash(save,{from:'a',to:'b',amount:99,rules});assert.equal(cap.moved,3);assert.equal(cap.save.harm.backlash.a,1);
+ assert.deepEqual(save,before);
+ assert.throws(()=>transferBacklash(save,{from:'a',to:'a',amount:1,rules}),/two carriers/);
+ assert.throws(()=>transferBacklash(save,{from:'x',to:'b',amount:1,rules}),/Unknown/);
+ validateHarm(r.save.harm);
+});
+
+test('loop reset rows validate, default for unknown worlds, and plan the matching command',()=>{
+ validateLoopRows();
+ assert.equal(loopRule('book.unknown'),LOOP_RESETS.default);
+ assert.equal(loopPlan('book.lotm.tingen',{trigger:'death',lifeEnded:true}).command,'restart:initial');
+ assert.equal(loopPlan('book.lotm.tingen',{trigger:'death',lifeEnded:false}),null);
+ assert.equal(loopPlan('book.lotm.tingen',{trigger:'player'}),null);
+ assert.equal(loopPlan('loop.perfect-run',{trigger:'death',lifeEnded:true,hasCheckpoint:true}).command,'restart:checkpoint');
+ const fb=loopPlan('loop.perfect-run',{trigger:'death',lifeEnded:true});assert.equal(fb.fellBack,true);assert.equal(fb.command,'restart:initial');
+ assert.throws(()=>validateLoopRows({x:{...LOOP_RESETS.default,command:'warp'}}),/Invalid loop row/);
+});

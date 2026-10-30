@@ -10,3 +10,7 @@ Engine is in `src/harm_engine.js` (pure, save in, save out), commit below. Floor
 5. **Combat/odds.** `harmOdds(save,'fight')` gives `{allowed,blockedBy,'versus.you.mods','odds.shift'}` as `[{axis,delta,cause,kind}]`; `harmPart(save,{partId,rung,cause})` is the only door that writes the injury ladder. Earlier patch `L9_WIRING_S2.patch` (simulation preview) is still the route for the action quote.
 
 Limits: no native tick calls any of this yet; accrual weights and the 30-minute grace are proposed dials with a stated reason in the world row.
+
+## Slice 5 additions (same commit family)
+- `src/harm_engine.js`: sources `line` (uses `prone`), `object`, `place`, `residue` (recurring); `cycleBacklash(save,kind,{fromMinute,toMinute})` for a native time tick (call it with the previous and new native minute, counts whole cycles crossed, so small and large ticks agree); `transferBacklash(save,{from,to,amount,ratio})` for a curse passed to another carrier.
+- `src/harm_loops.js`: `LOOP_RESETS` six-dial rows (default, Tingen, `loop.time-bound`, `loop.perfect-run` archetypes) and `loopPlan(worldId,{trigger,lifeEnded,hasCheckpoint})` returning the continuation command (`cycle` / `restart:*`) to offer. Host: use it to choose which button the connection panel shows; the commands themselves are unchanged.
