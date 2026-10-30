@@ -1,13 +1,13 @@
 {
-  "base": "http://127.0.0.1:57567",
+  "base": "http://127.0.0.1:62124",
   "errors": [],
   "checks": [
-    "ladder figure drawn at Awakened",
+    "ladder figure drawn at Woken",
     "route cost and risk are shown before choosing",
-    "settling promoted the ladder to Ascended, no doubled label",
+    "settling promoted the ladder to Risen, no doubled label",
     "saved rank is 2",
-    "reload keeps Ascended",
-    "import keeps Ascended and the ladder",
+    "reload keeps Risen",
+    "import keeps Risen and the ladder",
     "no page errors"
   ]
 }
