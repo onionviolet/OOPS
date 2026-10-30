@@ -22,4 +22,5 @@ export const FIXTURE_MANIFEST = [
     [() => import('./benefits.js'), 'FIGURE_FIXTURES_BENEFITS'],
     [() => import('./progression.js')],
     [() => import('./making_forms.js')],
+    [() => import('./drafts.js'), 'DRAFT_FIXTURES'],
 ];

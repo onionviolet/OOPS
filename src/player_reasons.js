@@ -18,16 +18,19 @@ export const FOREIGN_REASONS = Object.freeze([
 ]);
 export const DEV_REASONS = new Set([UNMET_REASON, ...FOREIGN_REASONS]);
 const RETURN = /^Return to (.+)\.$/;
+// Engine wording that is true but says nothing a player can act on: say what to do (UR73).
+const PLAYER_WORDS = new Map([["Insufficient, stale or unavailable item quantity. Refresh the trade.", "You do not have all the items or coin this asks for."]]);
 
 // Splits a joined reason string into sentences and sorts them for the player.
 // player: what may be printed; dev: engine text; place: a "Return to X." location.
 export function splitReasons(reasons) {
-    const list = (Array.isArray(reasons) ? reasons : String(reasons || "").split(/(?<=\.)\s+/)).map(r => String(r).trim()).filter(Boolean);
+    const worded = typeof reasons === "string" ? [...PLAYER_WORDS].reduce((t, [from, to]) => t.split(from).join(to), reasons) : reasons;
+    const list = (Array.isArray(worded) ? worded : String(worded || "").split(/(?<=\.)\s+/)).map(r => String(r).trim()).filter(Boolean);
     const out = {player: [], dev: [], place: null};
     for(const r of list) {
         if(DEV_REASONS.has(r)) out.dev.push(r);
         else if(RETURN.test(r) && !out.place) out.place = r.match(RETURN)[1];
-        else out.player.push(r);
+        else out.player.push(PLAYER_WORDS.get(r) || r);
     }
     return out;
 }
