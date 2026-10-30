@@ -1,6 +1,6 @@
 # Combat and conflict representation (proposals, 2026-10-30)
 
-**Next slice (2026-10-30):** none listed; ask the coordinator.
+**Next slice (2026-10-30):** the chase stage track in the pursuit encounter panel (`pursuit_ui.js`) and a duel at a named site, from "Known limits and next slice" below; the intent chip waits on CBR14 learned intent.
 
 Owner of how fights, chases and other conflicts are shown (RPX16, LTU7 in
 [UI design core audit](../audits/UI_DESIGN_CORE_AUDIT.md)). Behavior rules stay in
