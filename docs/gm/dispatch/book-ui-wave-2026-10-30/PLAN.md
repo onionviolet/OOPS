@@ -73,3 +73,12 @@ Weibao: "Debt and stuff can be part of corportation, or like the benefits system
 | `bk-ui-directions` | `docs/audits/UI_DIRECTIONS_2026-10-30.md`: four whole-UI directions (refined panels, day hub, task-first, unconventional) as static mocks, plus the list of features still lacking a design round |
 
 Status at 14:5x: `bk-coi` committed on its branch. `bk-mol`, `bk-ss` and `bk-party` have slices written with focused tests passing and are waiting on queued builds (the slot limiter is busy). `bk-hp`, `bk-gaps` and `bk-recon` are working.
+
+## Round 4: multi-book seams, UI inspiration, corporation styles, scouting (2026-10-30 15:0x, weekly 67%)
+
+Weibao: "Other stuff that would benefit from drawing from miltiple books ... For the whole UI direction, we would need to consider other information dense games ... Considr also absorbing or taking inspiration from Miencraft mods and other games ... Different 'corporation' styles, from company, to sect, to other similar stuff ... Search across github for anything that could be useful for use? Also search online too".
+
+- Multi-book: law and making are each heavy in 7-8 books, with LOTM-only owners, so they go to `bk-seams`. ABL, SPL, ORG, loops and MND already have owners. ART, CRE and CUS are the next candidates once those two land.
+- UI direction: `bk-ui-directions` was told to cover information-dense games, Minecraft mod UIs (JEI/EMI, FTB Quests, Patchouli, Ponder, AE2 terminals), implementation difficulty, sectioning, creativity, and the UI-system capabilities needed for full comprehensiveness.
+- Corporation styles: `bk-benefits` was told to cover company, sect, church, guild, academy, military, clan, gang, secret order and adventurer association as dials on one model.
+- Scouting: `bk-scout` searches GitHub and the web, extends the 10-14 and 10-15 scout docs, and adds no dependency.
