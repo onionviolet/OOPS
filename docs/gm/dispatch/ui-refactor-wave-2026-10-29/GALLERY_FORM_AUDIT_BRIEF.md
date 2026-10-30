@@ -58,7 +58,7 @@ Grouped by family so one run shares a grammar and a reference board. Each run: b
 
 | Run | Family and GF rows | Words now, target | Reference games to board (check each) | Variant seeds |
 | --- | --- | --- | --- | --- |
-| R2-0 | Housing, GF25 | 120-192, 15 | CK3 holdings, RimWorld rooms, Melvor Township, A Dark Room, Darkest Dungeon hamlet | Running now |
+| R2-0 | Housing, GF25 | 120-192, 15 | CK3 holdings, RimWorld rooms, Melvor Township, A Dark Room, Darkest Dungeon hamlet | Done `e14fa4694`: H1 slot grid (worker pick), H2 skyline, H3 stat card; Weibao's pick pending |
 | R2-1 | Places and sources: gathering GF30, walks GF22 | 259-530, 40-80 | Stardew forage and seasons calendar, Melvor skilling rows, Dwarf Fortress site lists, Kenshi map | site blocks with a stock fill; a season strip with open spans; a nearest-first departure board |
 | R2-2 | Away and time: return digest GF16, day band GF28, loop GF18 | 131-325, 50-70 | Fallout Shelter and idle "while you were away" summaries, Majora's Mask clock, Frostpunk day bar | a tally block per source; a sky strip; a three-day dial |
 | R2-3 | People: who knows GF9, family GF21, lives GF17, standing GF24 | 101-459, 40-90 | CK3 family tree and relations, Dwarf Fortress relationships, Rimworld social tab | a who-knows matrix of blocks; a register with blocks per kin; a standing rung bar |
@@ -69,3 +69,5 @@ Grouped by family so one run shares a grammar and a reference board. Each run: b
 Also the live panels the coverage audit flagged as still long (Village experiments 181, Standing and ledger 122, Vows and trials 111): they ride with R2-5, R2-3 and R2-4.
 
 Order: wait for R2-0 and Weibao's pick to check that the method works, then R2-1 and R2-3 (largest gaps), then the rest. Budget: each run is about 1-2% of the week; all six would pass the weekly cap, so after R2-0 they run from the 2026-11-02 reset unless Weibao says otherwise.
+
+State 2026-10-30 night: R2-1 done `8e777f646` (picks: gathering G3 counted bed with G2 season strip, walks W1 departure board); R2-3 done `193409638` (picks: W1 who-knows grid, F1 register for family, F3 life stack for lives, S1 rung bars or S3 rank cards). Lesson: blocks need a word under them; bare blocks and initials (H2, W2, W3, F2) push meaning into hover. Remaining runs R2-2, R2-4, R2-5, R2-6 wait for the 2026-11-02 reset.
