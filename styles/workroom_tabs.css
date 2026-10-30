@@ -3,4 +3,6 @@
 .workroom-tabs [role="tablist"] { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); margin-bottom: var(--ui-space-2); }
 .workroom-tabs [role="tab"] { min-height: var(--ui-control-sm); color: var(--ui-text); background: none; border: 0; border-bottom: var(--ui-space-hairline) solid transparent; }
 .workroom-tabs [role="tab"][aria-selected="true"] { border-bottom: var(--ui-space-hairline) solid var(--ui-accent); color: var(--ui-accent); }
-.workroom-moved { font-size: var(--ui-type-small); line-height: var(--ui-line-small); }
+.workroom-moved { font-size: var(--ui-type-small); line-height: var(--ui-line-small); display: flex; align-items: center; gap: var(--ui-space-2); padding: var(--ui-space-1) var(--ui-space-2); border-left: var(--ui-space-hairline) solid var(--ui-accent); color: var(--ui-text-muted, var(--ui-text)); font-style: italic; }
+.workroom-moved::before { content: "New"; font-style: normal; color: var(--ui-accent); }
+.workroom-moved button { margin-left: auto; font-style: normal; }

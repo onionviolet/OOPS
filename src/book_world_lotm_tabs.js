@@ -38,9 +38,12 @@ export function mountWorkroomTabs({panel, after, blocks, initial = 'here'}) {
     const moved = node('p', 'Your path, clearance, merit and the brewing bench now sit under their own tabs. ', {class: 'workroom-moved'});
     moved.dataset.workroomMoved = '';
     const got = node('button', 'Got it', {type: 'button'});
-    got.onclick = () => moved.remove();
+    // Dismissal is remembered per browser so the hint does not return on every load.
+    const MOVED_KEY = 'yairpg.workroomMovedSeen';
+    got.onclick = () => { moved.remove(); try { localStorage.setItem(MOVED_KEY, '1'); } catch { /* storage may be unavailable */ } };
     moved.append(got);
-    wrapper.append(tabs.bar, moved);
+    let seen = false; try { seen = localStorage.getItem(MOVED_KEY) === '1'; } catch { /* storage may be unavailable */ }
+    wrapper.append(tabs.bar); if (!seen) wrapper.append(moved);
     panel.insertBefore(wrapper, after.nextSibling);
     function update(v) {
         const model = workroomTabModel(v);
