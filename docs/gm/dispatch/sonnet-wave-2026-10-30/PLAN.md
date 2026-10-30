@@ -147,14 +147,14 @@ Options weighed:
 | O3 (unusual): no stored sheets; derive "as of chapter X" on demand from rows | Cheapest storage | Always current with re-reads | Nothing to calibrate or edit, so slow lookups in play; fine for crowd people only |
 | **O4, default: tiered dated sheets** | About 50 principals full, about 300 recurring as bands, identity and routine, crowd derived on demand (O3) | Comprehensive where play looks; calibrated (WA33) | **Proposed** |
 
-**Proposed lane L8**, needs Weibao's go:
+**Lane L8:** Weibao said "send both, dont duplicate work tho" (2026-10-30). It runs in parallel with L7 under the split in its brief: L8 consumes L7's families and `sw-rites` rule rows and never re-clusters or re-authors them.
 - **Who does what:** Sonnet designs the sheet schema under WA48, sampling all 8 volumes. Luna fills one principal per lane from cited rows (`cite_paragraphs.mjs --id`). Sol drafts the loader and calibration test.
 - **Pilot:** 5 LOTM principals, the lead included.
 - **Done check:**
   - Each pilot sheet reads "as of" volume 1 and a later volume with different power and identity fields.
   - Each sheet reproduces 2 stated outcomes by band.
   - Sealed fields are gated.
-- **Order:** start after L7's LOTM families land, so the schema covers every family that touches a person.
+- **Order:** it starts now. The schema samples rows directly (WA48) and absorbs L7's person-touching families as they land.
 
 ## Order and stop rules
 

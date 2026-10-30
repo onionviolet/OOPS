@@ -6889,4 +6889,5 @@ Weibao's words, during the Sonnet wave ([plan](gm/dispatch/sonnet-wave-2026-10-3
 Recorded:
 - WB1 is now [WA48](WORLD_ABSORPTION_RULES.md), accepted: seams are shaped on samples from the whole read source, and only the slice's own data is authored.
 - The coarse pass is proposed as WA49. Lane L7 (`sw-gaps`) runs it for all 8 LOTM volumes, then Mother of Learning, Harry Potter and Shadow Slave. Its results land as GM rows in the [reading gap map](research/READING_GAP_MAP_2026-10-28.md), which is the long-term register gap workers take from.
-- Per-character digitization is proposed as WA50: dated character records, deep by tier, built on WA23, WA33, WA40, WA42 and WA43.
+- Then: "send both, dont duplicate work tho". WA49 and WA50 are accepted, and L7 and L8 run in parallel with a split of who owns what.
+- Per-character digitization is WA50 (accepted): dated character records, deep by tier, built on WA23, WA33, WA40, WA42 and WA43.
