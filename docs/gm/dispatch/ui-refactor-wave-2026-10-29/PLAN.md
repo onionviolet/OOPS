@@ -124,6 +124,9 @@ Weibao, via the supervisor: "send out and finish the other sonnet works too, fro
 | COV6-COV11 labels plus IP12/IP13 | `3c9b068a1`/`ea921d032` (repaired a tool misfire in workspace_layout.js), `805de8c5b`, `5310b0800`, `56162a67b`, `2030a7ccc`, `b0f4b20d0` |
 | COV4 forms | `a98b2bc0e`: table, threshold card, band, chip and bar rows; Home strip 36 circles to 0; gallery circle share 72% to 66% |
 | RC69 next-slice lines | `b95524c93`, combat fixed in `001b80913` |
+| G14 upcoming strip | `650a7ab5d`: "Coming up" under the place view calendar; found that the private lotm-events pack is rejected in play (evidence label), routed to the coordinator |
+| Gathering and seasons | `122180071`: Gathering at a glance in the Village (site table, stock bar, regrowth words); season band appears only for worlds with seasons; below floor |
+| Relationship web round 3 | Bars proven at 1920 (`ac4f8a932`, `c91471442` on its branch); asked to land on master |
 | Tool note | `commit_own_paragraphs.py --para` is for docs; on a JS file holding another lane's hunks it duplicated about 570 lines. Code commits with shared files use the manual hunk method |
 | Abilities G17 Skills tab, relationships G18 Knows plus bars | Sent to `rep-abilities` and `rep-relationship-web` (switched to Sonnet), with L13 bridges `learn_tab_bridge`, `knows_ask_bridge` |
 | Companions | Moved to book-UI wave `bk-party` |
@@ -134,7 +137,7 @@ Queue, in order. Stop line raised to weekly 90% (Weibao 2026-10-30, "Raise to 90
 3. COV5 one "where am I" view; COV6-COV12 labels, verb-first buttons, Effects board, empty-state rule, Reports column, Condition and Inventory merge.
 4. RC69 next-slice lines for BODY, COMBAT, ECONOMY, KNOWLEDGE, MAPS, RITUALS, TIME; G14 `upcoming_strip_bridge` into the time strip.
 5. Gathering and seasons representation; COV13 paper-and-ink second skin and COV14 unbuilt screens in the gallery.
-6. COV15 read models gating the Research, Ritual, Combat and Spacetime figures: route to `sw-bridge`.
+6. COV15 read models gating the Research, Ritual, Combat and Spacetime figures: route to `sw-bridge`. Bridges landed (rite_state, chase_range, study, place_history; see L13_BRIDGES.md); still to do: view wiring, gallery fixtures, and a fresh-life route that shows Research or Rituals.
 
 ## Open defect routed out: workshop panel as a catch-all (2026-10-30 evening)
 
