@@ -21,6 +21,8 @@ No new parallel wave. About 40 sessions already run under three coordinators, an
 5. **Gates.** Merge finished, gate-passing branches before dispatching more (merge before dispatch). Commit own paths only, no stash/reset/force, no push. Runtime claims need the rebuilt browser floor; otherwise "implemented, below floor".
 6. **Morning line.** Each coordinator leaves one current-state block in its checkpoint: what became playable, what is below floor, what needs Weibao (at most five, coded).
 
+UI coordinator state (02:40): ui-integrator merges the eighteen finished rep-* branches plus the walks fix in RCT1 order (receipt `docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md`); rep-items, rep-first-hour and rep-talk run; homes, gathering/seasons and companions are queued. UI lanes stop launching at weekly 70%.
+
 ## Supervisor tick
 
 Every ~40 minutes the supervisor reads usage and the session list. An idle coordinator with queue left gets one nudge to continue. Above the stop lines it sends "checkpoint and hold" instead. It does not write code, start workers or edit other owners' files.
