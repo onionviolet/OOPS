@@ -81,3 +81,5 @@ Written 07:20 from git log (127 commits since 02:30, all local, none pushed), th
 - W3: still in force until Weibao types.
 - W4 and W6: open. Rerun at 07:20 at load 2: `cast_topic_talk` fails ("patch failed: src/book_world_lotm_cast_days.js:2"), `cast_whole_book_scale` fails tests 1 and 2, and `character_sheets` fails test 10. Owners: sw-wire (regenerate `D2_LOAD_INTEGRATION.patch` or detect already-integrated hunks) and sw-chars.
 - W5: repaired. Primary checkout synced; rule D2 is in shared worktree practice.
+
+**Relay (morning, on Weibao's "Yes, relay them"):** W6 failures sent to sw-wire (`cast_topic_talk`, `cast_whole_book_scale` 1-2, with both fix routes) and the `character_sheets` test 10 failure to sw-chars (Dated character records pilot session). Both messages were delivered to inboxes; neither lane has replied yet.
