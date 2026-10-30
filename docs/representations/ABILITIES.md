@@ -322,3 +322,69 @@ here; fold-note shortening, fixture fix and the pulse done here.
 
 AD43 floor for round 2: FLR1 bundle above; FLR2 same fresh-life route; FLR3 words for every new
 state; FLR4 reads existing `pathView`; FLR5 no persistence change; FLR6 agent-verified, not human-reviewed.
+
+## Round 3 (2026-10-30): similar ideas for each idea
+
+Weibao, 2026-10-30: "Can consider similar ideas for each idea where relevant too". For each idea
+above, its close variants (other ways to get the same effect) and its siblings (the same idea in
+another feature). Codes RS1-RS24. All proposals; ideas with no useful variant are left out.
+"Feature" names the owning representation session where a sibling belongs elsewhere.
+
+### Shapes (O1-O3)
+
+| Code | Idea | Similar ideas worth weighing | Where relevant |
+| --- | --- | --- | --- |
+| RS1 | O1 vertical ladder | **Stair or tower** (rungs as floors you look up at, the next floor lit); **spiral ladder** for paths that return to a theme each tier; **split ladder** that forks at a rung (two Sequence choices) drawn as a Y | Ranks in an organisation (rep-organizations), standing tiers (rep-economy), craft guild grades (rep-crafting) all reuse the same adapter over `definePath` |
+| RS2 | O2 skill web | **Prerequisite tree** (no cycles, top-down) when skills only build forward; **constellation per family** (one small web per school, RA5); **adjacency grid** (skills as a matrix, "builds on" as filled cells) for 50+ rows | Knowledge webs (rep-knowledge), recipe families (rep-mixing) |
+| RS3 | O3 vessel | **Meridian map** on a body silhouette (cultivation); **potion load gauge** (how much undigested power the body holds, with the loss-of-control line); **seal ring** around a held source (conditions that bind it) | Body and conditions (rep-body) owns the silhouette; the vessel layers sit inside it |
+
+### Reference-game ideas (RA1-RA6)
+
+| Code | Idea | Similar ideas | Where relevant |
+| --- | --- | --- | --- |
+| RS4 | RA1 size by consequence | **Weight by rarity of the gift** (a verb that few in the world hold drawn heavier); **ring a keystone** that changes rules, not numbers | Ritual outcomes (rep-rituals): a grade that changes the result drawn heavier than one that only adds yield |
+| RS5 | RA2 ability speaks in its voice | **Inner voice on refusal** ("the potion will not let you yet") instead of a grey button reason; **voice drift**: the ability's lines grow more insistent as loss of control nears; **other people's comments** on your use as the outside view | Reports lines (rep-time owns the panel); altered states (RPX9) |
+| RS6 | RA3 sub-stages and breakthrough | **Breakthrough as a scene card** with its stated risk and a chosen moment; **bottleneck marker**: a rung whose fill stalls until an insight or item, shown as a gate on the fill; **tribulation calendar** for worlds where the world itself pushes back on a schedule | Time and chronicle (scheduled pushback), rituals (rites that assist a crossing) |
+| RS7 | RA4 synergy at the moment of choice | **Conflict shown at the moment of choice** ("taking this risks X you hold"); **duo unlock hint** when two held abilities would combine, only if the character could know it; **set progress** ("2 of 3 parts of a technique set") | Mixing and crafting (ingredient synergies), relationships ("this favour helps with X") |
+| RS8 | RA5 one small figure per path | **Shelf of small ladders** for a character with several paths (cultivation plus a body art); **path cards** you flip between instead of one board | Character sheet composes the shelf (rep-character-sheet) |
+| RS9 | RA6 row-and-bar glance | **Sparkline of fill over time** (how fast digestion moves); **last-moved stamp** ("advanced 2 days ago"); **stalled chip** when nothing moved for a while | Any meter that changes over time (relationship bars, standing) |
+
+### Fresh-player and density ideas (RA7-RA15)
+
+| Code | Idea | Similar ideas | Where relevant |
+| --- | --- | --- | --- |
+| RS10 | RA7 count with its unit | **Count in the world's unit** from the crossing type (acts, hours, kills, insights) through a per-world noun; **count hidden, words only** where the world has no counter (dial already in RA23) | Every "n of m" in the game (UR75) |
+| RS11 | RA8 what the next rung gives | **What the next rung costs or risks** beside what it gives; **who reached it** (a known person at that rung, if seen) as social proof and a lead; **what this rung lost** (a price paid on crossing, ABR15) | Organisation ranks ("what promotion brings and costs") |
+| RS12 | RA9 per-world rung noun | **Per-world progress verb** (digest, cultivate, train, earn); **per-world legend words** so "crossed" reads "drunk" or "broken through" | Every figure's legend through the world skin (item 20) |
+| RS13 | RA11 glance line | **Glance chip with a fill dot** for very tight places; **hover card** from the glance opening the ladder; **sheet row** listing all paths in one line each | Header bars for any feature with a current stage |
+| RS14 | RA14 fold long ladders | **Window around the current rung** (two below, three above) with "more" at both ends; **zoom by distance**: far rungs smaller, near rungs full size | Long timelines (rep-time), long ranks |
+| RS15 | RA15 fill plus words, no extra meter | **Threshold ticks** on the fill where something happens before the next rung (a new mode unlocks mid-rung); **ghost fill** showing what a planned action would add (preview equals commit, UIV4) | Crafting quality preview, ritual odds preview |
+
+### Cheats, flourish, depth (RA16-RA26)
+
+| Code | Idea | Similar ideas | Where relevant |
+| --- | --- | --- | --- |
+| RS16 | RA16 insight view | **Insight decays**: names shown by insight fade unless confirmed in the world; **insight as a separate overlay** toggled on, never mixed into the base ladder; **system-window ladder** for a status-window cheat, in its own framed surface (CS1) | Knowledge (rep-knowledge) for "shown by insight" facts generally |
+| RS17 | RA17 notification on rung gained | **Dock badge while a crossing is ready** (all prerequisites met); **away digest line** "while you were away, the potion settled" | Time and chronicle's return digest |
+| RS18 | RA19 pulse on gain | **Settle animation of the fill** when acts land (BD2 accumulation cue); **one-time particle burst only on irreversible crossings**; **muted shiver** on the rung when loss of control nears, with the words in the risk line | Rituals (slot fill), crafting (quality reached) |
+| RS19 | RA20 tiers versus sub-stages | **Quality bands** for crafts and **grades of success** for rites follow the same rule: a band that changes what you can do is a tier; one that only adds yield is fill | rep-crafting, rep-rituals |
+| RS20 | RA22 prerequisites and unlocks | **Reverse view: what needs this** (which later rungs or skills depend on the one you hold); **lost-if-removed** warning for devices and borrowed abilities (ABR17 custody) | Items that grant abilities (rep-economy, inventory) |
+| RS21 | RA24 synergies and conflicts | **Opposition between paths** as world pushback (another church notices); **compatibility table** across held sources in the vessel (O3) | Organisations (rival institutions), relationships |
+| RS22 | RA25 scaling costs | **Cost curve sparkline** across rungs; **cost in time of life** (lifespan, sanity) as its own track where the world charges it | Body and conditions (strain), time |
+| RS23 | RA26 four depths of self-knowledge | **Depth for other people's abilities** (witness view's own four depths: unseen, rumoured, seen once, studied); **depth for items** (unidentified, named, understood, mastered) | rep-knowledge, item inspection |
+
+### Unconventional (RA28)
+
+| Code | Idea | Similar ideas | Where relevant |
+| --- | --- | --- | --- |
+| RS24 | RA28 memoir ladder | **Others' memory of your crossing** (who saw it and what they think now); **ladder as handwriting**: rungs written in the character's own notebook voice, crossed out and rewritten as understanding changes; **heirloom ladder**: a lineage's rungs across generations | Family tree (rep-family-tree), relationship web (who saw you change) |
+
+### What to take next
+
+Ranked, adding to round 2's list without displacing its first two items:
+
+1. RS15 ghost fill (preview a planned action's effect on the rung): smallest, reuses `fill` with a second value; Sonnet low, done when a planned act shows its added fill and the words say "after this: 3 of 6".
+2. RS11 cost and risk beside what the next rung gives: data already in `failure` and costs; Sonnet low.
+3. RS14 window around the current rung as an alternative to the fold, tested on a 10-rung fixture; compare both in the gallery and keep the clearer.
+4. RS19 shared tier-versus-fill rule handed to rep-crafting and rep-rituals as one line each in their docs (theirs to accept).
+5. RS5 inner-voice refusal lines, after the Reports voice line (round 2 second item) lands.
