@@ -16,6 +16,7 @@ import {FIGURE_FIXTURES_ORGANIZATIONS} from './fixtures/organizations.js';
 import {CRAFTING_FIXTURES} from './fixtures/crafting.js'; FIGURE_FIXTURES.push(...CRAFTING_FIXTURES);
 import './fixtures/time.js'; // TIME_AND_CHRONICLE return digest registers into FIGURE_FIXTURES
 import './fixtures/spacetime.js';
+import {FIGURE_FIXTURES_BENEFITS} from './fixtures/benefits.js';
 import {RELATIONSHIP_WEB_FIXTURES} from './fixtures/relationship_web.js';
 
 const el = (tag, attrs = {}, text = '') => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); if (text) n.textContent = text; return n; };
@@ -37,7 +38,7 @@ const main = el('main', {id: 'fig_gallery'});
 document.body.append(bar, main);
 
 // Fixtures register by import (FIGURE_FIXTURES) or export their own list; one id appears once.
-const GALLERY = [...new Map([...FIGURE_FIXTURES, ...FAMILY_FIXTURES, ...MAP_FIXTURES, ...FIGURE_FIXTURES_ORGANIZATIONS, ...RELATIONSHIP_WEB_FIXTURES].map(spec => [spec.id, spec])).values()];
+const GALLERY = [...new Map([...FIGURE_FIXTURES, ...FAMILY_FIXTURES, ...MAP_FIXTURES, ...FIGURE_FIXTURES_ORGANIZATIONS, ...FIGURE_FIXTURES_BENEFITS, ...RELATIONSHIP_WEB_FIXTURES].map(spec => [spec.id, spec])).values()];
 for (const spec of GALLERY) {
     const section = el('section', {class: 'fig-gallery-section', 'data-fixture': spec.id});
     section.append(el('h2', {}, spec.title));
