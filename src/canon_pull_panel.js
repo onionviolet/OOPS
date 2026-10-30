@@ -26,10 +26,8 @@ function createPanel() {
     const render = visibleRenderer(panel, canonPullView, v => {
         headline.textContent = v.headline ?? 'Nothing is pulling at your days yet.';
         rows.replaceChildren(...v.rows.map(r => {
-            const li = node('li', null, {'data-pull-beat': r.id}), bar = node('span', null, {role: 'meter', 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(r.fill), 'aria-label': `${r.label} ${r.lean}`});
-            bar.style.cssText = 'display:block;height:6px;border-radius:3px;background:var(--ui-border,#456);margin:4px 0;position:relative;overflow:hidden';
-            const fill = node('span'); fill.style.cssText = `display:block;height:100%;width:${r.fill}%;background:var(--ui-accent,#6cf)`;
-            bar.append(fill); li.append(node('span', `${r.label} · ${r.lean}${r.pressed ? ' · pressed' : ''}`), bar);
+            const li = node('li', null, {'data-pull-beat': r.id}), bar = node('meter', '', {min: '0', max: '100', value: String(r.fill), 'aria-label': `${r.label} ${r.lean}`});
+            li.append(node('span', `${r.label} · ${r.lean}${r.pressed ? ' · pressed' : ''}`), bar);
             return li;
         }));
         syncList(dev, v.deviations.map(d => ({key: d.key, name: d.text})), 'Nothing has bent yet.');
