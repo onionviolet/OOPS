@@ -35,3 +35,19 @@ Then pick the five sections with the biggest gain and build them as side-by-side
 ## Model and budget
 
 Sonnet design auditor reading the gallery captures and fixtures, with the advisor tool for taste calls. One agent, about 2-3% weekly. Writes `docs/audits/GALLERY_FORM_AUDIT_2026-10-30.md` and the five redesign drafts; sends DESIGN.md proposals to `ui-identity`.
+
+## Round 2: blocky Luminous variants
+
+Weibao, 2026-10-30: drop the bright (paper) skin, work in the blue Luminous Gothic only; housing "can just be like a blocky or more abstract"; the drafts are "better in some ways but still not the best they can be".
+
+Why round 1 fell short (coordinator's read): one agent drafted one answer per section with no visual target, so each draft is a guess. Drawn icons (bed, hearth) read as clip art in a bitmap-glow look. Nothing was compared against how finished games solve the same screen.
+
+Round 2 method:
+1. Reference board first. Per section, three to five games that solve the same screen, each with what it does (known or inferred). For housing: Crusader Kings III holding slots (equal squares, filled, empty, locked), RimWorld rooms (labelled rectangles with a few stats), Melvor Idle Township and Kittens Game (building rows with level, count and effect), A Dark Room (a plain list that grows), Darkest Dungeon hamlet (an upgrade pip track per building).
+2. Three Luminous variants per section, side by side, each a different idea, one of them unusual. Housing default set: H1 slot grid (CK3 style: one glowing block per built room or fitting, a hairline outline for buildable, dim for locked, one short word under each); H2 block skyline (each built room stacks a block onto the home's silhouette, unbuilt rooms as ghost blocks); H3 stat-first card (comfort, upkeep and storage as three big meters, with a thin strip of blocks under them).
+3. Self-critique loop: the drafter captures its own screenshot at 1920x1080, critiques it against the board and the six liberties, and revises at least twice before showing.
+4. Weibao picks by eye; the chosen form goes to DESIGN.md (`ui-identity`) and then into the live view.
+
+Order: housing first (the weakest), then owed ledger, crossing, ladder and versus, then gathering (largest unbuilt gain).
+
+Model: a Sonnet drafter with the advisor for taste calls; if two Sonnet rounds still fall short, one Opus pass on the board and the critique, with the reason stated (agent usage rules).

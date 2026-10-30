@@ -7005,3 +7005,5 @@ Weibao: "Also need to consider stufff like switching pathways and more but that 
 - **Long term:** pathway switching, and content outside the lead's life for other playthroughs. Considerations are saved in Round 12.
 
 ## Gallery: less generic, less wall of text (2026-10-30)
+
+Weibao, 2026-10-30, after the five redesign drafts: "We dont need the bright style, work mainly on the blue one, the housing stil lstucks, rather than odd representation, it can just be like a blocky or more abstract? How do other games do it? These are better in some ways but still not the best they can be? HWat can we do to address this?"
