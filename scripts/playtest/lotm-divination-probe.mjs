@@ -8,6 +8,7 @@ const out=path.resolve(process.argv[2]||'.'),mode=process.argv[3]||'unclear';awa
 const bundle=await buildBundle(),server=await serve(bundle.dir);
 const bundleHash=sha(await fs.readFile(path.join(bundle.dir,'bundle.js')));
 const s=await new Session({url:server.url,opTimeout:240000,seed:7,wall:Date.UTC(2026,9,30)}).start();
+const mark=m=>fs.appendFile(path.join(out,'progress.log'),new Date().toISOString()+' '+m+'\n').catch(()=>{});
 const pause=(ms=350)=>s.page.waitForTimeout(ms);
 const nav=async id=>{await s.page.keyboard.press('Escape');await s.page.evaluate(v=>{const e=document.querySelector('select[aria-label="Other known panels"]');e.value=v;e.dispatchEvent(new Event('change',{bubbles:true}));},id);await pause();};
 const report={bundle:bundleHash,viewport:'1920x1080',steps:[]};
@@ -21,14 +22,16 @@ try{
  report.shot=await p.screenshot({path:path.join(out,'pre-nav.png'),timeout:60000}).then(()=>1,e=>String(e).slice(0,100));await nav('lotm');
  report.btns=await p.evaluate(()=>[...document.querySelectorAll('#lotm_panel button')].map(b=>b.textContent.trim().slice(0,90)).slice(0,40));
 
- if(mode==='supported'){
-  const text=await p.evaluate(()=>window.save_to_file());report.exportHead=String(text).slice(0,60);
+ if(mode==='supported'||mode==='death'){
+  if(mode==='death'){const cl=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>{const d=document.querySelector('#lotm_panel details[data-lotm-divinations]');if(d)d.open=true;const b=[...document.querySelectorAll('#lotm_panel details[data-lotm-divinations] button')].find(b=>!b.disabled&&new RegExp(src).test(b.textContent));if(!b)return null;b.click();return b.textContent;},re);if(t)return t;await pause(1000);}return null;};
+   for(const re of ['^Take out the coin','^Ask about returning'])await cl(re).then(()=>pause(2500));await mark('one peek done');}
+  await mark('exporting');const text=await p.evaluate(()=>window.save_to_file());await mark('exported '+String(text).length);report.exportHead=String(text).slice(0,60);
   const PRE='YAIR-UTF8-1:';const save=JSON.parse(Buffer.from(String(text).slice(PRE.length),'base64').toString('utf8')),sim=save.expansion?.simulation||save.simulation;
   const known=sim.knowledge.player,tpl=Object.values(known)[0];
-  if(mode==='rail')sim.people.player.location='lotm.place.tingen-station';else known['book.lotm.div.grounds.coin-divination']={...structuredClone(tpl),value:'You know why the Boklund address is unsafe.'};
-  await p.evaluate(t=>window.load_progress(t),PRE+Buffer.from(JSON.stringify(save),'utf8').toString('base64'));await pause(3000);
+  if(mode==='death'){const find=(o,path)=>{if(!o||typeof o!=='object')return null;if(o.backlash&&typeof o.backlash==='object')return {o,path};for(const [k,v] of Object.entries(o)){const r=find(v,path+'.'+k);if(r)return r;}return null;};const hit=find(save,'save');report.harmKeys=hit?[hit.path]:[];if(hit){hit.o.backlash.power=9;report.seeded=hit.path+' '+JSON.stringify(hit.o).slice(0,160);}}else known['book.lotm.div.grounds.coin-divination']={...structuredClone(tpl),value:'You know why the Boklund address is unsafe.'};
+  await mark('loading');await Promise.race([p.evaluate(t=>{window.load_progress(t);return 1;},PRE+Buffer.from(JSON.stringify(save),'utf8').toString('base64')).catch(()=>{}),new Promise(r=>setTimeout(r,20000))]);await mark('load issued');await pause(3000);
   for(let i=0;i<60;i++){try{if(await p.locator('#loading_screen_play_button').isVisible())await p.locator('#loading_screen_play_button').click({timeout:3000});if(await p.evaluate(()=>!!window.simulationTestHooks.snapshot().expansion.lotm?.entryProfile))break;}catch(e){}await pause(1500);}
-  report.imported=true;await nav('lotm');
+  report.imported=true;await mark('imported');await nav('lotm');await mark('nav done');
  }
  const grab=()=>p.evaluate(()=>{const d=document.querySelector('#lotm_panel details[data-lotm-divinations]');if(!d)return null;d.open=true;return [...d.querySelectorAll('p,button')].map(e=>(e.tagName==='BUTTON'?'[BTN'+(e.disabled?' disabled':'')+'] ':'')+e.textContent.trim().slice(0,160));});
  for(let i=0;i<10&&!report.rows;i++){report.rows=await grab();if(!report.rows)await pause(1000);}
@@ -50,16 +53,38 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
   if(process.env.LISTONLY)throw new Error('list only');
   const seen=new Set();
   for(let i=0;i<60;i++){
-   const all=await btns();await fs.appendFile(path.join(out,'progress.log'),`${new Date().toISOString()} step ${i} ${all.filter(t=>/Walk|Travel/.test(t)).slice(0,40).map(t=>t.slice(0,60)).join(' | ')}\n`);const j=all.filter(t=>/^(\[disabled\] )?Travel from Tingen railway station/.test(t));
+   const all=await btns();await fs.appendFile(path.join(out,'progress.log'),`${new Date().toISOString()} step ${i} ${all.filter(t=>/Walk|Travel/.test(t)).slice(0,40).map(t=>t.slice(0,60)).join(' | ')}\n`);const j=all.filter(t=>/^(\[disabled\] )?Travel to Backlund/.test(t));
    if(j.length){report.rail.push({step:i,journeys:j});break;}
    const stationTravel=all.find(t=>/^Travel from .* to Tingen railway station/i.test(t));if(stationTravel&&!report.stationVia){report.stationVia=stationTravel;}
-   const walks=all.filter(t=>/^(Walk|Travel from)/.test(t)&&!/^Travel from Tingen railway station/.test(t));
+   const walks=all.filter(t=>/^(Walk|Travel (from|to))/.test(t));
    const pick=(stationTravel?[stationTravel]:[]).concat(walks.filter(t=>/railway station/i.test(t))).find(Boolean)||(i<3?walks.find(t=>/street market/i.test(t)):null)||walks.find(t=>!seen.has(t))||walks[0];
    if(!pick){if(all.some(t=>/^\[disabled\] /.test(t))&&i<59){await pause(5000);continue;}report.rail.push({step:i,stuck:all.slice(0,20)});break;}
    seen.add(pick);const t=await click('^'+pick.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').slice(0,60));report.rail.push({step:i,walked:t});
    await pause(3500);
   }
+  const grabHalt=()=>p.evaluate(()=>({halted:document.body.innerText.match(/[^\n]*(Halted|halted|Trains out)[^\n]*/g)?.slice(0,6)||[],travel:[...document.querySelectorAll('#lotm_panel button')].filter(b=>/Travel to Backlund/.test(b.textContent)).map(b=>(b.disabled?'[disabled] ':'')+b.textContent.trim()),comingUp:(document.body.innerText.match(/Coming up[\s\S]{0,300}/)||[''])[0]}));
+  report.day1=await grabHalt();await mark('day1 '+JSON.stringify(report.day1).slice(0,300));
+  await Promise.race([p.screenshot({path:path.join(out,'rail-day1.png'),timeout:20000}).catch(()=>{}),pause(25000)]);
+  report.days=[];
+  for(let w=0;w<4;w++){
+   const t=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&/^Wait until dawn/.test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;});await mark('wait '+w+' '+t);
+   if(!t)break;
+   let g;for(let i=0;i<80;i++){await pause(6000);g=await grabHalt();g.clock=await p.evaluate(()=>(document.body.innerText.match(/Now: [^\n]*/)||[''])[0]);g.reason=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>/Travel to Backlund/.test(b.textContent));return b?{title:b.title,next:b.parentElement?.innerText.slice(0,260)}:null;});if(g.reason&&!/Saving is paused/.test(g.reason.title||'')||i===79)break;}
+   report.days.push(g);await mark('day '+JSON.stringify(g).slice(0,400));
+   if(g.travel.length&&!g.travel[0].startsWith('[disabled]'))break;
+  }
   report.reports=await p.evaluate(()=>document.body.innerText.match(/halted[^\n]{0,80}/ig));
+ }
+
+ if(mode==='death'){
+  report.deathLog=[];
+  const snap=()=>p.evaluate(()=>{const e=window.simulationTestHooks.snapshot();return {harm:JSON.stringify(e.harm||e.expansion?.harm||null).slice(0,300),dead:/died|death|lost control|restart/i.test(document.body.innerText),clock:e['current time']?.hour+':'+e['current time']?.minute};});
+  report.deathLog.push({at:'seeded',...await snap()});
+  const clicked=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&/^Wait until/.test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;});
+  report.deathLog.push({clicked});await mark('wait clicked '+clicked);
+  for(let i=0;i<24;i++){await pause(5000);const x=await snap();report.deathLog.push({i,...x});if(x.dead)break;}
+  report.panelText=await p.evaluate(()=>document.body.innerText.match(/[^\n]*(died|death|lost control|Restart|restart)[^\n]*/gi)?.slice(0,12));
+  await p.screenshot({path:path.join(out,'death.png'),timeout:15000}).catch(()=>{report.shotFail=1;});
  }
  if(mode==='backlash'){
   const loops=[];report.loops=loops;
@@ -68,7 +93,7 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
    for(const re of ['^Take out the coin','^Ask about returning','^Read the coin']){const t=await clickLabel(re);row[re]=!!t;if(!t)break;await pause(900);}
    row.harm=await p.evaluate(()=>{const e=window.simulationTestHooks.snapshot();const h=e.harm||e.expansion?.harm;return h?JSON.stringify(h).slice(0,200):null;});
    row.life=await p.evaluate(()=>document.body.innerText.match(/(You (have )?died|lost control|Connection|restart)[^\n]{0,80}/i)?.[0]||null);
-   loops.push(row);if(row.life||!row['^Take out the coin'])break;
+   loops.push(row);await fs.appendFile(path.join(out,'progress.log'),JSON.stringify(row)+'\n');if(row.life||!row['^Take out the coin'])break;
   }
   report.reports=await p.evaluate(()=>document.body.innerText.slice(-1500));
  }

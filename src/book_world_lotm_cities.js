@@ -18,6 +18,11 @@ export function withCities(pack,list){
  const usable=list.filter(c=>c.route?.legs?.length);
  if(!usable.length)return pack;
  const places=[TINGEN_STATION],journeys=[];
+ // Authored proposal (WPR5): the lead needs a way to the boarding station. The station's existence is an unchecked book claim
+ // (the route names Tingen, not a place), so this access journey is as provisional as the station: a cab from the lead's own home.
+ const home=pack.leadLife?.knownPlaces?.[0];
+ if(home&&home!==TINGEN_STATION.id&&pack.places.some(p=>p.id===home))journeys.push({id:`${CITY_PREFIX}tingen.station-access`,from:home,to:TINGEN_STATION.id,means:'cab',minutes:25,label:'Travel to Tingen railway station by cab',
+  description:'Take a cab from your lodging to the railway station (authored proposal: the route names Tingen, not a place).',report:'You arrive at Tingen railway station.'});
  for(const city of usable){
   const names=new Map(city.region.places.map(p=>[p.id,p.label]));
   const at=id=>id==='tingen'?TINGEN_STATION.id:placeId(city,id);
