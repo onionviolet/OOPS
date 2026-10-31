@@ -4,6 +4,7 @@ import {registerHpBeginnings} from './book_world_hp_content.js';
 import {shadowSlaveApprentice} from './world_packs/book_shadow_slave_life.js';
 import {shadowSlaveTrial} from './world_packs/book_shadow_slave_trial.js';
 import {guAcademyLife} from './world_packs/book_gu_life.js';
+import {guKeeperLife} from './world_packs/book_gu_keeper.js';
 import {shadowCompanyLife} from './world_packs/book_shadow_company_life.js';
 
 export async function registerBookBeginnings(register, choices) {
@@ -20,6 +21,10 @@ export async function registerBookBeginnings(register, choices) {
     choices.register({packId:gu.id,label:'Reverend Insanity · original Moonlight Gu novice',
         arrival:'Begin an original adult clan-sponsored novice life with an already-opened Rank-one aperture.',
         means:'Keeper Lin, one living Moonlight Gu, sixteen fresh petals and six primeval units. Refine the same Gu, prepare its daily care, and learn a close-target cutting exercise.'});
+    const keeper=await register(guKeeperLife);
+    choices.register({packId:keeper.id,label:'Reverend Insanity · original Gu keeper, first year',
+        arrival:'Begin an original adult clan-sponsored Gu keeper with an already-opened Rank-one aperture and a weekly stone stipend.',
+        means:'Three primeval stones, eight essence, a free Moonlight Gu and two more Gu for sale. Feed each on its own schedule, take in only what you can pay for, and risk one refinement.'});
     const company=await register(shadowCompanyLife);
     choices.register({packId:company.id,label:'Shadow Slave · original Shadowbound company',arrival:'Begin an original Woken life with an explicitly acquired Shadowbound fan-law binding and one already-owned shadow.',
         means:'An injured stored marsh-hound shadow, two gems and actual patrol supplies. Recovery and independent gem sleep feed a prepared two-person causeway patrol with Sera’s finite stipend.'});

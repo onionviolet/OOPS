@@ -2,6 +2,7 @@ import {admittedExtensionCommands,previewStructuredExtension,planStructuredExten
 import {energyCharge} from './energy_resources.js';
 import {hashStreamSeed} from './hash_rng.js';
 import {guCareStatus} from './book_world_gu_domain.js';
+import {keeperHouseView} from './book_world_gu_keeper_domain.js';
 import {shadowCompanyStatus} from './book_world_shadow_company_domain.js';
 import {hpSchoolCalendar,hpLifeStatus} from './book_world_hp_facts.js';
 import {structuredLadderViews} from './structured_ladder_view.js';
@@ -142,7 +143,7 @@ export function structuredCampaignView(state,d,record,context) {
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
     const extensions=(d.extensions||[]).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));
-    return {available:true,active:true,extensions,expeditions:previewStructuredExpeditions(state,d,context),ladders:structuredLadderViews(d,state.actors.player?.facts),title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs};
+    return {available:true,active:true,extensions,expeditions:previewStructuredExpeditions(state,d,context),ladders:structuredLadderViews(d,state.actors.player?.facts),title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs,house:keeperHouseView(state,d,record,context)};
 }
 
 // Show only the acting character's executable input quote. NPC reserves and
