@@ -131,7 +131,11 @@ test('fixture minutes preserve facts, contexts and create_save bytes with frame 
                     const contexts=m.withFactsFrame(state,()=>m.simulationNativeContexts());
                     const facts=state.simulation ? m.withFactsFrame(state,()=>Object.fromEntries(Object.entries(contexts).filter(([id])=>state.simulation.people[id]&&state.actors[id]).map(([id,ctx])=>[id,m.simulationFacts(state,{...ctx,actorId:id},registry)]))) : {unavailable:'unenrolled fresh life'};
                     if(!state.simulation)assert.throws(()=>m.simulationFacts(state,contexts.player,registry),/Enroll the living-world services first/);
-                    outputs.push({contexts:JSON.stringify(contexts),facts:JSON.stringify(facts),save:JSON.stringify(game.internals.create_save())});
+                    // create_save already returns JSON text; keep it as is so the parse below yields the save object.
+                    // Cast places register when the async pack load resolves, so key order in /locations varies by boot;
+                    // diffSaves and deepEqual compare by key, not by order.
+                    const raw=game.internals.create_save();
+                    outputs.push({contexts:JSON.stringify(contexts),facts:JSON.stringify(facts),save:typeof raw==='string'?raw:JSON.stringify(raw)});
                     assert.equal(game.errors.length,0,'no recorded page errors');
                 } finally {game.close();}
             }
