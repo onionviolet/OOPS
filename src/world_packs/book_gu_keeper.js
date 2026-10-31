@@ -119,7 +119,8 @@ S.commands.push(cmd('rest', 'Sit and gather essence · 60 min, up to 3 units', {
 S.events.push({id: id('stipend'), revision: 1, label: 'Clan stipend', worldId: id('world'), actorId: steward, interval: KEEPER_DIALS.stipendDays * KEEPER_DAY, maxOccurrences: KEEPER_DIALS.stipendWeeks, automatic: true, mode: 'ambient', chance: 1, public: true,
     requires: null, effects: [item('stone', KEEPER_DIALS.stipendStones, 'player'), note('stipend_paid', `The clan paid your ${KEEPER_DIALS.stipendStones}-stone stipend.`)]});
 S.events.push({id: id('regen'), revision: 1, label: 'Aperture regeneration', worldId: id('world'), actorId: 'player', interval: 60, automatic: true, mode: 'ambient', chance: 1, public: false,
-    requires: null, effects: [{type: 'energy', energyId: id('primeval'), operation: 'recover', amount: KEEPER_DIALS.regenPerHour}]});
+    // Automatic checks are seeded for every enrolled player, so this must name the keeper's own aperture: another world's player has no primeval energy to recover.
+    requires: faculty, effects: [{type: 'energy', energyId: id('primeval'), operation: 'recover', amount: KEEPER_DIALS.regenPerHour}]});
 // Slice 3: a fusion whose failure injures the Gu. Requires condition 3+ and injures by 2, so it can never kill.
 const moon = KEEPER_GU[0];
 S.commands.push(cmd('fuse', 'Steep the Moonlight Gu in spirit lees · 2 jars, 1 essence', {targetId: gu(moon), coLocated: true, participants: ['$target'],

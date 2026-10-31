@@ -150,3 +150,10 @@ test('a year and more: stipend stops after its 52 weeks and the saved schedule s
     console.log(JSON.stringify(f.p.state.simulation.checks[id("stipend")]), f.p.state.clock); assert.equal(stones(f), DIAL.startStones + DIAL.stipendStones * DIAL.stipendWeeks); valid(f);
     assert.equal(keeperHouseView(f.p.state, f.d, f.record, f.ctx()).ledger.nextStipendIn, null);
 });
+
+test('automatic keeper events that act on the player are gated, so another world\'s enrolled player never runs them (LOTM wait stall)',()=>{
+    const events=raw.simulation?.events||raw.events||[];
+    assert.ok(events.length>0);
+    const open=events.filter(e=>e.automatic&&(e.actorId||'player')==='player'&&!e.requires).map(e=>e.id);
+    assert.deepEqual(open,[]);
+});

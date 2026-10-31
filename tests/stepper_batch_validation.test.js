@@ -10,7 +10,7 @@ const owner=source.slice(start,end);
 function host(badFrom=Infinity){
     const checked=[],context=vm.createContext({stepperSaves:null,game_version:'t',expansionError:null,foundationSaveBlocked:false,
         validateSaveEnvelope:e=>{checked.push(e.clock);if(e.clock>=badFrom)throw Error('invalid envelope');}});
-    vm.runInContext(owner+'\nglobalThis.api={validateEnvelopeInBatch,settleBatchValidation,reset(){batchValidatedAt=null;batchPendingEnvelope=null;}};',context);
+    vm.runInContext(owner+'\nglobalThis.api={validateEnvelopeInBatch,settleBatchValidation,reset(){batchValidatedAt=null;batchPendingEnvelope=null;batchValidatedPlace=null;}};',context);
     return {api:context.api,checked,context};
 }
 test('outside a batch every minute validates, as before',()=>{
@@ -35,4 +35,10 @@ test('a save that fails mid-batch blocks at the next checkpoint, within one in-g
     for(let m=1;m<=30;m++)g.api.validateEnvelopeInBatch({clock:m},m);
     assert.throws(()=>g.api.settleBatchValidation(),/invalid envelope/);
     assert.equal(g.context.foundationSaveBlocked,true);assert.match(g.context.expansionError,/saving failed/);
+});
+test('a move of the body validates at once, because validators register the arrival place',()=>{
+    const h=host();h.context.stepperSaves=new Set();h.api.reset();
+    const at=(clock,place)=>({clock,'current location':'a',expansion:{simulation:{people:{player:{location:place}}}}});
+    h.api.validateEnvelopeInBatch(at(1,'a'),1);h.api.validateEnvelopeInBatch(at(2,'a'),2);h.api.validateEnvelopeInBatch(at(3,'b'),3);h.api.validateEnvelopeInBatch(at(4,'b'),4);
+    assert.deepEqual(h.checked,[1,3]);
 });

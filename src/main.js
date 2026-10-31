@@ -1128,7 +1128,7 @@ const paradiseNative=createParadiseNativeBindings({NPC,NPCRegistry,SafeLocation,
 }});
 paradiseNative.register();
 const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
-molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},die:async cause=>{if(!continuationState)await commandContinuation('enroll').catch(error=>log_message(error.message,'notification'));const c=continuationState;if(!c||c.lives[c.active]?.ended)return;return commandContinuation('die:'+cause).catch(error=>log_message(error.message,'notification'));},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
+molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,writeBlockReason:()=>!ownsSave?'This tab is read-only: close the other game tab and reload.':expansionError?`Progress paused: ${expansionError}`:foundationSaveBlocked?'Saving failed earlier: reload to continue.':importProbeToken?'An import is being checked.':restoringNativeSave?'A saved game is being restored.':'',startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},die:async cause=>{if(!continuationState)await commandContinuation('enroll').catch(error=>log_message(error.message,'notification'));const c=continuationState;if(!c||c.lives[c.active]?.ended)return;return commandContinuation('die:'+cause).catch(error=>log_message(error.message,'notification'));},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
 const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
 proto23Native.register();
 item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
@@ -6608,10 +6608,12 @@ let stepperSaves = null;
 // Inside a stepper batch the per-minute envelope check runs at the batch's first write, then once per
 // in-game hour of clock and at close (the last skipped envelope), so a failed save still blocks within an hour.
 const BATCH_VALIDATE_MINUTES = 60;
-let batchValidatedAt = null, batchPendingEnvelope = null;
+let batchValidatedAt = null, batchPendingEnvelope = null, batchValidatedPlace = null;
+// Domain validators also do work, such as registering the native place a journey arrives at, so a move always validates.
 function validateEnvelopeInBatch(data, clock) {
-    if(!stepperSaves || batchValidatedAt === null || clock - batchValidatedAt >= BATCH_VALIDATE_MINUTES) {
-        validateSaveEnvelope(data, game_version); batchPendingEnvelope = null; if(stepperSaves) batchValidatedAt = clock; return;
+    const place = data['current location'] + '|' + data.expansion?.simulation?.people?.player?.location;
+    if(!stepperSaves || batchValidatedAt === null || place !== batchValidatedPlace || clock - batchValidatedAt >= BATCH_VALIDATE_MINUTES) {
+        validateSaveEnvelope(data, game_version); batchPendingEnvelope = null; batchValidatedPlace = place; if(stepperSaves) batchValidatedAt = clock; return;
     }
     batchPendingEnvelope = data;
 }
@@ -9117,7 +9119,7 @@ function openStepperBatch(render) {
     if(stepperSaves) throw new Error('Cannot nest advanceTicks.');
     const restore = [];
     stepperSaves = new Set();
-    batchValidatedAt = null; batchPendingEnvelope = null;
+    batchValidatedAt = null; batchPendingEnvelope = null; batchValidatedPlace = null;
     if(!render) {
         beginSimulationRenderBatch();
         stepperRenderSuppressed=true;
