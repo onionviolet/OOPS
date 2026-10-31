@@ -12,7 +12,7 @@ Proposed, in use as the default (CHOICES item 4, 2026-10-30, [packet](audits/UI_
 - Colors, sizes, spacing, controls, layers, type: UR6, UR65-UR68.
 - Buttons, rows, panels, back bars, labels: UR7-UR10, UR13, UR80-UR82 (while you build, below).
 - Text a player reads: UR70-UR75, UR73 (no developer words), UIV1 (visible reasons).
-- Scenes, choices, travel and Reports: SUI1-SUI19 and RPT1-RPT12 ("Scene and report rules").
+- Scenes, choices, travel and Reports: SUI1-SUI19 and RPT1-RPT14 ("Scene and report rules").
 - Wording of the always-visible set and navigation: UR11, UR21-UR33.
 - Before you call it done: UR14-UR17 (1920×1080 populated save; name the app, UR16).
 - Lane briefs: UR18-UR20.
@@ -340,7 +340,7 @@ Source: moved 2026-10-29 from the cast-lives plan (sections 15-18 and 21), codes
 | SUI18 | **The next step is findable from the current screen.** Where the lead's next action happens elsewhere, the current screen offers the route (SUI13, SUI14); where it needs an item or knowledge, the screen shows what is missing (SUI5) |
 | SUI19 | **Folded actions show their parts.** A folded action's description lists the book steps it stands for, in our words, so the player sees the lead's morning as it happened |
 
-### RPT1-RPT12: what the cast writes into Reports
+### RPT1-RPT14: what the cast writes into Reports
 
 | Code | Rule (default, dial and reason) | Restates |
 | --- | --- | --- |
@@ -356,3 +356,5 @@ Source: moved 2026-10-29 from the cast-lives plan (sections 15-18 and 21), codes
 | RPT10 | **Book text stays out of the log by default.** The line is the receipt and is ours (SUI11); quoted book text belongs on the scene card and in descriptions (CL144-CL145). Dial: a private-pack world may show a short quoted line for a canon scene the player was present at, marked as from the book | CL144, AD1 |
 | RPT11 | **No developer text.** Evidence labels, fill notes, locators and ids never appear in Reports; they live in the inspector (CL19, CL42) | UR73 |
 | RPT12 | **Varied but deterministic wording.** Routine lines draw their wording from the world's texture rows keyed by place, band and day, so the same moment reads the same after a reload and different days read differently | CL49, WA37 |
+| RPT13 | **Every world speaks in Reports** (*standing, Weibao 2026-10-30: "make long standing rules"*). Default: a world the player can enter ships, in the same change, a general voice row (day and night flavour pools plus its real way to move) and place rows for at least its start and main work place, in [world_report_voice.js](../src/world_report_voice.js); titles get the world's own line. `tests/world_look.test.js` fails when a new `*_LOCATIONS` table has no voiced place. Dial: a world may stay generic for a stated reason (no enterable places yet, or a sealed route that any flavour would hint at). Reason: generic lines everywhere made every world read the same | DSG13, RPT12 |
+| RPT14 | **The flavour is seen; the useful half is a real control.** Default: flavour says only what is in front of the player (no rumours, no future, no feelings assigned to others); the useful half names a panel, action or route that exists for that world, in the game's own words, checked in play or against the code that renders it. Dial: a world's voice may be terse or chatty. Reason: a voice that points at a missing control, or tells the player what they could not know, is worse than the generic line | RPT2, RPT7, UR73, UR74 |

@@ -7016,3 +7016,10 @@ Weibao, 2026-10-30, after the five redesign drafts: "We dont need the bright sty
 - **Luminous Gothic (the blue) is the one look to develop.** The paper skin is parked: the code stays, no further work or captures.
 - **Housing goes blocky and abstract**, not a drawn floor plan with icons.
 - **Process:** several variants per section from a reference board, judged side by side ([brief, round 2](gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md#round-2-blocky-luminous-variants)).
+
+## Report voice for every world, as a standing rule (2026-10-30)
+
+Weibao, 2026-10-30: "little details like the flavortext on the side of of reports? adding usefuo ones too? one for each world?", then "creating general ones for each world, locality, and more?", then "add more and then commit, just make long standing rules and stuff".
+
+- **Every enterable world gets its own Reports voice:** flavour plus a useful line, at three grains (a place, the world in general, and other kinds such as titles and unlocks), varying by time of day and day. Owner: [DESIGN.md](../DESIGN.md) DSG13, code in `src/world_report_voice.js`.
+- **Standing rules:** RPT13 (a new world ships its voice in the same change; a test enforces it) and RPT14 (flavour is only what is seen; the useful half names a real control), in [UI rules](UI_RULES.md#scene-and-report-rules-sui-rpt).

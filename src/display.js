@@ -14,7 +14,7 @@ import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {reportRepeatKey} from './report_repeats.js';
-import {currentWorldFamily} from './world_look.js';
+import {currentWorldFamily, currentWorldId} from './world_look.js';
 import {reportVoice} from './world_report_voice.js';
 import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot, hostileSubject} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
@@ -39,7 +39,7 @@ import {can_work, enough_time_for_earnings} from "./activity_time.js";
 import {readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality} from "./native_view.js";
 import {translate} from "./native_translation.js";
 import { activities } from "./activities.js";
-import { format_time, current_game_time, seasons } from "./game_time.js";
+import { format_time, current_game_time, seasons, is_night } from "./game_time.js";
 import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, getItemRarity, getItemFromKey, item_log } from "./items.js";
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
@@ -1196,7 +1196,7 @@ export function setNativeLogBufferReader(reader) {
     if(details.combat&&renderCombatLine(compact_node,details.combat))mark_combat_line(message,details.combat);
     else decorate_log_subjects(compact_node,log_subject_snapshots(message_to_add,message_type,details.subjects),message_type);
     // DSG13: a world that voices this kind adds its flavour and the useful part under the receipt.
-    const world_family=currentWorldFamily(),voice=reportVoice({family:world_family,kind:message_type,text:message_to_add});
+    const world_family=currentWorldFamily(),voice=reportVoice({family:world_family,worldId:currentWorldId(),kind:message_type,text:message_to_add,band:is_night(current_game_time)?'night':'day',day:`${current_game_time.year}-${current_game_time.month}-${current_game_time.day}`});
     if(voice){
         message.dataset.world=world_family;
         const line=document.createElement('span');line.className='report-voice';
