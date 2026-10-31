@@ -66,13 +66,15 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
   report.day1=await grabHalt();await mark('day1 '+JSON.stringify(report.day1).slice(0,300));
   await Promise.race([p.screenshot({path:path.join(out,'rail-day1.png'),timeout:20000}).catch(()=>{}),pause(25000)]);
   report.days=[];
-  for(let w=0;w<4;w++){
-   const t=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&/^Wait until dawn/.test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;});await mark('wait '+w+' '+t);
-   if(!t)break;
-   let g;for(let i=0;i<80;i++){await pause(6000);g=await grabHalt();g.clock=await p.evaluate(()=>(document.body.innerText.match(/Now: [^\n]*/)||[''])[0]);g.reason=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>/Travel to Backlund/.test(b.textContent));return b?{title:b.title,next:b.parentElement?.innerText.slice(0,260)}:null;});if(g.reason&&!/Saving is paused/.test(g.reason.title||'')||i===79)break;}
-   report.days.push(g);await mark('day '+JSON.stringify(g).slice(0,400));
-   if(g.travel.length&&!g.travel[0].startsWith('[disabled]'))break;
-  }
+  const state=async tag=>{const g=await grabHalt();g.tag=tag;g.clock=await p.evaluate(()=>(document.body.innerText.match(/Now: [^\n]*/)||[''])[0]);g.reason=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>/Travel to Backlund/.test(b.textContent));return b?{title:b.title,next:b.parentElement?.innerText.slice(0,300)}:null;});report.days.push(g);await mark('day '+JSON.stringify(g).slice(0,700));return g;};
+  await state('after first wait');
+  await p.evaluate(()=>window.simulationTestHooks.resume());
+  for(let i=0;i<120;i++){await pause(5000);const c=await p.evaluate(()=>(document.body.innerText.match(/Now: [A-Za-z]+, [A-Za-z]+, [A-Za-z]+ . (\d+):/)||[])[1]);if(c&&+c>=15){break;}}
+  await state('afternoon, halt beat reached');
+  await Promise.race([p.screenshot({path:path.join(out,'rail-halt.png'),timeout:20000}).catch(()=>{}),pause(25000)]);
+  const t=await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&/^Wait until the day of your interview/.test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;});await mark('interview wait '+t);
+  for(let i=0;i<80;i++){await pause(6000);const c=await p.evaluate(()=>(document.body.innerText.match(/Now: ([A-Za-z]+),/)||[])[1]);if(c&&c!=='Mon')break;}
+  await state('next day');
   report.reports=await p.evaluate(()=>document.body.innerText.match(/halted[^\n]{0,80}/ig));
  }
 
