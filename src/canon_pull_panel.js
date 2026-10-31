@@ -5,15 +5,15 @@ import {definePanel} from './panel_kit.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
 import {node, syncList, visibleRenderer} from './reference_kit.js';
 import {PULL_SLICE, deviationChronicle} from './canon_pull.js';
-import {canonPullRead, PULL_DECLINED} from './canon_pull_host.js';
+import {canonPullRead} from './canon_pull_host.js';
 
 const LEAN_FILL = {'holds firm': 90, leans: 65, loosening: 35, drifting: 12};
-const declined = () => readPort('expansion')?.actors?.player?.facts?.[PULL_DECLINED] === true;
+const awayNow = () => readPort('expansion')?.lotm?.pullAway === true;
 const sliceNow = () => domainRegistry.project(PULL_SLICE);
 const active = () => { const s = sliceNow(); return !!s && (s.beats?.day > 0 || s.records.length > 0); };
 
-export function canonPullView(slice = sliceNow(), isDeclined = declined()) {
-    const read = canonPullRead(slice, {declined: isDeclined});
+export function canonPullView(slice = sliceNow(), away = awayNow()) {
+    const read = canonPullRead(slice, {away});
     return {headline: read.headline, rows: read.upcoming.map(u => ({id: u.id, label: u.label, lean: u.lean, pressed: u.pressed, fill: LEAN_FILL[u.lean]})),
         deviations: deviationChronicle(slice).map(d => ({key: `${d.beat}@${d.day}`, text: d.text}))};
 }
