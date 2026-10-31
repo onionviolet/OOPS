@@ -36,12 +36,25 @@ pack). `lotm.v1.pull.b1` needs one precondition fact; fate can restore it (budge
 (budget 1). `tests/canon_pull.test.js` shows every outcome across 300 keyed seeds, determinism, the seat
 dial, damping, finite budgets, and the slice round trip.
 
+## Host binding and browser floor (2026-10-31)
+
+Status: **implemented, floor partly confirmed; agent-verified, not human-reviewed.** The host tick landed in
+`book_world_lotm_cast_host.js` (floor-wire, commit 202371533). The dose `decline` verb is not in the lead's seat, so b1 is
+now the lead's presence at their scheduled place when day 3 turns (a stand-in rule I chose, not read from the sealed
+canon); the tick waits while the book gives no place.
+
+Probe: `scripts/playtest/canon-pull-probe.mjs`, headless, 1920x1080, fresh origin, seed 7 (runs cp5-cp8).
+
+- Confirmed: the lead walks to the street market and waits past day 3; fate restores the beat; Reports shows "Beat b1:
+  restored (a coincidence carried the day to where you stood)"; the `canonPull` slice is in the save with spend and record;
+  export, import and reload keep the slice; after import the panel reads "Beat b1 was set right: ...".
+- Unconfirmed: the live panel before import. The probe's panel navigation did not open it (stale text), so a
+  look at the panel in play is still owed. A last run with a corrected opener (cp9) had not returned when work stopped:
+  record "probe unconfirmed" until it does. Weekly usage stop, resume after the Nov 2 reset.
+- Not run: the other outcomes (substitute, stand) in the browser (they are covered by 300-seed engine tests); other seats.
+
 ## Not built (stops and next steps)
 
-- Host binding (floor-wire owns `book_world_lotm_*`): map `lotm.v1.pull.b1` to a real pack beat id and its
-  window fact, replace the `resolveBeats` call in the cast host with `resolveWithPull`, and call
-  `domainRegistry.command('canonPull', 'push')` when a player action changes a fact a pulled beat reads.
-- Panel: render `pullRead` through `definePanel` (UR rules, desktop first) and push `deviationChronicle`
-  lines into the life chronicle log.
-- Browser floor at 1920x1080 (deviate, see the pull, save, reload, import): not run; needs the two items above.
-- Later: per-world curves (LSD234), fate traces readable by divination (LSD240), relationship-driven change.
+- Other seats have no tick; only the lead's seat runs the hook.
+- Per-world curves (LSD234), fate traces readable by divination (LSD240), relationship-driven change.
+- The real b1 binding to a sealed pack beat and its window fact.

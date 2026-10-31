@@ -117,3 +117,11 @@ test('host tick: a lead away from their place is reached anyway or the beat is m
     assert.deepEqual(held.records, []);
     assert.equal(held.pull.beats.done['lotm.v1.pull.b1'].status, 'carried');
 });
+
+test('host tick waits while the book does not say where the lead is', async () => {
+    const {canonPullTick, pullFacts} = await import('../src/canon_pull_host.js');
+    const idle = canonPullTick(emptyPull(), {facts: pullFacts({scheduledPlace: null, playerPlace: 'market'}), day: 3});
+    assert.equal(idle.pull.beats.day, 0);
+    assert.equal(canonPullTick(emptyPull(), {facts: pullFacts({scheduledPlace: 'flat', playerPlace: 'flat'}), day: 3}).pull.beats.done['lotm.v1.pull.b1'].status, 'carried');
+    assert.ok(canonPullTick(emptyPull(), {facts: pullFacts({scheduledPlace: 'flat', playerPlace: 'market'}), day: 3, worldSeed: 5}).records.length === 1);
+});

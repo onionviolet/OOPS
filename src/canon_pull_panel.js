@@ -34,6 +34,7 @@ function createPanel() {
     });
     panel.render = render;
     whenPortsReady(() => render(true));
+    setInterval(() => render(false), 2000);   // repaints only while visible and only when the view changed
     definePanel({id: 'canon-pull', title: 'The story', role: 'records', node: panel, home: document.getElementById('main_content'),
         discovered: active, eligible: active, emptyText: 'The story has not started pulling at your days'});
     return panel;

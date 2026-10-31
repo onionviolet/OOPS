@@ -17,7 +17,10 @@ export const LOTM_DOSE_PULL_BEATS = defineBeats([
             {id: 'church', kind: 'organisation', reason: 'org.contingency', sign: 'someone with standing carried it in your place', cost: 1, budget: 1,
                 substitute: [{fact: PULL_REACHED, value: true}]}]}},
 ]);
-export const pullFacts = ({scheduledPlace, playerPlace}) => ({[PULL_PRESENT]: scheduledPlace == null || scheduledPlace === playerPlace});
+// The book only says where the lead is during its slots; between slots there is nothing to be present at, so the
+// tick waits (PULL_KNOWN false) rather than carrying the beat from an unknown.
+export const PULL_KNOWN = 'lotm.pull.b1.known';
+export const pullFacts = ({scheduledPlace, playerPlace}) => ({[PULL_KNOWN]: scheduledPlace != null, [PULL_PRESENT]: scheduledPlace == null || scheduledPlace === playerPlace});
 
 export const pullConfig = ({seat = 'be', worldSeed = 0} = {}) => ({seat, worldSeed, world: 'lotm.v1'});
 
@@ -25,7 +28,7 @@ export const pullConfig = ({seat = 'be', worldSeed = 0} = {}) => ({seat, worldSe
 // Returns {pull, effects (simulation fact effects for the host to apply), records}.
 export function canonPullTick(pull = emptyPull(), {facts, day, seat, worldSeed} = {}) {
     const beats = pull.beats ?? {done: {}, day: 0};
-    if (!(day > beats.day)) return {pull, effects: [], records: []};
+    if (!(day > beats.day) || facts?.[PULL_KNOWN] === false) return {pull, effects: [], records: []};
     const state = {facts: {[PULL_PRESENT]: true, ...facts}, done: beats.done, day: beats.day};
     const r = resolveWithPull(LOTM_DOSE_PULL_BEATS, state, day, {pull: {state: pull, ...pullConfig({seat, worldSeed})}});
     const effects = r.results.flatMap(x => x.diffs).filter(d => d.fact.startsWith('book.lotm.'))
