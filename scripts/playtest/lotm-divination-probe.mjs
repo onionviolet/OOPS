@@ -82,7 +82,7 @@ const clickLabel=async re=>{for(let i=0;i<40;i++){const t=await p.evaluate(src=>
   report.deathLog.push({at:'seeded',...await snap()});
   const clicked=process.env.DEATH_WAIT?await p.evaluate(()=>{const b=[...document.querySelectorAll('#lotm_panel button')].find(b=>!b.disabled&&/^Wait until/.test(b.textContent));if(!b)return null;const t=b.textContent;b.click();return t;}):'natural time only';
   await p.evaluate(()=>window.simulationTestHooks.resume());report.deathLog.push({clicked});await mark('wait clicked '+clicked);
-  for(let i=0;i<24;i++){await pause(5000);const x=await snap();report.deathLog.push({i,...x});if(x.dead)break;}
+  for(let i=0;i<24;i++){await pause(5000);let x;try{if(await p.locator('#loading_screen_play_button').isVisible().catch(()=>false)){report.sawReload=true;await p.locator('#loading_screen_play_button').click({timeout:3000}).catch(()=>{});await pause(2000);}x=await snap();}catch(e){report.deathLog.push({i,err:String(e).slice(0,80)});continue;}report.deathLog.push({i,...x});if(x.dead)break;}
   report.panelText=await p.evaluate(()=>document.body.innerText.match(/[^\n]*(died|death|lost control|Restart|restart)[^\n]*/gi)?.slice(0,12));
   await p.screenshot({path:path.join(out,'death.png'),timeout:15000}).catch(()=>{report.shotFail=1;});
  }
