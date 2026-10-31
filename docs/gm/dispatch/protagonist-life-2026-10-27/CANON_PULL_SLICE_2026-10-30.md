@@ -49,8 +49,11 @@ Probe: `scripts/playtest/canon-pull-probe.mjs`, headless, 1920x1080, fresh origi
   restored (a coincidence carried the day to where you stood)"; the `canonPull` slice is in the save with spend and record;
   export, import and reload keep the slice; after import the panel reads "Beat b1 was set right: ...".
 - Unconfirmed: the live panel before import. The probe's panel navigation did not open it (stale text), so a
-  look at the panel in play is still owed. A last run with a corrected opener (cp9) had not returned when work stopped:
-  record "probe unconfirmed" until it does. Weekly usage stop, resume after the Nov 2 reset.
+  look at the panel in play is still owed. Run cp9 (corrected opener) returned: **a defect.** "The story" never appears in the
+  "Other known panels" list in play, even with an active slice, so the player cannot reach the panel (after import its text
+  is right, so the view is correct; the panel is just not offered). Cause not diagnosed: likely `discovered`/`eligible`
+  (`active()` in `src/canon_pull_panel.js`) is not re-evaluated when the slice changes, or the panel needs a
+  discovery notification like other panels. First task after the Nov 2 reset (weekly usage stop).
 - Not run: the other outcomes (substitute, stand) in the browser (they are covered by 300-seed engine tests); other seats.
 
 ## Not built (stops and next steps)
