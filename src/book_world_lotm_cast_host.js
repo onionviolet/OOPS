@@ -363,7 +363,7 @@ import {defineBeats,resolveBeats,newBeatState} from './beat_records.js';
 import {renderRefs} from './ref_resolver.js';
 import {beatKnowledgeWrites,applyBeatKnowledge} from './beat_knowledge.js';
 import {applySimulationEffects} from './simulation_effects.js';
-import {canonPullTick,PULL_DECLINED} from './canon_pull_host.js';
+import {canonPullTick,pullFacts} from './canon_pull_host.js';
 const REPORT_PREFIX='lotm.cast.report.';
 const terminalBeat=row=>row&&['carried','altered','blocked','lapsed'].includes(row.status);
 // The same authored day/minute projection used by settlement, without exposing
@@ -571,11 +571,11 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  const divinationReports=lotmBe(plan.state)?settleDivinationReports(plan.state,castDivinationCommands,I.world):[];
  const topicReports=lotmBe(plan.state)?settleTopicTalkReports(plan.state,castTopicCommands,I.world):[];
  const journeyReports=lotmBe(plan.state)?settleJourneyReports(plan.state,castJourneyCommands,I.world):[];
- // Canon pull (G1, proposal): a declined day-2 dose offer can be pulled back by fate or the church; once per life day.
+ // Canon pull (G1, proposal): the day-3 beat needs the lead at their scheduled place; fate or the church can put them there; once per life day.
  let pullNext=null;
  if(lotmBe(plan.state)){
   const day=Math.floor((plan.state.clock-plan.state.lotm.initializedAt)/1440)+1;
-  const pullBefore=domainRegistry.project('canonPull'),tick=canonPullTick(pullBefore,{facts:{[PULL_DECLINED]:plan.state.actors?.player?.facts?.[PULL_DECLINED]===true},day,seat:'be',worldSeed:plan.state.rng??0});
+  const pullBefore=domainRegistry.project('canonPull'),tick=canonPullTick(pullBefore,{facts:pullFacts({scheduledPlace:scheduleIndex.whereabouts(actorId(getPrivateLotmCast()?.leadLife?.actorId),castCalendar(plan.state)).place,playerPlace:plan.state.simulation.people.player.location}),day,seat:'be',worldSeed:plan.state.rng??0});
   if(tick.effects.length)applySimulationEffects(plan,tick.effects,{actorId:'player',worldId:I.world},null,'lotm.pull.b1');
   for(const r of tick.records)out.reports.push({text:`Beat b1: ${r.outcome}${r.sign?` (${r.sign})`:''}.`,at:plan.state.clock,kind:'events',actor:'player'});
   if(JSON.stringify(tick.pull)!==JSON.stringify(pullBefore)){plan.nativePatch={...plan.nativePatch,canonPull:JSON.parse(JSON.stringify(tick.pull))};pullNext=tick.pull;}
