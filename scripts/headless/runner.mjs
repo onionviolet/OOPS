@@ -68,7 +68,28 @@ export async function bundleGame({root = ROOT, force = false} = {}) {
         }}]});
     const {rename} = await import('node:fs/promises');
     await rename(tmp, out);
+    await pruneBundles(dir, out);
     return out;
+}
+
+// Each source state (paths and mtimes, so every worktree too) writes a ~40 MB bundle.
+// Keep the newest few and anything recent enough that a concurrent run may still import it.
+const KEEP_BUNDLES = 12, KEEP_MS = 60 * 60 * 1000;
+async function pruneBundles(dir, keep) {
+    const {rm} = await import('node:fs/promises');
+    const now = Date.now(), files = [];
+    for(const name of await readdir(dir).catch(() => [])) {
+        if(!name.startsWith('game-')) continue;
+        const path = join(dir, name);
+        try {files.push({path, tmp:name.includes('.tmp.'), mtime:(await stat(path)).mtimeMs});} catch {}
+    }
+    files.sort((a, b) => b.mtime - a.mtime);
+    let kept = 0;
+    for(const f of files) {
+        if(f.path === keep || now - f.mtime < KEEP_MS) continue;
+        if(!f.tmp && ++kept <= KEEP_BUNDLES) continue;
+        await rm(f.path, {force:true}).catch(() => {});
+    }
 }
 
 function mulberry32(seed) {
