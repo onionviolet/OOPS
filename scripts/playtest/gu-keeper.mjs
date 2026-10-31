@@ -6,6 +6,8 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {encodeSaveFile} from '../../src/save_files.js';
+import {keeperDiets} from '../../src/world_packs/book_gu_keeper.js';
+import {starvation} from '../../src/living_upkeep.js';
 const {launchChrome} = createRequire(import.meta.url)('../ui_helpers.cjs');
 const build=path.resolve(process.argv[2]||'/private/tmp/claude-501/gu-keeper-build');
 const out=path.resolve(process.argv[3]||'/private/tmp/claude-501/gu-keeper-evidence');
@@ -19,7 +21,7 @@ const server=createServer(async(req,res)=>{try{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const browser=await launchChrome(),context=await browser.newContext({viewport:{width:1920,height:1080},acceptDownloads:true});
 const p=await context.newPage();p.setDefaultTimeout(20000);
-const result={route:'fresh Village → original RI Gu keeper beginning → free Gu → refused purchases → stipend week → hold more Gu than fed → starve on schedule → save/reload/import',errors:[],checks:[],matrix:[]};
+const result={route:'fresh Village → original RI Gu keeper beginning → free Gu → refused purchases → stipend week → hold more Gu than fed → starved out on schedule → recover → save/reload/import',errors:[],checks:[],matrix:[]};
 p.on('pageerror',e=>result.errors.push(e.message));
 const play=async()=>{await p.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});await p.evaluate(()=>window.simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click();await p.waitForFunction(()=>document.documentElement.dataset.startScreen==='closed');};
 const open=()=>p.locator('#workspace_navigation select').first().selectOption('beginning');
@@ -62,16 +64,22 @@ try {
     for(const n of ['moon','worm','jade'])assert.equal(gu(s,n).body.controllerId,'player');
     result.checks.push('held three Gu on a stipend that feeds fewer: '+await p.locator('[data-gu="feeding-cap"]').innerText());
     await shot('02-over-held');await roundTrip('over-held');
-    s=await save();const when={moon:death(s,'moon',1),worm:death(s,'worm',2),jade:death(s,'jade',3)};
-    const stock=n=>sim(s).owners[id(n)]||{};assert.equal(Object.keys(stock('worm')).length,0);
-    result.matrix.push({predictedDeathMinute:when,clockNow:s.expansion.clock});
+    s=await save();const FOOD={moon:'petals',worm:'lees',jade:'jade'},when={};
+    for(const n of ['moon','worm','jade']){const d=keeperDiets.find(x=>x.holder===id(n));
+        when[n]=starvation(d,{stock:sim(s).owners[id(n)]?.[key(FOOD[n])]||0,condition:gu(s,n).vitals.health,now:s.expansion.clock,anchor:s.content_packs.structured.initializedAt}).starvedOutAt;}
+    result.matrix.push({predictedStarvedOutMinute:when,clockNow:s.expansion.clock});
     for(const [n,t] of Object.entries(when).sort((a,b)=>a[1]-b[1])){
-        await toClock(t-1);s=await save();assert.equal(gu(s,n).life,'alive',n+' alive one minute before');
-        await step(1);s=await save();assert.equal(gu(s,n).life,'dead',n+' dead on the predicted minute');
-        await shot('03-dead-'+n);
+        if(t>s.expansion.clock){await toClock(t-1);s=await save();assert.equal(gu(s,n).vitals.health,2,n+' at condition 2 one minute before');await step(1);}
+        s=await save();assert.equal(gu(s,n).vitals.health,1,n+' starved out on the predicted minute');assert.equal(gu(s,n).life,'alive',n+' alive: hunger does not kill a keeper’s Gu');
     }
-    await roundTrip('after-starvation');
-    result.checks.push('each Gu died on its predicted minute and the Gu house showed the clock; save, reload, Export and Import matched');
+    await open();await p.locator('[data-gu-row="moon"]').waitFor();assert.match(await p.locator('[data-gu-row="moon"] [data-gu="starves-in"]').innerText(),/Starved out now/);
+    assert.equal(await p.locator(`[data-structured-action="${id('work_moon')}"]`).isDisabled(),true);
+    await shot('03-starved-out');
+    await act1('chores');await step(120);await instant1('buy_petals');await instant1('feed_moon');await toClock((await save()).expansion.clock+1440);
+    s=await save();assert.ok(gu(s,'moon').vitals.health>=2,'a meal recovers it');await instant1('order_moon_on');
+    await shot('04-recovering-with-order');
+    await roundTrip('after-hunger');
+    result.checks.push('each Gu was starved out (not killed) on its predicted minute, refused work, recovered on a meal and took a standing order; the Gu house showed the clock; save, reload, Export and Import matched');
     assert.deepEqual(result.errors,[]);result.bundleSha256=createHash('sha256').update(await readFile(path.join(build,'dist/bundle.js'))).digest('hex');result.reviewState='agent-verified, not human-reviewed';result.success=true;
 }catch(e){result.failure=e.stack;result.panel=await p.locator('#structured_pack_panel').innerText().catch(()=>'');await p.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});}
 finally{await writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2));await context.close();await browser.close();server.close();}

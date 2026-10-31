@@ -2,7 +2,7 @@
 // Every number below is an authored dial for a first-rank life, not a canon table: aptitude cap, regeneration,
 // stipend, prices, meals and the refinement odds. Ranks above the first need unread blocks and are not modelled.
 // Upkeep rows come from the living_upkeep seam; the pack adds ownership, prices, the stipend and one refinement.
-import {compileUpkeepEvents} from '../living_upkeep.js';
+import {compileUpkeepEvents, compileStandingOrder} from '../living_upkeep.js';
 export const KEEPER_PREFIX = 'book.ri.keeper';
 export const kId = n => `${KEEPER_PREFIX}.${n}`;
 export const kKey = n => JSON.stringify({id: kId(n)});
@@ -10,15 +10,16 @@ const id = kId, key = kKey, steward = id('steward');
 export const KEEPER_DAY = 1440;
 // Dials. The sea is 24 units at a full aperture; aptitude 50% caps it at 12; regeneration is one unit an hour.
 export const KEEPER_DIALS = Object.freeze({fullSea: 24, aptitudePercent: 50, capacity: 12, regenPerHour: 1, startStones: 3, startEssence: 8,
-    stipendStones: 6, stipendDays: 7, stipendWeeks: 52, choreMinutes: 120, choreStones: 1, fuseOdds: {success: 3, failure: 2}, fuseInjury: 2});
+    hungerKills: false, workWeakInjuryOdds: {fine: 2, hurt: 1}, stipendStones: 6, stipendDays: 7, stipendWeeks: 52, choreMinutes: 120, choreStones: 1, fuseOdds: {success: 3, failure: 2}, fuseInjury: 2});
 // species: [slot, label, food slot, food label, perMeal, intervalDays, stone price, refined meal]
 export const KEEPER_GU = [
-    {slot: 'moon', label: 'Moonlight Gu', food: 'petals', foodLabel: 'Moon Orchid petals', perMeal: 4, days: 1, price: 0, refinedMeal: 3, bundle: 8, bundlePrice: 1},
-    {slot: 'worm', label: 'Liquor Worm Gu', food: 'lees', foodLabel: 'jars of spirit lees', perMeal: 1, days: 2, price: 4, bundle: 4, bundlePrice: 1},
-    {slot: 'jade', label: 'White Jade Gu', food: 'jade', foodLabel: 'raw jade shards', perMeal: 1, days: 3, price: 6, bundle: 1, bundlePrice: 1}
+    {slot: 'moon', label: 'Moonlight Gu', food: 'petals', foodLabel: 'Moon Orchid petals', perMeal: 4, days: 1, price: 0, refinedMeal: 3, bundle: 8, bundlePrice: 1, yield: 1,
+        alt: {food: 'dried', foodLabel: 'dried petals', perMeal: 6, bundle: 12, bundlePrice: 1}},
+    {slot: 'worm', label: 'Liquor Worm Gu', food: 'lees', foodLabel: 'jars of spirit lees', perMeal: 1, days: 2, price: 4, bundle: 4, bundlePrice: 1, yield: 1},
+    {slot: 'jade', label: 'White Jade Gu', food: 'jade', foodLabel: 'raw jade shards', perMeal: 1, days: 3, price: 6, bundle: 1, bundlePrice: 1, yield: 2}
 ];
 export const keeperDiets = KEEPER_GU.map(g => ({holder: id(g.slot), label: g.label, food: key(g.food), foodLabel: g.foodLabel, perMeal: g.perMeal, interval: g.days * KEEPER_DAY, maxCondition: 4,
-    flag: id(`${g.slot}_kept`), ...(g.refinedMeal ? {refinedFlag: id(`${g.slot}_refined`), refinedPerMeal: g.refinedMeal} : {})}));
+    flag: id(`${g.slot}_kept`), lethal: KEEPER_DIALS.hungerKills, resetFlags: [id(`${g.slot}_kept.worked`)], ...(g.alt ? {alt: {food: key(g.alt.food), foodLabel: g.alt.foodLabel, perMeal: g.alt.perMeal}} : {}), ...(g.refinedMeal ? {refinedFlag: id(`${g.slot}_refined`), refinedPerMeal: g.refinedMeal} : {})}));
 
 const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
 const ge = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
@@ -44,7 +45,7 @@ export const guKeeperLife = {
     sources: [{id: id('aperture'), revision: 1, label: 'Opened Rank-one aperture', kind: 'trait', origin: 'acquired', grants: [], bioDetail: `Declared starting means. Aptitude ${KEEPER_DIALS.aptitudePercent}% caps the primeval sea at ${KEEPER_DIALS.capacity} of ${KEEPER_DIALS.fullSea} units; it regenerates ${KEEPER_DIALS.regenPerHour} unit an hour. Authored dials, not a canon grade table.`}],
     items: [
         ['stone', 'Primeval stone', 'Money and fuel in one: the clan pays your stipend in stones and sells food and Gu for them.'],
-        ['petals', 'Moon Orchid petal', 'Food for a Moonlight Gu.'], ['lees', 'Jar of spirit lees', 'Food for a Liquor Worm Gu.'], ['jade', 'Raw jade shard', 'Food for a White Jade Gu.'],
+        ['petals', 'Moon Orchid petal', 'Food for a Moonlight Gu.'], ['dried', 'Dried petal', 'Poorer food for a Moonlight Gu: it ends hunger but does not heal.'], ['lees', 'Jar of spirit lees', 'Food for a Liquor Worm Gu.'], ['jade', 'Raw jade shard', 'Food for a White Jade Gu.'],
         ...KEEPER_GU.map(g => [g.slot + '_gu', g.label + ' · carrier', `The titled carrier of one living ${g.label}. Its body is separate and can starve.`])
     ].map(([n, label, description]) => ({id: id(n), label, description, value: 1})),
     units: KEEPER_GU.map(g => ({id: id(g.slot + '_unit'), titleOwner: steward, titleRecipients: ['player'], titleClaimId: id(g.slot + '_title'), keys: [key(g.slot + '_gu')]})),
@@ -53,9 +54,9 @@ export const guKeeperLife = {
         effects: [{type: 'source', sourceId: id('aperture'), operation: 'grant', origin: 'acquired', awakened: true, active: true},
             {type: 'energy', energyId: id('primeval'), operation: 'learn'}, {type: 'energy', energyId: id('primeval'), operation: 'recover', amount: KEEPER_DIALS.startEssence},
             item('stone', KEEPER_DIALS.startStones), item('petals', 8),
-            ...KEEPER_GU.flatMap(g => [item(g.slot + '_gu', 1, steward), {type: 'claim', actor: steward, key: id(g.slot + '_title'), operation: 'acquire'}, flag(g.slot + '_kept', false, gu(g)), flag(g.slot + '_refined', false, gu(g)), flag(g.slot + '_kept.fed', false, gu(g))]),
+            ...KEEPER_GU.flatMap(g => [item(g.slot + '_gu', 1, steward), {type: 'claim', actor: steward, key: id(g.slot + '_title'), operation: 'acquire'}, flag(g.slot + '_kept', false, gu(g)), flag(g.slot + '_refined', false, gu(g)), flag(g.slot + '_kept.fed', false, gu(g)), flag(g.slot + '_kept.worked', false, gu(g)), flag('auto_' + g.slot, false)]),
             note('stipend_known', `The clan pays ${KEEPER_DIALS.stipendStones} primeval stones every ${KEEPER_DIALS.stipendDays} days for ${KEEPER_DIALS.stipendWeeks} weeks. Stones are both money and fuel; this is an authored first-year agreement.`),
-            note('gu_known', 'Gu are living. Each has its own food and meal schedule; a missed meal costs one point of condition and a Gu that misses a meal at condition 1 dies. Taking in more Gu than you can feed is allowed, and the hungriest starves on the schedule the house shows.')]
+            note('gu_known', 'Gu are living. Each has its own food and meal schedule; a missed meal costs one point of condition and a Gu at condition 1 is starved out: it cannot work until fed again, but a keeper’s Gu does not die of hunger (a dial: the clan’s unheld Gu and other people’s still can). Taking in more Gu than you can feed is allowed.')]
     }],
     simulation: {
         people: [
@@ -68,7 +69,7 @@ export const guKeeperLife = {
         powers: [], conditions: [], commands: [], events: []
     },
     abilities: [],
-    presentation: {people: {[steward]: {introductionKnowledgeKey: id('stipend_known')}, ...Object.fromEntries(KEEPER_GU.map(g => [id(g.slot), {introductionKnowledgeKey: id('gu_known')}]))}, status: ['stipend_known', 'gu_known', 'purchase', 'fusion', 'chore'].map(n => ({id: id(n + '_status'), label: {stipend_known: 'Stipend', gu_known: 'Gu care', purchase: 'Latest purchase', fusion: 'Latest refinement', chore: 'Latest chore'}[n], knowledgeKey: id(n)}))}
+    presentation: {people: {[steward]: {introductionKnowledgeKey: id('stipend_known')}, ...Object.fromEntries(KEEPER_GU.map(g => [id(g.slot), {introductionKnowledgeKey: id('gu_known')}]))}, status: ['stipend_known', 'gu_known', 'purchase', 'fusion', 'chore', 'work'].map(n => ({id: id(n + '_status'), label: {stipend_known: 'Stipend', gu_known: 'Gu care', purchase: 'Latest purchase', fusion: 'Latest refinement', chore: 'Latest chore', work: 'Latest Gu work'}[n], knowledgeKey: id(n)}))}
 };
 const S = guKeeperLife.simulation;
 for(const g of KEEPER_GU) {
@@ -85,6 +86,27 @@ for(const g of KEEPER_GU) {
     S.commands.push(cmd('buy_' + g.food, `Buy ${g.bundle} ${g.foodLabel} · ${g.bundlePrice} stone`, {targetId: steward, coLocated: true, participants: ['$target'], requires: because(all(ready, ge(`item.${key('stone')}`, g.bundlePrice)), `You need ${g.bundlePrice} primeval stone for this.`),
         description: `The steward sells ${g.bundle} ${g.foodLabel} for ${g.bundlePrice} primeval stone.`, costs: [{type: 'transfer', from: 'player', to: steward, key: key('stone'), count: g.bundlePrice}],
         effects: [item(g.food, g.bundle), note('purchase', `You bought ${g.bundle} ${g.foodLabel}.`)]}));
+    // Slice: what a Gu is for. One working per meal window; condition sets how well it goes (4-3 sound, 2 works through at risk, 1 starved out).
+    const workBase = (suffix, label, condition, extra) => cmd(`work_${g.slot}${suffix}`, label, {targetId: gu(g), coLocated: true, participants: ['$target'],
+        requires: because(all(owned(g), condition, eq(`target.actor.${id(g.slot + '_kept.worked')}`, false), ge(`energy.${id('primeval')}.reserve`, 1)),
+            `You need this Gu in your care at the right condition, not yet worked this meal window, and 1 essence. A starved-out Gu (condition 1) must eat first.`),
+        costs: [essence(1)], ...extra});
+    S.commands.push(workBase('', `Put the ${g.label} to work · 1 essence, ${g.yield} stone${g.yield > 1 ? 's' : ''}`, ge('target.vital.health', 3), {description: `A sound Gu does its clan work once per meal window: ${g.yield} primeval stone${g.yield > 1 ? 's' : ''} for 1 essence.`,
+        effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), note('work', `The ${g.label} did its work: ${g.yield} stone${g.yield > 1 ? 's' : ''}.`)]}));
+    S.commands.push(workBase('_weak', `Work the hungry ${g.label} anyway · 1 essence, ${g.yield} stone${g.yield > 1 ? 's' : ''}, risk of harm`, all(ge('target.vital.health', 2), {fact: 'target.vital.health', op: 'lte', value: 2}),
+        {description: `At condition 2 the Gu works through hunger: the same pay, but it may be hurt for one point. It cannot be hurt below condition 1; feed it instead if you can.`,
+        outcomes: [{id: id(`work_${g.slot}_fine`), weight: KEEPER_DIALS.workWeakInjuryOdds.fine, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), note('work', `The hungry ${g.label} got through its work.`)]},
+            {id: id(`work_${g.slot}_hurt`), weight: KEEPER_DIALS.workWeakInjuryOdds.hurt, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), {type: 'vital', actor: gu(g), key: 'health', amount: -1}, note('work', `The hungry ${g.label} finished its work and was hurt; it is starved out until it eats.`)]}]}));
+    // Standing feed order: your bag tops up the larder one meal at each boundary while you have the food.
+    S.commands.push(cmd(`order_${g.slot}_on`, `Set a standing feed order for the ${g.label}`, {requires: because(all(ready, eq(`claim.${id(g.slot + '_title')}.owner`, 'player'), eq(`actor.${id('auto_' + g.slot)}`, false)), 'Take this Gu in first, and it must not already have an order.'),
+        description: `At each meal boundary one meal of ${g.foodLabel} moves from your bag to its larder if you hold it. When your bag runs out the order does nothing and the Gu goes hungry on its normal schedule.`, effects: [flag('auto_' + g.slot, true)]}));
+    S.commands.push(cmd(`order_${g.slot}_off`, `Cancel the standing feed order for the ${g.label}`, {requires: because(all(ready, eq(`actor.${id('auto_' + g.slot)}`, true)), 'There is no standing order to cancel.'), effects: [flag('auto_' + g.slot, false)]}));
+    S.events.push(compileStandingOrder(keeperDiets.find(d => d.holder === gu(g)), {worldId: id('world'), actorId: 'player', orderFlag: id('auto_' + g.slot), ids: id}));
+    if(g.alt) S.commands.push(cmd('buy_' + g.alt.food, `Buy ${g.alt.bundle} ${g.alt.foodLabel} · ${g.alt.bundlePrice} stone`, {targetId: steward, coLocated: true, participants: ['$target'], requires: because(all(ready, ge(`item.${key('stone')}`, g.alt.bundlePrice)), `You need ${g.alt.bundlePrice} primeval stone for this.`),
+        description: `Poorer food: the ${g.label} eats ${g.alt.perMeal} ${g.alt.foodLabel} when its main food is short. It stops it getting hungrier but does not heal it.`, costs: [{type: 'transfer', from: 'player', to: steward, key: key('stone'), count: g.alt.bundlePrice}],
+        effects: [item(g.alt.food, g.alt.bundle), note('purchase', `You bought ${g.alt.bundle} ${g.alt.foodLabel}.`)]}));
+    if(g.alt) S.commands.push(cmd('feed_' + g.alt.food, `Feed the ${g.label} poorer food: ${g.alt.perMeal * 2} ${g.alt.foodLabel}`, {targetId: gu(g), coLocated: true, participants: ['$target'], requires: because(all(owned(g), ge(`item.${key(g.alt.food)}`, g.alt.perMeal * 2)), `You need this Gu in your care and ${g.alt.perMeal * 2} ${g.alt.foodLabel} in your bag.`),
+        description: 'Fill the larder with the poorer food for two meals.', costs: [{type: 'transfer', from: 'player', to: gu(g), key: key(g.alt.food), count: g.alt.perMeal * 2}]}));
     for(const row of compileUpkeepEvents(keeperDiets.find(d => d.holder === gu(g)), {worldId: id('world'), ids: id, note: (text) => note('care_notice', text)})) S.events.push(row);
 }
 // Work for stones, a stipend event, the aperture's passive regeneration.

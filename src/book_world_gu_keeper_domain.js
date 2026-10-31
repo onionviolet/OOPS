@@ -20,16 +20,13 @@ export function validateKeeperEnvelope(save) {
         check(Number.isInteger(p.vitals?.health) && p.vitals.health >= 0 && p.vitals.health <= diet.maxCondition && p.vitals.max_health === diet.maxCondition && (p.life === 'alive' ? p.vitals.health > 0 : p.vitals.health === 0), `Invalid ${g.label} condition.`);
         const larder = own(s.owners[id(g.slot)], key(g.food));
         check(Number.isSafeInteger(larder) && larder >= 0, `Invalid ${g.label} larder.`);
-        const expected = Math.floor(elapsed / diet.interval);
-        for(const row of life.simulation.events.filter(e => e.actorId === id(g.slot))) {
-            const c = s.checks[row.id];
-            check(c && c.interval === diet.interval && c.count === expected && c.due === record.initializedAt + (expected + 1) * diet.interval, `${g.label} meal deadline is missing or changed.`);
-        }
     }
-    const regen = s.checks[id('regen')], stipend = s.checks[id('stipend')];
-    const week = DIAL.stipendDays * KEEPER_DAY, weeks = Math.floor(elapsed / week);
-    // The stipend check may retire once its authored weeks are paid; before that it must match the calendar.
-    check(regen && regen.count === Math.floor(elapsed / 60) && (weeks >= DIAL.stipendWeeks ? !stipend || stipend.count >= DIAL.stipendWeeks : stipend && stipend.count === weeks), 'Keeper regeneration or stipend schedule has changed.');
+    // Every authored event keeps its calendar. The stipend check may retire once its authored weeks are paid.
+    for(const row of life.simulation.events) {
+        const c = s.checks[row.id], expected = Math.floor(elapsed / row.interval);
+        if(row.id === id('stipend') && expected >= row.maxOccurrences) { check(!c || c.count >= row.maxOccurrences, 'Keeper stipend schedule has changed.'); continue; }
+        check(c && c.interval === row.interval && c.count === expected && c.due === record.initializedAt + (expected + 1) * row.interval, `Keeper schedule ${row.id.split('.').slice(3).join('.')} is missing or changed.`);
+    }
     const energy = s.energies.player?.[id('primeval')];
     check(energy && energy.policy.capacity === DIAL.capacity && energy.reserve <= DIAL.capacity, 'The aperture cap has changed.');
 }
@@ -52,11 +49,16 @@ export function keeperHouseView(state, definition, record, context) {
         const p = s.people[id(g.slot)], diet = keeperDiets.find(d => d.holder === id(g.slot)), kept = s.claims[id(g.slot + '_title')]?.owner === 'player';
         const refined = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_refined')];
         const stock = own(s.owners[id(g.slot)], key(g.food)), cond = p.vitals.health;
-        const row = {id: g.slot, label: g.label, food: g.foodLabel, kept, alive: p.life === 'alive', condition: cond, maxCondition: diet.maxCondition, stock, refined,
-            meal: mealSize(diet, refined), everyDays: g.days, price: g.price, perDayStones: dailyCost(diet, unitPrice(g), refined)};
+        const altStock = g.alt ? own(s.owners[id(g.slot)], key(g.alt.food)) : 0, worked = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_kept.worked')];
+        const order = !!state.actors?.player?.facts?.[id('auto_' + g.slot)], bag = own(inventory, key(g.food));
+        const row = {id: g.slot, label: g.label, food: g.foodLabel, kept, alive: p.life === 'alive', condition: cond, maxCondition: diet.maxCondition, stock, altStock, altFood: g.alt?.foodLabel || null, refined,
+            meal: mealSize(diet, refined), everyDays: g.days, price: g.price, perDayStones: dailyCost(diet, unitPrice(g), refined), lethal: diet.lethal !== false,
+            order, bagMeals: Math.floor(bag / mealSize(diet, refined)), worked, yield: g.yield,
+            ability: cond >= 3 ? (worked ? 'worked this window' : 'sound') : cond === 2 ? (worked ? 'worked this window' : 'works through hunger at risk') : 'starved out'};
         if(kept && row.alive) {
-            const st = starvation(diet, {stock, condition: cond, now, anchor, refined});
-            Object.assign(row, {nextMealIn: st.nextMeal - now, mealsStocked: st.meals, firstMissIn: st.firstMiss - now, starvesIn: st.deathAt - now, willEat: st.meals > 0});
+            const st = starvation(diet, {stock, altStock, condition: cond, now, anchor, refined});
+            Object.assign(row, {nextMealIn: st.nextMeal - now, mealsStocked: st.meals, firstMissIn: st.firstMiss - now, starvesIn: st.deathAt == null ? null : st.deathAt - now,
+                starvedOutIn: st.starvedOutAt - now, willEat: st.meals > 0, poorMeals: st.altMeals > 0 && st.mainMeals === 0});
             held.push({id: g.slot, perDay: row.perDayStones});
         }
         return row;
@@ -72,7 +74,7 @@ export function keeperHouseView(state, definition, record, context) {
     const foodBought = KEEPER_GU.map(g => ({g, n: done('buy_' + g.food)})).filter(x => x.n);
     const spentOnFood = foodBought.reduce((n, x) => n + x.n * x.g.bundlePrice, 0), chores = done('chores') * DIAL.choreStones;
     const income = paid * DIAL.stipendStones + chores, spent = spentOnGu + spentOnFood;
-    return {gauge, gu: rows, stones, feedingCap: {held: held.length, sustained: cap.fed.length, line: held.length ? `At this week's stipend you can afford to feed ${cap.fed.length} of ${held.length} Gu you hold${cap.starving.length ? `; ${cap.starving.map(i => KEEPER_GU.find(g => g.slot === i).label).join(', ')} would go short. Each Gu starves from its own larder, so the timers below are what decides.` : ''}.` : 'You hold no Gu yet.'},
+    return {gauge, gu: rows, stones, feedingCap: {held: held.length, sustained: cap.fed.length, line: held.length ? `At this week's stipend you can afford to feed ${cap.fed.length} of ${held.length} Gu you hold${cap.starving.length ? `; ${cap.starving.map(i => KEEPER_GU.find(g => g.slot === i).label).join(', ')} would go short. Each Gu starves from its own larder, so the timers below are what decides.` : '.'}` : 'You hold no Gu yet.'},
         ledger: {stones, agreement: ledger.rows[0], nextStipendIn: nextStipend, lines: [
             {label: 'Stipend received', amount: paid * DIAL.stipendStones, note: `${paid} of ${DIAL.stipendWeeks} weekly payments`},
             {label: 'Chores', amount: chores, note: `${done('chores')} jobs`},
