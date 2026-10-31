@@ -509,7 +509,8 @@ Other frame users and types:
 ### Round 3 receipt (2026-10-30): implemented, below floor
 
 State: **implemented, below floor** (AD43) on FLR2 only (DEV SEEDED route, not a
-natural fresh-life journey). Rebased onto master `8148223b6`, which includes
+natural fresh-life journey). Rebased onto master `048f7ca5e` (after the book UI
+landing batch and p4's P8), which includes
 `p4-fights` typing commit `b96d29d9e` (`typeSnapshot`, `typedHit`, `b.hits`
 records, learned rows). This lane keeps only the per-world names section in
 `damage_types.js`. Agent-verified, not human-reviewed.
@@ -539,12 +540,13 @@ Changes:
   `currentWorldFamily()` otherwise. `tempoView` supplies no world id yet.
 
 Checks (one line per check, final candidate):
-- `node --test tests/combat_surface_types.test.js tests/tempo_fight*.test.js tests/damage_types*.test.js tests/conflict_frame*.test.js`: PASS, 157 passed, 0 skipped.
-- `npm run build`: PASS; browser bundle `8969bd0a5fc2`. Generated `dist/` and `index.html` stay out of lane commits.
+- `node --test tests/combat_surface_types.test.js tests/tempo_fight*.test.js tests/tempo_allies.test.js tests/damage_types*.test.js tests/conflict_frame*.test.js tests/combat_situation.test.js tests/combat_versus.test.js tests/party_battle.test.js`: PASS on `048f7ca5e` base, 201 passed, 0 skipped.
+- `npm run build`: PASS; browser bundle `f445ed30d920` (first pass `8969bd0a5fc2` on `8148223b6`). Generated `dist/` and `index.html` stay out of lane commits.
 - `npm run check:arch`: PASS; no new cycle edges.
 - `npm run check:rules`: PASS; 17 existing warnings, 16 receipts, 0 problems.
-- `npm test`: FAIL, one run, 4782 tests, 4765 passed, 2 failed, 15 skipped, 833 s. Both failures are native worker timeouts near their 270 s caps under load (`cast_inference_adapter` live integration at 277.6 s, `cast_journeys` native place-panel journey), the same two kinds recorded before this change on clean bases; no combat, tempo or damage-type test failed.
-- `node scripts/combat_surface_browser.mjs`: PASS, headless 1920x1080 fresh origin, DEV SEEDED field-workshop route, bundle `8969bd0a5fc2`. Real clicks start the contest and play strikes; Mara's chip reads "takes normal bludgeoning" (learned); six dev hit lines with slot, multiplier and split; save/reload and export/import identical except the deliberately growing `held`; old panel does not duplicate the fight; 0 page errors.
+- `npm test` (base `8148223b6`): FAIL, one run, 4782 tests, 4765 passed, 2 failed, 15 skipped, 833 s. Both failures are native worker timeouts near their 270 s caps under load (`cast_inference_adapter` live integration at 277.6 s, `cast_journeys` native place-panel journey), the same two kinds recorded before this change on clean bases; no combat, tempo or damage-type test failed.
+- `npm test` (final base `048f7ca5e`): FAIL, one run, 4844 tests, 4827 passed, 2 failed, 15 skipped, 389 s. Both in `market_life.test.js`: its `seeded_streams.js` test double lacks `validateStreams`, which master's `mixture_rules.js` imports; neither file is on this branch. No combat, tempo or damage-type test failed.
+- `node scripts/combat_surface_browser.mjs`: PASS, headless 1920x1080 fresh origin, DEV SEEDED field-workshop route, bundle `f445ed30d920`, rerun after the last rebase. Real clicks start the contest and play strikes; Mara's chip reads "takes normal bludgeoning" (learned); six dev hit lines with slot, multiplier and split; save/reload and export/import identical except the deliberately growing `held`; old panel does not duplicate the fight; 0 page errors.
 
 Gaps seen in the proof: the live road fight types at x1 both ways (your fists are
 bludgeoning; Mara's snapshot is plain physical with no resistances), so "resisted"
@@ -552,7 +554,7 @@ and "weak spot" show only in the fixture and focused tests. Dev lines use fighte
 ids, not names. Type reveals by cheat remain fixture-only. Native mode was not
 re-proved in the browser this round.
 
-AD43 floor: FLR1 bundle `8969bd0a5fc2`; FLR2 below floor (DEV SEEDED route);
+AD43 floor: FLR1 bundle `f445ed30d920`; FLR2 below floor (DEV SEEDED route);
 FLR3 1920 captures with time/effect text and visible blocked reasons; FLR4 typed
 strikes have engine and card consumers; FLR5 persistence shape unchanged, typed
 save/reload test passes and browser save, reload, export and import match;

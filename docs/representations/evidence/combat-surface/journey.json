@@ -1,9 +1,9 @@
 {
- "bundleHash": "8969bd0a5fc2",
+ "bundleHash": "f445ed30d920",
  "viewport": "1920x1080",
  "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
  "started": {
-  "actions": 0,
+  "actions": 1,
   "typed": {
    "you": {
     "attack": {
@@ -25,7 +25,7 @@
    377,
    159,
    1130,
-   471
+   489
   ],
   "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
@@ -44,7 +44,8 @@
    "Let a careful policy take one safe turn Plays only brace, tend or back away for you; never a new attack."
   ],
   "log": [
-   "Both sides see each other at once."
+   "Both sides see each other at once.",
+   "Mara misses."
   ],
   "dev": [],
   "aims": [
@@ -94,7 +95,7 @@
   ],
   "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
-  "you": "You\n\n56.5/60 hp\n\nStrikes: bludgeoning 100%",
+  "you": "You\n\n58.4/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [
    "Mara. Fresh. Not sized up. Intent unread. ◼ takes normal bludgeoning."
   ],
@@ -116,10 +117,10 @@
   ],
   "log": [
    "Both sides see each other at once.",
-   "You hit Mara in the body for 0.9 bludgeoning.",
-   "Mara hits you on the arm for 1.9 physical.",
+   "Mara misses.",
+   "You hit Mara in the body for 0.7 bludgeoning.",
    "You hit Mara in the head for 1.3 bludgeoning.",
-   "Mara hits you on the leg for 1.6 physical.",
+   "Mara hits you on the arm for 1.6 physical.",
    "You hit Mara in the head for 1.3 bludgeoning.",
    "Mara misses.",
    "You hit Mara in the head for 1 bludgeoning."
@@ -163,10 +164,9 @@
   "oldPanel": "Road contest · tempo\n\nThe contest is open in the Fight card below. The world clock holds until it ends."
  },
  "dev": [
-  "player → roadRival [torso]: 0.9 at x1 (bludgeoning 100%)",
-  "roadRival → player [arms]: 1.9 at x1 (physical 100%)",
+  "player → roadRival [torso]: 0.7 at x1 (bludgeoning 100%)",
   "player → roadRival [head]: 1.3 at x1 (bludgeoning 100%)",
-  "roadRival → player [legs]: 1.6 at x1 (physical 100%)",
+  "roadRival → player [arms]: 1.6 at x1 (physical 100%)",
   "player → roadRival [head]: 1.3 at x1 (bludgeoning 100%)",
   "player → roadRival [head]: 1 at x1 (bludgeoning 100%)"
  ],
@@ -191,7 +191,7 @@
   ],
   "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
-  "you": "You\n\n56.5/60 hp\n\nStrikes: bludgeoning 100%",
+  "you": "You\n\n58.4/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [
    "Mara. Fresh. Not sized up. Intent unread. ◼ takes normal bludgeoning."
   ],
@@ -213,10 +213,10 @@
   ],
   "log": [
    "Both sides see each other at once.",
-   "You hit Mara in the body for 0.9 bludgeoning.",
-   "Mara hits you on the arm for 1.9 physical.",
+   "Mara misses.",
+   "You hit Mara in the body for 0.7 bludgeoning.",
    "You hit Mara in the head for 1.3 bludgeoning.",
-   "Mara hits you on the leg for 1.6 physical.",
+   "Mara hits you on the arm for 1.6 physical.",
    "You hit Mara in the head for 1.3 bludgeoning.",
    "Mara misses.",
    "You hit Mara in the head for 1 bludgeoning."
@@ -280,7 +280,7 @@
   ],
   "stakes": "Village: 1 opponent standing.",
   "next": "Who acts next: You → Mara",
-  "you": "You\n\n56.5/60 hp\n\nStrikes: bludgeoning 100%",
+  "you": "You\n\n58.4/60 hp\n\nStrikes: bludgeoning 100%",
   "opponents": [
    "Mara. Fresh. Not sized up. Intent unread. ◼ takes normal bludgeoning."
   ],
@@ -302,10 +302,10 @@
   ],
   "log": [
    "Both sides see each other at once.",
-   "You hit Mara in the body for 0.9 bludgeoning.",
-   "Mara hits you on the arm for 1.9 physical.",
+   "Mara misses.",
+   "You hit Mara in the body for 0.7 bludgeoning.",
    "You hit Mara in the head for 1.3 bludgeoning.",
-   "Mara hits you on the leg for 1.6 physical.",
+   "Mara hits you on the arm for 1.6 physical.",
    "You hit Mara in the head for 1.3 bludgeoning.",
    "Mara misses.",
    "You hit Mara in the head for 1 bludgeoning."
