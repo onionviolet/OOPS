@@ -3,14 +3,16 @@
 // Three grains, most specific first: a place row (one locality), the world's general row (any
 // other arrival or newly opened place there, drawn by place, time of day and day), then nothing,
 // which keeps today's generic line. Titles get the world's own line everywhere; frontier unlocks
-// say where the new thing is used. Rules: RPT1-RPT14. Flavour states only what the player could see or was told on arrival; it
+// say where the new thing is used. A row's optional `panel` gives the line an Open control (RPT13). Rules: RPT1-RPT14. Flavour states only what the player could see or was told on arrival; it
 // carries no sealed truth, no canon label and nothing of the future (RPT2, RPT7). Useful text
 // names controls the player can find, in the game's own words. Wording is fixed per place and
 // moment, so a reload reads the same (RPT12). Pure and save-neutral: Reports lines are not saved, and the
 // voice is chosen once when the line is written.
 
 const freeze = Object.freeze;
-const row = (flavour, useful) => freeze({flavour, useful});
+// `panel` is the workspace module the useful part names, so the line's Open control goes there;
+// a row that names no panel the player can open leaves it out and stays plain text.
+const row = (flavour, useful, panel) => freeze(panel ? {flavour, useful, panel} : {flavour, useful});
 
 // FNV-1a over a key (place, band, day): the same moment always draws the same line (RPT12).
 function pick(lines, key) {
@@ -27,9 +29,9 @@ const WORLDS = freeze([
         key: 'frontier', match: id => id === 'base.frontier',
         title: 'A name earned out here on the frontier.',
         places: freeze({
-            'Village': row('Rooftops at the foot of the mountains, rocks closing off the north.', 'Talk to someone, Find work and Move somewhere else are in the Actions list here.'),
+            'Village': row('Rooftops at the foot of the mountains, rocks closing off the north.', 'Talk to someone, Find work and Move somewhere else are in the Actions list here.', 'local-actions'),
             'Shack': row('The only spare building in the village, and a roof of your own.', 'Sleep here to recover; it is the short walk back from the Village.'),
-            'Eastern mill': row('Flour dust in the corners of a tidy mill run by a young pair.', 'Ask the millers through Talk to someone; work offered here shows under Find work.'),
+            'Eastern mill': row('Flour dust in the corners of a tidy mill run by a young pair.', 'Ask the millers through Talk to someone; work offered here shows under Find work.', 'local-actions'),
             'Forest road': row('Trees close in around the road out of the village.', 'Wolves hunt this road: a fight starts on arrival and shows under Combat; moving away ends it.'),
             'Nearby cave': row('Glowing mushrooms light a cave full of rats.', 'A fight starts on arrival and shows under Combat; moving away ends it.'),
             'Riverbank': row('Crabs as far along the shoreline as you can see.', 'A fight starts on arrival and shows under Combat; moving away ends it.'),
@@ -38,6 +40,7 @@ const WORLDS = freeze([
             day: freeze(['Mountain air and the village road behind you.', 'Wind off the northern rocks.', 'Village rooftops below the mountains.', 'Dust on the path and birds in the hedges.']),
             night: freeze(['Stars over the mountains and a lamp or two in the village.', 'Cold air off the rocks and owls in the trees.']),
             useful: 'Move somewhere else in Actions lists every route from here, the way back included.',
+            panel: 'local-actions',
         }),
     }),
     freeze({
@@ -45,96 +48,102 @@ const WORLDS = freeze([
         title: 'Something to keep to yourself in Tingen.',
         // Districts as the Nighthawks' captain states them on arrival.
         places: freeze({
-            'Tingen supervised workroom': row('Gaslight, ink and the duty book open on the desk.', 'Orders and paid errands are in the Tingen workroom panel; walks start under Places and walks.'),
-            'Tingen probationer lodging': row('A narrow room two minutes from the office, quiet after the fog.', 'Your lodging is the short walk back from the workroom; Places and walks shows the way.'),
-            'Tingen docks': row('Salt, tar and the Storm church\'s bells over the water.', 'The docks are the Mandated Punishers\' district; what you can do here is in the Tingen workroom panel.'),
-            'Tingen university area': row('Lecture-hall steps and the hiss of the Machinery team\'s engines.', 'The university area is the Machinery team\'s district; what you can do here is in the Tingen workroom panel.'),
+            'Tingen supervised workroom': row('Gaslight, ink and the duty book open on the desk.', 'Orders and paid errands are in the Tingen workroom panel; walks start under Places and walks.', 'lotm'),
+            'Tingen probationer lodging': row('A narrow room two minutes from the office, quiet after the fog.', 'Your lodging is the short walk back from the workroom; Places and walks shows the way.', 'lotm'),
+            'Tingen docks': row('Salt, tar and the Storm church\'s bells over the water.', 'The docks are the Mandated Punishers\' district; what you can do here is in the Tingen workroom panel.', 'lotm'),
+            'Tingen university area': row('Lecture-hall steps and the hiss of the Machinery team\'s engines.', 'The university area is the Machinery team\'s district; what you can do here is in the Tingen workroom panel.', 'lotm'),
         }),
         general: freeze({
             day: freeze(['Cab wheels on wet cobbles.', 'Coal smoke and river damp.', 'Newsboys calling the morning papers.']),
             night: freeze(['Fog on the gas lamps.', 'A late cab and footsteps somewhere behind you.']),
             useful: 'Places and walks shows where you can go from here.',
+            panel: 'lotm',
         }),
     }),
     freeze({
         key: 'mol', match: id => id === 'book.mol.cyoria',
         title: 'An earned name in a city that keeps careful records.',
         places: freeze({
-            'Cyoria visitor arrival': row('A city of mages, and your guest papers checked at the arrival hall.', 'Your Cyoria guest life in Notebook holds the walks, the work and the way home.'),
-            'Cyoria academy guest desk': row('Students hurry past the guest desk with satchels of notes.', 'Guest permissions and academy work are listed in your Cyoria guest life in Notebook.'),
-            'Cyoria academy guest library': row('Quiet stacks, and a librarian who notices loud visitors.', 'Reading here is in your Cyoria guest life in Notebook.'),
-            'Cyoria formula workshop': row('Chalk lines and the smell of lamp oil on the benches.', 'Formula work and lamp charge are in your Cyoria guest life in Notebook.'),
+            'Cyoria visitor arrival': row('A city of mages, and your guest papers checked at the arrival hall.', 'Your Cyoria guest life in Notebook holds the walks, the work and the way home.', 'notebook'),
+            'Cyoria academy guest desk': row('Students hurry past the guest desk with satchels of notes.', 'Guest permissions and academy work are listed in your Cyoria guest life in Notebook.', 'notebook'),
+            'Cyoria academy guest library': row('Quiet stacks, and a librarian who notices loud visitors.', 'Reading here is in your Cyoria guest life in Notebook.', 'notebook'),
+            'Cyoria formula workshop': row('Chalk lines and the smell of lamp oil on the benches.', 'Formula work and lamp charge are in your Cyoria guest life in Notebook.', 'notebook'),
         }),
         general: freeze({
             day: freeze(['Academy bells over the rooftops.', 'Students and traders crowding a busy street.']),
             night: freeze(['Spell lamps along a quiet street.', 'Lit windows in the academy towers.']),
             useful: 'Walk on or go home from your Cyoria guest life in Notebook.',
+            panel: 'notebook',
         }),
     }),
     freeze({
         key: 'paradise', match: id => id === 'book.paradise.hub' || id === 'book.paradise.goa',
         title: 'A name that goes with you from contract to contract.',
         places: freeze({
-            'Paradise independent-contractor desk': row('A service counter, a queue and a clerk who has seen every kind of visitor.', 'Contracts and the way out are in your independent Goa branch in Notebook.'),
-            'Paradise paid training booth': row('A booth with a price board and a worn practice floor.', 'Paid training is listed in your independent Goa branch in Notebook.'),
-            'Goa Gray Terminal': row('Smoke and scrap heaps outside the city wall.', 'Walks, work and the way back are in your independent Goa branch in Notebook.'),
-            'Goa provision pier': row('Gulls, crates and a porter counting barrels.', 'Provisions and pier work are listed in your independent Goa branch in Notebook.'),
+            'Paradise independent-contractor desk': row('A service counter, a queue and a clerk who has seen every kind of visitor.', 'Contracts and the way out are in your independent Goa branch in Notebook.', 'notebook'),
+            'Paradise paid training booth': row('A booth with a price board and a worn practice floor.', 'Paid training is listed in your independent Goa branch in Notebook.', 'notebook'),
+            'Goa Gray Terminal': row('Smoke and scrap heaps outside the city wall.', 'Walks, work and the way back are in your independent Goa branch in Notebook.', 'notebook'),
+            'Goa provision pier': row('Gulls, crates and a porter counting barrels.', 'Provisions and pier work are listed in your independent Goa branch in Notebook.', 'notebook'),
         }),
         general: freeze({
             day: freeze(['Sea wind over a walled kingdom.', 'Bells from the city above the docks.']),
             night: freeze(['Torches on the city wall and surf below.']),
             useful: 'Walk on or return from your independent Goa branch in Notebook.',
+            panel: 'notebook',
         }),
     }),
     freeze({
         key: 'nested', match: id => ['nested.paradise_hub', 'nested.saltworks', 'nested.archive'].includes(id),
         title: 'A name for the district\'s ledgers.',
         places: freeze({
-            'Paradise service street': row('A service desk beside an assignment counter, and staff changing shifts.', 'Roles, terms and the walk to the workroom go through the service-district passage in Notebook.'),
-            'Paradise workroom': row('Counted tools beside a pressure bench.', 'Body care and refits here use actual stock; the service-district passage in Notebook walks you back.'),
-            'Saltworks landing': row('A drinking-water schedule posted beside the landing.', 'Supplies here are finite and remembered between visits; the service-district passage in Notebook walks on.'),
-            'Saltworks enginehouse': row('One engine shared by the export line and the drinking water.', 'Braces and pressure change the pump; the service-district passage in Notebook walks back.'),
-            'Archive reception': row('A register and a claim waiting at the reception counter.', 'The archive keeps what you decide; the service-district passage in Notebook walks to the records room.'),
+            'Paradise service street': row('A service desk beside an assignment counter, and staff changing shifts.', 'Roles, terms and the walk to the workroom go through the service-district passage in Notebook.', 'notebook'),
+            'Paradise workroom': row('Counted tools beside a pressure bench.', 'Body care and refits here use actual stock; the service-district passage in Notebook walks you back.', 'notebook'),
+            'Saltworks landing': row('A drinking-water schedule posted beside the landing.', 'Supplies here are finite and remembered between visits; the service-district passage in Notebook walks on.', 'notebook'),
+            'Saltworks enginehouse': row('One engine shared by the export line and the drinking water.', 'Braces and pressure change the pump; the service-district passage in Notebook walks back.', 'notebook'),
+            'Archive reception': row('A register and a claim waiting at the reception counter.', 'The archive keeps what you decide; the service-district passage in Notebook walks to the records room.', 'notebook'),
             'Archive records room': row('A small press and one surviving witness sheet.', 'Inspect, preserve or correct it with real evidence; the archive keeps the result.'),
         }),
         general: freeze({
             day: freeze(['Footsteps and counters in a working district.']),
             night: freeze(['A district between shifts, its counters lit low.']),
             useful: 'Use the service-district passage in Notebook to walk or return.',
+            panel: 'notebook',
         }),
     }),
     freeze({
         key: 'proto23', match: id => id === 'reference.proto23.village',
         title: 'A name earned as a visitor.',
         places: freeze({
-            'Proto23 Village Center': row('A visitor\'s first look at another village\'s square.', 'Your Proto23 visitor controls in Notebook move you and bring you home.'),
-            'Proto23 Dojo lobby': row('Mats, a rack of practice gear and someone already training.', 'Practice here is in your Proto23 visitor controls in Notebook.'),
-            'Proto23 visitor cottage': row('A plain bed and a cold hearth waiting for use.', 'Furnish and rest here through your Proto23 visitor controls in Notebook.'),
+            'Proto23 Village Center': row('A visitor\'s first look at another village\'s square.', 'Your Proto23 visitor controls in Notebook move you and bring you home.', 'notebook'),
+            'Proto23 Dojo lobby': row('Mats, a rack of practice gear and someone already training.', 'Practice here is in your Proto23 visitor controls in Notebook.', 'notebook'),
+            'Proto23 visitor cottage': row('A plain bed and a cold hearth waiting for use.', 'Furnish and rest here through your Proto23 visitor controls in Notebook.', 'notebook'),
         }),
         general: freeze({
             day: freeze(['Another village\'s paths, not quite your own.']),
             night: freeze(['Another village asleep, its paths unfamiliar in the dark.']),
             useful: 'Use your Proto23 visitor controls in Notebook to move or return.',
+            panel: 'notebook',
         }),
     }),
     freeze({
         key: 'tidemark', match: id => id === 'feature.tidemark',
         title: 'A name earned by the tide.',
         places: freeze({
-            'Tidemark landing': row('A return marker above the tide, and linked floats in the water.', 'Negotiate, work, buy or return through the harbor passage in Notebook.'),
-            'Tidemark terraces': row('Counterweight terraces and washed-up timber below the harbor wall.', 'The tide only changes with time spent here; the harbor passage in Notebook walks back to the landing.'),
+            'Tidemark landing': row('A return marker above the tide, and linked floats in the water.', 'Negotiate, work, buy or return through the harbor passage in Notebook.', 'notebook'),
+            'Tidemark terraces': row('Counterweight terraces and washed-up timber below the harbor wall.', 'The tide only changes with time spent here; the harbor passage in Notebook walks back to the landing.', 'notebook'),
         }),
         general: freeze({
             day: freeze(['Salt spray over the harbor wall.']),
             night: freeze(['The tide loud against the harbor wall in the dark.']),
             useful: 'Use the harbor passage in Notebook to walk or return.',
+            panel: 'notebook',
         }),
     }),
     freeze({
         key: 'glasshouse', match: id => id === 'pocket.folded_glasshouse',
         title: 'A name earned behind the folded panes.',
         places: freeze({
-            'Folded Glasshouse': row('Warm panes fold around a small garden and a workbench.', 'Speak with the caretaker, work or return through the folded doorway in Notebook.'),
+            'Folded Glasshouse': row('Warm panes fold around a small garden and a workbench.', 'Speak with the caretaker, work or return through the folded doorway in Notebook.', 'notebook'),
         }),
         general: null,
     }),
@@ -142,7 +151,7 @@ const WORLDS = freeze([
         key: 'hp', match: id => id.startsWith('book.hp.'),
         title: 'Something earned in your first term.',
         places: freeze({
-            'Hogwarts study room': row('Practice desks and a lesson notice posted by the door.', 'Your school term\'s jobs and supplies are in the Your beginning panel.'),
+            'Hogwarts study room': row('Practice desks and a lesson notice posted by the door.', 'Your school term\'s jobs and supplies are in the Your beginning panel.', 'beginning'),
         }),
         general: null,
     }),
@@ -177,19 +186,24 @@ export const VOICE_TEXTS = freeze(Object.fromEntries(WORLDS.map(w => [w.key, fre
     ...(w.general ? [...w.general.day, ...w.general.night, w.general.useful] : []),
     ...(w.key === 'frontier' ? FRONTIER_UNLOCK_FLAVOUR : [])])])));
 
-// {flavour, useful} for a line about to be written, or null for the generic line.
+// Every row's useful text with its panel (or none), for the panel-id guard in tests.
+export const VOICE_PANELS = freeze(WORLDS.flatMap(w => [
+    ...Object.values(w.places).map(r => freeze({world: w.key, useful: r.useful, panel: r.panel || null})),
+    ...(w.general ? [freeze({world: w.key, useful: w.general.useful, panel: w.general.panel || null})] : [])]));
+
+// {flavour, useful, panel?} for a line about to be written, or null for the generic line.
 // `band` ('day' or 'night') and `day` (a calendar key) vary the general line (RPT12); both optional.
 export function reportVoice({family, worldId, kind, text, band = 'day', day = ''}) {
     if (typeof text !== 'string') return null;
     const world = worldFor(worldId, family);
     if (!world) return null;
     if (kind === 'level_up' && /^Titles? (earned|recognized from your past)/.test(text))
-        return row(world.title, 'Titles you hold, and what each one gives, are in Names and achievements.');
+        return row(world.title, 'Titles you hold, and what each one gives, are in Names and achievements.', 'naming');
     if (kind === 'activity_unlocked') {
         if (world.key !== 'frontier') return null; // other worlds list unlocks in their own panels
         for (const [pattern, useful] of FRONTIER_UNLOCKS) {
             const m = pattern.exec(text);
-            if (m) return row(pick(FRONTIER_UNLOCK_FLAVOUR, m[1]), useful(...m.slice(1)));
+            if (m) return row(pick(FRONTIER_UNLOCK_FLAVOUR, m[1]), useful(...m.slice(1)), 'local-actions');
         }
         return null;
     }
@@ -200,5 +214,5 @@ export function reportVoice({family, worldId, kind, text, band = 'day', day = ''
     if (local) return local;
     if (!world.general) return null;
     const pool = band === 'night' ? world.general.night : world.general.day;
-    return row(pick(pool, `${place}|${band}|${day}`), world.general.useful);
+    return row(pick(pool, `${place}|${band}|${day}`), world.general.useful, world.general.panel);
 }

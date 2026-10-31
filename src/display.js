@@ -6,7 +6,7 @@ import {mountMaterialChoice} from './material_choice_view.js';
 import {renderRecentLearning} from './recent_learning.js';
 import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
-import {expandWorkspaceModule} from './workspace_layout.js';
+import {expandWorkspaceModule,openWorkspaceModule} from './workspace_layout.js';
 let nativeObservedDropReader;
 export function setNativeObservedDropReader(read){nativeObservedDropReader=read;}
 import {GRADED_IDS} from './harvest.js';
@@ -1204,11 +1204,12 @@ export function setNativeLogBufferReader(reader) {
         const useful=document.createElement('span');useful.className='report-voice-useful';useful.textContent=voice.useful;
         line.append(flavour,' ',useful);message.append(line);
     }
-    const panelId=details.panelId||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
+    // One control per line: a voiced line's Open goes to the panel its useful part names.
+    const panelId=details.panelId||voice?.panel||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
     if(panelId){
         const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent='Open';
-        link.title='Open related panel';link.dataset.noticePanel=panelId;
-        link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else expandWorkspaceModule(panelId);};message.append(link);
+        link.title=voice?.panel===panelId?'Open the panel this line names':'Open related panel';link.dataset.noticePanel=panelId;
+        link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else if(!expandWorkspaceModule(panelId))openWorkspaceModule(panelId);};message.append(link);
     }
     if(details.calendarDate) {
         message.dataset.calendarDate = details.calendarDate;

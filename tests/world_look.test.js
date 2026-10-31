@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync, readdirSync} from 'node:fs';
 import {worldFamily, worldLook, applyWorldLook, WORLD_FLOURISH} from '../src/world_look.js';
-import {reportVoice, VOICED_FAMILIES, VOICED_PLACES, VOICE_TEXTS} from '../src/world_report_voice.js';
+import {reportVoice, VOICED_FAMILIES, VOICED_PLACES, VOICE_TEXTS, VOICE_PANELS} from '../src/world_report_voice.js';
 
 test('world ids name their family; unlisted families fall back to no flourish (DSG12)', () => {
     assert.equal(worldFamily('book.lotm.tingen'), 'lotm');
@@ -107,4 +107,26 @@ test('voice text carries no canon labels, ids or developer words (RPT7, RPT11)',
     assert.deepEqual(Object.keys(ids), Object.keys(VOICE_TEXTS));
     for (const [world, lines] of Object.entries(VOICE_TEXTS)) for (const line of lines)
         assert.doesNotMatch(line, /\bbook\.|canon|chapter|the book|proposal|\bid\b|sealed|fire|will /i, `${world}: ${line}`);
+});
+
+test('a voiced useful line opens the panel it names, and every panel id is a registered module', () => {
+    // Registered modules only: layout_spec surfaces also list proposals that never mount. Here (local-actions)
+    // is a center mode that expandWorkspaceModule opens itself.
+    const dir = new URL('../src/', import.meta.url), modules = new Set();
+    for (const file of readdirSync(dir, {recursive: true}).filter(f => f.endsWith('.js')))
+        for (const m of readFileSync(new URL(file, dir), 'utf8').matchAll(/(?:definePanel|registerWorkspaceModule)\(\{ ?id: ?'([^']+)'/g)) modules.add(m[1]);
+    assert.match(readFileSync(new URL('workspace_layout.js', dir), 'utf8'), /if\(id==='local-actions'\)\{centerModes\(\)\.showHere\(\)/);
+    modules.add('local-actions');
+    const titles = [reportVoice({worldId: 'base.frontier', kind: 'level_up', text: 'Title earned: Wanderer.'}),
+        reportVoice({worldId: 'base.frontier', kind: 'activity_unlocked', text: 'Unlocked activity "Woodcutting" in location "Village"'})];
+    const rows = [...VOICE_PANELS, ...titles.map(v => ({world: 'shared', useful: v.useful, panel: v.panel}))];
+    for (const {world, useful, panel} of rows) {
+        if (panel) assert.ok(modules.has(panel), `${world}: "${panel}" is not a registered workspace module`);
+        // A line that names an openable panel carries its id, so a new row cannot silently lose its link.
+        if (/Notebook|Local actions|Actions list|Places and walks|Tingen workroom|Names and achievements|Your beginning|Move somewhere else/.test(useful))
+            assert.ok(panel, `${world}: "${useful}" names a panel but has no panel id`);
+    }
+    assert.equal(reportVoice({worldId: 'book.lotm.tingen', kind: 'message_travel', text: '[ Entering Tingen supervised workroom ]'}).panel, 'lotm');
+    assert.equal(reportVoice({worldId: 'book.lotm.tingen', kind: 'message_travel', text: '[ Entering Some Tingen street ]'}).panel, 'lotm', 'world rows carry the panel too');
+    assert.equal(reportVoice({worldId: 'base.frontier', kind: 'message_travel', text: '[ Entering Forest road ]'}).panel, undefined, 'Combat only exists during a fight, so that line stays plain');
 });
