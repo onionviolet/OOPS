@@ -1,4 +1,5 @@
 import {registerDomain} from './domain_registry.js';
+import {check} from './basics.js';
 import {commitSimulationCommand, previewSimulationCommand} from './simulation.js';
 import {pursuitView} from './pursuit.js';
 import {ROAD_RIVAL, RIVAL_PURSUIT} from './frontier_campaign.js';
@@ -81,13 +82,13 @@ function start(request = {}) {
 function move(request) {
     const state = ports.root(), ctx = ports.campaignContext();
     const plan = request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx,
-        {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId, aim: request.aim}, state.sequence);
+        {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId, aim: request.aim !== undefined ? request.aim : ['jab', 'swing'].includes(request.moveId) ? aim : null}, state.sequence);
     ports.commit(plan); applyHarm(plan);
 }
 function view() {
     if(!ports) return {visible: false};
     const b = open();
-    if(b) return {visible: true, fight: tempoView(b), held: b.held};
+    if(b) return {visible: true, fight: {...tempoView(b), aim}, held: b.held};
     const quote = startQuote(), facts = ports.root().actors.player.facts;
     return {visible: !!quote.visible, start: quote, lio: lioQuote(), last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
 }
@@ -99,10 +100,13 @@ function mount() {
     const button = (label, id, title, disabled, handler) => {const b = node('button', label); b.type = 'button'; b.dataset.tempo = id; b.title = title || ''; b.disabled = !!disabled; b.onclick = handler; return b;};
     const render = force => {
         if(!root.isConnected) return;
-        const v = view(), sig = JSON.stringify(v); if(!force && sig === signature) return; signature = sig;
+        const v = view(), sig = JSON.stringify(v) + !!document.getElementById('fight_situation'); if(!force && sig === signature) return; signature = sig;
         body.replaceChildren(); root.hidden = !v.visible;
         if(!v.visible) return;
-        if(v.fight) {
+        if(v.fight && document.getElementById('fight_situation')) {
+            // One fight surface (COMBAT.md round 3, R3-O1): the open contest is shown and played in the Fight card.
+            body.append(node('p', 'The contest is open in the Fight card below. The world clock holds until it ends.'));
+        } else if(v.fight) {
             const f = v.fight;
             body.append(node('p', 'The fight waits for you. The world clock holds until it ends; time away is kept and applied afterwards.'));
             const log = node('ol'); log.dataset.tempoLog = ''; for(const line of f.lines) log.append(node('li', line)); body.append(log);
@@ -136,4 +140,16 @@ function mount() {
     setInterval(() => {if(!document.hidden) render();}, 1000);
     return {render};
 }
-registerDomain({id: 'tempo_fight', initialState: () => null, projection: view, refresh: () => panel?.render(), panels: [() => panel = mount()]});
+function setAim(request = {}) {
+    check(ports?.writable(), 'The game cannot take an aim right now.');
+    const fight = open(), projected = fight && tempoView(fight);
+    check(projected?.yourTurn, 'It is not your turn.');
+    check(request.aim === null || projected.aims.some(a => a.id === request.aim), 'That aim is unavailable.');
+    aim = request.aim;
+    panel?.render(true);
+}
+const commands = {aim: setAim, move: request => {
+    check(ports?.writable(), 'The game cannot take a move right now.');
+    move(request); panel?.render(true);
+}};
+registerDomain({id: 'tempo_fight', initialState: () => null, projection: view, refresh: () => panel?.render(), commands, panels: [() => panel = mount()]});
