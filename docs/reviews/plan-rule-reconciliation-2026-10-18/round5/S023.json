@@ -1,0 +1,466 @@
+{
+  "schema": 1,
+  "shard": "S023",
+  "reader": "content_s023; gpt-6-luna low",
+  "payload_sha256": "c89882d5df515d44d260fbf64e71baaab09d31c747239452cae9417104c2a461",
+  "scope": "Assigned historical checkpoint spans read in full; source statements and proof boundaries reviewed, not contemporary runtime or source-canon validation.",
+  "rows": [
+    {
+      "record_id": "U0279",
+      "path": "docs/research/caves-of-qud/repass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "603750523006e6653d02cedd49e24ff51a2b9549af8b96f0825a65be5197b3b0",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P2"
+      ],
+      "mechanism_and_interactions": "Static trace connects Brain observation/acquisition to Kill validation, body-slot missile equipment, loaded-stock and activated-ability gates, sampled cold cast, collateral-predicate refusal, and conditional next-firearm/all-failed pursuit. It preserves inner missile false versus outer true and next-turn reload. Actor/weapon/field inheritance supports conditional fixtures; spawn, equip and order state were not established as native evidence.",
+      "disposition": "Finite static research and artifact validation complete; six ranked YAIR proposals remain unselected. Checkpoint explicitly leaves source-game execution, dynamic handlers/mods, spawned equipment/load/order, hit/movement/thermal outcomes, and full save restoration open.",
+      "owner_or_consumer": "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md, COVERAGE.json and private ../private/repass-2026-10-14/MANIFEST/VALIDATION; no YAIR implementation consumer assigned.",
+      "evidence_state": "The checkpoint reports recovered binary/version hashes and traced conditional chains, but says no game launch, install, save, build or YAIR edit occurred. Static source inspection and fixtures are not runtime or round-trip proof.",
+      "remaining_check": "If selected, validate dynamic handlers and actual spawned equipment/load/order, then exercise hit/movement/thermal consequences and save restoration for goals, equipment, magazine, socket, field identity and derived statuses.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          11,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0280",
+      "path": "docs/research/citizen-sleeper/CHECKPOINT.md",
+      "input_sha256": "3eda5f198b43f1c66c86285f8951407e528193c9961c1af981ca7f4b6c889de9",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Section D"
+      ],
+      "mechanism_and_interactions": "The finite source pass recovered generic managed actions/wrappers and compiled Ink, while complete numerical PlayMaker instance graphs were unavailable. Narrative/guide claims are labeled textual evidence; exact odds, thresholds, ordering, recipes, branches and offline behavior remain unknown.",
+      "disposition": "Assigned two-game research deliverables and artifact validation completed; options remain proposals and no game/runtime acceptance is claimed. A disk-full scene export produced invalid JSON that was removed and excluded; later work retained smaller useful dependencies, Ink and guide text.",
+      "owner_or_consumer": "docs/research/citizen-sleeper/REPORT.md, FINDINGS.json, COVERAGE.json, SOURCE_VALIDATION.json and private research folder; selected packet implementation consumer not assigned.",
+      "evidence_state": "Historical checkpoint reports source/copy hash validation, but explicitly no runtime proof or personal-save inspection. Readability and dossier checks do not resolve opaque PlayMaker graphs or missing source.",
+      "remaining_check": "A future selected packet needs its exact branch/graph semantics qualified, then authorized implementation, rebuilt fresh-origin browser behavior and save/reload/import checks; unresolved full recipes/branches/offline behavior remain source gaps.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          13,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0281",
+      "path": "docs/research/citizen-sleeper-2/CHECKPOINT.md",
+      "input_sha256": "3e87d9303d62c7e5bfa35f5b8e93c886b92a81eaa0e7b4df6f32bf396d1ac969",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Section D"
+      ],
+      "mechanism_and_interactions": "The second title shares the bounded evidence shape: managed wrappers/actions and compiled Ink were recovered, but full numerical PlayMaker graphs were not. Exact odds, thresholds/order, recipes/branches and offline behavior remain open; the checkpoint does not support filling them from the first game.",
+      "disposition": "Its assigned finite pass and validation completed after Citizen Sleeper; ranked options remain proposals. Failed CS1 scene export was removed as invalid evidence, and retained outputs do not include raw scene containers or optional PDFs.",
+      "owner_or_consumer": "docs/research/citizen-sleeper-2/REPORT.md, FINDINGS.json, COVERAGE.json, SOURCE_VALIDATION.json and private research folder; no selected implementation consumer named.",
+      "evidence_state": "Historical checkpoint reports hash/manifest and artifact checks, while expressly denying runtime proof and save inspection. Source analysis does not equal gameplay acceptance.",
+      "remaining_check": "Keep this edition distinct; selected work must resolve the relevant graph/branch questions from retained or reacquired inputs and then prove rebuilt browser behavior plus save/reload/import.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          13,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0282",
+      "path": "docs/research/cividle/CHECKPOINT.md",
+      "input_sha256": "1e14916b0c7e6abc187824cd81385cba90ce93608beab26f7687640ed11ed327",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1 to P5"
+      ],
+      "mechanism_and_interactions": "CivIdle source reading covered GameState, tile/tick/transport/production, selected building, tier/price, rebirth, tech/feature, offline path, confirmation and serialization/migration heads. The checkpoint gives no single end-to-end gameplay packet mechanism; it identifies unreviewed upgrade/Great Person definitions, production hooks, transport planner, multiplayer/server and other systems.",
+      "disposition": "Finite source audit of core loop, prestige and saves completed against pinned upstream HEAD; five proposals remain unaccepted. It is idea/mechanic research only, not copied code/assets/text or runtime validation.",
+      "owner_or_consumer": "docs/research/cividle/REPORT.md and source dossier; a YAIR consumer is not assigned in this checkpoint.",
+      "evidence_state": "The assigned checkpoint lists read and unread source explicitly and reports no install, scripts, npm, build or YAIR changes. No gameplay or persistence proof.",
+      "remaining_check": "For P1/P3, read upgrade and Great Person definitions; for offline policy, inspect transport cache semantics. Any later implementation must be independently expressed and separately tested.",
+      "evidence_lines": [
+        [
+          3,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0283",
+      "path": "docs/research/coverage-refresh-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "91b30dc7f3050db5f31c3e4da78746de15fd600ab2910c9ada78eb220d2d8830",
+      "read_ranges": [
+        [
+          1,
+          43
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ],
+      "mechanism_and_interactions": "This docs-only reconciliation joins an Oct. 13 baseline to 63 direct-report paths and 16 newer/omitted checkpoints, separates 18 dispatch-lane states, and inventories local Steam manifests/apps/bundles. It drafts a queue replacement but deliberately does not mutate the live queue.",
+      "disposition": "Bounded documentation reconciliation and local read-only inventory completed. QUEUE_EDITS.patch and QUEUE_PROPOSED.md were never applied and are superseded by the queue rewritten 2026-10-18; historical counts do not prove whole audits, unique games, entitlements or worker state.",
+      "owner_or_consumer": "docs/research/coverage-refresh-2026-10-14/REPORT.md and write_report.py; live owner is docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md.",
+      "evidence_state": "Checkpoint reports census, local path/link/patch checks and hashes. Account ownership, gated game executables, game execution and YAIR behavior were not established.",
+      "remaining_check": "Do not apply the stale patch. Any current acquisition/dispatch decision must consult the live queue and refresh current state; no gameplay conclusion follows from the old census.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          13,
+          19
+        ],
+        [
+          21,
+          37
+        ]
+      ]
+    },
+    {
+      "record_id": "U0284",
+      "path": "docs/research/cross-game-synthesis-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "a56da7648d43115aa8c4491e8a5b10a7515f03dcac104a16d525a3b746109a2a",
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "P01",
+        "P03",
+        "P19",
+        "P20",
+        "P21",
+        "P23",
+        "P24",
+        "P25",
+        "U01-U20"
+      ],
+      "mechanism_and_interactions": "The synthesis maps 35 aspect packages and exact aspect statuses, connecting dialogue/narrative graphs and native/Ink seams with architecture, identity/instances, cache/clock/RNG/AI and dossier-specific save methods. It catalogs 25 packets while preserving U01-U20 options; P23 is a selectable full-native-payload wrapper proposal, not a current universal dependency. Branch UI, demand loading, canon-diff and active-only offline accrual remain separate questions.",
+      "disposition": "Docs-only round-three snapshot and packet reconciliation completed; all ideas remain proposals. It read a bounded source snapshot and corrected stale owner links; generated/catalogue inventory and saved prose are not semantic activation or runtime proof.",
+      "owner_or_consumer": "docs/research/cross-game-synthesis-2026-10-14/ASPECT_MATRIX.md, DIALOGUE_AND_NARRATIVE.md, IMPLEMENTATION_PATTERNS.md, PACKETS.md and PATTERNS.json; shared native/runtime consumers require current owner refresh.",
+      "evidence_state": "Historical report includes pinned input hashes, source/consumer snapshots and structural checks, but explicitly leaves foreign semantic/runtime completeness, YAIR consumers, gameplay and persistence acceptance unresolved.",
+      "remaining_check": "Before a selected implementation, identify its actual current writer/consumer and qualify the exact source gap; rebuild and prove desktop behavior, compatibility and save/export/import/failure scenarios relevant to that packet.",
+      "evidence_lines": [
+        [
+          8,
+          18
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          30,
+          41
+        ]
+      ]
+    },
+    {
+      "record_id": "U0285",
+      "path": "docs/research/crusader-kings-3/CHECKPOINT.md",
+      "input_sha256": "f27ddad07f15fca249b4f9e8afbb9c67f2c7ee36683db69cf80e511e687011d0",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1-F5",
+        "F6"
+      ],
+      "mechanism_and_interactions": "F1-F5 trace succession, stress, coping, confidant, branch and memory chains; F6 distinguishes authored history from unrecovered native serialization/compaction. At most five packets are prepared for experience/foundation consumers, with no native method recovery claimed.",
+      "disposition": "Assigned finite static source pass and verified source staging completed. Uninstall eligibility was reported, but the lane did not uninstall; source counts are bounded blocks, not complete files or DLC coverage.",
+      "owner_or_consumer": "docs/research/crusader-kings-3/REPORT.md, FINDINGS, COVERAGE, DLC_COVERAGE and IMPLEMENTATION_PACKETS; parent owns Steam removal and handoff.",
+      "evidence_state": "Checkpoint states source/destination hashes matched and names native macOS binaries/dependencies, but no save access, launch or native method recovery occurred.",
+      "remaining_check": "If selected, refresh the current consumer and qualify actual serialization/compaction; separate parent-owned uninstall action/status is not evidence of gameplay or user-save behavior.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "U0286",
+      "path": "docs/research/crush-crush/CHECKPOINT.md",
+      "input_sha256": "6bf54032f95ed6e39ee3ec79fd94403ccbd0763b9f685493f11b7cf80ac1f1f4",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "CC-F01",
+        "CC-P01"
+      ],
+      "mechanism_and_interactions": "The dossier covers declared accessible mechanic paths and DLC interactions, with 38 findings, 314 selected review spans and five implementation packets. It distinguishes source facts, arithmetic inference, announcements, unread media/configuration and unavailable runtime/server fields; its listed unresolved examples include relationship/event initialization and reward replay.",
+      "disposition": "Finite assigned source research and artifact validation completed with all 33 current YAIR owner hashes matched at that historical snapshot. Packet proposals remain unselected; report labels a bundle implemented-unverified but this lane did not build or exercise it.",
+      "owner_or_consumer": "docs/research/crush-crush/REPORT.md, FINDINGS.json, COVERAGE.json, DLC_COVERAGE.json, PACKETS.json; implementation owner must refresh current runtime owners.",
+      "evidence_state": "Checkpoint reports selected-range and source-copy hash checks, not gameplay. Native/UI/save, browser, failure/regression and user acceptance remained deferred; no game or personal saves changed.",
+      "remaining_check": "A selected unit must refresh live owners and test the chosen relationship/event/reward path, including persistence and relevant failure scenario; do not infer whole-game or runtime coverage from dossier counts.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          13,
+          15
+        ]
+      ]
+    },
+    {
+      "record_id": "U0287",
+      "path": "docs/research/cult-of-the-lamb/CHECKPOINT.md",
+      "input_sha256": "7f2aee951454502d1581c9a3ed245234714a101239e04757667e99182211eef6",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The research traces resident/colony and adventure interactions through spending, mutation, time, failure and aftermath. Selected proposals concern a voluntary repair-circle charter, separate earned office/service, and resident dispatch with home capacity and changed-return consequences; current funded residents, care, instruction, native return, clocks, stock and publisher already exist, so overlap with incumbent systems is a prerequisite.",
+      "disposition": "Finite research and structural validation complete; three selected original proposals remain proposals, not implementation authority or director acceptance. No universal upkeep/offline-loss rule or new world/prestige/roster was selected.",
+      "owner_or_consumer": "docs/research/cult-of-the-lamb/REPORT.md, IMPLEMENTATION_PACKETS.md/PACKETS.json and private source snapshot; current runtime writer/consumer must be reconciled before assigning a slice.",
+      "evidence_state": "Historical checkpoint reports bounded source coverage and 23 structural/document checks, while gameplay, launch, browser, unit, save/reload/import/rollback and human acceptance were deferred.",
+      "remaining_check": "If one proposal is selected, compare against actual current residents/care/instruction/return/clock/stock/publisher consumers and prove its distinct consequence path and persistence; source audit alone does not establish playability.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          13,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0288",
+      "path": "docs/research/cultist-simulator/CHECKPOINT.md",
+      "input_sha256": "ebafc8ec14d87431bae870abff03091932d256161209123a9318292f6506e5e0",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Seven connected source chains were reviewed with exact locators and hashes; this checkpoint does not state their individual mechanism details. The useful bounded fact is that retained sources/dependencies support the assigned paths while excluded native/media resources were not required for that finite audit.",
+      "disposition": "Finite source pass completed and prior blocked dossier is preserved separately rather than retroactively treated as success. Uninstall eligibility was asserted, but no uninstall or runtime acceptance is reported.",
+      "owner_or_consumer": "docs/research/cultist-simulator/COVERAGE and DLC_COVERAGE plus private PREVIOUS_BLOCKED_DOSSIER.json; parent owns any Steam removal/handoff.",
+      "evidence_state": "Checkpoint reports copied-source hashes and exit-0 private export, but no save/profile access, launch or YAIR edit. The prior blocked dossier remains distinct.",
+      "remaining_check": "A named unread question would need its source-level dossier; otherwise no current runtime claim follows. Preserve vanilla and user saves, and verify any parent-owned uninstall separately.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "U0289",
+      "path": "docs/research/cultivation-idlers/CHECKPOINT.md",
+      "input_sha256": "f582f469b46675096606d4b7f0548f105025383f2c7b8b37c9c9b927b0152595",
+      "read_ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1 to P5"
+      ],
+      "mechanism_and_interactions": "Static downloaded-build reads covered core progression/economy/combat distinctions only at the stated boundaries: Cycle lacks CSS, deep Act II/III, bonded beast and Common Ground; Path evidence is page-level; no runtime was played. Infinite Dao formulas and Idle Xanxia combat floor-climber patterns are described as already read.",
+      "disposition": "Finite three-build source audit completed, with Path only page-level in this checkpoint and CivIdle follow-up pending then. Five proposals remain unaccepted; downloads were treated as untrusted and never executed, and no license was found in those builds.",
+      "owner_or_consumer": "docs/research/cultivation-idlers/REPORT.md and per-game dossiers; no implementation consumer is named.",
+      "evidence_state": "The checkpoint states explicit source omissions and no YAIR edit/build/commit, purchase, account or installation action. It is not a gameplay comparison.",
+      "remaining_check": "Only a selected source question should reopen the named Cycle/Path gaps or CivIdle follow-up; validate runtime separately and do not generalize the shared proposals across these games.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          9,
+          18
+        ]
+      ]
+    },
+    {
+      "record_id": "U0290",
+      "path": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/CHECKPOINT.md",
+      "input_sha256": "9795bce8d869d40422c5e6070784b7442af1660597fbffccf788431fd7a09829",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Readable formatted bundle tracing covers qi/stage/category progression, separate-HP tribulation completion/confirmation, joined main/secondary methods, qi breakdown, dantian purity/nodes, voluntary/death rebirth settlement, selective reset and first-ascension gates. Samples cover weapon skills, manuals, recipes, quests and procedural rooms. It corrects a prior standard-breakthrough death claim; specialty failure cannot be generalized from the standard trial.",
+      "disposition": "Requested static mechanism pass delivered, but the audit remains PARTIAL despite closing the prior obfuscation blocker. Source-derived findings and comparison rows are research/proposals, not accepted design or implemented gameplay.",
+      "owner_or_consumer": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/REPORT.md, FINDINGS.json, TOOLING.md and private readable.js/HASHES; selected runtime consumer not assigned.",
+      "evidence_state": "The checkpoint reports exact bundle hash and syntax-only checks; every-specialty trial, complete origin graph, full catalogue/quality economics, institutions/late planes, backend missions, runtime/UI/save remain unread or excluded.",
+      "remaining_check": "The next bounded useful read is one specialty trial from start through damage, defeat, reward and reset, then complete origin gates; any gameplay/persistence claims require separately authorized runtime work.",
+      "evidence_lines": [
+        [
+          3,
+          13
+        ],
+        [
+          15,
+          30
+        ],
+        [
+          32,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0291",
+      "path": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "1e786b701f4abc42b3a1c17d9764f7f2a65e9be0c369e2418eb0c2edba50a889",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "mechanism_and_interactions": "Aspect delivery covers dialogue/tree/completion and save-migration/backend structure for Path; dialogue/option/trigger/companion schema but absent current native save/interpreter for Tale; story retention/reconstruction/farm conservation but open pantheon/variants for Immortality; and dialogue/save plus later EMA/shortcuts but open mirror identity for Groundhog. These are distinct game/version boundaries, not one shared mechanic contract.",
+      "disposition": "Assigned aspect keys, inventories, deeper systems, packets and touches passed artifact checks, while all four game coverage states remain PARTIAL and no selected implementation or playable acceptance is claimed.",
+      "owner_or_consumer": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/aspects-2026-10-14/ and companion aspect dossiers; no common implementation owner established.",
+      "evidence_state": "Historical checkpoint reports hash and structural validation only. It explicitly retains specialty/origin, late institutions/backend/import, rendered UI/keyboard and save-roundtrip gaps.",
+      "remaining_check": "A selected aspect must resolve its game-specific source gaps and identify its own current consumer; do not collapse separate interpreter/save/identity boundaries into an accepted common engine.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          19
+        ],
+        [
+          21,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0292",
+      "path": "docs/research/dcss-dda-depth/CHECKPOINT.md",
+      "input_sha256": "bd3291fecdef141bfdc95608833ee2891b8dc0b5bae1d410fe168b2333a67646",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Three DCSS paths connect rune/access/Orb escape/run record, entangling hold/damage/release and skill allocation/target stop/save. Four DDA paths connect achievement event/statistic/receipt, shared conduct violation, martial block/eligible timed effect/native cost, and practice recipe/tools/work/growth/no product. Shared achievement/conduct machinery is explicitly counted as overlap, not independent engine audits.",
+      "disposition": "Finite pinned source review and artifact readback completed; four recommendations remain recommendations, not gameplay implementation. Current endings, gear/guard/opening combat, mastery, lessons/work and finite stock bands are qualified foundations rather than new gaps.",
+      "owner_or_consumer": "docs/research/dcss-dda-depth/REPORT.md, FINDINGS.json and VALIDATION.json; later implementation must identify current runtime consumer.",
+      "evidence_state": "Checkpoint reports upstream revisions/file hashes, YAIR consumer hashes and populated eligibility paths; it explicitly reports no install/launch, YAIR build, browser, tests or save operations.",
+      "remaining_check": "If selected, refresh current consumers and prove a bounded playable slice with compatible save behavior; source coverage does not establish game feel, balance, full catalogue or acceptance.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          23,
+          25
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator retained source-literal ranges rather than inferred per-packet codes; removed source-absent packet/finding IDs."
+  ],
+  "cross_record_findings": [
+    "Across the source audits, readable or recovered inputs, bounded semantic coverage, runtime play, save persistence and accepted design remain separate evidence states; counts and artifact validation do not bridge those gaps.",
+    "Several artifacts are explicitly proposal-only and need a current consumer before implementation. A finished research lane or a stale queue draft does not become current authority; U0283 specifically marks its proposed patch superseded.",
+    "Where a record gives a correction or edition boundary, preserve it: standard versus specialty trials in U0290, separate Citizen Sleeper titles, four distinct cultivation aspect games, and overlapping shared DCSS/DDA engines."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0279 leaves actual spawned load/order, dynamic handlers, hit/movement/thermal outcomes and complete save restoration open; static fixtures do not prove them.",
+    "U0280-U0282 leave opaque PlayMaker graphs, exact branches/odds and offline behavior unresolved; the two Citizen Sleeper titles remain separate evidence sets.",
+    "U0283 queue drafts are superseded and local manifests do not establish account entitlements or current dispatch state.",
+    "U0284-U0289 contain proposals or source-only findings without current gameplay proof; refresh their current owners before selecting a concrete consumer.",
+    "U0290-U0291 retain specialty/origin, late-system, backend, interpreter/save, UI and round-trip gaps; U0292 source completion does not prove balance, game feel or current integration."
+  ]
+}

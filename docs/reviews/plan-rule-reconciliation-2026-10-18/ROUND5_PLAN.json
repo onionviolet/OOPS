@@ -6741,7 +6741,7 @@
           "line_end": 34
         }
       ],
-      "status": "dispatched",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S022.txt",
       "payload_v1_sha256": "86bbf2ba6cabe46745dc6ebed31e54dabd32e1c4d8a73d2abedbdbea823b61ac",
       "payload_parts": [
@@ -6752,7 +6752,9 @@
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S022.v2.txt",
       "payload_v2_sha256": "d954d2c0ab00010fd3105f8dcf895a23fbb36bc48d07040de606946895aac4d1",
-      "agent": "content_s022"
+      "agent": "content_s022",
+      "review_artifact": "round5/S022.json",
+      "coordinator_review": "Source-bound code/owner/range/hash screen, substantive row and evidence-boundary review; flagged attribution/supplier claims checked and corrected before promotion."
     },
     {
       "id": "S023",
@@ -6846,7 +6848,7 @@
           "line_end": 25
         }
       ],
-      "status": "dispatched",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S023.txt",
       "payload_v1_sha256": "fddc9f50b8f5610cbf827d63db50eb1cc6ccafdc3995456e0ace532cfff12d84",
       "payload_parts": [
@@ -6857,7 +6859,9 @@
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S023.v2.txt",
       "payload_v2_sha256": "e93a0f73143f15d936b7cd79b47f11ea2444a41a53888f33d6800c0f9ab7cd6f",
-      "agent": "content_s023"
+      "agent": "content_s023",
+      "review_artifact": "round5/S023.json",
+      "coordinator_review": "Source-bound code/owner/range/hash screen, substantive row and evidence-boundary review; flagged attribution/supplier claims checked and corrected before promotion."
     },
     {
       "id": "S024",
@@ -6981,7 +6985,7 @@
           "line_end": 17
         }
       ],
-      "status": "unread",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S024.txt",
       "payload_v1_sha256": "bc9bd43c1bb879b6566cf4dfed1aefe48dea8cbcab958e97a9abaedc9dff2aea",
       "payload_parts": [
@@ -6991,7 +6995,10 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S024.v2.txt",
-      "payload_v2_sha256": "ce66955b80c87401ffb7ccc1bfc2fd81109fec168ad884270b4e66dba177fb61"
+      "payload_v2_sha256": "ce66955b80c87401ffb7ccc1bfc2fd81109fec168ad884270b4e66dba177fb61",
+      "agent": "content_s024",
+      "review_artifact": "round5/S024.json",
+      "coordinator_review": "Source-bound code/owner/range/hash screen, substantive row and evidence-boundary review; flagged attribution/supplier claims checked and corrected before promotion."
     },
     {
       "id": "S025",
@@ -7073,7 +7080,7 @@
           "line_end": 17
         }
       ],
-      "status": "unread",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S025.txt",
       "payload_v1_sha256": "ce244b97bb4fba8c40afe308ba9da5f76e12fee0ec8f5e82fb723483a553f1fc",
       "payload_parts": [
@@ -7083,7 +7090,10 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S025.v2.txt",
-      "payload_v2_sha256": "ee2bf2bcdc3b3c3ebaf51980e02303835863f219ba252f898f4fc767ec543021"
+      "payload_v2_sha256": "ee2bf2bcdc3b3c3ebaf51980e02303835863f219ba252f898f4fc767ec543021",
+      "agent": "content_s025",
+      "review_artifact": "round5/S025.json",
+      "coordinator_review": "Source-bound code/owner/range/hash screen, substantive row and evidence-boundary review; flagged attribution/supplier claims checked and corrected before promotion."
     },
     {
       "id": "S026",
@@ -7153,7 +7163,7 @@
           "line_end": 15
         }
       ],
-      "status": "unread",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S026.txt",
       "payload_v1_sha256": "8ce3f173c9fec3ee645c68bed2abb07d4b3399a14cd9f4120c49363565b7783a",
       "payload_parts": [
@@ -7163,7 +7173,10 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S026.v2.txt",
-      "payload_v2_sha256": "b6aa5876871b284dfd2d32f4bda55314c0a985f30a6c696a3d0f024a53746b70"
+      "payload_v2_sha256": "b6aa5876871b284dfd2d32f4bda55314c0a985f30a6c696a3d0f024a53746b70",
+      "agent": "content_s026",
+      "review_artifact": "round5/S026.json",
+      "coordinator_review": "Source-bound code/owner/range/hash screen, substantive row and evidence-boundary review; flagged attribution/supplier claims checked and corrected before promotion."
     },
     {
       "id": "S027",
@@ -7215,7 +7228,7 @@
           "line_end": 56
         }
       ],
-      "status": "unread",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S027.txt",
       "payload_v1_sha256": "ae17ffeadc5b7f90f64370a839ad0a2c29796abcd4decbbc34a73483be823bbb",
       "payload_parts": [
@@ -7225,7 +7238,10 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S027.v2.txt",
-      "payload_v2_sha256": "32c02e9177cf4306bfe4b9bcd66b166cdb83c2faa77e2b23cf92f6f814f4282b"
+      "payload_v2_sha256": "32c02e9177cf4306bfe4b9bcd66b166cdb83c2faa77e2b23cf92f6f814f4282b",
+      "agent": "content_s027",
+      "review_artifact": "round5/S027.json",
+      "coordinator_review": "Source-bound code/owner/range/hash screen, substantive row and evidence-boundary review; flagged attribution/supplier claims checked and corrected before promotion."
     },
     {
       "id": "S028",
@@ -7301,7 +7317,7 @@
           "line_end": 23
         }
       ],
-      "status": "unread",
+      "status": "dispatched",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S028.txt",
       "payload_v1_sha256": "7c500d832a4753c85e6fdb63a04b597a30df5d555e038b15c317e80400b3e7e3",
       "payload_parts": [
@@ -7311,7 +7327,8 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S028.v2.txt",
-      "payload_v2_sha256": "0529e61ecb6fbc26f178327af61334a7dcdb9aa804a8ae5e77d3507fcae2ba60"
+      "payload_v2_sha256": "0529e61ecb6fbc26f178327af61334a7dcdb9aa804a8ae5e77d3507fcae2ba60",
+      "agent": "content_s028"
     },
     {
       "id": "S029",
@@ -7411,7 +7428,7 @@
           "line_end": 21
         }
       ],
-      "status": "unread",
+      "status": "dispatched",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S029.txt",
       "payload_v1_sha256": "872621837dae24eb9787388093f4335f8da3b20ecdab87df921b10eb2a1bcb8a",
       "payload_parts": [
@@ -7421,7 +7438,8 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S029.v2.txt",
-      "payload_v2_sha256": "8bf95b39fbe507c088f75efd51b2aa219d8dd3d7ed58f7b35c844a43a35ccb67"
+      "payload_v2_sha256": "8bf95b39fbe507c088f75efd51b2aa219d8dd3d7ed58f7b35c844a43a35ccb67",
+      "agent": "content_s029"
     },
     {
       "id": "S030",
@@ -8768,7 +8786,7 @@
     "paid_fallback": false,
     "commit_scope": "Only owned reconciliation paths; isolated codex/historical-content-reconciliation from public origin/master, guarded ref update and private index preserve shared master/index; user authorized push.",
     "primary_pilot": "S001 completed18 records; truncation omission repaired explicitly",
-    "workers_dispatched": 23,
+    "workers_dispatched": 29,
     "repair_reserve_remaining": 1,
     "primary_completed_shards": [
       "S001",
@@ -8798,7 +8816,7 @@
         "reason": "Original reader reported missing source route and returned with zero source read/no writes; exact byte-identical private copies made under repository for bounded recovery."
       }
     ],
-    "regular_readers_dispatched": 21,
+    "regular_readers_dispatched": 27,
     "repair_readers_dispatched": 2
   },
   "coverage": "No newly prepared shard is reviewed merely by preparation.",

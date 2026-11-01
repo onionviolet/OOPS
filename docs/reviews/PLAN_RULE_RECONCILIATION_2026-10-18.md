@@ -368,7 +368,7 @@ The [original inventory before this round](plan-rule-reconciliation-2026-10-18/R
 
 ### Current integrated content totals
 
-[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 267/519 records content-reviewed, 252 remain; 104,377 source words across 21 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 337 section-reviewed, 441 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
+[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 340/519 records content-reviewed, 179 remain; 137,655 source words across 27 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 410 section-reviewed, 368 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
 
 ### Commit and check boundary
 

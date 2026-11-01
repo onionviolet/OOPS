@@ -2,8 +2,8 @@
   "schema": 1,
   "scope": "Full-record content coverage from accepted disjoint reader spans; not source-canon/runtime proof",
   "requested": 519,
-  "completed": 267,
-  "remaining": 252,
+  "completed": 340,
+  "remaining": 179,
   "accepted_shards": [
     "S001",
     "S002",
@@ -25,7 +25,13 @@
     "S018",
     "S019",
     "S020",
-    "S021"
+    "S021",
+    "S022",
+    "S023",
+    "S024",
+    "S025",
+    "S026",
+    "S027"
   ],
   "complete_ids": [
     "U0001",
@@ -294,10 +300,83 @@
     "U0264",
     "U0265",
     "U0266",
-    "U0267"
+    "U0267",
+    "U0268",
+    "U0269",
+    "U0270",
+    "U0271",
+    "U0272",
+    "U0273",
+    "U0274",
+    "U0275",
+    "U0276",
+    "U0277",
+    "U0278",
+    "U0279",
+    "U0280",
+    "U0281",
+    "U0282",
+    "U0283",
+    "U0284",
+    "U0285",
+    "U0286",
+    "U0287",
+    "U0288",
+    "U0289",
+    "U0290",
+    "U0291",
+    "U0292",
+    "U0293",
+    "U0294",
+    "U0295",
+    "U0296",
+    "U0297",
+    "U0298",
+    "U0299",
+    "U0300",
+    "U0301",
+    "U0302",
+    "U0303",
+    "U0304",
+    "U0305",
+    "U0306",
+    "U0307",
+    "U0308",
+    "U0309",
+    "U0310",
+    "U0311",
+    "U0312",
+    "U0313",
+    "U0314",
+    "U0315",
+    "U0316",
+    "U0317",
+    "U0318",
+    "U0319",
+    "U0320",
+    "U0321",
+    "U0322",
+    "U0323",
+    "U0324",
+    "U0325",
+    "U0326",
+    "U0327",
+    "U0328",
+    "U0329",
+    "U0330",
+    "U0331",
+    "U0332",
+    "U0333",
+    "U0334",
+    "U0335",
+    "U0336",
+    "U0337",
+    "U0338",
+    "U0339",
+    "U0340"
   ],
   "partial_ids": [],
-  "source_words_read": 104377,
+  "source_words_read": 137655,
   "rows": [
     {
       "id": "U0001",
@@ -4307,513 +4386,1097 @@
     {
       "id": "U0268",
       "path": "docs/research/amazing-cultivation-simulator/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "60b68a0d50ae1319c7ff122c1bf9d6c5ecde2750c9759a554a6b2df27cfdfef2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0269",
       "path": "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "0ae8d827c544bf927b63f7898ee7ffbdc4a703f290cf03969c1c1f96e705a38c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            38
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0270",
       "path": "docs/research/ani-idle/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "eeb13ae5df2a78d9e71a26af66cb635a969d634e5337dcf513d19d22b60b4b0f",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0271",
       "path": "docs/research/ars-nouveau/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "c7a2974ccf3048eee967d666a04be4f052459dfbe2da94061d1637de7c9ff5d5",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0272",
       "path": "docs/research/arx-libertatis/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "16cd2aad27d76b4c5d7d45b85bc74766d749f24664ad283c85c2389c9af35846",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            16
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0273",
       "path": "docs/research/battle-brothers/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "583e0bdc92f0e15de89ff2b1c91fd09ac319f0fe5f9b24b33aefa0c2bec60bf6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0274",
       "path": "docs/research/bitburner/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "76c1826caef7cc14f7e6fadb76f751d1874d305e43f8ce67e1fc07661d6593d2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0275",
       "path": "docs/research/bitburner/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "69e5ad55c6f7bd9d1cd8d460ad6ed8e8733f3f404716615b0a71b7438499be3c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            39
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0276",
       "path": "docs/research/bitlife/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a67773f93b337420f79f6fcedf2a348465f862a8eae143ae0be014a93345c16c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            46
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0277",
       "path": "docs/research/book-of-hours/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d890c2761cba6e27b9107126aca46a47ff62bf0988076666513933372953d872",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0278",
       "path": "docs/research/caves-of-qud/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "baa17457b540d81a919c639db70b793ffa481da6ffa16ffab6848446bdea6a1c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S022.json"
+        }
+      ]
     },
     {
       "id": "U0279",
       "path": "docs/research/caves-of-qud/repass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "603750523006e6653d02cedd49e24ff51a2b9549af8b96f0825a65be5197b3b0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0280",
       "path": "docs/research/citizen-sleeper/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3eda5f198b43f1c66c86285f8951407e528193c9961c1af981ca7f4b6c889de9",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0281",
       "path": "docs/research/citizen-sleeper-2/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3e87d9303d62c7e5bfa35f5b8e93c886b92a81eaa0e7b4df6f32bf396d1ac969",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0282",
       "path": "docs/research/cividle/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1e14916b0c7e6abc187824cd81385cba90ce93608beab26f7687640ed11ed327",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0283",
       "path": "docs/research/coverage-refresh-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "91b30dc7f3050db5f31c3e4da78746de15fd600ab2910c9ada78eb220d2d8830",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            43
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0284",
       "path": "docs/research/cross-game-synthesis-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a56da7648d43115aa8c4491e8a5b10a7515f03dcac104a16d525a3b746109a2a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            41
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0285",
       "path": "docs/research/crusader-kings-3/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f27ddad07f15fca249b4f9e8afbb9c67f2c7ee36683db69cf80e511e687011d0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0286",
       "path": "docs/research/crush-crush/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "6bf54032f95ed6e39ee3ec79fd94403ccbd0763b9f685493f11b7cf80ac1f1f4",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0287",
       "path": "docs/research/cult-of-the-lamb/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7f2aee951454502d1581c9a3ed245234714a101239e04757667e99182211eef6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0288",
       "path": "docs/research/cultist-simulator/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ebafc8ec14d87431bae870abff03091932d256161209123a9318292f6506e5e0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0289",
       "path": "docs/research/cultivation-idlers/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f582f469b46675096606d4b7f0548f105025383f2c7b8b37c9c9b927b0152595",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            18
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0290",
       "path": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9795bce8d869d40422c5e6070784b7442af1660597fbffccf788431fd7a09829",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0291",
       "path": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1e786b701f4abc42b3a1c17d9764f7f2a65e9be0c369e2418eb0c2edba50a889",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0292",
       "path": "docs/research/dcss-dda-depth/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "bd3291fecdef141bfdc95608833ee2891b8dc0b5bae1d410fe168b2333a67646",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            25
+          ],
+          "receipt": "round5/S023.json"
+        }
+      ]
     },
     {
       "id": "U0293",
       "path": "docs/research/deep-detail-reaudit-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "dd93fa7e6ffe3805bdfdee61f66100cb3ff0919051d06bc5703c099f1c948970",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            24
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0294",
       "path": "docs/research/disco-elysium/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "c02faecd7748568c74ce1b826154c5970aadacf098a4e50a1c864d5a441237ab",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            26
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0295",
       "path": "docs/research/discworld-mud/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "e2920ea224df5fbfa7793270f4d3f2792e6a82c926b15543edf4b3d00c04ae23",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0296",
       "path": "docs/research/discworld-mud/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "50299b690e39f8fb05eaad2e34a052aaff89bf17b9d132380dd05aabed0981e0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            24
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0297",
       "path": "docs/research/discworld-mud/pass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "71cdf98eb92463e338b0c14248b621ab6149ff295a29d54a65e600e68b98dc52",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            33
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0298",
       "path": "docs/research/dwarf-fortress/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d3b1112f42aa457f280f1b82bc105f51dadd6fd0996fc8eb45eeba7bf66ea377",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0299",
       "path": "docs/research/dwarf-fortress/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "e87f079bb7e01feb781e39c994671d85809e2be2c29b0a611b8fd4d8eab1415a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0300",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7c45ecd487c26691f7a6d39efb6782cb9f76393bb3edc3d2f0ce40f37e7755eb",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0301",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1cbd5177af7c591826c875caa0714ce6b4fc1a41440775522465ad56bab50f38",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            26
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0302",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "fc9666b9436e9fe785d754c266f912665b27dc172d125c51e72c72e7553dce6c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0303",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "15a25f590851f78c3007a008f6d4579aa1fead40ab5257a2e69856ffc7459a29",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0304",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f6750287a72f8b0fa2d4cee787796e350355eeb77eda1ccdcc6c31cd7aff616a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0305",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f3d83058c84aed537283de1f9607057d6dfcfeb4129bfade1d2f54bdd67511a9",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0306",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1ab5b04a4778358977f8cb7f3f8e722e676496e9c9c2d4447acf628b555d05a4",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0307",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9212065916bb759841f1de5a9dc57dbd31188fb0db9552f2eaea755354c2002e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0308",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "38a4cfe6ecebed081d00a538c329f914183f3561bc63e91b1509e1a150a23335",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0309",
       "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "54bd8e60e21cfdff58c99cd58b383a1854e00b364de470068f8ca8eb4f9d30f7",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            5
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0310",
       "path": "docs/research/elin/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "5624b49e0cbcba636778025428e36f7896d3964c7b3e0e423a84a4ba80b694b1",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0311",
       "path": "docs/research/endless-ascent/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "fb58333d1e9564040ec739b1610d0147430e1a5f4743622219ce52be2599d515",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S024.json"
+        }
+      ]
     },
     {
       "id": "U0312",
       "path": "docs/research/everyday-paths-ui-2026-10-15/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8bf1fe8bc460272f999b3ea41cf98b6d049dc7e4a2aab9d31bc2a18de3b5b7b4",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            41
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0313",
       "path": "docs/research/factorio/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d142122f68f029f9cee259384f6b70eac412c3789eff37e6276f79a2675b2f90",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0314",
       "path": "docs/research/factorio/native/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0315",
       "path": "docs/research/factorio/native/readers/cross-architecture/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "75d94393d79b9d903995b8d29d4d4290029dea0e0d88acb779986cfd5216b85e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0316",
       "path": "docs/research/factorio/native/readers/logistics-heat/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "87d89ddb2b445733e293636f12a5139e8dbe7e5b33feb1f6bd60628bd34f1248",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0317",
       "path": "docs/research/factorio/native/readers/production-early/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "515f572718aff5cabe63d1408ff04c99d69bc3c24145044c87b5ddce9ff2af61",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0318",
       "path": "docs/research/factorio/native/readers/quality-spoilage/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "191b6c036b1848b97094fd7ca547d2929185433ee17ed1e753ea49115ff843fe",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            18
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0319",
       "path": "docs/research/far-field-tropes-2026-10-08/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "bc20432625f9df63de520bfbec0966feb26408ea65f17533c1ace5e7e42bc096",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0320",
       "path": "docs/research/free-text-worlds-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "4ce6a0d74acbcf83ad4c76045945c919eea762836e7cce44b130c465f79dac15",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            29
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0321",
       "path": "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7ea8402107173b7b7b126c3f669d7f441894e14acf12abb7ca75c37eef32c45b",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0322",
       "path": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0323",
       "path": "docs/research/game-research-adoption-audit-2026-10-13/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8423a5da26e64613ed96de6aa201f8f161aadac9c1ac4f54c0dfc46e38ee68dd",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S025.json"
+        }
+      ]
     },
     {
       "id": "U0324",
       "path": "docs/research/game-research-adoption-reaudit-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d542e24f800e016847f15558bbca13bfdc739f65685a5b178daa87aa31029a6d",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            79
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0325",
       "path": "docs/research/groundhog-life/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "dabed65b403933b0110dc9d54a366fb322c71c984f11bd850458ce718cc15eda",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0326",
       "path": "docs/research/groundhog-life/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a8a87e6717648910c3ac3e7b9e81280948efaf4f86bdb8df062801f3f5ed7138",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0327",
       "path": "docs/research/groundhog-life/pass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "5f04a13fb551ef63e3e325f11dab476bc0cc5e527b96c4fe6df6de61c64ca010",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            22
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0328",
       "path": "docs/research/hearts-of-iron-iv/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "caa1258deae72682b85f5c38ccfe7ea928927944e2c2d2153cbb4648fcf35afd",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            27
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0329",
       "path": "docs/research/hearts-of-iron-iv/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ef2ad6cc6482a0adf87d8c705f5eff9ffb5bcebf61ed46cc66dfa2b2c45a98b6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            31
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0330",
       "path": "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3c283486206c1b1269f1fb5cf5cfd96f4602619e4cfa1ec46f133e24ea96a623",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            70
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0331",
       "path": "docs/research/heavens-vault/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "59c1e3d14a132ebde3c4a2e70705b4745820aa873bd3b1c24453ea571e9b9205",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            26
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0332",
       "path": "docs/research/heavens-vault/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3e208f348419542d96efb13764906ab8011977e3db578454f3691858425fd799",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            33
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0333",
       "path": "docs/research/heavens-vault/repass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "794b2c55d549a2904b90f677688998719b169c33a661a95af232fc6ac4bb1a4e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S026.json"
+        }
+      ]
     },
     {
       "id": "U0334",
       "path": "docs/research/hogwarts-games/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d828299e0ac577df479521b5ac02f6e4b4afa9f0ac9e099bd5dee83f9efea547",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            45
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0335",
       "path": "docs/research/hogwarts-legacy/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "fe1c88c5d4d29a2a5c9a8c1cf7a5fd9fbf29b988f940af9514c7c6036abcc056",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            46
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0336",
       "path": "docs/research/hogwarts-legacy/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "85f880055d3e4ffc9a8356c36c84e9ebd33e749fa505087a6fba1a54135a7f2a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            44
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0337",
       "path": "docs/research/hogwarts-legacy/deep/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ffc44a249ffd00fc0aed1ab608ab0c022963c9dfffd5466ce26e2c0feda5335b",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            58
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0338",
       "path": "docs/research/hyperrogue/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8c0d27acc9365376ab66bc20381892c3694d41bf2779a147af53f0371f11c18a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            36
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0339",
       "path": "docs/research/hyperrogue/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "b7d2aa3f52ebafd4d1d7815875bff815362fd6bfaa69fe78c172154f4a3d369e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0340",
       "path": "docs/research/hyperrogue/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f796ecc91e42baf4290cb1fe394a725de080c1f56190681f3c2b8b4ade646e84",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            56
+          ],
+          "receipt": "round5/S027.json"
+        }
+      ]
     },
     {
       "id": "U0341",
