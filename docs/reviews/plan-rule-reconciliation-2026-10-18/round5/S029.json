@@ -1,0 +1,657 @@
+{
+  "schema": 1,
+  "shard": "S029",
+  "reader": "content_s029; gpt-6-luna low",
+  "payload_sha256": "c80fd073eafd64730f0e2243f9c0e7929485a5020f50da763c720876dc83037e",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0352",
+      "path": "docs/research/increlution/CHECKPOINT.md",
+      "input_sha256": "13e8093d850608c61b0b3ab42f76ef0611fa50afa9b521344abeeee170419467",
+      "read_ranges": [
+        [
+          1,
+          49
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          13,
+          13
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          41,
+          41
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "Electron source was statically recovered from eight hash-matched inputs; reset/retention, timed life/death, skill growth, automation, offline/pause and artifact carriage were traced. Authored replay is not random birth or autonomous heirs; buildings/resources reset while instincts/artifact powers persist, and catch-up spends survival time and can reach death.",
+      "disposition": "Completed static source audit, not gameplay verification; packets remain unaccepted and unimplemented.",
+      "owner_or_consumer": "docs/research/increlution/REPORT.md; private recovery and validation under ~/.codex/research/increlution/",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "No launch, save/settings inspection, late branch read, runtime/UI or persistence proof; selected packets need their own verification."
+    },
+    {
+      "record_id": "U0353",
+      "path": "docs/research/keeperrl/CHECKPOINT.md",
+      "input_sha256": "9544ae970c3afb59a552bc0fd7205bbc244a94caa2952977fba32d78b7df63fa",
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          9,
+          9
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          19,
+          19
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "Five selected KeeperRL gameplay paths were reviewed; root review joined caller, eligibility, mutation, consumer and failure routes, adding furniture use, injury/health, spell availability, resource spending and world access consumers. Shared YAIR simulation files changed during review, so old reader fingerprints are not current.",
+      "disposition": "Finite source research completed; proposals remain unaccepted and unimplemented. Static artifact checks do not establish whole-source semantics or gameplay.",
+      "owner_or_consumer": "docs/research/keeperrl/REPORT.md and FINDINGS.json; shared API owner named as overrides lane",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Refresh source fingerprints before any runtime integration; whole-source, balance, performance and current Steam parity remain open."
+    },
+    {
+      "record_id": "U0354",
+      "path": "docs/research/kenshi/CHECKPOINT.md",
+      "input_sha256": "3c1d3e5268fe2975094df887ded73b815e416f348999546c5cda57e32958a773",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "Kenshi FCS data was exported through ILSpy and four databases parsed to EOF (59,558 records); five connected authored-data chains were reviewed. Native executor and save serializer remained unread; seven dossier artifacts were produced. The checkpoint explicitly says compaction observation is not a serializer algorithm.",
+      "disposition": "Finite source pass complete and writer released; no native runtime or gameplay acceptance.",
+      "owner_or_consumer": "docs/research/kenshi/REPORT.md and IMPLEMENTATION_PACKETS.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Native execution, serializer and gameplay remain unverified; parent uninstall/removal proof is separate."
+    },
+    {
+      "record_id": "U0355",
+      "path": "docs/research/kenshi/second-pass/CHECKPOINT.md",
+      "input_sha256": "5d32cfd482fb8b1c0a12bb276dbcf5bafc5d7408c61e76c7120d9d598c8077fa",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          7
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          23,
+          23
+        ]
+      ],
+      "original_ids": [
+        "O1"
+      ],
+      "mechanism_and_interactions": "Second Kenshi pass integrates 31 findings, 30 touches, eight ranked proposals and a Red Basin world card from retained private copies. Validation covered record/offset pairs, field assertions, hashes and counts; shipped tips/editor defaults may lag native behavior.",
+      "disposition": "Finite documentation/source delivery complete, but proposals are not accepted or implemented; no final database merge or native gameplay proof.",
+      "owner_or_consumer": "docs/research/kenshi/second-pass/REPORT.md, BACKLOG.md and INPUT_SNAPSHOT.json",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Native combat, needs, AI, recruitment, raid scheduling, world-state evaluation, overrides and serializer remain gaps; harsh-world policy is a separate decision."
+    },
+    {
+      "record_id": "U0356",
+      "path": "docs/research/kill-the-lich-idle/CHECKPOINT.md",
+      "input_sha256": "c62014d22c9f28fb1f1f7aac615baac8ea0ad019c54f31034b8d12a4b939171d",
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          23,
+          23
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          33,
+          33
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "Installed Electron JS and pinned public-source comparison traced six core chains; reset-controller exceptions were cross-checked against UI eligibility, base-reset helper and save/UI routes. A later parent receipt supersedes the earlier acquisition-only status: removal was reported verified by absent manifest and success log, without launch or dialog click.",
+      "disposition": "Static audit complete; proposals remain unaccepted. Historical uninstall receipt does not establish gameplay, cloud behavior or current runtime.",
+      "owner_or_consumer": "docs/research/kill-the-lich-idle/REPORT.md and docs/gm/dispatch/steam-installs-2026-10-09/LICH_UNINSTALL.json",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "No gameplay launch, save access or YAIR source/build work; selected mechanism needs live owner and runtime proof."
+    },
+    {
+      "record_id": "U0357",
+      "path": "docs/research/king-of-dragon-pass/CHECKPOINT.md",
+      "input_sha256": "2e0e3e30211eeb0376c7f10580cbe7bcb98ddd5601730bdc80e8499a4c27b50b",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "King of Dragon Pass pass retained and hash-matched the installed app, recovered bounded disassemblies and indexed 1,760 scene records. Five manual-connected chains and bounded architecture/aging/time routines were read; full scene/opcode semantics, probabilities, advisor rules and serializer remain unread.",
+      "disposition": "Finite pass completed and writer released; proposals route to experience GM. Worker made no uninstall.",
+      "owner_or_consumer": "docs/research/king-of-dragon-pass/REPORT.md, COVERAGE.md and IMPLEMENTATION_PACKETS.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Parent removal verification is separate; no personal/cloud saves or gameplay behavior were checked."
+    },
+    {
+      "record_id": "U0358",
+      "path": "docs/research/kingdom-hearts/CHECKPOINT.md",
+      "input_sha256": "aa8b8871dd73778420ad9de7c3b61a7f2bf2eb635087ff161593764c568eba75",
+      "read_ranges": [
+        [
+          1,
+          43
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          14,
+          14
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          43,
+          43
+        ]
+      ],
+      "original_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "mechanism_and_interactions": "KH1/KH2 documented formats and selected data were extracted; bounded KH2 rooms/events/messages decoded while KH1 schema stayed distinct. Checkpoint separates indexed content from unread native evaluators, save format, AI traps, dialogue predicates and remaining tables; other collection titles were only present in installation.",
+      "disposition": "Research lane remains partial despite finite artifacts; proposals are not accepted and there is no YAIR integration or gameplay acceptance. Historical one-realm milestone language is stale against current direction.",
+      "owner_or_consumer": "docs/research/kingdom-hearts/REPORT.md, SYSTEM_INVENTORY.md, SOURCE_LEDGER.md and system digests",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Continuation needs a named native-consumer question; full save, source semantics and gameplay remain unproven."
+    },
+    {
+      "record_id": "U0359",
+      "path": "docs/research/kingdom-hearts/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "a09e78bb74776afd272cab641c1a5b0fc688e60b41f649c44ea13fb2c6503eae",
+      "read_ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "original_ids": [
+        "A01",
+        "A12"
+      ],
+      "mechanism_and_interactions": "Aspect checkpoint says A01–A12 entries and inventories exist; covered means bounded format/mechanism reading, not whole-game or native acceptance. It delegates concrete evidence and unread U1–U8 gaps to the parent checkpoint.",
+      "disposition": "Partial coverage breadth, not missing dossier structure; no independent restart or shared-owner edit needed.",
+      "owner_or_consumer": "docs/research/kingdom-hearts/CHECKPOINT.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Native UI/save, AI, dialogue, Gummi/KH1 details and other titles remain partial or unread per parent owner."
+    },
+    {
+      "record_id": "U0360",
+      "path": "docs/research/kingdom-of-loathing/CHECKPOINT.md",
+      "input_sha256": "b4edea8ccde0bf7d89f351a9d45e6fc554f523e67300248041d368a2e08a91cc",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "KoLmafia data/Java covered path and class enums, organ capacity, Valhalla, Ronin, daily counters, quest spine, crafting tags, fold/zap/pulverize, modifiers, familiars and selected rewards. Wiki attempts failed (403 and expired certificate), leaving path prose and detailed systems unread; no game/account used.",
+      "disposition": "Bounded source audit complete; P1–P5 remain proposals. Next route is a different archive/signed-in source, not retries of failed endpoints.",
+      "owner_or_consumer": "docs/research/kingdom-of-loathing/REPORT.md and SOURCE_LEDGER.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "No gameplay, server settlement, path prose or YAIR implementation proof."
+    },
+    {
+      "record_id": "U0361",
+      "path": "docs/research/kingdom-of-loathing/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "1732f71db820d322e637af8bbb1c053eec0a14022509ed56269a57443a186a0f",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          20,
+          20
+        ]
+      ],
+      "original_ids": [
+        "A01",
+        "A03",
+        "A04"
+      ],
+      "mechanism_and_interactions": "Aspect dossier adds fixed A01–A12 keys, inventory, deeper systems, proposals/touches, with raw reads at dialogue and persistence seams. Server/NPC AI, full dialogue/clans/PvP/item catalog, path prose, desktop runtime, pacing and account save/offline remain unverified.",
+      "disposition": "Artifact validation passed, not runtime implementation or accepted design. Old milestone wording here is stale under current project direction.",
+      "owner_or_consumer": "docs/research/kingdom-of-loathing/aspects-2026-10-14/CHECKPOINT.md and prior parent checkpoint for twelve blocked path-rule rows; validation script is private ~/.codex/research/asp-text/tools/verify_artifacts.py, not a supplied public VALIDATION.json.",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "No natural persistence, offline parity, authoritative server behavior or full late-system qualification."
+    },
+    {
+      "record_id": "U0362",
+      "path": "docs/research/kingdom-of-loathing/pass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "eda0ef63d5a64298c23fc423f8c7190284c35fc6a21157cb8f708a91156609d3",
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          35,
+          35
+        ]
+      ],
+      "original_ids": [
+        "P7",
+        "SHARED_GRAMMAR"
+      ],
+      "mechanism_and_interactions": "KoL lane tabulated 57 enum entries and 51 special paths with restrictions, unique mechanics, rewards, reuse/add split and evidence labels; selected 44 rule pages fed a shared grammar/consumer digest. Twelve detailed pages and nested strategies remain unread; current server rewards/legality excluded.",
+      "disposition": "Partial source pass; packets and P7 remain proposals, not implementation authority. Data scripts and dated pages do not prove live server behavior.",
+      "owner_or_consumer": "docs/research/kingdom-of-loathing/pass-2026-10-14/REPORT.md, SHARED_GRAMMAR.md and PATH_RULES.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Use a different archive/source route for missing pages; no live gameplay, server or YAIR persistence/UI proof."
+    },
+    {
+      "record_id": "U0363",
+      "path": "docs/research/kittens-game/CHECKPOINT.md",
+      "input_sha256": "012ce93d0558d16e144e0d3e2bc1c6e8dc28a7cc66b80caf87c68d0ce0a7d453",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          6,
+          6
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          19,
+          19
+        ]
+      ],
+      "original_ids": [
+        "P01",
+        "P02",
+        "P04"
+      ],
+      "mechanism_and_interactions": "Kittens Game answered four bounded questions using source paths and controlled headless fixtures, including five price and five technology fixtures. It lacks naturally earned build/craft progression, save/reload/import/corruption, broad offline parity, combat planning/autonomy, late systems and complete narrative/mod semantics.",
+      "disposition": "Feature questions and dossier shape complete while whole-game audit remains partial. Proposals remain with existing owners; no implementation or user-save work.",
+      "owner_or_consumer": "docs/research/kittens-game/REPORT.md and private work extracts/HASHES.txt",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Do not infer natural progression, persistence, account behavior or late-game correctness from source and controlled fixtures."
+    },
+    {
+      "record_id": "U0364",
+      "path": "docs/research/kittens-game/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "42189b4b8f87bc14491ed702cbbcf1d300c7f359412ac96c62428574566c4a04",
+      "read_ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          4,
+          4
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "Aspect artifact contains twelve rows, inventory and deeper traces; it delegates the gap table to parent checkpoint and disclaims natural persistence, offline parity and full late-game behavior.",
+      "disposition": "Artifact shape complete while behavior coverage remains partial; no independent feature or runtime proof.",
+      "owner_or_consumer": "docs/research/kittens-game/CHECKPOINT.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Use parent checkpoint's specific gaps; no separate restart or gameplay claim."
+    },
+    {
+      "record_id": "U0365",
+      "path": "docs/research/legends-of-idleon/CHECKPOINT.md",
+      "input_sha256": "e55925ecd9e742da3b0c70a5ee032b0fed60c4e644f4ad121fae030d229bcbe2",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          7
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          25,
+          25
+        ]
+      ],
+      "original_ids": [],
+      "mechanism_and_interactions": "Idleon static research answered bounded questions on seven-world progression, shared/personal growth, roster slots, activity-specific AFK calculations and legibility. Official JS and selected articles/tables were acquired/hashed; server settlement/replay, exhaustive rates, deity display/effect mapping, full W7, usability and actual reward settlement remain open.",
+      "disposition": "Partial research handback; proposals unselected. Static client calculations and source census do not establish server grants or optimal play.",
+      "owner_or_consumer": "docs/research/legends-of-idleon/REPORT.md and COVERAGE.json",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "No login/play/server transaction or full late-world coverage; resolve deity name/effect IDs before claiming displayed links."
+    },
+    {
+      "record_id": "U0366",
+      "path": "docs/research/legends-of-idleon/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "ee54a1127853523a3459b805f43dd20aee202f39cfcf1c9a9f76c5ee864cc451",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          7
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          21,
+          21
+        ]
+      ],
+      "original_ids": [
+        "A01",
+        "A12",
+        "G1",
+        "G5"
+      ],
+      "mechanism_and_interactions": "Idleon aspect pass records fixed keys, source-unit index, deeper reads, proposals and validation. It leaves dialogue branches, server save/migrations, full W7, deity display/effect mapping, optimal roster, current UI and settlement open; next step is coordinator selection of a named gap or proposal.",
+      "disposition": "Artifact validation is distinct from gameplay and full-source qualification; no successor or implementation was dispatched.",
+      "owner_or_consumer": "docs/research/legends-of-idleon/aspects-2026-10-14/VALIDATION.json and ../CHECKPOINT.md",
+      "evidence_state": "Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "remaining_check": "Runtime/server behavior needs separately scoped evidence; historical no-play text is not a current approval gate."
+    }
+  ],
+  "repairs": [
+    {
+      "coordinator_removed_source_absent_original_ids": {
+        "U0359": [],
+        "U0361": [
+          "P1",
+          "P5"
+        ],
+        "U0364": [
+          "A01",
+          "A12"
+        ],
+        "U0366": []
+      }
+    }
+  ],
+  "cross_record_findings": [
+    "Source decoding, indexes, controlled fixtures, installed-build examination and live gameplay are distinct evidence levels; the records name concrete unread consumers and behaviors.",
+    "Historical completion generally means the bounded source/document assignment ended, not acceptance, implementation, natural play, persistence roundtrip, current integration or full game qualification.",
+    "Older milestone and coordination wording does not create present gates; current direction supersedes historical status language."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0352: No launch, save/settings inspection, late branch read, runtime/UI or persistence proof; selected packets need their own verification.",
+    "U0353: Refresh source fingerprints before any runtime integration; whole-source, balance, performance and current Steam parity remain open.",
+    "U0354: Native execution, serializer and gameplay remain unverified; parent uninstall/removal proof is separate.",
+    "U0355: Native combat, needs, AI, recruitment, raid scheduling, world-state evaluation, overrides and serializer remain gaps; harsh-world policy is a separate decision.",
+    "U0356: No gameplay launch, save access or YAIR source/build work; selected mechanism needs live owner and runtime proof.",
+    "U0357: Parent removal verification is separate; no personal/cloud saves or gameplay behavior were checked.",
+    "U0358: Continuation needs a named native-consumer question; full save, source semantics and gameplay remain unproven.",
+    "U0359: Native UI/save, AI, dialogue, Gummi/KH1 details and other titles remain partial or unread per parent owner.",
+    "U0360: No gameplay, server settlement, path prose or YAIR implementation proof.",
+    "U0361: No natural persistence, offline parity, authoritative server behavior or full late-system qualification.",
+    "U0362: Use a different archive/source route for missing pages; no live gameplay, server or YAIR persistence/UI proof.",
+    "U0363: Do not infer natural progression, persistence, account behavior or late-game correctness from source and controlled fixtures.",
+    "U0364: Use parent checkpoint's specific gaps; no separate restart or gameplay claim.",
+    "U0365: No login/play/server transaction or full late-world coverage; resolve deity name/effect IDs before claiming displayed links.",
+    "U0366: Runtime/server behavior needs separately scoped evidence; historical no-play text is not a current approval gate."
+  ],
+  "coordinator_review": "15 assigned records reviewed against complete labeled source fragments. Paths, hashes, and exact assigned ranges populated from ROUND5_PLAN.json; no contemporary source/build/browser/runtime artifacts independently inspected."
+}

@@ -366,9 +366,20 @@ The batch distinguishes leaf source release from later parent integration. The b
 
 The [original inventory before this round](plan-rule-reconciliation-2026-10-18/ROUND5_INVENTORY_BASELINE.json) is retained. Completed full-content rows now carry their exact receipt, source hash and read ranges in the native inventory; no grouped-control or unrelated record is promoted. The current integrated totals below change with accepted full-record receipts; partial records remain unpromoted until every assigned line range is accounted for.
 
+### Content distinctions retained by this review
+
+| Finding | Reconciled meaning | Review suppliers |
+|---|---|---|
+| R5-F1 Chronology and authority | A released research/planning lane, an initial checkpoint promising outputs, a superseded queue patch and a source/build delivery have different dispositions. Old leases, pauses, first-milestone wording and mandatory human-review language do not create current authority or an AD42 blocker. | [S019](plan-rule-reconciliation-2026-10-18/round5/S019.json), [S021](plan-rule-reconciliation-2026-10-18/round5/S021.json), [S023](plan-rule-reconciliation-2026-10-18/round5/S023.json) |
+| R5-F2 Custody and settlement | Factorio completed-output admission can block after input expenditure; the original YAIR pre-batch refusal is deliberately stricter custody policy. Dwarf Fortress allocation disposal, containment unlink, removal request and quantity compensation are distinct results. Neither trace proves a runtime defect or full refund/rollback. | [S024](plan-rule-reconciliation-2026-10-18/round5/S024.json), [S025](plan-rule-reconciliation-2026-10-18/round5/S025.json) |
+| R5-F3 State and consumer distinctions | Kinship, apprenticeship, property/right/method succession and disputed historical evidence stay separate in the family proposals. Heaven’s Vault solved-inscription membership, dictionary knowledge and later offer history are distinct state/consumer chains. Static graphs and literal destinations do not prove playable reachability or persistence. | [S019](plan-rule-reconciliation-2026-10-18/round5/S019.json), [S026](plan-rule-reconciliation-2026-10-18/round5/S026.json) |
+| R5-F4 Coverage and variants | Later selected source traces can close named subchains without qualifying whole games, editions, DLCs, systems or native behavior. Community recoveries, old public distributions, demo/current builds, client adapters versus server authority, private evidence versus public outputs and source versus original adaptations retain separate scopes. | [S022](plan-rule-reconciliation-2026-10-18/round5/S022.json), [S027](plan-rule-reconciliation-2026-10-18/round5/S027.json), [S028](plan-rule-reconciliation-2026-10-18/round5/S028.json), [S029](plan-rule-reconciliation-2026-10-18/round5/S029.json) |
+
+The notes preserve unresolved suppliers and distinguishing checks; they do not commission those checks or convert proposals into accepted direction. Coordinator corrections record neighboring-record substitutions, source-absent codes, private/public path confusion and transport omissions explicitly. Those errors were corrected before content promotion; preparation, count checks and hashes alone receive no reading credit.
+
 ### Current integrated content totals
 
-[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 340/519 records content-reviewed, 179 remain; 137,655 source words across 27 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 410 section-reviewed, 368 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
+[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 393/519 records content-reviewed, 126 remain; 168,695 source words across 33 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 463 section-reviewed, 315 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
 
 ### Commit and check boundary
 

@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "shard": "S032",
+  "reader": "content_s032; gpt-6-luna low",
+  "scope": "Assigned historical content spans only; document claims and their stated proof boundaries reviewed, not contemporary runtime or source-canon validation.",
+  "payload_sha256": "9ec86e67c9fa75a205646a37cef2b1ff0e290c9ce965cf2c837774c8ebaad5dd",
+  "rows": [
+    {
+      "record_id": "U0389",
+      "path": "docs/research/nethack/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "7b545baefb6af39c2ff0b08ad9b49a67057c39d7db40b44492c3d8b274ba4c49",
+      "read_ranges": [
+        [
+          1,
+          104
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12"
+      ],
+      "mechanism_and_interactions": "The checkpoint reports a delivered representative aspect grid across NetHack, DCSS, Cataclysm DDA and KeeperRL, backed by selected pinned source ranges/files and separate artifacts per game. It explicitly limits the claim: inventories and counts are not semantic coverage; many systems, runtime UI, pacing, saves and import remain unread or unplayed. No YAIR implementation or game launch is claimed.",
+      "disposition": "Historical research delivery complete for all twelve aspect rows, while PARTIAL accurately describes named source and runtime gaps. Earlier statements that more work was needed are superseded by the completed grid; optional future reads should target one useful named gap, not reopen the whole pass.",
+      "owner_or_consumer": "docs/research/nethack/aspects-2026-10-14/REPORT.md and VALIDATION.json; related game folders are named in the checkpoint. No YAIR implementation owner is assigned.",
+      "evidence_state": "The assigned checkpoint reports hash, bounds, Git blob, JSON, link and artifact validation. Those are historical document/source checks, not tests of games or current YAIR behavior.",
+      "remaining_check": "Any selected implementation needs its own named mechanism route and rebuilt desktop/browser and persistence proof; the current shard does not qualify those systems.",
+      "evidence_lines": [
+        [
+          5,
+          15
+        ],
+        [
+          28,
+          30
+        ],
+        [
+          97,
+          104
+        ]
+      ]
+    },
+    {
+      "record_id": "U0390",
+      "path": "docs/research/ngu-idle/CHECKPOINT.md",
+      "input_sha256": "da1ff8bb54148bf1ff63b16fabe4b4ee63332ac9897445bdf4a0faf5e69864ce",
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Laser Sword"
+      ],
+      "mechanism_and_interactions": "The checkpoint reports selected unlock-order work across 18+ surfaces, ordinary reset/carryover, hard-challenge entry, a Laser Sword exception and an active eleven-challenge roster, plus desktop navigation/feedback inspection and bounded proposal packets. It distinguishes these selected source traces from uninspected challenge consumers and all runtime behavior.",
+      "disposition": "The selected source research and artifact validation are reported complete, despite PARTIAL status. That status tracks absent runtime, scene/layout, full challenge-consumer, save/offline/platform and whole-assembly coverage; proposals remain unaccepted.",
+      "owner_or_consumer": "docs/research/ngu-idle/VALIDATION.json and the NGU research outputs; no YAIR runtime implementation lane is named.",
+      "evidence_state": "Historical checkpoint reports read-only decompilation and artifact validation. No current UI/gameplay, scene parser, save, account or runtime execution was inspected or authorized.",
+      "remaining_check": "If a proposal is selected, trace the active challenge roster into its level, budget, equipment and NGU consumers; current gameplay and persistence require a separate authorized task.",
+      "evidence_lines": [
+        [
+          8,
+          12
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          26,
+          28
+        ]
+      ]
+    },
+    {
+      "record_id": "U0391",
+      "path": "docs/research/ngu-idle/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "e2675c732150804f5b6906d7b5c06e707bb028d81fd608da9a6e146594dabe1b",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "mechanism_and_interactions": "This grouped checkpoint says all four games have A01-A12 aspect artifacts and a discovered source-unit index; NGU TextAsset extraction yielded 328 entries without parser errors. It calls out un-decoded MonoBehaviour reference arrays/layout, unread prose and AI branches, incomplete migration/platform/offline consumers, and absent runtime/save/import execution.",
+      "disposition": "The four-game research outputs are delivered and validated for the selected scope. PARTIAL reflects those explicit semantic and runtime limits, not missing aspect rows. No successor or implementation was dispatched; the coordinator may later select a named gap or proposal.",
+      "owner_or_consumer": "Each sibling aspects folder has its own gap table and VALIDATION.json; this record names no YAIR implementation owner.",
+      "evidence_state": "Historical checkpoint reports extraction and research validation; no underlying sibling artifacts or live behavior were independently inspected in this shard.",
+      "remaining_check": "A future selected task should resume from exact A01-A12 locators for the named gap, with separate runtime authorization for UI, gameplay and save/import checks.",
+      "evidence_lines": [
+        [
+          7,
+          10
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          22,
+          22
+        ]
+      ]
+    },
+    {
+      "record_id": "U0392",
+      "path": "docs/research/noita/CHECKPOINT.md",
+      "input_sha256": "9fefc9032994ae883cf9d46bd92eed2dd0f2e831b7eae58f52365ea5491498b2",
+      "read_ranges": [
+        [
+          1,
+          95
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "N1",
+        "N11",
+        "Q14"
+      ],
+      "mechanism_and_interactions": "The Noita audit reports extracted installed data and structured material/reaction inventories, with findings kept distinct from opaque engine behavior and community reconstruction. Revision 3 records all eleven N codes complete, source/artifact validation, and corrections such as OILED protection versus loose-oil burning and fungal shift from TRIP status. Native inheritance, reaction ordering/integration, projectile dispatch, terrain conversion, polymorph restore and AI targeting remain opaque.",
+      "disposition": "The authorized source pass completed and its packets remain proposals. Earlier progress instructions to finish extraction/reporting are superseded by the completion entry; no new extraction, installation or implementation follows from this checkpoint. Q14 remains an open design question, not an unfinished audit gate.",
+      "owner_or_consumer": "docs/research/noita/REPORT.md, VALIDATION.json and IMPLEMENTATION_PACKETS; design owner for Q14 is not named in this record.",
+      "evidence_state": "Checkpoint reports matching archive/extract hashes, reviewed-source ranges and structural validation. It explicitly says no launch, save access, build/test or gameplay proof occurred; community recipe reconstruction is not binary-verified.",
+      "remaining_check": "For any selected gameplay slice, inspect the current owner and qualify the specific opaque engine interaction in a separately authorized runtime task; do not treat the source audit as gameplay acceptance.",
+      "evidence_lines": [
+        [
+          53,
+          71
+        ],
+        [
+          73,
+          87
+        ],
+        [
+          89,
+          95
+        ]
+      ]
+    },
+    {
+      "record_id": "U0393",
+      "path": "docs/research/nonhuman-fiction-2026-10-10/BRIEF.md",
+      "input_sha256": "617e251bd1a7f1fdc436c7e7454982e14cce491f23e924cefea4300c3faea09b",
+      "read_ranges": [
+        [
+          1,
+          49
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The brief asks for a source-grounded crossing of nonhuman body mechanics against many life-sim feature families. Its six body dimensions are verbs, senses, action clock, needs, social channel and ending; each source is to distinguish shown, stated and inferred mechanics, then derive lessons, failure modes, idle-time fit and adjacent body ideas. This is a research specification, not findings or an implemented mechanic.",
+      "disposition": "Historical research brief defining an authorized content shape and source discipline. It contains no completed source set, mechanic findings, validation result or decision to implement; its instructions to use web tools are not execution evidence.",
+      "owner_or_consumer": "docs/LIFE_SIM_NORTH_STAR.md is cited as the motivating proposal; deliverables were to be separate files in docs/research/nonhuman-fiction-2026-10-10/. No consumer or completed research artifact is identified in this assigned brief.",
+      "evidence_state": "Only the brief itself was read. Its examples and requested source coverage are not evidence that any fiction was reviewed or any proposed mechanic accepted.",
+      "remaining_check": "Consult the existing cluster deliverables in this directory for findings and consulted-source labels, rather than treating the brief as completion or dispatching duplicate research. Any implementation still needs selected-world ownership and gameplay proof.",
+      "evidence_lines": [
+        [
+          6,
+          17
+        ],
+        [
+          20,
+          39
+        ],
+        [
+          41,
+          49
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator removed expanded but nonliteral N-group IDs and routed brief to existing cluster deliverables without implying their completion from the brief."
+  ],
+  "cross_record_findings": [
+    "Across the game research checkpoints, PARTIAL is a scope label for explicit source/runtime gaps and can coexist with completed assigned research outputs; it does not itself imply unfinished implementation.",
+    "The checkpoints separate source inventory/extraction and artifact validation from semantic completeness, runtime behavior, and YAIR implementation. Their completion claims stay historical and lane-bounded.",
+    "U0393 is a requested research brief with dimensions and source-labeling rules, not a record of completed nonhuman-fiction findings or accepted game mechanics."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0389: many named system families and every game runtime/save/import path remain unread or untested.",
+    "U0390-U0391: challenge-consumer joins, serialized scenes/layout, broader content/formula and current UI/gameplay/save behavior remain unqualified.",
+    "U0392: native engine integration remains opaque and Q14 remains open; no gameplay, persistence or current implementation proof.",
+    "U0393: no completed per-cluster research findings or source list are present in the assigned brief."
+  ]
+}
