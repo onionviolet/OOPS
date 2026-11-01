@@ -356,7 +356,7 @@ Final structural, dependency, focused regression and preservation results are re
 
 ## Round 5: content review of the 519 ungrouped records, 2026-11-01
 
-Weibao requested content review of the 519 ungrouped historical records, preservation of other chats' work, continued exclusion of L2b and whole-LOTM qualification, and commit/push of the reconciliation work. AD32/AD36/AD41 apply. [Finite plan](plan-rule-reconciliation-2026-10-18/ROUND5_PLAN.json): 242,181 words, 48 disjoint prepared source shards, one complete pass plus three named repair reservations, included usage start77%, stop82%, no paid fallback. Weibao explicitly approved bounded Luna readers, at most two concurrent. The primary agent completed S001/S002 directly; the first fresh Luna pilot S003 passed coordinator review. This new task allocation does not reopen another lane's exhausted allowance.
+Weibao requested content review of the 519 ungrouped historical records, preservation of other chats' work, continued exclusion of L2b and whole-LOTM qualification, and commit/push of the reconciliation work. AD32/AD36/AD41 apply. [Finite plan](plan-rule-reconciliation-2026-10-18/ROUND5_PLAN.json): 242,181 words, 48 disjoint prepared source shards, one complete pass plus three named repair reservations, included usage start77%; initial stop82%, explicitly raised to87% by Weibao ("Allow up to 87%"); no paid fallback. Weibao explicitly approved bounded Luna readers, at most two concurrent. The primary agent completed S001/S002 directly; the first fresh Luna pilot S003 passed coordinator review. This new task allocation does not reopen another lane's exhausted allowance.
 
 ### Content review progress
 
@@ -368,7 +368,7 @@ The [original inventory before this round](plan-rule-reconciliation-2026-10-18/R
 
 ### Current integrated content totals
 
-[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 62/519 records content-reviewed, 457 remain; 25,538 source words across 5 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 132 section-reviewed, 646 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
+[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 244/519 records content-reviewed, 275 remain; 87,358 source words across 17 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 314 section-reviewed, 464 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
 
 ### Commit and check boundary
 

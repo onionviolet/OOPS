@@ -1,0 +1,201 @@
+{
+  "schema": "round5-historical-content-v1",
+  "shard": "S017",
+  "reader": {
+    "agent": "/root/content_s017",
+    "model": "gpt-6-luna",
+    "effort": "low"
+  },
+  "payload_sha256": "38aa3aa3df2e57c78d3ba3d9d1fb5f8bcff6b089c0868abc47c53240bf7b9b40",
+  "scope": {
+    "source_words": 4740,
+    "source_characters": 49642,
+    "assigned_spans": 7
+  },
+  "rows": [
+    {
+      "record_id": "U0238",
+      "path": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+      "input_sha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        "U0238 L00008-L00011",
+        "U0238 L00052-L00058"
+      ],
+      "mechanism_and_interactions": "Planning checkpoint records eight findings in five bundles around native/effect closure, activation/composition/UI routing, compiler/expiry, source compatibility, and dynamic actor recipes. It preserves existing positive functions and frozen commitments; manifest/tool/factory changes remain proposals. The Short Measure receipt does not close stock, travel, native, or UI gaps. The role says checks covered planning artifacts only, with no game import/build/browser/save/failure or measured savings. Master review and later permitted journeys remain gates.",
+      "disposition": "Historical planning delivery and proposed bundles; no runtime implementation or proof.",
+      "owner_or_consumer": "docs/gm/world-implementation/second-pass/authoring/REPORT.md, FINDINGS.json, DEPENDENCIES.md; native/compiler and gameplay owners are named as future suppliers.",
+      "evidence_state": "Report/hash/JSON/link checks are described; no gameplay or integration check ran. Remaining: master selection and later real means/effects/UI/source/return/retention/failure journeys.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    },
+    {
+      "record_id": "U0239",
+      "path": "docs/gm/world-implementation/second-pass/bases/CHECKPOINT.md",
+      "input_sha256": "2d6e88a8971e8a5a356c60967c949046806e1fad08495b9c86697a559733c418",
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "BAS01-05",
+        "MC05",
+        "ME07"
+      ],
+      "evidence_lines": [
+        "U0239 L00008-L00016",
+        "U0239 L00024-L00028"
+      ],
+      "mechanism_and_interactions": "Bases checkpoint reports five proposed findings, BAS01-05, including a rented/staffed worksite, funded order, actual delivery, and retained aftermath as a qualification. It preserves prior foundations and leaves payment, rights, continuation, route, and peer-source qualifications bounded. The assigning master owns canonical plan/RUN; Engine/Ability/Original work remains held for director review. Static artifact validation does not establish gameplay.",
+      "disposition": "Completed planning packet; proposals remain unaccepted and implementation held.",
+      "owner_or_consumer": "REPORT.md, FINDINGS.json, DEPENDENCIES.md in bases; canonical plan/RUN belongs to assigning master.",
+      "evidence_state": "JSON/evidence/link/whitespace checks passed per checkpoint. Runtime, browser, save/import/failure and benchmark were not run. Remaining: master reconciliation, user selections, later implementation/playable gates.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    },
+    {
+      "record_id": "U0240",
+      "path": "docs/gm/world-implementation/second-pass/combat/CHECKPOINT.md",
+      "input_sha256": "162241a1516f50ad0e3eefb21332a4e37a0527ca50746ecb68f9fea836e4c859",
+      "read_ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "CB01\u2013CB10",
+        "CB11\u2013CB14"
+      ],
+      "evidence_lines": [
+        "U0240 L00009-L00017",
+        "U0240 L00019-L00035"
+      ],
+      "mechanism_and_interactions": "Combat supplement adds CB11-CB14: condition lifecycle, functional restrictions/preparation, small physical causes, and readable prepared responses. Existing conditions include reapplication replacing expiry/cause and resetting tick scheduling, with expiry winning a tick tie; the checkpoint explicitly calls effects static reasoning, not observed failures. Suggested crossing qualification uses cargo custody/free hand, footing, continuing exposure, preparation benefit, and paid remedy/withdrawal. It selects no universal roster, counter, immunity, death/reset rule, schema, or balance.",
+      "disposition": "Planning supplement with proposed cases and static policy consequences; no new gameplay established.",
+      "owner_or_consumer": "Combat REPORT/FINDINGS/DEPENDENCIES and STATUS_AND_SMALL_INTERACTIONS.md; body/object/field owners and per-observer information remain distinct.",
+      "evidence_state": "Document gate passed; game import/build/unit/browser/save/failure checks are unrun. Remaining: master/director review and later permitted generated-state behavior checks.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    },
+    {
+      "record_id": "U0241",
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/CHECKPOINT.md",
+      "input_sha256": "5beeb0ade2d52eb3942e14659b6d1174d9779d76387511fc0058ae94a19e80ee",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1",
+        "HTTP200"
+      ],
+      "evidence_lines": [
+        "U0241 L00007-L00011",
+        "U0241 L00015-L00020"
+      ],
+      "mechanism_and_interactions": "Engine absorption comparison ranks extending current systems, CDDA and Inform patterns, optional Ink, and conditional spatial queries. It supplies nine findings, dependency contracts and fixtures, while preserving Short Measure and a distinct source-world pair. The lane pins upstream references and corrects a rot attribution; it copied no engine code, assets, narrative corpus, or package. No runtime/schema/UI/save integration occurred here, and mapped methods remain proposed pending assigning-master and director review.",
+      "disposition": "Completed source comparison and planning packet; candidate absorption is not adoption.",
+      "owner_or_consumer": "REPORT.md, FINDINGS.json, DEPENDENCIES.md, CASES.md, PLAN_PACKETS.md; Engine owns any later integration.",
+      "evidence_state": "Static source/fixture/doc checks passed; no game import/build/browser/save/failure or human acceptance. Remaining: canonical plan reconciliation, selected implementation packet, later playable and compatibility gates.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    },
+    {
+      "record_id": "U0242",
+      "path": "docs/gm/world-implementation/second-pass/experience/CHECKPOINT.md",
+      "input_sha256": "f71b9c75534c4da5abc632ee4f37d0778b0997a04c6bf3853f93e0b498bccfae",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "S3",
+        "S2",
+        "S1",
+        "SHA256"
+      ],
+      "evidence_lines": [
+        "U0242 L00009-L00015",
+        "U0242 L00019-L00025"
+      ],
+      "mechanism_and_interactions": "Experience checkpoint contains two chronologies. Earlier audit statically found Glasshouse attention selecting People while its panel belongs to Here, and proposed refinements to action terms, accessible reasons, condition lifecycle, recaps, trial/item use, attributed history, filtering, and blockers. A later explicitly bounded exception implemented six pure discovery projections in skill_discovery.js and records Engine registration/build receipts; that proves source/build correspondence only. Generated-state gameplay, browser, save/failure, keyboard, and director acceptance remain unrun.",
+      "disposition": "Earlier proposals plus later bounded source implementation/build delivery; playable behavior remains implemented-unverified.",
+      "owner_or_consumer": "src/skill_discovery.js; Engine INTERFACE, SKILLS_DELIVERY.md, SKILLS_BUILD.json; Ability retains family-to-owner projection.",
+      "evidence_state": "Syntax, ESM, registration and build receipts are reported for exact source/bundle; no generated-state/browser/save/failure/keyboard or human checks. Remaining: those behavioral gates and director acceptance.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    },
+    {
+      "record_id": "U0243",
+      "path": "docs/gm/world-implementation/second-pass/fork-network-absorption/CHECKPOINT.md",
+      "input_sha256": "7488cf3f7f1cd969b049ea9f92ba923f27e9f8f5a42c1faf178038882fc575ba",
+      "read_ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "FNA01\u2013FNA05",
+        "SHA256",
+        "FNA01"
+      ],
+      "evidence_lines": [
+        "U0243 L00007-L00018",
+        "U0243 L00052-L00064"
+      ],
+      "mechanism_and_interactions": "Fork-network checkpoint first documents static discovery/comparison across two fork networks and related repositories, retaining conditional candidates without importing gameplay. Its later revision records an explicitly authorized bounded adoption: crafting_visibility.js projects stock/station/custody/busy/knowledge without RNG, rewards, stock mutation, or writes; selected visibility/input guard fixes were integrated and rebuilt. The adoption preserves IDs and adds no save schema/reward/world/prestige. Static server/build and source correspondence are distinct from gameplay; browser, save/failure, regression, keyboard and director gates remain deferred.",
+      "disposition": "Chronology changes from research-only to a later bounded adopted source/build slice; no playable acceptance claimed.",
+      "owner_or_consumer": "ADOPTION.md, ADOPTION_INPUTS.json, ADOPTION_BUILD.json; crafting_visibility.js and display/main/trade/crafting visibility owners.",
+      "evidence_state": "Later checkpoint claims bounded source/build/index/style/bundle/static HTTP checks; gameplay/browser/save/failure/regression/keyboard/director gates were not run. Remaining: generated behavior and acceptance.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    },
+    {
+      "record_id": "U0244",
+      "path": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+      "input_sha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "EF06"
+      ],
+      "evidence_lines": [
+        "U0244 L00013-L00025"
+      ],
+      "mechanism_and_interactions": "Foundations audit identifies nine findings across planners/publication, instance authority, source lifecycle, physical/native accounting, clock/order, settlement, native writes, compatibility, and derived state. EF06 confirms an existing phase gap. It records no new schema, enrollment, reset/death rule, formula, or accepted balance. The report is a static planning artifact; dependencies and deferred cases are assigned for later work.",
+      "disposition": "Planning audit complete; findings are not approval or gameplay implementation.",
+      "owner_or_consumer": "REPORT.md, FINDINGS.json, DEPENDENCIES.md; assigning master owns canonical plan/RUN; later implementation owners are not authorized by this artifact.",
+      "evidence_state": "JSON/evidence/dependency/link/whitespace checks passed. Import/build, regression, browser/save/failure, benchmarks and source-library work did not run. Remaining: master review and later authorized playable/save/human gates.",
+      "remaining_check": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows."
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Across these historical checkpoints, completed static/document or build evidence is repeatedly distinct from later playable, persistence, failure, keyboard, or human acceptance.",
+    "Several records show chronology changes within one checkpoint: proposals or research-only limits are followed by later bounded work, but the later work does not close all downstream gates."
+  ],
+  "unresolved_gaps": [
+    "Plan source index did not expose per-record input_sha256 for these spans.",
+    "No contemporaneous source files or runtime state were inspected; this pass reports only assigned historical checkpoint content."
+  ],
+  "coordinator_review": "Inspected worker return and metadata. Reader supplied numeric start/end dictionaries and null source hashes after consulting only span metadata. Parent normalized equivalent exact assigned ranges and bound every row to the pinned/live source hash, without inventing content; source codes were mechanically retrieved only from the already-read assigned block when absent."
+}

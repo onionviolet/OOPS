@@ -1,0 +1,574 @@
+{
+  "schema": 1,
+  "shard": "S013",
+  "reader": "content_s013; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "15a2fe4ce817b00f6361920854b05d6b4446d3358e8ad3d17926c3675e44da15",
+  "rows": [
+    {
+      "record_id": "U0184",
+      "original_ids": [
+        "BOOK_WORLD_SUBTLETY_2026_10_05.md",
+        "NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+        "Acceptance_BACKLOG.md"
+      ],
+      "mechanism_and_interactions": "Integrated host composes backlog carriers, Ink, recognition and native nested domains. Actual office/carrier previews and commits wrap publication; Backlog guards movement/extraction, while scoped Ink and Legibility expose earned reports. Nested world tracks body, cargo, clocks, work, missions, chains and settlements; full seals remain transient, compact receipts persist.",
+      "disposition": "Chronology moves from an initial integration plan with gameplay deferred to a later source-integrated build and UI audit. Reviews repaired source-level issues, but no behavior or persistence acceptance was run; the current record explicitly leaves five playable gates.",
+      "owner_or_consumer": "features root; docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md; source module owners are in this checkpoint",
+      "evidence_state": "Historical checkpoint reports source/build correspondence and static link/readbacks. It expressly reports no gameplay tests; this review did not inspect current runtime.",
+      "remaining_check": "Parent-owned rebuilt browser and behavioral/save gates, especially complete passage/revisit/settlement and failure paths.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          23,
+          29
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT_INTEGRATION_HISTORY.md",
+      "input_sha256": "1eb30a6c42e84af160c9f2ce415b1ff9eb14285d577463d9d372c362147bad7d",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0185",
+      "original_ids": [
+        "INTEGRATION.md",
+        "DELIVERY.json",
+        "subtlety.reference_desk"
+      ],
+      "mechanism_and_interactions": "Bridge derives an office snapshot from before-state, staged Backlog plan and fresh native body/XP/stock/equipment/vitals. Preview and commit use the same planner/guard; publication protects direct and Ink routes. Reference desk compares actual Eda/Orrin/Bera and earned reports, with zero-cost native simulation and causal discussion context.",
+      "disposition": "Released bridge/desk modules with syntax/import/static checks. Existing shared Ink relayIds TDZ affects alternate standalone entry; engine-first admission is the established path. Behavior, save, failure and keyboard checks remain deferred.",
+      "owner_or_consumer": "Features parent; INTEGRATION.md and DELIVERY.json name exact APIs; shared registry/UI/save/Ink integration belongs to parent",
+      "evidence_state": "Historical source checkpoint and static checks only; no behavior/native-save proof.",
+      "remaining_check": "Parent integration and actual office preview/commit, publication and persistence behavior.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKPOINT.md",
+      "input_sha256": "a529d3a7b72b3afea4bbd48971fdf40dc42559377c0d44088e67d742e47371b6",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0186",
+      "original_ids": [
+        "Mother of Learning",
+        "LOTM",
+        "COI",
+        "Shadow Slave",
+        "subtlety.reference_desk",
+        "evidenceIndex"
+      ],
+      "mechanism_and_interactions": "Four immutable source-qualified profiles feed twelve pure recognition rules, topology and phased-chain dispositions. Evidence is deduplicated by profile evidenceIndex. Optional original relay desk requires actual observer/body/controller/badge/right/registry/history and calls bookRecognitionSceneView or recognizeBookWorld; profiles alone do not activate worlds.",
+      "disposition": "Static profile and source-hash checks reported complete; parent alone owns scene/native/UI/persistence integration. Full source-world chains remain dispositions, separate from runtime chains.",
+      "owner_or_consumer": "recognition/INTEGRATION and DELIVERY; Features parent supplies native context and actual scene/commands/build",
+      "evidence_state": "Checkpoint reports static correspondence and source-input hash validation; no semantic rereading or runtime proof in this pass.",
+      "remaining_check": "If integrated, prove parent consumer joins and qualify source extent; do not infer playable activation from profile delivery.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/CHECKPOINT.md",
+      "input_sha256": "ebe5e891ce184209412f893509341f7d286959ff6ff7faab253ad9e22424775c",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0187",
+      "original_ids": [
+        "subtlety.relay_office",
+        "backlog.registry.eda/orrin/bera",
+        "backlog.registry.seal_steward",
+        "INTEGRATION.json"
+      ],
+      "mechanism_and_interactions": "Relay adds counted material, custody, parcel, credit, wage and remembered-encounter consumers over existing Backlog people and seal-steward office. Existing Backlog owns identity, office, seals, source/mastery/fuel/debt and recognition; ordinary work/refusal and native recovery remain distinct.",
+      "disposition": "Twenty-four commands and four native items are source-complete with static admission checks, but implemented-unverified. Parent must join facts, returns, templates, envelope validation, Notebook routes and one durable publisher.",
+      "owner_or_consumer": "Parent shared registry/native/UI/envelope/scheduler; relay INTEGRATION.json and DELIVERY.md",
+      "evidence_state": "Historical static/source checks; no gameplay, save, failure or keyboard proof.",
+      "remaining_check": "Verify all named parent joins in rebuilt play and persistence when selected.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/relay/CHECKPOINT.md",
+      "input_sha256": "5145986ed87cfd2a15e36d05f60f26ec5105a5979b780d3261a85f5eca3d56e2",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0188",
+      "original_ids": [
+        "Paradise",
+        "PR01\u2013PR08",
+        "COVERAGE.json",
+        "INTEGRATION.md",
+        "DELIVERY.json"
+      ],
+      "mechanism_and_interactions": "Eight immutable world/era/entry/replacement/trope/small-life/recognition profiles accompany inert scene specifications, topology and five-phase graphs. Eda/Orrin/Bera office evaluator is staged for parent preview/commit; seven source-world bindings and eight optional roster registrations remain gaps.",
+      "disposition": "Static checks reported; all delivered mechanics are implemented-unverified. Paradise completion is confirmed by source owner, while MTL findings remain unqualified for primary canon and timing/role boundaries remain.",
+      "owner_or_consumer": "Features parent; SOURCE_REVIEW.md, INTEGRATION.md, COVERAGE.json and DELIVERY.json",
+      "evidence_state": "Historical static checks and reviewed-source extent are reported, not independently reopened here.",
+      "remaining_check": "Parent integration plus source qualification for selected entries and actual behavior/persistence proof.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/roster/CHECKPOINT.md",
+      "input_sha256": "4fae4d8c0293d9576d3fc19f6bd829177ca0de130675ef895158fcb163426855",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0189",
+      "original_ids": [
+        "INTEGRATION.json",
+        "Labyrinth",
+        "Mother of Learning",
+        "LOTM",
+        "Worm"
+      ],
+      "mechanism_and_interactions": "Four source profiles and bounded scene specs provide admission rules, observer-qualified recognition and known-scene projection. Role handover requires living willing incumbent and institution authorization; it does not replace protagonists, revive actors, install powers or transfer stock. Parent runtime owns actual passages and retained aftermath.",
+      "disposition": "Pure mechanics and source-fit outputs are delivered, but no world, scene, command, save or clock is registered. All new mechanics are implemented-unverified; source-specific distinctions and unknowns remain.",
+      "owner_or_consumer": "INTEGRATION.json lists generic native owners and source-specific gaps; root owns nested hub/destinations/chains",
+      "evidence_state": "Historical syntax/import/immutability/hash/link checks only; no gameplay or source library mutation.",
+      "remaining_check": "Parent must integrate and exercise the actual passage/aftermath consumer; retain separate Labyrinth source endings.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/CHECKPOINT.md",
+      "input_sha256": "67f1ef0289a095ec660f1b360b7126738b486c6a2f2cbf4b7be46bcae869a8a0",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0190",
+      "original_ids": [
+        "REVIEW revision 3",
+        "Backlog",
+        "Ink",
+        "People",
+        "nested_return_stay"
+      ],
+      "mechanism_and_interactions": "Read-only review found four root repairs: Backlog sends exact rendered token; Ink separates player hub-credit fee from provider reservation and combines typed costs; chain records retain cause/basis and known speaker labels; People no longer infer meetings or registry locations from mentions. Duplicate binding was removed.",
+      "disposition": "Bounded static review has no open source findings. It did not execute app actions, previews, commits, Ink continuation, gameplay, save or failure behavior; parent retains those gates.",
+      "owner_or_consumer": "Root source integrator; REVIEW.json fingerprints and parent build/acceptance backlog",
+      "evidence_state": "Historical readback and ESM link report only; no app execution or current bundle proof.",
+      "remaining_check": "Parent's behavioral, persistence, keyboard and director gates remain; source audit closure is not acceptance.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/ui-review/CHECKPOINT.md",
+      "input_sha256": "71ba89816e0fddb7e23c299ee02ef92c8fa23228b4cd882ffdaaab3464fb7342",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0191",
+      "original_ids": [
+        "Tidemark",
+        "INC-P5",
+        "RESUME_DELIVERY.json"
+      ],
+      "mechanism_and_interactions": "Original harbor destination uses same native body/bag/custody via explicit Village chart; local tides advance only during active physical visit, with absence frozen. Pumping and counterweight operation coexist. Residents, locations, shop, stock, repair and calendar have distinct native owners. Later repairs restrict public actions, gate quest progress to committed local facts and preserve trader closure in durable state.",
+      "disposition": "Checkpoint begins in implementation then reports a bounded source repair/review. Static imports and changed-source syntax pass, but combined registry had an unrelated eager Backlog registration failure; gameplay remains implemented-unverified.",
+      "owner_or_consumer": "Features GM and parent Glasshouse validator; Tidemark source modules and RESUME_DELIVERY.json",
+      "evidence_state": "Historical design/source and syntax claims; no gameplay, save or failure check.",
+      "remaining_check": "Resolve parent registry integration and exercise active-visit clock, quest/task and durable restore paths.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ],
+        [
+          15,
+          21
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/destination/CHECKPOINT.md",
+      "input_sha256": "1dc3aa3ff374f6c330eb74349ac0ce9650760bf922d687c9f84e5d30a7d83d25",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0192",
+      "original_ids": [
+        "nestedCampaign1",
+        "expansion8",
+        "ACCEPTANCE_BACKLOG.md",
+        "BUILD"
+      ],
+      "mechanism_and_interactions": "Nested host joins body/cargo, local clocks and frozen absence, refundable work, exact rendered-token routing, received records, staged publication and visit capacity. Personal passage requires settled same-world history, current contractor, no contract and actual landing; retained native jobs/tools/shelf conserve resources and support refusal/accounts.",
+      "disposition": "Current checkpoint reports source/build delivery as implemented-unverified; internal scopes released. Five playable gates remain, with unit/browser/gameplay/save/import/reload/failure/keyboard/regression/director checks unrun.",
+      "owner_or_consumer": "Current DELIVERY.md, COVERAGE.json, BUILD.json and ACCEPTANCE_BACKLOG.md; Features root",
+      "evidence_state": "Historical build/source correspondence stated, no behavior or persistence proof.",
+      "remaining_check": "Complete named acceptance backlog, including actual passage/revisit and save/failure cases, before claiming playable completion.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/CHECKPOINT.md",
+      "input_sha256": "7c67a598b9fc24f1cc376872a2fac3f2f89d074a6f7261eb9a4562d4f83f4981",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0193",
+      "original_ids": [
+        "three authored chains",
+        "62 commands",
+        "six resident controllers"
+      ],
+      "mechanism_and_interactions": "Three authored chains compile with native nested definitions; return reports use settled history, early repairs/decisions are acknowledged without replay, abstention leaves remote state unchanged, and foreman teaching uses their own body/source/kit/rope/credit rather than player state.",
+      "disposition": "Worker scope complete and released; integration and behavior acceptance are not claimed. Root retains global source/native/UI/save/clock joins and final build.",
+      "owner_or_consumer": "INTEGRATION.json, DESCRIPTIONS.md, COVERAGE.json, DELIVERY.md; Features root",
+      "evidence_state": "Historical checkpoint names compilation/integration context, not gameplay proof.",
+      "remaining_check": "Parent integration and actual chain consumer, persistence and behavior gates.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md",
+      "input_sha256": "5da5863a6a1cb31e0a6053d5f3bdcae068f749ff2fb2214b19d846089f175066",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0194",
+      "original_ids": [
+        "CL-NR-01",
+        "expansion8",
+        "nestedCampaign1",
+        "schema8",
+        "ACCEPTANCE_BACKLOG.md"
+      ],
+      "mechanism_and_interactions": "Three personal passages depend on settled same-world history, contractor/body/cargo/landing/job/source/native/capacity guards without new contracts or reset. Life commands connect Lin/Brin/Ivo, funded material jobs and native tool/shelf consumers; existing reservations, refunds, clock, stock and publisher own changes.",
+      "disposition": "Root delivered source/UI/save/build as implemented-unverified. Reviewer repaired preview-return bug and read back source, but no action or gameplay test ran; only deferred acceptance gates remain.",
+      "owner_or_consumer": "DELIVERY.md, DELIVERY.json, BUILD and ACCEPTANCE_BACKLOG.md; root owns shared joins",
+      "evidence_state": "Historical source readback/build correspondence; no unit/browser/gameplay/save/reload/import/failure checks.",
+      "remaining_check": "Exercise departure/return, changed revisit, work/refusal/refund/funding and persistence/failure routes.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+      "input_sha256": "f9db2169568f9bb45be811f5b6cd4577eead8ce3b01badd5f6ad9a7a5f2b4657",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0195",
+      "original_ids": [
+        "revision13",
+        "revision12",
+        "RECONCILIATION.json",
+        "ADOPTION_BUILD",
+        "SKILLS_BUILD",
+        "Engine packets"
+      ],
+      "mechanism_and_interactions": "Revision13 closes mapped Frontier parents/steps/endings with adapters and coverage; source/bank/fork findings feed bounded Engine packets. Later adoption integrates four methods/19 commands and selected IDs while preserving Frontier IDs and conditional branches. These are planning and build maps, not new runtime mechanisms.",
+      "disposition": "Checkpoint records static incorporation complete and handoff-ready, while runtime remains Engine-owned and behavioral/save/failure gates deferred. Historical snapshots and later build correspondence are distinct.",
+      "owner_or_consumer": "frontier-runtime checkpoint, delivery/coverage/build; second-pass absorption-incorporation reconciliation and validation",
+      "evidence_state": "Historical static JSON/link/hash/readback receipts only; no runtime or new source audit here.",
+      "remaining_check": "Select a concrete packet with actual callers/files and compatibility decisions before implementation; do not restart generic audits.",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          13,
+          21
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/WORLD_IMPLEMENTATION_CHECKPOINT_REV13.md",
+      "input_sha256": "73c5a68562a1f53c94fd4e3e0b1ce96c9e2e11459cc8f4529155e0b5552f80a0",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0196",
+      "original_ids": [
+        "CL-NR-01",
+        "REVIEW.json",
+        "925a21cf39e3a55bb41e30e67f2f43d58cf02f2e42cc30361ca19baecf146bf2"
+      ],
+      "mechanism_and_interactions": "Reviewer isolated copied preview fragments in commitNestedCommand that blocked mission-arrival continuation; root removed them and restored the direct else-if path. It also read back body identity/controller guard, life version, command/facts/router and refundable-job joins.",
+      "disposition": "Bounded source review reports zero open findings after repair; lexical/static readback is not an exercised action. No evaluator, preview, gameplay, save or failure test ran; current play remains implemented-unverified.",
+      "owner_or_consumer": "REVIEW.json and Features root; continued-life acceptance backlog",
+      "evidence_state": "Historical exact source hash/readback and static checks; no bundle build or runtime behavior proof by reviewer.",
+      "remaining_check": "Parent must test actual personal return and work/refusal/refund/material funding plus persistence/failure gates.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/review/CHECKPOINT.md",
+      "input_sha256": "24278a7f1f7e3d4d40ee8132edaaae3d17c3a4d856a7e886cbc04ee3c48f4423",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0197",
+      "original_ids": [
+        "schema8",
+        "version1",
+        "17 command definitions",
+        "INTEGRATION.json"
+      ],
+      "mechanism_and_interactions": "Worker provides immutable command definitions with native body/alive support, finite demands, paid native jobs, output consumers, texture/refusal/accounts, and schema8 preview/commit/validator/presentation exports. Root must supply route controls, current-token routing, refundable reservations and admission.",
+      "disposition": "Source complete within exclusive reservation, but all action/gameplay/evaluator/story/save tests remain deferred; no shared native/save/UI/build edits by worker.",
+      "owner_or_consumer": "Features root; INTEGRATION.json, DESCRIPTIONS.md, DELIVERY.md",
+      "evidence_state": "Historical source delivery only; no playable acceptance.",
+      "remaining_check": "Verify root admission and exact shared joins, then gameplay/save checks.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/CHECKPOINT.md",
+      "input_sha256": "f0f65dcbb510e20adb66b7b9e469a733aa7b68535836862720769ae8e1a48117",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0198",
+      "original_ids": [
+        "native-revision/completion-preflight mismatch",
+        "REVIEW.json"
+      ],
+      "mechanism_and_interactions": "Audit found native staging changed revision after completion preflight, invalidating live native context. Root reordered preflight before staging. Carrier repairs preserve recollection evidence and bind only an active edge-applicable mission to the exact request.",
+      "disposition": "Source findings were repaired and read back; no behavioral acceptance claim. Static syntax/import checks passed, with main app bootstrap and action/save/browser tests deliberately not run.",
+      "owner_or_consumer": "Features root; REVIEW.json; nested native/carrier modules",
+      "evidence_state": "Historical bounded read-only source audit and static checks, not passage execution.",
+      "remaining_check": "Exercise passage/revisit, extraction wait, native publication/save restore and funding in parent gates.",
+      "evidence_lines": [
+        [
+          5,
+          13
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/native-review/CHECKPOINT.md",
+      "input_sha256": "d076e87eb6d9a6ae929db37792e3e3b4bd84933da6b34bbb4d10cf421eff627e",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0199",
+      "original_ids": [
+        "SOURCE_FIT.json",
+        "sid26/27",
+        "sid2/3",
+        "sid1"
+      ],
+      "mechanism_and_interactions": "Source-fit maps eight distinctions to source spans and current content/host/native/chain consumers. Early service-district footprint and printed opening chapters are distinguished. Entry/residence/roles/destinations and prototype economy are declared divergences; native owners track people, inventory, XP, equipment, location, stock, quests/calendar while host manages passage, clocks and settlement.",
+      "disposition": "Revision2 source-fit release completed with source locators and hashes, but original canon/publication/translation remains unqualified. Parent joins and matched build plus gameplay/persistence gates remain.",
+      "owner_or_consumer": "SOURCE_FIT.json; Features parent and nested content/host/native owners",
+      "evidence_state": "Historical selected-span reading and static JSON/link/hash checks; no whole-book reread or playable acceptance.",
+      "remaining_check": "Use only if selected: integrate shared callsites and prove durable-before-native publication, UI/save/clock consumers and matched build.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/nested-campaign/source-fit/CHECKPOINT.md",
+      "input_sha256": "0b06b78743f594ea146da3536b7b88cedced04c092f6cb9c24e361b87dc14c50",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0200",
+      "original_ids": [
+        "INC-P2",
+        "expansion5",
+        "simulation3-4",
+        "feature_objects.miri",
+        "tidemark.counterweight"
+      ],
+      "mechanism_and_interactions": "Objects add conserved owned/loan wear, repair and refit; wet/sound/matched material and native kit circuit; persistent braced/sealed joint dries over functional 6/4/2-minute intervals. Discovery, paid acquisition and native XP stay distinct, using existing expansion/simulation owners absent by default.",
+      "disposition": "Finite source-ready lane with static syntax/import/item/completion checks. Parent integration still needs facts, registry/native registration, command/UI/save admission and rebuild; gameplay remains implemented-unverified. Combined registry had a separate missing Tidemark counterweight model.",
+      "owner_or_consumer": "Parent Features integrates exports; INTEGRATION.json and DELIVERY.md",
+      "evidence_state": "Historical static checks, no gameplay/save/failure proof.",
+      "remaining_check": "Resolve combined registry dependency if selected, then exercise wear/material/drying and persistence consumers.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/objects/CHECKPOINT.md",
+      "input_sha256": "3ca56ee501e6f2de0bdd4871df1f456a76e3815e1d1a9ebbf050b7008d761331",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    },
+    {
+      "record_id": "U0201",
+      "original_ids": [
+        "optional schema3",
+        "Lio",
+        "native_battle_contracts.js",
+        "INTEGRATION.json",
+        "DELIVERY.md"
+      ],
+      "mechanism_and_interactions": "Combat lane routes schema3 validation through native envelope; resume checks exact session/sequence/action/seed and non-busy context. Vital snapshots and saved NPC bodies are checked; exhausted attack power is not double-reduced; Lio waits for another guard and releases if unable to pay. Projection does not refresh display.",
+      "disposition": "Successor lane completed and released after syntax and in-memory ESM link checks. Integration still needs definitions/items, contexts, host, dispatch/enrollment/cancellation/resume and dedicated combat slots. No gameplay/save/failure/browser proof; implemented-unverified.",
+      "owner_or_consumer": "Parent canonical registry/native/UI/save/build; INTEGRATION.json and DELIVERY.md",
+      "evidence_state": "Historical static checks only; no runtime or persistence probing.",
+      "remaining_check": "Complete parent-owned joins while keeping schema3 out of generic simulation/duel routes, then exercise combat and persistence gates.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "path": "docs/gm/feature-wave/features/powers/CHECKPOINT.md",
+      "input_sha256": "a9b4bb7c58b560291ff59a44dcfecc824a0f458590b672bb8b9897860a9030fe",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read"
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "The source histories distinguish profile/scene/chain design from native integration and playable activation; many worker deliveries are explicitly implemented-unverified.",
+    "Parent-owned shared integration recurs across destination, nested life, relay, objects, powers and subtleties, while each lane names different state consumers and compatibility boundaries.",
+    "Static source, hash, syntax and build receipts do not establish gameplay, durable persistence or current runtime behavior; multiple acceptance backlogs remain."
+  ],
+  "unresolved_questions_source_gaps": [
+    "No contemporary runtime, canonical source qualification, or current branch/build status was checked.",
+    "Nested campaign and continued-life checkpoints retain explicit browser/gameplay/save/reload/failure/keyboard/regression/director gates.",
+    "Several subsystem lanes require parent integration before their described consumers are reachable; their exact remaining joins are recorded per row."
+  ],
+  "coordinator_code_corrections": [
+    [
+      "U0193",
+      "T2",
+      "removed: not an explicit assigned-block code"
+    ],
+    [
+      "U0199",
+      "PR01\u2013PR08",
+      "removed: not an explicit assigned-block code"
+    ]
+  ],
+  "coordinator_review": "Reviewed worker findings/gaps and selected records; exact-code and named-owner checks applied. Source/fixture/build/held-plan and current behavior remain distinct."
+}

@@ -1,0 +1,576 @@
+{
+  "schema": 1,
+  "shard": "S007",
+  "reader": "content_s007; gpt-6-luna low",
+  "payload_sha256": "814e372da20aaf1f258a745058c1e9cee9d2ef0efa2999c19acc09454584998b",
+  "scope": "Complete assigned historical content spans; chronology, substantive mechanisms, named owners and proof boundaries reviewed; no contemporary runtime or source-canon qualification.",
+  "rows": [
+    {
+      "record_id": "U0082",
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo/CHECKPOINT.md",
+      "input_sha256": "4c0c3d3d1d1abf6f0c5a75e827d0d88ef71dbf921c1497d223bddcfc112da818",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "23 prior represented claims",
+        "190 official synopsis members",
+        "33 total claim rows",
+        "37 event/knowledge joins",
+        "27 specific interevent effects",
+        "3 direct internal conditions",
+        "9 proposals"
+      ],
+      "mechanism_and_interactions": "JOJO checkpoint reports synopsis-backed claims and event/knowledge joins, plus direct payload acquisitions and corrections; it explicitly keeps broader direct source reading, continuity/edition reconciliation, secondary proofs and runtime separate.",
+      "disposition": "Finite source/depth research checkpoint; no full-series closure. Source and runtime gates remain open.",
+      "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo/CHECKPOINT.md; private REMAINING.json, SOURCE_MANIFEST.json and CORRECTIONS.json",
+      "evidence_state": "Historical checkpoint claims source hashes, read/unread inventory and source/depth validation; this reader did not inspect those underlying artifacts or sources.",
+      "remaining_check": "If resumed, follow private inventory and rebuild in stated order build.py \u2192 repair_dependencies.py \u2192 enrich_direct.py \u2192 validate.py; preserve unread spans and qualify alternate continuity."
+    },
+    {
+      "record_id": "U0083",
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/review/CHECKPOINT.md",
+      "input_sha256": "24fa0566b5dc8ac7960da054369ddbd6381f4d7183cfbd710b5a3317c422c50c",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "L1\u2013L9",
+        "REV-BW1-01",
+        "REV-TEN-01/02",
+        "REV-JJK-01",
+        "REV-JOJO-01/02",
+        "L10"
+      ],
+      "mechanism_and_interactions": "Independent review checked five released returns against their actual source/evidence scope, and says correction IDs were resolved after semantic/source repair review. RZ narrow scope/category/source additions were checked.",
+      "disposition": "Finite reviewer tranche delivered; L10 integration/delivery remains coordinator-owned. No runtime acceptance.",
+      "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/review/CHECKPOINT.md; public REVIEW.json and REVIEW.md; private receipts under ignored gm/review",
+      "evidence_state": "Checkpoint reports fingerprints and completed reviews; reviewer artifacts were not independently reopened here.",
+      "remaining_check": "Coordinator\u2019s L10 gate remains; changed content requires focused delta review against pinned artifact state."
+    },
+    {
+      "record_id": "U0084",
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero/CHECKPOINT.md",
+      "input_sha256": "b41038b7842597fa20866154493f2ea31697070a824ba1e9acd404647c030eb8",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "W4",
+        "581 claim/index records",
+        "59 events",
+        "31 knowledge entries",
+        "nine proposals",
+        "seven acquisitions"
+      ],
+      "mechanism_and_interactions": "Rezero represented-horizon work integrated inherited dossiers plus targeted primary bodies, chronology joins, continuity/category IDs, and source-reconciled claim families; unread supplementary prose remains separately tracked.",
+      "disposition": "W4 research and root repair complete, with output ownership released. Runtime and director review remain distinct; no full-source closure.",
+      "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero/CHECKPOINT.md; REPORT.md; VALIDATION.json; private REMAINING.json and docs/research/novels/lore-timelines-2026-10-11/gm/rezero/",
+      "evidence_state": "Historical checkpoint reports JSON/reference/locator/hash/ignore checks and repairs; no sources or validation artifacts rechecked in this shard.",
+      "remaining_check": "Any renewed work requires explicit reservation and must retain missing/unrepresented source spans, runtime gate and director review."
+    },
+    {
+      "record_id": "U0085",
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura/CHECKPOINT.md",
+      "input_sha256": "767a8c2f67b894dd32216ff8d13ae0c66cf42db14e02796ded9d0958b1fabe3f",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "TEN",
+        "actual dependency effects",
+        "significant knowledge channels"
+      ],
+      "mechanism_and_interactions": "Tensura packet validates source inventory, targeted claims, dependency effects, knowledge channels and continuity while separating inaccessible edition gaps and acquired-but-unreviewed alternate material.",
+      "disposition": "Finite research return delivered; extensions remain proposals, with no full alternate-version read or gameplay acceptance.",
+      "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura/CHECKPOINT.md; private TEN packet",
+      "evidence_state": "Checkpoint says source inventory and claims were validated; private packet/source material was not inspected here.",
+      "remaining_check": "Use private TEN packet only for a specific review defect; preserve alternate-body/edition gaps and keep public status spoiler-safe."
+    },
+    {
+      "record_id": "U0086",
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/CHECKPOINT.md",
+      "input_sha256": "2af38a062c895f816071c423f9fc3b819f3e30b9ef968868cab61ed611f70e32",
+      "read_ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "S00\u2013S14",
+        "MM01\u2013MM10",
+        "MD1\u2013MD3",
+        "MM-P1",
+        "MM-D09/MM-D10",
+        "179 parent contracts",
+        "693 specified cases",
+        "67 selected antecedents"
+      ],
+      "mechanism_and_interactions": "Ten design cards and eight two-way joins reconcile work/custody, care, materials, ecology, institutions, duplication, body/equipment change, absence, learning and succession. Four packets specify dependencies; unresolved runtime adapters stay unresolved, and root read back specialist outputs.",
+      "disposition": "Finite planning acceptance passed with structural/link validation; cards remain proposals and runtime/canon/director proof is unrun.",
+      "owner_or_consumer": "docs/gm/dispatch/macro-micro-detail-2026-10-11/{ASSIGNMENT.md, REVIEW.md, VALIDATION.json, IMPLEMENTATION_PACKETS.md, DETAIL_CARDS.md, CAUSAL_JOINS.md}; next selection MM-P1 or MD1\u2013MD3",
+      "evidence_state": "Checkpoint reports 11 structural checks and independent planning PASS; not re-run. It records concurrent owner drift requiring receivers to reread live owners.",
+      "remaining_check": "If selected, identify exact local instrument consumer and resolve conditional MD1\u2013MD3 or obtain world-owner review; do not infer implementation from packet completion."
+    },
+    {
+      "record_id": "U0087",
+      "path": "docs/gm/dispatch/making-runes-2026-10-14/c1/CHECKPOINT.md",
+      "input_sha256": "da8e9006182aa2e27c5f8b83be973d4ba067e15ae944e1ff89f51d13f2d5fa0a",
+      "read_ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "K0",
+        "K1",
+        "K2",
+        "K3",
+        "WW/CS/RU/AB",
+        "R1",
+        "15 requested world groups",
+        "TTKS B1-B5"
+      ],
+      "mechanism_and_interactions": "C1 proposed per-world making/rune laws covering acquisition, inscription grammar, carrier/medium/source/failure, appraisal, history/name/bond, with source and knowledge boundaries. Research completion does not imply gameplay.",
+      "disposition": "Checkpoint is IN PROGRESS; it records planned finite documentation work, not a completed return.",
+      "owner_or_consumer": "docs/gm/dispatch/making-runes-2026-10-14/c1/; parent palette integrator owns shared integration",
+      "evidence_state": "Only initial authority, scope and planned reads/acceptance are in this span; no completion evidence.",
+      "remaining_check": "Finish source-qualified report, spoiler-safe material and integration note for all requested groups, then validate coverage; no runtime work claimed."
+    },
+    {
+      "record_id": "U0088",
+      "path": "docs/gm/dispatch/making-runes-2026-10-14/c2/CHECKPOINT.md",
+      "input_sha256": "28b804e0a7057a4a25537e626844003df27d6ac59618b4af8a6bb4d94b66804a",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "C2",
+        "G",
+        "AB1-AB10"
+      ],
+      "mechanism_and_interactions": "Initial docs-only game/fiction survey and live-code compatibility audit are planned, with proposed records/resolvers and dependency order still to be written. The actual checkpoint names an unresolved discrepancy: the crafting owner calls P2 mixing unmerged while current items/main imports suggest integration. It supplies no completed procedural schema or resolver report.",
+      "disposition": "IN PROGRESS initial checkpoint, not a completed proposal/check result. REPORT.md and INTEGRATION.md are requested future outputs and are absent from this assigned record; no definition, code or gameplay result is established.",
+      "owner_or_consumer": "docs/gm/dispatch/making-runes-2026-10-14/c2/CHECKPOINT.md; REPORT.md and INTEGRATION.md are missing/planned suppliers; named integration role is historical Claude",
+      "evidence_state": "Initial task/scope/reads and a source discrepancy to verify, not completed validation.",
+      "remaining_check": "Resolve actual current P2 integration through its owners before any new schema/work. Do not treat this old prompt or planned report as current execution authority."
+    },
+    {
+      "record_id": "U0089",
+      "path": "docs/gm/dispatch/minigames-2026-10-11/CHECKPOINT.md",
+      "input_sha256": "dfe5fa75ead74cb5b1fc9c75c21065dd5c1543ccd4430b8ea8be3f42ca5181c6",
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "MG01\u2013MG10",
+        "MG01\u2013MG10",
+        "MG01 9",
+        "MG02 12",
+        "MG03 9",
+        "MG04 4",
+        "MG05 5",
+        "MG06 8",
+        "MG07 7",
+        "MG08 8",
+        "MG09 10",
+        "MG10 8",
+        "1338 commands",
+        "879942ea50be"
+      ],
+      "mechanism_and_interactions": "Ten management families were implemented through normal actor/site/inventory/cash/job owners, no new save domain or clock. The source notes later R15 integration applied candidate work, fixed four blockers, and reported natural browser play with persistence for all families.",
+      "disposition": "Chronology supersedes initial implemented-unverified status: R15 reports integration and natural browser/persistence evidence; variant and human acceptance remain open.",
+      "owner_or_consumer": "docs/gm/dispatch/minigames-2026-10-11/{CHECKPOINT.md,ACCEPTANCE_BACKLOG.md}; later evidence docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g6/REPORT.md",
+      "evidence_state": "Checkpoint records candidate build/hash and checks, then later user-added FA22 integration plus reported natural browser/persistence checks; this shard did not inspect bundle, report or current runtime.",
+      "remaining_check": "If reselected, refresh current owners and exercise backlog variants; do not treat initial candidate-only evidence as integration or claim current behavior from historical report."
+    },
+    {
+      "record_id": "U0090",
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc1/CHECKPOINT.md",
+      "input_sha256": "98567e6131e17d7dda17b645853860674eb4dc219a695aa2295205cf4bcf7b83",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "PC1",
+        "MDF1",
+        "MDF2",
+        "MDF3",
+        "MDF4",
+        "P23",
+        "HV1",
+        "HV2"
+      ],
+      "mechanism_and_interactions": "Crosswalk distinguishes zero source importers from four production rules.js importers, content adapters from shared simulation/publisher, authored gathering IDs from direct mixture calls, and source branch work from main integration.",
+      "disposition": "Docs-only crosswalk completed; reported checks validate links/locators, not runtime. Source findings are dated snapshots.",
+      "owner_or_consumer": "docs/gm/dispatch/modular-chains-2026-10-14/pc1/REPORT.md; integration owner root",
+      "evidence_state": "Checkpoint reports 16 link checks and line/path validation; underlying source snapshots were not rechecked here.",
+      "remaining_check": "Before execution refresh source and ownership; P23 salvage is stated branch work with native integration open, and persistence/gameplay gates remain."
+    },
+    {
+      "record_id": "U0091",
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc2/CHECKPOINT.md",
+      "input_sha256": "e437fa828de271444142b3496d8395bc09cc21de93f544805e6a4042c0670d18",
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "PC2-F1",
+        "PC2-D1",
+        "PC2-D2",
+        "PC2-A1",
+        "PC2-S1",
+        "MMR1-MMR13",
+        "36 future acceptance cases"
+      ],
+      "mechanism_and_interactions": "Four current production rules.js importers contrast with test-only tag store; Pocket rules construct a doorway rather than general law editing. Village P2 chemistry/product/exposure validators form a compatibility seam. Proposed schema preserves typed scope/revisions/receipts and separates evaluator/resolver/publication/knowledge/institution roles.",
+      "disposition": "Docs proposals complete, no source implementation or gameplay evidence; proposed original packs and A1 reader are not accepted.",
+      "owner_or_consumer": "docs/gm/dispatch/modular-chains-2026-10-14/pc2/REPORT.md; shared Foundation/UI, Village mix and materials/P6/P8 owners; root selects/folds",
+      "evidence_state": "Historical source and doc checks are stated with exact branch snapshots; future tests are specified-not-run.",
+      "remaining_check": "Coordinator must select contracts/owners; any implementation needs rebuilt desktop proof and exact Save/reload/Export/file Import including pending work and durable-write failure."
+    },
+    {
+      "record_id": "U0092",
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc3/CHECKPOINT.md",
+      "input_sha256": "74eddb032c1385e8052ac4bcadb000cc7d237ad5a6cb6204e0660b5f2b9a0a1d",
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "PC3",
+        "ML1-ML10",
+        "ML-A",
+        "ML-B",
+        "ML-C",
+        "HV1",
+        "W4",
+        "W7"
+      ],
+      "mechanism_and_interactions": "Assembly proposal joins roll-up/law, break/salvage, identity/provenance, part wear/swap, body-recipient boundaries, technique/pill/program distinctions, and structures/sites/networks; it keeps opaque legacy single-part views.",
+      "disposition": "Docs delivered as proposals; no runtime, save or user-save evidence.",
+      "owner_or_consumer": "docs/gm/dispatch/modular-chains-2026-10-14/pc3/REPORT.md; root integration owner",
+      "evidence_state": "Checkpoint reports source/doc inspection and 30 relative links; behavior/persistence remains open.",
+      "remaining_check": "Before a selected implementation refresh owners/locators and bind exact saved-state decisions; proposed desktop targets 1366x768 and 1600x1000, mobile deferred."
+    },
+    {
+      "record_id": "U0093",
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc4/CHECKPOINT.md",
+      "input_sha256": "c27ae1667317cd373331bbe69ef57243011ca80f5fede0904173b18576210176",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "PC4",
+        "MSR1-MSR4",
+        "AG1-AG6",
+        "FL1-FL6",
+        "MT5-MT6",
+        "PAU1-PAU5",
+        "HV1",
+        "GR17",
+        "P6/P8/P9"
+      ],
+      "mechanism_and_interactions": "Procedural assembly proposal includes reference mechanics, causal catch-up and proposed CPU/save/draw budgets, desktop bottleneck display, maintenance, NPC allocation and tedium guards; it retains legacy HV1 immediate-overflow law.",
+      "disposition": "Docs-only proposal complete with local link/code checks; no gameplay or human acceptance.",
+      "owner_or_consumer": "docs/gm/dispatch/modular-chains-2026-10-14/pc4/REPORT.md; runtime/materials owners named in report; root may fold",
+      "evidence_state": "Historical checkpoint reports source snapshot HV1 and documentation checks; listed external details partly memory-derived and no current caps asserted.",
+      "remaining_check": "Any selected slice requires refreshed source owners plus rebuilt fresh-origin desktop proof and Save/reload/Export/file Import; offline activation and mobile remain deferred."
+    },
+    {
+      "record_id": "U0094",
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc5/CHECKPOINT.md",
+      "input_sha256": "8e86fc1138997d11c0e88449eca1ca3a6f22373a0f1e5ba6e5433885abab6d55",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "PC5",
+        "FL5",
+        "MT13",
+        "AG",
+        "MR",
+        "Village/Frontier",
+        "Gu Wilds",
+        "Harry Potter",
+        "Marvel Earth-616",
+        "HV1",
+        "P2"
+      ],
+      "mechanism_and_interactions": "Proposal maps source/use/salvage owner journeys and paired contradictions across Village/Frontier, Gu Wilds, Harry Potter and a Marvel street slice, with generated grammars, units and allocation. Gu transitions and canon-specific details remain source-gated.",
+      "disposition": "Documentation complete, not accepted corrections or gameplay. Checkpoint specifies the remaining source-to-use-to-container-reuse slice.",
+      "owner_or_consumer": "docs/gm/dispatch/modular-chains-2026-10-14/pc5/REPORT.md; root owns integration/commit; P2 mixture and material/crafting owners",
+      "evidence_state": "Historical source/doc checks and branch snapshot are reported; no gameplay or fresh canon verification.",
+      "remaining_check": "Future bounded gate: refreshed rebuilt Village source\u2192use\u2192container-reuse plus Save/reload/Export/literal Import and failure controls at 1366x768/1600x1000; canon/Gu proposals stay qualified."
+    },
+    {
+      "record_id": "U0095",
+      "path": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+      "input_sha256": "8f67da8c15536e18081b26522fac10c53fe5732f9d68a5e465a3b84b3f527791",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1 Achra",
+        "F2 MagicResearch2",
+        "F3 Soulash2",
+        "v0.4.7",
+        "3.5.2",
+        "05717a17798a2165780ac38465f1e0c2d8736798",
+        "0.9.19.7",
+        "Erenshor",
+        "Matchless"
+      ],
+      "mechanism_and_interactions": "Finite public-source audit separates Achra token-rendered scripts, MagicResearch2 hosting evidence, and Soulash2 free-demo JSON/native header evidence; five/four/four proposals remain unaccepted and retail-source scope differs from demo coverage.",
+      "disposition": "Audit wave complete for declared evidence; no runtime/gameplay or native function recovery claim. Specific payload gates remain open.",
+      "owner_or_consumer": "docs/gm/dispatch/new-game-audits-2026-10-07/{ASSIGNMENT.md,README.md,CANDIDATES.json,VALIDATION.json}; coordinator root",
+      "evidence_state": "Checkpoint reports source/hash/range/pointer/JSON/link checks and actual versions; not independently checked here.",
+      "remaining_check": "Erenshor and Matchless require actual payload gates; any broader retail/native audit needs separate scope, and current playable acceptance remains with existing owners."
+    },
+    {
+      "record_id": "U0096",
+      "path": "docs/gm/dispatch/panel-kit-2026-10-13/CHECKPOINT.md",
+      "input_sha256": "1a4d97f79f8d84e4f427459bfcd458039641752612cb7ff722a676d87eb26201",
+      "read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "K1-K7",
+        "settings 7",
+        "crafting 9",
+        "Vivid 10",
+        "npm 609/609",
+        "K6"
+      ],
+      "mechanism_and_interactions": "Panel kit gate reports settings, crafting, Vivid, focus ring and cheat panels as data cards requiring a Foundation-owned cheat save field; retinting on non-native travel and icon/focus taste were not checked/accepted.",
+      "disposition": "Checkpoint reports gate passing and visual check; no commit. These are historical checks, not contemporary UI evidence.",
+      "owner_or_consumer": "docs/gm/dispatch/panel-kit-2026-10-13/CHECKPOINT.md; Foundation owns cheat save field",
+      "evidence_state": "Historical full check.sh and visual observation are reported, but bundle/screenshots were not inspected here.",
+      "remaining_check": "If the surface is reselected, validate travel retint and remaining visual feedback against current UI owner; cheat runtime needs its save field integration."
+    },
+    {
+      "record_id": "U0097",
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/beings/CHECKPOINT.md",
+      "input_sha256": "3bcdb152f5b794d6d0c448abca0268aab9ed4a46efc789e9834ec2b058ba68e7",
+      "read_ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "BC1-BC11",
+        "BR1-BR6",
+        "BI1-BI8",
+        "BS1-BS5",
+        "BA1-BA5",
+        "PL1-PL5",
+        "PB1-PB5",
+        "4042-4049"
+      ],
+      "mechanism_and_interactions": "Beings/body report keeps nonhuman presence distinct from contractor admission, body transfer/acquisition, storage/revival and race reversal; evidence is bounded MTL dossier rather than authenticated original-language canon.",
+      "disposition": "Research/document scope complete; proposed starts, cross-world proposals and acceptance cases remain unrun.",
+      "owner_or_consumer": "docs/worlds/paradise-hub/BEINGS_PETS_AND_BODIES_2026-10-14.md; typed inputs and private dossier owners",
+      "evidence_state": "Checkpoint reports local links/sections and dossier reads, not gameplay or Chinese-source verification.",
+      "remaining_check": "Preserve UNKNOWNs including missing chapters 4042\u20134049, pet history/storage/revival, contractor intake, actor-label mismatches and any proposed behavior."
+    },
+    {
+      "record_id": "U0098",
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/canon/CHECKPOINT.md",
+      "input_sha256": "7dcd55772efaf8945d369f9652d4d2db94e02c512770bcbc4d7eb00483df18cc",
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "SRP1-SRP32",
+        "ARP1-ARP10",
+        "CRP1-CRP12",
+        "VRP1-VRP8",
+        "A1-A5",
+        "NS01"
+      ],
+      "mechanism_and_interactions": "Canon plan separates original nested district from supplied-MTL Goa and records current source-branch behavior, optional funded survey, frozen absence, fixed instance IDs, and distinct primary-trial versus MTL failure.",
+      "disposition": "Research/document plan complete; whole novel not reread, sealed files unopened, runtime and director gates remain open.",
+      "owner_or_consumer": "docs/worlds/paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md; coordinator; WORLD_BRIEF/NS01 and native source owners",
+      "evidence_state": "Historical checkpoint reports structural/path checks and selected source inspection; no gameplay, browser or persistence work.",
+      "remaining_check": "Qualify Chinese/translation fidelity, missing 4042\u20134049, aliases, flagged source rules, admission and facility gaps before any selected runtime claim."
+    },
+    {
+      "record_id": "U0099",
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/hublife/CHECKPOINT.md",
+      "input_sha256": "2d2c38ab2bb6366653e626162b26d098cdc34573d9ad25e51310a68d47622fe6",
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1-F8",
+        "HL1-HL14",
+        "S1-S5",
+        "79 typed claim records",
+        "T016"
+      ],
+      "mechanism_and_interactions": "Hub-life report adds daily routines, appointments, household accounts, custody, disputed debt and independent social routes; canon plan owns starts/missions/dependencies, beings lane owns body transfer/BS5.",
+      "disposition": "Research/proposals complete, no runtime or purchase/source mutation. Tax/commission, lending, schedules and access remain unknown/recheck.",
+      "owner_or_consumer": "docs/worlds/paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md; sibling canon and beings reports",
+      "evidence_state": "Checkpoint reports EPUB/member hash match, source windows and document QA; underlying sources not reread here.",
+      "remaining_check": "Any implementation proposal needs selected source rechecks for flagged conditions, rates, schedules and relationship access; maintain sibling owner boundaries."
+    },
+    {
+      "record_id": "U0100",
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/missions/CHECKPOINT.md",
+      "input_sha256": "b71d6beb4bf0a3153904bd93d5bc537e680adb44a2e55720df51b530e65b082d",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "60 ordered destination/mission rows",
+        "C1-C7",
+        "O1-O8",
+        "T1-T5",
+        "N18",
+        "I1-I5",
+        "DM1-DM12",
+        "S1-S5",
+        "V05",
+        "V24"
+      ],
+      "mechanism_and_interactions": "Mission catalog groups nested regions/contests and war fronts rather than asserting 60 independent universes; distinguishes lifecycle phases, transit/native worlds and source witnesses. Requires resolving consumed recheck_chapter flags for selected rows.",
+      "disposition": "Research deliverable complete, not runtime completion or canon authentication; sequence points to hub-return slice then CRP3/CRP11.",
+      "owner_or_consumer": "docs/worlds/paradise-hub/DERIVED_WORLDS_AND_MISSIONS_2026-10-14.md; priority plan CRP3/CRP11; WORLD_BRIEF",
+      "evidence_state": "Checkpoint reports doc/path/source line checks and selected source inspections; raw EPUB path was absent during one recheck, no acquisition attempted.",
+      "remaining_check": "For selected destination retrieve actual member via authorized source owner; resolve V05 title/entry, V24 arrival seam, elapsed stays/payout/failure/roster and other named gaps."
+    },
+    {
+      "record_id": "U0101",
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/legendary-mechanic/CHECKPOINT.md",
+      "input_sha256": "66424e62237a36c65c9b64ab5fedff0e0140edf1629617c9ff4f83b1552fe196",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "1,463 supplied chapters",
+        "C1",
+        "12 detail rows"
+      ],
+      "mechanism_and_interactions": "Legendary Mechanic design reuses prior full-book dossier/deep dive and checks workshop pay/housing, book loans and prosthesis-fitting claims against chapter-note owners; proposes finite workshop opening and names live engine dependencies.",
+      "disposition": "Bounded design packet returned for review, not frozen executable contract or playable slice; no fresh full chapter reread claimed.",
+      "owner_or_consumer": "docs/research/novels/legendary-mechanic/world-design-2026-10-11/DESIGN.md (private); docs/gm/dispatch/parallel-book-design-2026-10-11/legendary-mechanic/REPORT.md; parent review/selection owner",
+      "evidence_state": "Checkpoint reports selected source-note checks and inspected runtime seams, but no tests/build/browser/save run.",
+      "remaining_check": "Parent must select/revise design and resolve recipe bills, device consumers, duty/timeline/learning/compatibility details before a separately authorized slice."
+    },
+    {
+      "record_id": "U0102",
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/lord-of-mysteries/CHECKPOINT.md",
+      "input_sha256": "f331ede7c2b25cb994b7278a6f61be1e1ef282a761371753c8d97ff31ba65756",
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "S00\u2013S14",
+        "17 early first-book claims",
+        "11 sequel claims",
+        "six requirements",
+        "two selected starts",
+        "six additional candidates",
+        "four era candidates",
+        "five dependencies",
+        "S1/S2"
+      ],
+      "mechanism_and_interactions": "LOTM/COI packet reuses existing claim IDs and exact locators, with zero fresh primary prose coverage; proposes starts/eras/dependencies while contract inspection shows potential seams only, not implemented support.",
+      "disposition": "Bounded design/source audit returned for parent review; not canon qualification, full-read repair, accepted world decision or runtime.",
+      "owner_or_consumer": "docs/research/novels/lord-of-mysteries/world-design-2026-10-11/{DESIGN.md,SOURCE_BINDINGS.json,INPUT_SNAPSHOT.json}; docs/gm/dispatch/parallel-book-design-2026-10-11/lord-of-mysteries/REPORT.md",
+      "evidence_state": "Checkpoint reports ID/path/link/ignore/secret checks and design cases specified-not-run; source truth remains private and public S1/S2 route/status only.",
+      "remaining_check": "Parent reviews design and source limits; any implementation needs separate bounded assignment, sole state owners, rebuilt fresh-origin and persistence gates; no full-LOTM qualification follows."
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Across the lore and Paradise packets, claimed source depth is carefully tiered: synopsis/MTL/inherited dossier/selected primary bodies do not establish full-source or original-language closure.",
+    "Documentation and design deliveries often report real validation, but those checks do not themselves establish gameplay; later R15 is an explicit exception in this shard, reporting candidate integration plus natural browser/persistence evidence while leaving variants and human feedback open.",
+    "Owner boundaries matter: sibling Paradise reports split canon priorities, beings/body and hub-life; modular-chain reports distinguish root selection/integration from lane proposals; no historical checkpoint authorizes new work.",
+    "Coordinator correction: U0088 is an initial in-progress checkpoint with planned reports, not a completed procedural schema. The source discrepancy is a question to verify, not an implemented consumer."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0082\u2013U0085 retain direct-source, continuity/edition, unread-range and coordinator-delivery gaps; source truths stay private.",
+    "U0087 is explicitly IN PROGRESS in the assigned span; completion cannot be inferred.",
+    "U0097\u2013U0100 retain Paradise source/translation, missing-chapter and recheck_chapter gaps; gameplay proposals remain unrun.",
+    "U0101\u2013U0102 are design/source packets, not acceptance; LOTM has zero fresh primary-prose coverage and remains outside full-LOTM qualification."
+  ],
+  "coordinator_review": "Summaries/gaps inspected; macro-micro final boundary and lncrawl source/read limits spot-checked. Missing-supplier scan identified U0088: its assigned checkpoint is IN PROGRESS and contained none of the attributed completed schema/IDs. Replaced that row by direct11-line source review. Corrected U0101 public report path."
+}
