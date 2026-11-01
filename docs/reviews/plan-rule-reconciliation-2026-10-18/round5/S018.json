@@ -1,0 +1,202 @@
+{
+  "schema": "historical-content-reader.v1",
+  "shard": "S018",
+  "reader": {
+    "agent": "/root/content_s018",
+    "model": "GPT-6 Luna",
+    "effort": "low"
+  },
+  "payload_sha256": "7fc0df8e9605bc6ce247c0afd509742b7a61cc0ddf6bc3bc99135bfefad8d5ac",
+  "scope": "Assigned S018 historical content spans only; no current runtime or whole-source qualification.",
+  "rows": [
+    {
+      "record_id": "U0245",
+      "path": "docs/gm/world-implementation/second-pass/granularity-expansion/CHECKPOINT.md",
+      "input_sha256": "414dae6b65361e4b062d01f22050587f1570422703b881e99566f8a115562bad",
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The granularity pass maps six worked paths, twelve request/owner/gap rows, eight consumer contracts, and five conditional packages. It preserves skill, XP, inventory, discovery, job, clock, and outcome owners; selected-world required IDs and one-path completion stay distinct. The probe uses original settings, prices, materials, ranges, and outcomes. Source integration was present in inspected owners, while the matching final Engine rebuild and gameplay/save/keyboard acceptance were not established.",
+      "disposition": "Completed static planning proposal with checked document gates; not gameplay evidence or runtime approval. Revision 3 reconciles separate ability/source evolution and explicitly treats older pending-module statements as dated snapshots.",
+      "owner_or_consumer": "REPORT.md, CASES.md, VISION_MATRIX.md, CONSUMER_CONTRACTS.md, DEPENDENCIES.md, FINDINGS.json, INPUT_SNAPSHOT.json in docs/gm/world-implementation/second-pass/granularity-expansion; Engine/Ability owners retain rebuild and gameplay/save/keyboard checks.",
+      "evidence_state": "The checkpoint reports static validation across nine Markdown files, 97 local links, 43 anchors, 19 tables, two JSON files, 47 read-time input fingerprints, and ten output fingerprints. These are reported document checks; no gameplay run, final matching build, save or keyboard acceptance is evidenced here.",
+      "remaining_check": "The selected implementation must exercise the consumer contracts and complete a matching Engine rebuild plus gameplay, save, and keyboard cases; the checkpoint leaves these unestablished.",
+      "evidence_lines": [
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "record_id": "U0246",
+      "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
+      "input_sha256": "cbda28516754c11c2f00f0177e92de47202d0ea8bf3c61f6d74fe3e228596351",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The integration proposal recommends a small opt-in package contract and a first cooperative light/control visit: a resident supplies actual source/fuel, visitor knowledge alone does not create mana, and return is observer-qualified. It preserves ordinary burning aftermath and lawful alternatives. General lots, grafts, maintained sources, tactics, and temporal operations are triggered by actual consumers. The plan separates 28 required/conditional/optional nodes from five waves and five immediate packets.",
+      "disposition": "Checked planning delivery complete; the integration strategy remains a proposal. Engine, Ability, and Original runtime work remained held in the recorded snapshot, and no plan authority or approval was inferred from the report.",
+      "owner_or_consumer": "REPORT.md, IMPLEMENTATION_DAG.json, ROLLOUT.md, TASK_PACKETS.md, and EASE_OF_AUTHORING.md under docs/gm/world-implementation/second-pass/integration; master owns canonical plan/RUN, while Engine/Ability/Original own held runtime.",
+      "evidence_state": "Static checks covered 28 nodes/56 required edges and 73 all-category edges (both acyclic), 37 evidence records/80 hashes, local links/anchors, JSON, and drift reconciliation. The record expressly reports no implementation, build/game/import, browser, save/reload/import/failure, or runtime measurement.",
+      "remaining_check": "Master review and director decisions remain; any selected package still needs native source/build readiness and behavioral, browser, persistence, failure, and return checks.",
+      "evidence_lines": [
+        [
+          7,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0247",
+      "path": "docs/gm/world-implementation/second-pass/items/CHECKPOINT.md",
+      "input_sha256": "bdb6d01a81873dcf3ec69ef8b9d5a2485efa6b2153ea1016df51c0d6e6be704e",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "IT11",
+        "IT12",
+        "IT13"
+      ],
+      "mechanism_and_interactions": "The follow-up extends five item families: IT11 pill outcome carriers, IT12 active artifacts/deployed consumables, and IT13 containers/manuals/access objects, alongside materials/tools/apparatus and living/unique stock. Targeted alchemy, medicine-manual, Book, and ActiveEffect inspection found positive current support. Ordinary restorative pills can reuse existing timed-effect content; the proposal does not require a new class or universal toxicity rule. Native stock/crafting/job/Glasshouse findings remain in scope.",
+      "disposition": "Expanded item-family planning is complete and statically checked. New fiction and numerical policies remain proposals; source progress and master coordination do not authorize runtime work.",
+      "owner_or_consumer": "FINDINGS.json and DEPENDENCIES.md in docs/gm/world-implementation/second-pass/items; existing alchemy, medicine-manual, Book, ActiveEffect, stock, crafting, job, and Glasshouse systems are named support/consumers.",
+      "evidence_state": "The checkpoint reports positive support from targeted source inspection and a static follow-up check of required fields, 13 unique IDs, 77 evidence references, local targets/anchors, whitespace, and final readback. It explicitly says gameplay, bundle, import, and save acceptance were not established.",
+      "remaining_check": "Selected item rows need native/compatibility and gameplay/save/failure/return checks; historical RI analytical evidence remains qualified and no new canon claim was made.",
+      "evidence_lines": [
+        [
+          9,
+          13
+        ],
+        [
+          15,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0248",
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/CHECKPOINT.md",
+      "input_sha256": "c3783e9d95fe2d2be57c857dd2d89d0f89a6c97d78a5a93bf417ec1d60b0eb49",
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "MF-GAP-01–10",
+        "E01–E09",
+        "O01–O05",
+        "AC01–AC12",
+        "FNA17"
+      ],
+      "mechanism_and_interactions": "The finite audit organizes 35 feature families, with proposed gap work for 26 and no new feature gap for nine; ten stable MF-GAP families route later packets and five priorities are distinguished from conditional work. Priorities connect Frontier closure, conserved objects/functions, funded reciprocal resident work, mature method/counter functions, and a selected native destination with retained return. It credits existing skill/Practice, commands, finite programs, custody/publication, party guard, and fork adoption, while leaving policy choices unselected.",
+      "disposition": "Finite static closeout passed. Its priorities and packets are planning recommendations; the checkpoint retains source, registered, build, executed, and director evidence as separate states and does not establish a new gameplay gate.",
+      "owner_or_consumer": "REPORT.md, FEATURE_COVERAGE.json, FINDINGS.json, PACKETS.md, appendix-validation.json, and supporting appendices in docs/gm/world-implementation/second-pass/missing-feature-audit; Incorporation owns canonical admission and Engine owns shared runtime/native/UI/save/build integration.",
+      "evidence_state": "The checkpoint reports static JSON/ID/trace/link/anchor/hash and input-drift checks, with a historical build hash explicitly no longer matching changed source. No current build, unit/game/browser, save/failure/regression/performance, or director check ran.",
+      "remaining_check": "Canonical admission must recheck mutable owners; selected feature packets need current native/build and behavioral/save/failure/keyboard evidence. Current skill/Glasshouse/fork gameplay gates remain deferred.",
+      "evidence_lines": [
+        [
+          7,
+          17
+        ],
+        [
+          23,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "U0249",
+      "path": "docs/gm/world-implementation/second-pass/powers/CHECKPOINT.md",
+      "input_sha256": "eb42d3bbc62462834bfe33a9a06fe625bd51da04ef2aac4850aa14c48082c02e",
+      "read_ranges": [
+        [
+          1,
+          88
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "POW01–POW05",
+        "MOL-C002-06/07",
+        "MOL-C031-04",
+        "MOL-C062-03/06/07",
+        "MOL-C074-01",
+        "MOL-C089-04",
+        "MOL-C092-01",
+        "OE16",
+        "OE07"
+      ],
+      "mechanism_and_interactions": "The powers audit records five prioritized findings and three covered notes while retaining existing Micro cost dimensions. Its targeted supplied-source windows distinguish narrated outcomes from character explanations. MoL examples cover counter/physical aftermath, a character-specific shell/flesh explanation, enhancement, autonomous copies, shared fuel/advice, matter-bodied copy experience, anchoring/control/inheritance, and old-body anchor failure with continued stabilization. Shadow examples cover independent movement with one consciousness/soul/pool, armor versus weapon, conditional sustain, and a missing condition rather than faculty deletion. These are bounded examples, not universal mechanics.",
+      "disposition": "Checked planning delivery complete, with no gameplay implementation. Source observations are limited to eight chapters in ten windows and supplied editions; primary authenticity/current publication verification was outside scope. Proposed simplifications remain static design inferences.",
+      "owner_or_consumer": "FINDINGS.json, REPORT.md, and DEPENDENCIES.md in docs/gm/world-implementation/second-pass/powers; body/power/energy/realm-boundary and simulation owners are inspected interfaces, while assigning master owns plan reconciliation.",
+      "evidence_state": "The checkpoint records chapter/member hashes and targeted paragraph windows as actually read, plus document checks for five findings, 30 evidence references, and 22 code/planning ranges. Native bodies/forms/evolution/possession, persistence, counters, browser, saves, failure, regression, and human acceptance remained unrun.",
+      "remaining_check": "Selected proposals require native compatibility and positive/changed-support/conservation/order/retry/stale/failure/return cases; current source authenticity, broader book coverage, numerical balance, persistence, and runtime acceptance remain unresolved.",
+      "evidence_lines": [
+        [
+          58,
+          68
+        ],
+        [
+          80,
+          88
+        ]
+      ]
+    },
+    {
+      "record_id": "U0250",
+      "path": "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md",
+      "input_sha256": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
+      "read_ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "REG02",
+        "REG07"
+      ],
+      "mechanism_and_interactions": "The regions audit proposes finite-node native admission/publication, seasonal-check ordering, producer versus harvestable stock, one bounded cross-patch habitat cause, directed egress/cargo, funded competitors with conserved promotion, dated evidence instead of current hidden values, selective viability, and sparse purposeful resolution. It credits skill-scaled gathering, real actor production, deterministic calendar/weather, observation/knowledge, and native graph support, while preserving exceptions for superior or genuinely inexhaustible sources.",
+      "disposition": "Planning is complete and the report set is statically checked. The Fallout example is qualified as an original continuation; no new source-specific penalty, numerical balance, schema, or world is accepted. REG02 is a static order risk and REG07 a potential projection misuse, not reproduced live defects.",
+      "owner_or_consumer": "REPORT.md, FINDINGS.json, DEPENDENCIES.md in docs/gm/world-implementation/second-pass/regions; existing gathering, actor production, calendar/weather, observation/knowledge, and native graph are the named supports/consumers; assigning master owns canonical plan/RUN.",
+      "evidence_state": "The checkpoint reports JSON/field/ID/evidence-range/local-link/anchor/table/whitespace/readback checks and reconciled shared-document drift. All 14 behavioral cases plus native/save/failure/keyboard/human acceptance remained unrun; no runtime or token benchmark was captured.",
+      "remaining_check": "Selected regional loops need current-owner admission and the listed behavioral cases, including native/save/failure/keyboard coverage; current implementation behavior and any numerical balance remain unverified.",
+      "evidence_lines": [
+        [
+          18,
+          28
+        ]
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "These six records are completed planning/audit deliveries with explicit limits separating static or source-window evidence from runtime/build/save acceptance; none releases runtime work.",
+    "The proposals repeatedly preserve existing named consumers and interfaces, while leaving selection/admission with the assigning master or canonical owner.",
+    "Source-supported examples in the powers audit are tightly bounded to supplied windows and do not establish universal mechanics."
+  ],
+  "unresolved_gaps": [
+    "All assigned records leave selected runtime behavior and relevant native/build/gameplay/persistence/failure acceptance unresolved; see row-level remaining_check.",
+    "The audit documents do not establish current contemporary runtime correctness, integration, or whole-source/canon qualification."
+  ]
+}

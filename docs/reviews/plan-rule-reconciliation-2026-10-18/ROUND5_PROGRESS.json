@@ -2,8 +2,8 @@
   "schema": 1,
   "scope": "Full-record content coverage from accepted disjoint reader spans; not source-canon/runtime proof",
   "requested": 519,
-  "completed": 244,
-  "remaining": 275,
+  "completed": 267,
+  "remaining": 252,
   "accepted_shards": [
     "S001",
     "S002",
@@ -21,7 +21,11 @@
     "S014",
     "S015",
     "S016",
-    "S017"
+    "S017",
+    "S018",
+    "S019",
+    "S020",
+    "S021"
   ],
   "complete_ids": [
     "U0001",
@@ -267,10 +271,33 @@
     "U0241",
     "U0242",
     "U0243",
-    "U0244"
+    "U0244",
+    "U0245",
+    "U0246",
+    "U0247",
+    "U0248",
+    "U0249",
+    "U0250",
+    "U0251",
+    "U0252",
+    "U0253",
+    "U0254",
+    "U0255",
+    "U0256",
+    "U0257",
+    "U0258",
+    "U0259",
+    "U0260",
+    "U0261",
+    "U0262",
+    "U0263",
+    "U0264",
+    "U0265",
+    "U0266",
+    "U0267"
   ],
   "partial_ids": [],
-  "source_words_read": 87358,
+  "source_words_read": 104377,
   "rows": [
     {
       "id": "U0001",
@@ -3935,163 +3962,347 @@
     {
       "id": "U0245",
       "path": "docs/gm/world-implementation/second-pass/granularity-expansion/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "414dae6b65361e4b062d01f22050587f1570422703b881e99566f8a115562bad",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            48
+          ],
+          "receipt": "round5/S018.json"
+        }
+      ]
     },
     {
       "id": "U0246",
       "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "cbda28516754c11c2f00f0177e92de47202d0ea8bf3c61f6d74fe3e228596351",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            29
+          ],
+          "receipt": "round5/S018.json"
+        }
+      ]
     },
     {
       "id": "U0247",
       "path": "docs/gm/world-implementation/second-pass/items/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "bdb6d01a81873dcf3ec69ef8b9d5a2485efa6b2153ea1016df51c0d6e6be704e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S018.json"
+        }
+      ]
     },
     {
       "id": "U0248",
       "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "c3783e9d95fe2d2be57c857dd2d89d0f89a6c97d78a5a93bf417ec1d60b0eb49",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            37
+          ],
+          "receipt": "round5/S018.json"
+        }
+      ]
     },
     {
       "id": "U0249",
       "path": "docs/gm/world-implementation/second-pass/powers/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "eb42d3bbc62462834bfe33a9a06fe625bd51da04ef2aac4850aa14c48082c02e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            88
+          ],
+          "receipt": "round5/S018.json"
+        }
+      ]
     },
     {
       "id": "U0250",
       "path": "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            36
+          ],
+          "receipt": "round5/S018.json"
+        }
+      ]
     },
     {
       "id": "U0251",
       "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3b4f6db5703fa6ae4122875188d3df54da68867626ec405b620eb530018f2084",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            44
+          ],
+          "receipt": "round5/S019.json"
+        }
+      ]
     },
     {
       "id": "U0252",
       "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f5d6b768e424f4f94b269a7f87b386a9ebeea9ee52a5f054c8ea8ed373208e71",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            58
+          ],
+          "receipt": "round5/S019.json"
+        }
+      ]
     },
     {
       "id": "U0253",
       "path": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7a0b2b001973316d99c53f8658acd85abc4ed87d01f3d6a9c9a08f948b199a5e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            147
+          ],
+          "receipt": "round5/S019.json"
+        }
+      ]
     },
     {
       "id": "U0254",
       "path": "docs/gm/world-implementation/second-pass/society/branching/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "4ded2ff1ed438290dd7be68be770ef5ecf72bd78e69469d42df1c6c5bbf661c1",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            68
+          ],
+          "receipt": "round5/S019.json"
+        }
+      ]
     },
     {
       "id": "U0255",
       "path": "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            90
+          ],
+          "receipt": "round5/S020.json"
+        }
+      ]
     },
     {
       "id": "U0256",
       "path": "docs/gm/world-implementation/second-pass/timelines/branching/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "27638206af2fe9dcfbd6c5886f5800959eef129a93b12318f9314d0bd63cb589",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            31
+          ],
+          "receipt": "round5/S020.json"
+        }
+      ]
     },
     {
       "id": "U0257",
       "path": "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            57
+          ],
+          "receipt": "round5/S020.json"
+        }
+      ]
     },
     {
       "id": "U0258",
       "path": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "340d8a634b2431ad21be83d31b579c3d265edd7886149ea259f0da899e6f2ad2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            39
+          ],
+          "receipt": "round5/S020.json"
+        }
+      ]
     },
     {
       "id": "U0259",
       "path": "docs/gm/world-implementation/second-pass/world-bank/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "021b1948bb5a6e752ae53bb24e9ce7d6c49400364f6a8927f82df50914161bc7",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            32
+          ],
+          "receipt": "round5/S020.json"
+        }
+      ]
     },
     {
       "id": "U0260",
       "path": "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "bc3f8c688c2b65deb86ff394ff41db7d7577d95a106ad6daebb84b2786e020f6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            35
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0261",
       "path": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-brief.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "c9649ded6a5cdc617a8cfa8ac806fca7c2ceb21d598e69a99953f2379672600d",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            19
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0262",
       "path": "docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f8d7630eb7fdb1f2db7152c1b06a9fd5d23a896e0bb5f1baa85f83f0c9225527",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            83
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0263",
       "path": "docs/research/academagia/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8f09beef156f1ec662cf9a5200182165587638b55291d9e90e434990dfc823ac",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            20
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0264",
       "path": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "76e0c1ac54cf7060228b3b8f5c60e0e035cbc0baac9acdbf96d1e05b4836e6fe",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            38
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0265",
       "path": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "101e733189df54f647d15720b5363d8ffe59760a6976ec6c20082b7752997c30",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            32
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0266",
       "path": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "0e4f6abfef6008c95aa17d6c2709f8dc6d75e0aff6e18ff4a5286e0cbfcc0b79",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            36
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0267",
       "path": "docs/research/academagia/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "fbca45eca3fd5bbdf9ce6388accf0f263132c8fd9624aa4dd71fa472a56ba87f",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            40
+          ],
+          "receipt": "round5/S021.json"
+        }
+      ]
     },
     {
       "id": "U0268",

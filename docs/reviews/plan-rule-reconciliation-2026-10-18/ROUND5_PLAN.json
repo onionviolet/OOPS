@@ -6481,7 +6481,7 @@
           "line_end": 36
         }
       ],
-      "status": "dispatched",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S018.txt",
       "payload_v1_sha256": "5b34042e26b8334333f811f5eda618c01b6e7a8694c824717b38c26664ec9ad4",
       "payload_parts": [
@@ -6492,7 +6492,9 @@
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S018.v2.txt",
       "payload_v2_sha256": "1ab650e8c0bbc5d8d2c27d3d4ad9af0aa7ae4cc593d6f5e8d9a8cbe91f69ebfb",
-      "agent": "content_s018"
+      "agent": "content_s018",
+      "review_artifact": "round5/S018.json",
+      "coordinator_review": "Range/hash normalization, code/owner screen and consequential society/branching source spot checks; historical proposal/proof limits preserved."
     },
     {
       "id": "S019",
@@ -6526,7 +6528,7 @@
           "line_end": 68
         }
       ],
-      "status": "dispatched",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S019.txt",
       "payload_v1_sha256": "3ef26acf3b0fa76961fc49ca4df2c691419586d8381524da4269299a7223c330",
       "payload_parts": [
@@ -6537,7 +6539,9 @@
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S019.v2.txt",
       "payload_v2_sha256": "e01944b7a3c87bf3e149e4ed27170027915f6d52c7b37d18a2d096ba501b47b1",
-      "agent": "content_s019"
+      "agent": "content_s019",
+      "review_artifact": "round5/S019.json",
+      "coordinator_review": "Range/hash normalization, code/owner screen and consequential society/branching source spot checks; historical proposal/proof limits preserved."
     },
     {
       "id": "S020",
@@ -6577,7 +6581,7 @@
           "line_end": 32
         }
       ],
-      "status": "unread",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S020.txt",
       "payload_v1_sha256": "a9b7e40886d1363e63409a63b35f175e56bef0bcc1cebe9a731fe6e131871aa2",
       "payload_parts": [
@@ -6587,7 +6591,10 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S020.v2.txt",
-      "payload_v2_sha256": "406170f1ac3320872002bcf897f3b12284a1862aa3723e77803416c288711be7"
+      "payload_v2_sha256": "406170f1ac3320872002bcf897f3b12284a1862aa3723e77803416c288711be7",
+      "agent": "content_s020",
+      "review_artifact": "round5/S020.json",
+      "coordinator_review": "Metadata/code/owner screen and consequential spot checks; repaired U0260 neighboring-record substitution; retained historical scope/AD42 limits."
     },
     {
       "id": "S021",
@@ -6645,7 +6652,7 @@
           "line_end": 40
         }
       ],
-      "status": "unread",
+      "status": "content-reviewed",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S021.txt",
       "payload_v1_sha256": "d71d477fc798b39efe010ae10d1333eb319ee791817ce3c2618f011ef63a8739",
       "payload_parts": [
@@ -6655,7 +6662,10 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S021.v2.txt",
-      "payload_v2_sha256": "fe5438708d032d47d8c6ef45f9b89d4ba2f2f8c5adec2e25922f625a072c1319"
+      "payload_v2_sha256": "fe5438708d032d47d8c6ef45f9b89d4ba2f2f8c5adec2e25922f625a072c1319",
+      "agent": "content_s021",
+      "review_artifact": "round5/S021.json",
+      "coordinator_review": "Metadata/code/owner screen and consequential spot checks; repaired U0260 neighboring-record substitution; retained historical scope/AD42 limits."
     },
     {
       "id": "S022",
@@ -6731,7 +6741,7 @@
           "line_end": 34
         }
       ],
-      "status": "unread",
+      "status": "dispatched",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S022.txt",
       "payload_v1_sha256": "86bbf2ba6cabe46745dc6ebed31e54dabd32e1c4d8a73d2abedbdbea823b61ac",
       "payload_parts": [
@@ -6741,7 +6751,8 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S022.v2.txt",
-      "payload_v2_sha256": "d954d2c0ab00010fd3105f8dcf895a23fbb36bc48d07040de606946895aac4d1"
+      "payload_v2_sha256": "d954d2c0ab00010fd3105f8dcf895a23fbb36bc48d07040de606946895aac4d1",
+      "agent": "content_s022"
     },
     {
       "id": "S023",
@@ -6835,7 +6846,7 @@
           "line_end": 25
         }
       ],
-      "status": "unread",
+      "status": "dispatched",
       "payload_v1": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S023.txt",
       "payload_v1_sha256": "fddc9f50b8f5610cbf827d63db50eb1cc6ccafdc3995456e0ace532cfff12d84",
       "payload_parts": [
@@ -6845,7 +6856,8 @@
       ],
       "transport": "v3 three small sequential source tool calls; explicit continuation context; unchanged source spans",
       "payload_v2": "/Users/weiwei/.codex/research/oops-historical-content-2026-11-01/S023.v2.txt",
-      "payload_v2_sha256": "e93a0f73143f15d936b7cd79b47f11ea2444a41a53888f33d6800c0f9ab7cd6f"
+      "payload_v2_sha256": "e93a0f73143f15d936b7cd79b47f11ea2444a41a53888f33d6800c0f9ab7cd6f",
+      "agent": "content_s023"
     },
     {
       "id": "S024",
@@ -8754,9 +8766,9 @@
     "start_usage_percent": 77,
     "stop_usage_percent": 87,
     "paid_fallback": false,
-    "commit_scope": "Only owned reconciliation paths/hunks; preserve shared index and use guarded fresh-HEAD commit; push origin master without force.",
+    "commit_scope": "Only owned reconciliation paths; isolated codex/historical-content-reconciliation from public origin/master, guarded ref update and private index preserve shared master/index; user authorized push.",
     "primary_pilot": "S001 completed18 records; truncation omission repaired explicitly",
-    "workers_dispatched": 19,
+    "workers_dispatched": 23,
     "repair_reserve_remaining": 1,
     "primary_completed_shards": [
       "S001",
@@ -8786,7 +8798,7 @@
         "reason": "Original reader reported missing source route and returned with zero source read/no writes; exact byte-identical private copies made under repository for bounded recovery."
       }
     ],
-    "regular_readers_dispatched": 17,
+    "regular_readers_dispatched": 21,
     "repair_readers_dispatched": 2
   },
   "coverage": "No newly prepared shard is reviewed merely by preparation.",
@@ -8794,11 +8806,11 @@
     "owner": "docs/research/LIBRARY_INDEX.md#the-five-ttks-books",
     "owner_sha256": "92ed91c1e17f1905aea5e103cd9fbdbf7ef7f81e7bc260a1682ffaf5d2775526",
     "titles": {
-      "B1": "\u5deb\u5e08\u4f60\u597d\uff0c\u6211\u662f\u4f2a\u4eba",
-      "B2": "\u4e00\u5e74\u62bd\u53d6\u4e00\u8bcd\u6761\uff0c\u6a21\u62df\u7684\u4e5f\u53ef\u4ee5\uff1f",
-      "B3": "\u5492\u56de\uff1a\u7279\u7ea7\u7684\u6211\u53bb\u6b7b\u706d\u6253\u5bbf\u50a9\u4e86\uff01",
-      "B4": "\u5168\u4eba\u7c7b\u7684\u7ee7\u627f\u8005",
-      "B5": "\u5e9f\u571f\u8fb9\u5883\u68c0\u67e5\u5b98"
+      "B1": "巫师你好，我是伪人",
+      "B2": "一年抽取一词条，模拟的也可以？",
+      "B3": "咒回：特级的我去死灭打宿傩了！",
+      "B4": "全人类的继承者",
+      "B5": "废土边境检查官"
     },
     "qualification": "Current catalogue title map only; historical B-code/edition binding still needs its original manifest before source claims are reused. ttks.tw is a mirror, not a novel."
   }
