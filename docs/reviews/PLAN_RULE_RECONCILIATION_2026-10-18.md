@@ -379,7 +379,7 @@ The notes preserve unresolved suppliers and distinguishing checks; they do not c
 
 ### Current integrated content totals
 
-[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 393/519 records content-reviewed, 126 remain; 168,695 source words across 33 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 463 section-reviewed, 315 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
+[Coverage ledger](plan-rule-reconciliation-2026-10-18/ROUND5_PROGRESS.json): 418/519 records content-reviewed, 101 remain; 187,779 source words across 37 accepted shards. Accepted notes retain actual mechanisms and exceptions, historical proof versus source/fixture/integration boundaries, and useful owner/consumer checks. Current inventory totals: 488 section-reviewed, 290 indexed-only. These are document-content coverage labels, not source qualification or gameplay completion.
 
 ### Commit and check boundary
 

@@ -740,7 +740,7 @@
       "label": "Other explicitly retained historical snapshots",
       "kind": "reviewed-historical-control",
       "owner": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
-      "owner_sha256": "652c6d25e2deb6f064a18647be5e16f680382056186b61f4e3db035701ab7437",
+      "owner_sha256": "a2152c359d873e020d01dbd7958161928552961e686f6cb097dd1e0c5594a4cd",
       "relationship_evidence": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND4_REVIEW.json",
       "relationship": "Selected historical execution-state/lease/next-step clauses reconciled individually through H01\u2013H15; duplicate control review can be skipped while all selected supplier inputs match. Unique source/content/gameplay gaps remain.",
       "skip_unchanged_execution_review": true,

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Publication snapshot:393/519 full content records; all source/canon/runtime limits retained",
+  "scope": "Publication snapshot:418/519 full content records; all source/canon/runtime limits retained",
   "checks": [
     {
       "command": "python3 tests/plan_review_status_test.py",
@@ -18,7 +18,7 @@
     },
     {
       "command": "per-shard span/hash/original-ID/schema integration",
-      "result": "PASS393 complete records/33 accepted shards",
+      "result": "PASS418 complete records/37 accepted shards",
       "gap": "No headings/hash-only promotion; current source-canon and runtime not reverified"
     }
   ],
@@ -27,5 +27,5 @@
     "base": "origin/master; excludes18 unpublished primary-master ancestors",
     "primary_checkout": "untouched branch/index/unrelated paths"
   },
-  "remaining": 126
+  "remaining": 101
 }

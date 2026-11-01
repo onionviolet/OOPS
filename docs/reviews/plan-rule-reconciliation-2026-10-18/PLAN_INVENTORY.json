@@ -525,7 +525,32 @@
     "docs/research/ngu-idle/CHECKPOINT.md",
     "docs/research/ngu-idle/aspects-2026-10-14/CHECKPOINT.md",
     "docs/research/noita/CHECKPOINT.md",
-    "docs/research/nonhuman-fiction-2026-10-10/BRIEF.md"
+    "docs/research/nonhuman-fiction-2026-10-10/BRIEF.md",
+    "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md",
+    "docs/research/open-idle-games-2026-10-09/CHECKPOINT.md",
+    "docs/research/orb-of-creation/CHECKPOINT.md",
+    "docs/research/outer-wilds/CHECKPOINT.md",
+    "docs/research/oxygen-not-included/CHECKPOINT.md",
+    "docs/research/path-of-achra/CHECKPOINT.md",
+    "docs/research/planescape-torment/CHECKPOINT.md",
+    "docs/research/potionomics/CHECKPOINT.md",
+    "docs/research/potionomics/aspects-2026-10-14/CHECKPOINT.md",
+    "docs/research/power-scaling-2026-10-08/CHECKPOINT.md",
+    "docs/research/power-systems/anime-manga/CHECKPOINT.md",
+    "docs/research/power-systems/broad-scout/CHECKPOINT.md",
+    "docs/research/power-systems/novel-crawl/CHECKPOINT.md",
+    "docs/research/power-systems/web-fiction/CHECKPOINT.md",
+    "docs/research/power-systems/western/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/dcc-full/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/workers/elden-full/CHECKPOINT.md"
   ],
   "plan_shaped_records": [
     {
@@ -15112,7 +15137,7 @@
     },
     {
       "path": "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "5a4f144e9d4be4814b12b11e7607fc02848b9c67b619f6d3965e3284f3ba9a56",
@@ -15120,11 +15145,31 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0394",
+        "receipts": [
+          "round5/S033.json",
+          "round5/S034.json"
+        ],
+        "input_sha256": "5a4f144e9d4be4814b12b11e7607fc02848b9c67b619f6d3965e3284f3ba9a56",
+        "read_ranges": [
+          [
+            1,
+            509
+          ],
+          [
+            510,
+            639
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/open-idle-games-2026-10-09/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "a51dd7773ff71832c1fe455de7f0c15d657a8670d64eafea153ddd2b6cfcdb6d",
@@ -15132,11 +15177,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0395",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "a51dd7773ff71832c1fe455de7f0c15d657a8670d64eafea153ddd2b6cfcdb6d",
+        "read_ranges": [
+          [
+            1,
+            39
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/orb-of-creation/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "cf02b2b21a810335089467634cbb217a64ac909d336d19d0938f6b04cf0feca9",
@@ -15144,11 +15204,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0396",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "cf02b2b21a810335089467634cbb217a64ac909d336d19d0938f6b04cf0feca9",
+        "read_ranges": [
+          [
+            1,
+            29
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/outer-wilds/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "9f6714a5165061e0621dcca7d4a3e235b14bef99ff01cd79a847305e8671bb06",
@@ -15156,11 +15231,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0397",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "9f6714a5165061e0621dcca7d4a3e235b14bef99ff01cd79a847305e8671bb06",
+        "read_ranges": [
+          [
+            1,
+            45
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/oxygen-not-included/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "90de4602264da40c30c41d0663e8acc797fde0f465604c8b56371e2b1ed2789c",
@@ -15168,22 +15258,52 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0398",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "90de4602264da40c30c41d0663e8acc797fde0f465604c8b56371e2b1ed2789c",
+        "read_ranges": [
+          [
+            1,
+            15
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/path-of-achra/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "4b6c47e9b7d743753f146c942c13a7fe8cfe03a03dcacb47a3ae9cff852d0b83",
         "flags": [
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0399",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "4b6c47e9b7d743753f146c942c13a7fe8cfe03a03dcacb47a3ae9cff852d0b83",
+        "read_ranges": [
+          [
+            1,
+            9
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/planescape-torment/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "34ce4f61b8f56bc5530d7c14f02879cc54220600e38a656bc45cf1b54cf01b60",
@@ -15191,33 +15311,78 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0400",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "34ce4f61b8f56bc5530d7c14f02879cc54220600e38a656bc45cf1b54cf01b60",
+        "read_ranges": [
+          [
+            1,
+            60
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/potionomics/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "cd7e90f83e07147d3d6ac91119f5f90c3482b6ce8b44fb5c31d5ae632b116cc0",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0401",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "cd7e90f83e07147d3d6ac91119f5f90c3482b6ce8b44fb5c31d5ae632b116cc0",
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/potionomics/aspects-2026-10-14/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "0fa5ac6e69e9eb70be6ccb74fdd58668e0bb9afbc834762095ac2898d3ef05e4",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0402",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "0fa5ac6e69e9eb70be6ccb74fdd58668e0bb9afbc834762095ac2898d3ef05e4",
+        "read_ranges": [
+          [
+            1,
+            5
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-scaling-2026-10-08/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "befe08c412d881f5f867a82fd1c08841af06df159019b75d9a7cc2ef8e31e251",
@@ -15225,11 +15390,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0403",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "befe08c412d881f5f867a82fd1c08841af06df159019b75d9a7cc2ef8e31e251",
+        "read_ranges": [
+          [
+            1,
+            23
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/anime-manga/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "b7d4daac642caee543259c24e5a046e0f422a793df6a41411f8c0fbc6db28cbe",
@@ -15237,11 +15417,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0404",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "b7d4daac642caee543259c24e5a046e0f422a793df6a41411f8c0fbc6db28cbe",
+        "read_ranges": [
+          [
+            1,
+            61
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/broad-scout/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "0b9f73fbb5ceea07dd078908c97ce335935db514c52c96560c25cc14b22ec537",
@@ -15249,11 +15444,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0405",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "0b9f73fbb5ceea07dd078908c97ce335935db514c52c96560c25cc14b22ec537",
+        "read_ranges": [
+          [
+            1,
+            27
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/novel-crawl/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "9c4712c97951d89e65cbcdf6ac3e1846ab8c3542a8369b9ccab7a33d46684c3d",
@@ -15261,11 +15471,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0406",
+        "receipts": [
+          "round5/S034.json"
+        ],
+        "input_sha256": "9c4712c97951d89e65cbcdf6ac3e1846ab8c3542a8369b9ccab7a33d46684c3d",
+        "read_ranges": [
+          [
+            1,
+            31
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/web-fiction/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "e1a4803db1deffb4656bc2afdf74f6f7ac06b6ee448f3ef790dc7d7c58f6c202",
@@ -15273,11 +15498,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0407",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "e1a4803db1deffb4656bc2afdf74f6f7ac06b6ee448f3ef790dc7d7c58f6c202",
+        "read_ranges": [
+          [
+            1,
+            40
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/western/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "9325e3b8a122631c1e9c7f223160e358d735dfcacb88574833faff9bd2ecbcf1",
@@ -15285,11 +15525,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0408",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "9325e3b8a122631c1e9c7f223160e358d735dfcacb88574833faff9bd2ecbcf1",
+        "read_ranges": [
+          [
+            1,
+            37
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "3d11d8719e3ffe8751452e5932bab7f579e55a4354e84af717347d18545da0b4",
@@ -15297,11 +15552,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0409",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "3d11d8719e3ffe8751452e5932bab7f579e55a4354e84af717347d18545da0b4",
+        "read_ranges": [
+          [
+            1,
+            84
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "65de7e6931051f90c4f19510ff7ce4677cfe194d8cffdd8c401179ace25759dd",
@@ -15309,22 +15579,52 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0410",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "65de7e6931051f90c4f19510ff7ce4677cfe194d8cffdd8c401179ace25759dd",
+        "read_ranges": [
+          [
+            1,
+            21
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "937b571ee326741b40553e578da7f0a127878c5b4be1d1e684d7199c0e312ece",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0411",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "937b571ee326741b40553e578da7f0a127878c5b4be1d1e684d7199c0e312ece",
+        "read_ranges": [
+          [
+            1,
+            29
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "2d003df9ac05397efdd3757423e8e357c4c134a27f68d91dc684a1bd9da6d74a",
@@ -15332,11 +15632,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0412",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "2d003df9ac05397efdd3757423e8e357c4c134a27f68d91dc684a1bd9da6d74a",
+        "read_ranges": [
+          [
+            1,
+            53
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "69ca919d757c8d3b9ba6660285a7f49319666f19e672a55a8bfb810759c2b0d4",
@@ -15344,11 +15659,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0413",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "69ca919d757c8d3b9ba6660285a7f49319666f19e672a55a8bfb810759c2b0d4",
+        "read_ranges": [
+          [
+            1,
+            61
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "1b8f9f2ec9c72ed8e0981516e675f4b9edefec1c69a09001b354986705b6b5ab",
@@ -15356,11 +15686,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0414",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "1b8f9f2ec9c72ed8e0981516e675f4b9edefec1c69a09001b354986705b6b5ab",
+        "read_ranges": [
+          [
+            1,
+            40
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "ca91df2b7946624890945848e613e46b679f06244026b50ef748d5e190abc4ea",
@@ -15368,11 +15713,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0415",
+        "receipts": [
+          "round5/S035.json"
+        ],
+        "input_sha256": "ca91df2b7946624890945848e613e46b679f06244026b50ef748d5e190abc4ea",
+        "read_ranges": [
+          [
+            1,
+            37
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/dcc-full/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "0b4dda192420c29209c7cf273d5ed89b42d2533a82a07b5bc7a38f9f050ec8ae",
@@ -15380,11 +15740,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0416",
+        "receipts": [
+          "round5/S036.json"
+        ],
+        "input_sha256": "0b4dda192420c29209c7cf273d5ed89b42d2533a82a07b5bc7a38f9f050ec8ae",
+        "read_ranges": [
+          [
+            1,
+            29
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "16a52831dbdd6f70944f7787b13d6739842879d17a1ac1d4d2752a9fcb1badb0",
@@ -15392,11 +15767,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0417",
+        "receipts": [
+          "round5/S036.json"
+        ],
+        "input_sha256": "16a52831dbdd6f70944f7787b13d6739842879d17a1ac1d4d2752a9fcb1badb0",
+        "read_ranges": [
+          [
+            1,
+            20
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/elden-full/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "ce05a1152b0d34f3e1c436648ce12de8de9d5dbdf75b2b531030bc835eff6c3e",
@@ -15404,6 +15794,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0418",
+        "receipts": [
+          "round5/S036.json"
+        ],
+        "input_sha256": "ce05a1152b0d34f3e1c436648ce12de8de9d5dbdf75b2b531030bc835eff6c3e",
+        "read_ranges": [
+          [
+            1,
+            78
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -17098,8 +17503,8 @@
     "5": {
       "date": "2026-11-01",
       "requested_records": 519,
-      "completed_records": 393,
-      "remaining_records": 126,
+      "completed_records": 418,
+      "remaining_records": 101,
       "source_words": 242181,
       "plan": "ROUND5_PLAN.json",
       "read_limits": "Full record contents for completed rows; no blanket source qualification or gameplay claims. L2b and whole-LOTM remain excluded.",
@@ -17136,10 +17541,14 @@
         "S030",
         "S031",
         "S032",
-        "S033"
+        "S033",
+        "S034",
+        "S035",
+        "S036",
+        "S037"
       ],
       "partially_read_records": [
-        "U0394"
+        "U0419"
       ]
     }
   }
