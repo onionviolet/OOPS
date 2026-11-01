@@ -1,0 +1,471 @@
+{
+  "schema": 1,
+  "shard": "S045",
+  "reader": "content_s045; gpt-6-luna low",
+  "payload_sha256": "eee11cb43a8c0984593a4701a12c917c89736c35b3784d466e11c7be3f2cf29b",
+  "scope": "Complete assigned historical checkpoint spans reviewed for mechanisms, chronology and proof boundaries; no contemporary runtime/source-canon qualification.",
+  "rows": [
+    {
+      "record_id": "U0472",
+      "path": "docs/research/sapiens/CHECKPOINT.md",
+      "input_sha256": "a711861f37c6bd684b0b2d9c47cbb74b356c98e3ae887aaa5c5b0bd5ddcefed0",
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01",
+        "A03",
+        "A04",
+        "A02",
+        "A05",
+        "A08",
+        "A09",
+        "A12",
+        "P01",
+        "P03",
+        "P04",
+        "ASPECTS"
+      ],
+      "mechanism_and_interactions": "A01/A03 Lua questions were answered from installed build 19991669; A04 reached a native bridge/database boundary. Twelve aspect rows and selected flows were preserved. This is structural/source coverage; no game launch, saves or implementation occurred.",
+      "disposition": "Partial static dossier delivery; the recorded validation checks structure, hashes and JSON, not gameplay. Priority proposals extend P01/P03/P04 and remain proposals.",
+      "owner_or_consumer": "docs/research/sapiens/ and private ~/.codex/research/fs-sapiens extracts; native bridge is the missing supplier for save encoding, flush and recovery.",
+      "evidence_state": "Checkpoint reports selected Lua reads and explicitly excludes native engine, UI, saves and several systems. No independent source inspection here.",
+      "remaining_check": "For any selected continuation, use named ASPECTS gaps; native save/UI behavior remains unproved.",
+      "evidence_lines": [
+        [
+          7,
+          9
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          25,
+          27
+        ]
+      ]
+    },
+    {
+      "record_id": "U0473",
+      "path": "docs/research/sapiens/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "3fd88d4015ad340598b2c46028b150590369a8b0fa426486de9307948989de7c",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01",
+        "A03",
+        "A04"
+      ],
+      "mechanism_and_interactions": "The twelve aspect rows and inventory were delivered; A01/A03 were covered and A04 remained partial at the native boundary.",
+      "disposition": "Subordinate partial checkpoint; it points to the main Sapiens checkpoint for validation and unread limits.",
+      "owner_or_consumer": "docs/research/sapiens/CHECKPOINT.md",
+      "evidence_state": "Only this five-line summary was assigned; detailed mechanisms and validation reside in the linked checkpoint, not this span.",
+      "remaining_check": "Consult the named main checkpoint if the aspect coverage boundary matters.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0474",
+      "path": "docs/research/scroll-of-taiwu/CHECKPOINT.md",
+      "input_sha256": "943e5840d89871c85761aee152ce8f24a6623211fd707f5324019aaf469bcb47",
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1–P7",
+        "COMMON"
+      ],
+      "mechanism_and_interactions": "Taiwu bounded static research counted technique/building/legacy constructors and read selected backend, schema and encyclopedia material. It separately records legacy point award timing, information transfer, book-trade custody/settlement, career progress/unlock/learned/cooldown, inheritance and force-cap mechanisms; frontend valuation/order, general relation policies, UI and runtime remain open.",
+      "disposition": "Research delivery passed its payload and structural checks, while semantic and runtime coverage is explicitly partial. Seven packets remain proposals; no owner changes were authorized.",
+      "owner_or_consumer": "docs/research/scroll-of-taiwu/ and private /Users/weiwei/.codex/research/taiwu/ extracts",
+      "evidence_state": "Checkpoint reports static method reads/counts and explicitly says no game tests, persistence checks or save access.",
+      "remaining_check": "If resumed, follow the exact frontend legacy order/transfer gaps before generalizing carryover; no runtime or save compatibility evidence.",
+      "evidence_lines": [
+        [
+          13,
+          17
+        ],
+        [
+          23,
+          32
+        ],
+        [
+          34,
+          42
+        ]
+      ]
+    },
+    {
+      "record_id": "U0475",
+      "path": "docs/research/scroll-of-taiwu/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "47e007e36b9bed59525fb905d9d1b03c722d59d55b6f3ec80041421dec4fecca",
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "AU1",
+        "AU2",
+        "AU3",
+        "AU4",
+        "AU5",
+        "AU6",
+        "AU7",
+        "D1–D3"
+      ],
+      "mechanism_and_interactions": "Aspect follow-up traces frontend selection/formatting into backend monthly phases; save headers, version marks, compression, SQLite, CRC, upgrade dispatch, backup restore and optional end-month save; information circulation; backend book-trade settlement; career progress/unlock/learned/cooldown. It distinguishes metadata inventory from new mechanism coverage.",
+      "disposition": "Bounded aspect delivery; claims remain proposals. It extends prior trade evidence but leaves frontend guards/valuation, full migrations/listeners, all-row semantics and runtime acceptance open.",
+      "owner_or_consumer": "docs/research/scroll-of-taiwu/aspects-2026-10-14/ and private taiwu-2-aspects extracts",
+      "evidence_state": "Historical checkpoint describes static source traces and validation; no process start, save/database access or gameplay proof.",
+      "remaining_check": "Follow AU1/AU2/AU4 as named; do not treat backend settlement or container tracing as full transaction, migration or runtime proof.",
+      "evidence_lines": [
+        [
+          10,
+          15
+        ],
+        [
+          21,
+          29
+        ],
+        [
+          31,
+          35
+        ]
+      ]
+    },
+    {
+      "record_id": "U0476",
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/CHECKPOINT.md",
+      "input_sha256": "3e8c2e1011811f934e0e36fe4ac96075e7ce20f3458d73aea4f146a1de4ed463",
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "mechanism_and_interactions": "Deep pass traced weighted goal selection/pathfinding/revalidation, concrete study actions, protection/revenge, marriage/faction/crime, birth/bequest, normal legacy frontend order, direct transfer handlers, GlobalConfig study defaults, force caps and selected adventure transitions. Five .twes packages reached EOF, but that is a selected script subset.",
+      "disposition": "Bounded source delivery with explicit unread rows; no owner changes or accepted decisions. Selected direct transfer does not close transitive listeners or cross-archive behavior.",
+      "owner_or_consumer": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/ and private taiwu-2 extracts",
+      "evidence_state": "Checkpoint reports reused matching source hashes and static reads; runtime, saves, tests and broad semantic coverage excluded.",
+      "remaining_check": "U1 is next: pair lesson/exchange mutation handlers with exact main-route conditions. Runtime/UI/persistence and remaining systems stay open.",
+      "evidence_lines": [
+        [
+          11,
+          15
+        ],
+        [
+          21,
+          30
+        ],
+        [
+          34,
+          38
+        ]
+      ]
+    },
+    {
+      "record_id": "U0477",
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/CHECKPOINT.md",
+      "input_sha256": "7856ab0707acc057b6513606031bfc3e51104cf7b2a0c8669b3a16b38e9faf93",
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "AU1",
+        "AU2",
+        "AU3",
+        "AU4",
+        "AU5",
+        "AU6",
+        "AU7",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14"
+      ],
+      "mechanism_and_interactions": "Systems sweep added 25 complete static types and 15 mechanism sections, relating tables, domain families, modules, consumers and owner routing. It reconciles prior R/U/AU gaps and adds N01–N14. Selected sell helper, caravan travel/risk/arrival and genetics/making/treatment/party/map/artifact leaves extend prior coverage without closing broad families.",
+      "disposition": "Delivery validation passed for static artifact structure; source/runtime coverage remains partial. No source-owner edits, game execution, personal saves or acceptance gates were claimed.",
+      "owner_or_consumer": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/; owner gaps are bounded search findings, not proof of absence",
+      "evidence_state": "Checkpoint distinguishes completed static extraction and crosswalks from unread rows; N14 runtime/personal data remains excluded.",
+      "remaining_check": "N01 command guards/debits/callbacks is named highest payoff; other exact N gaps remain source questions, not new gameplay gates.",
+      "evidence_lines": [
+        [
+          10,
+          14
+        ],
+        [
+          21,
+          30
+        ],
+        [
+          49,
+          66
+        ]
+      ]
+    },
+    {
+      "record_id": "U0478",
+      "path": "docs/research/siralim-ultimate/CHECKPOINT.md",
+      "input_sha256": "0e38d5b4fe39bc618d072c7f6e85f1038222ead9b03dd03c8cca00689211f4ba",
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "SU-P01",
+        "SU-P02",
+        "SU-P03"
+      ],
+      "mechanism_and_interactions": "Siralim bounded native analysis decoded named functions, realm/pool properties, fusion, trait, save setup and localization; actual save Step timed out. It distinguishes complete localization indexing from semantic reading and file-copy setup from crash-safe recovery.",
+      "disposition": "Read-only research delivery; proposals are not accepted gameplay. Fifteen of sixteen native targets returned bodies, but one timeout and U1–U8 gaps remain explicit.",
+      "owner_or_consumer": "docs/research/siralim-ultimate/ and private ~/.codex/research/mw-siralim/ extracts",
+      "evidence_state": "Historical dossier validation and pinned installed-file hashes are reported; no game launch, save read, YAIRPG test or persistence roundtrip.",
+      "remaining_check": "Use selected U4 helper/control-flow regions for save completion; runtime/UI/recovery remain prohibited/unproved.",
+      "evidence_lines": [
+        [
+          10,
+          18
+        ],
+        [
+          30,
+          41
+        ]
+      ]
+    },
+    {
+      "record_id": "U0479",
+      "path": "docs/research/siralim-ultimate/pass-2026-10-14-systems/CHECKPOINT.md",
+      "input_sha256": "293c26b792a65e67333b7350b9781be874d3e86293f480864c44c8321b4d7ba4",
+      "read_ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18"
+      ],
+      "mechanism_and_interactions": "Follow-up paired creature/project/decoration serializer fields and added selected knowledge, project, economy, personality, fusion, cooking, home, patron, guild, prophecy, collection, trial, event and combat evidence. It keeps whole-save completion, broad database semantics, native UI and runtime separate from those leaves.",
+      "disposition": "Delivery complete within bounds; the old broad U rows remain open/partial where only a leaf was read. U8 runtime route was prohibited, not a claim that persistent societies are absent.",
+      "owner_or_consumer": "docs/research/siralim-ultimate/pass-2026-10-14-systems/ and private ds-siralim-ultimate extracts",
+      "evidence_state": "Reported validation covers files, links, returned bodies and hashes; no game/Windows launch, save roundtrip or gameplay test.",
+      "remaining_check": "R01 rank-reader caller join is next static unit. For any adoption, use live owners and selected browser/persistence proof; no human gate is required.",
+      "evidence_lines": [
+        [
+          13,
+          17
+        ],
+        [
+          25,
+          37
+        ],
+        [
+          40,
+          63
+        ]
+      ]
+    },
+    {
+      "record_id": "U0480",
+      "path": "docs/research/six-ages/CHECKPOINT.md",
+      "input_sha256": "79e66559f72896497fbf9c6645ca0466e9e54437e603cf65aa6e5d95aceff98d",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "App881420",
+        "2278010"
+      ],
+      "mechanism_and_interactions": "The assigned title was corrected from Six Ages 1/app881420 to Six Ages 2: Lights Going Out/app2278010; no source was copied or audited.",
+      "disposition": "Retired intake; explicitly not a blocker and must not be requeued.",
+      "owner_or_consumer": "docs/research/six-ages-2/REPORT.md; dated correction at docs/gm/dispatch/life-sim-sources-2026-10-07/history/six-ages-identity-correction/six-ages-1-intake/REPORT.md",
+      "evidence_state": "Five-line checkpoint records assignment correction only; it provides no source audit evidence.",
+      "remaining_check": "No pending check for this retired title; keep Six Ages 2 as the owner.",
+      "evidence_lines": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0481",
+      "path": "docs/research/six-ages-2/CHECKPOINT.md",
+      "input_sha256": "7b8ec11b24272a981a1ff16cede1ef7455d363b4f4a8a13255cda12890373ab7",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "app2278010"
+      ],
+      "mechanism_and_interactions": "Finite Six Ages 2 pass records a per-file source/copy hash receipt and retained managed/native symbol and selected native slices; parent still owns evidence of uninstall. Arbitrary scenes and native save format remain unread without being blockers for this bounded pass.",
+      "disposition": "Bounded pass complete; uninstall is a parent follow-up, not a claim already completed.",
+      "owner_or_consumer": "docs/research/six-ages-2/INTAKE, FINDINGS, COVERAGE, DLC_COVERAGE and IMPLEMENTATION_PACKETS (as named); parent Steam uninstall evidence supplier not identified by path",
+      "evidence_state": "Checkpoint describes hash verification before audit reads, but no source details in this span; it explicitly disclaims uninstall completion.",
+      "remaining_check": "Parent must record actual Steam uninstall evidence; arbitrary scene/save-format gaps remain outside the finite pass.",
+      "evidence_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "record_id": "U0482",
+      "path": "docs/research/soulash-2/CHECKPOINT.md",
+      "input_sha256": "72fc3c3a244668cd1aab7e2ce77cc7b585ea4c24294ef2dd0b8b6da0f8770259",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "0.9.19.7",
+        "v0.10.x"
+      ],
+      "mechanism_and_interactions": "Soulash 2 audit concerns an older public Windows demo ZIP (version 0.9.19.7), with linked JSON traces and executable header inspection; the executable was not run/decompiled. Current retail v0.10.x is creator-documentation-only in this record.",
+      "disposition": "Finite bounded data audit complete; proposals unaccepted/unimplemented. No current-retail source or gameplay qualification.",
+      "owner_or_consumer": "docs/research/soulash-2/FINDINGS.json, REPORT.md, COVERAGE.json, INTAKE.json, IMPLEMENTATION_PACKETS.md",
+      "evidence_state": "Historical checkpoint reports archive hash/inventory and four JSON traces, while distinguishing data/header inspection from execution and current retail evidence.",
+      "remaining_check": "No further work for this packet; current retail claims require a separate source basis if selected.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Static source research commonly names selected mechanism chains and preserves exact unread families; its completion means bounded dossier delivery, not whole-system coverage.",
+    "Taiwu and Siralim records preserve specific state and consumer interactions, while keeping frontend caller/guard paths, migration/recovery and runtime/save proof distinct.",
+    "The assigned checkpoints cover different source products and snapshots; retired intake, older demo, installed build and source-derived findings are not interchangeable evidence."
+  ],
+  "unresolved_questions_source_gaps": [
+    "Underlying reports and source extracts were not assigned; mechanism descriptions here are limited to checkpoint claims.",
+    "No contemporary code/runtime behavior, save roundtrip, source-canon qualification, or whole-system semantic coverage was established.",
+    "Some historical owners are named only as directories or absent suppliers; no replacement owner path inferred."
+  ]
+}

@@ -13,8 +13,8 @@ JSON schema follows S003.json: `schema`, `shard`, `reader` with actual agent/mod
 - `record_id`, `path`, `input_sha256`, exact `read_ranges`, `coverage: assigned-range-content-read`.
 - `original_ids`: exact original codes/names, no guessed abbreviation expansions or invented IDs.
 - `mechanism_and_interactions`: preserve actual mechanisms, producer/state/consumer and distinguishing interactions found in the content.
-- `disposition`: historical proposal/delivery, stale statement, missing proof, compatible variant or disagreement. Read chronology, not only an opening status.
-- `owner_or_consumer`: an actual named path or explicit missing supplier. Never invent plausible report/validation filenames. Keep several world/edition/source boundaries distinct.
+- `disposition`: historical proposal/delivery, stale statement, missing proof, compatible variant or disagreement. Read full chronology and the final disposition.
+- `owner_or_consumer`: an actual named path or explicit missing supplier. Use source-established report/validation filenames. Keep several world/edition/source boundaries distinct.
 - `evidence_state` and `remaining_check`: document claims versus actually inspected source/proof, and the specific unresolved scenario or owner.
 
 Aim60–110 words per row, up to140 for a long dense record. Do not replace content review with generic role/status routing or blanket conclusions. Counts, preparation and hashes are not semantic reading. Credit only assigned lines for partial files. Source-derived methods, authored local dials, proposed future work, fixtures, native/browser/persistence proof and actual installation/integration are distinct states. A historical remaining human gate is optional feedback under current AD42, and an old pause/lease is not present authority.

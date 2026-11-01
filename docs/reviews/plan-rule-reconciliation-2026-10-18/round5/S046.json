@@ -1,0 +1,573 @@
+{
+  "schema": 1,
+  "shard": "S046",
+  "reader": "content_s046; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "97d015f8dfa97a374f226943c89f86c18c1a23ff6234728e81c7cf55293e8ec2",
+  "rows": [
+    {
+      "record_id": "U0483",
+      "path": "docs/research/stardew-valley/CHECKPOINT.md",
+      "input_sha256": "0310c51e25392a43b00e10adc183c8315d6559fa004e2629836ca60a5142fbdf",
+      "read_ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P03",
+        "A01..A12"
+      ],
+      "mechanism_and_interactions": "Static Stardew pass decoded 16 XNBs to 1790 top-level rows; selected sources included friendship recipes, events/dialogue, serialization and donor UI, while the exact friendship-letter enqueue evaluator remained untraced. No game/runtime/save behavior was exercised.",
+      "disposition": "Completed bounded source/data dossier; counts and decode checks do not mean semantic review of every row. Research proposals remain unaccepted and no YAIR gameplay acceptance is claimed.",
+      "owner_or_consumer": "docs/research/stardew-valley/FINDINGS.json; docs/research/stardew-valley/CHECKPOINT.md",
+      "evidence_state": "Static source and structural decode claims reported; current runtime, save, and YAIR integration not inspected.",
+      "remaining_check": "If selected, trace morning/mail enqueue threshold and duplicate handling; broader events, migrations and native UI/save route require their named source or authorized runtime evidence.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ],
+        [
+          9,
+          18
+        ]
+      ]
+    },
+    {
+      "record_id": "U0484",
+      "path": "docs/research/stardew-valley/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "0a391ea0c2e0fbb0e9a01518002f7768f525961666d13855db8f8b10718d5ea5",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Aspect dossier provides twelve rows and deeper-system inventory; exact friendship-recipe enqueue is still unknown because the schedule caller was not traced.",
+      "disposition": "Companion aspect delivery is partial in source coverage, not missing files; no game launch, save access or full consumer audit.",
+      "owner_or_consumer": "docs/research/stardew-valley/aspects-2026-10-14/ and ../CHECKPOINT.md",
+      "evidence_state": "Checkpoint claims artifact completion and bounded source reading only.",
+      "remaining_check": "Trace enqueue caller and separately qualify broader narrative/AI/mod/balance plus migrations and runtime/save proof.",
+      "evidence_lines": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "record_id": "U0485",
+      "path": "docs/research/streets-of-rogue/CHECKPOINT.md",
+      "input_sha256": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "FINDINGS",
+        "COVERAGE",
+        "VALIDATION"
+      ],
+      "mechanism_and_interactions": "Fallback comparison uses two public framework/mod snapshots and nine reviewed paths; the original game assembly was unavailable, so all five original-gameplay paths remain 0/5. YAIR consumers exist for comparison directions, but no behavioral acceptance follows.",
+      "disposition": "Research fallback completed with explicit unmet original-source criterion; no gameplay/build/save/profile/browser/test/commit/publication action occurred.",
+      "owner_or_consumer": "docs/research/streets-of-rogue/REPORT.md, INTAKE.json, FINDINGS.json, COVERAGE.json, VALIDATION.json",
+      "evidence_state": "Historical checkpoint summarizes source hashes and validation, not runtime behavior.",
+      "remaining_check": "Requires accessible, provenance-checked original Assembly-CSharp.dll with dependencies or pinned original gameplay reference to finish five paths; then separate runtime acceptance if selected.",
+      "evidence_lines": [
+        [
+          5,
+          7
+        ],
+        [
+          13,
+          15
+        ]
+      ]
+    },
+    {
+      "record_id": "U0486",
+      "path": "docs/research/sucker-for-love-crush-landing/CHECKPOINT.md",
+      "input_sha256": "d95d1e0901b3f46731240645e2677d4d0ff3acfba5cba11a793721589b540816",
+      "read_ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1"
+      ],
+      "mechanism_and_interactions": "Static GameMaker disassembly review traced typed heart history/final heart checks, conduct increments and recollection gates, place/possession errors, waiting preparation, ending flags surviving tracker recreation/save-load, gallery setup and collateral achievements. These are selected instruction bodies, not executed behavior.",
+      "disposition": "Bounded source audit superseded acquisition-only dossier; eight proposals and 24 touches map to YAIR owners, with P1 prepared gift recommended but unselected. Parent later requested uninstall; final manifest-absent/log-success state supersedes an earlier unverified removal note.",
+      "owner_or_consumer": "docs/research/sucker-for-love-crush-landing/FINDINGS.json, REPORT.md, IMPLEMENTATION_PACKETS.md; uninstall receipt in docs/gm/dispatch/steam-installs-2026-10-09/SUCKER_UNINSTALL.json",
+      "evidence_state": "Static disassembly and retained hash claims; no natural pacing, rendered UI, save/reload/import or YAIR proposal behavior exercised.",
+      "remaining_check": "If implementing, inspect current owners and run a rebuilt gameplay/persistence route. Historical singular point_wicked read versus plural points_wicked increment remains unresolved; route/dialogue reachability and external localization/extensions are outside audit.",
+      "evidence_lines": [
+        [
+          24,
+          33
+        ],
+        [
+          40,
+          47
+        ],
+        [
+          49,
+          51
+        ]
+      ]
+    },
+    {
+      "record_id": "U0487",
+      "path": "docs/research/sunless-sea/CHECKPOINT.md",
+      "input_sha256": "b674a3e2bc1071f08f59d33faa814763692f725fc0a0ede7e459895642642ab3",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Section B",
+        "Sea"
+      ],
+      "mechanism_and_interactions": "Recovered managed method bodies and 26 TextAssets; targeted inheritance/storylet/pressure traces were read. Source fingerprints and copied hashes matched, but story/DLC review was not exhaustive and no runtime proof occurred.",
+      "disposition": "Assigned Sea research complete and proposals unaccepted; installed state is distinct from audit completion. No uninstall attempted.",
+      "owner_or_consumer": "docs/research/sunless-sea/CHECKPOINT.md and COVERAGE.md (actual public coverage supplier located during coordinator check); RETENTION.json is the named source/copy receipt. No runtime consumer assigned.",
+      "evidence_state": "Checkpoint reports validation and retained outputs; not independently reopened here.",
+      "remaining_check": "No gameplay acceptance. Future Sea selection needs chosen proposal and fresh runtime/persistence proof; do not restart completed extraction.",
+      "evidence_lines": [
+        [
+          5,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0488",
+      "path": "docs/research/sunless-skies/CHECKPOINT.md",
+      "input_sha256": "d8bc4fd8b032d1f41808aa2fba361ff1b363e046bebfeb21143fa16e216dd4d8",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Section B",
+        "Skies"
+      ],
+      "mechanism_and_interactions": "ILSpy recovered method bodies and 12 TextAssets; five tables were decoded to exact EOF, with selected traces and a partial main-config prefix. XP formula, heirloom display tag and source-versus-inference distinctions remain explicit.",
+      "disposition": "Assigned Skies dossier and validation completed; no gameplay acceptance or whole-story/DLC coverage. No install mutation/uninstall.",
+      "owner_or_consumer": "docs/research/sunless-skies/VALIDATION.json and dossier; matching private extraction",
+      "evidence_state": "Historical validation reports hashes/counts, not play proof.",
+      "remaining_check": "No gameplay acceptance; retain named formula/tag/source gaps if selected and qualify via source/consumer evidence.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0489",
+      "path": "docs/research/super-robot-wars/CHECKPOINT.md",
+      "input_sha256": "20a7ca2cb0d076380294d465ef5be6a8ed76abe2e490b171f5507344d495759f",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1",
+        "P2",
+        "P5"
+      ],
+      "mechanism_and_interactions": "Series/system research summarizes Spirit Command and related systems; checkpoint identifies character-specific secret conditions, non-Z/V/30 mastery formulas and route charts as unverified. No game-side mechanism was implemented.",
+      "disposition": "Web research complete at series/system level, but source-specific unknowns remain; P1/P2 cheapest canon-first fit and P5 deferred are historical suggestions, not accepted selection.",
+      "owner_or_consumer": "docs/research/super-robot-wars/ checkpoint and its linked research artifacts",
+      "evidence_state": "Checkpoint reports URLs consulted and inaccessible sources; no game execution.",
+      "remaining_check": "If a packet is selected, obtain reliable route/secret or chart references and then define actual world consumer; no runtime gate was part of research.",
+      "evidence_lines": [
+        [
+          3,
+          15
+        ]
+      ]
+    },
+    {
+      "record_id": "U0490",
+      "path": "docs/research/taiwu-ingredient-use-2026-10-15/CHECKPOINT.md",
+      "input_sha256": "db3a7a599165bf236d4feb31f40fe7126e044cb127de85ff5520d2d8810870a7",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "DQ1",
+        "Q1-Q5"
+      ],
+      "mechanism_and_interactions": "Static source traced ingredient selection through MakeItemType joins, frontend requests, debit, output generation and use: Material140 reaches medicine275 hit-stat calculation and medicine61 injury mutation. Selected subtype Time0 plus immediate collection/no collection-time check removes mandatory waiting queue for this path.",
+      "disposition": "Research complete at static-code layer, with official manufacturing images; no lot sampled or native result/use UI, stock/stat/injury pre/post, failure recovery or persistence exercised. Follow-on comparisons are proposals.",
+      "owner_or_consumer": "docs/research/taiwu-ingredient-use-2026-10-15/REPORT.md, INGREDIENT_TO_USE.md, UI_EVIDENCE.md, VALIDATION.json",
+      "evidence_state": "Checkpoint reports source path and image inspection; no game launch or save read.",
+      "remaining_check": "Native UI and actual transaction outcome, failure/recovery, save/reload still need selected controlled runtime evidence.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          11,
+          11
+        ]
+      ]
+    },
+    {
+      "record_id": "U0491",
+      "path": "docs/research/tale-of-immortal/CHECKPOINT.md",
+      "input_sha256": "3195048d84a10c251c2fc32922e30079789433a0b66b4de32c6c770d24e23322",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "nine lenses"
+      ],
+      "mechanism_and_interactions": "Selected native readings support memory insertion/retention, ordinary-log pruning, event formula, material-rate aggregation and conditional GZip save write; direct-store recovery was partial and arrays/other allocation plus active mod overrides opaque. It is not whole-game semantic or playable coverage.",
+      "disposition": "Finite extraction/source audit completed; packets remain proposals. Current household/biography code already exists in YAIR, correcting stale north-star claim. No uninstall authorization implied.",
+      "owner_or_consumer": "docs/research/tale-of-immortal/REPORT.md, COVERAGE.json, IMPLEMENTATION_PACKETS.md; current life-sim foundation/experience integrators if later selected",
+      "evidence_state": "Checkpoint summarizes retained source and selected native method readings; no runtime/source canon audit by this reader.",
+      "remaining_check": "Maintain gaps for marriage/childbirth, breakthrough payment/RNG, scheduler/offscreen, death/rescue, DLC, save bounds and others listed in COVERAGE; selected work needs fresh-origin and persistence proof.",
+      "evidence_lines": [
+        [
+          9,
+          13
+        ],
+        [
+          21,
+          25
+        ]
+      ]
+    },
+    {
+      "record_id": "U0492",
+      "path": "docs/research/tale-of-immortal/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "339a9f2cc0a5527a0a9dd8426c956488d51f8169724da45219fe8897a7062678",
+      "read_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "A04"
+      ],
+      "mechanism_and_interactions": "Aspect inventory covers available file/table/module families and deeper systems, but source gaps include current save codec/migrations, dialogue/effect and NPC goal consumers, semantically unread story branches, and rendered UI/save/DLC activation.",
+      "disposition": "All fixed-key aspect artifacts and validation delivered; PARTIAL describes source/execution gaps, not missing deliverables. No implementation/play acceptance.",
+      "owner_or_consumer": "docs/research/tale-of-immortal/aspects-2026-10-14/ASPECTS.md and CHECKPOINT.md",
+      "evidence_state": "Artifact validation reported; no game launch/save/UI evidence.",
+      "remaining_check": "A04 requires executable/native body; interpreter/selectors require consumer bodies; runtime/save and DLC need separately authorized proof.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          13,
+          24
+        ]
+      ]
+    },
+    {
+      "record_id": "U0493",
+      "path": "docs/research/tale-of-immortal/pass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "cd36868d76ebf50152e85e9d52ec268d5a131b31cd614a85dec04fd18c5a2af8",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Official workbook/JSON cross-check is parsing evidence, not semantic coverage. Execution gaps include NPC cultivation/marriage/student selectors, marriage/childbirth transactions, breakthrough debit/RNG/order, Tribulation74 completion, death/rescue, office replacement, aftermath graph and scheduler; current build was unknown.",
+      "disposition": "Second static pass completed for available tables, but absent install/binary prevents executable qualification; no game run, save read, browser acceptance or implementation. Earlier opaque branches remain outside follow-up.",
+      "owner_or_consumer": "docs/research/tale-of-immortal/pass-2026-10-14/REPORT.md, COVERAGE.json; named consumers in checkpoint",
+      "evidence_state": "Checkpoint records workbook/source identities and artifact checks only.",
+      "remaining_check": "Restore/qualify current source or counterpart evidence, then trace the specifically named consumers; no implementation selected or authorized.",
+      "evidence_lines": [
+        [
+          11,
+          17
+        ],
+        [
+          19,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0494",
+      "path": "docs/research/tales-of-maj-eyal/CHECKPOINT.md",
+      "input_sha256": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "talent/scaling",
+        "legal action/effect",
+        "contextual AI",
+        "quest/achievement/unlock"
+      ],
+      "mechanism_and_interactions": "Official ToME sources show connected paths for talent/scaling, legal action/effect, contextual AI, quest/achievement/unlock and material/equipment, with actual consumers and failures. Coverage is 37 selected Lua/C files and 3112 lines, not whole modules/DLC/gameplay.",
+      "disposition": "Finite source research complete; three ranked packets remain unselected. Live YAIR source had concurrent hooks/schema10 acceptance, while cited Reference bundle hash was an earlier owner receipt, not current build/behavior proof.",
+      "owner_or_consumer": "docs/research/tales-of-maj-eyal/REPORT.md, FINDINGS.json, IMPLEMENTATION_PACKETS.md; existing runtime owners if selected",
+      "evidence_state": "Historical source comparison/validation reported; no runtime, UI, save, canonical/build/gameplay or install operation.",
+      "remaining_check": "Before runtime selection reconcile current inputs/owners; proposed behavior, failure, save/import, combat and balance remain untested. Full-game/DLC/hook/profile/RNG gaps remain.",
+      "evidence_lines": [
+        [
+          7,
+          11
+        ],
+        [
+          13,
+          21
+        ]
+      ]
+    },
+    {
+      "record_id": "U0495",
+      "path": "docs/research/the-lands-of-eldyn/CHECKPOINT.md",
+      "input_sha256": "10ae6820cbd3c3c4ecaedcf9c0011ed535381f21123fcad2ce76f3553617fc0d",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1-F5"
+      ],
+      "mechanism_and_interactions": "Entire selected app-owned Electron wrapper was inspected, but gameplay is remotely delivered and absent locally; mechanic audit is therefore blocked. Five UX proposals and 22 touches reference native surfaces only.",
+      "disposition": "Dossier and copy gate completed, but no source-derived gameplay mechanics or runtime/UI/save proof. Parent removal request and remote check did not recover gameplay; final receipt says uninstall not verified, dialog unobserved.",
+      "owner_or_consumer": "docs/research/the-lands-of-eldyn/REPORT.md, private AUDIT_VERIFICATION.json; uninstall/reachability receipts in dispatch folder",
+      "evidence_state": "Checkpoint reports ASAR hashes and selected byte correspondence; no launch or save access.",
+      "remaining_check": "Only a provenance-checked source/reference for remote gameplay could resolve mechanics; current receipt does not establish permanent shutdown or removal.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          11,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0496",
+      "path": "docs/research/the-strange-tabletop/CHECKPOINT.md",
+      "input_sha256": "58950e45c46d1e58255391111a8dd464d4b7f0c30b789551e84afc903aa2bbb1",
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "MWTS-P02"
+      ],
+      "mechanism_and_interactions": "Targeted Strange sources distinguish SHOWN/STATED/INFERRED and generic CSRD/editorial additions from Strange rules. Gaps include full focus/Pool arithmetic, artifact mismatch/degeneration rules, recursion construction/upkeep, full catalogs, companion custody rules and digital engine/save/UI.",
+      "disposition": "Public-source dossier and aspect outputs complete for bounded pass, but not a full-rulebook audit or gameplay implementation. Proposals remain proposals.",
+      "owner_or_consumer": "docs/research/the-strange-tabletop/REPORT.md, IMPLEMENTATION_PACKETS.md, SOURCES.md",
+      "evidence_state": "Checkpoint reports captured 14 public references and structural checks; no digital build/runtime.",
+      "remaining_check": "Further selected claims require lawful official excerpts/supplied rules; digital save/UI are tabletop non-goals for this source gap, not guessed classes.",
+      "evidence_lines": [
+        [
+          5,
+          12
+        ],
+        [
+          14,
+          27
+        ]
+      ]
+    },
+    {
+      "record_id": "U0497",
+      "path": "docs/research/the-strange-tabletop/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "f5dab4b3b3df9c64c033c12cccf514818694ae284fecae4c87462bfc2a260c15",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12"
+      ],
+      "mechanism_and_interactions": "Inventory has 27 scoped subsystems; deeper reads cover travel/laws, item manifestation/support and world authorship, not full commercial rulebook/catalog or digital implementation.",
+      "disposition": "All aspect rows represented; partial is source breadth limitation, not missing artifact delivery.",
+      "owner_or_consumer": "docs/research/the-strange-tabletop/aspects-2026-10-14/ASPECTS.md and parent CHECKPOINT.md",
+      "evidence_state": "Checkpoint refers to lane gap table; no independent source verification.",
+      "remaining_check": "Use parent named unread table for exact rule gaps; preserve no digital implementation/full catalog claim.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0498",
+      "path": "docs/research/theory-of-magic/CHECKPOINT.md",
+      "input_sha256": "af754eacfe52d2c5e7858af5ae49b1721e1047c45060079e5742e8261b0f8e28",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "six artifacts"
+      ],
+      "mechanism_and_interactions": "Static community/original identity and source hashes were checked; existing YAIR automation/biography/save guard/household/read-progress owners were explicitly reconciled. Pacing and rendered UI were not exercised.",
+      "disposition": "Bounded research complete with six deliverables, eight proposals and 24 touches; no implementation or user-game build claim. Parent was to integrate report.",
+      "owner_or_consumer": "docs/research/theory-of-magic/REPORT.md, INTAKE.json; existing automation/biography/save/household owners",
+      "evidence_state": "Checkpoint reports hash/path validation, not gameplay evidence.",
+      "remaining_check": "If implementation selected, inspect current native owner and overlapping lanes, pick one packet and run fresh-origin/persistence gates.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ]
+    },
+    {
+      "record_id": "U0499",
+      "path": "docs/research/theory-of-magic/repass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "329741422a6e0860aea44e4731569db0d7d54fd08ce51bfb2b4c4bb22f8aafdb",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P4",
+        "invigorate",
+        "defense_stance"
+      ],
+      "mechanism_and_interactions": "Selected exact source pins trace invigorate acquisition, resource conversion, community XP, paid training completion and defense_stance threshold, including blocked cast, fine/coarse runner exception, missing cast XP, different training means and constructor-added next-spell arcana cost.",
+      "disposition": "Static selected-chain gate complete; runtime and wider catalogue semantics remain open. It preserves explicit no-execution/no-save status and private resumable call-flow evidence.",
+      "owner_or_consumer": "docs/research/theory-of-magic/repass-2026-10-14/REPORT.md, COVERAGE.json; private DECODED_CALL_FLOW",
+      "evidence_state": "Checkpoint reports restored hashes and source-chain review; no source/game execution.",
+      "remaining_check": "If extended, first read report/private decoded call flow then named remaining catalogues; runtime needs separately scoped task.",
+      "evidence_lines": [
+        [
+          3,
+          13
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    {
+      "coordinator_removed_nonliteral_original_ids": {
+        "U0483": [],
+        "U0484": [
+          "A01-A12"
+        ],
+        "U0485": [],
+        "U0486": [
+          "A1-A5"
+        ],
+        "U0487": [],
+        "U0488": [],
+        "U0489": [],
+        "U0490": [],
+        "U0491": [
+          "46 findings",
+          "eight proposals"
+        ],
+        "U0492": [
+          "G1-G4"
+        ],
+        "U0493": [
+          "A04",
+          "G1-G4",
+          "P4"
+        ],
+        "U0494": [],
+        "U0495": [],
+        "U0496": [],
+        "U0497": [],
+        "U0498": [
+          "5-10 proposals"
+        ],
+        "U0499": []
+      }
+    },
+    "Removed assumed COVERAGE.json extension from Sunless Sea supplier, retaining exact named coverage receipt without guessing."
+  ],
+  "cross_record_findings": [
+    "Across research checkpoints, source decoding, selected semantic reading, integration proposals, runtime play and persisted behavior are distinct evidence. Counts, successful extraction and folder delivery do not establish whole-game coverage.",
+    "Multiple check-ins explicitly identify missing live consumers or runtime evidence; dispositions remain proposals even where static research is complete, and historic pause/uninstall requests are not present authorization.",
+    "Paired/second-pass records preserve chronology: later source layers can narrow a prior inference (Taiwu timing), correct stale claims (ToI household/biography), or refine the removal state (Crush Landing and Eldyn) without upgrading gameplay proof."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0483: friendship-recipe enqueue behavior and source-level broader systems are partial; no runtime validation.",
+    "U0484: schedule caller and runtime/UI/save proofs absent.",
+    "U0485: original game source unavailable; gameplay acceptance deferred.",
+    "U0486: selected static source only; variable naming discrepancy unresolved; proposed behavior untested.",
+    "U0487: story/DLC semantic coverage and runtime remain open.",
+    "U0488: runtime and full story/DLC semantics unverified.",
+    "U0489: secret conditions and mastery/route detail unverified.",
+    "U0490: actual lot and native/persistence evidence absent.",
+    "U0491: numerous opaque execution branches and DLC/source coverage remain.",
+    "U0492: save codec, consumer bodies, story semantics and UI/runtime remain unqualified.",
+    "U0493: many execution chains and current build qualification remain unavailable.",
+    "U0494: selected path coverage only; no integration/play acceptance.",
+    "U0495: remotely delivered gameplay absent; mechanism audit blocked; uninstall unverified.",
+    "U0496: specific commercial-rule arithmetic and exceptions remain unverified.",
+    "U0497: full rulebook, catalog and digital behavior are not covered.",
+    "U0498: pacing/UI unrun; static source only.",
+    "U0499: runtime and wider catalogue semantics remain open."
+  ]
+}

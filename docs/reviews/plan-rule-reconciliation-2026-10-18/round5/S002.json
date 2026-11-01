@@ -23,7 +23,14 @@
       "disposition": "Closed bounded source review with exact hash scope; later source changes reopen affected coverage, and no synthetic gameplay/save or full-host proof follows.",
       "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          9
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0020",
@@ -39,13 +46,20 @@
       "original_ids": [
         "P1",
         "P2",
-        "P3\u2013P5"
+        "P3–P5"
       ],
       "mechanism_and_interactions": "Five original connected proposals join material ownership, ordinary work/care, independent actor means, knowledge and supported deadlines. Material custody, actual attention tradeoffs, consent and exposure endpoint retention are necessary interfaces, not inferred plot rails.",
       "disposition": "Finite synthesis complete; strongest two design packets are not selected runtime. Preserved source/edition cutoffs and current ownership snapshots remain historical, not whole-book coverage or present leases. Later care delivery U0031 records selected P1/P2 implementation scope.",
       "owner_or_consumer": "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          17
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0021",
@@ -59,7 +73,7 @@
       ],
       "coverage": "full-record-content-read",
       "original_ids": [
-        "MoL completion rows2\u20134",
+        "MoL completion rows2–4",
         "motherOfLearning schema1",
         "molAcceptedJob"
       ],
@@ -67,7 +81,14 @@
       "disposition": "Selected source/native leaves and checks reported, but final root integration findings remained. Negative assessment, engineered non-mage method and local opponent/numbers are original proposals; no loop reset, lead memories or source-future restoration was implemented.",
       "owner_or_consumer": "docs/gm/book-world-completion-2026-10-06/MOL_INTEGRATION.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          13
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0022",
@@ -88,7 +109,14 @@
       "disposition": "Final leaf release and repaired root joins supersede earlier in-progress wording within this document. Root build is explicitly not proven by that leaf release; five named behavior/return/recovery journeys remain unrun. All new chronology/numbers/branches stay authored proposals.",
       "owner_or_consumer": "docs/gm/book-world-completion-2026-10-06/PARADISE_ACCEPTANCE_BACKLOG.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          15
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0023",
@@ -102,7 +130,7 @@
       ],
       "coverage": "full-record-content-read",
       "original_ids": [
-        "P01\u2013P11",
+        "P01–P11",
         "19 agency contracts",
         "nethack fieldcraft"
       ],
@@ -110,7 +138,14 @@
       "disposition": "Root source/native/UI/build delivery supersedes pending leaf integration at this historical snapshot, not current gameplay proof. Arbitrary named-actor attack/replacement and broader source parity remain separate; original branch timing/rewards are not canon.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          11
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0024",
@@ -131,7 +166,14 @@
       "disposition": "Keep separate source mission/event clocks and unknown current means; authored short gates are not synchronization proof. A local account closes observation only, without granting source-world task completion/transit. Parent U0023 records later finite integration, not behavioral acceptance.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          13
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0025",
@@ -154,7 +196,14 @@
       "disposition": "Alias/data integrity does not make nineteen worlds playable. Later MW-03 U0017 preserves heterogeneous provenance fields; parent U0023 retains a separate finite native-world binding.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/contracts/CONTRACTS.json",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          13
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0026",
@@ -176,7 +225,14 @@
       "disposition": "Two concrete historical integration defects plus source-consumer requirements, not newly reproduced current bugs. Parent U0023 reports later combined source admission and U0029 readback covers9/10 coexistence; old patch cannot be reapplied wholesale over changed shared owners.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/review/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          14
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0027",
@@ -196,7 +252,14 @@
       "disposition": "Static source/import inspection did not call the projector or prove native rendering. Parent source/build receipt is later evidence of integration; observation/empty/unknown display behavior still requires actual consumer verification when selected.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          7
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0028",
@@ -217,7 +280,14 @@
       "disposition": "Final current-adapter hash differs from provisional source list, both retained historically. Host/action imports and root reset-before-absence behavior were pending at this leaf stage; parent U0023 is later source/build evidence, not native behavior proof.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          27
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0029",
@@ -231,7 +301,7 @@
       ],
       "coverage": "full-record-content-read",
       "original_ids": [
-        "P01\u2013P11",
+        "P01–P11",
         "R01",
         "R02"
       ],
@@ -239,7 +309,14 @@
       "disposition": "Initial defect and later completion fingerprints have different scopes. No new concrete P1/P2 finding in the inspected source does not establish final bundle or player/save behavior; later parent owns build.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          11
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0030",
@@ -254,14 +331,20 @@
       "coverage": "full-record-content-read",
       "original_ids": [
         "opening/Goa source-fit",
-        "20 evidence rows",
-        "ERA_CARD_SID20"
+        "20 evidence rows"
       ],
       "mechanism_and_interactions": "Bounded reused MTL source fit retains exact members/hashes, era/source state, unconfirmed custody and unknown current mana. Distinct source clocks and qualified means do not grant player copies, future methods or rewards.",
       "disposition": "Narrow reader was mistakenly written to parent checkpoint and corrected into its own source-fit owner. Completed local qualification is not parent campaign completion or whole-novel reading; parent final build owns actual integrated bytes.",
       "owner_or_consumer": "docs/gm/book-world-player-agency/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          7
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0031",
@@ -279,10 +362,17 @@
         "73 commands"
       ],
       "mechanism_and_interactions": "Specific treatments/dressing and opted-in encounter wound watch use actual committed damage cause, native body and existing effects owner. Original paid material work, independent responses, consent and conserved material/exposure endpoints connect care to ordinary useful work.",
-      "disposition": "Twelve new and twelve shared source joins, repairs and matching build are historical implementation-first delivery. No behavior/save/failure proof; other P3\u2013P5/full-world parity remains unselected, and new local fiction/costs are proposals.",
+      "disposition": "Twelve new and twelve shared source joins, repairs and matching build are historical implementation-first delivery. No behavior/save/failure proof; other P3–P5/full-world parity remains unselected, and new local fiction/costs are proposals.",
       "owner_or_consumer": "docs/gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          13
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0032",
@@ -296,14 +386,21 @@
       ],
       "coverage": "full-record-content-read",
       "original_ids": [
-        "Causal P1\u2013P5",
+        "Causal P1–P5",
         "seven source modules"
       ],
       "mechanism_and_interactions": "Independent native people use own stock/body/purse/source/knowledge and a shared played clock. Physical result, goal closure and finality remain separate, with actual source-supported counter operations and observer-specific receipts.",
       "disposition": "Source role released; later parent U0008 records source/native/build integration. Present strength/prediction alone does not establish the authored anchor relation, and all five behavioral/durable recovery families remain unrun.",
       "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          25
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0033",
@@ -326,11 +423,26 @@
       "disposition": "Read facts/definitions neither enroll nor refill. Shared completion owns actual source release and one kit return, excluding generic sever_job dispatch; authored values/profiles are proposals, and no changed-definition behavior proof follows from older tests.",
       "owner_or_consumer": "docs/gm/causal-endings/INTEGRATION.md",
       "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
-      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here."
+      "remaining_check": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "evidence_lines": [
+        [
+          1,
+          15
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     }
   ],
   "cross_record_findings": [
     "Later finite parent delivery qualifies leaf native/schema/fact-provider integration gaps without erasing their historical failure evidence.",
     "Source-fit review, inactive contracts and source/native/build admission remain distinct from whole-world qualification and player journeys."
-  ]
+  ],
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
+  ],
+  "coordinator_final_metadata_corrections": {
+    "U0030": [
+      "ERA_CARD_SID20"
+    ]
+  }
 }

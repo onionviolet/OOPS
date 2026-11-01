@@ -2,8 +2,8 @@
   "schema": 1,
   "scope": "Full-record content coverage from accepted disjoint reader spans; not source-canon/runtime proof",
   "requested": 519,
-  "completed": 418,
-  "remaining": 101,
+  "completed": 519,
+  "remaining": 0,
   "accepted_shards": [
     "S001",
     "S002",
@@ -41,7 +41,18 @@
     "S034",
     "S035",
     "S036",
-    "S037"
+    "S037",
+    "S038",
+    "S039",
+    "S040",
+    "S041",
+    "S042",
+    "S043",
+    "S044",
+    "S045",
+    "S046",
+    "S047",
+    "S048"
   ],
   "complete_ids": [
     "U0001",
@@ -461,12 +472,111 @@
     "U0415",
     "U0416",
     "U0417",
-    "U0418"
+    "U0418",
+    "U0419",
+    "U0420",
+    "U0421",
+    "U0422",
+    "U0423",
+    "U0424",
+    "U0425",
+    "U0426",
+    "U0427",
+    "U0428",
+    "U0429",
+    "U0430",
+    "U0431",
+    "U0432",
+    "U0433",
+    "U0434",
+    "U0435",
+    "U0436",
+    "U0437",
+    "U0438",
+    "U0439",
+    "U0440",
+    "U0441",
+    "U0442",
+    "U0443",
+    "U0444",
+    "U0445",
+    "U0446",
+    "U0447",
+    "U0448",
+    "U0449",
+    "U0450",
+    "U0451",
+    "U0452",
+    "U0453",
+    "U0454",
+    "U0455",
+    "U0456",
+    "U0457",
+    "U0458",
+    "U0459",
+    "U0460",
+    "U0461",
+    "U0462",
+    "U0463",
+    "U0464",
+    "U0465",
+    "U0466",
+    "U0467",
+    "U0468",
+    "U0469",
+    "U0470",
+    "U0471",
+    "U0472",
+    "U0473",
+    "U0474",
+    "U0475",
+    "U0476",
+    "U0477",
+    "U0478",
+    "U0479",
+    "U0480",
+    "U0481",
+    "U0482",
+    "U0483",
+    "U0484",
+    "U0485",
+    "U0486",
+    "U0487",
+    "U0488",
+    "U0489",
+    "U0490",
+    "U0491",
+    "U0492",
+    "U0493",
+    "U0494",
+    "U0495",
+    "U0496",
+    "U0497",
+    "U0498",
+    "U0499",
+    "U0500",
+    "U0501",
+    "U0502",
+    "U0503",
+    "U0504",
+    "U0505",
+    "U0506",
+    "U0507",
+    "U0508",
+    "U0509",
+    "U0510",
+    "U0511",
+    "U0512",
+    "U0513",
+    "U0514",
+    "U0515",
+    "U0516",
+    "U0517",
+    "U0518",
+    "U0519"
   ],
-  "partial_ids": [
-    "U0419"
-  ],
-  "source_words_read": 187779,
+  "partial_ids": [],
+  "source_words_read": 242181,
   "rows": [
     {
       "id": "U0001",
@@ -6748,7 +6858,7 @@
     {
       "id": "U0419",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
-      "status": "partially-read",
+      "status": "content-reviewed",
       "input_sha256": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
       "evidence": [
         {
@@ -6757,708 +6867,1529 @@
             369
           ],
           "receipt": "round5/S037.json"
+        },
+        {
+          "range": [
+            370,
+            745
+          ],
+          "receipt": "round5/S038.json"
+        },
+        {
+          "range": [
+            746,
+            1030
+          ],
+          "receipt": "round5/S039.json"
         }
       ]
     },
     {
       "id": "U0420",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "644c52a59e60f7eeb02a12dab89be4f75359a1af6c0f99b8de567fa6924f33a0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            26
+          ],
+          "receipt": "round5/S039.json"
+        }
+      ]
     },
     {
       "id": "U0421",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1bb42c010c4fbd6c5d92e609983679af57502db9750fed58cd4ec50c398f58ee",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            31
+          ],
+          "receipt": "round5/S039.json"
+        }
+      ]
     },
     {
       "id": "U0422",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9c209f8dd7a227c7700f4741d0d360ce840d69c4b09f5a35c448f7bc596b5aae",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            18
+          ],
+          "receipt": "round5/S039.json"
+        }
+      ]
     },
     {
       "id": "U0423",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "677ba19829d3ce7b866c7e02fecc9072dc5c89c5c5227f1d5805800f37a04600",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            25
+          ],
+          "receipt": "round5/S039.json"
+        }
+      ]
     },
     {
       "id": "U0424",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "181a598cda3bc86c43af12336cbb6078dda1a332af8cf448d4cb539dcf574773",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            30
+          ],
+          "receipt": "round5/S040.json"
+        }
+      ]
     },
     {
       "id": "U0425",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/r2-2026-10-13/review/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "6a26651d286c2612aaa45288709448ca4d780975f67c72c220e00724bc476c96",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S040.json"
+        }
+      ]
     },
     {
       "id": "U0426",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9802fa523b7e675eb8ea9f60edc893e9629b1696aa6e9a9e1d4354dcbc095d3a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            14
+          ],
+          "receipt": "round5/S040.json"
+        }
+      ]
     },
     {
       "id": "U0427",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1fcecc621cc90a8d73f1b4f213b62e15cbac7ce1edbaa6a5fdba90025018d9ad",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            322
+          ],
+          "receipt": "round5/S041.json"
+        },
+        {
+          "range": [
+            323,
+            429
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0428",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9641d151a747da6702db72ee5588b19303bf9d9d203880c002a1164a8be5c6d9",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0429",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8c23f119a4f21cbccdaf8984793877bb251c6d2192221f933294119a4c8c1964",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            22
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0430",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1505a1c7caab7c70fe4af02a839ac44e6c71caa8e341ff3645a1f55c1844b3bf",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            28
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0431",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "25b169f0e0323edca8745b64399872b462739507b3f3b1f5e386fcaeeb46dc40",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            35
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0432",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "2d818da05017b2639a470155935a460f1ea5791f8386842529e6d40e13382a53",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            10
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0433",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "b187d2f9049c5a690775d16c5921de92694397936bcccb52509e3e27f7fc2d37",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0434",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "fe9a7c0c7443d286b59d65b6c45ccdf5ef534ba3c50ac171c98c8b34d2f76fd2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            65
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0435",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "42861d00a71879e427678ca21385efbe11cf1254971b20453014046eb04a8892",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            16
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0436",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "50e05692e8afe8bece35338d01beb3445f1181454a02e680ccc527fa0df268a8",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            25
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0437",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/qualifier/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "364d1b80cd46680b89ff3f8d3f9c37eb153057b4c0e01fc0d9d8fa821f8254b0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            26
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0438",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "601be91e0d9371b8fff95295690796985c8fb3e8bfa683bafa37b3b1049e0bad",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0439",
       "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/skyrim-full/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "83a99665d16e7e3831f9f670a91d26f08f756ea79ac2b6ad2b216f82c0cb23f6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            28
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0440",
       "path": "docs/research/procedural-crafting-ui-2026-10-15/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "15898ebef9692c04262dff8a4c0494e986e889d0c8d64bb11bf311585cfd8844",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            39
+          ],
+          "receipt": "round5/S042.json"
+        }
+      ]
     },
     {
       "id": "U0441",
       "path": "docs/research/project-zomboid/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "08c4806b421e0f2e1901e69a5cc071b38254c1c306f0d5470afaa3df20d0173d",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0442",
       "path": "docs/research/project-zomboid/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a43e0a87be8fb45cadb1610ec7e37393ef87e584759b78ef80a7253ce32833a9",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            14
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0443",
       "path": "docs/research/qud-systems-audit-2026-10-15/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1fbcf6f00386aca0622563741b00cce65c63c358b9ed357be0831584c1b20cce",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            62
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0444",
       "path": "docs/research/qud-systems-audit-2026-10-15/depth-5/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "81d9d303493da52e027cd2f00d55d7b2d6c8fcfeaef3a67a4698286a4f92dbe2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0445",
       "path": "docs/research/qud-systems-audit-2026-10-15/depth-5/independent-audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7625ddd54941dc6d7ef96af739e26b98c8d0a28cbf948e9e0502ca625a9005ce",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0446",
       "path": "docs/research/qud-systems-audit-2026-10-15/depth-6/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "e120829b3c4b811de1851dcefe62d75a6e25283cc011d3a7f10034d546c4fad2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0447",
       "path": "docs/research/qud-systems-audit-2026-10-15/depth-6/independent-audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "998387b460e2027108ce15b6dbe0353b9fcaa0785e4a1171df82b0535a282a64",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0448",
       "path": "docs/research/qud-systems-audit-2026-10-15/depth-7/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "e2fec2de5f7dba017d2590ca45122b5779fdc7d65ebf321ab8e30cc51c37f679",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0449",
       "path": "docs/research/qud-systems-audit-2026-10-15/depth-7/independent-audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ab30a3e0e14c33e7bd892253dd2f1ec2a10c23fecebf5851dcaacb07aa7c0a2a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0450",
       "path": "docs/research/rain-world/emergence-2026-10-15/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ab7c8929b4deacd407576b4cb8acf0f3c8b88831bd9106a36f5d41e34e739d0c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0451",
       "path": "docs/research/rain-world/emergence-2026-10-15/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "21ba47122993cd2c69c03f0ccbb5d31ea0358461b241396e04cec0fb4f93372a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0452",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-2/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9f3728697230f00ec3921fbf2afd8f40bc88f415cd0ae112e0730bc58fab7e24",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0453",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-2/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d3ded39890c349d1d0a9536a0603df9d43ef2ab130a9ec35cab6fa3cf85843c9",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0454",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-3/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "c1d0c586e1714df9d48a2e5419e77c3feeb2f6cb2b04f90d5ed67fc06f0630c6",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0455",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-3/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ef5d2603f5ffacfda5fb554a7105fcaf665aa53d96e670ab3b14da69e851f6f0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0456",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-4/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ecaa6d1de341188211cb57b99b544c68fb6865de1714469c1bee681003254785",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0457",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-4/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a3265eef1469f54e0aee362b825bc8dcc43162205fd3d2360d39aaf817237b71",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0458",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-5/audit/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "47f29e54dd54cbdd8224aab2972d969aef188a5c4fb33be6af8874c5a4fdbb75",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0459",
       "path": "docs/research/rain-world/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ffbfbd4e028cdd5f88521c96e5ced32aeb6d78b6a8b943f69616384b7426798b",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0460",
       "path": "docs/research/remnant-2/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "9877b04077f2380f73f49aec8b46f76fd21c732d34eb51936b2a3c34e5c1b959",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            41
+          ],
+          "receipt": "round5/S043.json"
+        }
+      ]
     },
     {
       "id": "U0461",
       "path": "docs/research/remnant-2/pass-2026-10-15-deep/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "b4d2d785a667467221ee27dea09fb20ebe0b4af4d277f5a728c9a875de2a9943",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            67
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0462",
       "path": "docs/research/rimworld/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "32cebd72dc997d2df23e556feab97d5ea066dd446a7370e0e7f74b216b00e61a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0463",
       "path": "docs/research/rimworld/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "48f91cecc96ebeb76320a91b14c2489b346197d2b3985f0acee038fbd3988780",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            35
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0464",
       "path": "docs/research/rimworld/feature-pass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "2b7463809755e7edb055f899c49cd7cb63c201e04a5e14a4eb568ac98efe7276",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            30
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0465",
       "path": "docs/research/rimworld/feature-pass-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "2b7463809755e7edb055f899c49cd7cb63c201e04a5e14a4eb568ac98efe7276",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            30
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0466",
       "path": "docs/research/rimworld/pass-2026-10-14-deep/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "af9f0f06cfad3736f8a10cdb5612cd0fc001888f1ea1d63454f3e5a9d23aed00",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            35
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0467",
       "path": "docs/research/rimworld/pass-2026-10-14-deep/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f86199762ef57476f9c7676fcf12bba558d7a9594ac8b9e300384918a397cc49",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            6
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0468",
       "path": "docs/research/rimworld/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ab341663612468a66e568f45ddb0568d7c14d281c795df4a207dc3b8f81cfe3a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            43
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0469",
       "path": "docs/research/rogue-legacy/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "16c3bf662cb72eb9d635c71a3e88163dff6e08cff80b0338a38e1e6f6b40445f",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0470",
       "path": "docs/research/rune-factory-5/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "ad66c6ca599446663bc7fc1f5370ad4b18e340a8fd01ee37e0b6c966299dbd4e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            29
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0471",
       "path": "docs/research/rune-factory-5/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3760fdca362ce7e97cf4a8a7b2ec0ca1c036845d025710b899b42f0ca5ceb4ab",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            4
+          ],
+          "receipt": "round5/S044.json"
+        }
+      ]
     },
     {
       "id": "U0472",
       "path": "docs/research/sapiens/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a711861f37c6bd684b0b2d9c47cbb74b356c98e3ae887aaa5c5b0bd5ddcefed0",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            27
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0473",
       "path": "docs/research/sapiens/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3fd88d4015ad340598b2c46028b150590369a8b0fa426486de9307948989de7c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            5
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0474",
       "path": "docs/research/scroll-of-taiwu/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "943e5840d89871c85761aee152ce8f24a6623211fd707f5324019aaf469bcb47",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            42
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0475",
       "path": "docs/research/scroll-of-taiwu/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "47e007e36b9bed59525fb905d9d1b03c722d59d55b6f3ec80041421dec4fecca",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            35
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0476",
       "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3e8c2e1011811f934e0e36fe4ac96075e7ce20f3458d73aea4f146a1de4ed463",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            38
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0477",
       "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7856ab0707acc057b6513606031bfc3e51104cf7b2a0c8669b3a16b38e9faf93",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            68
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0478",
       "path": "docs/research/siralim-ultimate/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "0e38d5b4fe39bc618d072c7f6e85f1038222ead9b03dd03c8cca00689211f4ba",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            41
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0479",
       "path": "docs/research/siralim-ultimate/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "293c26b792a65e67333b7350b9781be874d3e86293f480864c44c8321b4d7ba4",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            63
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0480",
       "path": "docs/research/six-ages/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "79e66559f72896497fbf9c6645ca0466e9e54437e603cf65aa6e5d95aceff98d",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            5
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0481",
       "path": "docs/research/six-ages-2/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "7b8ec11b24272a981a1ff16cede1ef7455d363b4f4a8a13255cda12890373ab7",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0482",
       "path": "docs/research/soulash-2/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "72fc3c3a244668cd1aab7e2ce77cc7b585ea4c24294ef2dd0b8b6da0f8770259",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S045.json"
+        }
+      ]
     },
     {
       "id": "U0483",
       "path": "docs/research/stardew-valley/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "0310c51e25392a43b00e10adc183c8315d6559fa004e2629836ca60a5142fbdf",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            20
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0484",
       "path": "docs/research/stardew-valley/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "0a391ea0c2e0fbb0e9a01518002f7768f525961666d13855db8f8b10718d5ea5",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0485",
       "path": "docs/research/streets-of-rogue/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0486",
       "path": "docs/research/sucker-for-love-crush-landing/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d95d1e0901b3f46731240645e2677d4d0ff3acfba5cba11a793721589b540816",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            51
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0487",
       "path": "docs/research/sunless-sea/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "b674a3e2bc1071f08f59d33faa814763692f725fc0a0ede7e459895642642ab3",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0488",
       "path": "docs/research/sunless-skies/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "d8bc4fd8b032d1f41808aa2fba361ff1b363e046bebfeb21143fa16e216dd4d8",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0489",
       "path": "docs/research/super-robot-wars/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "20a7ca2cb0d076380294d465ef5be6a8ed76abe2e490b171f5507344d495759f",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            15
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0490",
       "path": "docs/research/taiwu-ingredient-use-2026-10-15/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "db3a7a599165bf236d4feb31f40fe7126e044cb127de85ff5520d2d8810870a7",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0491",
       "path": "docs/research/tale-of-immortal/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "3195048d84a10c251c2fc32922e30079789433a0b66b4de32c6c770d24e23322",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            25
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0492",
       "path": "docs/research/tale-of-immortal/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "339a9f2cc0a5527a0a9dd8426c956488d51f8169724da45219fe8897a7062678",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            24
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0493",
       "path": "docs/research/tale-of-immortal/pass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "cd36868d76ebf50152e85e9d52ec268d5a131b31cd614a85dec04fd18c5a2af8",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0494",
       "path": "docs/research/tales-of-maj-eyal/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            21
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0495",
       "path": "docs/research/the-lands-of-eldyn/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "10ae6820cbd3c3c4ecaedcf9c0011ed535381f21123fcad2ce76f3553617fc0d",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            17
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0496",
       "path": "docs/research/the-strange-tabletop/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "58950e45c46d1e58255391111a8dd464d4b7f0c30b789551e84afc903aa2bbb1",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            37
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0497",
       "path": "docs/research/the-strange-tabletop/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f5dab4b3b3df9c64c033c12cccf514818694ae284fecae4c87462bfc2a260c15",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            5
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0498",
       "path": "docs/research/theory-of-magic/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "af754eacfe52d2c5e7858af5ae49b1721e1047c45060079e5742e8261b0f8e28",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            11
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0499",
       "path": "docs/research/theory-of-magic/repass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "329741422a6e0860aea44e4731569db0d7d54fd08ce51bfb2b4c4bb22f8aafdb",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "receipt": "round5/S046.json"
+        }
+      ]
     },
     {
       "id": "U0500",
       "path": "docs/research/trimps-antimatter/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "2a17fdca1e4c2fb579d4124285df4b9985e7ec6f370808782cffc9569984379c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            56
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0501",
       "path": "docs/research/upload-labs/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "de59eb4099d24ffa0ad73d77bc4fd460066a7f70577a67dd19e53d4e72cf075d",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            27
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0502",
       "path": "docs/research/ur-quan-masters/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "2e6623263beeed48c39eb98cd7e1749166b91da6a8320933a81cdd4ff0f2c8bc",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0503",
       "path": "docs/research/ur-quan-masters/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "958aa34947675eeb62826867efa76cf01db7cc110da1f45d6e3a735ec871ae76",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            5
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0504",
       "path": "docs/research/vagrus/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "b2c776208e53f0c4e06b20e7aa5b154392dccef857b603f451963e0f98a5ffd3",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            42
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0505",
       "path": "docs/research/vagrus/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "62e30c1a873603f03985cb324dad0b5ce791fb8ab2fba9747f48e5d31715fe6e",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            34
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0506",
       "path": "docs/research/vagrus/pass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "aeb162e1b844338ebe2b4f42f692eb45076fd732ff021b2083441bd95b71f326",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            33
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0507",
       "path": "docs/research/vintage-story/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "2e9dea84c17125782d922264c332e7fc19341883acc70c9598fdd7ce189c217c",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            21
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0508",
       "path": "docs/research/vintage-story/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "69b0a1fbcb75228aa7638877a1f4b673dd8346e0bd0002cfc97b9f070c063148",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            4
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0509",
       "path": "docs/research/warsim/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8c5ed468234d1dae19f692fbac50afca571a2e8955fbc5cc4190eecda0db741a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            42
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0510",
       "path": "docs/research/warsim/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "41fcf1987b1fcf992740233d29e1c4f9a5b1ccf850f73f6055147a814b43a708",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            35
+          ],
+          "receipt": "round5/S047.json"
+        }
+      ]
     },
     {
       "id": "U0511",
       "path": "docs/research/warsim/pass-2026-10-14-rea/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "63b4ee58b53e12d215c3ed8ec712dbe7472619deeb5c8301985220d218d9dede",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            76
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0512",
       "path": "docs/research/warsim/pass-2026-10-14-systems/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "552958a8d9f0e393beb095761ed4891de475bfe7a9946aabf005ee1d794fc497",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            82
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0513",
       "path": "docs/research/wildermyth/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "6ce862a64194a91696744ab97c6c8325c087851d286a9642bdc3e3cf402e5d1a",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0514",
       "path": "docs/research/your-chronicle/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "8d69c057069c7d67374f7e4dc9bc31cb19a1add9bb8bb46684204ae4e6111676",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            21
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0515",
       "path": "docs/research/your-chronicle/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "f47571c05bd3f21de3dfbe966480653c41322f95a7a52dec15312ab0dfd77ae2",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            21
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0516",
       "path": "docs/research/your-chronicle/pass-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "1e53d44616a19be88a393f84c46158b0bc2911330ec91d10e32c0337199ce2cc",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            58
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0517",
       "path": "docs/research/zhutian-shuabao-lu/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "04ea8049b51ce82378f27f0ed97ee62196cd86de737161547b6fd7c72fd8dc97",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            40
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0518",
       "path": "docs/research/zhutian-shuabao-lu/aspects-2026-10-14/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "726cf1f395ed232a6c4bb8c8b956843e5006a61735662e48ea41d4e9b9ee3242",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            5
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     },
     {
       "id": "U0519",
       "path": "docs/worlds/original-frontier/CHECKPOINT.md",
-      "status": "unread",
+      "status": "content-reviewed",
       "input_sha256": "df51d8d552db67450227f1d12ee56eccf1a79c5f35f34aaf9791323cc23fcf49",
-      "evidence": []
+      "evidence": [
+        {
+          "range": [
+            1,
+            23
+          ],
+          "receipt": "round5/S048.json"
+        }
+      ]
     }
   ]
 }

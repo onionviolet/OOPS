@@ -21,12 +21,22 @@
         "C2",
         "C3"
       ],
-      "mechanism_and_interactions": "This lane completed a metadata catalog: C1 maps 33 required sections to 2\u20136 candidate works each; C2 records 96 placements across 57 works with differing evidence quality; C3 ranks ten read-next works and seven local follow-ups. It explicitly distinguishes metadata sightings from reading, memory labels from verified metadata, and selected start-kind evidence from full-book dossiers.",
+      "mechanism_and_interactions": "This lane completed a metadata catalog: C1 maps 33 required sections to 2–6 candidate works each; C2 records 96 placements across 57 works with differing evidence quality; C3 ranks ten read-next works and seven local follow-ups. It explicitly distinguishes metadata sightings from reading, memory labels from verified metadata, and selected start-kind evidence from full-book dossiers.",
       "disposition": "Historical research/catalog delivery only. Counts and metadata checks do not establish source-body reading, accepted design, or gameplay. Several exact-fit gaps and memory-only claims are explicitly listed.",
       "owner_or_consumer": "docs/research/START_AS_X_SOURCE_CATALOG_2026-10-14.md and this checkpoint; no gameplay consumer or implementation owner is assigned here.",
       "evidence_state": "The checkpoint reports catalog validation and limited metadata discovery; the underlying catalog and sources were not part of this assigned span.",
       "remaining_check": "If a work is selected, resolve its named evidence gaps from the actual source and choose a world consumer; this record authorizes neither acquisition nor implementation.",
       "evidence_lines": [
+        [
+          8,
+          10
+        ],
+        [
+          22,
+          26
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             8,
@@ -56,7 +66,7 @@
       "coverage": "assigned-range-content-read",
       "original_ids": [
         "P06",
-        "P02\u2013P05",
+        "P02–P05",
         "179",
         "34"
       ],
@@ -66,6 +76,16 @@
       "evidence_state": "Checkpoint summarizes hashes, tests, rebuild and native journeys; this shard did not inspect artifacts or current integration.",
       "remaining_check": "A future integration must reconcile the frozen candidate with current shared owners and selected source/native adapters; human taste review is optional under current AD42.",
       "evidence_lines": [
+        [
+          7,
+          10
+        ],
+        [
+          11,
+          17
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             7,
@@ -100,6 +120,16 @@
       "evidence_state": "Checkpoint reports completion and points to evidence artifacts; those artifacts were not opened in this assigned span.",
       "remaining_check": "Any selected source proposal still needs its dossier-specific gaps and separate runtime proof; Eldyn reachability remains an access gap, not a mechanics finding.",
       "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          17,
+          25
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             3,
@@ -139,6 +169,16 @@
       "evidence_state": "Only checkpoint claims were reviewed; linked acquisition, native source, and browser evidence were not independently inspected.",
       "remaining_check": "Close the listed native corpus/ownership/repair gates under their owners; retort requires rebuilt current browser and persistence/failure/regression proof before gameplay is verified.",
       "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             5,
@@ -173,12 +213,22 @@
         "Heat",
         "Retort"
       ],
-      "mechanism_and_interactions": "The recovery uses separate native/private, backend-variant, cross-architecture-reader and acceptance owners. Initial ARM/Intel exports are closed; flow chunks 1851\u20131853 qualify selected Splitter/Inserter cases, and Heat views qualify observed storage while retaining ABI/return unknowns. Retort source/build is distinct from gameplay verification; generated C views may expand beyond serialized function ranges.",
+      "mechanism_and_interactions": "The recovery uses separate native/private, backend-variant, cross-architecture-reader and acceptance owners. Initial ARM/Intel exports are closed; flow chunks 1851–1853 qualify selected Splitter/Inserter cases, and Heat views qualify observed storage while retaining ABI/return unknowns. Retort source/build is distinct from gameplay verification; generated C views may expand beyond serialized function ranges.",
       "disposition": "The same full authorized recovery goal remains unfinished. Selected flow/Heat evidence advances specific rows but does not prove whole-engine semantics; retort remains implemented-unverified with browser, gameplay and save/import checks deferred.",
       "owner_or_consumer": "Native/private assignment and acquisition files; RETORT_REVIEW.md owns retort gaps; factorio_native_continuation is native writer and factorio_recovery_review owns acceptance.",
       "evidence_state": "Checkpoint states exact acquisition/readback claims; actual artifacts and current runtime were not inspected in this shard.",
       "remaining_check": "Continue exact ownership, ABI, failure, Intel and final corpus/reader gates; independently exercise retort in a rebuilt browser with save/reload/import and failure boundaries.",
       "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          17
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             7,
@@ -219,6 +269,16 @@
       "evidence_state": "Historical claims only; no retained artifacts or current process state checked.",
       "remaining_check": "Use later owner checkpoints for current historical progression; this record alone leaves final corpus, semantic closure and retort acceptance unresolved.",
       "evidence_lines": [
+        [
+          5,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             5,
@@ -254,11 +314,21 @@
         "68694413"
       ],
       "mechanism_and_interactions": "The earlier resume records closed initial streams and added diagnostic flow findings, including guarded Splitter tables and recovered Inserter bytes, while canonical rows still needed saving/review at that point. It separates native body/ASM coverage from expanded generated C views. Retort bundle/source delivery remains separate from gameplay acceptance.",
-      "disposition": "This is an earlier point-in-time resume: required canonical rows and corpus/ownership/ABI work remain open here, and retort is implemented-unverified. Do not treat subsequent shards\u2019 completion claims as proof within this record.",
+      "disposition": "This is an earlier point-in-time resume: required canonical rows and corpus/ownership/ABI work remain open here, and retort is implemented-unverified. Do not treat subsequent shards’ completion claims as proof within this record.",
       "owner_or_consumer": "Native assignment and actual artifacts listed in the checkpoint; root acceptance and RETORT_REVIEW.md own separate review.",
       "evidence_state": "Checkpoint reports private artifacts and historical readback; no artifact contents/current source were inspected here.",
       "remaining_check": "Historical next step was to review flow2, emit canonical rows, continue native repair and independently inspect source/DLC/use requirements; retort needs its deferred browser and persistence proof.",
       "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          15
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             7,
@@ -300,6 +370,16 @@
       "evidence_state": "Historical checkpoint summarizes dated source/build and proposed mechanic evidence; no linked report, source or runtime was inspected.",
       "remaining_check": "For retort, exercise the named inventory/body/clock/publisher interactions in a rebuilt browser and persistence/failure paths; for native work, close corpus/ABI/ownership gates without conflating installed-file presence with activation.",
       "evidence_lines": [
+        [
+          7,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             7,
@@ -340,6 +420,16 @@
       "evidence_state": "Checkpoint statements only; linked artifacts and current combined source were not inspected.",
       "remaining_check": "The later owner must close remaining native gates; retort needs rebuilt-browser and persistence/failure checks before a verified gameplay claim.",
       "evidence_lines": [
+        [
+          5,
+          10
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             5,
@@ -380,6 +470,16 @@
       "evidence_state": "Claims are checkpoint summaries, not independently checked artifacts or current runtime evidence.",
       "remaining_check": "Close native repair/final-audit gates and separately rebuild/experience retort including persistence and failure cases; historical immutable bundle identity cannot establish current combined behavior.",
       "evidence_lines": [
+        [
+          7,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             7,
@@ -420,6 +520,16 @@
       "evidence_state": "Summary claims only; no linked source or acceptance evidence independently checked.",
       "remaining_check": "Use named native recovery/acceptance owners for remaining corpus gates; selected retort use needs rebuilt browser and persistence proof, and actual activation remains distinct.",
       "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          7,
+          7
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             3,
@@ -448,15 +558,25 @@
       ],
       "coverage": "assigned-range-content-read",
       "original_ids": [
-        "SC01\u2013SC10",
-        "R1\u2013R4"
+        "SC01–SC10",
+        "R1–R4"
       ],
-      "mechanism_and_interactions": "The requested finite planning expansion covers ten families, 36 leaves, 59 variants and 7 joins, preserving predecessor IDs. Bounded source mapping repaired R1\u2013R4; design/source map/ledger/packets/report hold planning output. The record explicitly excludes runtime changes and new lore acceptance.",
+      "mechanism_and_interactions": "The requested finite planning expansion covers ten families, 36 leaves, 59 variants and 7 joins, preserving predecessor IDs. Bounded source mapping repaired R1–R4; design/source map/ledger/packets/report hold planning output. The record explicitly excludes runtime changes and new lore acceptance.",
       "disposition": "Planning and document validation are reported complete, not gameplay or source-fidelity completion. Runtime, source fidelity and human review remain open; parent may select a specific candidate/contract for separately authorized implementation.",
       "owner_or_consumer": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/{DESIGN.md,SYSTEMS_MAP.md,DETAIL_LEDGER.json,PACKETS.md,REPORT.md}; parent owns selection.",
       "evidence_state": "Checkpoint reports independent readback and validation; artifacts were not reopened in this shard.",
       "remaining_check": "A chosen candidate needs source qualification and an actual consumer/runtime owner; do not infer mechanics or completion from expansion counts.",
       "evidence_lines": [
+        [
+          6,
+          14
+        ],
+        [
+          18,
+          31
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             6,
@@ -496,6 +616,16 @@
       "evidence_state": "Checkpoint summarizes local proof and ownership, but no evidence artifact or current shared integration was inspected.",
       "remaining_check": "Before any broader claim, verify current shared integration and exact source-qualified claim/event/authority/recipient/prerequisite/carrier binding plus native/save proof; human review is optional feedback under AD42.",
       "evidence_lines": [
+        [
+          7,
+          11
+        ],
+        [
+          13,
+          17
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             7,
@@ -527,12 +657,22 @@
         "P01",
         "NEXT_SLICE_P01"
       ],
-      "mechanism_and_interactions": "P01 technical slice adds mixing feedback on the named branch/base, preserving the original stop reproduction. Work row uses current admission and adds zero save fields; four cards and Mix fit at the top for 1366\u00d7768 and 1600\u00d71000. Reported browser groups cover native Save/reload/Export/literal Import with exact card texts; responsive-law-change variant remains source-only.",
+      "mechanism_and_interactions": "P01 technical slice adds mixing feedback on the named branch/base, preserving the original stop reproduction. Work row uses current admission and adds zero save fields; four cards and Mix fit at the top for 1366×768 and 1600×1000. Reported browser groups cover native Save/reload/Export/literal Import with exact card texts; responsive-law-change variant remains source-only.",
       "disposition": "Historical lane reports build, focused tests and browser groups complete on its candidate; no merge/push, root integration or human taste acceptance. Mobile is deferred, and the checkpoint grants no next slice.",
       "owner_or_consumer": "NEXT_SLICE_P01.md, REPORT.md, PREFLIGHT.md and evidence/proof.json; root owns integration.",
-      "evidence_state": "The checkpoint\u2019s evidence claims are reviewed here, not independently rerun; exact candidate/browser is historical.",
+      "evidence_state": "The checkpoint’s evidence claims are reviewed here, not independently rerun; exact candidate/browser is historical.",
       "remaining_check": "If integrated, verify present merged/rebuilt desktop behavior and persistence; responsive-law-change stays unverified source-only unless selected.",
       "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          13,
+          23
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         {
           "range": [
             3,
@@ -560,10 +700,13 @@
     "U0142 lists exact-fit section gaps and memory-only metadata that need resolution if selected.",
     "U0143 leaves director fiction/balance/pacing and combined integration open; later queue families require source/native adapters.",
     "U0144 leaves dossier-specific source gaps and unexercised runtime gates; Eldyn access failure supports no mechanics conclusion.",
-    "U0145\u2013U0152 preserve distinct Factorio native corpus, ABI/ownership/repair and retort gameplay proof gaps; selected source coverage is not whole-game recovery.",
+    "U0145–U0152 preserve distinct Factorio native corpus, ABI/ownership/repair and retort gameplay proof gaps; selected source coverage is not whole-game recovery.",
     "U0153 remains planning-only pending a selected candidate, source qualification and consumer.",
     "U0154 leaves shared integration and private-pack source binding unresolved, despite local C4 evidence.",
     "U0155 leaves root integration and the responsive-law-change variant unverified; human taste review is optional feedback."
   ],
-  "coordinator_review": "Worker findings/gaps and selected long/end rows inspected; code and named-owner screens found no unresolved mismatches. Current Factorio/native and local-slice proof claims remain historical."
+  "coordinator_review": "Worker findings/gaps and selected long/end rows inspected; code and named-owner screens found no unresolved mismatches. Current Factorio/native and local-slice proof claims remain historical.",
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
+  ]
 }

@@ -105,8 +105,7 @@
       ],
       "coverage": "assigned-range-content-read",
       "original_ids": [
-        "A01",
-        "A12"
+        "A01"
       ],
       "mechanism_and_interactions": "The Modding Tree aspect dossier records twelve rows, three deeper systems, ranked proposal packets and small touches. It identifies gaps in full community semantics/licenses, arbitrary-mod dialogue, runtime save/offline arithmetic and desktop accessibility/layout.",
       "disposition": "Partial static research; all recommendations remain proposals and no dependent runtime work is authorized by this historical record.",
@@ -164,8 +163,7 @@
       ],
       "coverage": "assigned-range-content-read",
       "original_ids": [
-        "A01",
-        "A12"
+        "A01"
       ],
       "mechanism_and_interactions": "The MUD public-document audit sampled RetroMUD and 3 Kingdoms guides/help, then traced bounded travel/retention, learning/admission and builder themes into proposals. It preserves ambiguity around contradictory transport/reincarnation guidance and does not infer arbitrary guild switching or complete cross-realm carrier rules.",
       "disposition": "Bounded public-document deliverable finished, but checkpoint status is partial and explicitly not server implementation, live play or server audit.",
@@ -223,7 +221,6 @@
       "coverage": "assigned-range-content-read",
       "original_ids": [
         "A01",
-        "A12",
         "P01",
         "P04",
         "P14",
@@ -310,8 +307,7 @@
       "coverage": "assigned-range-content-read",
       "original_ids": [
         "P10",
-        "A01",
-        "A12"
+        "A01"
       ],
       "mechanism_and_interactions": "The Naev lane indexed mission/event headers and XML, then traced bounded mission/event dispatch, scene claims, access, personal knowledge versus Flow support, bioship growth, a supply-to-service aftermath, sampled traffic/AI, dialogue sequencing, save omissions, economy and deadlines. The census is not exhaustive reading.",
       "disposition": "Bounded source research delivered; partial status keeps whole-game reading and runtime gates open; no owner/code adoption or gameplay claim.",
@@ -342,8 +338,7 @@
       "coverage": "assigned-range-content-read",
       "original_ids": [
         "P10",
-        "A01",
-        "A12"
+        "A01"
       ],
       "mechanism_and_interactions": "The Naev aspect checkpoint repeats the bounded research scope: mission/event headers and XML were indexed, selected system interactions traced, and proposal artifacts delivered, while whole-game coverage and all runtime gates remained open.",
       "disposition": "Partial aspect record; it confirms documentation validation, not runtime results or complete source coverage.",
@@ -400,5 +395,22 @@
   "unresolved_questions_source_gaps": [
     "See row-specific remaining checks: donor native/save/UI and untraced consumer questions remain open; no contemporary runtime or whole-source qualification."
   ],
-  "coordinator_review": "All 13 assigned checkpoint spans reviewed. Historical source summaries and explicit proof boundaries are preserved; no proposal is promoted to accepted direction. Old hold language is not treated as a new approval gate under AD42."
+  "coordinator_review": "All 13 assigned checkpoint spans reviewed. Historical source summaries and explicit proof boundaries are preserved; no proposal is promoted to accepted direction. Old hold language is not treated as a new approval gate under AD42.",
+  "coordinator_final_metadata_corrections": {
+    "U0379": [
+      "A12"
+    ],
+    "U0381": [
+      "A12"
+    ],
+    "U0383": [
+      "A12"
+    ],
+    "U0386": [
+      "A12"
+    ],
+    "U0387": [
+      "A12"
+    ]
+  }
 }

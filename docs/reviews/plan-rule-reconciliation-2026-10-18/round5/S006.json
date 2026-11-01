@@ -38,7 +38,14 @@
       "disposition": "Completed historical research/dispatcher checkpoint; live chat snapshots are dated observations, not evidence of current process state or source coverage beyond named receipts.",
       "owner_or_consumer": "docs/gm/dispatch/game-source-research-2026-10-06/{DEEPER_RESEARCH.md,DEPTH_QUEUE.json,DLC_COVERAGE.json,RECONCILIATION.json,VALIDATION_DEPTH.json}; current integration owner not specified.",
       "evidence_state": "Checkpoint reports source/read boundaries and zero mismatches for 16 pins; no engine selected/prototype or contemporary integration proof.",
-      "remaining_check": "Resolve a newly authorized, specifically named source or implementation dependency after checking current owner and inputs; do not restart completed passes."
+      "remaining_check": "Resolve a newly authorized, specifically named source or implementation dependency after checking current owner and inputs; do not restart completed passes.",
+      "evidence_lines": [
+        [
+          1,
+          13
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0064",
@@ -61,7 +68,14 @@
       "disposition": "Historical committed pure kit and passing tests on isolated gen/g1-kit; not merged, live-ported, built, or gameplay accepted.",
       "owner_or_consumer": "docs/gm/dispatch/gen-rules-2026-10-14/g1/{REPORT.md}; src/gen_kit.js; E1/P1 owns live roots/storage and save-envelope integration.",
       "evidence_state": "27 focused and 661 full-suite tests reported; no build/native/browser/save proof.",
-      "remaining_check": "Root review and separately authorized live generator port; verify current branch integration and E1/P1 save contract before use."
+      "remaining_check": "Root review and separately authorized live generator port; verify current branch integration and E1/P1 save contract before use.",
+      "evidence_lines": [
+        [
+          1,
+          29
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0065",
@@ -91,7 +105,14 @@
       "disposition": "Docs-only proposal audit; later source snapshots are pinned, not interchangeable; root integration/SB17 compatibility unresolved.",
       "owner_or_consumer": "docs/gm/dispatch/gen-rules-2026-10-14/g2/{CONFORMANCE.md,SUBTLE_BUGS.md,MORE.md,REPORT.md}; A5 owns replay harness/ratchets; G1 addressed picks; G3 overlay; P15 pool lint; P18 story QA; P32/P34 history.",
       "evidence_state": "242 citation ranges and source-site inventory checks reported; existing tests read, not run. No gameplay/distribution/browser/import proof.",
-      "remaining_check": "Integrator must decide SB17 compatibility and authorize migrations; refresh moving source from an exact revision and test named failure cases."
+      "remaining_check": "Integrator must decide SB17 compatibility and authorize migrations; refresh moving source from an exact revision and test named failure cases.",
+      "evidence_lines": [
+        [
+          1,
+          53
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0066",
@@ -122,7 +143,14 @@
       "disposition": "Proposal-only design lane; no runtime/implementation claims. Later appeared sources correct initial unknowns without granting merge or ownership.",
       "owner_or_consumer": "docs/gm/dispatch/gen-rules-2026-10-14/g3/{TABLES,OVERLAYS,WORKED,PIPELINE,MORE,REPORT}.md; G1 API and A2 module remain actual suppliers to recheck.",
       "evidence_state": "13 JSON blocks and selector/exclusion/arithmetic/budget assertions reported. No native/build/browser/persistence checks.",
-      "remaining_check": "Root reviews ranked slices; inspect current G1/A2 contracts and implement only under a separate owner assignment."
+      "remaining_check": "Root reviews ranked slices; inspect current G1/A2 contracts and implement only under a separate owner assignment.",
+      "evidence_lines": [
+        [
+          1,
+          40
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0067",
@@ -149,7 +177,14 @@
       "disposition": "Docs proposal lane; source examples are not verified canon or selected implementations; source ranges are deliberately partial.",
       "owner_or_consumer": "docs/gm/dispatch/gen-rules-2026-10-14/g4/REPORT.md and other named lane artifacts; world-kit owner retains CW/CWS/CL/AX",
       "evidence_state": "Counts, local links, JSON sketches and source-bound samples checked; no runtime/build/browser/save proof.",
-      "remaining_check": "Coordinator review, then separately qualify chosen source/world and acquire consumer authorization; do not generalize bounded passages to full series."
+      "remaining_check": "Coordinator review, then separately qualify chosen source/world and acquire consumer authorization; do not generalize bounded passages to full series.",
+      "evidence_lines": [
+        [
+          1,
+          35
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0068",
@@ -174,7 +209,14 @@
       "disposition": "Docs-only inferred proposals; G1 commit is a read-only reference, not integrated into current checkout.",
       "owner_or_consumer": "docs/gm/dispatch/gen-rules-2026-10-14/g5/{HOOKS,CATALOG,HONESTY,MORE,REPORT}.md; current generator/status-window owners and coordinator storage decision.",
       "evidence_state": "14 validations, roundtrips/grants and held-state JSON reported; no build/runtime/browser/persistence or native acceptance.",
-      "remaining_check": "Coordinator chooses follow-up after rechecking G1/G3/G6 and actual save owner; run fresh-origin desktop and persistence gates for any implementation."
+      "remaining_check": "Coordinator chooses follow-up after rechecking G1/G3/G6 and actual save owner; run fresh-origin desktop and persistence gates for any implementation.",
+      "evidence_lines": [
+        [
+          1,
+          48
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0069",
@@ -197,7 +239,14 @@
       "disposition": "Docs proposal; no runtime edits or implementation authority. A1 output absent at initial inspection.",
       "owner_or_consumer": "docs/gm/dispatch/gen-rules-2026-10-14/g6/{ADDRESS_SPACE,PINS_AND_CANON,MIGRATION,RISKS,MORE,REPORT}.md; MoL runtime/state owner and A1 supplier require current recheck.",
       "evidence_state": "16 detached assertions and document citation/table counts reported. No code/build/browser/private-save testing.",
-      "remaining_check": "Root reconciles G1/G3/G5 and later A1; decide whether to authorize a bounded runtime slice with canon/state/RNG-specific fixtures."
+      "remaining_check": "Root reconciles G1/G3/G5 and later A1; decide whether to authorize a bounded runtime slice with canon/state/RNG-specific fixtures.",
+      "evidence_lines": [
+        [
+          1,
+          31
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0070",
@@ -224,7 +273,14 @@
       "disposition": "Research/design outputs and proposals, not accepted canon or gameplay; later follow-ups supersede specific earlier gaps only.",
       "owner_or_consumer": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md and SPECIAL_RULES_AND_EVERYDAY_CONSEQUENCES.md; private research owners named in checkpoint; cross-world rulebook receiver owns transferred section.",
       "evidence_state": "Hashes/SQLite/preparation and bounded source checks reported. Whole books/exports and full source/canon qualification remain absent; no runtime/browser/save proof.",
-      "remaining_check": "Use named source gaps and private ledgers if authorized; implementation needs separate frozen recipe/branch/host parameters and runtime owner."
+      "remaining_check": "Use named source gaps and private ledgers if authorized; implementation needs separate frozen recipe/branch/host parameters and runtime owner.",
+      "evidence_lines": [
+        [
+          1,
+          15
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0071",
@@ -248,7 +304,14 @@
       "disposition": "Bounded source audit and evolving proposals; later follow-ups extend, not erase, core-reading/edition gaps. No implementation authority.",
       "owner_or_consumer": "docs/gm/dispatch/harry-potter-world-2026-10-11/REPORT.md; private world-audit and source-preparation manifests; dispatcher owns assignment/dispatch; root owns expanded-CN report.",
       "evidence_state": "Preparation hashes/integrity and locators checked; whole books, all fan exports and game/toolkit observations remain incomplete. No gameplay proof.",
-      "remaining_check": "If continued, build exact B1-B7 chapter inventory/read plan and reconcile edition/source gaps; implementation needs separate assignment."
+      "remaining_check": "If continued, build exact B1-B7 chapter inventory/read plan and reconcile edition/source gaps; implementation needs separate assignment.",
+      "evidence_lines": [
+        [
+          1,
+          19
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0072",
@@ -271,7 +334,14 @@
       "disposition": "Authorized historical implementation delivery on isolated branch; tests/build/browser evidence reported, but integration and human taste/balance remain separate.",
       "owner_or_consumer": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/{REPORT.md,BROWSER_EVIDENCE*,FINAL_REFRESH*}; src/harvest.js; private proof profiles.",
       "evidence_state": "13 focused and 1377/1380 full tests, build and desktop browser/persistence journey reported; source stress is not 10,000 native kills. Generated dist intentionally uncommitted.",
-      "remaining_check": "Integrator must establish current merge/integration state; advanced native paths and human balance remain open per report/backlog."
+      "remaining_check": "Integrator must establish current merge/integration state; advanced native paths and human balance remain open per report/backlog.",
+      "evidence_lines": [
+        [
+          1,
+          17
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0073",
@@ -296,7 +366,14 @@
       "disposition": "Docs proposal with source-baseline correction; no claim HV2 is compatible or code delivered.",
       "owner_or_consumer": "docs/gm/dispatch/harvest-modules-2026-10-14/hv2/{MODEL,WORLDS,SKILLS,CHEATS,REPORT,BACKLOG}.md; HV1 report/code at cited commit.",
       "evidence_state": "Document links/count checks reported; no source changes, tests, browser, native or persistence verification in HV2.",
-      "remaining_check": "Runtime owner must select a compatible extension and test lot provenance/freshness/overflow scenarios; recheck actual current HV1 integration."
+      "remaining_check": "Runtime owner must select a compatible extension and test lot provenance/freshness/overflow scenarios; recheck actual current HV1 integration.",
+      "evidence_lines": [
+        [
+          1,
+          13
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0074",
@@ -327,7 +404,14 @@
       "disposition": "Research/design delivery only. Candidate/title remains unresolved; proposals await user selection/acceptance and any implementation authorization.",
       "owner_or_consumer": "docs/gm/dispatch/held-systems-2026-10-10/{FINDINGS.md,PROPOSALS.md}; current code owners inspected in report, not modified.",
       "evidence_state": "Inventory/link/JSON/document checks and read-only code inspection reported; no runtime, build, gameplay or save proof.",
-      "remaining_check": "A supplied later scene or concrete remembered scene may distinguish title; implementation requires chosen slice and consumer-specific browser/persistence proof."
+      "remaining_check": "A supplied later scene or concrete remembered scene may distinguish title; implementation requires chosen slice and consumer-specific browser/persistence proof.",
+      "evidence_lines": [
+        [
+          1,
+          45
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0075",
@@ -349,7 +433,14 @@
       "disposition": "Finite planning return completed; cards/cases are proposed or specified, not executed or accepted gameplay.",
       "owner_or_consumer": "docs/gm/dispatch/idea-expansion-2026-10-11/{DETAIL_LEDGER.json,VALIDATION.json,engine/JOIN_REVIEW.md,review/INTEGRATION_REVIEW.md}; PLAN-P0 is selection route.",
       "evidence_state": "Hashes and structural/source-contract/combined checks reported; no code/commit, native proof or broad intake adjudication.",
-      "remaining_check": "Select a precise world/feature revision, then fresh-check its source and writer state and freeze consumer packet before any implementation."
+      "remaining_check": "Select a precise world/feature revision, then fresh-check its source and writer state and freeze consumer packet before any implementation.",
+      "evidence_lines": [
+        [
+          1,
+          25
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0076",
@@ -372,7 +463,14 @@
       "disposition": "Completed three source audits; installation lane incomplete and must not be described as installed or removed.",
       "owner_or_consumer": "docs/research/library-games-2026-10-09/{CHECKPOINT.md,REPORT.md,STEAM_STATE.json,VALIDATION.json}; dispatch checkpoint points to authoritative research checkpoint.",
       "evidence_state": "Source audit and state receipts are historical; no current install state verified by this content pass.",
-      "remaining_check": "Only reconcile existing app3848900 dialog/state when separately authorized; no repeated request implied."
+      "remaining_check": "Only reconcile existing app3848900 dialog/state when separately authorized; no repeated request implied.",
+      "evidence_lines": [
+        [
+          1,
+          7
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0077",
@@ -390,14 +488,21 @@
         "app2278010",
         "app881420",
         "app1468810",
-        "SA2-P1\u2013P3",
-        "SA2-P4\u2013P5"
+        "SA2-P1–P3",
+        "SA2-P4–P5"
       ],
       "mechanism_and_interactions": "Life-sim source lane corrected target to Six Ages 2 and retired app881420 as blocker. Retained inputs hash-match, managed/native/Lua reads support six chains; six original packets plus SA2-P1-P5 released. Uninstall shell exit 0 did not establish removal; Tale remained blocked on missing install metadata.",
       "disposition": "Historical source audit delivered; removal and Tale acquisition remain unverified/open.",
       "owner_or_consumer": "docs/gm/dispatch/life-sim-sources-2026-10-07/{CHECKPOINT.md,VALIDATION.json,UNINSTALL.json,HANDOFF.md}; private Six Ages 2 source owner.",
       "evidence_state": "Hash/read receipts checked; exact bytecode outcomes, probabilities, save encoding unread; manifest still present in latest receipt.",
-      "remaining_check": "Await explicit dialog confirmation then inspect install manifest/log once; Tale resumes only on finalized source arrival after user metadata fix."
+      "remaining_check": "Await explicit dialog confirmation then inspect install manifest/log once; Tale resumes only on finalized source arrival after user metadata fix.",
+      "evidence_lines": [
+        [
+          1,
+          9
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0078",
@@ -419,7 +524,14 @@
       "disposition": "Local implementation committed in separate /Users/weiwei/code/lncrawl-polite fork; no upstream publication or live acquisition claim.",
       "owner_or_consumer": "/Users/weiwei/code/lncrawl-polite/{README_POLITE.md,src,tests}; this checkpoint/report in YAIRPG.",
       "evidence_state": "31 offline tests, lint, CLI help and stable hashes reported; live Fanqie acquisition absent.",
-      "remaining_check": "Optional next proof: separately selected free public Fanqie page, respecting robots/refusal state and existing data root."
+      "remaining_check": "Optional next proof: separately selected free public Fanqie page, respecting robots/refusal state and existing data root.",
+      "evidence_lines": [
+        [
+          1,
+          54
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0079",
@@ -445,7 +557,14 @@
       "disposition": "Research/design tranche completed at represented ranges, not whole franchise/alternate-body qualification or accepted canon. Later delivery receipts supersede earlier review stage only for named corrections.",
       "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/{REPORT.md,COMPLETION_MATRIX*,VALIDATION*,DELIVERY*}; private per-world ledgers under lore-timelines.../gm/.",
       "evidence_state": "Independent world reviews and artifact/hash/locator checks reported; source gaps and runtime acceptance explicitly unrun.",
-      "remaining_check": "Any deeper primary ranges require fresh bounded assignment; selected implementation needs source/native baseline and success/failure/delay/knowledge/persistence proof."
+      "remaining_check": "Any deeper primary ranges require fresh bounded assignment; selected implementation needs source/native baseline and success/failure/delay/knowledge/persistence proof.",
+      "evidence_lines": [
+        [
+          1,
+          17
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0080",
@@ -462,11 +581,18 @@
         "BW1",
         "REV-BW1-01"
       ],
-      "mechanism_and_interactions": "BW1\u2019s five supplied editions yield 53 events/knowledge records, 14 proposals and 12 continuity qualifications. Review repair adds explicit effect records and consumed-state joins, distinguishes ordering-only edges, and leaves independent-plan knowledge unknown.",
+      "mechanism_and_interactions": "BW1’s five supplied editions yield 53 events/knowledge records, 14 proposals and 12 continuity qualifications. Review repair adds explicit effect records and consumed-state joins, distinguishes ordering-only edges, and leaves independent-plan knowledge unknown.",
       "disposition": "Revised L4 research return delivered; runtime/source-library/save/commit work not performed; reviewer should inspect revised artifacts before acceptance.",
       "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/ private ledgers and revised artifacts; integrator/reviewer is consumer.",
       "evidence_state": "Evidence and locator qualifications are carried privately; no runtime or canon acceptance.",
-      "remaining_check": "Inspect revised artifacts for review; any independent-plan fact requires additional source evidence, not inference from event order."
+      "remaining_check": "Inspect revised artifacts for review; any independent-plan fact requires additional source evidence, not inference from event order.",
+      "evidence_lines": [
+        [
+          1,
+          5
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     },
     {
       "record_id": "U0081",
@@ -487,7 +613,14 @@
       "disposition": "Repair returned and ownership released; no new source range, full-series claim or gameplay delivery.",
       "owner_or_consumer": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/ private gm artifacts and public dispatch/jjk; independent reviewer is next consumer.",
       "evidence_state": "Artifact checks reported; no runtime gates or full-series verification.",
-      "remaining_check": "Reviewer checks corrected bindings; more primary evidence required for temporal/unknown joins or broader series claims."
+      "remaining_check": "Reviewer checks corrected bindings; more primary evidence required for temporal/unknown joins or broader series claims.",
+      "evidence_lines": [
+        [
+          1,
+          11
+        ]
+      ],
+      "evidence_locator_scope": "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
     }
   ],
   "repairs": [
@@ -502,5 +635,8 @@
     "Historical named owners and source revisions may have drifted; no contemporary repository/runtime/source validation was performed.",
     "Whole-source/canon qualification, implementation/integration and any record-specific remaining checks remain as stated per row."
   ],
-  "coordinator_review": "Cross-record findings, gaps, transport repair and selected rows inspected; lncrawl completed-fork/no-live-acquisition boundary spot-checked. Directory/glob owner references remain navigation, not promised artifacts. Exact-code screen prompted targeted G2/G3/G5/five-world checkpoint reads; removed unrelated inferred codes and preserved split source ranges instead of inventing unified ranges. Corrected a63-character hash transcription against the exact live source and pinned plan; no content was reread for that metadata correction."
+  "coordinator_review": "Cross-record findings, gaps, transport repair and selected rows inspected; lncrawl completed-fork/no-live-acquisition boundary spot-checked. Directory/glob owner references remain navigation, not promised artifacts. Exact-code screen prompted targeted G2/G3/G5/five-world checkpoint reads; removed unrelated inferred codes and preserved split source ranges instead of inventing unified ranges. Corrected a63-character hash transcription against the exact live source and pinned plan; no content was reread for that metadata correction.",
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
+  ]
 }

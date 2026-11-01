@@ -1,0 +1,409 @@
+{
+  "schema": 1,
+  "shard": "S042",
+  "reader": "content_s042; gpt-6-luna low",
+  "payload_sha256": "f82b7991c729986692ca3f74a35164527372c85c10f4702036618ba98af43d1c",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0427",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md",
+      "input_sha256": "1fcecc621cc90a8d73f1b4f213b62e15cbac7ce1edbaa6a5fdba90025018d9ad",
+      "read_ranges": [
+        [
+          323,
+          429
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          417,
+          423
+        ],
+        [
+          425,
+          427
+        ]
+      ],
+      "mechanism_and_interactions": "This historical Harry Potter wiki-digest checkpoint summarizes timeline pages, with source-specific rules only where it names them: Lupin’s Wolfsbane timing, Dementor/chocolate response, Ministry-authorized Time-Turner use, signed Hogsmeade permission and staff Firebolt screening. It cautions that Harry’s first Parseltongue is not shown to cause the glass event and that exceptional Seeker appointment must not be generalized. The checkpoint flags the 1992/1993 Quirrell summaries as conflicting with the novel account; retain that discrepancy rather than carry the compressed claim forward.",
+      "disposition": "Historical secondary-wiki digest with mixed precision, inferred chronology and game-continuity entries. A few entries preserve actionable mechanics, but many timeline pages explicitly lack operating rules; the summarized rules are not primary-canon qualification.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md; no downstream consumer named in this fragment",
+      "evidence_state": "Assigned lines reviewed from the checkpoint only; timeline assertions are paraphrase of wiki pages, not raw primary-source verification or gameplay proof.",
+      "remaining_check": "Use the named page/source locators and verify individual mechanics and continuity before design use; the checkpoint does not provide full procedures for most listed events."
+    },
+    {
+      "record_id": "U0428",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
+      "input_sha256": "9641d151a747da6702db72ee5588b19303bf9d9d203880c002a1164a8be5c6d9",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          7,
+          11
+        ]
+      ],
+      "mechanism_and_interactions": "The checkpoint distinguishes original article hash/count from selected-payload receipts. One completed Rammot entry separates near-fatal awakening, a later aura-node ceremony and Feather Blades with unknown category, rather than collapsing them into one mechanism. The next named input is Meteor City; 1,156 retained inputs remain pending.",
+      "disposition": "Reader task is in progress, not a completed HxH semantic corpus. Receipt verification covers 100 selected payloads, while the checkpoint says only 100 notes and leaves most retained inputs unread.",
+      "owner_or_consumer": "workers/hxh-full/NOTES.jsonl and READ_LEDGER.jsonl (named outputs); parent semantic consumer is not identified in this fragment",
+      "evidence_state": "Historical checkpoint reports receipt counts and one summarized completed article; no underlying payload or notes were opened here.",
+      "remaining_check": "Continue assigned retained inputs and verify each selected payload; distinguish read integrity from mechanic completeness and canon authentication."
+    },
+    {
+      "record_id": "U0429",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "input_sha256": "8c23f119a4f21cbccdaf8984793877bb251c6d2192221f933294119a4c8c1964",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          7,
+          11
+        ],
+        [
+          20,
+          22
+        ]
+      ],
+      "mechanism_and_interactions": "Shard A covers retained manifest indexes 98–841, skipping inputs already complete in the parent ledger. Its checkpoint claims all 703 assigned retained payloads were verified and the range is complete. It gives no particular HxH mechanism in this assigned span; mechanics, contradictions and open primary-source gates are routed to SUMMARY.md.",
+      "disposition": "Historical source-reading shard reports complete coverage and reconciled note/ledger identity counts, but this checkpoint alone substantiates receipt integrity rather than the semantic content of individual mechanics.",
+      "owner_or_consumer": "workers/hxh-full/r2-2026-10-13/shard-a/SUMMARY.md (explicitly named for mechanics, contradictions and gates); NOTES.jsonl and READ_LEDGER.jsonl",
+      "evidence_state": "Checkpoint claims completion audit and matching receipts; summary and per-article notes were outside the assigned span.",
+      "remaining_check": "Any mechanic-level reconciliation requires the named summary/notes and primary source qualification; this shard establishes neither current runtime use nor canon truth."
+    },
+    {
+      "record_id": "U0430",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "input_sha256": "1505a1c7caab7c70fe4af02a839ac44e6c71caa8e341ff3645a1f55c1844b3bf",
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          16,
+          20
+        ],
+        [
+          22,
+          28
+        ]
+      ],
+      "mechanism_and_interactions": "Shard B’s note rules require preserving source assertions, analyst inferences, proposals and unknowns, and treating omitted character spans as no evidence of absent powers. Completion includes append-only correction for Cha-R Family: a 4,613-character chunk receipt was superseded after all 13,613 selected characters were reread in four chunks. It also records correction handling for the out-of-range Book of Tyson receipt.",
+      "disposition": "Historical shard reports 453 assigned retained inputs complete, with verified hashes/lengths and corrections kept append-only. The checkpoint is primarily integrity/procedure evidence; mechanism findings are delegated to its summary and notes.",
+      "owner_or_consumer": "workers/hxh-full/r2-2026-10-13/shard-b/SUMMARY.md, COMPLETION_AUDIT.json, RECEIPT_CORRECTIONS.jsonl, NOTES.jsonl, READ_LEDGER.jsonl",
+      "evidence_state": "Historical completion and correction claims reviewed in assigned lines; no notes, audit payloads or primary canon independently inspected.",
+      "remaining_check": "Inspect the named semantic summary/notes for any selected mechanic and retain secondary-source boundaries; no pending assigned retained input is claimed."
+    },
+    {
+      "record_id": "U0431",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
+      "input_sha256": "25b169f0e0323edca8745b64399872b462739507b3f3b1f5e386fcaeeb46dc40",
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          15,
+          20
+        ],
+        [
+          29,
+          35
+        ]
+      ],
+      "mechanism_and_interactions": "JJK semantic review compares clauses, actors, clocks and inferences against restored selected payloads. Recorded cautions include the wiki’s conditional-assent/forced-acceptance wording for Yuji’s vow and an under-construction Feb 2026 snapshot whose Shinjuku synopsis ends at chapter 243 despite a longer chapter list. The empty-input audit remains open because its restored text is missing; non-character archive integration is also outside this lane.",
+      "disposition": "The 481 pending semantic notes were later reviewed and base receipts matched, with append-only corrections. This does not close the separate empty-input or non-character integration gates, nor authenticate canon beyond the dated secondary snapshot.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/parent-review/jjk/SEMANTIC_NOTES.jsonl, READ_REVIEW_LEDGER.jsonl, jujutsu-kaisen_EMPTY_INPUT_AUDIT.json, jujutsu-kaisen_NONCHARACTER_AUDIT.json",
+      "evidence_state": "Checkpoint reports review receipts and repairs; source body here records unresolved restored-text and integration limitations. No fresh primary-source or runtime check occurred.",
+      "remaining_check": "Restore and verify the empty-input text for scope adjudication; separately resolve non-character integration and qualify any selected claim against appropriate canon."
+    },
+    {
+      "record_id": "U0432",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/CHECKPOINT.md",
+      "input_sha256": "2d818da05017b2639a470155935a460f1ea5791f8386842529e6d40e13382a53",
+      "read_ranges": [
+        [
+          1,
+          10
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          3,
+          10
+        ]
+      ],
+      "mechanism_and_interactions": "This MHA shard covers retained ordinals 1–689 against the 2023-11-28 WikiTeam snapshot; the 2024 manga ending is outside that source. Its checkpoint reports every assigned note and selected payload hash/count reconciled, while `IN_PROGRESS.json` is only partial-chunk state.",
+      "disposition": "Historical selected-input reading and integrity audit are reported complete for shard A. The checkpoint does not state mechanics; the source ending and canon qualification remain bounded by the named snapshot.",
+      "owner_or_consumer": "workers/mha-full/shard-a/SUMMARY.md, NOTES.jsonl and READ_LEDGER.jsonl (named or implied outputs in assigned checkpoint)",
+      "evidence_state": "Checkpoint reports a 689-row audit and selected-character coverage; underlying semantic summary and payloads were not inspected.",
+      "remaining_check": "Use the named summary/notes for mechanic-level content and account for the 2024 ending gap before applying claims to later manga continuity."
+    },
+    {
+      "record_id": "U0433",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/CHECKPOINT.md",
+      "input_sha256": "b187d2f9049c5a690775d16c5921de92694397936bcccb52509e3e27f7fc2d37",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          3,
+          8
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "mechanism_and_interactions": "MHA shard B covers ordinals 690–1634 from the 2023-11-28 snapshot, which excludes the 2024 ending. It reports all retained and audit payloads read and verified, with six append-only note corrections. Completion explicitly leaves general unheaded-mechanic completeness and primary-canon authentication outside its proof.",
+      "disposition": "Historical reading and named scope/non-character/empty-input audits are reported complete with no named reading gates open. This is not proof that all possible mechanics were captured or that wiki statements match primary canon.",
+      "owner_or_consumer": "workers/mha-full/shard-b/SUMMARY.md, AUDIT_ADJUDICATION.json and NOTE_CORRECTIONS.jsonl",
+      "evidence_state": "Checkpoint reports hashes, lengths, chunks and audit closure; no semantic summary or primary source was inspected in this shard.",
+      "remaining_check": "Consult the summary and corrections for particular mechanics; retain source snapshot cutoff and explicit completeness/canon limits."
+    },
+    {
+      "record_id": "U0434",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/CHECKPOINT.md",
+      "input_sha256": "fe9a7c0c7443d286b59d65b6c45ccdf5ef534ba3c50ac171c98c8b34d2f76fd2",
+      "read_ranges": [
+        [
+          1,
+          65
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          13,
+          23
+        ],
+        [
+          63,
+          65
+        ]
+      ],
+      "mechanism_and_interactions": "One Piece shard A’s history documents concrete note-integrity repairs: Little Garden was initially recorded before reading, then all 15,933 selected characters were read and a correction appended; other corrections retract unsupported contradiction labels where qualified statements or different events could coexist. The final status reports all 1,419 assigned inputs complete; history is not the current queue state.",
+      "disposition": "Historical shard completion is reported after recovered premature receipts and append-only corrections. Integrity and semantic correction evidence remain distinct; the checkpoint directs mechanics, continuity and limitations to its summary and does not claim primary-canon verification.",
+      "owner_or_consumer": "workers/one-piece-full/shard-a/SUMMARY.md, READ_LEDGER.jsonl, NOTES.jsonl (with correction entries retained append-only)",
+      "evidence_state": "Assigned checkpoint reports hash/count validation and recovery chronology; underlying One Piece notes and source dump were not inspected.",
+      "remaining_check": "For any mechanic, review the linked summary/note and source; do not reuse superseded premature notes or treat correction counts as semantic coverage."
+    },
+    {
+      "record_id": "U0435",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/CHECKPOINT.md",
+      "input_sha256": "42861d00a71879e427678ca21385efbe11cf1254971b20453014046eb04a8892",
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          3,
+          16
+        ]
+      ],
+      "mechanism_and_interactions": "One Piece shard B covers retained ordinals 1,420–2,872. Its integrity model names READ_LEDGER as authority, NOTES as corresponding paraphrases and ERRATA as append-only corrections; helper tools only display bounded text or write analyst notes and verified receipts. All assigned payload hashes and lengths were reportedly rechecked.",
+      "disposition": "Historical offline reading lane reports 1,453 assigned inputs complete. No specific One Piece mechanic is stated in this checkpoint; semantic findings and qualifications are delegated to SUMMARY.md.",
+      "owner_or_consumer": "workers/one-piece-full/shard-b/SUMMARY.md, READ_LEDGER.jsonl, NOTES.jsonl and ERRATA.jsonl",
+      "evidence_state": "Checkpoint reports final integrity and chunk coverage; actual notes, summary and source pages were outside assigned scope.",
+      "remaining_check": "Consult source-linked notes/summary for selected mechanics and preserve their secondary-wiki/source-date qualifiers; no runtime or primary-canon validation is claimed."
+    },
+    {
+      "record_id": "U0436",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/CHECKPOINT.md",
+      "input_sha256": "50e05692e8afe8bece35338d01beb3445f1181454a02e680ccc527fa0df268a8",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          7,
+          17
+        ],
+        [
+          19,
+          25
+        ]
+      ],
+      "mechanism_and_interactions": "One Piece shard C covers retained ordinals 2,873–5,096 and separately audits scope, non-character and empty-input records. Its supplemental audit reads were reconstructed read-only and checked against recorded hashes/lengths; the checkpoint distinguishes actual text reads from metadata-only scope exclusions and a verified empty revision.",
+      "disposition": "Historical checkpoint marks retained range and all three supplemental audits complete. It reports coverage/integrity, while mechanics, contradictions and limitations are routed to SUMMARY.md; this is not canon authentication.",
+      "owner_or_consumer": "workers/one-piece-full/shard-c/SUMMARY.md, READ_LEDGER.jsonl and AUDIT_LEDGER.jsonl/AUDIT_NOTES.jsonl",
+      "evidence_state": "Checkpoint reports 2,224 retained and 422 audit receipt integrity; no semantic note or source page was inspected here.",
+      "remaining_check": "Use summary and source-linked notes for any mechanic; maintain the distinction between textual audit coverage, metadata-only exclusions and actual source semantics."
+    },
+    {
+      "record_id": "U0437",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/qualifier/CHECKPOINT.md",
+      "input_sha256": "364d1b80cd46680b89ff3f8d3f9c37eb153057b4c0e01fc0d9d8fa821f8254b0",
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          14,
+          18
+        ],
+        [
+          26,
+          26
+        ]
+      ],
+      "mechanism_and_interactions": "JJK qualification notes preserve source-bounded distinctions: Cursed Speech and Cursed Corpse repairs checked actor, condition, cost and timing; Gojo/Sukuna domain interval was corrected to three minutes; Cursed Tool item binding remains a source/means axis. The source’s unresolved Kyoto appearance, finger-count, colony-entry and endgame-authority tensions were retained. Shinjuku synopsis is under construction and stops at chapter 243.",
+      "disposition": "Historical qualifier reports 501 retained inputs fully read and receipt-checked, with append-only repairs, but explicitly says notes/proposals are not accepted canon or design decisions. The under-construction snapshot and unresolved tensions remain limitations.",
+      "owner_or_consumer": "workers/qualifier/NOTES.jsonl and NOTES.json; parent/dependency report is named only for Cursed Corpses template facts",
+      "evidence_state": "Checkpoint summarizes full-read receipts and self-audit; no notes or primary manga pages were rechecked in this assignment.",
+      "remaining_check": "For selected mechanics, inspect the named notes and appropriate primary source; preserve source limits and unresolved continuity rather than importing absent outcomes."
+    },
+    {
+      "record_id": "U0438",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/CHECKPOINT.md",
+      "input_sha256": "601be91e0d9371b8fff95295690796985c8fb3e8bfa683bafa37b3b1049e0bad",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "E8",
+        "E8B",
+        "E8C",
+        "E8D"
+      ],
+      "evidence_lines": [
+        [
+          7,
+          17
+        ],
+        [
+          19,
+          23
+        ]
+      ],
+      "mechanism_and_interactions": "The old Shadow Slave wiki archive reports a multi-rank Nightmare path, separate human rank and creature class/rank axes, Flaws that price powers, Memory/Echo item rules, portal-anchored travel, faction/academy institutions and shard rent/labor. Character excerpts describe distinct effects/costs, while the archive says Nightmare Spell nature and trial-selection principles are unknown and establishes no general vow/contract system. All E8-family mappings remain proposals.",
+      "disposition": "Historical old-wiki reader completed 31 retained inputs with hashes and paraphrased notes, but source identity differs from the currently requested wiki and is not canon authentication. Missing template expansions and many effect triggers, ranges, costs and defenses stay unknown.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/NOTES.jsonl, READ_LEDGER.jsonl and explicitly named parent-review route (actual consumer not specified)",
+      "evidence_state": "Checkpoint gives a synthesized secondary-source inventory and receipt audit; no notes or novel text were inspected here.",
+      "remaining_check": "Qualify each proposed mapping against the correct source/version and novel; do not fill missing template fields or infer a general contract system."
+    },
+    {
+      "record_id": "U0439",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/skyrim-full/CHECKPOINT.md",
+      "input_sha256": "83a99665d16e7e3831f9f670a91d26f08f756ea79ac2b6ad2b216f82c0cb23f6",
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "evidence_lines": [
+        [
+          23,
+          28
+        ]
+      ],
+      "mechanism_and_interactions": "This incomplete Skyrim reader preserves distinct Dragon Shouts stages: fixed wall locations, word acquisition order independent of location, learned/understood words, eligibility, unlock, execution, cooldown and effects; exact shout tables remain owner-page dependent. Bounty keeps hold-specific crime records, guard hostility, witnesses/evidence and resolution separate, including a Speech 75 initial condition, two-day same-guard retry and different-guard alternative. No universal witness guarantee or rank-wide immunity is inferred.",
+      "disposition": "Historical lane was paused by a 2026-10-13 priority change and only 131 of 5,815 main inputs were complete. That historical pause does not create present authorization or current pause authority; broad coverage remains incomplete, and several qualifications/templates remain open.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/elderscrolls_SOURCES.json and workers/skyrim-full/NOTES.jsonl/READ_LEDGER.jsonl; exact shout tables are explicitly an owner-page dependency",
+      "evidence_state": "Assigned checkpoint reports an audit of 131 rows and specific summarized distinctions; underlying notes and game behavior were not inspected.",
+      "remaining_check": "Any selected Skyrim work needs source/page qualification, template resolution and explicit priority selection; do not generalize these partial examples to the full archive or current runtime."
+    },
+    {
+      "record_id": "U0440",
+      "path": "docs/research/procedural-crafting-ui-2026-10-15/CHECKPOINT.md",
+      "input_sha256": "15898ebef9692c04262dff8a4c0494e986e889d0c8d64bb11bf311585cfd8844",
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "DQ1",
+        "DQ2–DQ5",
+        "J1"
+      ],
+      "evidence_lines": [
+        [
+          13,
+          19
+        ],
+        [
+          21,
+          29
+        ]
+      ],
+      "mechanism_and_interactions": "The procedural-crafting research favors causal process with actual use, ingredient cross-use/free-versus-held detail, experiment-to-observation-to-method revision and declared repeat means/policy; a grid/map is conditional on spatial law. Round 2 adds multi-use ingredients, skill/power combination and recipe evidence while keeping full sources private. Candidate J1 is proposed only, and DQ1 became a separately authorized research chat; DQ2–DQ5 remained undispatched.",
+      "disposition": "Historical research is complete but proposals are unselected and no implementation or YAIR gameplay is claimed. Native reference trials, selected slice, rebuilt desktop behavior and persistence remain distinct later checks; installation evidence in the checkpoint is not proof that a game was launched or tested.",
+      "owner_or_consumer": "docs/research/procedural-crafting-ui-2026-10-15/REPORT.md, DEEPER_SYNTHESIS.md, DQ1_DISPATCH.md and QUD_CDDA_REPORT.md (named outputs); direction owner must select a bounded original slice",
+      "evidence_state": "Checkpoint reports document/source integrity checks and selected reference evidence; no full report, underlying sources or native interaction were inspected in this shard.",
+      "remaining_check": "Any selected slice follows current direction and actual design/source owners, with a declared desktop target and relevant rebuilt browser/persistence checks. The old research record itself does not select a slice, commission native trials or create a new approval gate."
+    }
+  ],
+  "repairs": [
+    "Coordinator retained source-literal DQ range, attributed the novel discrepancy to the checkpoint and removed an unsupported viewport from the remaining check."
+  ],
+  "cross_record_findings": [
+    "Across the wiki-reading records, selected-payload hashes and line/chunk receipts establish reading integrity, while mechanic completeness, primary-canon truth and current gameplay remain separate. Several records explicitly defer semantic findings to named summaries or notes not included in this shard.",
+    "Historical completion is scoped: HxH shard A/B, MHA, One Piece, JJK qualifier and crafting research each preserve separate cutoffs, exceptions or unresolved audit/source gates. A completed receipt set cannot close those gaps.",
+    "The most mechanism-specific assigned content is in the HP timeline digest, Shadow Slave old-wiki synopsis, partial Skyrim notes and crafting proposals; each retains version/source limits and should not be generalized beyond its described examples."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0427 supplies many timeline assertions without operating rules; listed HP rules need page-level and primary-source qualification before use.",
+    "U0428 is only 100 of 1,256 retained HxH inputs with 1,156 pending; U0429–U0430 route actual mechanism synthesis to summaries not assigned here.",
+    "U0431 retains an open empty-input audit and non-character integration; U0432–U0433 exclude the MHA 2024 ending and primary-canon authentication.",
+    "U0434–U0436 route One Piece semantics to uninspected summaries/notes; receipt and correction evidence is not mechanic qualification.",
+    "U0437 preserves JJK source/continuity limits; U0438 uses the old Shadow Slave community wiki, not the currently requested wiki; U0439 is partial Skyrim coverage; U0440 has unselected research proposals and no gameplay implementation."
+  ]
+}

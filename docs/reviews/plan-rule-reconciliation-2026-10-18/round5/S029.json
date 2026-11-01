@@ -305,8 +305,7 @@
         ]
       ],
       "original_ids": [
-        "A01",
-        "A12"
+        "A01"
       ],
       "mechanism_and_interactions": "Aspect checkpoint says A01–A12 entries and inventories exist; covered means bounded format/mechanism reading, not whole-game or native acceptance. It delegates concrete evidence and unread U1–U8 gaps to the parent checkpoint.",
       "disposition": "Partial coverage breadth, not missing dossier structure; no independent restart or shared-owner edit needed.",
@@ -604,7 +603,6 @@
       ],
       "original_ids": [
         "A01",
-        "A12",
         "G1",
         "G5"
       ],
@@ -653,5 +651,13 @@
     "U0365: No login/play/server transaction or full late-world coverage; resolve deity name/effect IDs before claiming displayed links.",
     "U0366: Runtime/server behavior needs separately scoped evidence; historical no-play text is not a current approval gate."
   ],
-  "coordinator_review": "15 assigned records reviewed against complete labeled source fragments. Paths, hashes, and exact assigned ranges populated from ROUND5_PLAN.json; no contemporary source/build/browser/runtime artifacts independently inspected."
+  "coordinator_review": "15 assigned records reviewed against complete labeled source fragments. Paths, hashes, and exact assigned ranges populated from ROUND5_PLAN.json; no contemporary source/build/browser/runtime artifacts independently inspected.",
+  "coordinator_final_metadata_corrections": {
+    "U0359": [
+      "A12"
+    ],
+    "U0366": [
+      "A12"
+    ]
+  }
 }

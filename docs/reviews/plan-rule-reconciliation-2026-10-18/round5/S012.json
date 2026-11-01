@@ -19,7 +19,7 @@
       "original_ids": [
         "Part 1",
         "Part 2",
-        "Career schema 1 \u2192 2"
+        "Career schema 1 → 2"
       ],
       "mechanism_and_interactions": "Village patrol study separates known (native six-minute reading), practiced (five meditation minutes), and executable (a new full patrol with loaned lantern/baton); Tessa offers the notes at Dependable. A successful full patrol pays 50 base plus proposed 10 report bonus; early departure pays nothing, and first successful use adds one life entry. Career owns practice/issuance/use; native books own knowledge.",
       "disposition": "Historical implementation and assigned gates reported complete, with test/build/browser and normal-timer evidence. Balance, fiction, pacing and menu readability remain human feedback; the proposed bonus is not acceptance. The record describes schema migration and generated schema-1 compatibility, not current runtime proof.",
@@ -27,6 +27,16 @@
       "evidence_state": "Checkpoint reports two browser routes, persistence/import cases, and timer-specific checks; not independently rerun here.",
       "remaining_check": "If reselected, inspect present code and test patrol readiness, early departure, native reading/practice, migration and payout against current owners.",
       "evidence_lines": [
+        [
+          25,
+          35
+        ],
+        [
+          42,
+          53
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00025-L00035",
         "L00042-L00053"
       ]
@@ -62,6 +72,16 @@
       "evidence_state": "Historical check/build claims are in the assigned checkpoint; no browser artifact or current source examined here.",
       "remaining_check": "For any future UI selection, rebuild and inspect the populated desktop result, including text-to-fill contrast and the deferred behaviors.",
       "evidence_lines": [
+        [
+          16,
+          23
+        ],
+        [
+          25,
+          29
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00016-L00023",
         "L00025-L00029"
       ]
@@ -90,6 +110,12 @@
       "evidence_state": "Checkpoint claims historical test/build/browser proof against a pinned candidate; current checkout integration is not established.",
       "remaining_check": "If selected again, inspect the live candidate/integration and verify the chosen natural journey and archive/restart boundary on rebuilt browser.",
       "evidence_lines": [
+        [
+          9,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00009-L00013"
       ]
     },
@@ -110,12 +136,18 @@
         "ASSIGNMENT",
         "VALIDATION"
       ],
-      "mechanism_and_interactions": "This finite workflow audit produced report, workflow map, tooling decision, next packet and four bounded evidence returns. It proposed a Lin native/Ink finite request\u2192real stock\u2192staff_supply consumer and preserved incumbent native/Ink tooling; no synthetic suppression/calendar/economy add-on was proposed.",
+      "mechanism_and_interactions": "This finite workflow audit produced report, workflow map, tooling decision, next packet and four bounded evidence returns. It proposed a Lin native/Ink finite request→real stock→staff_supply consumer and preserved incumbent native/Ink tooling; no synthetic suppression/calendar/economy add-on was proposed.",
       "disposition": "Audit is reported complete with hashes, routing coverage and narrow JSON/link/source-path checks. The next packet remains proposal-only; runtime integration, build and combined browser/persistence proof were not run, and the checkpoint prohibits automatic successor/implementation.",
       "owner_or_consumer": "workflow-foundation-audit dispatch REPORT.md, WORKFLOW_MAP.md, TOOLING_DECISION.md, NEXT_PACKET.md and VALIDATION; shared runtime owner not assigned here",
       "evidence_state": "Historical document/hash checks are reported; no runtime or consumer was inspected in this reader pass.",
-      "remaining_check": "Any future implementation needs human selection and refreshed ownership, then real request\u2192stock\u2192staff_supply consumer and browser/persistence proof.",
+      "remaining_check": "Any future implementation needs human selection and refreshed ownership, then real request→stock→staff_supply consumer and browser/persistence proof.",
       "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00011"
       ]
     },
@@ -141,6 +173,16 @@
       "evidence_state": "Evidence is historical and tied to named candidate/build; current runtime behavior is not established here.",
       "remaining_check": "If resumed, reconcile live source ownership and prove selected p05 flow on a fresh campaign; retain explicit p04 compatibility and no automatic migration.",
       "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00007",
         "L00009-L00011"
       ]
@@ -162,12 +204,18 @@
         "W1-FULL-AUDIT396",
         "V2-V5"
       ],
-      "mechanism_and_interactions": "COVERAGE.json projects a private whole-horizon ledger of 3,575 mixed accounting rows across S00\u2013S14, retaining 1,033 direct-audit occurrence IDs. The checkpoint explicitly says these are not feature counts and qualification parents need reviewed observable children; the recommended next work is U01/U02 plus source qualification under live reservation.",
-      "disposition": "Read-only coverage projection is complete; source gaps (A1 V2\u2013V5, unavailable post319 source, per-idea extraction beyond 179 parent rows) remain explicit. This records inventory/projection consistency only; implementation, browser, director and qualification remain unadjudicated.",
+      "mechanism_and_interactions": "COVERAGE.json projects a private whole-horizon ledger of 3,575 mixed accounting rows across S00–S14, retaining 1,033 direct-audit occurrence IDs. The checkpoint explicitly says these are not feature counts and qualification parents need reviewed observable children; the recommended next work is U01/U02 plus source qualification under live reservation.",
+      "disposition": "Read-only coverage projection is complete; source gaps (A1 V2–V5, unavailable post319 source, per-idea extraction beyond 179 parent rows) remain explicit. This records inventory/projection consistency only; implementation, browser, director and qualification remain unadjudicated.",
       "owner_or_consumer": "coverage/COVERAGE.json and private DETAIL_LEDGER.json, build_ledger.py, NEXT_UNITS.md; root coordinator",
       "evidence_state": "Historical checkpoint states exact pinned inputs and inventory/projection validation, not gameplay evidence.",
       "remaining_check": "Coordinator must join live candidate evidence to matching requirements and inspect consumers before treating dated gap descriptions as current.",
       "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00011"
       ]
     },
@@ -194,6 +242,12 @@
       "evidence_state": "Checkpoint contains source hashes and contract claims, but no behavior proof was run.",
       "remaining_check": "Root integration must preserve actual body correspondence, paid activation enrollment, clock cutoff and truthful observation support in native travel/save paths.",
       "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00009"
       ]
     },
@@ -218,6 +272,16 @@
       "evidence_state": "Historical source review and syntax/import claims only; no scenario proof.",
       "remaining_check": "Root must consume helper allow/reasons and cargoComplete guards, then test actual cargo/custody and lender grant/return path if selected.",
       "evidence_lines": [
+        [
+          5,
+          7
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00007",
         "L00013-L00015"
       ]
@@ -246,6 +310,12 @@
       "evidence_state": "Checkpoint supplies fingerprints and API contract, not executed gameplay evidence.",
       "remaining_check": "Verify paid activation, cutoff, location/body preservation, travel closure and due-job settlement in root's rebuilt browser/persistence route.",
       "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00011"
       ]
     },
@@ -269,6 +339,12 @@
       "evidence_state": "Historical input snapshot and structural validation reported; no current source/API or runtime validation here.",
       "remaining_check": "Before any implementation, reread live assignment/PROJECT/AGENTS, inspect actual consumers and prove selected preparation rule with browser and persistence gates.",
       "evidence_lines": [
+        [
+          9,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00009-L00013"
       ]
     },
@@ -296,6 +372,16 @@
       "evidence_state": "Checkpoint reports source and bundle-hash admission, not behavior proof; no current build inspected.",
       "remaining_check": "Keep native alive/vital/seal guards, publisher preflight, clock reconciliation and opening-version compatibility under any later selected gameplay verification.",
       "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          25,
+          31
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00007-L00013",
         "L00025-L00031"
       ]
@@ -322,6 +408,12 @@
       "evidence_state": "Only historical bundle/source and import/compiler claims are in record; no behavior proof established.",
       "remaining_check": "If newly selected, follow current Features owner and acceptance backlog; test reward preflight, durable publication and exact optional namespace compatibility on rebuilt browser.",
       "evidence_lines": [
+        [
+          1,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00001-L00011"
       ]
     },
@@ -347,6 +439,16 @@
       "evidence_state": "Historical receipts and checks described; no current merge or play evidence in this span.",
       "remaining_check": "For a selected follow-up, check current owner and test deferred generated-origin, team, itinerary, Tidemark revisit and Ink cursor cases.",
       "evidence_lines": [
+        [
+          5,
+          13
+        ],
+        [
+          17,
+          21
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00013",
         "L00017-L00021"
       ]
@@ -374,6 +476,12 @@
       "evidence_state": "Historical current-build hashes and static checks reported, no gameplay evidence.",
       "remaining_check": "Use acceptance backlog against current bundle to verify native publication, compatibility gates, passage/clock and generated-save conservation.",
       "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00011"
       ]
     },
@@ -394,12 +502,18 @@
         "Backlog2",
         "scopedInk2"
       ],
-      "mechanism_and_interactions": "Book-world subtlety delivery assembles 19 roster rows with source references, edition/era limits, rules/recognition/topologies/deep chains, and four profile modules/19 voice rows. Selected office/relay/reference consumers use real native body/progression, conserved office duty and independent reports. Nested hub/destinations/missions/chains join through native save publication and carrier/shared-clock guards; divergences from PR01\u201308 remain explicit.",
+      "mechanism_and_interactions": "Book-world subtlety delivery assembles 19 roster rows with source references, edition/era limits, rules/recognition/topologies/deep chains, and four profile modules/19 voice rows. Selected office/relay/reference consumers use real native body/progression, conserved office duty and independent reports. Nested hub/destinations/missions/chains join through native save publication and carrier/shared-clock guards; divergences from PR01–08 remain explicit.",
       "disposition": "Finite code/build goal reported delivered, implemented-unverified. No gameplay/unit/browser/save/failure/keyboard/regression/director test ran; Hunter and 19-world parity remain unclaimed. Further work is deferred acceptance or newly selected scope.",
       "owner_or_consumer": "Current Features checkpoint, DELIVERY.md, COVERAGE.json, BUILD.json, nested-campaign ACCEPTANCE_BACKLOG.md",
       "evidence_state": "Historical assembly/build claims only, no raw source or runtime requalification in this span.",
       "remaining_check": "If selected, exercise the actual office and nested-world flows with current source and persistence; preserve explicit source-world divergences and do not infer parity.",
       "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00009"
       ]
     }
@@ -437,5 +551,8 @@
       "P05",
       "removed: not an explicit assigned-block code"
     ]
+  ],
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
   ]
 }

@@ -1,0 +1,372 @@
+{
+  "schema": 1,
+  "shard": "S048",
+  "reader": "content_s048; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "b4d03711719f255727b021757ef8994fc015b85eaa1e8873b1b1168fc7c334bb",
+  "frozen_plan": {
+    "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND5_PLAN.json",
+    "sha256": "e66054588858b6743d295a2bf252d233268e06ddc8324f0e344f389c5ebf0284"
+  },
+  "rows": [
+    {
+      "record_id": "U0511",
+      "path": "docs/research/warsim/pass-2026-10-14-rea/CHECKPOINT.md",
+      "input_sha256": "63b4ee58b53e12d215c3ed8ec712dbe7472619deeb5c8301985220d218d9dede",
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "D2"
+      ],
+      "mechanism_and_interactions": "Static REA traces cover selected livestock-aid petition selection/payment/reaction/visitor consumption; typed-name alias and stat grammar; alphabet recipe writer/reader; faction grammar; selected harvest/upkeep/recruitment/damage/return/arena formulas. Equal-input name comparison found selected arithmetic agreement, with two body text matches and one import-reference/wrapping difference. Current exe hash/manifest match prior pass; alias validation found 50 aliases without cycles or missing destinations. Query outputs are not all-path certification.",
+      "disposition": "Partial historical static research. Selected queries and artifact validation are reported complete; repeated direct-function timeouts, stopped AutoRecruit query, and untraced source families remain explicitly open. No game launch, personal save access, runtime edit, build, gameplay/persistence test, or director acceptance.",
+      "owner_or_consumer": "docs/research/warsim/pass-2026-10-14-rea/REPORT.md, FINDINGS.json, PROVINCE_WAR_FIT.md, and named U-row follow-ups",
+      "evidence_state": "Historical checkpoint reports static query receipts, artifact validation pass, and no runtime proof; underlying private extracts and raw receipts were not re-read here.",
+      "remaining_check": "Any selected U1-U6 route needs its bounded retained-assembly trace; installed gameplay and save/reload/import remain outside this checkpoint and require a separate runtime lane.",
+      "evidence_lines": [
+        [
+          9,
+          23
+        ],
+        [
+          30,
+          50
+        ],
+        [
+          52,
+          63
+        ],
+        [
+          74,
+          76
+        ]
+      ]
+    },
+    {
+      "record_id": "U0512",
+      "path": "docs/research/warsim/pass-2026-10-14-systems/CHECKPOINT.md",
+      "input_sha256": "552958a8d9f0e393beb095761ed4891de475bfe7a9946aabf005ee1d794fc497",
+      "read_ranges": [
+        [
+          1,
+          82
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12",
+        "U13",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U20"
+      ],
+      "mechanism_and_interactions": "The static pass carries 32 system families, 143 helpers, 255 text-file entries and 28 inherited unread rows. Selected closed chains include QuestGenerator value-to-gold, monster feeding stock/XP gate and refresh reset, trainer-to-fight HP modifiers, SmallHavenRecruit refresh reset, relation mutation/player column, noble writer, ally recruitment-to-saved-story, tutor explanation depth, child-gang cost/standing/closure, and finite faction allocations. Twenty-one native targets have assembly, and 21 save-field-reference receipts were retained privately. These are static evidence layers; full parent systems remain partial.",
+      "disposition": "Partial deeper-system research with artifact validation pass. Fifteen sections do not certify fifteen complete subsystems. The checkpoint explicitly leaves full turn/economy, battle, race/body effects, grammar, save joins, companions, recruitment, monster, community, RNG, tech, UI, minigames, broader tables and runtime open; personal state was excluded.",
+      "owner_or_consumer": "docs/research/warsim/pass-2026-10-14-systems/REPORT.md, SYSTEMS.md, FAMILY_MAP.json, and each named U01-U20 follow-up",
+      "evidence_state": "Historical checkpoint reports selected reads and validation; current source/runtime, native gameplay and save behavior were not verified here.",
+      "remaining_check": "Select a named family and close one caller/state/consumer chain from retained evidence; do not infer complete subsystem semantics or runtime behavior from the dossier.",
+      "evidence_lines": [
+        [
+          8,
+          27
+        ],
+        [
+          34,
+          62
+        ],
+        [
+          64,
+          82
+        ]
+      ]
+    },
+    {
+      "record_id": "U0513",
+      "path": "docs/research/wildermyth/CHECKPOINT.md",
+      "input_sha256": "6ce862a64194a91696744ab97c6c8325c087851d286a9642bdc3e3cf402e5d1a",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "StateFlags4",
+        "build21684217",
+        "COVERAGE",
+        "DLC_COVERAGE"
+      ],
+      "mechanism_and_interactions": "The checkpoint records retained source/build bytes with matching SHA256 hashes and a bounded Java export receipt; six finite connected chains were complete, with source references independently rehashed for docs.",
+      "disposition": "Finite retention/research checkpoint, not broad game acceptance. Unread limits remain in COVERAGE/DLC_COVERAGE; broader export is optional. Processes were stopped, but the eligible Steam uninstall was parent-owned and not claimed done.",
+      "owner_or_consumer": "docs/research/wildermyth/COVERAGE and DLC_COVERAGE; parent-owned installation cleanup",
+      "evidence_state": "Historical retention/export receipts summarized; no game launch, gameplay, source edits, or personal save/mod inspection claimed.",
+      "remaining_check": "If more work is selected, use retained JRE/jars/data privately after the parent resolves the install state; consult the coverage owners for exact unread limits.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "record_id": "U0514",
+      "path": "docs/research/your-chronicle/CHECKPOINT.md",
+      "input_sha256": "8d69c057069c7d67374f7e4dc9bc31cb19a1add9bb8bb46684204ae4e6111676",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "16 selected causal traces",
+        "27 primary publisher claims",
+        "five bounded unresolved source groups",
+        "one realm/one prestige"
+      ],
+      "mechanism_and_interactions": "The finite selected dossier joins 16 causal traces, six additional Help findings, 27 publisher claims, five families, eight ending-guide/terminal-predicate records and selected late/exceptional consequences. It distinguishes class proficiency/sums lost at Reincarnation from permanent routine completion and inherited access, and notes a full-capacity shard-loss path is statically identified but untested. DLC coverage separates artwork consumer inspection, unavailable image bundle and free base updates.",
+      "disposition": "Finite selected research completed, not whole-game or runtime acceptance. Four original unselected proposals remain packets; five source groups remain unresolved. Historical current PROJECT reportedly recorded finite audited remainder delivery/release, while existing gameplay remained implemented-unverified.",
+      "owner_or_consumer": "docs/research/your-chronicle/REPORT.md, FINDINGS.json, COVERAGE.json, DLC_COVERAGE.json, and implementation packets",
+      "evidence_state": "Historical checkpoint reports research/hash/span/link/extraction checks passing; no current source/bundle correspondence, runtime, personal save, gameplay, or human acceptance verification in this read.",
+      "remaining_check": "For a selected builder, refresh live ownership/source hashes and retain explicit unread source gaps; playable acceptance needs its own authorization and gates.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "record_id": "U0515",
+      "path": "docs/research/your-chronicle/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "f47571c05bd3f21de3dfbe966480653c41322f95a7a52dec15312ab0dfd77ae2",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "mechanism_and_interactions": "The aspect lane records A01-A12 with fixed JSON keys, a discovered source-unit index, top-three deeper-system reads, five proposal packets, 24 touches and priority/tooling digests. New NGU TextAsset extraction produced 328 entries with zero parser errors; assembly and four program/data pins match prior inputs.",
+      "disposition": "Partial source snapshot only. G1-G5 leave native recovery/save handling, full story/parser semantics, AI/combat/RNG, offline dispatch/replay, and current UI/save/gameplay unverified. The checkpoint expressly makes no promise that every source line or full behavior was semantically read.",
+      "owner_or_consumer": "docs/research/your-chronicle/aspects-2026-10-14/VALIDATION.json and exact A01-A12 source locators",
+      "evidence_state": "Historical research validation is cited, not rerun; no worker or implementation dispatched and no shared owner/runtime state changed.",
+      "remaining_check": "Resume only a selected G1-G5 source question or proposal, using its exact locator; runtime tasks need independent authorization.",
+      "evidence_lines": [
+        [
+          7,
+          19
+        ],
+        [
+          21,
+          21
+        ]
+      ]
+    },
+    {
+      "record_id": "U0516",
+      "path": "docs/research/your-chronicle/pass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "1e53d44616a19be88a393f84c46158b0bc2911330ec91d10e32c0337199ce2cc",
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A10",
+        "A13",
+        "A14",
+        "A15",
+        "seven late-loop families",
+        "20 Greed categories",
+        "22-row inventory"
+      ],
+      "mechanism_and_interactions": "The selected data extension recovers 122 TextAssets, round-trips 110 encoded assets and reviews 136 selected records across 12 sources. It reconciles Help's 20 Greed categories with the installed 22-row inventory without inventing a runtime count; seven late-loop families are an analytical denominator, not a minimum-lives or concurrent-unlock rule. The proposal set preserves flexible per-edge carry/conversion dials and distinguishes reset, offline dispatch, damage/drop, and ending consumers as unresolved.",
+      "disposition": "Selected data/Help analysis and documentation checks are complete, but whole-save/native carryover and execution remain partial. Source finite caps and Ruby purchases are observations, not new constraints. No runtime/build/gameplay/save acceptance or whole-game audit is claimed.",
+      "owner_or_consumer": "docs/research/your-chronicle/pass-2026-10-14/CARRYOVER_AND_UNLOCKS.md, REPORT.md, FINDINGS, and selected implementation packets",
+      "evidence_state": "Historical checkpoint reports pinned inputs and research/hash/roundtrip/link/output checks; current source and runtime were not reread or exercised here.",
+      "remaining_check": "First resume item is the reset callback trace; then select one reset, offline dispatch, skill payout, or full route gap. Do not treat method-header inventory or Help declarations as consumers.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          20,
+          33
+        ],
+        [
+          35,
+          48
+        ],
+        [
+          50,
+          58
+        ]
+      ]
+    },
+    {
+      "record_id": "U0517",
+      "path": "docs/research/zhutian-shuabao-lu/CHECKPOINT.md",
+      "input_sha256": "04ea8049b51ce82378f27f0ed97ee62196cd86de737161547b6fd7c72fd8dc97",
+      "read_ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "mechanism_and_interactions": "The static dossier inventories 13 plane definitions, 60 Construct array tables, six event sheets/layouts and 1,782 named groups, and reads selected travel, loot, time, save, dialogue, rebirth, progress, price and compact online-display consumers. It distinguishes compact online display/base time from an established closed-app catch-up reader; shared roster is insufficient proof of carry, consent, memory or revisit contracts.",
+      "disposition": "Documentation delivery is complete for this source-partial snapshot; no implementation or native acceptance. Nine gaps remain, including offline catch-up, complete plane rules/reachability, carry/relationships, power formulas, save safety, UI/dialogue, wider subsystem semantics, source reachability and YAIRPG adoption. Every packet remains a proposal.",
+      "owner_or_consumer": "docs/research/zhutian-shuabao-lu/REPORT.md, SYSTEM_INVENTORY.md, DEEPER_SYSTEMS.md, A01-A12 details, and U01-U09",
+      "evidence_state": "Historical validation reports 167 documentation/schema/link/source-hash checks passing; no game run, build, browser screenshot, save inspection, or gameplay/native acceptance.",
+      "remaining_check": "If selected, trace compact-idle/time/dispatch and date-plugin uses for closed-app catch-up, then a career-to-skill applicability join; keep per-gap evidence and runtime gates separate.",
+      "evidence_lines": [
+        [
+          8,
+          16
+        ],
+        [
+          18,
+          32
+        ],
+        [
+          34,
+          40
+        ]
+      ]
+    },
+    {
+      "record_id": "U0518",
+      "path": "docs/research/zhutian-shuabao-lu/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "726cf1f395ed232a6c4bb8c8b956843e5006a61735662e48ea41d4e9b9ee3242",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12"
+      ],
+      "mechanism_and_interactions": "All twelve aspect detail files and their aspect/system inventories are delivered, while each aspect retains partial source status and routes its gaps to lane checkpoint U01-U09.",
+      "disposition": "Artifact delivery only; no aspect was promoted to runtime acceptance.",
+      "owner_or_consumer": "docs/research/zhutian-shuabao-lu/aspects-2026-10-14/ASPECTS.md, ASPECTS.json, SYSTEM_INVENTORY.md, and parent lane checkpoint",
+      "evidence_state": "Historical status statement; underlying aspects and runtime evidence were not part of this assigned span.",
+      "remaining_check": "Use the parent lane checkpoint's named unread systems if a bounded source question is selected.",
+      "evidence_lines": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0519",
+      "path": "docs/worlds/original-frontier/CHECKPOINT.md",
+      "input_sha256": "df51d8d552db67450227f1d12ee56eccf1a79c5f35f34aaf9791323cc23fcf49",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "E01-E09",
+        "O01-O05",
+        "33 parent IDs",
+        "15 strand steps",
+        "seven ending cases",
+        "12 acceptance journeys",
+        "S2"
+      ],
+      "mechanism_and_interactions": "The finite Frontier planning result connects four careers/five arcs with exploration, control and mastery; preserves native timing/opening/access/one-prestige; and reconciles four runtime skill IDs plus six discovery exports after actual S2/source readback. Planning checks cover local files, anchors, ledgers, IDs, adapters, cases and unchanged source-module hash. Geography-minute and target-stock defects remain held and unrepaired.",
+      "disposition": "Planning objective and local planning checks complete, with names/costs/timers/ending fiction still proposals. No native integration, build, behavior, gameplay/unit/browser/save/reload/failure/regression or human-acceptance claim. Runtime authorization and ownership remain with other assigned writers; this plan does not resume runtime.",
+      "owner_or_consumer": "docs/worlds/original-frontier/REPORT.md, WORLD_COMPLETION.md, COMPLETION_LEDGER.json, CAMPAIGN.md, WORLD_BRIEF.md, RULES_AND_STARTS.md, ABILITIES.md, IMPLEMENTATION_PACKET.md, and TIMELINE_AND_ENDINGS.md",
+      "evidence_state": "Historical checkpoint records planning artifacts and local checks, not current runtime proof. Its held report preserves older draft/import/registry proof only.",
+      "remaining_check": "A future specifically authorized sole-writer implementation starts by repairing held geography-minute/target-stock gaps against approved E01-E04 and exact consumers; first refresh live ownership and Engine contract.",
+      "evidence_lines": [
+        [
+          5,
+          15
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Across Warsim, Your Chronicle and Zhutian, selected static traces close named local chains while parent systems, full catalogs and native gameplay remain partial; a completed dossier or passing document checks do not upgrade source coverage to complete.",
+    "The records distinguish source observations and finite planning proposals from accepted design, integrated runtime and current playable behavior. Frontier planning completion also leaves actual runtime ownership and execution with its assigned writers.",
+    "Proof boundaries are explicit: no lane in this shard establishes current game behavior or human acceptance; historical tests, hashes, native static traces and reported browser checks remain tied to their stated artifacts and dates."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0511-U0512 leave broad Warsim dispatch, economy, combat, save joins, and native gameplay/persistence unanswered; their named bounded U rows remain the source route.",
+    "U0513 leaves exact research/DLC coverage in COVERAGE and DLC_COVERAGE and parent-owned uninstall status unresolved in this checkpoint.",
+    "U0514-U0516 leave Your Chronicle native reset/save, story graph semantics, RNG/combat/offline dispatch, endings and current gameplay unverified; the first specified resume is reset callback tracing.",
+    "U0517-U0518 leave Zhutian offline catch-up, full plane/carry/save/UI/reachability semantics, YAIRPG adoption and runtime acceptance unresolved.",
+    "U0519 leaves held Frontier geography-minute and target-stock defects unrepaired; runtime behavior and authorization are not established by planning completion."
+  ],
+  "coordinator_review": "All nine assigned records were read across their exact spans. No source content outside the assigned blocks was used for row claims."
+}

@@ -183,8 +183,7 @@
         "P21",
         "P23",
         "P24",
-        "P25",
-        "U01-U20"
+        "P25"
       ],
       "mechanism_and_interactions": "The synthesis maps 35 aspect packages and exact aspect statuses, connecting dialogue/narrative graphs and native/Ink seams with architecture, identity/instances, cache/clock/RNG/AI and dossier-specific save methods. It catalogs 25 packets while preserving U01-U20 options; P23 is a selectable full-native-payload wrapper proposal, not a current universal dependency. Branch UI, demand loading, canon-diff and active-only offline accrual remain separate questions.",
       "disposition": "Docs-only round-three snapshot and packet reconciliation completed; all ideas remain proposals. It read a bounded source snapshot and corrected stale owner links; generated/catalogue inventory and saved prose are not semantic activation or runtime proof.",
@@ -462,5 +461,10 @@
     "U0283 queue drafts are superseded and local manifests do not establish account entitlements or current dispatch state.",
     "U0284-U0289 contain proposals or source-only findings without current gameplay proof; refresh their current owners before selecting a concrete consumer.",
     "U0290-U0291 retain specialty/origin, late-system, backend, interpreter/save, UI and round-trip gaps; U0292 source completion does not prove balance, game feel or current integration."
-  ]
+  ],
+  "coordinator_final_metadata_corrections": {
+    "U0284": [
+      "U01-U20"
+    ]
+  }
 }

@@ -26,6 +26,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          9,
+          13
+        ],
+        [
+          19,
+          23
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00009-L00013",
         "L00019-L00023"
       ]
@@ -48,12 +58,22 @@
         "Lamb",
         "schema unchanged"
       ],
-      "mechanism_and_interactions": "Combined four-game delivery joins 16 leaves, three aggregators and existing registry/facts/validators/scheduler/Here/single publisher. Per-game evidence covers paid jobs, cancellations/refunds, support, preparation, cooking and import. Expansions5\u201311 and simulation1\u20135 were supported without schema bump. The report records BOH primary runner exit1 from an overbroad final resource assertion after gameplay checks; followthrough passed.",
+      "mechanism_and_interactions": "Combined four-game delivery joins 16 leaves, three aggregators and existing registry/facts/validators/scheduler/Here/single publisher. Per-game evidence covers paid jobs, cancellations/refunds, support, preparation, cooking and import. Expansions5–11 and simulation1–5 were supported without schema bump. The report records BOH primary runner exit1 from an overbroad final resource assertion after gameplay checks; followthrough passed.",
       "disposition": "Finite combined delivery and bounded browser/build outcomes reported complete; backlog and BOH assertion failure remain accurately scoped.",
       "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/REPORT.md, ACCEPTANCE_BACKLOG.md and per-game BROWSER.json; integration was root-owned.",
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00009",
         "L00011-L00013"
       ]
@@ -81,6 +101,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00009",
         "L00011-L00013"
       ]
@@ -110,6 +140,12 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00009"
       ]
     },
@@ -134,6 +170,12 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00011"
       ]
     },
@@ -149,17 +191,23 @@
       ],
       "coverage": "assigned-range-content-read",
       "original_ids": [
-        "E28\u2013E32",
+        "E28–E32",
         "E06",
         "schema3",
         "schema5"
       ],
-      "mechanism_and_interactions": "ONI adds optional sheltered nursery at existing Shack, separate from Nell\u2019s finite plot: paid build and repeated herb-plus-sap cycles yield ordinary Cooking herbs. No population, autonomous renewal, upkeep, new inventory/clock or schema bump. One player-only idle-phase situation meets shared schema3 causal contract; no biological truth/timer stored there.",
+      "mechanism_and_interactions": "ONI adds optional sheltered nursery at existing Shack, separate from Nell’s finite plot: paid build and repeated herb-plus-sap cycles yield ordinary Cooking herbs. No population, autonomous renewal, upkeep, new inventory/clock or schema bump. One player-only idle-phase situation meets shared schema3 causal contract; no biological truth/timer stored there.",
       "disposition": "Four leaves and bounded checks complete; shared ticking/native publication/browser/save acceptance remained root-owned.",
       "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/oni/DELIVERY.md and RELEASE.json; root owns aggregation/proof.",
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00011"
       ]
     },
@@ -185,6 +233,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          11,
+          17
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00011-L00017",
         "L00026-L00032"
       ]
@@ -205,12 +263,22 @@
         "referenceGameplay1",
         "workshop1"
       ],
-      "mechanism_and_interactions": "Integrated 12 feats, nine cooling/service commands, four native item specs and one max-three mastery plan with native/state/UI consumers. Optional expansion9/referenceGameplay1/workshop1 activates explicitly; absent/5\u20138 and frozen schema3 sluice sessions remain supported; new enrolled encounters use4. Feat cursor is sluice-only; only substantive player/Lio actions count.",
+      "mechanism_and_interactions": "Integrated 12 feats, nine cooling/service commands, four native item specs and one max-three mastery plan with native/state/UI consumers. Optional expansion9/referenceGameplay1/workshop1 activates explicitly; absent/5–8 and frozen schema3 sluice sessions remain supported; new enrolled encounters use4. Feat cursor is sluice-only; only substantive player/Lio actions count.",
       "disposition": "Finite source/native/UI/save/build wave delivered historically; behavior suites and director acceptance deferred; next integration belongs to Features.",
       "owner_or_consumer": "docs/gm/reference-gameplay/DELIVERY.md, COVERAGE.json, BUILD.json, ACCEPTANCE_BACKLOG.md, BOOK_WORLD_HANDOFF.json; Features owns next integration.",
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          17
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00009",
         "L00011-L00017"
       ]
@@ -238,6 +306,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00009",
         "L00011-L00013"
       ]
@@ -263,6 +341,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint reports partial browser observations and unavailable full browser route.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          15
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00003-L00009",
         "L00011-L00015"
       ]
@@ -290,6 +378,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00005-L00009",
         "L00011-L00013"
       ]
@@ -321,6 +419,16 @@
       "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
       "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
       "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          21
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
         "L00007-L00013",
         "L00015-L00021"
       ]
@@ -337,5 +445,8 @@
     "U0217 main adoption receipt was absent at last check; source and current integration state require the named Features receipt if reselected.",
     "U0226 full browser route was unavailable and latest browser command effects were uncertain; timed interaction and shared Notebook join remain unresolved."
   ],
-  "coordinator_review": "Reviewed findings/gaps and selected long/end records. Completed source/native passage and traveler descriptors retain body/custody/clock distinctions; browser/persistence gates remain historical/unrun. Zero-source lookup failure and exact ignored recovery copies remain recorded in plan."
+  "coordinator_review": "Reviewed findings/gaps and selected long/end records. Completed source/native passage and traveler descriptors retain body/custody/clock distinctions; browser/persistence gates remain historical/unrun. Zero-source lookup failure and exact ignored recovery copies remain recorded in plan.",
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
+  ]
 }
