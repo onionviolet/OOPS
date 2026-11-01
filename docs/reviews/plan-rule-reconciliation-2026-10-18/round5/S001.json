@@ -1,0 +1,424 @@
+{
+  "schema": 1,
+  "shard": "S001",
+  "reader": "primary agent",
+  "scope": "Complete18 historical record contents; stated implementation/evidence reconciled, not gameplay validation",
+  "payload_sha256": "3ad9f8192205d63176c6e6bf409e68b798f14806e7e3ea6bf7a3185c8cacf6ff",
+  "rows": [
+    {
+      "record_id": "U0001",
+      "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+      "input_sha256": "3720aa3948c790726cacdbe93c111f9852c7c366c2b247a3d073b5b987244eb4",
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "physical collection",
+        "assembly/disassembly",
+        "carrier reservation",
+        "paid pin-to-kit recovery"
+      ],
+      "mechanism_and_interactions": "Finite stock and fresh native equipment owner govern quote, commitment and recovery; displayed maker and stable legacy alias have separate purposes. No new inventory, clock or power grant.",
+      "disposition": "Leaf integration remains historical at this checkpoint; later remainder source-delivery record U0008 records artifact adoption. Useful kit output, reservation and failed-publication behavior still need actual gameplay proof.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0002",
+      "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "input_sha256": "27a3b40b3e9c011ccce757721d8c5c1558a3576b69a80039eb7bcd71bb2ee5f3",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "GD-01",
+        "ACS-P01",
+        "ACS-P02",
+        "ACS-P03",
+        "Known Routes Here"
+      ],
+      "mechanism_and_interactions": "Five specific source/native/build connections are recorded, including negative evidence/control comparison, local route context, paid retry preparation, contextual care and actual funded joint duty. Metadata intake count is not source reading.",
+      "disposition": "Finite selected source objective was reported delivered and released; Save/reload and all player/failure routes were unrun, so no present gameplay completion follows.",
+      "owner_or_consumer": "docs/gm/audit-absorption-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0003",
+      "path": "docs/gm/audit-absorption-2026-10-07/balm/CHECKPOINT.md",
+      "input_sha256": "a19f5bf82a57a5ba8b33b295f1f1bdf1fd9e77534ddb78d8bd1954acba10e55f",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "ACS-P02",
+        "body.scraped_hands",
+        "Weak healing balm"
+      ],
+      "mechanism_and_interactions": "Uses one actual unborrowed/unequipped carried dose and one played minute; completion removes the supported scrape and times an existing effect from its receipt, preserving longer/distinct effects and accounting for elapsed remainder. Cancellation, support loss or natural expiry refunds without treatment.",
+      "disposition": "Later parent source delivery qualifies leaf not-integrated wording. Common effect publication and interrupted/reloaded timing require their actual joined consumer proof; no schema bump follows from additive IDs.",
+      "owner_or_consumer": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0004",
+      "path": "docs/gm/audit-absorption-2026-10-07/duty/CHECKPOINT.md",
+      "input_sha256": "f090013b33339ca1940cfbcb81f7b01a1b7b7aae22dddc5d6dc547462f953aa5",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "ACS-P03",
+        "agreedDutyReservation"
+      ],
+      "mechanism_and_interactions": "Three early prebooking methods use real terms, one coin, real work claim and separate actor assent; decorate actual Orr controller rather than forge prior completion. Accepted/refused/cancelled/stopped histories, actual refunds and later account have distinct causes.",
+      "disposition": "Parent needs transient popped-job binder, kept/cancel/stopped/refusal hooks, validator without transient dependency and People/UI routing. Later parent claims source integration; current end-to-end proof not rechecked.",
+      "owner_or_consumer": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0005",
+      "path": "docs/gm/audit-implementation/CHECKPOINT.md",
+      "input_sha256": "c3639f6f28945cc9f29afca0ca5487494782601257d89b31866b6ed6b4072767",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "RimWorldP1",
+        "ITRTGP2",
+        "ToMEP3"
+      ],
+      "mechanism_and_interactions": "First three adaptations use real workshop, paid lesson, counted kit reserves and ordinary frame terms. New optional stock/work-plan state is admitted by explicit acceptance; existing frozen/absent state retains its meaning.",
+      "disposition": "This earlier three-row source/build delivery is not the remaining nineteen-row delivery nor evidence of current runtime behavior. Preserve its original tests-deferred boundary and later parent queue.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0006",
+      "path": "docs/gm/audit-implementation/earned-lesson/CHECKPOINT.md",
+      "input_sha256": "70b396dabe0cff948c9c79cf02e52b1886b9f8c0fc95d35d1db6bbdba5b5a7ec",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "tales-of-maj-eyal:P3",
+        "earned lesson"
+      ],
+      "mechanism_and_interactions": "A committed deed admits an explicit mutually exclusive lesson, transfers actual sleeve stock and produces a charged tool/useful controlled recipe, with body/support and foregone-choice provenance.",
+      "disposition": "Source/import checks and parent reservation confirmation do not prove native teaching/use/save behavior. Parent U0005 records integration later than this leaf handback.",
+      "owner_or_consumer": "docs/gm/audit-implementation/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0007",
+      "path": "docs/gm/audit-implementation/kit-reserve/CHECKPOINT.md",
+      "input_sha256": "97517367a23b39d58364474fdd1b9ad3623cd0e30cfe2589917973b9fa487da8",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "rimworld:P1",
+        "stockPolicy1",
+        "workPlans2"
+      ],
+      "mechanism_and_interactions": "4/2 reserve hysteresis and three accepted batches are exact authored dials for this finite policy, using current owned stock and existing jobs. The policy has no separate poll boundary; cancellation/support loss pauses through existing owners.",
+      "disposition": "Do not generalize these numeric limits or merge old work-plan1 semantics. Parent U0005 owns source/build adoption; timing, stock conservation and failed-storage proof remain unrun.",
+      "owner_or_consumer": "docs/gm/audit-implementation/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0008",
+      "path": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "input_sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "ALL19",
+        "Causal P1\u2013P5",
+        "MW01\u2013MW04"
+      ],
+      "mechanism_and_interactions": "Later parent records source/native/UI/build adoption of the nineteen remainder candidates plus artifact and Causal joins, explicit optional expansion11 ownership and one native clock/publisher. Body/possession/return and unreceived-warning cases remain separate later gates.",
+      "disposition": "Source completion does not establish the deferred five behavioral families. A separately indexed deeper ACS research return does not reopen or enlarge this finite objective.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0009",
+      "path": "docs/gm/audit-implementation/remainder/artifact-joins/CHECKPOINT.md",
+      "input_sha256": "2d557a28d0b1c7c3cb7780bab3ec0ad798562d8932f0bea15fa8e2fb3ac30f93",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "artifact aggregation",
+        "Causal aggregation",
+        "Here Notebook"
+      ],
+      "mechanism_and_interactions": "Five shared files join native item specs, current feature routing and Notebook while excluding specialized commands/cancel/People from generic routes. Explicit Causal seed effects are not copied into generic enrollment.",
+      "disposition": "Aggregate definition/syntax checks establish declared links, not DOM/native runtime execution. Root U0008 owns remaining native/main/save/publisher and matching build.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0010",
+      "path": "docs/gm/audit-implementation/remainder/causal-engine/CHECKPOINT.md",
+      "input_sha256": "2d1e394316dd1c6cec5b20aaf56bdccc4b7f5eddec5c0b446b0a2ee72a9ced27",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "Causal-engine lease",
+        "auditRemainder1",
+        "causalStories1"
+      ],
+      "mechanism_and_interactions": "Five core files attach current facts/body contexts, actual supported jobs, boundary-before-controller reconciliation and trusted admission. Root clock-zero receipt repair and staged all-actor native maps remain separate owner work.",
+      "disposition": "Later parent U0008 reports final combined source adoption. Exact seven-module release matching at that date is not current behavior or a reason to launch a second scheduler writer.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0011",
+      "path": "docs/gm/audit-implementation/remainder/combat_fit/CHECKPOINT.md",
+      "input_sha256": "74e3dd5f78b6bde9be9333a592bae5e03b34dcd9a7aeb0df32e8551d949eae61",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "tales-of-maj-eyal:P1",
+        "keeperrl:P3",
+        "rogue-legacy:P2"
+      ],
+      "mechanism_and_interactions": "Ten conserved commands and two native variants reuse existing battle executor, held stock, profiles, guard cost, grip/rope/charge/fatigue and exact settlement receipts. State begins only after real practice; authored forfeiture support stays explicit.",
+      "disposition": "Parent owns completion-before-validation, later clock/world support updates and native UI bindings. No second executor/clock or old-session reinterpretation; current host journey remains unproven here.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0012",
+      "path": "docs/gm/audit-implementation/remainder/combat_objectives/CHECKPOINT.md",
+      "input_sha256": "89b66f141ecfe42363d83ad7e554bb5bb5ec0eda5deb4c0731a0541dea8635de",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "ToMEP2",
+        "Rogue LegacyP1",
+        "Rogue LegacyP4",
+        "ITRP3",
+        "combat_objectives.v1"
+      ],
+      "mechanism_and_interactions": "Four objective rows use new explicit encounters. Separate consented, supplied practice makes an earned wrap usable after gate success, using the same people finite rations/time/body, without a new passage-reward loop.",
+      "disposition": "Definition test initially omitted its owning site; corrected full-definition check is dependency evidence, not a gameplay defect. Root controls admission, strike/finish/supply and one publisher.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0013",
+      "path": "docs/gm/audit-implementation/remainder/consequences/CHECKPOINT.md",
+      "input_sha256": "6f0bb133e99404cb3ef8bc5889634e941e2539c81b3f4db1670591d0a78b59a3",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "rimworld:P2",
+        "rimworld:P3",
+        "keeperrl:P4"
+      ],
+      "mechanism_and_interactions": "Relationship history survives a temporary fixed-pair condition; paid seed/right/planting closes one real harvest claim; committed local seizure/attribution funds a finite actual creditor route. Played cold-draft fiction is an original authored proposal.",
+      "disposition": "Trade gate/demand, refunds, paid route departure and received later accounts have real consumers, not automatic universal social penalties. Root integration claimed later; all behavioral and durable settlement routes remain unrun.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0014",
+      "path": "docs/gm/audit-implementation/remainder/home/CHECKPOINT.md",
+      "input_sha256": "305f645295393ba41b7807b2d4243fa937088416fa90f5387dfa22718f7f6061",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "elin:P2",
+        "elin:P3",
+        "elin:P4",
+        "keeperrl:P1"
+      ],
+      "mechanism_and_interactions": "Home content reuses native stock/site/source, current-body and fresh scheduler evidence, with reservationReturns1 and a transient popped-job binder. Existing typed owners hold state; no module.home mirror or repeat supply is invented.",
+      "disposition": "Parent must route exclusive actions and validator/one publisher. Later source delivery qualifies this leaf pending-integration statement, without promoting its static definition checks to gameplay.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0015",
+      "path": "docs/gm/audit-implementation/remainder/livelihood/CHECKPOINT.md",
+      "input_sha256": "1e4e3a5971a46d81f2f4a499f0cb608bd6bb1b9873a3a2c9ca0e3c9946a357dc",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "elin:P1",
+        "idling-to-rule-the-gods:P1",
+        "keeperrl:P2"
+      ],
+      "mechanism_and_interactions": "Two separately funded shifts, an independently funded packer-versus-contest choice, and toolkit allocation between two competent workers use real occupations, reusable tools and actual wet-bench need. Twenty-eight commands retain existing stock/job/time owners.",
+      "disposition": "Existing helper/factory engines were already present; the missing piece was this consumer. Definition snapshot counts precede root joins; raw count differences are not evidence of dropped behavior.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0016",
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/CHECKPOINT.md",
+      "input_sha256": "03d9a74d257dacd3e24d265b47314777098a2a30328bd0b23bce39e468a38f72",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "MW-02",
+        "Paradise guardhouse report"
+      ],
+      "mechanism_and_interactions": "Reachable report adds separately caused Hank/player knowledge with actual body/route completion guards and unchanged shelter costs; revises future admission rather than awarding retroactive reports or entitlements.",
+      "disposition": "Pure validator/family registration joins were confirmed by parent; root final source/build record is later than leaf proof. Current observer, route and frozen-job round trip remain unverified here.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0017",
+      "path": "docs/gm/audit-implementation/remainder/missed-provenance/CHECKPOINT.md",
+      "input_sha256": "4a53dadb17c6267b290a550450ce7f27f2051cc263a99b53103abca5f6383712",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "MW-03",
+        "19 unactivated agency contracts"
+      ],
+      "mechanism_and_interactions": "Preserves heterogeneous source classes, citation/edition/member/reviewed-extent fields, aliases and source-row pointers. Actual supplied-novel hashes are required only for their real source class; originals receive no invented book hash or native activation.",
+      "disposition": "Definition-only omission cases test metadata integrity, not raw canon or scenes. The returned validator result needs a real startup consumer; root alone owns that integration, with later source delivery recorded separately.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    },
+    {
+      "record_id": "U0018",
+      "path": "docs/gm/audit-implementation/remainder/offers/CHECKPOINT.md",
+      "input_sha256": "1035c7470c87bce080007d3d1f2c596917757aa4beac98dc28ebb76bb59c6c1c",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "full-record-content-read",
+      "original_ids": [
+        "elin:P5",
+        "rogue-legacy:P3",
+        "rosterCause",
+        "occurrenceCause"
+      ],
+      "mechanism_and_interactions": "Roster request freezes three distinct offers/price/seed before display; only the paid selected person becomes real, and cancel does not redraw. Separate living payer uses actual escrow, supported deadline, finite paid detour and later encountered account.",
+      "disposition": "Clock retention precedes advancement; roster reconciliation precedes internal global validation. Refunds/account knowledge do not fabricate reputation penalties, offscreen progress or bodies for unselected offers. Root U0008 owns later source/build adoption.",
+      "owner_or_consumer": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "evidence_state": "Historical document claims reviewed; no new runtime/source-canon verification",
+      "remaining_check": "When this consumer is selected, inspect current writer/inputs and exercise actual failure/support/knowledge and applicable save/reload/import route. No task assigned here."
+    }
+  ],
+  "repairs": [
+    {
+      "reason": "functions output truncated the middle of initial payload at its default10000-token cap",
+      "ranges": [
+        "U0008 L5-L13",
+        "U0009 L1-L9",
+        "U0010 L1-L11"
+      ],
+      "result": "Omitted spans fetched and read; no missing source coverage remains in S001"
+    }
+  ],
+  "cross_record_findings": [
+    "Later parent source-delivery receipts supersede leaf pending-integration wording at source/build scope.",
+    "Definition/import success, durable native publication and earned playable journeys remain separate.",
+    "Existing stock/job/actor/observer/clock owners make these connected consumers; do not recreate generic engines or impose their authored local values across worlds."
+  ]
+}

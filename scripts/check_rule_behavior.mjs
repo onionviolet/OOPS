@@ -17,7 +17,7 @@ const groups = {
     },
     saves: {
         rules: 'AR6, MR33',
-        scope: 'foundation save compatibility and opaque retired-content retention',
+        scope: 'existing foundation/opaque-retention mechanism only; AR6/MR33 old-state guarantees are qualified by the 2026-10-17/18 decisions, not a blanket retention policy',
         files: ['tests/save_compatibility.test.js'],
     },
     navigation: {

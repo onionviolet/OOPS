@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "shard": "S005",
+  "reader": "content_s005; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "98e04393fec5a9fce0ee655d1886a0bb3e154cdaba16be163d17dcc6483a76dc",
+  "rows": [
+    {
+      "record_id": "U0060",
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md",
+      "input_sha256": "4e1ec2a2db5b4de4bacbd9b67b9f5066d27e2ec0ff269d4a74772214489699bb",
+      "read_ranges": [
+        [
+          1,
+          150
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "U01\u2013U15",
+        "G1\u2013G6",
+        "F1\u2013F5",
+        "B1\u2013B5",
+        "G6",
+        "FA",
+        "F4",
+        "F5",
+        "G0",
+        "G5",
+        "U09/K03",
+        "D1",
+        "D2",
+        "AD43"
+      ],
+      "mechanism_and_interactions": "This checkpoint records a long Foundation integration chain: optional enrollment guards and retained content versions feed Lin\u2019s paid work/account/kit loop; native equipment snapshots preserve simulation ownership; learning, reference-gameplay and optional-context projections avoid inventing actors; selected craft rollback restores inventory, XP, unlocks, feedback and ledger on rejected durable writes while retaining completed batches and durable results. The later lived-world loop uses measured samples, provenance-stamped materials, paid lessons, NPC-owned means and handover, jobs, timed warnings, crops and typed starts. G6 continues the same save through Lin/Tidemark and an earned start/refit, then export/reload/literal import. Exact consumers and ownership boundaries are named per incident.",
+      "disposition": "The surfaced 2026-10-18 final disposition reports technical closure of the finite U01\u2013U15/applicable-join assignment, including the combined native journey. Intermediate \u201cno gate\u201d and failure notes are dated recovery history; later parent receipts supersede them. Foundation-adoption is a separate chain. Human fiction/balance/pacing/comfort/fun acceptance remains open, a World1 pause recorded within that historical scope, and this historical record claims no fresh runtime proof or present lease.",
+      "owner_or_consumer": "docs/gm/dispatch/foundation-completion-2026-10-12/REPORT.md and FINAL_RECONCILIATION_DRAFT.md; later effective ownership release names repository-owning chat 01a13351-88e9-77d0-9de8-baaeebf319b8. Specific consumers are the named native/runtime modules in the checkpoint; this reader did not inspect current source.",
+      "evidence_state": "The checkpoint reports final 139/139 affected checks, bundle 9c70c3 with 437 disk source-map matches and unchanged story4, F4/G6 native play, persistence/import, and 166 unchanged ID/disposition pairs. These are historical checkpoint claims, not rerun here. It explicitly distinguishes technical closure from human acceptance and says no fresh proof was made at the surfaced disposition.",
+      "remaining_check": "No task-level runtime gate remains in this finite historical assignment. Any re-selection must inspect current owners and evidence; do not reopen Foundation or treat old hashes as current. Human taste acceptance remains optional feedback; The historical World1 pause grants no present pause/resume authority; inspect its later owner if selected."
+    },
+    {
+      "record_id": "U0061",
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/research/CHECKPOINT.md",
+      "input_sha256": "8e338667a766ed402b8ec01db880ff657fe4d784c796e94373456081ad5d7c38",
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Lin",
+        "content3",
+        "ENROLLMENT_SEAM",
+        "TOOLING_TRIAL.json",
+        "SOURCE_BINDINGS.json"
+      ],
+      "mechanism_and_interactions": "This was a bounded research-GM support lane, writing only research/. Its return index connected Lin current seam/content3 compatibility with tooling, consumer, policy and carrier returns; source bindings fingerprinted inspected bounded seams. One exact enrollment diagnosis found generic consequence onEnroll could provision an optional foreman controller during resident attachment, activating its absence validator; the checkpoint says shared runtime may already have added the guard. Research therefore supplied consumer-specific diagnosis to the integrator without owning runtime repair or gameplay proof.",
+      "disposition": "Finite research dispositions were delivered and the coordinator authorized close. Parent checked the internal policy/carrier returns and requested the exact cheap enrollment diagnosis, which was saved separately. This closes selected research support only, not gameplay, combined integration, source-body coverage or director acceptance. No repeat workflow audit or broad reread was requested.",
+      "owner_or_consumer": "docs/gm/dispatch/foundation-completion-2026-10-12/research/RESEARCH_RETURN.md and ENROLLMENT_SEAM.md; runtime integrator owns missing consumers and fresh browser/persistence proof.",
+      "evidence_state": "Checkpoint reports installed pinned compiler exact-byte baseline reproduction, three rejected negative edits, bounded source fingerprints and checked tool documentation. It explicitly says fingerprints are not whole-file audit or gameplay proof, and no governing/source-library/private-save/build changes occurred.",
+      "remaining_check": "Research lane is closed. If a selected implementation reopens the enrollment seam, inspect changed source and qualify current browser/save behavior; do not promote these bounded research results into source-body or gameplay claims."
+    },
+    {
+      "record_id": "U0062",
+      "path": "docs/gm/dispatch/game-research-wave-2026-10-14/lanes/backfill/bf-planescape-torment.prompt.md",
+      "input_sha256": "eba16631c8c849ce0a484855eac4e49b6c75571ee59283de8d8df5faf20cb31f",
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01\u2013A12",
+        "SYSTEM_INVENTORY",
+        "DEEPER_SYSTEMS",
+        "A01 dialogue",
+        "A03 implementation",
+        "A04 save"
+      ],
+      "mechanism_and_interactions": "The prompt describes a prospective read-only source backfill for Planescape: Torment, comparing an installed Steam build ID with a prior intake and rebuilding only the extraction needed per aspect. It names route-specific tooling for managed/native/script/data formats, forbids running the game or Windows executables, and directs output to one dated aspects folder. The actual intended consumers are research dossier artifacts, not game runtime.",
+      "disposition": "This is a lane prompt, not a completion receipt. It records Weibao\u2019s request to send the same aspect pass for past titles and consider install status; the lane would correct the prior dossier first and complete per the separate ASPECTS.md standard. The assigned text contains no findings, extraction result, install/build comparison, or completed output.",
+      "owner_or_consumer": "docs/research/planescape-torment/ prior dossier and docs/research/planescape-torment/aspects-2026-10-14/ output directory, as named in the prompt; no completed artifact is evidenced by this record.",
+      "evidence_state": "Only the 16-line historical prompt was read. It refers to reports/checkpoints/tooling and prior intake outside this assigned span; none were opened, and no Steam state, installed build, source extraction or game behavior was verified.",
+      "remaining_check": "If reactivated, check the current dossier and ASPECTS standard, installed build ID versus prior INTAKE, and authorized extraction route; the prompt alone does not establish completion, current installation or source coverage."
+    }
+  ],
+  "cross_record_findings": [
+    "Finite implementation closure, bounded research support close, and a prospective research prompt are different terminal states; none can be inferred from their shared historical context alone.",
+    "Across U0060 and U0061, source fixes, tool/source research, native/browser proof, combined integration, human acceptance and ownership release are explicitly separate evidence layers.",
+    "Historical IDs and source boundaries are retained; the Planescape span gives requested aspects and route constraints but supplies no discovered facts or current install evidence."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0060\u2019s reported closure is historical; current source/runtime status is not established by this shard, and optional human taste acceptance remains open.",
+    "U0061\u2019s bounded research does not cover whole files, source-body semantics or gameplay; current enrollment behavior would require current seam inspection if reselected.",
+    "U0062 does not establish whether its requested backfill was later performed or whether the installed build differed from prior intake."
+  ],
+  "coordinator_review": "All3 row mechanisms/dispositions/gaps inspected. U0060 opening and final closure/release clauses spot-checked; its dated World1 pause is not promoted to present authority."
+}

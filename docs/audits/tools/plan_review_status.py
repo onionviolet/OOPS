@@ -36,6 +36,23 @@ def group_state(root, group):
             changed.append(member["path"])
     if changed:
         return {"state": "changed_members", "reopen_members": changed}
+    # A folded family can have several successor suppliers. Their changes
+    # reopen the reviewed relationship even when its aggregate receipt is stable.
+    dependencies = group.get("relationship_inputs", [])
+    names, drift = set(), []
+    for dependency in dependencies:
+        name = dependency["path"]
+        if name in names:
+            raise ValueError(f"Duplicate relationship input: {name}")
+        names.add(name)
+        path = local(root, name)
+        if not path.is_file():
+            raise ValueError(f"Missing relationship input: {name}")
+        if digest(path) != dependency["sha256"]:
+            drift.append(name)
+    if drift:
+        return {"state": "dependency_changed_review_relationship",
+                "reopen_members": [], "reopen_dependencies": drift}
     if not group["skip_unchanged_execution_review"]:
         return {"state": "needs_successor_mapping", "reopen_members": []}
     if digest(owner) != group["owner_sha256"]:

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "scope": "Selected historical execution-control relationships; no source-content or gameplay completion",
+  "authority": "User historical reconciliation request; L2b and whole-LOTM excluded",
+  "checks": [
+    {
+      "command": "python3 tests/plan_review_status_test.py",
+      "result": "PASS5/5",
+      "inputs": {
+        "docs/audits/tools/plan_review_status.py": "b47602ba3c1521e233d1b0aedc99b9dc354bb056231e9ba2db66632326c729b3",
+        "tests/plan_review_status_test.py": "b714209a85cc7f35c39e4ce58467cbbc9aaa83733a05792a63ada86e5bf63ab9"
+      },
+      "gap": "Routing/freshness only; result reused on unchanged helper/test bytes"
+    },
+    {
+      "command": "python3 docs/audits/tools/plan_review_status.py --check",
+      "result": "PASS9/9 groups,189 duplicate-control skips",
+      "gap": "70/708 original content labels unchanged;519 ungrouped remain indexed-only"
+    },
+    {
+      "command": "selected identity/hash/coverage/link/whitespace validation",
+      "result": "PASS48members/15families/9groups/7links",
+      "gap": "Selected clauses and pointers, not exhaustive source-reading"
+    },
+    {
+      "command": "npm run check:docs",
+      "result": "exit1",
+      "diagnostics": [
+        "docs/research/DOWNLOAD_SCOUT_NEXT_2026-10-31.md:168: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+        "docs/research/DOWNLOAD_SCOUT_NEXT_2026-10-31.md:335: absolute rule word has no default, dial, exception, or reason in this row or paragraph"
+      ]
+    }
+  ],
+  "sg09_members": 48,
+  "families": 15,
+  "reviewed_changed_member_hashes": [
+    "docs/gm/dispatch/procgen-2026-10-13/cr3/CHECKPOINT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/cr5/CHECKPOINT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p33/CHECKPOINT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/t3/CHECKPOINT.md"
+  ],
+  "preservation": {
+    "other_tracked_paths_changed_since_prewrite": [],
+    "scope": "All tracked file hashes captured before writes; untracked/private/ignored files outside this baseline; no other-path writes issued"
+  },
+  "outputs": {
+    "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND4_REVIEW.json": "090d2a8017209edf85e9e7f3759fac9467f13c63fb05faf445c07ad54bc23fee",
+    "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND4_HISTORY.json": "6949642b42ba71e752975bc90da543168e730fbbb79d42041878fcdbfd15db37",
+    "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.json": "dc4eeb3fd913b60d3ae684f19c20cc92ed739af425cb62615629b7be0debb4d2",
+    "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md": "1c7befc29eb3b63c63a90a8bc40cb9ef0236e100de441916022e4226ab248a8f",
+    "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md": "eda90e1929ea20c568bf0c0b0f53fd57589dcc9a41b84fbeb736eaed6fbb49ac",
+    "docs/audits/tools/plan_review_status.py": "b47602ba3c1521e233d1b0aedc99b9dc354bb056231e9ba2db66632326c729b3",
+    "tests/plan_review_status_test.py": "b714209a85cc7f35c39e4ce58467cbbc9aaa83733a05792a63ada86e5bf63ab9"
+  },
+  "remaining": [
+    "519 historical ungrouped indexed-only records not content-reviewed",
+    "Unique source/edition/mechanic questions and unrun gameplay remain at incumbent owners",
+    "L2b and whole-LOTM qualification excluded"
+  ],
+  "delivery": "local,uncommitted; not gameplay/installed/human review evidence"
+}

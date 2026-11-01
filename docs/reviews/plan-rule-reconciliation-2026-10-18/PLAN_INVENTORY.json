@@ -132,7 +132,69 @@
     "docs/worlds/proto23/WORLD_BRIEF.md",
     "docs/worlds/proving-ground/WORLD_BRIEF.md",
     "docs/worlds/skyrim/WORLD_BRIEF.md",
-    "docs/worlds/world-depth-2026-10-13/00_AGENT_BRIEF.md"
+    "docs/worlds/world-depth-2026-10-13/00_AGENT_BRIEF.md",
+    "docs/gm/artifact-collection/CHECKPOINT.md",
+    "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+    "docs/gm/audit-absorption-2026-10-07/balm/CHECKPOINT.md",
+    "docs/gm/audit-absorption-2026-10-07/duty/CHECKPOINT.md",
+    "docs/gm/audit-implementation/CHECKPOINT.md",
+    "docs/gm/audit-implementation/earned-lesson/CHECKPOINT.md",
+    "docs/gm/audit-implementation/kit-reserve/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/artifact-joins/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/causal-engine/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/combat_fit/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/combat_objectives/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/consequences/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/home/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/livelihood/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/missed-hank/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/missed-provenance/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/offers/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/review-native/CHECKPOINT.md",
+    "docs/gm/book-lore-to-gameplay-2026-10-06/CHECKPOINT.md",
+    "docs/gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md",
+    "docs/gm/book-world-completion-2026-10-06/PARADISE_CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/actions/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/contracts/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/fieldcraft-review/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/item-view/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/native/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/review/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/source-fit/CHECKPOINT.md",
+    "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md",
+    "docs/gm/causal-endings/CHECKPOINT.md",
+    "docs/gm/causal-endings/implementation/content/CHECKPOINT.md",
+    "docs/gm/d1-alloy-equipment-2026-10-07/CHECKPOINT.md",
+    "docs/gm/dispatch/battle-brothers-2026-10-08/CHECKPOINT.md",
+    "docs/gm/dispatch/body-lineage-expansion-2026-10-11/CHECKPOINT.md",
+    "docs/gm/dispatch/calm-vivid-2026-10-14/CHECKPOINT.md",
+    "docs/gm/dispatch/canon-events-2026-10-14/cxcards/CHECKPOINT.md",
+    "docs/gm/dispatch/canon-events-2026-10-14/implmap/CHECKPOINT.md",
+    "docs/gm/dispatch/canon-events-2026-10-14/pilot-fv/CHECKPOINT.md",
+    "docs/gm/dispatch/canon-events-2026-10-14/pilot-mol/CHECKPOINT.md",
+    "docs/gm/dispatch/chain-build-2026-10-14/t2/CHECKPOINT.md",
+    "docs/gm/dispatch/chain-build-2026-10-14/t3/CHECKPOINT.md",
+    "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_G.md",
+    "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_M.md",
+    "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
+    "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/derived-snapshots-2026-10-14/offline/CHECKPOINT.md",
+    "docs/gm/dispatch/derived-snapshots-2026-10-14/saveshape/CHECKPOINT.md",
+    "docs/gm/dispatch/dnd-world-2026-10-11/CHECKPOINT.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CHECKPOINT.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/CHECKPOINT.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/source-v1/CHECKPOINT.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/CHECKPOINT.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/CHECKPOINT.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/implementation/CHECKPOINT.md",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/research/CHECKPOINT.md",
+    "docs/gm/dispatch/game-research-wave-2026-10-14/lanes/backfill/bf-planescape-torment.prompt.md"
   ],
   "plan_shaped_records": [
     {
@@ -181,18 +243,33 @@
     },
     {
       "path": "docs/gm/artifact-collection/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "3720aa3948c790726cacdbe93c111f9852c7c366c2b247a3d073b5b987244eb4",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0001",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "3720aa3948c790726cacdbe93c111f9852c7c366c2b247a3d073b5b987244eb4",
+        "read_ranges": [
+          [
+            1,
+            37
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "27a3b40b3e9c011ccce757721d8c5c1558a3576b69a80039eb7bcd71bb2ee5f3",
@@ -200,22 +277,52 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0002",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "27a3b40b3e9c011ccce757721d8c5c1558a3576b69a80039eb7bcd71bb2ee5f3",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-absorption-2026-10-07/balm/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "a19f5bf82a57a5ba8b33b295f1f1bdf1fd9e77534ddb78d8bd1954acba10e55f",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0003",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "a19f5bf82a57a5ba8b33b295f1f1bdf1fd9e77534ddb78d8bd1954acba10e55f",
+        "read_ranges": [
+          [
+            1,
+            9
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-absorption-2026-10-07/duty/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "f090013b33339ca1940cfbcb81f7b01a1b7b7aae22dddc5d6dc547462f953aa5",
@@ -223,6 +330,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0004",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "f090013b33339ca1940cfbcb81f7b01a1b7b7aae22dddc5d6dc547462f953aa5",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -265,7 +387,7 @@
     },
     {
       "path": "docs/gm/audit-implementation/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "c3639f6f28945cc9f29afca0ca5487494782601257d89b31866b6ed6b4072767",
@@ -273,11 +395,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0005",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "c3639f6f28945cc9f29afca0ca5487494782601257d89b31866b6ed6b4072767",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/earned-lesson/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "70b396dabe0cff948c9c79cf02e52b1886b9f8c0fc95d35d1db6bbdba5b5a7ec",
@@ -285,22 +422,52 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0006",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "70b396dabe0cff948c9c79cf02e52b1886b9f8c0fc95d35d1db6bbdba5b5a7ec",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/kit-reserve/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "97517367a23b39d58364474fdd1b9ad3623cd0e30cfe2589917973b9fa487da8",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0007",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "97517367a23b39d58364474fdd1b9ad3623cd0e30cfe2589917973b9fa487da8",
+        "read_ranges": [
+          [
+            1,
+            9
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
@@ -308,11 +475,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0008",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/artifact-joins/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "2d557a28d0b1c7c3cb7780bab3ec0ad798562d8932f0bea15fa8e2fb3ac30f93",
@@ -320,11 +502,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0009",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "2d557a28d0b1c7c3cb7780bab3ec0ad798562d8932f0bea15fa8e2fb3ac30f93",
+        "read_ranges": [
+          [
+            1,
+            9
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/causal-engine/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "2d1e394316dd1c6cec5b20aaf56bdccc4b7f5eddec5c0b446b0a2ee72a9ced27",
@@ -332,11 +529,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0010",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "2d1e394316dd1c6cec5b20aaf56bdccc4b7f5eddec5c0b446b0a2ee72a9ced27",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/combat_fit/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "74e3dd5f78b6bde9be9333a592bae5e03b34dcd9a7aeb0df32e8551d949eae61",
@@ -344,11 +556,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0011",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "74e3dd5f78b6bde9be9333a592bae5e03b34dcd9a7aeb0df32e8551d949eae61",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/combat_objectives/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "89b66f141ecfe42363d83ad7e554bb5bb5ec0eda5deb4c0731a0541dea8635de",
@@ -356,11 +583,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0012",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "89b66f141ecfe42363d83ad7e554bb5bb5ec0eda5deb4c0731a0541dea8635de",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/consequences/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "6f0bb133e99404cb3ef8bc5889634e941e2539c81b3f4db1670591d0a78b59a3",
@@ -368,22 +610,52 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0013",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "6f0bb133e99404cb3ef8bc5889634e941e2539c81b3f4db1670591d0a78b59a3",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/home/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "305f645295393ba41b7807b2d4243fa937088416fa90f5387dfa22718f7f6061",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0014",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "305f645295393ba41b7807b2d4243fa937088416fa90f5387dfa22718f7f6061",
+        "read_ranges": [
+          [
+            1,
+            7
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/livelihood/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "1e4e3a5971a46d81f2f4a499f0cb608bd6bb1b9873a3a2c9ca0e3c9946a357dc",
@@ -391,11 +663,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0015",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "1e4e3a5971a46d81f2f4a499f0cb608bd6bb1b9873a3a2c9ca0e3c9946a357dc",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/missed-hank/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "03d9a74d257dacd3e24d265b47314777098a2a30328bd0b23bce39e468a38f72",
@@ -403,11 +690,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0016",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "03d9a74d257dacd3e24d265b47314777098a2a30328bd0b23bce39e468a38f72",
+        "read_ranges": [
+          [
+            1,
+            7
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/missed-provenance/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "4a53dadb17c6267b290a550450ce7f27f2051cc263a99b53103abca5f6383712",
@@ -415,11 +717,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0017",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "4a53dadb17c6267b290a550450ce7f27f2051cc263a99b53103abca5f6383712",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/offers/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "1035c7470c87bce080007d3d1f2c596917757aa4beac98dc28ebb76bb59c6c1c",
@@ -427,11 +744,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0018",
+        "receipts": [
+          "round5/S001.json"
+        ],
+        "input_sha256": "1035c7470c87bce080007d3d1f2c596917757aa4beac98dc28ebb76bb59c6c1c",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/audit-implementation/remainder/review-native/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "e296f0203d77047fc852b09c84b69afe43e466a8a81dbe9edbcaaa803192327e",
@@ -439,6 +771,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0019",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "e296f0203d77047fc852b09c84b69afe43e466a8a81dbe9edbcaaa803192327e",
+        "read_ranges": [
+          [
+            1,
+            9
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -460,7 +807,7 @@
     },
     {
       "path": "docs/gm/book-lore-to-gameplay-2026-10-06/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "afc0c3f0fb5f67999c2526481be006cfd68f80228b4d8963dfc09452ce9c7c15",
@@ -468,6 +815,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0020",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "afc0c3f0fb5f67999c2526481be006cfd68f80228b4d8963dfc09452ce9c7c15",
+        "read_ranges": [
+          [
+            1,
+            17
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -491,7 +853,7 @@
     },
     {
       "path": "docs/gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "b0b3cbdd34eb7b6c0153bf7aa8fe2a44aae5e2143f5fbeb5cc6b0ccbb6f15c13",
@@ -499,11 +861,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0021",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "b0b3cbdd34eb7b6c0153bf7aa8fe2a44aae5e2143f5fbeb5cc6b0ccbb6f15c13",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-completion-2026-10-06/PARADISE_CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "d16b1f65773709b78ee24b69baccb4755573b4d9a14fbaff69ad97d752a869d1",
@@ -511,11 +888,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0022",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "d16b1f65773709b78ee24b69baccb4755573b4d9a14fbaff69ad97d752a869d1",
+        "read_ranges": [
+          [
+            1,
+            15
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "be80d42e1b37443378d23f1b100e05d6db5553a801193f16bb6cd44fcd85fade",
@@ -523,11 +915,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0023",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "be80d42e1b37443378d23f1b100e05d6db5553a801193f16bb6cd44fcd85fade",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/actions/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "be6de8833419bc12c60c90a0ec1d716cd0729b1b2a45e935b8008f3004d3b835",
@@ -535,11 +942,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0024",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "be6de8833419bc12c60c90a0ec1d716cd0729b1b2a45e935b8008f3004d3b835",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/contracts/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "a33155d8be5784d1ba5e3d59cdde9a32ba658be8684facb056ba765a00157d04",
@@ -547,11 +969,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0025",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "a33155d8be5784d1ba5e3d59cdde9a32ba658be8684facb056ba765a00157d04",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/fieldcraft-review/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "0edab389e218e5f567a44355d63e92f8ef28d5c65f8edefc10e8e68569a587f8",
@@ -559,33 +996,78 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0026",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "0edab389e218e5f567a44355d63e92f8ef28d5c65f8edefc10e8e68569a587f8",
+        "read_ranges": [
+          [
+            1,
+            14
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/item-view/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "802934da75e06af6a2c1f757fe9b468b89b0058c57d8d6389ddea4d30289f005",
         "flags": [
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0027",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "802934da75e06af6a2c1f757fe9b468b89b0058c57d8d6389ddea4d30289f005",
+        "read_ranges": [
+          [
+            1,
+            7
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/native/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "13545332f503b2470fa22916f04a91802713ffa518eb89c1f224744027673178",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0028",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "13545332f503b2470fa22916f04a91802713ffa518eb89c1f224744027673178",
+        "read_ranges": [
+          [
+            1,
+            27
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/review/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "be094264a8cabea7b715e93027ae432848c6bb2091f4d6467435c36137b268c6",
@@ -593,11 +1075,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0029",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "be094264a8cabea7b715e93027ae432848c6bb2091f4d6467435c36137b268c6",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/book-world-player-agency/source-fit/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "fb2259a2d085bbfcbebfb1c277bdedc2d48bfc76cffbb414a4eb7c87bf345132",
@@ -605,11 +1102,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0030",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "fb2259a2d085bbfcbebfb1c277bdedc2d48bfc76cffbb414a4eb7c87bf345132",
+        "read_ranges": [
+          [
+            1,
+            7
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "734a69bf2b99ae10f9c942cd96b69a345ef1ff966f55819b13eba8d91d6a512a",
@@ -617,11 +1129,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0031",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "734a69bf2b99ae10f9c942cd96b69a345ef1ff966f55819b13eba8d91d6a512a",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/causal-endings/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f",
@@ -629,6 +1156,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0032",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f",
+        "read_ranges": [
+          [
+            1,
+            25
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -652,7 +1194,7 @@
     },
     {
       "path": "docs/gm/causal-endings/implementation/content/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "a12d4ddfad5e21694cc43173d44e2cea1c78840e84b7f1c7b56ed72babf9ebde",
@@ -660,6 +1202,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0033",
+        "receipts": [
+          "round5/S002.json"
+        ],
+        "input_sha256": "a12d4ddfad5e21694cc43173d44e2cea1c78840e84b7f1c7b56ed72babf9ebde",
+        "read_ranges": [
+          [
+            1,
+            15
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -680,7 +1237,7 @@
     },
     {
       "path": "docs/gm/d1-alloy-equipment-2026-10-07/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "3da27674c3c3308998c86aa24f4309ccf195ffb78ac98de8bd15f28f1a2b8654",
@@ -688,6 +1245,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0034",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "3da27674c3c3308998c86aa24f4309ccf195ffb78ac98de8bd15f28f1a2b8654",
+        "read_ranges": [
+          [
+            1,
+            143
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -727,7 +1299,7 @@
     },
     {
       "path": "docs/gm/dispatch/battle-brothers-2026-10-08/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "b92987ac31a7203ddace971009fe8fa8d84ecf58723079110d7eacf26f6f8b30",
@@ -735,6 +1307,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0035",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "b92987ac31a7203ddace971009fe8fa8d84ecf58723079110d7eacf26f6f8b30",
+        "read_ranges": [
+          [
+            1,
+            5
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -1145,7 +1732,7 @@
     },
     {
       "path": "docs/gm/dispatch/body-lineage-expansion-2026-10-11/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "12779ff8296fcb34581b2c0f1af8188d62bc59537f1e02ba4b2f31087458a476",
@@ -1153,11 +1740,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0036",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "12779ff8296fcb34581b2c0f1af8188d62bc59537f1e02ba4b2f31087458a476",
+        "read_ranges": [
+          [
+            1,
+            40
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/calm-vivid-2026-10-14/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "70c25116193becb11d2dd8e29eb453bb4feb8b0ae2905ddc97794085a3fab0aa",
@@ -1165,11 +1767,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0037",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "70c25116193becb11d2dd8e29eb453bb4feb8b0ae2905ddc97794085a3fab0aa",
+        "read_ranges": [
+          [
+            1,
+            15
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/canon-events-2026-10-14/cxcards/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "0fcb0b90ac31b12628ca76e2c3a790c92cd19e978d1abc17be88f5ccb738d91d",
@@ -1177,11 +1794,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0038",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "401c33c8c0e4c7d9310221777e0369c0d86a95f7c3c5fe5cc8ac0f3d39753f32",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/canon-events-2026-10-14/implmap/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "1eed3cf0087e2a20d19138876f509f35662684a48cf86e49c415bc730acd91fd",
@@ -1189,11 +1821,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0039",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "1eed3cf0087e2a20d19138876f509f35662684a48cf86e49c415bc730acd91fd",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/canon-events-2026-10-14/pilot-fv/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "468aa548c3a07ddbdc4dfbaa65a881b696d733f7aecb1be81843a6f4efa22a58",
@@ -1201,11 +1848,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0040",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "468aa548c3a07ddbdc4dfbaa65a881b696d733f7aecb1be81843a6f4efa22a58",
+        "read_ranges": [
+          [
+            1,
+            12
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/canon-events-2026-10-14/pilot-mol/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "cdb224dc8178b6718aeae586eade76d3f52ba65c265f6d157f97ae829b2a5054",
@@ -1213,11 +1875,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0041",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "cdb224dc8178b6718aeae586eade76d3f52ba65c265f6d157f97ae829b2a5054",
+        "read_ranges": [
+          [
+            1,
+            41
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/chain-build-2026-10-14/t2/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "1aab5873b899648100e610a37a9c515df7636a1c435fa1c09ceaec2510d9ef8e",
@@ -1225,11 +1902,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0042",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "1aab5873b899648100e610a37a9c515df7636a1c435fa1c09ceaec2510d9ef8e",
+        "read_ranges": [
+          [
+            1,
+            15
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/chain-build-2026-10-14/t3/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "6f1c59e6dc5929b1ef7969c2753c955ea866d8f3bf3b4ceb6dd6d506ce13c298",
@@ -1237,11 +1929,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0043",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "6f1c59e6dc5929b1ef7969c2753c955ea866d8f3bf3b4ceb6dd6d506ce13c298",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_G.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "50cdf21e988b5375cc6588780a6b072ed43043dd0b0fb685c37e829a1941c623",
@@ -1249,22 +1956,52 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0044",
+        "receipts": [
+          "round5/S003.json"
+        ],
+        "input_sha256": "50cdf21e988b5375cc6588780a6b072ed43043dd0b0fb685c37e829a1941c623",
+        "read_ranges": [
+          [
+            1,
+            19
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_M.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "d56d9de34781a902751b848a7d4dcae67ba588a9345982209204860984dbf3dc",
         "flags": [
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0045",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "d56d9de34781a902751b848a7d4dcae67ba588a9345982209204860984dbf3dc",
+        "read_ranges": [
+          [
+            1,
+            37
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "dfe9466c3313f02b1f7aff0733221ae00447efd269b259dcf20aadf0dbc7e284",
@@ -1272,11 +2009,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0046",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "dfe9466c3313f02b1f7aff0733221ae00447efd269b259dcf20aadf0dbc7e284",
+        "read_ranges": [
+          [
+            1,
+            34
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
@@ -1284,6 +2036,21 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0047",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+        "read_ranges": [
+          [
+            1,
+            34
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -1401,7 +2168,7 @@
     },
     {
       "path": "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "c7416069ca8409fb3a224d8e044b1e2a690e07c5b062cb6d79132d139faf1664",
@@ -1409,11 +2176,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0048",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "c7416069ca8409fb3a224d8e044b1e2a690e07c5b062cb6d79132d139faf1664",
+        "read_ranges": [
+          [
+            1,
+            23
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "4e9ceb8d51b8c08a402860b84ee4bea15cd5dd1333db2f54ce61026f9ac0237d",
@@ -1421,11 +2203,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0049",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "4e9ceb8d51b8c08a402860b84ee4bea15cd5dd1333db2f54ce61026f9ac0237d",
+        "read_ranges": [
+          [
+            1,
+            12
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "12e287da71f4fe145f6f0e447bc753424c0998a3ab5931c2c69bcc83d691affd",
@@ -1433,11 +2230,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0050",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "12e287da71f4fe145f6f0e447bc753424c0998a3ab5931c2c69bcc83d691affd",
+        "read_ranges": [
+          [
+            1,
+            19
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/derived-snapshots-2026-10-14/offline/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "0aea18a3708cc897b97d67d8102f3f832b586dc2668a15939f45b635e3f5c9b9",
@@ -1445,11 +2257,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0051",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "0aea18a3708cc897b97d67d8102f3f832b586dc2668a15939f45b635e3f5c9b9",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/derived-snapshots-2026-10-14/saveshape/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "2062f5834ff88b7a2ae1f5ce724f69a1fcb047c67e0ee5209f45e15dc6fb6c1e",
@@ -1457,11 +2284,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0052",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "2062f5834ff88b7a2ae1f5ce724f69a1fcb047c67e0ee5209f45e15dc6fb6c1e",
+        "read_ranges": [
+          [
+            1,
+            10
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dnd-world-2026-10-11/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "a1c3f8294218382f49dc62f9debe31e317888ac84cb1d2a306e491697e27efb0",
@@ -1469,11 +2311,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0053",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "a1c3f8294218382f49dc62f9debe31e317888ac84cb1d2a306e491697e27efb0",
+        "read_ranges": [
+          [
+            1,
+            23
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "f9fd445e755fccdfd4e9ae0a161ee6e0aafd51cfe57356e70cf2b416629d0bf5",
@@ -1481,11 +2338,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0054",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "f9fd445e755fccdfd4e9ae0a161ee6e0aafd51cfe57356e70cf2b416629d0bf5",
+        "read_ranges": [
+          [
+            1,
+            17
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "337e5f370798561bf6f7a8ffc0145bda5aa041c805e4f6ab769b993c9239967b",
@@ -1493,11 +2365,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0055",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "337e5f370798561bf6f7a8ffc0145bda5aa041c805e4f6ab769b993c9239967b",
+        "read_ranges": [
+          [
+            1,
+            15
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/source-v1/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "066088e2f5c09251be003bb6339fccd33abef4026cb20d2302e46beea57c7f43",
@@ -1505,11 +2392,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0056",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "066088e2f5c09251be003bb6339fccd33abef4026cb20d2302e46beea57c7f43",
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "23863f6c43f3261a38ef0eab53e36fc489b3501aa79a5315e248d0f8cc1f61d4",
@@ -1517,28 +2419,73 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0057",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "23863f6c43f3261a38ef0eab53e36fc489b3501aa79a5315e248d0f8cc1f61d4",
+        "read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "accb85cfee97a6aecb12a667560431742b30e18f9a0b46265a3cf64be831c94e",
         "flags": [
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0058",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "accb85cfee97a6aecb12a667560431742b30e18f9a0b46265a3cf64be831c94e",
+        "read_ranges": [
+          [
+            1,
+            5
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/dual-gm-2026-10-11/implementation/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "84872898fed7211b607c0c4b6e21fc8e4f3fca0fd4b76d3a2d33d59ce810f4aa",
         "flags": [
           "possible_execution_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0059",
+        "receipts": [
+          "round5/S004.json"
+        ],
+        "input_sha256": "84872898fed7211b607c0c4b6e21fc8e4f3fca0fd4b76d3a2d33d59ce810f4aa",
+        "read_ranges": [
+          [
+            1,
+            12
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -1731,7 +2678,7 @@
     },
     {
       "path": "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "4e1ec2a2db5b4de4bacbd9b67b9f5066d27e2ec0ff269d4a74772214489699bb",
@@ -1739,11 +2686,26 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0060",
+        "receipts": [
+          "round5/S005.json"
+        ],
+        "input_sha256": "4e1ec2a2db5b4de4bacbd9b67b9f5066d27e2ec0ff269d4a74772214489699bb",
+        "read_ranges": [
+          [
+            1,
+            150
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/foundation-completion-2026-10-12/research/CHECKPOINT.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "8e338667a766ed402b8ec01db880ff657fe4d784c796e94373456081ad5d7c38",
@@ -1751,15 +2713,45 @@
           "possible_execution_marker",
           "possible_delivery_marker"
         ]
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0061",
+        "receipts": [
+          "round5/S005.json"
+        ],
+        "input_sha256": "8e338667a766ed402b8ec01db880ff657fe4d784c796e94373456081ad5d7c38",
+        "read_ranges": [
+          [
+            1,
+            19
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
       "path": "docs/gm/dispatch/game-research-wave-2026-10-14/lanes/backfill/bf-planescape-torment.prompt.md",
-      "coverage": "filename-indexed-only",
+      "coverage": "section-reviewed",
       "round2_screen": {
         "kind": "keyword-only-not-semantic-clearance",
         "input_sha256": "eba16631c8c849ce0a484855eac4e49b6c75571ee59283de8d8df5faf20cb31f",
         "flags": []
+      },
+      "content_review": {
+        "round": 5,
+        "record_id": "U0062",
+        "receipts": [
+          "round5/S005.json"
+        ],
+        "input_sha256": "eba16631c8c849ce0a484855eac4e49b6c75571ee59283de8d8df5faf20cb31f",
+        "read_ranges": [
+          [
+            1,
+            16
+          ]
+        ],
+        "scope": "Complete historical record content; source/gameplay claims not independently reverified"
       }
     },
     {
@@ -10806,6 +11798,23 @@
       "skip_eligible_unchanged_control_records": 141,
       "unresolved_successor_mapping_records": 48,
       "read_limits": "Operational contract/acceptance/source-boundary sections only. Relationship grouping is not semantic review. Original source and runtime claims were not reverified."
+    },
+    "5": {
+      "date": "2026-11-01",
+      "requested_records": 519,
+      "completed_records": 62,
+      "remaining_records": 457,
+      "source_words": 242181,
+      "plan": "ROUND5_PLAN.json",
+      "read_limits": "Full record contents for completed rows; no blanket source qualification or gameplay claims. L2b and whole-LOTM remain excluded.",
+      "accepted_shards": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005"
+      ],
+      "partially_read_records": []
     }
   }
 }
